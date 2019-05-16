@@ -1,0 +1,40 @@
+package com.baidu.tbadk.t;
+/* loaded from: classes.dex */
+public class bx extends com.baidu.adp.lib.b.a {
+    public static final String[] cAL = {"com.baidu.tieba.voice"};
+
+    @Override // com.baidu.adp.lib.b.a
+    protected void R(int i) {
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected void initData() {
+        this.mName = "voice";
+        this.yU = cAL;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String getName() {
+        return "voice";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected String[] hy() {
+        return cAL;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hz() {
+        return 0;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hA() {
+        return 1;
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int hB() {
+        return 10;
+    }
+}

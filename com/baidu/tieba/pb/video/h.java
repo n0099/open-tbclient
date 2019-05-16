@@ -8,102 +8,102 @@ import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.data.bm;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class h {
-    private BaseActivity cNd;
-    private d hEi;
-    private e hEj;
-    private com.baidu.tieba.c.d hEk;
+    private BaseActivity cVo;
+    private d hWi;
+    private e hWj;
+    private com.baidu.tieba.c.d hWk;
     private int mSkinType = 3;
 
     public h(BaseActivity baseActivity) {
-        this.cNd = baseActivity;
+        this.cVo = baseActivity;
     }
 
     public void a(bm bmVar, bg bgVar, int i) {
-        aB(bgVar);
+        az(bgVar);
         b(bmVar, bgVar, i);
     }
 
-    private void aB(bg bgVar) {
+    private void az(bg bgVar) {
         if (bgVar != null) {
-            if (this.hEi == null) {
-                this.hEi = new d(LayoutInflater.from(this.cNd.getPageContext().getPageActivity()).inflate(d.h.pb_header_video_abstract_layout, (ViewGroup) null));
+            if (this.hWi == null) {
+                this.hWi = new d(LayoutInflater.from(this.cVo.getPageContext().getPageActivity()).inflate(R.layout.pb_header_video_abstract_layout, (ViewGroup) null));
             }
-            this.hEi.ay(bgVar);
+            this.hWi.aw(bgVar);
         }
     }
 
-    public View bOY() {
-        if (this.hEi == null) {
+    public View bWR() {
+        if (this.hWi == null) {
             return null;
         }
-        return this.hEi.mRootView;
+        return this.hWi.mRootView;
     }
 
     private void b(bm bmVar, bg bgVar, int i) {
         if (bmVar != null && bgVar != null) {
-            if (this.hEj == null) {
-                this.hEj = new e(this.cNd, LayoutInflater.from(this.cNd.getPageContext().getPageActivity()).inflate(d.h.video_pb_video_channel_info_layout, (ViewGroup) null));
+            if (this.hWj == null) {
+                this.hWj = new e(this.cVo, LayoutInflater.from(this.cVo.getPageContext().getPageActivity()).inflate(R.layout.video_pb_video_channel_info_layout, (ViewGroup) null));
             }
-            bmVar.bEm = i;
-            this.hEj.az(bgVar);
+            bmVar.bLF = i;
+            this.hWj.ax(bgVar);
             bgVar.a(bmVar);
         }
     }
 
-    public View bOZ() {
-        if (this.hEj == null) {
+    public View bWS() {
+        if (this.hWj == null) {
             return null;
         }
-        return this.hEj.getRootView();
+        return this.hWj.getRootView();
     }
 
-    public void aC(bg bgVar) {
-        if (this.hEj != null && bgVar != null && bgVar.ZY() != null && bgVar.ZY().bEm == 2) {
-            if (this.hEk == null) {
-                this.hEk = new com.baidu.tieba.c.d(this.cNd.getPageContext(), this.hEj.bOV());
-                this.hEk.oH(UIMsg.m_AppUI.MSG_APP_GPS);
+    public void aA(bg bgVar) {
+        if (this.hWj != null && bgVar != null && bgVar.aeF() != null && bgVar.aeF().bLF == 2) {
+            if (this.hWk == null) {
+                this.hWk = new com.baidu.tieba.c.d(this.cVo.getPageContext(), this.hWj.bWO());
+                this.hWk.pL(UIMsg.m_AppUI.MSG_APP_GPS);
             }
-            this.hEk.s(this.cNd.getResources().getString(d.j.pb_order_channel_tip), "pb_show_order_channel_tip", true);
+            this.hWk.u(this.cVo.getResources().getString(R.string.pb_order_channel_tip), "pb_show_order_channel_tip", true);
         }
     }
 
-    public void s(long j, int i) {
-        if (this.hEj != null && j > 0) {
-            this.hEj.o(i, j);
+    public void q(long j, int i) {
+        if (this.hWj != null && j > 0) {
+            this.hWj.w(i, j);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            if (this.hEi != null) {
-                this.hEi.ajX();
+            if (this.hWi != null) {
+                this.hWi.aoY();
             }
-            if (this.hEj != null) {
-                this.hEj.ajX();
+            if (this.hWj != null) {
+                this.hWj.aoY();
             }
             this.mSkinType = i;
         }
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        if (this.hEi != null) {
-            bdTypeListView.removeHeaderView(this.hEi.mRootView);
+        if (this.hWi != null) {
+            bdTypeListView.removeHeaderView(this.hWi.mRootView);
         }
-        if (this.hEj != null) {
-            bdTypeListView.removeHeaderView(this.hEj.getRootView());
+        if (this.hWj != null) {
+            bdTypeListView.removeHeaderView(this.hWj.getRootView());
         }
     }
 
     public void onDestroy() {
-        bPa();
+        bWT();
     }
 
-    public void bPa() {
-        if (this.hEk != null) {
-            this.hEk.aSp();
+    public void bWT() {
+        if (this.hWk != null) {
+            this.hWk.aZx();
         }
     }
 }

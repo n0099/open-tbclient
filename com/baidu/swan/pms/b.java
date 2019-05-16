@@ -4,27 +4,27 @@ import com.baidu.searchbox.http.cookie.CookieManager;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface b {
-    boolean D(String str, int i);
+    boolean A(String str, int i);
 
-    String De();
+    String Ej();
 
-    String Df();
+    String Ek();
 
-    String Dg();
+    String El();
 
-    String Dh();
+    String Em();
 
-    String Di();
+    String En();
 
-    String Dj();
+    String Eo();
 
-    String Dk();
+    String Ep();
 
-    String Dl();
+    String Eq();
 
-    String Dm();
+    String Er();
 
-    CookieManager Dn();
+    CookieManager Es();
 
     void a(String str, String str2, String str3, int i, JSONObject jSONObject);
 

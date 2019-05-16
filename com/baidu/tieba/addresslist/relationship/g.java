@@ -17,10 +17,10 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        W(sQLiteDatabase);
+        X(sQLiteDatabase);
     }
 
-    private void W(SQLiteDatabase sQLiteDatabase) {
+    private void X(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -32,7 +32,7 @@ public class g extends SQLiteOpenHelper {
         }
     }
 
-    private void X(SQLiteDatabase sQLiteDatabase) {
+    private void Y(SQLiteDatabase sQLiteDatabase) {
         try {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
@@ -46,8 +46,8 @@ public class g extends SQLiteOpenHelper {
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Y(sQLiteDatabase);
         X(sQLiteDatabase);
-        W(sQLiteDatabase);
         try {
             MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
         } catch (Exception e) {

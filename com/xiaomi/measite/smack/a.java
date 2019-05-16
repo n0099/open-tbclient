@@ -1,6 +1,6 @@
 package com.xiaomi.measite.smack;
 
-import com.xiaomi.channel.commonutils.android.j;
+import com.xiaomi.channel.commonutils.android.n;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.smack.d;
 import com.xiaomi.smack.f;
@@ -11,18 +11,18 @@ public class a implements com.xiaomi.smack.debugger.a {
     public static boolean a;
     private com.xiaomi.smack.a c;
     private SimpleDateFormat b = new SimpleDateFormat("hh:mm:ss aaa");
-    private C0461a d = null;
-    private C0461a e = null;
+    private C0480a d = null;
+    private C0480a e = null;
     private d f = null;
     private final String g = "[Slim] ";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.measite.smack.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0461a implements f, com.xiaomi.smack.filter.a {
+    public class C0480a implements f, com.xiaomi.smack.filter.a {
         String a;
 
-        C0461a(boolean z) {
+        C0480a(boolean z) {
             this.a = z ? " RCV " : " Sent ";
         }
 
@@ -51,7 +51,7 @@ public class a implements com.xiaomi.smack.debugger.a {
     }
 
     static {
-        a = j.c() == 1;
+        a = n.b() == 1;
     }
 
     public a(com.xiaomi.smack.a aVar) {
@@ -61,8 +61,8 @@ public class a implements com.xiaomi.smack.debugger.a {
     }
 
     private void a() {
-        this.d = new C0461a(true);
-        this.e = new C0461a(false);
+        this.d = new C0480a(true);
+        this.e = new C0480a(false);
         this.c.a(this.d, this.d);
         this.c.b(this.e, this.e);
         this.f = new b(this);

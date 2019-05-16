@@ -7,7 +7,6 @@ import android.os.Environment;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
@@ -187,7 +186,7 @@ public final class SapiCache {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String c(String str) {
         Uri parse;
-        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : Config.TRACE_TODAY_VISIT_SPLIT + parse.getPort()) + parse.getPath();
+        String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
         if (!str2.endsWith(".html")) {
             return str2 + ".html";
         }

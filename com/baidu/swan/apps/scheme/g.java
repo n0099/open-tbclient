@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -24,7 +24,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -34,23 +33,25 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.an.ab;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.an.ad;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.b.d;
-import com.baidu.swan.apps.res.widget.dialog.c;
 import com.baidu.swan.apps.res.widget.dialog.d;
 import com.baidu.swan.apps.res.widget.dialog.e;
-import com.baidu.swan.apps.res.widget.dialog.f;
+import com.baidu.swan.apps.res.widget.dialog.g;
+import com.baidu.swan.apps.res.widget.dialog.h;
 import com.baidu.swan.apps.res.widget.floatlayer.a;
 import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.apps.storage.PathType;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.apps.u.b.n;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.ubc.UBC;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -60,10 +61,10 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class g extends UnitedSchemeBaseDispatcher {
-    private static com.baidu.swan.apps.res.widget.dialog.e aOZ;
+    private static com.baidu.swan.apps.res.widget.dialog.g aRd;
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0045, code lost:
         if (r3.equals("getCommonSysInfoSync") != false) goto L16;
      */
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -82,7 +83,6 @@ public class g extends UnitedSchemeBaseDispatcher {
         } else if (unitedSchemeEntity.isOnlyVerify()) {
             return true;
         } else {
-            UnitedSchemeStatisticUtil.doUBCForSchemeInvoke(unitedSchemeEntity.getSource(), unitedSchemeEntity.getUri());
             switch (path.hashCode()) {
                 case -1920105040:
                     if (path.equals("showModal")) {
@@ -263,7 +263,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("imei", aa.Mp());
+            jSONObject.put("imei", ac.OX());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {
@@ -281,34 +281,34 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         String optString = optParamsAsJo.optString("title");
         boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-        if (!(context instanceof a.InterfaceC0164a)) {
+        if (!(context instanceof a.InterfaceC0170a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a uu = ((a.InterfaceC0164a) context).uu();
-        View view = uu.getView();
+        com.baidu.swan.apps.res.widget.floatlayer.a ve = ((a.InterfaceC0170a) context).ve();
+        View view = ve.getView();
         if (view instanceof LoadingView) {
             loadingView = (LoadingView) view;
         } else {
             loadingView = new LoadingView(context);
-            uu.ae(loadingView);
+            ve.ae(loadingView);
         }
         if (!TextUtils.isEmpty(optString)) {
             loadingView.setMsg(optString);
         }
-        uu.setMask(optBoolean);
+        ve.setMask(optBoolean);
         unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (!(context instanceof a.InterfaceC0164a)) {
+        if (!(context instanceof a.InterfaceC0170a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support FloatLayer");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a uu = ((a.InterfaceC0164a) context).uu();
-        if (uu.getView() instanceof LoadingView) {
-            uu.reset();
+        com.baidu.swan.apps.res.widget.floatlayer.a ve = ((a.InterfaceC0170a) context).ve();
+        if (ve.getView() instanceof LoadingView) {
+            ve.reset();
         }
         unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
@@ -327,17 +327,17 @@ public class g extends UnitedSchemeBaseDispatcher {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            JSONArray l = l(optJSONArray);
-            int a = a(jSONObject, l);
-            if (a < 0 || a >= l.length()) {
+            JSONArray j = j(optJSONArray);
+            int a = a(jSONObject, j);
+            if (a < 0 || a >= j.length()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            String[] strArr = new String[l.length()];
-            for (int i = 0; i < l.length(); i++) {
-                strArr[i] = l.getString(i);
+            String[] strArr = new String[j.length()];
+            for (int i = 0; i < j.length(); i++) {
+                strArr[i] = j.getString(i);
             }
-            com.baidu.swan.apps.u.a.CL().a(context, strArr, a);
+            com.baidu.swan.apps.u.a.DQ().a(context, strArr, a);
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         } catch (JSONException e) {
@@ -349,17 +349,17 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
     }
 
-    private JSONArray l(JSONArray jSONArray) {
-        com.baidu.swan.apps.ae.b IV;
-        if (jSONArray != null && jSONArray.length() > 0 && (IV = com.baidu.swan.apps.ae.b.IV()) != null && !TextUtils.isEmpty(IV.id) && !TextUtils.isEmpty(IV.getVersion())) {
+    private JSONArray j(JSONArray jSONArray) {
+        com.baidu.swan.apps.ae.b Lq;
+        if (jSONArray != null && jSONArray.length() > 0 && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null && !TextUtils.isEmpty(Lq.id) && !TextUtils.isEmpty(Lq.getVersion())) {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     String string = jSONArray.getString(i);
-                    PathType gZ = com.baidu.swan.apps.storage.b.gZ(string);
-                    if (gZ == PathType.BD_FILE) {
-                        string = com.baidu.swan.apps.storage.b.aC(string, IV.id);
-                    } else if (gZ == PathType.RELATIVE) {
-                        string = com.baidu.swan.apps.storage.b.a(string, IV, IV.getVersion());
+                    PathType hA = com.baidu.swan.apps.storage.b.hA(string);
+                    if (hA == PathType.BD_FILE) {
+                        string = com.baidu.swan.apps.storage.b.aE(string, Lq.id);
+                    } else if (hA == PathType.RELATIVE) {
+                        string = com.baidu.swan.apps.storage.b.a(string, Lq, Lq.getVersion());
                     }
                     if (!TextUtils.isEmpty(string)) {
                         jSONArray.put(i, string);
@@ -397,39 +397,43 @@ public class g extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
             return false;
         }
-        ab.ct(context).setText(optParamsAsJo.optString("data"));
+        ad.bW(context).setText(optParamsAsJo.optString("data"));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
     private boolean g(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (unitedSchemeEntity == null) {
-            return false;
+        boolean z = false;
+        if (unitedSchemeEntity != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (ad.bW(context).getText() != null) {
+                    jSONObject.put("data", ad.bW(context).getText().toString());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    z = true;
+                } else {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "NullException");
+                }
+            } catch (JSONException e) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
+            }
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("data", ab.ct(context).getText().toString());
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-            return true;
-        } catch (JSONException e) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
-            return false;
-        }
+        return z;
     }
 
     private boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         if (unitedSchemeEntity == null) {
             return false;
         }
-        String Fa = SwanAppNetworkUtils.Fa();
-        if (TextUtils.isEmpty(Fa)) {
-            Fa = "unknown";
-        } else if ("no".equals(Fa)) {
-            Fa = "none";
+        String Hf = SwanAppNetworkUtils.Hf();
+        if (TextUtils.isEmpty(Hf)) {
+            Hf = "unknown";
+        } else if ("no".equals(Hf)) {
+            Hf = "none";
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("networkType", Fa);
+            jSONObject.put("networkType", Hf);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;
         } catch (JSONException e) {
@@ -442,44 +446,67 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (unitedSchemeEntity == null) {
             return false;
         }
-        JSONObject bZ = bZ(context);
-        if (bZ == null) {
+        JSONObject by = by(context);
+        if (by == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joData");
             return false;
         }
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(bZ, 0));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(by, 0));
         return true;
     }
 
-    private JSONObject bZ(Context context) {
+    private JSONObject by(Context context) {
         WindowManager windowManager = (WindowManager) context.getSystemService("window");
         DisplayMetrics displayMetrics = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         windowManager.getDefaultDisplay().getSize(new Point());
         windowManager.getDefaultDisplay().getRectSize(new Rect());
         Configuration configuration = context.getResources().getConfiguration();
-        Pair<Integer, Integer> DP = com.baidu.swan.apps.w.e.Ea().DP();
-        Pair<Integer, Integer> DO = com.baidu.swan.apps.w.e.Ea().DO();
+        Pair<Integer, Integer> FK = com.baidu.swan.apps.w.e.FV().FK();
+        Pair<Integer, Integer> FJ = com.baidu.swan.apps.w.e.FV().FJ();
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("brand", Build.BOARD);
+            jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("pixelRatio", displayMetrics.density);
-            jSONObject.put("screenWidth", x.ae(((Integer) DP.first).intValue()));
-            jSONObject.put("screenHeight", x.ae(((Integer) DP.second).intValue()));
-            jSONObject.put("windowWidth", (int) (((Integer) DO.first).intValue() / displayMetrics.density));
-            jSONObject.put("windowHeight", (int) (((Integer) DO.second).intValue() / displayMetrics.density));
+            jSONObject.put("devicePixelRatio", displayMetrics.density);
+            jSONObject.put("screenWidth", z.af(((Integer) FK.first).intValue()));
+            jSONObject.put("screenHeight", z.af(((Integer) FK.second).intValue()));
+            jSONObject.put("windowWidth", (int) (((Integer) FJ.first).intValue() / displayMetrics.density));
+            jSONObject.put("windowHeight", (int) (((Integer) FJ.second).intValue() / displayMetrics.density));
             jSONObject.put(IjkMediaMeta.IJKM_KEY_LANGUAGE, a(configuration));
-            jSONObject.put("version", aa.getVersionName());
+            jSONObject.put("version", ac.getVersionName());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put("platform", "android");
             jSONObject.put("fontSizeSetting", 1);
-            jSONObject.put("SDKVersion", ca(context));
-            jSONObject.put("host", com.baidu.swan.apps.u.a.CI().getHostName());
-            jSONObject.put("statusBarHeight", x.ae(x.getStatusBarHeight()));
+            jSONObject.put("SDKVersion", bz(context));
+            jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
+            jSONObject.put("host", com.baidu.swan.apps.u.a.DN().getHostName());
+            jSONObject.put("statusBarHeight", z.af(z.getStatusBarHeight()));
+            jSONObject.put("navigationBarHeight", z.af(z.ON()));
+            Z(jSONObject);
             return jSONObject;
         } catch (JSONException e) {
             return null;
+        }
+    }
+
+    private void Z(@NonNull JSONObject jSONObject) throws JSONException {
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq != null && Lq.Lu().hg("mapp_location")) {
+            n DU = com.baidu.swan.apps.u.a.DU();
+            com.baidu.swan.apps.scheme.actions.e.b Ex = DU == null ? null : DU.Ex();
+            if (Ex != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("city", Ex.city);
+                jSONObject2.put("cityCode", Ex.cityCode);
+                jSONObject2.put("country", Ex.country);
+                jSONObject2.put("district", Ex.district);
+                jSONObject2.put("province", Ex.province);
+                jSONObject2.put("street", Ex.street);
+                jSONObject2.put("streetNumber", Ex.streetNumber);
+                jSONObject.put("cacheLocation", jSONObject2);
+            }
         }
     }
 
@@ -493,27 +520,27 @@ public class g extends UnitedSchemeBaseDispatcher {
         return configuration.getLocales().toLanguageTags();
     }
 
-    private static String ca(Context context) {
+    private static String bz(Context context) {
         int i = 0;
         if (context instanceof SwanAppActivity) {
-            i = ((SwanAppActivity) context).us();
+            i = ((SwanAppActivity) context).vc();
         }
         if (i == 1) {
             return com.baidu.swan.apps.swancore.b.a((SwanCoreVersion) null, i);
         }
-        return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.core.i.c.Aa().Ar(), i);
+        return com.baidu.swan.apps.swancore.b.a(com.baidu.swan.apps.core.j.c.Bi().BA(), i);
     }
 
     private boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         if (unitedSchemeEntity == null) {
             return false;
         }
-        JSONObject bZ = bZ(context);
-        if (bZ == null) {
+        JSONObject by = by(context);
+        if (by == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joData");
             return false;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(bZ, 0);
+        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(by, 0);
         return true;
     }
 
@@ -589,22 +616,22 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(optString2)) {
             optString2 = "23:59";
         }
-        Date gA = gA(optString);
-        Date gA2 = gA(optString2);
-        Date gA3 = gA(optString3);
-        if (gA == null || gA2 == null || gA2.before(gA) || gA3 == null || gA3.before(gA) || gA3.after(gA2)) {
+        Date gU = gU(optString);
+        Date gU2 = gU(optString2);
+        Date gU3 = gU(optString3);
+        if (gU == null || gU2 == null || gU2.before(gU) || gU3 == null || gU3.before(gU) || gU3.after(gU2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        f.a aVar = new f.a(context);
+        h.a aVar = new h.a(context);
         if (!TextUtils.isEmpty(optString4)) {
-            aVar.gf(optString4);
+            aVar.gy(optString4);
         }
-        aVar.j(gA).k(gA2).l(gA3).bW(optBoolean).cm(a.h.aiapps_picker_time_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.7
+        aVar.j(gU).k(gU2).l(gU3).ch(optBoolean).cm(a.h.aiapps_picker_time_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                String format = String.format("%02d:%02d", Integer.valueOf(((com.baidu.swan.apps.res.widget.dialog.f) dialogInterface).getHour()), Integer.valueOf(((com.baidu.swan.apps.res.widget.dialog.f) dialogInterface).getMinute()));
+                String format = String.format("%02d:%02d", Integer.valueOf(((com.baidu.swan.apps.res.widget.dialog.h) dialogInterface).getHour()), Integer.valueOf(((com.baidu.swan.apps.res.widget.dialog.h) dialogInterface).getMinute()));
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put(UBC.CONTENT_KEY_VALUE, format);
@@ -623,14 +650,14 @@ public class g extends UnitedSchemeBaseDispatcher {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 dialogInterface.dismiss();
             }
-        }).Is();
+        }).KK();
         return true;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0049 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x000c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0001 */
-    private Date gA(String str) {
+    private Date gU(String str) {
         Date date;
         NumberFormatException e;
         String[] split;
@@ -640,7 +667,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         try {
             if (TextUtils.isEmpty(str)) {
                 date = new Date();
-            } else if (!str.contains(Config.TRACE_TODAY_VISIT_SPLIT) || (split = str.split(Config.TRACE_TODAY_VISIT_SPLIT)) == null || split.length != 2) {
+            } else if (!str.contains(":") || (split = str.split(":")) == null || split.length != 2) {
                 date = null;
             } else {
                 date = new Date();
@@ -687,34 +714,34 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(optString2)) {
             optString2 = "2099-12-31";
         }
-        Date aJ = com.baidu.swan.apps.an.e.aJ(optString, "yyyy-MM-dd");
-        Date aJ2 = com.baidu.swan.apps.an.e.aJ(optString2, "yyyy-MM-dd");
-        if (aJ == null || aJ2 == null || aJ2.before(aJ)) {
+        Date aM = com.baidu.swan.apps.an.e.aM(optString, "yyyy-MM-dd");
+        Date aM2 = com.baidu.swan.apps.an.e.aM(optString2, "yyyy-MM-dd");
+        if (aM == null || aM2 == null || aM2.before(aM)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         Date date2 = new Date();
-        if (TextUtils.isEmpty(optString3) || (date = com.baidu.swan.apps.an.e.d(optString3, new String[]{"yyyy-MM-dd", "yyyy-MM", "yyyy"})) == null) {
+        if (TextUtils.isEmpty(optString3) || (date = com.baidu.swan.apps.an.e.e(optString3, new String[]{"yyyy-MM-dd", "yyyy-MM", "yyyy"})) == null) {
             date = date2;
         }
-        if (date.before(aJ)) {
-            date = aJ;
-        } else if (date.after(aJ2)) {
-            date = aJ2;
+        if (date.before(aM)) {
+            date = aM;
+        } else if (date.after(aM2)) {
+            date = aM2;
         }
-        c.a aVar = new c.a(context);
+        d.a aVar = new d.a(context);
         if (!TextUtils.isEmpty(optString4)) {
-            aVar.gd(optString4);
+            aVar.gw(optString4);
         }
-        aVar.g(aJ).h(aJ2).i(date).bM(optBoolean).cm(a.h.aiapps_picker_date_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.9
+        aVar.g(aM).h(aM2).i(date).bW(optBoolean).cm(a.h.aiapps_picker_date_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.10
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
-                if (dialogInterface instanceof com.baidu.swan.apps.res.widget.dialog.c) {
-                    String Im = ((com.baidu.swan.apps.res.widget.dialog.c) dialogInterface).Im();
+                if (dialogInterface instanceof com.baidu.swan.apps.res.widget.dialog.d) {
+                    String KC = ((com.baidu.swan.apps.res.widget.dialog.d) dialogInterface).KC();
                     JSONObject jSONObject2 = new JSONObject();
                     try {
-                        jSONObject2.put(UBC.CONTENT_KEY_VALUE, Im);
+                        jSONObject2.put(UBC.CONTENT_KEY_VALUE, KC);
                         JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                         if (com.baidu.swan.apps.b.DEBUG) {
                             Log.d("SwanAppUnitedSchemeUtilsDispatcher", "handleShowDatePicker params = " + wrapCallbackParams.toString());
@@ -725,13 +752,13 @@ public class g extends UnitedSchemeBaseDispatcher {
                     }
                 }
             }
-        }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
+        }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 dialogInterface.dismiss();
             }
-        }).Is();
+        }).KK();
         return true;
     }
 
@@ -744,15 +771,15 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(optString)) {
             optString = context.getString(a.h.aiapps_ok);
         }
-        e.a aVar = new e.a(context);
-        aVar.d(optParamsAsJo.optString("title")).ge(optParamsAsJo.optString("content")).a(new com.baidu.swan.apps.view.b.a()).bR(false);
+        g.a aVar = new g.a(context);
+        aVar.d(optParamsAsJo.optString("title")).gx(optParamsAsJo.optString("content")).a(new com.baidu.swan.apps.view.b.a()).cb(false);
         if (optParamsAsJo.optBoolean("showCancel", true)) {
-            aVar.G(optParamsAsJo.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
+            aVar.D(optParamsAsJo.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
             String optString2 = optParamsAsJo.optString("cancelText");
             if (TextUtils.isEmpty(optString2)) {
                 optString2 = context.getString(a.h.aiapps_cancel);
             }
-            aVar.d(optString2, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.10
+            aVar.d(optString2, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.11
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     JSONObject jSONObject = new JSONObject();
@@ -765,8 +792,8 @@ public class g extends UnitedSchemeBaseDispatcher {
                 }
             });
         }
-        aVar.F(optParamsAsJo.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
-        aVar.c(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.11
+        aVar.C(optParamsAsJo.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
+        aVar.c(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.12
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 JSONObject jSONObject = new JSONObject();
@@ -778,7 +805,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 }
             }
         });
-        aVar.Is();
+        aVar.KK();
         return true;
     }
 
@@ -805,7 +832,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 i = -1;
             } else {
                 if (optString.length() == 4 && optString.charAt(0) == '#') {
-                    optString = com.baidu.swan.apps.ae.a.c.gm(optString);
+                    optString = com.baidu.swan.apps.ae.a.c.gH(optString);
                 }
                 i = Color.parseColor(optString);
             }
@@ -817,7 +844,12 @@ public class g extends UnitedSchemeBaseDispatcher {
             return false;
         }
         final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
-        e.a a = new e.a(context).bP(true).bV(true).bU(false).bR(true).a(new com.baidu.swan.apps.view.b.a()).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.scheme.g.12
+        g.a a = new g.a(context).bZ(true).cg(true).ce(true).cb(true).a(new com.baidu.swan.apps.view.b.a()).dp(context.getResources().getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider)).dx(a.e.aiapps_action_sheet_bg).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.14
+            @Override // android.content.DialogInterface.OnClickListener
+            public void onClick(DialogInterface dialogInterface, int i3) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
+            }
+        }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.scheme.g.13
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
@@ -825,7 +857,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         });
         View inflate = View.inflate(context, a.g.aiapps_scheme_utils_show_action_sheet, null);
         ListView listView = (ListView) inflate.findViewById(a.f.list);
-        listView.setAdapter((ListAdapter) new BaseAdapter() { // from class: com.baidu.swan.apps.scheme.g.13
+        listView.setAdapter((ListAdapter) new BaseAdapter() { // from class: com.baidu.swan.apps.scheme.g.15
             @Override // android.widget.Adapter
             public int getCount() {
                 return arrayList.size();
@@ -854,39 +886,46 @@ public class g extends UnitedSchemeBaseDispatcher {
             }
         });
         a.ad(inflate);
-        final com.baidu.swan.apps.res.widget.dialog.e zq = a.zq();
-        Window window = zq.getWindow();
+        a.KI();
+        a.dq(l(context, arrayList.size()));
+        final com.baidu.swan.apps.res.widget.dialog.g Aq = a.Aq();
+        Window window = Aq.getWindow();
         if (window != null) {
-            window.setLayout(-2, -2);
             window.setGravity(80);
-            int Mf = x.Mf();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.y = Mf;
-            window.setAttributes(attributes);
+            window.setLayout(z.bS(context), -2);
+            window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        zq.setCanceledOnTouchOutside(true);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.g.14
+        Aq.bV(false);
+        Aq.setCanceledOnTouchOutside(true);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.swan.apps.scheme.g.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("tapIndex", i3);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    zq.dismiss();
+                    Aq.dismiss();
                 } catch (JSONException e2) {
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
                 }
             }
         });
-        zq.show();
+        Aq.show();
         return true;
     }
 
+    private int l(Context context, int i) {
+        int bS;
+        Resources resources = context.getResources();
+        int dimensionPixelSize = ((resources.getDimensionPixelSize(a.d.aiapps_action_sheet_bottom_divider) + ((i + 1) * resources.getDimensionPixelSize(a.d.aiapps_action_sheet_list_item))) + i) - 1;
+        return (!z.OM() || dimensionPixelSize <= (bS = z.bS(context) - z.getStatusBarHeight())) ? dimensionPixelSize : bS;
+    }
+
     private boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.g.2
+        ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.g.3
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.res.widget.b.d.IO();
+                com.baidu.swan.apps.res.widget.b.d.Lj();
             }
         });
         unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -913,11 +952,11 @@ public class g extends UnitedSchemeBaseDispatcher {
                 if (TextUtils.isEmpty(string)) {
                     string = "1";
                 }
-                final int gB = gB(optString);
-                if (gB <= 0) {
-                    gB = 2;
+                final int gV = gV(optString);
+                if (gV <= 0) {
+                    gV = 2;
                 }
-                aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.g.3
+                ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.g.4
                     @Override // java.lang.Runnable
                     public void run() {
                         Uri uri = null;
@@ -945,11 +984,11 @@ public class g extends UnitedSchemeBaseDispatcher {
                         }
                         switch (c) {
                             case 0:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).dv(gB).II();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).dG(gV).Ld();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 1:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).e((Drawable) null).dv(gB).IL();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).d(null).dG(gV).Lg();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 2:
@@ -969,21 +1008,21 @@ public class g extends UnitedSchemeBaseDispatcher {
                                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                                     return;
                                 } else if (TextUtils.equals(optString6, "2") || TextUtils.equals(optString6, "3")) {
-                                    com.baidu.swan.apps.res.widget.b.d.bX(context).f(uri).du(i).e(optString4).f(string2).g(optString5).ds(2).dt(i2).dv(gB).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.3.1
+                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(2).dE(i2).dG(gV).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.1
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
-                                        public void IP() {
+                                        public void Lk() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");
                                         }
-                                    }).IN();
+                                    }).Li();
                                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                     return;
                                 } else {
-                                    com.baidu.swan.apps.res.widget.b.d.bX(context).f(uri).du(i).e(optString4).f(string2).g(optString5).ds(1).dt(i2).dv(gB).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.3.2
+                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(1).dE(i2).dG(gV).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.2
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
-                                        public void IP() {
+                                        public void Lk() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");
                                         }
-                                    }).IN();
+                                    }).Li();
                                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                     return;
                                 }
@@ -1003,7 +1042,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
     }
 
-    private int gB(String str) {
+    private int gV(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -1048,7 +1087,7 @@ public class g extends UnitedSchemeBaseDispatcher {
 
     private boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final boolean z) {
         String param = unitedSchemeEntity.getParam("params");
-        if (aOZ != null) {
+        if (aRd != null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         } else {
             try {
@@ -1061,7 +1100,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                     jSONArray2 = jSONObject.optJSONArray("current");
                     string = jSONObject.optString("title", string);
                 }
-                aOZ = new d.a(context).j(jSONArray).k(jSONArray2).bO(z).a(new BdMultiPicker.b() { // from class: com.baidu.swan.apps.scheme.g.6
+                aRd = new e.a(context).h(jSONArray).i(jSONArray2).bY(z).a(new BdMultiPicker.b() { // from class: com.baidu.swan.apps.scheme.g.7
                     @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
                     public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject2) {
                         String optString = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity).optString("cb");
@@ -1069,13 +1108,13 @@ public class g extends UnitedSchemeBaseDispatcher {
                             callbackHandler.handleSchemeDispatchCallback(optString, jSONObject2.toString());
                         }
                     }
-                }).d(string).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.5
+                }).d(string).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.6
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOZ = null;
+                        com.baidu.swan.apps.res.widget.dialog.g unused = g.aRd = null;
                         try {
-                            JSONArray currentIndex = ((com.baidu.swan.apps.res.widget.dialog.d) dialogInterface).getCurrentIndex();
+                            JSONArray currentIndex = ((com.baidu.swan.apps.res.widget.dialog.e) dialogInterface).getCurrentIndex();
                             JSONObject jSONObject2 = new JSONObject();
                             if (currentIndex != null && currentIndex.length() > 0) {
                                 if (z) {
@@ -1089,14 +1128,14 @@ public class g extends UnitedSchemeBaseDispatcher {
                             e.printStackTrace();
                         }
                     }
-                }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.4
+                }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.5
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOZ = null;
+                        com.baidu.swan.apps.res.widget.dialog.g unused = g.aRd = null;
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                     }
-                }).Is();
+                }).KK();
             } catch (JSONException e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
@@ -1112,7 +1151,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(param)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (aOZ == null) {
+        } else if (aRd == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -1122,7 +1161,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 JSONArray optJSONArray = jSONObject.optJSONArray("array");
                 int i2 = jSONObject.getInt("current");
                 if (optJSONArray != null) {
-                    ((com.baidu.swan.apps.res.widget.dialog.d) aOZ).a(i, optJSONArray, i2);
+                    ((com.baidu.swan.apps.res.widget.dialog.e) aRd).a(i, optJSONArray, i2);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 }
                 return true;

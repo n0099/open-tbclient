@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.android.common.so.SoUtils;
-import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -46,21 +45,21 @@ public final class SoLoader {
 
     public static void load(Context context, String str, boolean z) {
         if (!sLoadedLibraries.contains(str)) {
-            a Pk = a.Pk();
+            a SD = a.SD();
             if (!z) {
-                if (new SoLoader().loadInternalFromLocal(context, str, Pk)) {
+                if (new SoLoader().loadInternalFromLocal(context, str, SD)) {
                     sLoadedLibraries.add(str);
                     return;
                 }
                 return;
             }
-            load(context, str, Pk);
+            load(context, str, SD);
         }
     }
 
     public static void load(Context context, String str, b bVar) {
         if (bVar == null) {
-            bVar = a.Pk();
+            bVar = a.SD();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {
@@ -79,7 +78,7 @@ public final class SoLoader {
             if (DEBUG) {
                 Log.e(TAG, "SoLoader load exception.", th);
             }
-            this.sb.append(str3 + ":::" + str2 + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
+            this.sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -206,7 +205,7 @@ public final class SoLoader {
             if (DEBUG) {
                 Log.e(TAG, "SoLoader load exception.", th);
             }
-            this.sb.append(str2 + ":::" + simpleName + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
+            this.sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -598,7 +597,7 @@ public final class SoLoader {
         if (str == null) {
             str = "/vendor/lib:/system/lib";
         }
-        String[] split = str.split(Config.TRACE_TODAY_VISIT_SPLIT);
+        String[] split = str.split(":");
         for (String str2 : split) {
             File file = new File(str2);
             if (!soSources.contains(file)) {

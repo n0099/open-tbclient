@@ -13,28 +13,28 @@ import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class i extends y {
+public class i extends z {
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/getImageInfo");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "illegal swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = com.baidu.swan.apps.an.n.dm(unitedSchemeEntity.getParam("params")).optString("src");
+        String optString = com.baidu.swan.apps.an.o.cZ(unitedSchemeEntity.getParam("params")).optString("src");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.gZ(optString) == PathType.BD_FILE) {
-            jSONObject = aw(com.baidu.swan.apps.storage.b.aC(optString, bVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.gZ(optString) == PathType.RELATIVE) {
+        if (com.baidu.swan.apps.storage.b.hA(optString) == PathType.BD_FILE) {
+            jSONObject = aw(com.baidu.swan.apps.storage.b.aE(optString, bVar.id), optString);
+        } else if (com.baidu.swan.apps.storage.b.hA(optString) == PathType.RELATIVE) {
             jSONObject = aw(com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion()), optString);
         }
         if (jSONObject != null) {
@@ -64,18 +64,18 @@ public class i extends y {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface gF = gF(str);
-            if (gF == null) {
+            ExifInterface gY = gY(str);
+            if (gY == null) {
                 return null;
             }
-            i = gF.getAttributeInt("Orientation", 1);
+            i = gY.getAttributeInt("Orientation", 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
             jSONObject.put("path", str2);
-            jSONObject.put("orientation", dy(i));
+            jSONObject.put("orientation", dJ(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "getImgInfo failed by json exception");
@@ -87,7 +87,7 @@ public class i extends y {
         return jSONObject;
     }
 
-    private String dy(int i) {
+    private String dJ(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -111,7 +111,7 @@ public class i extends y {
         }
     }
 
-    private ExifInterface gF(String str) {
+    private ExifInterface gY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

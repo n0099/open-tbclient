@@ -2,7 +2,7 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.l;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.xiaomi.mipush.sdk.MiPushMessage;
@@ -17,15 +17,13 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
     public static final String REGID = "xm_regid";
     public static final String REGISTER_ERRORCODE = "xm_register_errorcode";
     private static final String TAG = "PushPatchMessageReceiver";
-    public static final String XIAOMI_PUSH_MSG = "com.xiaomi.mipush.PUSH_MSG";
-    public static final String XIAOMI_REGISTER = "com.xiaomi.mipush.REGISTER";
 
     private void handleXiaomiMsg(Context context, MiPushMessage miPushMessage, int i) {
         try {
-            Intent intent = new Intent(XIAOMI_PUSH_MSG);
+            Intent intent = new Intent("com.xiaomi.mipush.PUSH_MSG");
             intent.putExtra(PUSH_MSG, miPushMessage);
             intent.putExtra(PUSH_MSG_TYPE, i);
-            m.a(intent, context.getApplicationContext());
+            l.a(intent, context.getApplicationContext());
         } catch (Exception e) {
         }
     }
@@ -57,10 +55,10 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
                 List<String> commandArguments = miPushCommandMessage.getCommandArguments();
                 String str = (commandArguments == null || commandArguments.size() <= 0) ? null : commandArguments.get(0);
                 if (MiPushClient.COMMAND_REGISTER.equals(command)) {
-                    Intent intent = new Intent(XIAOMI_REGISTER);
+                    Intent intent = new Intent("com.xiaomi.mipush.REGISTER");
                     intent.putExtra(REGID, str);
                     intent.putExtra(REGISTER_ERRORCODE, miPushCommandMessage.getResultCode());
-                    m.a(intent, context.getApplicationContext());
+                    l.a(intent, context.getApplicationContext());
                 }
             } catch (Exception e) {
             }

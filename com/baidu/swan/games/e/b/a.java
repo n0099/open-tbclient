@@ -8,7 +8,11 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public class a {
     private V8Engine mV8Engine;
 
-    public void aS(String str, String str2) {
+    public a(V8Engine v8Engine) {
+        this.mV8Engine = v8Engine;
+    }
+
+    public void aV(String str, String str2) {
         this.mV8Engine.requireJSFile(str, str2);
     }
 

@@ -2,11 +2,11 @@ package com.meizu.cloud.pushsdk.platform;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
+import com.meizu.cloud.pushsdk.handler.a.b.d;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
@@ -14,186 +14,179 @@ import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
+import com.meizu.cloud.pushsdk.util.c;
 import com.tencent.connect.common.Constants;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class PlatformMessageSender {
-    public static final String TAG = "PlatformMessageSender";
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
-    public interface OnUpdateIntent {
-        BasicPushStatus getBasicStatus();
+    public interface a {
+        String a();
 
-        String getBasicStatusExtra();
+        BasicPushStatus b();
 
-        String getMethod();
+        String c();
     }
 
-    public static void sendPushStatus(Context context, final PushSwitchStatus pushSwitchStatus) {
-        sendPlatformStatus(context, new OnUpdateIntent() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.1
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getMethod() {
+    public static void a(Context context, int i, boolean z, String str) {
+        String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
+        com.meizu.cloud.a.a.i("PlatformMessageSender", context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
+        if (TextUtils.isEmpty(appVersionName) || !appVersionName.startsWith(Constants.VIA_SHARE_TYPE_INFO)) {
+            return;
+        }
+        Intent intent = new Intent(PushConstants.MZ_PUSH_ON_MESSAGE_SWITCH_SETTING);
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_TYPE, i);
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_STATUS, z);
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_PACKAGE_NAME, str);
+        intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
+        context.startService(intent);
+    }
+
+    private static void a(Context context, String str, a aVar) {
+        Intent intent = new Intent();
+        intent.addCategory(str);
+        intent.setPackage(str);
+        intent.putExtra("method", aVar.a());
+        intent.putExtra(aVar.c(), aVar.b());
+        MzSystemUtils.sendMessageFromBroadcast(context, intent, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, str);
+        MzSystemUtils.sendMessageFromBroadcast(context, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, str);
+    }
+
+    public static void a(Context context, String str, final PushSwitchStatus pushSwitchStatus) {
+        a(context, str, new a() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.1
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String a() {
                 return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PUSH_STATUS;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public BasicPushStatus getBasicStatus() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public BasicPushStatus b() {
                 return PushSwitchStatus.this;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getBasicStatusExtra() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String c() {
                 return PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS;
             }
         });
     }
 
-    public static void sendRegisterStatus(Context context, final RegisterStatus registerStatus) {
-        sendPlatformStatus(context, new OnUpdateIntent() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.2
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getMethod() {
+    public static void a(Context context, String str, final RegisterStatus registerStatus) {
+        a(context, str, new a() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.2
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String a() {
                 return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_REGISTER_STATUS;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public BasicPushStatus getBasicStatus() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public BasicPushStatus b() {
                 return RegisterStatus.this;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getBasicStatusExtra() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String c() {
                 return PushConstants.EXTRA_APP_PUSH_REGISTER_STATUS;
             }
         });
     }
 
-    public static void sendUnRegisterStatus(Context context, final UnRegisterStatus unRegisterStatus) {
-        sendPlatformStatus(context, new OnUpdateIntent() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.3
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getMethod() {
-                return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_UNREGISTER_STATUS;
-            }
-
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public BasicPushStatus getBasicStatus() {
-                return UnRegisterStatus.this;
-            }
-
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getBasicStatusExtra() {
-                return PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS;
-            }
-        });
-    }
-
-    public static void sendSubTags(Context context, final SubTagsStatus subTagsStatus) {
-        sendPlatformStatus(context, new OnUpdateIntent() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.4
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getMethod() {
-                return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBTAGS_STATUS;
-            }
-
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public BasicPushStatus getBasicStatus() {
-                return SubTagsStatus.this;
-            }
-
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getBasicStatusExtra() {
-                return PushConstants.EXTRA_APP_PUSH_SUBTAGS_STATUS;
-            }
-        });
-    }
-
-    public static void sendSubAlias(Context context, final SubAliasStatus subAliasStatus) {
-        sendPlatformStatus(context, new OnUpdateIntent() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.5
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getMethod() {
+    public static void a(Context context, String str, final SubAliasStatus subAliasStatus) {
+        a(context, str, new a() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.5
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String a() {
                 return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBALIAS_STATUS;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public BasicPushStatus getBasicStatus() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public BasicPushStatus b() {
                 return SubAliasStatus.this;
             }
 
-            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.OnUpdateIntent
-            public String getBasicStatusExtra() {
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String c() {
                 return PushConstants.EXTRA_APP_PUSH_SUBALIAS_STATUS;
             }
         });
     }
 
-    private static void sendPlatformStatus(Context context, OnUpdateIntent onUpdateIntent) {
-        String packageName = context.getPackageName();
-        Intent intent = new Intent();
-        intent.addCategory(packageName);
-        intent.setPackage(packageName);
-        intent.putExtra("method", onUpdateIntent.getMethod());
-        intent.putExtra(onUpdateIntent.getBasicStatusExtra(), onUpdateIntent.getBasicStatus());
-        sendMessageFromBroadcast(context, intent, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, context.getPackageName());
-        sendMessageFromBroadcast(context, new Intent("com.meizu.cloud.pushservice.action.PUSH_SERVICE_START"), null, context.getPackageName());
+    public static void a(Context context, String str, final SubTagsStatus subTagsStatus) {
+        a(context, str, new a() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.4
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String a() {
+                return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SUBTAGS_STATUS;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public BasicPushStatus b() {
+                return SubTagsStatus.this;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String c() {
+                return PushConstants.EXTRA_APP_PUSH_SUBTAGS_STATUS;
+            }
+        });
     }
 
-    public static void switchPushMessageSetting(Context context, int i, boolean z, String str) {
-        String appVersionName = MzSystemUtils.getAppVersionName(context, "com.meizu.cloud");
-        com.meizu.cloud.a.a.i(TAG, context.getPackageName() + " switchPushMessageSetting cloudVersion_name " + appVersionName);
-        if (!TextUtils.isEmpty(appVersionName) && appVersionName.startsWith(Constants.VIA_SHARE_TYPE_INFO)) {
-            Intent intent = new Intent(PushConstants.MZ_PUSH_ON_MESSAGE_SWITCH_SETTING);
-            intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_TYPE, i);
-            intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_STATUS, z);
-            intent.putExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_SETTING_PACKAGE_NAME, str);
-            intent.setClassName("com.meizu.cloud", "com.meizu.cloud.pushsdk.pushservice.MzPushService");
-            context.startService(intent);
-        }
+    public static void a(Context context, String str, final UnRegisterStatus unRegisterStatus) {
+        a(context, str, new a() { // from class: com.meizu.cloud.pushsdk.platform.PlatformMessageSender.3
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String a() {
+                return PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_UNREGISTER_STATUS;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public BasicPushStatus b() {
+                return UnRegisterStatus.this;
+            }
+
+            @Override // com.meizu.cloud.pushsdk.platform.PlatformMessageSender.a
+            public String c() {
+                return PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS;
+            }
+        });
     }
 
     public static void launchStartActivity(Context context, String str, String str2, String str3) {
-        MessageV3 parse = MessageV3.parse("", str, "", str3);
-        parse.setUploadDataPackageName(str2);
+        d a2 = c.a(str3);
+        MessageV3 parse = MessageV3.parse(str, str, a2.e(), a2.f(), a2.c(), a2.d(), str2);
         Intent intent = new Intent();
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
         intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, parse);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        if (!TextUtils.isEmpty(str2)) {
-            intent.setPackage(str2);
-            intent.setClassName(str2, "com.meizu.cloud.pushsdk.NotificationService");
+        if (!TextUtils.isEmpty(str)) {
+            intent.setPackage(str);
+            intent.setClassName(str, "com.meizu.cloud.pushsdk.NotificationService");
         }
         intent.putExtra("command_type", "reflect_receiver");
-        com.meizu.cloud.a.a.i(TAG, "start notification service " + parse);
+        com.meizu.cloud.a.a.i("PlatformMessageSender", "start notification service " + parse);
         try {
             context.startService(intent);
         } catch (Exception e) {
-            com.meizu.cloud.a.a.e(TAG, "launchStartActivity error " + e.getMessage());
+            com.meizu.cloud.a.a.e("PlatformMessageSender", "launchStartActivity error " + e.getMessage());
         }
     }
 
-    public static void sendMessageFromBroadcast(Context context, Intent intent, String str, String str2) {
-        if (!TextUtils.isEmpty(str)) {
-            intent.setAction(str);
+    public static void showQuickNotification(Context context, String str, String str2) {
+        d a2 = c.a(str2);
+        Intent intent = new Intent();
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_SEQ_ID, a2.d());
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_TASK_ID, a2.c());
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_TASK_TIMES_TAMP, a2.e());
+        intent.putExtra(PushConstants.EXTRA_APP_PUSH_SERVICE_DEFAULT_PACKAGE_NAME, context.getPackageName());
+        intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, str);
+        intent.putExtra(PushConstants.MZ_PUSH_MESSAGE_STATISTICS_IMEI_KEY, a2.f());
+        intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_SHOW_V3);
+        intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
+        intent.setClassName(context.getPackageName(), "com.meizu.cloud.pushsdk.NotificationService");
+        intent.putExtra("command_type", "reflect_receiver");
+        try {
+            com.meizu.cloud.a.a.e("PlatformMessageSender", "start noficationservice to show notification");
+            context.startService(intent);
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e("PlatformMessageSender", "showNotification error " + e.getMessage());
         }
-        if (!TextUtils.isEmpty(str2)) {
-            intent.setPackage(str2);
-        }
-        String findReceiver = findReceiver(context, str, str2);
-        if (!TextUtils.isEmpty(findReceiver)) {
-            intent.setClassName(str2, findReceiver);
-        }
-        context.sendBroadcast(intent);
-    }
-
-    private static String findReceiver(Context context, String str, String str2) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return null;
-        }
-        Intent intent = new Intent(str);
-        intent.setPackage(str2);
-        List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 0);
-        if (queryBroadcastReceivers == null || queryBroadcastReceivers.size() <= 0) {
-            return null;
-        }
-        return queryBroadcastReceivers.get(0).activityInfo.name;
     }
 }

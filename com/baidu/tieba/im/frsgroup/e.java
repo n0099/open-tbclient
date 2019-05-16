@@ -13,15 +13,15 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.util.r;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes5.dex */
 public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
-    private View.OnClickListener bQN;
+    private View.OnClickListener bYE;
 
     public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bQN = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
+        this.bYE = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -30,11 +30,11 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
                         int intValue = ((Integer) tag).intValue();
                         if (e.this.getItem(intValue) instanceof GroupInfoData) {
                             GroupInfoData groupInfoData = (GroupInfoData) e.this.getItem(intValue);
-                            if (bc.cZ(e.this.mPageContext.getPageActivity()) && groupInfoData != null) {
+                            if (bc.cE(e.this.mPageContext.getPageActivity()) && groupInfoData != null) {
                                 long groupId = groupInfoData.getGroupId();
                                 int from = groupInfoData.getFrom();
                                 if (from == 4 || from == 5 || from == 6) {
-                                    TiebaStatic.log(new am("c10331").bJ("obj_type", String.valueOf(groupId)));
+                                    TiebaStatic.log(new am("c10331").bT("obj_type", String.valueOf(groupId)));
                                 }
                                 r.a(2008011, new GroupInfoActivityConfig(e.this.mPageContext.getPageActivity(), groupId, from));
                             }
@@ -49,7 +49,7 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bq */
     public f onCreateViewHolder(ViewGroup viewGroup) {
-        return new f(LayoutInflater.from(this.mContext).inflate(d.h.frs_group_item_view, (ViewGroup) null), this.bQN);
+        return new f(LayoutInflater.from(this.mContext).inflate(R.layout.frs_group_item_view, (ViewGroup) null), this.bYE);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,25 +59,25 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
         super.onFillViewHolder(i, view, viewGroup, groupInfoData, fVar);
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (fVar.bUN != this.mSkinType) {
+        if (fVar.ccI != this.mSkinType) {
             this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
             this.mPageContext.getLayoutMode().onModeChanged(view);
-            fVar.bUN = this.mSkinType;
+            fVar.ccI = this.mSkinType;
         }
         if (groupInfoData != null) {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
-            al.k(fVar.rootView, d.f.frs_group_item_bg);
-            al.d(fVar.giS, d.C0277d.cp_cont_b, 1);
-            al.d(fVar.giT, d.C0277d.cp_cont_b, 1);
-            al.k(fVar.giT, d.f.bg_jinqun_meizi);
-            fVar.giT.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
-            al.d(fVar.giU, d.C0277d.cp_cont_b, 1);
-            al.k(fVar.giW, d.f.icon_grade_small_star);
-            al.k(fVar.giX, d.f.icon_grade_small_star);
-            al.k(fVar.giY, d.f.icon_grade_small_star);
-            al.d(fVar.giV, d.C0277d.cp_cont_c, 1);
-            al.l(fVar.dividerLine, d.C0277d.cp_bg_line_b);
+            al.k(fVar.rootView, R.drawable.frs_group_item_bg);
+            al.f(fVar.gAf, R.color.cp_cont_b, 1);
+            al.f(fVar.gAg, R.color.cp_cont_b, 1);
+            al.k(fVar.gAg, R.drawable.bg_jinqun_meizi);
+            fVar.gAg.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            al.f(fVar.gAh, R.color.cp_cont_b, 1);
+            al.k(fVar.gAj, R.drawable.icon_grade_small_star);
+            al.k(fVar.gAk, R.drawable.icon_grade_small_star);
+            al.k(fVar.gAl, R.drawable.icon_grade_small_star);
+            al.f(fVar.gAi, R.color.cp_cont_c, 1);
+            al.l(fVar.dividerLine, R.color.cp_bg_line_b);
         }
         return view;
     }

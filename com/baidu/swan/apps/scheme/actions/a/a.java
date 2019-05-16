@@ -6,18 +6,18 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.c.d;
-import com.baidu.swan.apps.core.c.e;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.core.d.d;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
         super(jVar, "/swan/setBackgroundColor");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
@@ -28,15 +28,15 @@ public class a extends y {
         if (DEBUG) {
             Log.d("backgroundColor", optParamsAsJo.toString());
         }
-        e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy == null) {
+        e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi == null) {
             c.e("backgroundColor", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         String optString = optParamsAsJo.optString("backgroundColor");
-        d yO = uy.yO();
-        if (!yO.a(yO.yx(), com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
+        d zL = vi.zL();
+        if (!zL.a(zL.zs(), com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
             c.e("backgroundColor", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

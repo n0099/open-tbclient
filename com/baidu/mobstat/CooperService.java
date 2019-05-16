@@ -110,7 +110,7 @@ public class CooperService implements ICooperService {
     private static String a(Context context) {
         String l = cc.l(context);
         if (!TextUtils.isEmpty(l)) {
-            return l.replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            return l.replaceAll(":", "");
         }
         return l;
     }
@@ -118,7 +118,7 @@ public class CooperService implements ICooperService {
     private static String b(Context context) {
         String k = cc.k(context);
         if (!TextUtils.isEmpty(k)) {
-            return k.replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            return k.replaceAll(":", "");
         }
         return k;
     }
@@ -126,13 +126,13 @@ public class CooperService implements ICooperService {
     private static String c(Context context) {
         String n = cc.n(context);
         if (!TextUtils.isEmpty(n)) {
-            return n.replaceAll(Config.TRACE_TODAY_VISIT_SPLIT, "");
+            return n.replaceAll(":", "");
         }
         return n;
     }
 
     public String getMacAddress(Context context, boolean z) {
-        String replace = Config.DEF_MAC_ID.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+        String replace = Config.DEF_MAC_ID.replace(":", "");
         if (!z && Build.VERSION.SDK_INT >= 23) {
             return getSecretValue(replace);
         }

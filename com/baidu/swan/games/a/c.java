@@ -5,10 +5,7 @@ import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes2.dex */
 public interface c {
     @JavascriptInterface
-    void destroy();
-
-    @JavascriptInterface
-    void hide();
+    void loadAd(JsObject jsObject);
 
     @JavascriptInterface
     void showAd(JsObject jsObject);

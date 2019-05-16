@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> jUw = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind jUu;
-    private final Throwable jUv;
+    private static final Notification<Void> kmM = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind kmK;
+    private final Throwable kmL;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -13,26 +13,26 @@ public final class Notification<T> {
         OnCompleted
     }
 
-    public static <T> Notification<T> bi(T t) {
+    public static <T> Notification<T> bk(T t) {
         return new Notification<>(Kind.OnNext, t, null);
     }
 
-    public static <T> Notification<T> I(Throwable th) {
+    public static <T> Notification<T> H(Throwable th) {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cDs() {
-        return (Notification<T>) jUw;
+    public static <T> Notification<T> cKY() {
+        return (Notification<T>) kmM;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.jUv = th;
-        this.jUu = kind;
+        this.kmL = th;
+        this.kmK = kind;
     }
 
-    public Throwable cDt() {
-        return this.jUv;
+    public Throwable cKZ() {
+        return this.kmL;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cDy() && this.value != null;
+        return cLe() && this.value != null;
     }
 
-    public boolean cDu() {
-        return cDw() && this.jUv != null;
+    public boolean cLa() {
+        return cLc() && this.kmL != null;
     }
 
-    public Kind cDv() {
-        return this.jUu;
+    public Kind cLb() {
+        return this.kmK;
     }
 
-    public boolean cDw() {
-        return cDv() == Kind.OnError;
+    public boolean cLc() {
+        return cLb() == Kind.OnError;
     }
 
-    public boolean cDx() {
-        return cDv() == Kind.OnCompleted;
+    public boolean cLd() {
+        return cLb() == Kind.OnCompleted;
     }
 
-    public boolean cDy() {
-        return cDv() == Kind.OnNext;
+    public boolean cLe() {
+        return cLb() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cDv());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cLb());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cDu()) {
-            append.append(' ').append(cDt().getMessage());
+        if (cLa()) {
+            append.append(' ').append(cKZ().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cDv().hashCode();
+        int hashCode = cLb().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cDu()) {
-            return (hashCode * 31) + cDt().hashCode();
+        if (cLa()) {
+            return (hashCode * 31) + cKZ().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cDv() != cDv() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.jUv != notification.jUv && (this.jUv == null || !this.jUv.equals(notification.jUv))))) {
+            if (notification.cLb() != cLb() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kmL != notification.kmL && (this.kmL == null || !this.kmL.equals(notification.kmL))))) {
                 z = false;
             }
             return z;

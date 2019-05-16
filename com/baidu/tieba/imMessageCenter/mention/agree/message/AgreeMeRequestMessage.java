@@ -21,11 +21,11 @@ public class AgreeMeRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.id = Long.valueOf(this.id);
-            builder.q_type = Integer.valueOf(i.Wv().getViewImageQuality());
+            builder.q_type = Integer.valueOf(i.abb().getViewImageQuality());
             builder.rn = 20;
             builder.scr_dip = Integer.valueOf((int) TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
-            builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp()));
-            builder.scr_w = Integer.valueOf(l.aO(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst().getApp()));
+            builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst().getApp()));
             if (z) {
                 s.bindCommonParamsToProtobufData(builder, true);
             }

@@ -9,14 +9,14 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    int OW;
-    private View bRa;
-    private View bRb;
-    float bRc;
-    private Rect bRd;
-    private boolean bRe;
-    private a bRf;
-    private boolean bRg;
+    int MD;
+    private View bYR;
+    private View bYS;
+    float bYT;
+    private Rect bYU;
+    private boolean bYV;
+    private a bYW;
+    private boolean bYX;
     float startY;
 
     /* loaded from: classes.dex */
@@ -25,17 +25,17 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     public void setDispathEventAction(a aVar) {
-        this.bRf = aVar;
+        this.bYW = aVar;
     }
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.startY = 0.0f;
-        this.OW = 0;
-        this.bRc = 0.0f;
-        this.bRe = false;
-        this.bRg = false;
-        this.OW = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.MD = 0;
+        this.bYT = 0.0f;
+        this.bYV = false;
+        this.bYX = false;
+        this.MD = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,35 +45,35 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.bRf != null) {
-            this.bRf.u(motionEvent);
+        if (this.bYW != null) {
+            this.bYW.u(motionEvent);
         }
-        if (this.bRa != null) {
+        if (this.bYR != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.startY = motionEvent.getRawY();
-                    this.bRc = 0.0f;
+                    this.bYT = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.bRe = true;
+                        this.bYV = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.bRe = false;
+                        this.bYV = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.bRe && Math.abs(this.startY - motionEvent.getRawY()) < this.OW && this.bRc < this.OW && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.bYV && Math.abs(this.startY - motionEvent.getRawY()) < this.MD && this.bYT < this.MD && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
-                        if (this.bRa.isClickable()) {
-                            this.bRa.performClick();
+                        if (this.bYR.isClickable()) {
+                            this.bYR.performClick();
                         }
                         return true;
                     }
                     break;
                 case 2:
-                    this.bRc = this.bRc > Math.abs(this.startY - motionEvent.getRawY()) ? this.bRc : Math.abs(this.startY - motionEvent.getRawY());
-                    if (this.bRe && this.bRc < this.OW) {
+                    this.bYT = this.bYT > Math.abs(this.startY - motionEvent.getRawY()) ? this.bYT : Math.abs(this.startY - motionEvent.getRawY());
+                    if (this.bYV && this.bYT < this.MD) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -86,50 +86,50 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bRg) {
+        if (this.bYX) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.bRg = z;
+        this.bYX = z;
     }
 
     public void setTopOrderView(View view) {
-        this.bRa = view;
+        this.bYR = view;
     }
 
-    private boolean aeu() {
-        if (this.bRa == null) {
+    private boolean ajt() {
+        if (this.bYR == null) {
             return false;
         }
-        if (this.bRd == null) {
+        if (this.bYU == null) {
             return true;
         }
-        return this.bRd.width() <= 0 || this.bRd.height() <= 0;
+        return this.bYU.width() <= 0 || this.bYU.height() <= 0;
     }
 
     private Rect getTopViewRect() {
-        if (aeu()) {
+        if (ajt()) {
             int[] iArr = {0, 0};
-            if (this.bRa != null) {
-                this.bRa.getLocationOnScreen(iArr);
-                this.bRd = new Rect(iArr[0], iArr[1], iArr[0] + this.bRa.getWidth(), iArr[1] + this.bRa.getHeight());
+            if (this.bYR != null) {
+                this.bYR.getLocationOnScreen(iArr);
+                this.bYU = new Rect(iArr[0], iArr[1], iArr[0] + this.bYR.getWidth(), iArr[1] + this.bYR.getHeight());
             }
         }
-        return this.bRd;
+        return this.bYU;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        if (this.bRb != null) {
-            this.bRb.setEnabled(z);
-            this.bRb.setClickable(z);
-            this.bRb.setLongClickable(z);
+        if (this.bYS != null) {
+            this.bYS.setEnabled(z);
+            this.bYS.setClickable(z);
+            this.bYS.setLongClickable(z);
         }
     }
 
     public void setBottomOrderView(View view) {
-        this.bRb = view;
+        this.bYS = view;
     }
 }

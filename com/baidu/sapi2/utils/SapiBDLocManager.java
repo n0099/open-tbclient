@@ -441,7 +441,7 @@ public class SapiBDLocManager {
                 } else {
                     String str = this.wifiList.get(i3).BSSID;
                     int i5 = this.wifiList.get(i3).level;
-                    String replace = str.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                    String replace = str.replace(":", "");
                     if (SapiBDLocManager.this.k != null && replace.equals(SapiBDLocManager.this.k)) {
                         SapiBDLocManager.this.l = StrictMath.abs(i5);
                         i2 = i4;
@@ -516,7 +516,7 @@ public class SapiBDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "") : null;
+            String replace = bssid != null ? bssid.replace(":", "") : null;
             if (replace.length() == 12) {
                 this.k = new String(replace);
                 return true;

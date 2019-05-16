@@ -11,6 +11,7 @@ import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -85,21 +86,10 @@ public class d {
         }
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:21:0x004f A[Catch: IOException -> 0x011e, TRY_LEAVE, TryCatch #10 {IOException -> 0x011e, blocks: (B:19:0x004a, B:21:0x004f), top: B:81:0x004a }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x004a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.io.OutputStream] */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v6 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static com.xiaomi.channel.commonutils.network.b a(Context context, String str, String str2, Map<String, String> map, String str3) {
-        ?? r1;
-        BufferedReader bufferedReader;
         OutputStream outputStream;
-        BufferedReader bufferedReader2 = null;
+        BufferedReader bufferedReader;
+        OutputStream outputStream2 = null;
         com.xiaomi.channel.commonutils.network.b bVar = new com.xiaomi.channel.commonutils.network.b();
         try {
             try {
@@ -116,39 +106,27 @@ public class d {
                             b2.setRequestProperty(str4, map.get(str4));
                         }
                     }
-                    if (TextUtils.isEmpty(str3)) {
-                        outputStream = null;
-                    } else {
+                    if (!TextUtils.isEmpty(str3)) {
                         b2.setDoOutput(true);
                         byte[] bytes = str3.getBytes();
-                        OutputStream outputStream2 = b2.getOutputStream();
+                        OutputStream outputStream3 = b2.getOutputStream();
                         try {
-                            outputStream2.write(bytes, 0, bytes.length);
-                            outputStream2.flush();
-                            outputStream2.close();
-                            outputStream = null;
+                            outputStream3.write(bytes, 0, bytes.length);
+                            outputStream3.flush();
+                            outputStream3.close();
                         } catch (IOException e) {
                             e = e;
-                            bufferedReader2 = outputStream2;
+                            outputStream2 = outputStream3;
                             bufferedReader = null;
                             try {
-                                throw e;
+                                throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
                             } catch (Throwable th) {
                                 th = th;
-                                BufferedReader bufferedReader3 = bufferedReader;
-                                r1 = bufferedReader2;
-                                bufferedReader2 = bufferedReader3;
-                                if (r1 != 0) {
-                                    try {
-                                        r1.close();
-                                    } catch (IOException e2) {
-                                        Log.e("com.xiaomi.common.Network", "error while closing strean", e2);
-                                        throw th;
-                                    }
-                                }
-                                if (bufferedReader2 != null) {
-                                    bufferedReader2.close();
-                                }
+                                BufferedReader bufferedReader2 = bufferedReader;
+                                outputStream = outputStream2;
+                                outputStream2 = bufferedReader2;
+                                com.xiaomi.channel.commonutils.file.b.a(outputStream);
+                                com.xiaomi.channel.commonutils.file.b.a(outputStream2);
                                 throw th;
                             }
                         } catch (Throwable th2) {
@@ -165,7 +143,7 @@ public class d {
                         if (headerFieldKey == null && headerField == null) {
                             try {
                                 break;
-                            } catch (IOException e3) {
+                            } catch (IOException e2) {
                                 bufferedReader = new BufferedReader(new InputStreamReader(new a(b2.getErrorStream())));
                             }
                         } else {
@@ -174,12 +152,12 @@ public class d {
                         }
                     }
                     bufferedReader = new BufferedReader(new InputStreamReader(new a(b2.getInputStream())));
-                } catch (IOException e4) {
-                    e = e4;
-                    bufferedReader = null;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
-            } catch (Throwable th3) {
-                th = th3;
+            } catch (IOException e3) {
+                e = e3;
+                bufferedReader = null;
             }
         } catch (Throwable th4) {
             th = th4;
@@ -193,30 +171,19 @@ public class d {
             }
             bVar.c = stringBuffer.toString();
             bufferedReader.close();
-            BufferedReader bufferedReader4 = null;
-            if (0 != 0) {
-                try {
-                    outputStream.close();
-                } catch (IOException e5) {
-                    Log.e("com.xiaomi.common.Network", "error while closing strean", e5);
-                }
-            }
-            if (0 != 0) {
-                bufferedReader4.close();
-            }
+            com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
+            com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
             return bVar;
-        } catch (IOException e6) {
-            e = e6;
-            throw e;
+        } catch (IOException e4) {
+            e = e4;
+            throw new IOException("err while request " + str + ":" + e.getClass().getSimpleName());
         } catch (Throwable th5) {
             th = th5;
-            BufferedReader bufferedReader5 = bufferedReader;
-            r1 = 0;
-            bufferedReader2 = bufferedReader5;
-            if (r1 != 0) {
-            }
-            if (bufferedReader2 != null) {
-            }
+            BufferedReader bufferedReader3 = bufferedReader;
+            outputStream = null;
+            outputStream2 = bufferedReader3;
+            com.xiaomi.channel.commonutils.file.b.a(outputStream);
+            com.xiaomi.channel.commonutils.file.b.a(outputStream2);
             throw th;
         }
     }
@@ -273,7 +240,7 @@ public class d {
             }
             return new a(b2.getInputStream());
         } catch (IOException e) {
-            throw e;
+            throw new IOException("IOException:" + e.getClass().getSimpleName());
         } catch (Throwable th) {
             throw new IOException(th.getMessage());
         }
@@ -293,19 +260,14 @@ public class d {
             while (true) {
                 int read = bufferedReader.read(cArr);
                 if (-1 == read) {
-                    break;
+                    com.xiaomi.channel.commonutils.file.b.a(inputStream);
+                    return sb.toString();
                 }
                 sb.append(cArr, 0, read);
             }
-            return sb.toString();
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    Log.e("com.xiaomi.common.Network", "Failed to close responseStream" + e.toString());
-                }
-            }
+        } catch (Throwable th) {
+            com.xiaomi.channel.commonutils.file.b.a(inputStream);
+            throw th;
         }
     }
 
@@ -317,29 +279,14 @@ public class d {
         return String.format("%s&key=%s", str, com.xiaomi.channel.commonutils.string.c.a(String.format("%sbe988a6134bc8254465424e5a70ef037", str)));
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:55:0x017d */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0083 A[Catch: IOException -> 0x0180, TryCatch #12 {IOException -> 0x0180, blocks: (B:20:0x007e, B:22:0x0083, B:24:0x0088), top: B:77:0x007e }] */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0088 A[Catch: IOException -> 0x0180, TRY_LEAVE, TryCatch #12 {IOException -> 0x0180, blocks: (B:20:0x007e, B:22:0x0083, B:24:0x0088), top: B:77:0x007e }] */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x007e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r4v1 */
-    /* JADX WARN: Type inference failed for: r4v13, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r4v3, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r4v4 */
-    /* JADX WARN: Type inference failed for: r4v6 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static String a(String str, Map<String, String> map, File file, String str2) {
-        DataOutputStream dataOutputStream;
-        DataOutputStream dataOutputStream2;
-        Object obj;
+        FileInputStream fileInputStream;
+        FileInputStream fileInputStream2;
         BufferedReader bufferedReader = null;
         if (!file.exists()) {
             return null;
         }
-        ?? name = file.getName();
+        String name = file.getName();
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -357,122 +304,75 @@ public class d {
                     }
                 }
                 httpURLConnection.setFixedLengthStreamingMode(name.length() + 77 + ((int) file.length()) + str2.length());
-                dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                dataOutputStream.writeBytes("--*****\r\n");
+                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"\r\n");
+                dataOutputStream.writeBytes("\r\n");
+                fileInputStream = new FileInputStream(file);
                 try {
-                    dataOutputStream.writeBytes("--*****\r\n");
-                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"\r\n");
-                    dataOutputStream.writeBytes("\r\n");
-                    name = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = name.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            dataOutputStream.write(bArr, 0, read);
-                            dataOutputStream.flush();
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
                         }
-                        dataOutputStream.writeBytes("\r\n");
-                        dataOutputStream.writeBytes("--");
-                        dataOutputStream.writeBytes("*****");
-                        dataOutputStream.writeBytes("--");
-                        dataOutputStream.writeBytes("\r\n");
+                        dataOutputStream.write(bArr, 0, read);
                         dataOutputStream.flush();
-                        StringBuffer stringBuffer = new StringBuffer();
-                        BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(readLine);
-                            } catch (IOException e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                dataOutputStream2 = dataOutputStream;
-                                obj = name;
-                                try {
-                                    throw e;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    name = obj;
-                                    dataOutputStream = dataOutputStream2;
-                                    if (name != 0) {
-                                        try {
-                                            name.close();
-                                        } catch (IOException e2) {
-                                            Log.e("com.xiaomi.common.Network", "error while closing strean", e2);
-                                            throw th;
-                                        }
-                                    }
-                                    if (dataOutputStream != null) {
-                                        dataOutputStream.close();
-                                    }
-                                    if (bufferedReader != null) {
-                                        bufferedReader.close();
-                                    }
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                throw new IOException(th.getMessage());
-                            }
-                        }
-                        String stringBuffer2 = stringBuffer.toString();
-                        if (name != 0) {
-                            try {
-                                name.close();
-                            } catch (IOException e3) {
-                                Log.e("com.xiaomi.common.Network", "error while closing strean", e3);
+                    }
+                    dataOutputStream.writeBytes("\r\n");
+                    dataOutputStream.writeBytes("--");
+                    dataOutputStream.writeBytes("*****");
+                    dataOutputStream.writeBytes("--");
+                    dataOutputStream.writeBytes("\r\n");
+                    dataOutputStream.flush();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                String stringBuffer2 = stringBuffer.toString();
+                                com.xiaomi.channel.commonutils.file.b.a(fileInputStream);
+                                com.xiaomi.channel.commonutils.file.b.a(bufferedReader2);
                                 return stringBuffer2;
                             }
+                            stringBuffer.append(readLine);
+                        } catch (IOException e) {
+                            e = e;
+                            bufferedReader = bufferedReader2;
+                            fileInputStream2 = fileInputStream;
+                            try {
+                                throw new IOException("IOException:" + e.getClass().getSimpleName());
+                            } catch (Throwable th) {
+                                th = th;
+                                fileInputStream = fileInputStream2;
+                                com.xiaomi.channel.commonutils.file.b.a(fileInputStream);
+                                com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            bufferedReader = bufferedReader2;
+                            com.xiaomi.channel.commonutils.file.b.a(fileInputStream);
+                            com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
+                            throw th;
                         }
-                        if (dataOutputStream != null) {
-                            dataOutputStream.close();
-                        }
-                        if (bufferedReader2 != null) {
-                            bufferedReader2.close();
-                            return stringBuffer2;
-                        }
-                        return stringBuffer2;
-                    } catch (IOException e4) {
-                        e = e4;
-                        dataOutputStream2 = dataOutputStream;
-                        obj = name;
-                    } catch (Throwable th3) {
-                        th = th3;
                     }
-                } catch (IOException e5) {
-                    e = e5;
-                    dataOutputStream2 = dataOutputStream;
-                    obj = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    name = 0;
+                } catch (IOException e2) {
+                    e = e2;
+                    fileInputStream2 = fileInputStream;
+                } catch (Throwable th3) {
+                    th = th3;
                 }
-            } catch (Throwable th5) {
-                th = th5;
+            } catch (Throwable th4) {
+                th = th4;
             }
-        } catch (IOException e6) {
-            e = e6;
-            dataOutputStream2 = null;
-            obj = null;
-        } catch (Throwable th6) {
-            th = th6;
-            dataOutputStream = null;
-            name = 0;
+        } catch (IOException e3) {
+            e = e3;
+            fileInputStream2 = null;
+        } catch (Throwable th5) {
+            th = th5;
         }
-    }
-
-    public static String a(URL url) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(url.getProtocol()).append("://").append("10.0.0.172").append(url.getPath());
-        if (!TextUtils.isEmpty(url.getQuery())) {
-            sb.append("?").append(url.getQuery());
-        }
-        return sb.toString();
     }
 
     public static String a(Map<String, String> map) {
@@ -498,17 +398,8 @@ public class d {
     }
 
     public static HttpURLConnection b(Context context, URL url) {
-        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol())) {
-            if (c(context)) {
-                return (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80)));
-            }
-            if (b(context)) {
-                String host = url.getHost();
-                HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a(url)).openConnection();
-                httpURLConnection.addRequestProperty("X-Online-Host", host);
-                return httpURLConnection;
-            }
-            return (HttpURLConnection) url.openConnection();
+        if (HttpHost.DEFAULT_SCHEME_NAME.equals(url.getProtocol()) && b(context)) {
+            return (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80)));
         }
         return (HttpURLConnection) url.openConnection();
     }
@@ -518,33 +409,6 @@ public class d {
     }
 
     public static boolean b(Context context) {
-        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimCountryIso())) {
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    try {
-                        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-                        if (activeNetworkInfo != null) {
-                            String extraInfo = activeNetworkInfo.getExtraInfo();
-                            if (TextUtils.isEmpty(extraInfo) || extraInfo.length() < 3 || extraInfo.contains(Apn.APN_CTWAP)) {
-                                return false;
-                            }
-                            return extraInfo.regionMatches(true, extraInfo.length() - 3, "wap", 0, 3);
-                        }
-                        return false;
-                    } catch (Exception e) {
-                        return false;
-                    }
-                }
-                return false;
-            } catch (Exception e2) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public static boolean c(Context context) {
         if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -571,11 +435,11 @@ public class d {
         return false;
     }
 
-    public static boolean d(Context context) {
+    public static boolean c(Context context) {
         return a(context) >= 0;
     }
 
-    public static boolean e(Context context) {
+    public static boolean d(Context context) {
         NetworkInfo networkInfo;
         try {
             networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
@@ -585,7 +449,7 @@ public class d {
         return networkInfo != null && networkInfo.isConnected();
     }
 
-    public static boolean f(Context context) {
+    public static boolean e(Context context) {
         try {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
@@ -603,6 +467,10 @@ public class d {
         } catch (Exception e2) {
             return false;
         }
+    }
+
+    public static boolean f(Context context) {
+        return g(context) || h(context) || i(context);
     }
 
     public static boolean g(Context context) {
@@ -675,7 +543,7 @@ public class d {
     }
 
     public static String k(Context context) {
-        if (f(context)) {
+        if (e(context)) {
             return "wifi";
         }
         try {

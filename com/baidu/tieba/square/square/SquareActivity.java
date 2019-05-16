@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.h;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.SquareModel;
 /* loaded from: classes5.dex */
 public class SquareActivity extends ProxyAdkBaseActivity<Object> implements SwipeBackLayout.c {
@@ -23,64 +23,64 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     private TbPageContext<Object> mContext;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private h iBK = null;
-    private SquareModel iBL = null;
-    private boolean iBM = false;
-    private boolean iBN = false;
-    private long eCx = -1;
-    private final SquareModel.a iBO = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareActivity.2
+    private h iUy = null;
+    private SquareModel iUz = null;
+    private boolean iUA = false;
+    private boolean iUB = false;
+    private long eSl = -1;
+    private final SquareModel.a iUC = new SquareModel.a() { // from class: com.baidu.tieba.square.square.SquareActivity.2
         @Override // com.baidu.tieba.square.square.SquareModel.a
         public void a(boolean z, String str, f fVar) {
-            SquareActivity.this.iBK.y(true, "");
-            SquareActivity.this.hideLoadingView(SquareActivity.this.iBK.getRootView());
+            SquareActivity.this.iUy.x(true, "");
+            SquareActivity.this.hideLoadingView(SquareActivity.this.iUy.getRootView());
             if (z && fVar != null && !fVar.isEmpty()) {
-                SquareActivity.this.iBK.c(SquareActivity.this.iBL.cdh());
-                SquareActivity.this.iBM = true;
-                SquareActivity.this.iBK.hideNoDataView();
-                SquareActivity.this.aYm();
+                SquareActivity.this.iUy.c(SquareActivity.this.iUz.cll());
+                SquareActivity.this.iUA = true;
+                SquareActivity.this.iUy.hideNoDataView();
+                SquareActivity.this.bfG();
             }
-            if (SquareActivity.this.iBN) {
-                SquareActivity.this.iBN = false;
-                SquareActivity.this.pQ(true);
-                if (!SquareActivity.this.iBM) {
-                    SquareActivity.this.iBK.hideNoDataView();
-                    SquareActivity.this.showLoadingView(SquareActivity.this.iBK.getRootView());
+            if (SquareActivity.this.iUB) {
+                SquareActivity.this.iUB = false;
+                SquareActivity.this.qF(true);
+                if (!SquareActivity.this.iUA) {
+                    SquareActivity.this.iUy.hideNoDataView();
+                    SquareActivity.this.showLoadingView(SquareActivity.this.iUy.getRootView());
                 }
             } else {
-                if (SquareActivity.this.eCx > -1) {
+                if (SquareActivity.this.eSl > -1) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    TiebaStatic.page("op_square_enter", currentTimeMillis - SquareActivity.this.eCx, SquareActivity.this.iBL.aWS() - SquareActivity.this.eCx, SquareActivity.this.iBL.aWQ(), SquareActivity.this.iBL.aWR(), currentTimeMillis - SquareActivity.this.iBL.aWP());
-                    SquareActivity.this.eCx = -1L;
+                    TiebaStatic.page("op_square_enter", currentTimeMillis - SquareActivity.this.eSl, SquareActivity.this.iUz.beg() - SquareActivity.this.eSl, SquareActivity.this.iUz.bee(), SquareActivity.this.iUz.bef(), currentTimeMillis - SquareActivity.this.iUz.bed());
+                    SquareActivity.this.eSl = -1L;
                 }
-                if (!SquareActivity.this.iBM) {
-                    if (j.kY()) {
-                        SquareActivity.this.iBK.nQ(d.j.no_data_text);
+                if (!SquareActivity.this.iUA) {
+                    if (j.jS()) {
+                        SquareActivity.this.iUy.oH(R.string.no_data_text);
                     } else {
-                        SquareActivity.this.iBK.nQ(d.j.game_index_no_network_text);
+                        SquareActivity.this.iUy.oH(R.string.game_index_no_network_text);
                     }
                 }
             }
-            if (!j.kY()) {
-                SquareActivity.this.iBK.cdk();
-                if (!SquareActivity.this.iBM) {
-                    SquareActivity.this.aYl();
+            if (!j.jS()) {
+                SquareActivity.this.iUy.clo();
+                if (!SquareActivity.this.iUA) {
+                    SquareActivity.this.bfF();
                     return;
                 }
                 return;
             }
             SquareActivity.this.mContext.showToast(str);
-            SquareActivity.this.iBK.cdl();
+            SquareActivity.this.iUy.clp();
         }
     };
-    private final NoNetworkView.a emz = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareActivity.3
+    private final NoNetworkView.a eCk = new NoNetworkView.a() { // from class: com.baidu.tieba.square.square.SquareActivity.3
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void dP(boolean z) {
+        public void el(boolean z) {
             if (z) {
-                SquareActivity.this.pQ(true);
+                SquareActivity.this.qF(true);
             }
         }
     };
-    private final View.OnKeyListener iBP = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareActivity.4
+    private final View.OnKeyListener iUD = new View.OnKeyListener() { // from class: com.baidu.tieba.square.square.SquareActivity.4
         @Override // android.view.View.OnKeyListener
         public boolean onKey(View view, int i, KeyEvent keyEvent) {
             if (view instanceof ListView) {
@@ -104,10 +104,10 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
             return false;
         }
     };
-    private final h.c bRJ = new h.c() { // from class: com.baidu.tieba.square.square.SquareActivity.5
+    private final h.c bZA = new h.c() { // from class: com.baidu.tieba.square.square.SquareActivity.5
         @Override // com.baidu.tbadk.core.view.h.c
-        public void dR(boolean z) {
-            SquareActivity.this.pQ(true);
+        public void en(boolean z) {
+            SquareActivity.this.qF(true);
         }
     };
 
@@ -116,101 +116,101 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mContext = getPageContext();
-        this.eCx = System.currentTimeMillis();
-        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(d.h.square_view, (ViewGroup) null);
+        this.eSl = System.currentTimeMillis();
+        this.mRootView = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.square_view, (ViewGroup) null);
         getPageContext().getPageActivity().setContentView(this.mRootView);
         initUI();
         initData();
     }
 
     private void initUI() {
-        this.iBK = new h(getPageContext(), this.mRootView, this.iBP);
-        this.iBK.setListPullRefreshListener(this.bRJ);
-        this.mNavigationBar = (NavigationBar) this.mContext.getPageActivity().findViewById(d.g.view_navigation_bar);
+        this.iUy = new h(getPageContext(), this.mRootView, this.iUD);
+        this.iUy.setListPullRefreshListener(this.bZA);
+        this.mNavigationBar = (NavigationBar) this.mContext.getPageActivity().findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.square.square.SquareActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SquareActivity.this.closeActivity();
             }
         });
-        this.mNavigationBar.setTitleText(this.mContext.getString(d.j.ba_square));
+        this.mNavigationBar.setTitleText(this.mContext.getString(R.string.ba_square));
     }
 
     private void initData() {
-        this.iBL = new SquareModel(getPageContext());
-        this.iBL.a(this.iBO);
-        this.iBN = true;
-        pQ(this.iBN);
+        this.iUz = new SquareModel(getPageContext());
+        this.iUz.a(this.iUC);
+        this.iUB = true;
+        qF(this.iUB);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYl() {
-        this.iBK.d(this.emz);
+    public void bfF() {
+        this.iUy.d(this.eCk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aYm() {
-        this.iBK.e(this.emz);
+    public void bfG() {
+        this.iUy.e(this.eCk);
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onResume() {
         super.onResume();
         if (needRefresh) {
-            pQ(true);
+            qF(true);
             needRefresh = false;
         }
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onDestroy() {
-        anw();
+        asz();
         super.onDestroy();
     }
 
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iBK != null) {
-            this.iBK.onChangeSkinType(i);
+        if (this.iUy != null) {
+            this.iUy.onChangeSkinType(i);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
-    private void anw() {
-        if (this.iBL != null) {
-            this.iBL.cancelLoadData();
+    private void asz() {
+        if (this.iUz != null) {
+            this.iUz.cancelLoadData();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void pQ(boolean z) {
+    public void qF(boolean z) {
         boolean z2;
         boolean z3;
         boolean z4 = false;
-        if (this.iBL != null) {
-            boolean z5 = this.iBL.cdh() == null || this.iBL.cdh().isEmpty();
+        if (this.iUz != null) {
+            boolean z5 = this.iUz.cll() == null || this.iUz.cll().isEmpty();
             boolean z6 = z;
-            if (j.kY()) {
+            if (j.jS()) {
                 boolean z7 = z5;
                 z2 = z6;
                 z3 = z7;
             } else {
-                this.iBN = false;
+                this.iUB = false;
                 z3 = true;
                 z2 = false;
             }
-            if (this.iBN) {
+            if (this.iUB) {
                 z3 = true;
             } else {
                 z4 = z2;
             }
             if (z3 || z4) {
-                anw();
+                asz();
                 if (z4) {
-                    this.iBL.cdi();
+                    this.iUz.clm();
                 } else {
-                    this.iBL.cdj();
+                    this.iUz.cln();
                 }
             }
         }
@@ -231,12 +231,12 @@ public class SquareActivity extends ProxyAdkBaseActivity<Object> implements Swip
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.c
-    public void po() {
+    public void oj() {
         setSwipeBackEnabled(true);
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.c
-    public void pp() {
+    public void ok() {
         setSwipeBackEnabled(false);
     }
 }

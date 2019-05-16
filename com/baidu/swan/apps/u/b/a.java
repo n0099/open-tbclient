@@ -9,76 +9,31 @@ public abstract class a implements com.baidu.swan.apps.b.b.f {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vz() {
+    public String wo() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vA() {
+    public String wp() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public void vB() {
+    public void wq() {
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String bs(Context context) {
+    public String aL(Context context) {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vD() {
+    public String ws() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
-    public String vF() {
-        return "https://mbd.baidu.com/pms";
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vG() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vH() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vI() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vJ() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vK() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vL() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vM() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vN() {
-        return null;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String vO() {
-        return null;
+    public String wu() {
+        return "https://ossapi.baidu.com/pms";
     }
 }

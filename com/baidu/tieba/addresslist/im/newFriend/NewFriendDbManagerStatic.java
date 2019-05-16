@@ -25,7 +25,7 @@ import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic cOT = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic cXe = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001216) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.1
@@ -67,14 +67,14 @@ public class NewFriendDbManagerStatic {
                     aVar.setStatus(0);
                     aVar.setPortrait(portrait);
                     aVar.setContent(content);
-                    aVar.tD(0);
+                    aVar.uK(0);
                     aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.12.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.z
-                        /* renamed from: awS */
+                        /* renamed from: aBY */
                         public Void doInBackground() {
-                            if (!b.awW().bC(id)) {
-                                b.awW().g(aVar);
+                            if (!b.aCc().bR(id)) {
+                                b.aCc().g(aVar);
                                 return null;
                             }
                             return null;
@@ -94,20 +94,20 @@ public class NewFriendDbManagerStatic {
                     final long friendId = responseAddFriendMessage.getFriendId();
                     final com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
                     aVar.setId(friendId);
-                    aVar.tD(0);
+                    aVar.uK(0);
                     aVar.setContent(requestAddFriendMessage.getMessage());
                     if (error == 0) {
                         aVar.setStatus(3);
                         aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.15.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.z
-                            /* renamed from: awS */
+                            /* renamed from: aBY */
                             public Void doInBackground() {
-                                com.baidu.tieba.im.data.a bD = b.awW().bD(friendId);
-                                if (bD != null) {
-                                    aVar.setName(bD.getName());
-                                    aVar.setPortrait(bD.getPortrait());
-                                    b.awW().g(aVar);
+                                com.baidu.tieba.im.data.a bS = b.aCc().bS(friendId);
+                                if (bS != null) {
+                                    aVar.setName(bS.getName());
+                                    aVar.setPortrait(bS.getPortrait());
+                                    b.aCc().g(aVar);
                                 }
                                 return null;
                             }
@@ -128,14 +128,14 @@ public class NewFriendDbManagerStatic {
                             aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.15.3
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // com.baidu.tbadk.util.z
-                                /* renamed from: awS */
+                                /* renamed from: aBY */
                                 public Void doInBackground() {
-                                    if (0 != friendId2 && b.awW().bC(friendId2)) {
+                                    if (0 != friendId2 && b.aCc().bR(friendId2)) {
                                         com.baidu.tieba.im.data.a aVar2 = new com.baidu.tieba.im.data.a();
                                         aVar2.setId(friendId2);
                                         aVar2.setStatus(3);
-                                        aVar2.tD(0);
-                                        b.awW().h(aVar2);
+                                        aVar2.uK(0);
+                                        b.aCc().h(aVar2);
                                     }
                                     return null;
                                 }
@@ -164,11 +164,11 @@ public class NewFriendDbManagerStatic {
                         aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.16.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.z
-                            /* renamed from: awS */
+                            /* renamed from: aBY */
                             public Void doInBackground() {
                                 if (0 != friendId) {
-                                    b.awW().bB(friendId);
-                                    m.bsw().wL(String.valueOf(friendId));
+                                    b.aCc().bQ(friendId);
+                                    m.bAi().ya(String.valueOf(friendId));
                                 }
                                 return null;
                             }
@@ -199,19 +199,19 @@ public class NewFriendDbManagerStatic {
                     final com.baidu.tieba.im.data.a aVar = new com.baidu.tieba.im.data.a();
                     aVar.setId(friendId);
                     aVar.setStatus(2);
-                    aVar.tD(0);
+                    aVar.uK(0);
                     if (error == 0) {
                         aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.17.1
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // com.baidu.tbadk.util.z
-                            /* renamed from: awS */
+                            /* renamed from: aBY */
                             public Void doInBackground() {
-                                com.baidu.tieba.im.data.a bD;
-                                if (0 != friendId && (bD = b.awW().bD(friendId)) != null) {
-                                    aVar.setContent(bD.getContent());
-                                    aVar.setName(bD.getName());
-                                    aVar.setPortrait(bD.getPortrait());
-                                    b.awW().g(aVar);
+                                com.baidu.tieba.im.data.a bS;
+                                if (0 != friendId && (bS = b.aCc().bS(friendId)) != null) {
+                                    aVar.setContent(bS.getContent());
+                                    aVar.setName(bS.getName());
+                                    aVar.setPortrait(bS.getPortrait());
+                                    b.aCc().g(aVar);
                                 }
                                 return null;
                             }
@@ -230,14 +230,14 @@ public class NewFriendDbManagerStatic {
                             aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.17.3
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // com.baidu.tbadk.util.z
-                                /* renamed from: awS */
+                                /* renamed from: aBY */
                                 public Void doInBackground() {
-                                    if (0 != friendId2 && b.awW().bC(friendId2)) {
+                                    if (0 != friendId2 && b.aCc().bR(friendId2)) {
                                         com.baidu.tieba.im.data.a aVar2 = new com.baidu.tieba.im.data.a();
                                         aVar2.setId(friendId2);
                                         aVar2.setStatus(2);
-                                        aVar2.tD(0);
-                                        b.awW().h(aVar2);
+                                        aVar2.uK(0);
+                                        b.aCc().h(aVar2);
                                     }
                                     return null;
                                 }
@@ -260,7 +260,7 @@ public class NewFriendDbManagerStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().remove("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
+                    com.baidu.tbadk.core.sharedPref.b.agM().remove("get_addresslist_switch" + ((String) customResponsedMessage.getData()));
                 }
             }
         });
@@ -275,17 +275,17 @@ public class NewFriendDbManagerStatic {
                         String content = p.getContent();
                         if (!TextUtils.isEmpty(content)) {
                             if (cmd.equals("apply_new_friend")) {
-                                NewFriendDbManagerStatic.awR().qX(content);
+                                NewFriendDbManagerStatic.aBX().sg(content);
                             } else if (cmd.equals("passed_new_friend")) {
-                                NewFriendDbManagerStatic.awR().qY(content);
+                                NewFriendDbManagerStatic.aBX().sh(content);
                             } else if (cmd.equals("delete_new_friend")) {
-                                NewFriendDbManagerStatic.awR().qZ(content);
+                                NewFriendDbManagerStatic.aBX().si(content);
                             } else if (cmd.equals("apply_reply_message")) {
-                                NewFriendDbManagerStatic.awR().ra(content);
+                                NewFriendDbManagerStatic.aBX().sj(content);
                             } else if (cmd.equals("apply_add_friend")) {
-                                NewFriendDbManagerStatic.awR().rb(content);
+                                NewFriendDbManagerStatic.aBX().sk(content);
                             } else if (cmd.equals("apply_pass_friend")) {
-                                NewFriendDbManagerStatic.awR().rc(content);
+                                NewFriendDbManagerStatic.aBX().sl(content);
                             }
                         }
                     }
@@ -304,7 +304,7 @@ public class NewFriendDbManagerStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new ResponseNewFriendDataMessage(b.awW().bD(customMessage.getData().longValue()));
+                return new ResponseNewFriendDataMessage(b.aCc().bS(customMessage.getData().longValue()));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.ASYNCHRONIZED);
@@ -314,8 +314,8 @@ public class NewFriendDbManagerStatic {
     private NewFriendDbManagerStatic() {
     }
 
-    public static NewFriendDbManagerStatic awR() {
-        return cOT;
+    public static NewFriendDbManagerStatic aBX() {
+        return cXe;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -336,9 +336,9 @@ public class NewFriendDbManagerStatic {
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.18.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        AnonymousClass18.this.num = b.awW().awX();
+                        AnonymousClass18.this.num = b.aCc().aCd();
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.18.2
@@ -353,7 +353,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void qX(String str) {
+    public void sg(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -362,15 +362,15 @@ public class NewFriendDbManagerStatic {
                 aVar.setName(optJSONObject.optString("user_name"));
                 aVar.setPortrait(optJSONObject.optString(IntentConfig.PORTRAIT));
                 aVar.setContent(optJSONObject.optString("message"));
-                aVar.tD(0);
+                aVar.uK(0);
                 aVar.setStatus(1);
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().g(aVar);
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(b.awW().awX(), true));
+                        b.aCc().g(aVar);
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(b.aCc().aCd(), true));
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.3
@@ -387,7 +387,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void qY(String str) {
+    public void sh(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -398,15 +398,15 @@ public class NewFriendDbManagerStatic {
                 aVar.setContent(optJSONObject.optString("message"));
                 final String optString = optJSONObject.optString("key");
                 final String optString2 = optJSONObject.optString("pinyin");
-                aVar.tD(0);
+                aVar.uK(0);
                 aVar.setStatus(4);
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.4
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().g(aVar);
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(b.awW().awX(), true));
+                        b.aCc().g(aVar);
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new ResponseUnreadPointNum(b.aCc().aCd(), true));
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.5
@@ -423,7 +423,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void qZ(String str) {
+    public void si(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -431,9 +431,9 @@ public class NewFriendDbManagerStatic {
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.6
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().bB(optLong);
+                        b.aCc().bQ(optLong);
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.7
@@ -449,7 +449,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void ra(String str) {
+    public void sj(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -466,15 +466,15 @@ public class NewFriendDbManagerStatic {
                 }
                 aVar.setContent(optString3);
                 aVar.setId(optLong);
-                aVar.tD(1);
+                aVar.uK(1);
                 aVar.setName(optString);
                 aVar.setPortrait(optString2);
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.8
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().g(aVar);
+                        b.aCc().g(aVar);
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.9
@@ -491,7 +491,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void rb(String str) {
+    public void sk(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -503,15 +503,15 @@ public class NewFriendDbManagerStatic {
                 aVar.setStatus(3);
                 aVar.setContent(optString3);
                 aVar.setId(optLong);
-                aVar.tD(1);
+                aVar.uK(1);
                 aVar.setName(optString);
                 aVar.setPortrait(optString2);
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.10
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().g(aVar);
+                        b.aCc().g(aVar);
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.11
@@ -528,7 +528,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void rc(String str) {
+    public void sl(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -540,15 +540,15 @@ public class NewFriendDbManagerStatic {
                 aVar.setStatus(2);
                 aVar.setContent(optString3);
                 aVar.setId(optLong);
-                aVar.tD(1);
+                aVar.uK(1);
                 aVar.setName(optString);
                 aVar.setPortrait(optString2);
                 aa.b(new z<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.13
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.z
-                    /* renamed from: awS */
+                    /* renamed from: aBY */
                     public Void doInBackground() {
-                        b.awW().g(aVar);
+                        b.aCc().g(aVar);
                         return null;
                     }
                 }, new k<Void>() { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.14

@@ -805,7 +805,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.ca(message.arg1, message.arg2);
+                    e.ch(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

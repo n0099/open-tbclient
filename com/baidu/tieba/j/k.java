@@ -11,48 +11,48 @@ import com.baidu.tieba.play.QuickVideoView;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long gYA;
-    private long gYB;
-    private boolean gYC;
+    private long hpR;
+    private long hpS;
+    private boolean hpT;
 
-    public void bEx() {
-        this.gYC = true;
-        this.gYA = SystemClock.elapsedRealtime();
+    public void bMi() {
+        this.hpT = true;
+        this.hpR = SystemClock.elapsedRealtime();
     }
 
-    public void bEy() {
-        this.gYB = SystemClock.elapsedRealtime();
+    public void bMj() {
+        this.hpS = SystemClock.elapsedRealtime();
     }
 
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.gYC) {
-            this.gYC = false;
+        if (this.hpT) {
+            this.hpT = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.gYB - this.gYA;
-            long j4 = elapsedRealtime - this.gYB;
-            long j5 = elapsedRealtime - this.gYA;
+            long j3 = this.hpS - this.hpR;
+            long j4 = elapsedRealtime - this.hpS;
+            long j5 = elapsedRealtime - this.hpR;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
-                amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
-                amVar.k("obj_param1", j3);
-                amVar.k("obj_param2", j4);
-                amVar.k("obj_param3", j5);
-                amVar.k("obj_duration", j2);
-                amVar.k("resource_id", j);
-                amVar.T("ptype", com.baidu.adp.lib.util.j.netType());
-                amVar.bJ("tid", str);
-                amVar.bJ("cuid", TbadkCoreApplication.getInst().getCuid());
-                amVar.T(VideoPlayActivityConfig.OBJ_ID, ad.kd(zd(str2)) ? 1 : 0);
-                amVar.k("time_stamp", System.currentTimeMillis());
+                amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
+                amVar.l("obj_param1", j3);
+                amVar.l("obj_param2", j4);
+                amVar.l("obj_param3", j5);
+                amVar.l("obj_duration", j2);
+                amVar.l("resource_id", j);
+                amVar.P("ptype", com.baidu.adp.lib.util.j.netType());
+                amVar.bT("tid", str);
+                amVar.bT("cuid", TbadkCoreApplication.getInst().getCuid());
+                amVar.P(VideoPlayActivityConfig.OBJ_ID, ad.kS(At(str2)) ? 1 : 0);
+                amVar.l("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(amVar);
                 if (quickVideoView != null) {
-                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kd(zd(str2)) ? 1 : 0);
+                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kS(At(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int zd(String str) {
+    private int At(String str) {
         if ("frs".equals(str)) {
             return 2;
         }

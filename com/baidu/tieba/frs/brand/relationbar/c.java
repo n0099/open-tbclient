@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes4.dex */
 public class c extends RecyclerView.ItemDecoration {
-    private int eHj;
-    private int eHk;
+    private int eXt;
+    private int eXu;
     private int mEnd;
 
     public c(int i, int i2, int i3) {
-        this.eHj = i;
-        this.eHk = i2;
+        this.eXt = i;
+        this.eXu = i2;
         this.mEnd = i3;
     }
 
@@ -21,9 +21,9 @@ public class c extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.eHj;
+                rect.top = this.eXt;
             } else {
-                rect.top = this.eHk;
+                rect.top = this.eXu;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.bottom = this.mEnd;
@@ -32,9 +32,9 @@ public class c extends RecyclerView.ItemDecoration {
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.eHj;
+            rect.left = this.eXt;
         } else {
-            rect.left = this.eHk;
+            rect.left = this.eXu;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
             rect.right = this.mEnd;

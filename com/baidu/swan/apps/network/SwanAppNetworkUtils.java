@@ -49,14 +49,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String Fa = Fa();
+            String Hf = Hf();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(Fa, "no")) {
-                    Fa = "none";
+                if (TextUtils.equals(Hf, "no")) {
+                    Hf = "none";
                 }
-                jSONObject.put("networkType", Fa);
+                jSONObject.put("networkType", Hf);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -72,7 +72,7 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String l(int i, String str) {
+    public static String o(int i, String str) {
         if (DEBUG) {
             Log.d("NetWorkUtils", "——> getNetworkType: netType " + i + " subTypeName " + str);
         }
@@ -126,7 +126,7 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String Fa() {
+    public static String Hf() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
@@ -135,47 +135,47 @@ public class SwanAppNetworkUtils {
             return "wifi";
         }
         if (activeNetworkInfo.getType() == 0) {
-            return l(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+            return o(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
         }
         return "unknown";
     }
 
-    public static NetType Fb() {
-        String Fa = Fa();
+    public static NetType Hg() {
+        String Hf = Hf();
         char c = 65535;
-        switch (Fa.hashCode()) {
+        switch (Hf.hashCode()) {
             case -840472412:
-                if (Fa.equals("unknow")) {
+                if (Hf.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (Fa.equals("2g")) {
+                if (Hf.equals("2g")) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (Fa.equals("3g")) {
+                if (Hf.equals("3g")) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (Fa.equals("4g")) {
+                if (Hf.equals("4g")) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (Fa.equals("no")) {
+                if (Hf.equals("no")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (Fa.equals("wifi")) {
+                if (Hf.equals("wifi")) {
                     c = 3;
                     break;
                 }

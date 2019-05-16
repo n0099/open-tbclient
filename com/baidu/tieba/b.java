@@ -11,44 +11,44 @@ import com.baidu.tieba.recapp.l;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b cHs;
-    private long cHp;
-    private final int cHn = 2;
-    private final int cHo = 3;
+    private static volatile b cPB;
+    private long cPy;
+    private final int cPw = 2;
+    private final int cPx = 3;
     private int interval = -1;
-    private CustomMessageListener cHt = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
+    private CustomMessageListener cPC = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bWF().bWA() != null) {
-                r.bWF().bWA().bWs();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.ceJ().ceE() != null) {
+                r.ceJ().ceE().cew();
             }
         }
     };
-    private CustomMessageListener cHu = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
+    private CustomMessageListener cPD = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                b.this.atZ();
+                b.this.aze();
             }
         }
     };
-    private CustomMessageListener cHv = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
+    private CustomMessageListener cPE = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cHp != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cPy != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (b.this.aua()) {
+                    if (!data.getClass().getSimpleName().equals("LoginActivity") && b.this.azf()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && b.this.aua()) {
+                } else if ((data instanceof BaseFragmentActivity) && b.this.azf()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -58,7 +58,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cHw = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
+    private CustomMessageListener cPF = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -67,63 +67,63 @@ public class b {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        b.this.cHq = currentTimeMillis - b.this.cHp <= 1;
+                        b.this.cPz = currentTimeMillis - b.this.cPy <= 1;
                     }
                 }
             }
         }
     };
-    private boolean cHq = false;
-    private boolean cHr = false;
+    private boolean cPz = false;
+    private boolean cPA = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b atY() {
-        if (cHs == null) {
+    public static b azd() {
+        if (cPB == null) {
             synchronized (b.class) {
-                if (cHs == null) {
-                    cHs = new b();
+                if (cPB == null) {
+                    cPB = new b();
                 }
             }
         }
-        return cHs;
+        return cPB;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.cHu);
-        MessageManager.getInstance().registerListener(this.cHv);
-        MessageManager.getInstance().registerListener(this.cHt);
-        MessageManager.getInstance().registerListener(this.cHw);
-        if (r.bWF().bWA() != null) {
-            r.bWF().bWA().bWr();
+        MessageManager.getInstance().registerListener(this.cPD);
+        MessageManager.getInstance().registerListener(this.cPE);
+        MessageManager.getInstance().registerListener(this.cPC);
+        MessageManager.getInstance().registerListener(this.cPF);
+        if (r.ceJ().ceE() != null) {
+            r.ceJ().ceE().cev();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void atZ() {
-        this.cHr = true;
-        this.cHp = System.currentTimeMillis() / 1000;
+    public void aze() {
+        this.cPA = true;
+        this.cPy = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aua() {
-        aub();
-        this.cHr = false;
+    public boolean azf() {
+        azg();
+        this.cPA = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.cHq) {
-            this.cHq = false;
+        if (this.cPz) {
+            this.cPz = false;
             return false;
-        } else if (currentTimeMillis - this.cHp <= 2 || currentTimeMillis - this.cHp <= this.interval) {
+        } else if (currentTimeMillis - this.cPy <= 2 || currentTimeMillis - this.cPy <= this.interval) {
             return false;
         } else {
-            l bWA = r.bWF().bWA();
-            return (bWA != null ? bWA.bWt() : 3) < 3;
+            l ceE = r.ceJ().ceE();
+            return (ceE != null ? ceE.cex() : 3) < 3;
         }
     }
 
-    private void aub() {
+    private void azg() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
-            this.interval = adAdSense.agc();
+            this.interval = adAdSense.alb();
             if (this.interval <= 0) {
                 this.interval = 86400;
                 return;

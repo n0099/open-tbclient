@@ -25,35 +25,35 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class TopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, TopicDetailActivity.class);
-        bmY();
-        bmZ();
-        bna();
-        bnb();
-        bnc();
+        buA();
+        buB();
+        buC();
+        buD();
+        buE();
     }
 
-    private static void bmY() {
+    private static void buA() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void bmZ() {
+    private static void buB() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void bna() {
+    private static void buC() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void bnb() {
+    private static void buD() {
         a.a(309085, BlessSocketResponseMessage.class, false, false);
         a.a(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void bnc() {
-        ba.adA().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
+    private static void buE() {
+        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
@@ -61,11 +61,11 @@ public class TopicStatic {
                 }
                 String lowerCase = strArr[0].toLowerCase();
                 if (lowerCase.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail")) {
-                    String bU = ae.bU(lowerCase, "topic_id=");
-                    if (StringUtils.isNull(bU)) {
+                    String ce = ae.ce(lowerCase, "topic_id=");
+                    if (StringUtils.isNull(ce)) {
                         return 3;
                     }
-                    tbPageContext.sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.d(bU, 0L))));
+                    tbPageContext.sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.c(ce, 0L))));
                     return 1;
                 } else if (lowerCase.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
                     try {

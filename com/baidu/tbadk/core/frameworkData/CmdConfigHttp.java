@@ -7,6 +7,7 @@ public class CmdConfigHttp {
     public static final int CAD_AD_STATISTIC_UPLOAD = 1003183;
     public static final int CARD_BOX_MEMBER_PAY_CMD = 1003317;
     public static final int CDN_IPLIST_CMD = 1002600;
+    public static final int CMD_ACTIVE_CONFIG = 1003432;
     public static final int CMD_ADD_EXPERIENCED = 1003332;
     public static final int CMD_ADD_LINK = 1003324;
     public static final int CMD_ADD_MSG_RECORD = 1003071;
@@ -22,10 +23,13 @@ public class CmdConfigHttp {
     public static final int CMD_ALL_THEME_LIST = 1003032;
     public static final int CMD_APPLY_COPY_THREAD = 1003066;
     public static final int CMD_AVATAR_PENDANT_LIST = 1003178;
+    public static final int CMD_BAR_ELECTION = 1003436;
+    public static final int CMD_BAR_VOTE = 1003437;
     public static final int CMD_BAR_ZHU_INFORMATION = 1003357;
     public static final int CMD_BUBBLE_CATEGORY = 1003039;
     public static final int CMD_BUBBLE_LIST = 1003055;
     public static final int CMD_BUBBLE_SET = 1003056;
+    public static final int CMD_CANDIDATE_SEARCH = 1003435;
     public static final int CMD_CHANGE_FLOOR_AGREE = 1001604;
     public static final int CMD_CHANGE_PORTRAIT = 1003063;
     public static final int CMD_CHANNEL_ADD_VIDEOS = 1003313;
@@ -38,10 +42,12 @@ public class CmdConfigHttp {
     public static final int CMD_CHANNEL_VIDEO_SET_TOP = 1003305;
     public static final int CMD_CHANNEL_VIDEO_UNSET_TOP = 1003308;
     public static final int CMD_CHECK_BAIDU_SIM = 1003392;
+    public static final int CMD_CHECK_CARD_INFO = 1003442;
     public static final int CMD_CHECK_REAL_NAME = 1003325;
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
+    public static final int CMD_COMMIT_CARD_INFO = 1003441;
     public static final int CMD_COMPLETE_TASK = 1003430;
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
@@ -58,6 +64,7 @@ public class CmdConfigHttp {
     public static final int CMD_EMOTION_EDIT_TEXT_UEG = 1003348;
     public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
+    public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003443;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
@@ -127,6 +134,7 @@ public class CmdConfigHttp {
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GRAFFITI_LIST = 1003082;
+    public static final int CMD_HISTORY_SWAN = 1003434;
     public static final int CMD_HOT_THREAD_UNLIKE = 1003017;
     public static final int CMD_HOT_TOPIC = 1003041;
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
@@ -170,6 +178,7 @@ public class CmdConfigHttp {
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
+    public static final int CMD_SAFE_URL_QUERY = 1003433;
     public static final int CMD_SCHEMA_UPLOAD = 1003393;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;
     public static final int CMD_SEARCH_LIST = 1003196;
@@ -186,6 +195,8 @@ public class CmdConfigHttp {
     public static final int CMD_SHARE_REPORT = 1003363;
     public static final int CMD_SHARE_SUCCESS_REPLY_SERVER = 1003383;
     public static final int CMD_SKIN_DETAIL = 1003037;
+    public static final int CMD_SMART_APP_BROWSE_HISTORY = 1003438;
+    public static final int CMD_SMART_APP_DEL_BROWSE_HISTORY = 1003439;
     public static final int CMD_SQUARE_FORUM_LIST = 1003060;
     public static final int CMD_STATIC_SPLASH = 1003193;
     public static final int CMD_SUBMIT_PB_SHOW_TIP = 1003374;
@@ -224,6 +235,7 @@ public class CmdConfigHttp {
     public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;
+    public static final int CMD_VOTE_THREAD_PULISH = 1003440;
     public static final int CMD_VR_LOGO = 1003182;
     public static final int CMD_WEB_HTTP_PROXY = 1003364;
     public static final int COMMON_PRAISE_Y_OR_N = 1001600;

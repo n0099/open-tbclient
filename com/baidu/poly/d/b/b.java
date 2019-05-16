@@ -1,7 +1,11 @@
 package com.baidu.poly.d.b;
 
+import android.content.Context;
+import com.baidu.poly.bean.PayChannel;
+import com.baidu.searchbox.plugin.api.InvokeCallback;
+import com.baidu.searchbox.plugin.api.InvokeListener;
+import com.baidu.searchbox.plugin.api.PluginInvoker;
 import com.baidu.searchbox.process.ipc.delegate.activity.PluginBaseDelegation;
-import com.baidu.swan.apps.aa.a.c;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 /* loaded from: classes2.dex */
 public class b extends PluginBaseDelegation {
@@ -13,15 +17,18 @@ public class b extends PluginBaseDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
         String string = this.mParams.getString("params");
-        this.mParams.getString(LogBuilder.KEY_CHANNEL);
-        com.baidu.swan.apps.u.a.Dd().a(getAgent(), string, new c() { // from class: com.baidu.poly.d.b.b.1
-            @Override // com.baidu.swan.apps.aa.a.c
-            public void h(int i, String str) {
-                b.this.mResult.putInt("stateCode", i);
-                b.this.mResult.putString("payDesc", str);
-                b.this.finish();
+        String string2 = this.mParams.getString(LogBuilder.KEY_CHANNEL);
+        InvokeCallback invokeCallback = new InvokeCallback() { // from class: com.baidu.poly.d.b.b.1
+        };
+        if (PayChannel.WECHAT.equalsIgnoreCase(string2)) {
+            try {
+                PluginInvoker.class.getDeclaredMethod("invokePlugin", Context.class, String.class, String.class, String.class, String.class, InvokeCallback.class, InvokeListener[].class).invoke(null, getAgent(), "com.baidu.wallet", "doDirectCallThirdPay", "searchbox:", string, invokeCallback, null);
+            } catch (Throwable th) {
+                throw new RuntimeException("call PluginInvoker.invokePlugin error", th);
             }
-        });
+        } else {
+            PluginInvoker.invokePluginBySwan(getAgent(), "com.baidu.wallet", "doDirectCallThirdPay", "searchbox:", string, invokeCallback, (InvokeListener[]) null);
+        }
         return false;
     }
 }

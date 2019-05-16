@@ -5,43 +5,49 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class h extends y {
+public class h extends z {
     public h(j jVar) {
         super(jVar, "/swan/setTabBarStyle");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             Log.d("SetTabBarStyleAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e Ea = com.baidu.swan.apps.w.e.Ea();
+        com.baidu.swan.apps.w.e FV = com.baidu.swan.apps.w.e.FV();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.e uy = Ea.uy();
-        if (uy == null) {
+        com.baidu.swan.apps.core.d.e vi = FV.vi();
+        if (vi == null) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.c.d yO = uy.yO();
+        com.baidu.swan.apps.core.d.d zL = vi.zL();
         String optString = optParamsAsJo.optString("color");
         String optString2 = optParamsAsJo.optString("selectedColor");
         String optString3 = optParamsAsJo.optString("backgroundColor");
         String optString4 = optParamsAsJo.optString("borderStyle");
-        if (yO == null) {
+        if (zL == null) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "swanAppFragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!yO.yC().k(optString, optString2, optString3, optString4)) {
+        }
+        com.baidu.swan.apps.tabbar.b.a zx = zL.zx();
+        if (zx == null) {
+            com.baidu.swan.apps.console.c.e("setTabBarStyle", "bottomBarViewController is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        } else if (!zx.k(optString, optString2, optString3, optString4)) {
             com.baidu.swan.apps.console.c.e("setTabBarStyle", "set bottom bar style fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

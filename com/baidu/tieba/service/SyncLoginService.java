@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
-import com.baidu.tieba.g;
+import com.baidu.tieba.f;
 import com.baidu.tieba.model.c;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
@@ -73,47 +73,47 @@ public class SyncLoginService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: D */
+        /* renamed from: C */
         public c doInBackground(String... strArr) {
             c cVar;
             Exception e;
             try {
                 this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/s/switch");
-                this.mNetWork.x("_os_version", Build.VERSION.RELEASE);
+                this.mNetWork.o("_os_version", Build.VERSION.RELEASE);
                 StringBuffer stringBuffer = new StringBuffer(15);
-                stringBuffer.append(String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
+                stringBuffer.append(String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
                 stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
-                stringBuffer.append(String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.x("_phone_screen", stringBuffer.toString());
-                this.mNetWork.x("scr_w", String.valueOf(l.aO(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.x("scr_h", String.valueOf(l.aQ(TbadkCoreApplication.getInst().getApp())));
-                this.mNetWork.x("scr_dip", String.valueOf(l.aR(TbadkCoreApplication.getInst().getApp())));
-                if (d.aie().aih() > 0) {
-                    this.mNetWork.x("_msg_status", "0");
+                stringBuffer.append(String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.o("_phone_screen", stringBuffer.toString());
+                this.mNetWork.o("scr_w", String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.o("scr_h", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
+                this.mNetWork.o("scr_dip", String.valueOf(l.ai(TbadkCoreApplication.getInst().getApp())));
+                if (d.anf().ani() > 0) {
+                    this.mNetWork.o("_msg_status", "0");
                 } else {
-                    this.mNetWork.x("_msg_status", "1");
+                    this.mNetWork.o("_msg_status", "1");
                 }
                 String activeVersion = TbadkCoreApplication.getInst().getActiveVersion();
                 if (activeVersion != null) {
                     if (activeVersion.length() < 1) {
                         activeVersion = "0";
                     }
-                    this.mNetWork.x("_active", activeVersion);
+                    this.mNetWork.o("_active", activeVersion);
                 }
-                this.mNetWork.x("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
+                this.mNetWork.o("_pic_quality", String.valueOf(TbadkCoreApplication.getInst().getViewImageQuality()));
                 if (SyncLoginService.mStatistics != null) {
-                    this.mNetWork.x("_msg_type", SyncLoginService.mStatistics);
+                    this.mNetWork.o("_msg_type", SyncLoginService.mStatistics);
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
-                this.mNetWork.x("package", packageName);
-                this.mNetWork.x("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.x("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.mNetWork.x("md5", g.getTiebaApkMd5());
-                String acg = this.mNetWork.acg();
-                if (this.mNetWork.acE().adD().isRequestSuccess()) {
+                this.mNetWork.o("package", packageName);
+                this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
+                this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.o("md5", f.getTiebaApkMd5());
+                String ahe = this.mNetWork.ahe();
+                if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(acg);
+                        cVar.parserJson(ahe);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {
@@ -133,7 +133,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.ji();
+                this.mNetWork.ia();
             }
             super.cancel(true);
         }

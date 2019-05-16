@@ -14,14 +14,14 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public static final Parcelable.Creator<VideoItemData> CREATOR = new Parcelable.Creator<VideoItemData>() { // from class: com.baidu.tieba.video.VideoItemData.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: P */
+        /* renamed from: S */
         public VideoItemData createFromParcel(Parcel parcel) {
             return new VideoItemData(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Al */
+        /* renamed from: Bt */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }
@@ -84,34 +84,34 @@ public class VideoItemData implements Parcelable, b, Serializable {
     public VideoItemData buildWithThreadData(bg bgVar) {
         if (bgVar != null) {
             this.thread_id = bgVar.getTid();
-            this.post_id = bgVar.Yz();
-            if (bgVar.Zf() != null) {
-                this.thumbnail_url = bgVar.Zf().thumbnail_url;
-                this.video_url = bgVar.Zf().video_url;
-                this.video_height = String.valueOf(bgVar.Zf().video_height);
-                this.video_width = String.valueOf(bgVar.Zf().video_width);
-                this.mMd5 = bgVar.Zf().video_md5;
-                this.video_duration = bgVar.Zf().video_duration.intValue();
-                this.play_count = bgVar.Zf().play_count.intValue();
-                this.isVerticalVideo = bgVar.Zf().is_vertical.intValue();
+            this.post_id = bgVar.adg();
+            if (bgVar.adM() != null) {
+                this.thumbnail_url = bgVar.adM().thumbnail_url;
+                this.video_url = bgVar.adM().video_url;
+                this.video_height = String.valueOf(bgVar.adM().video_height);
+                this.video_width = String.valueOf(bgVar.adM().video_width);
+                this.mMd5 = bgVar.adM().video_md5;
+                this.video_duration = bgVar.adM().video_duration.intValue();
+                this.play_count = bgVar.adM().play_count.intValue();
+                this.isVerticalVideo = bgVar.adM().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(bgVar.YF());
-            this.agree_num = String.valueOf(bgVar.aah());
-            this.share_num = String.valueOf(bgVar.aal());
+            this.comment_num = String.valueOf(bgVar.adm());
+            this.agree_num = String.valueOf(bgVar.aeO());
+            this.share_num = String.valueOf(bgVar.aeS());
             this.title = bgVar.getTitle();
             this.forum_id = String.valueOf(bgVar.getFid());
-            this.forum_name = bgVar.YT();
-            this.is_agreed = String.valueOf(bgVar.aaj());
-            if (bgVar.YO() != null) {
+            this.forum_name = bgVar.adA();
+            this.is_agreed = String.valueOf(bgVar.aeQ());
+            if (bgVar.adv() != null) {
                 UserItemData userItemData = new UserItemData();
-                userItemData.user_name = bgVar.YO().getUserName();
-                userItemData.name_show = bgVar.YO().getName_show();
-                userItemData.portrait = bgVar.YO().getPortrait();
-                userItemData.user_id = bgVar.YO().getUserId();
-                userItemData.is_follow = bgVar.YO().hadConcerned() ? "1" : "0";
+                userItemData.user_name = bgVar.adv().getUserName();
+                userItemData.name_show = bgVar.adv().getName_show();
+                userItemData.portrait = bgVar.adv().getPortrait();
+                userItemData.user_id = bgVar.adv().getUserId();
+                userItemData.is_follow = bgVar.adv().hadConcerned() ? "1" : "0";
                 this.author_info = userItemData;
             }
-            this.act_info = bgVar.ZD();
+            this.act_info = bgVar.aek();
             this.mRecomAbTag = bgVar.mRecomAbTag;
             this.mRecomSource = bgVar.mRecomSource;
             this.mRecomWeight = bgVar.mRecomWeight;

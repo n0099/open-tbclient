@@ -13,12 +13,12 @@ import com.baidu.swan.apps.SwanAppActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class h extends y {
+public class h extends z {
     public h(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/getAppInfoSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
@@ -28,52 +28,58 @@ public class h extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b uA = bVar.uA();
-        if (uA == null || !uA.isValid()) {
+        com.baidu.swan.apps.v.b.b vk = bVar.vk();
+        if (vk == null || !vk.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", uA.mAppId);
-            jSONObject.put("appname", uA.axH);
-            if (!TextUtils.isEmpty(uA.axI)) {
-                jSONObject.put("iconUrl", uA.axI);
+            jSONObject.put("appid", vk.getAppId());
+            jSONObject.put("appname", vk.BM());
+            if (!TextUtils.isEmpty(vk.getIconUrl())) {
+                jSONObject.put("iconUrl", vk.getIconUrl());
             }
-            if (!TextUtils.isEmpty(uA.axL)) {
-                jSONObject.put("appLaunchScheme", uA.axL);
+            if (!TextUtils.isEmpty(vk.EX())) {
+                jSONObject.put("appLaunchScheme", vk.EX());
             }
-            String bJ = com.baidu.swan.apps.u.a.CB().bJ(context);
-            jSONObject.put("cuid", bJ);
-            jSONObject.put("mtjCuid", bJ);
-            jSONObject.put("clkid", uA.axV);
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, uA.axK);
-            jSONObject.put("appId", uA.mAppId);
-            Bundle bundle = uA.axU;
-            if (bundle != null) {
-                String string = bundle.getString("extraData");
+            if (vk.Fm() != null) {
+                String str = vk.Fm().description;
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("appDesc", str);
+                }
+            }
+            String bd = com.baidu.swan.apps.u.a.DG().bd(context);
+            jSONObject.put("cuid", bd);
+            jSONObject.put("mtjCuid", bd);
+            jSONObject.put("clkid", vk.Fb());
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vk.EW());
+            jSONObject.put("appId", vk.getAppId());
+            Bundle Fa = vk.Fa();
+            if (Fa != null) {
+                String string = Fa.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
                     jSONObject.put("extraData", new JSONObject(string));
                 }
-                if (!TextUtils.isEmpty(bundle.getString("srcAppId"))) {
-                    jSONObject.put("srcAppId", bundle.getString("srcAppId"));
+                if (!TextUtils.isEmpty(Fa.getString("srcAppId"))) {
+                    jSONObject.put("srcAppId", Fa.getString("srcAppId"));
                 }
-                if (!TextUtils.isEmpty(bundle.getString("srcAppPage"))) {
-                    jSONObject.put("srcAppPage", bundle.getString("srcAppPage"));
+                if (!TextUtils.isEmpty(Fa.getString("srcAppPage"))) {
+                    jSONObject.put("srcAppPage", Fa.getString("srcAppPage"));
                 }
-                String str = NotificationCompat.CATEGORY_SYSTEM;
-                SwanAppActivity DM = com.baidu.swan.apps.w.e.Ea().DM();
-                if (DM != null) {
-                    str = DM.ux();
+                String str2 = NotificationCompat.CATEGORY_SYSTEM;
+                SwanAppActivity FH = com.baidu.swan.apps.w.e.FV().FH();
+                if (FH != null) {
+                    str2 = FH.vh();
                 }
-                if (TextUtils.isEmpty(str)) {
-                    str = NotificationCompat.CATEGORY_SYSTEM;
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = NotificationCompat.CATEGORY_SYSTEM;
                 }
                 if (DEBUG) {
-                    Log.d("GetAppInfoSyncAction", "showBy: " + str);
+                    Log.d("GetAppInfoSyncAction", "showBy: " + str2);
                 }
-                jSONObject.put("showBy", str);
+                jSONObject.put("showBy", str2);
             }
             if (DEBUG && jSONObject != null) {
                 Log.d("GetAppInfoSyncAction", "data: " + jSONObject.toString());

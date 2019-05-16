@@ -35,7 +35,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         if (newTopicThreadResIdl != null) {
             setError(newTopicThreadResIdl.error.errorno.intValue());
             setErrorString(newTopicThreadResIdl.error.usermsg);
-            if (getError() == 0 && newTopicThreadResIdl.data != null && !v.T(newTopicThreadResIdl.data.thread_list)) {
+            if (getError() == 0 && newTopicThreadResIdl.data != null && !v.aa(newTopicThreadResIdl.data.thread_list)) {
                 if (newTopicThreadResIdl.data.has_more.intValue() == 1) {
                     this.hasMore = true;
                 }

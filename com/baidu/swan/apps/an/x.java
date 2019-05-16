@@ -1,341 +1,217 @@
 package com.baidu.swan.apps.an;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.Build;
-import android.support.annotation.UiThread;
+import android.annotation.SuppressLint;
+import android.os.Environment;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.KeyCharacterMap;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.widget.AbsoluteLayout;
-import android.widget.TextView;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.res.ui.BdBaseImageView;
-import com.meizu.cloud.pushsdk.constants.MeizuConstants;
-import java.lang.reflect.Method;
+import com.xiaomi.mipush.sdk.Constants;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 /* loaded from: classes2.dex */
-public class x {
-    private static DisplayMetrics aWw;
+public final class x {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final DisplayMetrics aWx = com.baidu.swan.apps.u.a.Cw().getResources().getDisplayMetrics();
-    private static final float aWy = aWx.density;
 
-    public static int co(Context context) {
+    /* loaded from: classes2.dex */
+    public static class a {
+        public final boolean aZx;
+        public final boolean aZy;
+        public final int aZz;
+        public final String wV;
+
+        a(String str, boolean z, boolean z2, int i) {
+            this.wV = str;
+            this.aZx = z;
+            this.aZy = z2;
+            this.aZz = i;
+        }
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=5, 205=4, 206=4, 207=4] */
+    /* JADX WARN: Removed duplicated region for block: B:118:0x01dd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<a> OJ() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        BufferedReader bufferedReader3;
+        String str;
         int i;
-        boolean z;
-        com.baidu.swan.apps.core.c.d dVar;
-        boolean z2 = true;
-        if (context == null) {
-            return 0;
-        }
-        int displayHeight = getDisplayHeight(context);
-        int statusBarHeight = getStatusBarHeight();
-        int cp = cp(context);
+        boolean z = false;
+        HashMap hashMap = new HashMap();
+        ArrayList arrayList = new ArrayList();
+        String path = Environment.getExternalStorageDirectory().getPath();
+        boolean z2 = com.baidu.swan.apps.an.a.hasGingerbread() ? !Environment.isExternalStorageRemovable() : false;
+        String externalStorageState = Environment.getExternalStorageState();
+        z = (externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro")) ? true : true;
+        boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
         try {
-            i = context.getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
-        } catch (Resources.NotFoundException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            i = 0;
-        }
-        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        com.baidu.swan.apps.core.c.d dVar2 = null;
-        if (uy != null) {
-            com.baidu.swan.apps.core.c.b yN = uy.yN();
-            if (!(yN instanceof com.baidu.swan.apps.core.c.d)) {
-                dVar = null;
-            } else {
-                dVar = (com.baidu.swan.apps.core.c.d) yN;
-            }
-            if (yN != null && yN.yb()) {
+            try {
+                HashSet hashSet = new HashSet();
+                bufferedReader2 = new BufferedReader(new FileReader("/proc/mounts"));
                 try {
-                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_action_bar_shadow_height);
-                    if (dimensionPixelSize > 0) {
-                        i += dimensionPixelSize;
-                    }
-                    dVar2 = dVar;
-                } catch (Resources.NotFoundException e2) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        Log.d("StorageUtils", "/proc/mounts");
+                    }
+                    int i2 = 1;
+                    while (true) {
+                        String readLine = bufferedReader2.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        if (DEBUG) {
+                            Log.d("StorageUtils", readLine);
+                        }
+                        StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                        String nextToken = stringTokenizer.nextToken();
+                        String nextToken2 = stringTokenizer.nextToken();
+                        if (!hashSet.contains(nextToken2)) {
+                            stringTokenizer.nextToken();
+                            boolean contains = Arrays.asList(stringTokenizer.nextToken().split(Constants.ACCEPT_TIME_SEPARATOR_SP)).contains("ro");
+                            if (readLine.contains("vfat") || readLine.contains("/mnt")) {
+                                if (nextToken2.equals(path)) {
+                                    hashSet.add(path);
+                                    hashMap.put(nextToken, new a(path, z2, contains, -1));
+                                } else if (readLine.contains("/dev/block/vold")) {
+                                    if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
+                                        hashSet.add(nextToken2);
+                                        if (!hashMap.containsKey(nextToken)) {
+                                            hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
+                                            i2++;
+                                        }
+                                    }
+                                } else if (hashSet.contains(nextToken)) {
+                                    Iterator it = hashMap.keySet().iterator();
+                                    while (true) {
+                                        if (!it.hasNext()) {
+                                            str = null;
+                                            break;
+                                        }
+                                        str = (String) it.next();
+                                        if (TextUtils.equals(((a) hashMap.get(str)).wV, nextToken)) {
+                                            break;
+                                        }
+                                    }
+                                    hashMap.remove(str);
+                                    hashSet.add(nextToken2);
+                                    if (hashMap.containsKey(nextToken)) {
+                                        i = i2;
+                                    } else {
+                                        i = i2 + 1;
+                                        hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
+                                    }
+                                    i2 = i;
+                                }
+                            } else if (aN(nextToken, nextToken2)) {
+                                hashSet.add(nextToken2);
+                                if (ih(nextToken2)) {
+                                    arrayList.add(new a(nextToken2, false, contains, i2));
+                                    i2++;
+                                }
+                            }
+                        }
+                    }
+                    for (a aVar : hashMap.values()) {
+                        if (ih(aVar.wV)) {
+                            arrayList.add(aVar);
+                        }
+                    }
+                    if (!hashSet.contains(path) && z) {
+                        arrayList.add(0, new a(path, z2, equals, -1));
+                    }
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    bufferedReader3 = bufferedReader2;
+                    try {
+                        e.printStackTrace();
+                        if (bufferedReader3 != null) {
+                            try {
+                                bufferedReader3.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return arrayList;
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = bufferedReader3;
+                        if (bufferedReader != null) {
+                        }
+                        throw th;
+                    }
+                } catch (IOException e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    return arrayList;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e6) {
+                        e6.printStackTrace();
                     }
                 }
+                throw th;
             }
-            dVar2 = dVar;
-        }
-        if (dVar2 == null || !com.baidu.swan.apps.ae.a.d.a(dVar2.yj())) {
-            z = false;
-            z2 = false;
-        } else {
-            com.baidu.swan.apps.view.a.b yG = dVar2.yG();
-            z = yG != null && yG.Mz();
-        }
-        int i2 = displayHeight - cp;
-        if (!z) {
-            i2 -= statusBarHeight;
-        }
-        if (!z2) {
-            i2 -= i;
-        }
-        if (i2 > 0) {
-            return i2;
-        }
-        return 0;
-    }
-
-    public static int cp(Context context) {
-        com.baidu.swan.apps.core.c.b yN;
-        int i;
-        Resources.NotFoundException e;
-        com.baidu.swan.apps.core.c.e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (context == null || uy == null || (yN = uy.yN()) == null || !(yN instanceof com.baidu.swan.apps.core.c.d) || !((com.baidu.swan.apps.core.c.d) yN).xX()) {
-            return 0;
-        }
-        try {
-            i = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height);
-        } catch (Resources.NotFoundException e2) {
-            i = 0;
-            e = e2;
-        }
-        try {
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_shadow_height);
-            if (dimensionPixelSize > 0) {
-                return i + dimensionPixelSize;
+        } catch (FileNotFoundException e7) {
+            e = e7;
+            bufferedReader3 = null;
+        } catch (IOException e8) {
+            e = e8;
+            bufferedReader2 = null;
+        } catch (Throwable th3) {
+            th = th3;
+            bufferedReader = null;
+            if (bufferedReader != null) {
             }
-            return i;
-        } catch (Resources.NotFoundException e3) {
-            e = e3;
-            if (DEBUG) {
-                e.printStackTrace();
-                return i;
-            }
-            return i;
+            throw th;
         }
+        return arrayList;
     }
 
-    public static void a(BdBaseImageView bdBaseImageView, TextView textView, String str) {
-        if ("0".equals(str)) {
-            bdBaseImageView.setVisibility(8);
-            textView.setVisibility(8);
-        } else if ("1".equals(String.valueOf(str))) {
-            bdBaseImageView.setVisibility(0);
-            textView.setVisibility(0);
-            textView.setText(a.h.aiapps_history_aiapp_tag);
-        } else if ("2".equals(String.valueOf(str))) {
-            bdBaseImageView.setVisibility(0);
-            textView.setVisibility(0);
-            textView.setText(a.h.aiapps_history_aiapp_tag_trial);
-        } else if ("3".equals(String.valueOf(str))) {
-            bdBaseImageView.setVisibility(0);
-            textView.setVisibility(0);
-            textView.setText(a.h.aiapps_history_aiapp_tag_experience);
+    private static boolean ih(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
         }
+        return new File(str).canRead();
     }
 
-    public static void O(Activity activity) {
-        if (activity != null && com.baidu.swan.apps.view.a.b.aLa) {
-            new com.baidu.swan.apps.view.a.b(activity).er(-1);
-        }
-    }
-
-    @UiThread
-    public static Bitmap Md() {
-        com.baidu.swan.apps.w.e Ea = com.baidu.swan.apps.w.e.Ea();
-        AbsoluteLayout eP = Ea.eP(Ea.yA());
-        if (eP == null || eP.getWidth() <= 0 || eP.getHeight() <= 0) {
-            return null;
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(eP.getWidth(), eP.getHeight(), Bitmap.Config.ARGB_4444);
-        createBitmap.eraseColor(-1);
-        eP.draw(new Canvas(createBitmap));
-        return createBitmap;
-    }
-
-    public static Bitmap ah(View view) {
-        if (view == null) {
-            return null;
-        }
-        View rootView = view.getRootView();
-        rootView.setDrawingCacheEnabled(true);
-        Bitmap createBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
-        rootView.setDrawingCacheEnabled(false);
-        return createBitmap;
-    }
-
-    public static int getDisplayWidth(Context context) {
-        cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWw != null) {
-            return aWw.widthPixels;
-        }
-        return 0;
-    }
-
-    public static int getDisplayHeight(Context context) {
-        cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWw != null) {
-            return aWw.heightPixels;
-        }
-        return 0;
-    }
-
-    public static float cq(Context context) {
-        cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWw != null) {
-            return aWw.density;
-        }
-        return 0.0f;
-    }
-
-    public static int cr(Context context) {
-        cs(com.baidu.swan.apps.u.a.Cw());
-        if (aWw != null) {
-            return aWw.densityDpi;
-        }
-        return 0;
-    }
-
-    private static void cs(Context context) {
-        if (aWw == null) {
-            Application Cw = com.baidu.swan.apps.u.a.Cw();
-            if (Cw != null) {
-                context = Cw;
-            }
-            if (context != null) {
-                aWw = context.getResources().getDisplayMetrics();
-            }
-        }
-    }
-
-    public static int ad(float f) {
-        return dip2px(com.baidu.swan.apps.u.a.Cw(), f);
-    }
-
-    public static int ae(float f) {
-        return px2dip(com.baidu.swan.apps.u.a.Cw(), f);
-    }
-
-    public static int dip2px(Context context, float f) {
-        return (int) (cq(context) * f);
-    }
-
-    public static int px2dip(Context context, float f) {
-        return (int) (f / cq(context));
-    }
-
-    public static float af(float f) {
-        return f / cq(com.baidu.swan.apps.u.a.Cw());
-    }
-
-    public static int a(TextView textView) {
-        if (textView == null) {
-            return 0;
-        }
-        Paint paint = new Paint();
-        paint.setTextSize(textView.getTextSize());
-        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-        if (TextUtils.isEmpty(textView.getText())) {
-            return 0;
-        }
-        return (int) (Math.ceil(fontMetrics.descent - fontMetrics.ascent) + 2.0d);
-    }
-
-    public static int b(TextView textView) {
-        if (textView == null) {
-            return 0;
-        }
-        Paint paint = new Paint();
-        paint.setTextSize(textView.getTextSize());
-        if (TextUtils.isEmpty(textView.getText())) {
-            return 0;
-        }
-        return (int) paint.measureText(textView.getText().toString());
-    }
-
-    public static int getStatusBarHeight() {
-        int i = 0;
-        int identifier = com.baidu.swan.apps.u.a.Cw().getResources().getIdentifier("status_bar_height", "dimen", "android");
-        if (identifier > 0) {
-            try {
-                i = com.baidu.swan.apps.u.a.Cw().getResources().getDimensionPixelSize(identifier);
-            } catch (Exception e) {
-            }
-        }
-        if (i == 0) {
-            return (int) (25.0f * aWy);
-        }
-        return i;
-    }
-
-    public static int getNavigationBarHeight() {
-        boolean hasPermanentMenuKey = ViewConfiguration.get(com.baidu.swan.apps.u.a.Cw()).hasPermanentMenuKey();
-        boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
-        if (hasPermanentMenuKey || deviceHasKey) {
-            return 0;
-        }
-        Resources resources = com.baidu.swan.apps.u.a.Cw().getResources();
-        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
-    }
-
-    public static boolean Me() {
-        return com.baidu.swan.apps.u.a.Cw().getResources().getConfiguration().orientation == 1;
-    }
-
-    public static int Mf() {
-        Application Cw = com.baidu.swan.apps.u.a.Cw();
-        Resources resources = Cw.getResources();
-        if (Build.VERSION.SDK_INT < 14 || !hasNavBar(Cw)) {
-            return 0;
-        }
-        return getInternalDimensionSize(resources, Me() ? "navigation_bar_height" : "navigation_bar_height_landscape");
-    }
-
-    private static int getInternalDimensionSize(Resources resources, String str) {
-        int identifier = resources.getIdentifier(str, "dimen", "android");
-        if (identifier <= 0) {
-            return 0;
-        }
-        return resources.getDimensionPixelSize(identifier);
-    }
-
-    @TargetApi(14)
-    public static boolean hasNavBar(Context context) {
-        Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
-        if (identifier != 0) {
-            boolean z = resources.getBoolean(identifier);
-            String navBarOverride = getNavBarOverride();
-            if ("1".equals(navBarOverride)) {
-                return false;
-            }
-            if ("0".equals(navBarOverride)) {
+    private static boolean aN(String str, String str2) {
+        if (str != null && str.contains("/dev/fuse") && str2 != null && !str2.startsWith("/storage/emulated/legacy") && !str2.contains("/Android/obb")) {
+            if (str2.startsWith("/storage/")) {
                 return true;
             }
-            return z;
-        }
-        return ViewConfiguration.get(context).hasPermanentMenuKey() ? false : true;
-    }
-
-    private static String getNavBarOverride() {
-        if (Build.VERSION.SDK_INT >= 19) {
-            try {
-                Method declaredMethod = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES).getDeclaredMethod("get", String.class);
-                declaredMethod.setAccessible(true);
-                return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable th) {
-                if (DEBUG) {
-                    Log.i("SwanAppUIUtils", th.toString());
-                }
+            if (com.baidu.swan.apps.an.a.hasKitKat() && !str2.startsWith("/mnt/") && !str2.startsWith("/data/")) {
+                return true;
             }
         }
-        return null;
+        return false;
     }
 }

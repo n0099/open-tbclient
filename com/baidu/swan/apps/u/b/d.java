@@ -10,5 +10,5 @@ import org.json.JSONObject;
 public interface d {
     boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler);
 
-    boolean g(Context context, JSONObject jSONObject);
+    boolean e(Context context, JSONObject jSONObject);
 }

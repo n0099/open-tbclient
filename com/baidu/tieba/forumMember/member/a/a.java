@@ -17,27 +17,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private o eWh;
-    private r eWi;
+    private o fml;
+    private r fmm;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
-    public List<com.baidu.adp.widget.ListView.a> aBv() {
+    public List<com.baidu.adp.widget.ListView.a> aHM() {
         return this.mAdapters;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.eVn));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.eVz));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.eYp));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.eUQ));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.eUT));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.flx));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.flJ));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.foz));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.fla));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.fld));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.eWh = new o(baseActivity.getPageContext(), p.eVR);
-        this.mAdapters.add(this.eWh);
-        this.eWi = new r(baseActivity.getPageContext(), s.eWf);
-        this.mAdapters.add(this.eWi);
+        this.fml = new o(baseActivity.getPageContext(), p.flZ);
+        this.mAdapters.add(this.fml);
+        this.fmm = new r(baseActivity.getPageContext(), s.fmj);
+        this.mAdapters.add(this.fmm);
     }
 
     public void notifyDataSetChanged() {
@@ -47,7 +47,7 @@ public class a {
     }
 
     public void onDestroy() {
-        this.eWh.onDestroy();
-        this.eWi.onDestroy();
+        this.fml.onDestroy();
+        this.fmm.onDestroy();
     }
 }

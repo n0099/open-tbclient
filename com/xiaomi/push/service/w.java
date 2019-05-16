@@ -1,35 +1,79 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.xiaomi.push.service.XMPushService;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.content.Intent;
+import android.util.Pair;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class w extends XMPushService.h {
-    final /* synthetic */ XMPushService b;
-    final /* synthetic */ com.xiaomi.xmpush.thrift.ab c;
+public class w {
+    private static final Map<String, byte[]> a = new HashMap();
+    private static ArrayList<Pair<String, byte[]>> b = new ArrayList<>();
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.ab abVar) {
-        super(i);
-        this.b = xMPushService;
-        this.c = abVar;
-    }
-
-    @Override // com.xiaomi.push.service.XMPushService.h
-    public void a() {
-        try {
-            com.xiaomi.xmpush.thrift.ab a = s.a((Context) this.b, this.c);
-            a.m().a("miui_message_unrecognized", "1");
-            aa.a(this.b, a);
-        } catch (com.xiaomi.smack.l e) {
-            com.xiaomi.channel.commonutils.logger.b.a(e);
-            this.b.a(10, e);
+    public static void a(Context context, int i, String str) {
+        synchronized (a) {
+            for (String str2 : a.keySet()) {
+                a(context, str2, a.get(str2), i, str);
+            }
+            a.clear();
         }
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
-    public String b() {
-        return "send ack message for unrecognized new miui message.";
+    public static void a(Context context, String str, byte[] bArr, int i, String str2) {
+        Intent intent = new Intent("com.xiaomi.mipush.ERROR");
+        intent.setPackage(str);
+        intent.putExtra("mipush_payload", bArr);
+        intent.putExtra("mipush_error_code", i);
+        intent.putExtra("mipush_error_msg", str2);
+        context.sendBroadcast(intent, af.a(str));
+    }
+
+    public static void a(XMPushService xMPushService) {
+        try {
+            synchronized (a) {
+                for (String str : a.keySet()) {
+                    af.a(xMPushService, str, a.get(str));
+                }
+                a.clear();
+            }
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            xMPushService.a(10, e);
+        }
+    }
+
+    public static void a(String str, byte[] bArr) {
+        synchronized (a) {
+            a.put(str, bArr);
+        }
+    }
+
+    public static void b(XMPushService xMPushService) {
+        ArrayList<Pair<String, byte[]>> arrayList;
+        try {
+            synchronized (b) {
+                arrayList = b;
+                b = new ArrayList<>();
+            }
+            Iterator<Pair<String, byte[]>> it = arrayList.iterator();
+            while (it.hasNext()) {
+                Pair<String, byte[]> next = it.next();
+                af.a(xMPushService, (String) next.first, (byte[]) next.second);
+            }
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            xMPushService.a(10, e);
+        }
+    }
+
+    public static void b(String str, byte[] bArr) {
+        synchronized (b) {
+            b.add(new Pair<>(str, bArr));
+            if (b.size() > 50) {
+                b.remove(0);
+            }
+        }
     }
 }

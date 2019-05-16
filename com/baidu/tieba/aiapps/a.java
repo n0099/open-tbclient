@@ -10,13 +10,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public static String G(String str, String str2, String str3) {
+    public static String a(String str, String str2, String str3, Integer num) {
         if (StringUtils.isNull(str)) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
         sb.append("tiebaclient://");
-        sb.append("swan/");
+        if (num.intValue() > 0) {
+            sb.append("swangame/");
+        } else {
+            sb.append("swan/");
+        }
         sb.append(str);
         if (!TextUtils.isEmpty(str2)) {
             if (!str2.startsWith("/")) {
@@ -46,12 +50,12 @@ public class a {
         return sb.toString();
     }
 
-    public static final boolean H(String str, String str2, String str3) {
-        String G;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str3) || (G = G(str, str2, str3)) == null || !G.startsWith("tiebaclient://")) {
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        String a;
+        if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
             return false;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, G));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
         return true;
     }
 }

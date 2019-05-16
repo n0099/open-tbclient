@@ -10,33 +10,33 @@ import android.widget.TextView;
 import com.baidu.tbadk.gif.GifView;
 /* loaded from: classes.dex */
 public interface e {
-    void aA(Context context, String str);
+    void am(Context context, String str);
 
-    void aB(Context context, String str);
+    void an(Context context, String str);
 
-    void aC(Context context, String str);
+    void ao(Context context, String str);
 
-    int ata();
+    void ap(Context context, String str);
 
-    com.baidu.adp.lib.e.b<ImageView> atb();
+    void aq(Context context, String str);
 
-    com.baidu.adp.lib.e.b<TextView> atc();
+    int ayf();
 
-    com.baidu.adp.lib.e.b<GifView> atd();
+    com.baidu.adp.lib.e.b<ImageView> ayg();
 
-    com.baidu.adp.lib.e.b<View> ate();
+    com.baidu.adp.lib.e.b<TextView> ayh();
 
-    com.baidu.adp.lib.e.b<LinearLayout> atf();
+    com.baidu.adp.lib.e.b<GifView> ayi();
 
-    com.baidu.adp.lib.e.b<RelativeLayout> atg();
+    com.baidu.adp.lib.e.b<View> ayj();
 
-    void ay(Context context, String str);
+    com.baidu.adp.lib.e.b<LinearLayout> ayk();
 
-    void az(Context context, String str);
+    com.baidu.adp.lib.e.b<RelativeLayout> ayl();
 
-    void e(Context context, String str, boolean z);
+    void d(Context context, String str, boolean z);
 
     ListView getListView();
 
-    void k(Context context, String str, String str2);
+    void n(Context context, String str, String str2);
 }

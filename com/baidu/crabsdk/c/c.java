@@ -14,8 +14,8 @@ import java.util.zip.DeflaterOutputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat aci;
-    private static PackageManager acj;
+    private static SimpleDateFormat ZX;
+    private static PackageManager ZY;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
         if (z) {
@@ -25,7 +25,7 @@ public final class c {
         }
     }
 
-    public static byte[] cz(String str) {
+    public static byte[] cj(String str) {
         Deflater deflater;
         DeflaterOutputStream deflaterOutputStream;
         byte[] bArr = null;
@@ -54,7 +54,7 @@ public final class c {
                                 }
                             } catch (Exception e3) {
                                 e = e3;
-                                a.f("Compress error!", e);
+                                a.a("Compress error!", e);
                                 if (deflaterOutputStream != null) {
                                     try {
                                         deflaterOutputStream.close();
@@ -111,10 +111,10 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (aci == null) {
-            aci = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (ZX == null) {
+            ZX = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return aci.format(date);
+        return ZX.format(date);
     }
 
     public static String f(Throwable th) {
@@ -145,21 +145,21 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (acj == null) {
-            acj = context.getPackageManager();
+        if (ZY == null) {
+            ZY = context.getPackageManager();
         }
         try {
-            return acj.checkPermission(str, context.getPackageName()) == 0;
+            return ZY.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
     }
 
-    public static String i(long j) {
-        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    public static String qR() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 
-    public static String rW() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
+    public static String r(long j) {
+        return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 }

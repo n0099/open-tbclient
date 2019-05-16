@@ -4,18 +4,34 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class b {
-    protected a aMX;
-    protected boolean mChecked;
+    protected a aOZ;
+    private com.baidu.swan.apps.res.widget.a.a aPa;
     protected Context mContext;
-    protected boolean mEnabled;
     protected Drawable mIconDrawable;
-    protected int mIconResId;
     protected final int mId;
     protected CharSequence mTitle;
+    protected boolean mEnabled = true;
+    protected boolean mChecked = false;
+    protected boolean aOW = false;
+    protected boolean aOX = true;
+    protected long aOY = 0;
+    protected int mIconResId = 0;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void b(b bVar);
+        void c(b bVar);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public b(Context context, int i, CharSequence charSequence, Drawable drawable) {
+        this.mContext = context;
+        this.mId = i;
+        this.mTitle = charSequence;
+        this.mIconDrawable = drawable;
+    }
+
+    public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
+        this.aPa = aVar;
     }
 
     public int getItemId() {
@@ -34,6 +50,10 @@ public class b {
         return this.mTitle;
     }
 
+    public boolean KT() {
+        return this.aOX;
+    }
+
     public Drawable getIcon() {
         if (this.mIconDrawable != null) {
             return this.mIconDrawable;
@@ -47,7 +67,15 @@ public class b {
         return null;
     }
 
-    public a IA() {
-        return this.aMX;
+    public long KU() {
+        return this.aOY;
+    }
+
+    public a KV() {
+        return this.aOZ;
+    }
+
+    public void b(a aVar) {
+        this.aOZ = aVar;
     }
 }

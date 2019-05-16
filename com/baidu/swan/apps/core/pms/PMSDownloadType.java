@@ -7,5 +7,6 @@ public enum PMSDownloadType {
     SILENT_UPDATE,
     BATCH,
     ALONE_SUB,
-    UPDATE_CORE
+    SWAN_APP_UPDATE_CORE,
+    SWAN_GAME_UPDATE_CORE
 }

@@ -10,30 +10,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c cqa = null;
+    private static c cyg = null;
 
     private c() {
     }
 
-    public static synchronized c aoT() {
+    public static synchronized c atX() {
         c cVar;
         synchronized (c.class) {
-            if (cqa == null) {
-                cqa = new c();
+            if (cyg == null) {
+                cyg = new c();
             }
-            cVar = cqa;
+            cVar = cyg;
         }
         return cVar;
     }
 
-    public boolean aoU() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && aoV();
+    public boolean atY() {
+        return TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 && atZ();
     }
 
-    public boolean aoV() {
+    public boolean atZ() {
         try {
             Class.forName("com.baidu.wallet.api.BaiduWallet");
             return true;
@@ -45,15 +45,15 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            ba.adA().c(tbPageContext, new String[]{str});
+            ba.aiz().c(tbPageContext, new String[]{str});
         }
     }
 
     public void a(PayConfig payConfig, Context context) {
         if (payConfig == null || context == null) {
-            showToast(d.j.plugin_pay_error);
-        } else if (!aoU()) {
-            showToast(d.j.plugin_pay_wallet_not_found);
+            showToast(R.string.plugin_pay_error);
+        } else if (!atY()) {
+            showToast(R.string.plugin_pay_wallet_not_found);
         } else {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
         }

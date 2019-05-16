@@ -10,10 +10,10 @@ public class f implements CustomMessageTask.CustomRunnable<Object> {
         if (customMessage == null || !(customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
             return null;
         }
-        byte[] uK = new d().uK(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+        byte[] we = new d().we(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
         BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
         try {
-            bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, uK);
+            bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, we);
             return bawuTeamReadCacheResponseMessage;
         } catch (Exception e) {
             e.printStackTrace();

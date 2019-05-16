@@ -6,7 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -34,11 +34,11 @@ public class SmallTailInfo extends OrmObject implements Serializable {
     }
 
     public void updateShowInfo() {
-        Ye();
-        Yf();
+        acL();
+        acM();
     }
 
-    private void Ye() {
+    private void acL() {
         if (this.content != null) {
             StringBuilder sb = new StringBuilder();
             for (SmallTailInfoContent smallTailInfoContent : this.content) {
@@ -47,31 +47,31 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String oJ = TbFaceManager.anl().oJ(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(oJ)) {
-                        sb.append("#(" + oJ + ")");
+                    String pR = TbFaceManager.aso().pR(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(pR)) {
+                        sb.append("#(" + pR + ")");
                     }
                 }
             }
-            this.tailSpannable = TbFaceManager.anl().a(TbadkCoreApplication.getInst(), sb.toString(), null);
+            this.tailSpannable = TbFaceManager.aso().a(TbadkCoreApplication.getInst(), sb.toString(), null);
         }
     }
 
-    private void Yf() {
+    private void acM() {
         try {
-            this.showColorId = Color.parseColor(lf(this.color));
+            this.showColorId = Color.parseColor(mk(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(lf(TbadkCoreApplication.getInst().getString(d.j.tail_color_default)));
+            this.showColorId = Color.parseColor(mk(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
         }
     }
 
-    private String lf(String str) {
+    private String mk(String str) {
         if (str == null) {
             return null;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + TbadkCoreApplication.getInst().getString(d.j.tail_color_night) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + TbadkCoreApplication.getInst().getString(R.string.tail_color_night) + str;
         }
-        return TbadkCoreApplication.getInst().getString(d.j.color_prefix) + str;
+        return TbadkCoreApplication.getInst().getString(R.string.color_prefix) + str;
     }
 }

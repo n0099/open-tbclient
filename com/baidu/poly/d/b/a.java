@@ -7,6 +7,7 @@ import com.baidu.poly.bean.PayChannel;
 import com.baidu.poly.d.a;
 import com.baidu.poly.d.a.d;
 import com.baidu.poly.d.a.e;
+import com.baidu.poly.util.c;
 import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
@@ -18,49 +19,41 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
     private Activity activity;
-    int ahn = 0;
-    int aho = 1;
+    int ahE = 0;
+    int ahF = 1;
 
     public a(Activity activity) {
         this.activity = activity;
     }
 
     @Override // com.baidu.poly.d.a
-    public void a(Map<String, String> map, String str, a.C0083a c0083a) {
+    public void a(Map<String, String> map, String str, a.C0085a c0085a) {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.ahn) {
-                b(map, str, c0083a);
-            } else if (optInt == this.aho) {
-                a(l(map), str, c0083a);
+            if (optInt == this.ahE) {
+                b(map, str, c0085a);
+            } else if (optInt == this.ahF) {
+                a(c.j(map), str, c0085a);
             }
         } catch (Throwable th) {
-            c0083a.onFail(th.getMessage());
+            c0085a.onFail(th.getMessage());
         }
     }
 
-    public void a(Bundle bundle, final String str, final a.C0083a c0083a) {
+    public void a(Bundle bundle, final String str, final a.C0085a c0085a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.a.a.tv().b(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
+        com.baidu.poly.a.a.a.ug().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                a.this.c(map, str, c0083a);
+                a.this.c(map, str, c0085a);
             }
         });
     }
 
-    private Bundle l(Map<String, String> map) {
-        Bundle bundle = new Bundle();
-        for (String str : map.keySet()) {
-            bundle.putString(str, map.get(str));
-        }
-        return bundle;
-    }
-
-    public void b(Map<String, String> map, String str, final a.C0083a c0083a) {
+    public void b(Map<String, String> map, String str, final a.C0085a c0085a) {
         JSONObject b = b(map, str);
         Bundle bundle = new Bundle();
         bundle.putString("params", b.toString());
@@ -70,32 +63,32 @@ public class a implements com.baidu.poly.d.a {
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 Bundle bundle2 = delegateResult.mResult;
-                c0083a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
+                c0085a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
             }
         });
     }
 
-    public void c(final Map<String, String> map, String str, final a.C0083a c0083a) {
-        d dg = dg(str);
-        if (dg != null) {
-            dg.a(this.activity, map, new a.C0083a() { // from class: com.baidu.poly.d.b.a.3
-                @Override // com.baidu.poly.d.a.C0083a
+    public void c(final Map<String, String> map, String str, final a.C0085a c0085a) {
+        d cT = cT(str);
+        if (cT != null) {
+            cT.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
+                @Override // com.baidu.poly.d.a.C0085a
                 public void onResult(int i, String str2) {
-                    c0083a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
+                    c0085a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
                 }
             });
         }
     }
 
-    public d dg(String str) {
+    public d cT(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.a.tH();
+            return com.baidu.poly.d.a.a.us();
         }
         if (PayChannel.WECHAT.equalsIgnoreCase(str)) {
-            return e.tJ();
+            return e.uu();
         }
         if (PayChannel.BAIFUBAO.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.b.tI();
+            return com.baidu.poly.d.a.b.ut();
         }
         return null;
     }
@@ -104,9 +97,9 @@ public class a implements com.baidu.poly.d.a {
         String str3;
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(str2)) {
-            str3 = "statcode={" + i + "};order_no={" + str + "};notify=" + str2;
+            str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
         } else {
-            str3 = "statcode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
+            str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
         }
         try {
             jSONObject.put("statusCode", i);

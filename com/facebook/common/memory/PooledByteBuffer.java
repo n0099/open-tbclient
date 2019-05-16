@@ -3,9 +3,9 @@ package com.facebook.common.memory;
 import java.io.Closeable;
 /* loaded from: classes2.dex */
 public interface PooledByteBuffer extends Closeable {
-    byte BL(int i);
+    byte CP(int i);
 
-    void b(int i, byte[] bArr, int i2, int i3);
+    void c(int i, byte[] bArr, int i2, int i3);
 
     boolean isClosed();
 

@@ -17,10 +17,9 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public final void onReceive(Context context, Intent intent) {
-        MessageHandleService.addJob(new MessageHandleService.a(intent, this));
-        try {
-            context.startService(new Intent(context, MessageHandleService.class));
-        } catch (Exception e) {
+        MessageHandleService.addJob(context.getApplicationContext(), new MessageHandleService.a(intent, this));
+        if (intent.getIntExtra("eventMessageType", -1) == 2000) {
+            com.xiaomi.push.service.clientReport.d.a(context.getApplicationContext()).a(intent, 2003, "receive passThough message broadcast");
         }
     }
 
@@ -32,5 +31,8 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
     }
 
     public void onReceiveRegisterResult(Context context, MiPushCommandMessage miPushCommandMessage) {
+    }
+
+    public void onRequirePermissions(Context context, String[] strArr) {
     }
 }

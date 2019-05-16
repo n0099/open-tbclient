@@ -1,27 +1,43 @@
 package com.baidu.card;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class y {
-    private static final int YL = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds44);
-    private static final int YM = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds23);
-    public static final int YN = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds26);
-    boolean YO = false;
-    int YP = YM;
-    int YQ = 0;
-    int YR = YN;
-    int YS = YL;
-    int YT = 0;
-    int YU = YL;
-    int YV = YL;
-    int YW = 0;
+    private static final int WD = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44);
+    private static final int WE = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds23);
+    public static final int WF = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    boolean WG = false;
+    int WH = WE;
+    int WI = 0;
+    int WJ = WF;
+    int WK = WD;
+    int WL = 0;
+    int WM = WD;
+    int WN = WD;
+    int WO = 0;
 
-    public void by(int i) {
-        this.YS = i;
+    public void br(int i) {
+        this.WH = i;
+    }
+
+    public void bs(int i) {
+        this.WK = i;
+    }
+
+    public void bt(int i) {
+        this.WL = i;
+    }
+
+    public void bu(int i) {
+        this.WM = i;
+    }
+
+    public void bv(int i) {
+        this.WN = i;
     }
 
     public void setBackgroundResource(int i) {
-        this.YW = i;
+        this.WO = i;
     }
 }

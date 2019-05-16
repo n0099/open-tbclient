@@ -16,53 +16,53 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class VideoConvertUtil {
-    private IVideoConvertService iUI;
-    private String iUJ;
-    private String iUK;
-    private File iUL;
-    private File iUM;
-    private d iUN;
+    private IVideoConvertService jnF;
+    private String jnG;
+    private String jnH;
+    private File jnI;
+    private File jnJ;
+    private d jnK;
     private Context mContext;
-    public static final String iUv = c.iUq;
+    public static final String jns = c.jnn;
     private static final String TAG = VideoConvertUtil.class.getSimpleName();
-    private int iUP = -3;
-    private boolean iUQ = false;
-    private boolean iUR = false;
-    private int iUS = 1;
-    private ServiceConnection iUT = new ServiceConnection() { // from class: com.baidu.tieba.video.VideoConvertUtil.1
+    private int jnM = -3;
+    private boolean jnN = false;
+    private boolean jnO = false;
+    private int jnP = 1;
+    private ServiceConnection jnQ = new ServiceConnection() { // from class: com.baidu.tieba.video.VideoConvertUtil.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            VideoConvertUtil.this.iUI = IVideoConvertService.Stub.asInterface(iBinder);
-            if (VideoConvertUtil.this.iUR) {
-                VideoConvertUtil.this.ciL();
+            VideoConvertUtil.this.jnF = IVideoConvertService.Stub.asInterface(iBinder);
+            if (VideoConvertUtil.this.jnO) {
+                VideoConvertUtil.this.cqO();
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            if (VideoConvertUtil.this.iUR) {
-                if (!VideoConvertUtil.this.iUQ && VideoConvertUtil.this.iUP == -3 && VideoConvertUtil.this.iUN != null) {
-                    VideoConvertUtil.this.iUN.onConvertFailed();
+            if (VideoConvertUtil.this.jnO) {
+                if (!VideoConvertUtil.this.jnN && VideoConvertUtil.this.jnM == -3 && VideoConvertUtil.this.jnK != null) {
+                    VideoConvertUtil.this.jnK.onConvertFailed();
                 }
-                VideoConvertUtil.this.iUR = false;
+                VideoConvertUtil.this.jnO = false;
             }
-            VideoConvertUtil.this.iUI = null;
+            VideoConvertUtil.this.jnF = null;
         }
     };
-    private IntenalConvertListener iUO = new IntenalConvertListener();
+    private IntenalConvertListener jnL = new IntenalConvertListener();
 
     public VideoConvertUtil(Context context) {
         this.mContext = context;
     }
 
     public void setConvertType(int i) {
-        this.iUS = i;
+        this.jnP = i;
     }
 
     public void destroy() {
-        this.iUQ = true;
+        this.jnN = true;
         abortConvert();
-        ciK();
+        cqN();
     }
 
     private void startService() {
@@ -73,59 +73,59 @@ public class VideoConvertUtil {
         }
     }
 
-    private void ava() {
+    private void aAf() {
         if (this.mContext != null) {
             Intent intent = new Intent("com.baidu.tieba.video.convert.VideoConvertService");
             intent.setPackage("com.baidu.tieba");
-            this.mContext.bindService(intent, this.iUT, 1);
+            this.mContext.bindService(intent, this.jnQ, 1);
         }
     }
 
-    private void ciK() {
-        if (this.iUI != null && this.mContext != null) {
-            this.mContext.unbindService(this.iUT);
+    private void cqN() {
+        if (this.jnF != null && this.mContext != null) {
+            this.mContext.unbindService(this.jnQ);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciL() {
+    public void cqO() {
         int i = -1;
         try {
-            this.iUI.setIVideoConvertListener(this.iUO);
-            this.iUI.setConvertType(this.iUS);
-            i = this.iUI.doConvert(this.iUJ, this.iUK);
+            this.jnF.setIVideoConvertListener(this.jnL);
+            this.jnF.setConvertType(this.jnP);
+            i = this.jnF.doConvert(this.jnG, this.jnH);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        if (this.iUN != null) {
+        if (this.jnK != null) {
             if (i == 0) {
-                this.iUN.ciI();
+                this.jnK.cqL();
             } else {
-                this.iUN.Aj(i);
+                this.jnK.Br(i);
             }
         }
     }
 
-    public void ec(String str, String str2) {
-        this.iUR = true;
-        this.iUQ = false;
-        this.iUP = -3;
-        this.iUJ = str;
-        this.iUK = str2;
-        this.iUL = new File(this.iUJ);
-        this.iUM = new File(this.iUK);
-        if (this.iUI == null) {
+    public void eq(String str, String str2) {
+        this.jnO = true;
+        this.jnN = false;
+        this.jnM = -3;
+        this.jnG = str;
+        this.jnH = str2;
+        this.jnI = new File(this.jnG);
+        this.jnJ = new File(this.jnH);
+        if (this.jnF == null) {
             startService();
-            ava();
+            aAf();
             return;
         }
-        ciL();
+        cqO();
     }
 
     public boolean isConvertRunning() {
         try {
-            if (this.iUI != null) {
-                if (this.iUI.isConvertRunning()) {
+            if (this.jnF != null) {
+                if (this.jnF.isConvertRunning()) {
                     return true;
                 }
             }
@@ -136,9 +136,9 @@ public class VideoConvertUtil {
     }
 
     public void abortConvert() {
-        if (this.iUI != null) {
+        if (this.jnF != null) {
             try {
-                this.iUI.abortConvert();
+                this.jnF.abortConvert();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -153,42 +153,42 @@ public class VideoConvertUtil {
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertSuccess() throws RemoteException {
-            VideoConvertUtil.this.iUP = 1;
-            if (VideoConvertUtil.this.iUN != null) {
-                VideoConvertUtil.this.iUN.onConvertSuccess();
+            VideoConvertUtil.this.jnM = 1;
+            if (VideoConvertUtil.this.jnK != null) {
+                VideoConvertUtil.this.jnK.onConvertSuccess();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertFailed() throws RemoteException {
-            if (VideoConvertUtil.this.iUN != null) {
-                VideoConvertUtil.this.iUN.onConvertFailed();
+            if (VideoConvertUtil.this.jnK != null) {
+                VideoConvertUtil.this.jnK.onConvertFailed();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertProgress(int i) throws RemoteException {
-            if (VideoConvertUtil.this.iUN != null) {
-                VideoConvertUtil.this.iUN.onConvertProgress(i);
+            if (VideoConvertUtil.this.jnK != null) {
+                VideoConvertUtil.this.jnK.onConvertProgress(i);
             }
-            if ((VideoConvertUtil.this.iUL != null && !VideoConvertUtil.this.iUL.exists()) || (VideoConvertUtil.this.iUM != null && !VideoConvertUtil.this.iUM.exists())) {
+            if ((VideoConvertUtil.this.jnI != null && !VideoConvertUtil.this.jnI.exists()) || (VideoConvertUtil.this.jnJ != null && !VideoConvertUtil.this.jnJ.exists())) {
                 VideoConvertUtil.this.abortConvert();
             }
         }
 
         @Override // com.baidu.tieba.video.convert.IVideoConvertListener
         public void onConvertAborted() throws RemoteException {
-            if (VideoConvertUtil.this.iUN != null) {
-                VideoConvertUtil.this.iUN.onConvertAborted();
+            if (VideoConvertUtil.this.jnK != null) {
+                VideoConvertUtil.this.jnK.onConvertAborted();
             }
         }
     }
 
     public void a(d dVar) {
-        this.iUN = dVar;
+        this.jnK = dVar;
     }
 
-    public static String Dq(String str) {
+    public static String EM(String str) {
         if (str == null || str.isEmpty()) {
             return "";
         }
@@ -212,13 +212,13 @@ public class VideoConvertUtil {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static int Dr(String str) {
+    public static int EN(String str) {
         int i = 0;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
             try {
                 mediaMetadataRetriever.setDataSource(str);
-                i = com.baidu.adp.lib.g.b.l(mediaMetadataRetriever.extractMetadata(20), 0);
+                i = com.baidu.adp.lib.g.b.f(mediaMetadataRetriever.extractMetadata(20), 0);
             } catch (Exception e) {
                 e.printStackTrace();
                 try {
@@ -237,8 +237,8 @@ public class VideoConvertUtil {
         }
     }
 
-    public static boolean ciM() {
-        File file = new File(iUv);
+    public static boolean cqP() {
+        File file = new File(jns);
         if (file != null) {
             if (file.exists() && !file.isDirectory()) {
                 file.delete();

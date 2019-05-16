@@ -8,17 +8,17 @@ import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HorizontalListView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView iYM;
-    private d jro;
+    private d jKq;
+    private HorizontalListView jrH;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.jro.b(cVar);
+        this.jKq.b(cVar);
     }
 
     public c(e eVar) {
@@ -27,10 +27,10 @@ public class c extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(d.h.pic_sticker_view, (ViewGroup) null);
-        this.iYM = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
-        this.jro = new com.baidu.tieba.write.write.d();
-        this.iYM.setAdapter((ListAdapter) this.jro);
+        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
+        this.jrH = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.jKq = new d();
+        this.jrH.setAdapter((ListAdapter) this.jKq);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        al.l(this.mRootView, d.C0277d.cp_bg_line_d);
+        al.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void en(List<String> list) {
-        if (!v.T(list)) {
-            this.jro.setData(list);
-            this.jro.notifyDataSetChanged();
+    public void ex(List<String> list) {
+        if (!v.aa(list)) {
+            this.jKq.setData(list);
+            this.jKq.notifyDataSetChanged();
         }
     }
 
-    public void cqf() {
-        this.jro.notifyDataSetChanged();
+    public void cyk() {
+        this.jKq.notifyDataSetChanged();
     }
 }

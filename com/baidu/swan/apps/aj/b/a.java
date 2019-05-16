@@ -1,27 +1,29 @@
 package com.baidu.swan.apps.aj.b;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.b;
-import org.json.JSONObject;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = b.DEBUG;
-    public String aTL;
-    public String aTM;
-    private UnitedSchemeEntity ayI;
-    private CallbackHandler ayJ;
 
-    public void f(String str, JSONObject jSONObject) {
-        if (!TextUtils.isEmpty(str)) {
-            JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.ayJ, this.ayI, wrapCallbackParams.toString(), str);
-            if (DEBUG) {
-                Log.d("BluetoothStatusCallback", "bluetooth callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
-            }
+    /* renamed from: com.baidu.swan.apps.aj.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes2.dex */
+    public static class C0113a {
+        public boolean aWB;
+        public int level;
+    }
+
+    @Nullable
+    public static C0113a bE(@NonNull Context context) {
+        Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        if (registerReceiver == null) {
+            return null;
         }
+        C0113a c0113a = new C0113a();
+        c0113a.level = registerReceiver.getIntExtra("level", -1);
+        c0113a.aWB = registerReceiver.getIntExtra("plugged", 0) != 0;
+        return c0113a;
     }
 }

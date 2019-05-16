@@ -1,69 +1,32 @@
 package com.baidu.tieba.aiapps.apps.f;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.b.b.i;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.pageStayDuration.d;
-import com.baidu.tbadk.pageStayDuration.e;
-import java.util.ArrayList;
-import java.util.List;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v4.content.FileProvider;
+import android.text.TextUtils;
+import com.baidu.swan.apps.u.b.j;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class a implements i {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long lastResumeTime;
-
-    @Override // com.baidu.swan.apps.b.b.i
-    public void vP() {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + com.baidu.swan.apps.ae.b.IV().id);
+public class a implements j {
+    @Override // com.baidu.swan.apps.u.b.j
+    public boolean a(Activity activity, Uri uri, String str) {
+        if (activity == null || uri == null || uri.getPath() == null || TextUtils.isEmpty(str)) {
+            return false;
         }
-        this.lastResumeTime = System.currentTimeMillis();
-    }
-
-    public String getCurrentPageKey() {
-        return "a061";
-    }
-
-    public com.baidu.tbadk.pageStayDuration.b getPageStayFilter() {
-        return null;
-    }
-
-    public List<String> getCurrentPageSourceKeyList() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("a001");
-        return arrayList;
-    }
-
-    @Override // com.baidu.swan.apps.b.b.i
-    public void vQ() {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppBackground");
+        if (com.baidu.swan.apps.an.a.hasNougat()) {
+            uri = FileProvider.getUriForFile(activity, activity.getPackageName() + ".fileprovider", new File(uri.getPath()));
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("smart_app_tid", 0L);
-        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("smart_app_id", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("smart_app_name", "");
-        if (this.lastResumeTime != 0 && j != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-            d dVar = new d();
-            dVar.aS(currentTimeMillis);
-            dVar.pu(getCurrentPageKey());
-            dVar.setTid(j);
-            dVar.cpO = string;
-            dVar.cpP = string2;
-            dVar.ah(getCurrentPageSourceKeyList());
-            e.aoM().fc(true);
-            e.aoM().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("smart_app_tid", 0L);
-        }
+        b(activity, uri, str);
+        return true;
     }
 
-    @Override // com.baidu.swan.apps.b.b.i
-    public void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.v.b.b bVar) {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppExit");
-        }
+    public void b(Activity activity, Uri uri, String str) {
+        Intent intent = new Intent("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        intent.addFlags(268435456);
+        intent.addFlags(1);
+        intent.setDataAndType(uri, str);
+        activity.startActivity(intent);
     }
 }

@@ -1,11 +1,17 @@
 package com.baidu.swan.games.e;
 /* loaded from: classes2.dex */
 public interface i {
-    void h(a aVar);
+    void c(a aVar);
 
-    void i(a aVar);
+    void o(a aVar);
 
-    void j(a aVar);
+    void p(a aVar);
 
-    void k(a aVar);
+    void q(a aVar);
+
+    void r(a aVar);
+
+    void s(a aVar);
+
+    void t(a aVar);
 }

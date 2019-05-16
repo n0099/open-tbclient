@@ -7,5 +7,5 @@ public interface n {
 
     void b(j jVar);
 
-    void pT(int i);
+    void ra(int i);
 }

@@ -16,6 +16,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
@@ -23,13 +24,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ag;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.util.Base64Encoder;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String btJ;
+    public static String bAM;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String bs(String str, String str2) {
+    public static String bA(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -42,11 +44,11 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void kt(String str) {
-        btJ = str;
+    public static void lw(String str) {
+        bAM = str;
     }
 
-    public static void ar(Context context, String str) {
+    public static void af(Context context, String str) {
         b(context, true, str);
     }
 
@@ -58,7 +60,7 @@ public class a {
         a(context, str2, str, true, true, true, true, z);
     }
 
-    public static void h(Context context, String str, String str2) {
+    public static void k(Context context, String str, String str2) {
         a(context, str, str2, true, true, true, true, true);
     }
 
@@ -75,7 +77,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        Vu();
+        ZX();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -90,7 +92,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        Vu();
+        ZX();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -102,11 +104,11 @@ public class a {
         }
     }
 
-    public static void as(Context context, String str) {
-        ar(context, str);
+    public static void ag(Context context, String str) {
+        af(context, str);
     }
 
-    public static void at(Context context, String str) {
+    public static void ah(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -120,7 +122,7 @@ public class a {
         }
     }
 
-    public static String e(String str, List<Pair<String, String>> list) {
+    public static String d(String str, List<Pair<String, String>> list) {
         if (!ap.isEmpty(str) && list != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
@@ -168,7 +170,7 @@ public class a {
         return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
-    public static void cF(Context context) {
+    public static void ck(Context context) {
         CookieManager cookieManager = null;
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
@@ -178,7 +180,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.WA().kV(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.abg().ma(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -200,8 +202,15 @@ public class a {
                 }
             }
             cookieManager.setCookie(".baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            cookieManager.setCookie(".baidu.com", " BAIDUCUID=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-            cookieManager.setCookie(".baidu.com", " cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            String str = "";
+            if (!TextUtils.isEmpty(cuidGalaxy2)) {
+                str = new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes()));
+            }
+            cookieManager.setCookie(".baidu.com", "BAIDUCUID=" + str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", "TBBRAND=" + Build.MODEL + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", "BAIDUZID=" + FH.gz(TbadkCoreApplication.getInst()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+            cookieManager.setCookie(".baidu.com", "cuid_galaxy2=" + cuidGalaxy2 + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             cookieManager.setCookie(".baidu.com", "cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
             try {
                 if (Build.VERSION.SDK_INT >= 21) {
@@ -220,7 +229,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void Vu() {
+    private static void ZX() {
         new ag("open_webview", true).start();
     }
 }

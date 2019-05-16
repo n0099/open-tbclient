@@ -6,34 +6,34 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a vQ;
-    private SparseArray<String> vR;
+    private static volatile a tw;
+    private SparseArray<String> tz;
 
-    public static a gj() {
-        if (vQ == null) {
+    public static a fb() {
+        if (tw == null) {
             synchronized (a.class) {
-                if (vQ == null) {
-                    vQ = new a();
+                if (tw == null) {
+                    tw = new a();
                 }
             }
         }
-        return vQ;
+        return tw;
     }
 
     private a() {
-        this.vR = null;
-        this.vR = new SparseArray<>();
+        this.tz = null;
+        this.tz = new SparseArray<>();
     }
 
     public void i(List<String> list) {
         if (BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
             for (String str : list) {
-                ah(str);
+                Q(str);
             }
         }
     }
 
-    private void ah(String str) {
+    private void Q(String str) {
         try {
             Class<?> loadClass = getClass().getClassLoader().loadClass(str);
             Object newInstance = loadClass.newInstance();
@@ -42,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.vR.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.vR.get(i) + " 重复");
+                    if (this.tz.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.tz.get(i) + " 重复");
                     }
-                    this.vR.put(i, name);
+                    this.tz.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -59,8 +59,8 @@ public class a {
         }
     }
 
-    public String H(int i) {
-        String str = this.vR.get(i);
+    public String A(int i) {
+        String str = this.tz.get(i);
         if (str != null) {
             return str;
         }

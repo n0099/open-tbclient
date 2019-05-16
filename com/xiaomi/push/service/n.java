@@ -1,65 +1,64 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.service.ak;
-import java.util.Locale;
+import android.text.TextUtils;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.xiaomi.push.service.XMPushService;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class n {
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final int g;
+class n extends XMPushService.i {
+    final /* synthetic */ String b;
+    final /* synthetic */ List c;
+    final /* synthetic */ String d;
+    final /* synthetic */ m e;
 
-    public n(String str, String str2, String str3, String str4, String str5, String str6, int i) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = str4;
-        this.e = str5;
-        this.f = str6;
-        this.g = i;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n(m mVar, int i, String str, List list, String str2) {
+        super(i);
+        this.e = mVar;
+        this.b = str;
+        this.c = list;
+        this.d = str2;
     }
 
-    public static boolean a() {
-        try {
-            return Class.forName("miui.os.Build").getField("IS_ALPHA_BUILD").getBoolean(null);
-        } catch (Exception e) {
-            return false;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        String a;
+        XMPushService xMPushService;
+        a = this.e.a(this.b);
+        ArrayList<com.xiaomi.xmpush.thrift.ai> a2 = bj.a(this.c, this.b, a, 32768);
+        com.xiaomi.channel.commonutils.logger.b.a("TinyData LongConnUploader.upload pack notifications " + a2.toString() + "  ts:" + System.currentTimeMillis());
+        if (a2 == null) {
+            com.xiaomi.channel.commonutils.logger.b.d("TinyData LongConnUploader.upload Get a null XmPushActionNotification list when TinyDataHelper.pack() in XMPushService.");
+            return;
+        }
+        Iterator<com.xiaomi.xmpush.thrift.ai> it = a2.iterator();
+        while (it.hasNext()) {
+            com.xiaomi.xmpush.thrift.ai next = it.next();
+            next.a("uploadWay", "longXMPushService");
+            com.xiaomi.xmpush.thrift.af a3 = af.a(this.b, a, next, com.xiaomi.xmpush.thrift.a.Notification);
+            if (!TextUtils.isEmpty(this.d) && !TextUtils.equals(this.b, this.d)) {
+                if (a3.m() == null) {
+                    com.xiaomi.xmpush.thrift.u uVar = new com.xiaomi.xmpush.thrift.u();
+                    uVar.a(LivenessStat.TYPE_STRING_DEFAULT);
+                    a3.a(uVar);
+                }
+                a3.m().b("ext_traffic_source_pkg", this.d);
+            }
+            byte[] a4 = com.xiaomi.xmpush.thrift.at.a(a3);
+            xMPushService = this.e.a;
+            xMPushService.a(this.b, a4, true);
+        }
+        Iterator it2 = this.c.iterator();
+        while (it2.hasNext()) {
+            com.xiaomi.channel.commonutils.logger.b.a("TinyData LongConnUploader.upload uploaded by com.xiaomi.push.service.TinyDataUploader.  item" + ((com.xiaomi.xmpush.thrift.f) it2.next()).m() + "  ts:" + System.currentTimeMillis());
         }
     }
 
-    public static boolean a(Context context) {
-        return "com.xiaomi.xmsf".equals(context.getPackageName()) && a();
-    }
-
-    private static boolean b(Context context) {
-        return context.getPackageName().equals("com.xiaomi.xmsf");
-    }
-
-    public ak.b a(XMPushService xMPushService) {
-        ak.b bVar = new ak.b(xMPushService);
-        a(bVar, xMPushService, xMPushService.e(), "c");
-        return bVar;
-    }
-
-    public ak.b a(ak.b bVar, Context context, b bVar2, String str) {
-        bVar.a = context.getPackageName();
-        bVar.b = this.a;
-        bVar.i = this.c;
-        bVar.c = this.b;
-        bVar.h = "5";
-        bVar.d = "XMPUSH-PASS";
-        bVar.e = false;
-        bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s", "sdk_ver", 26, "cpvn", "3_2_2", "cpvc", 30202, "aapn", b(context) ? com.xiaomi.channel.commonutils.android.b.d(context) : "");
-        bVar.g = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, k.a(context).c());
-        if (a(context)) {
-            bVar.g += String.format(",%1$s:%2$s", "ab", str);
-        }
-        bVar.k = bVar2;
-        return bVar;
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "Send tiny data.";
     }
 }

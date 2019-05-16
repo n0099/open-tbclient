@@ -4,23 +4,22 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.mapapi.UIMsg;
-import com.baidu.mobstat.Config;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean cgu = false;
-    private int cgv = 0;
+    private boolean coB = false;
+    private int coC = 0;
 
-    public void ot(String str) {
+    public void pB(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.cgu = false;
-        this.cgv = 0;
-        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 5) {
+        this.coB = false;
+        this.coC = 0;
+        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -46,11 +45,11 @@ public class f {
                     long currentTimeMillis = System.currentTimeMillis();
                     try {
                         try {
-                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.l(String.valueOf(str3), 8000)), getTimeout());
+                            socket.connect(new InetSocketAddress(str2, com.baidu.adp.lib.g.b.f(String.valueOf(str3), 8000)), getTimeout());
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.cgu = true;
+                                this.coB = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -81,19 +80,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.cgu && i4 > 0) {
-                    this.cgv = i3 / i4;
+                if (this.coB && i4 > 0) {
+                    this.coC = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.cgu;
+        return this.coB;
     }
 
-    public int akX() {
-        return this.cgv;
+    public int aqa() {
+        return this.coC;
     }
 
     private int getTimeout() {

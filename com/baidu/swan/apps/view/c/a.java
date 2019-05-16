@@ -34,7 +34,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
 
     @Override // com.baidu.swan.apps.scheme.actions.a
     @NonNull
-    public String JG() {
+    public String Mb() {
         return "/swan/animView";
     }
 
@@ -46,32 +46,32 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0181a c0181a = new C0181a(j);
-        if (!c0181a.MZ()) {
+        C0189a c0189a = new C0189a(j);
+        if (!c0189a.PI()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse insert params, but invalid");
             return false;
         }
-        JSONObject c = c(c0181a.path, bVar);
+        JSONObject c = c(c0189a.path, bVar);
         if (c == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse insert params, path file is invalid");
             return false;
         }
         LottieAnimationView lottieAnimationView = new LottieAnimationView(context);
-        lottieAnimationView.G(c0181a.loop);
+        lottieAnimationView.y(c0189a.loop);
         lottieAnimationView.setAnimation(c);
-        if (c0181a.aZE != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZE.aZF), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0181a.aZE.aZG);
+        if (c0189a.bcr != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0189a.bcr.bcs), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0189a.bcr.bct);
         }
-        if (c0181a.autoPlay) {
-            lottieAnimationView.cu();
+        if (c0189a.autoPlay) {
+            lottieAnimationView.bo();
         }
-        if (!c0181a.loop) {
-            a(lottieAnimationView, c0181a);
+        if (!c0189a.loop) {
+            a(lottieAnimationView, c0189a);
         }
-        boolean a = new SwanAppNAViewContainer(context).a(lottieAnimationView, c0181a);
+        boolean a = new SwanAppNAViewContainer(context).a(lottieAnimationView, c0189a);
         c.i("AbsSwanAppWidget", "insert anim view success = " + a);
         if (a) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -90,13 +90,13 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0181a c0181a = new C0181a(j);
-        if (!c0181a.isValid()) {
+        C0189a c0189a = new C0189a(j);
+        if (!c0189a.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse update params, but invalid");
             return false;
         }
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0181a, null);
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0189a, null);
         if (a == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             c.e("AbsSwanAppWidget", "get wrapper is null");
@@ -109,20 +109,20 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             return false;
         }
         LottieAnimationView lottieAnimationView = (LottieAnimationView) nAView;
-        if (c0181a.aZE != null) {
-            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0181a.aZE.aZF), PorterDuff.Mode.ADD));
-            lottieAnimationView.setAlpha(c0181a.aZE.aZG);
+        if (c0189a.bcr != null) {
+            lottieAnimationView.a(new PorterDuffColorFilter(Color.parseColor(c0189a.bcr.bcs), PorterDuff.Mode.ADD));
+            lottieAnimationView.setAlpha(c0189a.bcr.bct);
         }
-        String str2 = c0181a.action;
+        String str2 = c0189a.action;
         if (TextUtils.equals(str2, "play")) {
-            lottieAnimationView.cv();
+            lottieAnimationView.bp();
         } else if (TextUtils.equals(str2, "pause")) {
-            lottieAnimationView.cw();
+            lottieAnimationView.bq();
         } else if (TextUtils.equals(str2, IntentConfig.STOP)) {
             lottieAnimationView.cancelAnimation();
             lottieAnimationView.setProgress(0.0f);
         }
-        boolean a2 = a.a(c0181a);
+        boolean a2 = a.a(c0189a);
         c.i("AbsSwanAppWidget", "update anim view success = " + a2);
         if (a2) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -141,14 +141,14 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             c.e("AbsSwanAppWidget", "params is null");
             return false;
         }
-        C0181a c0181a = new C0181a(j);
-        if (!c0181a.isValid()) {
+        C0189a c0189a = new C0189a(j);
+        if (!c0189a.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             c.e("AbsSwanAppWidget", "parse remove params, but invalid");
             return false;
         }
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0181a, null);
-        boolean z = a != null && a.MI();
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(c0189a, null);
+        boolean z = a != null && a.Pr();
         c.i("AbsSwanAppWidget", "remove anim view success = " + z);
         if (z) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -164,13 +164,13 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
         return false;
     }
 
-    private void a(@NonNull final LottieAnimationView lottieAnimationView, final C0181a c0181a) {
+    private void a(@NonNull final LottieAnimationView lottieAnimationView, final C0189a c0189a) {
         final JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject.put("wvID", c0181a.aBH);
+            jSONObject.put("wvID", c0189a.aDm);
             jSONObject.put("vtype", "ended");
-            jSONObject2.putOpt("animationViewId", c0181a.id);
+            jSONObject2.putOpt("animationViewId", c0189a.id);
             jSONObject.put("data", jSONObject2.toString());
         } catch (JSONException e) {
             if (DEBUG) {
@@ -185,7 +185,7 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (lottieAnimationView.getProgress() == 1.0f) {
-                    d.a(c0181a.aBH, c0181a.id, "animateview", "ended", jSONObject);
+                    d.a(c0189a.aDm, c0189a.id, "animateview", "ended", jSONObject);
                 }
                 c.d("AbsSwanAppWidget", "progress: " + lottieAnimationView.getProgress());
             }
@@ -204,14 +204,14 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0181a extends com.baidu.swan.apps.model.a.a.a {
-        C0182a aZE;
+    public class C0189a extends com.baidu.swan.apps.model.a.a.a {
         String action;
         boolean autoPlay;
+        C0190a bcr;
         boolean loop;
         String path;
 
-        C0181a(JSONObject jSONObject) {
+        C0189a(JSONObject jSONObject) {
             super("sanId", "animateview");
             this.loop = false;
             this.autoPlay = true;
@@ -233,30 +233,30 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
                 this.action = jSONObject.optString("action");
                 JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
                 if (optJSONObject != null) {
-                    this.aZE = new C0182a();
-                    this.aZE.aZF = optJSONObject.optString("bgColor");
-                    this.aZE.aZG = (float) optJSONObject.optDouble("opacity");
+                    this.bcr = new C0190a();
+                    this.bcr.bcs = optJSONObject.optString("bgColor");
+                    this.bcr.bct = (float) optJSONObject.optDouble("opacity");
                 }
             }
         }
 
         @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.aBH) || TextUtils.isEmpty(this.id)) ? false : true;
+            return (TextUtils.isEmpty(this.aDm) || TextUtils.isEmpty(this.id)) ? false : true;
         }
 
-        public boolean MZ() {
+        public boolean PI() {
             return isValid() && !TextUtils.isEmpty(this.path);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.view.c.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class C0182a {
-            String aZF;
-            float aZG;
+        public class C0190a {
+            String bcs;
+            float bct;
 
-            C0182a() {
+            C0190a() {
             }
         }
     }
@@ -280,12 +280,12 @@ public class a extends com.baidu.swan.apps.scheme.actions.a {
             return null;
         }
         try {
-            String aC = "bdfile".equalsIgnoreCase(URI.create(str).getScheme()) ? com.baidu.swan.apps.storage.b.aC(str, bVar.id) : com.baidu.swan.apps.storage.b.a(str, bVar, bVar.getVersion());
-            ?? isEmpty = TextUtils.isEmpty(aC);
+            String aE = "bdfile".equalsIgnoreCase(URI.create(str).getScheme()) ? com.baidu.swan.apps.storage.b.aE(str, bVar.id) : com.baidu.swan.apps.storage.b.a(str, bVar, bVar.getVersion());
+            ?? isEmpty = TextUtils.isEmpty(aE);
             if (isEmpty != 0) {
                 return null;
             }
-            File file = new File(aC);
+            File file = new File(aE);
             if (!file.exists()) {
                 return null;
             }

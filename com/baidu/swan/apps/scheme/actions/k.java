@@ -8,29 +8,29 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class k extends y {
-    private com.baidu.swan.apps.b.c.c aPB;
+public class k extends z {
+    private com.baidu.swan.apps.b.c.c aRF;
 
     public k(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/getSlaveIdSync");
     }
 
     public void f(com.baidu.swan.apps.b.c.c cVar) {
-        this.aPB = cVar;
+        this.aRF = cVar;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (this.aPB == null) {
+        if (this.aRF == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.aPB.wd());
+            jSONObject.put("slaveId", this.aRF.wU());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

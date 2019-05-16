@@ -10,10 +10,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b {
-    private a jpj;
+    private a jIl;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_SHARE_SDK) { // from class: com.baidu.tieba.write.share.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -21,10 +21,10 @@ public class b {
             if (httpResponsedMessage instanceof CheckResponse) {
                 c checkResponseData = ((CheckResponse) httpResponsedMessage).getCheckResponseData();
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(d.j.share_sdk_check_no_resp));
+                    httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(R.string.share_sdk_check_no_resp));
                 }
-                if (b.this.jpj != null) {
-                    b.this.jpj.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.jIl != null) {
+                    b.this.jIl.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -38,12 +38,12 @@ public class b {
 
     private void init() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerTask(cpD());
+        messageManager.registerTask(cxJ());
         this.mHttpMessageListener.setTag(this.mPageId);
         messageManager.registerListener(this.mHttpMessageListener);
     }
 
-    private HttpMessageTask cpD() {
+    private HttpMessageTask cxJ() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_SHARE_SDK, TbConfig.CHECK_SHARE_SDK_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setRetry(3);
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.jpj = aVar;
+        this.jIl = aVar;
     }
 
-    public void ej(String str, String str2) {
+    public void ew(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.jpj != null) {
-                this.jpj.a(null, -2112, TbadkCoreApplication.getInst().getString(d.j.check_share_sdk_appkey_null));
+            if (this.jIl != null) {
+                this.jIl.a(null, -2112, TbadkCoreApplication.getInst().getString(R.string.check_share_sdk_appkey_null));
                 return;
             }
             return;

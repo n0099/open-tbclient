@@ -1,11 +1,11 @@
 package com.baidu.tbadk.g;
 /* loaded from: classes.dex */
 public interface a {
-    void Vq();
+    void ZU();
 
-    void Vr();
+    void du(boolean z);
 
-    void kq(String str);
+    void lt(String str);
 
-    void tl();
+    void tX();
 }

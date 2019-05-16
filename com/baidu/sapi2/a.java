@@ -7,6 +7,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.poly.bean.PayChannel;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.FillUserProfileCallback;
@@ -89,12 +90,12 @@ public final class a {
     private static final int a = 6;
     private static final String b = "3";
     private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
-    private C0088a d;
+    private C0090a d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.sapi2.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0088a {
+    public static class C0090a {
         static List<String> b = new ArrayList();
         static int c;
         Context a;
@@ -106,7 +107,7 @@ public final class a {
             b.add(SapiEnv.PASS_RETRY_IP3);
         }
 
-        public C0088a(Context context) {
+        public C0090a(Context context) {
             this.a = context;
             e();
             f();
@@ -142,7 +143,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.d = new C0088a(context);
+        this.d = new C0090a(context);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1513,7 +1514,7 @@ public final class a {
                 fastRegResult.setResultCode(b2);
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    fastRegResult.setResultMsg(jSONObject.optJSONObject("sdk").optString("msg"));
+                    fastRegResult.setResultMsg(jSONObject.optJSONObject(PayChannel.ACTION_TYPE_SDK).optString("msg"));
                     switch (b2) {
                         case 0:
                             a.this.d.e();

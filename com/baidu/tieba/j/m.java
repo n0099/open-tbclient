@@ -7,12 +7,12 @@ public class m implements l {
     }
 
     @Override // com.baidu.tieba.j.l
-    public e ze(String str) {
+    public e Au(String str) {
         return new com.baidu.tieba.k.b(str);
     }
 
     @Override // com.baidu.tieba.j.l
-    public h bEz() {
-        return com.baidu.tieba.post.j.bUK();
+    public h bMk() {
+        return com.baidu.tieba.post.j.ccK();
     }
 }

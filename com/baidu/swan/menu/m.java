@@ -1,7 +1,7 @@
 package com.baidu.swan.menu;
+
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public interface m {
-    f Rh();
-
-    n Ri();
+    void d(String str, HashMap<String, String> hashMap);
 }

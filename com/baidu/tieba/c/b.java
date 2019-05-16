@@ -7,47 +7,47 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView era;
-    private MessageRedDotView erb;
-    private int erc = d.f.icon_topbar_remind_n_svg;
-    private int erd = d.C0277d.select_topbar_icon_color_tint;
+    private ImageView eGH;
+    private MessageRedDotView eGI;
+    private int eGJ = R.drawable.icon_topbar_remind_n_svg;
+    private int eGK = R.color.select_topbar_icon_color_tint;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.widget_message_entrance, (ViewGroup) null);
-        this.era = (ImageView) this.mRootView.findViewById(d.g.img_message);
-        this.erb = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
+        this.eGH = (ImageView) this.mRootView.findViewById(R.id.img_message);
+        this.eGI = (MessageRedDotView) this.mRootView.findViewById(R.id.img_red_tip);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView aSh() {
-        return this.era;
+    public ImageView aZq() {
+        return this.eGH;
     }
 
     public void l(boolean z, int i) {
         if (z) {
-            this.erb.refresh(i);
-            this.erb.setVisibility(0);
+            this.eGI.refresh(i);
+            this.eGI.setVisibility(0);
             return;
         }
-        this.erb.setVisibility(8);
+        this.eGI.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.erb.onChangeSkinType();
-        aq.adl().d(this.era, this.erc, this.erd);
+        this.eGI.onChangeSkinType();
+        aq.aik().d(this.eGH, this.eGJ, this.eGK);
     }
 
-    public void oD(int i) {
-        this.erd = i;
+    public void pH(int i) {
+        this.eGK = i;
     }
 
     public void setVisibility(int i) {

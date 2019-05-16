@@ -29,8 +29,6 @@ public class ImageFileInfo extends MediaFileInfo {
     private boolean isLong;
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
-    public int mCount = 0;
-    private int mImageType = 0;
     private String modifyTime;
     private Bitmap orginalBitmap;
     private LinkedList<ImageOperation> pageActionsList;
@@ -38,17 +36,20 @@ public class ImageFileInfo extends MediaFileInfo {
     private String serverImageCode;
     public ImageUploadResult.picInfo serverPicInfo;
     public int width;
+    public int mCount = 0;
+    private int mImageType = 0;
+    public boolean isFromMoreForum = false;
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.f.c.jB().k(this.filePath, 20);
+            return com.baidu.adp.lib.f.c.iv().e(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.S(this.persistActionsList) > 0) {
+                if (v.Z(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -57,7 +58,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.S(this.pageActionsList) > 0) {
+                if (v.Z(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();

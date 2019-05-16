@@ -1,0 +1,22 @@
+package com.baidu.tieba.pb.data;
+
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.squareup.wire.Wire;
+import tbclient.ThreadPublish.ThreadPublishResIdl;
+/* loaded from: classes4.dex */
+public class ThreadPublishHttpResMeesage extends TbHttpResponsedMessage {
+    public ThreadPublishHttpResMeesage() {
+        super(CmdConfigHttp.CMD_VOTE_THREAD_PULISH);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        ThreadPublishResIdl threadPublishResIdl = (ThreadPublishResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadPublishResIdl.class);
+        if (threadPublishResIdl != null) {
+            setError(threadPublishResIdl.error.errorno.intValue());
+            setErrorString(threadPublishResIdl.error.usermsg);
+        }
+    }
+}

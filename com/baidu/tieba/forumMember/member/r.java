@@ -13,11 +13,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class r extends com.baidu.tieba.frs.h<s, t> {
-    private static final int eWd = d.g.private_apply_tip;
-    private com.baidu.tbadk.coreExtra.view.c bWa;
+    private com.baidu.tbadk.coreExtra.view.c cdV;
     private View.OnClickListener mClickListener;
 
     public r(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,15 +24,14 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.r.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    Object tag = view.getTag(r.eWd);
-                    if (tag != null && !tag.toString().equals("")) {
-                        ba.adA().c((TbPageContext) com.baidu.adp.base.i.aK(r.this.mContext), new String[]{tag.toString()});
-                        return;
-                    }
+                if (TbadkCoreApplication.isLogin() && StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
+                    r.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                     return;
                 }
-                r.this.i(TbadkCoreApplication.getCurrentAccountInfo());
+                Object tag = view.getTag(R.id.private_apply_tip);
+                if (tag != null && !tag.toString().equals("")) {
+                    ba.aiz().c((TbPageContext) com.baidu.adp.base.i.ab(r.this.mContext), new String[]{tag.toString()});
+                }
             }
         };
     }
@@ -43,7 +41,7 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aC */
     public t onCreateViewHolder(ViewGroup viewGroup) {
-        return new t(LayoutInflater.from(this.mContext).inflate(d.h.private_member_apply, (ViewGroup) null));
+        return new t(LayoutInflater.from(this.mContext).inflate(R.layout.private_member_apply, (ViewGroup) null));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,53 +57,53 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
                 tVar.mRootLayout.setVisibility(8);
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
-                    al.l(tVar.bEU, d.C0277d.cp_bg_line_b);
-                    al.d(tVar.eWa, d.C0277d.cp_cont_d, 1);
-                    al.d(tVar.eVY, d.C0277d.cp_cont_b, 1);
-                    al.k(tVar.eWc, d.f.frs_member_manito_bg);
+                    al.l(tVar.bMo, R.color.cp_bg_line_b);
+                    al.f(tVar.fmg, R.color.cp_cont_d, 1);
+                    al.f(tVar.fmf, R.color.cp_cont_b, 1);
+                    al.k(tVar.fmh, R.drawable.frs_member_manito_bg);
                 }
-                int bbj = sVar.bbj();
-                String string2 = this.mContext.getResources().getString(d.j.tbtitle_quota_is_full);
-                if (bbj == -1) {
-                    int bbg = sVar.bbg();
-                    String as = ap.as(bbg);
-                    if (bbg > 0) {
-                        string = String.format(this.mContext.getResources().getString(d.j.tbtitle_apply_assist_left_num_tip), as);
-                        tVar.eWc.setOnClickListener(this.mClickListener);
-                        tVar.eWa.setText(string);
-                        tVar.eWc.setTag(eWd, sVar.bbi());
-                        tVar.eWc.setEnabled(z);
-                        tVar.eWc.setClickable(z);
-                        tVar.eWa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                int biz = sVar.biz();
+                String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
+                if (biz == -1) {
+                    int bix = sVar.bix();
+                    String aG = ap.aG(bix);
+                    if (bix > 0) {
+                        string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), aG);
+                        tVar.fmh.setOnClickListener(this.mClickListener);
+                        tVar.fmg.setText(string);
+                        tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
+                        tVar.fmh.setEnabled(z);
+                        tVar.fmh.setClickable(z);
+                        tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.eWc.setOnClickListener(this.mClickListener);
-                    tVar.eWa.setText(string);
-                    tVar.eWc.setTag(eWd, sVar.bbi());
-                    tVar.eWc.setEnabled(z);
-                    tVar.eWc.setClickable(z);
-                    tVar.eWa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.fmh.setOnClickListener(this.mClickListener);
+                    tVar.fmg.setText(string);
+                    tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
+                    tVar.fmh.setEnabled(z);
+                    tVar.fmh.setClickable(z);
+                    tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (bbj == 0) {
-                        string = this.mContext.getResources().getString(d.j.tbtitle_is_assist);
-                    } else if (bbj == 1) {
-                        string = this.mContext.getResources().getString(d.j.tbtitle_assist_applying);
+                    if (biz == 0) {
+                        string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
+                    } else if (biz == 1) {
+                        string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (bbj == 2) {
-                            string = this.mContext.getResources().getString(d.j.tbtitle_assist_apply_failed);
+                        if (biz == 2) {
+                            string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.eWc.setOnClickListener(this.mClickListener);
-                    tVar.eWa.setText(string);
-                    tVar.eWc.setTag(eWd, sVar.bbi());
-                    tVar.eWc.setEnabled(z);
-                    tVar.eWc.setClickable(z);
-                    tVar.eWa.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.fmh.setOnClickListener(this.mClickListener);
+                    tVar.fmg.setText(string);
+                    tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
+                    tVar.fmh.setEnabled(z);
+                    tVar.fmh.setClickable(z);
+                    tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }
@@ -116,23 +114,23 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
         Activity activity;
-        com.baidu.adp.base.e<?> aK = com.baidu.adp.base.i.aK(this.mContext);
-        if (!(aK instanceof TbPageContext)) {
+        com.baidu.adp.base.e<?> ab = com.baidu.adp.base.i.ab(this.mContext);
+        if (!(ab instanceof TbPageContext)) {
             activity = null;
         } else {
-            activity = ((TbPageContext) aK).getPageActivity();
+            activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.bWa == null) {
-            this.bWa = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.cdV == null) {
+            this.cdV = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.bWa.akj();
-        this.bWa.setAccountData(accountData);
-        this.bWa.iZ(1);
+        this.cdV.apm();
+        this.cdV.setAccountData(accountData);
+        this.cdV.jN(1);
     }
 
     public void onDestroy() {
-        if (this.bWa != null) {
-            this.bWa.onDestroy();
+        if (this.cdV != null) {
+            this.cdV.onDestroy();
         }
     }
 }

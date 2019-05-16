@@ -6,41 +6,41 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    public static final float cBR = l.aR(TbadkCoreApplication.getInst());
-    protected boolean cCg;
-    public int cCq;
-    public int cCr;
-    public int cCs;
+    public static final float cJZ = l.ai(TbadkCoreApplication.getInst());
+    public int cKA;
+    protected boolean cKo;
+    public int cKy;
+    public int cKz;
     public boolean mIsFromCDN;
     protected TbImageView.b mOnDrawListener;
-    protected float cBS = 0.0f;
-    protected float cBT = 0.0f;
-    protected int bOC = 0;
-    protected int cBU = 0;
-    protected float cBV = 15.0f;
-    protected int cBW = -1;
-    protected int cBX = -1;
+    protected float cKa = 0.0f;
+    protected float cKb = 0.0f;
+    protected int bWq = 0;
+    protected int cKc = 0;
+    protected float cKd = 15.0f;
+    protected int cKe = -1;
+    protected int cKf = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int cBY = 200;
-    protected int cBZ = 200;
-    protected int cCa = 0;
-    protected int cCb = 0;
-    protected boolean cCc = false;
-    protected int cCd = -9989158;
-    protected ImageView.ScaleType cCe = ImageView.ScaleType.CENTER_CROP;
-    public boolean cCf = false;
-    public int cCh = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds16);
-    public int cCi = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
-    public int cCj = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds18);
-    protected int cCk = l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds20);
-    protected int cCl = 0;
-    protected int cCm = -1;
-    protected int cCn = -1;
-    protected int cCo = -1;
-    protected boolean cCp = false;
+    protected int cKg = 200;
+    protected int cKh = 200;
+    protected int cKi = 0;
+    protected int cKj = 0;
+    protected boolean cKk = false;
+    protected int cKl = -9989158;
+    protected ImageView.ScaleType cKm = ImageView.ScaleType.CENTER_CROP;
+    public boolean cKn = false;
+    public int cKp = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int cKq = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int cKr = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int cKs = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int cKt = 0;
+    protected int cKu = -1;
+    protected int cKv = -1;
+    protected int cKw = -1;
+    protected boolean cKx = false;
 
     public a() {
     }
@@ -52,119 +52,119 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.cBU = typedArray.getDimensionPixelSize(d.l.TbRichTextView_segmentMargin, 0);
-        this.bOC = typedArray.getDimensionPixelSize(d.l.TbRichTextView_textPadding, 0);
-        this.cBS = typedArray.getFloat(d.l.TbRichTextView_lineSpacing, 1.12f);
-        this.cBV = typedArray.getDimensionPixelSize(d.l.TbRichTextView_textSize, (int) this.cBV);
-        this.mTextColor = typedArray.getColor(d.l.TbRichTextView_textColor, this.mTextColor);
-        this.cBY = typedArray.getDimensionPixelSize(d.l.TbRichTextView_maxImageWidth, this.cBY);
-        this.cBZ = typedArray.getDimensionPixelSize(d.l.TbRichTextView_maxImageHeight, this.cBZ);
-        this.cCa = typedArray.getResourceId(d.l.TbRichTextView_defaultImage, 0);
-        this.cBW = typedArray.getDimensionPixelSize(d.l.TbRichTextView_faceWidth, this.cBW);
-        this.cBX = typedArray.getDimensionPixelSize(d.l.TbRichTextView_faceHeight, this.cBX);
-        this.cCb = typedArray.getResourceId(d.l.TbRichTextView_videoImage, 0);
-        this.cCc = typedArray.getBoolean(d.l.TbRichTextView_singleLine, false);
-        this.cCn = this.cBU;
+        this.cKc = typedArray.getDimensionPixelSize(4, 0);
+        this.bWq = typedArray.getDimensionPixelSize(1, 0);
+        this.cKa = typedArray.getFloat(12, 1.12f);
+        this.cKd = typedArray.getDimensionPixelSize(11, (int) this.cKd);
+        this.mTextColor = typedArray.getColor(0, this.mTextColor);
+        this.cKg = typedArray.getDimensionPixelSize(7, this.cKg);
+        this.cKh = typedArray.getDimensionPixelSize(10, this.cKh);
+        this.cKi = typedArray.getResourceId(2, 0);
+        this.cKe = typedArray.getDimensionPixelSize(9, this.cKe);
+        this.cKf = typedArray.getDimensionPixelSize(3, this.cKf);
+        this.cKj = typedArray.getResourceId(8, 0);
+        this.cKk = typedArray.getBoolean(5, false);
+        this.cKv = this.cKc;
     }
 
     public void release() {
     }
 
     public void ar(int i, int i2) {
-        this.cBW = i;
-        this.cBX = i2;
+        this.cKe = i;
+        this.cKf = i2;
     }
 
-    public void kx(int i) {
-        this.cCb = i;
+    public void lm(int i) {
+        this.cKj = i;
     }
 
-    public void ky(int i) {
-        this.cBY = i;
+    public void ln(int i) {
+        this.cKg = i;
     }
 
-    public void kz(int i) {
-        this.cBZ = i;
+    public void lo(int i) {
+        this.cKh = i;
     }
 
-    public void kA(int i) {
-        this.cCa = i;
+    public void lp(int i) {
+        this.cKi = i;
     }
 
     public void setSupportNoImage() {
-        this.cCf = true;
+        this.cKn = true;
     }
 
     public void setLineSpacing(float f, float f2) {
-        this.cBS = f2;
-        this.cBT = f;
+        this.cKa = f2;
+        this.cKb = f;
     }
 
     public void as(int i, int i2) {
-        this.cCh = i;
-        this.cCi = i2;
+        this.cKp = i;
+        this.cKq = i2;
     }
 
-    public void kB(int i) {
-        this.cCj = i;
+    public void lq(int i) {
+        this.cKr = i;
     }
 
-    public void kC(int i) {
-        this.cCk = i;
+    public void lr(int i) {
+        this.cKs = i;
     }
 
-    public void kD(int i) {
-        this.cBU = i;
+    public void ls(int i) {
+        this.cKc = i;
     }
 
-    public void kE(int i) {
-        this.cCl = i;
+    public void lt(int i) {
+        this.cKt = i;
     }
 
-    public void kF(int i) {
-        this.cCm = i;
+    public void lu(int i) {
+        this.cKu = i;
     }
 
-    public void kG(int i) {
-        this.cCn = i;
+    public void lv(int i) {
+        this.cKv = i;
     }
 
-    public void kH(int i) {
-        this.cCo = i;
+    public void lw(int i) {
+        this.cKw = i;
     }
 
     public void setTextSize(int i) {
-        this.cBV = i;
+        this.cKd = i;
     }
 
-    public boolean ass() {
-        return this.cCp;
+    public boolean axx() {
+        return this.cKx;
     }
 
-    public void fs(boolean z) {
-        this.cCp = z;
+    public void fP(boolean z) {
+        this.cKx = z;
     }
 
-    public void ft(boolean z) {
-        this.cCg = z;
+    public void fQ(boolean z) {
+        this.cKo = z;
     }
 
     public int[] o(int i, int i2, int i3, int i4) {
-        int[] c = l.c(i, i2, i3, i4);
-        if (c == null) {
+        int[] b = l.b(i, i2, i3, i4);
+        if (b == null) {
             return null;
         }
-        int[] iArr = {c[0], c[1]};
+        int[] iArr = {b[0], b[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.cCg || i3 <= i5 || cBR <= 1.0f) {
+        if (!this.cKo || i3 <= i5 || cJZ <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * cBR <= i3) {
-                if (i5 * cBR > i3 * 0.68f) {
+            if (i5 * cJZ <= i3) {
+                if (i5 * cJZ > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * cBR);
+                    i3 = (int) (i5 * cJZ);
                 }
             }
             if (iArr[0] > 0) {
@@ -175,30 +175,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.cBS = aVar.cBS;
-        this.cBT = aVar.cBT;
-        this.bOC = aVar.bOC;
-        this.cBU = aVar.cBU;
-        this.cBV = aVar.cBV;
-        this.cBW = aVar.cBW;
-        this.cBX = aVar.cBX;
+        this.cKa = aVar.cKa;
+        this.cKb = aVar.cKb;
+        this.bWq = aVar.bWq;
+        this.cKc = aVar.cKc;
+        this.cKd = aVar.cKd;
+        this.cKe = aVar.cKe;
+        this.cKf = aVar.cKf;
         this.mTextColor = aVar.mTextColor;
-        this.cBY = aVar.cBY;
-        this.cBZ = aVar.cBZ;
-        this.cCa = aVar.cCa;
-        this.cCb = aVar.cCb;
-        this.cCc = aVar.cCc;
+        this.cKg = aVar.cKg;
+        this.cKh = aVar.cKh;
+        this.cKi = aVar.cKi;
+        this.cKj = aVar.cKj;
+        this.cKk = aVar.cKk;
         this.mIsFromCDN = aVar.mIsFromCDN;
-        this.cCd = aVar.cCd;
-        this.cCf = aVar.cCf;
-        this.cCg = aVar.cCg;
-        this.cCh = aVar.cCh;
-        this.cCi = aVar.cCi;
-        this.cCk = aVar.cCk;
-        this.cCl = aVar.cCl;
-        this.cCm = aVar.cCm;
-        this.cCn = aVar.cBU;
-        this.cCo = aVar.cCo;
-        this.cCp = aVar.cCp;
+        this.cKl = aVar.cKl;
+        this.cKn = aVar.cKn;
+        this.cKo = aVar.cKo;
+        this.cKp = aVar.cKp;
+        this.cKq = aVar.cKq;
+        this.cKs = aVar.cKs;
+        this.cKt = aVar.cKt;
+        this.cKu = aVar.cKu;
+        this.cKv = aVar.cKc;
+        this.cKw = aVar.cKw;
+        this.cKx = aVar.cKx;
     }
 }

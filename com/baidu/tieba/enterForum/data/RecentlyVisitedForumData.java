@@ -30,7 +30,7 @@ public class RecentlyVisitedForumData extends OrmObject {
         }
     }
 
-    public void pa(int i) {
+    public void qe(int i) {
         if (this.mForumData != null) {
             while (this.mForumData.size() > i) {
                 this.mForumData.removeLast();
@@ -80,7 +80,7 @@ public class RecentlyVisitedForumData extends OrmObject {
                     this.mForumData.addLast(next);
                 }
             }
-            pa(20);
+            qe(20);
         }
     }
 

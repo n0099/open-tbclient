@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] iFl = {3, 8, 13};
-    public static final int[] iFm = {2, 12};
-    public static final int[] iFn = {20};
-    public static final int[] iFo = {3, 13, 23};
-    private SparseIntArray iFp = new SparseIntArray();
-    private String iFq;
-    private final int[] iFr;
+    public static final int[] iXY = {3, 8, 13};
+    public static final int[] iXZ = {2, 12};
+    public static final int[] iYa = {20};
+    public static final int[] iYb = {3, 13, 23};
+    private SparseIntArray iYc = new SparseIntArray();
+    private String iYd;
+    private final int[] iYe;
 
     public f(String str, int[] iArr) {
-        this.iFr = iArr;
-        this.iFq = str;
+        this.iYe = iArr;
+        this.iYd = str;
     }
 
-    public void zm(int i) {
+    public void Au(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.iFp != null) {
-            this.iFp.clear();
-            if (this.iFr != null) {
-                for (int i2 : this.iFr) {
+        if (this.iYc != null) {
+            this.iYc.clear();
+            if (this.iYe != null) {
+                for (int i2 : this.iYe) {
                     if (i2 >= 0) {
-                        this.iFp.append(i2 + i, i2);
+                        this.iYc.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void cdQ() {
-        zm(0);
+    public void clV() {
+        Au(0);
     }
 
-    public void cn(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.iFp != null) {
-            this.iFp.append(i2, i);
+    public void cu(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.iYc != null) {
+            this.iYc.append(i2, i);
         }
     }
 
-    public int zn(int i) {
-        if (i >= 0 && this.iFp != null) {
-            return this.iFp.get(i, -1);
+    public int Av(int i) {
+        if (i >= 0 && this.iYc != null) {
+            return this.iYc.get(i, -1);
         }
         return -1;
     }
 
-    public void zo(int i) {
-        if (this.iFp != null) {
-            this.iFp.delete(i);
+    public void Aw(int i) {
+        if (this.iYc != null) {
+            this.iYc.delete(i);
         }
     }
 }

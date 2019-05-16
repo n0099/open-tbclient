@@ -6,7 +6,7 @@ import java.util.Set;
 public interface c {
     Object b(String str, Type type);
 
-    void d(String str, Object obj);
+    void e(String str, Object obj);
 
     Set<String> getKeys();
 }

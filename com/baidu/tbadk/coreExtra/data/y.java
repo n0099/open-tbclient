@@ -5,50 +5,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String bXD;
-    private long bXE;
-    private long bXF;
-    private long bXG;
-    private String bXH;
-    private String bXI;
+    private long cfA;
+    private long cfB;
+    private String cfC;
+    private String cfD;
+    private String cfy;
+    private long cfz;
 
     public void parseJson(String str) {
         if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.bXD = jSONObject.optString("splash_video_url");
-                this.bXE = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.bXF = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.bXG = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.bXH = jSONObject.optString("splash_video_h5_url");
-                this.bXI = jSONObject.optString("splash_video_h5_text");
+                this.cfy = jSONObject.optString("splash_video_url");
+                this.cfz = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.cfA = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.cfB = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.cfC = jSONObject.optString("splash_video_h5_url");
+                this.cfD = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String agD() {
-        return this.bXD;
+    public String alC() {
+        return this.cfy;
     }
 
-    public long agE() {
-        return this.bXE;
+    public long alD() {
+        return this.cfz;
     }
 
-    public long agF() {
-        return this.bXF;
+    public long alE() {
+        return this.cfA;
     }
 
-    public long agG() {
-        return this.bXG;
+    public long alF() {
+        return this.cfB;
     }
 
-    public String agH() {
-        return this.bXH;
+    public String alG() {
+        return this.cfC;
     }
 
-    public String agI() {
-        return this.bXI;
+    public String alH() {
+        return this.cfD;
     }
 }

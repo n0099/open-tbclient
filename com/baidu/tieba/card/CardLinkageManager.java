@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -14,7 +14,9 @@ public enum CardLinkageManager {
     private List<Long> mThreadIdList;
 
     public void pressLinkage(com.baidu.adp.widget.ListView.r rVar, int i, boolean z) {
+        View findViewByPosition;
         if (rVar instanceof BdTypeRecyclerView) {
+            int firstVisiblePosition = ((BdTypeRecyclerView) rVar).getFirstVisiblePosition();
             int lastVisiblePosition = ((BdTypeRecyclerView) rVar).getLastVisiblePosition();
             RecyclerView.LayoutManager layoutManager = ((BdTypeRecyclerView) rVar).getLayoutManager();
             if (layoutManager != null) {
@@ -22,17 +24,14 @@ public enum CardLinkageManager {
                 Object c = com.baidu.tbadk.core.util.v.c(data, i);
                 if (c instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) c;
-                    boolean z2 = ((BdTypeRecyclerView) rVar).getHeaderViewsCount() > 0;
-                    for (int firstVisiblePosition = ((BdTypeRecyclerView) rVar).getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
-                        Object c2 = com.baidu.tbadk.core.util.v.c(data, firstVisiblePosition);
-                        if ((c2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) c2).position) {
-                            View findViewByPosition = layoutManager.findViewByPosition(z2 ? firstVisiblePosition + 1 : firstVisiblePosition);
-                            if (findViewByPosition != null) {
-                                if (z) {
-                                    al.k(findViewByPosition, d.C0277d.cp_bg_line_e);
-                                } else {
-                                    al.k(findViewByPosition, d.C0277d.cp_bg_line_d);
-                                }
+                    int headerViewsCount = ((BdTypeRecyclerView) rVar).getHeaderViewsCount();
+                    for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
+                        Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);
+                        if ((c2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) c2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
+                            if (z) {
+                                al.k(findViewByPosition, R.color.cp_bg_line_e);
+                            } else {
+                                al.k(findViewByPosition, R.color.cp_bg_line_d);
                             }
                         }
                     }

@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.io.Writer;
 /* loaded from: classes.dex */
 public class n {
-    public static void i(InputStream inputStream) {
+    public static void g(InputStream inputStream) {
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -41,7 +41,7 @@ public class n {
         }
     }
 
-    public static void b(Writer writer) {
+    public static void a(Writer writer) {
         if (writer != null) {
             try {
                 writer.close();

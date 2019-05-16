@@ -16,7 +16,7 @@ public class GodRecommendRequestMessage extends NetMessage {
     @Override // com.baidu.adp.framework.message.NetMessage
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.d(this.userId, 0L));
+        builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.c(this.userId, 0L));
         if (z) {
             s.bindCommonParamsToProtobufData(builder, true);
         }

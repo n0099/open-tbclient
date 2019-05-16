@@ -1,18 +1,18 @@
 package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 /* loaded from: classes.dex */
 public class a implements h {
-    private Object zC;
+    private Object xo;
 
     public a(Object obj) {
         if (obj != null && obj.getClass().isArray()) {
-            this.zC = obj;
+            this.xo = obj;
         }
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        if (this.zC != null) {
-            return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.zC, cVar);
+        if (this.xo != null) {
+            return com.baidu.adp.lib.OrmObject.toolsystem.orm.d.b.a(this.xo, cVar);
         }
         return null;
     }

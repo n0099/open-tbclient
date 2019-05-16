@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes4.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener cPX;
+    public View.OnClickListener cYi;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -22,7 +22,7 @@ public class a extends k<b, c> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bG */
     public c onCreateViewHolder(ViewGroup viewGroup) {
-        return new c(LayoutInflater.from(this.mContext).inflate(d.h.pb_god_reply_look_more_item, viewGroup, false));
+        return new c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_god_reply_look_more_item, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,21 +31,21 @@ public class a extends k<b, c> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
-        if (cVar != null && cVar.eij != null) {
-            if (this.cPX != null) {
-                cVar.eij.setOnClickListener(this.cPX);
+        if (cVar != null && cVar.exW != null) {
+            if (this.cYi != null) {
+                cVar.exW.setOnClickListener(this.cYi);
             }
-            if (cVar.bUN != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.bUN = TbadkCoreApplication.getInst().getSkinType();
-                al.j(cVar.eij, d.C0277d.cp_cont_f);
-                al.k(cVar.eij, d.f.more_all);
-                al.k(cVar.dividerLine, d.C0277d.cp_bg_line_c);
+            if (cVar.ccI != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.ccI = TbadkCoreApplication.getInst().getSkinType();
+                al.j(cVar.exW, R.color.cp_cont_f);
+                al.k(cVar.exW, R.drawable.more_all);
+                al.k(cVar.dividerLine, R.color.cp_bg_line_c);
             }
         }
         return view;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cPX = onClickListener;
+        this.cYi = onClickListener;
     }
 }

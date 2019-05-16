@@ -5,21 +5,21 @@ import android.text.TextUtils;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class ai extends a {
-    private int als = 0;
+    private int alE = 0;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
-    public void g(JSONArray jSONArray) {
+    public void e(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 0) {
                 String optString = jSONArray.optString(0);
                 if (TextUtils.equals(optString, "top")) {
-                    this.als = 1;
+                    this.alE = 1;
                 } else if (TextUtils.equals(optString, "middle")) {
-                    this.als = 2;
+                    this.alE = 2;
                 } else if (TextUtils.equals(optString, "bottom")) {
-                    this.als = 3;
+                    this.alE = 3;
                 } else {
-                    this.als = 0;
+                    this.alE = 0;
                 }
             }
         } catch (Exception e) {
@@ -31,6 +31,6 @@ public class ai extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        bVar.als = this.als;
+        bVar.alE = this.alE;
     }
 }

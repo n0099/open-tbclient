@@ -1,113 +1,346 @@
 package com.baidu.swan.apps.an;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.Uri;
-import android.util.Log;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.baidu.mobstat.Config;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import java.util.HashMap;
+import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
-public class l {
+public final class l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static HashMap<String, Integer> aZq = new HashMap<>();
+    private static HashMap<String, Integer> aZr = new HashMap<>();
+    private static HashMap<String, String> aZs = new HashMap<>();
+    public static HashMap<String, String> aZt = new HashMap<>();
+    private static final Pattern aZu;
 
-    /* loaded from: classes2.dex */
-    public interface a {
-        void d(String str, Bitmap bitmap);
+    static {
+        e("application/andrew-inset", "ez", 5);
+        e("application/dsptype", "tsp", 5);
+        e("application/futuresplash", "spl", 5);
+        e("application/hta", "hta", 5);
+        e("application/mac-binhex40", "hqx", 5);
+        e("application/mac-compactpro", "cpt", 5);
+        e("application/mathematica", "nb", 5);
+        e("application/msaccess", "mdb", 5);
+        e("application/oda", "oda", 5);
+        e("application/ogg", "ogg", 1);
+        e("application/pdf", "pdf", 4);
+        e("application/pgp-keys", "key", 5);
+        e("application/pgp-signature", "pgp", 5);
+        e("application/pics-rules", "prf", 5);
+        e("application/rar", "rar", 8);
+        e("application/rdf+xml", "rdf", 5);
+        e("application/rss+xml", "rss", 5);
+        e("application/zip", "zip", 8);
+        e("application/vnd.android.package-archive", "apk", 3);
+        e("application/vnd.cinderella", "cdy", 5);
+        e("application/vnd.ms-pki.stl", "stl", 5);
+        e("application/vnd.oasis.opendocument.database", "odb", 5);
+        e("application/vnd.oasis.opendocument.formula", "odf", 5);
+        e("application/vnd.oasis.opendocument.graphics", "odg", 5);
+        e("application/vnd.oasis.opendocument.graphics-template", "otg", 5);
+        e("application/vnd.oasis.opendocument.image", "odi", 5);
+        e("application/vnd.oasis.opendocument.spreadsheet", "ods", 5);
+        e("application/vnd.oasis.opendocument.spreadsheet-template", "ots", 5);
+        e("application/vnd.oasis.opendocument.text", "odt", 5);
+        e("application/vnd.oasis.opendocument.text-master", "odm", 5);
+        e("application/vnd.oasis.opendocument.text-template", "ott", 5);
+        e("application/vnd.oasis.opendocument.text-web", "oth", 5);
+        e("application/vnd.google-earth.kml+xml", "kml", 5);
+        e("application/vnd.google-earth.kmz", "kmz", 5);
+        e("application/msword", "doc", 4);
+        e("application/msword", "dot", 4);
+        e("application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx", 4);
+        e("application/vnd.openxmlformats-officedocument.wordprocessingml.template", "dotx", 4);
+        e("application/vnd.ms-excel", "xls", 4);
+        e("application/vnd.ms-excel", "xlt", 4);
+        e("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx", 4);
+        e("application/vnd.openxmlformats-officedocument.spreadsheetml.template", "xltx", 4);
+        e("application/vnd.ms-powerpoint", "ppt", 4);
+        e("application/vnd.ms-powerpoint", "pot", 4);
+        e("application/vnd.ms-powerpoint", "pps", 4);
+        e("application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx", 4);
+        e("application/vnd.openxmlformats-officedocument.presentationml.template", "potx", 4);
+        e("application/vnd.openxmlformats-officedocument.presentationml.slideshow", "ppsx", 4);
+        e("application/vnd.rim.cod", "cod", 5);
+        e("application/vnd.smaf", "mmf", 5);
+        e("application/vnd.stardivision.calc", "sdc", 5);
+        e("application/vnd.stardivision.draw", "sda", 5);
+        e("application/vnd.stardivision.impress", "sdd", 5);
+        e("application/vnd.stardivision.impress", "sdp", 5);
+        e("application/vnd.stardivision.math", "smf", 5);
+        e("application/vnd.stardivision.writer", "sdw", 5);
+        e("application/vnd.stardivision.writer", "vor", 5);
+        e("application/vnd.stardivision.writer-global", "sgl", 5);
+        e("application/vnd.sun.xml.calc", "sxc", 5);
+        e("application/vnd.sun.xml.calc.template", "stc", 5);
+        e("application/vnd.sun.xml.draw", "sxd", 5);
+        e("application/vnd.sun.xml.draw.template", "std", 5);
+        e("application/vnd.sun.xml.impress", "sxi", 5);
+        e("application/vnd.sun.xml.impress.template", "sti", 5);
+        e("application/vnd.sun.xml.math", "sxm", 5);
+        e("application/vnd.sun.xml.writer", "sxw", 5);
+        e("application/vnd.sun.xml.writer.global", "sxg", 5);
+        e("application/vnd.sun.xml.writer.template", "stw", 5);
+        e("application/vnd.visio", "vsd", 5);
+        e("application/x-abiword", "abw", 5);
+        e("application/x-apple-diskimage", "dmg", 5);
+        e("application/x-bcpio", "bcpio", 5);
+        e("application/x-bittorrent", "torrent", 5);
+        e("application/x-cdf", "cdf", 5);
+        e("application/x-cdlink", "vcd", 5);
+        e("application/x-chess-pgn", "pgn", 5);
+        e("application/x-cpio", "cpio", 5);
+        e("application/x-debian-package", "deb", 5);
+        e("application/x-debian-package", "udeb", 5);
+        e("application/x-director", "dcr", 5);
+        e("application/x-director", "dir", 5);
+        e("application/x-director", "dxr", 5);
+        e("application/x-dms", "dms", 5);
+        e("application/x-doom", "wad", 5);
+        e("application/x-dvi", "dvi", 5);
+        e("application/x-flac", "flac", 1);
+        e("application/x-font", "pfa", 5);
+        e("application/x-font", "pfb", 5);
+        e("application/x-font", "gsf", 5);
+        e("application/x-font", "pcf", 5);
+        e("application/x-font", "pcf.Z", 5);
+        e("application/x-freemind", "mm", 5);
+        e("application/x-futuresplash", "spl", 5);
+        e("application/x-gnumeric", "gnumeric", 5);
+        e("application/x-go-sgf", "sgf", 5);
+        e("application/x-graphing-calculator", "gcf", 5);
+        e("application/x-gtar", "gtar", 5);
+        e("application/x-gtar", "tgz", 5);
+        e("application/x-gtar", "taz", 5);
+        e("application/x-hdf", "hdf", 5);
+        e("application/x-ica", "ica", 5);
+        e("application/x-internet-signup", "ins", 5);
+        e("application/x-internet-signup", "isp", 5);
+        e("application/x-iphone", "iii", 5);
+        e("application/x-iso9660-image", "iso", 5);
+        e("application/x-jmol", "jmz", 5);
+        e("application/x-kchart", "chrt", 5);
+        e("application/x-killustrator", "kil", 5);
+        e("application/x-koan", "skp", 5);
+        e("application/x-koan", "skd", 5);
+        e("application/x-koan", "skt", 5);
+        e("application/x-koan", "skm", 5);
+        e("application/x-kpresenter", "kpr", 5);
+        e("application/x-kpresenter", "kpt", 5);
+        e("application/x-kspread", "ksp", 5);
+        e("application/x-kword", "kwd", 5);
+        e("application/x-kword", "kwt", 5);
+        e("application/x-latex", "latex", 5);
+        e("application/x-lha", "lha", 5);
+        e("application/x-lzh", "lzh", 5);
+        e("application/x-lzx", "lzx", 5);
+        e("application/x-maker", "frm", 5);
+        e("application/x-maker", "maker", 5);
+        e("application/x-maker", "frame", 5);
+        e("application/x-maker", "fb", 5);
+        e("application/x-maker", "book", 5);
+        e("application/x-maker", "fbdoc", 5);
+        e("application/x-mif", "mif", 5);
+        e("application/x-ms-wmd", "wmd", 5);
+        e("application/x-ms-wmz", "wmz", 5);
+        e("application/x-msi", "msi", 5);
+        e("application/x-ns-proxy-autoconfig", "pac", 5);
+        e("application/x-nwc", "nwc", 5);
+        e("application/x-object", Config.OS, 5);
+        e("application/x-oz-application", "oza", 5);
+        e("application/x-pkcs12", "p12", 5);
+        e("application/x-pkcs12", "pfx", 5);
+        e("application/x-pkcs7-certreqresp", "p7r", 5);
+        e("application/x-pkcs7-crl", "crl", 5);
+        e("application/x-quicktimeplayer", "qtl", 5);
+        e("application/x-shar", "shar", 5);
+        e("application/x-shockwave-flash", "swf", 5);
+        e("application/x-stuffit", "sit", 5);
+        e("application/x-sv4cpio", "sv4cpio", 5);
+        e("application/x-sv4crc", "sv4crc", 5);
+        e("application/x-tar", "tar", 8);
+        e("application/x-texinfo", "texinfo", 5);
+        e("application/x-texinfo", "texi", 5);
+        e("application/x-troff", "t", 5);
+        e("application/x-troff", "roff", 5);
+        e("application/x-troff-man", "man", 5);
+        e("application/x-ustar", "ustar", 5);
+        e("application/x-wais-source", "src", 5);
+        e("application/x-wingz", "wz", 5);
+        e("application/x-webarchive", "webarchive", 5);
+        e("application/x-webarchive-xml", "webarchivexml", 5);
+        e("application/x-x509-ca-cert", "crt", 5);
+        e("application/x-x509-user-cert", "crt", 5);
+        e("application/x-xcf", "xcf", 5);
+        e("application/x-xfig", "fig", 5);
+        e("application/xhtml+xml", "xhtml", 5);
+        e("application/font-sfnt", "ttf", 5);
+        e("audio/3gpp", "3gpp", 1);
+        e("audio/amr", "amr", 1);
+        e("audio/basic", "snd", 1);
+        e("audio/midi", "mid", 1);
+        e("audio/midi", "midi", 1);
+        e("audio/midi", "kar", 1);
+        e("audio/midi", "xmf", 1);
+        e("audio/mobile-xmf", "mxmf", 1);
+        e("audio/mpeg", "mp3", 1);
+        e("audio/mpeg", "mpga", 1);
+        e("audio/mpeg", "mpega", 1);
+        e("audio/mpeg", "mp2", 1);
+        e("audio/mpeg", "m4a", 1);
+        e("audio/mpegurl", "m3u", 1);
+        e("audio/prs.sid", "sid", 1);
+        e("audio/x-aiff", "aif", 1);
+        e("audio/x-aiff", "aiff", 1);
+        e("audio/x-aiff", "aifc", 1);
+        e("audio/x-gsm", "gsm", 1);
+        e("audio/x-mpegurl", "m3u", 1);
+        e("audio/x-ms-wma", "wma", 1);
+        e("audio/x-ms-wax", "wax", 1);
+        e("audio/x-pn-realaudio", "ra", 1);
+        e("audio/x-pn-realaudio", "rm", 1);
+        e("audio/x-pn-realaudio", "ram", 1);
+        e("audio/x-realaudio", "ra", 1);
+        e("audio/x-scpls", "pls", 1);
+        e("audio/x-sd2", "sd2", 1);
+        e("audio/x-wav", "wav", 1);
+        e("image/bmp", "bmp", 2);
+        e("image/gif", "gif", 2);
+        e("image/ico", "cur", 5);
+        e("image/ico", "ico", 2);
+        e("image/ief", "ief", 5);
+        e("image/jpeg", "jpeg", 2);
+        e("image/jpeg", "jpg", 2);
+        e("image/jpeg", "jpe", 2);
+        e("image/pcx", "pcx", 5);
+        e("image/png", "png", 2);
+        e("image/svg+xml", "svg", 5);
+        e("image/svg+xml", "svgz", 5);
+        e("image/tiff", "tiff", 5);
+        e("image/tiff", "tif", 5);
+        e("image/vnd.djvu", "djvu", 5);
+        e("image/vnd.djvu", "djv", 5);
+        e("image/vnd.wap.wbmp", "wbmp", 2);
+        e("image/x-cmu-raster", "ras", 5);
+        e("image/x-coreldraw", "cdr", 5);
+        e("image/x-coreldrawpattern", "pat", 5);
+        e("image/x-coreldrawtemplate", "cdt", 5);
+        e("image/x-corelphotopaint", "cpt", 5);
+        e("image/x-icon", "ico", 2);
+        e("image/x-jg", "art", 5);
+        e("image/x-jng", "jng", 5);
+        e("image/x-ms-bmp", "bmp", 2);
+        e("image/x-photoshop", "psd", 5);
+        e("image/x-portable-anymap", "pnm", 5);
+        e("image/x-portable-bitmap", "pbm", 5);
+        e("image/x-portable-graymap", "pgm", 5);
+        e("image/x-portable-pixmap", "ppm", 5);
+        e("image/x-rgb", "rgb", 5);
+        e("image/x-xbitmap", "xbm", 5);
+        e("image/x-xpixmap", "xpm", 5);
+        e("image/x-xwindowdump", "xwd", 5);
+        e("model/iges", "igs", 5);
+        e("model/iges", "iges", 5);
+        e("model/mesh", "msh", 5);
+        e("model/mesh", "mesh", 5);
+        e("model/mesh", "silo", 5);
+        e("text/calendar", "ics", 5);
+        e("text/calendar", "icz", 5);
+        e("text/comma-separated-values", "csv", 5);
+        e("text/css", "css", 5);
+        e("text/html", "htm", 11);
+        e("text/html", "html", 11);
+        e("text/h323", "323", 5);
+        e("text/iuls", "uls", 5);
+        e("text/mathml", "mml", 5);
+        e("text/plain-story", "txt", 6);
+        e("text/plain", "dat", 5);
+        e("text/plain", "txt", 4);
+        e("text/plain", "asc", 4);
+        e("text/plain", "text", 4);
+        e("text/plain", "diff", 4);
+        e("text/plain", "po", 4);
+        e("text/richtext", "rtx", 4);
+        e("text/rtf", "rtf", 4);
+        e("text/texmacs", TimeDisplaySetting.TIME_DISPLAY_SETTING, 5);
+        e("text/text", "phps", 5);
+        e("text/tab-separated-values", "tsv", 5);
+        e("text/xml", "xml", 4);
+        e("text/x-bibtex", "bib", 5);
+        e("text/x-boo", "boo", 5);
+        e("text/x-c++hdr", "h++", 5);
+        e("text/x-c++hdr", "hpp", 5);
+        e("text/x-c++hdr", "hxx", 5);
+        e("text/x-c++hdr", "hh", 5);
+        e("text/x-c++src", "c++", 5);
+        e("text/x-c++src", "cpp", 5);
+        e("text/x-c++src", "cxx", 5);
+        e("text/x-chdr", "h", 5);
+        e("text/x-component", "htc", 5);
+        e("text/x-csh", "csh", 5);
+        e("text/x-csrc", "c", 5);
+        e("text/x-dsrc", "d", 5);
+        e("text/x-haskell", "hs", 5);
+        e("text/x-java", "java", 5);
+        e("text/x-literate-haskell", "lhs", 5);
+        e("text/x-moc", "moc", 5);
+        e("text/x-pascal", "p", 5);
+        e("text/x-pascal", "pas", 5);
+        e("text/x-pcs-gcd", "gcd", 5);
+        e("text/x-setext", "etx", 5);
+        e("text/x-tcl", "tcl", 5);
+        e("text/x-tex", "tex", 5);
+        e("text/x-tex", "ltx", 5);
+        e("text/x-tex", "sty", 5);
+        e("text/x-tex", "cls", 5);
+        e("text/x-vcalendar", "vcs", 5);
+        e("text/x-vcard", "vcf", 5);
+        e("video/mkv", "mkv", 0);
+        e("video/3gpp", "3gpp", 0);
+        e("video/3gpp", "3gp", 0);
+        e("video/3gpp", "3g2", 0);
+        e("video/dl", "dl", 0);
+        e("video/dv", "dif", 0);
+        e("video/dv", "dv", 0);
+        e("video/fli", "fli", 0);
+        e("video/m4v", "m4v", 0);
+        e("video/mpeg", "mpeg", 0);
+        e("video/mpeg", "mpg", 0);
+        e("video/mpeg", "mpe", 0);
+        e("video/mp4", "mp4", 0);
+        e("video/mpeg", "vob", 0);
+        e("video/quicktime", "qt", 0);
+        e("video/quicktime", "mov", 0);
+        e("video/vnd.mpegurl", "mxu", 0);
+        e("video/x-la-asf", "lsf", 0);
+        e("video/x-la-asf", "lsx", 0);
+        e("video/x-mng", "mng", 0);
+        e("video/x-ms-asf", "asf", 0);
+        e("video/x-ms-asf", "asx", 0);
+        e("video/x-ms-wm", "wm", 0);
+        e("video/x-ms-wmv", "wmv", 0);
+        e("video/x-ms-wmx", "wmx", 0);
+        e("video/x-ms-wvx", "wvx", 0);
+        e("video/x-msvideo", "avi", 0);
+        e("video/x-sgi-movie", "movie", 0);
+        e("video/x-webex", "wrf", 0);
+        e("x-conference/x-cooltalk", "ice", 5);
+        e("x-epoc/x-sisx-app", "sisx", 5);
+        e("video/vnd.rn-realvideo", "rmvb", 0);
+        e("video/x-flv", "flv", 0);
+        e("audio/aac", "aac", 1);
+        e("application/vnd.rn-realmedia", "rm", 0);
+        e("message/rfc822", "mht", 11);
+        aZu = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
-    public static boolean i(Uri uri) {
-        return uri != null && com.facebook.drawee.a.a.c.cuy().F(uri);
-    }
-
-    public static Bitmap b(Uri uri, Context context) {
-        if (uri == null || context == null) {
-            return null;
-        }
-        if (i(uri)) {
-            if (DEBUG) {
-                Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
-            }
-            return c(com.facebook.drawee.a.a.c.cuy().d(ImageRequest.M(uri), context.getApplicationContext()));
-        }
-        if (DEBUG) {
-            Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
-        }
-        com.facebook.datasource.b<Boolean> G = com.facebook.drawee.a.a.c.cuy().G(uri);
-        if (G == null || !G.cuh() || G.getResult() == null || !G.getResult().booleanValue()) {
-            return null;
-        }
-        try {
-            return c(com.facebook.drawee.a.a.c.cuy().e(ImageRequest.M(uri), context));
-        } finally {
-            G.ze();
-        }
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [123=4] */
-    private static Bitmap c(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
-        Bitmap cyD;
-        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar = null;
-        if (bVar == null) {
-            return null;
-        }
-        try {
-            com.facebook.common.references.a<com.facebook.imagepipeline.f.b> result = bVar.getResult();
-            if (result != null) {
-                try {
-                    com.facebook.imagepipeline.f.b bVar2 = result.get();
-                    if (bVar2 != null && (bVar2 instanceof com.facebook.imagepipeline.f.a) && (cyD = ((com.facebook.imagepipeline.f.a) bVar2).cyD()) != null && !cyD.isRecycled()) {
-                        try {
-                            Bitmap createBitmap = Bitmap.createBitmap(cyD);
-                            bVar.ze();
-                            com.facebook.common.references.a.c(result);
-                            return createBitmap;
-                        } catch (OutOfMemoryError e) {
-                            System.gc();
-                        }
-                    }
-                } catch (Throwable th) {
-                    aVar = result;
-                    th = th;
-                    bVar.ze();
-                    com.facebook.common.references.a.c(aVar);
-                    throw th;
-                }
-            }
-            bVar.ze();
-            com.facebook.common.references.a.c(result);
-            return null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static Bitmap c(Bitmap bitmap, int i, int i2) {
-        Bitmap bitmap2;
-        if (bitmap == null || i <= 0 || i2 <= 0) {
-            return null;
-        }
-        int width = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        if (width == 0 || height == 0) {
-            return null;
-        }
-        Matrix matrix = new Matrix();
-        matrix.postScale(i / width, i2 / height);
-        try {
-            bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-        } catch (Exception | OutOfMemoryError e) {
-            bitmap2 = null;
-        }
-        return bitmap2;
-    }
-
-    public static void a(Uri uri, String str) {
-        if (uri != null) {
-            if (DEBUG) {
-                Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
-            }
-            com.facebook.drawee.a.a.c.cuy().f(ImageRequestBuilder.O(uri).cAB(), str);
+    private static void e(String str, String str2, int i) {
+        aZq.put(str2, Integer.valueOf(i));
+        aZr.put(str, Integer.valueOf(i));
+        aZs.put(str2, str);
+        if (!aZt.containsKey(str)) {
+            aZt.put(str, str2);
         }
     }
 }

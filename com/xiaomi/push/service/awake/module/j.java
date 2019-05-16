@@ -1,0 +1,76 @@
+package com.xiaomi.push.service.awake.module;
+
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.view.PointerIconCompat;
+import android.text.TextUtils;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes3.dex */
+public class j implements f {
+    private void a(Service service, Intent intent) {
+        if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
+            String stringExtra = intent.getStringExtra("waker_pkgname");
+            String stringExtra2 = intent.getStringExtra("awake_info");
+            if (TextUtils.isEmpty(stringExtra)) {
+                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_CROSSHAIR, "old version message");
+            } else if (TextUtils.isEmpty(stringExtra2)) {
+                com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), stringExtra, PointerIconCompat.TYPE_CROSSHAIR, "play with service ");
+            } else {
+                String b = com.xiaomi.push.service.awake.a.b(stringExtra2);
+                if (TextUtils.isEmpty(b)) {
+                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_TEXT, "B get a incorrect message");
+                } else {
+                    com.xiaomi.push.service.awake.b.a(service.getApplicationContext(), b, PointerIconCompat.TYPE_CROSSHAIR, "old version message ");
+                }
+            }
+        }
+    }
+
+    private void a(Context context, String str, String str2, String str3) {
+        if (context == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            if (TextUtils.isEmpty(str3)) {
+                com.xiaomi.push.service.awake.b.a(context, NotificationCompat.CATEGORY_SERVICE, PointerIconCompat.TYPE_TEXT, "argument error");
+            } else {
+                com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "argument error");
+            }
+        } else if (!com.xiaomi.push.service.awake.d.a(context, str)) {
+            com.xiaomi.push.service.awake.b.a(context, str3, 1003, "B is not ready");
+        } else {
+            com.xiaomi.push.service.awake.b.a(context, str3, 1002, "B is ready");
+            com.xiaomi.push.service.awake.b.a(context, str3, 1004, "A is ready");
+            try {
+                Intent intent = new Intent();
+                intent.setClassName(str, str2);
+                intent.setAction("com.xiaomi.mipush.sdk.WAKEUP");
+                intent.putExtra("waker_pkgname", context.getPackageName());
+                intent.putExtra("awake_info", com.xiaomi.push.service.awake.a.a(str3));
+                if (context.startService(intent) != null) {
+                    com.xiaomi.push.service.awake.b.a(context, str3, 1005, "A is successful");
+                    com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_CELL, "The job is finished");
+                } else {
+                    com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "A is fail to help B's service");
+                }
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                com.xiaomi.push.service.awake.b.a(context, str3, PointerIconCompat.TYPE_TEXT, "A meet a exception when help B's service");
+            }
+        }
+    }
+
+    @Override // com.xiaomi.push.service.awake.module.f
+    public void a(Context context, Intent intent, String str) {
+        if (context == null || !(context instanceof Service)) {
+            return;
+        }
+        a((Service) context, intent);
+    }
+
+    @Override // com.xiaomi.push.service.awake.module.f
+    public void a(Context context, b bVar) {
+        if (bVar != null) {
+            a(context, bVar.a(), bVar.c(), bVar.d());
+        }
+    }
+}

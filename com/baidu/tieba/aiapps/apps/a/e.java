@@ -1,23 +1,25 @@
 package com.baidu.tieba.aiapps.apps.a;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        if (bundle != null && !TextUtils.isEmpty(bundle.getString("key_uid"))) {
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            bundle2.putString("user_login_nickname_key", session.displayname);
-            bundle2.putString("user_login_portrait_key", session.getSocialPortrait());
-            bundle2.putInt("key_gender", TbadkCoreApplication.getCurrentAccountObj() == null ? -1 : TbadkCoreApplication.getCurrentAccountObj().getSex());
+        HashMap hashMap = new HashMap();
+        hashMap.put("bd_box_bduss", "");
+        hashMap.put("bd_box_ptoken", "");
+        HashMap hashMap2 = (HashMap) c.j(getAgent().getContext(), hashMap);
+        if (hashMap2 == null || hashMap2.size() == 0) {
             return bundle2;
         }
+        bundle2.putSerializable(p.cZI, hashMap2);
+        bundle2.putStringArrayList(p.cZK, (ArrayList) SapiUtils.getAuthorizedDomains(getAgent().getContext()));
+        bundle2.putStringArrayList(p.cZJ, (ArrayList) SapiUtils.getAuthorizedDomainsForPtoken(getAgent().getContext()));
         return bundle2;
     }
 }

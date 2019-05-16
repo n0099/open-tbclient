@@ -1,11 +1,7 @@
 package com.baidu.tieba.lego.card.view;
 /* loaded from: classes.dex */
 public interface i {
-    boolean isPlaying();
+    void setAutoPlay(boolean z);
 
-    void onDestroy();
-
-    void pausePlay();
-
-    void stopPlay();
+    void setWaitConfirm(boolean z);
 }

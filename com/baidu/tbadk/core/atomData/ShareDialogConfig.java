@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import android.view.View;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.c.d;
+import com.baidu.tbadk.coreExtra.c.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class ShareDialogConfig extends IntentConfig {
@@ -24,14 +24,15 @@ public class ShareDialogConfig extends IntentConfig {
     public boolean mIsAlaLive;
     public boolean mIsShowTransmitShare;
     public int mPrivateThread;
+    public boolean mShowMoreForumShare;
     public SparseArray<String> mtjStatistics;
     public DialogInterface.OnCancelListener onCancelListener;
     public DialogInterface.OnDismissListener onDismissListener;
-    public d shareItem;
+    public e shareItem;
     public boolean showLocation;
     public ArrayList<Pair<Integer, Pair<Integer, View.OnClickListener>>> textViewList;
 
-    public ShareDialogConfig(Context context, d dVar, boolean z) {
+    public ShareDialogConfig(Context context, e eVar, boolean z) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
@@ -40,11 +41,12 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.shareItem = dVar;
+        this.mShowMoreForumShare = false;
+        this.shareItem = eVar;
         this.showLocation = z;
     }
 
-    public ShareDialogConfig(Context context, d dVar, boolean z, SparseArray<String> sparseArray) {
+    public ShareDialogConfig(Context context, e eVar, boolean z, SparseArray<String> sparseArray) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
@@ -53,13 +55,14 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.shareItem = dVar;
+        this.mShowMoreForumShare = false;
+        this.shareItem = eVar;
         this.showLocation = z;
         this.mtjStatistics = sparseArray;
     }
 
     @Deprecated
-    public ShareDialogConfig(Context context, d dVar, boolean z, boolean z2) {
+    public ShareDialogConfig(Context context, e eVar, boolean z, boolean z2) {
         super(context);
         this.showLocation = true;
         this.isSetCopyLink = false;
@@ -68,7 +71,8 @@ public class ShareDialogConfig extends IntentConfig {
         this.isLandscape = false;
         this.isSupportNightMode = true;
         this.mIsShowTransmitShare = false;
-        this.shareItem = dVar;
+        this.mShowMoreForumShare = false;
+        this.shareItem = eVar;
         this.showLocation = z;
         this.isInsertBack = z2;
     }

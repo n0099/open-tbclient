@@ -9,18 +9,18 @@ import com.baidu.tbadk.editortools.k;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 4);
-        this.cjp = false;
-        this.cjo = 2;
-        this.cjq = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        this.cix = new SendView(context);
+        this.crx = false;
+        this.crw = 2;
+        this.cry = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        this.cqE = new SendView(context);
         RawLayout.a aVar = new RawLayout.a(-2, -2);
         aVar.gravity = 80;
-        ((View) this.cix).setLayoutParams(aVar);
+        ((View) this.cqE).setLayoutParams(aVar);
     }
 
     public void setText(int i) {
-        if (this.cix != null && (this.cix instanceof TextView)) {
-            ((TextView) this.cix).setText(i);
+        if (this.cqE != null && (this.cqE instanceof TextView)) {
+            ((TextView) this.cqE).setText(i);
         }
     }
 }

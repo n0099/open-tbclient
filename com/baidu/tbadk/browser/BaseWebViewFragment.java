@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -13,7 +13,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void kr(String str) {
+    public void lu(String str) {
         this.mUrlTitle = str;
     }
 
@@ -33,22 +33,22 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     public boolean isNeedShowNavigationBar() {
-        return br(this.mUrl, "nonavigationbar");
+        return bz(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return br(this.mUrl, "noshare");
+        return bz(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return br(this.mUrl, "nomenu");
+        return bz(this.mUrl, "nomenu");
     }
 
-    public boolean ks(String str) {
-        return br(str, "blank");
+    public boolean lv(String str) {
+        return bz(str, "blank");
     }
 
-    public boolean br(String str, String str2) {
+    public boolean bz(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
@@ -76,45 +76,45 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
+    public com.baidu.tbadk.coreExtra.c.e createShareContent(String str, String str2, String str3, String str4) {
+        com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            dVar.title = getResources().getString(d.j.share_from_tieba);
+            eVar.title = getResources().getString(R.string.share_from_tieba);
         } else {
-            dVar.title = this.mUrlTitle;
+            eVar.title = this.mUrlTitle;
         }
-        dVar.linkUrl = this.mUrl;
+        eVar.linkUrl = this.mUrl;
         if (StringUtils.isNull(this.mSource, true)) {
-            dVar.content = this.mUrl;
+            eVar.content = this.mUrl;
         } else {
             String findSubString = findSubString("<meta name=\"description\" content=\"", "\"");
             if (StringUtils.isNull(findSubString, true)) {
-                dVar.content = this.mUrl;
+                eVar.content = this.mUrl;
             } else {
-                dVar.content = findSubString;
+                eVar.content = findSubString;
             }
             String findSubString2 = findSubString("<img src=\"", "\"");
             if (!StringUtils.isNull(findSubString2, true)) {
-                dVar.imageUri = Uri.parse(findSubString2);
+                eVar.imageUri = Uri.parse(findSubString2);
             }
             String findSubString3 = findSubString("<meta name=\"shareurl\" content=\"", "\"");
             if (!StringUtils.isNull(findSubString3, true)) {
-                dVar.linkUrl = findSubString3;
+                eVar.linkUrl = findSubString3;
             }
         }
         if (!TextUtils.isEmpty(str)) {
-            dVar.title = str;
+            eVar.title = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            dVar.linkUrl = str2;
+            eVar.linkUrl = str2;
         }
         if (!TextUtils.isEmpty(str3)) {
-            dVar.content = str3;
+            eVar.content = str3;
         }
         if (!TextUtils.isEmpty(str4)) {
-            dVar.imageUri = Uri.parse(str4);
+            eVar.imageUri = Uri.parse(str4);
         }
-        return dVar;
+        return eVar;
     }
 
     private String findSubString(String str, String str2) {

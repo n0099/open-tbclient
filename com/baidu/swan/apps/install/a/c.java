@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
 /* loaded from: classes2.dex */
 public class c extends HandlerThread {
-    private CountDownLatch axn;
-    private File axo;
+    private CountDownLatch aya;
+    private File ayb;
 
     /* loaded from: classes2.dex */
     public static class a {
@@ -25,18 +25,18 @@ public class c extends HandlerThread {
 
     private c(String str, int i, File file, CountDownLatch countDownLatch) {
         super(str, i);
-        this.axo = file;
-        this.axn = countDownLatch;
+        this.ayb = file;
+        this.aya = countDownLatch;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler Cv() {
+    public Handler DA() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.install.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 if (message.what == 100) {
                     a aVar = (a) message.obj;
-                    File file = new File(c.this.axo + aVar.path);
+                    File file = new File(c.this.ayb + aVar.path);
                     try {
                         if (!file.exists()) {
                             file.getParentFile().mkdirs();
@@ -44,13 +44,13 @@ public class c extends HandlerThread {
                         }
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
                         fileOutputStream.write(aVar.content);
-                        com.baidu.swan.c.b.c(fileOutputStream);
+                        com.baidu.swan.c.a.c(fileOutputStream);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 } else if (message.what == 200) {
-                    if (c.this.axn != null) {
-                        c.this.axn.countDown();
+                    if (c.this.aya != null) {
+                        c.this.aya.countDown();
                     }
                     c.this.quit();
                 }

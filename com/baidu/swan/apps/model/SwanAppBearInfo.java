@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
-    public String aBA;
-    public String aBB;
-    public String aBw;
-    public String aBx;
-    public String aBy;
-    public String aBz;
+    public String aDb;
+    public String aDc;
+    public String aDd;
+    public String aDe;
+    public String aDf;
+    public String aDg;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new Parcelable.Creator<SwanAppBearInfo>() { // from class: com.baidu.swan.apps.model.SwanAppBearInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -25,52 +25,52 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cH */
+        /* renamed from: cK */
         public SwanAppBearInfo[] newArray(int i) {
             return new SwanAppBearInfo[i];
         }
     };
 
     public SwanAppBearInfo() {
-        this.aBw = "";
-        this.aBx = "";
-        this.aBy = "";
-        this.aBz = "";
-        this.aBA = "";
-        this.aBB = "";
+        this.aDb = "";
+        this.aDc = "";
+        this.aDd = "";
+        this.aDe = "";
+        this.aDf = "";
+        this.aDg = "";
     }
 
     private SwanAppBearInfo(Parcel parcel) {
-        this.aBw = "";
-        this.aBx = "";
-        this.aBy = "";
-        this.aBz = "";
-        this.aBA = "";
-        this.aBB = "";
-        this.aBw = parcel.readString();
-        this.aBx = parcel.readString();
-        this.aBy = parcel.readString();
-        this.aBz = parcel.readString();
-        this.aBA = parcel.readString();
-        this.aBB = parcel.readString();
+        this.aDb = "";
+        this.aDc = "";
+        this.aDd = "";
+        this.aDe = "";
+        this.aDf = "";
+        this.aDg = "";
+        this.aDb = parcel.readString();
+        this.aDc = parcel.readString();
+        this.aDd = parcel.readString();
+        this.aDe = parcel.readString();
+        this.aDf = parcel.readString();
+        this.aDg = parcel.readString();
     }
 
     public SwanAppBearInfo(String str) {
-        this.aBw = "";
-        this.aBx = "";
-        this.aBy = "";
-        this.aBz = "";
-        this.aBA = "";
-        this.aBB = "";
+        this.aDb = "";
+        this.aDc = "";
+        this.aDd = "";
+        this.aDe = "";
+        this.aDf = "";
+        this.aDg = "";
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aBw = jSONObject.optString("office_id");
-                this.aBA = jSONObject.optString("sign");
-                this.aBz = jSONObject.optString("url");
-                this.aBy = jSONObject.optString("avatar");
-                this.aBx = jSONObject.optString("name");
-                this.aBB = jSONObject.optString("v_type");
+                this.aDb = jSONObject.optString("office_id");
+                this.aDf = jSONObject.optString("sign");
+                this.aDe = jSONObject.optString("url");
+                this.aDd = jSONObject.optString("avatar");
+                this.aDc = jSONObject.optString("name");
+                this.aDg = jSONObject.optString("v_type");
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -80,7 +80,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     }
 
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aBw);
+        return !TextUtils.isEmpty(this.aDb);
     }
 
     @Override // android.os.Parcelable
@@ -90,11 +90,11 @@ public class SwanAppBearInfo extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.aBw);
-        parcel.writeString(this.aBx);
-        parcel.writeString(this.aBy);
-        parcel.writeString(this.aBz);
-        parcel.writeString(this.aBA);
-        parcel.writeString(this.aBB);
+        parcel.writeString(this.aDb);
+        parcel.writeString(this.aDc);
+        parcel.writeString(this.aDd);
+        parcel.writeString(this.aDe);
+        parcel.writeString(this.aDf);
+        parcel.writeString(this.aDg);
     }
 }

@@ -1,36 +1,27 @@
 package com.xiaomi.xmpush.thrift;
 /* loaded from: classes3.dex */
 public enum h {
-    Baidu(0),
-    Tencent(1),
-    AutoNavi(2),
-    Google(3),
-    GPS(4);
+    MISC_CONFIG(1),
+    PLUGIN_CONFIG(2);
     
-    private final int f;
+    private final int c;
 
     h(int i) {
-        this.f = i;
+        this.c = i;
     }
 
     public static h a(int i) {
         switch (i) {
-            case 0:
-                return Baidu;
             case 1:
-                return Tencent;
+                return MISC_CONFIG;
             case 2:
-                return AutoNavi;
-            case 3:
-                return Google;
-            case 4:
-                return GPS;
+                return PLUGIN_CONFIG;
             default:
                 return null;
         }
     }
 
     public int a() {
-        return this.f;
+        return this.c;
     }
 }

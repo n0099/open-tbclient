@@ -161,7 +161,7 @@ public abstract class h {
             this.e = false;
             String r = com.baidu.location.e.f.a().r();
             if (!TextUtils.isEmpty(r) && !r.equals(Config.DEF_MAC_ID)) {
-                format = String.format(Locale.CHINA, "%s&mac=%s", format, r.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""));
+                format = String.format(Locale.CHINA, "%s&mac=%s", format, r.replace(":", ""));
             }
             if (Build.VERSION.SDK_INT > 17) {
             }

@@ -18,33 +18,33 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class PostSearchListFragment extends BaseFragment implements BdListView.e {
-    private int dRB;
-    private PbListView dbs;
-    private PostSearchActivity ica;
-    private BdListView ico;
-    private e icp;
-    private b icq;
-    private String icr;
+    private PbListView dlX;
+    private int eca;
+    private PostSearchActivity iuE;
+    private BdListView iuT;
+    private e iuU;
+    private b iuV;
+    private String iuW;
     private NoDataView mNoDataView;
     private View mRootView;
 
     public PostSearchListFragment() {
-        this.dRB = -1;
-        this.icr = "";
+        this.eca = -1;
+        this.iuW = "";
     }
 
     public PostSearchListFragment(int i) {
-        this.dRB = -1;
-        this.icr = "";
-        this.dRB = i;
+        this.eca = -1;
+        this.iuW = "";
+        this.eca = i;
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mRootView = layoutInflater.inflate(d.h.post_search_list_fragment, (ViewGroup) null);
+        this.mRootView = layoutInflater.inflate(R.layout.post_search_list_fragment, (ViewGroup) null);
         initView();
         return this.mRootView;
     }
@@ -52,147 +52,147 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        this.ica = (PostSearchActivity) getBaseFragmentActivity();
-        this.icp = new e(this.ica.getPageContext());
-        this.icp.setTabType(this.dRB);
-        BdListViewHelper.a(this.ica.getActivity(), this.ico, BdListViewHelper.HeadType.HASTAB);
-        this.ico.setAdapter((ListAdapter) this.icp);
-        this.dbs = new PbListView(this.ica.getPageContext().getPageActivity());
-        this.dbs.oM();
-        this.ico.setOnSrollToBottomListener(this);
+        this.iuE = (PostSearchActivity) getBaseFragmentActivity();
+        this.iuU = new e(this.iuE.getPageContext());
+        this.iuU.setTabType(this.eca);
+        BdListViewHelper.a(this.iuE.getActivity(), this.iuT, BdListViewHelper.HeadType.HASTAB);
+        this.iuT.setAdapter((ListAdapter) this.iuU);
+        this.dlX = new PbListView(this.iuE.getPageContext().getPageActivity());
+        this.dlX.nG();
+        this.iuT.setOnSrollToBottomListener(this);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.dRB == this.ica.bVd().getCurrentTabType()) {
-            bVm();
-            pj(false);
+        if (this.eca == this.iuE.cde().getCurrentTabType()) {
+            cdn();
+            pX(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.ica != null) {
-            com.baidu.tbadk.r.a.a(this.ica.getPageContext(), this.mRootView);
+        if (this.iuE != null) {
+            com.baidu.tbadk.s.a.a(this.iuE.getPageContext(), this.mRootView);
         }
-        if (this.dbs != null) {
-            this.dbs.ib(i);
+        if (this.dlX != null) {
+            this.dlX.iP(i);
         }
-        if (this.icp != null) {
-            this.icp.notifyDataSetChanged();
+        if (this.iuU != null) {
+            this.iuU.notifyDataSetChanged();
         }
     }
 
     public void a(b bVar, boolean z) {
         hideNoDataView();
         hideLoadingView(this.mRootView);
-        if (bVar == null || bVar.icg == null || bVar.icg.size() == 0) {
-            if (!z || this.icq == null || this.icq.icg == null || this.icq.icg.size() == 0) {
-                aCt();
+        if (bVar == null || bVar.iuK == null || bVar.iuK.size() == 0) {
+            if (!z || this.iuV == null || this.iuV.iuK == null || this.iuV.iuK.size() == 0) {
+                aIG();
                 showNoDataView();
-                this.ico.setVisibility(8);
-                this.icq = bVar;
+                this.iuT.setVisibility(8);
+                this.iuV = bVar;
                 return;
             }
-            if (this.icq.eTW.XH() == 1) {
-                aCr();
+            if (this.iuV.fkg.acp() == 1) {
+                aIE();
                 return;
             } else {
-                aCs();
+                aIF();
                 return;
             }
         }
-        if (!z || this.icq == null || this.icq.icg == null || this.icq.icg.size() == 0) {
-            this.icq = bVar;
+        if (!z || this.iuV == null || this.iuV.iuK == null || this.iuV.iuK.size() == 0) {
+            this.iuV = bVar;
         } else {
-            this.icq.eTW = bVar.eTW;
-            this.icq.icg.addAll(bVar.icg);
+            this.iuV.fkg = bVar.fkg;
+            this.iuV.iuK.addAll(bVar.iuK);
         }
         if (z) {
-            bVm();
+            cdn();
         }
-        if (this.icq.eTW.XH() == 1) {
-            aCr();
+        if (this.iuV.fkg.acp() == 1) {
+            aIE();
         } else {
-            aCs();
+            aIF();
         }
-        this.icp.clear();
-        this.icp.dN(this.icq.icg);
-        this.icp.notifyDataSetChanged();
+        this.iuU.clear();
+        this.iuU.dX(this.iuV.iuK);
+        this.iuU.notifyDataSetChanged();
         if (!z) {
-            this.ico.setSelection(0);
+            this.iuT.setSelection(0);
         }
-        this.ico.setVisibility(0);
+        this.iuT.setVisibility(0);
     }
 
-    public void pj(boolean z) {
-        if (this.ica != null) {
-            String str = this.ica.eWU;
+    public void pX(boolean z) {
+        if (this.iuE != null) {
+            String str = this.iuE.fmY;
             if (!StringUtils.isNull(str)) {
-                boolean z2 = !str.equals(this.icr) || z;
-                if (this.icq == null || (this.icq != null && !this.icq.bvL())) {
+                boolean z2 = !str.equals(this.iuW) || z;
+                if (this.iuV == null || (this.iuV != null && !this.iuV.bDt())) {
                     z2 = true;
                 }
                 if (z2) {
-                    showLoadingView(this.mRootView, false, this.ica.getResources().getDimensionPixelSize(d.e.ds320));
-                    this.ica.bVc().bk(str, this.dRB);
-                    this.icr = str;
+                    showLoadingView(this.mRootView, false, this.iuE.getResources().getDimensionPixelSize(R.dimen.ds320));
+                    this.iuE.cdd().bg(str, this.eca);
+                    this.iuW = str;
                 }
             }
         }
     }
 
-    public void bVk() {
-        if (this.icq != null && this.icq.icg != null) {
-            this.icq.icg.clear();
-            this.icp.clear();
-            this.icp.dN(this.icq.icg);
-            this.icp.notifyDataSetChanged();
+    public void cdl() {
+        if (this.iuV != null && this.iuV.iuK != null) {
+            this.iuV.iuK.clear();
+            this.iuU.clear();
+            this.iuU.dX(this.iuV.iuK);
+            this.iuU.notifyDataSetChanged();
         }
-        aCt();
+        aIG();
         hideNoDataView();
     }
 
     private void initView() {
-        this.ico = (BdListView) this.mRootView.findViewById(d.g.result_list);
+        this.iuT = (BdListView) this.mRootView.findViewById(R.id.result_list);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (!StringUtils.isNull(this.icr) && this.icq != null && this.icq.isHasMore() && this.ica.bVc().bk(this.icr, this.dRB)) {
-            bVl();
+        if (!StringUtils.isNull(this.iuW) && this.iuV != null && this.iuV.isHasMore() && this.iuE.cdd().bg(this.iuW, this.eca)) {
+            cdm();
         }
     }
 
-    private void bVl() {
-        this.ico.setNextPage(this.dbs);
-        this.dbs.aez();
+    private void cdm() {
+        this.iuT.setNextPage(this.dlX);
+        this.dlX.ajy();
     }
 
-    private void aCr() {
-        this.ico.setNextPage(this.dbs);
-        this.dbs.aeA();
-        this.dbs.setText(this.ica.getResources().getString(d.j.pb_load_more));
+    private void aIE() {
+        this.iuT.setNextPage(this.dlX);
+        this.dlX.ajz();
+        this.dlX.setText(this.iuE.getResources().getString(R.string.pb_load_more));
     }
 
-    private void aCs() {
-        this.ico.setNextPage(this.dbs);
-        this.dbs.aeA();
-        this.dbs.setText(this.ica.getResources().getString(d.j.list_no_more));
+    private void aIF() {
+        this.iuT.setNextPage(this.dlX);
+        this.dlX.ajz();
+        this.dlX.setText(this.iuE.getResources().getString(R.string.list_no_more));
     }
 
-    private void aCt() {
-        if (this.ico != null) {
-            this.ico.setNextPage(null);
+    private void aIG() {
+        if (this.iuT != null) {
+            this.iuT.setNextPage(null);
         }
     }
 
     private void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.ica.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.ica.getActivity(), d.e.ds320)), NoDataViewFactory.d.hT(d.j.text_no_search_result), null);
-            this.mNoDataView.onChangeSkinType(this.ica.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.iuE.getPageContext().getPageActivity(), this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.iuE.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.iH(R.string.text_no_search_result), null);
+            this.mNoDataView.onChangeSkinType(this.iuE.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
     }
@@ -203,9 +203,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.e
         }
     }
 
-    private void bVm() {
-        if (this.ica != null) {
-            TiebaStatic.log(new am("c12406").bJ(ImageViewerConfig.FORUM_ID, this.ica.mForumId).bJ(ImageViewerConfig.FORUM_NAME, this.ica.mForumName).bJ("uid", TbadkCoreApplication.getCurrentAccount()).T(MyBookrackActivityConfig.TAB_ID, this.dRB));
+    private void cdn() {
+        if (this.iuE != null) {
+            TiebaStatic.log(new am("c12406").bT("fid", this.iuE.mForumId).bT(ImageViewerConfig.FORUM_NAME, this.iuE.mForumName).bT("uid", TbadkCoreApplication.getCurrentAccount()).P(MyBookrackActivityConfig.TAB_ID, this.eca));
         }
     }
 }

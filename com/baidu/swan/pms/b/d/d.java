@@ -1,43 +1,45 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
-public class d extends c {
-    private String bmV;
-    private String bmW;
-    private String bmY;
+public class d extends e {
+    private String bsT;
+    private int bsU;
+    private String bsV;
+    private String bsX;
+    private String bta;
 
-    public d(int i) {
-        this.bna = i;
+    public d(String str, int i, String str2, int i2) {
+        super(i2);
+        this.bsT = str;
+        this.bta = str2;
+        this.bsU = i;
     }
 
-    public d jz(String str) {
-        this.bmW = str;
+    public d kt(String str) {
+        this.bsV = str;
         return this;
     }
 
-    public d jA(String str) {
-        this.bmV = str;
-        return this;
+    public void ku(String str) {
+        this.bsX = str;
     }
 
-    public d jB(String str) {
-        this.bmY = str;
-        return this;
+    public String getBundleId() {
+        return this.bsT;
     }
 
-    public String Sf() {
-        return this.bmV;
+    public String VX() {
+        return this.bta;
     }
 
-    public String Sg() {
-        return this.bmW;
+    public int VR() {
+        return this.bsU;
     }
 
-    public String Sh() {
-        return this.bmY;
+    public String VT() {
+        return this.bsV;
     }
 
-    @Override // com.baidu.swan.pms.b.d.c
-    public int Si() {
-        return this.bna;
+    public String VU() {
+        return this.bsX;
     }
 }

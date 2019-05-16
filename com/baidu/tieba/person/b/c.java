@@ -9,41 +9,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.o;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class c extends v.a {
-    public TbImageView UB;
-    public View eMg;
-    private m hKD;
-    public TextView hKE;
+    public TbImageView Sm;
+    public View fco;
+    private m icC;
+    public TextView icD;
     private View.OnClickListener mClickListener;
     private int mSkinType;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.UB = (TbImageView) view.findViewById(d.g.photo_image_view);
-        this.UB.setDefaultBgResource(d.C0277d.cp_bg_line_e);
-        this.eMg = view.findViewById(d.g.normal_pic_click_bg);
-        this.hKE = (TextView) view.findViewById(d.g.tip_default_view);
+        this.Sm = (TbImageView) view.findViewById(R.id.photo_image_view);
+        this.Sm.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fco = view.findViewById(R.id.normal_pic_click_bg);
+        this.icD = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
     public void i(m mVar) {
         if (mVar instanceof com.baidu.tbadk.data.m) {
-            this.hKD = mVar;
+            this.icC = mVar;
             com.baidu.tbadk.data.m mVar2 = (com.baidu.tbadk.data.m) mVar;
             if (mVar2.isPortrait()) {
-                String mt = o.mt(mVar2.getSmallUrl());
-                this.hKE.setVisibility(0);
-                if (StringUtils.isNull(mt)) {
-                    this.UB.setDefaultResource(d.f.pic_mycenter_avatar_def_i);
+                String nB = o.nB(mVar2.getSmallUrl());
+                this.icD.setVisibility(0);
+                if (StringUtils.isNull(nB)) {
+                    this.Sm.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.UB.startLoad(mt, 25, false);
+                    this.Sm.startLoad(nB, 25, false);
                 }
             } else {
-                this.UB.setDefaultResource(d.f.img_default_100);
-                this.hKE.setVisibility(8);
-                this.UB.startLoad(mVar2.getSmallUrl(), 10, false);
+                this.Sm.setDefaultResource(R.drawable.img_default_100);
+                this.icD.setVisibility(8);
+                this.Sm.startLoad(mVar2.getSmallUrl(), 10, false);
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -52,17 +52,17 @@ public class c extends v.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.d(this.hKE, d.C0277d.cp_cont_g, 1);
-            al.l(this.hKE, d.C0277d.black_alpha50);
+            al.f(this.icD, R.color.cp_cont_g, 1);
+            al.l(this.icD, R.color.black_alpha50);
             this.mSkinType = i;
         }
     }
 
-    public m afg() {
-        return this.hKD;
+    public m akf() {
+        return this.icC;
     }
 
-    public void x(View.OnClickListener onClickListener) {
+    public void z(View.OnClickListener onClickListener) {
         this.mClickListener = onClickListener;
     }
 }

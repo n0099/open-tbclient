@@ -17,7 +17,7 @@ public abstract class a<T extends com.baidu.swan.apps.x.a.c> {
         if (jSONObject.length() <= 0) {
             jSONObject = null;
         }
-        bVar.H(jSONObject);
+        bVar.F(jSONObject);
         return true;
     }
 }

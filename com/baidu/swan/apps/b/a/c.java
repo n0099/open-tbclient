@@ -1,13 +1,111 @@
 package com.baidu.swan.apps.b.a;
 
-import android.content.ContentValues;
-import android.support.annotation.Nullable;
-import java.util.List;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import com.baidu.swan.apps.b.b.p;
+import com.baidu.swan.apps.setting.a.g;
+import okhttp3.OkHttpClient;
 /* loaded from: classes2.dex */
-public class c implements com.baidu.swan.apps.b.b.h {
-    @Override // com.baidu.swan.apps.b.b.h
-    @Nullable
-    public List<ContentValues> uW() {
-        return null;
+public class c implements com.baidu.swan.apps.b.b.d {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+
+    @Override // com.baidu.swan.apps.b.b.d
+    public p a(@NonNull com.baidu.swan.apps.core.j.c cVar) {
+        return new b();
+    }
+
+    @Override // com.baidu.swan.apps.b.b.d
+    public com.baidu.swan.apps.b.b.b vZ() {
+        return new a();
+    }
+
+    @Override // com.baidu.swan.apps.b.b.d
+    public com.baidu.swan.apps.b.b.a wa() {
+        return new com.baidu.swan.apps.b.a.a();
+    }
+
+    @Override // com.baidu.swan.apps.b.b.d
+    public OkHttpClient wb() {
+        return new OkHttpClient.Builder().build();
+    }
+
+    /* loaded from: classes2.dex */
+    private class b implements p {
+        private b() {
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.core.g.a h(Context context, int i) {
+            return new com.baidu.swan.apps.core.g.b().i(context, i);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.b.c.c aG(Context context) {
+            return new com.baidu.swan.apps.core.i.c(context);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.b.c.a aH(Context context) {
+            return new com.baidu.swan.apps.core.c.d(context);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.b.c.a aI(Context context) {
+            return new com.baidu.swan.games.c.g(context);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.b.c.f aJ(Context context) {
+            return new com.baidu.swan.apps.view.c(context);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.p
+        public com.baidu.swan.apps.b.c.f aK(Context context) {
+            return new com.baidu.swan.apps.d.c(context);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    private static class a implements com.baidu.swan.apps.b.b.b {
+        private a() {
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str) {
+            return new com.baidu.swan.apps.setting.oauth.a.a(activity, z, str);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.b a(Activity activity, boolean z, String str, boolean z2) {
+            return new com.baidu.swan.apps.setting.oauth.a.b(activity, z, str, z2);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.e a(Activity activity, g.a aVar, Bundle bundle) {
+            return new com.baidu.swan.apps.setting.oauth.a.e(activity, aVar, bundle);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.c c(Activity activity, String str) {
+            return new com.baidu.swan.apps.setting.oauth.a.c(activity, str);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.d u(Activity activity) {
+            return new com.baidu.swan.apps.setting.oauth.a.d(activity);
+        }
+
+        @Override // com.baidu.swan.apps.b.b.b
+        @NonNull
+        public com.baidu.swan.apps.setting.oauth.a.f b(Activity activity, String str, String str2) {
+            return new com.baidu.swan.apps.setting.oauth.a.f(activity, str, str2);
+        }
     }
 }

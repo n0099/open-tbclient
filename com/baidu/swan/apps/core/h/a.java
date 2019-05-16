@@ -1,61 +1,66 @@
 package com.baidu.swan.apps.core.h;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.b.c.g;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
-import com.facebook.common.internal.h;
-import java.net.URISyntaxException;
-import java.util.Set;
+import com.baidu.swan.apps.ae.a.c;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.install.e;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes2.dex */
-public class a implements g {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> asG = h.K("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
+public class a {
+    private static final boolean DEBUG = b.DEBUG;
+    private static volatile a asS;
+    private Map<String, c> asT;
 
-    @Override // com.baidu.swan.apps.b.c.g
-    public boolean ad(@NonNull Context context, String str) {
-        return !ee(str) && ag(context, str);
-    }
-
-    private static boolean ag(Context context, String str) {
-        try {
-            Intent parseUri = Intent.parseUri(str, 1);
-            parseUri.addCategory("android.intent.category.BROWSABLE");
-            parseUri.setComponent(null);
-            parseUri.setSelector(null);
-            try {
-                if (context instanceof Activity) {
-                    if (((Activity) context).startActivityIfNeeded(parseUri, -1)) {
-                        return true;
-                    }
-                }
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.d("SchemeUrlHandler", Log.getStackTraceString(e));
+    public static a AW() {
+        if (asS == null) {
+            synchronized (a.class) {
+                if (asS == null) {
+                    asS = new a();
                 }
             }
-            return false;
-        } catch (URISyntaxException e2) {
-            if (DEBUG) {
-                Log.d("SchemeUrlHandler", "Bad URI " + str + ": " + e2.getMessage());
+        }
+        return asS;
+    }
+
+    public void ab(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            File ae = e.d.ae(str, str2);
+            if (ae.exists()) {
+                String v = com.baidu.swan.c.a.v(new File(ae, "app.json"));
+                if (DEBUG && !TextUtils.isEmpty(v)) {
+                    Log.i("SwanAppPreHandleHelper", "pre handle configData : " + v);
+                }
+                c gG = c.gG(v);
+                if (this.asT == null) {
+                    this.asT = new HashMap();
+                }
+                if (gG != null) {
+                    this.asT.put(str, gG);
+                }
             }
-            return false;
         }
     }
 
-    private static boolean ee(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
+    @Nullable
+    public c dR(String str) {
+        if (this.asT == null || TextUtils.isEmpty(str)) {
+            return null;
         }
-        for (String str2 : asG) {
-            if (str.startsWith(str2)) {
-                return true;
-            }
+        return this.asT.get(str);
+    }
+
+    private void AX() {
+        this.asT = null;
+        asS = null;
+    }
+
+    public static void release() {
+        if (asS != null) {
+            asS.AX();
         }
-        return false;
     }
 }

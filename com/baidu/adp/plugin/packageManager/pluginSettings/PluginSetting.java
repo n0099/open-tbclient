@@ -56,11 +56,11 @@ public class PluginSetting implements Serializable, Cloneable {
     }
 
     public void setCmdRange(String str) {
-        this.cmdRangeInt = cf(str);
+        this.cmdRangeInt = bP(str);
         this.cmdRangeStr = str;
     }
 
-    private int[] cf(String str) {
+    private int[] bP(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) == null) {
             return null;
@@ -77,14 +77,14 @@ public class PluginSetting implements Serializable, Cloneable {
                 BdLog.e("cmdRange2Int split by '-' error");
                 return null;
             }
-            int l = com.baidu.adp.lib.g.b.l(split2[0], -1);
-            int l2 = com.baidu.adp.lib.g.b.l(split2[1], -1);
-            if (l < 0 || l2 < 0 || l > l2) {
+            int f = com.baidu.adp.lib.g.b.f(split2[0], -1);
+            int f2 = com.baidu.adp.lib.g.b.f(split2[1], -1);
+            if (f < 0 || f2 < 0 || f > f2) {
                 BdLog.e("cmdRange2Int split  toInt error");
                 return null;
             }
-            iArr[i * 2] = l;
-            iArr[(i * 2) + 1] = l2;
+            iArr[i * 2] = f;
+            iArr[(i * 2) + 1] = f2;
         }
         return iArr;
     }

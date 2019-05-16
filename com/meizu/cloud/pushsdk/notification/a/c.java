@@ -18,15 +18,15 @@ public class c extends com.meizu.cloud.pushsdk.notification.a {
         AppIconSetting appIconSetting = messageV3.getmAppIconSetting();
         if (appIconSetting != null) {
             if (appIconSetting.isDefaultLargeIcon()) {
-                builder.setLargeIcon((this.b == null || this.b.getmLargIcon() == 0) ? a(this.a, messageV3.getPackageName()) : BitmapFactory.decodeResource(this.a.getResources(), this.b.getmLargIcon()));
+                builder.setLargeIcon((this.b == null || this.b.getmLargIcon() == 0) ? a(this.a, messageV3.getUploadDataPackageName()) : BitmapFactory.decodeResource(this.a.getResources(), this.b.getmLargIcon()));
             } else if (Thread.currentThread() != this.a.getMainLooper().getThread()) {
                 Bitmap a = a(appIconSetting.getLargeIconUrl());
-                if (a != null) {
-                    com.meizu.cloud.a.a.i("AbstractPushNotification", "On other Thread down load largeIcon image success");
-                    builder.setLargeIcon(a);
+                if (a == null) {
+                    builder.setLargeIcon(a(this.a, messageV3.getUploadDataPackageName()));
                     return;
                 }
-                builder.setLargeIcon(a(this.a, messageV3.getPackageName()));
+                com.meizu.cloud.a.a.i("AbstractPushNotification", "On other Thread down load largeIcon image success");
+                builder.setLargeIcon(a);
             }
         }
     }

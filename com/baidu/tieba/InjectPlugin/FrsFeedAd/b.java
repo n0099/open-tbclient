@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cHA = new SparseArray<>();
-    private Object cHB;
-    private int cHC;
+    private static SparseArray<BdUniqueId> cPJ = new SparseArray<>();
+    private Object cPK;
+    private int cPL;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cHA.get(this.cHC);
+        return cPJ.get(this.cPL);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aud() {
-        return this.cHB;
+    public Object azi() {
+        return this.cPK;
     }
 
-    public void ah(Object obj) {
-        this.cHB = obj;
+    public void aj(Object obj) {
+        this.cPK = obj;
     }
 
-    public int aue() {
-        return this.cHC;
+    public int azj() {
+        return this.cPL;
     }
 
-    public void lh(int i) {
-        this.cHC = i;
+    public void lW(int i) {
+        this.cPL = i;
     }
 
-    public static void ak(List<Integer> list) {
-        if (cHA.size() <= 0 && list != null) {
+    public static void ar(List<Integer> list) {
+        if (cPJ.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cHA.put(num.intValue(), BdUniqueId.gen());
+                cPJ.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> auf() {
+    public static List<BdUniqueId> azk() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cHA.size(); i++) {
-            arrayList.add(cHA.valueAt(i));
+        for (int i = 0; i < cPJ.size(); i++) {
+            arrayList.add(cPJ.valueAt(i));
         }
         return arrayList;
     }
 
     public static int j(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cHA.size() == 0 || (indexOfValue = cHA.indexOfValue(bdUniqueId)) == -1 || cHA.size() <= indexOfValue) {
+        if (cPJ.size() == 0 || (indexOfValue = cPJ.indexOfValue(bdUniqueId)) == -1 || cPJ.size() <= indexOfValue) {
             return -1;
         }
-        return cHA.keyAt(indexOfValue);
+        return cPJ.keyAt(indexOfValue);
     }
 }

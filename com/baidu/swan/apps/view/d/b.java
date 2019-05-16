@@ -3,12 +3,12 @@ package com.baidu.swan.apps.view.d;
 import android.support.annotation.NonNull;
 /* loaded from: classes2.dex */
 public class b {
-    private int aZM;
-    private int aZN;
+    private int bcA;
+    private int bcz;
     private int mFlags = 0;
 
     @NonNull
-    public b ey(int i) {
+    public b eK(int i) {
         this.mFlags |= i;
         return this;
     }
@@ -21,19 +21,19 @@ public class b {
         return (this.mFlags & 1) == 1;
     }
 
-    public int Na() {
-        return this.aZM;
+    public int PJ() {
+        return this.bcz;
     }
 
-    public void ez(int i) {
-        this.aZM = i;
+    public void eL(int i) {
+        this.bcz = i;
     }
 
-    public int Nb() {
-        return this.aZN;
+    public int PK() {
+        return this.bcA;
     }
 
-    public void eA(int i) {
-        this.aZN = i;
+    public void eM(int i) {
+        this.bcA = i;
     }
 }

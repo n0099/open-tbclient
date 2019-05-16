@@ -8,7 +8,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.an.w;
+import com.baidu.swan.apps.an.y;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.swan.apps.view.container.c.d;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.camera.c.a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b akq;
+    private com.baidu.swan.apps.camera.b.b akC;
     private Timer mTimer;
 
     private a() {
@@ -34,12 +34,12 @@ public class a implements com.baidu.swan.apps.camera.c.a {
 
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0118a {
-        private static final a akt = new a();
+    private static class C0121a {
+        private static final a akF = new a();
     }
 
-    public static a wm() {
-        return C0118a.akt;
+    public static a xe() {
+        return C0121a.akF;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -89,11 +89,11 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         }
     }
 
-    public CameraPreview dr(String str) {
-        if (TextUtils.isEmpty(str) || akJ.isEmpty()) {
+    public CameraPreview de(String str) {
+        if (TextUtils.isEmpty(str) || akV.isEmpty()) {
             return null;
         }
-        for (CameraPreview cameraPreview : akJ) {
+        for (CameraPreview cameraPreview : akV) {
             if (cameraPreview != null && TextUtils.equals(cameraPreview.getSlaveId(), str)) {
                 return cameraPreview;
             }
@@ -102,13 +102,13 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void a(CameraPreview cameraPreview) {
-        akJ.add(cameraPreview);
+        akV.add(cameraPreview);
     }
 
-    public void ds(String str) {
+    public void df(String str) {
         CameraPreview cameraPreview;
-        if (!TextUtils.isEmpty(str) && !akJ.isEmpty()) {
-            Iterator<CameraPreview> it = akJ.iterator();
+        if (!TextUtils.isEmpty(str) && !akV.isEmpty()) {
+            Iterator<CameraPreview> it = akV.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     cameraPreview = null;
@@ -121,19 +121,19 @@ public class a implements com.baidu.swan.apps.camera.c.a {
             }
             if (cameraPreview != null) {
                 cameraPreview.onRelease();
-                akJ.remove(cameraPreview);
+                akV.remove(cameraPreview);
             }
         }
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.akq = bVar;
+        this.akC = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.wp();
+                    bVar.xh();
                 }
                 a.this.stopTimer();
             }
@@ -141,32 +141,32 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void stopTimer() {
-        this.akq = null;
+        this.akC = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
-    public void wn() {
-        if (this.akq != null) {
-            this.akq.cancel();
+    public void xf() {
+        if (this.akC != null) {
+            this.akC.cancel();
         }
         stopTimer();
     }
 
-    public void aO(boolean z) {
+    public void aQ(boolean z) {
         if (z) {
-            wn();
+            xf();
         }
     }
 
     public void c(String str, String str2, boolean z) {
-        if (w.hF("1.13.0")) {
+        if (y.ii("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? "error" : IntentConfig.STOP);
-            e.Ea().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
+            e.FV().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();
@@ -182,11 +182,11 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         d.a(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
     }
 
-    public boolean bt(Context context) {
+    public boolean aM(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, "android.permission.CAMERA") == 0;
     }
 
-    public boolean bu(Context context) {
+    public boolean aN(Context context) {
         return Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context, "android.permission.RECORD_AUDIO") == 0;
     }
 }

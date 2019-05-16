@@ -12,11 +12,11 @@ import com.airbnb.lottie.a.a.q;
 import java.io.Closeable;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final PathMeasure pI = new PathMeasure();
-    private static final Path pK = new Path();
-    private static final Path sO = new Path();
+    private static final PathMeasure nh = new PathMeasure();
+    private static final Path nj = new Path();
+    private static final Path qs = new Path();
     private static final float[] points = new float[4];
-    private static final float sP = (float) Math.sqrt(2.0d);
+    private static final float qt = (float) Math.sqrt(2.0d);
 
     public static Path b(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -43,26 +43,26 @@ public final class f {
     public static float c(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = sP;
-        points[3] = sP;
+        points[2] = qt;
+        points[3] = qt;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable q qVar) {
         if (qVar != null) {
-            a(path, qVar.dm().getValue().floatValue() / 100.0f, qVar.dn().getValue().floatValue() / 100.0f, qVar.m6do().getValue().floatValue() / 360.0f);
+            a(path, qVar.cg().getValue().floatValue() / 100.0f, qVar.ch().getValue().floatValue() / 100.0f, qVar.ci().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        pI.setPath(path, false);
-        float length = pI.getLength();
+        nh.setPath(path, false);
+        float length = nh.getLength();
         if (f == 1.0f && f2 == 0.0f) {
-            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
-            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
+            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         } else {
             float f4 = length * f;
             float f5 = length * f2;
@@ -83,25 +83,25 @@ public final class f {
             }
             if (f7 == f8) {
                 path.reset();
-                com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
+                com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
                 return;
             }
             if (f7 >= f8) {
                 f7 -= length;
             }
-            pK.reset();
-            pI.getSegment(f7, f8, pK, true);
+            nj.reset();
+            nh.getSegment(f7, f8, nj, true);
             if (f8 > length) {
-                sO.reset();
-                pI.getSegment(0.0f, f8 % length, sO, true);
-                pK.addPath(sO);
+                qs.reset();
+                nh.getSegment(0.0f, f8 % length, qs, true);
+                nj.addPath(qs);
             } else if (f7 < 0.0f) {
-                sO.reset();
-                pI.getSegment(f7 + length, length, sO, true);
-                pK.addPath(sO);
+                qs.reset();
+                nh.getSegment(f7 + length, length, qs, true);
+                nj.addPath(qs);
             }
-            path.set(pK);
-            com.airbnb.lottie.d.U("applyTrimPathIfNeeded");
+            path.set(nj);
+            com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         }
     }
 
@@ -113,7 +113,7 @@ public final class f {
             if (eVar.getMinorVersion() < i2) {
                 return false;
             }
-            return eVar.getMinorVersion() > i2 || eVar.cC() >= i3;
+            return eVar.getMinorVersion() > i2 || eVar.bw() >= i3;
         }
         return true;
     }
@@ -135,7 +135,7 @@ public final class f {
         return i;
     }
 
-    public static float az(Context context) {
+    public static float Q(Context context) {
         return Build.VERSION.SDK_INT >= 17 ? Settings.Global.getFloat(context.getContentResolver(), "animator_duration_scale", 1.0f) : Settings.System.getFloat(context.getContentResolver(), "animator_duration_scale", 1.0f);
     }
 }

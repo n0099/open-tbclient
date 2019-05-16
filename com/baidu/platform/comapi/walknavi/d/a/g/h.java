@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
-import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.sapi2.base.network.Apn;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -99,13 +98,13 @@ public class h {
     public static long b(Context context) {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
-        return memoryInfo.availMem / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+        return memoryInfo.availMem / 1048576;
     }
 
     public static long[] a() {
         StatFs statFs;
         long blockSize = new StatFs(Environment.getDataDirectory().getPath()).getBlockSize();
-        return new long[]{(statFs.getBlockCount() * blockSize) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED, (statFs.getAvailableBlocks() * blockSize) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED};
+        return new long[]{(statFs.getBlockCount() * blockSize) / 1048576, (statFs.getAvailableBlocks() * blockSize) / 1048576};
     }
 
     public static long[] b() {
@@ -113,8 +112,8 @@ public class h {
         long[] jArr = new long[2];
         if ("mounted".equals(Environment.getExternalStorageState())) {
             long blockSize = new StatFs(Environment.getExternalStorageDirectory().getPath()).getBlockSize();
-            jArr[0] = (statFs.getBlockCount() * blockSize) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
-            jArr[1] = (statFs.getAvailableBlocks() * blockSize) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
+            jArr[0] = (statFs.getBlockCount() * blockSize) / 1048576;
+            jArr[1] = (statFs.getAvailableBlocks() * blockSize) / 1048576;
         }
         return jArr;
     }

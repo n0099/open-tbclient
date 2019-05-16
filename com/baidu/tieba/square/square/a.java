@@ -14,22 +14,22 @@ import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.bc;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> iBv;
-    View.OnClickListener iBw = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
+    private ArrayList<d> iUj;
+    View.OnClickListener iUk = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof C0387a) && (dVar = ((C0387a) tag).iBA) != null) {
-                if (dVar.izr == null) {
-                    BarFolderFirstDirActivity.h(a.this.ccZ(), null);
+            if ((tag instanceof C0406a) && (dVar = ((C0406a) tag).iUo) != null) {
+                if (dVar.iSe == null) {
+                    BarFolderFirstDirActivity.h(a.this.cld(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.ccZ(), dVar.izq, dVar.izr, dVar.izs)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.cld(), dVar.iSd, dVar.iSe, dVar.iSf)));
                 }
             }
         }
@@ -38,96 +38,96 @@ public class a extends BaseAdapter {
 
     public a(Activity activity, b bVar, boolean z) {
         this.mContext = activity;
-        this.iBv = bVar.ccY();
+        this.iUj = bVar.clc();
     }
 
-    public ArrayList<d> ccY() {
-        return this.iBv;
+    public ArrayList<d> clc() {
+        return this.iUj;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.tieba.square.square.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0387a {
-        public TextView dfp;
-        public d iBA;
-        public BarImageView iBy;
-        public BestStringsFitTextView iBz;
+    public static class C0406a {
+        public TextView bmf;
+        public BarImageView iUm;
+        public BestStringsFitTextView iUn;
+        public d iUo;
 
-        protected C0387a() {
+        protected C0406a() {
         }
     }
 
-    public void az(ArrayList<d> arrayList) {
-        this.iBv = arrayList;
+    public void aD(ArrayList<d> arrayList) {
+        this.iUj = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iBv == null) {
+        if (this.iUj == null) {
             return 0;
         }
-        return (this.iBv.size() * 2) + 1;
+        return (this.iUj.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (view == null) {
-            view = t(viewGroup, itemViewType);
-            bc.aD(view);
+            view = x(viewGroup, itemViewType);
+            bc.aJ(view);
         }
-        bc.aC(view);
+        bc.aI(view);
         if (itemViewType != 3) {
             TbadkCoreApplication.getInst().getSkinType();
-            View findViewById = view.findViewById(d.g.container);
-            al.k(findViewById, d.f.addresslist_item_bg);
+            View findViewById = view.findViewById(R.id.container);
+            al.k(findViewById, R.drawable.addresslist_item_bg);
             if (itemViewType == 2) {
                 if (getCount() > 1) {
                     findViewById.setVisibility(0);
                 }
             } else if (itemViewType == 1) {
-                a(viewGroup, (C0387a) view.getTag(), i);
+                a(viewGroup, (C0406a) view.getTag(), i);
             }
         }
         return view;
     }
 
-    private View t(ViewGroup viewGroup, int i) {
+    private View x(ViewGroup viewGroup, int i) {
         if (i == 3) {
-            return LayoutInflater.from(this.mContext).inflate(d.h.bar_home_list_line, viewGroup, false);
+            return LayoutInflater.from(this.mContext).inflate(R.layout.bar_home_list_line, viewGroup, false);
         }
         if (i == 2) {
-            return LayoutInflater.from(this.mContext).inflate(d.h.bar_folder_first_dir_bottom_item, viewGroup, false);
+            return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
-        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.iBw);
-        C0387a c0387a = new C0387a();
-        c0387a.iBy = (BarImageView) inflate.findViewById(d.g.portrait);
-        c0387a.dfp = (TextView) inflate.findViewById(d.g.name);
-        c0387a.iBz = (BestStringsFitTextView) inflate.findViewById(d.g.description);
-        inflate.setTag(c0387a);
+        View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
+        inflate.setOnClickListener(this.iUk);
+        C0406a c0406a = new C0406a();
+        c0406a.iUm = (BarImageView) inflate.findViewById(R.id.portrait);
+        c0406a.bmf = (TextView) inflate.findViewById(R.id.name);
+        c0406a.iUn = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        inflate.setTag(c0406a);
         return inflate;
     }
 
-    private void a(ViewGroup viewGroup, C0387a c0387a, int i) {
-        d dVar = this.iBv.get(i / 2);
-        c0387a.iBA = dVar;
-        c0387a.dfp.setText(dVar.izq);
-        if (dVar.iBD != null) {
-            c0387a.iBz.setVisibility(0);
-            String[] strArr = new String[dVar.iBD.size()];
-            for (int i2 = 0; i2 < dVar.iBD.size(); i2++) {
-                strArr[i2] = dVar.iBD.get(i2).izq;
+    private void a(ViewGroup viewGroup, C0406a c0406a, int i) {
+        d dVar = this.iUj.get(i / 2);
+        c0406a.iUo = dVar;
+        c0406a.bmf.setText(dVar.iSd);
+        if (dVar.iUr != null) {
+            c0406a.iUn.setVisibility(0);
+            String[] strArr = new String[dVar.iUr.size()];
+            for (int i2 = 0; i2 < dVar.iUr.size(); i2++) {
+                strArr[i2] = dVar.iUr.get(i2).iSd;
             }
-            c0387a.iBz.setTextArray(strArr);
+            c0406a.iUn.setTextArray(strArr);
         } else {
-            c0387a.iBz.setVisibility(8);
+            c0406a.iUn.setVisibility(8);
         }
         if (dVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            c0387a.iBy.setTag(dVar.logoUrl);
-            c0387a.iBy.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
+            c0406a.iUm.setTag(dVar.logoUrl);
+            c0406a.iUm.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    protected Activity ccZ() {
+    protected Activity cld() {
         return this.mContext;
     }
 }

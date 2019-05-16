@@ -7,5 +7,5 @@ public interface a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
-    List<String> s(@Nullable List<String> list);
+    List<String> t(@Nullable List<String> list);
 }

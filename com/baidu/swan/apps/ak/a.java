@@ -3,22 +3,22 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class a {
-    private a aVF = null;
-    private long aVG = 0;
-    private long aVH = 0;
-    private long aVI = 2;
-    private String aVJ = "";
-    private final StringBuilder aVK = new StringBuilder();
-    private boolean aVL = false;
+    private a aYF = null;
+    private long aYG = 0;
+    private long aYH = 0;
+    private long aYI = 2;
+    private String aYJ = "";
+    private final StringBuilder aYK = new StringBuilder();
+    private boolean aYL = false;
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(LA()), Long.valueOf(Lv()), Long.valueOf(Lw()), Long.valueOf(Lx()), Ly()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(Og()), Long.valueOf(Ob()), Long.valueOf(Oc()), Long.valueOf(Od()), Oe()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(Lv()), Long.valueOf(Lw()), Long.valueOf(Lx())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(Ob()), Long.valueOf(Oc()), Long.valueOf(Od())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", Lz()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", Of()));
         }
         return sb.toString();
     }
@@ -27,78 +27,78 @@ public final class a {
         return toString(-100);
     }
 
-    public a K(long j) {
-        this.aVI = a(j, 9L, "platform");
+    public a X(long j) {
+        this.aYI = a(j, 9L, "platform");
         return this;
     }
 
-    public long Lv() {
-        return this.aVI;
+    public long Ob() {
+        return this.aYI;
     }
 
-    public a L(long j) {
-        this.aVG = a(j, 999L, "feature");
+    public a Y(long j) {
+        this.aYG = a(j, 999L, "feature");
         return this;
     }
 
-    public long Lw() {
-        return this.aVG;
+    public long Oc() {
+        return this.aYG;
     }
 
-    public a M(long j) {
-        this.aVH = a(j, 9999L, "error");
+    public a Z(long j) {
+        this.aYH = a(j, 9999L, "error");
         return this;
     }
 
-    public long Lx() {
-        return this.aVH;
+    public long Od() {
+        return this.aYH;
     }
 
-    public a hw(String str) {
+    public a hY(String str) {
         if (str == null) {
             str = "";
         }
-        this.aVJ = str;
+        this.aYJ = str;
         return this;
     }
 
-    public String Ly() {
-        return this.aVJ;
+    public String Oe() {
+        return this.aYJ;
     }
 
-    public a hx(String str) {
-        this.aVK.append(str).append("\n");
+    public a hZ(String str) {
+        this.aYK.append(str).append("\n");
         return this;
     }
 
-    public StringBuilder Lz() {
-        return this.aVK;
+    public StringBuilder Of() {
+        return this.aYK;
     }
 
-    public long LA() {
-        return (Lv() * 10000000) + (Lw() * 10000) + (Lx() * 1);
+    public long Og() {
+        return (Ob() * 10000000) + (Oc() * 10000) + (Od() * 1);
     }
 
-    public a N(long j) {
-        K(j / 10000000);
+    public a aa(long j) {
+        X(j / 10000000);
         long j2 = j % 10000000;
-        L(j2 / 10000);
-        M((j2 % 10000) / 1);
+        Y(j2 / 10000);
+        Z((j2 % 10000) / 1);
         return this;
     }
 
-    public boolean LB() {
-        return this.aVL;
+    public boolean Oh() {
+        return this.aYL;
     }
 
-    public void LC() {
-        this.aVL = true;
+    public void Oi() {
+        this.aYL = true;
     }
 
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            hx("illegalFallback " + str + "::" + String.valueOf(j));
+            hZ("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

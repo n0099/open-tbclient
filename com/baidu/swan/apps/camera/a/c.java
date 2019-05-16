@@ -14,19 +14,19 @@ public class c extends a {
         super(jVar, "/swan/camera/remove");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (!(context instanceof Activity)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         com.baidu.swan.apps.model.a.a.a b = b(unitedSchemeEntity);
-        if (com.baidu.swan.apps.w.e.Ea().eP(b.aBH) != null) {
+        if (com.baidu.swan.apps.w.e.FV().fa(b.aDm) != null) {
             SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(b, null);
             if (a != null) {
-                a.MI();
+                a.Pr();
             }
-            com.baidu.swan.apps.camera.a.wm().ds(b.aBH);
+            com.baidu.swan.apps.camera.a.xe().df(b.aDm);
             a(unitedSchemeEntity, callbackHandler, true);
             return true;
         }

@@ -9,7 +9,7 @@ import android.widget.AbsoluteLayout;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +34,7 @@ public class e extends a {
         super(jVar, "/swan/canvas/measureTextSync");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         int i;
         int i2;
@@ -44,21 +44,21 @@ public class e extends a {
         if (c == null) {
             return false;
         }
-        if (c.alO == null || c.alO.length() <= 0) {
+        if (c.ama == null || c.ama.length() <= 0) {
             i = 0;
         } else {
-            if (c.alR && c.mItalic) {
+            if (c.amd && c.mItalic) {
                 i2 = 3;
-            } else if (c.alR) {
+            } else if (c.amd) {
                 i2 = 1;
             } else {
                 i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.alP, i2));
-            textPaint.setTextSize(c.alQ);
-            textPaint.getTextBounds(c.alO, 0, c.alO.length(), new Rect());
-            i = x.ae(rect.width());
+            textPaint.setTypeface(Typeface.create(c.amb, i2));
+            textPaint.setTextSize(c.amc);
+            textPaint.getTextBounds(c.ama, 0, c.ama.length(), new Rect());
+            i = z.af(rect.width());
         }
         JSONObject jSONObject = new JSONObject();
         try {

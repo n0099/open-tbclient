@@ -15,11 +15,10 @@ import android.support.v7.widget.ActivityChooserView;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
-public class TypefaceCompatBaseImpl implements TypefaceCompat.TypefaceCompatImpl {
+class TypefaceCompatBaseImpl implements TypefaceCompat.TypefaceCompatImpl {
     private static final String CACHE_FILE_PREFIX = "cached_font_";
     private static final String TAG = "TypefaceCompatBaseImpl";
 

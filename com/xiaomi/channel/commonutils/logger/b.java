@@ -15,6 +15,13 @@ public abstract class b {
         return a;
     }
 
+    public static void a(int i) {
+        if (i < 0 || i > 5) {
+            a(2, "set log level as " + i);
+        }
+        a = i;
+    }
+
     public static void a(int i, String str) {
         if (i >= a) {
             b.log(str);

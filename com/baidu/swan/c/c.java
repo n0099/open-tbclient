@@ -1,175 +1,74 @@
 package com.baidu.swan.c;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.io.InputStream;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
-    private static final boolean DEBUG = a.DEBUG;
+    private static final String TAG = c.class.getSimpleName();
+    private static String bwE;
 
-    public static String toMd5(byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return toHexString(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+    private static String ch(Context context) {
+        return V(context, "channels/tnconfig.ini");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [79=6, 81=5, 82=5, 83=5, 84=5] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0027 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v0, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v16 */
-    /* JADX WARN: Type inference failed for: r0v17 */
-    /* JADX WARN: Type inference failed for: r0v18 */
-    /* JADX WARN: Type inference failed for: r0v19 */
-    /* JADX WARN: Type inference failed for: r0v20 */
-    /* JADX WARN: Type inference failed for: r0v21 */
-    /* JADX WARN: Type inference failed for: r0v22 */
+    public static String XF() {
+        if (TextUtils.isEmpty(bwE)) {
+            bwE = ci(AppRuntime.getAppContext());
+        }
+        return bwE;
+    }
+
+    private static String ci(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(HTTP.IDENTITY_CODING, 0);
+        String string = sharedPreferences.getString("lasttn", "");
+        String ch = ch(context);
+        if ((TextUtils.equals(string, ch) ? false : true) || TextUtils.isEmpty(string)) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putString("lasttn", ch);
+            edit.commit();
+            return ch;
+        }
+        return string;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:11:0x001c A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String c(File file, boolean z) {
+    private static String V(Context context, String str) {
+        InputStream inputStream;
         Throwable th;
-        FileInputStream fileInputStream;
-        String str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
-        str = 0;
+        String str2 = null;
         try {
+            inputStream = context.getAssets().open(str);
+        } catch (IOException e) {
+            inputStream = null;
+        } catch (Throwable th2) {
+            inputStream = null;
+            th = th2;
+        }
+        if (inputStream != null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str = toHexString(messageDigest.digest(), "", z);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e) {
-                            if (DEBUG) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                } catch (FileNotFoundException e2) {
-                    e = e2;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e3) {
-                            if (DEBUG) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    }
-                    return str;
-                } catch (IOException e4) {
-                    e = e4;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e5) {
-                            if (DEBUG) {
-                                e5.printStackTrace();
-                            }
-                        }
-                    }
-                    return str;
-                } catch (NoSuchAlgorithmException e6) {
-                    e = e6;
-                    if (DEBUG) {
-                        e.printStackTrace();
-                    }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e7) {
-                            if (DEBUG) {
-                                e7.printStackTrace();
-                            }
-                        }
-                    }
-                    return str;
+                str2 = e.k(inputStream);
+                a.c(inputStream);
+            } catch (IOException e2) {
+                a.c(inputStream);
+                if (!TextUtils.isEmpty(str2)) {
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                if (0 != 0) {
-                    try {
-                        str.close();
-                    } catch (IOException e8) {
-                        if (DEBUG) {
-                            e8.printStackTrace();
-                        }
-                    }
-                }
+            } catch (Throwable th3) {
+                th = th3;
+                a.c(inputStream);
                 throw th;
             }
-        } catch (FileNotFoundException e9) {
-            e = e9;
-            fileInputStream = null;
-        } catch (IOException e10) {
-            e = e10;
-            fileInputStream = null;
-        } catch (NoSuchAlgorithmException e11) {
-            e = e11;
-            fileInputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            if (0 != 0) {
-            }
-            throw th;
+            return !TextUtils.isEmpty(str2) ? "1023091a" : str2;
         }
-        return str;
-    }
-
-    private static String toHexString(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
-            }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString).append(str);
-        }
-        return sb.toString();
+        a.c(inputStream);
+        return null;
     }
 }

@@ -13,24 +13,24 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
+import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.invoice.b;
 import com.baidu.tieba.aiapps.apps.invoice.e;
 import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
-import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class InvoiceInfoEditView extends FrameLayout implements e {
-    private View cKN;
-    private RadioGroup cTQ;
-    private ViewSwitcher cTR;
-    private InvoiceCompanyInfoView cTS;
-    private InvoicePersonalInfoView cTT;
-    private TextWatcher cTU;
-    private RadioGroup.OnCheckedChangeListener cTV;
-    private b cTW;
-    private LinearLayout cTX;
-    private TextView cTY;
-    private RadioButton cTZ;
-    private RadioButton cUa;
+    private View cSY;
+    private RadioGroup dcl;
+    private ViewSwitcher dcm;
+    private InvoiceCompanyInfoView dcn;
+    private InvoicePersonalInfoView dco;
+    private TextWatcher dcp;
+    private RadioGroup.OnCheckedChangeListener dcq;
+    private b dcr;
+    private LinearLayout dcs;
+    private TextView dct;
+    private RadioButton dcv;
+    private RadioButton dcw;
     private Context mContext;
 
     public InvoiceInfoEditView(@NonNull Context context) {
@@ -48,40 +48,40 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
 
     private void init(Context context) {
         this.mContext = context;
-        inflate(context, d.h.invoice_info_edit_view, this);
-        this.cTQ = (RadioGroup) findViewById(d.g.invoice_type_group);
-        this.cTR = (ViewSwitcher) findViewById(d.g.invoice_type_switcher);
-        this.cTY = (TextView) findViewById(d.g.invoice_type_desc);
-        this.cTZ = (RadioButton) findViewById(d.g.invoice_type_company);
-        this.cUa = (RadioButton) findViewById(d.g.invoice_type_personal);
-        this.cKN = findViewById(d.g.divider_line);
-        this.cTX = (LinearLayout) findViewById(d.g.invoice_type_area);
-        this.cTY.setTextColor(getResources().getColor(d.C0277d.invoice_type));
-        this.cTZ.setTextColor(getResources().getColor(d.C0277d.invoice_type_company));
-        this.cTZ.setButtonDrawable(getResources().getDrawable(d.f.radio_button_selector));
-        this.cUa.setTextColor(getResources().getColor(d.C0277d.invoice_type_personal));
-        this.cUa.setButtonDrawable(getResources().getDrawable(d.f.radio_button_selector));
-        this.cKN.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_info_item_divider_line));
-        this.cTX.setBackgroundDrawable(getResources().getDrawable(d.C0277d.invoice_edit_view_bg));
-        this.cTV = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.1
+        inflate(context, R.layout.invoice_info_edit_view, this);
+        this.dcl = (RadioGroup) findViewById(R.id.invoice_type_group);
+        this.dcm = (ViewSwitcher) findViewById(R.id.invoice_type_switcher);
+        this.dct = (TextView) findViewById(R.id.invoice_type_desc);
+        this.dcv = (RadioButton) findViewById(R.id.invoice_type_company);
+        this.dcw = (RadioButton) findViewById(R.id.invoice_type_personal);
+        this.cSY = findViewById(R.id.divider_line);
+        this.dcs = (LinearLayout) findViewById(R.id.invoice_type_area);
+        this.dct.setTextColor(getResources().getColor(R.color.invoice_type));
+        this.dcv.setTextColor(getResources().getColor(R.color.invoice_type_company));
+        this.dcv.setButtonDrawable(getResources().getDrawable(R.drawable.radio_button_selector));
+        this.dcw.setTextColor(getResources().getColor(R.color.invoice_type_personal));
+        this.dcw.setButtonDrawable(getResources().getDrawable(R.drawable.radio_button_selector));
+        this.cSY.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.dcs.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
+        this.dcq = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (i == d.g.invoice_type_company) {
-                    InvoiceInfoEditView.this.cTR.setDisplayedChild(0);
-                } else if (i == d.g.invoice_type_personal) {
-                    InvoiceInfoEditView.this.cTR.setDisplayedChild(1);
+                if (i == R.id.invoice_type_company) {
+                    InvoiceInfoEditView.this.dcm.setDisplayedChild(0);
+                } else if (i == R.id.invoice_type_personal) {
+                    InvoiceInfoEditView.this.dcm.setDisplayedChild(1);
                 }
-                if (InvoiceInfoEditView.this.cTW != null) {
-                    InvoiceInfoEditView.this.cTW.azb();
+                if (InvoiceInfoEditView.this.dcr != null) {
+                    InvoiceInfoEditView.this.dcr.aEp();
                 }
             }
         };
-        this.cTQ.setOnCheckedChangeListener(this.cTV);
-        this.cTS = new InvoiceCompanyInfoView(context);
-        this.cTT = new InvoicePersonalInfoView(context);
-        this.cTR.addView(this.cTS, 0);
-        this.cTR.addView(this.cTT, 1);
-        this.cTU = new TextWatcher() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.2
+        this.dcl.setOnCheckedChangeListener(this.dcq);
+        this.dcn = new InvoiceCompanyInfoView(context);
+        this.dco = new InvoicePersonalInfoView(context);
+        this.dcm.addView(this.dcn, 0);
+        this.dcm.addView(this.dco, 1);
+        this.dcp = new TextWatcher() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -92,33 +92,42 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                InvoiceInfoEditView.this.azh();
+                InvoiceInfoEditView.this.aEv();
             }
         };
-        this.cTT.setTextChangedListener(this.cTU);
-        this.cTS.setTextChangedListener(this.cTU);
-        this.cTQ.check(d.g.invoice_type_company);
+        this.dco.setTextChangedListener(this.dcp);
+        this.dcn.setTextChangedListener(this.dcp);
+        this.dcl.check(R.id.invoice_type_company);
+    }
+
+    public void onActivityDestroy() {
+        if (this.dco != null) {
+            this.dco.removeTextChangedListener(this.dcp);
+        }
+        if (this.dcn != null) {
+            this.dcn.removeTextChangedListener(this.dcp);
+        }
     }
 
     public void setInputStatusListener(b bVar) {
-        this.cTW = bVar;
+        this.dcr = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azh() {
-        if (this.cTW != null) {
-            if (azd()) {
-                this.cTW.ayZ();
+    public void aEv() {
+        if (this.dcr != null) {
+            if (aEr()) {
+                this.dcr.aEn();
             } else {
-                this.cTW.aza();
+                this.dcr.aEo();
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean azd() {
+    public boolean aEr() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.azd();
+        return currentInvoiceView != null && currentInvoiceView.aEr();
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
@@ -133,30 +142,30 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             if (invoiceInfo.mType == 0) {
-                this.cTQ.check(d.g.invoice_type_company);
-                this.cTS.d(invoiceInfo);
+                this.dcl.check(R.id.invoice_type_company);
+                this.dcn.d(invoiceInfo);
             } else if (invoiceInfo.mType == 1) {
-                this.cTQ.check(d.g.invoice_type_personal);
-                this.cTT.d(invoiceInfo);
+                this.dcl.check(R.id.invoice_type_personal);
+                this.dco.d(invoiceInfo);
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean aze() {
+    public boolean aEs() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.aze();
+        return currentInvoiceView != null && currentInvoiceView.aEs();
     }
 
     private e getCurrentInvoiceView() {
-        if (this.cTR == null) {
+        if (this.dcm == null) {
             return null;
         }
-        if (this.cTR.getDisplayedChild() == 0) {
-            return this.cTS;
+        if (this.dcm.getDisplayedChild() == 0) {
+            return this.dcn;
         }
-        if (this.cTR.getDisplayedChild() == 1) {
-            return this.cTT;
+        if (this.dcm.getDisplayedChild() == 1) {
+            return this.dco;
         }
         return null;
     }

@@ -1,17 +1,16 @@
 package com.facebook.common.c;
 
 import android.util.Log;
-import com.baidu.mobstat.Config;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b jzo = new b();
-    private String jzp = "unknown";
-    private int jzq = 5;
+    public static final b jSe = new b();
+    private String jSf = "unknown";
+    private int jSg = 5;
 
-    public static b ctG() {
-        return jzo;
+    public static b cBD() {
+        return jSe;
     }
 
     private b() {
@@ -19,27 +18,27 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.jzq <= i;
+        return this.jSg <= i;
     }
 
     @Override // com.facebook.common.c.c
     public void v(String str, String str2) {
-        n(2, str, str2);
+        p(2, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void d(String str, String str2) {
-        n(3, str, str2);
+        p(3, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void i(String str, String str2) {
-        n(4, str, str2);
+        p(4, str, str2);
     }
 
     @Override // com.facebook.common.c.c
     public void w(String str, String str2) {
-        n(5, str, str2);
+        p(5, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -49,7 +48,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public void e(String str, String str2) {
-        n(6, str, str2);
+        p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
@@ -58,26 +57,26 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void el(String str, String str2) {
-        n(6, str, str2);
+    public void ey(String str, String str2) {
+        p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
-    public void f(String str, String str2, Throwable th) {
+    public void c(String str, String str2, Throwable th) {
         b(6, str, str2, th);
     }
 
-    private void n(int i, String str, String str2) {
-        Log.println(i, Fo(str), str2);
+    private void p(int i, String str, String str2) {
+        Log.println(i, GJ(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, Fo(str), h(str2, th));
+        Log.println(i, GJ(str), h(str2, th));
     }
 
-    private String Fo(String str) {
-        if (this.jzp != null) {
-            return this.jzp + Config.TRACE_TODAY_VISIT_SPLIT + str;
+    private String GJ(String str) {
+        if (this.jSf != null) {
+            return this.jSf + ":" + str;
         }
         return str;
     }

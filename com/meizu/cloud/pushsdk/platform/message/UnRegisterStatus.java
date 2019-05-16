@@ -13,15 +13,16 @@ public class UnRegisterStatus extends BasicPushStatus {
         super(str);
     }
 
-    @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
-    public void parseValueData(JSONObject jSONObject) throws JSONException {
-        if (!jSONObject.isNull("result")) {
-            setIsUnRegisterSuccess(jSONObject.getBoolean("result"));
-        }
-    }
-
     public boolean isUnRegisterSuccess() {
         return this.isUnRegisterSuccess;
+    }
+
+    @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
+    public void parseValueData(JSONObject jSONObject) throws JSONException {
+        if (jSONObject.isNull("result")) {
+            return;
+        }
+        setIsUnRegisterSuccess(jSONObject.getBoolean("result"));
     }
 
     public void setIsUnRegisterSuccess(boolean z) {

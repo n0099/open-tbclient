@@ -9,6 +9,8 @@ import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
 /* loaded from: classes3.dex */
 public interface b {
+    void a(Context context, MzPushMessage mzPushMessage);
+
     void a(Context context, PushSwitchStatus pushSwitchStatus);
 
     void a(Context context, RegisterStatus registerStatus);
@@ -21,17 +23,17 @@ public interface b {
 
     void a(Context context, String str);
 
-    void a(Context context, String str, String str2, String str3);
+    void a(Context context, String str, String str2);
 
     void a(Context context, boolean z);
 
     void a(PushNotificationBuilder pushNotificationBuilder);
 
+    void b(Context context, MzPushMessage mzPushMessage);
+
     void b(Context context, String str);
 
-    void b(Context context, String str, String str2, String str3);
+    void c(Context context, MzPushMessage mzPushMessage);
 
     void c(Context context, String str);
-
-    void c(Context context, String str, String str2, String str3);
 }

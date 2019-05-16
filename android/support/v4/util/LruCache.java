@@ -131,7 +131,8 @@ public class LruCache<K, V> {
         return remove;
     }
 
-    protected void entryRemoved(boolean z, K k, V v, V v2) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void entryRemoved(boolean z, K k, V v, V v2) {
     }
 
     protected V create(K k) {

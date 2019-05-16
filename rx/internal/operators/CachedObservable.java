@@ -9,30 +9,30 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.internal.util.c implements rx.e<T> {
-        static final ReplayProducer<?>[] jVb = new ReplayProducer[0];
-        final rx.d<? extends T> jUY;
-        final rx.subscriptions.d jUZ;
-        volatile ReplayProducer<?>[] jVa;
-        volatile boolean jVc;
-        boolean jVd;
+        static final ReplayProducer<?>[] knr = new ReplayProducer[0];
+        final rx.d<? extends T> kno;
+        final rx.subscriptions.d knp;
+        volatile ReplayProducer<?>[] knq;
+        volatile boolean kns;
+        boolean knt;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.jUZ) {
-                ReplayProducer<?>[] replayProducerArr = this.jVa;
+            synchronized (this.knp) {
+                ReplayProducer<?>[] replayProducerArr = this.knq;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.jVa = replayProducerArr2;
+                this.knq = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.jUZ) {
-                ReplayProducer<?>[] replayProducerArr = this.jVa;
+            synchronized (this.knp) {
+                ReplayProducer<?>[] replayProducerArr = this.knq;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -46,13 +46,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.jVa = jVb;
+                        this.knq = knr;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.jVa = replayProducerArr2;
+                    this.knq = replayProducerArr2;
                 }
             }
         }
@@ -74,41 +74,41 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.jUZ.f(jVar);
-            this.jUY.a((rx.j<? super Object>) jVar);
-            this.jVc = true;
+            this.knp.f(jVar);
+            this.kno.a((rx.j<? super Object>) jVar);
+            this.kns = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.jVd) {
-                add(NotificationLite.bm(t));
-                cDP();
+            if (!this.knt) {
+                add(NotificationLite.bo(t));
+                cLv();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.jVd) {
-                this.jVd = true;
-                add(NotificationLite.O(th));
-                this.jUZ.unsubscribe();
-                cDP();
+            if (!this.knt) {
+                this.knt = true;
+                add(NotificationLite.N(th));
+                this.knp.unsubscribe();
+                cLv();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.jVd) {
-                this.jVd = true;
-                add(NotificationLite.cDR());
-                this.jUZ.unsubscribe();
-                cDP();
+            if (!this.knt) {
+                this.knt = true;
+                add(NotificationLite.cLx());
+                this.knp.unsubscribe();
+                cLv();
             }
         }
 
-        void cDP() {
-            for (ReplayProducer<?> replayProducer : this.jVa) {
+        void cLv() {
+            for (ReplayProducer<?> replayProducer : this.knq) {
                 replayProducer.replay();
             }
         }
@@ -207,7 +207,7 @@ public final class CachedObservable<T> extends rx.d<T> {
                             if (size != 0) {
                                 Object[] objArr = this.currentBuffer;
                                 if (objArr == null) {
-                                    objArr = this.state.cEp();
+                                    objArr = this.state.cLV();
                                     this.currentBuffer = objArr;
                                 }
                                 int length = objArr.length - 1;
@@ -215,12 +215,12 @@ public final class CachedObservable<T> extends rx.d<T> {
                                 int i2 = this.currentIndexInBuffer;
                                 if (j == 0) {
                                     Object obj = objArr[i2];
-                                    if (NotificationLite.bn(obj)) {
+                                    if (NotificationLite.bp(obj)) {
                                         jVar.onCompleted();
                                         unsubscribe();
                                         return;
-                                    } else if (NotificationLite.bo(obj)) {
-                                        jVar.onError(NotificationLite.bq(obj));
+                                    } else if (NotificationLite.bq(obj)) {
+                                        jVar.onError(NotificationLite.bs(obj));
                                         unsubscribe();
                                         return;
                                     }

@@ -29,7 +29,7 @@ public class b extends a {
         super(jVar, "/swan/canvas/drawCanvas");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.canvas.c.b c = c(unitedSchemeEntity);
         if (c == null) {
@@ -43,9 +43,9 @@ public class b extends a {
             return false;
         }
         final String optString = optParamsAsJo.optString("cb");
-        boolean a = com.baidu.swan.apps.canvas.a.wv().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
+        boolean a = com.baidu.swan.apps.canvas.a.xn().a(context, c, new CanvasView.b() { // from class: com.baidu.swan.apps.canvas.a.b.1
             @Override // com.baidu.swan.apps.canvas.view.CanvasView.b
-            public void wx() {
+            public void xp() {
                 if (optString != null) {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
                 }

@@ -1,112 +1,309 @@
 package com.baidu.swan.apps.an;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.text.TextUtils;
-import android.util.Log;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.util.DisplayMetrics;
+import android.view.KeyCharacterMap;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.widget.AbsoluteLayout;
+import android.widget.TextView;
+import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.res.ui.BdBaseImageView;
 /* loaded from: classes2.dex */
 public class z {
+    private static DisplayMetrics aZA;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final DisplayMetrics aZB = com.baidu.swan.apps.u.a.DB().getResources().getDisplayMetrics();
+    private static final float aZC = aZB.density;
 
-    public static int Mg() {
-        JSONObject hL = hL(getAppId());
-        if (hL != null) {
-            return hL.optInt("launch_count", 0);
+    public static int bQ(Context context) {
+        int i;
+        boolean z;
+        com.baidu.swan.apps.core.d.d dVar;
+        boolean z2 = true;
+        if (context == null) {
+            return 0;
+        }
+        int displayHeight = getDisplayHeight(context);
+        int statusBarHeight = getStatusBarHeight();
+        int bR = bR(context);
+        try {
+            i = context.getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
+        } catch (Resources.NotFoundException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+            i = 0;
+        }
+        com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
+        com.baidu.swan.apps.core.d.d dVar2 = null;
+        if (vi != null) {
+            com.baidu.swan.apps.core.d.b zK = vi.zK();
+            if (!(zK instanceof com.baidu.swan.apps.core.d.d)) {
+                dVar = null;
+            } else {
+                dVar = (com.baidu.swan.apps.core.d.d) zK;
+            }
+            if (zK != null && zK.yV()) {
+                try {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_action_bar_shadow_height);
+                    if (dimensionPixelSize > 0) {
+                        i += dimensionPixelSize;
+                    }
+                    dVar2 = dVar;
+                } catch (Resources.NotFoundException e2) {
+                    if (DEBUG) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            dVar2 = dVar;
+        }
+        if (dVar2 == null || !com.baidu.swan.apps.ae.a.d.a(dVar2.zd())) {
+            z = false;
+            z2 = false;
+        } else {
+            com.baidu.swan.apps.view.a.b zB = dVar2.zB();
+            z = zB != null && zB.Pi();
+        }
+        int i2 = displayHeight - bR;
+        if (!z) {
+            i2 -= statusBarHeight;
+        }
+        if (!z2) {
+            i2 -= i;
+        }
+        if (i2 > 0) {
+            return i2;
         }
         return 0;
     }
 
-    public static long Mh() {
-        long currentTimeMillis = System.currentTimeMillis();
-        JSONObject hL = hL(getAppId());
-        long optLong = hL != null ? hL.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (hL != null) {
-            return hL.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
-        }
-        return 0L;
-    }
-
-    public static void Mi() {
-        b(getAppId(), "visit_duration", Long.valueOf(Mh()));
-    }
-
-    public static void Mj() {
-        b(getAppId(), "launch_count", Integer.valueOf(Mg() + 1));
-    }
-
-    public static void Mk() {
-        b(getAppId(), "foreground_aiapp_last_time_local", Long.valueOf(System.currentTimeMillis()));
-    }
-
-    public static String getCurrentDate() {
-        return e.a(e.LO(), "yyyy-MM-dd");
-    }
-
-    public static boolean al(JSONObject jSONObject) {
-        String currentDate = getCurrentDate();
-        String optString = jSONObject.optString("date", "");
-        return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
-    }
-
-    public static JSONObject hL(String str) {
-        JSONObject jSONObject;
-        JSONException e;
-        String string = com.baidu.swan.apps.storage.b.f.KJ().getString("dailyInfo", "");
-        if (DEBUG) {
-            Log.i("SwanAppUserVisitInfoUtils", string);
+    public static int bR(Context context) {
+        com.baidu.swan.apps.core.d.b zK;
+        int i;
+        Resources.NotFoundException e;
+        com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (context == null || vi == null || (zK = vi.zK()) == null || !(zK instanceof com.baidu.swan.apps.core.d.d) || !((com.baidu.swan.apps.core.d.d) zK).yP()) {
+            return 0;
         }
         try {
-            JSONObject jSONObject2 = TextUtils.isEmpty(string) ? new JSONObject() : new JSONObject(string);
-            if (al(jSONObject2)) {
-                jSONObject2.put("date", getCurrentDate());
+            i = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_height);
+        } catch (Resources.NotFoundException e2) {
+            i = 0;
+            e = e2;
+        }
+        try {
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(a.d.aiapps_bottom_tab_shadow_height);
+            if (dimensionPixelSize > 0) {
+                return i + dimensionPixelSize;
             }
-            jSONObject = jSONObject2.optJSONObject(str);
-            if (jSONObject == null) {
-                try {
-                    jSONObject2.put(str, new JSONObject());
-                    com.baidu.swan.apps.storage.b.f.KJ().putString("dailyInfo", jSONObject2.toString());
-                } catch (JSONException e2) {
-                    e = e2;
-                    if (DEBUG) {
-                        Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
-                    }
-                    return jSONObject;
+            return i;
+        } catch (Resources.NotFoundException e3) {
+            e = e3;
+            if (DEBUG) {
+                e.printStackTrace();
+                return i;
+            }
+            return i;
+        }
+    }
+
+    public static void a(BdBaseImageView bdBaseImageView, TextView textView, String str) {
+        if ("0".equals(str)) {
+            bdBaseImageView.setVisibility(8);
+            textView.setVisibility(8);
+        } else if ("1".equals(String.valueOf(str))) {
+            bdBaseImageView.setVisibility(0);
+            textView.setVisibility(0);
+            textView.setText(a.h.aiapps_history_aiapp_tag);
+        } else if ("2".equals(String.valueOf(str))) {
+            bdBaseImageView.setVisibility(0);
+            textView.setVisibility(0);
+            textView.setText(a.h.aiapps_history_aiapp_tag_trial);
+        } else if ("3".equals(String.valueOf(str))) {
+            bdBaseImageView.setVisibility(0);
+            textView.setVisibility(0);
+            textView.setText(a.h.aiapps_history_aiapp_tag_experience);
+        }
+    }
+
+    public static void P(Activity activity) {
+        if (activity != null && com.baidu.swan.apps.view.a.b.aMT) {
+            new com.baidu.swan.apps.view.a.b(activity).eD(-1);
+        }
+    }
+
+    @UiThread
+    public static Bitmap OK() {
+        com.baidu.swan.apps.w.e FV = com.baidu.swan.apps.w.e.FV();
+        AbsoluteLayout fa = FV.fa(FV.zv());
+        if (fa == null || fa.getWidth() <= 0 || fa.getHeight() <= 0) {
+            return null;
+        }
+        Bitmap createBitmap = Bitmap.createBitmap(fa.getWidth(), fa.getHeight(), Bitmap.Config.ARGB_4444);
+        createBitmap.eraseColor(-1);
+        fa.draw(new Canvas(createBitmap));
+        return createBitmap;
+    }
+
+    public static Bitmap ak(View view) {
+        if (view != null) {
+            try {
+                View rootView = view.getRootView();
+                rootView.setDrawingCacheEnabled(true);
+                Bitmap createBitmap = Bitmap.createBitmap(rootView.getDrawingCache());
+                rootView.setDrawingCacheEnabled(false);
+                return createBitmap;
+            } catch (NullPointerException e) {
+                if (DEBUG) {
+                    e.printStackTrace();
                 }
             }
-        } catch (JSONException e3) {
-            jSONObject = null;
-            e = e3;
         }
-        return jSONObject;
+        return null;
     }
 
-    public static void b(String str, String str2, Object obj) {
-        JSONObject jSONObject;
-        String string = com.baidu.swan.apps.storage.b.f.KJ().getString("dailyInfo", "");
-        if (DEBUG) {
-            Log.i("SwanAppUserVisitInfoUtils", string);
+    public static int getDisplayWidth(@Nullable Context context) {
+        bV(com.baidu.swan.apps.u.a.DB());
+        if (aZA != null) {
+            return aZA.widthPixels;
         }
-        try {
-            if (TextUtils.isEmpty(string)) {
-                jSONObject = new JSONObject();
-            } else {
-                jSONObject = new JSONObject(string);
+        return 0;
+    }
+
+    public static int getDisplayHeight(Context context) {
+        bV(com.baidu.swan.apps.u.a.DB());
+        if (aZA != null) {
+            return aZA.heightPixels;
+        }
+        return 0;
+    }
+
+    public static int bS(Context context) {
+        return OL() ? getDisplayWidth(context) : getDisplayHeight(context);
+    }
+
+    public static float bT(Context context) {
+        bV(com.baidu.swan.apps.u.a.DB());
+        if (aZA != null) {
+            return aZA.density;
+        }
+        return 0.0f;
+    }
+
+    public static int bU(Context context) {
+        bV(com.baidu.swan.apps.u.a.DB());
+        if (aZA != null) {
+            return aZA.densityDpi;
+        }
+        return 0;
+    }
+
+    private static void bV(Context context) {
+        if (aZA == null) {
+            Application DB = com.baidu.swan.apps.u.a.DB();
+            if (DB != null) {
+                context = DB;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject(str);
-            if (optJSONObject != null) {
-                optJSONObject.put(str2, obj);
-            } else {
-                jSONObject.put(str, new JSONObject());
-            }
-            com.baidu.swan.apps.storage.b.f.KJ().putString("dailyInfo", jSONObject.toString());
-        } catch (JSONException e) {
-            if (DEBUG) {
-                Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+            if (context != null) {
+                aZA = context.getResources().getDisplayMetrics();
             }
         }
     }
 
-    private static String getAppId() {
-        return com.baidu.swan.apps.ae.b.IV() != null ? com.baidu.swan.apps.ae.b.IV().id : "";
+    public static int ad(float f) {
+        return dip2px(com.baidu.swan.apps.u.a.DB(), f);
+    }
+
+    public static float ae(float f) {
+        return bT(com.baidu.swan.apps.u.a.DB()) * f;
+    }
+
+    public static int af(float f) {
+        return px2dip(com.baidu.swan.apps.u.a.DB(), f);
+    }
+
+    public static int dip2px(Context context, float f) {
+        return (int) (bT(context) * f);
+    }
+
+    public static int px2dip(Context context, float f) {
+        return (int) (f / bT(context));
+    }
+
+    public static float ag(float f) {
+        return f / bT(com.baidu.swan.apps.u.a.DB());
+    }
+
+    public static int a(TextView textView) {
+        if (textView == null) {
+            return 0;
+        }
+        Paint paint = new Paint();
+        paint.setTextSize(textView.getTextSize());
+        Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+        if (TextUtils.isEmpty(textView.getText())) {
+            return 0;
+        }
+        return (int) (Math.ceil(fontMetrics.descent - fontMetrics.ascent) + 2.0d);
+    }
+
+    public static int b(TextView textView) {
+        if (textView == null) {
+            return 0;
+        }
+        Paint paint = new Paint();
+        paint.setTextSize(textView.getTextSize());
+        if (TextUtils.isEmpty(textView.getText())) {
+            return 0;
+        }
+        return (int) paint.measureText(textView.getText().toString());
+    }
+
+    public static int getStatusBarHeight() {
+        int i = 0;
+        int identifier = com.baidu.swan.apps.u.a.DB().getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (identifier > 0) {
+            try {
+                i = com.baidu.swan.apps.u.a.DB().getResources().getDimensionPixelSize(identifier);
+            } catch (Exception e) {
+            }
+        }
+        if (i == 0) {
+            return (int) (25.0f * aZC);
+        }
+        return i;
+    }
+
+    public static int getNavigationBarHeight() {
+        boolean hasPermanentMenuKey = ViewConfiguration.get(com.baidu.swan.apps.u.a.DB()).hasPermanentMenuKey();
+        boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
+        if (hasPermanentMenuKey || deviceHasKey) {
+            return 0;
+        }
+        Resources resources = com.baidu.swan.apps.u.a.DB().getResources();
+        return resources.getDimensionPixelSize(resources.getIdentifier("navigation_bar_height", "dimen", "android"));
+    }
+
+    public static boolean OL() {
+        return com.baidu.swan.apps.u.a.DB().getResources().getConfiguration().orientation == 1;
+    }
+
+    public static boolean OM() {
+        return com.baidu.swan.apps.u.a.DB().getResources().getConfiguration().orientation == 2;
+    }
+
+    public static int ON() {
+        return com.baidu.swan.apps.u.a.DB().getResources().getDimensionPixelSize(a.d.aiapps_normal_base_action_bar_height);
     }
 }

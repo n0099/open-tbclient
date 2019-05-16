@@ -1,181 +1,69 @@
 package com.baidu.tieba.homepage.concern.a;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.card.ab;
-import com.baidu.tieba.card.data.k;
-import com.baidu.tieba.card.n;
-import com.baidu.tieba.card.t;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class e extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b>> implements com.baidu.tieba.a.f {
-    private String YB;
-    public BdUniqueId coa;
-    private ab eEh;
-    private com.baidu.tieba.homepage.concern.view.b fGu;
-    private ab<k> fGv;
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> fdJ;
-    private com.baidu.adp.lib.e.b<TbImageView> fdK;
-    private TbPageContext<?> mPageContext;
-
-    public e(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.fdJ = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.e.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beG */
-            public ConstrainImageLayout makeObject() {
-                return new ConstrainImageLayout(e.this.mPageContext.getPageActivity());
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: c */
-            public void destroyObject(ConstrainImageLayout constrainImageLayout) {
-                constrainImageLayout.removeAllViews();
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: d */
-            public ConstrainImageLayout activateObject(ConstrainImageLayout constrainImageLayout) {
-                return constrainImageLayout;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: e */
-            public ConstrainImageLayout passivateObject(ConstrainImageLayout constrainImageLayout) {
-                return constrainImageLayout;
-            }
-        }, 6, 0);
-        this.fdK = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.concern.a.e.2
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aeY */
-            public TbImageView makeObject() {
-                TbImageView tbImageView = new TbImageView(e.this.mPageContext.getPageActivity());
-                tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(al.getColor(d.C0277d.common_color_10264));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds1));
-                return tbImageView;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: a */
-            public void destroyObject(TbImageView tbImageView) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: b */
-            public TbImageView activateObject(TbImageView tbImageView) {
-                return tbImageView;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.adp.lib.e.c
-            /* renamed from: c */
-            public TbImageView passivateObject(TbImageView tbImageView) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-                return tbImageView;
-            }
-        }, 12, 0);
-        this.eEh = new ab<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.3
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
-            public void a(View view, k kVar) {
-                if (view != null && e.this.fGu != null && e.this.fGu.getView() != null && kVar != null && kVar.WO() != null && !StringUtils.isNull(kVar.WO().getTid())) {
-                    am amVar = new am("c12352");
-                    if ((e.this.fGu.getHeaderImg() != null && view.getId() == e.this.fGu.getHeaderImg().getId()) || (e.this.fGu.aQk() != null && view.getId() == e.this.fGu.aQk().getId())) {
-                        amVar.T("obj_locate", 1);
-                    } else {
-                        amVar.T("obj_locate", 2);
-                    }
-                    amVar.bJ("obj_type", kVar.aQP());
-                    amVar.bJ("tid", kVar.threadData.getTid());
-                    amVar.k(ImageViewerConfig.FORUM_ID, kVar.threadData.getFid());
-                    amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    amVar.T("obj_param1", kVar.aQS() ? 2 : 1);
-                    TiebaStatic.log(amVar);
-                }
-            }
-        };
-        this.fGv = new ab<k>() { // from class: com.baidu.tieba.homepage.concern.a.e.5
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ab
-            public void a(View view, k kVar) {
-                if (kVar != null && kVar.WO() != null) {
-                    n.tz(kVar.WO().getTid());
-                }
-            }
-        };
-        this.mPageContext = tbPageContext;
+public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
+    public e(Context context) {
+        super(context, com.baidu.tieba.homepage.concern.b.a.fXT);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b> onCreateViewHolder(ViewGroup viewGroup) {
-        final com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext);
-        bVar.setSingleImageRatio(0.75d);
-        bVar.setConstrainLayoutPool(this.fdJ);
-        bVar.setConstrainImagePool(this.fdK);
-        bVar.d(this.fGv);
-        if (this.coa != null) {
-            bVar.k(this.coa);
-        }
-        if (!isPreloadSizeReady(1) || !isPreloadSizeReady(2)) {
-            bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.e.4
-                @Override // com.baidu.adp.widget.a.b
-                public void k(int i, int i2, int i3) {
-                    e.this.setPreloadSize(i, i2, i3);
-                    if (e.this.isPreloadSizeReady(1) && e.this.isPreloadSizeReady(2)) {
-                        bVar.setPreloadSizeReadyCallback(null);
-                    }
-                }
-            });
-        }
-        this.fGu = bVar;
-        return new com.baidu.tieba.card.a.a<>(this.fGu);
+    /* renamed from: aZ */
+    public a onCreateViewHolder(ViewGroup viewGroup) {
+        return new a(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.concern_emotion_tip_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.b> aVar) {
-        if (kVar == null || aVar == null || aVar.aRg() == null) {
-            return null;
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.concern.b.a aVar, a aVar2) {
+        if (aVar.bWj != null) {
+            aVar2.bXJ.setText(aVar.bWj);
         }
-        kVar.oo(i + 1);
-        t.aQD().b(kVar.tG("c12351"));
-        if (aVar.aRg() instanceof com.baidu.tieba.a.e) {
-            aVar.aRg().setPage(this.YB);
+        switch (aVar.fXU) {
+            case 2:
+                aVar2.bB(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
+                break;
+            case 3:
+                aVar2.bB(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_06);
+                break;
         }
-        aVar.aRg().a(kVar);
-        aVar.aRg().d(this.eEh);
-        return aVar.getView();
+        return aVar2.getView();
     }
 
-    @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
-        this.YB = str;
+    /* loaded from: classes4.dex */
+    public static class a extends v.a {
+        public TextView bXJ;
+        private int ccI;
+        public ViewGroup fXy;
+        public ImageView fXz;
+
+        public a(View view) {
+            super(view);
+            this.ccI = 3;
+            this.fXy = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.fXz = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.bXJ = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
+        }
+
+        protected void bB(int i, int i2) {
+            if (this.ccI != i) {
+                al.j(this.bXJ, R.color.cp_cont_b);
+            }
+            al.c(this.fXz, i2);
+            this.ccI = i;
+        }
     }
 }

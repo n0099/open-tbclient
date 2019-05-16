@@ -1,25 +1,25 @@
 package com.baidu.tbadk.coreExtra.data;
 /* loaded from: classes.dex */
 public class l {
-    private k bWV;
+    private k ceQ;
     private int mErrorCode;
     private String mErrorString;
-    private boolean zk;
+    private boolean wW;
 
-    public k agm() {
-        return this.bWV;
+    public k all() {
+        return this.ceQ;
     }
 
     public void b(k kVar) {
-        this.bWV = kVar;
+        this.ceQ = kVar;
     }
 
     public boolean isSuccess() {
-        return this.zk;
+        return this.wW;
     }
 
-    public void dy(boolean z) {
-        this.zk = z;
+    public void dU(boolean z) {
+        this.wW = z;
     }
 
     public int getErrorCode() {

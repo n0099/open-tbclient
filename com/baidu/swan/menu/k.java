@@ -2,80 +2,71 @@ package com.baidu.swan.menu;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.swan.menu.f;
 /* loaded from: classes2.dex */
-public class k {
-    public boolean Pa;
-    public int bkT;
-    private int bkU = 0;
-    public f bkV;
-    public int mIconResId;
-    public int mId;
+class k extends RelativeLayout {
+    private int bpW;
+    private Context mContext;
+    private ImageView mIconView;
+    private TextView mTitleView;
 
-    public k(int i, int i2, int i3, boolean z) {
-        this.bkT = -1;
-        this.mIconResId = -1;
-        this.Pa = true;
-        this.mId = i;
-        this.bkT = i2;
-        this.mIconResId = i3;
-        this.Pa = z;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public k(Context context) {
+        super(context);
+        this.mContext = context;
+        init();
     }
 
-    public int getItemId() {
-        return this.mId;
+    private void init() {
+        setGravity(49);
+        LayoutInflater.from(this.mContext).inflate(f.e.aiapp_menu_item_view_layout, this);
+        this.mIconView = (ImageView) findViewById(f.d.aiapp_menu_item_icon);
+        this.mTitleView = (TextView) findViewById(f.d.aiapp_menu_item_title);
+        setBackgroundResource(0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void setTitle(int i) {
-        this.bkT = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void setIcon(int i) {
-        this.mIconResId = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(f fVar) {
-        this.bkV = fVar;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean isEnable() {
-        return this.Pa;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public f Rf() {
-        return this.bkV;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public String getTitle(Context context) {
-        if (this.bkT <= 0) {
-            return null;
+    public void e(j jVar) {
+        if (jVar != null) {
+            f(jVar);
         }
-        return context.getResources().getString(this.bkT);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable cy(Context context) {
-        if (this.mIconResId <= 0) {
-            return null;
+    public void setMenuStyle(int i) {
+        this.bpW = i;
+    }
+
+    private void f(j jVar) {
+        this.mTitleView.setEllipsize(TextUtils.TruncateAt.END);
+        if (jVar.isEnable()) {
+            this.mTitleView.setAlpha(1.0f);
+        } else {
+            this.mTitleView.setAlpha(0.3f);
         }
-        return context.getResources().getDrawable(this.mIconResId);
+        this.mIconView.setEnabled(jVar.isEnable());
+        this.mIconView.setScaleType(ImageView.ScaleType.CENTER);
+        this.mIconView.setVisibility(0);
+        g(jVar);
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int Rg() {
-        return this.bkU;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static k d(k kVar) {
-        if (kVar == null) {
-            return null;
+    private void g(j jVar) {
+        setAlpha(1.0f);
+        this.mTitleView.setText(jVar.getTitle(this.mContext));
+        Drawable h = h(jVar);
+        if (h != null) {
+            this.mIconView.setImageDrawable(h);
+            this.mIconView.setImageLevel(jVar.US());
         }
-        return new k(kVar.mId, kVar.bkT, kVar.mIconResId, kVar.Pa);
+        this.mTitleView.setTextColor(getResources().getColor(f.a.aiapp_menu_item_text));
+    }
+
+    private Drawable h(j jVar) {
+        return jVar.cb(this.mContext);
     }
 }

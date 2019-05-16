@@ -19,32 +19,32 @@ class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String VG() {
+    public String aam() {
         return "TBHY_COMMON_Utils";
     }
 
-    @o(abG = false, value = "showToast")
+    @o(agy = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         if (jSONObject != null) {
-            BdToast.b(getContext(), jSONObject.optString("message")).abe();
+            BdToast.b(getContext(), jSONObject.optString("message")).afO();
         }
     }
 
-    @o(abG = false, value = "showNetStatus")
+    @o(agy = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         JSONObject jSONObject = new JSONObject();
         int i = 0;
         String str = "NotReachable";
-        if (j.kZ()) {
+        if (j.jT()) {
             i = 1;
             str = "WIFI";
-        } else if (j.ld()) {
+        } else if (j.jX()) {
             i = 3;
             str = "2G";
-        } else if (j.lc()) {
+        } else if (j.jW()) {
             i = 4;
             str = "3G";
-        } else if (j.lb()) {
+        } else if (j.jV()) {
             i = 5;
             str = "4G";
         }
@@ -56,13 +56,13 @@ class b extends n {
         return jSONObject;
     }
 
-    @o(abG = false, value = "showDeviceInfo")
+    @o(agy = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         JSONObject jSONObject = new JSONObject();
         String cuid = TbadkCoreApplication.getInst().getCuid();
         String str = Build.VERSION.RELEASE;
         String str2 = Build.MODEL;
-        String str3 = String.valueOf(com.baidu.adp.lib.util.l.aO(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.aQ(getContext()));
+        String str3 = String.valueOf(com.baidu.adp.lib.util.l.af(getContext())) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(com.baidu.adp.lib.util.l.ah(getContext()));
         String versionName = TbadkCoreApplication.getInst().getVersionName();
         try {
             jSONObject.put("systemName", "android");

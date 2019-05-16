@@ -5,64 +5,64 @@ import tbclient.FrsPage.Size;
 import tbclient.FrsPage.StarInfo;
 /* loaded from: classes3.dex */
 public class k {
-    private int iEl = 0;
-    private int cgU = 0;
-    private String iEm = null;
-    private String iEn = null;
-    private int iEo = 0;
-    private int iEp = 0;
-    private int iEq = 0;
-    private int iEr = 0;
-    private int iEs = 0;
-    private int iEt = 0;
-    private long iEu = 0;
-    private long iEv = 0;
-    private boolean iEw = false;
-    private long iEx = 0;
-    private String iEy = null;
-    private String iEz = null;
+    private int iWZ = 0;
+    private int cpb = 0;
+    private String iXa = null;
+    private String iXb = null;
+    private int iXc = 0;
+    private int iXd = 0;
+    private int iXe = 0;
+    private int iXf = 0;
+    private int iXg = 0;
+    private int iXh = 0;
+    private long iXi = 0;
+    private long iXj = 0;
+    private boolean iXk = false;
+    private long iXl = 0;
+    private String iXm = null;
+    private String iXn = null;
 
-    public int cdy() {
-        return this.iEl;
+    public int clD() {
+        return this.iWZ;
     }
 
-    public String cdz() {
-        return this.iEz;
+    public String clE() {
+        return this.iXn;
     }
 
     public void a(StarInfo starInfo) {
         if (starInfo != null) {
-            this.iEl = starInfo.has_frs_star.intValue();
-            if (this.iEl == 1) {
-                this.iEm = starInfo.top;
-                this.iEn = starInfo.head;
+            this.iWZ = starInfo.has_frs_star.intValue();
+            if (this.iWZ == 1) {
+                this.iXa = starInfo.top;
+                this.iXb = starInfo.head;
                 Fans fans = starInfo.fans;
                 if (fans != null) {
-                    this.iEo = fans.is_get.intValue();
-                    this.iEp = fans.num.intValue();
-                    this.cgU = fans.open.intValue();
-                    this.iEu = fans.left_time.intValue();
+                    this.iXc = fans.is_get.intValue();
+                    this.iXd = fans.num.intValue();
+                    this.cpb = fans.open.intValue();
+                    this.iXi = fans.left_time.intValue();
                 }
-                this.iEv = this.iEu;
+                this.iXj = this.iXi;
                 Size size = starInfo.top_size;
                 if (size != null) {
-                    this.iEq = size.width.intValue();
-                    this.iEr = size.height.intValue();
+                    this.iXe = size.width.intValue();
+                    this.iXf = size.height.intValue();
                 }
                 Size size2 = starInfo.head_size;
                 if (size2 != null) {
-                    this.iEs = size2.width.intValue();
-                    this.iEt = size2.height.intValue();
+                    this.iXg = size2.width.intValue();
+                    this.iXh = size2.height.intValue();
                 }
             }
-            this.iEw = starInfo.trade != null;
-            if (this.iEw) {
+            this.iXk = starInfo.trade != null;
+            if (this.iXk) {
                 if (starInfo.trade.time != null) {
-                    this.iEx = starInfo.trade.time.intValue();
+                    this.iXl = starInfo.trade.time.intValue();
                 }
-                this.iEy = starInfo.trade.url;
+                this.iXm = starInfo.trade.url;
             }
-            this.iEz = starInfo.star_forum_headimg;
+            this.iXn = starInfo.star_forum_headimg;
         }
     }
 }

@@ -6,53 +6,53 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
-import com.baidu.tieba.d;
 import com.baidu.tieba.personCenter.data.PersonMoreData;
 import com.baidu.tieba.personCenter.data.PersonMoreItemData;
-import com.baidu.tieba.personCenter.data.f;
+import com.baidu.tieba.personCenter.data.g;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private c hKU;
-    private List<m> hKV;
-    private PersonMoreData hKW;
+    private c icT;
+    private List<m> icU;
+    private PersonMoreData icV;
     private TbPageContext mPageContext;
 
-    public b(TbPageContext tbPageContext, Bundle bundle, ab<f> abVar) {
+    public b(TbPageContext tbPageContext, Bundle bundle, ab<g> abVar) {
         this.mPageContext = tbPageContext;
-        this.hKU = new c(tbPageContext);
-        this.hKU.d(abVar);
+        this.icT = new c(tbPageContext);
+        this.icT.d(abVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.hKW = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.icV = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
-        this.mPageContext.getPageActivity().setContentView(d.h.person_center_more_layout);
-        this.hKU.O(this.mPageContext.getPageActivity().findViewById(d.g.person_more_layout));
-        bQn();
-        this.hKU.setData(this.hKV);
+        this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
+        this.icT.O(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        bYg();
+        this.icT.setData(this.icU);
     }
 
     public void onChangeSkinType() {
-        if (this.hKU != null) {
-            this.hKU.onChangeSkinType();
+        if (this.icT != null) {
+            this.icT.onChangeSkinType();
         }
     }
 
-    private void bQn() {
-        this.hKV = new ArrayList();
-        if (this.hKW != null && !v.T(this.hKW.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.hKW.mUrlMaps) {
+    private void bYg() {
+        this.icU = new ArrayList();
+        if (this.icV != null && !v.aa(this.icV.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.icV.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                    f fVar = new f();
-                    fVar.title = personMoreItemData.mName;
-                    fVar.type = 36;
-                    fVar.bvM = personMoreItemData.mUrl;
-                    fVar.itemId = personMoreItemData.mId;
-                    this.hKV.add(fVar);
+                    g gVar = new g();
+                    gVar.title = personMoreItemData.mName;
+                    gVar.type = 36;
+                    gVar.bCP = personMoreItemData.mUrl;
+                    gVar.itemId = personMoreItemData.mId;
+                    this.icU.add(gVar);
                 }
             }
         }

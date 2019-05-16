@@ -7,19 +7,19 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 /* loaded from: classes.dex */
 public class a {
     private static String bduss;
-    private static boolean coE = false;
+    private static boolean cwL = false;
     private static String stoken;
     private static String tbs;
 
-    public static void eV(boolean z) {
-        coE = z;
+    public static void fr(boolean z) {
+        cwL = z;
     }
 
     public static boolean isLogin() {
-        return coE;
+        return cwL;
     }
 
-    public static void ps(String str) {
+    public static void qA(String str) {
         bduss = str;
     }
 
@@ -43,14 +43,14 @@ public class a {
         return tbs;
     }
 
-    public static boolean cZ(Context context) {
-        if (!coE) {
-            cY(context);
+    public static boolean cE(Context context) {
+        if (!cwL) {
+            cD(context);
         }
-        return coE;
+        return cwL;
     }
 
-    public static void cY(Context context) {
+    public static void cD(Context context) {
         if (context != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
         }

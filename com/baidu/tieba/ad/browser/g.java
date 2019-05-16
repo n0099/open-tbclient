@@ -35,20 +35,20 @@ class g {
 
     @JavascriptInterface
     public void showShareDialog(String str, String str2, String str3, String str4) {
-        com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
-        dVar.title = str;
-        dVar.content = str2;
-        dVar.linkUrl = str4;
+        com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
+        eVar.title = str;
+        eVar.content = str2;
+        eVar.linkUrl = str4;
         if (!ap.isEmpty(str3)) {
-            dVar.imageUri = Uri.parse(str3);
+            eVar.imageUri = Uri.parse(str3);
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), dVar, true)));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), eVar, true)));
     }
 
     @JavascriptInterface
     public void payWithDQ(String str, String str2, String str3, String str4, String str5) {
         Intent intent = new Intent(this.mTbPageContext.getPageActivity(), DealIntentService.class);
-        intent.putExtra("class", 15);
+        intent.putExtra(DealIntentService.KEY_CLASS, 15);
         intent.putExtra("pay_type", str);
         intent.putExtra("props_id", str2);
         intent.putExtra("quan_num", str3);

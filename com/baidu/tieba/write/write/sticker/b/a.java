@@ -4,7 +4,7 @@ import android.graphics.PointF;
 import android.view.MotionEvent;
 /* loaded from: classes3.dex */
 public class a {
-    public static PointF S(MotionEvent motionEvent) {
+    public static PointF V(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return null;
         }
@@ -13,7 +13,7 @@ public class a {
         return pointF;
     }
 
-    public static float T(MotionEvent motionEvent) {
+    public static float W(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
@@ -22,14 +22,14 @@ public class a {
         return (float) Math.sqrt((x * x) + (y * y));
     }
 
-    public static float U(MotionEvent motionEvent) {
+    public static float X(MotionEvent motionEvent) {
         if (motionEvent == null) {
             return 0.0f;
         }
         return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
     }
 
-    public static boolean a(float[] fArr, float f, float f2) {
+    public static boolean b(float[] fArr, float f, float f2) {
         if (fArr == null || fArr.length != 8) {
             return false;
         }
@@ -41,33 +41,33 @@ public class a {
         float f8 = fArr[5];
         float f9 = fArr[6];
         float f10 = fArr[7];
-        float j = j(f3, f4, f5, f6);
+        float k = k(f3, f4, f5, f6);
         float a = a(f3, f4, f5, f6, f, f2);
-        float j2 = j(f5, f6, f9, f10);
+        float k2 = k(f5, f6, f9, f10);
         float a2 = a(f5, f6, f9, f10, f, f2);
         float a3 = a(f9, f10, f7, f8, f, f2);
         float a4 = a(f7, f8, f3, f4, f, f2);
-        if (j > 0.0f && j2 > 0.0f && a <= j2 && a3 <= j2 && a2 <= j && a4 <= j) {
+        if (k > 0.0f && k2 > 0.0f && a <= k2 && a3 <= k2 && a2 <= k && a4 <= k) {
             return true;
         }
         return false;
     }
 
     private static float a(float f, float f2, float f3, float f4, float f5, float f6) {
-        float j = j(f, f2, f3, f4);
-        float j2 = j(f, f2, f5, f6);
-        float j3 = j(f3, f4, f5, f6);
-        if (j != 0.0f) {
-            if (j2 == 0.0f || j3 == 0.0f) {
+        float k = k(f, f2, f3, f4);
+        float k2 = k(f, f2, f5, f6);
+        float k3 = k(f3, f4, f5, f6);
+        if (k != 0.0f) {
+            if (k2 == 0.0f || k3 == 0.0f) {
                 return 0.0f;
             }
-            float f7 = ((j + j2) + j3) / 2.0f;
-            return (((float) Math.sqrt(((f7 - j2) * ((f7 - j) * f7)) * (f7 - j3))) * 2.0f) / j;
+            float f7 = ((k + k2) + k3) / 2.0f;
+            return (((float) Math.sqrt(((f7 - k2) * ((f7 - k) * f7)) * (f7 - k3))) * 2.0f) / k;
         }
-        return j2;
+        return k2;
     }
 
-    private static float j(float f, float f2, float f3, float f4) {
+    private static float k(float f, float f2, float f3, float f4) {
         return (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d));
     }
 }

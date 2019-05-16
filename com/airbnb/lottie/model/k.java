@@ -5,12 +5,12 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class k {
-    private final float qv;
-    private final float qw;
+    private final float nU;
+    private final float nV;
 
     public k(float f, float f2) {
-        this.qv = f;
-        this.qw = f2;
+        this.nU = f;
+        this.nV = f2;
     }
 
     public k() {
@@ -18,11 +18,11 @@ public class k {
     }
 
     public float getScaleX() {
-        return this.qv;
+        return this.nU;
     }
 
     public float getScaleY() {
-        return this.qw;
+        return this.nV;
     }
 
     public String toString() {
@@ -31,7 +31,7 @@ public class k {
 
     /* loaded from: classes2.dex */
     public static class a implements m.a<k> {
-        public static final a qx = new a();
+        public static final a nW = new a();
 
         private a() {
         }

@@ -19,22 +19,22 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.data.k;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String csl = "#";
-    public static String csm = "＃";
-    private static final Pattern brz = Pattern.compile("#([^#(]+)#", 2);
+    public static String cAq = "#";
+    public static String cAr = "＃";
+    private static final Pattern byd = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean pv(String str) {
-        return csl.equals(str);
+    public static boolean qE(String str) {
+        return cAq.equals(str);
     }
 
-    public static boolean fi(boolean z) {
+    public static boolean fE(boolean z) {
         boolean appResponseToIntentClass;
-        if (PluginPackageManager.ni().bT("com.baidu.tieba.pluginHotTopic")) {
+        if (PluginPackageManager.mc().bD("com.baidu.tieba.pluginHotTopic")) {
             if (z) {
                 appResponseToIntentClass = TbadkCoreApplication.getInst().appResponseToIntentClass(HotTopicActivityConfig.class);
             } else {
@@ -45,29 +45,29 @@ public class b {
         return false;
     }
 
-    public static boolean apy() {
-        return PluginPackageManager.ni().bZ("com.baidu.tieba.pluginHotTopic");
+    public static boolean auB() {
+        return PluginPackageManager.mc().bJ("com.baidu.tieba.pluginHotTopic");
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        if (PluginPackageManager.ni().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
-            String string = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_install);
+        if (PluginPackageManager.mc().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
+            String string = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string, null);
                 return true;
             }
             return true;
-        } else if (!fi(z2)) {
-            String string2 = tbPageContext.getResources().getString(d.j.plugin_hottopic_install_tips);
-            String string3 = tbPageContext.getResources().getString(d.j.plugin_go_install);
+        } else if (!fE(z2)) {
+            String string2 = tbPageContext.getResources().getString(R.string.plugin_hottopic_install_tips);
+            String string3 = tbPageContext.getResources().getString(R.string.plugin_go_install);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string2, string3);
                 return true;
             }
             return true;
-        } else if (apy()) {
-            String string4 = tbPageContext.getResources().getString(d.j.plugin_hottopic_not_active);
-            String string5 = tbPageContext.getResources().getString(d.j.setup);
+        } else if (auB()) {
+            String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
+            String string5 = tbPageContext.getResources().getString(R.string.setup);
             if (z) {
                 showGoPluginDetailDialog(tbPageContext, string4, string5);
                 return true;
@@ -86,9 +86,9 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.lz(str);
+            aVar.mE(str);
             if (TextUtils.isEmpty(str2)) {
-                aVar.b(d.j.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
+                aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
@@ -102,28 +102,28 @@ public class b {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.b.3
+                aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.plugins.b.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                     }
                 });
             }
-            aVar.b(tbPageContext).aaW();
+            aVar.b(tbPageContext).afG();
         }
     }
 
-    public static SpannableString pw(String str) {
+    public static SpannableString qF(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
-        Matcher matcher = brz.matcher(str);
+        Matcher matcher = byd.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!py(str.substring(start, end))) {
-                spannableString.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.cp_link_tip_c)), start, end, 18);
+            if (!qH(str.substring(start, end))) {
+                spannableString.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
         return spannableString;
@@ -134,33 +134,33 @@ public class b {
         if (spannable != null) {
             String obj = spannable.toString();
             if (!StringUtils.isNull(obj)) {
-                Matcher matcher = brz.matcher(obj);
+                Matcher matcher = byd.matcher(obj);
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!py(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
-                        spannable.setSpan(new ForegroundColorSpan(al.getColor(d.C0277d.cp_link_tip_c)), start, end, 18);
+                    if (!qH(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                        spannable.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
             }
         }
     }
 
-    public static String px(String str) {
+    public static String qG(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(csl).append(str).append(csl);
+            sb.append(cAq).append(str).append(cAq);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean py(String str) {
+    public static boolean qH(String str) {
         String substring;
-        return str != null && str.startsWith(csl) && str.endsWith(csl) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(cAq) && str.endsWith(cAq) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {
@@ -182,6 +182,6 @@ public class b {
                 str = "1";
                 break;
         }
-        TiebaStatic.log(new am("c11455").bJ("obj_locate", str));
+        TiebaStatic.log(new am("c11455").bT("obj_locate", str));
     }
 }

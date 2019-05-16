@@ -1,6 +1,7 @@
 package com.xiaomi.smack;
 
 import com.baidu.mapapi.UIMsg;
+import com.vivo.push.PushClientConstants;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public final class g {
     private static int a;
     private static int b;
-    private static int c = 300000;
+    private static int c = 600000;
     private static int d = 330000;
     private static Vector<String> e = new Vector<>();
 
@@ -33,7 +34,7 @@ public final class g {
                         int eventType = newPullParser.getEventType();
                         do {
                             if (eventType == 2) {
-                                if (newPullParser.getName().equals("className")) {
+                                if (newPullParser.getName().equals(PushClientConstants.TAG_CLASS_NAME)) {
                                     a(newPullParser);
                                 } else if (newPullParser.getName().equals("packetReplyTimeout")) {
                                     a = a(newPullParser, a);
@@ -51,15 +52,12 @@ public final class g {
                         }
                     } catch (Exception e3) {
                         e3.printStackTrace();
-                        try {
-                            inputStream.close();
-                        } catch (Exception e4) {
-                        }
+                        inputStream.close();
                     }
                 }
             }
-        } catch (Exception e5) {
-            e5.printStackTrace();
+        } catch (Exception e4) {
+            e4.printStackTrace();
         }
     }
 

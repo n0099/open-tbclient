@@ -11,6 +11,7 @@ import android.os.Message;
 import com.baidu.mapapi.model.inner.GeoPoint;
 import com.baidu.mapsdkplatform.comapi.map.MessageCenter;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
+import com.baidu.poly.bean.PayChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -206,7 +207,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         }
         if (wLocData.accuracy < 80.0f) {
             this.c = wLocData.m12clone();
-            a(this.c, "sdk");
+            a(this.c, PayChannel.ACTION_TYPE_SDK);
             if (wLocData.isIndoorMode) {
                 a++;
                 if (a > 3 && this.i != null) {

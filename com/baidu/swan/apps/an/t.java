@@ -1,32 +1,35 @@
 package com.baidu.swan.apps.an;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
-public class t {
-    public static String b(byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return toHexString(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
+public final class t {
+    private static SharedPreferences afb = null;
+
+    private static SharedPreferences OG() {
+        if (afb == null) {
+            afb = PreferenceManager.getDefaultSharedPreferences(getAppContext());
         }
+        return afb;
     }
 
-    private static String toHexString(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
-            }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString).append(str);
-        }
-        return sb.toString();
+    public static long getLong(String str, long j) {
+        return OG().getLong(str, j);
+    }
+
+    public static boolean getBoolean(String str, boolean z) {
+        return OG().getBoolean(str, z);
+    }
+
+    public static void setBoolean(String str, boolean z) {
+        SharedPreferences.Editor edit = OG().edit();
+        edit.putBoolean(str, z);
+        edit.apply();
+    }
+
+    private static Context getAppContext() {
+        return AppRuntime.getAppContext();
     }
 }

@@ -11,26 +11,26 @@ import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d gsA = new d();
+    private static d gJN = new d();
 
     private d() {
     }
 
-    public static d bvZ() {
-        return gsA;
+    public static d bDH() {
+        return gJN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: de */
-    public OfficialSettingItemData da(String str, String str2) {
+    /* renamed from: dq */
+    public OfficialSettingItemData dn(String str, String str2) {
         OfficialSettingItemData officialSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.gst) {
-            ChatSetting chatSetting = this.gst.get(str3);
+        synchronized (this.gJG) {
+            ChatSetting chatSetting = this.gJG.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -43,22 +43,22 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void bsd() {
-        super.s(OfficialSettingItemData.class);
+    public void bzP() {
+        super.r(OfficialSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        OfficialSettingItemData da;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (da = da(str, str2)) != null) {
-            da.setToPortrait(userData.getPortrait());
-            da.setToName(userData.getUserName());
-            a(da);
+        OfficialSettingItemData dn;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (dn = dn(str, str2)) != null) {
+            dn.setToPortrait(userData.getPortrait());
+            dn.setToName(userData.getUserName());
+            a(dn);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> bvW() {
-        return com.baidu.tbadk.core.c.a.aaT().lw("tb.im_official_chat_setting");
+    protected l<String> bDE() {
+        return com.baidu.tbadk.core.c.a.afD().mB("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> bvW = bvW();
+            l<String> bDE = bDE();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.gst) {
-                this.gst.put(str, officialSettingItemData);
+            synchronized (this.gJG) {
+                this.gJG.put(str, officialSettingItemData);
             }
-            bvW.e(str, jsonStrWithObject);
+            bDE.f(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.gst) {
-                this.gst.put(str, officialSettingItemData);
+            synchronized (this.gJG) {
+                this.gJG.put(str, officialSettingItemData);
             }
             aa.b(new z<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.z
-                /* renamed from: awS */
+                /* renamed from: aBY */
                 public Void doInBackground() {
-                    d.this.bvW().e(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.bDE().f(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, kVar);

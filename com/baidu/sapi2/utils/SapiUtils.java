@@ -496,7 +496,7 @@ public class SapiUtils {
                 }
                 String bssid = connectionInfo.getBSSID();
                 if (bssid != null) {
-                    str2 = bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                    str2 = bssid.replace(":", "");
                     i = abs;
                     str3 = ssid;
                 } else {
@@ -515,7 +515,7 @@ public class SapiUtils {
                     String str4 = scanResult.BSSID;
                     String str5 = scanResult.SSID;
                     int abs2 = StrictMath.abs(scanResult.level);
-                    String replace = str4 != null ? str4.replace(Config.TRACE_TODAY_VISIT_SPLIT, "") : "";
+                    String replace = str4 != null ? str4.replace(":", "") : "";
                     if (!replace.equals(str2) && abs2 != 0) {
                         if (i2 >= 10) {
                             break;

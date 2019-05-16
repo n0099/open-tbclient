@@ -1,7 +1,6 @@
 package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
@@ -86,7 +85,7 @@ public class GodUserData extends OrmObject implements Serializable {
             this.id = Long.valueOf(jSONObject.optLong("id"));
             this.intro = jSONObject.optString("intro");
             this.type = jSONObject.optInt("type");
-            this.fid = jSONObject.optLong(ImageViewerConfig.FORUM_ID);
+            this.fid = jSONObject.optLong("fid");
             this.followed = jSONObject.optInt("followed");
             this.mForumName = jSONObject.optString("forum_name");
             this.mRecommendReason = jSONObject.optString("recommend_reason");

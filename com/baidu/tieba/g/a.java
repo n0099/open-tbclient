@@ -3,6 +3,6 @@ package com.baidu.tieba.g;
 import android.os.Bundle;
 /* loaded from: classes4.dex */
 public class a {
-    public int eHl;
-    public Bundle eHm;
+    public Bundle ayy;
+    public int eXv;
 }

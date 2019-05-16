@@ -9,9 +9,11 @@ public class k implements Serializable {
     private int d;
     private byte[] e;
     private long f;
-    private long g;
-    private long h;
-    private boolean i = false;
+    private boolean g = false;
+
+    public long a() {
+        return this.f;
+    }
 
     public void a(int i) {
         this.d = i;
@@ -26,70 +28,46 @@ public class k implements Serializable {
     }
 
     public void a(boolean z) {
-        this.i = z;
+        this.g = z;
     }
 
     public void a(byte[] bArr) {
         this.e = bArr;
     }
 
-    public boolean a() {
-        return this.i;
-    }
-
-    public long b() {
-        return this.f;
+    public String b() {
+        return this.a;
     }
 
     public void b(long j) {
-        this.g = j;
+        this.c = j;
     }
 
     public void b(String str) {
         this.b = str;
     }
 
-    public long c() {
-        return this.g;
-    }
-
-    public void c(long j) {
-        this.h = j;
-    }
-
-    public long d() {
-        return this.h;
-    }
-
-    public void d(long j) {
-        this.c = j;
-    }
-
-    public String e() {
-        return this.a;
-    }
-
-    public String f() {
+    public String c() {
         return this.b;
     }
 
-    public long g() {
+    public long d() {
         return this.c;
     }
 
-    public String h() {
+    public String e() {
         return String.valueOf(this.c);
     }
 
-    public int i() {
+    public int f() {
         return this.d;
     }
 
-    public byte[] j() {
+    public byte[] g() {
         return this.e;
     }
 
     public String toString() {
-        return "type:" + this.d + " appid:" + this.a + " msgId:" + this.c + " isAlarm:  " + this.i + " pkgName:  " + this.b;
+        return "type:" + this.d + " appid:" + this.a + " msgId:" + this.c + " isAlarm:  " + this.g + " pkgName:  " + this.b;
     }
 }

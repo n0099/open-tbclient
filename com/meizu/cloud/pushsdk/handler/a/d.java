@@ -10,20 +10,15 @@ public class d extends a<String> {
         super(context, aVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public String c(Intent intent) {
-        String stringExtra = intent.getStringExtra("registration_id");
-        com.meizu.cloud.pushsdk.util.b.a(c(), stringExtra);
-        return stringExtra;
+    @Override // com.meizu.cloud.pushsdk.handler.c
+    public int a() {
+        return 16;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(String str, com.meizu.cloud.pushsdk.notification.e eVar) {
+    public void a(String str, com.meizu.cloud.pushsdk.notification.c cVar) {
         if (b() != null) {
             b().a(c(), str);
         }
@@ -35,8 +30,14 @@ public class d extends a<String> {
         return PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REGISTRATION_CALLBACK_INTENT.equals(intent.getAction()) && !TextUtils.isEmpty(intent.getStringExtra("registration_id")));
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 16;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.meizu.cloud.pushsdk.handler.a.a
+    /* renamed from: j */
+    public String c(Intent intent) {
+        String stringExtra = intent.getStringExtra("registration_id");
+        com.meizu.cloud.pushsdk.util.b.f(c(), stringExtra, c().getPackageName());
+        com.meizu.cloud.pushsdk.util.b.a(c(), 0, c().getPackageName());
+        return stringExtra;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.GridView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class WriteImageGridView extends GridView {
     public WriteImageGridView(Context context) {
@@ -24,7 +24,7 @@ public class WriteImageGridView extends GridView {
         super.onMeasure(i, i2);
         if (getCount() > 0) {
             int ceil = (int) Math.ceil(getCount() / 3.0f);
-            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * l.h(getContext(), d.e.tbds10)) + ((((l.aO(getContext()) - (l.h(getContext(), d.e.tbds44) * 2)) - (l.h(getContext(), d.e.tbds10) * 2)) / 3) * ceil) + getPaddingTop() + getPaddingBottom());
+            setMeasuredDimension(getMeasuredWidth(), ((ceil - 1) * l.g(getContext(), R.dimen.tbds10)) + ((((l.af(getContext()) - (l.g(getContext(), R.dimen.tbds44) * 2)) - (l.g(getContext(), R.dimen.tbds10) * 2)) / 3) * ceil) + getPaddingTop() + getPaddingBottom());
         }
     }
 }

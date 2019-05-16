@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class h {
-    private String bsM;
-    private String cLH;
-    private boolean cLI;
-    private long cLJ = -1;
-    private long cLK = -1;
-    private long cLL = 0;
-    private long cLM = 0;
+    private String bzP;
+    private String cTS;
+    private boolean cTT;
+    private long cTU = -1;
+    private long cTV = -1;
+    private long cTW = 0;
+    private long cTX = 0;
 
-    public String avH() {
-        return this.cLH;
+    public String aAN() {
+        return this.cTS;
     }
 
-    public void qv(String str) {
-        this.cLH = str;
+    public void rE(String str) {
+        this.cTS = str;
     }
 
-    public String avI() {
-        return this.bsM;
+    public String aAO() {
+        return this.bzP;
     }
 
-    public void qw(String str) {
-        this.bsM = str;
+    public void rF(String str) {
+        this.bzP = str;
     }
 
-    public boolean avJ() {
-        return this.cLI;
+    public boolean aAP() {
+        return this.cTT;
     }
 
-    public void fI(boolean z) {
-        this.cLI = z;
+    public void gf(boolean z) {
+        this.cTT = z;
     }
 
-    public long avK() {
-        return this.cLJ;
+    public long aAQ() {
+        return this.cTU;
     }
 
-    public void bv(long j) {
-        this.cLJ = j;
+    public void bK(long j) {
+        this.cTU = j;
     }
 
-    public long avL() {
-        return this.cLK;
+    public long aAR() {
+        return this.cTV;
     }
 
-    public void bw(long j) {
-        this.cLK = j;
+    public void bL(long j) {
+        this.cTV = j;
     }
 
     public long getTotalLength() {
-        return this.cLL;
+        return this.cTW;
     }
 
-    public void aO(long j) {
-        this.cLL = j;
+    public void bd(long j) {
+        this.cTW = j;
     }
 
-    public void bx(long j) {
-        this.cLM = j;
+    public void bM(long j) {
+        this.cTX = j;
     }
 
-    public long avM() {
-        return this.cLM;
+    public long aAS() {
+        return this.cTX;
     }
 }

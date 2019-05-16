@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
+import com.baidu.android.pushservice.i.l;
 /* loaded from: classes3.dex */
 public class OpNotifyActivity extends Activity {
     @Override // android.app.Activity
@@ -22,7 +22,7 @@ public class OpNotifyActivity extends Activity {
                 intent2.putExtra("op_notification_msg_id", stringExtra);
                 intent2.putExtra("op_notification_pkg_content", stringExtra4);
                 intent2.putExtra("extra_extra_custom_content", stringExtra3);
-                m.a(intent2, getApplicationContext());
+                l.a(intent2, getApplicationContext());
             }
         }
         finish();

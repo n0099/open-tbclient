@@ -10,78 +10,78 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class a {
-    private static volatile a iWS;
-    private HashMap<String, String> iWT;
-    private DownloadData iWU;
+    private static volatile a jpO;
+    private HashMap<String, String> jpP;
+    private DownloadData jpQ;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0398a {
-        void Ds(String str);
+    public interface InterfaceC0417a {
+        void EO(String str);
 
-        void ciW();
+        void cqZ();
 
-        void ed(String str, String str2);
+        void er(String str, String str2);
     }
 
     private a() {
     }
 
-    public static a cjI() {
-        if (iWS == null) {
+    public static a crL() {
+        if (jpO == null) {
             synchronized (a.class) {
-                if (iWS == null) {
-                    iWS = new a();
+                if (jpO == null) {
+                    jpO = new a();
                 }
             }
         }
-        return iWS;
+        return jpO;
     }
 
-    public String DA(String str) {
-        String mL = as.mL(str);
-        if (mL == null) {
+    public String EW(String str) {
+        String nT = as.nT(str);
+        if (nT == null) {
             return null;
         }
-        if (this.iWT == null) {
-            this.iWT = new HashMap<>();
-            cjJ();
-            if (this.iWT.size() > 0) {
-                return this.iWT.get(mL);
+        if (this.jpP == null) {
+            this.jpP = new HashMap<>();
+            crM();
+            if (this.jpP.size() > 0) {
+                return this.jpP.get(nT);
             }
             return null;
         }
-        return this.iWT.get(mL);
+        return this.jpP.get(nT);
     }
 
-    public void cjJ() {
-        if (this.iWT == null) {
-            this.iWT = new HashMap<>();
+    public void crM() {
+        if (this.jpP == null) {
+            this.jpP = new HashMap<>();
         } else {
-            this.iWT.clear();
+            this.jpP.clear();
         }
-        File file = new File(c.iUo);
+        File file = new File(c.jnl);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.iWT.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.jpP.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
     }
 
-    public void a(String str, final String str2, final InterfaceC0398a interfaceC0398a) {
-        String mL;
-        if (!TextUtils.isEmpty(str2) && (mL = as.mL(str2)) != null) {
-            if (this.iWU != null) {
-                if (!str2.equals(this.iWU.getUrl())) {
-                    d.alJ().O(this.iWU.getUrl(), true);
+    public void a(String str, final String str2, final InterfaceC0417a interfaceC0417a) {
+        String nT;
+        if (!TextUtils.isEmpty(str2) && (nT = as.nT(str2)) != null) {
+            if (this.jpQ != null) {
+                if (!str2.equals(this.jpQ.getUrl())) {
+                    d.aqM().Q(this.jpQ.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(c.iUo);
+            File file = new File(c.jnl);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.iUo + mL + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.jnl + nT + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -98,11 +98,11 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.iWU != null && downloadData2.getUrl().equals(a.this.iWU.getUrl())) {
-                            a.this.iWU = null;
+                        if (a.this.jpQ != null && downloadData2.getUrl().equals(a.this.jpQ.getUrl())) {
+                            a.this.jpQ = null;
                         }
-                        if (interfaceC0398a != null) {
-                            interfaceC0398a.ciW();
+                        if (interfaceC0417a != null) {
+                            interfaceC0417a.cqZ();
                         }
                     }
                 }
@@ -120,12 +120,12 @@ public class a {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.iWU != null && downloadData2.getUrl().equals(a.this.iWU.getUrl())) {
-                            a.this.iWU = null;
+                        if (a.this.jpQ != null && downloadData2.getUrl().equals(a.this.jpQ.getUrl())) {
+                            a.this.jpQ = null;
                         }
-                        if (interfaceC0398a != null) {
-                            a.this.iWT.put(downloadData2.getPath().substring(c.iUo.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
-                            interfaceC0398a.ed(str2, downloadData2.getPath());
+                        if (interfaceC0417a != null) {
+                            a.this.jpP.put(downloadData2.getPath().substring(c.jnl.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            interfaceC0417a.er(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -136,22 +136,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.iWU != null && downloadData2.getUrl().equals(a.this.iWU.getUrl())) {
-                        a.this.iWU = null;
+                    if (a.this.jpQ != null && downloadData2.getUrl().equals(a.this.jpQ.getUrl())) {
+                        a.this.jpQ = null;
                     }
-                    if (interfaceC0398a != null) {
-                        interfaceC0398a.Ds(str3);
+                    if (interfaceC0417a != null) {
+                        interfaceC0417a.EO(str3);
                     }
                 }
             });
-            this.iWU = downloadData;
-            d.alJ().f(downloadData);
+            this.jpQ = downloadData;
+            d.aqM().f(downloadData);
         }
     }
 
-    public void cjK() {
-        if (this.iWU != null) {
-            d.alJ().O(this.iWU.getUrl(), true);
+    public void crN() {
+        if (this.jpQ != null) {
+            d.aqM().Q(this.jpQ.getUrl(), true);
         }
     }
 }

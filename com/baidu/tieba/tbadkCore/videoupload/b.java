@@ -8,14 +8,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static void cfu() {
+    public static void cny() {
         com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
         if (mainDBDatabaseManager != null) {
-            mainDBDatabaseManager.af("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
+            mainDBDatabaseManager.O("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
         }
     }
 
-    public static void CO(String str) {
+    public static void Ek(String str) {
         BdLog.e("deleteVieoChunkUploadData Called");
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
@@ -25,7 +25,7 @@ public class b {
         }
     }
 
-    public static boolean u(String str, String str2, int i) {
+    public static boolean t(String str, String str2, int i) {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
             return false;
@@ -35,7 +35,7 @@ public class b {
         return mainDBDatabaseManager.f("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static c CP(String str) {
+    public static c El(String str) {
         Cursor cursor;
         Exception e;
         c cVar;
@@ -50,8 +50,8 @@ public class b {
                     if (cursor.moveToFirst()) {
                         cVar = new c();
                         try {
-                            cVar.iIL = cursor.getString(cursor.getColumnIndex("last_upload_id"));
-                            cVar.iIM = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            cVar.jbE = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            cVar.jbF = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
                         } catch (Exception e2) {
                             e = e2;
                             mainDBDatabaseManager.c(e, "getChunkUploadDataByMd5");

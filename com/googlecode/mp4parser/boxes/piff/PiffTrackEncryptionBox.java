@@ -7,7 +7,7 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class PiffTrackEncryptionBox extends AbstractTrackEncryptionBox {
-    private static final /* synthetic */ a.InterfaceC0474a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_0 = null;
 
     static {
         ajc$preClinit();

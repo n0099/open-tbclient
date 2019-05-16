@@ -1,185 +1,205 @@
 package com.xiaomi.channel.commonutils.android;
 
+import android.annotation.TargetApi;
+import android.app.ActivityManager;
+import android.app.AppOpsManager;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.xiaomi.mipush.sdk.Constants;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
+import android.util.Base64;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 /* loaded from: classes3.dex */
 public class a {
-    private static int a(List<String> list, String str) {
-        for (int i = 0; list != null && i < list.size(); i++) {
-            if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase(list.get(i))) {
-                return i;
-            }
+
+    /* renamed from: com.xiaomi.channel.commonutils.android.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    public enum EnumC0477a {
+        UNKNOWN(0),
+        ALLOWED(1),
+        NOT_ALLOWED(2);
+        
+        private final int d;
+
+        EnumC0477a(int i) {
+            this.d = i;
         }
-        return -1;
+
+        public int a() {
+            return this.d;
+        }
     }
 
-    private static String a(String str) {
-        String[] split;
-        return (str == null || (split = str.split("/")) == null || split.length <= 0) ? str : split[split.length - 1];
-    }
-
-    public static List<String> a(Context context) {
-        ArrayList arrayList = new ArrayList();
-        String b = b(context);
-        if (!TextUtils.isEmpty(b)) {
-            arrayList.add(b);
-        }
-        String a = i.a("ro.product.cpu.abi", "");
-        if (!TextUtils.isEmpty(a)) {
-            arrayList.add(a);
-        }
-        String a2 = i.a("ro.product.cpu.abi2", "");
-        if (!TextUtils.isEmpty(a2)) {
-            arrayList.add(a2);
-        }
-        String a3 = i.a("ro.product.cpu.abilist", "");
-        if (!TextUtils.isEmpty(a3)) {
-            String[] split = a3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
-            for (int i = 0; split != null && i < split.length; i++) {
-                if (!TextUtils.isEmpty(split[i])) {
-                    arrayList.add(split[i]);
+    public static String a(Context context) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        if (context != null && (runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) != null) {
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
                 }
             }
+            return null;
         }
-        arrayList.add(PassBiometricUtil.CPU_TYPE_ARMEABI);
-        return arrayList;
+        return null;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0110 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x011f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(Context context, String str, String str2) {
-        ZipFile zipFile;
-        Exception e;
-        int a;
-        ZipFile zipFile2 = null;
-        if (str != null) {
-            try {
-                if (!str.endsWith(File.separator)) {
-                    str = str + File.separator;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                try {
-                    e.printStackTrace();
-                    if (zipFile2 == null) {
-                        try {
-                            zipFile2.close();
-                            return;
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                            return;
-                        }
-                    }
-                    return;
-                } catch (Throwable th) {
-                    th = th;
-                    zipFile = zipFile2;
-                    if (zipFile != null) {
-                        try {
-                            zipFile.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                zipFile = null;
-                if (zipFile != null) {
-                }
-                throw th;
-            }
-        }
-        if (str2 != null && !str2.endsWith(File.separator)) {
-            str2 = str2 + File.separator;
-        }
-        HashMap hashMap = new HashMap();
-        List<String> a2 = a(context);
-        zipFile = new ZipFile(str);
+    public static String a(Context context, String str) {
+        PackageInfo packageInfo;
         try {
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            byte[] bArr = new byte[1024];
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                com.xiaomi.channel.commonutils.logger.b.b("ze.getName() = " + nextElement.getName());
-                if (nextElement.getName().startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextElement.isDirectory()) {
-                    String a3 = a(nextElement.getName());
-                    String b = b(nextElement.getName());
-                    String str3 = (String) hashMap.get(a3);
-                    if (TextUtils.isEmpty(str3) || ((a = a(a2, b)) >= 0 && a < a(a2, str3))) {
-                        com.xiaomi.channel.commonutils.logger.b.b("use abi " + b);
-                        hashMap.put(a3, b);
-                        File file = new File(str2 + a3);
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                        FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        BufferedInputStream bufferedInputStream = new BufferedInputStream(zipFile.getInputStream(nextElement));
-                        while (true) {
-                            int read = bufferedInputStream.read(bArr, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                        }
-                        com.xiaomi.channel.commonutils.file.a.a(bufferedInputStream);
-                        com.xiaomi.channel.commonutils.file.a.a(fileOutputStream);
+            packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            packageInfo = null;
+        }
+        return packageInfo != null ? packageInfo.versionName : "1.0";
+    }
+
+    public static String a(String[] strArr) {
+        int i;
+        boolean z;
+        b[] values = b.values();
+        byte[] bArr = new byte[(int) Math.ceil(values.length / 8.0d)];
+        if (strArr == null) {
+            com.xiaomi.channel.commonutils.logger.b.c("AppInfoUtils.: no permissions");
+            return "";
+        }
+        int length = strArr.length;
+        int i2 = 0;
+        int i3 = -1;
+        while (i2 < length) {
+            String str = strArr[i2];
+            if (TextUtils.isEmpty(str)) {
+                i = i3;
+            } else if (str.startsWith("android.permission.")) {
+                i = 0;
+                while (true) {
+                    if (i >= values.length) {
+                        i = i3;
+                        z = false;
+                        break;
+                    } else if (TextUtils.equals("android.permission." + values[i].name(), str)) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
                     }
                 }
-            }
-            if (zipFile != null) {
-                try {
-                    zipFile.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
+                if (z && i != -1) {
+                    int i4 = i / 8;
+                    bArr[i4] = (byte) (bArr[i4] | (1 << (7 - (i % 8))));
                 }
+            } else {
+                i = i3;
             }
-        } catch (Exception e6) {
-            e = e6;
-            zipFile2 = zipFile;
-            e.printStackTrace();
-            if (zipFile2 == null) {
-            }
-        } catch (Throwable th3) {
-            th = th3;
-            if (zipFile != null) {
-            }
-            throw th;
+            i2++;
+            i3 = i;
         }
+        return new String(Base64.encode(bArr, 0));
+    }
+
+    public static int b(Context context, String str) {
+        PackageInfo packageInfo;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(str, 16384);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            packageInfo = null;
+        }
+        if (packageInfo != null) {
+            return packageInfo.versionCode;
+        }
+        return 0;
     }
 
     public static String b(Context context) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        ArrayList arrayList = new ArrayList();
+        StringBuilder sb = new StringBuilder();
+        if (runningAppProcesses != null && runningAppProcesses.size() > 0) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                String[] strArr = runningAppProcessInfo.pkgList;
+                for (int i = 0; strArr != null && i < strArr.length; i++) {
+                    if (!arrayList.contains(strArr[i])) {
+                        arrayList.add(strArr[i]);
+                        if (arrayList.size() == 1) {
+                            sb.append(((String) arrayList.get(0)).hashCode() % 100000);
+                        } else {
+                            sb.append("#").append(strArr[i].hashCode() % 100000);
+                        }
+                    }
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    @TargetApi(19)
+    public static EnumC0477a c(Context context, String str) {
+        EnumC0477a enumC0477a;
+        if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
+            return EnumC0477a.UNKNOWN;
+        }
         try {
-            ApplicationInfo applicationInfo = context.getApplicationInfo();
-            Field declaredField = Class.forName("android.content.pm.ApplicationInfo").getDeclaredField("primaryCpuAbi");
-            declaredField.setAccessible(true);
-            return (String) declaredField.get(applicationInfo);
+            Integer num = (Integer) com.xiaomi.channel.commonutils.reflect.a.a((Class<? extends Object>) AppOpsManager.class, "OP_POST_NOTIFICATION");
+            if (num == null) {
+                enumC0477a = EnumC0477a.UNKNOWN;
+            } else {
+                Integer num2 = (Integer) com.xiaomi.channel.commonutils.reflect.a.a((AppOpsManager) context.getSystemService("appops"), "checkOpNoThrow", num, Integer.valueOf(context.getPackageManager().getApplicationInfo(str, 0).uid), str);
+                enumC0477a = (num2 == null || num2.intValue() != 0) ? EnumC0477a.NOT_ALLOWED : EnumC0477a.ALLOWED;
+            }
+            return enumC0477a;
         } catch (Throwable th) {
-            return null;
+            return EnumC0477a.UNKNOWN;
         }
     }
 
-    private static String b(String str) {
-        String[] split;
-        return (str == null || (split = str.split("/")) == null || split.length <= 1) ? PassBiometricUtil.CPU_TYPE_ARMEABI : split[split.length - 2];
+    public static boolean c(Context context) {
+        for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses()) {
+            if (runningAppProcessInfo.pid == Process.myPid() && runningAppProcessInfo.processName.equals(context.getPackageName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean d(Context context, String str) {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+        if (runningAppProcesses != null) {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (Arrays.asList(runningAppProcessInfo.pkgList).contains(str)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static boolean e(Context context, String str) {
+        PackageInfo packageInfo;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(str, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            packageInfo = null;
+        }
+        return packageInfo != null;
+    }
+
+    public static String f(Context context, String str) {
+        try {
+            return a(context.getPackageManager().getPackageInfo(str, 4096).requestedPermissions);
+        } catch (PackageManager.NameNotFoundException e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            return "";
+        }
+    }
+
+    public static boolean g(Context context, String str) {
+        return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
     }
 }

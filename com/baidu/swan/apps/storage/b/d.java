@@ -6,21 +6,21 @@ import android.util.Log;
 public class d extends b {
     @Override // com.baidu.swan.apps.storage.b.b
     protected Bundle a(a aVar) {
-        switch (aVar.aTb) {
+        switch (aVar.aVQ) {
             case 1:
-                f.KJ().putInt(aVar.aTc, Integer.parseInt(aVar.aTd));
+                f.Ni().putInt(aVar.aVR, Integer.parseInt(aVar.aVS));
                 break;
             case 2:
-                f.KJ().putLong(aVar.aTc, Long.parseLong(aVar.aTd));
+                f.Ni().putLong(aVar.aVR, Long.parseLong(aVar.aVS));
                 break;
             case 3:
-                f.KJ().putBoolean(aVar.aTc, Boolean.parseBoolean(aVar.aTd));
+                f.Ni().putBoolean(aVar.aVR, Boolean.parseBoolean(aVar.aVS));
                 break;
             case 4:
-                f.KJ().putString(aVar.aTc, aVar.aTd);
+                f.Ni().putString(aVar.aVR, aVar.aVS);
                 break;
             case 5:
-                f.KJ().putFloat(aVar.aTc, Float.parseFloat(aVar.aTd));
+                f.Ni().putFloat(aVar.aVR, Float.parseFloat(aVar.aVS));
                 break;
             default:
                 if (DEBUG) {

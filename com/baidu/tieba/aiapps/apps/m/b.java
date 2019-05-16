@@ -1,190 +1,98 @@
 package com.baidu.tieba.aiapps.apps.m;
 
+import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.c.e;
-import com.baidu.swan.apps.scheme.actions.y;
-import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.aiapps.apps.n.c;
-import java.io.IOException;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.adp.lib.util.l;
+import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.swan.apps.aa.a.d;
+import com.baidu.swan.apps.u.b.q;
+import com.baidu.swan.apps.w.e;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class b extends y {
-    public b(j jVar) {
-        super(jVar, "/swan/navigateToProgram");
-    }
+public class b implements q {
+    private static final String TAG = b.class.getSimpleName();
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
-    public boolean a(final Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (ap.equals(optParamsAsJo.optString("appKey"), "flFqXclepWs7RdugAszy9eERL7G5dS0I") && optParamsAsJo.optJSONObject("extraData") != null && ap.equals(optParamsAsJo.optJSONObject("extraData").optString("from"), "阿婆娱乐")) {
-            c.aF(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        if (DEBUG) {
-            Log.d("NavigateToSmartProgram", "paramsJson: " + optParamsAsJo);
-        }
-        if (optParamsAsJo == null) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        final String Jg = com.baidu.swan.apps.ae.b.Jg();
-        final String optString = optParamsAsJo.optString("appKey");
-        final String optString2 = optParamsAsJo.optString("path");
-        final String optString3 = optParamsAsJo.optString("from");
-        final String optString4 = optParamsAsJo.optString("extraData");
-        if (TextUtils.isEmpty(Jg.trim()) || TextUtils.isEmpty(optString.trim())) {
-            com.baidu.swan.apps.console.c.i("NavigateToSmartProgram", "mAppId or appId is empty");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        if (DEBUG) {
-            Log.d("NavigateToSmartProgram", "mAppId: " + Jg);
-            Log.d("NavigateToSmartProgram", "appId: " + optString);
-        }
-        final String optString5 = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(optString5)) {
-            com.baidu.swan.apps.console.c.i("NavigateToSmartProgram", "cb is empty");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("ma_id", Jg);
-            jSONObject.put("navigate_to_ma_id", optString);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        final boolean[] zArr = new boolean[1];
-        bVar.Jb().a(new Request.Builder().url("http://mbd.baidu.com/ma/game/rest/navigate_to_program").post(FormBody.create(MediaType.parse("application/json; charset=utf-8"), jSONObject.toString())).build(), new Callback() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
-            @Override // okhttp3.Callback
-            public void onFailure(Call call, IOException iOException) {
-                callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            }
-
-            @Override // okhttp3.Callback
-            public void onResponse(Call call, Response response) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject(response.body().string());
-                    if (b.DEBUG) {
-                        Log.d("NavigateToSmartProgram", "response data:" + jSONObject2.toString());
-                    }
-                    String optString6 = jSONObject2.optString("errno");
-                    if (!optString6.equals("0")) {
-                        if (b.DEBUG) {
-                            Log.d("NavigateToSmartProgram", "Response.errno:" + optString6);
-                        }
-                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                        return;
-                    }
-                    String optString7 = jSONObject2.optString("data");
-                    if (optString7.equals("")) {
-                        if (b.DEBUG) {
-                            Log.d("NavigateToSmartProgram", "data is null");
-                        }
-                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                        return;
-                    }
-                    JSONObject jSONObject3 = new JSONObject(optString7);
-                    String string = jSONObject3.getString("is_swangame");
-                    if (string.equals("1")) {
-                        zArr[0] = true;
-                    } else if (string.equals("0")) {
-                        zArr[0] = false;
-                    }
-                    if (b.DEBUG) {
-                        Log.d("NavigateToSmartProgram", "is_swangame:" + string);
-                    }
-                    if (jSONObject3.optString("navigate_ok", "0").equals("0")) {
-                        if (b.DEBUG) {
-                            Log.d("NavigateToSmartProgram", "navigateOk is false");
-                        }
-                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                        return;
-                    }
-                    Uri a = b.this.a(zArr[0], optString, optString2, "", optString3, optString4, Jg);
-                    if (a != null) {
-                        if (b.DEBUG) {
-                            Log.d("NavigateToSmartProgram", "uri:" + a.toString());
-                        }
-                        if (SchemeRouter.invokeScheme(context, a, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                            if (b.DEBUG) {
-                                Log.d("NavigateToSmartProgram", "success");
-                            }
-                            callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                            return;
-                        }
-                        callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                        if (b.DEBUG) {
-                            Log.d("NavigateToSmartProgram", SmsLoginView.StatEvent.LOGIN_FAILURE);
-                            return;
-                        }
-                        return;
-                    }
-                    callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                } catch (Exception e2) {
-                    if (b.DEBUG) {
-                        Log.d("NavigateToSmartProgram", e2.getStackTrace().toString());
-                    }
-                    callbackHandler.handleSchemeDispatchCallback(optString5, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
-                }
+    @Override // com.baidu.swan.apps.u.b.q
+    public void a(com.baidu.swan.apps.ae.b bVar, String str, final com.baidu.swan.apps.aa.a.b bVar2) {
+        Log.d(TAG, "baiduPay start");
+        DelegateUtils.callOnMainWithActivity(e.FV().FH(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.m.b.a.class, com.baidu.tieba.aiapps.apps.m.b.a.sT(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.m.b.1
+            @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+            public void onDelegateCallBack(DelegateResult delegateResult) {
+                int i = delegateResult.mResult.getInt("status_code");
+                String string = delegateResult.mResult.getString("params");
+                Log.d(b.TAG, "baiduPay result: " + i + " params: " + string);
+                bVar2.j(i, string);
             }
         });
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        return true;
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public Uri a(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
+    @Override // com.baidu.swan.apps.u.b.q
+    public void a(com.baidu.swan.apps.ae.b bVar, String str, final com.baidu.swan.apps.aa.a.a aVar) {
+        Log.d(TAG, "alipay start");
+        if (!com.baidu.tbadk.pay.c.atX().atY()) {
+            l.showToast(TbadkCoreApplication.getInst(), (int) R.string.plugin_pay_wallet_not_found);
+        } else if (bVar.getActivity() instanceof Activity) {
+            a aVar2 = new a();
+            aVar2.mParams.putInt("type", 2);
+            aVar2.mParams.putString("orderInfo", str);
+            aVar2.af(bVar.getActivity());
+            aVar2.a(new com.baidu.tieba.aiapps.apps.m.a.a() { // from class: com.baidu.tieba.aiapps.apps.m.b.2
+                @Override // com.baidu.tieba.aiapps.apps.m.a.a
+                public void I(Bundle bundle) {
+                    if (aVar != null) {
+                        aVar.i(bundle.getInt("result_code"), bundle.getString("result_msg"));
+                    }
+                }
+            });
+            aVar2.onExec();
         }
-        if (TextUtils.isEmpty(str5)) {
-            str5 = "{}";
-        }
-        int i = z ? 1 : 0;
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("from", str4);
-            jSONObject.put("ext", "{}");
-            jSONObject.put("extraData", str5);
-            jSONObject.put("srcAppId", str6);
-            jSONObject.put("srcAppPage", JI());
-        } catch (JSONException e) {
-            if (DEBUG) {
-                throw new RuntimeException(e);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.q
+    public void a(Context context, Map<String, String> map, d dVar) {
+        IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, null);
+        PayReq s = s(map);
+        createWXAPI.registerApp(s.appId);
+        if (!createWXAPI.isWXAppInstalled()) {
+            dVar.k(3, "wx_not_installed");
+            com.baidu.swan.apps.res.widget.b.d.a(context, "您没有安装微信，请选择其他支付方式").Ld();
+        } else if (com.baidu.swan.apps.ae.b.Lq() != null) {
+            boolean sendReq = createWXAPI.sendReq(s);
+            com.baidu.swan.apps.aa.d.Hz().aFl = dVar;
+            if (!sendReq) {
+                dVar.k(6, "wx_start_failed");
             }
-            e.printStackTrace();
         }
-        String jSONObject2 = jSONObject.toString();
-        if (TextUtils.isEmpty(jSONObject2)) {
-            jSONObject2 = "";
-        }
-        return com.baidu.swan.apps.v.c.a.a(i, str, str2, jSONObject2);
     }
 
-    private String JI() {
-        e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy == null || uy.yO() == null) {
-            return "";
+    private PayReq s(Map<String, String> map) {
+        PayReq payReq = new PayReq();
+        payReq.appId = map.get("appid");
+        payReq.partnerId = map.get("partnerid");
+        payReq.prepayId = map.get("prepayid");
+        payReq.packageValue = map.get("packagealias");
+        payReq.nonceStr = map.get("noncestr");
+        payReq.timeStamp = map.get("timestamp");
+        payReq.sign = map.get("sign");
+        return payReq;
+    }
+
+    @Override // com.baidu.swan.apps.u.b.q
+    public boolean bf(Context context) {
+        if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
+            return true;
         }
-        return uy.yO().yD() + "?" + uy.yO().yE();
+        com.baidu.swan.apps.res.widget.b.d.a(context, "您没有安装微信，请选择其他支付方式").Ld();
+        return false;
     }
 }

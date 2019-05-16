@@ -1,95 +1,116 @@
 package com.baidu.swan.ubc;
 
-import android.os.RemoteException;
-import android.text.TextUtils;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import java.io.File;
 /* loaded from: classes2.dex */
-public class n {
-    private n() {
+public class n extends SQLiteOpenHelper {
+    private Context mContext;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public n(Context context) {
+        super(context.getApplicationContext(), "OpenStat.db", (SQLiteDatabase.CursorFactory) null, 5);
+        this.mContext = context.getApplicationContext();
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public static class a {
-        private static final n bpI = new n();
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        sQLiteDatabase.execSQL("CREATE TABLE event (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowhandle INTEGER,eventid TEXT,begintime LONG,content TEXT,reserve1 TEXT,reserve2 TEXT,extend TEXT );");
+        sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
+        sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
+        sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+        u.Xs().putString("ubc_version_md5", "0");
     }
 
-    public static n Tj() {
-        return a.bpI;
-    }
-
-    public final void onEvent(String str) {
-        onEvent(str, "", 0);
-    }
-
-    public final void onEvent(String str, Map<String, String> map, int i) {
-        JSONObject jSONObject = new JSONObject();
-        try {
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                jSONObject.put(entry.getKey(), entry.getValue());
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        while (i < i2) {
+            switch (i) {
+                case 1:
+                    H(sQLiteDatabase);
+                    break;
+                case 2:
+                    K(sQLiteDatabase);
+                    break;
+                case 3:
+                    I(sQLiteDatabase);
+                    break;
+                case 4:
+                    J(sQLiteDatabase);
+                    break;
             }
-        } catch (JSONException e) {
+            i++;
         }
-        onEvent(str, jSONObject.toString(), i);
     }
 
-    public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
-            if (q.Tq() != null || !TextUtils.isEmpty(str)) {
-                l.Ti().h(str, str2, i);
-                return;
-            }
-            return;
-        }
+    private void H(SQLiteDatabase sQLiteDatabase) {
         try {
-            Tk().ubcOnEvent(str, p.jS(str2), i);
-        } catch (RemoteException e) {
+            sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
-            if (q.Tq() != null || !TextUtils.isEmpty(str)) {
-                l.Ti().a(str, jSONObject, i);
-                return;
-            }
-            return;
-        }
+    private void I(SQLiteDatabase sQLiteDatabase) {
         try {
-            Tk().ubcOnEvent(str, p.aH(jSONObject), i);
-        } catch (RemoteException e) {
+            sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
+            sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public Flow i(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return l.Ti().i(str, str2, i);
-        }
-        return j(str, p.jS(str2), i);
-    }
-
-    private IRemoteUBCService Tk() throws RemoteException {
-        return q.Tk();
-    }
-
-    private Flow j(String str, String str2, int i) {
-        Flow flow;
+    private void J(SQLiteDatabase sQLiteDatabase) {
         try {
-            flow = Tk().ubcBeginFlow(str, str2, i);
-        } catch (RemoteException e) {
+            sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
+        } catch (SQLException e) {
             e.printStackTrace();
-            flow = null;
         }
-        if (flow == null) {
-            return new Flow();
+    }
+
+    private void K(SQLiteDatabase sQLiteDatabase) {
+        try {
+            sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
+            sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return flow;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        SQLiteDatabase sQLiteDatabase;
+        sQLiteDatabase = null;
+        try {
+            sQLiteDatabase = super.getReadableDatabase();
+        } catch (Exception e) {
+            new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete();
+        }
+        return sQLiteDatabase;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        SQLiteDatabase sQLiteDatabase;
+        sQLiteDatabase = null;
+        try {
+            sQLiteDatabase = super.getWritableDatabase();
+            sQLiteDatabase.enableWriteAheadLogging();
+        } catch (Exception e) {
+            new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete();
+        }
+        return sQLiteDatabase;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public long Wv() {
+        return new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).length();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public long Ww() {
+        return new File(this.mContext.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
     }
 }

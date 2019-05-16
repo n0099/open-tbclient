@@ -6,28 +6,28 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.view.Window;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.r;
+import com.baidu.swan.apps.an.t;
 import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static boolean DEBUG = b.DEBUG;
-    public static final int aKZ = Color.parseColor("#80000000");
-    public static final boolean aLa = Ij();
-    private static int aLb;
+    public static final int aMS = Color.parseColor("#80000000");
+    public static final boolean aMT = Kz();
+    private static int aMU;
 
     static {
-        aLb = 0;
+        aMU = 0;
         if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            aLb = 1;
+            aMU = 1;
         } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
-            aLb = 2;
+            aMU = 2;
         }
     }
 
-    private static boolean Ij() {
+    private static boolean Kz() {
         boolean z = Build.VERSION.SDK_INT >= 21;
         if (DEBUG) {
-            return z & r.getBoolean("sp_key_immersion_switch", z);
+            return z & t.getBoolean("sp_key_immersion_switch", z);
         }
         return z;
     }

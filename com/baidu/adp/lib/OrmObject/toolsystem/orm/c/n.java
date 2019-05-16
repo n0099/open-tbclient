@@ -3,10 +3,10 @@ package com.baidu.adp.lib.OrmObject.toolsystem.orm.c;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class n implements h {
-    private Map<?, ?> zE;
+    private Map<?, ?> xq;
 
     public n(Map<?, ?> map) {
-        this.zE = map;
+        this.xq = map;
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h

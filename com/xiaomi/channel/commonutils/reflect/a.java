@@ -11,7 +11,7 @@ public class a {
 
     /* renamed from: com.xiaomi.channel.commonutils.reflect.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0459a<T> {
+    public static class C0478a<T> {
         public final Class<? extends T> a;
         public final T b;
     }
@@ -98,6 +98,21 @@ public class a {
         }
     }
 
+    public static <T> T a(String str, String str2) {
+        try {
+            return (T) a((Class<? extends Object>) Class.forName(str), (Object) null, str2);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e2) {
+            e2.printStackTrace();
+            return null;
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
+            return null;
+        }
+    }
+
     public static <T> T a(String str, String str2, Object... objArr) {
         try {
             return (T) a(Class.forName(str), str2, objArr);
@@ -160,10 +175,10 @@ public class a {
                 return clsArr;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0459a)) {
+            if (obj == null || !(obj instanceof C0478a)) {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             } else {
-                clsArr[i2] = ((C0459a) obj).a;
+                clsArr[i2] = ((C0478a) obj).a;
             }
             i = i2 + 1;
         }
@@ -185,10 +200,10 @@ public class a {
                 return objArr2;
             }
             Object obj = objArr[i2];
-            if (obj == null || !(obj instanceof C0459a)) {
+            if (obj == null || !(obj instanceof C0478a)) {
                 objArr2[i2] = obj;
             } else {
-                objArr2[i2] = ((C0459a) obj).b;
+                objArr2[i2] = ((C0478a) obj).b;
             }
             i = i2 + 1;
         }

@@ -5,24 +5,24 @@ import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.swan.games.e.b;
-import com.baidu.swan.games.n.c;
+import com.baidu.swan.games.o.c;
 /* loaded from: classes2.dex */
 public final class a extends EventTargetImpl {
-    private b bad;
-    private c bba;
+    private c beW;
+    private b beh;
     @V8JavascriptField
     public final String domain;
 
     public a(b bVar) {
         super(bVar);
         this.domain = "openData";
-        this.bad = bVar;
+        this.beh = bVar;
     }
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
-        if (this.bad.NT() instanceof com.baidu.swan.games.binding.c) {
-            ((com.baidu.swan.games.binding.c) this.bad.NT()).a(jsObject);
+        if (this.beh.QN() instanceof com.baidu.swan.games.binding.c) {
+            ((com.baidu.swan.games.binding.c) this.beh.QN()).b(jsObject);
         }
     }
 
@@ -33,49 +33,49 @@ public final class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void getFriendCloudStorage(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.getFriendCloudStorage(jsObject);
+        this.beW.getFriendCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getFollowCloudStorage(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.getFollowCloudStorage(jsObject);
+        this.beW.getFollowCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserCloudStorage(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.getUserCloudStorage(jsObject);
+        this.beW.getUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void getUserInfo(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.getUserInfo(jsObject);
+        this.beW.getUserInfo(jsObject);
     }
 
     @JavascriptInterface
     public void removeUserCloudStorage(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.removeUserCloudStorage(jsObject);
+        this.beW.removeUserCloudStorage(jsObject);
     }
 
     @JavascriptInterface
     public void setUserCloudStorage(JsObject jsObject) {
-        if (this.bba == null) {
-            this.bba = new c(this.bad);
+        if (this.beW == null) {
+            this.beW = new c(this.beh);
         }
-        this.bba.setUserCloudStorage(jsObject);
+        this.beW.setUserCloudStorage(jsObject);
     }
 }

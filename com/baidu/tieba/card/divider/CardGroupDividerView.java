@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private static final int emo = d.C0277d.cp_bg_line_c;
-    private static final int emp = d.C0277d.cp_bg_line_c;
-    private View emm;
-    private View emn;
-    private int emq;
+    private View eBZ;
+    private View eCa;
+    private int eCb;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -26,35 +24,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.emq = emp;
+        this.eCb = R.color.cp_bg_line_c;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.emq = emp;
+        this.eCb = R.color.cp_bg_line_c;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.emq = emp;
+        this.eCb = R.color.cp_bg_line_c;
         init();
     }
 
     private void init() {
-        LayoutInflater.from(getContext()).inflate(d.h.card_divider_view, (ViewGroup) this, true);
-        this.emm = findViewById(d.g.card_divider_top_margin);
-        this.mTitle = (TextView) findViewById(d.g.card_divider_tv);
-        this.emn = findViewById(d.g.bottom_line);
+        LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
+        this.eBZ = findViewById(R.id.card_divider_top_margin);
+        this.mTitle = (TextView) findViewById(R.id.card_divider_tv);
+        this.eCa = findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        al.l(this, d.C0277d.cp_bg_line_d);
-        al.l(this.emm, d.C0277d.cp_bg_line_c);
-        al.j(this.mTitle, d.C0277d.cp_cont_d);
-        al.l(this.emn, this.emq);
+        al.l(this, R.color.cp_bg_line_d);
+        al.l(this.eBZ, R.color.cp_bg_line_c);
+        al.j(this.mTitle, R.color.cp_cont_d);
+        al.l(this.eCa, this.eCb);
     }
 
     public void setTitleText(String str) {
@@ -66,11 +64,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.emq = i;
-        al.l(this.emn, this.emq);
+        this.eCb = i;
+        al.l(this.eCa, this.eCb);
     }
 
     public View getBotttomLine() {
-        return this.emn;
+        return this.eCa;
     }
 }

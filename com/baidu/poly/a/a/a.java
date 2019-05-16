@@ -8,6 +8,7 @@ import com.baidu.poly.a.b;
 import com.baidu.poly.a.d;
 import com.baidu.poly.bean.PayChannel;
 import com.baidu.poly.util.HttpSigner;
+import com.baidu.poly.util.c;
 import java.net.URLEncoder;
 import java.util.Iterator;
 import java.util.Map;
@@ -16,48 +17,49 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static a agA;
-    private final String agB = tw();
-    private final int agC;
-    private d agn;
     private static final String TAG = a.class.getSimpleName();
-    private static String agz = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
+    private static String agI = "b249MzEuMTg1NjM0JTJDMTIxLjYxMjgzJg==";
+    private static a agJ;
+    private final String agK = uh();
+    private final int agL;
+    private d agw;
 
     private a(d dVar, int i) {
-        this.agn = dVar;
-        this.agC = i;
+        this.agw = dVar;
+        this.agL = i;
     }
 
     public static void a(d dVar, int i) {
-        agA = new a(dVar, i);
+        agJ = new a(dVar, i);
     }
 
-    public static a tv() {
-        return agA;
+    public static a ug() {
+        return agJ;
     }
 
-    private String tw() {
-        return this.agC == a.b.agr ? "https://nop.nuomi.com/nop/server/rest" : this.agC == a.b.ags ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
+    private String uh() {
+        return this.agL == a.b.agA ? "https://nop.nuomi.com/nop/server/rest" : this.agL == a.b.agB ? "http://nj03-orp-app0650.nj03.baidu.com:8222/nop/server/rest" : "http://sh01-orp-app0763.sh01.baidu.com:8290/nop/server/rest";
     }
 
-    public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar) {
+    public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar, PayChannel payChannel) {
         b bVar = new b();
         Set<String> keySet = bundle.keySet();
-        Map<String, String> tF = com.baidu.poly.util.b.tF();
+        Map<String, String> uq = c.uq();
         for (String str : keySet) {
             if (bundle.get(str) instanceof String) {
-                tF.put(str, bundle.get(str).toString());
+                uq.put(str, bundle.get(str).toString());
             }
         }
-        tF.put("nop_method", "nuomi.integration_cashier.launchpayment");
-        tF.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        a(bundle, tF, bVar);
-        HttpSigner.a(tF, this.agC);
-        String d = d(this.agB, tF);
+        uq.put("nop_method", "nuomi.integration_cashier.launchpayment");
+        uq.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        uq.put("payChannel", payChannel.getPayChannel());
+        a(bundle, uq, bVar);
+        HttpSigner.a(uq, this.agL);
+        String c = c(this.agK, uq);
         if (Log.isLoggable(TAG, 4)) {
-            Log.i(TAG, "launchPayment via url " + d);
+            Log.i(TAG, "launchPayment via url " + c);
         }
-        this.agn.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
+        this.agw.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {
@@ -65,7 +67,7 @@ public class a {
                     JSONObject jSONObject = new JSONObject(str2);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt == 0) {
-                        aVar.onSuccess(v(jSONObject.optJSONObject("data")));
+                        aVar.onSuccess(q(jSONObject.optJSONObject("data")));
                     } else {
                         d(new RuntimeException("errno:" + optInt), jSONObject.optString("errmsg"));
                     }
@@ -74,18 +76,18 @@ public class a {
                 }
             }
 
-            private Map<String, String> v(JSONObject jSONObject) {
-                Map<String, String> tF2 = com.baidu.poly.util.b.tF();
+            private Map<String, String> q(JSONObject jSONObject) {
+                Map<String, String> uq2 = c.uq();
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
                         if (!TextUtils.isEmpty(next)) {
-                            tF2.put(next, jSONObject.optString(next));
+                            uq2.put(next, jSONObject.optString(next));
                         }
                     }
                 }
-                return tF2;
+                return uq2;
             }
 
             @Override // com.baidu.poly.a.a
@@ -95,20 +97,24 @@ public class a {
         });
     }
 
-    public void b(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar) {
+    public Map<String, String> a(Bundle bundle, b bVar) {
+        Map<String, String> uq = c.uq();
+        a(uq, bundle);
+        uq.put("payType", "android");
+        uq.put("nop_method", "nuomi.pay_platform.pay");
+        uq.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        a(bundle, uq, bVar);
+        HttpSigner.a(uq, this.agL);
+        return uq;
+    }
+
+    public void a(Bundle bundle, final com.baidu.poly.a.a<Map<String, String>> aVar) {
         b bVar = new b();
-        Map<String, String> tF = com.baidu.poly.util.b.tF();
-        a(tF, bundle);
-        tF.put("payType", "android");
-        tF.put("nop_method", "nuomi.pay_platform.pay");
-        tF.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        a(bundle, tF, bVar);
-        HttpSigner.a(tF, this.agC);
-        String d = d(this.agB, tF);
+        String c = c(this.agK, a(bundle, bVar));
         if (Log.isLoggable(TAG, 4)) {
-            Log.i(TAG, "launchPayment via url " + d);
+            Log.i(TAG, "launchPayment via url " + c);
         }
-        this.agn.a(d, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
+        this.agw.a(c, bVar, new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str) {
@@ -116,7 +122,7 @@ public class a {
                     JSONObject jSONObject = new JSONObject(str);
                     int optInt = jSONObject.optInt("errno", -1);
                     if (optInt == 0) {
-                        aVar.onSuccess(v(jSONObject.optJSONObject("data")));
+                        aVar.onSuccess(q(jSONObject.optJSONObject("data")));
                     } else {
                         d(new RuntimeException("errno:" + optInt), jSONObject.optString("msg"));
                     }
@@ -125,18 +131,18 @@ public class a {
                 }
             }
 
-            private Map<String, String> v(JSONObject jSONObject) {
-                Map<String, String> tF2 = com.baidu.poly.util.b.tF();
+            private Map<String, String> q(JSONObject jSONObject) {
+                Map<String, String> uq = c.uq();
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
                         if (!TextUtils.isEmpty(next)) {
-                            tF2.put(next, jSONObject.optString(next));
+                            uq.put(next, jSONObject.optString(next));
                         }
                     }
                 }
-                return tF2;
+                return uq;
             }
 
             @Override // com.baidu.poly.a.a
@@ -161,35 +167,35 @@ public class a {
     private void a(Bundle bundle, Map<String, String> map, b bVar) {
         String string = bundle.getString("bduss");
         if (!TextUtils.isEmpty(string)) {
-            map.put("bduss", agz);
+            map.put("bduss", agI);
             String str = bVar.get("Cookie");
             String str2 = "BDUSS=" + string;
             if (str == null) {
-                bVar.U("Cookie", str2);
+                bVar.P("Cookie", str2);
             } else {
-                bVar.U("Cookie", str + "; " + str2);
+                bVar.P("Cookie", str + "; " + str2);
             }
         }
     }
 
-    public void c(Bundle bundle, final com.baidu.poly.a.a<PayChannel[]> aVar) {
+    public void b(Bundle bundle, final com.baidu.poly.a.a<PayChannel[]> aVar) {
         b bVar = new b();
         Set<String> keySet = bundle.keySet();
-        Map<String, String> tF = com.baidu.poly.util.b.tF();
+        Map<String, String> uq = c.uq();
         for (String str : keySet) {
             if (bundle.get(str) instanceof String) {
-                tF.put(str, bundle.get(str).toString());
+                uq.put(str, bundle.get(str).toString());
             }
         }
-        tF.put("nop_method", "nuomi.integration_cashier.gatewaylist");
-        tF.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        a(bundle, tF, bVar);
-        HttpSigner.a(tF, this.agC);
-        String d = d(this.agB, tF);
+        uq.put("nop_method", "nuomi.integration_cashier.gatewaylist");
+        uq.put("nop_timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        a(bundle, uq, bVar);
+        HttpSigner.a(uq, this.agL);
+        String c = c(this.agK, uq);
         if (Log.isLoggable(TAG, 4)) {
-            Log.i(TAG, "getChannelList via url " + d);
+            Log.i(TAG, "getChannelList via url " + c);
         }
-        this.agn.a(d, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
+        this.agw.a(c, bVar, aVar == null ? null : new com.baidu.poly.a.a<String>() { // from class: com.baidu.poly.a.a.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             public void onSuccess(String str2) {
@@ -223,7 +229,7 @@ public class a {
         });
     }
 
-    private String d(String str, Map<String, String> map) {
+    public String c(String str, Map<String, String> map) {
         StringBuilder sb = new StringBuilder(str);
         if (!str.contains("?")) {
             sb.append("?");

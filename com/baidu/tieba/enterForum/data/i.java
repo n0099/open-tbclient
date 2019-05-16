@@ -1,11 +1,26 @@
 package com.baidu.tieba.enterForum.data;
-/* loaded from: classes4.dex */
-public class i {
-    public String eBL;
-    public int sortType;
 
-    public i(String str, int i) {
-        this.eBL = str;
-        this.sortType = i;
+import com.baidu.adp.lib.util.BdLog;
+import tbclient.RecommendForumInfo;
+/* loaded from: classes4.dex */
+public class i extends d implements com.baidu.tbadk.mvc.b.a {
+    private String eRn;
+    private long mForumId;
+    private String mForumName;
+
+    public String getForumName() {
+        return this.mForumName;
+    }
+
+    public void a(RecommendForumInfo recommendForumInfo) {
+        if (recommendForumInfo != null) {
+            try {
+                this.mForumId = recommendForumInfo.forum_id.longValue();
+                this.eRn = recommendForumInfo.avatar;
+                this.mForumName = recommendForumInfo.forum_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 }

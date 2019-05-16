@@ -8,17 +8,17 @@ import java.util.Properties;
 /* loaded from: classes.dex */
 public final class u {
     public static boolean isEMUI() {
-        return s("ro.build.version.emui", "ro.build.hw_emui_api_level");
+        return r("ro.build.version.emui", "ro.build.hw_emui_api_level");
     }
 
-    private static boolean s(String... strArr) {
+    private static boolean r(String... strArr) {
         if (strArr == null || strArr.length == 0) {
             return false;
         }
         try {
-            a aqe = a.aqe();
+            a avj = a.avj();
             for (String str : strArr) {
-                if (aqe.getProperty(str) != null) {
+                if (avj.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class u {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a ctD;
-        private final Properties ctE = new Properties();
+        private static a cBM;
+        private final Properties cBN = new Properties();
 
         private a() throws IOException {
-            this.ctE.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.cBN.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aqe() throws IOException {
-            if (ctD == null) {
+        public static a avj() throws IOException {
+            if (cBM == null) {
                 synchronized (a.class) {
-                    if (ctD == null) {
-                        ctD = new a();
+                    if (cBM == null) {
+                        cBM = new a();
                     }
                 }
             }
-            return ctD;
+            return cBM;
         }
 
         public String getProperty(String str) {
-            return this.ctE.getProperty(str);
+            return this.cBN.getProperty(str);
         }
     }
 }

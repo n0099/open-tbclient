@@ -9,22 +9,22 @@ public class ReplyMeCacheModel extends CacheModel<l, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<l> aoi() {
+    public Class<l> atm() {
         return l.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aoj() {
+    public int atn() {
         return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aok() {
+    public int ato() {
         return 2001257;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String anS() {
+    public String asV() {
         return "tb_user_replyme";
     }
 }

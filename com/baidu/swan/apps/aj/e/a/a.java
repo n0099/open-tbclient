@@ -2,63 +2,91 @@ package com.baidu.swan.apps.aj.e.a;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ae.b;
+import com.baidu.swan.apps.aj.e.a;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
-        super(jVar, "/swan/memoryWarning");
+        super(jVar, "/swan/startCompass");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
-        if (context == null || callbackHandler == null || bVar == null) {
-            c.e("MemoryWarningAction", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+    @Override // com.baidu.swan.apps.scheme.actions.z
+    public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        if (bVar == null) {
+            c.e("compass", "none swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "startCompass --- illegal swanApp");
+                return false;
+            }
             return false;
-        }
-        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        if (optParamsAsJo == null) {
-            c.e("MemoryWarningAction", "params is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        } else if (context == null) {
+            c.e("compass", "none context");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+            if (DEBUG) {
+                Log.d("SwanAppAction", "startCompass --- illegal context");
+                return false;
+            }
             return false;
-        }
-        String optString = optParamsAsJo.optString("cb");
-        if (TextUtils.isEmpty(optString)) {
-            c.e("MemoryWarningAction", "callback is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        b(context, callbackHandler, optString);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        return true;
-    }
-
-    public void b(Context context, final CallbackHandler callbackHandler, final String str) {
-        com.baidu.swan.apps.aj.e.b uC;
-        if ((context instanceof com.baidu.swan.apps.aj.e.c) && (uC = ((com.baidu.swan.apps.aj.e.c) context).uC()) != null) {
-            uC.a(new com.baidu.swan.apps.aj.e.a() { // from class: com.baidu.swan.apps.aj.e.a.a.1
-                @Override // com.baidu.swan.apps.aj.e.a
-                public void ed(int i) {
-                    c.i("MemoryWarningAction", "trimMemory consume level:" + i);
-                    if (i == 10 || i == 15) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("level", i);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+        } else {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                if (DEBUG) {
+                    Log.d("SwanAppAction", "startCompass --- params is empty");
+                }
+                c.e("compass", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
+            }
+            final String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                if (DEBUG) {
+                    Log.d("SwanAppAction", "startCompass --- cb is empty");
+                }
+                c.e("compass", "cb is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            c.i("compass", "init");
+            com.baidu.swan.apps.aj.e.a NH = com.baidu.swan.apps.aj.e.a.NH();
+            NH.init(context);
+            NH.a(new a.InterfaceC0115a() { // from class: com.baidu.swan.apps.aj.e.a.a.1
+                @Override // com.baidu.swan.apps.aj.e.a.InterfaceC0115a
+                public void ac(float f) {
+                    c.i("compass", "handle compass change, angle:" + f);
+                    a.this.a(unitedSchemeEntity, callbackHandler, optString, f);
+                    if (a.DEBUG) {
+                        Log.d("SwanAppAction", "compassChange --- compassAngle : " + f);
                     }
                 }
             });
+            c.i("compass", "start listen compass");
+            NH.NI();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, float f) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("direction", f);
+            if (DEBUG) {
+                Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+        } catch (JSONException e) {
+            c.e("compass", "handle compass,json error，" + e.toString());
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Json error").toString(), str);
         }
     }
 }

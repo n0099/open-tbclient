@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d jEB;
-    private int jEC;
+    private static d jXo;
+    private int jXp;
     @Nullable
-    private List<c.a> jED;
-    private final c.a jEE = new a();
+    private List<c.a> jXq;
+    private final c.a jXr = new a();
 
     private d() {
-        cwf();
+        cEb();
     }
 
-    public void ev(@Nullable List<c.a> list) {
-        this.jED = list;
-        cwf();
+    public void eD(@Nullable List<c.a> list) {
+        this.jXq = list;
+        cEb();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.jEC];
-        int a = a(this.jEC, inputStream, bArr);
-        if (this.jED != null) {
-            for (c.a aVar : this.jED) {
-                c j = aVar.j(bArr, a);
-                if (j != null && j != c.jEz) {
-                    return j;
+        byte[] bArr = new byte[this.jXp];
+        int a = a(this.jXp, inputStream, bArr);
+        if (this.jXq != null) {
+            for (c.a aVar : this.jXq) {
+                c l = aVar.l(bArr, a);
+                if (l != null && l != c.jXm) {
+                    return l;
                 }
             }
         }
-        c j2 = this.jEE.j(bArr, a);
-        if (j2 == null) {
-            return c.jEz;
+        c l2 = this.jXr.l(bArr, a);
+        if (l2 == null) {
+            return c.jXm;
         }
-        return j2;
+        return l2;
     }
 
-    private void cwf() {
-        this.jEC = this.jEE.getHeaderSize();
-        if (this.jED != null) {
-            for (c.a aVar : this.jED) {
-                this.jEC = Math.max(this.jEC, aVar.getHeaderSize());
+    private void cEb() {
+        this.jXp = this.jXr.getHeaderSize();
+        if (this.jXq != null) {
+            for (c.a aVar : this.jXq) {
+                this.jXp = Math.max(this.jXp, aVar.getHeaderSize());
             }
         }
     }
@@ -67,26 +67,26 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cwg() {
+    public static synchronized d cEc() {
         d dVar;
         synchronized (d.class) {
-            if (jEB == null) {
-                jEB = new d();
+            if (jXo == null) {
+                jXo = new d();
             }
-            dVar = jEB;
+            dVar = jXo;
         }
         return dVar;
     }
 
     public static c t(InputStream inputStream) throws IOException {
-        return cwg().s(inputStream);
+        return cEc().s(inputStream);
     }
 
     public static c u(InputStream inputStream) {
         try {
             return t(inputStream);
         } catch (IOException e) {
-            throw k.s(e);
+            throw k.r(e);
         }
     }
 }

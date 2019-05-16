@@ -1,74 +1,40 @@
 package com.baidu.android.pushservice.h;
+
+import android.text.TextUtils;
 /* loaded from: classes3.dex */
-public class c {
+public abstract class c implements Runnable {
     private String a;
-    private String b;
-    private String c;
-    private String d;
-    private String f;
-    private int e = -1;
-    private int g = -1;
+    private short b;
 
     public c() {
+        this.b = (short) 99;
     }
 
-    public c(String str) {
+    public c(String str, short s) {
+        this.b = (short) 99;
         this.a = str;
+        this.b = s;
     }
 
-    public String a() {
-        return this.a;
-    }
+    public abstract void a();
 
-    public void a(int i) {
-        this.e = i;
-    }
-
-    public void a(String str) {
-        this.a = str;
-    }
-
-    public String b() {
-        return this.b;
-    }
-
-    public void b(int i) {
-        this.g = i;
-    }
-
-    public void b(String str) {
-        this.b = str;
-    }
-
-    public String c() {
-        return this.c;
+    public void a(short s) {
+        this.b = s;
     }
 
     public void c(String str) {
-        this.c = str;
+        this.a = str;
     }
 
-    public String d() {
-        return this.d;
+    public short d() {
+        return this.b;
     }
 
-    public void d(String str) {
-        this.d = str;
-    }
-
-    public int e() {
-        return this.e;
-    }
-
-    public void e(String str) {
-        this.f = str;
-    }
-
-    public String f() {
-        return this.f;
-    }
-
-    public int g() {
-        return this.g;
+    @Override // java.lang.Runnable
+    public final void run() {
+        if (!TextUtils.isEmpty(this.a)) {
+            Thread.currentThread().setName(this.a);
+        }
+        a();
     }
 }

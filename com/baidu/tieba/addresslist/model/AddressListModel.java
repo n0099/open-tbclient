@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a cPZ;
+    private a cYk;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.cPZ = a.awP();
+        this.cYk = a.aBV();
     }
 
-    public void a(a.InterfaceC0256a interfaceC0256a) {
-        this.cPZ.a(interfaceC0256a);
+    public void a(a.InterfaceC0271a interfaceC0271a) {
+        this.cYk.a(interfaceC0271a);
     }
 
-    public void b(a.InterfaceC0256a interfaceC0256a) {
-        this.cPZ.b(interfaceC0256a);
+    public void b(a.InterfaceC0271a interfaceC0271a) {
+        this.cYk.b(interfaceC0271a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> axg() {
-        return this.cPZ.awQ();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> aCm() {
+        return this.cYk.aBW();
     }
 
-    public void axh() {
+    public void aCn() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void axc() {
+    public void aCi() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void aw(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cPZ.at(list);
+    public void aD(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.cYk.aA(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.cPZ.a(aVar);
+        this.cYk.a(aVar);
     }
 
-    public void bz(long j) {
-        this.cPZ.bz(j);
+    public void bO(long j) {
+        this.cYk.bO(j);
     }
 
-    public int rh(String str) {
+    public int sq(String str) {
         int i;
-        if (c.oc(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPZ.awQ();
-            if (awQ != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : awQ) {
-                    if (str.equals(aVar.ajM())) {
-                        i = awQ.indexOf(aVar);
+        if (c.pm(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> aBW = this.cYk.aBW();
+            if (aBW != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : aBW) {
+                    if (str.equals(aVar.aoN())) {
+                        i = aBW.indexOf(aVar);
                         break;
                     }
                 }

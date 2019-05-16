@@ -18,7 +18,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<f> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        aVar.bqd().setData(chatMessage);
+        aVar.bxP().setData(chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;
@@ -30,7 +30,7 @@ public class MsgMidViewItemAdapter extends e<f> {
     /* renamed from: bo */
     public e.a<f> onCreateViewHolder(ViewGroup viewGroup) {
         f fVar = new f(this.mPageContext);
-        return new a(fVar.fY(), fVar);
+        return new a(fVar.eR(), fVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

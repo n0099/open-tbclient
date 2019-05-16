@@ -3,31 +3,31 @@ package com.baidu.tieba.face.data;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private int dRM;
-    private int dWU;
-    private List<EmotionImageData> eHy;
+    private List<EmotionImageData> eXH;
+    private int ecl;
+    private int eht;
 
     public int getPage() {
-        return this.dWU;
+        return this.eht;
     }
 
     public void setPage(int i) {
-        this.dWU = i;
+        this.eht = i;
     }
 
-    public int aXG() {
-        return this.dRM;
+    public int bfa() {
+        return this.ecl;
     }
 
     public void setHasMore(int i) {
-        this.dRM = i;
+        this.ecl = i;
     }
 
-    public List<EmotionImageData> aXH() {
-        return this.eHy;
+    public List<EmotionImageData> bfb() {
+        return this.eXH;
     }
 
-    public void bB(List<EmotionImageData> list) {
-        this.eHy = list;
+    public void bJ(List<EmotionImageData> list) {
+        this.eXH = list;
     }
 }

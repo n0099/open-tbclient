@@ -2,7 +2,7 @@ package com.xiaomi.smack;
 
 import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes3.dex */
-class j extends XMPushService.h {
+class j extends XMPushService.i {
     final /* synthetic */ int b;
     final /* synthetic */ Exception c;
     final /* synthetic */ h d;
@@ -16,12 +16,12 @@ class j extends XMPushService.h {
         this.c = exc;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         this.d.r.a(this.b, this.c);
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public String b() {
         return "shutdown the connection. " + this.b + ", " + this.c;
     }

@@ -19,32 +19,32 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 /* loaded from: classes4.dex */
 public class ChatAggregationFragment extends BaseFragment implements NoNetworkView.a, com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter gxq;
-    private e gxt;
+    private ViewEventCenter gOD;
+    private e gOG;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (ChatAggregationFragment.this.gxt != null) {
-                    ChatAggregationFragment.this.gxt.lI(true);
+                if (ChatAggregationFragment.this.gOG != null) {
+                    ChatAggregationFragment.this.gOG.mx(true);
                 }
                 MentionActivityConfig.newJumpIn = true;
-                if (ChatAggregationFragment.this.gxt != null) {
-                    ChatAggregationFragment.this.gxt.biP();
-                    ChatAggregationFragment.this.gxt.P(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
+                if (ChatAggregationFragment.this.gOG != null) {
+                    ChatAggregationFragment.this.gOG.bqh();
+                    ChatAggregationFragment.this.gOG.Q(TbadkCoreApplication.isLogin(), TbadkCoreApplication.isLogin() ? false : true);
                 }
             }
         }
     };
-    private CustomMessageListener gxr = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
+    private CustomMessageListener gOE = new CustomMessageListener(2016321) { // from class: com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016321 && (customResponsedMessage.getData() instanceof Intent)) {
                 Intent intent = (Intent) customResponsedMessage.getData();
-                if (ChatAggregationFragment.this.gxt != null) {
-                    ChatAggregationFragment.this.gxt.onNewIntent(intent);
+                if (ChatAggregationFragment.this.gOG != null) {
+                    ChatAggregationFragment.this.gOG.onNewIntent(intent);
                 }
             }
         }
@@ -52,36 +52,36 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.gxt = new e(this);
+        this.gOG = new e(this);
         if (bundle != null) {
-            this.gxt.Q(bundle);
+            this.gOG.R(bundle);
         } else {
-            this.gxt.Q(null);
+            this.gOG.R(null);
         }
-        View aDs = this.gxt.aDs();
-        this.gxt.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-        aoG().addEventDelegate(this);
+        View aJF = this.gOG.aJF();
+        this.gOG.b(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        atK().addEventDelegate(this);
         registerListener(this.mAccountChangedListener);
-        registerListener(this.gxr);
-        return aDs;
+        registerListener(this.gOE);
+        return aJF;
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
-        if (getActivity() != null && ak(getActivity().getIntent())) {
-            this.gxt.onNewIntent(getActivity().getIntent());
+        if (getActivity() != null && an(getActivity().getIntent())) {
+            this.gOG.onNewIntent(getActivity().getIntent());
         } else {
-            this.gxt.biP();
+            this.gOG.bqh();
         }
         super.onViewCreated(view, bundle);
     }
 
-    private boolean ak(Intent intent) {
+    private boolean an(Intent intent) {
         return (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) ? false : true;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a
-    public boolean anX() {
+    public boolean ata() {
         return false;
     }
 
@@ -90,17 +90,17 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
         return bVar == null;
     }
 
-    public ViewEventCenter aoG() {
-        if (this.gxq == null) {
-            this.gxq = new ViewEventCenter();
+    public ViewEventCenter atK() {
+        if (this.gOD == null) {
+            this.gOD = new ViewEventCenter();
         }
-        return this.gxq;
+        return this.gOD;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.gxt != null) {
-            this.gxt.b(getPageContext(), i);
+        if (this.gOG != null) {
+            this.gOG.b(getPageContext(), i);
         }
     }
 
@@ -141,16 +141,16 @@ public class ChatAggregationFragment extends BaseFragment implements NoNetworkVi
     public void onDestroy() {
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mAccountChangedListener);
-        MessageManager.getInstance().unRegisterListener(this.gxr);
-        if (this.gxt != null) {
-            this.gxt.onActivityDestroy();
+        MessageManager.getInstance().unRegisterListener(this.gOE);
+        if (this.gOG != null) {
+            this.gOG.onActivityDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-    public void dP(boolean z) {
-        if (this.gxt != null) {
-            this.gxt.lG(z);
+    public void el(boolean z) {
+        if (this.gOG != null) {
+            this.gOG.mv(z);
         }
     }
 }

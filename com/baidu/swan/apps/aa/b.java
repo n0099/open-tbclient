@@ -1,46 +1,65 @@
 package com.baidu.swan.apps.aa;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.b.c.f;
-import com.baidu.swan.apps.core.c.g;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import java.util.Map;
 /* loaded from: classes2.dex */
-public class b extends g {
-    @Override // com.baidu.swan.apps.core.c.g
-    protected void a(FrameLayout frameLayout) {
-        frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(a.g.aiapps_wx_pay_loading_layout, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
-    }
+public class b {
+    private static volatile b aFf;
+    private static final String TAG = b.class.getSimpleName();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    @Override // com.baidu.swan.apps.core.c.g
-    protected f vW() {
-        return com.baidu.swan.apps.core.i.c.Aa().Ab().bq(getContext());
-    }
-
-    @Override // com.baidu.swan.apps.core.c.g
-    protected com.baidu.swan.apps.core.e.c wk() {
-        return new com.baidu.swan.apps.core.e.a() { // from class: com.baidu.swan.apps.aa.b.1
-            @Override // com.baidu.swan.apps.core.e.a, com.baidu.swan.apps.core.e.c
-            public boolean ec(String str) {
-                if (str == null || !str.startsWith("weixin://wap/pay")) {
-                    return super.ec(str);
+    public static synchronized b Hy() {
+        b bVar;
+        synchronized (b.class) {
+            if (aFf == null) {
+                synchronized (b.class) {
+                    if (aFf == null) {
+                        aFf = new b();
+                    }
                 }
-                com.baidu.swan.apps.console.c.d("SwanAppWxPayFragment", " weixin  url:   " + str);
-                g.ze();
-                return false;
             }
-        };
+            bVar = aFf;
+        }
+        return bVar;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.core.c.g, com.baidu.swan.apps.core.c.b
-    public void M(View view) {
-        super.M(view);
-        this.aqb.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
-        this.aqb.setRightMenuVisibility(false);
-        aW(false);
+    private b() {
+    }
+
+    public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.b bVar) {
+        com.baidu.swan.apps.ae.b Lq;
+        if (DEBUG) {
+            Log.d(TAG, "doBaiFuBaoPay orderInfo: " + str);
+        }
+        if (TextUtils.isEmpty(str) || (Lq = com.baidu.swan.apps.ae.b.Lq()) == null) {
+            return false;
+        }
+        com.baidu.swan.apps.u.a.DR().a(Lq, str, bVar);
+        return true;
+    }
+
+    public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.a aVar) {
+        com.baidu.swan.apps.ae.b Lq;
+        if (DEBUG) {
+            Log.d(TAG, "doAliPay orderInfo: " + str);
+        }
+        if (TextUtils.isEmpty(str) || (Lq = com.baidu.swan.apps.ae.b.Lq()) == null) {
+            return false;
+        }
+        com.baidu.swan.apps.u.a.DR().a(Lq, str, aVar);
+        return true;
+    }
+
+    public boolean b(Context context, Map<String, String> map, com.baidu.swan.apps.aa.a.d dVar) {
+        if (DEBUG) {
+            Log.d(TAG, "doWeChatPay payInfo: " + map);
+        }
+        if (map == null) {
+            return false;
+        }
+        com.baidu.swan.apps.u.a.DR().a(context, map, dVar);
+        return true;
     }
 }

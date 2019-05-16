@@ -3,11 +3,11 @@ package com.baidu.adp.lib.d;
 import com.baidu.adp.lib.d.a;
 /* loaded from: classes.dex */
 public interface b {
-    void a(a.b bVar);
+    void Z(boolean z);
 
-    void ah(boolean z);
+    void a(a.b bVar);
 
     void destroy();
 
-    void ja();
+    void hS();
 }

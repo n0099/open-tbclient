@@ -1,40 +1,90 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
+import android.os.Parcel;
+import android.os.Parcelable;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a extends com.meizu.cloud.pushsdk.handler.a.a<PushSwitchStatus> {
-    public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public PushSwitchStatus c(Intent intent) {
-        return (PushSwitchStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_SWITCH_STATUS);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(PushSwitchStatus pushSwitchStatus, com.meizu.cloud.pushsdk.notification.e eVar) {
-        if (b() != null && pushSwitchStatus != null) {
-            b().a(c(), pushSwitchStatus);
+public class a implements Parcelable {
+    public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public a createFromParcel(Parcel parcel) {
+            return new a(parcel);
         }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public a[] newArray(int i) {
+            return new a[i];
+        }
+    };
+    private int a;
+    private int b;
+    private int c;
+
+    public a() {
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start PushSwitchStatusHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PUSH_STATUS.equals(i(intent));
+    protected a(Parcel parcel) {
+        this.a = parcel.readInt();
+        this.b = parcel.readInt();
+        this.c = parcel.readInt();
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
+    public static a a(JSONObject jSONObject) {
+        a aVar = new a();
+        if (jSONObject != null) {
+            try {
+                if (!jSONObject.isNull("pushType")) {
+                    aVar.a(jSONObject.getInt("pushType"));
+                }
+                if (!jSONObject.isNull("cached")) {
+                    aVar.b(jSONObject.getInt("cached"));
+                }
+                if (!jSONObject.isNull("cacheNum")) {
+                    aVar.c(jSONObject.getInt("cacheNum"));
+                }
+            } catch (JSONException e) {
+                com.meizu.cloud.a.a.e("ctl", " parse control message error " + e.getMessage());
+            }
+        } else {
+            com.meizu.cloud.a.a.e("ctl", "no control message can parse ");
+        }
+        return aVar;
+    }
+
     public int a() {
-        return 256;
+        return this.a;
+    }
+
+    public void a(int i) {
+        this.a = i;
+    }
+
+    public void b(int i) {
+        this.b = i;
+    }
+
+    public void c(int i) {
+        this.c = i;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "Control{pushType=" + this.a + ", cached=" + this.b + ", cacheNum=" + this.c + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.a);
+        parcel.writeInt(this.b);
+        parcel.writeInt(this.c);
     }
 }

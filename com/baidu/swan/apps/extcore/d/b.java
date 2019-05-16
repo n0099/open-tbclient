@@ -1,25 +1,57 @@
 package com.baidu.swan.apps.extcore.d;
 
-import com.baidu.swan.apps.an.v;
-import java.io.File;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public final class b {
-    public static File Bo() {
-        return new File(v.Mc().get(0).mPath, "baidu/aiapps_debug_extension_core/");
+public class b {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static b aws;
+    public String awn;
+
+    @NonNull
+    public static b et(@NonNull String str) {
+        if (aws == null) {
+            aws = v(eu(str));
+        }
+        return aws;
     }
 
-    public static void Bp() {
-        File Bo = Bo();
-        if (Bo.exists()) {
-            com.baidu.swan.c.b.deleteFile(Bo);
+    @NonNull
+    private static b v(JSONObject jSONObject) {
+        b bVar = new b();
+        if (jSONObject != null) {
+            bVar.awn = jSONObject.optString("extension-core-version");
         }
+        return bVar;
     }
 
-    public static File Bq() {
-        File Bo = Bo();
-        if (!Bo.exists()) {
-            Bo.mkdirs();
+    private static JSONObject eu(@NonNull String str) {
+        if (DEBUG) {
+            Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }
-        return new File(Bo, "debugExtensionCore.zip");
+        String ae = com.baidu.swan.c.a.ae(AppRuntime.getAppContext(), str);
+        if (TextUtils.isEmpty(ae)) {
+            if (DEBUG) {
+                Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
+                return null;
+            }
+            return null;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(ae);
+            if (DEBUG) {
+                Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
+            }
+            return jSONObject;
+        } catch (JSONException e) {
+            if (DEBUG) {
+                throw new RuntimeException(e);
+            }
+            return null;
+        }
     }
 }

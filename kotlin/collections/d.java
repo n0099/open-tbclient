@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 /* loaded from: classes2.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a jRw = new a(null);
+    public static final a kjO = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -51,35 +51,35 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
     @Override // java.util.List
     public List<E> subList(int i, int i2) {
-        return new C0471d(this, i, i2);
+        return new C0492d(this, i, i2);
     }
 
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0471d<E> extends d<E> implements RandomAccess {
-        private final int jRA;
-        private int jRy;
-        private final d<E> jRz;
+    private static final class C0492d<E> extends d<E> implements RandomAccess {
+        private int kjQ;
+        private final d<E> kjR;
+        private final int kjS;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
-        public C0471d(d<? extends E> dVar, int i, int i2) {
+        public C0492d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.k(dVar, IntentConfig.LIST);
-            this.jRz = dVar;
-            this.jRA = i;
-            d.jRw.ai(this.jRA, i2, this.jRz.size());
-            this.jRy = i2 - this.jRA;
+            this.kjR = dVar;
+            this.kjS = i;
+            d.kjO.aj(this.kjS, i2, this.kjR.size());
+            this.kjQ = i2 - this.kjS;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.jRw.cF(i, this.jRy);
-            return this.jRz.get(this.jRA + i);
+            d.kjO.cM(i, this.kjQ);
+            return this.kjR.get(this.kjS + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.jRy;
+            return this.kjQ;
         }
     }
 
@@ -89,14 +89,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return jRw.a(this, (Collection) obj);
+            return kjO.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return jRw.h(this);
+        return kjO.h(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -152,7 +152,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.jRw.cG(i, d.this.size());
+            d.kjO.cN(i, d.this.size());
             setIndex(i);
         }
 
@@ -191,19 +191,19 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             this();
         }
 
-        public final void cF(int i, int i2) {
+        public final void cM(int i, int i2) {
             if (i < 0 || i >= i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void cG(int i, int i2) {
+        public final void cN(int i, int i2) {
             if (i < 0 || i > i2) {
                 throw new IndexOutOfBoundsException("index: " + i + ", size: " + i2);
             }
         }
 
-        public final void ai(int i, int i2, int i3) {
+        public final void aj(int i, int i2, int i3) {
             if (i < 0 || i2 > i3) {
                 throw new IndexOutOfBoundsException("fromIndex: " + i + ", toIndex: " + i2 + ", size: " + i3);
             }

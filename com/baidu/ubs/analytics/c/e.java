@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes3.dex */
 public final class e {
-    private static final e jwN = new e();
-    private l jwO = new l();
+    private static final e jPD = new e();
+    private l jPE = new l();
 
-    public static e csw() {
-        return jwN;
+    public static e cAt() {
+        return jPD;
     }
 
-    public final void EM(String str) {
-        this.jwO.EM(str);
+    public final void Gh(String str) {
+        this.jPE.Gh(str);
     }
 
-    public final void EN(String str) {
-        this.jwO.EN(str);
+    public final void Gi(String str) {
+        this.jPE.Gi(str);
     }
 }

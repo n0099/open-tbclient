@@ -17,9 +17,9 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c iDl;
-    private SparseArray<HashSet<String>> iDo;
-    private a iDp;
+    private static c iVZ;
+    private SparseArray<HashSet<String>> iWc;
+    private a iWd;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.q.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -28,7 +28,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.fsY = false;
+                        aVar.fJO = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -39,84 +39,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener bvx = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
+    private CustomMessageListener bCA = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.iDo != null) {
-                    c.this.iDo.clear();
+                if (c.this.iWc != null) {
+                    c.this.iWc.clear();
                 }
-                c.this.iDm.cdo();
+                c.this.iWa.cls();
             }
         }
     };
-    private int iDn = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-    private final b iDm = new b();
+    private int iWb = com.baidu.tbadk.core.sharedPref.b.agM().getInt("card_show_statistic_max_count", 200);
+    private final b iWa = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.bvx);
+        MessageManager.getInstance().registerListener(this.bCA);
     }
 
-    public static c cdp() {
-        if (iDl == null) {
+    public static c clt() {
+        if (iVZ == null) {
             synchronized (c.class) {
-                if (iDl == null) {
-                    iDl = new c();
+                if (iVZ == null) {
+                    iVZ = new c();
                 }
             }
         }
-        return iDl;
+        return iVZ;
     }
 
-    public void s(BdUniqueId bdUniqueId) {
-        l.lm();
+    public void u(BdUniqueId bdUniqueId) {
+        l.kg();
         if (bdUniqueId != null) {
-            this.iDm.s(bdUniqueId);
+            this.iWa.u(bdUniqueId);
         }
     }
 
-    public void t(BdUniqueId bdUniqueId) {
-        l.lm();
+    public void v(BdUniqueId bdUniqueId) {
+        l.kg();
         if (bdUniqueId != null) {
-            this.iDm.t(bdUniqueId);
-            v(bdUniqueId);
+            this.iWa.v(bdUniqueId);
+            x(bdUniqueId);
         }
     }
 
-    private void v(BdUniqueId bdUniqueId) {
-        if (this.iDo != null) {
-            this.iDo.remove(bdUniqueId.getId());
+    public void x(BdUniqueId bdUniqueId) {
+        if (this.iWc != null) {
+            this.iWc.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, am amVar) {
-        this.iDm.a(bdUniqueId, true);
+        this.iWa.a(bdUniqueId, true);
         TiebaStatic.log(amVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, am amVar) {
         if (bdUniqueId != null && amVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.iDm.u(bdUniqueId)) {
+            if (!this.iWa.w(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + amVar.getKey());
             }
-            if (this.iDo == null) {
-                this.iDo = new SparseArray<>();
+            if (this.iWc == null) {
+                this.iWc = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.iDo.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.iWc.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.iDo.put(bdUniqueId.getId(), hashSet);
+                this.iWc.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = amVar.getKey() + "_" + str;
-            if (!hashSet.contains(str2) && !bik()) {
+            if (!hashSet.contains(str2) && !bpA()) {
                 hashSet.add(str2);
-                this.iDm.a(bdUniqueId, amVar);
+                this.iWa.a(bdUniqueId, amVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -124,29 +124,29 @@ public class c {
         }
     }
 
-    private boolean bik() {
-        if (this.iDp == null) {
-            this.iDp = new a();
+    private boolean bpA() {
+        if (this.iWd == null) {
+            this.iWd = new a();
         }
-        if (this.iDp.fsY) {
+        if (this.iWd.fJO) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.iDp.isRunning) {
-            this.iDp.count++;
-            if (currentTimeMillis - this.iDp.fsX < 120000) {
-                if (this.iDp.count >= this.iDn) {
-                    this.iDp.fsY = true;
-                    a(this.iDp);
+        if (this.iWd.isRunning) {
+            this.iWd.count++;
+            if (currentTimeMillis - this.iWd.fJN < 120000) {
+                if (this.iWd.count >= this.iWb) {
+                    this.iWd.fJO = true;
+                    a(this.iWd);
                     return true;
                 }
             } else {
-                this.iDp.isRunning = false;
-                this.iDp.count = 0;
+                this.iWd.isRunning = false;
+                this.iWd.count = 0;
             }
         } else {
-            this.iDp.isRunning = true;
-            this.iDp.fsX = currentTimeMillis;
+            this.iWd.isRunning = true;
+            this.iWd.fJN = currentTimeMillis;
         }
         return false;
     }
@@ -163,22 +163,22 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.iDm.a(bdUniqueId, z);
+        this.iWa.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
         public int count;
-        public long fsX;
-        public boolean fsY;
+        public long fJN;
+        public boolean fJO;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.fsX = 0L;
-            this.fsY = false;
+            this.fJN = 0L;
+            this.fJO = false;
         }
     }
 }

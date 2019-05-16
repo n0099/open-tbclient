@@ -1,11 +1,11 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class UtilityFunctions {
-    public static <T> rx.functions.f<? super T, Boolean> cEy() {
+    public static <T> rx.functions.f<? super T, Boolean> cMe() {
         return AlwaysTrue.INSTANCE;
     }
 
-    public static <T> rx.functions.f<T, T> cEz() {
+    public static <T> rx.functions.f<T, T> cMf() {
         return Identity.INSTANCE;
     }
 

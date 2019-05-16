@@ -9,6 +9,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseService;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class RemoteActivityProxyService extends BdBaseService {
     public static final int PLUGIN_CHECK_RESULT = 0;
@@ -37,7 +38,7 @@ public class RemoteActivityProxyService extends BdBaseService {
                 try {
                     Bundle data = message.getData();
                     if (data != null) {
-                        String string = data.getString("class");
+                        String string = data.getString(DealIntentService.KEY_CLASS);
                         if (!TextUtils.isEmpty(string)) {
                             Class.forName(string);
                             z = true;

@@ -1,10 +1,70 @@
 package com.baidu.android.pushservice.h;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.RunnableFuture;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class a {
-    public String a;
-    public long b;
-    public long c;
-    public long d;
-    public int e = 1;
-    public int f = 1;
+public class a extends ThreadPoolExecutor {
+
+    /* renamed from: com.baidu.android.pushservice.h.a$a  reason: collision with other inner class name */
+    /* loaded from: classes3.dex */
+    protected class C0033a<V> extends FutureTask<V> implements Comparable<C0033a<V>> {
+        private Object b;
+
+        public C0033a(Runnable runnable, V v) {
+            super(runnable, v);
+            this.b = runnable;
+        }
+
+        public C0033a(Callable<V> callable) {
+            super(callable);
+            this.b = callable;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.lang.Comparable
+        /* renamed from: a */
+        public int compareTo(C0033a<V> c0033a) {
+            if (this == c0033a) {
+                return 0;
+            }
+            if (c0033a == null) {
+                return -1;
+            }
+            if (this.b == null || c0033a.b == null || !(this.b instanceof c) || !(c0033a.b instanceof c)) {
+                return 0;
+            }
+            return ((c) c0033a.b).d() - ((c) this.b).d();
+        }
+    }
+
+    public a(int i, int i2, long j, TimeUnit timeUnit, b<Runnable> bVar) {
+        super(i, i2, j, timeUnit, bVar);
+    }
+
+    @Override // java.util.concurrent.ThreadPoolExecutor, java.util.concurrent.Executor
+    public synchronized void execute(Runnable runnable) {
+        if (getQueue().size() >= 19) {
+            if (getPoolSize() >= getMaximumPoolSize()) {
+                getQueue().clear();
+            } else {
+                Runnable poll = getQueue().poll();
+                getQueue().offer(runnable);
+                runnable = poll;
+            }
+        }
+        super.execute(runnable);
+    }
+
+    @Override // java.util.concurrent.AbstractExecutorService
+    protected <T> RunnableFuture<T> newTaskFor(Runnable runnable, T t) {
+        return new C0033a(runnable, t);
+    }
+
+    @Override // java.util.concurrent.AbstractExecutorService
+    protected <T> RunnableFuture<T> newTaskFor(Callable<T> callable) {
+        return new C0033a(callable);
+    }
 }

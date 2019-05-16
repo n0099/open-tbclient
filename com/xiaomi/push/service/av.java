@@ -1,111 +1,27 @@
 package com.xiaomi.push.service;
 
-import android.content.Context;
-import com.xiaomi.mipush.sdk.Constants;
-import com.xiaomi.push.service.aw;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.as;
 /* loaded from: classes3.dex */
-public class av {
-    private static String a = com.xiaomi.channel.commonutils.string.d.a(5) + Constants.ACCEPT_TIME_SEPARATOR_SERVER;
-    private static AtomicLong b = new AtomicLong(0);
+class av extends XMPushService.i {
+    final /* synthetic */ as.b.c b;
 
-    /* loaded from: classes3.dex */
-    public static class a implements aw.b {
-        private final Context a;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public av(as.b.c cVar, int i) {
+        super(i);
+        this.b = cVar;
+    }
 
-        public a(Context context) {
-            this.a = context;
-        }
-
-        @Override // com.xiaomi.push.service.aw.b
-        public void a(ArrayList<b> arrayList) {
-        }
-
-        @Override // com.xiaomi.push.service.aw.b
-        public boolean a(b bVar) {
-            return com.xiaomi.channel.commonutils.network.d.d(this.a);
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        if (as.a().b(this.b.a.h, this.b.a.b).o == null) {
+            as.b.this.t.a(this.b.a.h, this.b.a.b, 2, null, null);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public String a;
-        public int b;
-        public com.xiaomi.xmpush.thrift.d c = new com.xiaomi.xmpush.thrift.d();
-
-        public String toString() {
-            return "TinyDataRequest:{id:" + this.a + ", uploadHint:" + this.b + ", channel:" + this.c.a + ", category:" + this.c.g + ", name:" + this.c.c + ", counter: " + this.c.d + ", data: " + this.c.b + ", fromSDK:" + this.c.f + ",  }";
-        }
-    }
-
-    public static String a() {
-        return a + b.incrementAndGet();
-    }
-
-    public static ArrayList<com.xiaomi.xmpush.thrift.ae> a(ArrayList<b> arrayList, String str, String str2) {
-        if (arrayList == null) {
-            com.xiaomi.channel.commonutils.logger.b.d("requests can not be null in TinyDataHelper.transToThriftObj().");
-            return null;
-        } else if (arrayList.size() == 0) {
-            com.xiaomi.channel.commonutils.logger.b.d("requests.length is 0 in TinyDataHelper.transToThriftObj().");
-            return null;
-        } else {
-            ArrayList<com.xiaomi.xmpush.thrift.ae> arrayList2 = new ArrayList<>();
-            int i = 0;
-            com.xiaomi.xmpush.thrift.c cVar = new com.xiaomi.xmpush.thrift.c();
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                b bVar = arrayList.get(i2);
-                if (bVar != null && bVar.c != null) {
-                    int length = com.xiaomi.xmpush.thrift.aq.a(bVar.c).length;
-                    if (length > 30720) {
-                        com.xiaomi.channel.commonutils.logger.b.d("TinyData is too big, ignore upload request." + bVar.toString());
-                    } else {
-                        if (i + length > 30720) {
-                            com.xiaomi.xmpush.thrift.ae aeVar = new com.xiaomi.xmpush.thrift.ae(a(), false);
-                            aeVar.d(str);
-                            aeVar.b(str2);
-                            aeVar.c(com.xiaomi.xmpush.thrift.o.UploadTinyData.N);
-                            aeVar.a(com.xiaomi.channel.commonutils.file.a.a(com.xiaomi.xmpush.thrift.aq.a(cVar)));
-                            arrayList2.add(aeVar);
-                            cVar = new com.xiaomi.xmpush.thrift.c();
-                            i = 0;
-                        }
-                        cVar.a(bVar.c);
-                        i += length;
-                    }
-                }
-            }
-            if (cVar.a() != 0) {
-                com.xiaomi.xmpush.thrift.ae aeVar2 = new com.xiaomi.xmpush.thrift.ae(a(), false);
-                aeVar2.d(str);
-                aeVar2.b(str2);
-                aeVar2.c(com.xiaomi.xmpush.thrift.o.UploadTinyData.N);
-                aeVar2.a(com.xiaomi.channel.commonutils.file.a.a(com.xiaomi.xmpush.thrift.aq.a(cVar)));
-                arrayList2.add(aeVar2);
-            }
-            return arrayList2;
-        }
-    }
-
-    public static boolean a(String str, String str2, long j, String str3) {
-        if (str == null) {
-            com.xiaomi.channel.commonutils.logger.b.a("Value of parameter category can not be null.");
-            return true;
-        } else if (str2 == null) {
-            com.xiaomi.channel.commonutils.logger.b.a("Value of parameter Name can not be null");
-            return true;
-        } else if (!com.xiaomi.channel.commonutils.string.d.d(str)) {
-            com.xiaomi.channel.commonutils.logger.b.a("Value of parameter catetory invalid, can only contain ascii char.");
-            return true;
-        } else if (!com.xiaomi.channel.commonutils.string.d.d(str2)) {
-            com.xiaomi.channel.commonutils.logger.b.a("Value of parameter name invalid, can only contain ascii char.");
-            return true;
-        } else if (str3 == null || str3.length() <= 10240) {
-            return false;
-        } else {
-            com.xiaomi.channel.commonutils.logger.b.a("Parameter data is too large(" + str3.length() + "), max size for data is 10240");
-            return true;
-        }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "check peer job";
     }
 }

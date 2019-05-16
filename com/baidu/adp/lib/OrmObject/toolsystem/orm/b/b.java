@@ -8,19 +8,19 @@ import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
     private final ContentValues values;
-    private Cursor zJ;
-    private final Set<String> zK;
+    private Cursor xv;
+    private final Set<String> xw;
 
     public b(Cursor cursor) {
-        this.zJ = cursor;
+        this.xv = cursor;
         this.values = null;
-        this.zK = new TreeSet();
+        this.xw = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.zK.add(columnName);
+                    this.xw.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.zK = new TreeSet();
+        this.xw = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.zK;
+        return this.xw;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.zJ.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.zJ.getColumnCount()) {
+        int columnIndex = this.xv.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.xv.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.zJ.getShort(columnIndex));
+                valueOf = Short.valueOf(this.xv.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.zJ.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.xv.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.zJ.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.xv.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.zJ.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.xv.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.zJ.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.xv.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.zJ.getString(columnIndex);
+                    string = this.xv.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.zJ.getBlob(columnIndex);
+                        return this.xv.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;
@@ -124,7 +124,7 @@ public class b implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void d(String str, Object obj) {
+    public void e(String str, Object obj) {
         if (str != null) {
             if (obj == null) {
                 this.values.putNull(str);

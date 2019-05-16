@@ -82,7 +82,7 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.cCt();
+            p.cJZ();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
@@ -137,7 +137,7 @@ public final class WebSocketRequest {
                     objectRef.element = new JSONArray();
                     ((JSONArray) objectRef.element).put("");
                 }
-                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cJ(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cQ(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }

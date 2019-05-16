@@ -1,7 +1,6 @@
 package com.baidu.tieba.VideoCacheClient;
 
 import com.baidu.mapapi.UIMsg;
-import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,12 +16,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cMc;
+    private static a cUn;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cnL = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cvS = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -30,7 +29,7 @@ public class a {
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
-            com.baidu.tieba.VideoCacheClient.d.as(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.am(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
             if (r15.exists() != false) goto L79;
@@ -57,7 +56,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").bJ("errormsg", "预加载文件失败").bJ("error", r3.getMessage()).bJ("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").bT("errormsg", "预加载文件失败").bT("error", r3.getMessage()).bT("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -118,13 +117,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String avS = a.this.avS();
-                    if (avS != null && !avS.isEmpty()) {
-                        File file = new File(c.cLR + b.qA(avS) + "/header_downloaded");
+                    String aAY = a.this.aAY();
+                    if (aAY != null && !aAY.isEmpty()) {
+                        File file = new File(c.cUc + b.rJ(aAY) + "/header_downloaded");
                         if (file.exists()) {
-                            d.as(a.TAG, "header exists " + avS);
+                            d.am(a.TAG, "header exists " + aAY);
                         } else {
-                            d.as(a.TAG, "client preload start: " + avS);
+                            d.am(a.TAG, "client preload start: " + aAY);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -143,8 +142,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avS);
-                                    int port = b.avT().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aAY);
+                                    int port = b.aAZ().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), UIMsg.m_AppUI.MSG_APP_GPS);
@@ -165,7 +164,7 @@ public class a {
                                                     try {
                                                         readLine = bufferedReader.readLine();
                                                         if (i2 == 0 && readLine != null && readLine.startsWith(HTTP.CONTENT_LEN)) {
-                                                            String[] split = readLine.split(Config.TRACE_TODAY_VISIT_SPLIT);
+                                                            String[] split = readLine.split(":");
                                                             if (split.length > 1) {
                                                                 j2 = Long.parseLong(split[1].trim());
                                                             }
@@ -201,7 +200,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.as(a.TAG, "client preload check1: " + avS);
+                                            d.am(a.TAG, "client preload check1: " + aAY);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -253,7 +252,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.as(a.TAG, "client preload end: " + avS);
+                            d.am(a.TAG, "client preload end: " + aAY);
                         }
                     }
                 } else {
@@ -290,29 +289,29 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cnL);
+    private Thread mThread = new Thread(this.cvS);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a avR() {
-        if (cMc == null) {
+    public static a aAX() {
+        if (cUn == null) {
             synchronized (a.class) {
-                if (cMc == null) {
-                    cMc = new a();
+                if (cUn == null) {
+                    cUn = new a();
                 }
             }
         }
-        return cMc;
+        return cUn;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String avS() {
+    public synchronized String aAY() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void qB(String str) {
+    public synchronized void rK(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

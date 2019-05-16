@@ -14,7 +14,7 @@ public class k extends org.apache.thrift.protocol.a {
     private static int j = 104857600;
 
     /* loaded from: classes3.dex */
-    public static class a extends a.C0473a {
+    public static class a extends a.C0494a {
         public a() {
             super(false, true);
         }
@@ -23,7 +23,7 @@ public class k extends org.apache.thrift.protocol.a {
             super(z, z2, i);
         }
 
-        @Override // org.apache.thrift.protocol.a.C0473a, org.apache.thrift.protocol.g
+        @Override // org.apache.thrift.protocol.a.C0494a, org.apache.thrift.protocol.g
         public e a(org.apache.thrift.transport.d dVar) {
             k kVar = new k(dVar, this.a, this.b);
             if (this.c != 0) {

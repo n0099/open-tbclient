@@ -4,7 +4,6 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.mobstat.Config;
 /* loaded from: classes2.dex */
 public abstract class FragmentPagerAdapter extends PagerAdapter {
     private static final boolean DEBUG = false;
@@ -97,6 +96,6 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     private static String makeFragmentName(int i, long j) {
-        return "android:switcher:" + i + Config.TRACE_TODAY_VISIT_SPLIT + j;
+        return "android:switcher:" + i + ":" + j;
     }
 }

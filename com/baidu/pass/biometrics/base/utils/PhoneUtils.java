@@ -9,7 +9,6 @@ import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
@@ -128,16 +127,16 @@ public final class PhoneUtils {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
                 String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
-                if (lowerCase.startsWith("processor") && lowerCase.indexOf(Config.TRACE_TODAY_VISIT_SPLIT, "processor".length()) != -1) {
+                if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", "processor".length()) != -1) {
                     if (cPUInfo.processor.length() > 0) {
                         cPUInfo.processor += "__";
                     }
-                    cPUInfo.processor += lowerCase.split(Config.TRACE_TODAY_VISIT_SPLIT)[1].trim();
-                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(Config.TRACE_TODAY_VISIT_SPLIT, "features".length()) != -1) {
+                    cPUInfo.processor += lowerCase.split(":")[1].trim();
+                } else if (lowerCase.startsWith("features") && lowerCase.indexOf(":", "features".length()) != -1) {
                     if (cPUInfo.features.length() > 0) {
                         cPUInfo.features += "__";
                     }
-                    cPUInfo.features += lowerCase.split(Config.TRACE_TODAY_VISIT_SPLIT)[1].trim();
+                    cPUInfo.features += lowerCase.split(":")[1].trim();
                 }
             }
             if (bufferedReader != null) {

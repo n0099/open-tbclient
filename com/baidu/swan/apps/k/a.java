@@ -1,8 +1,8 @@
 package com.baidu.swan.apps.k;
 
 import android.support.annotation.NonNull;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.install.c;
+import com.baidu.swan.apps.an.ac;
+import com.baidu.swan.apps.install.e;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -17,9 +17,9 @@ import okhttp3.ResponseBody;
 public class a {
     private OkHttpClient okHttpClient = new OkHttpClient();
 
-    public void a(c.C0144c c0144c, String str, final c.b bVar) {
+    public void a(e.c cVar, String str, final e.b bVar) {
         final File file = new File(str);
-        this.okHttpClient.newCall(new Request.Builder().url(c0144c.mDownloadUrl).build()).enqueue(new Callback() { // from class: com.baidu.swan.apps.k.a.1
+        this.okHttpClient.newCall(new Request.Builder().url(cVar.mDownloadUrl).build()).enqueue(new Callback() { // from class: com.baidu.swan.apps.k.a.1
             @Override // okhttp3.Callback
             public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
                 a.this.a(bVar, 1, 0);
@@ -126,7 +126,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final c.b bVar, int i, final int i2) {
+    public void a(final e.b bVar, int i, final int i2) {
         Runnable runnable;
         if (bVar != null) {
             switch (i) {
@@ -151,12 +151,12 @@ public class a {
                     runnable = new Runnable() { // from class: com.baidu.swan.apps.k.a.4
                         @Override // java.lang.Runnable
                         public void run() {
-                            bVar.cu(i2);
+                            bVar.cv(i2);
                         }
                     };
                     break;
             }
-            aa.runOnUiThread(runnable);
+            ac.runOnUiThread(runnable);
         }
     }
 }

@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
@@ -12,10 +13,10 @@ public class e implements SharedPreferences {
     private SharedPreferences mSp;
 
     public e(String str) {
-        if (TextUtils.isEmpty(str) || "default".equals(str)) {
+        if (TextUtils.isEmpty(str) || NotifyAdapterUtil.PRIMARY_CHANNEL.equals(str)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
-            this.mSp = com.baidu.swan.apps.u.a.Cw().getSharedPreferences(str, 0);
+            this.mSp = com.baidu.swan.apps.u.a.DB().getSharedPreferences(str, 0);
         }
     }
 
@@ -75,7 +76,7 @@ public class e implements SharedPreferences {
     }
 
     public void putString(String str, String str2) {
-        aF(str, str2);
+        aI(str, str2);
         this.mSp.edit().putString(str, str2).apply();
     }
 
@@ -104,7 +105,7 @@ public class e implements SharedPreferences {
         this.mSp.edit().remove(str).apply();
     }
 
-    private void aF(String str, String str2) {
+    private void aI(String str, String str2) {
         if (str2 == null || str2.length() <= 256) {
         }
     }
@@ -112,7 +113,7 @@ public class e implements SharedPreferences {
     private void b(String str, Set<String> set) {
         if (set != null) {
             for (String str2 : set) {
-                aF(str, str2);
+                aI(str, str2);
             }
         }
     }

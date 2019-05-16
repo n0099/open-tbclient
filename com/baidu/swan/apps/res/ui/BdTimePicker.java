@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.res.ui.wheelview.BdAdapterView;
 import com.baidu.swan.apps.res.ui.wheelview.BdGallery;
 import com.baidu.swan.apps.res.ui.wheelview.WheelView;
@@ -21,21 +21,21 @@ import java.util.Calendar;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class BdTimePicker extends LinearLayout {
-    private int MG;
-    private boolean aFI;
-    private int aFJ;
-    private int aFZ;
-    private Date aFy;
-    private Date aFz;
-    private WheelView aGa;
-    private WheelView aGb;
-    private a aGc;
-    private LinearLayout aGd;
-    private int aGe;
-    private int aGf;
-    private int aGg;
-    private int aGh;
-    private BdAdapterView.f aGi;
+    private int Kr;
+    private boolean aHB;
+    private int aHC;
+    private int aHS;
+    private WheelView aHT;
+    private WheelView aHU;
+    private a aHV;
+    private LinearLayout aHW;
+    private int aHX;
+    private int aHY;
+    private int aHZ;
+    private Date aHr;
+    private Date aHs;
+    private int aIa;
+    private BdAdapterView.f aIb;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -44,22 +44,22 @@ public class BdTimePicker extends LinearLayout {
 
     public BdTimePicker(Context context) {
         super(context);
-        this.aFZ = 0;
-        this.MG = 0;
-        this.aFJ = 12;
-        this.aGi = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
+        this.aHS = 0;
+        this.Kr = 0;
+        this.aHC = 12;
+        this.aIb = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdAdapterView.f
             public void a(BdAdapterView<?> bdAdapterView, View view, int i, long j) {
-                if (bdAdapterView != BdTimePicker.this.aGa) {
-                    if (bdAdapterView == BdTimePicker.this.aGb) {
-                        BdTimePicker.this.MG = BdTimePicker.this.aGg + i;
+                if (bdAdapterView != BdTimePicker.this.aHT) {
+                    if (bdAdapterView == BdTimePicker.this.aHU) {
+                        BdTimePicker.this.Kr = BdTimePicker.this.aHZ + i;
                     }
                 } else {
-                    BdTimePicker.this.aFZ = BdTimePicker.this.aGe + i;
-                    BdTimePicker.this.GR();
+                    BdTimePicker.this.aHS = BdTimePicker.this.aHX + i;
+                    BdTimePicker.this.Jh();
                 }
-                if (BdTimePicker.this.aGc != null) {
-                    BdTimePicker.this.aGc.a(BdTimePicker.this, BdTimePicker.this.aFZ, BdTimePicker.this.MG);
+                if (BdTimePicker.this.aHV != null) {
+                    BdTimePicker.this.aHV.a(BdTimePicker.this, BdTimePicker.this.aHS, BdTimePicker.this.Kr);
                 }
             }
 
@@ -72,22 +72,22 @@ public class BdTimePicker extends LinearLayout {
 
     public BdTimePicker(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFZ = 0;
-        this.MG = 0;
-        this.aFJ = 12;
-        this.aGi = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
+        this.aHS = 0;
+        this.Kr = 0;
+        this.aHC = 12;
+        this.aIb = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdAdapterView.f
             public void a(BdAdapterView<?> bdAdapterView, View view, int i, long j) {
-                if (bdAdapterView != BdTimePicker.this.aGa) {
-                    if (bdAdapterView == BdTimePicker.this.aGb) {
-                        BdTimePicker.this.MG = BdTimePicker.this.aGg + i;
+                if (bdAdapterView != BdTimePicker.this.aHT) {
+                    if (bdAdapterView == BdTimePicker.this.aHU) {
+                        BdTimePicker.this.Kr = BdTimePicker.this.aHZ + i;
                     }
                 } else {
-                    BdTimePicker.this.aFZ = BdTimePicker.this.aGe + i;
-                    BdTimePicker.this.GR();
+                    BdTimePicker.this.aHS = BdTimePicker.this.aHX + i;
+                    BdTimePicker.this.Jh();
                 }
-                if (BdTimePicker.this.aGc != null) {
-                    BdTimePicker.this.aGc.a(BdTimePicker.this, BdTimePicker.this.aFZ, BdTimePicker.this.MG);
+                if (BdTimePicker.this.aHV != null) {
+                    BdTimePicker.this.aHV.a(BdTimePicker.this, BdTimePicker.this.aHS, BdTimePicker.this.Kr);
                 }
             }
 
@@ -102,22 +102,22 @@ public class BdTimePicker extends LinearLayout {
     @TargetApi(11)
     public BdTimePicker(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aFZ = 0;
-        this.MG = 0;
-        this.aFJ = 12;
-        this.aGi = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
+        this.aHS = 0;
+        this.Kr = 0;
+        this.aHC = 12;
+        this.aIb = new BdAdapterView.f() { // from class: com.baidu.swan.apps.res.ui.BdTimePicker.1
             @Override // com.baidu.swan.apps.res.ui.wheelview.BdAdapterView.f
             public void a(BdAdapterView<?> bdAdapterView, View view, int i2, long j) {
-                if (bdAdapterView != BdTimePicker.this.aGa) {
-                    if (bdAdapterView == BdTimePicker.this.aGb) {
-                        BdTimePicker.this.MG = BdTimePicker.this.aGg + i2;
+                if (bdAdapterView != BdTimePicker.this.aHT) {
+                    if (bdAdapterView == BdTimePicker.this.aHU) {
+                        BdTimePicker.this.Kr = BdTimePicker.this.aHZ + i2;
                     }
                 } else {
-                    BdTimePicker.this.aFZ = BdTimePicker.this.aGe + i2;
-                    BdTimePicker.this.GR();
+                    BdTimePicker.this.aHS = BdTimePicker.this.aHX + i2;
+                    BdTimePicker.this.Jh();
                 }
-                if (BdTimePicker.this.aGc != null) {
-                    BdTimePicker.this.aGc.a(BdTimePicker.this, BdTimePicker.this.aFZ, BdTimePicker.this.MG);
+                if (BdTimePicker.this.aHV != null) {
+                    BdTimePicker.this.aHV.a(BdTimePicker.this, BdTimePicker.this.aHS, BdTimePicker.this.Kr);
                 }
             }
 
@@ -131,158 +131,158 @@ public class BdTimePicker extends LinearLayout {
     private void init(Context context) {
         setOrientation(0);
         LayoutInflater.from(context).inflate(a.g.aiapps_timepicker_layout, this);
-        this.aFJ = x.dip2px(context, this.aFJ);
-        this.aGd = (LinearLayout) findViewById(a.f.timepicker_root);
-        this.aGa = (WheelView) findViewById(a.f.wheel_hour);
-        this.aGa.setOnItemSelectedListener(this.aGi);
-        this.aGa.setAdapter((SpinnerAdapter) new b(context));
-        this.aGa.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
-        this.aGa.setSpacing(this.aFJ);
-        this.aGb = (WheelView) findViewById(a.f.wheel_minute);
-        this.aGb.setOnItemSelectedListener(this.aGi);
-        this.aGb.setAdapter((SpinnerAdapter) new b(context));
-        this.aGb.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
-        this.aGb.setSpacing(this.aFJ);
-        GK();
+        this.aHC = z.dip2px(context, this.aHC);
+        this.aHW = (LinearLayout) findViewById(a.f.timepicker_root);
+        this.aHT = (WheelView) findViewById(a.f.wheel_hour);
+        this.aHT.setOnItemSelectedListener(this.aIb);
+        this.aHT.setAdapter((SpinnerAdapter) new b(context));
+        this.aHT.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
+        this.aHT.setSpacing(this.aHC);
+        this.aHU = (WheelView) findViewById(a.f.wheel_minute);
+        this.aHU.setOnItemSelectedListener(this.aIb);
+        this.aHU.setAdapter((SpinnerAdapter) new b(context));
+        this.aHU.setSelectorDrawable(getResources().getDrawable(a.c.aiapps_transparent));
+        this.aHU.setSpacing(this.aHC);
+        Ja();
     }
 
-    private void GK() {
+    private void Ja() {
         Calendar calendar = Calendar.getInstance();
-        this.aFZ = calendar.get(11);
-        this.MG = calendar.get(12);
-        GL();
+        this.aHS = calendar.get(11);
+        this.Kr = calendar.get(12);
+        Jb();
     }
 
-    public void GL() {
-        GS();
-        GR();
+    public void Jb() {
+        Ji();
+        Jh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void GR() {
-        this.aGg = 0;
-        this.aGh = 59;
-        if (this.aFy != null && this.aFZ == this.aGe) {
-            this.aGg = this.aFy.getMinutes();
+    public void Jh() {
+        this.aHZ = 0;
+        this.aIa = 59;
+        if (this.aHr != null && this.aHS == this.aHX) {
+            this.aHZ = this.aHr.getMinutes();
         }
-        if (this.aFz != null && this.aFZ == this.aGf) {
-            this.aGh = this.aFz.getMinutes();
+        if (this.aHs != null && this.aHS == this.aHY) {
+            this.aIa = this.aHs.getMinutes();
         }
-        ArrayList<String> arrayList = new ArrayList<>((this.aGh - this.aGg) + 1);
-        for (int i = this.aGg; i <= this.aGh; i++) {
+        ArrayList<String> arrayList = new ArrayList<>((this.aIa - this.aHZ) + 1);
+        for (int i = this.aHZ; i <= this.aIa; i++) {
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
         }
-        ((b) this.aGb.getAdapter()).setData(arrayList);
-        setMinute(this.MG);
+        ((b) this.aHU.getAdapter()).setData(arrayList);
+        setMinute(this.Kr);
     }
 
-    private void GS() {
-        this.aGe = 0;
-        this.aGf = 23;
-        if (this.aFy != null) {
-            this.aGe = this.aFy.getHours();
+    private void Ji() {
+        this.aHX = 0;
+        this.aHY = 23;
+        if (this.aHr != null) {
+            this.aHX = this.aHr.getHours();
         }
-        if (this.aFz != null) {
-            this.aGf = this.aFz.getHours();
+        if (this.aHs != null) {
+            this.aHY = this.aHs.getHours();
         }
-        ArrayList<String> arrayList = new ArrayList<>((this.aGf - this.aGe) + 1);
-        for (int i = this.aGe; i <= this.aGf; i++) {
+        ArrayList<String> arrayList = new ArrayList<>((this.aHY - this.aHX) + 1);
+        for (int i = this.aHX; i <= this.aHY; i++) {
             arrayList.add(String.format("%02d", Integer.valueOf(i)));
         }
-        ((b) this.aGa.getAdapter()).setData(arrayList);
-        setHour(this.aFZ);
+        ((b) this.aHT.getAdapter()).setData(arrayList);
+        setHour(this.aHS);
     }
 
     public void setStartDate(Date date) {
-        this.aFy = date;
+        this.aHr = date;
     }
 
     public void setmEndDate(Date date) {
-        this.aFz = date;
+        this.aHs = date;
     }
 
     public void setDisabled(boolean z) {
-        this.aFI = z;
-        this.aGa.setDisableScrollAnyway(z);
-        this.aGb.setDisableScrollAnyway(z);
+        this.aHB = z;
+        this.aHT.setDisableScrollAnyway(z);
+        this.aHU.setDisableScrollAnyway(z);
     }
 
     public void setOnTimeChangeListener(a aVar) {
-        this.aGc = aVar;
+        this.aHV = aVar;
     }
 
     public void setHour(int i) {
-        if (i < this.aGe) {
-            i = this.aGe;
-        } else if (i > this.aGf) {
-            i = this.aGf;
+        if (i < this.aHX) {
+            i = this.aHX;
+        } else if (i > this.aHY) {
+            i = this.aHY;
         }
-        this.aFZ = i;
-        this.aGa.setSelection(i - this.aGe);
+        this.aHS = i;
+        this.aHT.setSelection(i - this.aHX);
     }
 
     public int getHour() {
-        return this.aFZ;
+        return this.aHS;
     }
 
     public void setMinute(int i) {
-        if (i < this.aGg) {
-            i = this.aGg;
-        } else if (i > this.aGh) {
-            i = this.aGh;
+        if (i < this.aHZ) {
+            i = this.aHZ;
+        } else if (i > this.aIa) {
+            i = this.aIa;
         }
-        this.MG = i;
-        this.aGb.setSelection(i - this.aGg);
+        this.Kr = i;
+        this.aHU.setSelection(i - this.aHZ);
     }
 
     public int getMinute() {
-        return this.MG;
+        return this.Kr;
     }
 
     public void setHourAdapter(SpinnerAdapter spinnerAdapter) {
-        this.aGa.setAdapter(spinnerAdapter);
+        this.aHT.setAdapter(spinnerAdapter);
     }
 
     public void setMinuteAdapter(SpinnerAdapter spinnerAdapter) {
-        this.aGb.setAdapter(spinnerAdapter);
+        this.aHU.setAdapter(spinnerAdapter);
     }
 
     public void setScrollCycle(boolean z) {
-        this.aGb.setScrollCycle(z);
-        this.aGa.setScrollCycle(z);
+        this.aHU.setScrollCycle(z);
+        this.aHT.setScrollCycle(z);
     }
 
     /* loaded from: classes2.dex */
     public static class b extends BaseAdapter {
         private Context mContext;
         private int mHeight;
-        private ArrayList<String> aFM = null;
+        private ArrayList<String> aHF = null;
         private int mWidth = -1;
 
         public b(Context context) {
             this.mHeight = -2;
             this.mContext = null;
             this.mContext = context;
-            this.mHeight = x.dip2px(context, this.mHeight);
+            this.mHeight = z.dip2px(context, this.mHeight);
         }
 
         public void setData(ArrayList<String> arrayList) {
-            this.aFM = arrayList;
+            this.aHF = arrayList;
             notifyDataSetChanged();
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            if (this.aFM != null) {
-                return this.aFM.size();
+            if (this.aHF != null) {
+                return this.aHF.size();
             }
             return 0;
         }
 
         @Override // android.widget.Adapter
         public Object getItem(int i) {
-            if (this.aFM != null) {
-                return this.aFM.get(i);
+            if (this.aHF != null) {
+                return this.aHF.get(i);
             }
             return null;
         }
@@ -313,7 +313,7 @@ public class BdTimePicker extends LinearLayout {
         }
 
         protected void b(int i, View view) {
-            ((TextView) view).setText(this.aFM.get(i));
+            ((TextView) view).setText(this.aHF.get(i));
         }
     }
 }

@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.gif.GifView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BannerGifView extends RelativeLayout {
-    private String byn;
-    private GifView cck;
-    private ImageView ccl;
-    private boolean ccm;
-    private com.baidu.tbadk.h.a ccn;
-    private com.baidu.tbadk.h.b cco;
-    private final com.baidu.tbadk.h.b ccp;
+    private String bFy;
+    private GifView ckp;
+    private ImageView ckq;
+    private boolean ckr;
+    private com.baidu.tbadk.h.c cks;
+    private com.baidu.tbadk.h.d ckt;
+    private final com.baidu.tbadk.h.d cku;
     private View mMaskView;
     private final View.OnClickListener mOnClickListener;
     private String mPicUrl;
@@ -30,12 +30,12 @@ public class BannerGifView extends RelativeLayout {
     public BannerGifView(Context context) {
         super(context);
         this.mRatio = 5.744f;
-        this.ccm = false;
-        this.ccp = new com.baidu.tbadk.h.b() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
-            @Override // com.baidu.tbadk.h.b
-            public boolean ay(View view) {
-                if (BannerGifView.this.cco == null || !BannerGifView.this.cco.ay(view)) {
-                    BannerGifView.this.ajV();
+        this.ckr = false;
+        this.cku = new com.baidu.tbadk.h.d() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.1
+            @Override // com.baidu.tbadk.h.d
+            public boolean aE(View view) {
+                if (BannerGifView.this.ckt == null || !BannerGifView.this.ckt.aE(view)) {
+                    BannerGifView.this.aoW();
                 }
                 return true;
             }
@@ -43,7 +43,7 @@ public class BannerGifView extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.BannerGifView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == BannerGifView.this.ccl) {
+                if (view == BannerGifView.this.ckq) {
                     BannerGifView.this.setCloseVisibility(false);
                 }
             }
@@ -52,15 +52,15 @@ public class BannerGifView extends RelativeLayout {
     }
 
     private void initUI() {
-        View inflate = LayoutInflater.from(getContext()).inflate(d.h.gif_banner_view, this);
-        this.ccl = (ImageView) inflate.findViewById(d.g.btn_close);
-        this.mMaskView = inflate.findViewById(d.g.image_mask);
-        this.cck = (GifView) inflate.findViewById(d.g.image_gif);
-        this.cck.setShowStaticDrawable(false);
-        this.cck.setSupportNoImage(false);
-        this.cck.setAutoPlay(true);
-        this.ccl.setOnClickListener(this.mOnClickListener);
-        this.cck.setOnInterceptClickListener(this.ccp);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
+        this.ckq = (ImageView) inflate.findViewById(R.id.btn_close);
+        this.mMaskView = inflate.findViewById(R.id.image_mask);
+        this.ckp = (GifView) inflate.findViewById(R.id.image_gif);
+        this.ckp.setShowStaticDrawable(false);
+        this.ckp.setSupportNoImage(false);
+        this.ckp.setAutoPlay(true);
+        this.ckq.setOnClickListener(this.mOnClickListener);
+        this.ckp.setOnInterceptClickListener(this.cku);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -69,7 +69,7 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public GifView getGifView() {
-        return this.cck;
+        return this.ckp;
     }
 
     public void setRatio(float f) {
@@ -78,45 +78,45 @@ public class BannerGifView extends RelativeLayout {
     }
 
     public void setErrorResid(int i) {
-        this.cck.setErrorResid(i);
+        this.ckp.setErrorResid(i);
     }
 
     public void setDefaultResid(int i) {
-        al.c(this.cck, i);
+        al.c(this.ckp, i);
     }
 
     public void setNeedNightMask(boolean z) {
-        this.ccm = z;
-        iX(TbadkCoreApplication.getInst().getSkinType());
+        this.ckr = z;
+        jL(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setCloseVisibility(boolean z) {
-        this.ccl.setVisibility(z ? 0 : 8);
+        this.ckq.setVisibility(z ? 0 : 8);
     }
 
-    public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
-        this.ccn = aVar;
+    public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
+        this.cks = cVar;
     }
 
-    public void setOnClickEventListener(com.baidu.tbadk.h.b bVar) {
-        this.cco = bVar;
+    public void setOnClickEventListener(com.baidu.tbadk.h.d dVar) {
+        this.ckt = dVar;
     }
 
     public void onChangeSkinType(int i) {
-        al.f(this.mMaskView, d.C0277d.black_alpha30, i);
-        iX(i);
+        al.h(this.mMaskView, R.color.black_alpha30, i);
+        jL(i);
     }
 
-    private void iX(int i) {
+    private void jL(int i) {
         int i2 = 0;
-        this.mMaskView.setVisibility((this.ccm && (i == 1)) ? 8 : 8);
+        this.mMaskView.setVisibility((this.ckr && (i == 1)) ? 8 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ajV() {
+    public void aoW() {
         try {
-            if (!TextUtils.isEmpty(this.byn)) {
-                ba.adA().c((TbPageContext) i.aK(getContext()), new String[]{this.byn});
+            if (!TextUtils.isEmpty(this.bFy)) {
+                ba.aiz().c((TbPageContext) i.ab(getContext()), new String[]{this.bFy});
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,8 +138,8 @@ public class BannerGifView extends RelativeLayout {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.ccn != null) {
-            this.ccn.a(this, i == 0, this.mPicUrl);
+        if (this.cks != null) {
+            this.cks.a(this, i == 0, this.mPicUrl);
         }
     }
 }

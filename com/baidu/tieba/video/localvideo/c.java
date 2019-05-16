@@ -21,153 +21,153 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.v;
+import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.BlurDrawable;
-import com.baidu.tieba.d;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.video.commonview.ExpandGridView;
 import com.baidu.tieba.video.commonview.ExpandViewRelativeLayout;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class c extends com.baidu.adp.base.c {
-    private TextView fli;
-    private RelativeLayout hEl;
-    private ExpandGridView iZD;
-    private a iZE;
-    private CustomVideoView iZF;
-    private TextView iZG;
-    private String iZH;
-    private ImageView iZI;
-    private ExpandViewRelativeLayout iZJ;
-    private FrameLayout iZK;
-    private int iZL;
-    private int iZM;
-    private int iZN;
-    private int iZO;
-    private int iZP;
-    private d iZQ;
-    private List<d> iZR;
-    private boolean iZS;
-    private boolean iZT;
-    private LocalVideoActivity iZz;
+    private TextView fBD;
+    private RelativeLayout hWl;
+    private CustomVideoView jsA;
+    private TextView jsB;
+    private String jsC;
+    private ImageView jsD;
+    private ExpandViewRelativeLayout jsE;
+    private FrameLayout jsF;
+    private int jsG;
+    private int jsH;
+    private int jsI;
+    private int jsJ;
+    private int jsK;
+    private d jsL;
+    private List<d> jsM;
+    private boolean jsN;
+    private boolean jsO;
+    private LocalVideoActivity jsu;
+    private ExpandGridView jsy;
+    private a jsz;
 
     public c(LocalVideoActivity localVideoActivity, View.OnClickListener onClickListener) {
         super(localVideoActivity.getPageContext());
-        this.iZS = false;
-        this.iZT = true;
-        this.iZz = localVideoActivity;
-        this.iZJ = (ExpandViewRelativeLayout) this.iZz.findViewById(d.g.container);
-        this.iZD = (ExpandGridView) this.iZz.findViewById(d.g.local_video_gridview);
-        this.hEl = (RelativeLayout) this.iZz.findViewById(d.g.preview_videoview_container);
-        this.iZI = (ImageView) this.iZz.findViewById(d.g.video_cover);
-        this.iZK = (FrameLayout) this.iZz.findViewById(d.g.top_container);
-        this.iZF = (CustomVideoView) this.iZz.findViewById(d.g.preview_videoview);
-        this.iZF.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.localvideo.c.1
+        this.jsN = false;
+        this.jsO = true;
+        this.jsu = localVideoActivity;
+        this.jsE = (ExpandViewRelativeLayout) this.jsu.findViewById(R.id.container);
+        this.jsy = (ExpandGridView) this.jsu.findViewById(R.id.local_video_gridview);
+        this.hWl = (RelativeLayout) this.jsu.findViewById(R.id.preview_videoview_container);
+        this.jsD = (ImageView) this.jsu.findViewById(R.id.video_cover);
+        this.jsF = (FrameLayout) this.jsu.findViewById(R.id.top_container);
+        this.jsA = (CustomVideoView) this.jsu.findViewById(R.id.preview_videoview);
+        this.jsA.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.localvideo.c.1
             @Override // android.media.MediaPlayer.OnPreparedListener
             public void onPrepared(MediaPlayer mediaPlayer) {
                 mediaPlayer.setLooping(true);
-                c.this.cu(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
+                c.this.cB(mediaPlayer.getVideoWidth(), mediaPlayer.getVideoHeight());
             }
         });
-        this.iZF.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.localvideo.c.2
+        this.jsA.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.video.localvideo.c.2
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                c.this.iZS = true;
-                c.this.iZF.stopPlayback();
+                c.this.jsN = true;
+                c.this.jsA.stopPlayback();
                 return false;
             }
         });
-        this.fli = (TextView) this.iZz.findViewById(d.g.close_btn);
-        this.iZG = (TextView) this.iZz.findViewById(d.g.next_step_btn);
-        this.iZG.setOnClickListener(onClickListener);
-        this.fli.setOnClickListener(onClickListener);
-        this.iZE = new a(this.iZz);
-        this.iZD.setAdapter((ListAdapter) this.iZE);
-        this.iZD.setSelector(new ColorDrawable(0));
-        this.iZD.setVerticalScrollBarEnabled(false);
-        this.iZD.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.localvideo.c.3
+        this.fBD = (TextView) this.jsu.findViewById(R.id.close_btn);
+        this.jsB = (TextView) this.jsu.findViewById(R.id.next_step_btn);
+        this.jsB.setOnClickListener(onClickListener);
+        this.fBD.setOnClickListener(onClickListener);
+        this.jsz = new a(this.jsu);
+        this.jsy.setAdapter((ListAdapter) this.jsz);
+        this.jsy.setSelector(new ColorDrawable(0));
+        this.jsy.setVerticalScrollBarEnabled(false);
+        this.jsy.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.localvideo.c.3
             /* JADX WARN: Type inference failed for: r0v1, types: [android.widget.Adapter] */
             /* JADX WARN: Type inference failed for: r0v13, types: [android.widget.Adapter] */
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (adapterView != null && adapterView.getAdapter() != null && (adapterView.getAdapter().getItem(i) instanceof d)) {
-                    c.this.iZS = false;
-                    c.this.iZJ.setIsCanLayout(true);
-                    c.this.hEl.layout(c.this.hEl.getLeft(), 0, c.this.hEl.getRight(), c.this.iZO);
-                    c.this.iZD.layout(c.this.iZD.getLeft(), c.this.iZO, c.this.iZD.getRight(), c.this.iZD.getBottom());
-                    c.this.iZK.layout(c.this.iZK.getTop(), c.this.iZK.getLeft(), c.this.iZK.getRight(), c.this.iZK.getBottom());
+                    c.this.jsN = false;
+                    c.this.jsE.setIsCanLayout(true);
+                    c.this.hWl.layout(c.this.hWl.getLeft(), 0, c.this.hWl.getRight(), c.this.jsJ);
+                    c.this.jsy.layout(c.this.jsy.getLeft(), c.this.jsJ, c.this.jsy.getRight(), c.this.jsy.getBottom());
+                    c.this.jsF.layout(c.this.jsF.getTop(), c.this.jsF.getLeft(), c.this.jsF.getRight(), c.this.jsF.getBottom());
                     d dVar = (d) adapterView.getAdapter().getItem(i);
-                    if (!StringUtils.isNull(dVar.getVideoPath()) && !dVar.getVideoPath().equals(c.this.iZH) && c.this.iZF != null) {
-                        c.this.iZF.setVisibility(8);
-                        c.this.iZF.stopPlayback();
-                        c.this.iZF.setVideoPath(dVar.getVideoPath());
-                        c.this.iZF.setVisibility(0);
-                        c.this.iZH = dVar.getVideoPath();
-                        c.this.iZQ = dVar;
-                        if (c.this.iZI != null) {
-                            c.this.iZI.setVisibility(8);
-                            BlurDrawable blurDrawable = new BlurDrawable(c.this.iZz);
+                    if (!StringUtils.isNull(dVar.getVideoPath()) && !dVar.getVideoPath().equals(c.this.jsC) && c.this.jsA != null) {
+                        c.this.jsA.setVisibility(8);
+                        c.this.jsA.stopPlayback();
+                        c.this.jsA.setVideoPath(dVar.getVideoPath());
+                        c.this.jsA.setVisibility(0);
+                        c.this.jsC = dVar.getVideoPath();
+                        c.this.jsL = dVar;
+                        if (c.this.jsD != null) {
+                            c.this.jsD.setVisibility(8);
+                            BlurDrawable blurDrawable = new BlurDrawable(c.this.jsu);
                             blurDrawable.init(12, 8, dVar.getThumbnailBitmap());
                             if (blurDrawable != null && blurDrawable.getBlurredBitmap() == null && blurDrawable.drawBlur()) {
-                                c.this.iZI.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
+                                c.this.jsD.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
                             }
                         }
-                        c.this.iZF.start();
+                        c.this.jsA.start();
                     }
                 }
             }
         });
-        this.iZJ.setScrollCallBack(new ExpandViewRelativeLayout.a() { // from class: com.baidu.tieba.video.localvideo.c.4
+        this.jsE.setScrollCallBack(new ExpandViewRelativeLayout.a() { // from class: com.baidu.tieba.video.localvideo.c.4
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
-            public void aO(float f) {
-                c.this.iZL = c.this.iZD.getTop();
-                c.this.iZM = c.this.hEl.getTop();
-                c.this.iZN = c.this.iZJ.getHeight();
+            public void aS(float f) {
+                c.this.jsG = c.this.jsy.getTop();
+                c.this.jsH = c.this.hWl.getTop();
+                c.this.jsI = c.this.jsE.getHeight();
             }
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
             public void d(float f, float f2, int i) {
-                c.this.iZJ.setIsCanLayout(false);
-                int i2 = (int) (c.this.iZL + f2);
-                int i3 = i == 1 ? (int) (c.this.iZM + f2) : (int) (c.this.iZM + (f2 * 0.3d));
-                if (i2 >= c.this.iZK.getBottom() && i2 <= l.h(c.this.iZz, d.e.ds902)) {
-                    c.this.hEl.layout(c.this.hEl.getLeft(), i3, c.this.hEl.getRight(), c.this.iZO + i3);
-                    c.this.iZD.layout(c.this.iZD.getLeft(), i2, c.this.iZD.getRight(), c.this.iZD.getBottom());
-                    if (i2 <= l.h(c.this.iZz, d.e.ds400)) {
-                        c.this.iZT = false;
-                        c.this.iZF.pause();
+                c.this.jsE.setIsCanLayout(false);
+                int i2 = (int) (c.this.jsG + f2);
+                int i3 = i == 1 ? (int) (c.this.jsH + f2) : (int) (c.this.jsH + (f2 * 0.3d));
+                if (i2 >= c.this.jsF.getBottom() && i2 <= l.g(c.this.jsu, R.dimen.ds902)) {
+                    c.this.hWl.layout(c.this.hWl.getLeft(), i3, c.this.hWl.getRight(), c.this.jsJ + i3);
+                    c.this.jsy.layout(c.this.jsy.getLeft(), i2, c.this.jsy.getRight(), c.this.jsy.getBottom());
+                    if (i2 <= l.g(c.this.jsu, R.dimen.ds400)) {
+                        c.this.jsO = false;
+                        c.this.jsA.pause();
                     } else {
-                        c.this.iZT = true;
-                        c.this.iZF.start();
+                        c.this.jsO = true;
+                        c.this.jsA.start();
                     }
-                    float h = (l.h(c.this.iZz, d.e.ds902) - i2) / l.h(c.this.iZz, d.e.ds902);
-                    if (h == 0.0f) {
-                        c.this.iZI.setVisibility(8);
+                    float g = (l.g(c.this.jsu, R.dimen.ds902) - i2) / l.g(c.this.jsu, R.dimen.ds902);
+                    if (g == 0.0f) {
+                        c.this.jsD.setVisibility(8);
                         return;
                     }
-                    c.this.iZI.setVisibility(0);
-                    c.this.iZI.setAlpha(h);
+                    c.this.jsD.setVisibility(0);
+                    c.this.jsD.setAlpha(g);
                 }
             }
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
-            public void cjg() {
-                if (c.this.iZD.getTop() > c.this.iZN / 2) {
-                    c.this.iZT = true;
-                    c.this.iZF.start();
-                    c.this.iZI.setVisibility(8);
-                    ValueAnimator ofInt = ValueAnimator.ofInt(c.this.hEl.getBottom(), c.this.iZO);
+            public void crj() {
+                if (c.this.jsy.getTop() > c.this.jsI / 2) {
+                    c.this.jsO = true;
+                    c.this.jsA.start();
+                    c.this.jsD.setVisibility(8);
+                    ValueAnimator ofInt = ValueAnimator.ofInt(c.this.hWl.getBottom(), c.this.jsJ);
                     ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.video.localvideo.c.4.1
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            c.this.hEl.layout(c.this.hEl.getLeft(), 0, c.this.hEl.getRight(), ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                            c.this.hWl.layout(c.this.hWl.getLeft(), 0, c.this.hWl.getRight(), ((Integer) valueAnimator.getAnimatedValue()).intValue());
                         }
                     });
                     ofInt.setDuration(100L);
-                    ValueAnimator ofInt2 = ValueAnimator.ofInt(c.this.iZD.getTop(), c.this.iZO);
+                    ValueAnimator ofInt2 = ValueAnimator.ofInt(c.this.jsy.getTop(), c.this.jsJ);
                     ofInt2.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.video.localvideo.c.4.2
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            c.this.iZD.layout(c.this.iZD.getLeft(), ((Integer) valueAnimator.getAnimatedValue()).intValue(), c.this.iZD.getRight(), c.this.iZD.getBottom());
+                            c.this.jsy.layout(c.this.jsy.getLeft(), ((Integer) valueAnimator.getAnimatedValue()).intValue(), c.this.jsy.getRight(), c.this.jsy.getBottom());
                         }
                     });
                     ofInt2.setDuration(100L);
@@ -175,22 +175,22 @@ public class c extends com.baidu.adp.base.c {
                     ofInt2.start();
                     return;
                 }
-                c.this.iZT = false;
-                c.this.iZF.pause();
-                ValueAnimator ofInt3 = ValueAnimator.ofInt(c.this.hEl.getBottom(), l.h(c.this.iZz, d.e.ds134));
+                c.this.jsO = false;
+                c.this.jsA.pause();
+                ValueAnimator ofInt3 = ValueAnimator.ofInt(c.this.hWl.getBottom(), l.g(c.this.jsu, R.dimen.ds134));
                 ofInt3.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.video.localvideo.c.4.3
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
                         int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                        c.this.hEl.layout(c.this.hEl.getLeft(), intValue - c.this.iZO, c.this.hEl.getRight(), intValue);
+                        c.this.hWl.layout(c.this.hWl.getLeft(), intValue - c.this.jsJ, c.this.hWl.getRight(), intValue);
                     }
                 });
                 ofInt3.setDuration(100L);
-                ValueAnimator ofInt4 = ValueAnimator.ofInt(c.this.iZD.getTop(), l.h(c.this.iZz, d.e.ds134));
+                ValueAnimator ofInt4 = ValueAnimator.ofInt(c.this.jsy.getTop(), l.g(c.this.jsu, R.dimen.ds134));
                 ofInt4.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.video.localvideo.c.4.4
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        c.this.iZD.layout(c.this.iZD.getLeft(), ((Integer) valueAnimator.getAnimatedValue()).intValue(), c.this.iZD.getRight(), c.this.iZD.getBottom());
+                        c.this.jsy.layout(c.this.jsy.getLeft(), ((Integer) valueAnimator.getAnimatedValue()).intValue(), c.this.jsy.getRight(), c.this.jsy.getBottom());
                     }
                 });
                 ofInt4.setDuration(100L);
@@ -200,141 +200,141 @@ public class c extends com.baidu.adp.base.c {
 
             @Override // com.baidu.tieba.video.commonview.ExpandViewRelativeLayout.a
             public boolean e(float f, float f2, int i) {
-                if (i != 1 || c.this.iZD.getTop() > c.this.iZK.getBottom() || c.this.iZD.getFirstVisiblePosition() != 0 || c.this.iZD.getChildCount() <= 0 || c.this.iZD.getChildAt(0).getTop() < 0) {
-                    if (c.this.iZD.getTop() <= c.this.iZK.getBottom()) {
+                if (i != 1 || c.this.jsy.getTop() > c.this.jsF.getBottom() || c.this.jsy.getFirstVisiblePosition() != 0 || c.this.jsy.getChildCount() <= 0 || c.this.jsy.getChildAt(0).getTop() < 0) {
+                    if (c.this.jsy.getTop() <= c.this.jsF.getBottom()) {
                         return false;
                     }
-                    return f2 > ((float) (c.this.iZO - l.h(c.this.iZz, d.e.ds20))) && f2 < ((float) (c.this.iZO + l.h(c.this.iZz, d.e.ds20)));
+                    return f2 > ((float) (c.this.jsJ - l.g(c.this.jsu, R.dimen.ds20))) && f2 < ((float) (c.this.jsJ + l.g(c.this.jsu, R.dimen.ds20)));
                 }
                 return true;
             }
         });
-        this.iZO = l.h(this.iZz, d.e.ds902);
+        this.jsJ = l.g(this.jsu, R.dimen.ds902);
     }
 
-    public boolean cks() {
-        return this.iZS;
+    public boolean csv() {
+        return this.jsN;
     }
 
-    public void ef(List<d> list) {
-        if (!v.T(list)) {
-            this.iZR = list;
+    public void ep(List<d> list) {
+        if (!v.aa(list)) {
+            this.jsM = list;
             d dVar = list.get(0);
-            if (this.iZF != null) {
-                this.iZF.setVideoPath(dVar.getVideoPath());
-                this.iZH = dVar.getVideoPath();
-                this.iZQ = dVar;
-                if (this.iZI != null) {
-                    BlurDrawable blurDrawable = new BlurDrawable(this.iZz);
+            if (this.jsA != null) {
+                this.jsA.setVideoPath(dVar.getVideoPath());
+                this.jsC = dVar.getVideoPath();
+                this.jsL = dVar;
+                if (this.jsD != null) {
+                    BlurDrawable blurDrawable = new BlurDrawable(this.jsu);
                     blurDrawable.init(12, 8, dVar.getThumbnailBitmap());
                     if (blurDrawable != null && blurDrawable.getBlurredBitmap() == null && blurDrawable.drawBlur()) {
-                        this.iZI.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
+                        this.jsD.setBackgroundDrawable(new BitmapDrawable(blurDrawable.getBlurredBitmap()));
                     }
                 }
-                this.iZF.start();
+                this.jsA.start();
             }
-            if (this.iZE != null) {
-                this.iZE.setData(list);
-                ckA();
+            if (this.jsz != null) {
+                this.jsz.setData(list);
+                csD();
                 return;
             }
             return;
         }
-        l.showToast(TbadkCoreApplication.getInst(), d.j.no_local_video_tip);
+        l.showToast(TbadkCoreApplication.getInst(), (int) R.string.no_local_video_tip);
     }
 
-    public void ckt() {
-        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.iZz).gB(d.j.mv_local_video_too_long).a(d.j.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.video.localvideo.c.5
+    public void csw() {
+        com.baidu.tbadk.core.dialog.a a = new com.baidu.tbadk.core.dialog.a(this.jsu).hn(R.string.mv_local_video_too_long).a(R.string.group_create_private_isee, new a.b() { // from class: com.baidu.tieba.video.localvideo.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                 aVar.dismiss();
             }
         });
-        a.b(this.iZz.getPageContext());
-        a.dr(false);
-        a.aaW();
+        a.b(this.jsu.getPageContext());
+        a.dN(false);
+        a.afG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cu(int i, int i2) {
+    public void cB(int i, int i2) {
         int i3;
         int i4 = 0;
         if (i2 <= 0) {
             i3 = 0;
-        } else if (i / i2 > l.aO(this.iZz) / l.h(this.iZz, d.e.ds902)) {
-            i3 = l.aO(this.iZz);
+        } else if (i / i2 > l.af(this.jsu) / l.g(this.jsu, R.dimen.ds902)) {
+            i3 = l.af(this.jsu);
             if (i > 0) {
                 i4 = (int) ((i3 / i) * i2);
             }
         } else {
-            int h = l.h(this.iZz, d.e.ds902);
+            int g = l.g(this.jsu, R.dimen.ds902);
             if (i2 > 0) {
-                i3 = (int) ((h / i2) * i);
-                i4 = h;
+                i3 = (int) ((g / i2) * i);
+                i4 = g;
             } else {
                 i3 = 0;
-                i4 = h;
+                i4 = g;
             }
         }
-        this.iZF.setVideoHeight(i4);
-        this.iZF.setVideoWidth(i3);
-        this.iZF.invalidate();
+        this.jsA.setVideoHeight(i4);
+        this.jsA.setVideoWidth(i3);
+        this.jsA.invalidate();
     }
 
-    public void DH(String str) {
-        if (this.iZE != null) {
-            this.iZE.DG(str);
+    public void Fd(String str) {
+        if (this.jsz != null) {
+            this.jsz.Fc(str);
         }
     }
 
-    public TextView cku() {
-        return this.fli;
+    public TextView csx() {
+        return this.fBD;
     }
 
-    public TextView ckv() {
-        return this.iZG;
+    public TextView csy() {
+        return this.jsB;
     }
 
-    public void ckw() {
-        if (this.iZF != null && !StringUtils.isNull(this.iZH)) {
-            this.iZF.start();
+    public void csz() {
+        if (this.jsA != null && !StringUtils.isNull(this.jsC)) {
+            this.jsA.start();
         }
     }
 
-    public void ckx() {
-        if (this.iZF != null && !StringUtils.isNull(this.iZH)) {
-            this.iZF.resume();
-            this.iZF.seekTo(this.iZP);
-            if (this.iZT) {
-                this.iZF.start();
+    public void csA() {
+        if (this.jsA != null && !StringUtils.isNull(this.jsC)) {
+            this.jsA.resume();
+            this.jsA.seekTo(this.jsK);
+            if (this.jsO) {
+                this.jsA.start();
             }
         }
     }
 
-    public void beJ() {
-        this.iZP = this.iZF.getCurrentPosition();
-        if (this.iZF != null) {
-            this.iZF.pause();
+    public void bmb() {
+        this.jsK = this.jsA.getCurrentPosition();
+        if (this.jsA != null) {
+            this.jsA.pause();
         }
     }
 
-    public void beK() {
-        this.iZP = this.iZF.getCurrentPosition();
-        if (this.iZF != null) {
-            this.iZF.stopPlayback();
+    public void bmc() {
+        this.jsK = this.jsA.getCurrentPosition();
+        if (this.jsA != null) {
+            this.jsA.stopPlayback();
         }
     }
 
-    public String cky() {
-        return this.iZH;
+    public String csB() {
+        return this.jsC;
     }
 
-    public d ckz() {
-        return this.iZQ;
+    public d csC() {
+        return this.jsL;
     }
 
-    private void ckA() {
-        if (!v.T(this.iZR)) {
+    private void csD() {
+        if (!v.aa(this.jsM)) {
             new BdAsyncTask<Void, Integer, Void>() { // from class: com.baidu.tieba.video.localvideo.c.6
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -350,16 +350,16 @@ public class c extends com.baidu.adp.base.c {
                     int i = 0;
                     while (true) {
                         int i2 = i;
-                        if (i2 >= c.this.iZR.size()) {
+                        if (i2 >= c.this.jsM.size()) {
                             return null;
                         }
-                        d dVar = (d) c.this.iZR.get(i2);
+                        d dVar = (d) c.this.jsM.get(i2);
                         String videoPath = dVar.getVideoPath();
                         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                         try {
                             mediaMetadataRetriever.setDataSource(videoPath);
                             if (mediaMetadataRetriever.extractMetadata(9) != null) {
-                                dVar.setDuration(com.baidu.adp.lib.g.b.l(extractMetadata, 0));
+                                dVar.setDuration(com.baidu.adp.lib.g.b.f(extractMetadata, 0));
                             }
                             dVar.setMimeType(mediaMetadataRetriever.extractMetadata(12));
                             String extractMetadata2 = mediaMetadataRetriever.extractMetadata(18);
@@ -376,7 +376,7 @@ public class c extends com.baidu.adp.base.c {
                                     if (frameAtTime.getWidth() > 0) {
                                         Matrix matrix = new Matrix();
                                         matrix.postScale(((float) BaseActivity.SHOW_SOFT_KEYBOARD_DELAY) / frameAtTime.getWidth(), ((int) ((150.0f * frameAtTime.getHeight()) / frameAtTime.getWidth())) / frameAtTime.getHeight());
-                                        dVar.L(Bitmap.createBitmap(frameAtTime, 0, 0, frameAtTime.getWidth(), frameAtTime.getHeight(), matrix, true));
+                                        dVar.M(Bitmap.createBitmap(frameAtTime, 0, 0, frameAtTime.getWidth(), frameAtTime.getHeight(), matrix, true));
                                     }
                                 } catch (Exception e) {
                                     bitmap = frameAtTime;
@@ -415,7 +415,7 @@ public class c extends com.baidu.adp.base.c {
                                     throw th;
                                 }
                             }
-                            dVar.qE(true);
+                            dVar.rt(true);
                             publishProgress(1);
                             if (frameAtTime != null) {
                                 try {
@@ -441,7 +441,7 @@ public class c extends com.baidu.adp.base.c {
                 /* renamed from: c */
                 public void onProgressUpdate(Integer... numArr) {
                     super.onProgressUpdate(numArr);
-                    c.this.iZE.notifyDataSetChanged();
+                    c.this.jsz.notifyDataSetChanged();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -449,7 +449,7 @@ public class c extends com.baidu.adp.base.c {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Void r2) {
                     super.onPostExecute((AnonymousClass6) r2);
-                    c.this.iZE.notifyDataSetChanged();
+                    c.this.jsz.notifyDataSetChanged();
                 }
             }.execute(new Void[0]);
         }

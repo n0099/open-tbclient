@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a bHn = null;
+    private static a bOM = null;
 
     public static void o(Context context, int i) {
-        if (bHn != null) {
-            bHn.o(context, i);
+        if (bOM != null) {
+            bOM.o(context, i);
+        }
+    }
+
+    public static void b(Context context, int i, boolean z) {
+        if (bOM != null) {
+            bOM.b(context, i, z);
+        }
+    }
+
+    public static void cr(Context context) {
+        if (bOM != null) {
+            bOM.cr(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (bHn != null) {
-            bHn.c(context, i, z);
+        if (bOM != null) {
+            bOM.c(context, i, z);
         }
     }
 
-    public static void cM(Context context) {
-        if (bHn != null) {
-            bHn.cM(context);
-        }
-    }
-
-    public static void d(Context context, int i, boolean z) {
-        if (bHn != null) {
-            bHn.d(context, i, z);
-        }
-    }
-
-    public static Class<?> abL() {
-        if (bHn == null) {
+    public static Class<?> agD() {
+        if (bOM == null) {
             return null;
         }
-        return bHn.abL();
+        return bOM.agD();
     }
 
-    public static String abM() {
-        if (bHn == null) {
+    public static String agE() {
+        if (bOM == null) {
             return null;
         }
-        return bHn.abM();
+        return bOM.agE();
     }
 
     public static void a(a aVar) {
-        bHn = aVar;
+        bOM = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (bHn == null) {
+        if (bOM == null) {
             return -1;
         }
-        return bHn.getCurrentTabType();
+        return bOM.getCurrentTabType();
     }
 }

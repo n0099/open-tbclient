@@ -28,7 +28,7 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public boolean r(Uri uri) {
+    public boolean x(Uri uri) {
         return this.mKey.contains(uri.toString());
     }
 

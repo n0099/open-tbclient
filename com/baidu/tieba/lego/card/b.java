@@ -10,28 +10,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b extends e {
-    private final List<e> gGj;
+    private final List<e> gXD;
 
     private b() {
-        this.gGj = new ArrayList(4);
+        this.gXD = new ArrayList(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        private static final b gGk = new b();
+        private static final b gXE = new b();
     }
 
-    public static b bzE() {
-        return a.gGk;
+    public static b bHo() {
+        return a.gXE;
     }
 
     public synchronized void a(e eVar) {
-        this.gGj.add(eVar);
+        this.gXD.add(eVar);
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void bzF() {
+    protected void bHp() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -45,7 +45,7 @@ public class b extends e {
     }
 
     private ICardInfo e(JSONObject jSONObject, int i) throws CardParseException {
-        for (e eVar : this.gGj) {
+        for (e eVar : this.gXD) {
             try {
                 ICardInfo d = eVar.d(jSONObject, i);
                 if (d != null) {
@@ -70,7 +70,7 @@ public class b extends e {
 
     private <T> com.baidu.tieba.lego.card.view.e b(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
         com.baidu.tieba.lego.card.view.e a2;
-        for (e eVar : this.gGj) {
+        for (e eVar : this.gXD) {
             try {
                 a2 = eVar.a(tbPageContext, iCardInfo, i);
             } catch (Throwable th) {
@@ -84,12 +84,12 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo xU(String str) {
+    public static ICardInfo zk(String str) {
         try {
-            ICardInfo bt = bt(new JSONObject(str));
-            if (bt != null) {
-                if (bt.isValid()) {
-                    return bt;
+            ICardInfo bF = bF(new JSONObject(str));
+            if (bF != null) {
+                if (bF.isValid()) {
+                    return bF;
                 }
             }
             return null;
@@ -102,15 +102,15 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo xV(String str) throws Exception {
-        ICardInfo bt = bt(new JSONObject(str));
-        if (bt == null || !bt.isValid()) {
+    public static ICardInfo zl(String str) throws Exception {
+        ICardInfo bF = bF(new JSONObject(str));
+        if (bF == null || !bF.isValid()) {
             return null;
         }
-        return bt;
+        return bF;
     }
 
-    public static ICardInfo bt(JSONObject jSONObject) throws CardParseException {
-        return bzE().d(jSONObject, jSONObject.optInt("card_type"));
+    public static ICardInfo bF(JSONObject jSONObject) throws CardParseException {
+        return bHo().d(jSONObject, jSONObject.optInt("card_type"));
     }
 }

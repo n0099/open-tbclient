@@ -60,27 +60,27 @@ public class NativeMemoryChunk implements Closeable {
         return this.mSize;
     }
 
-    public synchronized int c(int i, byte[] bArr, int i2, int i3) {
-        int cC;
-        com.facebook.common.internal.g.checkNotNull(bArr);
-        com.facebook.common.internal.g.checkState(!isClosed());
-        cC = cC(i, i3);
-        E(i, bArr.length, i2, cC);
-        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, cC);
-        return cC;
-    }
-
     public synchronized int d(int i, byte[] bArr, int i2, int i3) {
-        int cC;
+        int cJ;
         com.facebook.common.internal.g.checkNotNull(bArr);
         com.facebook.common.internal.g.checkState(!isClosed());
-        cC = cC(i, i3);
-        E(i, bArr.length, i2, cC);
-        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, cC);
-        return cC;
+        cJ = cJ(i, i3);
+        E(i, bArr.length, i2, cJ);
+        nativeCopyFromByteArray(this.mNativePtr + i, bArr, i2, cJ);
+        return cJ;
     }
 
-    public synchronized byte BL(int i) {
+    public synchronized int e(int i, byte[] bArr, int i2, int i3) {
+        int cJ;
+        com.facebook.common.internal.g.checkNotNull(bArr);
+        com.facebook.common.internal.g.checkState(!isClosed());
+        cJ = cJ(i, i3);
+        E(i, bArr.length, i2, cJ);
+        nativeCopyToByteArray(this.mNativePtr + i, bArr, i2, cJ);
+        return cJ;
+    }
+
+    public synchronized byte CP(int i) {
         byte nativeReadByte;
         synchronized (this) {
             com.facebook.common.internal.g.checkState(!isClosed());
@@ -130,7 +130,7 @@ public class NativeMemoryChunk implements Closeable {
         }
     }
 
-    private int cC(int i, int i2) {
+    private int cJ(int i, int i2) {
         return Math.min(Math.max(0, this.mSize - i), i2);
     }
 

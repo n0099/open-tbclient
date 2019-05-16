@@ -7,17 +7,17 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.core.c.e;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b extends y {
+public class b extends z {
     public b(j jVar) {
         super(jVar, "/swan/setBackgroundTextStyle");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
@@ -28,8 +28,8 @@ public class b extends y {
         if (DEBUG) {
             Log.d("setBackgroundTextStyle", optParamsAsJo.toString());
         }
-        e uy = com.baidu.swan.apps.w.e.Ea().uy();
-        if (uy == null) {
+        e vi = com.baidu.swan.apps.w.e.FV().vi();
+        if (vi == null) {
             c.e("setBackgroundTextStyle", "manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -39,7 +39,7 @@ public class b extends y {
             c.e("setBackgroundTextStyle", "text style is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (!uy.yO().yF().bN(com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
+        } else if (!vi.zL().zA().bN(com.baidu.swan.apps.ae.a.c.parseColor(optString))) {
             c.e("setBackgroundTextStyle", "set window background fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;

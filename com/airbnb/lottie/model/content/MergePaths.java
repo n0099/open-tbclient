@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class MergePaths implements b {
     private final String name;
-    private final MergePathsMode rm;
+    private final MergePathsMode oO;
 
     /* loaded from: classes2.dex */
     public enum MergePathsMode {
@@ -37,21 +37,21 @@ public class MergePaths implements b {
 
     private MergePaths(String str, MergePathsMode mergePathsMode) {
         this.name = str;
-        this.rm = mergePathsMode;
+        this.oO = mergePathsMode;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public MergePathsMode eo() {
-        return this.rm;
+    public MergePathsMode di() {
+        return this.oO;
     }
 
     @Override // com.airbnb.lottie.model.content.b
     @Nullable
     public com.airbnb.lottie.a.a.b a(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar) {
-        if (fVar.cL()) {
+        if (fVar.bF()) {
             return new com.airbnb.lottie.a.a.j(this);
         }
         Log.w("LOTTIE", "Animation contains merge paths but they are disabled.");
@@ -59,14 +59,14 @@ public class MergePaths implements b {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.rm + '}';
+        return "MergePaths{mode=" + this.oO + '}';
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static MergePaths l(JSONObject jSONObject) {
+        public static MergePaths g(JSONObject jSONObject) {
             return new MergePaths(jSONObject.optString("nm"), MergePathsMode.forId(jSONObject.optInt("mm", 1)));
         }
     }

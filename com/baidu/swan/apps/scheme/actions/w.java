@@ -9,12 +9,12 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class w extends y {
+public class w extends z {
     public w(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/preventPullDownRefresh");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (DEBUG) {
             Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
@@ -31,16 +31,16 @@ public class w extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
             return false;
         }
-        com.baidu.swan.apps.b.c.e eg = com.baidu.swan.apps.w.e.Ea().eg(optString);
-        if (!(eg instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(optString);
+        if (!(dU instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
             return false;
         }
         boolean optBoolean = c.optBoolean("prevent", false);
-        PullToRefreshBaseWebView vV = ((com.baidu.swan.apps.b.c.c) eg).vV();
-        if (vV != null) {
-            vV.setIsPreventPullToRefresh(optBoolean);
+        PullToRefreshBaseWebView wM = ((com.baidu.swan.apps.b.c.c) dU).wM();
+        if (wM != null) {
+            wM.setIsPreventPullToRefresh(optBoolean);
         }
         return true;
     }

@@ -13,7 +13,7 @@ public interface a {
 
     void a(InterfaceC0012a interfaceC0012a);
 
-    boolean aL(Context context);
+    boolean ac(Context context);
 
     SQLiteDatabase getWritableDatabase();
 

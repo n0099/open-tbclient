@@ -2,15 +2,16 @@ package com.baidu.swan.pms.database.a;
 
 import android.content.ContentValues;
 import android.database.Cursor;
-import com.baidu.swan.pms.model.i;
+import com.baidu.swan.pms.model.h;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class g extends b<i> {
+public class g extends b<h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
     /* renamed from: p */
-    public i l(Cursor cursor) {
+    public h l(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             return null;
         }
@@ -18,7 +19,7 @@ public class g extends b<i> {
     }
 
     @Override // com.baidu.swan.pms.database.a.b
-    public List<i> j(Cursor cursor) {
+    public List<h> j(Cursor cursor) {
         ArrayList arrayList = new ArrayList();
         if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
             do {
@@ -31,26 +32,26 @@ public class g extends b<i> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.pms.database.a.b
-    /* renamed from: f */
-    public ContentValues U(i iVar) {
-        ContentValues e = super.e(iVar);
-        e.put("independent", Integer.valueOf(iVar.bme ? 1 : 0));
-        e.put("sub_pkg_name", iVar.Jz);
-        e.put("app_id", iVar.appId);
-        return e;
+    /* renamed from: h */
+    public ContentValues U(h hVar) {
+        ContentValues g = super.g(hVar);
+        g.put("independent", Integer.valueOf(hVar.bsg ? 1 : 0));
+        g.put("sub_pkg_name", hVar.Hj);
+        g.put(Constants.APP_ID, hVar.appId);
+        return g;
     }
 
-    private i q(Cursor cursor) {
+    private h q(Cursor cursor) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("independent");
             int columnIndex2 = cursor.getColumnIndex("sub_pkg_name");
-            int columnIndex3 = cursor.getColumnIndex("app_id");
-            i iVar = new i();
-            if (a(cursor, iVar)) {
-                iVar.bme = cursor.getInt(columnIndex) == 1;
-                iVar.Jz = cursor.getString(columnIndex2);
-                iVar.appId = cursor.getString(columnIndex3);
-                return iVar;
+            int columnIndex3 = cursor.getColumnIndex(Constants.APP_ID);
+            h hVar = new h();
+            if (a(cursor, hVar)) {
+                hVar.bsg = cursor.getInt(columnIndex) == 1;
+                hVar.Hj = cursor.getString(columnIndex2);
+                hVar.appId = cursor.getString(columnIndex3);
+                return hVar;
             }
         }
         return null;

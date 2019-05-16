@@ -15,21 +15,21 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
-    private GradientDrawable aGD;
-    private Paint aGE;
-    private Pair<Object, Object> aGF;
-    private Object aGG;
-    private Object aGH;
-    private int aGI;
-    private boolean aGJ;
-    private boolean aGK;
-    private boolean aGL;
-    private boolean aGM;
-    private float aGN;
-    private boolean aGO;
+    private Object aIA;
+    private int aIB;
+    private boolean aIC;
+    private boolean aID;
+    private boolean aIE;
+    private boolean aIF;
+    private float aIG;
+    private boolean aIH;
+    private GradientDrawable aIw;
+    private Paint aIx;
+    private Pair<Object, Object> aIy;
+    private Object aIz;
     private float mCornerRadius;
     private Path mRoundPath;
 
@@ -39,13 +39,13 @@ public class DrawableCenterTextView extends TextView {
 
     public DrawableCenterTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGD = new GradientDrawable();
-        this.aGE = null;
+        this.aIw = new GradientDrawable();
+        this.aIx = null;
         this.mRoundPath = new Path();
-        this.aGF = null;
-        this.aGM = false;
+        this.aIy = null;
+        this.aIF = false;
         this.mCornerRadius = -1.0f;
-        this.aGN = 0.0f;
+        this.aIG = 0.0f;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -78,8 +78,8 @@ public class DrawableCenterTextView extends TextView {
         }
         i = -1;
         drawable = null;
-        int b = x.b(this);
-        int a = x.a(this);
+        int b = z.b(this);
+        int a = z.a(this);
         int compoundDrawablePadding = getCompoundDrawablePadding();
         if (drawable != null) {
             Rect bounds = drawable.getBounds();
@@ -129,39 +129,39 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private void h(Canvas canvas) {
-        if (GV()) {
+        if (Jl()) {
             if (this.mCornerRadius >= 0.0f) {
-                this.aGD.setCornerRadius(this.mCornerRadius);
+                this.aIw.setCornerRadius(this.mCornerRadius);
             } else {
-                this.aGD.setCornerRadius(4.0f);
+                this.aIw.setCornerRadius(4.0f);
             }
-            if (this.aGK) {
-                int dip2px = x.dip2px(getContext(), 0.5f);
-                if (this.aGG instanceof String) {
-                    this.aGD.setStroke(dip2px, Color.parseColor(this.aGG.toString()));
-                } else if (this.aGG instanceof Integer) {
-                    this.aGD.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aGG.toString()).intValue()));
+            if (this.aID) {
+                int dip2px = z.dip2px(getContext(), 0.5f);
+                if (this.aIz instanceof String) {
+                    this.aIw.setStroke(dip2px, Color.parseColor(this.aIz.toString()));
+                } else if (this.aIz instanceof Integer) {
+                    this.aIw.setStroke(dip2px, getResources().getColor(Integer.valueOf(this.aIz.toString()).intValue()));
                 }
             }
-            if (this.aGM) {
-                if (this.aGF.second instanceof String) {
-                    this.aGD.setColor(Color.parseColor(this.aGF.second.toString()));
-                } else if (this.aGF.second instanceof Integer) {
-                    this.aGD.setColor(getResources().getColor(Integer.valueOf(this.aGF.second.toString()).intValue()));
+            if (this.aIF) {
+                if (this.aIy.second instanceof String) {
+                    this.aIw.setColor(Color.parseColor(this.aIy.second.toString()));
+                } else if (this.aIy.second instanceof Integer) {
+                    this.aIw.setColor(getResources().getColor(Integer.valueOf(this.aIy.second.toString()).intValue()));
                 }
-            } else if (this.aGF.first instanceof String) {
-                this.aGD.setColor(Color.parseColor(this.aGF.first.toString()));
-            } else if (this.aGF.first instanceof Integer) {
-                this.aGD.setColor(getResources().getColor(Integer.valueOf(this.aGF.first.toString()).intValue()));
+            } else if (this.aIy.first instanceof String) {
+                this.aIw.setColor(Color.parseColor(this.aIy.first.toString()));
+            } else if (this.aIy.first instanceof Integer) {
+                this.aIw.setColor(getResources().getColor(Integer.valueOf(this.aIy.first.toString()).intValue()));
             }
             canvas.save();
-            if (this.aGO) {
-                GT();
+            if (this.aIH) {
+                Jj();
             } else {
-                this.aGD.setBounds(0, 0, getWidth(), getHeight());
+                this.aIw.setBounds(0, 0, getWidth(), getHeight());
             }
-            this.aGD.draw(canvas);
-            if (this.aGL) {
+            this.aIw.draw(canvas);
+            if (this.aIE) {
                 i(canvas);
             }
             canvas.restore();
@@ -174,13 +174,13 @@ public class DrawableCenterTextView extends TextView {
         float width = getWidth();
         float height2 = getHeight();
         Paint paint = new Paint();
-        paint.setStrokeWidth(x.dip2px(getContext(), 0.5f));
-        if (this.aGH instanceof String) {
-            paint.setColor(Color.parseColor(this.aGH.toString()));
-        } else if (this.aGH instanceof Integer) {
-            paint.setColor(getResources().getColor(Integer.valueOf(this.aGH.toString()).intValue()));
+        paint.setStrokeWidth(z.dip2px(getContext(), 0.5f));
+        if (this.aIA instanceof String) {
+            paint.setColor(Color.parseColor(this.aIA.toString()));
+        } else if (this.aIA instanceof Integer) {
+            paint.setColor(getResources().getColor(Integer.valueOf(this.aIA.toString()).intValue()));
         }
-        switch (this.aGI) {
+        switch (this.aIB) {
             case 0:
                 width = 0.0f;
                 height = 0.0f;
@@ -208,44 +208,44 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public void setAnimationPercent(float f) {
-        if (this.aGN != f) {
-            this.aGN = f;
+        if (this.aIG != f) {
+            this.aIG = f;
             postInvalidate();
         }
     }
 
     public void setAnimationModeActive(boolean z) {
-        this.aGO = z;
+        this.aIH = z;
     }
 
-    private void GT() {
-        if (this.aGD != null) {
+    private void Jj() {
+        if (this.aIw != null) {
             int[] iArr = {getWidth(), getHeight()};
-            if (this.aGO) {
-                iArr[0] = (int) (getWidth() * this.aGN);
+            if (this.aIH) {
+                iArr[0] = (int) (getWidth() * this.aIG);
                 iArr[1] = getHeight();
             }
             int width = getWidth() / 2;
-            this.aGD.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
+            this.aIw.setBounds(width - (iArr[0] / 2), 0, (iArr[0] / 2) + width, getHeight());
         }
     }
 
     @Override // android.widget.TextView
     public void setShadowLayer(float f, float f2, float f3, int i) {
-        GU();
+        Jk();
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
-        this.aGE.setShadowLayer(f, f2, f3, i);
+        this.aIx.setShadowLayer(f, f2, f3, i);
     }
 
-    private void GU() {
-        if (this.aGE == null) {
-            this.aGE = new Paint();
-            this.aGE.setColor(0);
-            this.aGE.setStyle(Paint.Style.STROKE);
-            this.aGE.setAntiAlias(true);
-            this.aGE.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    private void Jk() {
+        if (this.aIx == null) {
+            this.aIx = new Paint();
+            this.aIx.setColor(0);
+            this.aIx.setStyle(Paint.Style.STROKE);
+            this.aIx.setAntiAlias(true);
+            this.aIx.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
@@ -275,34 +275,34 @@ public class DrawableCenterTextView extends TextView {
         }
     }
 
-    public void cL(int i) {
+    public void cQ(int i) {
         this.mCornerRadius = i;
     }
 
-    private boolean GV() {
-        return this.aGJ && this.aGF != null;
+    private boolean Jl() {
+        return this.aIC && this.aIy != null;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (GV()) {
-                    this.aGM = true;
+                if (Jl()) {
+                    this.aIF = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
-                if (GV()) {
-                    this.aGM = false;
+                if (Jl()) {
+                    this.aIF = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
-                if (GV()) {
-                    this.aGM = false;
+                if (Jl()) {
+                    this.aIF = false;
                     invalidate();
                     break;
                 }

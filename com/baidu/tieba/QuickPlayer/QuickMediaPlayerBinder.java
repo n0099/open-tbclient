@@ -193,7 +193,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                     } else {
                         i = MODEL_MX4.equals(Build.MODEL) ? 2 : 0;
                     }
-                    TiebaStatic.log(new am("c12200").T("obj_type", i).bJ("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new am("c12200").P("obj_type", i).bT("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);

@@ -6,10 +6,10 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 /* loaded from: classes2.dex */
 public class b extends g implements Runnable {
-    private int Ev;
-    private boolean jCo;
-    float jCp;
-    private boolean jCq;
+    private int Ce;
+    private boolean jVd;
+    float jVe;
+    private boolean jVf;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jCp = 0.0f;
-        this.jCq = false;
-        this.Ev = i;
-        this.jCo = z;
+        this.jVe = 0.0f;
+        this.jVf = false;
+        this.Ce = i;
+        this.jVd = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.jCp;
-        if (!this.jCo) {
-            f = 360.0f - this.jCp;
+        float f = this.jVe;
+        if (!this.jVd) {
+            f = 360.0f - this.jVe;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        cvj();
+        cDf();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.jCq = false;
-        this.jCp += cvk();
+        this.jVf = false;
+        this.jVe += cDg();
         invalidateSelf();
     }
 
-    private void cvj() {
-        if (!this.jCq) {
-            this.jCq = true;
+    private void cDf() {
+        if (!this.jVf) {
+            this.jVf = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int cvk() {
-        return (int) ((20.0f / this.Ev) * 360.0f);
+    private int cDg() {
+        return (int) ((20.0f / this.Ce) * 360.0f);
     }
 }

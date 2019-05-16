@@ -5,21 +5,21 @@ import android.support.annotation.NonNull;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class b {
-    private static b jLJ;
-    private boolean jLK;
+    private static b kev;
+    private boolean kew;
     private AudioRecord mAudioRecord;
-    private static final int[] jLG = {1, 0, 5, 7, 6};
-    public static int jLH = 48000;
+    private static final int[] kes = {1, 0, 5, 7, 6};
+    public static int ket = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int jLI = 24;
+    public static int keu = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(jLH, 16, 2);
-        int i = SAMPLES_PER_FRAME * jLI;
+        int minBufferSize = AudioRecord.getMinBufferSize(ket, 16, 2);
+        int i = SAMPLES_PER_FRAME * keu;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : jLG) {
+        for (int i2 : kes) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, jLH, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, ket, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -30,8 +30,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.jLK) {
-            this.jLK = true;
+        if (!this.kew) {
+            this.kew = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -48,11 +48,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (jLJ != null && !jLJ.isReleased()) {
-                jLJ.release();
+            if (kev != null && !kev.isReleased()) {
+                kev.release();
             }
             this.mAudioRecord.startRecording();
-            jLJ = this;
+            kev = this;
         }
     }
 
@@ -63,10 +63,10 @@ public class b {
     }
 
     public boolean isReleased() {
-        return this.jLK;
+        return this.kew;
     }
 
-    public AudioRecord cAH() {
+    public AudioRecord cID() {
         return this.mAudioRecord;
     }
 }

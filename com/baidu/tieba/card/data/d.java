@@ -5,35 +5,35 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String ekN = "";
+    public String eAB = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo ekM = null;
+    public AdvertAppInfo eAA = null;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.ekM != null && this.ekM.getType() == AdvertAppInfo.bwq) {
-            return AdvertAppInfo.bww;
+        if (this.eAA != null && this.eAA.getType() == AdvertAppInfo.bDB) {
+            return AdvertAppInfo.bDH;
         }
-        if (this.ekM != null && this.ekM.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.bwz;
-            switch (this.ekM.legoCard.getGoodsStyle()) {
+        if (this.eAA != null && this.eAA.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.bDK;
+            switch (this.eAA.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.bwA;
+                    return AdvertAppInfo.bDL;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.bwB;
+                    return AdvertAppInfo.bDM;
                 case 7:
-                    return AdvertAppInfo.bwC;
+                    return AdvertAppInfo.bDN;
                 case 9:
-                    return AdvertAppInfo.bwE;
+                    return AdvertAppInfo.bDP;
                 case 10:
-                    return AdvertAppInfo.bwD;
+                    return AdvertAppInfo.bDO;
             }
         }
         return null;
@@ -41,23 +41,23 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.l(this.ekM != null ? this.ekM.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
+        return com.baidu.adp.lib.g.b.f(this.eAA != null ? this.eAA.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aQT() {
+    public boolean aYc() {
         return false;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void hT(boolean z) {
+    public void iy(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void hU(boolean z) {
+    public void iz(boolean z) {
     }
 
-    public AdvertAppInfo aQU() {
-        return this.ekM;
+    public AdvertAppInfo aYd() {
+        return this.eAA;
     }
 }

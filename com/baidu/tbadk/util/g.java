@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class g {
-    private long ctb;
-    private long ctc;
-    private long ctd;
-    private long cte;
-    private long ctf;
-    private a cth;
+    private long cBk;
+    private long cBl;
+    private long cBm;
+    private long cBn;
+    private long cBo;
+    private a cBq;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean ctg = false;
-    private Runnable cti = new Runnable() { // from class: com.baidu.tbadk.util.g.1
+    private boolean cBp = false;
+    private Runnable cBr = new Runnable() { // from class: com.baidu.tbadk.util.g.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.ctf > g.this.cte) {
-                g.this.cte = currentTimeMillis - g.this.ctd;
-                g.this.ctf = g.this.cte;
+            if (g.this.cBo > g.this.cBn) {
+                g.this.cBn = currentTimeMillis - g.this.cBm;
+                g.this.cBo = g.this.cBn;
             }
-            long j = currentTimeMillis - g.this.cte;
-            g.this.ctc += g.this.ctd;
-            if (g.this.ctc < g.this.ctb) {
-                g.this.handler.postDelayed(g.this.cti, (2 * g.this.ctd) - j);
-                if (g.this.cth != null) {
-                    g.this.cth.b(g.this.ctb, g.this.ctb - g.this.ctc);
+            long j = currentTimeMillis - g.this.cBn;
+            g.this.cBl += g.this.cBm;
+            if (g.this.cBl < g.this.cBk) {
+                g.this.handler.postDelayed(g.this.cBr, (2 * g.this.cBm) - j);
+                if (g.this.cBq != null) {
+                    g.this.cBq.b(g.this.cBk, g.this.cBk - g.this.cBl);
                 }
             } else {
-                g.this.ctc = g.this.ctb;
+                g.this.cBl = g.this.cBk;
                 g.this.finish();
             }
-            g.this.cte = currentTimeMillis;
+            g.this.cBn = currentTimeMillis;
         }
     };
 
@@ -40,57 +40,57 @@ public class g {
     public interface a {
         void b(long j, long j2);
 
-        void s(long j);
+        void q(long j);
     }
 
     public g(long j, long j2) {
-        this.ctb = j;
-        this.ctd = j2;
+        this.cBk = j;
+        this.cBm = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.cte = this.startTime;
-        if (this.cth != null) {
-            this.cth.b(this.ctb, this.ctb - this.ctc);
+        this.cBn = this.startTime;
+        if (this.cBq != null) {
+            this.cBq.b(this.cBk, this.cBk - this.cBl);
         }
-        this.handler.postDelayed(this.cti, this.ctd);
+        this.handler.postDelayed(this.cBr, this.cBm);
     }
 
     public void pause() {
-        if (!this.ctg) {
-            this.ctg = true;
-            this.ctf = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.cti);
+        if (!this.cBp) {
+            this.cBp = true;
+            this.cBo = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.cBr);
         }
     }
 
     public void resume() {
-        if (this.ctg) {
-            this.ctg = false;
-            this.handler.postDelayed(this.cti, this.ctd - (this.ctf - this.cte));
+        if (this.cBp) {
+            this.cBp = false;
+            this.handler.postDelayed(this.cBr, this.cBm - (this.cBo - this.cBn));
         }
     }
 
     public void stop() {
-        this.ctg = false;
-        this.cte = this.startTime;
-        this.ctf = this.cte;
-        this.handler.removeCallbacks(this.cti);
+        this.cBp = false;
+        this.cBn = this.startTime;
+        this.cBo = this.cBn;
+        this.handler.removeCallbacks(this.cBr);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.cth != null) {
-            this.cth.s(this.ctb);
+        if (this.cBq != null) {
+            this.cBq.q(this.cBk);
         }
     }
 
     public void a(a aVar) {
-        this.cth = aVar;
+        this.cBq = aVar;
     }
 
-    public long apQ() {
-        return this.ctc;
+    public long auU() {
+        return this.cBl;
     }
 }

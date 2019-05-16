@@ -6,64 +6,64 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class g {
-    private static g iUU;
-    private VideoHolyCardModel.a gXI = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
+    private static g jnR;
+    private VideoHolyCardModel.a hoZ = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.g.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
-        public void bt(boolean z) {
-            g.this.iUW = z;
+        public void bB(boolean z) {
+            g.this.jnT = z;
         }
     };
-    private VideoHolyCardModel iUV;
-    private boolean iUW;
-    private boolean iUX;
+    private VideoHolyCardModel jnS;
+    private boolean jnT;
+    private boolean jnU;
 
-    public static g ciN() {
-        if (iUU == null) {
+    public static g cqQ() {
+        if (jnR == null) {
             synchronized (g.class) {
-                if (iUU == null) {
-                    iUU = new g();
+                if (jnR == null) {
+                    jnR = new g();
                 }
             }
         }
-        return iUU;
+        return jnR;
     }
 
-    public boolean ciO() {
-        return this.iUW;
+    public boolean cqR() {
+        return this.jnT;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciP() {
-        if (this.iUV == null) {
-            this.iUV = new VideoHolyCardModel();
-            this.iUV.a(this.gXI);
+    public void cqS() {
+        if (this.jnS == null) {
+            this.jnS = new VideoHolyCardModel();
+            this.jnS.a(this.hoZ);
         }
-        this.iUV.bDZ();
+        this.jnS.bLK();
     }
 
-    public void ex(Context context) {
-        if (this.iUW && !this.iUX) {
-            l.showToast(context, d.j.free_data_tips);
-            this.iUX = true;
+    public void en(Context context) {
+        if (this.jnT && !this.jnU) {
+            l.showToast(context, (int) R.string.free_data_tips);
+            this.jnU = true;
         }
     }
 
     private g() {
-        ciQ();
-        ciP();
+        cqT();
+        cqS();
     }
 
-    private void ciQ() {
+    private void cqT() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2000994) { // from class: com.baidu.tieba.video.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (j.la()) {
-                    g.this.ciP();
+                if (j.jU()) {
+                    g.this.cqS();
                 }
             }
         });

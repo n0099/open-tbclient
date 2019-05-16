@@ -16,89 +16,89 @@ import okhttp3.Request;
 /* loaded from: classes2.dex */
 public class j extends com.baidu.swan.apps.ae.c {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private OkHttpClient aCF;
-    private NetworkBroadcastReceiver aCG;
-    private TelephonyManager aCH;
-    private a aCI;
+    private OkHttpClient aEr;
+    private NetworkBroadcastReceiver aEs;
+    private TelephonyManager aEt;
+    private a aEu;
 
     public j(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
     }
 
     public void a(Request request, Callback callback) {
-        EX().newCall(request).enqueue(callback);
+        Hc().newCall(request).enqueue(callback);
     }
 
     public void a(Request request, Interceptor interceptor, Callback callback) {
-        EX().newBuilder().addInterceptor(interceptor).build().newCall(request).enqueue(callback);
+        Hc().newBuilder().addInterceptor(interceptor).build().newCall(request).enqueue(callback);
     }
 
-    public OkHttpClient EX() {
-        com.baidu.swan.apps.ae.a.c IW = Jl().IW();
-        if (this.aCF == null) {
+    public OkHttpClient Hc() {
+        com.baidu.swan.apps.ae.a.c Lr = LG().Lr();
+        if (this.aEr == null) {
             OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            if (IW != null && IW.aOq != null) {
-                builder.connectTimeout(IW.aOq.aOh, TimeUnit.MILLISECONDS);
-                builder.readTimeout(IW.aOq.aOg, TimeUnit.MILLISECONDS);
-                builder.writeTimeout(IW.aOq.aOg, TimeUnit.MILLISECONDS);
+            if (Lr != null && Lr.aQt != null) {
+                builder.connectTimeout(Lr.aQt.aQk, TimeUnit.MILLISECONDS);
+                builder.readTimeout(Lr.aQt.aQj, TimeUnit.MILLISECONDS);
+                builder.writeTimeout(Lr.aQt.aQj, TimeUnit.MILLISECONDS);
                 builder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.c());
             }
-            this.aCF = builder.build();
+            this.aEr = builder.build();
         }
-        this.aCF.dispatcher().setMaxRequests(10);
-        return this.aCF;
+        this.aEr.dispatcher().setMaxRequests(10);
+        return this.aEr;
     }
 
     public void c(CallbackHandler callbackHandler, String str) {
-        if (this.aCG == null) {
-            this.aCG = new NetworkBroadcastReceiver(callbackHandler, str);
+        if (this.aEs == null) {
+            this.aEs = new NetworkBroadcastReceiver(callbackHandler, str);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            registerReceiver(this.aCG, intentFilter);
-        } else if (this.aCG != null) {
-            this.aCG.updateCallback(callbackHandler, str);
+            registerReceiver(this.aEs, intentFilter);
+        } else if (this.aEs != null) {
+            this.aEs.updateCallback(callbackHandler, str);
         }
         d(callbackHandler, str);
     }
 
     public void d(CallbackHandler callbackHandler, String str) {
-        if (this.aCH == null) {
-            this.aCH = (TelephonyManager) getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
-            this.aCI = new a(callbackHandler, str);
-            this.aCH.listen(this.aCI, 64);
-        } else if (this.aCI != null) {
-            this.aCI.updateCallback(callbackHandler, str);
+        if (this.aEt == null) {
+            this.aEt = (TelephonyManager) getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.aEu = new a(callbackHandler, str);
+            this.aEt.listen(this.aEu, 64);
+        } else if (this.aEu != null) {
+            this.aEu.updateCallback(callbackHandler, str);
         }
     }
 
-    public void EY() {
-        if (this.aCH != null && this.aCI != null) {
-            this.aCH.listen(this.aCI, 0);
+    public void Hd() {
+        if (this.aEt != null && this.aEu != null) {
+            this.aEt.listen(this.aEu, 0);
         }
     }
 
-    public void EZ() {
-        if (this.aCG != null) {
-            unregisterReceiver(this.aCG);
+    public void He() {
+        if (this.aEs != null) {
+            unregisterReceiver(this.aEs);
         }
-        EY();
+        Hd();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public class a extends PhoneStateListener {
-        private WeakReference<CallbackHandler> aCJ;
-        private String aCK;
-        private String aCL = "";
+        private WeakReference<CallbackHandler> aEv;
+        private String aEw;
+        private String aEx = "";
 
         public a(CallbackHandler callbackHandler, String str) {
-            this.aCJ = new WeakReference<>(callbackHandler);
-            this.aCK = str;
+            this.aEv = new WeakReference<>(callbackHandler);
+            this.aEw = str;
         }
 
         public void updateCallback(CallbackHandler callbackHandler, String str) {
-            this.aCJ = new WeakReference<>(callbackHandler);
-            this.aCK = str;
+            this.aEv = new WeakReference<>(callbackHandler);
+            this.aEw = str;
         }
 
         @Override // android.telephony.PhoneStateListener
@@ -107,10 +107,10 @@ public class j extends com.baidu.swan.apps.ae.c {
                 Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
             }
             if (2 == i) {
-                String l = SwanAppNetworkUtils.l(i2, null);
-                if (!TextUtils.isEmpty(l) && !l.equals(this.aCL)) {
-                    this.aCL = l;
-                    SwanAppNetworkUtils.a(j.this, this.aCJ.get(), this.aCK);
+                String o = SwanAppNetworkUtils.o(i2, null);
+                if (!TextUtils.isEmpty(o) && !o.equals(this.aEx)) {
+                    this.aEx = o;
+                    SwanAppNetworkUtils.a(j.this, this.aEv.get(), this.aEw);
                 }
             }
         }
@@ -119,6 +119,6 @@ public class j extends com.baidu.swan.apps.ae.c {
     @Override // com.baidu.swan.apps.ae.c
     public void onDestroy() {
         super.onDestroy();
-        EZ();
+        He();
     }
 }

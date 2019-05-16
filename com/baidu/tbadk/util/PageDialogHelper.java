@@ -13,7 +13,7 @@ public class PageDialogHelper {
         NORMAL
     }
 
-    public static void ab(Activity activity) {
+    public static void ad(Activity activity) {
         WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
         DisplayMetrics displayMetrics = activity.getResources().getDisplayMetrics();
         attributes.x = 0;

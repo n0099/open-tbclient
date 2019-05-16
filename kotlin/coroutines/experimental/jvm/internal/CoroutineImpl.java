@@ -27,7 +27,7 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
     public d getContext() {
         d dVar = this._context;
         if (dVar == null) {
-            p.cCt();
+            p.cJZ();
         }
         return dVar;
     }
@@ -36,13 +36,13 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
         if (this._facade == null) {
             d dVar = this._context;
             if (dVar == null) {
-                p.cCt();
+                p.cJZ();
             }
             this._facade = a.a(dVar, this);
         }
         b<Object> bVar = this._facade;
         if (bVar == null) {
-            p.cCt();
+            p.cJZ();
         }
         return bVar;
     }
@@ -51,11 +51,11 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
     public void resume(Object obj) {
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            p.cCt();
+            p.cJZ();
         }
         try {
             Object doResume = doResume(obj, null);
-            if (doResume != kotlin.coroutines.experimental.a.a.cCq()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.cJW()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }
@@ -71,11 +71,11 @@ public abstract class CoroutineImpl extends Lambda implements b<Object> {
         p.k(th, "exception");
         b<Object> bVar = this.completion;
         if (bVar == null) {
-            p.cCt();
+            p.cJZ();
         }
         try {
             Object doResume = doResume(null, th);
-            if (doResume != kotlin.coroutines.experimental.a.a.cCq()) {
+            if (doResume != kotlin.coroutines.experimental.a.a.cJW()) {
                 if (bVar == null) {
                     throw new TypeCastException("null cannot be cast to non-null type kotlin.coroutines.experimental.Continuation<kotlin.Any?>");
                 }

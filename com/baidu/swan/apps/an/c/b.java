@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.an.c;
 /* loaded from: classes2.dex */
-public interface b<OuT> {
-    OuT uR();
+public interface b {
+    void a(a aVar);
 }

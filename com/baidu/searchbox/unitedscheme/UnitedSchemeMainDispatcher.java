@@ -286,12 +286,12 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             }
             UnitedSchemeStatisticUtil.doUBCForInvalidScheme(uri, "invalid version");
             return false;
-        } else if (version > 41) {
+        } else if (version > 44) {
             if (!TextUtils.equals(unitedSchemeEntity.removeParam(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE), "1") || unitedSchemeEntity.isOnlyVerify()) {
                 return false;
             }
             SchemeRuntime.getSchemeContext().showSchemeNotSupportDialog(context);
-            UnitedSchemeStatisticUtil.doUBCForUpdateDialog(uri, 41);
+            UnitedSchemeStatisticUtil.doUBCForUpdateDialog(uri, 44);
             return false;
         } else {
             return true;

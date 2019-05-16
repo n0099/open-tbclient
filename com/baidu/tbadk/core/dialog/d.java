@@ -7,13 +7,12 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d extends AlertDialog {
-    private TextView bFf;
-    private CircleView1080 bFh;
-    private int bFi;
+    private int bMA;
+    private TextView bMx;
+    private CircleView1080 bMz;
     private String mMessage;
     private TextView mTextView;
 
@@ -26,43 +25,43 @@ public class d extends AlertDialog {
         super.show();
         Window window = getWindow();
         if (window != null) {
-            window.setContentView(d.h.progress_dialog_1080);
-            View findViewById = findViewById(d.g.frame_progress_dialog);
+            window.setContentView(R.layout.progress_dialog_1080);
+            View findViewById = findViewById(R.id.frame_progress_dialog);
             if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                layoutParams.topMargin = l.h(getContext(), d.e.tbds50);
+                layoutParams.topMargin = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds50);
                 findViewById.setLayoutParams(layoutParams);
             }
-            this.bFf = (TextView) window.findViewById(d.g.text_progress_dialog_message);
-            if (this.bFf.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bFf.getLayoutParams();
-                layoutParams2.topMargin = l.h(getContext(), d.e.tbds35);
-                this.bFf.setLayoutParams(layoutParams2);
+            this.bMx = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+            if (this.bMx.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bMx.getLayoutParams();
+                layoutParams2.topMargin = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds35);
+                this.bMx.setLayoutParams(layoutParams2);
             }
             if (!StringUtils.isNull(this.mMessage)) {
-                this.bFf.setText(this.mMessage);
+                this.bMx.setText(this.mMessage);
             }
-            this.mTextView = (TextView) window.findViewById(d.g.text_progress_dialog_percent);
-            this.bFh = (CircleView1080) window.findViewById(d.g.circle_progress_dialog);
+            this.mTextView = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+            this.bMz = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
         }
     }
 
     public void setPercent(int i) {
-        if (i != this.bFi) {
-            this.bFi = i;
+        if (i != this.bMA) {
+            this.bMA = i;
             if (this.mTextView != null) {
                 this.mTextView.setText(i + "%");
             }
-            if (this.bFh != null) {
-                this.bFh.setProgress(i);
+            if (this.bMz != null) {
+                this.bMz.setProgress(i);
             }
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.bFf != null) {
-            this.bFf.setText(this.mMessage);
+        if (this.bMx != null) {
+            this.bMx.setText(this.mMessage);
         }
     }
 }

@@ -14,7 +14,7 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.aN(jSONObject);
+        authTokenData.aZ(jSONObject);
         return authTokenData;
     }
 
@@ -23,11 +23,11 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.nC(str);
+        authTokenData.oM(str);
         return authTokenData;
     }
 
-    private void aN(JSONObject jSONObject) {
+    private void aZ(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
@@ -37,7 +37,7 @@ public class AuthTokenData implements Serializable {
         }
     }
 
-    private void nC(String str) {
+    private void oM(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);

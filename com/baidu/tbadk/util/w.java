@@ -7,57 +7,57 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class w {
-    private View ctG;
-    private int ctH;
-    private boolean ctI;
+    private View cBP;
+    private int cBQ;
+    private boolean cBR;
     private final Handler mHandler;
 
-    public void aqf() {
+    public void avk() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aqg() {
+    public void avl() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void aqh() {
+    public void avm() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public void fk(boolean z) {
-        if (this.ctG != null) {
-            if (z || this.ctG.getVisibility() != 8) {
-                aqg();
+    public void fH(boolean z) {
+        if (this.cBP != null) {
+            if (z || this.cBP.getVisibility() != 8) {
+                avl();
             }
         }
     }
 
-    public void fl(boolean z) {
-        if (this.ctG != null) {
-            if (z || this.ctG.getVisibility() != 0) {
-                aqf();
+    public void fI(boolean z) {
+        if (this.cBP != null) {
+            if (z || this.cBP.getVisibility() != 0) {
+                avk();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.ctG != null) {
-            if (i != 0 && i2 > i && this.ctG.getVisibility() != 8) {
-                fk(false);
-            } else if ((i == 0 || i2 < i) && this.ctG.getVisibility() != 0) {
-                fl(false);
+        if (this.cBP != null) {
+            if (i != 0 && i2 > i && this.cBP.getVisibility() != 8) {
+                fH(false);
+            } else if ((i == 0 || i2 < i) && this.cBP.getVisibility() != 0) {
+                fI(false);
             }
-            this.ctH = i;
+            this.cBQ = i;
         }
     }
 
-    public void h(ViewGroup viewGroup, int i) {
+    public void i(ViewGroup viewGroup, int i) {
         int firstVisiblePosition;
         if (viewGroup != null && i == 0) {
             if (viewGroup instanceof BdRecyclerView) {
@@ -67,15 +67,15 @@ public class w {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.ctH) {
-                fk(true);
-            } else if (firstVisiblePosition < this.ctH) {
-                fl(true);
-            } else if (firstVisiblePosition == this.ctH) {
-                if (firstVisiblePosition == 0 || !this.ctI) {
-                    fl(true);
+            if (firstVisiblePosition > this.cBQ) {
+                fH(true);
+            } else if (firstVisiblePosition < this.cBQ) {
+                fI(true);
+            } else if (firstVisiblePosition == this.cBQ) {
+                if (firstVisiblePosition == 0 || !this.cBR) {
+                    fI(true);
                 } else {
-                    fk(true);
+                    fH(true);
                 }
             }
         }

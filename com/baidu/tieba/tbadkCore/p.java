@@ -1,12 +1,12 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class p {
-    private static boolean Cp(String str) {
-        String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(d.b.voice_black_frs_list);
-        String string = TbadkCoreApplication.getInst().getApp().getResources().getString(d.j.forum);
+    private static boolean DL(String str) {
+        String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
+        String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.forum);
         int length = stringArray.length;
         for (int i = 0; i < length; i++) {
             if (stringArray[i].equals(str) || str.equals(stringArray[i] + string)) {
@@ -17,8 +17,8 @@ public class p {
     }
 
     public static boolean b(String str, Boolean bool) {
-        if (com.baidu.adp.lib.b.d.iQ().aO("voice") == 0) {
-            if ((str == null || !Cp(str)) && bool != null) {
+        if (com.baidu.adp.lib.b.d.hI().ay("voice") == 0) {
+            if ((str == null || !DL(str)) && bool != null) {
                 return bool.booleanValue();
             }
             return false;

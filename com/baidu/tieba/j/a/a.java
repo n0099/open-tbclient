@@ -29,11 +29,11 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         return this.list.size();
     }
 
-    public String bEA() {
-        if (StringUtils.isNull(this.uuid) || !m.hy() || StringUtils.isNull(getKey())) {
+    public String bMl() {
+        if (StringUtils.isNull(this.uuid) || !m.gs() || StringUtils.isNull(getKey())) {
             return null;
         }
-        String str = c.a.gXR + bEB();
+        String str = c.a.hpi + bMm();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -47,28 +47,27 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
         }
     }
 
-    protected String bEB() {
+    protected String bMm() {
         return "_" + this.uuid + "_" + getKey();
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public e bEC() {
-        return new e(getKey(), bEA());
+    public e bMn() {
+        return new e(getKey(), bMl());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: do  reason: not valid java name */
-    public void m22do(List<T> list) {
+    public void dw(List<T> list) {
         new BdAsyncTask<List<T>, Void, Void>() { // from class: com.baidu.tieba.j.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: e */
+            /* renamed from: b */
             public Void doInBackground(List<T>[] listArr) {
                 if (listArr != null && listArr.length == 1) {
-                    String bEA = a.this.bEA();
-                    if (!StringUtils.isNull(bEA)) {
-                        a.this.m(bEA, listArr[0]);
+                    String bMl = a.this.bMl();
+                    if (!StringUtils.isNull(bMl)) {
+                        a.this.l(bMl, listArr[0]);
                     }
                 }
                 return null;
@@ -77,12 +76,12 @@ public abstract class a<T extends com.baidu.tieba.play.b.b> implements c<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void m(String str, List<T> list) {
+    public synchronized void l(String str, List<T> list) {
         int size = list.size();
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < size; i++) {
-            jSONArray.put(list.get(i).bUo());
+            jSONArray.put(list.get(i).ccp());
         }
-        com.baidu.tieba.j.d.g(new File(str), jSONArray.toString() + "\n");
+        com.baidu.tieba.j.d.f(new File(str), jSONArray.toString() + "\n");
     }
 }

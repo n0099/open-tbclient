@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.b;
-import com.baidu.swan.apps.core.i.c;
+import com.baidu.swan.apps.core.j.c;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Iterator;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean hi(String str) {
+    public static boolean hJ(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "error url!");
@@ -31,7 +31,7 @@ public class a {
             return false;
         }
         String path = parse.getPath();
-        String str2 = c.Aa().Ar() != null ? c.Aa().Ar().aTk + "/abtest/config.js" : "/abtest/config.js";
+        String str2 = c.Bi().BA() != null ? c.Bi().BA().aVZ + "/abtest/config.js" : "/abtest/config.js";
         if (DEBUG) {
             Log.d("SwanCoreConfigHelper", "path:" + path);
             Log.d("SwanCoreConfigHelper", "configCheckPath:" + str2);
@@ -39,10 +39,10 @@ public class a {
         return TextUtils.isEmpty(parse.getHost()) && TextUtils.equals(str2, path);
     }
 
-    public static InputStream KN() {
+    public static InputStream Nm() {
         String str = "";
-        if (com.baidu.swan.apps.u.a.Cz() != null) {
-            str = KO().toString();
+        if (com.baidu.swan.apps.u.a.DE() != null) {
+            str = Nn().toString();
         }
         String str2 = "(function(global){global.extraConfig= {abTestSwitch:" + str + "}})(window)";
         if (DEBUG) {
@@ -51,21 +51,21 @@ public class a {
         return new ByteArrayInputStream(str2.getBytes());
     }
 
-    private static JSONObject KO() {
-        JSONObject vh = com.baidu.swan.apps.u.a.Cz().vh();
-        Iterator<String> keys = vh.keys();
+    private static JSONObject Nn() {
+        JSONObject vJ = com.baidu.swan.apps.u.a.DE().vJ();
+        Iterator<String> keys = vJ.keys();
         while (keys.hasNext()) {
             if (!keys.next().startsWith("swanswitch")) {
                 keys.remove();
             }
         }
-        return vh;
+        return vJ;
     }
 
-    public static JSONObject KP() {
+    public static JSONObject No() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("abTestSwitch", KO());
+            jSONObject.put("abTestSwitch", Nn());
         } catch (JSONException e) {
             e.printStackTrace();
         }

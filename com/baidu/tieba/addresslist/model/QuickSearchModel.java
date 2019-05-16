@@ -9,27 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
-    private a cPZ;
-    private byte[] cQa;
+    private a cYk;
+    private byte[] cYl;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.cQa = new byte[0];
-        this.cPZ = a.awP();
+        this.cYl = new byte[0];
+        this.cYk = a.aBV();
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<com.baidu.tbadk.coreExtra.relationship.a> ri(String str) {
-        synchronized (this.cQa) {
+    public List<com.baidu.tbadk.coreExtra.relationship.a> ss(String str) {
+        synchronized (this.cYl) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<com.baidu.tbadk.coreExtra.relationship.a> awQ = this.cPZ.awQ();
-            if (awQ == null) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> aBW = this.cYk.aBW();
+            if (aBW == null) {
                 return arrayList;
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar : awQ) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar : aBW) {
                 String userName = aVar.getUserName();
                 String quanpin = aVar.getQuanpin();
                 if (!TextUtils.isEmpty(userName) && userName.toLowerCase().startsWith(str.toLowerCase())) {
@@ -38,7 +38,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : awQ) {
+            for (com.baidu.tbadk.coreExtra.relationship.a aVar2 : aBW) {
                 String userName2 = aVar2.getUserName();
                 String quanpin2 = aVar2.getQuanpin();
                 if (!arrayList.contains(aVar2)) {

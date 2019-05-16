@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.ap;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.i;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -17,7 +17,7 @@ import com.baidu.tieba.recapp.view.DistributeVrVideoView;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class AdCardVrVideoView extends AdCardBaseView implements k {
-    public DistributeVrVideoView ijp;
+    public DistributeVrVideoView iCb;
     private TbPageContext mTbPageContext;
 
     public AdCardVrVideoView(TbPageContext<?> tbPageContext) {
@@ -27,26 +27,26 @@ public class AdCardVrVideoView extends AdCardBaseView implements k {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected int getCustomLayout() {
-        return d.h.ad_card_vr_video_view;
+        return R.layout.ad_card_vr_video_view;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void cD(View view) {
-        this.ijp = (DistributeVrVideoView) view.findViewById(d.g.advert_video);
-        this.ijp.setHolderView(view);
+    protected void cL(View view) {
+        this.iCb = (DistributeVrVideoView) view.findViewById(R.id.advert_video);
+        this.iCb.setHolderView(view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard != null && adCard.getAdvertAppInfo() != null && adCard.vrVideoInfo != null) {
-            this.ijp.setData(this.mTbPageContext, adCard, this.mMaxWidth);
+            this.iCb.setData(this.mTbPageContext, adCard, this.mMaxWidth);
             final VideoInfo videoInfo = adCard.vrVideoInfo.videoInfo;
             final AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (advertAppInfo != null && advertAppInfo.advertAppContext != null && videoInfo != null && !ap.isEmpty(videoInfo.video_url)) {
-                this.ijp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVrVideoView.1
+                this.iCb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.AdCardVrVideoView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        c.bXA().a(f.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
+                        c.cfE().a(f.c(advertAppInfo, 2, advertAppInfo.advertAppContext.pn));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VrPlayerActivityConfig(AdCardVrVideoView.this.getContext(), 1, false, videoInfo.video_url)));
                     }
                 });
@@ -56,11 +56,11 @@ public class AdCardVrVideoView extends AdCardBaseView implements k {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
-        return d.h.card_ad;
+        return R.layout.card_ad;
     }
 
     @Override // com.baidu.tieba.recapp.k
     public i getVideoOrVrView() {
-        return this.ijp;
+        return this.iCb;
     }
 }

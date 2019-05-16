@@ -3,7 +3,6 @@ package com.baidu.ar.npc;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
-import com.baidu.mobstat.Config;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -121,7 +120,7 @@ public class RendererUtils {
             if (iArr[0] == 0) {
                 String glGetShaderInfoLog = GLES20.glGetShaderInfoLog(glCreateShader);
                 GLES20.glDeleteShader(glCreateShader);
-                throw new RuntimeException("Could not compile shader " + i + Config.TRACE_TODAY_VISIT_SPLIT + glGetShaderInfoLog);
+                throw new RuntimeException("Could not compile shader " + i + ":" + glGetShaderInfoLog);
             }
         }
         return glCreateShader;

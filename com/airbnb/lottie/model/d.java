@@ -11,11 +11,11 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int qj;
-    public int ql;
-    double qm;
-    public double qn;
-    public boolean qo;
+    int nJ;
+    public int nK;
+    double nL;
+    public double nM;
+    public boolean nN;
     public int size;
     @ColorInt
     public int strokeColor;
@@ -26,19 +26,19 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.qj = i2;
-        this.ql = i3;
-        this.qm = d;
-        this.qn = d2;
+        this.nJ = i2;
+        this.nK = i3;
+        this.nL = d;
+        this.nM = d2;
         this.color = i4;
         this.strokeColor = i5;
         this.strokeWidth = i6;
-        this.qo = z;
+        this.nN = z;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static d j(JSONObject jSONObject) {
+        public static d e(JSONObject jSONObject) {
             String optString = jSONObject.optString("t");
             String optString2 = jSONObject.optString("f");
             int optInt = jSONObject.optInt("s");
@@ -58,7 +58,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.qm);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.qj) * 31) + this.ql) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.nL);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.nJ) * 31) + this.nK) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

@@ -6,7 +6,11 @@ import android.widget.AbsoluteLayout;
 public interface d extends com.baidu.swan.apps.core.container.a {
     boolean canGoBack();
 
+    int getContentHeight();
+
     AbsoluteLayout getCurrentWebView();
+
+    float getScale();
 
     int getWebViewScrollX();
 
@@ -14,7 +18,7 @@ public interface d extends com.baidu.swan.apps.core.container.a {
 
     void goBack();
 
-    View wa();
+    View wR();
 
-    void z(int i, int i2);
+    void x(int i, int i2);
 }

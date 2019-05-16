@@ -1,6 +1,9 @@
 package com.xiaomi.channel.commonutils.misc;
+
+import java.util.Collection;
 /* loaded from: classes3.dex */
 public class c {
-    public static boolean a = false;
-    public static String b = "10.237.14.141";
+    public static <T> boolean a(Collection<T> collection) {
+        return collection == null || collection.isEmpty();
+    }
 }

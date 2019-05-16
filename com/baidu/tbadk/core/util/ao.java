@@ -7,20 +7,20 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao bKM;
+    private static ao bSw;
 
-    public static synchronized ao adh() {
+    public static synchronized ao aig() {
         ao aoVar;
         synchronized (ao.class) {
-            if (bKM == null) {
-                bKM = new ao();
+            if (bSw == null) {
+                bSw = new ao();
             }
-            aoVar = bKM;
+            aoVar = bSw;
         }
         return aoVar;
     }
 
-    public String mC(String str) {
+    public String nK(String str) {
         if (str == null) {
             return null;
         }
@@ -31,55 +31,55 @@ public class ao {
         return FileUtils.IMAGE_FILE_START + (j % 20);
     }
 
-    public Bitmap mg(String str) {
+    public Bitmap no(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.bF(mC(str), str);
+        return m.bP(nK(str), str);
     }
 
-    public boolean mD(String str) {
+    public boolean nL(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.bE(mC(str), str);
+        return m.bO(nK(str), str);
     }
 
-    public int mE(String str) {
+    public int nM(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.bD(mC(str), str);
+        return (int) m.bN(nK(str), str);
     }
 
-    public boolean bG(String str, String str2) {
-        String str3 = m.FK + "/" + TbConfig.getTempDirName() + "/";
-        if (!m.lO(str3)) {
-            m.ml(str3);
+    public boolean bQ(String str, String str2) {
+        String str3 = m.Du + "/" + TbConfig.getTempDirName() + "/";
+        if (!m.mW(str3)) {
+            m.nt(str3);
         }
-        String str4 = str3 + mC(str2);
-        if (!m.lO(str4)) {
-            m.ml(str4);
+        String str4 = str3 + nK(str2);
+        if (!m.mW(str4)) {
+            m.nt(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
             return false;
         }
-        return m.o(str, str5, true);
+        return m.p(str, str5, true);
     }
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(mC(str), str, bArr);
+            m.c(nK(str), str, bArr);
         }
     }
 
-    private void K(File file) {
+    private void E(File file) {
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    K(file2);
+                    E(file2);
                     file2.delete();
                 } else if (!file2.delete()) {
                 }
@@ -87,17 +87,17 @@ public class ao {
         }
     }
 
-    public void adi() {
-        L(new File(m.FK + "/" + TbConfig.getTempDirName() + "/" + m.hb(3)));
+    public void aih() {
+        F(new File(m.Du + "/" + TbConfig.getTempDirName() + "/" + m.hP(3)));
     }
 
-    private void L(File file) {
+    private void F(File file) {
         long currentTimeMillis = System.currentTimeMillis();
         File[] listFiles = file.listFiles();
         if (listFiles != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
-                    K(file2);
+                    E(file2);
                     file2.delete();
                 } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
                 }

@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.tencent.connect.common.Constants;
-import com.xiaomi.push.service.ak;
-import com.xiaomi.push.service.aq;
+import com.xiaomi.push.service.as;
+import com.xiaomi.push.service.bb;
 import com.xiaomi.smack.l;
 import com.xiaomi.smack.packet.b;
 import com.xiaomi.smack.packet.f;
@@ -23,10 +23,10 @@ public class a {
 
     public static com.xiaomi.smack.packet.a a(String str, String str2, XmlPullParser xmlPullParser) {
         Object a2 = com.xiaomi.smack.provider.c.a().a("all", "xm:chat");
-        if (a2 == null || !(a2 instanceof com.xiaomi.push.service.c)) {
+        if (a2 == null || !(a2 instanceof com.xiaomi.push.service.e)) {
             return null;
         }
-        return ((com.xiaomi.push.service.c) a2).b(xmlPullParser);
+        return ((com.xiaomi.push.service.e) a2).b(xmlPullParser);
     }
 
     public static com.xiaomi.smack.packet.b a(XmlPullParser xmlPullParser, com.xiaomi.smack.a aVar) {
@@ -94,8 +94,8 @@ public class a {
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
             String attributeValue4 = xmlPullParser.getAttributeValue("", "to");
             String attributeValue5 = xmlPullParser.getAttributeValue("", "type");
-            ak.b b = ak.a().b(attributeValue, attributeValue4);
-            ak.b b2 = b == null ? ak.a().b(attributeValue, attributeValue3) : b;
+            as.b b = as.a().b(attributeValue, attributeValue4);
+            as.b b2 = b == null ? as.a().b(attributeValue, attributeValue3) : b;
             if (b2 == null) {
                 throw new l("the channel id is wrong while receiving a encrypted message");
             }
@@ -124,7 +124,7 @@ public class a {
                         cVar.a(aVar);
                         return cVar;
                     }
-                    a(aq.b(aq.a(b2.i, attributeValue2), text));
+                    a(bb.a(bb.a(b2.i, attributeValue2), text));
                     a.next();
                     dVar = a(a);
                 } else if (next == 3 && xmlPullParser.getName().equals("message")) {

@@ -8,23 +8,23 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.square.square.d;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private d izi;
-    private int izj = 0;
-    C0385a izk;
+    private d iRV;
+    private int iRW = 0;
+    C0404a iRX;
     Context mActivity;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tieba.square.flist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0385a {
-        ImageView izl;
-        TextView izm;
+    public class C0404a {
+        ImageView iRY;
+        TextView iRZ;
 
-        C0385a() {
+        C0404a() {
         }
     }
 
@@ -34,18 +34,18 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.izi == null || this.izi.iBD == null) {
+        if (this.iRV == null || this.iRV.iUr == null) {
             return 0;
         }
-        return this.izi.iBD.size();
+        return this.iRV.iUr.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.izi == null || this.izi.iBD == null) {
+        if (this.iRV == null || this.iRV.iUr == null) {
             return null;
         }
-        return this.izi.iBD.get(i);
+        return this.iRV.iUr.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -56,55 +56,55 @@ public class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = ccH();
+            view = ckL();
         }
-        if (this.izi != null) {
-            d dVar = this.izi.iBD.get(i);
-            this.izk = (C0385a) view.getTag();
+        if (this.iRV != null) {
+            d dVar = this.iRV.iUr.get(i);
+            this.iRX = (C0404a) view.getTag();
             if (dVar != null) {
-                a(this.izk, dVar, view, i);
+                a(this.iRX, dVar, view, i);
             }
         }
         return view;
     }
 
-    public void zb(int i) {
-        this.izj = i;
+    public void Aj(int i) {
+        this.iRW = i;
         notifyDataSetChanged();
     }
 
     public void a(d dVar) {
-        this.izi = dVar;
+        this.iRV = dVar;
     }
 
-    public d ccG() {
-        return this.izi;
+    public d ckK() {
+        return this.iRV;
     }
 
-    private View ccH() {
-        View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.forum_list_dir_menu_item, (ViewGroup) null);
-        this.izk = new C0385a();
-        this.izk.izl = (ImageView) inflate.findViewById(d.g.menu_choose);
-        this.izk.izm = (TextView) inflate.findViewById(d.g.menu_name);
-        inflate.setTag(this.izk);
+    private View ckL() {
+        View inflate = LayoutInflater.from(this.mActivity).inflate(R.layout.forum_list_dir_menu_item, (ViewGroup) null);
+        this.iRX = new C0404a();
+        this.iRX.iRY = (ImageView) inflate.findViewById(R.id.menu_choose);
+        this.iRX.iRZ = (TextView) inflate.findViewById(R.id.menu_name);
+        inflate.setTag(this.iRX);
         return inflate;
     }
 
-    private void a(C0385a c0385a, com.baidu.tieba.square.square.d dVar, View view, int i) {
-        if (c0385a != null && dVar != null) {
-            c0385a.izm.setText("");
+    private void a(C0404a c0404a, d dVar, View view, int i) {
+        if (c0404a != null && dVar != null) {
+            c0404a.iRZ.setText("");
             if (i == 0) {
-                c0385a.izm.setText(this.mActivity.getString(d.j.all) + dVar.izq);
+                c0404a.iRZ.setText(this.mActivity.getString(R.string.all) + dVar.iSd);
             } else {
-                c0385a.izm.setText(dVar.izq);
+                c0404a.iRZ.setText(dVar.iSd);
             }
-            if (i != this.izj) {
-                c0385a.izl.setVisibility(4);
-                al.d(c0385a.izm, d.C0277d.common_color_10200, 1);
+            if (i != this.iRW) {
+                c0404a.iRY.setVisibility(4);
+                al.f(c0404a.iRZ, R.color.common_color_10200, 1);
                 return;
             }
-            c0385a.izl.setVisibility(0);
-            al.d(c0385a.izm, d.C0277d.common_color_10013, 1);
+            c0404a.iRY.setVisibility(0);
+            al.f(c0404a.iRZ, R.color.common_color_10013, 1);
         }
     }
 }

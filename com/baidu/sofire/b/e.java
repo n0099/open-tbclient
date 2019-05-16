@@ -181,7 +181,7 @@ public final class e {
         String hexString;
         try {
             StringBuilder sb = new StringBuilder();
-            sb.append(g.a(context)).append(Config.TRACE_TODAY_VISIT_SPLIT);
+            sb.append(g.a(context)).append(":");
             String hexString2 = Long.toHexString(System.currentTimeMillis() / 1000);
             if (!TextUtils.isEmpty(hexString2)) {
                 int length = hexString2.length();
@@ -574,7 +574,7 @@ public final class e {
                                                 if (!TextUtils.isEmpty(attributeValue3) && str.equals(attributeValue3)) {
                                                     String attributeValue4 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                                     if (!TextUtils.isEmpty(attributeValue4)) {
-                                                        if (attributeValue4.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                                                        if (attributeValue4.startsWith(":")) {
                                                             return context.getPackageName() + attributeValue4;
                                                         }
                                                         return attributeValue4;
@@ -590,7 +590,7 @@ public final class e {
                                         if (!TextUtils.isEmpty(attributeValue5) && attributeValue5.equals(canonicalName)) {
                                             String attributeValue6 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                             if (!TextUtils.isEmpty(attributeValue6)) {
-                                                if (attributeValue6.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                                                if (attributeValue6.startsWith(":")) {
                                                     return context.getPackageName() + attributeValue6;
                                                 }
                                                 return attributeValue6;
@@ -602,7 +602,7 @@ public final class e {
                                         if (!TextUtils.isEmpty(attributeValue7) && attributeValue7.equals(canonicalName)) {
                                             String attributeValue8 = openXmlResourceParser.getAttributeValue("http://schemas.android.com/apk/res/android", "process");
                                             if (!TextUtils.isEmpty(attributeValue8)) {
-                                                if (attributeValue8.startsWith(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                                                if (attributeValue8.startsWith(":")) {
                                                     return context.getPackageName() + attributeValue8;
                                                 }
                                                 return attributeValue8;

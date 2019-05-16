@@ -1,17 +1,15 @@
 package com.baidu.swan.apps.b.a;
 
-import com.baidu.swan.apps.u.b.p;
-import com.baidu.swan.ubc.k;
-import org.json.JSONArray;
+import com.baidu.swan.menu.j;
+import java.util.List;
 /* loaded from: classes2.dex */
-public class e implements p {
-    @Override // com.baidu.swan.apps.u.b.p
-    public k uX() {
-        return new k() { // from class: com.baidu.swan.apps.b.a.e.1
-            @Override // com.baidu.swan.ubc.k
-            public boolean f(JSONArray jSONArray) {
-                return true;
-            }
-        };
+public class e implements com.baidu.swan.menu.c {
+    @Override // com.baidu.swan.menu.c
+    public void d(int i, List<j> list) {
+    }
+
+    @Override // com.baidu.swan.menu.c
+    public boolean a(j jVar) {
+        return false;
     }
 }

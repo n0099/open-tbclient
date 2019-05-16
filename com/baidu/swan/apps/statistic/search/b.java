@@ -8,7 +8,7 @@ import com.baidu.swan.apps.v.b.c;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static a aSQ;
+    public static a aVF;
 
     public static synchronized void a(SearchFlowEvent searchFlowEvent) {
         synchronized (b.class) {
@@ -17,23 +17,23 @@ public final class b {
                     Log.d("SwanAppSearchFlowUBC", "Event is null...");
                 }
             } else {
-                switch (searchFlowEvent.aSP) {
+                switch (searchFlowEvent.aVE) {
                     case START:
-                        Kx();
-                        if (aSQ != null) {
-                            aSQ.a(searchFlowEvent);
+                        MY();
+                        if (aVF != null) {
+                            aVF.a(searchFlowEvent);
                             break;
                         }
                         break;
                     case END:
-                        if (aSQ != null) {
-                            aSQ.a(searchFlowEvent);
+                        if (aVF != null) {
+                            aVF.a(searchFlowEvent);
                         }
-                        Ky();
+                        MZ();
                         break;
                     case NORMAL:
-                        if (aSQ != null) {
-                            aSQ.a(searchFlowEvent);
+                        if (aVF != null) {
+                            aVF.a(searchFlowEvent);
                             break;
                         }
                         break;
@@ -45,13 +45,13 @@ public final class b {
         }
     }
 
-    public static synchronized void u(com.baidu.swan.apps.v.b.b bVar) {
+    public static synchronized void w(com.baidu.swan.apps.v.b.b bVar) {
         synchronized (b.class) {
             if (bVar != null) {
-                d(bVar.axU, bVar.axK);
-                if (aSQ != null) {
-                    aSQ.setAppId(bVar.mAppId);
-                    aSQ.setSource(bVar.axK);
+                c(bVar.Fa(), bVar.EW());
+                if (aVF != null) {
+                    aVF.setAppId(bVar.getAppId());
+                    aVF.setSource(bVar.EW());
                 }
             }
         }
@@ -60,30 +60,30 @@ public final class b {
     public static synchronized void f(c cVar) {
         synchronized (b.class) {
             if (cVar != null) {
-                d(cVar.DA(), cVar.mFrom);
-                if (aSQ != null) {
-                    aSQ.setAppId(cVar.mAppId);
-                    aSQ.setSource(cVar.mFrom);
+                c(cVar.EK(), cVar.mFrom);
+                if (aVF != null) {
+                    aVF.setAppId(cVar.mAppId);
+                    aVF.setSource(cVar.mFrom);
                 }
             }
         }
     }
 
-    private static void Kx() {
-        if (aSQ != null) {
-            aSQ.destroy();
-            aSQ = null;
+    private static void MY() {
+        if (aVF != null) {
+            aVF.destroy();
+            aVF = null;
         }
-        aSQ = new a("772");
+        aVF = new a("772");
     }
 
-    private static void Ky() {
-        if (aSQ != null) {
-            aSQ.send();
+    private static void MZ() {
+        if (aVF != null) {
+            aVF.send();
         }
     }
 
-    private static void d(Bundle bundle, String str) {
+    private static void c(Bundle bundle, String str) {
         if (bundle != null) {
             String string = bundle.getString("search_id");
             if (TextUtils.isEmpty(string) && !TextUtils.equals("1002", str)) {
@@ -94,9 +94,9 @@ public final class b {
                 return;
             }
             a(new SearchFlowEvent("dom_click", bundle.getLong("search_dom_click_timestamp"), "", "", SearchFlowEvent.EventType.START));
-            if (aSQ != null) {
-                aSQ.aB("searchid", string == null ? "" : string);
-                aSQ.aB("url", bundle.getString("search_url"));
+            if (aVF != null) {
+                aVF.aD("searchid", string == null ? "" : string);
+                aVF.aD("url", bundle.getString("search_url"));
             }
         }
     }

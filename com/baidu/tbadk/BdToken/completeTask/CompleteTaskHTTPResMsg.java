@@ -24,18 +24,24 @@ public class CompleteTaskHTTPResMsg extends HttpResponsedMessage {
             if (completeTaskResIdl.data != null) {
                 this.mData = new a();
                 this.mData.showType = completeTaskResIdl.data.show_type.intValue();
-                this.mData.bsD = completeTaskResIdl.data.ahead_type.intValue();
+                this.mData.bzr = completeTaskResIdl.data.ahead_type.intValue();
                 this.mData.message = completeTaskResIdl.data.message;
                 this.mData.btnText = completeTaskResIdl.data.btn_text;
-                this.mData.brV = completeTaskResIdl.data.btn_confirm;
-                this.mData.brW = completeTaskResIdl.data.btn_cancel;
+                this.mData.byB = completeTaskResIdl.data.btn_confirm;
+                this.mData.byC = completeTaskResIdl.data.btn_cancel;
                 this.mData.duration = completeTaskResIdl.data.toast_duration.intValue();
                 this.mData.imgUrl = completeTaskResIdl.data.img_url;
                 this.mData.url = completeTaskResIdl.data.url;
                 this.mData.schema = completeTaskResIdl.data.schema;
                 this.mData.token = completeTaskResIdl.data.token;
                 this.mData.activityId = completeTaskResIdl.data.activity_id.intValue();
-                this.mData.bsC = completeTaskResIdl.data.mission_id.intValue();
+                this.mData.missionId = completeTaskResIdl.data.mission_id.intValue();
+                this.mData.btn_color = completeTaskResIdl.data.btn_color;
+                this.mData.message_color = completeTaskResIdl.data.message_color;
+                this.mData.btn_text_color = completeTaskResIdl.data.btn_text_color;
+                this.mData.bzs = completeTaskResIdl.data.interface_type.intValue();
+                this.mData.opacity = completeTaskResIdl.data.opacity.doubleValue();
+                this.mData.bzw = completeTaskResIdl.data.is_not_complete.intValue();
             }
         }
     }

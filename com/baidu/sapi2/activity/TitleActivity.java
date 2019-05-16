@@ -260,7 +260,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO != null && webDTO.openExitAnimId != 0) {
             i2 = webDTO.openExitAnimId;
         } else {
-            i2 = a.C0040a.sapi_sdk_hold;
+            i2 = a.C0039a.sapi_sdk_hold;
         }
         if (i != 0) {
             overridePendingTransition(i, i2);

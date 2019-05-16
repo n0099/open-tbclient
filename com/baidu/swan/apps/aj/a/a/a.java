@@ -10,17 +10,17 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.aj.a.a;
 import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
+public class a extends z {
     public a(j jVar) {
         super(jVar, "/swan/startAccelerometer");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             c.e("accelerometer", "none swanApp");
@@ -58,10 +58,10 @@ public class a extends y {
                 return false;
             }
             c.i("accelerometer", " init ");
-            com.baidu.swan.apps.aj.a.a KZ = com.baidu.swan.apps.aj.a.a.KZ();
-            KZ.m(context, C0111a.hk(optParamsAsJo.optString("interval")));
-            KZ.a(new a.InterfaceC0110a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
-                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0110a
+            com.baidu.swan.apps.aj.a.a Ny = com.baidu.swan.apps.aj.a.a.Ny();
+            Ny.m(context, C0112a.hM(optParamsAsJo.optString("interval")));
+            Ny.a(new a.InterfaceC0111a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0111a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -75,7 +75,7 @@ public class a extends y {
                     }
                 }
             });
-            KZ.La();
+            Ny.Nz();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
@@ -97,17 +97,17 @@ public class a extends y {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0111a {
-        private static ArrayMap<String, Integer> aTK = new ArrayMap<>(3);
+    private static class C0112a {
+        private static ArrayMap<String, Integer> aWA = new ArrayMap<>(3);
 
         static {
-            aTK.put("ui", 60);
-            aTK.put("game", 20);
-            aTK.put("normal", 200);
+            aWA.put("ui", 60);
+            aWA.put("game", 20);
+            aWA.put("normal", 200);
         }
 
-        public static int hk(String str) {
-            Integer num = aTK.get(str);
+        public static int hM(String str) {
+            Integer num = aWA.get(str);
             if (num != null) {
                 return num.intValue();
             }

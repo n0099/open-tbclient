@@ -7,16 +7,16 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class c extends y {
+public class c extends z {
     public c(j jVar) {
         super(jVar, "/swan/getPhoneNumber");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
@@ -38,17 +38,17 @@ public class c extends y {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                com.baidu.swan.apps.setting.b.a.a((Activity) context, "mobile", "0", new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
+                com.baidu.swan.apps.setting.b.a.a((Activity) context, "mobile", "0", new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.swan.apps.an.c.a
+                    @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: a */
                     public void D(com.baidu.swan.apps.setting.b.a aVar) {
                         JSONObject wrapCallbackParams;
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (aVar.Kl()) {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aRV, 0);
+                        if (aVar.ML()) {
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aUJ, 0);
                         } else {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aRW.toString(SapiErrorCode.NETWORK_FAILED));
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aUK.toString(SapiErrorCode.NETWORK_FAILED));
                         }
                         callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                     }

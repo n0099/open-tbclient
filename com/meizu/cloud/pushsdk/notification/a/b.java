@@ -16,7 +16,6 @@ public class b extends c {
         if (MinSdkChecker.isSupportNotificationBuild()) {
             Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
             bigTextStyle.setBigContentTitle(messageV3.getTitle());
-            bigTextStyle.setSummaryText(messageV3.getContent());
             bigTextStyle.bigText(messageV3.getmNotificationStyle().getExpandableText());
             builder.setStyle(bigTextStyle);
         }

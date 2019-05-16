@@ -21,7 +21,7 @@ public class f implements c {
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
-    public void d(String str, Object obj) {
+    public void e(String str, Object obj) {
         this.map.put(str, obj);
     }
 

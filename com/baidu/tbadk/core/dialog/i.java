@@ -1,133 +1,181 @@
 package com.baidu.tbadk.core.dialog;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.os.Bundle;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.dialog.k;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes.dex */
-public class i {
-    private List<? extends h> aMK;
-    private Context bFD;
-    private ViewGroup bFE;
-    private LinearLayout bFF;
-    private View bFG;
-    private TextView bFH;
-    private c bFI;
-    private a bFJ;
-    private TextView bud;
-    private String titleText;
+public class i extends Dialog {
+    private LinearLayout bMZ;
+    private float bNa;
+    private boolean bNb;
+    private Context context;
+    private boolean isShowing;
+    protected View mContentView;
+    private com.baidu.adp.base.e mPageContext;
 
-    /* loaded from: classes.dex */
-    public interface a {
-        void onClick();
+    public i(com.baidu.adp.base.e eVar, View view) {
+        super(eVar.getPageActivity(), 16973835);
+        this.bNa = 0.3f;
+        this.bNb = false;
+        this.isShowing = false;
+        this.mPageContext = eVar;
+        this.context = eVar.getPageActivity();
+        this.mContentView = view;
     }
 
-    /* loaded from: classes.dex */
-    public interface b {
-        void onClick();
+    public i(com.baidu.adp.base.e eVar) {
+        super(eVar.getPageActivity(), 16973835);
+        this.bNa = 0.3f;
+        this.bNb = false;
+        this.isShowing = false;
+        this.context = eVar.getPageActivity();
+        this.mPageContext = eVar;
     }
 
-    /* loaded from: classes.dex */
-    public interface c {
-        void a(i iVar, int i, View view);
+    public void an(float f) {
+        this.bNa = f;
     }
 
-    public i(Context context) {
-        if (context != null) {
-            this.bFD = context;
-            this.bFE = (ViewGroup) LayoutInflater.from(context).inflate(d.h.popup_dialog_view, (ViewGroup) null);
-            this.bFF = (LinearLayout) this.bFE.findViewById(d.g.content_view);
-            this.bud = (TextView) this.bFE.findViewById(d.g.title);
-            this.bFG = this.bFE.findViewById(d.g.title_divide_line);
-            this.bFG.setVisibility(8);
-            this.aMK = new ArrayList();
-            this.bFH = (TextView) this.bFE.findViewById(d.g.dialog_bottom_cancel_button);
+    @Override // android.app.Dialog
+    public void setContentView(View view) {
+        this.mContentView = view;
+    }
+
+    public void a(String str, String[] strArr, k.c cVar) {
+        k kVar = new k(this.context);
+        if (!StringUtils.isNull(str)) {
+            kVar.setTitleText(str);
         }
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < strArr.length; i++) {
+            arrayList.add(new g(i, strArr[i], kVar));
+        }
+        kVar.W(arrayList);
+        kVar.a(cVar);
+        setCanceledOnTouchOutside(true);
+        this.mContentView = kVar.afZ();
     }
 
-    public Context getContext() {
-        return this.bFD;
-    }
-
-    public ViewGroup abf() {
-        return this.bFF;
-    }
-
-    public View getRootView() {
-        return this.bFE;
-    }
-
-    public void setTitleText(String str) {
-        this.titleText = str;
-    }
-
-    public void a(c cVar) {
-        this.bFI = cVar;
-    }
-
-    public c abg() {
-        return this.bFI;
-    }
-
-    public void P(List<? extends h> list) {
-        if (list != null) {
-            this.aMK = list;
-            this.bFF.removeAllViews();
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 < list.size()) {
-                    h hVar = list.get(i2);
-                    if (hVar != null) {
-                        this.bFF.addView(hVar.getView());
-                    }
-                    i = i2 + 1;
-                } else {
+    @Override // android.app.Dialog
+    protected void onCreate(Bundle bundle) {
+        super.onCreate(bundle);
+        requestWindowFeature(1);
+        setContentView(R.layout.popup_dialog);
+        Display defaultDisplay = ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay();
+        WindowManager.LayoutParams attributes = getWindow().getAttributes();
+        attributes.width = defaultDisplay.getWidth();
+        getWindow().setAttributes(attributes);
+        getWindow().setBackgroundDrawableResource(R.color.transparent);
+        getWindow().setDimAmount(this.bNa);
+        getWindow().setGravity(80);
+        getWindow().setWindowAnimations(0);
+        setCanceledOnTouchOutside(true);
+        setCancelable(true);
+        this.bMZ = (LinearLayout) findViewById(R.id.root_view);
+        this.bMZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.i.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                i.this.cancel();
+            }
+        });
+        if (this.mContentView != null) {
+            this.bMZ.removeAllViews();
+            if (this.mContentView.getParent() != null) {
+                if (this.mContentView.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
+                    this.bMZ.addView(this.mContentView);
                     return;
                 }
+                return;
             }
+            this.bMZ.addView(this.mContentView);
         }
     }
 
-    public void a(a aVar) {
-        this.bFJ = aVar;
-    }
-
-    public void onChangeSkinType() {
-        al.k(this.bud, d.C0277d.cp_bg_line_d);
-        al.j(this.bud, d.C0277d.cp_cont_c);
-        al.l(this.bFG, d.C0277d.cp_bg_line_c);
-        al.k(this.bFH, d.C0277d.cp_bg_line_d);
-        al.j(this.bFH, d.C0277d.cp_cont_j);
-        if (this.aMK != null) {
-            for (h hVar : this.aMK) {
-                hVar.onChangeSkinType();
-            }
+    public void showDialog() {
+        this.bNb = false;
+        if (isShowing()) {
+            super.dismiss();
         }
-    }
+        com.baidu.adp.lib.g.g.a(this, this.mPageContext);
+        if (this.bMZ != null) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_enter_anim);
+            loadAnimation.setFillAfter(true);
+            loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.dialog.i.2
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    i.this.setCancelable(false);
+                }
 
-    public View abh() {
-        if (!StringUtils.isNull(this.titleText)) {
-            this.bud.setText(this.titleText);
-        } else {
-            this.bud.setVisibility(8);
-        }
-        if (this.bFJ != null) {
-            this.bFH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.i.1
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    i.this.bFJ.onClick();
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    i.this.setCancelable(true);
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
                 }
             });
+            this.bMZ.startAnimation(loadAnimation);
         }
-        onChangeSkinType();
-        return this.bFE;
+    }
+
+    @Override // android.app.Dialog, android.content.DialogInterface
+    public void dismiss() {
+        if (this.bMZ != null && !this.bNb && isShowing()) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.context, R.anim.pop_exit_anim);
+            loadAnimation.setFillAfter(true);
+            loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.core.dialog.i.3
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationStart(Animation animation) {
+                    i.this.bNb = true;
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationEnd(Animation animation) {
+                    i.this.bNb = false;
+                    if (i.this.mPageContext != null && i.this.mPageContext.getPageActivity() != null) {
+                        Activity pageActivity = i.this.mPageContext.getPageActivity();
+                        if (!pageActivity.isFinishing() && pageActivity.getWindow() != null) {
+                            i.super.dismiss();
+                        }
+                    }
+                }
+
+                @Override // android.view.animation.Animation.AnimationListener
+                public void onAnimationRepeat(Animation animation) {
+                }
+            });
+            this.bMZ.startAnimation(loadAnimation);
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onBackPressed() {
+        if (isShowing()) {
+            cancel();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    public View getContentView() {
+        return this.mContentView;
+    }
+
+    public LinearLayout getRootView() {
+        return this.bMZ;
     }
 }

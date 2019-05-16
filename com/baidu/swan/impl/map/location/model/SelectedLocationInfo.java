@@ -10,14 +10,14 @@ public class SelectedLocationInfo implements Parcelable {
     public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new Parcelable.Creator<SelectedLocationInfo>() { // from class: com.baidu.swan.impl.map.location.model.SelectedLocationInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: n */
+        /* renamed from: p */
         public SelectedLocationInfo createFromParcel(Parcel parcel) {
             return new SelectedLocationInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eQ */
+        /* renamed from: fp */
         public SelectedLocationInfo[] newArray(int i) {
             return new SelectedLocationInfo[i];
         }

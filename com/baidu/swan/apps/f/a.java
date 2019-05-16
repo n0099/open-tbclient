@@ -5,24 +5,23 @@ import com.baidu.swan.apps.v.b.b;
 /* loaded from: classes2.dex */
 public class a {
     @Deprecated
-    /* renamed from: do  reason: not valid java name */
-    public static boolean m14do(String str) {
+    public static boolean db(String str) {
         return (TextUtils.isEmpty(str) || str.contains("_")) ? false : true;
     }
 
     public static boolean a(b bVar) {
-        return bVar != null && bVar.mType == 0;
+        return bVar != null && bVar.getType() == 0;
     }
 
     public static boolean b(b bVar) {
-        return bVar != null && bVar.mType == 1;
+        return bVar != null && bVar.getType() == 1;
     }
 
     public static boolean c(b bVar) {
-        return bVar != null && bVar.mType == 2;
+        return bVar != null && bVar.getType() == 2;
     }
 
-    public static String dp(String str) {
+    public static String dc(String str) {
         if (!TextUtils.isEmpty(str)) {
             int indexOf = str.indexOf("_dev");
             if (indexOf > 0) {
@@ -37,7 +36,7 @@ public class a {
         return str;
     }
 
-    public static String dq(String str) {
+    public static String dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

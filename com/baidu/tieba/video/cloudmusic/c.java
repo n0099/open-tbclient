@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void beW();
+        void bmo();
 
-        void ciY();
+        void crb();
     }
 
     /* loaded from: classes5.dex */
@@ -17,8 +17,8 @@ public interface c {
 
         void a(CloudMusicData cloudMusicData);
 
-        void qy(boolean z);
+        void rn(boolean z);
 
-        void qz(boolean z);
+        void ro(boolean z);
     }
 }

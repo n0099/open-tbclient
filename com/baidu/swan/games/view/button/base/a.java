@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class a {
     @V8JavascriptField
     public String backgroundColor;
-    private InterfaceC0205a bfS;
+    private InterfaceC0217a blg;
     @V8JavascriptField
     public String borderColor;
     @V8JavascriptField
@@ -43,19 +43,19 @@ public class a {
     public double fontSize = 16.0d;
     @V8JavascriptField
     public double opacity = 1.0d;
-    public HashSet<String> bfR = new HashSet<>();
+    public HashSet<String> blf = new HashSet<>();
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0205a {
-        void PA();
+    public interface InterfaceC0217a {
+        void SV();
     }
 
     public a(@NonNull JsObject jsObject) {
-        m(jsObject);
+        n(jsObject);
     }
 
-    private void m(@NonNull JsObject jsObject) {
+    private void n(@NonNull JsObject jsObject) {
         for (int i = 0; i < jsObject.length(); i++) {
             String propertyName = jsObject.getPropertyName(i);
             if (!TextUtils.isEmpty(propertyName)) {
@@ -199,7 +199,7 @@ public class a {
                         this.color = jsObject.toString(i);
                         break;
                 }
-                this.bfR.add(propertyName);
+                this.blf.add(propertyName);
             }
         }
         if (com.baidu.swan.apps.b.DEBUG) {
@@ -212,16 +212,16 @@ public class a {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bfS != null) {
-            this.bfS.PA();
+        if (this.blg != null) {
+            this.blg.SV();
         }
     }
 
-    public void a(InterfaceC0205a interfaceC0205a) {
-        this.bfS = interfaceC0205a;
+    public void a(InterfaceC0217a interfaceC0217a) {
+        this.blg = interfaceC0217a;
     }
 
-    public static int eL(@ColorInt int i) {
+    public static int ff(@ColorInt int i) {
         int i2 = (16711680 & i) >> 16;
         int i3 = (65280 & i) >> 8;
         int i4 = i & 255;

@@ -8,7 +8,6 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.mobstat.Config;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -58,7 +57,7 @@ class b {
         for (int i = 0; i < str2.length(); i++) {
             stringBuffer.append(str2.charAt(i));
             if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
-                stringBuffer.append(Config.TRACE_TODAY_VISIT_SPLIT);
+                stringBuffer.append(":");
             }
         }
         return stringBuffer.toString();
@@ -147,7 +146,7 @@ class b {
                 for (int i3 = 0; i3 < strArr2[i].length(); i3++) {
                     stringBuffer.append(strArr2[i].charAt(i3));
                     if (i3 > 0 && i3 % 2 == 1 && i3 < strArr2[i].length() - 1) {
-                        stringBuffer.append(Config.TRACE_TODAY_VISIT_SPLIT);
+                        stringBuffer.append(":");
                     }
                 }
                 strArr4[i] = stringBuffer.toString();

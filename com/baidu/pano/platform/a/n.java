@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.pano.platform.a.b;
 import com.baidu.pano.platform.a.q;
 import com.baidu.pano.platform.a.w;
@@ -288,7 +287,7 @@ public abstract class n<T> implements Comparable<n<T>> {
     }
 
     private static String a(int i, String str) {
-        StringBuilder append = new StringBuilder().append("Request:").append(i).append(Config.TRACE_TODAY_VISIT_SPLIT).append(str).append(Config.TRACE_TODAY_VISIT_SPLIT).append(System.currentTimeMillis()).append(Config.TRACE_TODAY_VISIT_SPLIT);
+        StringBuilder append = new StringBuilder().append("Request:").append(i).append(":").append(str).append(":").append(System.currentTimeMillis()).append(":");
         long j = p;
         p = 1 + j;
         return h.a(append.append(j).toString());

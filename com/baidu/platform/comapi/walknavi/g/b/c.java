@@ -332,7 +332,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
 
     public void c() {
         if (this.T) {
-            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0071c(this));
+            com.baidu.platform.comapi.walknavi.d.e.c().a(new C0073c(this));
             String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
             if (TextUtils.isEmpty(a2)) {
                 b(true);
@@ -348,10 +348,10 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0071c implements g.a {
+    public static class C0073c implements g.a {
         private WeakReference<com.baidu.platform.comapi.walknavi.g.b.b> a;
 
-        public C0071c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
+        public C0073c(com.baidu.platform.comapi.walknavi.g.b.b bVar) {
             this.a = null;
             this.a = new WeakReference<>(bVar);
         }
@@ -434,14 +434,14 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
     }
 
     public void c(int i) {
-        if (i == R.drawable.aiapps_keyboard_non_number_item_selector) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_keyboard_non_number_item_selector));
+        if (i == R.drawable.aiapps_follow_vip_blue) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_follow_vip_blue));
             this.v = 1;
-        } else if (i == R.drawable.aiapps_loading_bg) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_loading_bg));
+        } else if (i == R.drawable.aiapps_game_keyboard_sendbuton_bg) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_game_keyboard_sendbuton_bg));
             this.v = 2;
-        } else if (i == R.drawable.aiapps_keyboard_number_item_selector) {
-            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_keyboard_number_item_selector));
+        } else if (i == R.drawable.aiapps_follow_vip_golden) {
+            this.q.setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_follow_vip_golden));
             this.v = 3;
         }
     }
@@ -572,7 +572,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
         String a2 = com.baidu.platform.comapi.walknavi.d.e.c().a();
         if (TextUtils.isEmpty(a2)) {
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_personal_swan_label_bg));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_location_progress_bar_anim));
             return;
         }
         com.baidu.platform.comapi.walknavi.d.a a3 = com.baidu.platform.comapi.walknavi.b.a().a(a2);
@@ -584,7 +584,7 @@ public class c extends com.baidu.platform.comapi.walknavi.g.b.b implements Compo
                 return;
             }
             this.N.setVisibility(0);
-            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_wheel_val));
+            ((ImageView) this.N).setImageDrawable(com.baidu.platform.comapi.wnplatform.o.a.a.a(this.l, (int) R.drawable.aiapps_open_app_button_normal));
         }
     }
 

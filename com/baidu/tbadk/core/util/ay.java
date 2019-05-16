@@ -5,14 +5,14 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class ay {
-    private static String bLx;
-    private static String bLy;
-    private static final HashMap<String, String> bLz = new HashMap<>();
+    private static String bTj;
+    private static String bTk;
+    private static final HashMap<String, String> bTl = new HashMap<>();
 
-    public static void mM(String str) {
-        bLy = str;
+    public static void nU(String str) {
+        bTk = str;
         if (TextUtils.isEmpty(str)) {
-            bLx = str;
+            bTj = str;
             return;
         }
         int lastIndexOf = str.lastIndexOf(".");
@@ -20,21 +20,21 @@ public class ay {
             str = str.substring(lastIndexOf + 1, str.length());
         }
         String str2 = "";
-        if (bLz != null) {
-            str2 = bLz.get(str);
+        if (bTl != null) {
+            str2 = bTl.get(str);
         }
         if (str2 == null) {
-            str2 = mN(str);
-            if (bLz != null) {
-                bLz.put(str, str2);
+            str2 = nV(str);
+            if (bTl != null) {
+                bTl.put(str, str2);
             }
         }
         if (str2 != null) {
-            bLx = str2 + System.currentTimeMillis();
+            bTj = str2 + System.currentTimeMillis();
         }
     }
 
-    private static String mN(String str) {
+    private static String nV(String str) {
         if (!TextUtils.isEmpty(str)) {
             int length = str.length();
             if ((str.toLowerCase().endsWith(PushConstants.INTENT_ACTIVITY_NAME) || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
@@ -45,11 +45,11 @@ public class ay {
         return str;
     }
 
-    public static String ady() {
-        return bLx;
+    public static String aix() {
+        return bTj;
     }
 
-    public static String adz() {
-        return bLy;
+    public static String aiy() {
+        return bTk;
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.ak.e;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import com.facebook.common.b.f;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 /* loaded from: classes2.dex */
@@ -16,16 +16,16 @@ public class c {
     }
 
     public static void a(String str, final a aVar) {
-        Uri hM = aa.hM(str);
-        if (hM == null) {
-            e.LE().b(new com.baidu.swan.apps.ak.a().L(4L).M(10L).hx("download icon fail: icon url is null"));
+        Uri iq = ac.iq(str);
+        if (iq == null) {
+            e.Ok().b(new com.baidu.swan.apps.ak.a().Y(4L).Z(10L).hZ("download icon fail: icon url is null"));
             if (aVar != null) {
                 aVar.g(null);
                 return;
             }
             return;
         }
-        com.facebook.drawee.a.a.c.cuy().e(ImageRequestBuilder.O(hM).cAB(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
+        com.facebook.drawee.a.a.c.cCu().e(ImageRequestBuilder.U(iq).cIx(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.core.pms.c.c.1
             @Override // com.facebook.imagepipeline.e.b
             protected void f(Bitmap bitmap) {
                 Bitmap copy;
@@ -63,6 +63,6 @@ public class c {
                     a.this.g(null);
                 }
             }
-        }, f.ctC());
+        }, f.cBz());
     }
 }

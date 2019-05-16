@@ -1,67 +1,94 @@
 package com.baidu.android.pushservice.j;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private static Map<Long, d> a;
-
-    public static synchronized void a(long j) {
-        synchronized (c.class) {
-            if (a.containsKey(Long.valueOf(j))) {
-                a.remove(a.get(Long.valueOf(j)));
-            }
-        }
-    }
-
-    public static void a(Context context, Intent intent) {
-        if (intent.hasExtra("bd.cross.request.COMMAND_TYPE")) {
-            String stringExtra = intent.getStringExtra("bd.cross.request.COMMAND_TYPE");
-            if (TextUtils.isEmpty(stringExtra)) {
-                return;
-            }
-            if (stringExtra.equals("bd.cross.command.MESSAGE_ACK") || stringExtra.equals("bd.cross.command.ULTRON_ACK")) {
-                long longExtra = intent.getLongExtra("bd.cross.request.ID", 0L);
-                if (longExtra == 0 || a == null || !a.containsKey(Long.valueOf(longExtra))) {
-                    return;
-                }
-                a.get(Long.valueOf(longExtra)).a(intent);
-                a.remove(a.get(Long.valueOf(longExtra)));
-            } else if (stringExtra.equals("bd.cross.command.ULTRON_DELIVER")) {
-                intent.getLongExtra("bd.cross.request.ID", 0L);
-                String stringExtra2 = intent.getStringExtra("bd.cross.request.SOURCE_SERVICE");
-                String stringExtra3 = intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE");
-                if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra3)) {
-                    return;
-                }
-                intent.setPackage(stringExtra3);
-                intent.setClassName(stringExtra3, stringExtra2);
-                intent.setAction("com.baidu.android.pushservice.action.CROSS_REQUEST");
-                intent.putExtra("bd.cross.request.SENDING", false);
-                intent.putExtra("bd.cross.request.RESULT_CODE", (short) 10);
-                intent.putExtra("bd.cross.request.RESULT_DATA", "{DATA:\"OK\"}");
-                intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.ULTRON_ACK");
+    /* JADX DEBUG: Multi-variable search result rejected for r2v1, resolved type: java.io.FileWriter */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r2v0, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r2v4 */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static ArrayList<String> a(String str, File file) {
+        InputStreamReader inputStreamReader;
+        FileWriter fileWriter = 0;
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            try {
+                Process exec = Runtime.getRuntime().exec(str);
+                inputStreamReader = new InputStreamReader(exec.getInputStream(), "utf-8");
                 try {
-                    context.startService(intent);
-                } catch (Exception e) {
+                    LineNumberReader lineNumberReader = new LineNumberReader(inputStreamReader);
+                    if (file != null) {
+                        if (!file.exists()) {
+                            file.createNewFile();
+                        }
+                        FileWriter fileWriter2 = new FileWriter(file, true);
+                        fileWriter2.append((CharSequence) ("\n\n\n---------------   CMD : " + str + "   ---------------\n\n\n"));
+                        fileWriter = fileWriter2;
+                    }
+                    while (true) {
+                        String readLine = lineNumberReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        arrayList.add(readLine);
+                        if (fileWriter != 0) {
+                            fileWriter.append((CharSequence) (readLine + "\n"));
+                        }
+                    }
+                    if (fileWriter != 0) {
+                        fileWriter.flush();
+                        fileWriter.close();
+                    }
+                    exec.waitFor();
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    arrayList.add("no su");
+                    if (inputStreamReader != null) {
+                        try {
+                            inputStreamReader.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    return arrayList;
                 }
+            } catch (Throwable th) {
+                th = th;
+                if (0 != 0) {
+                    try {
+                        fileWriter.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
             }
+        } catch (Exception e5) {
+            e = e5;
+            inputStreamReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (0 != 0) {
+            }
+            throw th;
         }
-    }
-
-    public static synchronized void a(d dVar) {
-        synchronized (c.class) {
-            if (a == null) {
-                a = Collections.synchronizedMap(new HashMap());
-            }
-            if (a.containsKey(Long.valueOf(dVar.a()))) {
-                a.remove(dVar).a();
-            }
-            a.put(Long.valueOf(dVar.a()), dVar);
-        }
+        return arrayList;
     }
 }

@@ -20,7 +20,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.impl.RequestParam;
@@ -647,7 +646,7 @@ public class AidTask {
             return getSerialNoForO();
         }
         try {
-            Class<?> cls = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES);
+            Class<?> cls = Class.forName("android.os.SystemProperties");
             return (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.serialno", "unknown");
         } catch (Exception e) {
             LogUtil.v("weibosdk ", "getSerialNo" + e.toString());

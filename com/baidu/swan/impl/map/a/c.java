@@ -7,13 +7,13 @@ public class c extends a<com.baidu.swan.apps.x.a.c> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
 
-    public static c PU() {
+    public static c TG() {
         return new c();
     }
 
     private boolean j(Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
         com.baidu.swan.apps.console.c.i("map", "MapRemoveAction start");
-        boolean a = com.baidu.swan.impl.map.c.PS().a(cVar);
+        boolean a = com.baidu.swan.impl.map.c.TE().a(cVar);
         com.baidu.swan.apps.console.c.i("map", "MapRemoveAction end");
         return a;
     }

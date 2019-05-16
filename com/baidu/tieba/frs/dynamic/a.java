@@ -23,7 +23,7 @@ public class a implements c {
     public HashMap<String, MetaData> userMap = new HashMap<>();
     public int mErrorNo = 0;
 
-    public StarTrendsResIdl Q(byte[] bArr) {
+    public StarTrendsResIdl O(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -42,7 +42,7 @@ public class a implements c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.T(dataRes.user_list)) {
+            if (!v.aa(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -54,15 +54,15 @@ public class a implements c {
                     }
                 }
             }
-            if (!v.T(dataRes.thread_list)) {
+            if (!v.aa(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
                         bg bgVar = new bg();
                         bgVar.setUserMap(this.userMap);
                         bgVar.a(threadInfo);
                         bgVar.setCurrentPage(3);
-                        bgVar.ZE();
-                        if (bgVar.getType() == bg.bAU || bgVar.getType() == bg.bBg || bgVar.getType() == bg.bBl || bgVar.getType() == bg.bBh || bgVar.getType() == bg.bBm || bgVar.getType() == bg.bBn) {
+                        bgVar.ael();
+                        if (bgVar.getType() == bg.bIi || bgVar.getType() == bg.bIv || bgVar.getType() == bg.bIA || bgVar.getType() == bg.bIw || bgVar.getType() == bg.bIB || bgVar.getType() == bg.bIC) {
                             this.threadList.add(bgVar);
                         }
                     }

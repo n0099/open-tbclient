@@ -1,16 +1,24 @@
 package com.baidu.tbadk.r;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
-public class a {
-    public static final boolean a(TbPageContext<?> tbPageContext, View view) {
-        if (tbPageContext == null || view == null) {
-            return false;
+public class a extends com.baidu.adp.framework.a.c {
+    public a() {
+        super(0);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage == null) {
+            return null;
         }
-        tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().onModeChanged(view);
-        return true;
+        if (httpResponsedMessage.getError() == 2260104) {
+            m.auZ();
+            return httpResponsedMessage;
+        }
+        return httpResponsedMessage;
     }
 }

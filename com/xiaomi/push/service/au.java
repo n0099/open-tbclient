@@ -1,53 +1,28 @@
 package com.xiaomi.push.service;
 
-import android.util.Base64;
-import com.xiaomi.channel.commonutils.misc.h;
-import com.xiaomi.network.HttpUtils;
-import com.xiaomi.push.protobuf.a;
-import com.xiaomi.push.service.at;
-import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
+import com.xiaomi.push.service.XMPushService;
+import com.xiaomi.push.service.as;
 /* loaded from: classes3.dex */
-public class au extends h.b {
-    boolean a = false;
-    final /* synthetic */ at b;
+class au extends XMPushService.i {
+    final /* synthetic */ as.b.c b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public au(at atVar) {
-        this.b = atVar;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public au(as.b.c cVar, int i) {
+        super(i);
+        this.b = cVar;
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
-    public void b() {
-        try {
-            a.C0465a b = a.C0465a.b(Base64.decode(HttpUtils.a(com.xiaomi.channel.commonutils.android.j.a(), "http://resolver.msg.xiaomi.net/psc/?t=a", (List<com.xiaomi.channel.commonutils.network.c>) null), 10));
-            if (b != null) {
-                this.b.c = b;
-                this.a = true;
-                this.b.i();
-            }
-        } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch config failure: " + e.getMessage());
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        if (this.b.b == this.b.a.o) {
+            com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.b.a.h);
+            this.b.a.o = null;
         }
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
-    public void c() {
-        List list;
-        List list2;
-        at.a[] aVarArr;
-        a.C0465a c0465a;
-        this.b.d = null;
-        if (this.a) {
-            synchronized (this.b) {
-                list = this.b.b;
-                list2 = this.b.b;
-                aVarArr = (at.a[]) list.toArray(new at.a[list2.size()]);
-            }
-            for (at.a aVar : aVarArr) {
-                c0465a = this.b.c;
-                aVar.a(c0465a);
-            }
-        }
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "clear peer job";
     }
 }

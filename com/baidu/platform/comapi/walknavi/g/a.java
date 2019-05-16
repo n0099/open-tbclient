@@ -76,7 +76,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
     private com.baidu.platform.comapi.walknavi.g.b.a n = null;
     private Handler o = new Handler();
     private boolean p = true;
-    private CountDownTimerC0070a q = null;
+    private CountDownTimerC0072a q = null;
     private int v = 0;
     private boolean w = false;
     private boolean z = false;
@@ -329,12 +329,12 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
         this.U = (RelativeLayout) this.j.findViewById(2131165297);
         this.U.setVisibility(0);
         this.U.setOnClickListener(new r(this));
-        this.V = (RelativeLayout) this.j.findViewById(R.raw.bottom_bar_bg);
-        this.X = (TextView) this.j.findViewById(R.raw.disagree_1);
-        this.Y = (TextView) this.j.findViewById(R.raw.disagree_bigpic);
-        this.W = (RelativeLayout) this.j.findViewById(R.raw.enter_forum);
-        this.Z = (ImageView) this.j.findViewById(R.raw.enter_forum_1);
-        this.aa = (ImageView) this.j.findViewById(R.raw.icon_refresh1_1);
+        this.V = (RelativeLayout) this.j.findViewById(R.raw.aiapp_guide);
+        this.X = (TextView) this.j.findViewById(R.raw.bottom_bar_bg_1);
+        this.Y = (TextView) this.j.findViewById(R.raw.disagree);
+        this.W = (RelativeLayout) this.j.findViewById(R.raw.disagree_1);
+        this.Z = (ImageView) this.j.findViewById(R.raw.disagree_bigpic);
+        this.aa = (ImageView) this.j.findViewById(R.raw.enter_forum_1);
     }
 
     public void m() {
@@ -541,7 +541,7 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
             }
             this.l = b3.a(b2).d(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_bar_home_description)).b().b(new e(this)).c(com.baidu.platform.comapi.wnplatform.o.a.a.b(this.i, R.string.abc_action_mode_done)).a(new d(this));
             if (z) {
-                this.q = new CountDownTimerC0070a(7000L, 1000L, this.i, this.l);
+                this.q = new CountDownTimerC0072a(7000L, 1000L, this.i, this.l);
                 this.q.start();
             }
             if (!this.l.isShowing() && this.i != null && !this.i.isFinishing()) {
@@ -953,11 +953,11 @@ public class a extends com.baidu.platform.comapi.wnplatform.n.a {
 
     /* renamed from: com.baidu.platform.comapi.walknavi.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class CountDownTimerC0070a extends CountDownTimer {
+    public class CountDownTimerC0072a extends CountDownTimer {
         Activity a;
         com.baidu.platform.comapi.walknavi.widget.a b;
 
-        public CountDownTimerC0070a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
+        public CountDownTimerC0072a(long j, long j2, Activity activity, com.baidu.platform.comapi.walknavi.widget.a aVar) {
             super(j, j2);
             this.a = activity;
             this.b = aVar;

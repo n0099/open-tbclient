@@ -84,11 +84,11 @@ public class AuthVerifyData implements Serializable {
 
     /* loaded from: classes.dex */
     public static class b extends c {
-        public String bfA;
+        public String bkL;
 
         public b(boolean z, String str) {
             super(z);
-            this.bfA = str;
+            this.bkL = str;
         }
     }
 }

@@ -6,23 +6,23 @@ import java.lang.reflect.Type;
 /* loaded from: classes2.dex */
 public class a<T> {
     final int hashCode;
-    final Type jOH;
-    final Class<? super T> jPV;
+    final Type khi;
+    final Class<? super T> kiw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        this.jOH = D(getClass());
-        this.jPV = (Class<? super T>) C$Gson$Types.g(this.jOH);
-        this.hashCode = this.jOH.hashCode();
+        this.khi = B(getClass());
+        this.kiw = (Class<? super T>) C$Gson$Types.g(this.khi);
+        this.hashCode = this.khi.hashCode();
     }
 
     a(Type type) {
-        this.jOH = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.jPV = (Class<? super T>) C$Gson$Types.g(this.jOH);
-        this.hashCode = this.jOH.hashCode();
+        this.khi = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
+        this.kiw = (Class<? super T>) C$Gson$Types.g(this.khi);
+        this.hashCode = this.khi.hashCode();
     }
 
-    static Type D(Class<?> cls) {
+    static Type B(Class<?> cls) {
         Type genericSuperclass = cls.getGenericSuperclass();
         if (genericSuperclass instanceof Class) {
             throw new RuntimeException("Missing type parameter.");
@@ -30,12 +30,12 @@ public class a<T> {
         return C$Gson$Types.f(((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]);
     }
 
-    public final Class<? super T> cBC() {
-        return this.jPV;
+    public final Class<? super T> cJr() {
+        return this.kiw;
     }
 
-    public final Type cBD() {
-        return this.jOH;
+    public final Type cJs() {
+        return this.khi;
     }
 
     public final int hashCode() {
@@ -43,18 +43,18 @@ public class a<T> {
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && C$Gson$Types.a(this.jOH, ((a) obj).jOH);
+        return (obj instanceof a) && C$Gson$Types.a(this.khi, ((a) obj).khi);
     }
 
     public final String toString() {
-        return C$Gson$Types.h(this.jOH);
+        return C$Gson$Types.h(this.khi);
     }
 
     public static a<?> l(Type type) {
         return new a<>(type);
     }
 
-    public static <T> a<T> E(Class<T> cls) {
+    public static <T> a<T> C(Class<T> cls) {
         return new a<>(cls);
     }
 }

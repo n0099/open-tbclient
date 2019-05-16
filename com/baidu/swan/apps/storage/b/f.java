@@ -8,21 +8,21 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 /* loaded from: classes2.dex */
 public final class f extends e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile f aTe;
+    private static volatile f aVT;
 
     public f() {
         super("searchbox_webapps_sp");
     }
 
-    public static f KJ() {
-        if (aTe == null) {
+    public static f Ni() {
+        if (aVT == null) {
             synchronized (f.class) {
-                if (aTe == null) {
-                    aTe = new f();
+                if (aVT == null) {
+                    aVT = new f();
                 }
             }
         }
-        return aTe;
+        return aVT;
     }
 
     @Override // com.baidu.swan.apps.storage.b.e, android.content.SharedPreferences
@@ -30,7 +30,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             return super.getString(str, str2);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.d(4, str, str2));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.e(4, str, str2));
         if (DEBUG) {
             Log.d("SwanAppSpHelper", "getString processName:" + ProcessUtils.getCurProcessName() + " result value:" + callOnMainWithContentProvider.mResult.getString("result_value"));
         }
@@ -42,7 +42,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             return super.getInt(str, i);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.d(1, str, String.valueOf(i)));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.e(1, str, String.valueOf(i)));
         if (DEBUG) {
             Log.d("SwanAppSpHelper", "getInt processName:" + ProcessUtils.getCurProcessName() + " result value:" + callOnMainWithContentProvider.mResult.getInt("result_value"));
         }
@@ -54,7 +54,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             return super.getLong(str, j);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.d(2, str, String.valueOf(j)));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.e(2, str, String.valueOf(j)));
         if (DEBUG) {
             Log.d("SwanAppSpHelper", "getLong processName:" + ProcessUtils.getCurProcessName() + " result value:" + callOnMainWithContentProvider.mResult.getLong("result_value"));
         }
@@ -66,7 +66,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             return super.getFloat(str, f);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.d(5, str, String.valueOf(f)));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.e(5, str, String.valueOf(f)));
         if (DEBUG) {
             Log.d("SwanAppSpHelper", "getFloat processName:" + ProcessUtils.getCurProcessName() + " result value:" + callOnMainWithContentProvider.mResult.getFloat("result_value"));
         }
@@ -78,7 +78,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             return super.getBoolean(str, z);
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.d(3, str, String.valueOf(z)));
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, a.e(3, str, String.valueOf(z)));
         if (DEBUG) {
             Log.d("SwanAppSpHelper", "getBoolean processName:" + ProcessUtils.getCurProcessName() + " result value:" + callOnMainWithContentProvider.mResult.getBoolean("result_value"));
         }
@@ -90,7 +90,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             super.putString(str, str2);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.d(4, str, str2));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.e(4, str, str2));
         }
     }
 
@@ -99,7 +99,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             super.putInt(str, i);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.d(1, str, String.valueOf(i)));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.e(1, str, String.valueOf(i)));
         }
     }
 
@@ -108,7 +108,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             super.edit().putLong(str, j).commit();
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.d(2, str, String.valueOf(j)));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.e(2, str, String.valueOf(j)));
         }
     }
 
@@ -117,7 +117,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             super.putFloat(str, f);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.d(5, str, String.valueOf(f)));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.e(5, str, String.valueOf(f)));
         }
     }
 
@@ -126,7 +126,7 @@ public final class f extends e {
         if (ProcessUtils.isMainProcess()) {
             super.putBoolean(str, z);
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.d(3, str, String.valueOf(z)));
+            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, a.e(3, str, String.valueOf(z)));
         }
     }
 }

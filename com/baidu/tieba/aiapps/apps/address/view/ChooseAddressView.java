@@ -10,22 +10,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.res.ui.CommonEmptyView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.address.a.a;
-import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ChooseAddressView extends FrameLayout {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.tieba.aiapps.apps.address.a.a cSA;
-    private View cSB;
-    private TextView cSC;
-    private CommonEmptyView cSD;
-    private View cSE;
-    private a.b cSF;
-    private RecyclerView cSz;
+    private RecyclerView daU;
+    private com.baidu.tieba.aiapps.apps.address.a.a daV;
+    private View daW;
+    private TextView daX;
+    private CommonEmptyView daY;
+    private View daZ;
+    private a.b dba;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -46,96 +46,96 @@ public class ChooseAddressView extends FrameLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.delivery_choose_layout, this);
-        this.cSz = (RecyclerView) findViewById(d.g.delivery_list);
-        this.cSB = findViewById(d.g.delivery_add);
-        this.cSE = findViewById(d.g.delivery_add_line);
-        this.cSD = (CommonEmptyView) findViewById(d.g.delivery_empty);
-        this.cSC = (TextView) findViewById(d.g.delivery_add_txt);
+        LayoutInflater.from(context).inflate(R.layout.delivery_choose_layout, this);
+        this.daU = (RecyclerView) findViewById(R.id.delivery_list);
+        this.daW = findViewById(R.id.delivery_add);
+        this.daZ = findViewById(R.id.delivery_add_line);
+        this.daY = (CommonEmptyView) findViewById(R.id.delivery_empty);
+        this.daX = (TextView) findViewById(R.id.delivery_add_txt);
         a(PageState.Normal);
-        fR(com.baidu.swan.apps.u.a.CR().Dq());
-        this.cSA = new com.baidu.tieba.aiapps.apps.address.a.a(context);
-        this.cSz.setLayoutManager(new LinearLayoutManager(context));
-        this.cSz.addItemDecoration(new a(0, x.dip2px(context, 7.0f)));
-        this.cSz.setAdapter(this.cSA);
-        this.cSB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
+        go(com.baidu.swan.apps.u.a.DW().Ev());
+        this.daV = new com.baidu.tieba.aiapps.apps.address.a.a(context);
+        this.daU.setLayoutManager(new LinearLayoutManager(context));
+        this.daU.addItemDecoration(new a(0, z.dip2px(context, 7.0f)));
+        this.daU.setAdapter(this.daV);
+        this.daW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.ChooseAddressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ChooseAddressView.this.cSF != null) {
-                    ChooseAddressView.this.cSF.b(new com.baidu.tieba.aiapps.apps.address.c.b(), "add");
+                if (ChooseAddressView.this.dba != null) {
+                    ChooseAddressView.this.dba.b(new com.baidu.tieba.aiapps.apps.address.c.b(), "add");
                 }
             }
         });
     }
 
-    public void fR(boolean z) {
+    public void go(boolean z) {
         if (z) {
-            this.cSz.setBackgroundColor(Color.parseColor("#161616"));
-            this.cSE.setBackgroundColor(Color.parseColor("#303030"));
-            this.cSB.setBackgroundColor(Color.parseColor("#191919"));
-            this.cSC.setBackgroundColor(Color.parseColor("#803C76FF"));
-            this.cSC.setTextColor(Color.parseColor("#80ffffff"));
+            this.daU.setBackgroundColor(Color.parseColor("#161616"));
+            this.daZ.setBackgroundColor(Color.parseColor("#303030"));
+            this.daW.setBackgroundColor(Color.parseColor("#191919"));
+            this.daX.setBackgroundColor(Color.parseColor("#803C76FF"));
+            this.daX.setTextColor(Color.parseColor("#80ffffff"));
         }
     }
 
     public void showEmptyView() {
         a(PageState.EMPTY_DATA);
-        this.cSD.setTitle(getResources().getString(d.j.delivery_empty_title));
-        this.cSD.setIcon(getResources().getDrawable(d.f.empty_icon_document));
+        this.daY.setTitle(getResources().getString(R.string.delivery_empty_title));
+        this.daY.setIcon(getResources().getDrawable(R.drawable.empty_icon_document));
     }
 
     public void i(View.OnClickListener onClickListener) {
         a(PageState.NET_ERROR);
-        this.cSD.setTitle(getResources().getString(d.j.net_error));
-        this.cSD.setIcon(getResources().getDrawable(d.f.aiapps_empty_icon_network));
-        this.cSD.setTextButtonClickListener(onClickListener);
+        this.daY.setTitle(getResources().getString(R.string.net_error));
+        this.daY.setIcon(getResources().getDrawable(R.drawable.aiapps_empty_icon_network));
+        this.daY.setTextButtonClickListener(onClickListener);
     }
 
     private void a(PageState pageState) {
         boolean z = pageState == PageState.Normal;
-        this.cSD.setVisibility(z ? 8 : 0);
-        this.cSz.setVisibility(z ? 0 : 8);
+        this.daY.setVisibility(z ? 8 : 0);
+        this.daU.setVisibility(z ? 0 : 8);
     }
 
     public com.baidu.tieba.aiapps.apps.address.a.a getDeliveryAdapter() {
-        return this.cSA;
+        return this.daV;
     }
 
     public void setDeliveryChooseListener(a.b bVar) {
-        this.cSF = bVar;
-        this.cSA.setDeliveryChooseListener(this.cSF);
+        this.dba = bVar;
+        this.daV.setDeliveryChooseListener(this.dba);
     }
 
-    public void aC(List<com.baidu.tieba.aiapps.apps.address.c.b> list) {
+    public void aJ(List<com.baidu.tieba.aiapps.apps.address.c.b> list) {
         if (list != null && list.size() > 0) {
-            this.cSA.ay(list);
+            this.daV.aF(list);
             a(PageState.Normal);
-            GP();
+            Jf();
             return;
         }
         showEmptyView();
     }
 
-    public void GP() {
-        this.cSA.notifyDataSetChanged();
+    public void Jf() {
+        this.daV.notifyDataSetChanged();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ItemDecoration {
-        private int cSH;
-        private int cSI;
+        private int dbc;
+        private int dbd;
 
         public a(int i, int i2) {
-            this.cSH = i;
-            this.cSI = i2;
+            this.dbc = i;
+            this.dbd = i2;
         }
 
         @Override // android.support.v7.widget.RecyclerView.ItemDecoration
         public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-            rect.top = this.cSI;
-            rect.left = this.cSH;
-            rect.right = this.cSH;
+            rect.top = this.dbd;
+            rect.left = this.dbc;
+            rect.right = this.dbc;
         }
     }
 }

@@ -6,43 +6,43 @@ import android.view.View;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private int iVV;
-    private b joY;
-    private a joZ;
+    private b jIa;
+    private a jIb;
+    private int joS;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a jpa = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a jIc = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
-        public void lH(int i) {
-            c.this.iVV = i;
-            c.this.aWD();
-            if (c.this.joZ != null) {
-                c.this.joZ.Bk(c.this.iVV);
+        public void mu(int i) {
+            c.this.joS = i;
+            c.this.bdO();
+            if (c.this.jIb != null) {
+                c.this.jIb.Ct(c.this.joS);
             }
         }
     };
-    private View.OnClickListener bQN = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
+    private View.OnClickListener bYE = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.joY == null) {
-                    c.this.joY = new b(c.this.mContext);
-                    c.this.joY.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.joY.a(c.this.jpa);
-                    c.this.joY.pj(c.this.mStatusBarHeight);
+                if (c.this.jIa == null) {
+                    c.this.jIa = new b(c.this.mContext);
+                    c.this.jIa.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.jIa.a(c.this.jIc);
+                    c.this.jIa.qp(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_profession), 1));
-                arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_all), 0));
-                c.this.joY.setData(arrayList, c.this.iVV);
-                c.this.joY.bg(c.this.mTitle);
-                c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_retract), (Drawable) null);
+                arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_profession), 1));
+                arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_all), 0));
+                c.this.jIa.setData(arrayList, c.this.joS);
+                c.this.jIa.bm(c.this.mTitle);
+                c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_retract), (Drawable) null);
             }
         }
     };
@@ -50,7 +50,7 @@ public class c {
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             if (c.this.mTitle != null) {
-                Drawable drawable = al.getDrawable(d.f.icon_album_spread);
+                Drawable drawable = al.getDrawable(R.drawable.icon_album_spread);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
                 c.this.mTitle.setCompoundDrawables(null, null, drawable, null);
             }
@@ -59,43 +59,43 @@ public class c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bk(int i);
+        void Ct(int i);
     }
 
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.iVV = i;
+        this.joS = i;
         this.mStatusBarHeight = i2;
     }
 
-    public void aWD() {
-        if (cpB()) {
-            switch (this.iVV) {
+    public void bdO() {
+        if (cxH()) {
+            switch (this.joS) {
                 case 0:
-                    this.mTitle.setText(d.j.write_zone_all);
+                    this.mTitle.setText(R.string.write_zone_all);
                     break;
                 case 1:
-                    this.mTitle.setText(d.j.write_zone_profession);
+                    this.mTitle.setText(R.string.write_zone_profession);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bQN);
+            this.mTitle.setOnClickListener(this.bYE);
         }
     }
 
-    public boolean cpB() {
-        return this.iVV == 0 || this.iVV == 1;
+    public boolean cxH() {
+        return this.joS == 0 || this.joS == 1;
     }
 
     public void a(a aVar) {
-        this.joZ = aVar;
+        this.jIb = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cpB()) {
-            al.d(this.mTitle, d.C0277d.cp_cont_b, i);
+        if (cxH()) {
+            al.f(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_spread), (Drawable) null);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_spread), (Drawable) null);
             }
         }
     }

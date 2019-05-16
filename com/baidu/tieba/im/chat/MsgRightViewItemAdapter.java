@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean gbB;
+    private boolean gsR;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gbB = false;
+        this.gsR = false;
     }
 
-    public void kI(boolean z) {
-        this.gbB = z;
+    public void lx(boolean z) {
+        this.gsR = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,7 +25,7 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: bo */
     public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgrightView msgrightView = new MsgrightView(this.mPageContext);
-        return new a(msgrightView.fY(), msgrightView);
+        return new a(msgrightView.eR(), msgrightView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,17 +34,17 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView bqd = aVar.bqd();
-        bqd.tv(this.gbs);
-        bqd.kI(this.gbB);
+        MsgrightView bxP = aVar.bxP();
+        bxP.uC(this.gsI);
+        bxP.lx(this.gsR);
         chatMessage.getCacheData().setIs_left(0);
-        bqd.a(this.gbi);
-        bqd.setOnItemViewLongClickListener(this.gbj);
-        bqd.setPosition(i);
-        bqd.cU(this.gbp);
-        bqd.cT(chatMessage.getCacheData().getLastMsgTime());
-        bqd.a(viewGroup, chatMessage);
-        bqd.b(viewGroup, chatMessage);
+        bxP.a(this.gsy);
+        bxP.setOnItemViewLongClickListener(this.gsz);
+        bxP.setPosition(i);
+        bxP.dr(this.gsF);
+        bxP.dq(chatMessage.getCacheData().getLastMsgTime());
+        bxP.a(viewGroup, chatMessage);
+        bxP.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

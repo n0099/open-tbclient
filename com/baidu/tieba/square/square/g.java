@@ -3,32 +3,32 @@ package com.baidu.tieba.square.square;
 import com.baidu.tbadk.core.data.bd;
 /* loaded from: classes5.dex */
 public class g implements com.baidu.tbadk.core.flow.a.a {
-    private bd iCC;
+    private bd iVq;
 
     public g(bd bdVar) {
-        this.iCC = bdVar;
+        this.iVq = bdVar;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        if (this.iCC == null) {
+        if (this.iVq == null) {
             return null;
         }
-        return this.iCC.Xk();
+        return this.iVq.abS();
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String Xf() {
-        if (this.iCC == null) {
+    public String abN() {
+        if (this.iVq == null) {
             return null;
         }
-        return this.iCC.getLink();
+        return this.iVq.getLink();
     }
 
-    public String cdg() {
-        if (this.iCC == null) {
+    public String clk() {
+        if (this.iVq == null) {
             return null;
         }
-        return this.iCC.Yg();
+        return this.iVq.acN();
     }
 }

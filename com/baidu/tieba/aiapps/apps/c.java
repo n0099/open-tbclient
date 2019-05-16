@@ -1,69 +1,70 @@
 package com.baidu.tieba.aiapps.apps;
 
 import android.app.Application;
-import android.util.Log;
-import com.baidu.pyramid.runtime.multiprocess.f;
+import com.baidu.pyramid.runtime.multiprocess.e;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.an.j;
-import com.baidu.swan.apps.env.e;
-import com.baidu.swan.ubc.o;
-import com.baidu.tbadk.s.bc;
+import com.baidu.swan.pms.b.d.f;
+import com.baidu.swan.ubc.m;
+import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean cQW = false;
+    private static boolean cZl = false;
 
     public static void a(Application application, boolean z) {
-        fM(z);
-        if (axS()) {
+        gj(z);
+        if (aCY()) {
+            d(application);
             e(application);
-            f(application);
+        }
+    }
+
+    private static void d(Application application) {
+        e.a(new com.baidu.tieba.aiapps.apps.r.d());
+        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
+            q.Xn();
+            m.Xd().initConfig();
         }
     }
 
     private static void e(Application application) {
-        f.a(new com.baidu.tieba.aiapps.apps.p.d());
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
-            o.Tm();
-        }
-    }
-
-    private static void f(Application application) {
         com.facebook.drawee.a.a.c.initialize(application);
         if (ProcessUtils.isMainProcess()) {
-            axR();
-            if (bc.jK()) {
-                e.Bd().l(null);
-            }
+            aCX();
+            com.baidu.swan.apps.env.d.Cg().l(null);
         }
-        a.dx(application).axO();
+        a.dd(application).aCU();
         if (com.baidu.swan.apps.b.DEBUG) {
-            com.baidu.swan.apps.am.a.G(0, 1);
+            com.baidu.swan.apps.am.a.E(0, 1);
         }
     }
 
-    private static void axR() {
-        if (com.baidu.swan.apps.core.pms.a.vp()) {
-            if (!com.baidu.swan.pms.c.a.AE()) {
-                if (com.baidu.swan.apps.b.DEBUG) {
-                    Log.i("SwanAppInitHelper", "在MaxAge时间周期内，不做UpdateCore请求");
-                    return;
-                }
-                return;
-            }
+    private static void aCX() {
+        final boolean z = true;
+        final boolean z2 = com.baidu.swan.apps.core.pms.a.co(0) && com.baidu.swan.pms.d.a.fJ(0);
+        if (!com.baidu.swan.apps.core.pms.a.co(1) || !com.baidu.swan.pms.d.a.fJ(1)) {
+            z = false;
+        }
+        if (z2 || z) {
             j.c(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.pms.c.a(new com.baidu.swan.pms.b.d.d(0), new com.baidu.swan.apps.core.pms.f());
+                    if (z2) {
+                        com.baidu.swan.pms.c.a(new f(0), new com.baidu.swan.apps.core.pms.f());
+                    }
+                    if (z) {
+                        com.baidu.swan.pms.c.a(new f(1), new com.baidu.swan.games.h.b.b());
+                    }
                 }
             }, "asyncUpdateSwanAppCore by PMS");
         }
     }
 
-    private static void fM(boolean z) {
-        cQW = z;
+    private static void gj(boolean z) {
+        cZl = z;
     }
 
-    public static boolean axS() {
-        return !cQW || com.baidu.swan.apps.an.a.hasLollipop();
+    public static boolean aCY() {
+        return !cZl || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

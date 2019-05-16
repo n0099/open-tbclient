@@ -16,9 +16,10 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(16)
 /* loaded from: classes2.dex */
-class NotificationCompatJellybean {
+public class NotificationCompatJellybean {
     static final String EXTRA_ALLOW_GENERATED_REPLIES = "android.support.allowGeneratedReplies";
     static final String EXTRA_DATA_ONLY_REMOTE_INPUTS = "android.support.dataRemoteInputs";
     private static final String KEY_ACTION_INTENT = "actionIntent";

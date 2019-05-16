@@ -1,142 +1,164 @@
 package com.xiaomi.push.service;
 
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.accounts.OnAccountsUpdateListener;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.os.Build;
 import android.text.TextUtils;
-import com.coremedia.iso.boxes.UserBox;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.TreeMap;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class o {
-    private static n a;
-    private static a b;
+    private static volatile o d;
+    private Context a;
+    private Object b = new Object();
+    private AccountManager c;
+    private ArrayList<a> e;
+    private OnAccountsUpdateListener f;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a();
+        void a(String str, Context context);
     }
 
-    public static synchronized n a(Context context) {
-        n nVar = null;
-        synchronized (o.class) {
-            if (a != null) {
-                nVar = a;
+    private o(Context context) {
+        this.a = context;
+        if (com.xiaomi.channel.commonutils.android.e.b(this.a)) {
+            this.c = AccountManager.get(this.a);
+            this.e = new ArrayList<>();
+        }
+    }
+
+    public static o a(Context context) {
+        if (d == null) {
+            synchronized (o.class) {
+                if (d == null) {
+                    d = new o(context);
+                }
+            }
+        }
+        return d;
+    }
+
+    private void a(String str) {
+        synchronized (this.b) {
+            if (this.e == null || this.e.size() < 1) {
+                return;
+            }
+            Iterator it = new ArrayList(this.e).iterator();
+            while (it.hasNext()) {
+                ((a) it.next()).a(str, this.a);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(Account[] accountArr) {
+        Account account;
+        boolean z = false;
+        if (accountArr == null || accountArr.length <= 0) {
+            return;
+        }
+        int length = accountArr.length;
+        int i = 0;
+        while (true) {
+            if (i < length) {
+                account = accountArr[i];
+                if (account != null && TextUtils.equals("com.xiaomi", account.type)) {
+                    break;
+                }
+                i++;
             } else {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_account", 0);
-                String string = sharedPreferences.getString(UserBox.TYPE, null);
-                String string2 = sharedPreferences.getString("token", null);
-                String string3 = sharedPreferences.getString("security", null);
-                String string4 = sharedPreferences.getString("app_id", null);
-                String string5 = sharedPreferences.getString("app_token", null);
-                String string6 = sharedPreferences.getString("package_name", null);
-                String string7 = sharedPreferences.getString("device_id", null);
-                int i = sharedPreferences.getInt("env_type", 1);
-                if (!TextUtils.isEmpty(string7) && string7.startsWith("a-")) {
-                    string7 = com.xiaomi.channel.commonutils.android.e.e(context);
-                    sharedPreferences.edit().putString("device_id", string7).commit();
-                }
-                if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-                    String e = com.xiaomi.channel.commonutils.android.e.e(context);
-                    if ("com.xiaomi.xmsf".equals(context.getPackageName()) || TextUtils.isEmpty(e) || TextUtils.isEmpty(string7) || string7.equals(e)) {
-                        a = new n(string, string2, string3, string4, string5, string6, i);
-                        nVar = a;
-                    } else {
-                        com.xiaomi.channel.commonutils.logger.b.d("erase the old account.");
-                        b(context);
-                    }
-                }
+                account = null;
+                break;
             }
         }
-        return nVar;
+        if (account != null && !TextUtils.isEmpty(account.name)) {
+            z = true;
+        }
+        boolean c = r.a(this.a).c();
+        if (z && !c) {
+            r.a(this.a).a(account.name);
+            a(account.name);
+        } else if (!z && c) {
+            r.a(this.a).a();
+            a("0");
+        } else if (z && c && !TextUtils.equals(r.a(this.a).b(), account.name)) {
+            r.a(this.a).a(account.name);
+            a(account.name);
+        }
     }
 
-    public static synchronized n a(Context context, String str, String str2, String str3) {
-        PackageInfo packageInfo;
-        n nVar = null;
-        synchronized (o.class) {
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("devid", com.xiaomi.channel.commonutils.android.e.a(context));
-            String str4 = c(context) ? "1000271" : str2;
-            String str5 = c(context) ? "420100086271" : str3;
-            String str6 = c(context) ? "com.xiaomi.xmsf" : str;
-            treeMap.put("appid", str4);
-            treeMap.put("apptoken", str5);
-            try {
-                packageInfo = context.getPackageManager().getPackageInfo(str6, 16384);
-            } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.a(e);
-                packageInfo = null;
+    private void d() {
+        if (this.f != null) {
+            return;
+        }
+        this.f = new p(this);
+    }
+
+    private String e() {
+        Account a2 = com.xiaomi.channel.commonutils.android.e.a(this.a);
+        return a2 == null ? "" : a2.name;
+    }
+
+    public void a(a aVar) {
+        synchronized (this.b) {
+            if (this.e == null) {
+                this.e = new ArrayList<>();
             }
-            treeMap.put("appversion", packageInfo != null ? String.valueOf(packageInfo.versionCode) : "0");
-            treeMap.put("sdkversion", Integer.toString(26));
-            treeMap.put("packagename", str6);
-            treeMap.put("model", Build.MODEL);
-            treeMap.put(Constants.EXTRA_KEY_IMEI_MD5, com.xiaomi.channel.commonutils.string.d.a(com.xiaomi.channel.commonutils.android.e.c(context)));
-            treeMap.put("os", Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Build.VERSION.INCREMENTAL);
-            int b2 = com.xiaomi.channel.commonutils.android.e.b();
-            if (b2 >= 0) {
-                treeMap.put("space_id", Integer.toString(b2));
-            }
-            String a2 = com.xiaomi.channel.commonutils.string.d.a(com.xiaomi.channel.commonutils.android.e.g(context));
-            if (!TextUtils.isEmpty(a2)) {
-                treeMap.put("mac_address", a2);
-            }
-            treeMap.put("android_id", com.xiaomi.channel.commonutils.android.e.b(context));
-            com.xiaomi.channel.commonutils.network.b a3 = com.xiaomi.channel.commonutils.network.d.a(context, a(), treeMap);
-            String a4 = a3 != null ? a3.a() : "";
-            if (!TextUtils.isEmpty(a4)) {
-                JSONObject jSONObject = new JSONObject(a4);
-                if (jSONObject.getInt("code") == 0) {
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
-                    nVar = new n(jSONObject2.getString("userId") + "@xiaomi.com/an" + com.xiaomi.channel.commonutils.string.d.a(6), jSONObject2.getString("token"), jSONObject2.getString("ssecurity"), str4, str5, str6, com.xiaomi.channel.commonutils.misc.a.c());
-                    a(context, nVar);
-                    a = nVar;
-                } else {
-                    r.a(context, jSONObject.getInt("code"), jSONObject.optString("description"));
-                    com.xiaomi.channel.commonutils.logger.b.a(a4);
+            if (aVar != null) {
+                int size = this.e.size();
+                this.e.add(aVar);
+                if (size == 0 && !a()) {
+                    com.xiaomi.channel.commonutils.logger.b.a("MIIDManager startMIIDUpdateListener failed cause lack of GET_ACCOUNTS permission");
                 }
             }
         }
-        return nVar;
     }
 
-    public static String a() {
-        if (com.xiaomi.channel.commonutils.misc.a.b()) {
-            return "http://" + com.xiaomi.smack.b.c + ":9085/pass/register";
-        }
-        return "https://" + (com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/register";
-    }
-
-    public static void a(Context context, n nVar) {
-        SharedPreferences.Editor edit = context.getSharedPreferences("mipush_account", 0).edit();
-        edit.putString(UserBox.TYPE, nVar.a);
-        edit.putString("security", nVar.c);
-        edit.putString("token", nVar.b);
-        edit.putString("app_id", nVar.d);
-        edit.putString("package_name", nVar.f);
-        edit.putString("app_token", nVar.e);
-        edit.putString("device_id", com.xiaomi.channel.commonutils.android.e.e(context));
-        edit.putInt("env_type", nVar.g);
-        edit.commit();
-        b();
-    }
-
-    public static void b() {
-        if (b != null) {
-            b.a();
+    public boolean a() {
+        try {
+            if (com.xiaomi.channel.commonutils.android.e.b(this.a)) {
+                if (this.f == null) {
+                    d();
+                }
+                this.c.addOnAccountsUpdatedListener(this.f, null, true);
+                return true;
+            }
+            return false;
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.d(e.toString());
+            return false;
         }
     }
 
-    public static void b(Context context) {
-        context.getSharedPreferences("mipush_account", 0).edit().clear().commit();
-        a = null;
-        b();
+    public void b() {
+        if (com.xiaomi.channel.commonutils.android.e.b(this.a) && this.f != null) {
+            this.c.removeOnAccountsUpdatedListener(this.f);
+        }
     }
 
-    private static boolean c(Context context) {
-        return context.getPackageName().equals("com.xiaomi.xmsf");
+    public void b(a aVar) {
+        synchronized (this.b) {
+            if (this.e == null) {
+                return;
+            }
+            if (aVar != null) {
+                this.e.remove(aVar);
+                if (this.e.size() == 0) {
+                    b();
+                }
+            }
+        }
+    }
+
+    public String c() {
+        String e = e();
+        if (TextUtils.isEmpty(e)) {
+            r.a(this.a).a("0");
+            return "0";
+        }
+        r.a(this.a).a(e);
+        return e;
     }
 }

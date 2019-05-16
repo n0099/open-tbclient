@@ -14,9 +14,6 @@ public class SubTagsStatus extends BasicPushStatus {
     private String pushId;
     private List<Tag> tagList;
 
-    public SubTagsStatus() {
-    }
-
     /* loaded from: classes3.dex */
     public class Tag implements Serializable {
         private int tagId;
@@ -25,29 +22,40 @@ public class SubTagsStatus extends BasicPushStatus {
         public Tag() {
         }
 
-        public String toString() {
-            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + "'}";
-        }
-
         public int getTagId() {
             return this.tagId;
-        }
-
-        public void setTagId(int i) {
-            this.tagId = i;
         }
 
         public String getTagName() {
             return this.tagName;
         }
 
+        public void setTagId(int i) {
+            this.tagId = i;
+        }
+
         public void setTagName(String str) {
             this.tagName = str;
         }
+
+        public String toString() {
+            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + "'}";
+        }
+    }
+
+    public SubTagsStatus() {
     }
 
     public SubTagsStatus(String str) {
         super(str);
+    }
+
+    public String getPushId() {
+        return this.pushId;
+    }
+
+    public List<Tag> getTagList() {
+        return this.tagList;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
@@ -55,35 +63,28 @@ public class SubTagsStatus extends BasicPushStatus {
         if (!jSONObject.isNull(PushConstants.KEY_PUSH_ID)) {
             setPushId(jSONObject.getString(PushConstants.KEY_PUSH_ID));
         }
-        if (!jSONObject.isNull(CommandMessage.TYPE_TAGS)) {
-            JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                Tag tag = new Tag();
-                if (!jSONObject2.isNull("tagId")) {
-                    tag.tagId = jSONObject2.getInt("tagId");
-                }
-                if (!jSONObject2.isNull("tagName")) {
-                    tag.tagName = jSONObject2.getString("tagName");
-                }
-                arrayList.add(tag);
-            }
-            a.e(BasicPushStatus.TAG, "tags " + arrayList);
-            setTagList(arrayList);
+        if (jSONObject.isNull(CommandMessage.TYPE_TAGS)) {
+            return;
         }
-    }
-
-    public String getPushId() {
-        return this.pushId;
+        JSONArray jSONArray = jSONObject.getJSONArray(CommandMessage.TYPE_TAGS);
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < jSONArray.length(); i++) {
+            JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+            Tag tag = new Tag();
+            if (!jSONObject2.isNull("tagId")) {
+                tag.tagId = jSONObject2.getInt("tagId");
+            }
+            if (!jSONObject2.isNull("tagName")) {
+                tag.tagName = jSONObject2.getString("tagName");
+            }
+            arrayList.add(tag);
+        }
+        a.e(BasicPushStatus.TAG, "tags " + arrayList);
+        setTagList(arrayList);
     }
 
     public void setPushId(String str) {
         this.pushId = str;
-    }
-
-    public List<Tag> getTagList() {
-        return this.tagList;
     }
 
     public void setTagList(List<Tag> list) {

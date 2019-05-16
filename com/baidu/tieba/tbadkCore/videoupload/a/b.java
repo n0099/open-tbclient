@@ -6,7 +6,7 @@ import java.io.IOException;
 public interface b {
     void a(e eVar);
 
-    VideoFinishResult bs(String str, int i) throws IOException;
+    VideoFinishResult bo(String str, int i) throws IOException;
 
     void cancel();
 }

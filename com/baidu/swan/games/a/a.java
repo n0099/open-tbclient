@@ -6,16 +6,11 @@ import com.baidu.searchbox.v8engine.JsObject;
 public class a implements c {
     @Override // com.baidu.swan.games.a.c
     @JavascriptInterface
+    public void loadAd(JsObject jsObject) {
+    }
+
+    @Override // com.baidu.swan.games.a.c
+    @JavascriptInterface
     public void showAd(JsObject jsObject) {
-    }
-
-    @Override // com.baidu.swan.games.a.c
-    @JavascriptInterface
-    public void hide() {
-    }
-
-    @Override // com.baidu.swan.games.a.c
-    @JavascriptInterface
-    public void destroy() {
     }
 }

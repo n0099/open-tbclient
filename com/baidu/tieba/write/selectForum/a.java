@@ -11,18 +11,18 @@ import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity jpf;
+    private HotTopicChangeFourmActivity jIh;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.jpf = hotTopicChangeFourmActivity;
-        this.mContext = this.jpf.getPageContext().getContext();
+        this.jIh = hotTopicChangeFourmActivity;
+        this.mContext = this.jIh.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -31,7 +31,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.T(this.mData)) {
+        if (v.aa(this.mData)) {
             return 0;
         }
         return this.mData.size();
@@ -39,7 +39,7 @@ public class a extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Bl */
+    /* renamed from: Cu */
     public HotTopicBussinessData getItem(int i) {
         if (this.mData != null && i < this.mData.size()) {
             return this.mData.get(i);
@@ -47,7 +47,7 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private String Et(String str) {
+    private String FP(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -64,62 +64,62 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0410a c0410a;
+        C0429a c0429a;
         if (this.mParent == null) {
             this.mParent = viewGroup;
         }
         HotTopicBussinessData item = getItem(i);
         if (item != null) {
-            c0410a = a(view != null ? view.getTag() : null, item);
+            c0429a = a(view != null ? view.getTag() : null, item);
         } else {
-            c0410a = null;
+            c0429a = null;
         }
-        if (c0410a != null) {
-            return c0410a.mRootView;
+        if (c0429a != null) {
+            return c0429a.mRootView;
         }
         return null;
     }
 
-    private C0410a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
-        C0410a c0410a;
+    private C0429a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
+        C0429a c0429a;
         if (obj == null) {
-            c0410a = cpC();
+            c0429a = cxI();
         } else {
-            c0410a = (C0410a) obj;
+            c0429a = (C0429a) obj;
         }
-        c0410a.jph.setText(Et(hotTopicBussinessData.mForumName));
-        c0410a.jpg.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
-        al.k(c0410a.mRootView, d.f.select_forum_item_bg);
-        al.j(c0410a.jph, d.C0277d.cp_cont_b);
-        al.l(c0410a.fiv, d.C0277d.cp_bg_line_e);
-        return c0410a;
+        c0429a.jIj.setText(FP(hotTopicBussinessData.mForumName));
+        c0429a.jIi.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        al.k(c0429a.mRootView, R.drawable.select_forum_item_bg);
+        al.j(c0429a.jIj, R.color.cp_cont_b);
+        al.l(c0429a.fyR, R.color.cp_bg_line_e);
+        return c0429a;
     }
 
-    private C0410a cpC() {
-        C0410a c0410a = new C0410a();
-        c0410a.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.hot_topic_change_item, (ViewGroup) null);
-        al.k(c0410a.mRootView, d.f.select_forum_item_bg);
-        al.j(c0410a.jph, d.C0277d.cp_cont_b);
-        c0410a.jph = (TextView) c0410a.mRootView.findViewById(d.g.fourm_tv);
-        c0410a.fiv = c0410a.mRootView.findViewById(d.g.line_view);
-        c0410a.jpg = (TbImageView) c0410a.mRootView.findViewById(d.g.icon_img);
-        c0410a.jpg.setDefaultBgResource(d.C0277d.cp_bg_line_e);
-        c0410a.jpg.setDefaultResource(d.f.transparent_bg);
-        c0410a.jpg.setDefaultErrorResource(d.f.icon_default_ba_120);
-        c0410a.mRootView.setTag(c0410a);
-        return c0410a;
+    private C0429a cxI() {
+        C0429a c0429a = new C0429a();
+        c0429a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
+        al.k(c0429a.mRootView, R.drawable.select_forum_item_bg);
+        al.j(c0429a.jIj, R.color.cp_cont_b);
+        c0429a.jIj = (TextView) c0429a.mRootView.findViewById(R.id.fourm_tv);
+        c0429a.fyR = c0429a.mRootView.findViewById(R.id.line_view);
+        c0429a.jIi = (TbImageView) c0429a.mRootView.findViewById(R.id.icon_img);
+        c0429a.jIi.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0429a.jIi.setDefaultResource(R.drawable.transparent_bg);
+        c0429a.jIi.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        c0429a.mRootView.setTag(c0429a);
+        return c0429a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0410a {
-        public View fiv;
-        public TbImageView jpg;
-        public TextView jph;
+    public class C0429a {
+        public View fyR;
+        public TbImageView jIi;
+        public TextView jIj;
         public View mRootView;
 
-        private C0410a() {
+        private C0429a() {
         }
     }
 }

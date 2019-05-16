@@ -82,7 +82,7 @@ public class a {
             jSONObject.put(Constants.EXTRA_KEY_APP_VERSION, b.a());
             jSONObject.put("engine_version", b.a());
             if (!TextUtils.isEmpty(b.a(context))) {
-                jSONObject.put("app_id", b.a(context));
+                jSONObject.put(Constants.APP_ID, b.a(context));
             }
             jSONObject.put("system_version", Build.VERSION.SDK_INT);
         } catch (Exception e) {

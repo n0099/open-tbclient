@@ -8,9 +8,9 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public abstract class a extends y {
+public abstract class a extends z {
     @NonNull
-    public abstract String JG();
+    public abstract String Mb();
 
     public abstract boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
 
@@ -24,22 +24,22 @@ public abstract class a extends y {
         super(jVar, str);
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         return false;
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         boolean e;
-        String gC = gC("insert");
-        String gC2 = gC("update");
-        String gC3 = gC("remove");
-        if (TextUtils.equals(gC, str)) {
+        String gW = gW("insert");
+        String gW2 = gW("update");
+        String gW3 = gW("remove");
+        if (TextUtils.equals(gW, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gC2, str)) {
+        } else if (TextUtils.equals(gW2, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gC3, str)) {
+        } else if (TextUtils.equals(gW3, str)) {
             e = d(context, unitedSchemeEntity, callbackHandler, str, bVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, bVar);
@@ -72,7 +72,7 @@ public abstract class a extends y {
         return jSONObject;
     }
 
-    private String gC(String str) {
-        return JG() + "/" + str;
+    private String gW(String str) {
+        return Mb() + "/" + str;
     }
 }

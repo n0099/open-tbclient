@@ -5,82 +5,82 @@ import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements c.a {
-    private static final byte[] jEi = {-1, -40, -1};
-    private static final int jEj = jEi.length;
-    private static final byte[] jEk = {-119, 80, 78, 71, 13, 10, 26, 10};
-    private static final int jEl = jEk.length;
-    private static final byte[] jEm = e.Ft("GIF87a");
-    private static final byte[] jEn = e.Ft("GIF89a");
-    private static final byte[] jEo = e.Ft("BM");
-    private static final int jEp = jEo.length;
-    final int jEh = com.facebook.common.internal.e.l(21, 20, jEj, jEl, 6, jEp);
+    private static final byte[] jWV = {-1, -40, -1};
+    private static final int jWW = jWV.length;
+    private static final byte[] jWX = {-119, 80, 78, 71, 13, 10, 26, 10};
+    private static final int jWY = jWX.length;
+    private static final byte[] jWZ = e.GO("GIF87a");
+    private static final byte[] jXa = e.GO("GIF89a");
+    private static final byte[] jXb = e.GO("BM");
+    private static final int jXc = jXb.length;
+    final int jWU = com.facebook.common.internal.e.l(21, 20, jWW, jWY, 6, jXc);
 
     @Override // com.facebook.c.c.a
     public int getHeaderSize() {
-        return this.jEh;
+        return this.jWU;
     }
 
     @Override // com.facebook.c.c.a
     @Nullable
-    public final c j(byte[] bArr, int i) {
+    public final c l(byte[] bArr, int i) {
         g.checkNotNull(bArr);
         if (com.facebook.common.g.c.n(bArr, 0, i)) {
-            return k(bArr, i);
-        }
-        if (l(bArr, i)) {
-            return b.jEq;
-        }
-        if (m(bArr, i)) {
-            return b.jEr;
+            return m(bArr, i);
         }
         if (n(bArr, i)) {
-            return b.jEs;
+            return b.jXd;
         }
         if (o(bArr, i)) {
-            return b.jEt;
+            return b.jXe;
         }
-        return c.jEz;
+        if (p(bArr, i)) {
+            return b.jXf;
+        }
+        if (q(bArr, i)) {
+            return b.jXg;
+        }
+        return c.jXm;
     }
 
-    private static c k(byte[] bArr, int i) {
+    private static c m(byte[] bArr, int i) {
         g.checkArgument(com.facebook.common.g.c.n(bArr, 0, i));
-        if (com.facebook.common.g.c.g(bArr, 0)) {
-            return b.jEu;
+        if (com.facebook.common.g.c.i(bArr, 0)) {
+            return b.jXh;
         }
-        if (com.facebook.common.g.c.h(bArr, 0)) {
-            return b.jEv;
+        if (com.facebook.common.g.c.j(bArr, 0)) {
+            return b.jXi;
         }
         if (com.facebook.common.g.c.m(bArr, 0, i)) {
-            if (com.facebook.common.g.c.f(bArr, 0)) {
-                return b.jEy;
+            if (com.facebook.common.g.c.h(bArr, 0)) {
+                return b.jXl;
             }
-            if (com.facebook.common.g.c.i(bArr, 0)) {
-                return b.jEx;
+            if (com.facebook.common.g.c.k(bArr, 0)) {
+                return b.jXk;
             }
-            return b.jEw;
+            return b.jXj;
         }
-        return c.jEz;
-    }
-
-    private static boolean l(byte[] bArr, int i) {
-        return i >= jEi.length && e.c(bArr, jEi);
-    }
-
-    private static boolean m(byte[] bArr, int i) {
-        return i >= jEk.length && e.c(bArr, jEk);
+        return c.jXm;
     }
 
     private static boolean n(byte[] bArr, int i) {
-        if (i < 6) {
-            return false;
-        }
-        return e.c(bArr, jEm) || e.c(bArr, jEn);
+        return i >= jWV.length && e.c(bArr, jWV);
     }
 
     private static boolean o(byte[] bArr, int i) {
-        if (i < jEo.length) {
+        return i >= jWX.length && e.c(bArr, jWX);
+    }
+
+    private static boolean p(byte[] bArr, int i) {
+        if (i < 6) {
             return false;
         }
-        return e.c(bArr, jEo);
+        return e.c(bArr, jWZ) || e.c(bArr, jXa);
+    }
+
+    private static boolean q(byte[] bArr, int i) {
+        if (i < jXb.length) {
+            return false;
+        }
+        return e.c(bArr, jXb);
     }
 }

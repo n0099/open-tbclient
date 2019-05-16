@@ -1,36 +1,36 @@
 package com.baidu.android.pushservice.c;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    protected Context a;
-    protected String b;
-    protected String c;
+    public long a = 0;
+    public long b = 0;
+    public String c = "";
+    public String d = "";
+    public String e = "";
+    public String f = "";
+    public String g = "";
+    public String h = "";
+    public String i = "";
+    public String j = "";
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public b(Context context) {
-        this.a = context;
-    }
-
-    public boolean a() {
-        String a = new File(this.c).exists() ? a.a(this.c) : a.a();
-        if (!TextUtils.isEmpty(a)) {
-            try {
-                byte[] a2 = com.baidu.android.pushservice.k.b.a(a.getBytes());
-                if (a2 != null && a2.length > 0) {
-                    this.b = new String(BaiduAppSSOJni.decryptAES(a2, a2.length, 0));
-                }
-            } catch (Exception e) {
-            } catch (UnsatisfiedLinkError e2) {
-            }
+    public JSONObject a() throws JSONException {
+        JSONObject jSONObject = new JSONObject();
+        if (this.a > -1) {
+            jSONObject.put("push_priority", this.a);
         }
-        return !TextUtils.isEmpty(this.b);
-    }
-
-    public boolean a(String str) {
-        return a.a(this.c, str);
+        if (this.b > -1) {
+            jSONObject.put("push_version", this.b);
+        }
+        jSONObject.put("push_channelid", this.c);
+        jSONObject.put("push_newchannelid", this.d);
+        jSONObject.put("push_curpkgname", this.e);
+        jSONObject.put("push_webappbindinfo", this.f);
+        jSONObject.put("push_lightappbindinfo", this.g);
+        jSONObject.put("push_sdkclientbindinfo", this.h);
+        jSONObject.put("push_clientsbindinfo", this.i);
+        jSONObject.put("push_selfbindinfo", this.j);
+        return jSONObject;
     }
 }

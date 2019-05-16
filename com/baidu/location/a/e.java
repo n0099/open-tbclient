@@ -284,7 +284,7 @@ public class e {
             }
             RandomAccessFile randomAccessFile2 = new RandomAccessFile(file, "rw");
             randomAccessFile2.seek(8L);
-            byte[] bytes2 = (b("%d_%02d_%02d") + Config.TRACE_TODAY_VISIT_SPLIT + i).getBytes();
+            byte[] bytes2 = (b("%d_%02d_%02d") + ":" + i).getBytes();
             randomAccessFile2.writeInt(bytes2.length);
             randomAccessFile2.write(bytes2);
             randomAccessFile2.close();
@@ -383,7 +383,7 @@ public class e {
             } catch (Exception e) {
             }
         }
-        this.K = a(com.baidu.location.g.b.d + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.a().b);
+        this.K = a(com.baidu.location.g.b.d + ":" + com.baidu.location.g.b.a().b);
     }
 
     private void d(Location location) {
@@ -419,9 +419,9 @@ public class e {
                 byte[] bArr = new byte[readInt2];
                 randomAccessFile.read(bArr, 0, readInt2);
                 String str2 = new String(bArr);
-                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
+                if (str2.contains(b("%d_%02d_%02d")) && str2.contains(":")) {
                     try {
-                        String[] split = str2.split(Config.TRACE_TODAY_VISIT_SPLIT);
+                        String[] split = str2.split(":");
                         if (split.length > 1) {
                             this.y = Integer.valueOf(split[1]).intValue();
                         }

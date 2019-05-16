@@ -9,17 +9,17 @@ import com.baidu.android.app.event.EventBusWrapper;
 public class NetworkErrorView extends CommonEmptyView {
     public NetworkErrorView(Context context) {
         super(context);
-        this.aGm.setVisibility(0);
+        this.aIf.setVisibility(0);
     }
 
     public NetworkErrorView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aGm.setVisibility(0);
+        this.aIf.setVisibility(0);
     }
 
     public NetworkErrorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aGm.setVisibility(0);
+        this.aIf.setVisibility(0);
     }
 
     public void setReloadClickListener(View.OnClickListener onClickListener) {
@@ -31,23 +31,23 @@ public class NetworkErrorView extends CommonEmptyView {
     }
 
     public void setEmptyButtonVisiblity(int i) {
-        this.aGm.setVisibility(i);
+        this.aIf.setVisibility(i);
     }
 
     public void setNetworkButtonShow(boolean z) {
-        if (this.aGl != null) {
-            this.aGl.setVisibility(z ? 0 : 4);
+        if (this.aIe != null) {
+            this.aIe.setVisibility(z ? 0 : 4);
         }
     }
 
     public void setBottomLayout(View.OnClickListener onClickListener, View view, RelativeLayout.LayoutParams layoutParams) {
-        if (this.aGn != null && view != null) {
-            this.aGn.setVisibility(0);
-            this.aGn.addView(view);
+        if (this.aIg != null && view != null) {
+            this.aIg.setVisibility(0);
+            this.aIg.addView(view);
             if (layoutParams != null) {
-                this.aGn.setLayoutParams(layoutParams);
+                this.aIg.setLayoutParams(layoutParams);
             }
-            this.aGn.setOnClickListener(onClickListener);
+            this.aIg.setOnClickListener(onClickListener);
         }
     }
 
@@ -61,14 +61,14 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public static void Y(View view) {
         a aVar = new a(1);
-        aVar.aHj = 1;
+        aVar.aJc = 1;
         aVar.obj = view;
         EventBusWrapper.post(aVar);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        public int aHj;
+        public int aJc;
         public int messageId;
         public Object obj;
 

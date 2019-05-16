@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class c {
-    private final ArrayList<a> ajU = new ArrayList<>();
+    private final ArrayList<a> akg = new ArrayList<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -15,18 +15,18 @@ public final class c {
 
     /* loaded from: classes2.dex */
     private static class b {
-        public static final c ajV = new c();
+        public static final c akh = new c();
     }
 
-    public static c wj() {
-        return b.ajV;
+    public static c xa() {
+        return b.akh;
     }
 
     public void a(a aVar) {
         if (aVar != null) {
             synchronized (c.class) {
-                if (!this.ajU.contains(aVar)) {
-                    this.ajU.add(aVar);
+                if (!this.akg.contains(aVar)) {
+                    this.akg.add(aVar);
                 }
             }
         }
@@ -35,8 +35,8 @@ public final class c {
     public void b(a aVar) {
         if (aVar != null) {
             synchronized (c.class) {
-                if (this.ajU.contains(aVar)) {
-                    this.ajU.remove(aVar);
+                if (this.akg.contains(aVar)) {
+                    this.akg.remove(aVar);
                 }
             }
         }
@@ -44,15 +44,15 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Activity activity, int i, int i2, Intent intent) {
-        Object[] n = n(this.ajU);
-        if (n != null) {
-            for (Object obj : n) {
+        Object[] o = o(this.akg);
+        if (o != null) {
+            for (Object obj : o) {
                 ((a) obj).a(activity, i, i2, intent);
             }
         }
     }
 
-    private <T extends List> Object[] n(T t) {
+    private <T extends List> Object[] o(T t) {
         Object[] objArr = null;
         synchronized (c.class) {
             if (t.size() > 0) {

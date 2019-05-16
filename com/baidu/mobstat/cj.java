@@ -91,7 +91,7 @@ public abstract class cj {
         }
         String b3 = b(byteBuffer);
         while (b3 != null && b3.length() > 0) {
-            String[] split2 = b3.split(Config.TRACE_TODAY_VISIT_SPLIT, 2);
+            String[] split2 = b3.split(":", 2);
             if (split2.length != 2) {
                 throw new cp("not an http header");
             }

@@ -6,21 +6,21 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
     private String mContent;
-    private String zB;
+    private String xn;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.zB = HTTP.UTF_8;
+        this.xn = HTTP.UTF_8;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean q(byte[] bArr) {
+    public boolean i(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.zB);
+            this.mContent = new String(bArr, this.xn);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -29,10 +29,10 @@ public class d extends DiskFileOperate {
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] hI() {
+    public byte[] gC() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.zB);
+                return this.mContent.getBytes(this.xn);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

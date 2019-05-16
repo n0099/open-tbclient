@@ -4,11 +4,11 @@ import android.view.KeyEvent;
 /* loaded from: classes2.dex */
 public class a implements b {
     @Override // com.baidu.swan.apps.o.b
-    public void BC() {
+    public void CE() {
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void BD() {
+    public void CF() {
     }
 
     @Override // com.baidu.swan.apps.o.b
@@ -20,11 +20,11 @@ public class a implements b {
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void BE() {
+    public void CG() {
     }
 
     @Override // com.baidu.swan.apps.o.b
-    public void BF() {
+    public void CH() {
     }
 
     @Override // com.baidu.swan.apps.o.b

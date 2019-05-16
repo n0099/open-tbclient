@@ -2,16 +2,15 @@ package com.baidu.android.pushservice;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.vivo.push.util.NotifyAdapterUtil;
 /* loaded from: classes3.dex */
 public final class a {
-    private static int a = 0;
-
     public static short a() {
-        return (short) 68;
+        return (short) 80;
     }
 
     public static void a(Context context, boolean z) {
-        int i = z ? 0 : 68;
+        int i = z ? 0 : 80;
         SharedPreferences.Editor edit = context.getSharedPreferences("pst", 4).edit();
         edit.putInt("com.baidu.push.nd_restart", i);
         edit.commit();
@@ -21,11 +20,8 @@ public final class a {
         return PushSettings.d(context);
     }
 
-    public static int b() {
-        if (a != 0 && System.currentTimeMillis() - 1516197236582L > 0) {
-            a = 0;
-        }
-        return a;
+    public static boolean a(String str) {
+        return "com.baidu.searchbox".equals(str) || "com.baidu.BaiduMap".equals(str) || "com.baidu.searchbox.lite".equals(str) || "com.baidu.haokan".equals(str) || "com.baidu.minivideo".equals(str) || "com.baidu.push.qa".equals(str) || "com.baidu.push.salon".equals(str);
     }
 
     public static void b(Context context, boolean z) {
@@ -45,11 +41,11 @@ public final class a {
     }
 
     public static boolean b(Context context) {
-        return 68 > context.getSharedPreferences("pst", 4).getInt("com.baidu.push.nd_restart", 0);
+        return 80 > context.getSharedPreferences("pst", 4).getInt("com.baidu.push.nd_restart", 0);
     }
 
     public static String c(Context context) {
-        return context.getSharedPreferences("pst", 4).getString("s_e", "default");
+        return context.getSharedPreferences("pst", 4).getString("s_e", NotifyAdapterUtil.PRIMARY_CHANNEL);
     }
 
     public static void c(Context context, boolean z) {
@@ -59,6 +55,6 @@ public final class a {
     }
 
     public static boolean d(Context context) {
-        return context.getPackageName().equals("com.baidu.searchbox") && context.getSharedPreferences("com.baidu.pushservice.single_conn", 0).getBoolean("single_enable", false);
+        return a(context.getPackageName()) && context.getSharedPreferences("com.baidu.pushservice.single_conn", 0).getBoolean("single_enable", false);
     }
 }

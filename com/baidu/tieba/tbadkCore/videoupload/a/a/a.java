@@ -14,11 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
-    private final long iIS;
-    private final String iIT;
-    private final int iIU;
-    private final int iIV;
-    private e iIW;
+    private final long jbL;
+    private final String jbM;
+    private final int jbN;
+    private final int jbO;
+    private e jbP;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.iIV = i2;
-        this.iIS = j;
-        this.iIT = str2;
-        this.iIU = i;
+        this.jbO = i2;
+        this.jbL = j;
+        this.jbM = str2;
+        this.jbN = i;
     }
 
     public void a(e eVar) {
-        this.iIW = eVar;
+        this.jbP = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void zD(int i) {
-        if (this.iIW != null) {
-            this.iIW.aM(i / 100.0f);
+    public void AL(int i) {
+        if (this.jbP != null) {
+            this.jbP.aQ(i / 100.0f);
         }
     }
 
@@ -58,33 +58,33 @@ public abstract class a {
             return null;
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-            xVar.x("chunk_no", String.valueOf(i));
-            xVar.x("chunk_sum", String.valueOf(this.iIV));
-            xVar.x("chunk_size", String.valueOf(a.length));
-            xVar.x("video_size", String.valueOf(this.iIS));
-            xVar.x("video_md5", this.iIT);
-            xVar.x("video_len", String.valueOf(j));
-            xVar.x("tbs", TbadkCoreApplication.getInst().getTbs());
+            xVar.o("chunk_no", String.valueOf(i));
+            xVar.o("chunk_sum", String.valueOf(this.jbO));
+            xVar.o("chunk_size", String.valueOf(a.length));
+            xVar.o("video_size", String.valueOf(this.jbL));
+            xVar.o("video_md5", this.jbM);
+            xVar.o("video_len", String.valueOf(j));
+            xVar.o("tbs", TbadkCoreApplication.getInst().getTbs());
             xVar.d("video_chunk", a);
-            xVar.x("upload_id", str);
+            xVar.o("upload_id", str);
             if (isCancelled()) {
                 return null;
             }
-            String acj = xVar.acj();
+            String ahh = xVar.ahh();
             if (isCancelled()) {
                 return null;
             }
             d dVar2 = new d();
-            if (xVar.acE().adD().isRequestSuccess()) {
-                dVar2.videoUrl = CQ(acj);
+            if (xVar.ahC().aiC().isRequestSuccess()) {
+                dVar2.videoUrl = Em(ahh);
                 return dVar2;
             }
-            if (xVar.acE().adD().acH()) {
-                dVar2.errorNo = xVar.acE().adD().bLV;
+            if (xVar.ahC().aiC().ahF()) {
+                dVar2.errorNo = xVar.ahC().aiC().bTG;
             } else {
-                dVar2.errorNo = xVar.acE().adD().Dd;
+                dVar2.errorNo = xVar.ahC().aiC().AM;
             }
-            dVar2.errorMessage = xVar.acE().adD().mErrorString;
+            dVar2.errorMessage = xVar.ahC().aiC().mErrorString;
             return dVar2;
         }
     }
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.iIV) {
-            i2 = (int) (this.iIS - ((i - 1) * this.iIU));
+        if (i == this.jbO) {
+            i2 = (int) (this.jbL - ((i - 1) * this.jbN));
         } else {
-            i2 = this.iIU;
+            i2 = this.jbN;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.iIU);
+                randomAccessFile.seek((i - 1) * this.jbN);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {
@@ -114,7 +114,7 @@ public abstract class a {
         return null;
     }
 
-    private String CQ(String str) {
+    private String Em(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

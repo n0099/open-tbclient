@@ -22,6 +22,7 @@ import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
+import com.xiaomi.mipush.sdk.PushMessageHelper;
 /* loaded from: classes2.dex */
 public class BaseSsoHandler {
     protected static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
@@ -168,7 +169,7 @@ public class BaseSsoHandler {
                     return;
                 }
                 String safeString = Utility.safeString(intent.getStringExtra("error"));
-                String safeString2 = Utility.safeString(intent.getStringExtra("error_type"));
+                String safeString2 = Utility.safeString(intent.getStringExtra(PushMessageHelper.ERROR_TYPE));
                 String safeString3 = Utility.safeString(intent.getStringExtra("error_description"));
                 LogUtil.d(WBAgent.TAG, "error: " + safeString + ", error_type: " + safeString2 + ", error_description: " + safeString3);
                 if (TextUtils.isEmpty(safeString) && TextUtils.isEmpty(safeString2) && TextUtils.isEmpty(safeString3)) {

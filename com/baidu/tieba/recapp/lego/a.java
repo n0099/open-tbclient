@@ -33,23 +33,23 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 class a extends e {
     @Override // com.baidu.tieba.lego.card.e
-    protected void bzF() {
-        gGm.put(17, gGm.size() + 1);
-        gGm.put(26, gGm.size() + 1);
-        gGm.put(25, gGm.size() + 1);
-        gGm.put(27, gGm.size() + 1);
-        gGm.put(31, gGm.size() + 1);
-        gGm.put(32, gGm.size() + 1);
-        gGm.put(33, gGm.size() + 1);
-        gGm.put(99, gGm.size() + 1);
-        gGn.put(17, BdUniqueId.gen());
-        gGn.put(26, BdUniqueId.gen());
-        gGn.put(25, BdUniqueId.gen());
-        gGn.put(27, BdUniqueId.gen());
-        gGn.put(31, BdUniqueId.gen());
-        gGn.put(32, BdUniqueId.gen());
-        gGn.put(33, BdUniqueId.gen());
-        gGn.put(99, BdUniqueId.gen());
+    protected void bHp() {
+        gXG.put(17, gXG.size() + 1);
+        gXG.put(26, gXG.size() + 1);
+        gXG.put(25, gXG.size() + 1);
+        gXG.put(27, gXG.size() + 1);
+        gXG.put(31, gXG.size() + 1);
+        gXG.put(32, gXG.size() + 1);
+        gXG.put(33, gXG.size() + 1);
+        gXG.put(99, gXG.size() + 1);
+        gXH.put(17, BdUniqueId.gen());
+        gXH.put(26, BdUniqueId.gen());
+        gXH.put(25, BdUniqueId.gen());
+        gXH.put(27, BdUniqueId.gen());
+        gXH.put(31, BdUniqueId.gen());
+        gXH.put(32, BdUniqueId.gen());
+        gXH.put(33, BdUniqueId.gen());
+        gXH.put(99, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

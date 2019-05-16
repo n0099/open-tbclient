@@ -2,15 +2,15 @@ package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public abstract class c implements n {
     private volatile byte[] mData = null;
-    private volatile boolean Hf = false;
+    private volatile boolean EP = false;
 
-    protected abstract byte[] gD();
+    protected abstract byte[] fw();
 
-    public byte[] lE() {
+    public byte[] ky() {
         synchronized (this) {
-            if (!this.Hf) {
-                this.Hf = true;
-                this.mData = gD();
+            if (!this.EP) {
+                this.EP = true;
+                this.mData = fw();
             }
         }
         return this.mData;

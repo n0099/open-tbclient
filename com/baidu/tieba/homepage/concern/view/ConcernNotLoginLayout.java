@@ -10,13 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes4.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView fHq;
-    private TextView fHr;
-    private TextView fHs;
+    private ImageView fYm;
+    private TextView fYn;
+    private TextView fYo;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -35,26 +35,26 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(d.h.concern_not_login_layout, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.fHq = (ImageView) inflate.findViewById(d.g.iv_concern_not_login_emotion_pic);
-        this.fHr = (TextView) inflate.findViewById(d.g.tv_concern_you_not_login);
-        this.fHs = (TextView) inflate.findViewById(d.g.tv_concern_login_and_see_more);
-        this.fHs.setOnClickListener(this);
+        this.fYm = (ImageView) inflate.findViewById(R.id.iv_concern_not_login_emotion_pic);
+        this.fYn = (TextView) inflate.findViewById(R.id.tv_concern_you_not_login);
+        this.fYo = (TextView) inflate.findViewById(R.id.tv_concern_login_and_see_more);
+        this.fYo.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == d.g.tv_concern_login_and_see_more) {
-            bc.cZ(this.mContext);
-            HomePageStatic.fFz = true;
+        if (view.getId() == R.id.tv_concern_login_and_see_more) {
+            bc.cE(this.mContext);
+            HomePageStatic.fWw = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.fHq, d.f.pic_jinba_login);
-        al.j(this.fHr, d.C0277d.cp_cont_b);
-        al.j(this.fHs, d.C0277d.cp_btn_a);
-        al.k(this.fHs, d.f.btn_all_blue);
+        al.c(this.fYm, (int) R.drawable.new_pic_emotion_01);
+        al.j(this.fYn, R.color.cp_cont_b);
+        al.j(this.fYo, R.color.cp_btn_a);
+        al.k(this.fYo, R.drawable.btn_all_blue);
     }
 }

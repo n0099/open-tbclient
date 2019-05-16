@@ -8,19 +8,19 @@ import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class b {
-    public static File[] e(boolean z, boolean z2) {
+    public static File[] d(boolean z, boolean z2) {
         File[] listFiles;
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-        diskFileOperate.T(z);
+        diskFileOperate.L(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.hz().b(diskFileOperate);
-        File[] listFiles2 = (diskFileOperate.hN() == null || diskFileOperate.hN().listFiles() == null) ? null : diskFileOperate.hN().listFiles();
+        com.baidu.adp.lib.Disk.d.gt().b(diskFileOperate);
+        File[] listFiles2 = (diskFileOperate.gH() == null || diskFileOperate.gH().listFiles() == null) ? null : diskFileOperate.gH().listFiles();
         if (z2) {
             DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate2.T(z);
+            diskFileOperate2.L(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.hz().b(diskFileOperate2);
-            if (diskFileOperate2.hN() != null && (listFiles = diskFileOperate2.hN().listFiles()) != null && listFiles.length != 0) {
+            com.baidu.adp.lib.Disk.d.gt().b(diskFileOperate2);
+            if (diskFileOperate2.gH() != null && (listFiles = diskFileOperate2.gH().listFiles()) != null && listFiles.length != 0) {
                 if (listFiles2 == null || listFiles2.length == 0) {
                     return listFiles;
                 }
@@ -33,11 +33,11 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<c> al(boolean z) {
+    public static ArrayList<c> ad(boolean z) {
         ArrayList<c> arrayList = new ArrayList<>();
-        File[] e = e(z, true);
-        if (e != null) {
-            for (File file : e) {
+        File[] d = d(z, true);
+        if (d != null) {
+            for (File file : d) {
                 if (file.isFile()) {
                     String name = file.getName();
                     if (!TextUtils.isEmpty(name)) {
@@ -51,8 +51,8 @@ public class b {
 
     public static void a(ArrayList<String> arrayList, boolean z) {
         e eVar = new e(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-        eVar.T(z);
+        eVar.L(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.hz().c(eVar);
+        com.baidu.adp.lib.Disk.d.gt().c(eVar);
     }
 }

@@ -2,7 +2,8 @@ package com.xiaomi.slim;
 
 import android.text.TextUtils;
 import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.ak;
+import com.xiaomi.push.service.as;
+import com.xiaomi.push.service.bb;
 import java.io.BufferedInputStream;
 import java.io.EOFException;
 import java.io.IOException;
@@ -17,13 +18,14 @@ public class c {
     private Adler32 c = new Adler32();
     private e d = new e();
     private InputStream e;
-    private f f;
+    private g f;
     private volatile boolean g;
+    private byte[] h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public c(InputStream inputStream, f fVar) {
+    public c(InputStream inputStream, g gVar) {
         this.e = new BufferedInputStream(inputStream);
-        this.f = fVar;
+        this.f = gVar;
     }
 
     private void a(ByteBuffer byteBuffer, int i) {
@@ -50,7 +52,7 @@ public class c {
                 z = true;
             }
             if (b.h()) {
-                b.C0466b i = b.i();
+                b.C0486b i = b.i();
                 b bVar = new b();
                 bVar.a("SYNC", "CONF");
                 bVar.a(i.c(), (String) null);
@@ -62,6 +64,7 @@ public class c {
             com.xiaomi.channel.commonutils.logger.b.a("[Slim] Invalid CONN");
             throw new IOException("Invalid Connection");
         }
+        this.h = this.f.a();
         while (!this.g) {
             b c2 = c();
             this.f.n();
@@ -70,12 +73,12 @@ public class c {
                     this.f.a(c2);
                     break;
                 case 2:
-                    if (!"SECMSG".equals(c2.a()) || !TextUtils.isEmpty(c2.b())) {
+                    if (!"SECMSG".equals(c2.a()) || ((c2.c() != 2 && c2.c() != 3) || !TextUtils.isEmpty(c2.b()))) {
                         this.f.a(c2);
                         break;
                     } else {
                         try {
-                            this.f.b(this.d.a(c2.d(ak.a().b(Integer.valueOf(c2.c()).toString(), c2.j()).i), this.f));
+                            this.f.b(this.d.a(c2.d(as.a().b(Integer.valueOf(c2.c()).toString(), c2.j()).i), this.f));
                             break;
                         } catch (Exception e) {
                             com.xiaomi.channel.commonutils.logger.b.a("[Slim] Parse packet from Blob " + c2.toString() + " failure:" + e.getMessage());
@@ -98,32 +101,42 @@ public class c {
     }
 
     private ByteBuffer e() {
-        if (this.a.capacity() > 4096) {
-            this.a = ByteBuffer.allocate(2048);
-        }
         this.a.clear();
-        a(this.a, b.n());
-        int c = b.c(this.a.asReadOnlyBuffer());
-        if (c > 32768) {
-            throw new IOException("Blob size too large");
+        a(this.a, 8);
+        short s = this.a.getShort(0);
+        short s2 = this.a.getShort(2);
+        if (s == -15618 && s2 == 5) {
+            int i = this.a.getInt(4);
+            int position = this.a.position();
+            if (i > 32768) {
+                throw new IOException("Blob size too large");
+            }
+            if (i + 4 > this.a.remaining()) {
+                ByteBuffer allocate = ByteBuffer.allocate(i + 2048);
+                allocate.put(this.a.array(), 0, this.a.arrayOffset() + this.a.position());
+                this.a = allocate;
+            } else if (this.a.capacity() > 4096 && i < 2048) {
+                ByteBuffer allocate2 = ByteBuffer.allocate(2048);
+                allocate2.put(this.a.array(), 0, this.a.arrayOffset() + this.a.position());
+                this.a = allocate2;
+            }
+            a(this.a, i);
+            this.b.clear();
+            a(this.b, 4);
+            this.b.position(0);
+            int i2 = this.b.getInt();
+            this.c.reset();
+            this.c.update(this.a.array(), 0, this.a.position());
+            if (i2 != ((int) this.c.getValue())) {
+                com.xiaomi.channel.commonutils.logger.b.a("CRC = " + ((int) this.c.getValue()) + " and " + i2);
+                throw new IOException("Corrupted Blob bad CRC");
+            }
+            if (this.h != null) {
+                bb.a(this.h, this.a.array(), true, position, i);
+            }
+            return this.a;
         }
-        if (c + 4 > this.a.remaining()) {
-            ByteBuffer allocate = ByteBuffer.allocate(b.n() + c);
-            allocate.put(this.a.array(), 0, this.a.arrayOffset() + this.a.position());
-            this.a = allocate;
-        }
-        a(this.a, c);
-        this.b.clear();
-        a(this.b, 4);
-        this.b.position(0);
-        int i = this.b.getInt();
-        this.c.reset();
-        this.c.update(this.a.array(), 0, this.a.position());
-        if (i != ((int) this.c.getValue())) {
-            com.xiaomi.channel.commonutils.logger.b.a("CRC = " + ((int) this.c.getValue()) + " and " + i);
-            throw new IOException("Corrupted Blob bad CRC");
-        }
-        return this.a;
+        throw new IOException("Malformed Input");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -150,9 +163,10 @@ public class c {
             int position = e.position();
             try {
                 e.flip();
-                b b = b.b(e);
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + b.a() + ";chid=" + b.c() + ";len=" + position + "}");
-                return b;
+                e.position(8);
+                b fVar = position == 8 ? new f() : b.b(e.slice());
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fVar.a() + ";chid=" + fVar.c() + ";len=" + position + "}");
+                return fVar;
             } catch (IOException e2) {
                 i = position;
                 iOException = e2;
@@ -161,10 +175,10 @@ public class c {
                 }
                 StringBuilder append = new StringBuilder().append("[Slim] read Blob [");
                 byte[] array = this.a.array();
-                if (i > b.n()) {
-                    i = b.n();
+                if (i > 128) {
+                    i = 128;
                 }
-                com.xiaomi.channel.commonutils.logger.b.a(append.append(com.xiaomi.channel.commonutils.misc.d.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
+                com.xiaomi.channel.commonutils.logger.b.a(append.append(com.xiaomi.channel.commonutils.misc.e.a(array, 0, i)).append("] Err:").append(iOException.getMessage()).toString());
                 throw iOException;
             }
         } catch (IOException e3) {

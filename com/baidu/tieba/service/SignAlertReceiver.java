@@ -12,8 +12,9 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.coreExtra.messageCenter.b;
+import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
@@ -21,7 +22,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
         if (intent.getAction().equals(TbConfig.getBroadcastActionSignAlert())) {
             try {
                 Intent intent2 = new Intent(context, DealIntentService.class);
-                intent2.putExtra("class", 9);
+                intent2.putExtra(DealIntentService.KEY_CLASS, 9);
                 intent2.putExtra("is_message_pv", true);
                 intent2.putExtra("is_notify", true);
                 intent2.putExtra(FrsActivityConfig.KEY_REFRESH, true);
@@ -29,12 +30,12 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);
                 PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-                String string = context.getString(d.j.sign_notification_content);
-                String string2 = context.getString(d.j.app_name);
-                b.ahx().i(b.ahx().iC(12), 12);
+                String string = context.getString(R.string.sign_notification_content);
+                String string2 = context.getString(R.string.app_name);
+                b.amy().g(b.amy().jq(12), 12);
                 NotificationHelper.showNotification(context, 12, string2, string, string, service, false);
                 am amVar = new am("c13252");
-                amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(amVar);
             } catch (Throwable th) {
                 try {
@@ -42,7 +43,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                         BdLog.e(th.getMessage());
                     }
                 } finally {
-                    com.baidu.tbadk.coreExtra.messageCenter.d.aie().updateSignAlarm();
+                    d.anf().updateSignAlarm();
                 }
             }
         }

@@ -4,54 +4,54 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes2.dex */
 public final class a {
-    public JsFunction baU;
-    public JsFunction baV;
-    public JsFunction baW;
+    public JsFunction beQ;
+    public JsFunction beR;
+    public JsFunction beS;
 
-    public static a a(c cVar) {
+    public static a e(c cVar) {
         if (cVar == null) {
             return null;
         }
         a aVar = new a();
-        aVar.baU = cVar.ii("success");
-        aVar.baV = cVar.ii(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.baW = cVar.ii("complete");
+        aVar.beQ = cVar.iR("success");
+        aVar.beR = cVar.iR(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.beS = cVar.iR("complete");
         return aVar;
     }
 
     public void onSuccess(Object obj) {
-        if (this.baU != null) {
-            this.baU.call(obj);
+        if (this.beQ != null) {
+            this.beQ.call(obj);
         }
     }
 
     public void L(Object obj) {
-        if (this.baV != null) {
-            this.baV.call(obj);
+        if (this.beR != null) {
+            this.beR.call(obj);
         }
     }
 
     public void onComplete(Object obj) {
-        if (this.baW != null) {
-            this.baW.call(obj);
+        if (this.beS != null) {
+            this.beS.call(obj);
         }
     }
 
     public void onSuccess() {
-        if (this.baU != null) {
-            this.baU.call();
+        if (this.beQ != null) {
+            this.beQ.call();
         }
     }
 
     public void onFail() {
-        if (this.baV != null) {
-            this.baV.call();
+        if (this.beR != null) {
+            this.beR.call();
         }
     }
 
     public void onComplete() {
-        if (this.baW != null) {
-            this.baW.call();
+        if (this.beS != null) {
+            this.beS.call();
         }
     }
 }

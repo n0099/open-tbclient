@@ -2,22 +2,22 @@ package rx.c;
 /* loaded from: classes2.dex */
 public abstract class b {
     @Deprecated
-    public void D(Throwable th) {
+    public void C(Throwable th) {
     }
 
-    public final String bz(Object obj) {
+    public final String bB(Object obj) {
         try {
-            return bA(obj);
+            return bC(obj);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
         } catch (Throwable th) {
-            rx.exceptions.a.L(th);
+            rx.exceptions.a.K(th);
             return obj.getClass().getName() + ".errorRendering";
         }
     }
 
-    protected String bA(Object obj) throws InterruptedException {
+    protected String bC(Object obj) throws InterruptedException {
         return null;
     }
 }

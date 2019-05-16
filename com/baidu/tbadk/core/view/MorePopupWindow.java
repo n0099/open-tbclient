@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
@@ -110,9 +110,9 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void setWidthAsWidthOfDeviceScreen(Context context) {
-        int aO = com.baidu.adp.lib.util.l.aO(context);
-        this.mContentView.getLayoutParams().width = aO;
-        setWidth(aO);
+        int af = com.baidu.adp.lib.util.l.af(context);
+        this.mContentView.getLayoutParams().width = af;
+        setWidth(af);
     }
 
     public void setWindowHeight(int i) {
@@ -144,7 +144,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(d.k.pop_window_anim);
+        setAnimationStyle(R.style.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
@@ -155,11 +155,11 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.e.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.ds4));
             setHeight(this.mWindowHeight);
-            int[] aS = com.baidu.adp.lib.util.l.aS(this.mActivity);
-            if (aS != null && aS.length > 1 && aS[0] > measuredWidth) {
-                this.mShowRightTopXOff = aS[0] - measuredWidth;
+            int[] aj = com.baidu.adp.lib.util.l.aj(this.mActivity);
+            if (aj != null && aj.length > 1 && aj[0] > measuredWidth) {
+                this.mShowRightTopXOff = aj[0] - measuredWidth;
             }
             this.mPadding_10 = 0;
             this.mShowLeftCenterXOff = -(measuredWidth + this.mPadding_10);

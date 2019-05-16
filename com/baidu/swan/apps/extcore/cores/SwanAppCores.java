@@ -17,20 +17,20 @@ public class SwanAppCores extends SwanAppIPCData {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: cs */
+        /* renamed from: ct */
         public SwanAppCores[] newArray(int i) {
             return new SwanAppCores[i];
         }
     };
-    private SwanCoreVersion atv;
-    private ExtensionCore atw;
+    private SwanCoreVersion atK;
+    private ExtensionCore atL;
 
     public SwanAppCores() {
     }
 
     private SwanAppCores(Parcel parcel) {
-        this.atv = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
-        this.atw = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
+        this.atK = (SwanCoreVersion) parcel.readParcelable(SwanCoreVersion.class.getClassLoader());
+        this.atL = (ExtensionCore) parcel.readParcelable(ExtensionCore.class.getClassLoader());
     }
 
     @Override // android.os.Parcelable
@@ -40,27 +40,27 @@ public class SwanAppCores extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.atv, i);
-        parcel.writeParcelable(this.atw, i);
+        parcel.writeParcelable(this.atK, i);
+        parcel.writeParcelable(this.atL, i);
     }
 
     public String toString() {
-        return "SwanAppCores{mSwanCoreVersion=" + this.atv + ", mExtensionCore=" + this.atw + '}';
+        return "SwanAppCores{mSwanCoreVersion=" + this.atK + ", mExtensionCore=" + this.atL + '}';
     }
 
-    public SwanCoreVersion Ar() {
-        return this.atv;
+    public SwanCoreVersion BA() {
+        return this.atK;
     }
 
     public void a(SwanCoreVersion swanCoreVersion) {
-        this.atv = swanCoreVersion;
+        this.atK = swanCoreVersion;
     }
 
-    public ExtensionCore As() {
-        return this.atw;
+    public ExtensionCore BB() {
+        return this.atL;
     }
 
     public void a(ExtensionCore extensionCore) {
-        this.atw = extensionCore;
+        this.atL = extensionCore;
     }
 }

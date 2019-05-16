@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d Bz = null;
+    private static d zi = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -15,13 +15,13 @@ public class d {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized d iQ() {
+    public static synchronized d hI() {
         d dVar;
         synchronized (d.class) {
-            if (Bz == null) {
-                Bz = new d();
+            if (zi == null) {
+                zi = new d();
             }
-            dVar = Bz;
+            dVar = zi;
         }
         return dVar;
     }
@@ -34,19 +34,19 @@ public class d {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().aN(str)) {
+        while (it.hasNext() && !it.next().ax(str)) {
         }
     }
 
-    public boolean i(String str, int i) {
+    public boolean c(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.Z(i);
+            return cVar.S(i);
         }
         return false;
     }
 
-    public int aO(String str) {
+    public int ay(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
             return cVar.getType();
@@ -59,16 +59,16 @@ public class d {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.ac(0);
-                    edit.putInt(cVar.getName() + c.Bu, 0);
-                    edit.putInt(cVar.getName() + c.Bv, cVar.iH());
+                    cVar.V(0);
+                    edit.putInt(cVar.getName() + c.zd, 0);
+                    edit.putInt(cVar.getName() + c.ze, cVar.hz());
                 }
             }
             edit.commit();
         }
     }
 
-    public void i(Class<?> cls) {
+    public void h(Class<?> cls) {
         try {
             cls.newInstance();
         } catch (IllegalAccessException e) {
@@ -78,10 +78,10 @@ public class d {
         }
     }
 
-    public void j(HashMap<String, Integer> hashMap) {
+    public void i(HashMap<String, Integer> hashMap) {
         if (hashMap != null && hashMap.size() > 0) {
             for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-                i(entry.getKey(), entry.getValue().intValue());
+                c(entry.getKey(), entry.getValue().intValue());
             }
         }
     }

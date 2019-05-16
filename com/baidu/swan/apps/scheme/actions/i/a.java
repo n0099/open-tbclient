@@ -1,185 +1,117 @@
 package com.baidu.swan.apps.scheme.actions.i;
 
-import android.content.Context;
-import android.graphics.Bitmap;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.ae.b;
 import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.console.c;
-import com.baidu.swan.apps.scheme.actions.y;
-import com.baidu.swan.apps.scheme.j;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.baidu.swan.apps.an.ac;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends y {
-    private String mName;
+public final class a {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public a(j jVar) {
-        super(jVar, "/swan/getScreenshot");
+    public static JSONObject hb(String str) {
+        return ay(str, "");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
-    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, b bVar) {
-        if (bVar == null) {
-            c.e("Screenshot", "illegal swanApp");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-            return false;
-        }
-        this.mName = n.dm(unitedSchemeEntity.getParam("params")).optString("name");
-        if (TextUtils.isEmpty(this.mName)) {
-            c.e("Screenshot", "invalid params");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-            return false;
-        }
-        a(unitedSchemeEntity, callbackHandler, bVar);
-        return true;
-    }
-
-    private void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, @NonNull final b bVar) {
-        aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.i.a.1
-            @Override // java.lang.Runnable
-            public void run() {
-                final Bitmap Md = x.Md();
-                if (Md == null) {
-                    a.this.d(unitedSchemeEntity, callbackHandler, "can't get screenshot");
-                } else {
-                    com.baidu.swan.apps.an.j.a(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.i.a.1.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            a.this.a(Md, unitedSchemeEntity, callbackHandler, bVar);
-                        }
-                    }, "savescreenshot");
-                }
-            }
-        });
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x00f8 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:37:0x00fa */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0079 */
-    /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00e9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v11, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v16 */
-    /* JADX WARN: Type inference failed for: r1v18 */
-    /* JADX WARN: Type inference failed for: r1v19 */
-    /* JADX WARN: Type inference failed for: r1v20 */
-    /* JADX WARN: Type inference failed for: r1v21 */
-    /* JADX WARN: Type inference failed for: r1v22 */
-    /* JADX WARN: Type inference failed for: r1v23 */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r6v0, types: [android.graphics.Bitmap] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull b bVar) {
-        FileOutputStream fileOutputStream;
-        String gY = com.baidu.swan.apps.storage.b.gY(bVar.id);
-        if (gY != null) {
-            String str = gY + File.separator + "screenshot";
-            File file = new File(str);
-            if (!file.exists() || !file.isDirectory()) {
-                file.delete();
-                if (!file.mkdir()) {
-                    d(unitedSchemeEntity, callbackHandler, "mkdir fail");
-                    return;
-                }
-            }
-            ?? r1 = ".png";
-            String sb = new StringBuilder().append(str).append(File.separator).append(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date())).append(this.mName).append(".png").toString();
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(sb);
-                    try {
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
-                        c.d("Screenshot", "save screenshot to " + sb);
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(true, com.baidu.swan.apps.storage.b.aD(sb, bVar.id), "success"), 0));
-                        r1 = fileOutputStream;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                                r1 = fileOutputStream;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                                d(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                                r1 = fileOutputStream;
-                            }
-                        }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        d(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                        r1 = fileOutputStream;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                                r1 = fileOutputStream;
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                                d(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                                r1 = fileOutputStream;
-                            }
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    if (r1 != 0) {
-                        try {
-                            r1.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                            d(unitedSchemeEntity, callbackHandler, "save screenshot fail");
-                        }
-                    }
-                    throw th;
-                }
-            } catch (FileNotFoundException e5) {
-                e = e5;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                r1 = 0;
-                if (r1 != 0) {
-                }
-                throw th;
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        c.e("Screenshot", str);
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a(false, (String) null, str), 0));
-    }
-
-    private JSONObject a(boolean z, String str, String str2) {
+    public static JSONObject ay(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.mName);
+            jSONObject.put("wvID", str);
             if (!TextUtils.isEmpty(str2)) {
-                jSONObject.put("message", str2);
-            }
-            if (z) {
-                jSONObject.put("path", str);
+                jSONObject.put("pageUrl", str2);
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            if (DEBUG) {
+                e.printStackTrace();
+            }
         }
         return jSONObject;
+    }
+
+    public static JSONObject s(String str, String str2, String str3) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("wvID", str);
+            jSONObject.put("root", str2);
+            if (!TextUtils.isEmpty(str3)) {
+                jSONObject.put("pageUrl", str3);
+            }
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+        }
+        return jSONObject;
+    }
+
+    public static void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar, String str, String str2, String str3) {
+        if (bVar != null && !TextUtils.isEmpty(str3)) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(s(str, bVar.gD(aa.ik(str2)), str2), 0).toString(), str3);
+        }
+    }
+
+    public static void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), str);
+    }
+
+    public static String b(UnitedSchemeEntity unitedSchemeEntity, String str) {
+        return a(unitedSchemeEntity, str, "url");
+    }
+
+    public static String a(UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
+        if (TextUtils.isEmpty(str2)) {
+            return null;
+        }
+        String str3 = unitedSchemeEntity.getParams().get(str);
+        if (TextUtils.isEmpty(str3)) {
+            return null;
+        }
+        try {
+            return new JSONObject(str3).optString(str2);
+        } catch (JSONException e) {
+            if (DEBUG) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
+    public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
+        com.baidu.swan.apps.performance.e.am("route", "createAndLoadPage start.");
+        String x = ac.x(bVar.mBaseUrl, bVar.ayL, bVar.mParams);
+        com.baidu.swan.apps.ae.a.d eZ = com.baidu.swan.apps.w.e.FV().eZ(bVar.ayL);
+        com.baidu.swan.apps.core.j.b bVar2 = new com.baidu.swan.apps.core.j.b();
+        bVar2.atz = bVar.mBaseUrl;
+        bVar2.atG = com.baidu.swan.apps.model.b.f(bVar);
+        bVar2.atH = eZ.aQP;
+        bVar2.atD = String.valueOf(com.baidu.swan.apps.console.a.xz());
+        if (com.baidu.swan.apps.ae.b.Lq() != null) {
+            String gF = com.baidu.swan.apps.ae.b.Lq().gF(bVar.ayL);
+            if (!TextUtils.isEmpty(gF)) {
+                if (DEBUG) {
+                    Log.d("ActionUtils", "add initData: " + gF);
+                }
+                bVar2.atI = gF;
+            }
+        }
+        bVar2.atF = DEBUG || com.baidu.swan.apps.w.e.FV().FC();
+        com.baidu.swan.apps.w.e.FV().a(cVar.wU(), com.baidu.swan.apps.core.j.b.b(bVar2));
+        com.baidu.swan.apps.core.i.b.a(x, cVar);
+        com.baidu.swan.apps.performance.e.am("route", "createAndLoadPage end.");
+    }
+
+    public static void t(String str, String str2, @NonNull String str3) {
+        HashMap hashMap = new HashMap();
+        if (!TextUtils.isEmpty(str2)) {
+            hashMap.put("from", str2);
+        }
+        hashMap.put("url", str3);
+        com.baidu.swan.apps.w.e.FV().a(new com.baidu.swan.apps.m.a.b(str, hashMap));
     }
 }

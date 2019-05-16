@@ -9,23 +9,23 @@ import java.util.Map;
 public final class a {
     public static int U = 2000;
     public static int V = 1;
-    static a aaT = null;
+    static a YL = null;
     private long W;
     private long X;
     private long Y;
+    private StringBuilder YJ = new StringBuilder();
+    public ArrayList<String> YK = new ArrayList<>();
     private long Z;
-    private StringBuilder aaR = new StringBuilder();
-    public ArrayList<String> aaS = new ArrayList<>();
 
     private a() {
     }
 
     private String f() {
-        Iterator<String> it = this.aaS.iterator();
+        Iterator<String> it = this.YK.iterator();
         while (it.hasNext()) {
             String next = it.next();
             com.baidu.crabsdk.c.a.v("===== stackEntry ===== \n" + next);
-            this.aaR.append(next);
+            this.YJ.append(next);
             String[] split = next.split("\r\n");
             if (split != null && split.length > 0) {
                 for (String str : split) {
@@ -43,15 +43,15 @@ public final class a {
         return U * 0.6f;
     }
 
-    public static a rJ() {
-        if (aaT == null) {
+    public static a qE() {
+        if (YL == null) {
             synchronized (a.class) {
-                if (aaT == null) {
-                    aaT = new a();
+                if (YL == null) {
+                    YL = new a();
                 }
             }
         }
-        return aaT;
+        return YL;
     }
 
     public final a a(long j, long j2, long j3, long j4) {
@@ -78,10 +78,10 @@ public final class a {
         hashMap.put("blockEndTime", Long.valueOf(j2));
         hashMap.put("blockCostTime", Long.valueOf(j3));
         hashMap.put("blockThreadTime", Long.valueOf(j4));
-        hashMap.put("errorTrace", this.aaR.toString());
+        hashMap.put("errorTrace", this.YJ.toString());
         hashMap.put("errorLine", f);
         hashMap.put("errorOriLine", f);
-        this.aaR.setLength(0);
+        this.YJ.setLength(0);
         return hashMap;
     }
 }

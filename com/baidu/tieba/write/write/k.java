@@ -19,102 +19,102 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes3.dex */
 public class k {
-    private View buc;
-    private com.baidu.tbadk.core.view.b csN;
-    private View gDG;
-    private TbImageView gHX;
-    private RelativeLayout hEl;
-    private WriteUrlActivity juU;
-    private TextView juV;
-    private TbImageView juW;
-    private EditText juX;
-    private View juY;
-    private LinearLayout juZ;
-    private ImageView jva;
-    private View jvb;
-    private TextView jvc;
-    private TextView jvd;
-    private View jve;
-    private TextView jvf;
-    private TextView jvg;
-    private LinearLayout jvh;
-    private EditText jvi;
-    private View jvj;
-    private TextView jvk;
-    private FrameLayout jvl;
-    private TextView jvm;
+    private View bBg;
+    private com.baidu.tbadk.core.view.b cAW;
+    private View gUW;
+    private TbImageView gZr;
+    private RelativeLayout hWl;
+    private WriteUrlActivity jNW;
+    private TextView jNX;
+    private TbImageView jNY;
+    private EditText jNZ;
+    private View jOa;
+    private LinearLayout jOb;
+    private ImageView jOc;
+    private View jOd;
+    private TextView jOe;
+    private TextView jOf;
+    private View jOg;
+    private TextView jOh;
+    private TextView jOi;
+    private LinearLayout jOj;
+    private EditText jOk;
+    private View jOl;
+    private TextView jOm;
+    private FrameLayout jOn;
+    private TextView jOo;
     private View.OnClickListener mClickListener;
     private NavigationBar mNavigationBar;
 
     public k(WriteUrlActivity writeUrlActivity, View.OnClickListener onClickListener) {
         this.mNavigationBar = null;
-        this.gDG = null;
-        this.csN = null;
+        this.gUW = null;
+        this.cAW = null;
         if (writeUrlActivity != null) {
-            this.juU = writeUrlActivity;
+            this.jNW = writeUrlActivity;
             this.mClickListener = onClickListener;
-            this.buc = LayoutInflater.from(this.juU.getPageContext().getPageActivity()).inflate(d.h.write_url_activity_layout, (ViewGroup) null);
-            this.juU.setContentView(this.buc);
-            this.mNavigationBar = (NavigationBar) this.buc.findViewById(d.g.view_navigation_bar);
+            this.bBg = LayoutInflater.from(this.jNW.getPageContext().getPageActivity()).inflate(R.layout.write_url_activity_layout, (ViewGroup) null);
+            this.jNW.setContentView(this.bBg);
+            this.mNavigationBar = (NavigationBar) this.bBg.findViewById(R.id.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
-            this.gDG = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mClickListener);
-            this.mNavigationBar.setmBackImageViewBg(d.f.write_close_selector, d.f.write_close_selector);
+            this.gUW = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.mClickListener);
+            this.mNavigationBar.setmBackImageViewBg(R.drawable.write_close_selector, R.drawable.write_close_selector);
             ImageView backImageView = this.mNavigationBar.getBackImageView();
             if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gDG.getLayoutParams();
-                layoutParams.leftMargin = l.h(this.juU.getActivity(), d.e.ds10);
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gUW.getLayoutParams();
+                layoutParams.leftMargin = l.g(this.jNW.getActivity(), R.dimen.ds10);
                 backImageView.setLayoutParams(layoutParams);
             }
-            if (this.gDG != null && (this.gDG.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gDG.getLayoutParams();
+            if (this.gUW != null && (this.gUW.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gUW.getLayoutParams();
                 layoutParams2.width = -2;
-                this.gDG.setLayoutParams(layoutParams2);
+                this.gUW.setLayoutParams(layoutParams2);
             }
-            this.buc.setOnClickListener(this.mClickListener);
-            this.juV = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, writeUrlActivity.getResources().getString(d.j.send_post));
-            al.d(this.juV, d.C0277d.cp_link_tip_a, 1);
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.juV.getLayoutParams();
-            layoutParams3.rightMargin = l.h(this.juU.getActivity(), d.e.ds16);
-            this.juV.setLayoutParams(layoutParams3);
-            this.juV.setOnClickListener(this.mClickListener);
-            this.mNavigationBar.setCenterTextTitle(writeUrlActivity.getResources().getString(d.j.post_new_thread));
-            this.juW = (TbImageView) this.buc.findViewById(d.g.imageview_picture);
-            this.juW.setDefaultResource(d.f.ic_post_url_n);
-            this.juW.setDefaultErrorResource(d.f.ic_post_url_n);
-            this.juW.setDefaultBgResource(d.C0277d.black_alpha0);
-            this.juZ = (LinearLayout) this.buc.findViewById(d.g.view_picture_publish);
-            this.juZ.setOnClickListener(this.mClickListener);
-            this.hEl = (RelativeLayout) this.buc.findViewById(d.g.video_container);
-            this.hEl.setOnClickListener(this.mClickListener);
-            this.gHX = (TbImageView) this.buc.findViewById(d.g.video_img_thumbnail);
-            this.gHX.setDefaultErrorResource(0);
-            this.gHX.setDefaultBgResource(d.f.pic_bg_video_frs);
-            this.gHX.setDefaultBgResource(d.C0277d.black_alpha0);
-            this.jva = (ImageView) this.buc.findViewById(d.g.video_img_play);
-            this.jvb = this.buc.findViewById(d.g.video_view_delete);
-            this.jvb.setOnClickListener(this.mClickListener);
-            this.jvc = (TextView) this.buc.findViewById(d.g.textview_title);
-            this.jvd = (TextView) this.buc.findViewById(d.g.textview_abstract);
-            this.jve = this.buc.findViewById(d.g.view_delete);
-            this.jve.setOnClickListener(this.mClickListener);
-            this.juY = this.buc.findViewById(d.g.icon_invoke_link);
-            this.juY.setOnClickListener(this.mClickListener);
-            this.juX = (EditText) this.buc.findViewById(d.g.post_content);
-            this.jvf = (TextView) this.buc.findViewById(d.g.textview_error_tip);
-            this.jvg = (TextView) this.buc.findViewById(d.g.textview_url);
-            this.jvh = (LinearLayout) this.buc.findViewById(d.g.url_edit_container);
-            this.jvi = (EditText) this.buc.findViewById(d.g.url_input);
-            this.jvm = (TextView) this.buc.findViewById(d.g.url_desc);
-            this.jvj = this.buc.findViewById(d.g.url_input_clear);
-            this.jvk = (TextView) this.buc.findViewById(d.g.url_add);
-            this.jvk.setEnabled(false);
-            this.jvl = (FrameLayout) this.buc.findViewById(d.g.url_edit_back_view);
-            this.jvi.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.k.1
+            this.bBg.setOnClickListener(this.mClickListener);
+            this.jNX = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, writeUrlActivity.getResources().getString(R.string.send_post));
+            al.f(this.jNX, R.color.cp_link_tip_a, 1);
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.jNX.getLayoutParams();
+            layoutParams3.rightMargin = l.g(this.jNW.getActivity(), R.dimen.ds16);
+            this.jNX.setLayoutParams(layoutParams3);
+            this.jNX.setOnClickListener(this.mClickListener);
+            this.mNavigationBar.setCenterTextTitle(writeUrlActivity.getResources().getString(R.string.post_new_thread));
+            this.jNY = (TbImageView) this.bBg.findViewById(R.id.imageview_picture);
+            this.jNY.setDefaultResource(R.drawable.ic_post_url_n);
+            this.jNY.setDefaultErrorResource(R.drawable.ic_post_url_n);
+            this.jNY.setDefaultBgResource(R.color.black_alpha0);
+            this.jOb = (LinearLayout) this.bBg.findViewById(R.id.view_picture_publish);
+            this.jOb.setOnClickListener(this.mClickListener);
+            this.hWl = (RelativeLayout) this.bBg.findViewById(R.id.video_container);
+            this.hWl.setOnClickListener(this.mClickListener);
+            this.gZr = (TbImageView) this.bBg.findViewById(R.id.video_img_thumbnail);
+            this.gZr.setDefaultErrorResource(0);
+            this.gZr.setDefaultBgResource(R.drawable.pic_bg_video_frs);
+            this.gZr.setDefaultBgResource(R.color.black_alpha0);
+            this.jOc = (ImageView) this.bBg.findViewById(R.id.video_img_play);
+            this.jOd = this.bBg.findViewById(R.id.video_view_delete);
+            this.jOd.setOnClickListener(this.mClickListener);
+            this.jOe = (TextView) this.bBg.findViewById(R.id.textview_title);
+            this.jOf = (TextView) this.bBg.findViewById(R.id.textview_abstract);
+            this.jOg = this.bBg.findViewById(R.id.view_delete);
+            this.jOg.setOnClickListener(this.mClickListener);
+            this.jOa = this.bBg.findViewById(R.id.icon_invoke_link);
+            this.jOa.setOnClickListener(this.mClickListener);
+            this.jNZ = (EditText) this.bBg.findViewById(R.id.post_content);
+            this.jOh = (TextView) this.bBg.findViewById(R.id.textview_error_tip);
+            this.jOi = (TextView) this.bBg.findViewById(R.id.textview_url);
+            this.jOj = (LinearLayout) this.bBg.findViewById(R.id.url_edit_container);
+            this.jOk = (EditText) this.bBg.findViewById(R.id.url_input);
+            this.jOo = (TextView) this.bBg.findViewById(R.id.url_desc);
+            this.jOl = this.bBg.findViewById(R.id.url_input_clear);
+            this.jOm = (TextView) this.bBg.findViewById(R.id.url_add);
+            this.jOm.setEnabled(false);
+            this.jOn = (FrameLayout) this.bBg.findViewById(R.id.url_edit_back_view);
+            this.jOk.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.write.k.1
                 @Override // android.text.TextWatcher
                 public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 }
@@ -122,281 +122,281 @@ public class k {
                 @Override // android.text.TextWatcher
                 public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                     if (charSequence == null || charSequence.length() <= 0) {
-                        k.this.jvj.setVisibility(8);
-                        al.j(k.this.jvk, d.C0277d.cp_cont_e);
-                        k.this.jvk.setEnabled(false);
+                        k.this.jOl.setVisibility(8);
+                        al.j(k.this.jOm, R.color.cp_cont_e);
+                        k.this.jOm.setEnabled(false);
                         return;
                     }
-                    k.this.jvj.setVisibility(0);
-                    al.j(k.this.jvk, d.C0277d.cp_link_tip_a);
-                    k.this.jvk.setEnabled(true);
+                    k.this.jOl.setVisibility(0);
+                    al.j(k.this.jOm, R.color.cp_link_tip_a);
+                    k.this.jOm.setEnabled(true);
                 }
 
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
-                    if (k.this.jvm.getText().equals(k.this.juU.getActivity().getString(d.j.tip_url_not_match))) {
-                        k.this.crA();
+                    if (k.this.jOo.getText().equals(k.this.jNW.getActivity().getString(R.string.tip_url_not_match))) {
+                        k.this.czH();
                     }
                 }
             });
-            this.jvj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.k.2
+            this.jOl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.k.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.jvi.setText("");
-                    k.this.jvj.setVisibility(8);
-                    k.this.jvk.setEnabled(false);
+                    k.this.jOk.setText("");
+                    k.this.jOl.setVisibility(8);
+                    k.this.jOm.setEnabled(false);
                 }
             });
-            this.csN = new com.baidu.tbadk.core.view.b(this.juU.getPageContext());
-            crA();
+            this.cAW = new com.baidu.tbadk.core.view.b(this.jNW.getPageContext());
+            czH();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crA() {
+    public void czH() {
         if (StringUtils.isNull(TbadkCoreApplication.getInst().getUrlText())) {
-            this.jvm.setText(d.j.tip_url_post);
+            this.jOo.setText(R.string.tip_url_post);
         } else {
-            this.jvm.setText(TbadkCoreApplication.getInst().getUrlText());
+            this.jOo.setText(TbadkCoreApplication.getInst().getUrlText());
         }
-        al.j(this.jvm, d.C0277d.cp_cont_d);
+        al.j(this.jOo, R.color.cp_cont_d);
     }
 
     public void a(com.baidu.tieba.write.a.a aVar, boolean z) {
-        this.juU.setIsLoading(z);
+        this.jNW.setIsLoading(z);
         if (z) {
-            this.juZ.setVisibility(0);
-            this.hEl.setVisibility(8);
-            this.juW.startLoad(null, 10, false);
-            this.jvc.setVisibility(8);
-            this.jvd.setVisibility(8);
-            this.jvf.setVisibility(8);
-            this.jvg.setVisibility(0);
-            al.j(this.jvg, d.C0277d.cp_cont_f);
-            this.jvg.setText(d.j.tip_url_loading);
+            this.jOb.setVisibility(0);
+            this.hWl.setVisibility(8);
+            this.jNY.startLoad(null, 10, false);
+            this.jOe.setVisibility(8);
+            this.jOf.setVisibility(8);
+            this.jOh.setVisibility(8);
+            this.jOi.setVisibility(0);
+            al.j(this.jOi, R.color.cp_cont_f);
+            this.jOi.setText(R.string.tip_url_loading);
         } else if (aVar == null) {
-            this.juZ.setVisibility(8);
-            this.hEl.setVisibility(8);
-            crB();
+            this.jOb.setVisibility(8);
+            this.hWl.setVisibility(8);
+            czI();
         } else {
-            if (aVar.jon == 1) {
-                this.juZ.setVisibility(0);
-                this.hEl.setVisibility(8);
-                if (aVar.jom) {
-                    this.juW.startLoad(aVar.jop, 10, false);
-                    this.jvc.setText(aVar.bzm);
-                    this.jvd.setText(aVar.bzn);
-                    if (ap.mI(aVar.bzm) > 30) {
-                        this.jvc.setMaxLines(2);
-                        this.jvd.setMaxLines(1);
+            if (aVar.jHp == 1) {
+                this.jOb.setVisibility(0);
+                this.hWl.setVisibility(8);
+                if (aVar.jHo) {
+                    this.jNY.startLoad(aVar.jHr, 10, false);
+                    this.jOe.setText(aVar.bGx);
+                    this.jOf.setText(aVar.bGy);
+                    if (ap.nQ(aVar.bGx) > 30) {
+                        this.jOe.setMaxLines(2);
+                        this.jOf.setMaxLines(1);
                     } else {
-                        this.jvc.setMaxLines(1);
-                        this.jvd.setMaxLines(2);
+                        this.jOe.setMaxLines(1);
+                        this.jOf.setMaxLines(2);
                     }
-                    this.jvc.setVisibility(0);
-                    this.jvd.setVisibility(0);
-                    this.jvg.setVisibility(8);
-                    this.jvf.setVisibility(8);
+                    this.jOe.setVisibility(0);
+                    this.jOf.setVisibility(0);
+                    this.jOi.setVisibility(8);
+                    this.jOh.setVisibility(8);
                 } else {
-                    this.juW.reset();
-                    this.jvg.setText(aVar.linkUrl);
-                    al.j(this.jvg, d.C0277d.cp_cont_b);
-                    this.jvc.setVisibility(8);
-                    this.jvd.setVisibility(8);
-                    this.jvg.setVisibility(0);
-                    this.jvf.setVisibility(0);
+                    this.jNY.reset();
+                    this.jOi.setText(aVar.linkUrl);
+                    al.j(this.jOi, R.color.cp_cont_b);
+                    this.jOe.setVisibility(8);
+                    this.jOf.setVisibility(8);
+                    this.jOi.setVisibility(0);
+                    this.jOh.setVisibility(0);
                 }
-            } else if (aVar.jon == 2) {
-                this.juZ.setVisibility(8);
-                this.hEl.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = this.hEl.getLayoutParams();
-                layoutParams.height = ((l.aO(this.juU.getPageContext().getPageActivity()) - ((int) this.juU.getPageContext().getPageActivity().getResources().getDimension(d.e.ds80))) * 9) / 16;
-                this.hEl.setLayoutParams(layoutParams);
-                al.c(this.jva, d.f.icon_play_video);
-                al.k(this.jvb, d.f.btn_delete_url);
-                this.gHX.startLoad(aVar.jos, 10, false);
+            } else if (aVar.jHp == 2) {
+                this.jOb.setVisibility(8);
+                this.hWl.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = this.hWl.getLayoutParams();
+                layoutParams.height = ((l.af(this.jNW.getPageContext().getPageActivity()) - ((int) this.jNW.getPageContext().getPageActivity().getResources().getDimension(R.dimen.ds80))) * 9) / 16;
+                this.hWl.setLayoutParams(layoutParams);
+                al.c(this.jOc, (int) R.drawable.icon_play_video);
+                al.k(this.jOd, R.drawable.btn_delete_url);
+                this.gZr.startLoad(aVar.jHu, 10, false);
             } else {
-                this.juZ.setVisibility(0);
-                this.hEl.setVisibility(8);
-                this.jvc.setVisibility(8);
-                this.jvd.setVisibility(8);
-                this.jvg.setVisibility(0);
-                this.jvf.setVisibility(0);
-                this.juW.reset();
-                this.jvg.setText(aVar.linkUrl);
-                al.j(this.jvg, d.C0277d.cp_cont_b);
+                this.jOb.setVisibility(0);
+                this.hWl.setVisibility(8);
+                this.jOe.setVisibility(8);
+                this.jOf.setVisibility(8);
+                this.jOi.setVisibility(0);
+                this.jOh.setVisibility(0);
+                this.jNY.reset();
+                this.jOi.setText(aVar.linkUrl);
+                al.j(this.jOi, R.color.cp_cont_b);
             }
-            crB();
+            czI();
         }
     }
 
     public void f(TextWatcher textWatcher) {
-        this.juX.addTextChangedListener(textWatcher);
+        this.jNZ.addTextChangedListener(textWatcher);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.juU != null) {
+        if (this.jNW != null) {
             if (this.mNavigationBar != null) {
-                this.mNavigationBar.onChangeSkinType(this.juU.getPageContext(), i);
+                this.mNavigationBar.onChangeSkinType(this.jNW.getPageContext(), i);
             }
-            al.l(this.mNavigationBar, d.C0277d.cp_bg_line_d);
-            al.l(this.buc, d.C0277d.cp_bg_line_d);
-            this.juX.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
-            this.juX.setTextColor(al.getColor(d.C0277d.cp_cont_f));
-            al.l(this.juZ, d.C0277d.cp_bg_line_e);
-            al.j(this.jvc, d.C0277d.cp_cont_b);
-            al.j(this.jvd, d.C0277d.cp_cont_d);
-            al.j(this.jvg, d.C0277d.cp_cont_b);
-            al.l(this.jvf, d.C0277d.cp_bg_line_d);
-            al.j(this.jvf, d.C0277d.cp_cont_d);
-            al.k(this.juY, d.f.bg_link_invoke);
-            al.l(this.jvh, d.C0277d.cp_bg_line_d);
-            this.jvi.setHintTextColor(al.getColor(d.C0277d.cp_cont_e));
-            al.j(this.jvi, d.C0277d.cp_cont_b);
-            al.j(this.jvm, d.C0277d.cp_cont_d);
-            al.j(this.jvk, d.C0277d.cp_cont_e);
-            al.c(this.jva, d.f.home_ic_video);
-            al.k(this.jve, d.f.btn_delete_url);
-            al.k(this.jvj, d.f.btn_delete_url);
-            al.k(this.jvb, d.f.btn_delete_url);
-            crB();
+            al.l(this.mNavigationBar, R.color.cp_bg_line_d);
+            al.l(this.bBg, R.color.cp_bg_line_d);
+            this.jNZ.setHintTextColor(al.getColor(R.color.cp_cont_e));
+            this.jNZ.setTextColor(al.getColor(R.color.cp_cont_f));
+            al.l(this.jOb, R.color.cp_bg_line_e);
+            al.j(this.jOe, R.color.cp_cont_b);
+            al.j(this.jOf, R.color.cp_cont_d);
+            al.j(this.jOi, R.color.cp_cont_b);
+            al.l(this.jOh, R.color.cp_bg_line_d);
+            al.j(this.jOh, R.color.cp_cont_d);
+            al.k(this.jOa, R.drawable.bg_link_invoke);
+            al.l(this.jOj, R.color.cp_bg_line_d);
+            this.jOk.setHintTextColor(al.getColor(R.color.cp_cont_e));
+            al.j(this.jOk, R.color.cp_cont_b);
+            al.j(this.jOo, R.color.cp_cont_d);
+            al.j(this.jOm, R.color.cp_cont_e);
+            al.c(this.jOc, (int) R.drawable.home_ic_video);
+            al.k(this.jOg, R.drawable.btn_delete_url);
+            al.k(this.jOl, R.drawable.btn_delete_url);
+            al.k(this.jOd, R.drawable.btn_delete_url);
+            czI();
         }
     }
 
-    public void crB() {
+    public void czI() {
         boolean z;
-        if (StringUtils.isNull(crC())) {
-            z = this.juZ.getVisibility() == 0 || this.hEl.getVisibility() == 0;
+        if (StringUtils.isNull(czJ())) {
+            z = this.jOb.getVisibility() == 0 || this.hWl.getVisibility() == 0;
         } else {
             z = true;
         }
         if (z) {
-            al.c(this.juV, d.C0277d.cp_link_tip_a, d.C0277d.s_navbar_title_color);
-            this.juV.setEnabled(true);
+            al.e(this.jNX, R.color.cp_link_tip_a, R.color.s_navbar_title_color);
+            this.jNX.setEnabled(true);
             return;
         }
-        al.d(this.juV, d.C0277d.cp_cont_d, 1);
-        this.juV.setEnabled(false);
+        al.f(this.jNX, R.color.cp_cont_d, 1);
+        this.jNX.setEnabled(false);
     }
 
-    public String crC() {
-        if (this.juX == null || this.juX.getText() == null) {
+    public String czJ() {
+        if (this.jNZ == null || this.jNZ.getText() == null) {
             return null;
         }
-        return this.juX.getText().toString();
+        return this.jNZ.getText().toString();
     }
 
-    public View bvR() {
-        return this.gDG;
+    public View bDz() {
+        return this.gUW;
     }
 
-    public View crD() {
-        return this.juV;
+    public View czK() {
+        return this.jNX;
     }
 
     public View getRootView() {
-        return this.buc;
+        return this.bBg;
     }
 
-    public EditText crE() {
-        return this.juX;
+    public EditText czL() {
+        return this.jNZ;
     }
 
-    public View crF() {
-        return this.jve;
+    public View czM() {
+        return this.jOg;
     }
 
-    public View crG() {
-        return this.jvb;
+    public View czN() {
+        return this.jOd;
     }
 
-    public View crH() {
-        return this.juZ;
+    public View czO() {
+        return this.jOb;
     }
 
     public View getVideoContainer() {
-        return this.hEl;
+        return this.hWl;
     }
 
     public void b(com.baidu.tieba.write.a.a aVar) {
         if (aVar != null && !StringUtils.isNull(aVar.linkUrl)) {
-            this.jvi.setText(aVar.linkUrl);
-            this.jvi.setSelection(aVar.linkUrl.length());
+            this.jOk.setText(aVar.linkUrl);
+            this.jOk.setSelection(aVar.linkUrl.length());
         }
-        this.jvi.requestFocus();
-        l.c(this.juU.getActivity(), this.jvi);
-        this.jvh.setVisibility(0);
-        this.jvl.setVisibility(0);
-        this.juY.setVisibility(8);
+        this.jOk.requestFocus();
+        l.c(this.jNW.getActivity(), this.jOk);
+        this.jOj.setVisibility(0);
+        this.jOn.setVisibility(0);
+        this.jOa.setVisibility(8);
     }
 
-    public void crI() {
-        this.jvh.setVisibility(8);
-        this.jvl.setVisibility(8);
-        this.juY.setVisibility(0);
-        l.b(this.juU.getActivity(), this.jvi);
+    public void czP() {
+        this.jOj.setVisibility(8);
+        this.jOn.setVisibility(8);
+        this.jOa.setVisibility(0);
+        l.b(this.jNW.getActivity(), this.jOk);
     }
 
-    public void Z(View.OnClickListener onClickListener) {
-        this.jvh.setOnClickListener(onClickListener);
-        this.jvl.setOnClickListener(onClickListener);
-        this.juY.setOnClickListener(onClickListener);
+    public void ac(View.OnClickListener onClickListener) {
+        this.jOj.setOnClickListener(onClickListener);
+        this.jOn.setOnClickListener(onClickListener);
+        this.jOa.setOnClickListener(onClickListener);
     }
 
-    public String crJ() {
-        if (this.jvi == null || this.jvi.getText() == null) {
+    public String czQ() {
+        if (this.jOk == null || this.jOk.getText() == null) {
             return null;
         }
-        return this.jvi.getText().toString();
+        return this.jOk.getText().toString();
     }
 
-    public void crK() {
-        if (this.jvm != null) {
-            this.jvm.setText(d.j.tip_url_not_match);
-            al.j(this.jvm, d.C0277d.cp_other_b);
+    public void czR() {
+        if (this.jOo != null) {
+            this.jOo.setText(R.string.tip_url_not_match);
+            al.j(this.jOo, R.color.cp_other_b);
         }
     }
 
-    public void aa(View.OnClickListener onClickListener) {
-        if (this.jvk != null) {
-            this.jvk.setOnClickListener(onClickListener);
+    public void ad(View.OnClickListener onClickListener) {
+        if (this.jOm != null) {
+            this.jOm.setOnClickListener(onClickListener);
         }
     }
 
-    public View crL() {
-        return this.jvh;
+    public View czS() {
+        return this.jOj;
     }
 
     public void destroy() {
-        if (this.juX != null) {
-            this.juX.addTextChangedListener(null);
+        if (this.jNZ != null) {
+            this.jNZ.addTextChangedListener(null);
         }
-        if (this.jvi != null) {
-            this.jvi.addTextChangedListener(null);
+        if (this.jOk != null) {
+            this.jOk.addTextChangedListener(null);
         }
     }
 
     public void l(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            if (AntiHelper.aD(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
-                AntiHelper.aU(this.juU.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
+            if (AntiHelper.aG(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString())) {
+                AntiHelper.aI(this.jNW.getPageContext().getPageActivity(), postWriteCallBackData.getErrorString());
             } else if (postWriteCallBackData.getErrorCode() != 0) {
                 String errorString = postWriteCallBackData.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = this.juU.getPageContext().getPageActivity().getString(d.j.sand_fail);
+                    errorString = this.jNW.getPageContext().getPageActivity().getString(R.string.sand_fail);
                 }
-                this.juU.showToast(errorString);
+                this.jNW.showToast(errorString);
             }
         }
     }
 
     public void showLoadingDialog() {
-        this.csN.e(null);
-        this.csN.hF(d.j.sending);
-        this.csN.dJ(true);
+        this.cAW.e(null);
+        this.cAW.it(R.string.sending);
+        this.cAW.ef(true);
     }
 
     public void closeLoadingDialog() {
-        this.csN.dJ(false);
+        this.cAW.ef(false);
     }
 }

@@ -10,21 +10,21 @@ public class a extends o<Integer, Integer> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Integer, Integer> dF() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pN) : new com.airbnb.lottie.a.b.b(this.pz);
+    public com.airbnb.lottie.a.b.a<Integer, Integer> cz() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nm) : new com.airbnb.lottie.a.b.b(this.mW);
     }
 
     @Override // com.airbnb.lottie.model.a.o
     public String toString() {
-        return "AnimatableColorValue{initialValue=" + this.pN + '}';
+        return "AnimatableColorValue{initialValue=" + this.nm + '}';
     }
 
     /* renamed from: com.airbnb.lottie.model.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static final class C0008a {
         public static a d(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a dZ = n.a(jSONObject, 1.0f, eVar, com.airbnb.lottie.model.a.qf).dZ();
-            return new a(dZ.pz, (Integer) dZ.pN);
+            n.a cT = n.a(jSONObject, 1.0f, eVar, com.airbnb.lottie.model.a.nF).cT();
+            return new a(cT.mW, (Integer) cT.nm);
         }
     }
 }

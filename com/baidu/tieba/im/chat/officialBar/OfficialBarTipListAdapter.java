@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.a.c;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
@@ -18,7 +18,7 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
     @Override // com.baidu.tieba.im.chat.a.c
     protected BasicNameValuePair a(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         int i2 = 0;
-        if (!com.baidu.tbadk.coreExtra.messageCenter.d.aie().aiy()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.d.anf().anz()) {
             str = "";
             i = 0;
         }
@@ -32,13 +32,13 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.gcB.setTag(null);
-        aVar.gcB.setDrawBorder(true);
-        aVar.gcB.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
-        aVar.gcB.setDefaultResource(d.f.icon_default_ba_120);
+        aVar.gtQ.setTag(null);
+        aVar.gtQ.setDrawBorder(true);
+        aVar.gtQ.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+        aVar.gtQ.setDefaultResource(R.drawable.icon_default_ba_120);
         if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
-            aVar.gcB.setTag(imMessageCenterShowItemData.getFriendPortrait());
-            aVar.gcB.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+            aVar.gtQ.setTag(imMessageCenterShowItemData.getFriendPortrait());
+            aVar.gtQ.startLoad(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
         }
     }
 
@@ -54,14 +54,14 @@ public class OfficialBarTipListAdapter extends com.baidu.tieba.im.chat.a.c {
 
     @Override // com.baidu.tieba.im.chat.a.c
     protected void a(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        aVar.gcC.setText(this.mContext.getString(d.j.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
+        aVar.gtR.setText(this.mContext.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         if (imMessageCenterShowItemData.getUserType() == 1) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(d.f.icon_v);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.gcC.setCompoundDrawables(null, null, bitmapDrawable, null);
-            aVar.gcC.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(d.e.ds8)));
+            aVar.gtR.setCompoundDrawables(null, null, bitmapDrawable, null);
+            aVar.gtR.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds8)));
             return;
         }
-        aVar.gcC.setCompoundDrawables(null, null, null, null);
+        aVar.gtR.setCompoundDrawables(null, null, null, null);
     }
 }

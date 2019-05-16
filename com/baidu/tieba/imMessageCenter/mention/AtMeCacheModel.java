@@ -9,22 +9,22 @@ public class AtMeCacheModel extends CacheModel<c, AtMessageActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<c> aoi() {
+    public Class<c> atm() {
         return c.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aoj() {
+    public int atn() {
         return 2001258;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int aok() {
+    public int ato() {
         return 2001258;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String anS() {
+    public String asV() {
         return "tb_user_atme";
     }
 }

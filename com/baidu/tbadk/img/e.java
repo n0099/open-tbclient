@@ -10,21 +10,21 @@ import com.baidu.tbadk.img.effect.ImageOperation;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class e {
-    private b cnh;
-    private d cni = new d() { // from class: com.baidu.tbadk.img.e.1
+    private b cvp;
+    private d cvq = new d() { // from class: com.baidu.tbadk.img.e.1
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             String b;
             if (imageFileInfo == null) {
                 return null;
             }
-            if (e.this.cnh == null) {
-                e.this.cnh = new b();
+            if (e.this.cvp == null) {
+                e.this.cvp = new b();
             }
             String filePath = imageFileInfo.getFilePath();
             LinkedList<ImageOperation> pageActionsList = imageFileInfo.getPageActionsList();
             imageFileInfo.setPageActionsList(null);
-            com.baidu.adp.widget.ImageView.a a = e.this.cnh.a(imageFileInfo, true);
+            com.baidu.adp.widget.ImageView.a a = e.this.cvp.a(imageFileInfo, true);
             if (a == null) {
                 Bitmap b2 = e.this.b(imageFileInfo);
                 if (b2 == null) {
@@ -36,29 +36,29 @@ public class e {
                 }
                 b = e.this.b(b2, 85);
             } else {
-                b = e.this.b(a.oy(), 85);
+                b = e.this.b(a.ns(), 85);
             }
             imageFileInfo.setPageActionsList(pageActionsList);
             return b;
         }
     };
-    private d cnj = new d() { // from class: com.baidu.tbadk.img.e.2
+    private d cvr = new d() { // from class: com.baidu.tbadk.img.e.2
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.pl(imageFileInfo.getFilePath());
+            return e.this.qt(imageFileInfo.getFilePath());
         }
     };
-    private d cnk = this.cnj;
-    private d cnl = new d() { // from class: com.baidu.tbadk.img.e.3
+    private d cvs = this.cvr;
+    private d cvt = new d() { // from class: com.baidu.tbadk.img.e.3
         @Override // com.baidu.tbadk.img.d
         public String a(ImageFileInfo imageFileInfo) {
             if (imageFileInfo == null) {
                 return null;
             }
-            return e.this.b(e.this.pm(imageFileInfo.getFilePath()), 85);
+            return e.this.b(e.this.qu(imageFileInfo.getFilePath()), 85);
         }
     };
 
@@ -68,39 +68,39 @@ public class e {
             return null;
         }
         String filePath = imageFileInfo.getFilePath();
-        boolean mc = m.mc(filePath);
-        boolean md = m.md(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !md)) {
-            if (mc) {
-                dVar = this.cnk;
+        boolean nk = m.nk(filePath);
+        boolean nl = m.nl(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !nl)) {
+            if (nk) {
+                dVar = this.cvs;
             } else {
-                dVar = this.cnj;
+                dVar = this.cvr;
             }
-        } else if (mc) {
-            dVar = this.cnl;
+        } else if (nk) {
+            dVar = this.cvt;
         } else {
-            dVar = this.cni;
+            dVar = this.cvq;
         }
         return dVar.a(imageFileInfo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap b(ImageFileInfo imageFileInfo) {
-        com.baidu.adp.lib.f.e ar;
+        com.baidu.adp.lib.f.e ak;
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cnh == null) {
-            this.cnh = new b();
+        if (this.cvp == null) {
+            this.cvp = new b();
         }
         if (imageFileInfo.getImageType() == 0) {
-            return this.cnh.b(imageFileInfo, true);
+            return this.cvp.b(imageFileInfo, true);
         }
-        if (imageFileInfo.getImageType() == 1 && (ar = com.baidu.adp.lib.f.c.jB().ar(20)) != null) {
+        if (imageFileInfo.getImageType() == 1 && (ak = com.baidu.adp.lib.f.c.iv().ak(20)) != null) {
             try {
-                Object a = ar.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
+                Object a = ak.a(imageFileInfo.getFilePath(), imageFileInfo.toCachedKey(false), 0, 0, null, null, imageFileInfo.getFilePath(), false, null);
                 if (a instanceof com.baidu.adp.widget.ImageView.a) {
-                    return ((com.baidu.adp.widget.ImageView.a) a).oy();
+                    return ((com.baidu.adp.widget.ImageView.a) a).ns();
                 }
             } catch (OutOfMemoryError e) {
                 BdBaseApplication.getInst().onAppMemoryLow();
@@ -110,26 +110,26 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String pl(String str) {
+    public String qt(String str) {
         int i;
-        long iD = m.iD(str);
-        if (iD >= 20971520) {
+        long jn = m.jn(str);
+        if (jn >= 20971520) {
             i = 60;
-        } else if (iD >= Config.FULL_TRACE_LOG_LIMIT && iD < 20971520) {
+        } else if (jn >= Config.FULL_TRACE_LOG_LIMIT && jn < 20971520) {
             i = 75;
-        } else if (iD >= 7340032 && iD < Config.FULL_TRACE_LOG_LIMIT) {
+        } else if (jn >= 7340032 && jn < Config.FULL_TRACE_LOG_LIMIT) {
             i = 85;
         } else {
-            i = (iD < 5242880 || iD >= 7340032) ? 100 : 95;
+            i = (jn < 5242880 || jn >= 7340032) ? 100 : 95;
         }
         try {
             int readPictureDegree = BitmapHelper.readPictureDegree(str);
             if (readPictureDegree != 0 || i != 100) {
-                Bitmap pm = pm(str);
-                if (readPictureDegree != 0 && pm != null) {
-                    return b(BitmapHelper.rotateBitmapBydegree(pm, readPictureDegree), i);
+                Bitmap qu = qu(str);
+                if (readPictureDegree != 0 && qu != null) {
+                    return b(BitmapHelper.rotateBitmapBydegree(qu, readPictureDegree), i);
                 }
-                return b(pm, i);
+                return b(qu, i);
             }
             return str;
         } catch (Throwable th) {
@@ -138,10 +138,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap pm(String str) {
-        BitmapFactory.Options pn = pn(str);
-        int i = pn.outWidth;
-        int i2 = pn.outHeight;
+    public Bitmap qu(String str) {
+        BitmapFactory.Options qv = qv(str);
+        int i = qv.outWidth;
+        int i2 = qv.outHeight;
         if (i == 0 || i2 == 0) {
             return null;
         }
@@ -154,8 +154,8 @@ public class e {
                 if (i5 >= 3) {
                     return null;
                 }
-                pn.inSampleSize = i4 * 2;
-                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, pn);
+                qv.inSampleSize = i4 * 2;
+                Bitmap loadBitmap2 = BitmapHelper.loadBitmap(str, qv);
                 if (loadBitmap2 == null || loadBitmap2.isRecycled()) {
                     i4++;
                     i3 = i5 + 1;
@@ -168,7 +168,7 @@ public class e {
         }
     }
 
-    private BitmapFactory.Options pn(String str) {
+    private BitmapFactory.Options qv(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);

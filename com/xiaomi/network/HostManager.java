@@ -14,41 +14,44 @@ import com.coremedia.iso.boxes.UserBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.push.service.module.PushChannelRegion;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class HostManager {
     private static HostManagerFactory factory;
+    protected static Context sAppContext;
     private static String sAppName;
     private static String sAppVersion;
     private static HostManager sInstance;
-    protected Context sAppContext;
+    private final long MAX_REQUEST_FAILURE_CNT;
+    private String currentISP;
+    private long lastRemoteRequestTimestamp;
+    protected Map<String, Fallbacks> mHostsMapping;
+    private long remoteRequestFailureCount;
     private HostFilter sHostFilter;
     protected HttpGet sHttpGetter;
     private String sUserId;
-    protected static Map<String, ArrayList<String>> mReservedHosts = new HashMap();
+    protected static Map<String, Fallback> sReservedHosts = new HashMap();
     protected static boolean hostLoaded = false;
-    protected Map<String, Fallbacks> mHostsMapping = new HashMap();
-    private long remoteRequestFailureCount = 0;
-    private final long MAX_REQUEST_FAILURE_CNT = 15;
-    private long lastRemoteRequestTimestamp = 0;
-    private String currentISP = "isp_prov_city_country_ip";
 
     /* loaded from: classes3.dex */
     public interface HostManagerFactory {
@@ -61,12 +64,17 @@ public class HostManager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public HostManager(Context context, HostFilter hostFilter, HttpGet httpGet, String str, String str2, String str3) {
+    public HostManager(Context context, HostFilter hostFilter, HttpGet httpGet, String str) {
+        this(context, hostFilter, httpGet, str, null, null);
+    }
+
+    protected HostManager(Context context, HostFilter hostFilter, HttpGet httpGet, String str, String str2, String str3) {
+        this.mHostsMapping = new HashMap();
         this.sUserId = "0";
-        this.sAppContext = context.getApplicationContext();
-        if (this.sAppContext == null) {
-            this.sAppContext = context;
-        }
+        this.remoteRequestFailureCount = 0L;
+        this.MAX_REQUEST_FAILURE_CNT = 15L;
+        this.lastRemoteRequestTimestamp = 0L;
+        this.currentISP = "isp_prov_city_country_ip";
         this.sHttpGetter = httpGet;
         if (hostFilter == null) {
             this.sHostFilter = new a(this);
@@ -79,16 +87,48 @@ public class HostManager {
     }
 
     public static void addReservedHost(String str, String str2) {
-        ArrayList<String> arrayList = mReservedHosts.get(str);
-        synchronized (mReservedHosts) {
-            if (arrayList == null) {
-                ArrayList<String> arrayList2 = new ArrayList<>();
-                arrayList2.add(str2);
-                mReservedHosts.put(str, arrayList2);
-            } else if (!arrayList.contains(str2)) {
-                arrayList.add(str2);
+        Fallback fallback = sReservedHosts.get(str);
+        synchronized (sReservedHosts) {
+            if (fallback == null) {
+                Fallback fallback2 = new Fallback(str);
+                fallback2.a(604800000L);
+                fallback2.b(str2);
+                sReservedHosts.put(str, fallback2);
+            } else {
+                fallback.b(str2);
             }
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x007c -> B:23:0x0007). Please submit an issue!!! */
+    public static String getActiveNetworkLabel() {
+        String str;
+        ConnectivityManager connectivityManager;
+        if (sAppContext == null) {
+            return "unknown";
+        }
+        try {
+            connectivityManager = (ConnectivityManager) sAppContext.getSystemService("connectivity");
+        } catch (Throwable th) {
+        }
+        if (connectivityManager == null) {
+            str = "unknown";
+        } else {
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if (activeNetworkInfo == null) {
+                str = "unknown";
+            } else if (activeNetworkInfo.getType() == 1) {
+                WifiManager wifiManager = (WifiManager) sAppContext.getSystemService("wifi");
+                if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
+                    str = "WIFI-" + wifiManager.getConnectionInfo().getSSID();
+                }
+                str = "unknown";
+            } else {
+                str = activeNetworkInfo.getTypeName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + activeNetworkInfo.getSubtypeName();
+            }
+        }
+        return str;
     }
 
     public static synchronized HostManager getInstance() {
@@ -104,7 +144,7 @@ public class HostManager {
 
     private String getVersionName() {
         try {
-            PackageInfo packageInfo = this.sAppContext.getPackageManager().getPackageInfo(this.sAppContext.getPackageName(), 16384);
+            PackageInfo packageInfo = sAppContext.getPackageManager().getPackageInfo(sAppContext.getPackageName(), 16384);
             if (packageInfo != null) {
                 return packageInfo.versionName;
             }
@@ -115,6 +155,10 @@ public class HostManager {
 
     public static synchronized void init(Context context, HostFilter hostFilter, HttpGet httpGet, String str, String str2, String str3) {
         synchronized (HostManager.class) {
+            sAppContext = context.getApplicationContext();
+            if (sAppContext == null) {
+                sAppContext = context;
+            }
             if (sInstance == null) {
                 if (factory == null) {
                     sInstance = new HostManager(context, hostFilter, httpGet, str, str2, str3);
@@ -125,32 +169,20 @@ public class HostManager {
         }
     }
 
-    public static <T> String join(Collection<T> collection, String str) {
-        if (collection == null || collection.isEmpty()) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        Iterator<T> it = collection.iterator();
-        while (it.hasNext()) {
-            sb.append(it.next());
-            if (it.hasNext()) {
-                sb.append(str);
+    static String obfuscate(String str) {
+        try {
+            int length = str.length();
+            byte[] bytes = str.getBytes(HTTP.UTF_8);
+            for (int i = 0; i < bytes.length; i++) {
+                byte b = bytes[i];
+                if ((b & 240) != 240) {
+                    bytes[i] = (byte) (((b & 15) ^ ((byte) (((b >> 4) + length) & 15))) | (b & 240));
+                }
             }
+            return new String(bytes);
+        } catch (UnsupportedEncodingException e) {
+            return str;
         }
-        return sb.toString();
-    }
-
-    public static String join(String[] strArr, String str) {
-        if (strArr == null || strArr.length == 0) {
-            return "";
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(strArr[0]);
-        for (int i = 1; i < strArr.length; i++) {
-            sb.append(str);
-            sb.append(strArr[i]);
-        }
-        return sb.toString();
     }
 
     private ArrayList<Fallback> requestRemoteFallbacks(ArrayList<String> arrayList) {
@@ -163,25 +195,34 @@ public class HostManager {
                 }
             }
         }
-        synchronized (mReservedHosts) {
-            for (String str2 : mReservedHosts.keySet()) {
-                if (!arrayList.contains(str2)) {
-                    arrayList.add(str2);
+        boolean isEmpty = sReservedHosts.isEmpty();
+        synchronized (sReservedHosts) {
+            Object[] array = sReservedHosts.values().toArray();
+            int length = array.length;
+            int i = 0;
+            while (i < length) {
+                Fallback fallback = (Fallback) array[i];
+                if (!fallback.b()) {
+                    isEmpty = true;
+                    sReservedHosts.remove(fallback.b);
                 }
+                i++;
+                isEmpty = isEmpty;
             }
         }
         if (!arrayList.contains(getHost())) {
             arrayList.add(getHost());
         }
         ArrayList<Fallback> arrayList2 = new ArrayList<>(arrayList.size());
-        for (int i = 0; i < arrayList.size(); i++) {
+        for (int i2 = 0; i2 < arrayList.size(); i2++) {
             arrayList2.add(null);
         }
         try {
-            String str3 = d.f(this.sAppContext) ? "wifi" : "wap";
-            String remoteFallbackJSON = getRemoteFallbackJSON(arrayList, str3, this.sUserId);
+            String str2 = d.e(sAppContext) ? "wifi" : "wap";
+            String remoteFallbackJSON = getRemoteFallbackJSON(arrayList, str2, this.sUserId, isEmpty);
             if (!TextUtils.isEmpty(remoteFallbackJSON)) {
                 JSONObject jSONObject = new JSONObject(remoteFallbackJSON);
+                com.xiaomi.channel.commonutils.logger.b.b(remoteFallbackJSON);
                 if ("OK".equalsIgnoreCase(jSONObject.getString("S"))) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("R");
                     String string = jSONObject2.getString("province");
@@ -189,40 +230,66 @@ public class HostManager {
                     String string3 = jSONObject2.getString("isp");
                     String string4 = jSONObject2.getString("ip");
                     String string5 = jSONObject2.getString("country");
-                    JSONObject jSONObject3 = jSONObject2.getJSONObject(str3);
-                    if (str3.equals("wap")) {
-                        str3 = getActiveNetworkLabel();
+                    JSONObject jSONObject3 = jSONObject2.getJSONObject(str2);
+                    if (str2.equals("wap")) {
+                        str2 = getActiveNetworkLabel();
                     }
-                    com.xiaomi.channel.commonutils.logger.b.a("get bucket: ip = " + string4 + " net = " + string3 + str3 + " hosts = " + jSONObject3.toString());
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                        String str4 = arrayList.get(i2);
-                        JSONArray optJSONArray = jSONObject3.optJSONArray(str4);
+                    com.xiaomi.channel.commonutils.logger.b.c("get bucket: ip = " + string4 + " net = " + string3 + str2 + " hosts = " + jSONObject3.toString());
+                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
+                        String str3 = arrayList.get(i3);
+                        JSONArray optJSONArray = jSONObject3.optJSONArray(str3);
                         if (optJSONArray == null) {
-                            com.xiaomi.channel.commonutils.logger.b.a("no bucket found for " + str4);
+                            com.xiaomi.channel.commonutils.logger.b.a("no bucket found for " + str3);
                         } else {
-                            Fallback fallback = new Fallback(str4);
-                            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                                String string6 = optJSONArray.getString(i3);
+                            Fallback fallback2 = new Fallback(str3);
+                            for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                                String string6 = optJSONArray.getString(i4);
                                 if (!TextUtils.isEmpty(string6)) {
-                                    fallback.a(new c(string6, optJSONArray.length() - i3));
+                                    fallback2.a(new c(string6, optJSONArray.length() - i4));
                                 }
                             }
-                            arrayList2.set(i2, fallback);
-                            fallback.g = string5;
-                            fallback.c = string;
-                            fallback.e = string3;
-                            fallback.f = string4;
-                            fallback.d = string2;
+                            arrayList2.set(i3, fallback2);
+                            fallback2.g = string5;
+                            fallback2.c = string;
+                            fallback2.e = string3;
+                            fallback2.f = string4;
+                            fallback2.d = string2;
                             if (jSONObject2.has("stat-percent")) {
-                                fallback.a(jSONObject2.getDouble("stat-percent"));
+                                fallback2.a(jSONObject2.getDouble("stat-percent"));
                             }
                             if (jSONObject2.has("stat-domain")) {
-                                fallback.b(jSONObject2.getString("stat-domain"));
+                                fallback2.c(jSONObject2.getString("stat-domain"));
                             }
                             if (jSONObject2.has("ttl")) {
-                                fallback.a(jSONObject2.getInt("ttl") * 1000);
+                                fallback2.a(jSONObject2.getInt("ttl") * 1000);
                             }
-                            setCurrentISP(fallback.e());
+                            setCurrentISP(fallback2.e());
+                        }
+                    }
+                    JSONObject optJSONObject = jSONObject2.optJSONObject("reserved");
+                    if (optJSONObject != null) {
+                        long j = jSONObject2.has("reserved-ttl") ? jSONObject2.getInt("reserved-ttl") * 1000 : 604800000L;
+                        Iterator<String> keys = optJSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
+                            if (optJSONArray2 == null) {
+                                com.xiaomi.channel.commonutils.logger.b.a("no bucket found for " + next);
+                            } else {
+                                Fallback fallback3 = new Fallback(next);
+                                fallback3.a(j);
+                                for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
+                                    String string7 = optJSONArray2.getString(i5);
+                                    if (!TextUtils.isEmpty(string7)) {
+                                        fallback3.a(new c(string7, optJSONArray2.length() - i5));
+                                    }
+                                }
+                                synchronized (sReservedHosts) {
+                                    if (this.sHostFilter.a(next)) {
+                                        sReservedHosts.put(next, fallback3);
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -230,18 +297,18 @@ public class HostManager {
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a("failed to get bucket " + e.getMessage());
         }
-        int i4 = 0;
+        int i6 = 0;
         while (true) {
-            int i5 = i4;
-            if (i5 >= arrayList.size()) {
+            int i7 = i6;
+            if (i7 >= arrayList.size()) {
                 persist();
                 return arrayList2;
             }
-            Fallback fallback2 = arrayList2.get(i5);
-            if (fallback2 != null) {
-                updateFallbacks(arrayList.get(i5), fallback2);
+            Fallback fallback4 = arrayList2.get(i7);
+            if (fallback4 != null) {
+                updateFallbacks(arrayList.get(i7), fallback4);
             }
-            i4 = i5 + 1;
+            i6 = i7 + 1;
         }
     }
 
@@ -264,7 +331,7 @@ public class HostManager {
                 return false;
             }
             fromJSON(loadHosts);
-            com.xiaomi.channel.commonutils.logger.b.a("loading the new hosts succeed");
+            com.xiaomi.channel.commonutils.logger.b.b("loading the new hosts succeed");
             return true;
         }
     }
@@ -275,45 +342,37 @@ public class HostManager {
         }
     }
 
+    public String dump() {
+        StringBuilder sb = new StringBuilder();
+        synchronized (this.mHostsMapping) {
+            for (Map.Entry<String, Fallbacks> entry : this.mHostsMapping.entrySet()) {
+                sb.append(entry.getKey());
+                sb.append(":\n");
+                sb.append(entry.getValue().toString());
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
     protected void fromJSON(String str) {
         synchronized (this.mHostsMapping) {
             this.mHostsMapping.clear();
-            JSONArray jSONArray = new JSONArray(str);
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Fallbacks fromJSON = new Fallbacks().fromJSON(jSONArray.getJSONObject(i));
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject.optInt("ver") != 2) {
+                throw new JSONException("Bad version");
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("data");
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                Fallbacks fromJSON = new Fallbacks().fromJSON(optJSONArray.getJSONObject(i));
                 this.mHostsMapping.put(fromJSON.getHost(), fromJSON);
             }
-        }
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x007c -> B:23:0x0007). Please submit an issue!!! */
-    public String getActiveNetworkLabel() {
-        String str;
-        ConnectivityManager connectivityManager;
-        if (this.sAppContext == null) {
-            return "unknown";
-        }
-        try {
-            connectivityManager = (ConnectivityManager) this.sAppContext.getSystemService("connectivity");
-        } catch (Throwable th) {
-        }
-        if (connectivityManager == null) {
-            str = "unknown";
-        } else {
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo == null) {
-                str = "unknown";
-            } else if (activeNetworkInfo.getType() == 1) {
-                WifiManager wifiManager = (WifiManager) this.sAppContext.getSystemService("wifi");
-                if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
-                    str = "WIFI-" + wifiManager.getConnectionInfo().getSSID();
-                }
-                str = "unknown";
-            } else {
-                str = activeNetworkInfo.getTypeName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + activeNetworkInfo.getSubtypeName();
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("reserved");
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                Fallback a = new Fallback("").a(optJSONArray2.getJSONObject(i2));
+                sReservedHosts.put(a.b, a);
             }
         }
-        return str;
     }
 
     public Fallback getFallbacksByHost(String str) {
@@ -327,7 +386,7 @@ public class HostManager {
         }
         if (this.sHostFilter.a(str)) {
             Fallback localFallback = getLocalFallback(str);
-            return (localFallback == null || !localFallback.b()) ? (z && d.d(this.sAppContext) && (requestRemoteFallback = requestRemoteFallback(str)) != null) ? requestRemoteFallback : new b(this, str, localFallback) : localFallback;
+            return (localFallback == null || !localFallback.b()) ? (z && d.c(sAppContext) && (requestRemoteFallback = requestRemoteFallback(str)) != null) ? requestRemoteFallback : new b(this, str, localFallback) : localFallback;
         }
         return null;
     }
@@ -340,11 +399,11 @@ public class HostManager {
     }
 
     protected String getHost() {
-        return "resolver.gslb.mi-idc.com";
+        String a = com.xiaomi.push.service.a.a(sAppContext).a();
+        return (TextUtils.isEmpty(a) || !PushChannelRegion.Europe.name().equals(a)) ? "resolver.msg.xiaomi.net" : "resolver.msg.global.xiaomi.net";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public Fallback getLocalFallback(String str) {
+    protected Fallback getLocalFallback(String str) {
         Fallbacks fallbacks;
         Fallback fallback;
         synchronized (this.mHostsMapping) {
@@ -357,9 +416,8 @@ public class HostManager {
         return fallback;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String getProcessName() {
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.sAppContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
+    protected String getProcessName() {
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) sAppContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses != null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
                 if (runningAppProcessInfo.pid == Process.myPid()) {
@@ -371,47 +429,63 @@ public class HostManager {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String getRemoteFallbackJSON(ArrayList<String> arrayList, String str, String str2) {
+    public String getRemoteFallbackJSON(ArrayList<String> arrayList, String str, String str2, boolean z) {
+        ArrayList<String> a;
         String str3 = null;
         ArrayList<String> arrayList2 = new ArrayList<>();
         ArrayList<com.xiaomi.channel.commonutils.network.c> arrayList3 = new ArrayList();
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a("type", str));
+        if (str.equals("wap")) {
+            arrayList3.add(new com.xiaomi.channel.commonutils.network.a("conpt", obfuscate(d.k(sAppContext))));
+        }
+        if (z) {
+            arrayList3.add(new com.xiaomi.channel.commonutils.network.a("reserved", "1"));
+        }
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
-        Fallback localFallback = getLocalFallback("resolver.gslb.mi-idc.com");
-        String format = String.format("http://%1$s/gslb/gslb/getbucket.asp?ver=3.0", "resolver.gslb.mi-idc.com");
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, com.xiaomi.channel.commonutils.string.d.a(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
+        Fallback localFallback = getLocalFallback(getHost());
+        String format = String.format(Locale.US, "http://%1$s/gslb/?ver=4.0", getHost());
         if (localFallback == null) {
             arrayList2.add(format);
+            synchronized (sReservedHosts) {
+                Fallback fallback = sReservedHosts.get("resolver.msg.xiaomi.net");
+                if (fallback != null) {
+                    Iterator<String> it = fallback.a(true).iterator();
+                    while (it.hasNext()) {
+                        arrayList2.add(String.format(Locale.US, "http://%1$s/gslb/?ver=4.0", it.next()));
+                    }
+                }
+            }
+            a = arrayList2;
         } else {
-            arrayList2 = localFallback.a(format);
+            a = localFallback.a(format);
         }
-        Iterator<String> it = arrayList2.iterator();
+        Iterator<String> it2 = a.iterator();
         IOException e = null;
-        while (it.hasNext()) {
-            Uri.Builder buildUpon = Uri.parse(it.next()).buildUpon();
+        while (it2.hasNext()) {
+            Uri.Builder buildUpon = Uri.parse(it2.next()).buildUpon();
             for (com.xiaomi.channel.commonutils.network.c cVar : arrayList3) {
                 buildUpon.appendQueryParameter(cVar.a(), cVar.b());
             }
             try {
-                str3 = this.sHttpGetter == null ? d.a(this.sAppContext, new URL(buildUpon.toString())) : this.sHttpGetter.a(buildUpon.toString());
+                str3 = this.sHttpGetter == null ? d.a(sAppContext, new URL(buildUpon.toString())) : this.sHttpGetter.a(buildUpon.toString());
                 return str3;
             } catch (IOException e2) {
                 e = e2;
-                com.xiaomi.channel.commonutils.logger.b.a("network ioErr: " + e.getMessage());
             }
         }
         if (e != null) {
+            com.xiaomi.channel.commonutils.logger.b.a("network exception: " + e.getMessage());
             throw e;
         }
         return str3;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public String loadHosts() {
+    protected String loadHosts() {
         BufferedReader bufferedReader;
         String str = null;
         try {
-            File file = new File(this.sAppContext.getFilesDir(), getProcessName());
+            File file = new File(sAppContext.getFilesDir(), getProcessName());
             if (file.isFile()) {
                 bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
                 try {
@@ -430,11 +504,11 @@ public class HostManager {
                         com.xiaomi.channel.commonutils.logger.b.a("load host exception " + th.getMessage());
                         return str;
                     } finally {
-                        com.xiaomi.channel.commonutils.file.a.a(bufferedReader);
+                        com.xiaomi.channel.commonutils.file.b.a(bufferedReader);
                     }
                 }
             } else {
-                com.xiaomi.channel.commonutils.file.a.a((Reader) null);
+                com.xiaomi.channel.commonutils.file.b.a((Closeable) null);
             }
         } catch (Throwable th2) {
             th = th2;
@@ -444,23 +518,16 @@ public class HostManager {
     }
 
     public void persist() {
-        purge();
         synchronized (this.mHostsMapping) {
             try {
-                try {
-                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(this.sAppContext.openFileOutput(getProcessName(), 0)));
-                    String jSONArray = toJSON().toString();
-                    if (!TextUtils.isEmpty(jSONArray)) {
-                        bufferedWriter.write(jSONArray);
-                    }
-                    bufferedWriter.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(sAppContext.openFileOutput(getProcessName(), 0)));
+                String jSONObject = toJSON().toString();
+                if (!TextUtils.isEmpty(jSONObject)) {
+                    bufferedWriter.write(jSONObject);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                bufferedWriter.close();
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a("persist bucket failure: " + e.getMessage());
             }
         }
     }
@@ -468,7 +535,7 @@ public class HostManager {
     public void purge() {
         synchronized (this.mHostsMapping) {
             for (Fallbacks fallbacks : this.mHostsMapping.values()) {
-                fallbacks.purge(false);
+                fallbacks.purge(true);
             }
             boolean z = false;
             while (!z) {
@@ -535,16 +602,23 @@ public class HostManager {
         this.currentISP = str;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public JSONArray toJSON() {
-        JSONArray jSONArray;
+    protected JSONObject toJSON() {
+        JSONObject jSONObject;
         synchronized (this.mHostsMapping) {
-            jSONArray = new JSONArray();
+            jSONObject = new JSONObject();
+            jSONObject.put("ver", 2);
+            JSONArray jSONArray = new JSONArray();
             for (Fallbacks fallbacks : this.mHostsMapping.values()) {
                 jSONArray.put(fallbacks.toJSON());
             }
+            jSONObject.put("data", jSONArray);
+            JSONArray jSONArray2 = new JSONArray();
+            for (Fallback fallback : sReservedHosts.values()) {
+                jSONArray2.put(fallback.f());
+            }
+            jSONObject.put("reserved", jSONArray2);
         }
-        return jSONArray;
+        return jSONObject;
     }
 
     public void updateFallbacks(String str, Fallback fallback) {

@@ -12,11 +12,11 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ProfessionDialogLayout extends LinearLayout {
-    private View.OnClickListener fAa;
-    private View.OnClickListener fzZ;
+    private View.OnClickListener fQW;
+    private View.OnClickListener fQX;
     private Context mContext;
 
     public ProfessionDialogLayout(Context context) {
@@ -36,55 +36,55 @@ public class ProfessionDialogLayout extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        LayoutInflater.from(context).inflate(d.h.profession_dialog_layout, this);
+        LayoutInflater.from(context).inflate(R.layout.profession_dialog_layout, this);
         setOrientation(1);
-        TbImageView tbImageView = (TbImageView) findViewById(d.g.img_bg);
-        al.j((TextView) findViewById(d.g.desc_1), d.C0277d.cp_cont_j);
-        al.j((TextView) findViewById(d.g.desc_2), d.C0277d.cp_cont_j);
-        al.j((TextView) findViewById(d.g.button), d.C0277d.cp_link_tip_a);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.img_bg);
+        al.j((TextView) findViewById(R.id.desc_1), R.color.cp_cont_j);
+        al.j((TextView) findViewById(R.id.desc_2), R.color.cp_cont_j);
+        al.j((TextView) findViewById(R.id.button), R.color.cp_link_tip_a);
         setImageAttribute(tbImageView);
-        al.c(tbImageView, d.f.img_frs_professinal_popup);
-        TbImageView tbImageView2 = (TbImageView) findViewById(d.g.close_btn);
-        al.c(tbImageView2, d.f.icon_prefession_popup_close_n);
+        al.c(tbImageView, (int) R.drawable.img_frs_professinal_popup);
+        TbImageView tbImageView2 = (TbImageView) findViewById(R.id.close_btn);
+        al.c(tbImageView2, (int) R.drawable.icon_prefession_popup_close_n);
         tbImageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fAa != null) {
-                    ProfessionDialogLayout.this.fAa.onClick(view);
+                if (ProfessionDialogLayout.this.fQX != null) {
+                    ProfessionDialogLayout.this.fQX.onClick(view);
                 }
             }
         });
-        findViewById(d.g.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.ProfessionDialogLayout.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ProfessionDialogLayout.this.fzZ != null) {
-                    ProfessionDialogLayout.this.fzZ.onClick(view);
+                if (ProfessionDialogLayout.this.fQW != null) {
+                    ProfessionDialogLayout.this.fQW.onClick(view);
                 }
             }
         });
     }
 
     public void setButtonClickListener(View.OnClickListener onClickListener) {
-        this.fzZ = onClickListener;
+        this.fQW = onClickListener;
     }
 
     public void setCloseViewClickListener(View.OnClickListener onClickListener) {
-        this.fAa = onClickListener;
+        this.fQX = onClickListener;
     }
 
     private void setImageAttribute(TbImageView tbImageView) {
-        int aO;
-        int h = l.h(this.mContext, d.e.ds40);
+        int af;
+        int g = l.g(this.mContext, R.dimen.ds40);
         if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-            aO = l.aQ(this.mContext) - (h * 2);
+            af = l.ah(this.mContext) - (g * 2);
         } else {
-            aO = l.aO(this.mContext) - (h * 2);
+            af = l.af(this.mContext) - (g * 2);
         }
         ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
         layoutParams.width = -1;
-        layoutParams.height = (aO * 558) / 992;
+        layoutParams.height = (af * 558) / 992;
         tbImageView.setLayoutParams(layoutParams);
-        tbImageView.setRadius(l.h(this.mContext, d.e.ds16));
+        tbImageView.setRadius(l.g(this.mContext, R.dimen.ds16));
         tbImageView.setConrers(3);
         tbImageView.setIsBitmapPic(true);
     }

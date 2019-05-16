@@ -1,6 +1,5 @@
 package com.xiaomi.stats;
 
-import com.baidu.mobstat.Config;
 import com.xiaomi.smack.l;
 import java.net.UnknownHostException;
 /* loaded from: classes3.dex */
@@ -32,7 +31,7 @@ final class d {
         if (exc2.getCause() != null) {
             message = exc2.getCause().getMessage();
         }
-        String str = exc2.getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + message;
+        String str = exc2.getClass().getSimpleName() + ":" + message;
         int a3 = com.xiaomi.smack.c.a(exc2);
         if (a3 != 0) {
             aVar.a = com.xiaomi.push.thrift.a.a(a3 + com.xiaomi.push.thrift.a.GSLB_REQUEST_SUCCESS.a());
@@ -65,7 +64,7 @@ final class d {
             message = exc2.getCause().getMessage();
         }
         int a3 = com.xiaomi.smack.c.a(exc2);
-        String str = exc2.getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + message;
+        String str = exc2.getClass().getSimpleName() + ":" + message;
         if (a3 != 0) {
             aVar.a = com.xiaomi.push.thrift.a.a(a3 + com.xiaomi.push.thrift.a.CONN_SUCCESS.a());
             if (aVar.a == com.xiaomi.push.thrift.a.CONN_BOSH_ERR && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
@@ -97,7 +96,7 @@ final class d {
         if (exc2.getCause() != null) {
             message = exc2.getCause().getMessage();
         }
-        String str = exc2.getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + message;
+        String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (com.xiaomi.smack.c.a(exc2)) {
             case 105:
                 aVar.a = com.xiaomi.push.thrift.a.BIND_TCP_READ_TIMEOUT;
@@ -142,7 +141,7 @@ final class d {
         }
         a aVar = new a();
         String message = exc2.getMessage();
-        String str = exc2.getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + message;
+        String str = exc2.getClass().getSimpleName() + ":" + message;
         switch (com.xiaomi.smack.c.a(exc2)) {
             case 105:
                 aVar.a = com.xiaomi.push.thrift.a.CHANNEL_TCP_READTIMEOUT;

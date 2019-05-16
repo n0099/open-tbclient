@@ -1,50 +1,75 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.meizu.cloud.pushsdk.notification.e;
-import com.meizu.cloud.pushsdk.util.c;
+import android.os.Environment;
+import com.baidu.mobstat.Config;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes3.dex */
-public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
-    public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
+public class b {
+    private File a;
+
+    public b(String str) {
+        this.a = new File(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public MessageV3 c(Intent intent) {
-        return (MessageV3) intent.getParcelableExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(MessageV3 messageV3, e eVar) {
-        if (b() != null && messageV3 != null) {
-            b().c(c(), messageV3.getTitle(), messageV3.getContent(), a(messageV3.getWebUrl(), messageV3.getParamsMap()));
+    private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
+        String str2 = str + (str.trim().length() == 0 ? "" : File.separator) + file.getName();
+        if (file.isDirectory()) {
+            for (File file2 : file.listFiles()) {
+                a(file2, zipOutputStream, str2);
+            }
+            return;
+        }
+        com.meizu.cloud.a.a.i("ZipTask", "current file " + str2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
+            return;
+        }
+        byte[] bArr = new byte[1048576];
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(file), 1048576);
+        zipOutputStream.putNextEntry(new ZipEntry(str2));
+        while (true) {
+            int read = bufferedInputStream.read(bArr);
+            if (read == -1) {
+                bufferedInputStream.close();
+                zipOutputStream.flush();
+                zipOutputStream.closeEntry();
+                return;
+            }
+            zipOutputStream.write(bArr, 0, read);
         }
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start NotificationDeleteMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE.equals(i(intent));
+    private void a(Collection<File> collection, File file) throws Exception {
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(file), 1048576));
+        for (File file2 : collection) {
+            a(file2, zipOutputStream, "");
+        }
+        zipOutputStream.close();
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 128;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: a */
-    public void b(MessageV3 messageV3) {
-        c.b(c(), messageV3.getUploadDataPackageName(), messageV3.getDeviceId(), messageV3.getTaskId(), messageV3.getSeqId(), messageV3.getPushTimestamp());
+    public boolean a(List<String> list) throws Exception {
+        if (!this.a.exists()) {
+            this.a.getParentFile().mkdirs();
+        }
+        ArrayList arrayList = new ArrayList();
+        String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+        Iterator<String> it = list.iterator();
+        while (it.hasNext()) {
+            File file = new File(absolutePath + it.next());
+            if (file.exists()) {
+                arrayList.add(file);
+            }
+        }
+        a(arrayList, this.a);
+        return true;
     }
 }

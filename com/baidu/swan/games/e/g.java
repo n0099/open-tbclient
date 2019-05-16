@@ -21,20 +21,20 @@ public final class g {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private g bbG = new g();
+        private g bfH = new g();
 
-        public a eC(int i) {
-            this.bbG.mType = i;
+        public a eS(int i) {
+            this.bfH.mType = i;
             return this;
         }
 
-        public a im(String str) {
-            this.bbG.mID = str;
+        public a iV(String str) {
+            this.bfH.mID = str;
             return this;
         }
 
-        public g Ob() {
-            return this.bbG;
+        public g QW() {
+            return this.bfH;
         }
     }
 }

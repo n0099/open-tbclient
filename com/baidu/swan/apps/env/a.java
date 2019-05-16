@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public abstract class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public void o(@Nullable List<String> list) {
+    public void p(@Nullable List<String> list) {
         if (list != null && !list.isEmpty()) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "resetAccredit");
@@ -34,9 +34,9 @@ public abstract class a {
             arrayMap.put("ma_ids", list);
             JSONObject jSONObject = new JSONObject();
             try {
-                com.baidu.swan.apps.setting.oauth.f Dr = com.baidu.swan.apps.u.a.CT().Dr();
+                com.baidu.swan.apps.setting.oauth.f Ew = com.baidu.swan.apps.u.a.DY().Ew();
                 jSONObject.put("accredit", new JSONObject(arrayMap));
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.CI().vx())).addParam("data", jSONObject.toString()).cookieManager(Dr)).build().executeAsyncOnUIBack(AW());
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.swan.apps.u.a.DN().wm())).addParam("data", jSONObject.toString()).cookieManager(Ew)).build().executeAsyncOnUIBack(Ce());
             } catch (JSONException e) {
                 e.printStackTrace();
                 if (DEBUG) {
@@ -46,63 +46,63 @@ public abstract class a {
         }
     }
 
-    public void p(List<String> list) {
+    public void q(List<String> list) {
         if (list != null && !list.isEmpty()) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "clearData");
             }
-            Set<String> r = d.r(list);
+            Set<String> s = c.s(list);
             HashSet<String> hashSet = new HashSet(list);
-            if (r != null) {
-                hashSet.removeAll(r);
+            if (s != null) {
+                hashSet.removeAll(s);
             }
-            d.a("aiapp_setting_", hashSet, false);
-            d.a("aiapp_", hashSet, false);
+            c.a("aiapp_setting_", hashSet, false);
+            c.a("aiapp_", hashSet, false);
             for (String str : hashSet) {
                 if (DEBUG) {
                     Log.d("AbsDefaultPurger", "clear storage files: " + str);
                 }
-                String gX = com.baidu.swan.apps.storage.b.gX(str);
-                if (!TextUtils.isEmpty(gX)) {
-                    com.baidu.swan.c.b.deleteFile(gX);
+                String hu = com.baidu.swan.apps.storage.b.hu(str);
+                if (!TextUtils.isEmpty(hu)) {
+                    com.baidu.swan.c.a.deleteFile(hu);
                 }
-                String gY = com.baidu.swan.apps.storage.b.gY(str);
-                if (!TextUtils.isEmpty(gY)) {
-                    com.baidu.swan.c.b.deleteFile(gY);
+                String hy = com.baidu.swan.apps.storage.b.hy(str);
+                if (!TextUtils.isEmpty(hy)) {
+                    com.baidu.swan.c.a.deleteFile(hy);
                 }
             }
         }
     }
 
-    public void ej(String str) {
+    public void dX(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "删除包的APS记录: " + str);
             }
-            ex(str);
-            ey(str);
+            em(str);
+            en(str);
         }
     }
 
-    public void ew(String str) {
-        SwanAppDbControl.bE(AppRuntime.getAppContext()).o(str, false);
-        com.baidu.swan.pms.database.a.Ry().jk(str);
-        com.baidu.swan.pms.database.a.Ry().c(com.baidu.swan.pms.model.g.class, str);
+    public void el(String str) {
+        SwanAppDbControl.aX(AppRuntime.getAppContext()).o(str, false);
+        com.baidu.swan.pms.database.a.Vl().kj(str);
+        com.baidu.swan.pms.database.a.Vl().c(com.baidu.swan.pms.model.f.class, str);
     }
 
-    public void ev(String str) {
-        com.baidu.swan.apps.database.subpackage.a.AT().ev(str);
+    public void ek(String str) {
+        com.baidu.swan.apps.database.subpackage.a.Cb().ek(str);
     }
 
-    private void ex(String str) {
+    private void em(String str) {
         if (str != null) {
-            com.baidu.b.a.c.a.T(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
-            com.baidu.b.a.c.a.T("51", str);
+            com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
+            com.baidu.b.a.c.a.N("51", str);
         }
     }
 
     @NonNull
-    private ResponseCallback<JSONObject> AW() {
+    private ResponseCallback<JSONObject> Ce() {
         return new ResponseCallback<JSONObject>() { // from class: com.baidu.swan.apps.env.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -139,22 +139,21 @@ public abstract class a {
         };
     }
 
-    private void ey(String str) {
-        List<String> ez;
-        if (!TextUtils.isEmpty(str) && (ez = ez(str)) != null && ez.size() > 0) {
-            for (String str2 : ez) {
+    private void en(String str) {
+        List<String> eo;
+        if (!TextUtils.isEmpty(str) && (eo = eo(str)) != null && eo.size() > 0) {
+            for (String str2 : eo) {
                 if (!TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.d("AbsDefaultPurger", "删除分包的APS记录: " + str + " : " + str2);
                     }
-                    ex(str2);
+                    em(str2);
                 }
             }
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [315=4] */
-    private List<String> ez(String str) {
+    private List<String> eo(String str) {
         Cursor cursor;
         Closeable closeable = null;
         ArrayList arrayList = new ArrayList();
@@ -163,11 +162,11 @@ public abstract class a {
         }
         try {
             try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.auK, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
+                cursor = AppRuntime.getAppContext().getContentResolver().query(com.baidu.swan.apps.database.subpackage.b.avb, new String[]{SubPackageTable.Table.aps_package_name.toString()}, SubPackageTable.Table.app_id + " =? ", new String[]{str}, null);
             } catch (Throwable th) {
                 th = th;
                 closeable = " =? ";
-                com.baidu.swan.c.b.c(closeable);
+                com.baidu.swan.c.a.c(closeable);
                 throw th;
             }
         } catch (Exception e) {
@@ -175,30 +174,30 @@ public abstract class a {
             cursor = null;
         } catch (Throwable th2) {
             th = th2;
-            com.baidu.swan.c.b.c(closeable);
+            com.baidu.swan.c.a.c(closeable);
             throw th;
         }
-        if (cursor == null) {
-            com.baidu.swan.c.b.c(cursor);
-            return arrayList;
-        }
-        try {
-            int columnIndex = cursor.getColumnIndex(SubPackageTable.Table.aps_package_name.toString());
-            while (cursor.moveToNext()) {
-                String string = cursor.getString(columnIndex);
-                if (!TextUtils.isEmpty(string)) {
-                    arrayList.add(string);
+        if (cursor != null) {
+            try {
+                int columnIndex = cursor.getColumnIndex(SubPackageTable.Table.aps_package_name.toString());
+                while (cursor.moveToNext()) {
+                    String string = cursor.getString(columnIndex);
+                    if (!TextUtils.isEmpty(string)) {
+                        arrayList.add(string);
+                    }
                 }
+                com.baidu.swan.c.a.c(cursor);
+            } catch (Exception e2) {
+                e = e2;
+                if (DEBUG) {
+                    e.printStackTrace();
+                }
+                com.baidu.swan.c.a.c(cursor);
+                return arrayList;
             }
-            com.baidu.swan.c.b.c(cursor);
-        } catch (Exception e2) {
-            e = e2;
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            com.baidu.swan.c.b.c(cursor);
             return arrayList;
         }
+        com.baidu.swan.c.a.c(cursor);
         return arrayList;
     }
 }

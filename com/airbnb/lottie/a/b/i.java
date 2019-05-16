@@ -6,15 +6,15 @@ import android.graphics.PointF;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i extends f<PointF> {
-    private final PointF pF;
-    private final float[] pG;
-    private h pH;
-    private PathMeasure pI;
+    private final PointF ne;
+    private final float[] nf;
+    private h ng;
+    private PathMeasure nh;
 
     public i(List<? extends com.airbnb.lottie.a.a<PointF>> list) {
         super(list);
-        this.pF = new PointF();
-        this.pG = new float[2];
+        this.ne = new PointF();
+        this.nf = new float[2];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,14 +24,14 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path path = hVar.getPath();
         if (path == null) {
-            return aVar.oh;
+            return aVar.lJ;
         }
-        if (this.pH != hVar) {
-            this.pI = new PathMeasure(path, false);
-            this.pH = hVar;
+        if (this.ng != hVar) {
+            this.nh = new PathMeasure(path, false);
+            this.ng = hVar;
         }
-        this.pI.getPosTan(this.pI.getLength() * f, this.pG, null);
-        this.pF.set(this.pG[0], this.pG[1]);
-        return this.pF;
+        this.nh.getPosTan(this.nh.getLength() * f, this.nf, null);
+        this.ne.set(this.nf[0], this.nf[1]);
+        return this.ne;
     }
 }

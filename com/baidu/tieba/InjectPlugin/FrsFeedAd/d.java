@@ -10,9 +10,9 @@ public interface d extends com.baidu.tieba.InjectPlugin.a.a<com.baidu.tieba.Inje
 
     void a(List<c> list, List<c> list2, boolean z, int i);
 
-    void an(List<Object> list);
+    void au(List<Object> list);
 
-    List<Integer> aug();
+    List<Integer> azl();
 
     void changeSkinType(int i);
 

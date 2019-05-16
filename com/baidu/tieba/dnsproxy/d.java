@@ -5,23 +5,23 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d eyd = null;
+    private static volatile d eNG = null;
 
-    public static final d aUW() {
-        if (eyd == null) {
+    public static final d bce() {
+        if (eNG == null) {
             synchronized (d.class) {
-                if (eyd == null) {
-                    eyd = new d();
+                if (eNG == null) {
+                    eNG = new d();
                 }
             }
         }
-        return eyd;
+        return eNG;
     }
 
     private d() {
     }
 
-    public void cd(String str, String str2) {
+    public void cn(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");

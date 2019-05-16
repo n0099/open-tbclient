@@ -12,18 +12,19 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
+import com.baidu.tieba.c;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes3.dex */
 public class FeedAdProgressButton extends View {
-    private Paint IQ;
-    private int Ji;
-    private String alO;
-    private Paint bOF;
-    private float cBV;
-    private int gsV;
-    private RectF iou;
-    private Shader iov;
+    private int GQ;
+    private Paint Gz;
+    private String ama;
+    private Paint bWt;
+    private float cKd;
+    private int gKi;
+    private RectF iHi;
+    private Shader iHj;
     private int mProgress;
     private int mRadius;
     private int mTextColor;
@@ -33,8 +34,8 @@ public class FeedAdProgressButton extends View {
         super(context, attributeSet);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cBV = 10.0f;
-        this.gsV = 100;
+        this.cKd = 10.0f;
+        this.gKi = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -44,91 +45,91 @@ public class FeedAdProgressButton extends View {
         super(context, attributeSet, i);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cBV = 10.0f;
-        this.gsV = 100;
+        this.cKd = 10.0f;
+        this.gKi = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
     }
 
     private void init(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.feed_ad_progress);
-        int color = getResources().getColor(d.C0277d.cp_link_tip_a);
-        int color2 = getResources().getColor(d.C0277d.cp_link_tip_a_alpha50);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.tbds10);
-        this.strokeWidth = getResources().getDimensionPixelSize(d.e.ds1);
-        this.Ji = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_foreground, color2);
-        this.mTextColor = obtainStyledAttributes.getColor(d.l.feed_ad_progress_btn_textColor, color);
-        this.gsV = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_max, this.gsV);
-        this.mProgress = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_progress, 0);
-        this.alO = obtainStyledAttributes.getString(d.l.feed_ad_progress_btn_text);
-        this.cBV = obtainStyledAttributes.getDimension(d.l.feed_ad_progress_btn_textSize, (int) getResources().getDimension(d.e.fontsize24));
-        this.mRadius = obtainStyledAttributes.getDimensionPixelSize(d.l.feed_ad_progress_btn_radius, dimensionPixelSize);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.feed_ad_progress);
+        int color = getResources().getColor(R.color.cp_link_tip_a);
+        int color2 = getResources().getColor(R.color.cp_link_tip_a_alpha50);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
+        this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.ds1);
+        this.GQ = obtainStyledAttributes.getInteger(0, color2);
+        this.mTextColor = obtainStyledAttributes.getColor(1, color);
+        this.gKi = obtainStyledAttributes.getInteger(2, this.gKi);
+        this.mProgress = obtainStyledAttributes.getInteger(3, 0);
+        this.ama = obtainStyledAttributes.getString(5);
+        this.cKd = obtainStyledAttributes.getDimension(4, (int) getResources().getDimension(R.dimen.fontsize24));
+        this.mRadius = obtainStyledAttributes.getDimensionPixelSize(6, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.iou = new RectF();
-        qY();
+        this.iHi = new RectF();
+        pT();
     }
 
-    private void qY() {
-        this.IQ = new Paint();
-        this.bOF = new Paint();
-        this.bOF.setAntiAlias(true);
-        this.bOF.setTextSize(this.cBV);
-        this.bOF.setColor(this.mTextColor);
-        this.IQ.setAntiAlias(true);
-        this.IQ.setStyle(Paint.Style.FILL);
-        this.IQ.setColor(this.Ji);
+    private void pT() {
+        this.Gz = new Paint();
+        this.bWt = new Paint();
+        this.bWt.setAntiAlias(true);
+        this.bWt.setTextSize(this.cKd);
+        this.bWt.setColor(this.mTextColor);
+        this.Gz.setAntiAlias(true);
+        this.Gz.setStyle(Paint.Style.FILL);
+        this.Gz.setColor(this.GQ);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.mProgress > 0) {
-            aa(canvas);
+            ab(canvas);
         }
-        if (!TextUtils.isEmpty(this.alO)) {
-            Paint.FontMetrics fontMetrics = this.bOF.getFontMetrics();
-            canvas.drawText(this.alO, (getMeasuredWidth() - this.bOF.measureText(this.alO)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bOF);
+        if (!TextUtils.isEmpty(this.ama)) {
+            Paint.FontMetrics fontMetrics = this.bWt.getFontMetrics();
+            canvas.drawText(this.ama, (getMeasuredWidth() - this.bWt.measureText(this.ama)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bWt);
         }
     }
 
-    private void aa(Canvas canvas) {
-        if (this.iou == null) {
-            this.iou = new RectF();
+    private void ab(Canvas canvas) {
+        if (this.iHi == null) {
+            this.iHi = new RectF();
         }
-        this.iou.left = this.strokeWidth;
-        this.iou.top = this.strokeWidth;
-        this.iou.right = getMeasuredWidth() - this.strokeWidth;
-        this.iou.bottom = getMeasuredHeight() - this.strokeWidth;
-        float f = this.mProgress / (this.gsV + 0.0f);
-        this.iov = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Ji, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.IQ.setShader(this.iov);
-        canvas.drawRoundRect(this.iou, this.mRadius, this.mRadius, this.IQ);
+        this.iHi.left = this.strokeWidth;
+        this.iHi.top = this.strokeWidth;
+        this.iHi.right = getMeasuredWidth() - this.strokeWidth;
+        this.iHi.bottom = getMeasuredHeight() - this.strokeWidth;
+        float f = this.mProgress / (this.gKi + 0.0f);
+        this.iHj = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.GQ, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.Gz.setShader(this.iHj);
+        canvas.drawRoundRect(this.iHi, this.mRadius, this.mRadius, this.Gz);
     }
 
     public void setMax(int i) {
-        this.gsV = i;
+        this.gKi = i;
     }
 
     public void setText(String str) {
-        this.alO = str;
+        this.ama = str;
         this.mProgress = 0;
         postInvalidate();
     }
 
     public void setText(String str, int i) {
-        this.alO = str;
+        this.ama = str;
         this.mProgress = i;
         postInvalidate();
     }
 
     public void setForeground(int i) {
-        this.Ji = i;
+        this.GQ = i;
         postInvalidate();
     }
 
     public void setTextSize(int i) {
-        this.cBV = i;
+        this.cKd = i;
         postInvalidate();
     }
 
@@ -138,15 +139,15 @@ public class FeedAdProgressButton extends View {
     }
 
     public void setProgress(int i) {
-        if (i <= this.gsV) {
+        if (i <= this.gKi) {
             this.mProgress = i;
-            this.alO = this.mProgress + "%";
+            this.ama = this.mProgress + "%";
             postInvalidate();
         }
     }
 
     public int getMax() {
-        return this.gsV;
+        return this.gKi;
     }
 
     public int getProgress() {
@@ -154,15 +155,15 @@ public class FeedAdProgressButton extends View {
     }
 
     public void onChangeSkinType() {
-        al.k(this, d.f.feed_ad_progress_button_bg);
-        this.mTextColor = al.getColor(d.C0277d.cp_link_tip_a);
-        this.Ji = al.getColor(d.C0277d.cp_link_tip_a_alpha50);
+        al.k(this, R.drawable.feed_ad_progress_button_bg);
+        this.mTextColor = al.getColor(R.color.cp_link_tip_a);
+        this.GQ = al.getColor(R.color.cp_link_tip_a_alpha50);
     }
 
-    public void bxS() {
-        al.k(this, d.f.tail_frame_action_btn_bg);
-        this.mTextColor = al.getColor(d.C0277d.cp_btn_a);
-        this.bOF.setColor(this.mTextColor);
+    public void bFA() {
+        al.k(this, R.drawable.tail_frame_action_btn_bg);
+        this.mTextColor = al.getColor(R.color.cp_btn_a);
+        this.bWt.setColor(this.mTextColor);
         postInvalidate();
     }
 }

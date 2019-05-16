@@ -12,24 +12,24 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public final class l {
-    private static ActivityManager abT;
+    private static ActivityManager ZJ;
     private static Context mContext;
 
     public static String A() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (abT == null) {
+        if (ZJ == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            abT.getMemoryInfo(memoryInfo2);
-            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.i(memoryInfo2.threshold)).append("\n");
-            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = abT.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
-                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.i(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
+            ZJ.getMemoryInfo(memoryInfo2);
+            sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : "no").append("\navailMem: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.r(memoryInfo2.threshold)).append("\n");
+            if (Build.VERSION.SDK_INT >= 5 && (memoryInfo = ZJ.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+                sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.r(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.f("getMemInfo error!!!", e);
+            com.baidu.crabsdk.c.a.a("getMemInfo error!!!", e);
         }
         return sb.toString();
     }
@@ -37,7 +37,7 @@ public final class l {
     public static void e(Context context) {
         if (mContext == null) {
             mContext = context;
-            abT = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            ZJ = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 
@@ -89,7 +89,7 @@ public final class l {
                             e = e2;
                             fileReader2 = fileReader;
                             try {
-                                com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                                com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
@@ -121,7 +121,7 @@ public final class l {
                         } catch (IOException e5) {
                             e = e5;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
@@ -136,7 +136,7 @@ public final class l {
                         } catch (Exception e7) {
                             e = e7;
                             bufferedReader2 = bufferedReader;
-                            com.baidu.crabsdk.c.a.f("getSysMemInfo fail.", e);
+                            com.baidu.crabsdk.c.a.a("getSysMemInfo fail.", e);
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();

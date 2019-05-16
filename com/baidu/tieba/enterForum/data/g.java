@@ -1,23 +1,48 @@
 package com.baidu.tieba.enterForum.data;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import tbclient.RecommendForumInfo;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumRecommend.LikeForum;
 /* loaded from: classes4.dex */
-public class g extends b implements com.baidu.tbadk.mvc.b.a {
-    private String eBC;
-    private long mForumId;
-    private String mForumName;
+public class g {
+    private ArrayList<f> eRu = new ArrayList<>();
 
-    public String getForumName() {
-        return this.mForumName;
+    public ArrayList<f> bdt() {
+        return this.eRu;
     }
 
-    public void a(RecommendForumInfo recommendForumInfo) {
-        if (recommendForumInfo != null) {
+    public void bdu() {
+        Iterator<f> it = this.eRu.iterator();
+        while (it.hasNext()) {
+            it.next().qd(0);
+        }
+    }
+
+    public void bA(List<?> list) {
+        if (list != null) {
+            b(list, null);
+        }
+    }
+
+    public void b(List<?> list, Context context) {
+        if (list != null) {
             try {
-                this.mForumId = recommendForumInfo.forum_id.longValue();
-                this.eBC = recommendForumInfo.avatar;
-                this.mForumName = recommendForumInfo.forum_name;
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) instanceof LikeForum) {
+                        f fVar = new f();
+                        fVar.a((LikeForum) list.get(i));
+                        if (!TextUtils.isEmpty(fVar.getName())) {
+                            this.eRu.add(fVar);
+                        }
+                    } else {
+                        return;
+                    }
+                }
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

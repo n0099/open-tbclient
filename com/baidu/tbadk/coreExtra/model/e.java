@@ -6,44 +6,44 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String caA;
-    private String caB;
-    private String caE;
-    private String caF;
-    private String caG;
-    private String caH;
-    private String caI;
-    private String caJ;
-    private String cay;
-    private String caz;
-    private int cag = 0;
-    private int cah = 0;
-    private int cai = 0;
-    private int caj = 0;
-    private int cak = 0;
-    private int cal = 0;
-    private int cam = 0;
-    private int can = 0;
-    private int cao = 0;
-    private int cap = 0;
-    private int caq = 0;
-    private int car = 0;
-    private int cas = 0;
-    private int cat = 0;
-    private int cau = 0;
-    private int cav = 0;
-    private boolean caw = true;
-    private boolean cax = true;
-    private HashMap<String, String> caC = new HashMap<>();
-    private HashMap<String, String> caD = new HashMap<>();
-    private List<a> caK = new ArrayList();
+    private String ciC;
+    private String ciD;
+    private String ciE;
+    private String ciF;
+    private String ciG;
+    private String ciH;
+    private String ciw;
+    private String cix;
+    private String ciy;
+    private String ciz;
+    private int cie = 0;
+    private int cif = 0;
+    private int cig = 0;
+    private int cih = 0;
+    private int cii = 0;
+    private int cij = 0;
+    private int cik = 0;
+    private int cil = 0;
+    private int cim = 0;
+    private int cin = 0;
+    private int cio = 0;
+    private int cip = 0;
+    private int ciq = 0;
+    private int cir = 0;
+    private int cis = 0;
+    private int cit = 0;
+    private boolean ciu = true;
+    private boolean civ = true;
+    private HashMap<String, String> ciA = new HashMap<>();
+    private HashMap<String, String> ciB = new HashMap<>();
+    private List<a> ciI = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String caL;
-        public String caM;
-        public int caN;
-        public String caO;
+        public String ciJ;
+        public String ciK;
+        public int ciL;
+        public String ciM;
         public String content;
         public String gid;
         public String title;
@@ -51,219 +51,219 @@ public class e {
         public int userType;
     }
 
-    public void aiT() {
-        HashMap<String, String> ajj = ajj();
-        Set<String> keySet = ajj.keySet();
+    public void anU() {
+        HashMap<String, String> aok = aok();
+        Set<String> keySet = aok.keySet();
         if (keySet.size() != 1) {
-            nQ(null);
+            pa(null);
         } else {
-            nQ(ajj.get(keySet.iterator().next()));
+            pa(aok.get(keySet.iterator().next()));
         }
     }
 
-    public void aiU() {
-        HashMap<String, String> ajp = ajp();
-        Set<String> keySet = ajp.keySet();
+    public void anV() {
+        HashMap<String, String> aoq = aoq();
+        Set<String> keySet = aoq.keySet();
         if (keySet.size() != 1) {
-            nW(null);
+            pg(null);
         } else {
-            nW(ajp.get(keySet.iterator().next()));
+            pg(aoq.get(keySet.iterator().next()));
         }
     }
 
-    public int aiV() {
-        return this.cag;
+    public int anW() {
+        return this.cie;
     }
 
-    public void iF(int i) {
-        this.cag = i;
+    public void jt(int i) {
+        this.cie = i;
     }
 
-    public int aiW() {
-        return this.caj;
+    public int anX() {
+        return this.cih;
     }
 
-    public void iG(int i) {
-        this.caj = i;
+    public void ju(int i) {
+        this.cih = i;
     }
 
-    public int aiX() {
-        return this.cak;
+    public int anY() {
+        return this.cii;
     }
 
-    public int aiY() {
-        return this.cam;
+    public int anZ() {
+        return this.cik;
     }
 
-    public void iH(int i) {
-        this.cam = i;
+    public void jv(int i) {
+        this.cik = i;
     }
 
-    public int aiZ() {
-        return this.caq;
+    public int aoa() {
+        return this.cio;
     }
 
-    public void iI(int i) {
-        this.caq = i;
+    public void jw(int i) {
+        this.cio = i;
     }
 
-    public int aja() {
-        return this.cap;
+    public int aob() {
+        return this.cin;
     }
 
-    public void iJ(int i) {
-        this.cap = i;
+    public void jx(int i) {
+        this.cin = i;
     }
 
-    public int ajb() {
-        return this.cag;
+    public int aoc() {
+        return this.cie;
     }
 
-    public int ajc() {
-        return this.cai;
+    public int aod() {
+        return this.cig;
     }
 
-    public void iK(int i) {
-        this.cai = i;
+    public void jy(int i) {
+        this.cig = i;
     }
 
-    public boolean ajd() {
-        return this.caw;
+    public boolean aoe() {
+        return this.ciu;
     }
 
-    public void eo(boolean z) {
-        this.caw = z;
+    public void eL(boolean z) {
+        this.ciu = z;
     }
 
-    public String aje() {
-        return this.cay;
+    public String aof() {
+        return this.ciw;
     }
 
-    public void nP(String str) {
-        this.cay = str;
+    public void oZ(String str) {
+        this.ciw = str;
     }
 
-    public String ajf() {
-        return this.caE;
+    public String aog() {
+        return this.ciC;
     }
 
-    public void nQ(String str) {
-        this.caE = str;
+    public void pa(String str) {
+        this.ciC = str;
     }
 
-    public void nR(String str) {
-        this.caF = str;
+    public void pb(String str) {
+        this.ciD = str;
     }
 
-    public int ajg() {
-        return this.cah;
+    public int aoh() {
+        return this.cif;
     }
 
-    public void iL(int i) {
-        this.cah = i;
+    public void jz(int i) {
+        this.cif = i;
     }
 
-    public void nS(String str) {
-        this.caG = str;
+    public void pc(String str) {
+        this.ciE = str;
     }
 
-    public String ajh() {
-        return this.caI;
+    public String aoi() {
+        return this.ciG;
     }
 
-    public String aji() {
-        return this.caJ;
+    public String aoj() {
+        return this.ciH;
     }
 
-    public HashMap<String, String> ajj() {
-        return this.caC;
+    public HashMap<String, String> aok() {
+        return this.ciA;
     }
 
-    public int ajk() {
-        return this.cal;
+    public int aol() {
+        return this.cij;
     }
 
-    public void iM(int i) {
-        this.cal = i;
+    public void jA(int i) {
+        this.cij = i;
     }
 
-    public int ajl() {
-        return this.can;
+    public int aom() {
+        return this.cil;
     }
 
-    public void iN(int i) {
-        this.can = i;
+    public void jB(int i) {
+        this.cil = i;
     }
 
-    public int ajm() {
-        return this.car;
+    public int aon() {
+        return this.cip;
     }
 
-    public void iO(int i) {
-        this.car = i;
+    public void jC(int i) {
+        this.cip = i;
     }
 
-    public void nT(String str) {
-        this.caz = str;
+    public void pd(String str) {
+        this.cix = str;
     }
 
-    public void nU(String str) {
-        this.caA = str;
+    public void pe(String str) {
+        this.ciy = str;
     }
 
-    public int ajn() {
-        return this.cao;
+    public int aoo() {
+        return this.cim;
     }
 
-    public void iP(int i) {
-        this.cao = i;
+    public void jD(int i) {
+        this.cim = i;
     }
 
-    public String ajo() {
-        return this.caB;
+    public String aop() {
+        return this.ciz;
     }
 
-    public void nV(String str) {
-        this.caB = str;
+    public void pf(String str) {
+        this.ciz = str;
     }
 
-    public HashMap<String, String> ajp() {
-        return this.caD;
+    public HashMap<String, String> aoq() {
+        return this.ciB;
     }
 
-    public String ajq() {
-        return this.caH;
+    public String aor() {
+        return this.ciF;
     }
 
-    public void nW(String str) {
-        this.caH = str;
+    public void pg(String str) {
+        this.ciF = str;
     }
 
-    public int ajr() {
-        return this.cat;
+    public int aos() {
+        return this.cir;
     }
 
-    public void iQ(int i) {
-        this.cat = i;
+    public void jE(int i) {
+        this.cir = i;
     }
 
-    public int ajs() {
-        return this.cau;
+    public int aot() {
+        return this.cis;
     }
 
-    public void iR(int i) {
-        this.cau = i;
+    public void jF(int i) {
+        this.cis = i;
     }
 
-    public List<a> ajt() {
-        return this.caK;
+    public List<a> aou() {
+        return this.ciI;
     }
 
-    public int aju() {
-        return this.cav;
+    public int aov() {
+        return this.cit;
     }
 
-    public void iS(int i) {
-        this.cav = i;
+    public void jG(int i) {
+        this.cit = i;
     }
 }

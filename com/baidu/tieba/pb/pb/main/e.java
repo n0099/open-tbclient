@@ -4,51 +4,51 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.bg;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends ar {
-    private TextView hmk;
+    private TextView hDK;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.hmk = null;
+        this.hDK = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ar
     protected void a(d dVar) {
-        this.hmk = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.hmk.setVisibility(8);
+        this.hDK = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.hDK.setVisibility(8);
     }
 
-    public void nh(boolean z) {
-        if (this.hmk != null) {
+    public void nW(boolean z) {
+        if (this.hDK != null) {
             if (z) {
-                this.hmk.setText(d.j.push);
-                com.baidu.tbadk.core.util.al.j(this.hmk, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.k(this.hmk, d.f.push_bg_selector);
-                this.hmk.setClickable(true);
+                this.hDK.setText(R.string.push);
+                com.baidu.tbadk.core.util.al.j(this.hDK, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.al.k(this.hDK, R.drawable.push_bg_selector);
+                this.hDK.setClickable(true);
             } else {
-                this.hmk.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.al.k(this.hmk, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.j(this.hmk, d.C0277d.cp_cont_d);
-                this.hmk.setClickable(false);
+                this.hDK.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.al.k(this.hDK, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.j(this.hDK, R.color.cp_cont_d);
+                this.hDK.setClickable(false);
             }
-            this.hmk.setVisibility(0);
+            this.hDK.setVisibility(0);
         }
     }
 
-    public void av(bg bgVar) {
-        if (bgVar != null && bgVar.Zi() != null) {
-            int status = bgVar.Zi().getStatus();
+    public void at(bg bgVar) {
+        if (bgVar != null && bgVar.adP() != null) {
+            int status = bgVar.adP().getStatus();
             if (status == 1) {
-                nh(true);
+                nW(true);
             } else if (status == 2) {
-                nh(false);
+                nW(false);
             }
         }
     }
 
-    public TextView bJi() {
-        return this.hmk;
+    public TextView bQZ() {
+        return this.hDK;
     }
 }

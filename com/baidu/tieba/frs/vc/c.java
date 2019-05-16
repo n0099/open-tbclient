@@ -11,24 +11,24 @@ import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes4.dex */
 public class c {
-    private final FrsFragment fat;
-    private a fvf;
+    private a fLW;
+    private final FrsFragment fqI;
 
     public c(FrsFragment frsFragment) {
-        this.fat = frsFragment;
+        this.fqI = frsFragment;
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.fat != null && this.fat.bcP() != null && this.fat.bcP().getForum() != null && !StringUtils.isNull(this.fat.bcP().getForum().getName()) && this.fat.bcP().enterFrsDialogInfo != null && biM() && this.fvf == null) {
-            this.fvf = new a();
-            this.fvf.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.fqI != null && this.fqI.bkj() != null && this.fqI.bkj().getForum() != null && !StringUtils.isNull(this.fqI.bkj().getForum().getName()) && this.fqI.bkj().enterFrsDialogInfo != null && bqe() && this.fLW == null) {
+            this.fLW = new a();
+            this.fLW.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean biM() {
-        PopInfo popInfo = this.fat.bcP().enterFrsDialogInfo;
-        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.fat.bcP().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+    public boolean bqe() {
+        PopInfo popInfo = this.fqI.bkj().enterFrsDialogInfo;
+        return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.fqI.bkj().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,10 +41,10 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            l<String> lw = com.baidu.tbadk.core.c.a.aaT().lw("tb.enter_frs_dialog_list");
-            String encode = URLEncoder.encode(c.this.fat.bcP().getForum().getName());
-            if (lw.get(encode) == null) {
-                lw.e(encode, "1");
+            l<String> mB = com.baidu.tbadk.core.c.a.afD().mB("tb.enter_frs_dialog_list");
+            String encode = URLEncoder.encode(c.this.fqI.bkj().getForum().getName());
+            if (mB.get(encode) == null) {
+                mB.f(encode, "1");
                 return true;
             }
             return false;
@@ -54,12 +54,12 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.biM() && c.this.fat.isAdded()) {
-                final PopInfo popInfo = c.this.fat.bcP().enterFrsDialogInfo;
-                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.fat.getActivity());
-                aVar.ly(popInfo.title);
-                aVar.lz(popInfo.v_title);
-                aVar.aaU();
+            if (bool.booleanValue() && c.this.bqe() && c.this.fqI.isAdded()) {
+                final PopInfo popInfo = c.this.fqI.bkj().enterFrsDialogInfo;
+                com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.fqI.getActivity());
+                aVar.mD(popInfo.title);
+                aVar.mE(popInfo.v_title);
+                aVar.afE();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.vc.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -73,13 +73,13 @@ public class c {
                     /* JADX WARN: Multi-variable type inference failed */
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        ba.adA().c(c.this.fat.getPageContext(), new String[]{popInfo.ahead_url});
+                        ba.aiz().c(c.this.fqI.getPageContext(), new String[]{popInfo.ahead_url});
                         if (aVar2 != null) {
                             aVar2.dismiss();
                         }
                     }
                 });
-                aVar.b(c.this.fat.getPageContext()).aaW();
+                aVar.b(c.this.fqI.getPageContext()).afG();
             }
         }
     }

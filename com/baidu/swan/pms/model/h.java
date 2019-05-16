@@ -1,20 +1,14 @@
 package com.baidu.swan.pms.model;
+
+import android.text.TextUtils;
 /* loaded from: classes2.dex */
-public class h {
-    public g bmc;
-    public a bmd;
+public class h extends e {
+    public String Hj;
+    public String appId;
+    public boolean bsg;
 
-    public boolean equals(Object obj) {
-        if (super.equals(obj)) {
-            return true;
-        }
-        if (obj == null || !(obj instanceof h)) {
-            return false;
-        }
-        return this.bmc.equals(((h) obj).bmc);
-    }
-
-    public String toString() {
-        return "PMSPkgPair{pkgMain=" + this.bmc + ",appInfo=" + this.bmd + "}";
+    @Override // com.baidu.swan.pms.model.e
+    public boolean Vv() {
+        return super.Vv() && !TextUtils.isEmpty(this.Hj);
     }
 }

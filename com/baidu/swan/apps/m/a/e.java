@@ -3,24 +3,24 @@ package com.baidu.swan.apps.m.a;
 import android.text.TextUtils;
 /* loaded from: classes2.dex */
 public class e extends a {
-    public String aqS;
-    public String avp;
-    public String avq;
-    public String avr;
-    public String avs;
+    public String aqX;
+    public String avI;
+    public String avJ;
+    public String avK;
+    public String avL;
 
     public e() {
-        this.avn = "route";
+        this.avG = "route";
     }
 
     @Override // com.baidu.swan.apps.m.a.a
-    public String eC(String str) {
-        String str2 = (com.baidu.swan.apps.m.a.n(str, "fromId", this.avp) + com.baidu.swan.apps.m.a.n(str, "toId", this.avq)) + com.baidu.swan.apps.m.a.n(str, "toTabIndex", this.avs);
-        if (!TextUtils.isEmpty(this.aqS)) {
-            str2 = str2 + com.baidu.swan.apps.m.a.n(str, "routeType", this.aqS);
+    public String er(String str) {
+        String str2 = (com.baidu.swan.apps.m.a.n(str, "fromId", this.avI) + com.baidu.swan.apps.m.a.n(str, "toId", this.avJ)) + com.baidu.swan.apps.m.a.n(str, "toTabIndex", this.avL);
+        if (!TextUtils.isEmpty(this.aqX)) {
+            str2 = str2 + com.baidu.swan.apps.m.a.n(str, "routeType", this.aqX);
         }
-        if (!TextUtils.isEmpty(this.avr)) {
-            return str2 + com.baidu.swan.apps.m.a.n(str, "toPage", this.avr);
+        if (!TextUtils.isEmpty(this.avK)) {
+            return str2 + com.baidu.swan.apps.m.a.n(str, "toPage", this.avK);
         }
         return str2;
     }

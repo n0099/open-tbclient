@@ -343,7 +343,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
             this.K = new ArrayList<>();
         }
         if (this.L == null) {
-            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_personal_swan_label_bg);
+            this.L = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_location_progress_bar_anim);
         }
         BaseNpcModel baseNpcModel = new BaseNpcModel();
         baseNpcModel.setDownLoadKey("");
@@ -352,7 +352,7 @@ public class b implements com.baidu.platform.comapi.walknavi.g.b.a {
         baseNpcModel.setLoadFromLocal(true);
         this.K.add(baseNpcModel);
         if (this.M == null) {
-            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_scroll_bar_thumb_vertical);
+            this.M = BitmapFactory.decodeResource(com.baidu.platform.comapi.wnplatform.o.a.a.b(), R.drawable.aiapps_night_mode_toast_icon);
         }
         BaseNpcModel baseNpcModel2 = new BaseNpcModel();
         baseNpcModel2.setDownLoadKey("10279765");

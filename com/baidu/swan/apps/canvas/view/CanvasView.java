@@ -8,7 +8,7 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.canvas.a.a.af;
 import com.baidu.swan.apps.canvas.a.a.f;
 import com.baidu.swan.apps.canvas.a.a.k;
@@ -18,15 +18,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> amF;
-    private final DrawFilter amG;
-    private int amH;
-    private HashMap<String, Bitmap> amI;
-    private b amJ;
+    private List<a> amR;
+    private final DrawFilter amS;
+    private int amT;
+    private HashMap<String, Bitmap> amU;
+    private b amV;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void wx();
+        void xp();
     }
 
     public CanvasView(Context context) {
@@ -39,35 +39,35 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amF = new ArrayList();
-        this.amG = new PaintFlagsDrawFilter(0, 3);
-        this.amH = 0;
-        this.amI = new HashMap<>();
-        this.amH = getLayerType();
+        this.amR = new ArrayList();
+        this.amS = new PaintFlagsDrawFilter(0, 3);
+        this.amT = 0;
+        this.amU = new HashMap<>();
+        this.amT = getLayerType();
     }
 
-    public void d(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.amF.contains(list)) {
+    public void c(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
+        if (list != null && !this.amR.contains(list)) {
             if (!z) {
-                this.amF.clear();
+                this.amR.clear();
             }
-            int size = this.amF.size();
+            int size = this.amR.size();
             boolean z2 = z && size > 0;
             a aVar = new a();
             if (z2) {
-                a aVar2 = this.amF.get(size - 1);
-                aVar.amL = aVar2.amL;
-                aVar.ams = aVar2.ams;
-                aVar.ams.addAll(list);
+                a aVar2 = this.amR.get(size - 1);
+                aVar.amX = aVar2.amX;
+                aVar.amE = aVar2.amE;
+                aVar.amE.addAll(list);
             } else {
-                aVar.amL = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.ams = list;
+                aVar.amX = new com.baidu.swan.apps.canvas.a.a.b(this);
+                aVar.amE = list;
             }
-            this.amF.add(aVar);
-            aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
+            this.amR.add(aVar);
+            ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.wG();
+                    CanvasView.this.xy();
                 }
             });
         }
@@ -75,23 +75,23 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return wF() || super.onTouchEvent(motionEvent);
+        return xx() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.amF.size() > 0) {
+        if (this.amR.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.amG);
-            for (a aVar : this.amF) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.ams;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.amL;
+            canvas.setDrawFilter(this.amS);
+            for (a aVar : this.amR) {
+                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.amE;
+                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.amX;
                 bVar.init();
                 for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
                     aVar2.a(bVar, canvas);
                     if (aVar2 instanceof k) {
-                        ((k) aVar2).m(this.amI);
+                        ((k) aVar2).m(this.amU);
                     }
                 }
             }
@@ -100,21 +100,21 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.amF.size() > 0) {
-            return this.amF.get(this.amF.size() - 1).amL;
+        if (this.amR.size() > 0) {
+            return this.amR.get(this.amR.size() - 1).amX;
         }
         return null;
     }
 
-    public Bitmap dx(String str) {
+    public Bitmap dk(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.amI.get(str);
+        return this.amU.get(str);
     }
 
     public synchronized void onRelease() {
-        this.amI.clear();
+        this.amU.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,17 +122,17 @@ public class CanvasView extends AbsCanvasView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void wG() {
+    public void xy() {
         int i;
-        int i2 = this.amH;
-        if (this.amF.size() > 0) {
-            Iterator<a> it = this.amF.iterator();
+        int i2 = this.amT;
+        if (this.amR.size() > 0) {
+            Iterator<a> it = this.amR.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().ams) {
+                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().amE) {
                     if ((aVar instanceof af) || (aVar instanceof f)) {
                         i2 = 1;
                         break;
@@ -153,14 +153,14 @@ public class CanvasView extends AbsCanvasView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        com.baidu.swan.apps.canvas.a.a.b amL;
-        List<com.baidu.swan.apps.canvas.a.a.a> ams;
+        List<com.baidu.swan.apps.canvas.a.a.a> amE;
+        com.baidu.swan.apps.canvas.a.a.b amX;
 
         private a() {
         }
     }
 
     public void setOnDrawCompleteLinstener(b bVar) {
-        this.amJ = bVar;
+        this.amV = bVar;
     }
 }

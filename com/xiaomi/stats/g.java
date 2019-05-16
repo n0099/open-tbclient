@@ -1,10 +1,10 @@
 package com.xiaomi.stats;
 
 import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.at;
+import com.xiaomi.push.service.bh;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class g extends at.a {
+public class g extends bh.a {
     final /* synthetic */ f a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -12,10 +12,10 @@ public class g extends at.a {
         this.a = fVar;
     }
 
-    @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0466b c0466b) {
-        if (c0466b.k()) {
-            f.a().a(c0466b.j());
+    @Override // com.xiaomi.push.service.bh.a
+    public void a(b.C0486b c0486b) {
+        if (c0486b.k()) {
+            f.a().a(c0486b.j());
         }
     }
 }

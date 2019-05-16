@@ -34,7 +34,7 @@ public class UBC {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static final l getUBCContext() {
-        return com.baidu.tieba.aiapps.apps.p.g.aAb();
+        return com.baidu.tieba.aiapps.apps.r.g.aGm();
     }
 
     public static final void onEvent(String str) {
@@ -70,7 +70,7 @@ public class UBC {
     }
 
     public static void onMutilProcessEvent(String str, String str2, String str3) {
-        d.crV().f(str, str2, com.baidu.f.e.EK(str3), 8);
+        d.cAc().f(str, str2, com.baidu.f.e.Gf(str3), 8);
     }
 
     public static final Flow beginFlow(String str) {
@@ -115,12 +115,12 @@ public class UBC {
         if (sProxy == null) {
             synchronized (UBC.class) {
                 if (sProxy == null) {
-                    IBinder i = IPCServiceManager.i(UBC_REMOTE_SERVICE_NAME, true);
-                    if (i == null) {
+                    IBinder h = IPCServiceManager.h(UBC_REMOTE_SERVICE_NAME, true);
+                    if (h == null) {
                         throw new RemoteException("UBC get remote service empty !");
                     }
-                    if (i != null) {
-                        sProxy = IRemoteUBCService.Stub.asInterface(i);
+                    if (h != null) {
+                        sProxy = IRemoteUBCService.Stub.asInterface(h);
                     }
                 }
             }

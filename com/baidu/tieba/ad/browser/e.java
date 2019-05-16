@@ -23,7 +23,7 @@ import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String bs(String str, String str2) {
+    public static String bA(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
@@ -41,7 +41,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        Vu();
+        ZX();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -51,7 +51,7 @@ public class e {
         }
     }
 
-    public static void at(Context context, String str) {
+    public static void ah(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -94,9 +94,9 @@ public class e {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:33:0x001c). Please submit an issue!!! */
-    public static void cF(Context context) {
+    public static void ck(Context context) {
         CookieManager cookieManager;
-        a.b kV = com.baidu.tbadk.core.a.a.WA().kV(TbadkCoreApplication.getCurrentBduss());
+        a.b ma = com.baidu.tbadk.core.a.a.abg().ma(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -105,7 +105,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (kV != null) {
+            if (ma != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -140,7 +140,7 @@ public class e {
         }
     }
 
-    private static void Vu() {
+    private static void ZX() {
         new ag("open_webview", true).start();
     }
 }

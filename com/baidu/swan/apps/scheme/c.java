@@ -5,7 +5,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc;
-import com.baidu.swan.ubc.q;
+import com.baidu.swan.ubc.s;
 /* loaded from: classes2.dex */
 public class c implements ISchemeIoc {
     @Override // com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc
@@ -22,11 +22,11 @@ public class c implements ISchemeIoc {
 
     @Override // com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc
     public String getSchemeHead() {
-        return com.baidu.swan.apps.u.a.CI().vv();
+        return com.baidu.swan.apps.u.a.DN().wk();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.ioc.ISchemeIoc
     public void doStatistic(String str, String str2) {
-        q.onEvent(str, str2);
+        s.onEvent(str, str2);
     }
 }

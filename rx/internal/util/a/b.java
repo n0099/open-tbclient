@@ -3,7 +3,7 @@ package rx.internal.util.a;
 import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes2.dex */
 abstract class b<E> extends d<E> {
-    protected static final long kaP = ae.j(b.class, "consumerNode");
+    protected static final long kte = ae.j(b.class, "consumerNode");
     protected LinkedQueueNode<E> consumerNode;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -12,7 +12,7 @@ abstract class b<E> extends d<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cEC() {
-        return (LinkedQueueNode) ae.kbc.getObjectVolatile(this, kaP);
+    public final LinkedQueueNode<E> cMi() {
+        return (LinkedQueueNode) ae.ktr.getObjectVolatile(this, kte);
     }
 }

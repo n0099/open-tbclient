@@ -9,7 +9,7 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public l.b<T> aF(String str) {
+    public l.b<T> ap(String str) {
         return null;
     }
 
@@ -18,7 +18,7 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void e(String str, T t) {
+    public void f(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
@@ -34,10 +34,10 @@ public class o<T> implements l<T> {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void f(String str, T t) {
+    public void g(String str, T t) {
     }
 
     @Override // com.baidu.adp.lib.cache.l
-    public void aG(String str) {
+    public void aq(String str) {
     }
 }

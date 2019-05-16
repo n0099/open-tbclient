@@ -8,67 +8,67 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.c<AdSettingActivity> {
-    private ImageView fjn;
-    private AdSettingActivity irA;
-    private MsgSettingItemView irB;
-    private TextView irC;
-    private View irD;
-    private View irE;
-    private TextView irF;
-    private TextView irG;
-    private TextView irH;
+    private ImageView fzI;
+    private AdSettingActivity iKo;
+    private MsgSettingItemView iKp;
+    private TextView iKq;
+    private View iKr;
+    private View iKs;
+    private TextView iKt;
+    private TextView iKu;
+    private TextView iKv;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.irA = adSettingActivity;
-        akn();
+        this.iKo = adSettingActivity;
+        apq();
     }
 
-    private void akn() {
-        this.irA.setContentView(d.h.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.irA.findViewById(d.g.view_navigation_bar);
+    private void apq() {
+        this.iKo.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.iKo.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.irA.getPageContext().getString(d.j.ad_control_setting));
-        this.irB = (MsgSettingItemView) this.irA.findViewById(d.g.memberAdSetting);
-        this.irB.setLineVisibility(false);
-        this.irC = (TextView) this.irA.findViewById(d.g.memberAdTips);
-        this.irD = this.irA.findViewById(d.g.privacyContainer);
-        this.irE = this.irA.findViewById(d.g.privacyItem);
-        this.irH = (TextView) this.irA.findViewById(d.g.privacyControlText);
-        this.irF = (TextView) this.irA.findViewById(d.g.privacyControlTipsSmall);
-        this.irF = (TextView) this.irA.findViewById(d.g.privacyControlTipsSmall);
-        this.irG = (TextView) this.irA.findViewById(d.g.privacyControlTips);
-        this.fjn = (ImageView) this.irA.findViewById(d.g.arrow);
-        this.mParent = this.irA.findViewById(d.g.parent);
-        this.irE.setOnClickListener(this.irA);
-        bYQ();
+        this.mNavigationBar.setTitleText(this.iKo.getPageContext().getString(R.string.ad_control_setting));
+        this.iKp = (MsgSettingItemView) this.iKo.findViewById(R.id.memberAdSetting);
+        this.iKp.setLineVisibility(false);
+        this.iKq = (TextView) this.iKo.findViewById(R.id.memberAdTips);
+        this.iKr = this.iKo.findViewById(R.id.privacyContainer);
+        this.iKs = this.iKo.findViewById(R.id.privacyItem);
+        this.iKv = (TextView) this.iKo.findViewById(R.id.privacyControlText);
+        this.iKt = (TextView) this.iKo.findViewById(R.id.privacyControlTipsSmall);
+        this.iKt = (TextView) this.iKo.findViewById(R.id.privacyControlTipsSmall);
+        this.iKu = (TextView) this.iKo.findViewById(R.id.privacyControlTips);
+        this.fzI = (ImageView) this.iKo.findViewById(R.id.arrow);
+        this.mParent = this.iKo.findViewById(R.id.parent);
+        this.iKs.setOnClickListener(this.iKo);
+        cgU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.irA.getLayoutMode().setNightMode(i == 1);
-        this.irA.getLayoutMode().onModeChanged(this.mParent);
+        this.iKo.getLayoutMode().setNightMode(i == 1);
+        this.iKo.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.j(this.irC, d.C0277d.cp_cont_b);
-        al.j(this.irG, d.C0277d.cp_cont_b);
-        al.j(this.irH, d.C0277d.cp_cont_b);
-        al.j(this.irF, d.C0277d.cp_cont_c);
-        al.l(this.irC, d.C0277d.cp_bg_line_d);
-        al.c(this.fjn, d.f.icon_arrow_gray_right_n);
-        al.l(this.irD, d.C0277d.cp_bg_line_d);
-        al.k(this.irE, d.f.setting_item_selector);
+        al.j(this.iKq, R.color.cp_cont_b);
+        al.j(this.iKu, R.color.cp_cont_b);
+        al.j(this.iKv, R.color.cp_cont_b);
+        al.j(this.iKt, R.color.cp_cont_c);
+        al.l(this.iKq, R.color.cp_bg_line_d);
+        al.c(this.fzI, (int) R.drawable.icon_arrow_gray_right_n);
+        al.l(this.iKr, R.color.cp_bg_line_d);
+        al.k(this.iKs, R.drawable.setting_item_selector);
     }
 
-    private void bYQ() {
+    private void cgU() {
         int i;
         int i2 = 0;
-        this.irB.setText(d.j.member_ad_setting_text);
-        this.irB.setOnSwitchStateChangeListener(this.irA);
+        this.iKp.setText(R.string.member_ad_setting_text);
+        this.iKp.setOnSwitchStateChangeListener(this.iKo);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -77,27 +77,27 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.irB.setVisibility(8);
-            this.irC.setVisibility(8);
+            this.iKp.setVisibility(8);
+            this.iKq.setVisibility(8);
         } else if (i2 == 0) {
-            this.irB.nZ();
+            this.iKp.mU();
         } else {
-            this.irB.nY();
+            this.iKp.mT();
         }
-        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("sync_ad_privacy_url", ""))) {
-            this.irD.setVisibility(8);
+        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.agM().getString("sync_ad_privacy_url", ""))) {
+            this.iKr.setVisibility(8);
         }
     }
 
-    public View bYR() {
-        return this.irE;
+    public View cgV() {
+        return this.iKs;
     }
 
-    public void bYS() {
-        this.irB.nZ();
+    public void cgW() {
+        this.iKp.mU();
     }
 
-    public void bYT() {
-        this.irB.nY();
+    public void cgX() {
+        this.iKp.mT();
     }
 }

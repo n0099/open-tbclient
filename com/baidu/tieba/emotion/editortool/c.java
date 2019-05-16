@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.tbadk.editortools.emotiontool.c {
@@ -13,22 +13,22 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     private void init() {
-        super.jz(7);
-        super.jA(3);
-        com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), d.f.icon_face_original_s), false);
+        super.kn(7);
+        super.ko(3);
+        com.baidu.adp.widget.ImageView.a aVar = new com.baidu.adp.widget.ImageView.a(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_face_original_s), false);
         super.d(aVar);
         super.c(aVar);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public String jy(int i) {
+    public String km(int i) {
         int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.cjs.size()) {
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.crA.size()) {
             i2 = 0;
         } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.cjs.get(i).intValue();
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.crA.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.cjt.entrySet()) {
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.crB.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,15 +37,15 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean oK(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.cjt.get(str) != null;
+    public boolean pS(String str) {
+        return com.baidu.tbadk.editortools.emotiontool.b.crB.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a oL(String str) {
+    public com.baidu.adp.widget.ImageView.a pT(String str) {
         Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.cjt.get(str);
-        if (num != null && (resBitmap = com.baidu.adp.lib.util.d.kG().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.crB.get(str);
+        if (num != null && (resBitmap = com.baidu.adp.lib.util.d.jA().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.ImageView.a(resBitmap, false, str);
         }
         return null;
@@ -53,16 +53,16 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.cjs.size();
+        return com.baidu.tbadk.editortools.emotiontool.b.crA.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a oM(String str) {
-        return oL(str);
+    public com.baidu.adp.widget.ImageView.a pU(String str) {
+        return pT(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public EmotionGroupType amf() {
+    public EmotionGroupType ari() {
         return EmotionGroupType.LOCAL;
     }
 
@@ -87,7 +87,7 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean ame() {
+    public boolean arh() {
         return true;
     }
 }

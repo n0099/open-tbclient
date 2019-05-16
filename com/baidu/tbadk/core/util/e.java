@@ -6,19 +6,19 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast Gu;
+    private static Toast Eg;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.Gu != null) {
-                e.Gu.cancel();
+            if (e.Eg != null) {
+                e.Eg.cancel();
             }
         }
     };
-    private boolean bIz;
+    private boolean bQj;
 
-    public static e abX() {
+    public static e agU() {
         return new e();
     }
 
@@ -26,24 +26,26 @@ public class e {
     }
 
     public void l(String str, int i, int i2) {
-        if (!this.bIz && str != null) {
+        if (!this.bQj && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (Gu != null && Gu.getView() != null) {
+                if (Eg != null && Eg.getView() != null) {
                     try {
-                        Gu.setText(trim);
+                        Eg.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        Gu = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        Gu.setGravity(17, 0, i2);
+                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                        Eg.setText(trim);
+                        Eg.setGravity(17, 0, i2);
                     }
                 } else {
-                    Gu = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    Gu.setGravity(17, 0, i2);
+                    Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                    Eg.setText(trim);
+                    Eg.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                Gu.show();
+                Eg.show();
             }
         }
     }
@@ -69,19 +71,19 @@ public class e {
     }
 
     public void onPause() {
-        this.bIz = true;
+        this.bQj = true;
         cancel();
     }
 
     public void onResume() {
-        this.bIz = false;
+        this.bQj = false;
     }
 
     public static void cancel() {
-        if (Gu != null) {
+        if (Eg != null) {
             mHandler.removeCallbacks(r);
-            Gu.cancel();
-            Gu = null;
+            Eg.cancel();
+            Eg = null;
         }
     }
 }

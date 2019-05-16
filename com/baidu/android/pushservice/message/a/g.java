@@ -6,81 +6,134 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.i.l;
+import com.baidu.android.pushservice.message.PublicMsg;
+import com.xiaomi.mipush.sdk.Constants;
+import com.xiaomi.mipush.sdk.MIPushNotificationHelper4Hybrid;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class g extends c {
+public class g extends b {
     public g(Context context) {
         super(context);
     }
 
-    @Override // com.baidu.android.pushservice.message.a.c
+    public static String[] a(Context context, int i, String str, String str2, byte[] bArr, byte[] bArr2) {
+        if (l.a(context, bArr, str, str2, bArr2)) {
+            String[] strArr = new String[2];
+            if (i == k.MSG_TYPE_SINGLE_PRIVATE.a() || i == k.MSG_TYPE_MULTI_PRIVATE.a()) {
+                strArr[0] = new String(bArr2);
+                strArr[1] = null;
+            } else if (i == k.MSG_TYPE_PRIVATE_MESSAGE.a()) {
+                PublicMsg a = i.a(context, str2, str, bArr2);
+                strArr[0] = a.mDescription;
+                strArr[1] = a.mCustomContent;
+            }
+            return strArr;
+        }
+        return null;
+    }
+
+    @Override // com.baidu.android.pushservice.message.a.b
     public com.baidu.android.pushservice.message.g a(com.baidu.android.pushservice.message.k kVar, byte[] bArr) {
         int i;
+        String str;
+        int i2 = 0;
+        String b = kVar.b();
         String e = kVar.e();
-        String h = kVar.h();
-        int i2 = kVar.i();
-        byte[] j = kVar.j();
-        String f = kVar.f();
-        String str = new String(bArr);
-        com.baidu.android.pushservice.b.d a = com.baidu.android.pushservice.b.d.a(this.a, e);
-        if (TextUtils.isEmpty(f) || !com.baidu.android.pushservice.j.m.c(this.a, f)) {
-            f = a.a() == com.baidu.android.pushservice.b.c.PUSH_CLIENT ? a.a.c() : a.a() == com.baidu.android.pushservice.b.c.SDK_CLIENT ? a.b.c() : null;
+        int f = kVar.f();
+        byte[] g = kVar.g();
+        String c = kVar.c();
+        com.baidu.android.pushservice.a.d a = com.baidu.android.pushservice.a.d.a(this.a, b);
+        if (TextUtils.isEmpty(c) || !l.c(this.a, c)) {
+            c = a.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a.a.c() : a.a() == com.baidu.android.pushservice.a.c.SDK_CLIENT ? a.b.c() : null;
         }
         switch (a.a()) {
             case PUSH_CLIENT:
-                byte[] a2 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, f);
+                String a2 = a(c);
+                byte[] a3 = l.a(this.a, e, bArr, g, a2);
                 try {
-                    this.a.getPackageManager().getPackageInfo(f, 128);
-                    Intent intent = new Intent();
-                    if (com.baidu.android.pushservice.a.b() > 0) {
-                        intent.putExtra("bd.message.rate.GET", System.currentTimeMillis());
-                        intent.putExtra("bd.message.rate.MH", true);
+                    this.a.getPackageManager().getPackageInfo(a2, 128);
+                    PublicMsg a4 = i.a(this.a, e, b, bArr);
+                    boolean a5 = a(bArr);
+                    if (a4 == null) {
+                        i = 0;
+                        break;
+                    } else {
+                        Intent intent = new Intent();
+                        if (a5) {
+                            str = "com.baidu.android.pushservice.action.FB_MESSAGE";
+                        } else {
+                            intent.putExtra("msg_id", e);
+                            str = PushConstants.ACTION_MESSAGE;
+                        }
+                        intent.putExtra("message_string", a4.mDescription);
+                        intent.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                        intent.putExtra("baidu_message_type", f);
+                        intent.putExtra("baidu_message_body", bArr);
+                        intent.putExtra(Constants.APP_ID, b);
+                        intent.putExtra("baidu_message_secur_info", a3);
+                        if (!TextUtils.isEmpty(a4.mCustomContent)) {
+                            try {
+                                JSONObject jSONObject = new JSONObject(a4.mCustomContent);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    intent.putExtra(next, jSONObject.getString(next));
+                                }
+                                intent.putExtra("extra_extra_custom_content", a4.mCustomContent);
+                            } catch (JSONException e2) {
+                            }
+                        }
+                        i = l.a(this.a, intent, str, a2);
+                        l.b(">>> Deliver message to client: " + a2 + " msg: " + a4.mDescription + " result: " + i, this.a);
+                        break;
                     }
-                    intent.putExtra("app_id", e);
-                    intent.putExtra("msg_id", h);
-                    intent.putExtra("message", bArr);
-                    intent.putExtra("message_string", str);
-                    intent.putExtra("message_id", h);
-                    intent.putExtra("baidu_message_type", i2);
-                    intent.putExtra("baidu_message_body", bArr);
-                    intent.putExtra("baidu_message_secur_info", a2);
-                    if (com.baidu.android.pushservice.a.b() > 0) {
-                        intent.putExtra("bd.message.rate.REDIRECTION", System.currentTimeMillis());
-                    }
-                    i = com.baidu.android.pushservice.j.m.a(this.a, intent, PushConstants.ACTION_MESSAGE, f);
-                    com.baidu.android.pushservice.j.m.b(">>> Deliver message to client: " + a.a.c() + " result: " + i, this.a);
-                    break;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    f.a(this.a, e);
-                    com.baidu.android.pushservice.j.m.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
-                    i = 7;
-                    break;
-                }
-            case SDK_CLIENT:
-                try {
-                    byte[] a3 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, f);
-                    this.a.getPackageManager().getPackageInfo(f, 128);
-                    Intent intent2 = new Intent();
-                    intent2.setPackage(f);
-                    intent2.putExtra("message", bArr);
-                    intent2.putExtra("message_string", str);
-                    intent2.putExtra("baidu_message_type", i2);
-                    intent2.putExtra("baidu_message_body", bArr);
-                    intent2.putExtra("baidu_message_secur_info", a3);
-                    intent2.putExtra("message_id", h);
-                    com.baidu.android.pushservice.j.m.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", f);
-                    i = 0;
-                    break;
                 } catch (PackageManager.NameNotFoundException e3) {
-                    com.baidu.android.pushservice.b.h.a(this.a).a((com.baidu.android.pushservice.b.a) a.b, false);
+                    e.a(this.a, b);
+                    l.b(">>> NOT deliver to app: " + a.a.c() + ", package has been uninstalled.", this.a);
                     i = 8;
                     break;
                 }
-            default:
-                if (Build.VERSION.SDK_INT < 24) {
-                    f.a(this.a, e);
+            case SDK_CLIENT:
+                byte[] a6 = l.a(this.a, e, bArr, g, c);
+                try {
+                    String optString = new JSONObject(new String(bArr)).optString("description");
+                    if (TextUtils.isEmpty(optString)) {
+                        i2 = 2;
+                    } else {
+                        try {
+                            this.a.getPackageManager().getPackageInfo(c, 128);
+                            Intent intent2 = new Intent();
+                            intent2.setPackage(a.b.c());
+                            intent2.putExtra("message", bArr);
+                            intent2.putExtra("message_string", optString);
+                            intent2.setFlags(32);
+                            intent2.putExtra("baidu_message_body", bArr);
+                            intent2.putExtra("baidu_message_secur_info", a6);
+                            intent2.putExtra(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, e);
+                            intent2.putExtra("baidu_message_type", f);
+                            l.b(this.a, intent2, "com.baidu.android.pushservice.action.SDK_MESSAGE", c);
+                        } catch (PackageManager.NameNotFoundException e4) {
+                            String str2 = ">>> NOT deliver to app: " + a.b.c() + ", package has been uninstalled.";
+                            com.baidu.android.pushservice.a.h.a(this.a).a((com.baidu.android.pushservice.a.a) a.b, false);
+                            i2 = 8;
+                        }
+                    }
+                    i = i2;
+                    break;
+                } catch (JSONException e5) {
+                    i = 2;
+                    break;
                 }
-                com.baidu.android.pushservice.j.m.b(">>> Don't found app  in OldPrivateMessage " + str, this.a);
+            default:
                 i = 7;
+                String str3 = ">>> NOT found client for privateMessageHandler appid " + b;
+                if (Build.VERSION.SDK_INT < 24) {
+                    e.a(this.a, b);
+                }
+                l.b(str3, this.a);
                 break;
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

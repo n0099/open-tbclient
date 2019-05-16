@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.ScrollView;
-import com.baidu.swan.apps.an.n;
+import com.baidu.swan.apps.an.o;
 import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
 import com.baidu.ubc.UBC;
 import java.util.ArrayList;
@@ -22,11 +22,11 @@ public class a {
         View nAView = swanAppNAViewContainer.getNAView();
         if (nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) {
             com.baidu.swan.apps.view.coverview.subview.a aVar2 = (com.baidu.swan.apps.view.coverview.subview.a) nAView;
-            if (aVar == null || aVar.aBJ == null || !aVar.aBJ.isValid()) {
+            if (aVar == null || aVar.aDo == null || !aVar.aDo.isValid()) {
                 return false;
             }
             com.baidu.swan.apps.view.coverview.b.a model = aVar2.getModel();
-            if (model == null || model.aBJ == null || !model.aBJ.isValid()) {
+            if (model == null || model.aDo == null || !model.aDo.isValid()) {
                 return false;
             }
             com.baidu.swan.apps.view.container.c.a a = a(model, aVar);
@@ -43,7 +43,7 @@ public class a {
                 return b(swanAppNAViewContainer, aVar);
             }
             if ((a.get() & 32) == 32 && swanAppNAViewContainer.getScrollView() != null) {
-                swanAppNAViewContainer.getScrollView().smoothScrollTo(0, aVar.aBD);
+                swanAppNAViewContainer.getScrollView().smoothScrollTo(0, aVar.aDi);
             }
             return swanAppNAViewContainer.a(aVar);
         }
@@ -66,7 +66,7 @@ public class a {
             ((ViewGroup) swanAppNAViewContainer.getParent()).removeView(swanAppNAViewContainer);
         }
         swanAppNAViewContainer.b(aVar);
-        return swanAppNAViewContainer.MJ();
+        return swanAppNAViewContainer.Ps();
     }
 
     @NonNull
@@ -76,7 +76,7 @@ public class a {
             if (aVar != null && aVar2 != null) {
                 aVar.a(aVar2, aVar3);
             } else {
-                aVar3.ew(63);
+                aVar3.eI(63);
             }
         }
         return aVar3;
@@ -84,7 +84,7 @@ public class a {
 
     private static boolean c(@NonNull SwanAppNAViewContainer swanAppNAViewContainer, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         long j;
-        if (aVar.aZh == null || TextUtils.isEmpty(aVar.aZh.optString(UBC.CONTENT_KEY_DURATION))) {
+        if (aVar.bbV == null || TextUtils.isEmpty(aVar.bbV.optString(UBC.CONTENT_KEY_DURATION))) {
             return false;
         }
         View nAView = swanAppNAViewContainer.getNAView();
@@ -96,14 +96,14 @@ public class a {
         ValueAnimator a2 = a(swanAppNAViewContainer, aVar, true);
         ValueAnimator d = d(swanAppNAViewContainer, aVar);
         try {
-            j = Long.parseLong(aVar.aZh.optString(UBC.CONTENT_KEY_DURATION));
+            j = Long.parseLong(aVar.bbV.optString(UBC.CONTENT_KEY_DURATION));
         } catch (Exception e) {
             j = 0;
         }
-        Interpolator hT = com.baidu.swan.apps.view.coverview.b.a.hT(aVar.aZh.optString("easing"));
+        Interpolator iy = com.baidu.swan.apps.view.coverview.b.a.iy(aVar.bbV.optString("easing"));
         aVar2.a(aVar);
         swanAppNAViewContainer.b(aVar);
-        AnimatorSet a3 = a(swanAppNAViewContainer, aVar, j, hT, a, a2, d);
+        AnimatorSet a3 = a(swanAppNAViewContainer, aVar, j, iy, a, a2, d);
         if (a3 != null) {
             a3.start();
         }
@@ -117,8 +117,8 @@ public class a {
         if (nAView == null || !(nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) || (model = ((com.baidu.swan.apps.view.coverview.subview.a) nAView).getModel()) == null) {
             return null;
         }
-        int left = z ? model.aBJ.getLeft() : model.aBJ.getTop();
-        int left2 = z ? aVar.aBJ.getLeft() : aVar.aBJ.getTop();
+        int left = z ? model.aDo.getLeft() : model.aDo.getTop();
+        int left2 = z ? aVar.aDo.getLeft() : aVar.aDo.getTop();
         if (left != left2) {
             valueAnimator = ValueAnimator.ofInt(left, left2);
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.view.coverview.c.a.1
@@ -151,9 +151,9 @@ public class a {
         if (nAView == null || !(nAView instanceof com.baidu.swan.apps.view.coverview.subview.a) || (model = ((com.baidu.swan.apps.view.coverview.subview.a) nAView).getModel()) == null) {
             return null;
         }
-        if (aVar.akl != null) {
-            float a = n.a(model.akl, "opacity", 1.0f);
-            float a2 = n.a(aVar.akl, "opacity", a);
+        if (aVar.akx != null) {
+            float a = o.a(model.akx, "opacity", 1.0f);
+            float a2 = o.a(aVar.akx, "opacity", a);
             if (a != a2) {
                 objectAnimator = ObjectAnimator.ofFloat(swanAppNAViewContainer, "alpha", a, a2);
                 return objectAnimator;

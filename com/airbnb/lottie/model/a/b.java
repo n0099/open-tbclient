@@ -16,22 +16,22 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> dF() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pN) : new com.airbnb.lottie.a.b.c(this.pz);
+    public com.airbnb.lottie.a.b.a<Float, Float> cz() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.nm) : new com.airbnb.lottie.a.b.c(this.mW);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: dG */
-    public Float dH() {
-        return (Float) this.pN;
+    /* renamed from: cA */
+    public Float cB() {
+        return (Float) this.nm;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0009b implements m.a<Float> {
-        static final C0009b qy = new C0009b();
+        static final C0009b nX = new C0009b();
 
         private C0009b() {
         }
@@ -47,7 +47,7 @@ public class b extends o<Float, Float> {
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b dI() {
+        public static b cC() {
             return new b();
         }
 
@@ -56,12 +56,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float cK = z ? eVar.cK() : 1.0f;
+            float bE = z ? eVar.bE() : 1.0f;
             if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
-                eVar.V("Lottie doesn't support expressions.");
+                eVar.E("Lottie doesn't support expressions.");
             }
-            n.a dZ = n.a(jSONObject, cK, eVar, C0009b.qy).dZ();
-            return new b(dZ.pz, (Float) dZ.pN);
+            n.a cT = n.a(jSONObject, bE, eVar, C0009b.nX).cT();
+            return new b(cT.mW, (Float) cT.nm);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.a;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
 import com.squareup.wire.Wire;
@@ -32,7 +32,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         if (newTopicListResIdl != null) {
             setError(newTopicListResIdl.error.errorno.intValue());
             setErrorString(newTopicListResIdl.error.usermsg);
-            if (getError() == 0 && newTopicListResIdl.data != null && !v.T(newTopicListResIdl.data.topic_list)) {
+            if (getError() == 0 && newTopicListResIdl.data != null && !v.aa(newTopicListResIdl.data.topic_list)) {
                 this.mTopicDataList = new ArrayList();
                 int i2 = 1;
                 for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
@@ -42,12 +42,12 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.eED = d.e.tbds16;
+                        cVar.eUx = R.dimen.tbds16;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eED = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eUx = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
             }
         }
     }

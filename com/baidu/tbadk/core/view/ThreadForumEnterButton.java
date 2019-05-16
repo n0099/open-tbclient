@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int XJ = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds70) * 2);
-    private View.OnClickListener bNx;
-    public final int bSS;
-    private TextView bST;
+    private static final int VA = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
+    private View.OnClickListener bVi;
+    public final int caK;
+    private TextView caL;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
@@ -30,7 +30,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.bSS = 0;
+        this.caK = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -38,7 +38,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bSS = 0;
+        this.caK = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -46,49 +46,51 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     private void init(Context context) {
         this.mContext = context;
-        this.mView = LayoutInflater.from(context).inflate(d.h.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.bST = (TextView) this.mView.findViewById(d.g.forum_name_text);
-        this.bST.setOnClickListener(this);
+        this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
+        this.caL = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.caL.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!StringUtils.isNull(this.threadData.YT())) {
+        if (!StringUtils.isNull(this.threadData.adA())) {
             view.setTag(this.threadData);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.threadData.YT(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.threadData.adA(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.bNx != null) {
-                this.bNx.onClick(view);
+            if (this.bVi != null) {
+                this.bVi.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bNx = onClickListener;
+        this.bVi = onClickListener;
     }
 
     public void onChangeSkinType() {
-        if (this.threadData != null && this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            al.l(this.bST, com.baidu.tbadk.util.j.pE(this.threadData.getId()));
-            al.j(this.bST, d.C0277d.cp_cont_b);
+        if (this.threadData != null) {
+            if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+                this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
+                al.j(this.caL, R.color.cp_cont_b);
+            }
+            al.l(this.caL, com.baidu.tbadk.util.j.qN(this.threadData.getId()));
         }
     }
 
     public void w(bg bgVar) {
         if (bgVar != null) {
-            String YT = bgVar.YT();
-            if (StringUtils.isNull(YT)) {
+            String adA = bgVar.adA();
+            if (StringUtils.isNull(adA)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
             this.threadData = bgVar;
-            this.bST.setText(((Object) TextUtils.ellipsize(YT, this.bST.getPaint(), XJ - this.bST.getPaint().measureText(getResources().getString(d.j.forum)), TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
+            this.caL.setText(((Object) TextUtils.ellipsize(adA, this.caL.getPaint(), VA - this.caL.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             onChangeSkinType();
             return;
         }
@@ -96,15 +98,15 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void a(bg bgVar, int i) {
-        if (this.bST != null && bgVar != null && i > 0) {
+        if (this.caL != null && bgVar != null && i > 0) {
             this.threadData = bgVar;
-            float paddingLeft = (i - (this.bST.getPaddingLeft() * 2)) - this.bST.getPaint().measureText(getResources().getString(d.j.forum));
-            String YT = bgVar.YT();
-            if (StringUtils.isNull(YT)) {
+            float paddingLeft = (i - (this.caL.getPaddingLeft() * 2)) - this.caL.getPaint().measureText(getResources().getString(R.string.forum));
+            String adA = bgVar.adA();
+            if (StringUtils.isNull(adA)) {
                 setVisibility(8);
                 return;
             }
-            this.bST.setText(((Object) TextUtils.ellipsize(YT, this.bST.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
+            this.caL.setText(((Object) TextUtils.ellipsize(adA, this.caL.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             setVisibility(0);
             onChangeSkinType();
             return;

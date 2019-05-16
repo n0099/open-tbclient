@@ -10,46 +10,46 @@ import android.widget.LinearLayout;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class n extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tbadk.img.b cjF = new com.baidu.tbadk.img.b();
-    private LinkedList<ImageFileInfo> hqm = null;
-    private a hqn;
+    private com.baidu.tbadk.img.b crN = new com.baidu.tbadk.img.b();
+    private LinkedList<ImageFileInfo> hHO = null;
+    private a hHP;
     private Context mContext;
     private int mScreenWidth;
     private int mWidth;
 
     /* loaded from: classes4.dex */
     protected interface a {
-        void wg(int i);
+        void xm(int i);
 
-        void wh(int i);
+        void xn(int i);
     }
 
     public n(Context context) {
         this.mContext = null;
         this.mContext = context;
-        this.mScreenWidth = com.baidu.adp.lib.util.l.aO(this.mContext);
-        this.mWidth = ((this.mScreenWidth - (com.baidu.adp.lib.util.l.h(this.mContext, d.e.tbds44) * 2)) - (com.baidu.adp.lib.util.l.h(this.mContext, d.e.tbds10) * 2)) / 3;
+        this.mScreenWidth = com.baidu.adp.lib.util.l.af(this.mContext);
+        this.mWidth = ((this.mScreenWidth - (com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds10) * 2)) / 3;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hqm == null) {
+        if (this.hHO == null) {
             return 0;
         }
-        return this.hqm.size();
+        return this.hHO.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.hqm == null) {
+        if (this.hHO == null) {
             return null;
         }
-        if (this.hqm.size() - 1 >= i) {
-            return this.hqm.get(i);
+        if (this.hHO.size() - 1 >= i) {
+            return this.hHO.get(i);
         }
         return 0;
     }
@@ -60,7 +60,7 @@ public class n extends BaseAdapter implements View.OnClickListener {
     }
 
     public void t(LinkedList<ImageFileInfo> linkedList) {
-        this.hqm = linkedList;
+        this.hHO = linkedList;
     }
 
     @Override // android.widget.Adapter
@@ -68,30 +68,30 @@ public class n extends BaseAdapter implements View.OnClickListener {
         b bVar;
         if (view == null) {
             bVar = new b();
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.pb_editor_imgs_item, (ViewGroup) null);
-            bVar.bNX = (TbImageView) view.findViewById(d.g.iv_photo_live);
-            bVar.hqq = (LinearLayout) view.findViewById(d.g.layout_del);
-            bVar.hqr = (ImageView) view.findViewById(d.g.delete_photo_live);
-            bVar.bNX.setOnClickListener(this);
-            bVar.bNX.setTagTextSize(com.baidu.adp.lib.util.l.h(this.mContext, d.e.tbds30));
-            bVar.bNX.setDrawBorder(true);
-            bVar.bNX.setDrawCorner(false);
-            bVar.bNX.setRadius(0);
-            bVar.hqq.setOnClickListener(this);
-            bVar.bNX.setGifIconSupport(true);
-            bVar.bNX.setLongIconSupport(true);
-            com.baidu.tbadk.core.util.al.k(bVar.hqr, d.f.icon_delete_img);
-            ViewGroup.LayoutParams layoutParams = bVar.bNX.getLayoutParams();
+            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pb_editor_imgs_item, (ViewGroup) null);
+            bVar.bVI = (TbImageView) view.findViewById(R.id.iv_photo_live);
+            bVar.hHS = (LinearLayout) view.findViewById(R.id.layout_del);
+            bVar.hHT = (ImageView) view.findViewById(R.id.delete_photo_live);
+            bVar.bVI.setOnClickListener(this);
+            bVar.bVI.setTagTextSize(com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds30));
+            bVar.bVI.setDrawBorder(true);
+            bVar.bVI.setDrawCorner(false);
+            bVar.bVI.setRadius(0);
+            bVar.hHS.setOnClickListener(this);
+            bVar.bVI.setGifIconSupport(true);
+            bVar.bVI.setLongIconSupport(true);
+            com.baidu.tbadk.core.util.al.k(bVar.hHT, R.drawable.icon_delete_img);
+            ViewGroup.LayoutParams layoutParams = bVar.bVI.getLayoutParams();
             layoutParams.width = this.mWidth;
             layoutParams.height = this.mWidth;
             view.setTag(bVar);
         } else {
             bVar = (b) view.getTag();
         }
-        if (this.hqm != null && this.hqm.size() - 1 >= i) {
-            a(this.hqm.get(i), bVar, viewGroup);
-            bVar.bNX.setTag(bVar.bNX.getId(), Integer.valueOf(i));
-            bVar.hqq.setTag(Integer.valueOf(i));
+        if (this.hHO != null && this.hHO.size() - 1 >= i) {
+            a(this.hHO.get(i), bVar, viewGroup);
+            bVar.bVI.setTag(bVar.bVI.getId(), Integer.valueOf(i));
+            bVar.hHS.setTag(Integer.valueOf(i));
         }
         return view;
     }
@@ -102,12 +102,12 @@ public class n extends BaseAdapter implements View.OnClickListener {
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(ai);
             if (imageFileInfo.getImageType() == 0) {
-                com.baidu.adp.widget.ImageView.a a2 = this.cjF.a(imageFileInfo, true);
-                bVar.bNX.setTag(imageFileInfo.toCachedKey(true));
+                com.baidu.adp.widget.ImageView.a a2 = this.crN.a(imageFileInfo, true);
+                bVar.bVI.setTag(imageFileInfo.toCachedKey(true));
                 if (a2 != null) {
-                    bVar.bNX.invalidate();
+                    bVar.bVI.invalidate();
                 } else {
-                    this.cjF.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
+                    this.crN.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.pb.pb.main.n.1
                         @Override // com.baidu.tbadk.imageManager.b
                         public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                             TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(str);
@@ -117,25 +117,25 @@ public class n extends BaseAdapter implements View.OnClickListener {
                         }
                     }, true);
                 }
-                bVar.bNX.setTagStr(this.mContext.getString(d.j.edit));
+                bVar.bVI.setTagStr(this.mContext.getString(R.string.edit));
             } else if (imageFileInfo.getImageType() == 1) {
                 String filePath = imageFileInfo.getFilePath();
                 if (!com.baidu.tbadk.core.util.ap.isEmpty(filePath) && filePath.startsWith("#(")) {
-                    final String k = com.baidu.adp.lib.f.c.jB().k(filePath, 20);
-                    bVar.bNX.setTag(k);
-                    com.baidu.adp.lib.f.c.jB().a(filePath, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.pb.pb.main.n.2
+                    final String e = com.baidu.adp.lib.f.c.iv().e(filePath, 20);
+                    bVar.bVI.setTag(e);
+                    com.baidu.adp.lib.f.c.iv().a(filePath, 20, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.pb.pb.main.n.2
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX INFO: Access modifiers changed from: protected */
                         @Override // com.baidu.adp.lib.f.b
                         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
-                            TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(k);
+                            TbImageView tbImageView = (TbImageView) viewGroup.findViewWithTag(e);
                             if (tbImageView != null && aVar != null) {
                                 tbImageView.invalidate();
                             }
                         }
                     }, 0, 0, null, null, filePath, false, null);
                 }
-                bVar.bNX.setTagStr("");
+                bVar.bVI.setTagStr("");
             }
         }
     }
@@ -143,25 +143,25 @@ public class n extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == d.g.layout_del && (view.getTag() instanceof Integer)) {
-            if (this.hqn != null) {
-                this.hqn.wg(((Integer) view.getTag()).intValue());
+        if (id == R.id.layout_del && (view.getTag() instanceof Integer)) {
+            if (this.hHP != null) {
+                this.hHP.xm(((Integer) view.getTag()).intValue());
             }
-        } else if (id == d.g.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.hqn != null) {
-            this.hqn.wh(((Integer) view.getTag(view.getId())).intValue());
+        } else if (id == R.id.iv_photo_live && (view.getTag(view.getId()) instanceof Integer) && this.hHP != null) {
+            this.hHP.xn(((Integer) view.getTag(view.getId())).intValue());
         }
     }
 
     public void a(a aVar) {
-        this.hqn = aVar;
+        this.hHP = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class b {
-        public TbImageView bNX;
-        public LinearLayout hqq;
-        private ImageView hqr;
+        public TbImageView bVI;
+        public LinearLayout hHS;
+        private ImageView hHT;
 
         b() {
         }

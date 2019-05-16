@@ -8,10 +8,10 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.bc;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickListener {
-    private com.baidu.tieba.pb.data.d hoZ;
+    private com.baidu.tieba.pb.data.d hGB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public v(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -23,7 +23,7 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: by */
     public w onCreateViewHolder(ViewGroup viewGroup) {
-        w wVar = new w(LayoutInflater.from(this.mContext).inflate(d.h.god_card_list_item, (ViewGroup) null));
+        w wVar = new w(LayoutInflater.from(this.mContext).inflate(R.layout.god_card_list_item, (ViewGroup) null));
         a(wVar);
         return wVar;
     }
@@ -32,7 +32,7 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if (wVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (wVar.mSkinType != skinType) {
-                com.baidu.tbadk.r.a.a(this.hoK.getPageContext(), wVar.getView());
+                com.baidu.tbadk.s.a.a(this.hGm.getPageContext(), wVar.getView());
             }
             wVar.mSkinType = skinType;
         }
@@ -45,19 +45,19 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, w wVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, wVar);
         a(wVar);
-        wVar.hrz.setOnClickListener(this);
-        wVar.hry.setOnClickListener(this);
-        wVar.hrz.setTag(aVar);
-        wVar.hry.setTag(aVar);
+        wVar.hJd.setOnClickListener(this);
+        wVar.hJc.setOnClickListener(this);
+        wVar.hJd.setTag(aVar);
+        wVar.hJc.setTag(aVar);
         if (aVar != null) {
             aVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.hoK.getUniqueId(), this.hoZ, aVar, aVar.locate, 7);
-            wVar.hrx.startLoad(aVar.getPortrait(), 28, false);
-            wVar.eeB.setText(aVar.getUserName());
-            wVar.gcL.setText(aVar.bHQ());
+            com.baidu.tieba.pb.c.a.a(this.hGm.getUniqueId(), this.hGB, aVar, aVar.locate, 7);
+            wVar.hJb.startLoad(aVar.getPortrait(), 28, false);
+            wVar.epd.setText(aVar.getUserName());
+            wVar.gua.setText(aVar.bPC());
             wVar.text.setText(aVar.getText());
-            wVar.hry.startLoad(aVar.getPicUrl(), 10, false);
-            wVar.hrz.setText(aVar.bHR());
+            wVar.hJc.startLoad(aVar.getPicUrl(), 10, false);
+            wVar.hJd.setText(aVar.bPD());
         }
         return view;
     }
@@ -66,17 +66,17 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && bc.cZ(this.mContext)) {
+        if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && bc.cE(this.mContext)) {
             com.baidu.tieba.pb.data.a aVar = (com.baidu.tieba.pb.data.a) view.getTag();
-            String bHS = aVar.bHS();
-            if (!StringUtils.isNull(bHS)) {
-                ba.adA().c(this.hoK.getPageContext(), new String[]{bHS});
+            String bPE = aVar.bPE();
+            if (!StringUtils.isNull(bPE)) {
+                ba.aiz().c(this.hGm.getPageContext(), new String[]{bPE});
             }
-            com.baidu.tieba.pb.c.a.a(this.hoZ, aVar, aVar.locate, 7);
+            com.baidu.tieba.pb.c.a.a(this.hGB, aVar, aVar.locate, 7);
         }
     }
 
-    public void b(com.baidu.tieba.pb.data.d dVar) {
-        this.hoZ = dVar;
+    public void setData(com.baidu.tieba.pb.data.d dVar) {
+        this.hGB = dVar;
     }
 }

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fsx = null;
-    private a iul = null;
+    private BdListView fIT = null;
+    private a iMZ = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -35,67 +35,67 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.official_account_push_activity);
-        aDz();
-        awj();
-        awi();
+        setContentView(R.layout.official_account_push_activity);
+        aJM();
+        aBp();
+        aBo();
     }
 
-    private void awi() {
-        if (!j.kY() && v.T(this.list)) {
-            caI();
-        } else if (v.T(this.list)) {
-            bhq();
-        } else if (this.iul == null) {
-            this.iul = new a(getPageContext());
-            this.iul.setData(this.list);
-            this.fsx.setAdapter((ListAdapter) this.iul);
-            this.iul.setSwitchStateChangeListener(this);
+    private void aBo() {
+        if (!j.jS() && v.aa(this.list)) {
+            ciM();
+        } else if (v.aa(this.list)) {
+            boJ();
+        } else if (this.iMZ == null) {
+            this.iMZ = new a(getPageContext());
+            this.iMZ.setData(this.list);
+            this.fIT.setAdapter((ListAdapter) this.iMZ);
+            this.iMZ.setSwitchStateChangeListener(this);
         } else {
-            this.iul.setData(this.list);
-            this.iul.notifyDataSetChanged();
+            this.iMZ.setData(this.list);
+            this.iMZ.notifyDataSetChanged();
         }
     }
 
-    private void awj() {
-        this.mRootView = (ViewGroup) findViewById(d.g.official_account_push_container);
-        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
+    private void aBp() {
+        this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
+        this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(getPageContext().getString(d.j.offical_account_push_msg));
-        this.fsx = (BdListView) findViewById(d.g.list);
-        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(TbadkCoreApplication.getInst().getContext(), d.e.ds120)), NoDataViewFactory.d.hT(d.j.no_data_text), null);
+        this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
+        this.fIT = (BdListView) findViewById(R.id.list);
+        this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iH(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
-        this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(d.g.no_network);
+        this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.f(this.mRootView, d.C0277d.cp_bg_line_e, i);
+        al.h(this.mRootView, R.color.cp_bg_line_e, i);
         this.mNoDataView.onChangeSkinType(getPageContext(), i);
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void aDz() {
+    private void aJM() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void bhq() {
-        this.fsx.setVisibility(8);
+    public void boJ() {
+        this.fIT.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.hT(d.j.no_data_text));
-        al.l(this.mRootView, d.C0277d.cp_bg_line_d);
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.no_data_text));
+        al.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void caI() {
-        this.fsx.setVisibility(8);
+    public void ciM() {
+        this.fIT.setVisibility(8);
         this.mNoDataView.setVisibility(0);
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.hT(d.j.refresh_view_title_text));
-        al.l(this.mRootView, d.C0277d.cp_bg_line_d);
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.refresh_view_title_text));
+        al.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
@@ -103,11 +103,11 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         boolean z = BdSwitchView.SwitchState.ON == switchState;
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) view.getTag();
         if (officialAccountPushInfo != null) {
-            c(z, officialAccountPushInfo.uid);
+            b(z, officialAccountPushInfo.uid);
         }
     }
 
-    public void c(boolean z, long j) {
+    public void b(boolean z, long j) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         requestUpdateMaskInfoMessage.setMaskType(6);
         requestUpdateMaskInfoMessage.setG_id(j);
@@ -118,25 +118,25 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
         requestUpdateMaskInfoMessage.setCallFrom(5);
         MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-        d(z, j);
+        c(z, j);
     }
 
-    private void d(boolean z, long j) {
-        if (this.list != null && this.iul != null) {
-            if (!j.kY()) {
-                this.iul.notifyDataSetChanged();
+    private void c(boolean z, long j) {
+        if (this.list != null && this.iMZ != null) {
+            if (!j.jS()) {
+                this.iMZ.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iuo = 1;
+                        this.list.get(i).iNc = 1;
                     } else {
-                        this.list.get(i).iuo = 0;
+                        this.list.get(i).iNc = 0;
                     }
                 }
             }
-            this.iul.notifyDataSetChanged();
+            this.iMZ.notifyDataSetChanged();
         }
     }
 

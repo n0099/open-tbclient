@@ -5,15 +5,15 @@ import com.baidu.adp.lib.cache.l;
 public interface k<T> {
     void a(String str, String str2, T t, long j);
 
-    void aD(String str);
+    void am(String str);
 
-    void aE(String str);
+    void an(String str);
 
-    e iq();
+    e hi();
 
-    T s(String str, String str2);
+    T l(String str, String str2);
 
-    l.b<T> t(String str, String str2);
+    l.b<T> m(String str, String str2);
 
-    void u(String str, String str2);
+    void n(String str, String str2);
 }

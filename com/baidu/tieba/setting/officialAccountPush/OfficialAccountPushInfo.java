@@ -8,26 +8,26 @@ public class OfficialAccountPushInfo implements Parcelable {
     public static final Parcelable.Creator<OfficialAccountPushInfo> CREATOR = new Parcelable.Creator<OfficialAccountPushInfo>() { // from class: com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: L */
+        /* renamed from: O */
         public OfficialAccountPushInfo createFromParcel(Parcel parcel) {
             return new OfficialAccountPushInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: yB */
+        /* renamed from: zI */
         public OfficialAccountPushInfo[] newArray(int i) {
             return new OfficialAccountPushInfo[i];
         }
     };
-    public int iuo;
+    public int iNc;
     public String name;
     public long uid;
 
     public OfficialAccountPushInfo(Parcel parcel) {
         this.uid = parcel.readLong();
         this.name = parcel.readString();
-        this.iuo = parcel.readInt();
+        this.iNc = parcel.readInt();
     }
 
     public OfficialAccountPushInfo() {
@@ -37,7 +37,7 @@ public class OfficialAccountPushInfo implements Parcelable {
         if (officialList != null) {
             this.uid = officialList.uid.longValue();
             this.name = officialList.name;
-            this.iuo = officialList.is_on.intValue();
+            this.iNc = officialList.is_on.intValue();
         }
     }
 
@@ -50,6 +50,6 @@ public class OfficialAccountPushInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.uid);
         parcel.writeString(this.name);
-        parcel.writeInt(this.iuo);
+        parcel.writeInt(this.iNc);
     }
 }

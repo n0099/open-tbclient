@@ -1,31 +1,30 @@
 package com.xiaomi.channel.commonutils.misc;
 
-import android.content.SharedPreferences;
-import com.xiaomi.channel.commonutils.misc.f;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.KeyguardManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 /* loaded from: classes3.dex */
-public class g extends f.b {
-    final /* synthetic */ String a;
-    final /* synthetic */ f b;
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g(f fVar, f.a aVar, String str) {
-        super(aVar);
-        this.b = fVar;
-        this.a = str;
+public class g {
+    public static boolean a(Context context) {
+        try {
+            return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            return false;
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    @Override // com.xiaomi.channel.commonutils.misc.f.b
-    public void a() {
-        super.a();
-    }
-
-    @Override // com.xiaomi.channel.commonutils.misc.f.b
-    void b() {
-        SharedPreferences sharedPreferences;
-        sharedPreferences = this.b.e;
-        sharedPreferences.edit().putLong(this.a, System.currentTimeMillis()).commit();
+    public static boolean b(Context context) {
+        Intent intent = null;
+        try {
+            intent = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        } catch (Exception e) {
+        }
+        if (intent == null) {
+            return false;
+        }
+        int intExtra = intent.getIntExtra("status", -1);
+        return intExtra == 2 || intExtra == 5;
     }
 }

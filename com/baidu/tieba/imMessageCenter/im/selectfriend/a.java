@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> cOC;
-    private int cOF = d.C0277d.cp_cont_b;
-    private int cOG = d.C0277d.cp_cont_c;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> cWN;
+    private int cWQ = R.color.cp_cont_b;
+    private int cWR = R.color.cp_cont_c;
     private Context mContext;
 
     public a(Context context) {
@@ -24,26 +24,26 @@ public class a extends BaseAdapter {
     }
 
     public void setContacts(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cOC = list;
+        this.cWN = list;
         notifyDataSetChanged();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cOC == null) {
+        if (this.cWN == null) {
             return 0;
         }
-        return this.cOC.size();
+        return this.cWN.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lA */
+    /* renamed from: mp */
     public com.baidu.tbadk.coreExtra.relationship.a getItem(int i) {
-        if (this.cOC == null || i < 0 || i >= this.cOC.size()) {
+        if (this.cWN == null || i < 0 || i >= this.cWN.size()) {
             return null;
         }
-        return this.cOC.get(i);
+        return this.cWN.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,7 +62,7 @@ public class a extends BaseAdapter {
         if (item == null) {
             return 2;
         }
-        if (!TextUtils.isEmpty(item.ajM()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.ajL())) {
+        if (!TextUtils.isEmpty(item.aoN()) && TextUtils.isEmpty(item.getUserName()) && TextUtils.isEmpty(item.aoM())) {
             return 0;
         }
         return 1;
@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0325a c0325a;
+        C0342a c0342a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -80,40 +80,40 @@ public class a extends BaseAdapter {
         com.baidu.tbadk.coreExtra.relationship.a item = getItem(i);
         if (getItemViewType(i) == 0) {
             if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
-                view = LayoutInflater.from(this.mContext).inflate(d.h.select_friend_group_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_group_item, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.cOO = (TextView) view.findViewById(d.g.addresslist_group_item_key);
-                bVar2.divider = view.findViewById(d.g.addresslist_group_item_divider);
+                bVar2.cWZ = (TextView) view.findViewById(R.id.addresslist_group_item_key);
+                bVar2.divider = view.findViewById(R.id.addresslist_group_item_divider);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
-            if (item.ajM() != null) {
-                bVar.cOO.setText(item.ajM());
+            if (item.aoN() != null) {
+                bVar.cWZ.setText(item.aoN());
             }
-            al.d(bVar.cOO, this.cOG, 1);
-            al.l(bVar.divider, d.C0277d.cp_bg_line_b);
+            al.f(bVar.cWZ, this.cWR, 1);
+            al.l(bVar.divider, R.color.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0325a)) {
-                C0325a c0325a2 = new C0325a();
-                view = LayoutInflater.from(this.mContext).inflate(d.h.select_friend_child_item, (ViewGroup) null);
-                c0325a2.cOD = (HeadImageView) view.findViewById(d.g.addresslist_child_item_icon);
-                c0325a2.cOE = (TextView) view.findViewById(d.g.addresslist_child_item_name);
-                c0325a2.divider = view.findViewById(d.g.addresslist_child_item_divider);
-                view.setTag(c0325a2);
-                c0325a = c0325a2;
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0342a)) {
+                C0342a c0342a2 = new C0342a();
+                view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
+                c0342a2.cWO = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0342a2.cWP = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0342a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0342a2);
+                c0342a = c0342a2;
             } else {
-                c0325a = (C0325a) view.getTag();
+                c0342a = (C0342a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0325a.cOE.setText(item.getUserName());
-                c0325a.cOD.startLoad(item.ajL(), 12, false);
+                c0342a.cWP.setText(item.getUserName());
+                c0342a.cWO.startLoad(item.aoM(), 12, false);
             }
-            al.d(c0325a.cOE, this.cOF, 1);
-            al.k(c0325a.divider, d.C0277d.cp_bg_line_b);
-            al.k(view, d.f.select_friend_item_bg);
+            al.f(c0342a.cWP, this.cWQ, 1);
+            al.k(c0342a.divider, R.color.cp_bg_line_b);
+            al.k(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
             return null;
@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class b {
-        TextView cOO;
+        TextView cWZ;
         View divider;
 
         private b() {
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0325a {
-        HeadImageView cOD;
-        TextView cOE;
+    private class C0342a {
+        HeadImageView cWO;
+        TextView cWP;
         View divider;
 
-        private C0325a() {
+        private C0342a() {
         }
     }
 }

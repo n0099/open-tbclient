@@ -7,10 +7,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class e {
-    public static void uT(String str) {
+    public static void wn(String str) {
         int i;
         if (!StringUtils.isNull(str)) {
-            String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
+            String string = com.baidu.tbadk.core.sharedPref.b.agM().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
             try {
                 JSONArray jSONArray = StringUtils.isNull(string) ? new JSONArray() : new JSONArray(string);
                 ArrayList arrayList = new ArrayList();
@@ -31,16 +31,16 @@ public class e {
                     i3++;
                     i2 = i;
                 }
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+                com.baidu.tbadk.core.sharedPref.b.agM().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static ArrayList<String> bbv() {
+    public static ArrayList<String> biL() {
         ArrayList<String> arrayList = null;
-        String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        String string = com.baidu.tbadk.core.sharedPref.b.agM().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
         if (StringUtils.isNull(string)) {
             return null;
         }
@@ -74,9 +74,9 @@ public class e {
         }
     }
 
-    public static void uU(String str) {
+    public static void wo(String str) {
         if (!StringUtils.isNull(str)) {
-            String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
+            String string = com.baidu.tbadk.core.sharedPref.b.agM().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
             if (!StringUtils.isNull(string)) {
                 try {
                     JSONArray jSONArray = new JSONArray(string);
@@ -88,7 +88,7 @@ public class e {
                                 arrayList.add((String) obj);
                             }
                         }
-                        com.baidu.tbadk.core.sharedPref.b.getInstance().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+                        com.baidu.tbadk.core.sharedPref.b.agM().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -97,7 +97,7 @@ public class e {
         }
     }
 
-    public static void bbw() {
-        com.baidu.tbadk.core.sharedPref.b.getInstance().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
+    public static void biM() {
+        com.baidu.tbadk.core.sharedPref.b.agM().putString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
     }
 }

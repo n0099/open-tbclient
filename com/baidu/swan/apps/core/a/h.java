@@ -4,13 +4,13 @@ import java.util.concurrent.CountDownLatch;
 /* loaded from: classes2.dex */
 public final class h {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private CountDownLatch apc;
-    private boolean apd;
+    private CountDownLatch apo;
+    private boolean apq;
 
-    public void xF() {
-        if (!this.apd) {
-            this.apd = true;
-            this.apc.countDown();
+    public void yx() {
+        if (!this.apq) {
+            this.apq = true;
+            this.apo.countDown();
         }
     }
 }

@@ -25,20 +25,20 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
         JSONObject jSONObject3 = null;
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        this.goodsStyle = com.baidu.adp.lib.g.b.l(jSONObject.optString("goods_style"), -1);
+        this.goodsStyle = com.baidu.adp.lib.g.b.f(jSONObject.optString("goods_style"), -1);
         try {
             jSONObject2 = jSONObject.getJSONObject("feed_content");
         } catch (JSONException e) {
             e.printStackTrace();
             jSONObject2 = null;
         }
-        this.feedData = PostAdBaseData.b.bD(jSONObject2);
+        this.feedData = PostAdBaseData.b.bP(jSONObject2);
         try {
             jSONObject3 = jSONObject.getJSONObject("ad_content");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        this.adData = PostAdBaseData.a.bC(jSONObject3);
+        this.adData = PostAdBaseData.a.bO(jSONObject3);
         try {
             this.preloadLegoCardStr = jSONObject.getString(LegoListActivityConfig.PRE_LOAD);
         } catch (JSONException e3) {
@@ -79,7 +79,7 @@ public class AdPost extends PostAdBaseData implements AdvertAppInfo.ILegoAdvert,
             return 21;
         }
         if (this.adData.type == 2) {
-            return this.adData.xO(i);
+            return this.adData.yV(i);
         }
         return 0;
     }

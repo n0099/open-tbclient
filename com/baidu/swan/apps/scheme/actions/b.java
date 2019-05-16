@@ -8,12 +8,12 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes2.dex */
-public class b extends y {
+public class b extends z {
     public b(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/applyUpdate");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e("applyUpdate", "swanApp is null");
@@ -25,14 +25,14 @@ public class b extends y {
             return false;
         } else {
             SwanAppActivity swanAppActivity = (SwanAppActivity) context;
-            String str = swanAppActivity.uA().axL;
-            if (TextUtils.isEmpty(str)) {
+            String EX = swanAppActivity.vk().EX();
+            if (TextUtils.isEmpty(EX)) {
                 com.baidu.swan.apps.console.c.e("applyUpdate", "launchScheme is empty");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty launchScheme");
                 return false;
             }
-            swanAppActivity.uz();
-            SchemeRouter.invoke(swanAppActivity, str);
+            swanAppActivity.vj();
+            SchemeRouter.invoke(swanAppActivity, EX);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

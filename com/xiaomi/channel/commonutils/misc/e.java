@@ -1,21 +1,15 @@
 package com.xiaomi.channel.commonutils.misc;
-
-import android.app.KeyguardManager;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 /* loaded from: classes3.dex */
 public class e {
-    public static boolean a(Context context) {
-        return ((KeyguardManager) context.getSystemService("keyguard")).inKeyguardRestrictedInputMode();
-    }
+    static final char[] a = com.coloros.mcssdk.c.a.f.toCharArray();
 
-    public static boolean b(Context context) {
-        Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
-        if (registerReceiver == null) {
-            return false;
+    public static String a(byte[] bArr, int i, int i2) {
+        StringBuilder sb = new StringBuilder(i2 * 2);
+        for (int i3 = 0; i3 < i2; i3++) {
+            int i4 = bArr[i + i3] & 255;
+            sb.append(a[i4 >> 4]);
+            sb.append(a[i4 & 15]);
         }
-        int intExtra = registerReceiver.getIntExtra("status", -1);
-        return intExtra == 2 || intExtra == 5;
+        return sb.toString();
     }
 }

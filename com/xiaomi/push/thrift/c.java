@@ -1,68 +1,22 @@
 package com.xiaomi.push.thrift;
 
-import com.coremedia.iso.boxes.UserBox;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import org.apache.thrift.meta_data.d;
-import org.apache.thrift.meta_data.g;
+import org.apache.thrift.TFieldIdEnum;
 import org.apache.thrift.protocol.e;
 import org.apache.thrift.protocol.f;
 import org.apache.thrift.protocol.h;
 import org.apache.thrift.protocol.j;
 /* loaded from: classes3.dex */
-public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
-    public static final Map<a, org.apache.thrift.meta_data.b> d;
-    private static final j e = new j("StatsEvents");
-    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b(UserBox.TYPE, (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("operator", (byte) 11, 2);
-    private static final org.apache.thrift.protocol.b h = new org.apache.thrift.protocol.b("events", (byte) 15, 3);
+public class c implements Serializable, Cloneable, org.apache.thrift.a<c, TFieldIdEnum> {
+    private static final j d = new j("StatsEvents");
+    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b("", (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("", (byte) 11, 2);
+    private static final org.apache.thrift.protocol.b g = new org.apache.thrift.protocol.b("", (byte) 15, 3);
     public String a;
     public String b;
     public List<b> c;
-
-    /* loaded from: classes3.dex */
-    public enum a {
-        UUID(1, UserBox.TYPE),
-        OPERATOR(2, "operator"),
-        EVENTS(3, "events");
-        
-        private static final Map<String, a> d = new HashMap();
-        private final short e;
-        private final String f;
-
-        static {
-            Iterator it = EnumSet.allOf(a.class).iterator();
-            while (it.hasNext()) {
-                a aVar = (a) it.next();
-                d.put(aVar.a(), aVar);
-            }
-        }
-
-        a(short s, String str) {
-            this.e = s;
-            this.f = str;
-        }
-
-        public String a() {
-            return this.f;
-        }
-    }
-
-    static {
-        EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.UUID, (a) new org.apache.thrift.meta_data.b(UserBox.TYPE, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.OPERATOR, (a) new org.apache.thrift.meta_data.b("operator", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.EVENTS, (a) new org.apache.thrift.meta_data.b("events", (byte) 1, new d((byte) 15, new g((byte) 12, b.class))));
-        d = Collections.unmodifiableMap(enumMap);
-        org.apache.thrift.meta_data.b.a(c.class, d);
-    }
 
     public c() {
     }
@@ -136,9 +90,9 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
         if (cVar == null) {
             return false;
         }
-        boolean a2 = a();
-        boolean a3 = cVar.a();
-        if ((a2 || a3) && !(a2 && a3 && this.a.equals(cVar.a))) {
+        boolean a = a();
+        boolean a2 = cVar.a();
+        if ((a || a2) && !(a && a2 && this.a.equals(cVar.a))) {
             return false;
         }
         boolean b = b();
@@ -155,30 +109,30 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     @Override // java.lang.Comparable
     /* renamed from: b */
     public int compareTo(c cVar) {
+        int a;
         int a2;
         int a3;
-        int a4;
         if (getClass().equals(cVar.getClass())) {
             int compareTo = Boolean.valueOf(a()).compareTo(Boolean.valueOf(cVar.a()));
             if (compareTo == 0) {
-                if (!a() || (a4 = org.apache.thrift.b.a(this.a, cVar.a)) == 0) {
+                if (!a() || (a3 = org.apache.thrift.b.a(this.a, cVar.a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(cVar.b()));
                     if (compareTo2 == 0) {
-                        if (!b() || (a3 = org.apache.thrift.b.a(this.b, cVar.b)) == 0) {
+                        if (!b() || (a2 = org.apache.thrift.b.a(this.b, cVar.b)) == 0) {
                             int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(cVar.c()));
                             if (compareTo3 == 0) {
-                                if (!c() || (a2 = org.apache.thrift.b.a(this.c, cVar.c)) == 0) {
+                                if (!c() || (a = org.apache.thrift.b.a(this.c, cVar.c)) == 0) {
                                     return 0;
                                 }
-                                return a2;
+                                return a;
                             }
                             return compareTo3;
                         }
-                        return a3;
+                        return a2;
                     }
                     return compareTo2;
                 }
-                return a4;
+                return a3;
             }
             return compareTo;
         }
@@ -188,19 +142,19 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     @Override // org.apache.thrift.a
     public void b(e eVar) {
         d();
-        eVar.a(e);
+        eVar.a(d);
         if (this.a != null) {
-            eVar.a(f);
+            eVar.a(e);
             eVar.a(this.a);
             eVar.b();
         }
         if (this.b != null && b()) {
-            eVar.a(g);
+            eVar.a(f);
             eVar.a(this.b);
             eVar.b();
         }
         if (this.c != null) {
-            eVar.a(h);
+            eVar.a(g);
             eVar.a(new org.apache.thrift.protocol.c((byte) 12, this.c.size()));
             for (b bVar : this.c) {
                 bVar.b(eVar);

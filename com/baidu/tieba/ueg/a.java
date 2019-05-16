@@ -3,7 +3,7 @@ package com.baidu.tieba.ueg;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public interface a {
-    void p(BdUniqueId bdUniqueId);
+    void r(BdUniqueId bdUniqueId);
 
-    void tg(String str);
+    void ut(String str);
 }

@@ -11,6 +11,7 @@ import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.InflateException;
 import android.view.ViewGroup;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
@@ -145,7 +146,7 @@ public class TransitionInflater {
     private Object createCustom(AttributeSet attributeSet, Class cls, String str) {
         Object newInstance;
         Class<? extends U> asSubclass;
-        String attributeValue = attributeSet.getAttributeValue(null, "class");
+        String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
         if (attributeValue == null) {
             throw new InflateException(str + " tag must have a 'class' attribute");
         }

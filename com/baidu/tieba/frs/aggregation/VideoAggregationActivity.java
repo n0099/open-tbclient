@@ -7,10 +7,10 @@ import android.view.KeyEvent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
-    private VideoAggregationFragment feq;
+    private VideoAggregationFragment fuE;
     private String mFrom;
     private String mId;
 
@@ -18,7 +18,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.support.v4.app.SupportActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(d.h.activity_video_aggregation);
+        setContentView(R.layout.activity_video_aggregation);
         this.mFrom = getIntent().getStringExtra("PARAM_FROM");
         this.mId = getIntent().getStringExtra("PARAM_FID");
         String stringExtra = getIntent().getStringExtra("st_type");
@@ -26,20 +26,20 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         if (TextUtils.isEmpty(this.mId)) {
             finish();
         }
-        this.feq = VideoAggregationFragment.p(this.mId, this.mFrom, stringExtra, stringExtra2);
-        getSupportFragmentManager().beginTransaction().replace(d.g.container, this.feq).commit();
+        this.fuE = VideoAggregationFragment.p(this.mId, this.mFrom, stringExtra, stringExtra2);
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, this.fuE).commit();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.feq != null) {
+        if (this.fuE != null) {
             getLayoutMode().setNightMode(i == 1);
-            getLayoutMode().onModeChanged(this.feq.getView());
-            this.feq.onChangeSkinType(i);
+            getLayoutMode().onModeChanged(this.fuE.getView());
+            this.fuE.onChangeSkinType(i);
         }
     }
 
-    @Override // android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
         if (configuration.orientation == 2) {
@@ -51,25 +51,25 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.feq == null) {
+        if (keyEvent == null || this.fuE == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.feq.qs(i)) {
+        if (this.fuE.rz(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.o.a
     public String getCurrentPageKey() {
         return VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom) ? "a023" : "";
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public com.baidu.tbadk.pageStayDuration.d getPageStayDurationItem() {
-        com.baidu.tbadk.pageStayDuration.d pageStayDurationItem = super.getPageStayDurationItem();
+    public com.baidu.tbadk.o.d getPageStayDurationItem() {
+        com.baidu.tbadk.o.d pageStayDurationItem = super.getPageStayDurationItem();
         if (pageStayDurationItem != null && StringUtils.isNull(this.mId) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom)) {
-            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.d(this.mId, 0L));
+            pageStayDurationItem.setTid(com.baidu.adp.lib.g.b.c(this.mId, 0L));
         }
         return pageStayDurationItem;
     }

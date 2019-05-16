@@ -1,36 +1,52 @@
 package com.baidu.android.pushservice.d;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
-public class b {
-    public long a = 0;
-    public long b = 0;
-    public String c = "";
-    public String d = "";
-    public String e = "";
-    public String f = "";
-    public String g = "";
-    public String h = "";
-    public String i = "";
-    public String j = "";
+public final class b {
+    public static void a(Context context) {
+        a(context, (ArrayList) com.baidu.android.pushservice.a.b.a(context).a.clone());
+    }
 
-    public JSONObject a() throws JSONException {
-        JSONObject jSONObject = new JSONObject();
-        if (this.a > -1) {
-            jSONObject.put("push_priority", this.a);
+    private static void a(Context context, ArrayList<com.baidu.android.pushservice.a.f> arrayList) {
+        if (arrayList == null) {
+            return;
         }
-        if (this.b > -1) {
-            jSONObject.put("push_version", this.b);
+        PackageManager packageManager = context.getPackageManager();
+        synchronized (arrayList) {
+            Iterator<com.baidu.android.pushservice.a.f> it = arrayList.iterator();
+            while (it.hasNext()) {
+                com.baidu.android.pushservice.a.f next = it.next();
+                if (next != null) {
+                    String c = next.c();
+                    try {
+                        packageManager.getPackageInfo(c, 0);
+                    } catch (Exception e) {
+                        if (!TextUtils.isEmpty(c)) {
+                        }
+                    }
+                }
+            }
         }
-        jSONObject.put("push_channelid", this.c);
-        jSONObject.put("push_newchannelid", this.d);
-        jSONObject.put("push_curpkgname", this.e);
-        jSONObject.put("push_webappbindinfo", this.f);
-        jSONObject.put("push_lightappbindinfo", this.g);
-        jSONObject.put("push_sdkclientbindinfo", this.h);
-        jSONObject.put("push_clientsbindinfo", this.i);
-        jSONObject.put("push_selfbindinfo", this.j);
-        return jSONObject;
+    }
+
+    @SuppressLint({"InlinedApi"})
+    public static void a(HashMap<String, String> hashMap) {
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        hashMap.put("timestamp", currentTimeMillis + "");
+        hashMap.put("expires", (86400 + currentTimeMillis) + "");
+        hashMap.put("v", "1");
+        try {
+            hashMap.put("vcode", com.baidu.android.pushservice.j.f.a(URLEncoder.encode(currentTimeMillis + "bccs", HTTP.UTF_8).getBytes(), false));
+        } catch (UnsupportedEncodingException e) {
+        }
     }
 }

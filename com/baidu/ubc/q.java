@@ -23,9 +23,9 @@ public class q {
     }
 
     public void onEvent(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.crV().h(str, str2, i);
+                d.cAc().f(str, str2, i);
                 return;
             }
             return;
@@ -38,9 +38,9 @@ public class q {
     }
 
     public void onEvent(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.crV().a(str, jSONObject, i);
+                d.cAc().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -64,30 +64,30 @@ public class q {
     }
 
     public Flow beginFlow(String str, String str2, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.crV().beginFlow(str, str2, i);
+            return d.cAc().beginFlow(str, str2, i);
         }
-        return v(str, str2, i);
+        return u(str, str2, i);
     }
 
     public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        if (com.baidu.pyramid.runtime.multiprocess.a.tQ()) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.crV().beginFlow(str, jSONObject, i);
+            return d.cAc().beginFlow(str, jSONObject, i);
         }
-        return v(str, jSONObject.toString(), i);
+        return u(str, jSONObject.toString(), i);
     }
 
     private IRemoteUBCService getProxy() throws RemoteException {
         return UBC.getProxy();
     }
 
-    private Flow v(String str, String str2, int i) {
+    private Flow u(String str, String str2, int i) {
         Flow flow;
         try {
             flow = getProxy().ubcBeginFlow(str, str2, i);

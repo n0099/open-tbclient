@@ -1,6 +1,5 @@
 package com.xiaomi.smack.util;
 
-import android.text.TextUtils;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class d {
@@ -109,25 +108,7 @@ public class d {
         return String.valueOf(com.xiaomi.channel.commonutils.string.a.a(bArr));
     }
 
-    public static boolean a(char c2) {
-        return (c2 >= ' ' && c2 <= 55295) || (c2 >= 57344 && c2 <= 65533) || ((c2 >= 0 && c2 <= 65535) || c2 == '\t' || c2 == '\n' || c2 == '\r');
-    }
-
     public static final String b(String str) {
         return a(a(a(a(a(str, "&lt;", "<"), "&gt;", ">"), "&quot;", "\""), "&apos;", "'"), "&amp;", "&");
-    }
-
-    public static String c(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return str;
-        }
-        StringBuilder sb = new StringBuilder(str.length());
-        for (int i = 0; i < str.length(); i++) {
-            char charAt = str.charAt(i);
-            if (a(charAt)) {
-                sb.append(charAt);
-            }
-        }
-        return sb.toString();
     }
 }

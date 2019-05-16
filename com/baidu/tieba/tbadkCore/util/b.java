@@ -1,14 +1,13 @@
 package com.baidu.tieba.tbadkCore.util;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class b {
-    private static String hBi = "tbgametype";
+    private static String hTj = "tbgametype";
 
-    public static String CJ(String str) {
+    public static String Ef(String str) {
         String[] split;
-        if (TextUtils.isEmpty(str) || (split = str.split(Config.TRACE_TODAY_VISIT_SPLIT)) == null) {
+        if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
             return null;
         }
         for (String str2 : split) {

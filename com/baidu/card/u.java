@@ -2,49 +2,36 @@ package com.baidu.card;
 
 import android.content.Context;
 import android.view.View;
-import com.baidu.card.view.ShareSmartAppLayout;
+import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class u extends f {
-    private ShareSmartAppLayout Yk;
-    private int mSkinType;
+    private SmartAppBottomLayout Wb;
 
     public u(Context context) {
         super(context);
-        this.mSkinType = 3;
-        this.Yk = new ShareSmartAppLayout(context);
+        this.Wb = new SmartAppBottomLayout(context);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.Yk;
-    }
-
-    @Override // com.baidu.card.b
-    public void b(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.Yk.setSubClickListener(abVar);
+        return this.Wb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Yk.C(aVar);
+        if (this.Wb != null) {
+            this.Wb.C(aVar);
+        }
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        if (this.mSkinType != i) {
-            al.k(getView(), d.f.addresslist_item_bg);
-            this.Yk.aaJ.onChangeSkinType();
+        if (this.Wb != null) {
+            this.Wb.onChangeSkinType();
         }
-        this.mSkinType = i;
-    }
-
-    public void setFromCDN(boolean z) {
-        this.Yk.setFromCDN(z);
     }
 }

@@ -2,22 +2,20 @@ package com.baidu.swan.menu.viewpager;
 
 import android.database.DataSetObserver;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes2.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    private static final boolean DEBUG = com.baidu.swan.menu.a.DEBUG;
-    private b<View> bll = new b<>(5);
-    private SparseArray<View> blm = new SparseArray<>();
+    private b<View> brn = new b<>(5);
+    private SparseArray<View> bro = new SparseArray<>();
 
     /* loaded from: classes2.dex */
     public interface a {
         void recycle();
     }
 
-    protected abstract View b(ViewGroup viewGroup, int i);
+    protected abstract View c(ViewGroup viewGroup, int i);
 
     protected abstract void f(View view, int i);
 
@@ -33,28 +31,22 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        if (DEBUG) {
-            Log.i("PagerAdapterImpl", "destroyItem    position = " + i + "    recycle a view~~~~~~~");
-        }
         View view = (View) obj;
         if (view instanceof a) {
             ((a) view).recycle();
         }
         viewGroup.removeView(view);
-        this.bll.R(view);
-        this.blm.remove(i);
+        this.brn.S(view);
+        this.bro.remove(i);
     }
 
     @Override // android.support.v4.view.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
-        View view = this.bll.get();
+        View view = this.brn.get();
         if (view == null) {
-            if (DEBUG) {
-                Log.e("PagerAdapterImpl", "instantiateItem    create view!!!");
-            }
-            view = b(viewGroup, i);
+            view = c(viewGroup, i);
         }
-        this.blm.put(i, view);
+        this.bro.put(i, view);
         viewGroup.addView(view);
         f(view, i);
         return view;

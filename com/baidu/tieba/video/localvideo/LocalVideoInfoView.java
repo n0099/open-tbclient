@@ -8,105 +8,105 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object iZu = new Object();
-    private static long iZv = 3600000;
-    private ImageView agK;
-    private TextView ahO;
-    private TextView iZt;
-    private SimpleDateFormat iZw;
-    private SimpleDateFormat iZx;
-    private boolean iZy;
+    public static final Object jsp = new Object();
+    private static long jsq = 3600000;
+    private ImageView agT;
+    private TextView aif;
+    private TextView jso;
+    private SimpleDateFormat jsr;
+    private SimpleDateFormat jss;
+    private boolean jst;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.iZy = false;
+        this.jst = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.iZy = false;
+        this.jst = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iZy = false;
+        this.jst = false;
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        this.mRootView = LayoutInflater.from(context).inflate(d.h.local_video_info_view, (ViewGroup) null);
-        this.agK = (ImageView) this.mRootView.findViewById(d.g.local_video_selet_thumb);
-        this.agK.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.ahO = (TextView) this.mRootView.findViewById(d.g.local_video_select_duration);
-        this.iZt = (TextView) this.mRootView.findViewById(d.g.no_video_title);
+        this.mRootView = LayoutInflater.from(context).inflate(R.layout.local_video_info_view, (ViewGroup) null);
+        this.agT = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
+        this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.aif = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
+        this.jso = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.iZx = new SimpleDateFormat("mm:ss");
-        this.iZw = new SimpleDateFormat("HH:mm:ss");
+        this.jss = new SimpleDateFormat("mm:ss");
+        this.jsr = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.iZx.setTimeZone(timeZone);
-        this.iZw.setTimeZone(timeZone);
+        this.jss.setTimeZone(timeZone);
+        this.jsr.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.iZy) {
+        if (!this.jst) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
-                    this.agK.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                    this.agK.setImageBitmap(dVar.getThumbnailBitmap());
-                    this.ahO.setText(dW(dVar.getDuration()));
+                    this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                    this.agT.setImageBitmap(dVar.getThumbnailBitmap());
+                    this.aif.setText(eu(dVar.getDuration()));
                     return;
                 }
                 return;
             }
-            this.agK.setScaleType(ImageView.ScaleType.CENTER);
-            this.agK.setImageBitmap(null);
-            this.agK.setImageResource(d.f.img_default_100);
-            this.agK.setBackgroundColor(getResources().getColor(d.C0277d.common_color_10304));
-            this.ahO.setText("");
+            this.agT.setScaleType(ImageView.ScaleType.CENTER);
+            this.agT.setImageBitmap(null);
+            this.agT.setImageResource(R.drawable.img_default_100);
+            this.agT.setBackgroundColor(getResources().getColor(R.color.common_color_10304));
+            this.aif.setText("");
         }
     }
 
-    public void qD(boolean z) {
-        this.iZy = true;
+    public void rs(boolean z) {
+        this.jst = true;
         if (z) {
-            this.agK.setScaleType(ImageView.ScaleType.CENTER);
-            this.agK.setImageBitmap(null);
-            this.agK.setImageResource(0);
-            this.agK.setBackgroundColor(getResources().getColor(d.C0277d.cp_bg_line_d));
-            this.iZt.setVisibility(0);
+            this.agT.setScaleType(ImageView.ScaleType.CENTER);
+            this.agT.setImageBitmap(null);
+            this.agT.setImageResource(0);
+            this.agT.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
+            this.jso.setVisibility(0);
             return;
         }
-        this.agK.setScaleType(ImageView.ScaleType.CENTER);
-        this.agK.setImageResource(0);
-        this.agK.setImageBitmap(null);
-        this.agK.setBackgroundColor(getResources().getColor(d.C0277d.white_alpha50));
-        this.ahO.setText("");
-        this.iZt.setVisibility(8);
+        this.agT.setScaleType(ImageView.ScaleType.CENTER);
+        this.agT.setImageResource(0);
+        this.agT.setImageBitmap(null);
+        this.agT.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
+        this.aif.setText("");
+        this.jso.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.iZy = false;
-        this.iZt.setVisibility(8);
+        this.jst = false;
+        this.jso.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.ckB()) {
+        if (dVar != null && dVar.csE()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
         }
     }
 
-    private String dW(long j) {
-        return j > iZv ? this.iZw.format(Long.valueOf(j)) : this.iZx.format(Long.valueOf(j));
+    private String eu(long j) {
+        return j > jsq ? this.jsr.format(Long.valueOf(j)) : this.jss.format(Long.valueOf(j));
     }
 }

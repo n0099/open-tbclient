@@ -1,36 +1,36 @@
 package com.baidu.tbadk.util;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.LinkedHashMap;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class j {
-    private static int cto;
-    private static final int[] ctp = {d.C0277d.cp_atp_a, d.C0277d.cp_atp_b, d.C0277d.cp_atp_c, d.C0277d.cp_atp_d, d.C0277d.cp_atp_e};
-    private static int ctq;
-    private static LinkedHashMap<String, Integer> ctr;
+    private static LinkedHashMap<String, Integer> cBA;
+    private static int cBx;
+    private static final int[] cBy = {R.color.cp_atp_a, R.color.cp_atp_b, R.color.cp_atp_c, R.color.cp_atp_d, R.color.cp_atp_e};
+    private static int cBz;
 
-    public static int pE(String str) {
-        if (ctr == null) {
-            ctr = new LinkedHashMap<>(20);
+    public static int qN(String str) {
+        if (cBA == null) {
+            cBA = new LinkedHashMap<>(20);
         }
         if (StringUtils.isNull(str)) {
-            return ctp[0];
+            return cBy[0];
         }
-        if (ctr.containsKey(str)) {
-            return ctr.get(str).intValue();
+        if (cBA.containsKey(str)) {
+            return cBA.get(str).intValue();
         }
-        int nextInt = new Random().nextInt(ctp.length);
-        if (ctq != nextInt) {
-            ctq = nextInt;
+        int nextInt = new Random().nextInt(cBy.length);
+        if (cBz != nextInt) {
+            cBz = nextInt;
         } else {
-            ctq = (ctq + 1) % ctp.length;
+            cBz = (cBz + 1) % cBy.length;
         }
-        if (ctq < ctp.length) {
-            cto = ctp[ctq];
+        if (cBz < cBy.length) {
+            cBx = cBy[cBz];
         }
-        ctr.put(str, Integer.valueOf(cto));
-        return cto;
+        cBA.put(str, Integer.valueOf(cBx));
+        return cBx;
     }
 }

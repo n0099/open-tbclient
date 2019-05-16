@@ -4,9 +4,9 @@ import android.view.View;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
-public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.d> {
+public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.e> {
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext) {
@@ -17,19 +17,19 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.l(getView(), d.C0277d.cp_bg_line_e);
+            al.l(getView(), R.color.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return d.h.person_center_blank_layout;
+        return R.layout.person_center_blank_layout;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
-    public void a(com.baidu.tieba.personCenter.data.d dVar) {
+    public void a(com.baidu.tieba.personCenter.data.e eVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

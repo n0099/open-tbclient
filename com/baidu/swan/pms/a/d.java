@@ -1,5 +1,10 @@
 package com.baidu.swan.pms.a;
+
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import java.util.Set;
 /* loaded from: classes2.dex */
 public interface d {
-    void c(com.baidu.swan.pms.model.a aVar);
+    @NonNull
+    Bundle a(@NonNull Bundle bundle, Set<String> set);
 }

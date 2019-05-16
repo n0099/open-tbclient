@@ -1,141 +1,151 @@
 package com.baidu.android.pushservice;
 
-import android.annotation.SuppressLint;
 import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.android.pushservice.j.m;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+import android.content.SharedPreferences;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 /* loaded from: classes3.dex */
 public class c {
-    protected int a;
-    protected int b;
-    protected int c;
-    protected Uri d;
-    protected long[] e;
-    protected String f;
-    protected String g;
-    protected boolean h = false;
-    private final String i;
+    private static String a = "NotificationBuilderManager";
+    private static String b = "notification_builder_storage";
+    private static Object c = new Object();
+    private static int d = 0;
 
-    public c(String str) {
-        this.i = str;
-    }
-
-    public static int a(Context context, String str) {
-        return context.getResources().getIdentifier(str, "drawable", context.getPackageName());
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Bitmap a(Drawable drawable, Context context) {
-        Bitmap createBitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), drawable.getOpacity() != -1 ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-        Canvas canvas = new Canvas(createBitmap);
-        float f = context.getResources().getDisplayMetrics().density;
-        drawable.setBounds(0, 0, (int) (48.0f * f), (int) (f * 48.0f));
-        drawable.draw(canvas);
-        return createBitmap;
-    }
-
-    public void a(int i) {
-        this.a = i;
-    }
-
-    @SuppressLint({"NewApi"})
-    public void a(final Context context, final PendingIntent pendingIntent, final String str) {
-        int a = a(context, "bpush_lapp_notification_status_icon");
-        if (a > 0) {
-            a(a);
-        } else {
-            a(17301620);
-        }
-        if (Build.VERSION.SDK_INT >= 16 && !TextUtils.isEmpty(this.i)) {
-            new Thread(new Runnable() { // from class: com.baidu.android.pushservice.c.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    try {
-                        Drawable createFromStream = Drawable.createFromStream(new URL(c.this.i).openStream(), null);
-                        Notification.Builder builder = new Notification.Builder(context);
-                        if (m.G(context)) {
-                            com.baidu.android.pushservice.j.i.a(context, "com.baidu.android.pushservice.push", "Push");
-                            builder.setChannelId("com.baidu.android.pushservice.push");
-                        }
-                        Notification build = builder.setContentTitle(c.this.f).setContentTitle(c.this.f).setContentText(c.this.g).setSmallIcon(c.this.a).setLargeIcon(c.this.a(createFromStream, context)).build();
-                        if (c.this.b != 0) {
-                            build.flags = c.this.b;
-                        }
-                        if (c.this.h) {
-                            build.defaults = 0;
-                        } else {
-                            build.defaults = -1;
-                            if (c.this.c != 0) {
-                                build.defaults = c.this.c;
-                            }
-                            if (c.this.d != null) {
-                                build.sound = c.this.d;
-                            }
-                            if (c.this.e != null) {
-                                build.vibrate = c.this.e;
-                            }
-                        }
-                        build.contentIntent = pendingIntent;
-                        ((NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI)).notify(str, 0, build);
-                    } catch (MalformedURLException e) {
-                    } catch (IOException e2) {
-                    }
+    public static Notification a(Context context, int i, int i2, String str, String str2, boolean z) {
+        Notification construct;
+        synchronized (c) {
+            PushNotificationBuilder a2 = a(context, i);
+            a2.setNotificationTitle(str);
+            a2.setNotificationText(str2);
+            construct = a2.construct(context);
+            if ((i2 & 1) != 0) {
+                construct.flags &= -33;
+            } else {
+                construct.flags |= 32;
+            }
+            if (z) {
+                construct.defaults = 0;
+            } else {
+                construct.defaults = -1;
+                if ((i2 & 4) != 0) {
+                    construct.defaults |= 1;
+                } else {
+                    construct.defaults &= -2;
                 }
-            }, "DownNotiIcon").start();
-            return;
-        }
-        Notification notification = new Notification.Builder(context).setContentTitle(this.f).setContentText(this.g).setSmallIcon(this.a).setContentIntent(pendingIntent).getNotification();
-        if (this.h) {
-            notification.defaults = 0;
-        } else {
-            notification.defaults = -1;
-            if (this.c != 0) {
-                notification.defaults = this.c;
-            }
-            if (this.d != null) {
-                notification.sound = this.d;
-            }
-            if (this.e != null) {
-                notification.vibrate = this.e;
+                if ((i2 & 2) != 0) {
+                    construct.defaults |= 2;
+                } else {
+                    construct.defaults &= -3;
+                }
             }
         }
-        if (this.b != 0) {
-            notification.flags = this.b;
+        return construct;
+    }
+
+    public static Notification a(Context context, int i, String str, String str2, boolean z) {
+        Notification construct;
+        synchronized (c) {
+            PushNotificationBuilder a2 = a(context, i);
+            a2.setNotificationTitle(str);
+            a2.setNotificationText(str2);
+            construct = a2.construct(context);
+            if (z) {
+                construct.defaults = -1;
+            } else {
+                construct.defaults = 0;
+            }
         }
-        if (notification != null) {
-            notification.contentIntent = pendingIntent;
-            ((NotificationManager) context.getSystemService(com.coloros.mcssdk.PushManager.MESSAGE_TYPE_NOTI)).notify(m.a(str), notification);
+        return construct;
+    }
+
+    private static PushNotificationBuilder a(Context context) {
+        BasicPushNotificationBuilder basicPushNotificationBuilder = new BasicPushNotificationBuilder();
+        basicPushNotificationBuilder.setNotificationFlags(16);
+        basicPushNotificationBuilder.setNotificationDefaults(3);
+        basicPushNotificationBuilder.setStatusbarIcon(context.getApplicationInfo().icon);
+        return basicPushNotificationBuilder;
+    }
+
+    private static PushNotificationBuilder a(Context context, int i) {
+        String string = context.getSharedPreferences(b, 0).getString("" + i, null);
+        if (string != null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.j.b.a(string.getBytes()));
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+                try {
+                    objectInputStream.close();
+                    byteArrayInputStream.close();
+                    return pushNotificationBuilder;
+                } catch (Exception e) {
+                    return pushNotificationBuilder;
+                }
+            } catch (Exception e2) {
+                return null;
+            }
+        }
+        return b(context);
+    }
+
+    public static void a(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
+        synchronized (c) {
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(pushNotificationBuilder);
+                String a2 = com.baidu.android.pushservice.j.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
+                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
+                edit.putString("" + i, a2);
+                edit.commit();
+                byteArrayOutputStream.close();
+                objectOutputStream.close();
+            } catch (Exception e) {
+            }
         }
     }
 
-    public void a(String str) {
-        this.f = str;
+    public static void a(Context context, PushNotificationBuilder pushNotificationBuilder) {
+        synchronized (c) {
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(pushNotificationBuilder);
+                String a2 = com.baidu.android.pushservice.j.b.a(byteArrayOutputStream.toByteArray(), "US-ASCII");
+                SharedPreferences.Editor edit = context.getSharedPreferences(b, 0).edit();
+                edit.putString("" + d, a2);
+                edit.commit();
+                byteArrayOutputStream.close();
+                objectOutputStream.close();
+            } catch (Exception e) {
+            }
+        }
     }
 
-    public void a(boolean z) {
-        this.h = z;
+    private static PushNotificationBuilder b(Context context) {
+        String string = context.getSharedPreferences(b, 0).getString("" + d, null);
+        if (string != null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(com.baidu.android.pushservice.j.b.a(string.getBytes()));
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                PushNotificationBuilder pushNotificationBuilder = (PushNotificationBuilder) objectInputStream.readObject();
+                try {
+                    objectInputStream.close();
+                    byteArrayInputStream.close();
+                    return pushNotificationBuilder;
+                } catch (Exception e) {
+                    return pushNotificationBuilder;
+                }
+            } catch (Exception e2) {
+                return null;
+            }
+        }
+        return a(context);
     }
 
-    public void b(int i) {
-        this.b = i;
-    }
-
-    public void b(String str) {
-        this.g = str;
-    }
-
-    public void c(int i) {
-        this.c = i;
+    public static void b(Context context, PushNotificationBuilder pushNotificationBuilder) {
+        a(context, 8888, pushNotificationBuilder);
     }
 }

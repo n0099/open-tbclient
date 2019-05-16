@@ -4,18 +4,18 @@ import android.view.Choreographer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Runnable {
-    final /* synthetic */ e abh;
+    final /* synthetic */ e YY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(e eVar) {
-        this.abh = eVar;
+        this.YY = eVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Choreographer.getInstance().removeFrameCallback(e.abd);
-            com.baidu.crabsdk.c.a.cv("stop FrameMonitor !!");
+            Choreographer.getInstance().removeFrameCallback(e.YU);
+            com.baidu.crabsdk.c.a.cf("stop FrameMonitor !!");
         } catch (Exception e) {
             e.printStackTrace();
         }

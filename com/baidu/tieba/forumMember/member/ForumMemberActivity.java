@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> implements h.c {
-    private am eVa;
-    private com.baidu.tieba.forumMember.member.a.b eVc;
-    private e eVd;
+    private am flk;
+    private com.baidu.tieba.forumMember.member.a.b flm;
+    private e fln;
     private String mForumId;
     private String mForumName;
-    private List<com.baidu.adp.widget.ListView.m> eVb = null;
-    private ai eVe = new ai() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
+    private List<com.baidu.adp.widget.ListView.m> fll = null;
+    private ai flo = new ai() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.1
         @Override // com.baidu.tieba.frs.ai
         public void a(int i, int i2, ap apVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-            ForumMemberActivity.this.eVc.hideLoadingView();
-            ForumMemberActivity.this.eVc.completePullRefresh();
+            ForumMemberActivity.this.flm.hideLoadingView();
+            ForumMemberActivity.this.flm.completePullRefresh();
             if (arrayList != null) {
                 Iterator<com.baidu.adp.widget.ListView.m> it = arrayList.iterator();
                 while (it.hasNext()) {
@@ -32,24 +32,24 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                     }
                 }
             }
-            if (!v.T(arrayList)) {
-                ForumMemberActivity.this.eVc.aBq();
-                ForumMemberActivity.this.eVb = arrayList;
-                ForumMemberActivity.this.eVc.bM(ForumMemberActivity.this.eVb);
-            } else if (v.T(ForumMemberActivity.this.eVb) && apVar != null) {
-                ForumMemberActivity.this.eVc.uQ(apVar.errMsg);
+            if (!v.aa(arrayList)) {
+                ForumMemberActivity.this.flm.aHH();
+                ForumMemberActivity.this.fll = arrayList;
+                ForumMemberActivity.this.flm.bU(ForumMemberActivity.this.fll);
+            } else if (v.aa(ForumMemberActivity.this.fll) && apVar != null) {
+                ForumMemberActivity.this.flm.wk(apVar.errMsg);
             }
         }
     };
-    private NoNetworkView.a emz = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
+    private NoNetworkView.a eCk = new NoNetworkView.a() { // from class: com.baidu.tieba.forumMember.member.ForumMemberActivity.2
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
-        public void dP(boolean z) {
-            ForumMemberActivity.this.eVc.iO(z);
+        public void el(boolean z) {
+            ForumMemberActivity.this.flm.jw(z);
             if (z) {
-                if (v.T(ForumMemberActivity.this.eVb)) {
-                    ForumMemberActivity.this.bba();
+                if (v.aa(ForumMemberActivity.this.fll)) {
+                    ForumMemberActivity.this.bit();
                 } else {
-                    ForumMemberActivity.this.eVc.startPullRefresh();
+                    ForumMemberActivity.this.flm.startPullRefresh();
                 }
             }
         }
@@ -59,17 +59,17 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        N(bundle);
-        this.eVc = new com.baidu.tieba.forumMember.member.a.b(this);
-        this.eVc.g(this.emz);
-        this.eVd = new e();
-        this.eVd.setTag(getUniqueId());
-        this.eVd.init();
-        this.eVd.a(this.eVe);
-        bba();
+        O(bundle);
+        this.flm = new com.baidu.tieba.forumMember.member.a.b(this);
+        this.flm.g(this.eCk);
+        this.fln = new e();
+        this.fln.setTag(getUniqueId());
+        this.fln.init();
+        this.fln.a(this.flo);
+        bit();
     }
 
-    private void N(Bundle bundle) {
+    private void O(Bundle bundle) {
         if (bundle == null) {
             if (getIntent() != null) {
                 this.mForumId = getIntent().getStringExtra("forum_id");
@@ -81,9 +81,9 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             this.mForumId = bundle.getString("forum_id", "");
             this.mForumName = bundle.getString("forum_name", "");
         }
-        this.eVa = new am();
-        this.eVa.forumId = this.mForumId;
-        this.eVa.forumName = this.mForumName;
+        this.flk = new am();
+        this.flk.forumId = this.mForumId;
+        this.flk.forumName = this.mForumName;
     }
 
     @Override // android.app.Activity
@@ -97,39 +97,39 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eVc.onChangeSkinType(i);
+        this.flm.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eVd.aDC();
-        if (this.eVc != null) {
-            this.eVc.onDestroy();
+        this.fln.aJP();
+        if (this.flm != null) {
+            this.flm.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
-    public void dR(boolean z) {
-        e eVar = this.eVd;
-        e eVar2 = this.eVd;
-        eVar.a(3, 0, this.eVa);
+    public void en(boolean z) {
+        e eVar = this.fln;
+        e eVar2 = this.fln;
+        eVar.a(3, 0, this.flk);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        if (com.baidu.adp.lib.util.j.kM()) {
-            bba();
+        if (com.baidu.adp.lib.util.j.jG()) {
+            bit();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bba() {
-        this.eVc.showLoadingView();
-        e eVar = this.eVd;
-        e eVar2 = this.eVd;
-        eVar.a(3, 0, this.eVa);
+    public void bit() {
+        this.flm.showLoadingView();
+        e eVar = this.fln;
+        e eVar2 = this.fln;
+        eVar.a(3, 0, this.flk);
     }
 }

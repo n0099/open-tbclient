@@ -7,7 +7,7 @@ import android.support.v4.view.GravityCompat;
 import android.text.TextPaint;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.console.c;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -31,7 +31,7 @@ public class a {
             if (m != null && m2 != null) {
                 m.a(m2, aVar);
             } else {
-                aVar.ew(63);
+                aVar.eI(63);
             }
         }
         return aVar;
@@ -52,7 +52,7 @@ public class a {
     }
 
     private static void a(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
-        view.setPadding(x.ad((float) aVar.aea), x.ad((float) aVar.aeb), x.ad((float) aVar.aec), x.ad((float) aVar.aed));
+        view.setPadding(z.ad((float) aVar.abO), z.ad((float) aVar.abP), z.ad((float) aVar.abQ), z.ad((float) aVar.abR));
         float f = aVar.alpha;
         if (f >= 0.0f && f <= 1.0f) {
             view.setAlpha(f);
@@ -62,7 +62,7 @@ public class a {
     private static void b(@NonNull View view, @NonNull com.baidu.swan.apps.button.b.a aVar) {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setColor(aVar.backgroundColor);
-        gradientDrawable.setCornerRadius(aVar.akm);
+        gradientDrawable.setCornerRadius(aVar.aky);
         gradientDrawable.setStroke(aVar.borderWidth, aVar.borderColor);
         view.setBackground(gradientDrawable);
     }
@@ -76,7 +76,7 @@ public class a {
         boolean z2;
         textView.setText(aVar.text);
         try {
-            textView.setTextColor(Color.parseColor(aVar.akn));
+            textView.setTextColor(Color.parseColor(aVar.akz));
         } catch (Exception e) {
             c.e("SwanAppNativeViewUtils", "text color occurs exception", e);
         }
@@ -84,7 +84,7 @@ public class a {
         if (i2 > 0) {
             textView.setTextSize(1, i2);
         }
-        if (x.ad((float) aVar.qm) > 0) {
+        if (z.ad((float) aVar.nL) > 0) {
             textView.setLineSpacing((ad - textView.getLineHeight()) + textView.getLineSpacingExtra(), 1.0f);
         }
         String str = aVar.textAlign;
@@ -161,7 +161,7 @@ public class a {
                 }
                 break;
         }
-        String str3 = aVar.ako;
+        String str3 = aVar.akA;
         switch (str3.hashCode()) {
             case -1039745817:
                 if (str3.equals("normal")) {

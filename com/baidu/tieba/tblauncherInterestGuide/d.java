@@ -9,17 +9,17 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.adp.lib.g.g;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 /* loaded from: classes4.dex */
 public class d extends Dialog implements a {
-    private TextView aGk;
-    private View dcQ;
-    private View iMM;
-    private LinearLayout iMP;
-    private InterestFrsData.Tag iMX;
-    private c iMY;
-    private GridView iMZ;
+    private TextView aId;
+    private View bmd;
+    private View jfF;
+    private LinearLayout jfI;
+    private InterestFrsData.Tag jfQ;
+    private c jfR;
+    private GridView jfS;
     private Context mContext;
     private TextView mTitle;
 
@@ -30,49 +30,49 @@ public class d extends Dialog implements a {
     }
 
     private void init() {
-        this.dcQ = View.inflate(this.mContext, d.h.new_user_img_box, null);
-        this.iMY = new c(this.mContext);
+        this.bmd = View.inflate(this.mContext, R.layout.new_user_img_box, null);
+        this.jfR = new c(this.mContext);
         setCanceledOnTouchOutside(true);
-        this.iMP = (LinearLayout) this.dcQ.findViewById(d.g.box_close_layout);
-        this.iMZ = (GridView) this.dcQ.findViewById(d.g.layout_content);
-        this.iMZ.setAdapter((ListAdapter) this.iMY);
-        this.iMZ.setSelector(d.C0277d.common_color_10022);
-        setContentView(this.dcQ);
-        this.mTitle = (TextView) this.dcQ.findViewById(d.g.prompt_title);
-        this.aGk = (TextView) this.dcQ.findViewById(d.g.prompt_sub_title);
-        this.iMM = this.dcQ.findViewById(d.g.view_layout);
-        this.iMM.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.bg_startpage2_card_orange_up));
+        this.jfI = (LinearLayout) this.bmd.findViewById(R.id.box_close_layout);
+        this.jfS = (GridView) this.bmd.findViewById(R.id.layout_content);
+        this.jfS.setAdapter((ListAdapter) this.jfR);
+        this.jfS.setSelector(R.color.common_color_10022);
+        setContentView(this.bmd);
+        this.mTitle = (TextView) this.bmd.findViewById(R.id.prompt_title);
+        this.aId = (TextView) this.bmd.findViewById(R.id.prompt_sub_title);
+        this.jfF = this.bmd.findViewById(R.id.view_layout);
+        this.jfF.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.bg_startpage2_card_orange_up));
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void a(InterestFrsData.Tag tag) {
-        this.iMX = tag;
-        if (this.iMX != null) {
+        this.jfQ = tag;
+        if (this.jfQ != null) {
             this.mTitle.setText(tag.getBname());
-            this.aGk.setText(tag.getBdesc());
-            this.iMY.setData(tag.getCard_list());
+            this.aId.setText(tag.getBdesc());
+            this.jfR.setData(tag.getCard_list());
         }
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void zI(int i) {
-        this.iMY.notifyDataSetChanged();
+    public void AQ(int i) {
+        this.jfR.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
-    public void zJ(int i) {
-        this.iMY.notifyDataSetChanged();
+    public void AR(int i) {
+        this.jfR.notifyDataSetChanged();
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.iMP.setOnClickListener(onClickListener);
-        this.iMY.setOnClickListener(onClickListener);
+        this.jfI.setOnClickListener(onClickListener);
+        this.jfR.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.tblauncherInterestGuide.a
     public View getRootView() {
-        return this.dcQ;
+        return this.bmd;
     }
 
     @Override // android.app.Dialog, com.baidu.tieba.tblauncherInterestGuide.a

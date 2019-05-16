@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams hVc;
-    private List<TextView> hVb;
+    private static ViewGroup.LayoutParams inP;
+    private List<TextView> inO;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -33,7 +33,7 @@ public class ReplyLinearLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new am("c12043").T("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
+                TiebaStatic.log(new am("c12043").P("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if ("0".equals(strArr[3])) {
@@ -48,24 +48,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.hVb = new ArrayList();
+        this.inO = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (hVc == null) {
-            hVc = new LinearLayout.LayoutParams(-1, -2);
+        if (inP == null) {
+            inP = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.hVb.size();
+        int size2 = size - this.inO.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.hVb.add(textView);
+            this.inO.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.hVb.size(); i3++) {
-            TextView textView2 = this.hVb.get(i3);
+        for (int i3 = 0; i3 < this.inO.size(); i3++) {
+            TextView textView2 = this.inO.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -86,20 +86,20 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(hVc);
-                    al.d(textView2, d.C0277d.cp_cont_b, 1);
+                    textView2.setLayoutParams(inP);
+                    al.f(textView2, R.color.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
-                    al.k(textView2, d.C0277d.cp_bg_line_b);
+                    al.k(textView2, R.color.cp_bg_line_b);
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(hVc);
-                    al.d(textView2, d.C0277d.cp_cont_f, 1);
+                    textView2.setLayoutParams(inP);
+                    al.f(textView2, R.color.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(hVc);
-                    al.d(textView2, d.C0277d.cp_cont_d, 1);
+                    textView2.setLayoutParams(inP);
+                    al.f(textView2, R.color.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);
             } else {
@@ -110,14 +110,14 @@ public class ReplyLinearLayout extends LinearLayout {
 
     private void n(TextView textView, int i) {
         if (i == 0) {
-            al.d(textView, d.C0277d.common_color_10039, 1);
+            al.f(textView, R.color.common_color_10039, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         } else if (i % 3 == 2) {
-            al.d(textView, d.C0277d.common_color_10081, 1);
-            textView.setBackgroundResource(d.C0277d.cp_bg_line_d);
+            al.f(textView, R.color.common_color_10081, 1);
+            textView.setBackgroundResource(R.color.cp_bg_line_d);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f));
         } else if (i % 3 == 0) {
-            al.d(textView, d.C0277d.common_color_10005, 1);
+            al.f(textView, R.color.common_color_10005, 1);
             textView.setPadding(0, com.baidu.adp.lib.util.l.dip2px(getContext(), 2.0f), 0, com.baidu.adp.lib.util.l.dip2px(getContext(), 10.0f));
         }
     }

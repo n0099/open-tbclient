@@ -21,10 +21,10 @@ public class c {
     }
 
     public static void a(@NonNull b bVar, @NonNull com.baidu.swan.apps.model.a.a.b bVar2) {
-        bVar.ez(bVar2.getLeft());
-        bVar.eA(bVar2.getTop());
+        bVar.eL(bVar2.getLeft());
+        bVar.eM(bVar2.getTop());
         if (bVar2.isFixed()) {
-            bVar.ey(1);
+            bVar.eK(1);
         } else {
             bVar.removeFlags(1);
         }

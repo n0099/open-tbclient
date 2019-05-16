@@ -1,66 +1,21 @@
 package com.xiaomi.xmpush.thrift;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.BitSet;
+import org.apache.thrift.TFieldIdEnum;
 /* loaded from: classes3.dex */
-public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
-    public static final Map<a, org.apache.thrift.meta_data.b> b;
-    private static final org.apache.thrift.protocol.j c = new org.apache.thrift.protocol.j("ClientUploadData");
-    private static final org.apache.thrift.protocol.b d = new org.apache.thrift.protocol.b("uploadDataItems", (byte) 15, 1);
-    public List<d> a;
+public class c implements Serializable, Cloneable, org.apache.thrift.a<c, TFieldIdEnum> {
+    private static final org.apache.thrift.protocol.j c = new org.apache.thrift.protocol.j("Cellular");
+    private static final org.apache.thrift.protocol.b d = new org.apache.thrift.protocol.b("", (byte) 8, 1);
+    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b("", (byte) 8, 2);
+    public int a;
+    public int b;
+    private BitSet f = new BitSet(2);
 
-    /* loaded from: classes3.dex */
-    public enum a {
-        UPLOAD_DATA_ITEMS(1, "uploadDataItems");
-        
-        private static final Map<String, a> b = new HashMap();
-        private final short c;
-        private final String d;
-
-        static {
-            Iterator it = EnumSet.allOf(a.class).iterator();
-            while (it.hasNext()) {
-                a aVar = (a) it.next();
-                b.put(aVar.a(), aVar);
-            }
-        }
-
-        a(short s, String str) {
-            this.c = s;
-            this.d = str;
-        }
-
-        public String a() {
-            return this.d;
-        }
-    }
-
-    static {
-        EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.UPLOAD_DATA_ITEMS, (a) new org.apache.thrift.meta_data.b("uploadDataItems", (byte) 1, new org.apache.thrift.meta_data.d((byte) 15, new org.apache.thrift.meta_data.g((byte) 12, d.class))));
-        b = Collections.unmodifiableMap(enumMap);
-        org.apache.thrift.meta_data.b.a(c.class, b);
-    }
-
-    public int a() {
-        if (this.a == null) {
-            return 0;
-        }
-        return this.a.size();
-    }
-
-    public void a(d dVar) {
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        this.a.add(dVar);
+    public c a(int i) {
+        this.a = i;
+        a(true);
+        return this;
     }
 
     @Override // org.apache.thrift.a
@@ -70,23 +25,32 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
             org.apache.thrift.protocol.b i = eVar.i();
             if (i.b == 0) {
                 eVar.h();
+                if (!a()) {
+                    throw new org.apache.thrift.protocol.f("Required field 'id' was not found in serialized data! Struct: " + toString());
+                }
+                if (!b()) {
+                    throw new org.apache.thrift.protocol.f("Required field 'signalStrength' was not found in serialized data! Struct: " + toString());
+                }
                 c();
                 return;
             }
             switch (i.c) {
                 case 1:
-                    if (i.b == 15) {
-                        org.apache.thrift.protocol.c m = eVar.m();
-                        this.a = new ArrayList(m.b);
-                        for (int i2 = 0; i2 < m.b; i2++) {
-                            d dVar = new d();
-                            dVar.a(eVar);
-                            this.a.add(dVar);
-                        }
-                        eVar.n();
+                    if (i.b != 8) {
+                        org.apache.thrift.protocol.h.a(eVar, i.b);
                         break;
                     } else {
+                        this.a = eVar.t();
+                        a(true);
+                        break;
+                    }
+                case 2:
+                    if (i.b != 8) {
                         org.apache.thrift.protocol.h.a(eVar, i.b);
+                        break;
+                    } else {
+                        this.b = eVar.t();
+                        b(true);
                         break;
                     }
                 default:
@@ -97,25 +61,36 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
         }
     }
 
+    public void a(boolean z) {
+        this.f.set(0, z);
+    }
+
+    public boolean a() {
+        return this.f.get(0);
+    }
+
     public boolean a(c cVar) {
-        if (cVar == null) {
-            return false;
-        }
-        boolean b2 = b();
-        boolean b3 = cVar.b();
-        return !(b2 || b3) || (b2 && b3 && this.a.equals(cVar.a));
+        return cVar != null && this.a == cVar.a && this.b == cVar.b;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: b */
     public int compareTo(c cVar) {
+        int a;
         int a2;
         if (getClass().equals(cVar.getClass())) {
-            int compareTo = Boolean.valueOf(b()).compareTo(Boolean.valueOf(cVar.b()));
+            int compareTo = Boolean.valueOf(a()).compareTo(Boolean.valueOf(cVar.a()));
             if (compareTo == 0) {
-                if (!b() || (a2 = org.apache.thrift.b.a(this.a, cVar.a)) == 0) {
-                    return 0;
+                if (!a() || (a2 = org.apache.thrift.b.a(this.a, cVar.a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(cVar.b()));
+                    if (compareTo2 == 0) {
+                        if (!b() || (a = org.apache.thrift.b.a(this.b, cVar.b)) == 0) {
+                            return 0;
+                        }
+                        return a;
+                    }
+                    return compareTo2;
                 }
                 return a2;
             }
@@ -124,31 +99,35 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
         return getClass().getName().compareTo(cVar.getClass().getName());
     }
 
+    public c b(int i) {
+        this.b = i;
+        b(true);
+        return this;
+    }
+
     @Override // org.apache.thrift.a
     public void b(org.apache.thrift.protocol.e eVar) {
         c();
         eVar.a(c);
-        if (this.a != null) {
-            eVar.a(d);
-            eVar.a(new org.apache.thrift.protocol.c((byte) 12, this.a.size()));
-            for (d dVar : this.a) {
-                dVar.b(eVar);
-            }
-            eVar.e();
-            eVar.b();
-        }
+        eVar.a(d);
+        eVar.a(this.a);
+        eVar.b();
+        eVar.a(e);
+        eVar.a(this.b);
+        eVar.b();
         eVar.c();
         eVar.a();
     }
 
+    public void b(boolean z) {
+        this.f.set(1, z);
+    }
+
     public boolean b() {
-        return this.a != null;
+        return this.f.get(1);
     }
 
     public void c() {
-        if (this.a == null) {
-            throw new org.apache.thrift.protocol.f("Required field 'uploadDataItems' was not present! Struct: " + toString());
-        }
     }
 
     public boolean equals(Object obj) {
@@ -163,14 +142,6 @@ public class c implements Serializable, Cloneable, org.apache.thrift.a<c, a> {
     }
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("ClientUploadData(");
-        sb.append("uploadDataItems:");
-        if (this.a == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.a);
-        }
-        sb.append(")");
-        return sb.toString();
+        return "Cellular(id:" + this.a + ", signalStrength:" + this.b + ")";
     }
 }

@@ -1,16 +1,13 @@
 package com.baidu.tieba.aiapps.apps.a;
-/* loaded from: classes2.dex */
-public class i {
-    private static volatile h cRs;
 
-    public static synchronized h axZ() {
-        h hVar;
-        synchronized (i.class) {
-            if (cRs == null) {
-                cRs = new h();
-            }
-            hVar = cRs;
-        }
-        return hVar;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+/* loaded from: classes4.dex */
+public class i extends ProviderDelegation {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("result", c.aE(getAgent().getContext()));
+        return bundle2;
     }
 }

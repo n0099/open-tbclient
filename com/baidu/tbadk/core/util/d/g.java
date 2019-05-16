@@ -4,35 +4,35 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends a {
-    private boolean ZR;
-    private boolean bMS;
-    private boolean bMT;
-    private int bMX;
+    private boolean XJ;
+    private boolean bUD;
+    private boolean bUE;
+    private int bUI;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
-        this.ZR = true;
-        this.bMS = false;
-        this.bMT = false;
+        this.XJ = true;
+        this.bUD = false;
+        this.bUE = false;
         this.procType = 0;
-        this.bMX = 0;
-        this.ZR = z;
-        this.bMS = z2;
-        this.bMT = z3;
+        this.bUI = 0;
+        this.XJ = z;
+        this.bUD = z2;
+        this.bUE = z3;
         this.procType = i;
-        int aO = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst());
-        this.bMX = aO <= 0 ? 200 : aO;
-        if (this.bMX > 480) {
-            this.bMX = 480;
+        int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
+        this.bUI = af <= 0 ? 200 : af;
+        if (this.bUI > 480) {
+            this.bUI = 480;
         }
-        if (this.bMX > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.bMX = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.bUI > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.bUI = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
-        return this.bMX;
+        return this.bUI;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -42,26 +42,26 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
-        return this.bMX;
+        return this.bUI;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.ZR;
+        return this.XJ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adP() {
-        return this.bMT;
+    public boolean aiO() {
+        return this.bUE;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean adQ() {
-        return this.bMS;
+    public boolean aiP() {
+        return this.bUD;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int adR() {
+    public int aiQ() {
         return this.procType;
     }
 }

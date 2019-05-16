@@ -1,217 +1,70 @@
 package com.xiaomi.mipush.sdk;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
+import java.util.HashSet;
+import java.util.Set;
+@TargetApi(14)
 /* loaded from: classes3.dex */
-public class a {
-    private static a a;
-    private Context b;
-    private C0463a c;
+public class a implements Application.ActivityLifecycleCallbacks {
+    private Set<String> a = new HashSet();
 
-    /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: com.xiaomi.mipush.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C0463a {
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public boolean h;
-        public boolean i;
-        public int j;
+    private static void a(Application application) {
+        application.registerActivityLifecycleCallbacks(new a());
+    }
 
-        private C0463a() {
-            this.h = true;
-            this.i = false;
-            this.j = 1;
-        }
-
-        private String d() {
-            return com.xiaomi.channel.commonutils.android.b.a(a.this.b, a.this.b.getPackageName());
-        }
-
-        public void a(int i) {
-            this.j = i;
-        }
-
-        public void a(String str, String str2) {
-            this.c = str;
-            this.d = str2;
-            this.f = com.xiaomi.channel.commonutils.android.e.e(a.this.b);
-            this.e = d();
-            this.h = true;
-            SharedPreferences.Editor edit = a.this.j().edit();
-            edit.putString("regId", str);
-            edit.putString("regSec", str2);
-            edit.putString("devId", this.f);
-            edit.putString("vName", d());
-            edit.putBoolean("valid", true);
-            edit.commit();
-        }
-
-        public void a(String str, String str2, String str3) {
-            this.a = str;
-            this.b = str2;
-            this.g = str3;
-            SharedPreferences.Editor edit = a.this.j().edit();
-            edit.putString("appId", this.a);
-            edit.putString("appToken", str2);
-            edit.putString("regResource", str3);
-            edit.commit();
-        }
-
-        public void a(boolean z) {
-            this.i = z;
-        }
-
-        public boolean a() {
-            return b(this.a, this.b);
-        }
-
-        public void b() {
-            a.this.j().edit().clear().commit();
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.f = null;
-            this.e = null;
-            this.h = false;
-            this.i = false;
-            this.j = 1;
-        }
-
-        public boolean b(String str, String str2) {
-            return TextUtils.equals(this.a, str) && TextUtils.equals(this.b, str2) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && TextUtils.equals(this.f, com.xiaomi.channel.commonutils.android.e.e(a.this.b));
-        }
-
-        public void c() {
-            this.h = false;
-            a.this.j().edit().putBoolean("valid", this.h).commit();
+    public static void a(Context context) {
+        if (context instanceof Application) {
+            a((Application) context);
         }
     }
 
-    private a(Context context) {
-        this.b = context;
-        o();
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
     }
 
-    public static a a(Context context) {
-        if (a == null) {
-            a = new a(context);
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Intent intent = activity.getIntent();
+        if (intent == null) {
+            return;
         }
-        return a;
-    }
-
-    private void o() {
-        this.c = new C0463a();
-        SharedPreferences j = j();
-        this.c.a = j.getString("appId", null);
-        this.c.b = j.getString("appToken", null);
-        this.c.c = j.getString("regId", null);
-        this.c.d = j.getString("regSec", null);
-        this.c.f = j.getString("devId", null);
-        if (!TextUtils.isEmpty(this.c.f) && this.c.f.startsWith("a-")) {
-            this.c.f = com.xiaomi.channel.commonutils.android.e.e(this.b);
-            j.edit().putString("devId", this.c.f).commit();
+        String stringExtra = intent.getStringExtra("messageId");
+        int intExtra = intent.getIntExtra("eventMessageType", -1);
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.a.contains(stringExtra)) {
+            return;
         }
-        this.c.e = j.getString("vName", null);
-        this.c.h = j.getBoolean("valid", true);
-        this.c.i = j.getBoolean("paused", false);
-        this.c.j = j.getInt("envType", 1);
-        this.c.g = j.getString("regResource", null);
-    }
-
-    public void a(int i) {
-        this.c.a(i);
-        j().edit().putInt("envType", i).commit();
-    }
-
-    public void a(String str) {
-        SharedPreferences.Editor edit = j().edit();
-        edit.putString("vName", str);
-        edit.commit();
-        this.c.e = str;
-    }
-
-    public void a(String str, String str2, String str3) {
-        this.c.a(str, str2, str3);
-    }
-
-    public void a(boolean z) {
-        this.c.a(z);
-        j().edit().putBoolean("paused", z).commit();
-    }
-
-    public boolean a() {
-        return !TextUtils.equals(com.xiaomi.channel.commonutils.android.b.a(this.b, this.b.getPackageName()), this.c.e);
-    }
-
-    public boolean a(String str, String str2) {
-        return this.c.b(str, str2);
-    }
-
-    public void b(String str, String str2) {
-        this.c.a(str, str2);
-    }
-
-    public boolean b() {
-        if (this.c.a()) {
-            return true;
+        this.a.add(stringExtra);
+        if (intExtra == 3000) {
+            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, 3008, "App calls by business message is visiable");
+        } else if (intExtra == 1000) {
+            com.xiaomi.push.service.clientReport.d.a(activity.getApplicationContext()).a(com.xiaomi.push.service.clientReport.c.a(intExtra), stringExtra, PointerIconCompat.TYPE_TEXT, "app calls by notification message is visiable");
         }
-        com.xiaomi.channel.commonutils.logger.b.a("Don't send message before initialization succeeded!");
-        return false;
     }
 
-    public String c() {
-        return this.c.a;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
     }
 
-    public String d() {
-        return this.c.b;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
     }
 
-    public String e() {
-        return this.c.c;
-    }
-
-    public String f() {
-        return this.c.d;
-    }
-
-    public String g() {
-        return this.c.g;
-    }
-
-    public void h() {
-        this.c.b();
-    }
-
-    public boolean i() {
-        return this.c.a();
-    }
-
-    public SharedPreferences j() {
-        return this.b.getSharedPreferences("mipush", 0);
-    }
-
-    public void k() {
-        this.c.c();
-    }
-
-    public boolean l() {
-        return this.c.i;
-    }
-
-    public int m() {
-        return this.c.j;
-    }
-
-    public boolean n() {
-        return !this.c.h;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
     }
 }

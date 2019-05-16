@@ -16,6 +16,7 @@ import org.json.JSONObject;
 public class WriteImagesInfo extends OrmObject implements Serializable {
     private LinkedList<ImageFileInfo> chosedFiles;
     private boolean isEnableChooseOriginalImg;
+    private boolean isFromQRCode;
     private boolean isOriginalImg;
     private String lastAlbumId;
     public boolean mIsFromIm;
@@ -25,6 +26,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.mIsFromIm = false;
         this.isOriginalImg = false;
         this.isEnableChooseOriginalImg = true;
+        this.isFromQRCode = false;
         this.maxImagesAllowed = 1;
         this.mIsFromIm = false;
     }
@@ -33,6 +35,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.mIsFromIm = false;
         this.isOriginalImg = false;
         this.isEnableChooseOriginalImg = true;
+        this.isFromQRCode = false;
         this.maxImagesAllowed = i;
     }
 
@@ -168,6 +171,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         if (jSONObject != null) {
             this.lastAlbumId = jSONObject.optString("lastAlbumId", null);
             this.mIsFromIm = jSONObject.optBoolean("isIm", false);
+            this.isFromQRCode = jSONObject.optBoolean("isFromQRCode", false);
             this.maxImagesAllowed = jSONObject.optInt("maxImagesAllowed");
             this.isOriginalImg = jSONObject.optBoolean("isOriginalImg");
             this.isEnableChooseOriginalImg = jSONObject.optBoolean("isEnableChooseOriginalImg");
@@ -177,7 +181,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(m.mc(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(m.nk(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }
@@ -194,6 +198,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 jSONObject.put("lastAlbumId", this.lastAlbumId);
             }
             jSONObject.put("isIm", this.mIsFromIm);
+            jSONObject.put("isFromQRCode", this.isFromQRCode);
             if (this.chosedFiles != null) {
                 JSONArray jSONArray = new JSONArray();
                 Iterator<ImageFileInfo> it = this.chosedFiles.iterator();
@@ -219,7 +224,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.ai(ar.adm().ads(), ar.adm().adt()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.ai(ar.ail().air(), ar.ail().ais()));
                     next.setHasAddPostQualityAction(true);
                 }
             }
@@ -240,6 +245,14 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
 
     public void setEnableChooseOriginalImg(boolean z) {
         this.isEnableChooseOriginalImg = z;
+    }
+
+    public boolean isFromQRCode() {
+        return this.isFromQRCode;
+    }
+
+    public void setFromQRCode(boolean z) {
+        this.isFromQRCode = z;
     }
 
     public boolean hasActionsWithoutResize() {

@@ -5,11 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public abstract class c extends SQLiteOpenHelper implements a {
-    private a.InterfaceC0012a vt;
-    private final String vu;
+    private a.InterfaceC0012a sW;
+    private final String sX;
 
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
@@ -17,17 +16,17 @@ public abstract class c extends SQLiteOpenHelper implements a {
 
     @Override // com.baidu.adp.base.a.a
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.vt = interfaceC0012a;
+        this.sW = interfaceC0012a;
     }
 
     public c(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.vu = str;
+        this.sX = str;
     }
 
     @Override // com.baidu.adp.base.a.a
-    public boolean aL(Context context) {
-        return context.deleteDatabase(this.vu);
+    public boolean ac(Context context) {
+        return context.deleteDatabase(this.sX);
     }
 
     public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
@@ -35,7 +34,7 @@ public abstract class c extends SQLiteOpenHelper implements a {
             sQLiteDatabase.execSQL(str);
             return true;
         } catch (Throwable th) {
-            BdLog.e(str + Config.TRACE_TODAY_VISIT_SPLIT + th.getMessage());
+            BdLog.e(str + ":" + th.getMessage());
             return false;
         }
     }
@@ -53,8 +52,8 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.vt != null) {
-            this.vt.c(sQLiteDatabase);
+        if (this.sW != null) {
+            this.sW.c(sQLiteDatabase);
         }
     }
 }

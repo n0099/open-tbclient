@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void pz(String str) {
+    public void qI(String str) {
         this.series = str;
     }
 
@@ -22,7 +22,7 @@ public class b {
         this.num = i;
     }
 
-    public void kc(int i) {
+    public void kR(int i) {
         this.myItem = i;
     }
 }

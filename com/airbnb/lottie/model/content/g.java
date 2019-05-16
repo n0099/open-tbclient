@@ -9,31 +9,31 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
     private final String name;
-    private final com.airbnb.lottie.model.a.b ru;
-    private final com.airbnb.lottie.model.a.b rv;
-    private final l rw;
+    private final com.airbnb.lottie.model.a.b oV;
+    private final com.airbnb.lottie.model.a.b oW;
+    private final l oX;
 
     g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.ru = bVar;
-        this.rv = bVar2;
-        this.rw = lVar;
+        this.oV = bVar;
+        this.oW = bVar2;
+        this.oX = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.b ew() {
-        return this.ru;
+    public com.airbnb.lottie.model.a.b dq() {
+        return this.oV;
     }
 
-    public com.airbnb.lottie.model.a.b ex() {
-        return this.rv;
+    public com.airbnb.lottie.model.a.b dr() {
+        return this.oW;
     }
 
-    public l ey() {
-        return this.rw;
+    public l ds() {
+        return this.oX;
     }
 
     @Override // com.airbnb.lottie.model.content.b

@@ -12,8 +12,8 @@ import rx.internal.util.a.ae;
 import rx.internal.util.a.y;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> jVG;
-    final Emitter.BackpressureMode jVH;
+    final rx.functions.b<Emitter<T>> knW;
+    final Emitter.BackpressureMode knX;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -22,7 +22,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.jVH) {
+        switch (this.knX) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -41,7 +41,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.jVG.call(latestEmitter);
+        this.knW.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -227,13 +227,13 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = ae.cEJ() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.cMp() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.offer(NotificationLite.bm(t));
+            this.queue.offer(NotificationLite.bo(t));
             drain();
         }
 
@@ -290,7 +290,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bp(poll));
+                            jVar.onNext((Object) NotificationLite.br(poll));
                             j2 = 1 + j2;
                         }
                     }
@@ -338,7 +338,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.set(NotificationLite.bm(t));
+            this.queue.set(NotificationLite.bo(t));
             drain();
         }
 
@@ -395,7 +395,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bp(andSet));
+                            jVar.onNext((Object) NotificationLite.br(andSet));
                             j2++;
                         }
                     }

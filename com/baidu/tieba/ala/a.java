@@ -10,67 +10,66 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONObject cWS;
-    private HttpMessageListener cWT;
-    private BdUniqueId cWU = BdUniqueId.gen();
-    private BdUniqueId cWV = BdUniqueId.gen();
-    private CustomMessageListener cIy = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private HttpMessageListener dhA;
+    private JSONObject dhz;
+    private BdUniqueId dhB = BdUniqueId.gen();
+    private BdUniqueId dhC = BdUniqueId.gen();
+    private CustomMessageListener cQH = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.kM() && a.this.cWS != null) {
-                a.this.a(a.this.cWS, a.this.cWV);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.jG() && a.this.dhz != null) {
+                a.this.a(a.this.dhz, a.this.dhC);
             }
         }
     };
-    private CustomMessageListener cWW = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
+    private CustomMessageListener dhD = new CustomMessageListener(2921324) { // from class: com.baidu.tieba.ala.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                a.this.ba((JSONObject) customResponsedMessage.getData());
+                a.this.bl((JSONObject) customResponsedMessage.getData());
             }
         }
     };
 
     public a(TbPageContext tbPageContext) {
-        if (this.cWT == null) {
-            this.cWT = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
+        if (this.dhA == null) {
+            this.dhA = new HttpMessageListener(CmdConfigHttp.CMD_FRS_STAGE_FEED_BACK) { // from class: com.baidu.tieba.ala.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003390 && httpResponsedMessage.getError() == 0) {
-                        a.this.cWS = null;
+                        a.this.dhz = null;
                     }
                 }
             };
         }
-        MessageManager.getInstance().registerListener(this.cWT);
-        MessageManager.getInstance().registerListener(this.cIy);
-        this.cWW.setTag(tbPageContext.getUniqueId());
-        this.cWW.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.cWW);
+        MessageManager.getInstance().registerListener(this.dhA);
+        MessageManager.getInstance().registerListener(this.cQH);
+        this.dhD.setTag(tbPageContext.getUniqueId());
+        this.dhD.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.dhD);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cWT);
-        MessageManager.getInstance().unRegisterListener(this.cIy);
-        MessageManager.getInstance().unRegisterListener(this.cWW);
-        this.cWS = null;
+        MessageManager.getInstance().unRegisterListener(this.dhA);
+        MessageManager.getInstance().unRegisterListener(this.cQH);
+        MessageManager.getInstance().unRegisterListener(this.dhD);
+        this.dhz = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ba(JSONObject jSONObject) {
+    public void bl(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (j.kM()) {
-                a(jSONObject, this.cWU);
+            if (j.jG()) {
+                a(jSONObject, this.dhB);
             } else {
-                this.cWS = jSONObject;
+                this.dhz = jSONObject;
             }
         }
     }
@@ -80,7 +79,7 @@ public class a {
         int i = 1;
         if (jSONObject != null) {
             String optString = jSONObject.optString("tid");
-            String optString2 = jSONObject.optString(ImageViewerConfig.FORUM_ID);
+            String optString2 = jSONObject.optString("fid");
             String optString3 = jSONObject.optString("dislike_ids");
             String optString4 = jSONObject.optString("type");
             if ("ala_frs_stage_live_feed_back_type".equals(optString4)) {

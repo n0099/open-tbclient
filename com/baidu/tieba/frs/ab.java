@@ -7,22 +7,22 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class ab {
-    private List<FrsTabInfo> eXV;
-    private final List<com.baidu.tbadk.mainTab.b> eXW = new LinkedList();
-    private String fcD;
+    private List<FrsTabInfo> fof;
+    private final List<com.baidu.tbadk.mainTab.b> fog = new LinkedList();
     private String forumGameLabel;
     private String forumId;
     private String forumName;
+    private String fsR;
     private Context mContext;
 
     public ab(Context context, List<FrsTabInfo> list) {
-        this.eXV = list;
+        this.fof = list;
         this.mContext = context;
     }
 
-    public boolean qp(int i) {
-        if (i < 100 && !com.baidu.tbadk.core.util.v.T(this.eXV)) {
-            for (FrsTabInfo frsTabInfo : this.eXV) {
+    public boolean rw(int i) {
+        if (i < 100 && !com.baidu.tbadk.core.util.v.aa(this.fof)) {
+            for (FrsTabInfo frsTabInfo : this.fof) {
                 if (frsTabInfo.tab_id.intValue() == i) {
                     return true;
                 }
@@ -32,34 +32,34 @@ public class ab {
         return false;
     }
 
-    public List<FrsTabInfo> beo() {
-        return this.eXV;
+    public List<FrsTabInfo> blG() {
+        return this.fof;
     }
 
     public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.anH() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.eXW) {
-                if (bVar2 != null && bVar2.anH() != null && bVar2.anH().type == bVar.anH().type) {
+        if (bVar != null && bVar.asK() != null) {
+            for (com.baidu.tbadk.mainTab.b bVar2 : this.fog) {
+                if (bVar2 != null && bVar2.asK() != null && bVar2.asK().type == bVar.asK().type) {
                     return;
                 }
             }
-            this.eXW.add(bVar);
+            this.fog.add(bVar);
         }
     }
 
-    public void bep() {
+    public void blH() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
-        for (FrsTabInfo frsTabInfo : this.eXV) {
-            Iterator<com.baidu.tbadk.mainTab.b> it = this.eXW.iterator();
+        for (FrsTabInfo frsTabInfo : this.fof) {
+            Iterator<com.baidu.tbadk.mainTab.b> it = this.fog.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
                     break;
                 }
                 com.baidu.tbadk.mainTab.b next = it.next();
-                if (next.anH() != null && frsTabInfo.tab_id.intValue() == next.anH().type) {
+                if (next.asK() != null && frsTabInfo.tab_id.intValue() == next.asK().type) {
                     linkedList.add(next);
                     z = true;
                     break;
@@ -69,12 +69,12 @@ public class ab {
                 linkedList2.add(frsTabInfo);
             }
         }
-        if (!com.baidu.tbadk.core.util.v.T(linkedList2)) {
-            this.eXV.removeAll(linkedList2);
+        if (!com.baidu.tbadk.core.util.v.aa(linkedList2)) {
+            this.fof.removeAll(linkedList2);
         }
-        this.eXW.clear();
-        if (!com.baidu.tbadk.core.util.v.T(linkedList)) {
-            this.eXW.addAll(linkedList);
+        this.fog.clear();
+        if (!com.baidu.tbadk.core.util.v.aa(linkedList)) {
+            this.fog.addAll(linkedList);
         }
     }
 
@@ -82,8 +82,8 @@ public class ab {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bca() {
-        return this.eXW;
+    public List<com.baidu.tbadk.mainTab.b> bjt() {
+        return this.fog;
     }
 
     public void setForumName(String str) {
@@ -110,7 +110,7 @@ public class ab {
         return this.forumGameLabel;
     }
 
-    public void uZ(String str) {
-        this.fcD = str;
+    public void wt(String str) {
+        this.fsR = str;
     }
 }

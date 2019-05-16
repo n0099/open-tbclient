@@ -7,53 +7,53 @@ import android.widget.EditText;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.an.o;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.ubc.UBC;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class g extends y {
+public class g extends z {
     public g(j jVar) {
         super(jVar, "/swan/updateInput");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
+    @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e("updateInput", "illegal swanApp");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        EditText Ck = c.Cj().Ck();
-        if (Ck == null) {
+        EditText Dm = c.Dl().Dm();
+        if (Dm == null) {
             com.baidu.swan.apps.console.c.e("updateInput", "input组件不存在");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }
-        JSONObject dm = n.dm(unitedSchemeEntity.getParam("params"));
-        Ck.removeTextChangedListener(c.Cj().Cn());
-        if (dm.has("color")) {
+        JSONObject cZ = o.cZ(unitedSchemeEntity.getParam("params"));
+        Dm.removeTextChangedListener(c.Dl().Dp());
+        if (cZ.has("color")) {
             com.baidu.swan.apps.console.c.i("updateInput", "update color start");
             try {
-                Ck.setTextColor(Color.parseColor(dm.optString("color")));
+                Dm.setTextColor(Color.parseColor(cZ.optString("color")));
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 com.baidu.swan.apps.console.c.e("updateInput", "color 解析错误");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                Ck.addTextChangedListener(c.Cj().Cn());
+                Dm.addTextChangedListener(c.Dl().Dp());
                 return false;
             }
         }
-        if (dm.has(UBC.CONTENT_KEY_VALUE)) {
+        if (cZ.has(UBC.CONTENT_KEY_VALUE)) {
             com.baidu.swan.apps.console.c.i("updateInput", "update text start");
-            String optString = dm.optString(UBC.CONTENT_KEY_VALUE);
-            if (!TextUtils.equals(optString, Ck.getText())) {
-                Ck.setText(optString);
+            String optString = cZ.optString(UBC.CONTENT_KEY_VALUE);
+            if (!TextUtils.equals(optString, Dm.getText())) {
+                Dm.setText(optString);
                 try {
-                    Ck.setSelection(optString.length());
+                    Dm.setSelection(optString.length());
                 } catch (IndexOutOfBoundsException e2) {
                     if (DEBUG) {
                         e2.printStackTrace();
@@ -62,12 +62,12 @@ public class g extends y {
                 }
             }
         }
-        Ck.addTextChangedListener(c.Cj().Cn());
-        b Cm = c.Cj().Cm();
-        boolean E = Cm != null ? Cm.E(dm) : false;
+        Dm.addTextChangedListener(c.Dl().Dp());
+        b Do = c.Dl().Do();
+        boolean B = Do != null ? Do.B(cZ) : false;
         com.baidu.swan.apps.console.c.i("updateInput", "update success");
-        if (E) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, E ? 0 : 1001);
+        if (B) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, B ? 0 : 1001);
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1001);
         }

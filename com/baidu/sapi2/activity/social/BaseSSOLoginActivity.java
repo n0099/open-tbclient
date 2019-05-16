@@ -103,7 +103,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.C0041a.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.C0040a.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);

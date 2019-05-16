@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean kX(String str) {
+    public static boolean mc(String str) {
         return TiebaDatabase.getInstance().getMainDBDatabaseManager().f("delete from account_data where id=?", new String[]{str});
     }
 
@@ -19,24 +19,24 @@ public class b {
     public static void b(AccountData accountData) {
         if (accountData != null && accountData.getID() != null) {
             if (accountData.getIsActive() == 1) {
-                WC();
+                abi();
             }
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!kX(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.af("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.gd();
+            if (!mc(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
+                if (!mainDBDatabaseManager.O("DROP TABLE IF EXISTS account_data")) {
+                    mainDBDatabaseManager.eV();
                 }
-                mainDBDatabaseManager.af("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
+                mainDBDatabaseManager.O("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
                 a(accountData, mainDBDatabaseManager);
             }
         }
     }
 
-    public static void WC() {
-        TiebaDatabase.getInstance().getMainDBDatabaseManager().af("update account_data set isactive=0 where isactive=1");
+    public static void abi() {
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().O("update account_data set isactive=0 where isactive=1");
     }
 
-    public static int WD() {
+    public static int abj() {
         Cursor cursor;
         Exception exc;
         Cursor cursor2 = null;
@@ -85,7 +85,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData WE() {
+    public static AccountData abk() {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -160,7 +160,7 @@ public class b {
     /* JADX DEBUG: Multi-variable search result rejected for r1v37, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX DEBUG: Multi-variable search result rejected for r2v7, resolved type: com.baidu.tbadk.core.data.AccountData */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AccountData kY(String str) {
+    public static AccountData md(String str) {
         Cursor cursor;
         Cursor rawQuery;
         AccountData accountData;
@@ -228,7 +228,7 @@ public class b {
         return accountData;
     }
 
-    public static ArrayList<AccountData> WF() {
+    public static ArrayList<AccountData> abl() {
         Cursor cursor;
         Throwable th;
         Exception exc;

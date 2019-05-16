@@ -1,6 +1,6 @@
 package com.baidu.swan.apps.x.a.a;
 
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,10 +14,10 @@ public class g implements com.baidu.swan.apps.model.a {
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null && jSONObject.has(CustomDialogData.POS_LEFT) && jSONObject.has("top")) {
-            this.left = x.ad(jSONObject.optInt(CustomDialogData.POS_LEFT));
-            this.top = x.ad(jSONObject.optInt("top"));
-            this.width = jSONObject.has("width") ? Math.abs(x.ad(jSONObject.optInt("width"))) : -1;
-            this.height = jSONObject.has("height") ? Math.abs(x.ad(jSONObject.optInt("height"))) : -1;
+            this.left = z.ad(jSONObject.optInt(CustomDialogData.POS_LEFT));
+            this.top = z.ad(jSONObject.optInt("top"));
+            this.width = jSONObject.has("width") ? Math.abs(z.ad(jSONObject.optInt("width"))) : -1;
+            this.height = jSONObject.has("height") ? Math.abs(z.ad(jSONObject.optInt("height"))) : -1;
         }
     }
 

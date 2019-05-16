@@ -6,5 +6,5 @@ import org.json.JSONArray;
 public abstract class a {
     public abstract void a(b bVar, Canvas canvas);
 
-    public abstract void g(JSONArray jSONArray);
+    public abstract void e(JSONArray jSONArray);
 }

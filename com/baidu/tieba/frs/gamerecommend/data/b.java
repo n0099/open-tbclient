@@ -12,6 +12,6 @@ public class b {
     public Integer type;
 
     public boolean isValid() {
-        return !v.T(this.sub_nodes);
+        return !v.aa(this.sub_nodes);
     }
 }

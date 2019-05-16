@@ -14,12 +14,12 @@ import android.view.Display;
 import android.view.WindowManager;
 /* loaded from: classes5.dex */
 public class a {
-    public static final int eo(Context context) {
-        Point ep = ep(context);
-        return ep.x > ep.y ? 1 : 0;
+    public static final int ee(Context context) {
+        Point ef = ef(context);
+        return ef.x > ef.y ? 1 : 0;
     }
 
-    public static Point ep(Context context) {
+    public static Point ef(Context context) {
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 13) {
@@ -61,7 +61,7 @@ public class a {
         return createBitmap;
     }
 
-    public static Bitmap d(Bitmap bitmap, int i) {
+    public static Bitmap e(Bitmap bitmap, int i) {
         if (bitmap == null) {
             return null;
         }

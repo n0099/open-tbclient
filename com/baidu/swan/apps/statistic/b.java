@@ -1,27 +1,25 @@
 package com.baidu.swan.apps.statistic;
+
+import android.util.Log;
+import com.baidu.swan.apps.an.j;
+import com.baidu.swan.ubc.s;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int aSi = 0;
 
-    public static String dz(int i) {
-        switch (i) {
-            case -1:
-                return "";
-            case 0:
-                return "swan";
-            case 1:
-                return "swangame";
-            default:
-                return "swan";
+    public static void b(final com.baidu.swan.apps.statistic.a.f fVar) {
+        if (fVar == null) {
+            if (DEBUG) {
+                Log.w("SwanAppFuncUbc", "event is null");
+                return;
+            }
+            return;
         }
-    }
-
-    public static int Kp() {
-        return aSi;
-    }
-
-    public static void dA(int i) {
-        aSi = i;
+        j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.b.1
+            @Override // java.lang.Runnable
+            public void run() {
+                s.onEvent("934", com.baidu.swan.apps.statistic.a.f.this.toJSONObject());
+            }
+        }, "SwanAppFuncClickUBC");
     }
 }

@@ -1,44 +1,97 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
+import android.os.Parcel;
+import android.os.Parcelable;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class f extends com.meizu.cloud.pushsdk.handler.a.a<UnRegisterStatus> {
-    public f(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public UnRegisterStatus c(Intent intent) {
-        UnRegisterStatus unRegisterStatus = (UnRegisterStatus) intent.getSerializableExtra(PushConstants.EXTRA_APP_PUSH_UNREGISTER_STATUS);
-        if (unRegisterStatus.isUnRegisterSuccess()) {
-            com.meizu.cloud.pushsdk.util.b.a(c(), "");
+public class f implements Parcelable {
+    public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public f createFromParcel(Parcel parcel) {
+            return new f(parcel);
         }
-        return unRegisterStatus;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(UnRegisterStatus unRegisterStatus, com.meizu.cloud.pushsdk.notification.e eVar) {
-        if (b() != null && unRegisterStatus != null) {
-            b().a(c(), unRegisterStatus);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public f[] newArray(int i) {
+            return new f[i];
         }
+    };
+    private int a;
+    private boolean b;
+    private List<String> c;
+    private b d;
+    private String e;
+
+    protected f(Parcel parcel) {
+        this.a = parcel.readInt();
+        this.b = parcel.readByte() != 0;
+        this.c = parcel.createStringArrayList();
+        this.d = (b) parcel.readParcelable(b.class.getClassLoader());
+        this.e = parcel.readString();
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start UnRegisterStatusHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_UNREGISTER_STATUS.equals(i(intent));
+    public f(String str, String str2, String str3, String str4) {
+        this.e = str;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (!jSONObject.isNull("max_size")) {
+                this.a = jSONObject.getInt("max_size");
+            }
+            if (!jSONObject.isNull("wifi_upload")) {
+                this.b = jSONObject.getBoolean("wifi_upload");
+            }
+            if (!jSONObject.isNull("upload_files")) {
+                JSONArray jSONArray = jSONObject.getJSONArray("upload_files");
+                this.c = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    this.c.add(jSONArray.getString(i));
+                }
+            }
+        } catch (JSONException e) {
+            com.meizu.cloud.a.a.e("UploadLogMessage", "parse upload message error " + e.getMessage());
+        }
+        this.d = new b(str2, str3, str4);
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
     public int a() {
-        return 1024;
+        return this.a;
+    }
+
+    public boolean b() {
+        return this.b;
+    }
+
+    public List<String> c() {
+        return this.c;
+    }
+
+    public b d() {
+        return this.d;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "UploadLogMessage{maxSize=" + this.a + ", wifiUpload=" + this.b + ", fileList=" + this.c + ", controlMessage=" + this.d + ", uploadMessage='" + this.e + "'}";
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(this.a);
+        parcel.writeByte((byte) (this.b ? 1 : 0));
+        parcel.writeStringList(this.c);
+        parcel.writeParcelable(this.d, i);
+        parcel.writeString(this.e);
     }
 }

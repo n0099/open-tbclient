@@ -5,7 +5,7 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class ao {
-    private ArrayList<a> bzI;
+    private ArrayList<a> bGU;
     private int total;
 
     /* loaded from: classes.dex */
@@ -20,7 +20,7 @@ public class ao {
         if (pbPresent != null) {
             this.total = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.bzI = new ArrayList<>();
+                this.bGU = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
@@ -28,7 +28,7 @@ public class ao {
                         aVar.giftName = pbPresentList.gift_name;
                         aVar.thumbnailUrl = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.bzI.add(aVar);
+                        this.bGU.add(aVar);
                     }
                 }
             }
@@ -43,11 +43,11 @@ public class ao {
         this.total = i;
     }
 
-    public ArrayList<a> XJ() {
-        return this.bzI;
+    public ArrayList<a> acr() {
+        return this.bGU;
     }
 
-    public void m(ArrayList<a> arrayList) {
-        this.bzI = arrayList;
+    public void p(ArrayList<a> arrayList) {
+        this.bGU = arrayList;
     }
 }

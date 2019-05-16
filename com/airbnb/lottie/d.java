@@ -5,39 +5,39 @@ import android.support.v4.os.TraceCompat;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
 /* loaded from: classes2.dex */
 public class d {
-    private static String[] mR;
-    private static long[] mS;
-    private static boolean mQ = false;
-    private static int mT = 0;
-    private static int mU = 0;
+    private static String[] kr;
+    private static long[] ks;
+    private static boolean kq = false;
+    private static int kt = 0;
+    private static int ku = 0;
 
     public static void beginSection(String str) {
-        if (mQ) {
-            if (mT == 20) {
-                mU++;
+        if (kq) {
+            if (kt == 20) {
+                ku++;
                 return;
             }
-            mR[mT] = str;
-            mS[mT] = System.nanoTime();
+            kr[kt] = str;
+            ks[kt] = System.nanoTime();
             TraceCompat.beginSection(str);
-            mT++;
+            kt++;
         }
     }
 
-    public static float U(String str) {
-        if (mU > 0) {
-            mU--;
+    public static float D(String str) {
+        if (ku > 0) {
+            ku--;
             return 0.0f;
-        } else if (mQ) {
-            mT--;
-            if (mT == -1) {
+        } else if (kq) {
+            kt--;
+            if (kt == -1) {
                 throw new IllegalStateException("Can't end trace section. There are none.");
             }
-            if (!str.equals(mR[mT])) {
-                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + mR[mT] + ".");
+            if (!str.equals(kr[kt])) {
+                throw new IllegalStateException("Unbalanced trace call " + str + ". Expected " + kr[kt] + ".");
             }
             TraceCompat.endSection();
-            return ((float) (System.nanoTime() - mS[mT])) / 1000000.0f;
+            return ((float) (System.nanoTime() - ks[kt])) / 1000000.0f;
         } else {
             return 0.0f;
         }

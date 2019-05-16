@@ -1,25 +1,66 @@
 package com.baidu.swan.apps.u.b;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.widget.FrameLayout;
 /* loaded from: classes2.dex */
 public interface v {
-    boolean Du();
 
-    boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    /* loaded from: classes2.dex */
+    public interface a {
+        void a(v vVar);
+    }
 
-    boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    /* loaded from: classes2.dex */
+    public interface b {
+        boolean a(v vVar, int i, int i2);
+    }
 
-    boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    /* loaded from: classes2.dex */
+    public interface c {
+        void b(v vVar);
+    }
 
-    boolean f(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    void EC();
 
-    boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    void a(com.baidu.swan.apps.media.d.c cVar);
 
-    boolean l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    void a(com.baidu.swan.apps.media.d.c cVar, boolean z);
 
-    boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    void a(a aVar);
 
-    boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
+    void a(b bVar);
+
+    void a(c cVar);
+
+    void b(FrameLayout frameLayout);
+
+    void b(com.baidu.swan.apps.media.d.c cVar);
+
+    v bg(Context context);
+
+    void bo(boolean z);
+
+    void bp(boolean z);
+
+    void eC(String str);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void seekTo(int i);
+
+    void setFullScreen(boolean z);
+
+    void stop();
 }

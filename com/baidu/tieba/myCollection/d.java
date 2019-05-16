@@ -26,37 +26,37 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.tieba.card.OriginalThreadCardView;
-import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private static final float haB = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds32);
-    private static final float haC = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds36);
-    private static final float haD = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds26);
-    private static final int haE = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds28);
-    private static final int haF = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds20);
+    private static final float hrS = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32);
+    private static final float hrT = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds36);
+    private static final float hrU = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds26);
+    private static final int hrV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds28);
+    private static final int hrW = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds20);
     private TbPageContext<?> mPageContext;
-    private final ArrayList<MarkData> aFM = new ArrayList<>();
-    private boolean cMJ = false;
-    private View.OnClickListener haG = null;
-    private View.OnClickListener haH = null;
-    private View.OnClickListener haI = null;
-    private boolean haJ = false;
+    private final ArrayList<MarkData> aHF = new ArrayList<>();
+    private boolean cUU = false;
+    private View.OnClickListener hrX = null;
+    private View.OnClickListener hrY = null;
+    private View.OnClickListener hrZ = null;
+    private boolean hsa = false;
     private boolean hasMore = true;
-    private boolean haK = true;
-    private final View.OnClickListener ZI = new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.d.2
+    private boolean hsb = true;
+    private final View.OnClickListener XA = new View.OnClickListener() { // from class: com.baidu.tieba.myCollection.d.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             MarkData item = d.this.getItem(((Integer) view.getTag()).intValue());
             am amVar = new am("c12529");
             if (view instanceof CommonUserLikeButton) {
-                amVar.T("obj_locate", 4);
+                amVar.P("obj_locate", 4);
             } else if (view instanceof ClickableHeaderImageView) {
-                amVar.T("obj_locate", 1);
+                amVar.P("obj_locate", 1);
             }
-            amVar.bJ("tid", item.getId());
-            amVar.bJ(VideoPlayActivityConfig.OBJ_ID, item.getUesrId());
+            amVar.bT("tid", item.getId());
+            amVar.bT(VideoPlayActivityConfig.OBJ_ID, item.getUesrId());
             TiebaStatic.log(amVar);
         }
     };
@@ -70,34 +70,34 @@ public class d extends BaseAdapter {
     }
 
     public void setRefreshing(boolean z) {
-        this.haJ = z;
+        this.hsa = z;
     }
 
     public void setData(ArrayList<MarkData> arrayList) {
-        this.aFM.clear();
+        this.aHF.clear();
         if (arrayList != null) {
-            this.aFM.addAll(arrayList);
+            this.aHF.addAll(arrayList);
         }
         notifyDataSetChanged();
     }
 
     @Override // android.widget.BaseAdapter
     public void notifyDataSetChanged() {
-        if (l.ln()) {
+        if (l.kh()) {
             super.notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.T(this.aFM)) {
+        if (v.aa(this.aHF)) {
             return 0;
         }
-        return this.haK ? v.S(this.aFM) + 1 : v.S(this.aFM);
+        return this.hsb ? v.Z(this.aHF) + 1 : v.Z(this.aHF);
     }
 
-    public void mB(boolean z) {
-        this.haK = z;
+    public void nq(boolean z) {
+        this.hsb = z;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -119,22 +119,22 @@ public class d extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: vH */
+    /* renamed from: wM */
     public MarkData getItem(int i) {
-        return (MarkData) v.c(this.aFM, i);
+        return (MarkData) v.c(this.aHF, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (v.S(this.aFM) <= i) {
+        if (v.Z(this.aHF) <= i) {
             return -1L;
         }
         return i;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x01a0  */
-    /* JADX WARN: Removed duplicated region for block: B:6:0x001c  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01aa  */
+    /* JADX WARN: Removed duplicated region for block: B:6:0x001f  */
     @Override // android.widget.Adapter
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -142,32 +142,32 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         c cVar;
-        C0342d c0342d;
+        C0360d c0360d;
         switch (getItemViewType(i)) {
             case 0:
-                if (view == null || !(view.getTag() instanceof C0342d)) {
-                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.home_mark_item, (ViewGroup) null);
-                    C0342d c0342d2 = new C0342d(view);
-                    view.setTag(c0342d2);
-                    c0342d = c0342d2;
+                if (view == null || !(view.getTag() instanceof C0360d)) {
+                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.home_mark_item, (ViewGroup) null);
+                    C0360d c0360d2 = new C0360d(view);
+                    view.setTag(c0360d2);
+                    c0360d = c0360d2;
                 } else {
-                    c0342d = (C0342d) view.getTag();
+                    c0360d = (C0360d) view.getTag();
                 }
                 MarkData item = getItem(i);
                 if (item == null) {
-                    c0342d.haM.setVisibility(8);
+                    c0360d.hsd.setVisibility(8);
                     break;
                 } else {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0342d.haQ.getLayoutParams();
-                    if (this.cMJ) {
-                        c0342d.haM.setVisibility(0);
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) c0360d.hsh.getLayoutParams();
+                    if (this.cUU) {
+                        c0360d.hsd.setVisibility(0);
                         layoutParams.leftMargin = 0;
                     } else {
-                        c0342d.haM.setVisibility(8);
-                        layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.ds34);
+                        c0360d.hsd.setVisibility(8);
+                        layoutParams.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.ds34);
                     }
-                    c0342d.b(item);
-                    a(i, c0342d);
+                    c0360d.b(item);
+                    a(i, c0360d);
                     this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                     this.mPageContext.getLayoutMode().onModeChanged(view);
                     break;
@@ -175,35 +175,35 @@ public class d extends BaseAdapter {
                 break;
             case 1:
                 if (view == null || !(view.getTag() instanceof b)) {
-                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.page_item, (ViewGroup) null);
+                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.page_item, (ViewGroup) null);
                     b bVar2 = new b();
-                    bVar2.haT = (TextView) view.findViewById(d.g.page_text);
-                    bVar2.mProgress = (ProgressBar) view.findViewById(d.g.progress);
+                    bVar2.hsk = (TextView) view.findViewById(R.id.page_text);
+                    bVar2.mProgress = (ProgressBar) view.findViewById(R.id.progress);
                     view.setTag(bVar2);
                     bVar = bVar2;
                 } else {
                     bVar = (b) view.getTag();
                 }
-                bVar.haT.setVisibility(0);
-                if (this.haJ) {
+                bVar.hsk.setVisibility(0);
+                if (this.hsa) {
                     bVar.mProgress.setVisibility(0);
-                    bVar.haT.setText(this.mPageContext.getString(d.j.loading));
-                    al.d(bVar.haT, d.C0277d.common_color_10039, 1);
+                    bVar.hsk.setText(this.mPageContext.getString(R.string.loading));
+                    al.f(bVar.hsk, R.color.common_color_10039, 1);
                 } else if (!this.hasMore) {
                     bVar.mProgress.setVisibility(8);
-                    bVar.haT.setText(this.mPageContext.getString(d.j.no_more_mark));
-                    al.d(bVar.haT, d.C0277d.common_color_10005, 1);
+                    bVar.hsk.setText(this.mPageContext.getString(R.string.no_more_mark));
+                    al.f(bVar.hsk, R.color.common_color_10005, 1);
                 } else {
                     bVar.mProgress.setVisibility(8);
-                    bVar.haT.setText(this.mPageContext.getString(d.j.loading));
-                    al.d(bVar.haT, d.C0277d.common_color_10039, 1);
+                    bVar.hsk.setText(this.mPageContext.getString(R.string.loading));
+                    al.f(bVar.hsk, R.color.common_color_10039, 1);
                 }
                 this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                 this.mPageContext.getLayoutMode().onModeChanged(view);
                 break;
             case 2:
                 if (view == null || !(view.getTag() instanceof c)) {
-                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(d.h.cell_collect_share_view, (ViewGroup) null);
+                    view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.cell_collect_share_view, (ViewGroup) null);
                     c cVar2 = new c(view);
                     view.setTag(cVar2);
                     cVar = cVar2;
@@ -212,30 +212,29 @@ public class d extends BaseAdapter {
                 }
                 MarkData item2 = getItem(i);
                 if (item2 == null) {
-                    cVar.haM.setVisibility(8);
+                    cVar.hsd.setVisibility(8);
                     break;
                 } else {
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) cVar.haQ.getLayoutParams();
-                    if (this.cMJ) {
-                        cVar.haM.setVisibility(0);
+                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) cVar.hsh.getLayoutParams();
+                    if (this.cUU) {
+                        cVar.hsd.setVisibility(0);
                         layoutParams2.leftMargin = 0;
                     } else {
-                        cVar.haM.setVisibility(8);
-                        layoutParams2.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.ds34);
+                        cVar.hsd.setVisibility(8);
+                        layoutParams2.leftMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.ds34);
                     }
                     cVar.b(item2);
                     a(i, cVar);
-                    cVar.Zj.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.myCollection.d.1
+                    cVar.Xb.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.myCollection.d.1
                         @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                         public void a(OriginalThreadInfo originalThreadInfo) {
-                            TiebaStatic.log(new am("c12529").T("obj_locate", 5));
+                            TiebaStatic.log(new am("c12529").P("obj_locate", 5));
                         }
                     });
                     this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                     this.mPageContext.getLayoutMode().onModeChanged(view);
                     break;
                 }
-                break;
             default:
                 this.mPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() != 1);
                 this.mPageContext.getLayoutMode().onModeChanged(view);
@@ -246,57 +245,57 @@ public class d extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        if (v.T(this.aFM) || (!this.hasMore && getItemViewType(i) == 1)) {
+        if (v.aa(this.aHF) || (!this.hasMore && getItemViewType(i) == 1)) {
             return false;
         }
         return super.isEnabled(i);
     }
 
-    public void fJ(boolean z) {
-        this.cMJ = z;
+    public void gg(boolean z) {
+        this.cUU = z;
     }
 
     private void a(int i, a aVar) {
         Integer valueOf = Integer.valueOf(i);
-        aVar.haR.setOnClickListener(this.haH);
-        aVar.haR.setTag(valueOf);
-        aVar.fAm.setAfterClickListener(this.ZI);
-        aVar.fAm.setTag(valueOf);
-        aVar.haN.setAfterOnClickListener(this.ZI);
-        aVar.haN.setTag(valueOf);
-        aVar.haS.setOnClickListener(this.haI);
-        aVar.haS.setTag(valueOf);
-        aVar.haM.setOnClickListener(this.haG);
-        aVar.haM.setFocusable(false);
-        aVar.haM.setTag(valueOf);
-    }
-
-    public void D(View.OnClickListener onClickListener) {
-        this.haG = onClickListener;
-    }
-
-    public void E(View.OnClickListener onClickListener) {
-        this.haH = onClickListener;
+        aVar.hsi.setOnClickListener(this.hrY);
+        aVar.hsi.setTag(valueOf);
+        aVar.fRj.setAfterClickListener(this.XA);
+        aVar.fRj.setTag(valueOf);
+        aVar.hse.setAfterOnClickListener(this.XA);
+        aVar.hse.setTag(valueOf);
+        aVar.hsj.setOnClickListener(this.hrZ);
+        aVar.hsj.setTag(valueOf);
+        aVar.hsd.setOnClickListener(this.hrX);
+        aVar.hsd.setFocusable(false);
+        aVar.hsd.setTag(valueOf);
     }
 
     public void F(View.OnClickListener onClickListener) {
-        this.haI = onClickListener;
+        this.hrX = onClickListener;
+    }
+
+    public void G(View.OnClickListener onClickListener) {
+        this.hrY = onClickListener;
+    }
+
+    public void H(View.OnClickListener onClickListener) {
+        this.hrZ = onClickListener;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a {
-        View aLf;
-        TextView bUb;
-        com.baidu.tbadk.core.view.userLike.c ehk;
-        ClickableHeaderImageView fAm;
-        ImageButton haM;
-        CommonUserLikeButton haN;
-        TextView haO;
-        ImageView haP;
-        LinearLayout haQ;
-        LinearLayout haR;
-        LinearLayout haS;
+        View aMY;
+        TextView cbV;
+        com.baidu.tbadk.core.view.userLike.c ewX;
+        ClickableHeaderImageView fRj;
+        ImageButton hsd;
+        CommonUserLikeButton hse;
+        TextView hsf;
+        ImageView hsg;
+        LinearLayout hsh;
+        LinearLayout hsi;
+        LinearLayout hsj;
         TextView mTitle;
 
         private a() {
@@ -305,10 +304,10 @@ public class d extends BaseAdapter {
         void d(ClickableHeaderImageView clickableHeaderImageView) {
             if (clickableHeaderImageView != null) {
                 clickableHeaderImageView.setDefaultResource(17170445);
-                clickableHeaderImageView.setDefaultErrorResource(d.f.icon_default_avatar100);
-                clickableHeaderImageView.setDefaultBgResource(d.C0277d.cp_bg_line_e);
+                clickableHeaderImageView.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+                clickableHeaderImageView.setDefaultBgResource(R.color.cp_bg_line_e);
                 clickableHeaderImageView.setIsRound(true);
-                clickableHeaderImageView.setAfterClickListener(d.this.ZI);
+                clickableHeaderImageView.setAfterClickListener(d.this.XA);
             }
         }
 
@@ -318,54 +317,54 @@ public class d extends BaseAdapter {
                 if (!TextUtils.isEmpty(title)) {
                     if (markData.is_deleted()) {
                         this.mTitle.setText(title);
-                        this.mTitle.setTextSize(0, d.haB);
-                        al.j(this.mTitle, d.C0277d.cp_cont_e);
+                        this.mTitle.setTextSize(0, d.hrS);
+                        al.j(this.mTitle, R.color.cp_cont_e);
                     } else {
                         this.mTitle.setText(title);
-                        this.mTitle.setTextSize(0, d.haC);
-                        al.j(this.mTitle, d.C0277d.cp_cont_b);
+                        this.mTitle.setTextSize(0, d.hrT);
+                        al.j(this.mTitle, R.color.cp_cont_b);
                     }
                 } else {
                     this.mTitle.setText("");
                 }
                 c(markData);
-                this.fAm.setData(markData.metaData);
-                this.fAm.setShowV(markData.metaData.isBigV());
-                this.ehk.a(markData.metaData);
-                this.haN.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-                this.haN.setTextSize(0, d.haD);
+                this.fRj.setData(markData.metaData);
+                this.fRj.setShowV(markData.metaData.isBigV());
+                this.ewX.a(markData.metaData);
+                this.hse.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+                this.hse.setTextSize(0, d.hrU);
                 if ((markData.metaData.getIsLike() || ap.equals(TbadkCoreApplication.getCurrentAccount(), markData.getUesrId())) && !markData.isLikeInPage()) {
-                    this.haN.setVisibility(8);
+                    this.hse.setVisibility(8);
                 } else {
-                    this.haN.setVisibility(0);
+                    this.hse.setVisibility(0);
                 }
                 if ((!StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) || markData.is_deleted()) {
-                    this.haS.setVisibility(0);
+                    this.hsj.setVisibility(0);
                     if (markData.isRedTipShow() && !markData.is_deleted()) {
-                        this.haP.setVisibility(0);
+                        this.hsg.setVisibility(0);
                     } else {
-                        this.haP.setVisibility(8);
+                        this.hsg.setVisibility(8);
                     }
                     if (markData.is_deleted()) {
-                        this.haO.setText(d.this.mPageContext.getString(d.j.mark_thread_deleted));
+                        this.hsf.setText(d.this.mPageContext.getString(R.string.mark_thread_deleted));
                     } else {
-                        this.haO.setText(markData.getmState());
+                        this.hsf.setText(markData.getmState());
                     }
-                    al.j(this.haO, d.C0277d.cp_cont_d);
+                    al.j(this.hsf, R.color.cp_cont_d);
                 } else {
-                    this.haS.setVisibility(8);
+                    this.hsj.setVisibility(8);
                 }
-                al.l(this.aLf, d.C0277d.cp_bg_line_c);
+                al.l(this.aMY, R.color.cp_bg_line_c);
             }
         }
 
         private void c(MarkData markData) {
             if (markData != null) {
-                this.bUb.setText(markData.getAuthorName());
+                this.cbV.setText(markData.getAuthorName());
                 if (markData.metaData.isBigV()) {
-                    al.j(this.bUb, d.C0277d.cp_cont_h);
+                    al.j(this.cbV, R.color.cp_cont_h);
                 } else {
-                    al.j(this.bUb, d.C0277d.cp_cont_f);
+                    al.j(this.cbV, R.color.cp_cont_f);
                 }
             }
         }
@@ -373,47 +372,47 @@ public class d extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.myCollection.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0342d extends a {
-        TbImageView ejT;
-        LinearLayout haU;
+    private class C0360d extends a {
+        TbImageView ezH;
+        LinearLayout hsl;
 
-        public C0342d(View view) {
+        public C0360d(View view) {
             super();
-            this.haQ = (LinearLayout) view.findViewById(d.g.home_lv_markitem);
-            this.fAm = (ClickableHeaderImageView) view.findViewById(d.g.mark_userinfo_header_view);
-            this.bUb = (TextView) view.findViewById(d.g.mark_userinfo_name);
-            this.haR = (LinearLayout) view.findViewById(d.g.home_lv_markitem_userinfo);
-            this.haU = (LinearLayout) view.findViewById(d.g.home_lv_markitem_thread);
-            this.haN = (CommonUserLikeButton) view.findViewById(d.g.markitem_userinfo_like_btn);
-            this.ehk = new com.baidu.tbadk.core.view.userLike.c(d.this.mPageContext, this.haN);
-            this.ejT = (TbImageView) view.findViewById(d.g.markitem_thread_image);
-            this.mTitle = (TextView) view.findViewById(d.g.markitem_thread_title);
-            this.haO = (TextView) view.findViewById(d.g.markitem_state_text);
-            this.haM = (ImageButton) view.findViewById(d.g.home_lv_markitem_delete);
-            this.haP = (ImageView) view.findViewById(d.g.new_mark_mention_redtip);
-            this.haS = (LinearLayout) view.findViewById(d.g.markitem_state);
-            this.aLf = view.findViewById(d.g.text_divider);
-            d(this.fAm);
+            this.hsh = (LinearLayout) view.findViewById(R.id.home_lv_markitem);
+            this.fRj = (ClickableHeaderImageView) view.findViewById(R.id.mark_userinfo_header_view);
+            this.cbV = (TextView) view.findViewById(R.id.mark_userinfo_name);
+            this.hsi = (LinearLayout) view.findViewById(R.id.home_lv_markitem_userinfo);
+            this.hsl = (LinearLayout) view.findViewById(R.id.home_lv_markitem_thread);
+            this.hse = (CommonUserLikeButton) view.findViewById(R.id.markitem_userinfo_like_btn);
+            this.ewX = new com.baidu.tbadk.core.view.userLike.c(d.this.mPageContext, this.hse);
+            this.ezH = (TbImageView) view.findViewById(R.id.markitem_thread_image);
+            this.mTitle = (TextView) view.findViewById(R.id.markitem_thread_title);
+            this.hsf = (TextView) view.findViewById(R.id.markitem_state_text);
+            this.hsd = (ImageButton) view.findViewById(R.id.home_lv_markitem_delete);
+            this.hsg = (ImageView) view.findViewById(R.id.new_mark_mention_redtip);
+            this.hsj = (LinearLayout) view.findViewById(R.id.markitem_state);
+            this.aMY = view.findViewById(R.id.text_divider);
+            d(this.fRj);
         }
 
         @Override // com.baidu.tieba.myCollection.d.a
         void b(MarkData markData) {
             super.b(markData);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.haR.getLayoutParams();
-            if (i.Wv().Wz() && !StringUtils.isNull(markData.getPic_url())) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.hsi.getLayoutParams();
+            if (i.abb().abf() && !StringUtils.isNull(markData.getPic_url())) {
                 String pic_url = markData.getPic_url();
                 if (!StringUtils.isNull(pic_url)) {
-                    this.ejT.setVisibility(0);
-                    this.ejT.startLoad(pic_url, 10, false);
+                    this.ezH.setVisibility(0);
+                    this.ezH.startLoad(pic_url, 10, false);
                 }
-                layoutParams.bottomMargin = d.haE;
+                layoutParams.bottomMargin = d.hrV;
             } else {
-                this.ejT.setVisibility(8);
-                layoutParams.bottomMargin = d.haF;
+                this.ezH.setVisibility(8);
+                layoutParams.bottomMargin = d.hrW;
             }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.haU.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.hsl.getLayoutParams();
             if ((StringUtils.isNull(markData.getmState()) || markData.getNewCounts() <= 0) && !markData.is_deleted()) {
-                layoutParams2.bottomMargin = (int) d.haB;
+                layoutParams2.bottomMargin = (int) d.hrS;
             } else {
                 layoutParams2.bottomMargin = 0;
             }
@@ -422,34 +421,34 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class c extends a {
-        OriginalThreadCardView Zj;
+        OriginalThreadCardView Xb;
 
         public c(View view) {
             super();
-            this.haQ = (LinearLayout) view.findViewById(d.g.share_lv_markitem);
-            this.haM = (ImageButton) view.findViewById(d.g.share_lv_markitem_delete);
-            this.fAm = (ClickableHeaderImageView) view.findViewById(d.g.share_mark_userinfo_header_view);
-            this.bUb = (TextView) view.findViewById(d.g.share_mark_userinfo_name);
-            this.haN = (CommonUserLikeButton) view.findViewById(d.g.share_mark_item_userinfo_like_btn);
-            this.ehk = new com.baidu.tbadk.core.view.userLike.c(d.this.mPageContext, this.haN);
-            this.haR = (LinearLayout) view.findViewById(d.g.share_lv_markitem_userinfo);
-            this.mTitle = (TextView) view.findViewById(d.g.share_thread_title);
-            this.Zj = (OriginalThreadCardView) view.findViewById(d.g.share_original_thread_view);
-            this.haO = (TextView) view.findViewById(d.g.share_mark_item_state_text);
-            this.haP = (ImageView) view.findViewById(d.g.share_new_mark_mention_redtip);
-            this.haS = (LinearLayout) view.findViewById(d.g.share_mark_item_state);
-            this.aLf = view.findViewById(d.g.share_text_divider);
-            d(this.fAm);
+            this.hsh = (LinearLayout) view.findViewById(R.id.share_lv_markitem);
+            this.hsd = (ImageButton) view.findViewById(R.id.share_lv_markitem_delete);
+            this.fRj = (ClickableHeaderImageView) view.findViewById(R.id.share_mark_userinfo_header_view);
+            this.cbV = (TextView) view.findViewById(R.id.share_mark_userinfo_name);
+            this.hse = (CommonUserLikeButton) view.findViewById(R.id.share_mark_item_userinfo_like_btn);
+            this.ewX = new com.baidu.tbadk.core.view.userLike.c(d.this.mPageContext, this.hse);
+            this.hsi = (LinearLayout) view.findViewById(R.id.share_lv_markitem_userinfo);
+            this.mTitle = (TextView) view.findViewById(R.id.share_thread_title);
+            this.Xb = (OriginalThreadCardView) view.findViewById(R.id.share_original_thread_view);
+            this.hsf = (TextView) view.findViewById(R.id.share_mark_item_state_text);
+            this.hsg = (ImageView) view.findViewById(R.id.share_new_mark_mention_redtip);
+            this.hsj = (LinearLayout) view.findViewById(R.id.share_mark_item_state);
+            this.aMY = view.findViewById(R.id.share_text_divider);
+            d(this.fRj);
         }
 
         @Override // com.baidu.tieba.myCollection.d.a
         void b(MarkData markData) {
             super.b(markData);
-            this.Zj.b(markData.getOriginalThreadInfo());
-            this.Zj.onChangeSkinType();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Zj.getLayoutParams();
+            this.Xb.b(markData.getOriginalThreadInfo());
+            this.Xb.onChangeSkinType();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.Xb.getLayoutParams();
             if ((StringUtils.isNull(markData.getmState()) || markData.getNewCounts() <= 0) && !markData.is_deleted()) {
-                layoutParams.bottomMargin = (int) d.haB;
+                layoutParams.bottomMargin = (int) d.hrS;
             } else {
                 layoutParams.bottomMargin = 0;
             }
@@ -458,7 +457,7 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class b {
-        TextView haT;
+        TextView hsk;
         ProgressBar mProgress;
 
         private b() {

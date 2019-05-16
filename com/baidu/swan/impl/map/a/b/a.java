@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 /* loaded from: classes5.dex */
 public class a {
     public static View a(final com.baidu.swan.impl.map.item.b bVar, final com.baidu.swan.apps.x.a.a.d dVar) {
@@ -19,16 +19,16 @@ public class a {
         Paint paint = new Paint();
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint.setColor(dVar.azl.color);
-        paint.setTextSize(dVar.azl.ada);
-        float f = dVar.azl.azp;
-        float f2 = dVar.azl.acU;
+        paint.setColor(dVar.aAj.color);
+        paint.setTextSize(dVar.aAj.aaN);
+        float f = dVar.aAj.aAn;
+        float f2 = dVar.aAj.aaH;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-        paint2.setColor(dVar.azl.bgColor);
-        String str = dVar.azl.content;
-        int ad = x.ad(6.0f);
+        paint2.setColor(dVar.aAj.bgColor);
+        String str = dVar.aAj.content;
+        int ad = z.ad(6.0f);
         float measureText = paint.measureText(str) + (2.0f * f);
         float f3 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
         float f4 = ad + f3 + (2.0f * f);

@@ -12,7 +12,7 @@ public final class UnitedSchemeConstants {
     public static final String SCHEME_INVOKE_TYPE_ENTERANCE = "entrance";
     public static final String SCHEME_INVOKE_TYPE_INSIDE = "inside";
     public static final String SCHEME_INVOKE_TYPE_OUTSIDE = "outside";
-    public static final int SCHEME_VERSION = 41;
+    public static final int SCHEME_VERSION = 44;
     public static final String TRUE_INT_VALUE = "1";
     public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead();
     public static final String UNITED_SCHEME_BACKUP = "backup";

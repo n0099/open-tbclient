@@ -86,9 +86,9 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.pn = Integer.valueOf(this.pn);
         builder.sug_count = Integer.valueOf(this.suggestCount);
         builder.tag_code = 0;
-        builder.scr_w = Integer.valueOf(l.aO(TbadkCoreApplication.getInst()));
-        builder.scr_h = Integer.valueOf(l.aQ(TbadkCoreApplication.getInst()));
-        builder.scr_dip = Double.valueOf(l.aR(TbadkCoreApplication.getInst()));
+        builder.scr_w = Integer.valueOf(l.af(TbadkCoreApplication.getInst()));
+        builder.scr_h = Integer.valueOf(l.ah(TbadkCoreApplication.getInst()));
+        builder.scr_dip = Double.valueOf(l.ai(TbadkCoreApplication.getInst()));
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());

@@ -61,16 +61,8 @@ public final class PushConstants {
                 return "Number Of Tag For User Too Many";
             case 30615:
                 return "Number Of Tag For App Too Many";
-            case 30616:
-                return "Application Do Not Have Unicast Capability";
-            case 30617:
-                return "Application Do Not Have Multicast Capability";
-            case 30618:
-                return "Application Is Not Approved, Can Not Use The Push Service";
             case 30699:
                 return "Requests Are Too Frequent To Be Temporarily Rejected";
-            case 40002:
-                return "Get lightapp info fail";
             case 110001:
                 return "User blacked this app";
             default:
@@ -80,7 +72,7 @@ public final class PushConstants {
 
     private static byte[] decryptB(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.k.g.a(bArr, str);
+            return com.baidu.android.pushservice.j.g.a(bArr, str);
         } catch (Exception e) {
             return null;
         }
@@ -88,7 +80,7 @@ public final class PushConstants {
 
     private static byte[] encryptB(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.k.g.b(bArr, str);
+            return com.baidu.android.pushservice.j.g.b(bArr, str);
         } catch (Exception e) {
             return null;
         }
@@ -96,13 +88,13 @@ public final class PushConstants {
 
     private static byte[] encryptL(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.k.g.c(bArr, str);
+            return com.baidu.android.pushservice.j.g.c(bArr, str);
         } catch (Exception e) {
             return null;
         }
     }
 
     private static boolean verify(byte[] bArr, String str, String str2) {
-        return com.baidu.android.pushservice.k.g.a(bArr, str, str2);
+        return com.baidu.android.pushservice.j.g.a(bArr, str, str2);
     }
 }

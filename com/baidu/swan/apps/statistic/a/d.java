@@ -2,58 +2,58 @@ package com.baidu.swan.apps.statistic.a;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends f {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static int aEl = 35;
-    private boolean aEn = false;
-    private JSONObject aSt;
+    private static int aGd = 35;
+    private boolean aGf = false;
+    private JSONObject aVh;
 
     public d() {
         this.mSource = "NA";
     }
 
     public d a(@NonNull com.baidu.swan.apps.ak.a aVar) {
-        this.mType = String.valueOf(aVar.LA());
-        aA("detail", aVar.Lz().toString());
+        this.mType = String.valueOf(aVar.Og());
+        aC("detail", aVar.Of().toString());
         return this;
     }
 
-    public d cg(boolean z) {
-        this.aEn = z;
+    public d cv(boolean z) {
+        this.aGf = z;
         return this;
     }
 
-    public d gS(String str) {
+    public d hp(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d gT(String str) {
+    public d hq(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d gU(String str) {
+    public d hr(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d gV(String str) {
-        this.axM = str;
+    public d hs(String str) {
+        this.ayL = str;
         return this;
     }
 
-    public d aA(String str, String str2) {
+    public d aC(String str, String str2) {
         if (str != null && str2 != null) {
-            if (this.aSt == null) {
-                this.aSt = new JSONObject();
+            if (this.aVh == null) {
+                this.aVh = new JSONObject();
             }
             try {
-                this.aSt.put(str, str2);
+                this.aVh.put(str, str2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -61,19 +61,19 @@ public class d extends f {
         return this;
     }
 
-    public d r(com.baidu.swan.apps.v.b.b bVar) {
+    public d s(com.baidu.swan.apps.v.b.b bVar) {
         if (bVar != null) {
-            if (!TextUtils.isEmpty(bVar.axK)) {
-                this.mSource = bVar.axK;
+            if (!TextUtils.isEmpty(bVar.EW())) {
+                this.mSource = bVar.EW();
             }
-            if (!TextUtils.isEmpty(bVar.mAppId)) {
-                this.mAppId = bVar.mAppId;
+            if (!TextUtils.isEmpty(bVar.getAppId())) {
+                this.mAppId = bVar.getAppId();
             }
-            if (!TextUtils.isEmpty(bVar.axL)) {
-                this.aSz = bVar.axL;
+            if (!TextUtils.isEmpty(bVar.EX())) {
+                this.aVo = bVar.EX();
             }
-            if (!TextUtils.isEmpty(bVar.axM)) {
-                this.aSB = bVar.axM;
+            if (!TextUtils.isEmpty(bVar.getPage())) {
+                this.aVq = bVar.getPage();
             }
         }
         return this;
@@ -87,11 +87,11 @@ public class d extends f {
             if (!TextUtils.isEmpty(cVar.mAppId)) {
                 this.mAppId = cVar.mAppId;
             }
-            if (!TextUtils.isEmpty(cVar.axL)) {
-                this.aSz = cVar.axL;
+            if (!TextUtils.isEmpty(cVar.ayP)) {
+                this.aVo = cVar.ayP;
             }
-            if (!TextUtils.isEmpty(cVar.axM)) {
-                this.aSB = cVar.axM;
+            if (!TextUtils.isEmpty(cVar.ayL)) {
+                this.aVq = cVar.ayL;
             }
         }
         return this;
@@ -99,18 +99,18 @@ public class d extends f {
 
     @Override // com.baidu.swan.apps.statistic.a.f, com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
-        if (this.aSu == null) {
-            this.aSu = new JSONObject();
+        if (this.aVi == null) {
+            this.aVi = new JSONObject();
         }
         try {
-            if (this.aSt != null) {
-                if (this.aEn) {
-                    String eo = aa.eo(aEl);
-                    if (!TextUtils.isEmpty(eo)) {
-                        this.aSt.put("stacktrace", eo);
+            if (this.aVh != null) {
+                if (this.aGf) {
+                    String ez = ac.ez(aGd);
+                    if (!TextUtils.isEmpty(ez)) {
+                        this.aVh.put("stacktrace", ez);
                     }
                 }
-                this.aSu.put("info", this.aSt);
+                this.aVi.put("info", this.aVh);
             }
         } catch (JSONException e) {
             if (DEBUG) {

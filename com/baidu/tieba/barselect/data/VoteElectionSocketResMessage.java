@@ -1,0 +1,50 @@
+package com.baidu.tieba.barselect.data;
+
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.squareup.wire.Wire;
+import java.util.ArrayList;
+import tbclient.ElectionInfo.ElectionInfoResIdl;
+import tbclient.ElectionList;
+/* loaded from: classes3.dex */
+public class VoteElectionSocketResMessage extends SocketResponsedMessage {
+    private f mVoteData;
+
+    public VoteElectionSocketResMessage() {
+        super(309642);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.message.a
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
+        ElectionInfoResIdl electionInfoResIdl = (ElectionInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, ElectionInfoResIdl.class);
+        if (electionInfoResIdl != null) {
+            setError(electionInfoResIdl.error.errorno.intValue());
+            setErrorString(electionInfoResIdl.error.usermsg);
+            if (getError() == 0 && electionInfoResIdl.data != null) {
+                if (this.mVoteData == null) {
+                    this.mVoteData = new f();
+                }
+                if (electionInfoResIdl.data.election_list != null) {
+                    ArrayList<d> arrayList = new ArrayList<>();
+                    for (ElectionList electionList : electionInfoResIdl.data.election_list) {
+                        arrayList.add(d.a(electionList));
+                    }
+                    this.mVoteData.L(arrayList);
+                }
+                if (electionInfoResIdl.data.basic != null) {
+                    this.mVoteData.a(e.a(electionInfoResIdl.data.basic));
+                }
+                if (electionInfoResIdl.data.my_record != null) {
+                    this.mVoteData.a(d.a(electionInfoResIdl.data.my_record));
+                }
+                if (electionInfoResIdl.data.has_more != null) {
+                    this.mVoteData.setHasMore(electionInfoResIdl.data.has_more.intValue() == 1);
+                }
+            }
+        }
+    }
+
+    public f getVoteData() {
+        return this.mVoteData;
+    }
+}

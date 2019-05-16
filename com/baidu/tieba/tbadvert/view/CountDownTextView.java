@@ -7,94 +7,94 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class CountDownTextView extends TextView {
-    private String alO;
-    private int aqm;
-    private final Runnable cQP;
-    private b iJU;
+    private String ama;
+    private int aqt;
+    private final Runnable cZd;
+    private b jcN;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
     public interface b {
-        void bh(View view);
+        void bn(View view);
     }
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> cQm;
+        private final WeakReference<CountDownTextView> cYx;
 
         private a(CountDownTextView countDownTextView) {
-            this.cQm = new WeakReference<>(countDownTextView);
+            this.cYx = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.cQm.get();
+            CountDownTextView countDownTextView = this.cYx.get();
             if (countDownTextView != null) {
-                countDownTextView.lD(1);
+                countDownTextView.ms(1);
             }
         }
     }
 
     public CountDownTextView(Context context) {
         super(context);
-        this.aqm = 0;
-        this.alO = "";
-        this.iJU = null;
+        this.aqt = 0;
+        this.ama = "";
+        this.jcN = null;
         this.mHandler = new Handler();
-        this.cQP = new a();
+        this.cZd = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.iJU = bVar;
+        this.jcN = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        lD(0);
+        ms(0);
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        axE();
+        aCK();
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
         if (i == 0) {
-            lD(0);
+            ms(0);
         } else {
-            axE();
+            aCK();
         }
     }
 
-    public void al(String str, int i) {
-        this.alO = str;
+    public void ah(String str, int i) {
+        this.ama = str;
         if (i > 0) {
-            this.aqm = i;
+            this.aqt = i;
         }
     }
 
-    private void axE() {
+    private void aCK() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lD(int i) {
-        this.aqm -= i;
-        if (this.aqm == 0) {
-            if (this.iJU != null) {
-                this.iJU.bh(this);
+    public void ms(int i) {
+        this.aqt -= i;
+        if (this.aqt == 0) {
+            if (this.jcN != null) {
+                this.jcN.bn(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.aqm > 0) {
-            setText(String.format("%s %s", this.alO, Integer.valueOf(this.aqm)));
+        if (this.aqt > 0) {
+            setText(String.format("%s %s", this.ama, Integer.valueOf(this.aqt)));
         }
-        this.mHandler.removeCallbacks(this.cQP);
-        this.mHandler.postDelayed(this.cQP, 1000L);
+        this.mHandler.removeCallbacks(this.cZd);
+        this.mHandler.postDelayed(this.cZd, 1000L);
     }
 }

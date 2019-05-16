@@ -5,11 +5,11 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
-import com.baidu.tieba.personCenter.data.f;
+import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes4.dex */
-public class c extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e>> {
+public class c extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f>> {
     private TbPageContext mPageContext;
-    private ab<f> vd;
+    private ab<g> sF;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -20,22 +20,22 @@ public class c extends com.baidu.adp.widget.ListView.a<f, com.baidu.tieba.card.a
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
-    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e> onCreateViewHolder(ViewGroup viewGroup) {
-        com.baidu.tieba.personCenter.view.e eVar = new com.baidu.tieba.personCenter.view.e(this.mPageContext);
-        eVar.d(this.vd);
-        return new com.baidu.tieba.card.a.a<>(eVar);
+    public com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> onCreateViewHolder(ViewGroup viewGroup) {
+        com.baidu.tieba.personCenter.view.f fVar = new com.baidu.tieba.personCenter.view.f(this.mPageContext);
+        fVar.d(this.sF);
+        return new com.baidu.tieba.card.a.a<>(fVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, f fVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.e> aVar) {
-        aVar.aRg().a(fVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.f> aVar) {
+        aVar.aYp().a(gVar);
         return aVar.getView();
     }
 
-    public void d(ab<f> abVar) {
-        this.vd = abVar;
+    public void d(ab<g> abVar) {
+        this.sF = abVar;
     }
 }

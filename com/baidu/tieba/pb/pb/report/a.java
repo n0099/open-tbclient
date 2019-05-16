@@ -13,88 +13,88 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.e;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId Zs;
-    private HttpMessageListener bKu = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private BdUniqueId Xk;
+    private HttpMessageListener bSe = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof UEGReportResponsedMessage) {
                 if (a.this.mWaitingDialog != null) {
-                    a.this.mWaitingDialog.dJ(false);
+                    a.this.mWaitingDialog.ef(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.Aj(url);
+                    a.this.Bz(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = a.this.mContext.getString(d.j.neterror);
+                    errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.hBb.j(errorString);
+                a.this.hTc.j(errorString);
             }
         }
     };
-    private b hBa = new b();
-    private e hBb = new e();
+    private b hTb = new b();
+    private e hTc = new e();
     private Context mContext;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.hBb.bPR = 1000L;
+        this.hTc.bXF = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void p(BdUniqueId bdUniqueId) {
-        this.Zs = bdUniqueId;
-        this.hBa.setTag(bdUniqueId);
-        this.bKu.setTag(bdUniqueId);
-        this.bKu.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.bKu);
+    public void r(BdUniqueId bdUniqueId) {
+        this.Xk = bdUniqueId;
+        this.hTb.setTag(bdUniqueId);
+        this.bSe.setTag(bdUniqueId);
+        this.bSe.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bSe);
     }
 
-    public void Ai(String str) {
+    public void By(String str) {
         showLoadingDialog();
-        this.hBa.Ai(str);
+        this.hTb.By(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void tg(String str) {
+    public void ut(String str) {
         showLoadingDialog();
-        this.hBa.tg(str);
+        this.hTb.ut(str);
     }
 
     private void showLoadingDialog() {
         TbPageContext tbPageContext;
         if (this.mWaitingDialog == null) {
-            com.baidu.adp.base.e<?> aK = i.aK(this.mContext);
-            if (!(aK instanceof TbPageContext)) {
+            com.baidu.adp.base.e<?> ab = i.ab(this.mContext);
+            if (!(ab instanceof TbPageContext)) {
                 tbPageContext = null;
             } else {
-                tbPageContext = (TbPageContext) aK;
+                tbPageContext = (TbPageContext) ab;
             }
             if (tbPageContext != null) {
                 this.mWaitingDialog = new com.baidu.tbadk.core.view.b(tbPageContext);
                 this.mWaitingDialog.e(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.Zs);
+                        MessageManager.getInstance().removeMessage(a.this.Xk);
                     }
                 });
             } else {
                 return;
             }
         }
-        this.mWaitingDialog.dJ(true);
+        this.mWaitingDialog.ef(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Aj(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(d.j.pb_web_view_report_title), str, true)));
+    public void Bz(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

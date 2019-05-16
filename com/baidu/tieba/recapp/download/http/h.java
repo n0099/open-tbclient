@@ -13,9 +13,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> CZ = new HashMap();
-    protected LinkedList<BasicNameValuePair> Da = new LinkedList<>();
-    protected HashMap<String, byte[]> Db = new HashMap<>();
+    protected Map<String, String> AH = new HashMap();
+    protected LinkedList<BasicNameValuePair> AI = new LinkedList<>();
+    protected HashMap<String, byte[]> AJ = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -29,14 +29,14 @@ public class h {
         }
     }
 
-    public boolean jv() {
-        return this.Db != null && this.Db.size() > 0;
+    public boolean ip() {
+        return this.AJ != null && this.AJ.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.Da.size() == 0) {
+        if (this.AI.size() == 0) {
             if (eVar != null) {
-                eVar.CE = this.url.length();
+                eVar.Ao = this.url.length();
             }
             return this.url;
         }
@@ -50,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.Da.size()) {
+            if (i2 >= this.AI.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.Da.get(i2).getName());
+            sb.append(this.AI.get(i2).getName());
             sb.append("=");
-            sb.append(k.bx(this.Da.get(i2).getValue()));
+            sb.append(k.bh(this.AI.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.CE = sb.length();
+            eVar.Ao = sb.length();
         }
         return sb.toString();
     }
 
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.CZ != null) {
-            for (Map.Entry<String, String> entry : this.CZ.entrySet()) {
+        if (httpURLConnection != null && this.AH != null) {
+            for (Map.Entry<String, String> entry : this.AH.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -77,13 +77,13 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        jx();
+        ir();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.Da != null) {
-                    Iterator<BasicNameValuePair> it = this.Da.iterator();
+                if (this.AI != null) {
+                    Iterator<BasicNameValuePair> it = this.AI.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.Db != null) {
-                    for (Map.Entry<String, byte[]> entry : this.Db.entrySet()) {
+                if (this.AJ != null) {
+                    for (Map.Entry<String, byte[]> entry : this.AJ.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,14 +121,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.CE = i;
+            eVar.Ao = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = jw().toString();
+            String sb = iq().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -141,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.CE = i;
+            eVar.Ao = i;
         }
     }
 
-    private StringBuilder jw() {
+    private StringBuilder iq() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.Da != null) {
-            Iterator<BasicNameValuePair> it = this.Da.iterator();
+        if (this.AI != null) {
+            Iterator<BasicNameValuePair> it = this.AI.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -159,7 +159,7 @@ public class h {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(k.bx(value));
+                    sb.append(k.bh(value));
                     i++;
                 }
             }
@@ -167,23 +167,23 @@ public class h {
         return sb;
     }
 
-    protected void jx() {
+    protected void ir() {
     }
 
-    public String aQ(String str) {
-        if (this.CZ != null) {
-            return this.CZ.get(str);
+    public String aA(String str) {
+        if (this.AH != null) {
+            return this.AH.get(str);
         }
         return null;
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.Da.add(basicNameValuePair);
+        this.AI.add(basicNameValuePair);
     }
 
-    public void y(String str, String str2) {
-        if (this.CZ != null) {
-            this.CZ.put(str, str2);
+    public void q(String str, String str2) {
+        if (this.AH != null) {
+            this.AH.put(str, str2);
         }
     }
 }

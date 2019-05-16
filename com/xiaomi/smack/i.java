@@ -2,7 +2,7 @@ package com.xiaomi.smack;
 
 import com.xiaomi.push.service.XMPushService;
 /* loaded from: classes3.dex */
-class i extends XMPushService.h {
+class i extends XMPushService.i {
     final /* synthetic */ long b;
     final /* synthetic */ h c;
 
@@ -14,7 +14,7 @@ class i extends XMPushService.h {
         this.b = j;
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         Thread.yield();
         if (!this.c.k() || this.c.a(this.b)) {
@@ -24,7 +24,7 @@ class i extends XMPushService.h {
         this.c.r.a(true);
     }
 
-    @Override // com.xiaomi.push.service.XMPushService.h
+    @Override // com.xiaomi.push.service.XMPushService.i
     public String b() {
         return "check the ping-pong." + this.b;
     }

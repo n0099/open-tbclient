@@ -1,123 +1,136 @@
 package com.baidu.tbadk.o;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.mobstat.Config;
+import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
 /* loaded from: classes.dex */
-public class e extends o {
-    @Override // com.baidu.tbadk.o.o
-    public void a(i iVar) {
-        if (m.apg().aph()) {
-            com.baidu.adp.lib.stats.a jC = jC();
-            jC.append("action", "time_t");
-            a(jC, iVar);
-            jC.append("ishttp", iVar.cqC ? "1" : "0");
-            jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-            jC.append("nettype", m.apg().getNetType());
-            jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cqr));
-            jC.append("wt", String.valueOf(iVar.cqz));
-            jC.append("qt", String.valueOf(iVar.cqs));
-            jC.append("connt", String.valueOf(iVar.cqt));
-            jC.append("rwt", String.valueOf(iVar.cqu));
-            jC.append("dect", String.valueOf(iVar.cqv));
-            jC.append("parset", String.valueOf(iVar.cqw));
-            jC.append("rendert", String.valueOf(iVar.cqy));
-            jC.append("ss", String.valueOf(iVar.cqA));
-            jC.append("hs", String.valueOf(iVar.cqB));
-            if (iVar.cqC && iVar.socketErrNo != 0) {
-                jC.append("salno", String.valueOf(iVar.socketErrNo));
-                if (iVar.socketCostTime != 0) {
-                    jC.append("scosttime", String.valueOf(iVar.socketCostTime));
+public class e {
+    private static e cxX = null;
+    private int cxZ;
+    private boolean cxY = false;
+    private boolean cya = false;
+
+    private e() {
+    }
+
+    public static e atQ() {
+        if (cxX == null) {
+            synchronized (e.class) {
+                if (cxX == null) {
+                    cxX = new e();
                 }
             }
-            if (iVar.errCode != 0) {
-                jC.f("errcode", Integer.valueOf(iVar.errCode));
-            }
-            if (iVar.cqC) {
-                jC.append("c_logid", String.valueOf(iVar.cqG));
-            } else {
-                jC.append("seq_id", String.valueOf(iVar.sequenceID & 4294967295L));
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, jC);
         }
+        return cxX;
     }
 
-    @Override // com.baidu.tbadk.o.o
-    public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.apg().aph()) {
-            com.baidu.adp.lib.stats.a jC = jC();
-            jC.append("action", "resource_t");
-            jC.append("actype", str);
-            jC.append("issuccess", hVar.isSuccess ? "1" : "0");
-            jC.append("isfs", hVar.cqp ? "1" : "0");
-            jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.Oi));
-            jC.append("from", String.valueOf(hVar.Oh));
-            BdStatisticsManager.getInstance().performance(this.subType, jC);
-        }
-    }
-
-    private void a(com.baidu.adp.lib.stats.a aVar, i iVar) {
-        if (iVar instanceof d) {
-            aVar.f("ptype", Integer.valueOf(((d) iVar).pageType));
-        }
-    }
-
-    @Override // com.baidu.tbadk.o.o
-    public void a(i iVar, boolean z) {
-        if (m.apg().aph()) {
-            if (!z || iVar.cqH > 0) {
-                if (z || iVar.cqI > 0) {
-                    com.baidu.adp.lib.stats.a jC = jC();
-                    jC.append("action", "time_t");
-                    a(jC, iVar);
-                    if (z) {
-                        jC.append("put", String.valueOf(iVar.cqH));
-                    } else {
-                        jC.append("pdt", String.valueOf(iVar.cqI));
-                    }
-                    jC.append("ishttp", iVar.cqC ? "1" : "0");
-                    jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    jC.append("nettype", m.apg().getNetType());
-                    jC.append("qt", String.valueOf(iVar.cqs));
-                    jC.append("connt", String.valueOf(iVar.cqt));
-                    jC.append("rwt", String.valueOf(iVar.cqu));
-                    jC.append("dect", String.valueOf(iVar.cqv));
-                    jC.append("parset", String.valueOf(iVar.cqw));
-                    jC.append("rendert", String.valueOf(iVar.cqy));
-                    jC.append("ss", String.valueOf(iVar.cqA));
-                    jC.append("hs", String.valueOf(iVar.cqB));
-                    if (iVar.cqC && iVar.socketErrNo != 0) {
-                        jC.append("salno", String.valueOf(iVar.socketErrNo));
-                        if (iVar.socketCostTime != 0) {
-                            jC.append("scosttime", String.valueOf(iVar.socketCostTime));
+    public void a(Context context, d dVar, b bVar) {
+        if (dVar != null && !StringUtils.isNull(dVar.getCurrentPageKey())) {
+            if (dVar.cxQ) {
+                if (bVar == null) {
+                    bVar = new b() { // from class: com.baidu.tbadk.o.e.1
+                        @Override // com.baidu.tbadk.o.b
+                        public boolean atL() {
+                            return true;
                         }
-                    }
-                    if (iVar.errCode != 0) {
-                        jC.f("errcode", Integer.valueOf(iVar.errCode));
-                    }
-                    BdStatisticsManager.getInstance().performance(this.subType, jC);
+
+                        @Override // com.baidu.tbadk.o.b
+                        public int atM() {
+                            return 6;
+                        }
+                    };
                 }
+                if (bVar.a(dVar)) {
+                    am amVar = new am("userconvert");
+                    amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.an(dVar.atN()));
+                    amVar.bT("obj_locate", dVar.getCurrentPageKey());
+                    amVar.bT("obj_type", "0");
+                    if (!StringUtils.isNull(dVar.cxU)) {
+                        amVar.bT(VideoPlayActivityConfig.OBJ_ID, dVar.cxU);
+                    }
+                    TiebaStatic.log(amVar);
+                    return;
+                }
+                return;
+            }
+            if (bVar == null) {
+                bVar = new b() { // from class: com.baidu.tbadk.o.e.2
+                    @Override // com.baidu.tbadk.o.b
+                    public boolean atL() {
+                        return true;
+                    }
+
+                    @Override // com.baidu.tbadk.o.b
+                    public int atM() {
+                        return e.this.cxZ;
+                    }
+                };
+            }
+            if (bVar.isSwitchOpen() && bVar.a(dVar)) {
+                am amVar2 = new am("stime");
+                amVar2.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, c.an(dVar.atN()));
+                amVar2.bT("obj_type", dVar.getCurrentPageKey());
+                amVar2.bT("obj_duration", String.valueOf(dVar.atO()));
+                if (dVar.getFid() > 0) {
+                    amVar2.bT("fid", String.valueOf(dVar.getFid()));
+                }
+                if (dVar.getTid() > 0) {
+                    amVar2.bT("tid", String.valueOf(dVar.getTid()));
+                }
+                if (dVar.getPid() > 0) {
+                    amVar2.bT(Info.kBaiduPIDKey, String.valueOf(dVar.getPid()));
+                }
+                if (!StringUtils.isNull(dVar.objParam1)) {
+                    amVar2.bT("obj_param1", dVar.objParam1);
+                }
+                if (!StringUtils.isNull(dVar.cxW)) {
+                    amVar2.bT("is_vertical", dVar.cxW);
+                }
+                if (!ap.isEmpty(dVar.getTaskId())) {
+                    amVar2.bT("task_id", String.valueOf(dVar.getTaskId()));
+                }
+                if (atR()) {
+                    if (!StringUtils.isNull(dVar.cxU)) {
+                        amVar2.bT(VideoPlayActivityConfig.OBJ_ID, dVar.cxU);
+                    }
+                    if (!StringUtils.isNull(dVar.cxV)) {
+                        amVar2.bT("obj_name", dVar.cxV);
+                    }
+                    amVar2.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "a002");
+                }
+                TiebaStatic.log(amVar2);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.o.o
-    public void a(i iVar, int i) {
-        if (m.apg().aph() && iVar.cqJ > 0) {
-            com.baidu.adp.lib.stats.a jC = jC();
-            jC.append("action", "time_t");
-            a(jC, iVar);
-            jC.append("pct", String.valueOf(iVar.cqJ));
-            switch (i) {
-                case 0:
-                    jC.append("pct_type", String.valueOf(100));
-                    break;
-                case 40:
-                    jC.append("pct_type", String.valueOf(101));
-                    break;
-                default:
-                    return;
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, jC);
-        }
+    public boolean atR() {
+        return this.cya;
+    }
+
+    public void fy(boolean z) {
+        this.cya = z;
+    }
+
+    public boolean atS() {
+        return this.cxY;
+    }
+
+    public void fz(boolean z) {
+        this.cxY = z;
+    }
+
+    public int atT() {
+        return !TbadkCoreApplication.getInst().isMainProcess(true) ? com.baidu.tbadk.core.sharedPref.b.agM().getInt("page_stay_max_cost", 0) : this.cxZ;
+    }
+
+    public void kJ(int i) {
+        this.cxZ = i;
+        com.baidu.tbadk.core.sharedPref.b.agM().putInt("page_stay_max_cost", this.cxZ);
     }
 }

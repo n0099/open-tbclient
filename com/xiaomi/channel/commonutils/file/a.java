@@ -1,200 +1,65 @@
 package com.xiaomi.channel.commonutils.file;
 
-import android.os.ParcelFileDescriptor;
-import android.text.TextUtils;
-import java.io.ByteArrayOutputStream;
+import android.content.Context;
 import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
-import java.util.Date;
-import java.util.zip.GZIPOutputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class a {
-    public static final String[] a = {"jpg", "png", "bmp", "gif", "webp"};
+public final class a {
+    private static final Set<String> e = Collections.synchronizedSet(new HashSet());
+    private Context a;
+    private FileLock b;
+    private String c;
+    private RandomAccessFile d;
 
-    public static void a(ParcelFileDescriptor parcelFileDescriptor) {
-        if (parcelFileDescriptor != null) {
-            try {
-                parcelFileDescriptor.close();
-            } catch (IOException e) {
-            }
-        }
+    private a(Context context) {
+        this.a = context;
     }
 
-    public static void a(File file, File file2) {
-        ZipOutputStream zipOutputStream;
-        ZipOutputStream zipOutputStream2 = null;
-        try {
+    public static a a(Context context, File file) {
+        com.xiaomi.channel.commonutils.logger.b.c("Locking: " + file.getAbsolutePath());
+        String str = file.getAbsolutePath() + ".LOCK";
+        File file2 = new File(str);
+        if (!file2.exists()) {
+            file2.getParentFile().mkdirs();
+            file2.createNewFile();
+        }
+        if (e.add(str)) {
+            a aVar = new a(context);
+            aVar.c = str;
             try {
-                zipOutputStream = new ZipOutputStream(new FileOutputStream(file, false));
-                zipOutputStream2 = null;
-            } catch (Throwable th) {
-                th = th;
+                aVar.d = new RandomAccessFile(file2, "rw");
+                aVar.b = aVar.d.getChannel().lock();
+                com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + aVar.b);
+                return aVar;
+            } finally {
+                if (aVar.b == null) {
+                    if (aVar.d != null) {
+                        b.a(aVar.d);
+                    }
+                    e.remove(aVar.c);
+                }
             }
-        } catch (FileNotFoundException e) {
-            zipOutputStream = null;
-        } catch (IOException e2) {
-            e = e2;
         }
-        try {
-            a(zipOutputStream, file2, null, null);
-            a(zipOutputStream);
-        } catch (FileNotFoundException e3) {
-            a(zipOutputStream);
-        } catch (IOException e4) {
-            zipOutputStream2 = zipOutputStream;
-            e = e4;
-            com.xiaomi.channel.commonutils.logger.b.a("zip file failure + " + e.getMessage());
-            a(zipOutputStream2);
-        } catch (Throwable th2) {
-            zipOutputStream2 = zipOutputStream;
-            th = th2;
-            a(zipOutputStream2);
-            throw th;
-        }
+        throw new IOException("abtain lock failure");
     }
 
-    public static void a(InputStream inputStream) {
-        if (inputStream != null) {
+    public void a() {
+        com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.b);
+        if (this.b != null && this.b.isValid()) {
             try {
-                inputStream.close();
-            } catch (IOException e) {
-            }
-        }
-    }
-
-    public static void a(OutputStream outputStream) {
-        if (outputStream != null) {
-            try {
-                outputStream.flush();
-            } catch (IOException e) {
-            }
-            try {
-                outputStream.close();
+                this.b.release();
             } catch (IOException e2) {
             }
+            this.b = null;
         }
-    }
-
-    public static void a(Reader reader) {
-        if (reader != null) {
-            try {
-                reader.close();
-            } catch (IOException e) {
-            }
+        if (this.d != null) {
+            b.a(this.d);
         }
-    }
-
-    public static void a(Writer writer) {
-        if (writer != null) {
-            try {
-                writer.close();
-            } catch (IOException e) {
-            }
-        }
-    }
-
-    public static void a(ZipOutputStream zipOutputStream, File file, String str, FileFilter fileFilter) {
-        FileInputStream fileInputStream;
-        FileInputStream fileInputStream2 = null;
-        if (str == null) {
-            str = "";
-        }
-        try {
-            try {
-                if (file.isDirectory()) {
-                    File[] listFiles = fileFilter != null ? file.listFiles(fileFilter) : file.listFiles();
-                    zipOutputStream.putNextEntry(new ZipEntry(str + File.separator));
-                    String str2 = TextUtils.isEmpty(str) ? "" : str + File.separator;
-                    for (int i = 0; i < listFiles.length; i++) {
-                        a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
-                    }
-                    File[] listFiles2 = file.listFiles(new b());
-                    if (listFiles2 != null) {
-                        for (File file2 : listFiles2) {
-                            a(zipOutputStream, file2, str2 + File.separator + file2.getName(), fileFilter);
-                        }
-                    }
-                    fileInputStream = null;
-                } else {
-                    if (TextUtils.isEmpty(str)) {
-                        zipOutputStream.putNextEntry(new ZipEntry(String.valueOf(new Date().getTime()) + ".txt"));
-                    } else {
-                        zipOutputStream.putNextEntry(new ZipEntry(str));
-                    }
-                    fileInputStream = new FileInputStream(file);
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            zipOutputStream.write(bArr, 0, read);
-                        }
-                    } catch (IOException e) {
-                        fileInputStream2 = fileInputStream;
-                        e = e;
-                        com.xiaomi.channel.commonutils.logger.b.d("zipFiction failed with exception:" + e.toString());
-                        a(fileInputStream2);
-                        return;
-                    } catch (Throwable th) {
-                        fileInputStream2 = fileInputStream;
-                        th = th;
-                        a(fileInputStream2);
-                        throw th;
-                    }
-                }
-                a(fileInputStream);
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } catch (IOException e2) {
-            e = e2;
-        }
-    }
-
-    public static byte[] a(byte[] bArr) {
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.finish();
-            gZIPOutputStream.close();
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.close();
-            return byteArray;
-        } catch (Exception e) {
-            return bArr;
-        }
-    }
-
-    public static byte[] b(InputStream inputStream) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[8192];
-        while (true) {
-            try {
-                int read = inputStream.read(bArr, 0, 8192);
-                if (read <= 0) {
-                    return byteArrayOutputStream.toByteArray();
-                }
-                byteArrayOutputStream.write(bArr, 0, read);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            } finally {
-                a(inputStream);
-                a(byteArrayOutputStream);
-            }
-        }
+        e.remove(this.c);
     }
 }

@@ -2,188 +2,316 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.net.http.Headers;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiManager;
-import android.telephony.NeighboringCellInfo;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.xiaomi.channel.commonutils.misc.f;
-import com.xiaomi.push.service.ah;
-import com.xiaomi.xmpush.thrift.ae;
-import com.xiaomi.xmpush.thrift.aq;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class d extends f.a {
-    private Context g;
-    private final int a = 30;
-    private final int b = -1;
-    private final int c = 3600;
-    private final String d = MiPushClient.PREF_EXTRA;
-    private final String e = "GeoFenceNetInfoUpdateJob";
-    private final String f = "last_upload_lbs_data_timestamp";
-    private Comparator<ScanResult> h = new e(this);
+public class d {
+    private static volatile d b;
+    String a;
+    private Context c;
+    private a d;
+    private Map<String, a> e;
 
-    public d(Context context) {
-        this.g = context;
-    }
+    /* loaded from: classes3.dex */
+    public static class a {
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public boolean i = true;
+        public boolean j = false;
+        public int k = 1;
+        private Context l;
 
-    private Location a(Location location, Location location2) {
-        return location == null ? location2 : (location2 == null || location.getTime() > location2.getTime()) ? location : location2;
-    }
-
-    private boolean a(long j) {
-        return Math.abs((System.currentTimeMillis() / 1000) - this.g.getSharedPreferences(MiPushClient.PREF_EXTRA, 0).getLong("last_upload_lbs_data_timestamp", -1L)) / 1000 > j;
-    }
-
-    private boolean c() {
-        if (com.xiaomi.channel.commonutils.network.d.f(this.g)) {
-            return true;
+        public a(Context context) {
+            this.l = context;
         }
-        int a = ah.a(this.g).a(com.xiaomi.xmpush.thrift.e.UploadNOWIFIGeoLocFrequency.a(), 3600);
-        if (com.xiaomi.channel.commonutils.network.d.g(this.g) && a(a)) {
-            return true;
-        }
-        if (com.xiaomi.channel.commonutils.network.d.h(this.g) && a(a)) {
-            return true;
-        }
-        return com.xiaomi.channel.commonutils.network.d.i(this.g) && a((long) a);
-    }
 
-    private com.xiaomi.xmpush.thrift.m d() {
-        com.xiaomi.xmpush.thrift.m mVar = new com.xiaomi.xmpush.thrift.m();
-        mVar.a(e());
-        mVar.b(f());
-        mVar.a(g());
-        return mVar;
-    }
-
-    private List<com.xiaomi.xmpush.thrift.v> e() {
-        try {
-            List<ScanResult> scanResults = ((WifiManager) this.g.getSystemService("wifi")).getScanResults();
-            if (com.xiaomi.channel.commonutils.misc.b.a(scanResults)) {
+        public static a a(Context context, String str) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                a aVar = new a(context);
+                aVar.a = jSONObject.getString("appId");
+                aVar.b = jSONObject.getString("appToken");
+                aVar.c = jSONObject.getString("regId");
+                aVar.d = jSONObject.getString("regSec");
+                aVar.f = jSONObject.getString("devId");
+                aVar.e = jSONObject.getString("vName");
+                aVar.i = jSONObject.getBoolean("valid");
+                aVar.j = jSONObject.getBoolean("paused");
+                aVar.k = jSONObject.getInt("envType");
+                aVar.g = jSONObject.getString("regResource");
+                return aVar;
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.a(th);
                 return null;
             }
-            Collections.sort(scanResults, this.h);
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < Math.min(30, scanResults.size()); i++) {
-                ScanResult scanResult = scanResults.get(i);
-                if (scanResult != null) {
-                    com.xiaomi.xmpush.thrift.v vVar = new com.xiaomi.xmpush.thrift.v();
-                    vVar.a(TextUtils.isEmpty(scanResult.BSSID) ? "" : scanResult.BSSID);
-                    vVar.a(scanResult.level);
-                    vVar.b(scanResult.SSID);
-                    arrayList.add(vVar);
-                }
+        }
+
+        public static String a(a aVar) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("appId", aVar.a);
+                jSONObject.put("appToken", aVar.b);
+                jSONObject.put("regId", aVar.c);
+                jSONObject.put("regSec", aVar.d);
+                jSONObject.put("devId", aVar.f);
+                jSONObject.put("vName", aVar.e);
+                jSONObject.put("valid", aVar.i);
+                jSONObject.put("paused", aVar.j);
+                jSONObject.put("envType", aVar.k);
+                jSONObject.put("regResource", aVar.g);
+                return jSONObject.toString();
+            } catch (Throwable th) {
+                com.xiaomi.channel.commonutils.logger.b.a(th);
+                return null;
             }
-            return arrayList;
-        } catch (Throwable th) {
-            return null;
+        }
+
+        private String d() {
+            return com.xiaomi.channel.commonutils.android.a.a(this.l, this.l.getPackageName());
+        }
+
+        public void a(int i) {
+            this.k = i;
+        }
+
+        public void a(String str, String str2) {
+            this.c = str;
+            this.d = str2;
+            this.f = com.xiaomi.channel.commonutils.android.d.k(this.l);
+            this.e = d();
+            this.i = true;
+        }
+
+        public void a(String str, String str2, String str3) {
+            this.a = str;
+            this.b = str2;
+            this.g = str3;
+            SharedPreferences.Editor edit = d.b(this.l).edit();
+            edit.putString("appId", this.a);
+            edit.putString("appToken", str2);
+            edit.putString("regResource", str3);
+            edit.commit();
+        }
+
+        public void a(boolean z) {
+            this.j = z;
+        }
+
+        public boolean a() {
+            return b(this.a, this.b);
+        }
+
+        public void b() {
+            d.b(this.l).edit().clear().commit();
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.f = null;
+            this.e = null;
+            this.i = false;
+            this.j = false;
+            this.h = null;
+            this.k = 1;
+        }
+
+        public void b(String str, String str2, String str3) {
+            this.c = str;
+            this.d = str2;
+            this.f = com.xiaomi.channel.commonutils.android.d.k(this.l);
+            this.e = d();
+            this.i = true;
+            this.h = str3;
+            SharedPreferences.Editor edit = d.b(this.l).edit();
+            edit.putString("regId", str);
+            edit.putString("regSec", str2);
+            edit.putString("devId", this.f);
+            edit.putString("vName", d());
+            edit.putBoolean("valid", true);
+            edit.putString("appRegion", str3);
+            edit.commit();
+        }
+
+        public boolean b(String str, String str2) {
+            return TextUtils.equals(this.a, str) && TextUtils.equals(this.b, str2) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && TextUtils.equals(this.f, com.xiaomi.channel.commonutils.android.d.k(this.l));
+        }
+
+        public void c() {
+            this.i = false;
+            d.b(this.l).edit().putBoolean("valid", this.i).commit();
+        }
+
+        public void c(String str, String str2, String str3) {
+            this.a = str;
+            this.b = str2;
+            this.g = str3;
         }
     }
 
-    private List<com.xiaomi.xmpush.thrift.b> f() {
-        try {
-            List neighboringCellInfo = ((TelephonyManager) this.g.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNeighboringCellInfo();
-            int i = 0;
-            ArrayList arrayList = null;
-            while (i < neighboringCellInfo.size()) {
-                NeighboringCellInfo neighboringCellInfo2 = (NeighboringCellInfo) neighboringCellInfo.get(i);
-                ArrayList arrayList2 = new ArrayList();
-                if (neighboringCellInfo2.getLac() > 0 || neighboringCellInfo2.getCid() > 0) {
-                    com.xiaomi.xmpush.thrift.b bVar = new com.xiaomi.xmpush.thrift.b();
-                    bVar.a(neighboringCellInfo2.getCid());
-                    bVar.b((neighboringCellInfo2.getRssi() * 2) - 113);
-                    arrayList2.add(bVar);
-                }
-                i++;
-                arrayList = arrayList2;
-            }
-            return arrayList;
-        } catch (Throwable th) {
-            return null;
-        }
+    private d(Context context) {
+        this.c = context;
+        o();
     }
 
-    private com.xiaomi.xmpush.thrift.i g() {
-        Location h;
-        if (b() && (h = h()) != null) {
-            com.xiaomi.xmpush.thrift.l lVar = new com.xiaomi.xmpush.thrift.l();
-            lVar.b(h.getLatitude());
-            lVar.a(h.getLongitude());
-            com.xiaomi.xmpush.thrift.i iVar = new com.xiaomi.xmpush.thrift.i();
-            iVar.a(h.getAccuracy());
-            iVar.a(lVar);
-            iVar.a(h.getProvider());
-            iVar.a(new Date().getTime() - h.getTime());
-            return iVar;
+    public static d a(Context context) {
+        if (b == null) {
+            synchronized (d.class) {
+                if (b == null) {
+                    b = new d(context);
+                }
+            }
+        }
+        return b;
+    }
+
+    public static SharedPreferences b(Context context) {
+        return context.getSharedPreferences("mipush", 0);
+    }
+
+    private void o() {
+        this.d = new a(this.c);
+        this.e = new HashMap();
+        SharedPreferences b2 = b(this.c);
+        this.d.a = b2.getString("appId", null);
+        this.d.b = b2.getString("appToken", null);
+        this.d.c = b2.getString("regId", null);
+        this.d.d = b2.getString("regSec", null);
+        this.d.f = b2.getString("devId", null);
+        if (!TextUtils.isEmpty(this.d.f) && this.d.f.startsWith("a-")) {
+            this.d.f = com.xiaomi.channel.commonutils.android.d.k(this.c);
+            b2.edit().putString("devId", this.d.f).commit();
+        }
+        this.d.e = b2.getString("vName", null);
+        this.d.i = b2.getBoolean("valid", true);
+        this.d.j = b2.getBoolean("paused", false);
+        this.d.k = b2.getInt("envType", 1);
+        this.d.g = b2.getString("regResource", null);
+    }
+
+    public void a(int i) {
+        this.d.a(i);
+        b(this.c).edit().putInt("envType", i).commit();
+    }
+
+    public void a(String str) {
+        SharedPreferences.Editor edit = b(this.c).edit();
+        edit.putString("vName", str);
+        edit.commit();
+        this.d.e = str;
+    }
+
+    public void a(String str, a aVar) {
+        this.e.put(str, aVar);
+        String a2 = a.a(aVar);
+        b(this.c).edit().putString("hybrid_app_info_" + str, a2).commit();
+    }
+
+    public void a(String str, String str2, String str3) {
+        this.d.a(str, str2, str3);
+    }
+
+    public void a(boolean z) {
+        this.d.a(z);
+        b(this.c).edit().putBoolean("paused", z).commit();
+    }
+
+    public boolean a() {
+        return !TextUtils.equals(com.xiaomi.channel.commonutils.android.a.a(this.c, this.c.getPackageName()), this.d.e);
+    }
+
+    public boolean a(String str, String str2) {
+        return this.d.b(str, str2);
+    }
+
+    public a b(String str) {
+        if (this.e.containsKey(str)) {
+            return this.e.get(str);
+        }
+        String str2 = "hybrid_app_info_" + str;
+        SharedPreferences b2 = b(this.c);
+        if (b2.contains(str2)) {
+            a a2 = a.a(this.c, b2.getString(str2, ""));
+            this.e.put(str2, a2);
+            return a2;
         }
         return null;
     }
 
-    private Location h() {
-        Location location;
-        Location location2;
-        Location location3;
-        LocationManager locationManager = (LocationManager) this.g.getSystemService(Headers.LOCATION);
-        try {
-            location = locationManager.getLastKnownLocation("network");
-        } catch (Exception e) {
-            location = null;
-        }
-        try {
-            location2 = locationManager.getLastKnownLocation("gps");
-        } catch (Exception e2) {
-            location2 = null;
-        }
-        try {
-            location3 = locationManager.getLastKnownLocation("passive");
-        } catch (Exception e3) {
-            location3 = null;
-        }
-        return a(location3, a(location, location2));
+    public void b(String str, String str2, String str3) {
+        this.d.b(str, str2, str3);
     }
 
-    private void i() {
-        SharedPreferences.Editor edit = this.g.getSharedPreferences(MiPushClient.PREF_EXTRA, 0).edit();
-        edit.putLong("last_upload_lbs_data_timestamp", System.currentTimeMillis() / 1000);
-        edit.commit();
-    }
-
-    @Override // com.xiaomi.channel.commonutils.misc.f.a
-    public int a() {
-        return 14;
-    }
-
-    protected boolean b() {
-        PackageManager packageManager = this.g.getPackageManager();
-        String packageName = this.g.getPackageName();
-        return (packageManager.checkPermission("android.permission.ACCESS_COARSE_LOCATION", packageName) == 0) || (packageManager.checkPermission("android.permission.ACCESS_FINE_LOCATION", packageName) == 0);
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        if (!com.xiaomi.channel.commonutils.network.d.e(this.g)) {
-            com.xiaomi.channel.commonutils.logger.b.d("GeoFenceNetInfoUpdateJobNetwork.is not Connected");
-        } else if (!c()) {
-            com.xiaomi.channel.commonutils.logger.b.d("GeoFenceNetInfoUpdateJobverifyUploadData");
-        } else {
-            byte[] a = aq.a(d());
-            ae aeVar = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
-            aeVar.c(com.xiaomi.xmpush.thrift.o.GeoUpdateLoc.N);
-            aeVar.a(a);
-            u.a(this.g).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);
-            i();
-            com.xiaomi.channel.commonutils.logger.b.a("GeoFenceNetInfoUpdateJob: update_loc_data");
+    public boolean b() {
+        if (this.d.a()) {
+            return true;
         }
+        com.xiaomi.channel.commonutils.logger.b.a("Don't send message before initialization succeeded!");
+        return false;
+    }
+
+    public String c() {
+        return this.d.a;
+    }
+
+    public void c(String str) {
+        this.e.remove(str);
+        b(this.c).edit().remove("hybrid_app_info_" + str).commit();
+    }
+
+    public boolean c(String str, String str2, String str3) {
+        a b2 = b(str3);
+        return b2 != null && TextUtils.equals(str, b2.a) && TextUtils.equals(str2, b2.b);
+    }
+
+    public String d() {
+        return this.d.b;
+    }
+
+    public String e() {
+        return this.d.c;
+    }
+
+    public String f() {
+        return this.d.d;
+    }
+
+    public String g() {
+        return this.d.g;
+    }
+
+    public String h() {
+        return this.d.h;
+    }
+
+    public void i() {
+        this.d.b();
+    }
+
+    public boolean j() {
+        return this.d.a();
+    }
+
+    public void k() {
+        this.d.c();
+    }
+
+    public boolean l() {
+        return this.d.j;
+    }
+
+    public int m() {
+        return this.d.k;
+    }
+
+    public boolean n() {
+        return !this.d.i;
     }
 }

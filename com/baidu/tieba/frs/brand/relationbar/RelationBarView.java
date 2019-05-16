@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a ffK;
+    private a fvX;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -40,34 +40,34 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.frs_brand_relation_bar_layout, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
-        this.mRecyclerView = (RecyclerView) findViewById(d.g.frs_brand_bar_list);
-        this.ffK = new a(context);
-        this.mRecyclerView.setAdapter(this.ffK);
+        this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
+        this.fvX = new a(context);
+        this.mRecyclerView.setAdapter(this.fvX);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        int h = l.h(context, d.e.tbds44);
-        this.mRecyclerView.addItemDecoration(new c(h, l.h(context, d.e.tbds26), h));
+        int g = l.g(context, R.dimen.tbds44);
+        this.mRecyclerView.addItemDecoration(new c(g, l.g(context, R.dimen.tbds26), g));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (v.T(list)) {
+        if (v.aa(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.ffK.setData(list);
-        this.ffK.notifyDataSetChanged();
+        this.fvX.setData(list);
+        this.fvX.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.l(this, d.C0277d.cp_bg_line_e);
-            this.ffK.notifyDataSetChanged();
+            al.l(this, R.color.cp_bg_line_e);
+            this.fvX.notifyDataSetChanged();
         }
     }
 }

@@ -5,11 +5,15 @@ import com.baidu.searchbox.v8engine.V8Engine;
 public class b {
     private V8Engine mV8Engine;
 
-    public void aS(String str, String str2) {
+    public b(V8Engine v8Engine) {
+        this.mV8Engine = v8Engine;
+    }
+
+    public void aV(String str, String str2) {
         this.mV8Engine.requireJSFileForOpenData(str, str2);
     }
 
-    public void Od() {
+    public void QY() {
         this.mV8Engine.destroyOpenDataContext();
     }
 }

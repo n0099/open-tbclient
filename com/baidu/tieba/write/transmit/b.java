@@ -9,12 +9,12 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int hew = 3;
+    private static int hvO = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -41,18 +41,18 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar = null;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.layout_select_forum_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(R.layout.layout_select_forum_item, (ViewGroup) null);
             a aVar2 = new a(view);
-            view.setTag(d.g.key_select_forum_holder, aVar2);
+            view.setTag(R.id.key_select_forum_holder, aVar2);
             aVar = aVar2;
         } else {
-            Object tag = view.getTag(d.g.key_select_forum_holder);
+            Object tag = view.getTag(R.id.key_select_forum_holder);
             if (tag instanceof a) {
                 aVar = (a) tag;
             }
         }
         if (aVar != null) {
-            aVar.aeH();
+            aVar.ajG();
             aVar.a(this.mDataList.get(i));
         }
         return view;
@@ -60,45 +60,46 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     public static class a {
-        public TextView bTb;
-        public BarImageView hey;
-        public View jpP;
+        public TextView caT;
+        public BarImageView hvQ;
+        public View jIR;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
-                this.bTb = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.hey = (BarImageView) view.findViewById(d.g.forum_avatar);
-                this.jpP = view.findViewById(d.g.divider_line);
+                this.caT = (TextView) view.findViewById(R.id.transmit_forum_name);
+                this.hvQ = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.jIR = view.findViewById(R.id.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
-                this.bTb.setText(transmitForumData.forumName);
-                this.hey.startLoad(transmitForumData.avatar, 10, false);
+                this.caT.setText(transmitForumData.forumName);
+                this.hvQ.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
-        public void aeH() {
-            if (b.hew != this.mSkinType) {
-                al.j(this.bTb, d.C0277d.cp_cont_b);
-                al.l(this.jpP, d.C0277d.cp_bg_line_c);
+        public void ajG() {
+            if (b.hvO != this.mSkinType) {
+                al.j(this.caT, R.color.cp_cont_b);
+                al.l(this.jIR, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.hew;
+            this.mSkinType = b.hvO;
         }
     }
 
-    public void dg(List<TransmitForumData> list) {
+    /* renamed from: do  reason: not valid java name */
+    public void m24do(List<TransmitForumData> list) {
         this.mDataList.clear();
         this.mDataList.addAll(list);
         notifyDataSetChanged();
     }
 
     public void onChangeSkinType(int i) {
-        if (hew != i) {
+        if (hvO != i) {
             notifyDataSetChanged();
         }
-        hew = i;
+        hvO = i;
     }
 }

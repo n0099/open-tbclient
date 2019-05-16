@@ -7,10 +7,10 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BLauncher extends ImageView implements g {
-    private boolean cih;
+    private boolean cqo;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -19,7 +19,7 @@ public class BLauncher extends ImageView implements g {
     public BLauncher(Context context, int i, int i2) {
         super(context);
         this.mSkinType = 0;
-        this.cih = false;
+        this.cqo = false;
         setIcon(i);
         setToolId(i2);
     }
@@ -42,17 +42,17 @@ public class BLauncher extends ImageView implements g {
     }
 
     @Override // com.baidu.tbadk.editortools.g
-    public void qT() {
+    public void pO() {
         setVisibility(0);
     }
 
     @Override // com.baidu.tbadk.editortools.g
     public void hide() {
-        alO();
+        aqR();
         setVisibility(8);
     }
 
-    public void oF(String str) {
+    public void pN(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -67,23 +67,23 @@ public class BLauncher extends ImageView implements g {
                     ((ViewGroup) parent2).addView(this.mTip);
                 }
             }
-            al.c(this.mTip, d.C0277d.cp_cont_g, 1, this.mSkinType);
+            al.c(this.mTip, R.color.cp_cont_g, 1, this.mSkinType);
             this.mTip.setGravity(17);
             if (!str.equals(" ")) {
                 this.mTip.setTextSize(10.0f);
                 this.mTip.setText(str);
-                al.e(this.mTip, d.f.icon_news_head_prompt_one, this.mSkinType);
+                al.g(this.mTip, R.drawable.icon_news_head_prompt_one, this.mSkinType);
             } else {
                 this.mTip.setWidth(0);
                 this.mTip.setHeight(0);
                 this.mTip.setText("");
-                al.e(this.mTip, d.f.icon_news_down_bar_one, this.mSkinType);
+                al.g(this.mTip, R.drawable.icon_news_down_bar_one, this.mSkinType);
             }
             this.mTip.setVisibility(0);
         }
     }
 
-    public void alO() {
+    public void aqR() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
         }
@@ -98,9 +98,9 @@ public class BLauncher extends ImageView implements g {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                alO();
+                aqR();
             } else if (aVar.data instanceof String) {
-                oF((String) aVar.data);
+                pN((String) aVar.data);
             }
         }
     }
@@ -110,21 +110,21 @@ public class BLauncher extends ImageView implements g {
         this.mSkinType = i;
         al.b(this, this.mIcon, i);
         if (this.mTip != null) {
-            al.c(this.mTip, d.C0277d.cp_cont_g, 1, i);
+            al.c(this.mTip, R.color.cp_cont_g, 1, i);
             if (!TextUtils.isEmpty(this.mTip.getText()) && !TextUtils.isEmpty(this.mTip.getText().toString().trim())) {
-                al.e(this.mTip, d.f.icon_news_head_prompt_one, i);
+                al.g(this.mTip, R.drawable.icon_news_head_prompt_one, i);
             } else {
-                al.e(this.mTip, d.f.icon_news_down_bar_one, i);
+                al.g(this.mTip, R.drawable.icon_news_down_bar_one, i);
             }
         }
     }
 
     public boolean getIsOutSetVisibility() {
-        return this.cih;
+        return this.cqo;
     }
 
     public void setOutSetVisibilty(boolean z) {
-        this.cih = z;
+        this.cqo = z;
     }
 
     @Override // android.widget.ImageView, android.view.View

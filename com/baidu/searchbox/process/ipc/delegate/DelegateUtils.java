@@ -9,7 +9,6 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.agent.provider.MainProcessDelegateProvider;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -38,14 +37,8 @@ public final class DelegateUtils implements DelegateDef {
             }
             return new DelegateResult(call.getInt(DelegateDef.EXTRA_RESULT_CODE), cls, null, call.getBundle(DelegateDef.EXTRA_RESULT));
         } catch (IllegalArgumentException e) {
-            if (IPCLibConfig.DEBUG) {
-                e.printStackTrace();
-            }
             return new DelegateResult(1, cls, null, null);
         } catch (SecurityException e2) {
-            if (IPCLibConfig.DEBUG) {
-                e2.printStackTrace();
-            }
             return new DelegateResult(1, cls, null, null);
         }
     }

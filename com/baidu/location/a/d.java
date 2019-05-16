@@ -18,7 +18,6 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
@@ -45,7 +44,7 @@ public class d {
     private b r;
     private Address d = null;
     private a g = new a();
-    private C0045d o = null;
+    private C0044d o = null;
     private String s = null;
     c c = new c();
     private long t = 0;
@@ -171,11 +170,11 @@ public class d {
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0045d {
+    public class C0044d {
         public List<ScanResult> a;
         private long c;
 
-        public C0045d(List<ScanResult> list) {
+        public C0044d(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -197,7 +196,7 @@ public class d {
             }
             try {
                 String bssid = connectionInfo.getBSSID();
-                String replace = bssid != null ? bssid.replace(Config.TRACE_TODAY_VISIT_SPLIT, "") : null;
+                String replace = bssid != null ? bssid.replace(":", "") : null;
                 if (replace == null || replace.length() == 12) {
                     return new String(replace);
                 }
@@ -261,7 +260,7 @@ public class d {
                     } else {
                         stringBuffer.append("|");
                     }
-                    String replace = this.a.get(i6).BSSID.replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
+                    String replace = this.a.get(i6).BSSID.replace(":", "");
                     stringBuffer.append(replace);
                     if (c != null && replace.equals(c)) {
                         i5 = i4;
@@ -318,9 +317,9 @@ public class d {
             this.b = null;
         }
         if (this.b != null) {
-            this.p = "&prod=" + this.q.prodName + Config.TRACE_TODAY_VISIT_SPLIT + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.q.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.p = "&prod=" + this.q.prodName + Config.TRACE_TODAY_VISIT_SPLIT + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.q.prodName + ":" + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -360,7 +359,7 @@ public class d {
         }
         try {
             this.o = null;
-            this.o = new C0045d(this.n.getScanResults());
+            this.o = new C0044d(this.n.getScanResults());
             str2 = this.o.a(i2);
         } catch (Exception e) {
             str2 = null;

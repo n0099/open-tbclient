@@ -1,39 +1,107 @@
 package com.meizu.cloud.pushsdk.handler.a.b;
 
-import android.content.Context;
-import android.content.Intent;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.text.TextUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b extends com.meizu.cloud.pushsdk.handler.a.a<String> {
-    public b(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
-        super(context, aVar);
+public class b implements Parcelable {
+    public static final Parcelable.Creator<b> CREATOR = new Parcelable.Creator<b>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.b.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public b createFromParcel(Parcel parcel) {
+            return new b(parcel);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.Parcelable.Creator
+        /* renamed from: a */
+        public b[] newArray(int i) {
+            return new b[i];
+        }
+    };
+    private String a;
+    private a b;
+    private e c;
+
+    public b() {
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    /* renamed from: j */
-    public String c(Intent intent) {
-        return intent.getStringExtra(PushConstants.EXTRA_APP_PUSH_RESPONSE_NOTIFICATION_MESSAGE);
+    protected b(Parcel parcel) {
+        this.a = parcel.readString();
+        this.b = (a) parcel.readParcelable(a.class.getClassLoader());
+        this.c = (e) parcel.readParcelable(e.class.getClassLoader());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.meizu.cloud.pushsdk.handler.a.a
-    public void a(String str, com.meizu.cloud.pushsdk.notification.e eVar) {
-        if (b() != null && str != null) {
-            b().c(c(), str);
+    public b(String str, String str2, String str3) {
+        this.a = str;
+        if (TextUtils.isEmpty(str)) {
+            this.b = new a();
+            this.c = new e();
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject != null) {
+                this.b = a.a(jSONObject.getJSONObject("ctl"));
+                this.c = e.a(jSONObject.getJSONObject("statics"));
+                this.c.c(str2);
+                this.c.d(str3);
+            }
+        } catch (JSONException e) {
+            this.b = new a();
+            this.c = new e();
+            com.meizu.cloud.a.a.e("ControlMessage", "parse control message error " + e.getMessage());
         }
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public boolean a(Intent intent) {
-        com.meizu.cloud.a.a.i("AbstractMessageHandler", "start ReceiveNotifyMessageHandler match");
-        return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_RESPONSE_NOTIFICATION_MESSAGE.equals(i(intent));
+    public static b a(String str) {
+        b bVar = new b();
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject != null) {
+                bVar.a(a.a(jSONObject.getJSONObject("ctl")));
+                bVar.a(e.a(jSONObject.getJSONObject("statics")));
+            }
+        } catch (Exception e) {
+            com.meizu.cloud.a.a.e("ControlMessage", "parse control message error " + e.getMessage());
+            bVar.a(new e());
+            bVar.a(new a());
+        }
+        return bVar;
     }
 
-    @Override // com.meizu.cloud.pushsdk.handler.c
-    public int a() {
-        return 16384;
+    public a a() {
+        return this.b;
+    }
+
+    public void a(a aVar) {
+        this.b = aVar;
+    }
+
+    public void a(e eVar) {
+        this.c = eVar;
+    }
+
+    public e b() {
+        return this.c;
+    }
+
+    @Override // android.os.Parcelable
+    public int describeContents() {
+        return 0;
+    }
+
+    public String toString() {
+        return "ControlMessage{controlMessage='" + this.a + "', control=" + this.b + ", statics=" + this.c + '}';
+    }
+
+    @Override // android.os.Parcelable
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.a);
+        parcel.writeParcelable(this.b, i);
+        parcel.writeParcelable(this.c, i);
     }
 }

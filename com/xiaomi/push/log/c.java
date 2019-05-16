@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.Date;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class c extends b.C0464b {
+public class c extends b.C0484b {
     File a;
     final /* synthetic */ int b;
     final /* synthetic */ Date c;
@@ -28,9 +28,9 @@ public class c extends b.C0464b {
         this.g = z;
     }
 
-    @Override // com.xiaomi.push.log.b.C0464b, com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.push.log.b.C0484b, com.xiaomi.channel.commonutils.misc.k.b
     public void b() {
-        if (com.xiaomi.channel.commonutils.file.c.d()) {
+        if (com.xiaomi.channel.commonutils.file.d.d()) {
             try {
                 File file = new File(this.h.b.getExternalFilesDir(null) + "/.logcache");
                 file.mkdirs();
@@ -44,7 +44,7 @@ public class c extends b.C0464b {
         }
     }
 
-    @Override // com.xiaomi.channel.commonutils.misc.h.b
+    @Override // com.xiaomi.channel.commonutils.misc.k.b
     public void c() {
         if (this.a != null && this.a.exists()) {
             this.h.a.add(new b.c(this.e, this.f, this.a, this.g));

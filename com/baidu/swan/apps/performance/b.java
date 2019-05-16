@@ -3,7 +3,7 @@ package com.baidu.swan.apps.performance;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.j;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import java.util.ArrayList;
@@ -13,50 +13,50 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final Map<String, Bundle> aDQ = new HashMap();
-    private final c aDR = new c();
+    private final Map<String, Bundle> aFI = new HashMap();
+    private final c aFJ = new c();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.performance.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0150b {
-        private static b aEd = new b();
+    public static class C0155b {
+        private static b aFV = new b();
     }
 
-    public static b FH() {
-        return C0150b.aEd;
+    public static b HP() {
+        return C0155b.aFV;
     }
 
-    public Bundle fE(String str) {
-        Bundle fG = FI().fG(str);
-        if (fG == null) {
-            fG = new Bundle();
+    public Bundle fT(String str) {
+        Bundle fV = HQ().fV(str);
+        if (fV == null) {
+            fV = new Bundle();
         }
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + fG.size());
+            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + fV.size());
         }
-        return fG;
+        return fV;
     }
 
     public void a(final String str, final SwanAppProcessInfo swanAppProcessInfo) {
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aDR.size());
+            Log.i("UbcBundleHeloer", "xpass -> sendToProcess: mActionCache.size=" + this.aFJ.size());
         }
         j.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bundle fE = b.this.fE(str);
+                final Bundle fT = b.this.fT(str);
                 if (b.DEBUG) {
-                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fE.size());
+                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fT.size());
                 }
                 if (!TextUtils.isEmpty(str) && swanAppProcessInfo.isSwanAppProcess()) {
-                    aa.b(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1.1
+                    ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (b.DEBUG) {
                                 Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: action");
                             }
-                            com.baidu.swan.apps.process.messaging.service.b.GI().a(swanAppProcessInfo, 109, fE);
+                            com.baidu.swan.apps.process.messaging.service.b.IY().a(swanAppProcessInfo, 109, fT);
                         }
                     }, 2500L);
                 }
@@ -64,18 +64,19 @@ public final class b {
         }, getClass().getSimpleName());
     }
 
-    public b ar(String str, String str2) {
-        return b(str, str2, System.currentTimeMillis());
+    public b as(String str, String str2) {
+        return c(str, str2, System.currentTimeMillis());
     }
 
-    public b b(String str, String str2, long j) {
-        return c(str, str2, j);
+    public b c(String str, String str2, long j) {
+        return d(str, str2, j);
     }
 
     public b q(String str, final String str2, final String str3) {
+        b(str, str2, str3);
         return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: o */
             public void D(Bundle bundle) {
                 bundle.putString(str2, str3);
@@ -84,9 +85,10 @@ public final class b {
     }
 
     public b f(String str, final String str2, final boolean z) {
+        b(str, str2, Boolean.valueOf(z));
         return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: o */
             public void D(Bundle bundle) {
                 bundle.putBoolean(str2, z);
@@ -94,10 +96,11 @@ public final class b {
         });
     }
 
-    public b e(String str, final String str2, final int i) {
+    public b d(String str, final String str2, final int i) {
+        b(str, str2, Integer.valueOf(i));
         return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: o */
             public void D(Bundle bundle) {
                 bundle.putInt(str2, i);
@@ -105,10 +108,11 @@ public final class b {
         });
     }
 
-    public b c(String str, final String str2, final long j) {
+    public b d(String str, final String str2, final long j) {
+        b(str, str2, Long.valueOf(j));
         return a(new a(str) { // from class: com.baidu.swan.apps.performance.b.5
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.swan.apps.an.c.a
+            @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: o */
             public void D(Bundle bundle) {
                 bundle.putLong(str2, j);
@@ -116,59 +120,63 @@ public final class b {
         });
     }
 
+    private void b(String str, String str2, Object obj) {
+        com.baidu.swan.apps.v.c.a.eS(str).eT(String.format("%s: %s", str2, obj)).eW("[CheckPoint]");
+    }
+
     private b a(a aVar) {
-        this.aDR.f(aVar);
+        this.aFJ.f(aVar);
         return this;
     }
 
-    public synchronized Bundle fF(String str) {
+    public synchronized Bundle fU(String str) {
         Bundle bundle;
-        synchronized (this.aDQ) {
+        synchronized (this.aFI) {
             bundle = getBundle(str);
             if (bundle == null) {
                 bundle = new Bundle();
-                this.aDQ.put(str, bundle);
+                this.aFI.put(str, bundle);
             }
         }
         return bundle;
     }
 
-    public b FI() {
-        this.aDR.FN();
+    public b HQ() {
+        this.aFJ.HV();
         return this;
     }
 
-    public Bundle fG(String str) {
+    public Bundle fV(String str) {
         Bundle remove;
-        synchronized (this.aDQ) {
-            remove = this.aDQ.remove(str);
+        synchronized (this.aFI) {
+            remove = this.aFI.remove(str);
         }
         return remove;
     }
 
     public Bundle getBundle(String str) {
         Bundle bundle;
-        synchronized (this.aDQ) {
-            bundle = this.aDQ.get(str);
+        synchronized (this.aFI) {
+            bundle = this.aFI.get(str);
         }
         return bundle;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
-    public abstract class a implements com.baidu.swan.apps.an.c.a<Bundle>, Runnable {
-        final String aEb;
-        final List<Object<Bundle, Boolean>> aEc = new ArrayList();
+    public abstract class a implements com.baidu.swan.apps.an.d.a<Bundle>, Runnable {
+        final String aFT;
+        final List<Object<Bundle, Boolean>> aFU = new ArrayList();
 
         public a(String str) {
-            this.aEb = str;
+            this.aFT = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(this.aEb)) {
-                synchronized (b.this.aDQ) {
-                    D(b.this.fF(this.aEb));
+            if (!TextUtils.isEmpty(this.aFT)) {
+                synchronized (b.this.aFI) {
+                    D(b.this.fU(this.aFT));
                 }
             }
         }

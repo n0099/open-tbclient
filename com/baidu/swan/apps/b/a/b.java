@@ -1,122 +1,135 @@
 package com.baidu.swan.apps.b.a;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import com.baidu.swan.apps.b.b.p;
-import com.baidu.swan.apps.setting.a.g;
-import okhttp3.OkHttpClient;
+import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class b implements com.baidu.swan.apps.b.b.d {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static c ajO;
-
-    /* loaded from: classes2.dex */
-    public interface c {
-        com.baidu.swan.apps.b.b.b uV();
+public class b implements com.baidu.swan.apps.b.b.c {
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vC() {
+        return true;
     }
 
-    public static void a(c cVar) {
-        ajO = cVar;
+    @Override // com.baidu.swan.apps.b.b.c
+    public int vD() {
+        return 10;
     }
 
-    @Override // com.baidu.swan.apps.b.b.d
-    public p a(@NonNull com.baidu.swan.apps.core.i.c cVar) {
-        return new C0116b();
+    @Override // com.baidu.swan.apps.b.b.c
+    public int vE() {
+        return 6;
     }
 
-    @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b uS() {
-        return ajO != null ? ajO.uV() : new a();
+    @Override // com.baidu.swan.apps.b.b.c
+    public int vF() {
+        return 3000;
     }
 
-    @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a uT() {
-        return new com.baidu.swan.apps.b.a.a();
+    @Override // com.baidu.swan.apps.b.b.c
+    public int vG() {
+        return 3000;
     }
 
-    @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient uU() {
-        return new OkHttpClient.Builder().build();
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vH() {
+        return false;
     }
 
-    /* renamed from: com.baidu.swan.apps.b.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    private class C0116b implements p {
-        private C0116b() {
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.core.f.a i(Context context, int i) {
-            return new com.baidu.swan.apps.core.f.b().j(context, i);
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.c bn(Context context) {
-            return new com.baidu.swan.apps.core.h.c(context);
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.a bo(Context context) {
-            return new com.baidu.swan.apps.core.b.d(context);
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.a bp(Context context) {
-            return new com.baidu.swan.games.c.f(context);
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.f bq(Context context) {
-            return new com.baidu.swan.apps.view.c(context);
-        }
-
-        @Override // com.baidu.swan.apps.b.b.p
-        public com.baidu.swan.apps.b.c.f br(Context context) {
-            return new com.baidu.swan.apps.d.c(context);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vI() {
+        return false;
     }
 
-    /* loaded from: classes2.dex */
-    private static class a implements com.baidu.swan.apps.b.b.b {
-        private a() {
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean i(String str, boolean z) {
+        return z;
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.a a(Activity activity, boolean z, String str) {
-            return new com.baidu.swan.apps.setting.oauth.a.a(activity, z, str);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public int s(String str, int i) {
+        return i;
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.b a(Activity activity, boolean z, String str, boolean z2) {
-            return new com.baidu.swan.apps.setting.oauth.a.b(activity, z, str, z2);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public String Q(String str, String str2) {
+        return str2;
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.e a(Activity activity, g.a aVar, Bundle bundle) {
-            return new com.baidu.swan.apps.setting.oauth.a.e(activity, aVar, bundle);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public JSONObject vJ() {
+        return new JSONObject();
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.c c(Activity activity, String str) {
-            return new com.baidu.swan.apps.setting.oauth.a.c(activity, str);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vK() {
+        return false;
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d u(Activity activity) {
-            return new com.baidu.swan.apps.setting.oauth.a.d(activity);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vL() {
+        return false;
+    }
 
-        @Override // com.baidu.swan.apps.b.b.b
-        @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.f b(Activity activity, String str, String str2) {
-            return new com.baidu.swan.apps.setting.oauth.a.f(activity, str, str2);
-        }
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vM() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public String vN() {
+        return "";
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vO() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vP() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vQ() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vR() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vS() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vT() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vU() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vV() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vW() {
+        return true;
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public String vX() {
+        return "https://2019.baidu.com/activity/shake2019/index.html?idfrom=aiappfb";
+    }
+
+    @Override // com.baidu.swan.apps.b.b.c
+    public boolean vY() {
+        return false;
     }
 }

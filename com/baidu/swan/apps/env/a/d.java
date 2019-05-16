@@ -9,7 +9,7 @@ import java.util.Set;
 public class d implements a {
     @Override // com.baidu.swan.apps.env.a.a
     @Nullable
-    public List<String> s(@Nullable List<String> list) {
+    public List<String> t(@Nullable List<String> list) {
         if (list == null || list.size() == 0) {
             return null;
         }

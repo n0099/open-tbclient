@@ -9,7 +9,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub.b.a, a> {
     public c(Context context, BdUniqueId bdUniqueId) {
@@ -21,7 +21,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bE */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        return new a(LayoutInflater.from(this.mContext).inflate(d.h.sub_pb_no_reply_layout, viewGroup, false));
+        return new a(LayoutInflater.from(this.mContext).inflate(R.layout.sub_pb_no_reply_layout, viewGroup, false));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -36,18 +36,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private TextView hDo;
+        private TextView hVo;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.hDo = (TextView) view.findViewById(d.g.no_reply_list_view);
+            this.hVo = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                al.j(this.hDo, d.C0277d.cp_cont_d);
+                al.j(this.hVo, R.color.cp_cont_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

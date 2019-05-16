@@ -4,55 +4,55 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private List<d> cLe = new ArrayList();
-    private long cLf = 0;
+    private List<d> cTp = new ArrayList();
+    private long cTq = 0;
 
-    public List<d> avt() {
-        return this.cLe;
+    public List<d> aAz() {
+        return this.cTp;
     }
 
-    public long avu() {
-        return this.cLf;
+    public long aAA() {
+        return this.cTq;
     }
 
     public void a(d dVar) {
-        if (this.cLe != null) {
-            this.cLe.add(dVar);
+        if (this.cTp != null) {
+            this.cTp.add(dVar);
             if (dVar != null) {
-                this.cLf += dVar.avD();
+                this.cTq += dVar.aAJ();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.cLe != null) {
-            this.cLe.remove(dVar);
+        if (this.cTp != null) {
+            this.cTp.remove(dVar);
             if (dVar != null) {
-                this.cLf -= dVar.avD();
+                this.cTq -= dVar.aAJ();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.cLe != null) {
-            d dVar = this.cLe.get(i);
+        if (this.cTp != null) {
+            d dVar = this.cTp.get(i);
             if (dVar != null) {
-                this.cLf -= dVar.avD();
+                this.cTq -= dVar.aAJ();
             }
-            this.cLe.remove(i);
+            this.cTp.remove(i);
         }
     }
 
-    public int avv() {
-        if (this.cLe != null) {
-            return this.cLe.size();
+    public int aAB() {
+        if (this.cTp != null) {
+            return this.cTp.size();
         }
         return 0;
     }
 
-    public d ln(int i) {
-        if (this.cLe != null) {
-            return this.cLe.get(i);
+    public d mc(int i) {
+        if (this.cTp != null) {
+            return this.cTp.get(i);
         }
         return null;
     }

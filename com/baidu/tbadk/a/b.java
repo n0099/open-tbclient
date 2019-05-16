@@ -12,42 +12,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bsF;
+    private static b bzI;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> UC = UC();
+        HashMap<String, a> Zg = Zg();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(UC);
+        this.mSwitchs.putAll(Zg);
     }
 
-    public static b UA() {
-        if (bsF == null) {
+    public static b Ze() {
+        if (bzI == null) {
             synchronized (b.class) {
-                if (bsF == null) {
-                    bsF = new b();
+                if (bzI == null) {
+                    bzI = new b();
                 }
             }
         }
-        return bsF;
+        return bzI;
     }
 
-    private static String UB() {
+    private static String Zf() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(UB(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(Zf(), 0);
     }
 
-    public synchronized a kl(String str) {
+    public synchronized a lo(String str) {
         return this.mSwitchs.get(str);
     }
 
-    private String bq(String str, String str2) {
-        a kl = kl(str);
-        if (kl != null && !TextUtils.isEmpty(kl.bsE)) {
-            return kl.bsE;
+    private String by(String str, String str2) {
+        a lo = lo(str);
+        if (lo != null && !TextUtils.isEmpty(lo.bzH)) {
+            return lo.bzH;
         }
         return str2;
     }
@@ -69,7 +69,7 @@ public class b {
         }
     }
 
-    public void v(JSONArray jSONArray) {
+    public void u(JSONArray jSONArray) {
         try {
             if (jSONArray == null) {
                 clearAll();
@@ -93,7 +93,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> UC() {
+    private HashMap<String, a> Zg() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean km(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(UA().bq(str, ""));
+    public static boolean lp(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(Ze().by(str, ""));
     }
 }

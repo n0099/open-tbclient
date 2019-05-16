@@ -1,9 +1,9 @@
 package com.xiaomi.stats;
 
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ak;
+import com.xiaomi.push.service.as;
 import com.xiaomi.stats.d;
-import com.xiaomi.xmpush.thrift.aq;
+import com.xiaomi.xmpush.thrift.at;
 import java.util.Hashtable;
 /* loaded from: classes3.dex */
 public class h {
@@ -66,7 +66,7 @@ public class h {
         }
     }
 
-    public static void a(XMPushService xMPushService, ak.b bVar) {
+    public static void a(XMPushService xMPushService, as.b bVar) {
         new com.xiaomi.stats.a(xMPushService, bVar).a();
     }
 
@@ -120,7 +120,7 @@ public class h {
     public static byte[] c() {
         com.xiaomi.push.thrift.c e = f.a().e();
         if (e != null) {
-            return aq.a(e);
+            return at.a(e);
         }
         return null;
     }

@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.mobstat.Config;
 import com.baidu.tieba.recapp.h;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,24 +15,24 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern bLD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a cNl = new a();
+    private static final Pattern bTp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a cVw = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> bLB = new ConcurrentHashMap<>();
-    private h.c cNm = null;
+    private final ConcurrentHashMap<String, h.b> bTn = new ConcurrentHashMap<>();
+    private h.c cVx = null;
 
     private a() {
     }
 
-    public static a awB() {
-        return cNl;
+    public static a aBH() {
+        return cVw;
     }
 
     public void a(final h.a aVar) {
-        if (l.ln()) {
+        if (l.kh()) {
             b(aVar);
         } else {
-            e.jH().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
+            e.iB().post(new Runnable() { // from class: com.baidu.tieba.ad.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     a.this.b(aVar);
@@ -50,21 +49,21 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.cNm = cVar;
+        this.cVx = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
         return a(context, "", strArr, z, dVar, z2);
     }
 
-    public int c(Context context, String[] strArr) {
-        int e;
+    public int b(Context context, String[] strArr) {
+        int d;
         if (strArr == null || strArr.length == 0) {
             return 3;
         }
         for (h.a aVar : this.mListeners) {
-            if (aVar != null && (e = aVar.e(context, strArr)) != 3) {
-                return e;
+            if (aVar != null && (d = aVar.d(context, strArr)) != 3) {
+                return d;
             }
         }
         return 3;
@@ -77,9 +76,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.bLB.get(mS(str2));
+        h.b bVar = this.bTn.get(oa(str2));
         if (bVar != null) {
-            bVar.k(context, mR(qP(str2)));
+            bVar.k(context, nZ(rY(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -89,12 +88,12 @@ public final class a implements h {
                 break;
             }
             h.a next = it.next();
-            if (next != null && next.e(context, strArr) != 3) {
+            if (next != null && next.d(context, strArr) != 3) {
                 z3 = true;
                 break;
             }
         }
-        if (!z3 && this.cNm != null) {
+        if (!z3 && this.cVx != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -105,15 +104,15 @@ public final class a implements h {
         return z4;
     }
 
-    private String qP(String str) {
+    private String rY(String str) {
         int lastIndexOf;
-        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 0) {
+        if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
         }
         return null;
     }
 
-    private Map<String, String> mR(String str) {
+    private Map<String, String> nZ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -132,18 +131,18 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String mS(String str) {
+    private String oa(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
-            return str.substring(0, str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT));
+        if (str.contains(":")) {
+            return str.substring(0, str.lastIndexOf(":"));
         }
         return str;
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean d(Context context, String[] strArr) {
+    public boolean c(Context context, String[] strArr) {
         return a(context, strArr, false, null, false);
     }
 
@@ -153,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (bLD.matcher(str2).find()) {
-            this.cNm.b(context, str, str2, z, dVar, z2);
+        if (bTp.matcher(str2).find()) {
+            this.cVx.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean qQ(String str) {
-        return bLD.matcher(str).find();
+    public boolean rZ(String str) {
+        return bTp.matcher(str).find();
     }
 }

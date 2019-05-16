@@ -42,15 +42,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i = 3;
                             }
                         }
-                        TiebaStatic.log(new am("c11703").T("obj_type", 2).bJ("task_id", str).bJ("obj_to", str2).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                        TiebaStatic.log(new am("c11703").P("obj_type", 2).bT("task_id", str).bT("obj_to", str2).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                         if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list"))) {
-                            ba.adA().c(getPageContext(), new String[]{str2});
+                            ba.aiz().c(getPageContext(), new String[]{str2});
                         }
                     }
                     i = 0;
-                    TiebaStatic.log(new am("c11703").T("obj_type", 2).bJ("task_id", str).bJ("obj_to", str2).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                    TiebaStatic.log(new am("c11703").P("obj_type", 2).bT("task_id", str).bT("obj_to", str2).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                     if (!TextUtils.isEmpty(str2)) {
-                        ba.adA().c(getPageContext(), new String[]{str2});
+                        ba.aiz().c(getPageContext(), new String[]{str2});
                     }
                 }
             }

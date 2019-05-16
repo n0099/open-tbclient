@@ -11,8 +11,8 @@ public abstract class l implements Iterator<Byte> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
-    /* renamed from: cCi */
     public final Byte next() {
         return Byte.valueOf(nextByte());
     }

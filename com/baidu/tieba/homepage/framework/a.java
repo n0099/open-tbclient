@@ -3,30 +3,54 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes4.dex */
 public class a {
-    private static a fIz = new a();
-    private long fIA = 0;
-    private SparseArray<Long> fIB = new SparseArray<>();
-    private SparseArray<Long> fIC = new SparseArray<>();
-    private SparseArray<Long> fID = new SparseArray<>();
-    private SparseArray<Long> fIE = new SparseArray<>();
+    private static a fZu = new a();
+    private long fZv = 0;
+    private SparseArray<Long> fZw = new SparseArray<>();
+    private SparseArray<Long> fZx = new SparseArray<>();
+    private SparseArray<Long> fZy = new SparseArray<>();
+    private SparseArray<Long> fZz = new SparseArray<>();
 
     private a() {
     }
 
-    public static a blN() {
-        return fIz;
+    public static a btj() {
+        return fZu;
     }
 
     public long getCreateTime() {
-        return this.fIA;
+        return this.fZv;
     }
 
     public void setCreateTime(long j) {
-        this.fIA = j;
+        this.fZv = j;
     }
 
-    public long si(int i) {
-        Long l = this.fIC.get(i);
+    public long tp(int i) {
+        Long l = this.fZx.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void k(long j, int i) {
+        this.fZx.put(i, Long.valueOf(j));
+    }
+
+    public long tq(int i) {
+        Long l = this.fZw.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void l(long j, int i) {
+        this.fZw.put(i, Long.valueOf(j));
+    }
+
+    public long tr(int i) {
+        Long l = this.fZy.get(i);
         if (l == null) {
             return -1L;
         }
@@ -34,11 +58,11 @@ public class a {
     }
 
     public void m(long j, int i) {
-        this.fIC.put(i, Long.valueOf(j));
+        this.fZy.put(i, Long.valueOf(j));
     }
 
-    public long sj(int i) {
-        Long l = this.fIB.get(i);
+    public long ts(int i) {
+        Long l = this.fZz.get(i);
         if (l == null) {
             return -1L;
         }
@@ -46,30 +70,6 @@ public class a {
     }
 
     public void n(long j, int i) {
-        this.fIB.put(i, Long.valueOf(j));
-    }
-
-    public long sk(int i) {
-        Long l = this.fID.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void o(long j, int i) {
-        this.fID.put(i, Long.valueOf(j));
-    }
-
-    public long sl(int i) {
-        Long l = this.fIE.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void p(long j, int i) {
-        this.fIE.put(i, Long.valueOf(j));
+        this.fZz.put(i, Long.valueOf(j));
     }
 }

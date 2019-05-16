@@ -3,7 +3,6 @@ package com.faceunity.gles;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
-import com.baidu.mobstat.Config;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -50,7 +49,7 @@ public class d {
         int[] iArr = new int[1];
         GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
         if (iArr[0] == 0) {
-            Log.e("Grafika", "Could not compile shader " + i + Config.TRACE_TODAY_VISIT_SPLIT);
+            Log.e("Grafika", "Could not compile shader " + i + ":");
             Log.e("Grafika", " " + GLES20.glGetShaderInfoLog(glCreateShader));
             GLES20.glDeleteShader(glCreateShader);
             return 0;

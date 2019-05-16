@@ -7,11 +7,13 @@ import com.baidu.swan.apps.b.c.d;
 public interface a<T extends d> extends e<T> {
     void L(View view);
 
-    void W(String str, String str2);
+    void R(String str, String str2);
 
-    void aM(boolean z);
+    void aO(boolean z);
 
     void e(ViewGroup viewGroup);
 
-    void vT();
+    void wJ();
+
+    void wK();
 }

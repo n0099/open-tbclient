@@ -1,20 +1,22 @@
 package com.baidu.swan.c;
 
+import android.text.TextUtils;
 import android.util.Xml;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private static final boolean DEBUG = a.DEBUG;
-
-    public static String m(InputStream inputStream) {
-        return b(inputStream, Xml.Encoding.UTF_8.toString());
+    public static String k(InputStream inputStream) {
+        return c(inputStream, Xml.Encoding.UTF_8.toString());
     }
 
-    public static String b(InputStream inputStream, String str) {
+    public static String c(InputStream inputStream, String str) {
         if (inputStream == null) {
             return null;
         }
@@ -29,9 +31,9 @@ public class e {
                     }
                     sb.append(readLine);
                 }
-                b.c(inputStream);
+                a.c(inputStream);
             } finally {
-                b.c(inputStream);
+                a.c(inputStream);
             }
         } catch (Exception | OutOfMemoryError e) {
             e.printStackTrace();
@@ -39,7 +41,7 @@ public class e {
         return sb.toString();
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [165=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [167=4] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0051 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r2v0, types: [boolean] */
@@ -67,8 +69,8 @@ public class e {
                         int read = inputStream.read(bArr);
                         if (read == -1) {
                             fileOutputStream.flush();
-                            b.c(fileOutputStream);
-                            b.c(inputStream);
+                            a.c(fileOutputStream);
+                            a.c(inputStream);
                             return true;
                         }
                         fileOutputStream.write(bArr, 0, read);
@@ -76,14 +78,14 @@ public class e {
                 } catch (Exception e) {
                     e = e;
                     e.printStackTrace();
-                    b.c(fileOutputStream);
-                    b.c(inputStream);
+                    a.c(fileOutputStream);
+                    a.c(inputStream);
                     return false;
                 }
             } catch (Throwable th) {
                 th = th;
-                b.c(exists);
-                b.c(inputStream);
+                a.c(exists);
+                a.c(inputStream);
                 throw th;
             }
         } catch (Exception e2) {
@@ -92,9 +94,64 @@ public class e {
         } catch (Throwable th2) {
             th = th2;
             exists = 0;
-            b.c(exists);
-            b.c(inputStream);
+            a.c(exists);
+            a.c(inputStream);
             throw th;
+        }
+    }
+
+    public static boolean d(InputStream inputStream, String str) {
+        if (inputStream == null || TextUtils.isEmpty(str)) {
+            return false;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        byte[] bArr = new byte[8192];
+        ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+        while (true) {
+            try {
+                ZipEntry nextEntry = zipInputStream.getNextEntry();
+                if (nextEntry != null) {
+                    String str2 = str + "/" + nextEntry.getName();
+                    if (nextEntry.isDirectory()) {
+                        File file2 = new File(str2);
+                        if (!file2.exists()) {
+                            file2.mkdirs();
+                        }
+                    } else {
+                        File parentFile = new File(str2).getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        if (!parentFile.isDirectory()) {
+                            parentFile.delete();
+                            parentFile.mkdirs();
+                        }
+                        FileOutputStream fileOutputStream = new FileOutputStream(str2);
+                        while (true) {
+                            try {
+                                int read = zipInputStream.read(bArr);
+                                if (read == -1) {
+                                    break;
+                                }
+                                fileOutputStream.write(bArr, 0, read);
+                            } catch (Throwable th) {
+                                a.c(fileOutputStream);
+                                throw th;
+                            }
+                        }
+                        a.c(fileOutputStream);
+                    }
+                } else {
+                    return true;
+                }
+            } catch (IOException e) {
+                return false;
+            } finally {
+                a.c(zipInputStream);
+            }
         }
     }
 }

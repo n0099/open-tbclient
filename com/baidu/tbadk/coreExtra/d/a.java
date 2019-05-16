@@ -3,17 +3,17 @@ package com.baidu.tbadk.coreExtra.d;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
     public static com.baidu.tbadk.core.dialog.a a(TbPageContext<?> tbPageContext, a.b bVar, a.b bVar2, String str) {
         if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
             return null;
         }
-        String format = String.format(TbadkCoreApplication.getInst().getContext().getString(d.j.url_notify), str);
-        String string = TbadkCoreApplication.getInst().getContext().getString(d.j.confirm_title);
-        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).ly(string).lz(format).a(TbadkCoreApplication.getInst().getContext().getString(d.j.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(d.j.cancel), bVar2).b(tbPageContext);
-        b.aaW();
+        String format = String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str);
+        String string = TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title);
+        com.baidu.tbadk.core.dialog.a b = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity()).mD(string).mE(format).a(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), bVar).b(TbadkCoreApplication.getInst().getContext().getString(R.string.cancel), bVar2).b(tbPageContext);
+        b.afG();
         return b;
     }
 
@@ -30,8 +30,8 @@ public class a {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContext.getPageActivity());
-        aVar.ly(str);
-        aVar.lz(str2);
+        aVar.mD(str);
+        aVar.mE(str2);
         aVar.a(str3, bVar);
         aVar.b(str4, bVar2);
         aVar.b(tbPageContext);

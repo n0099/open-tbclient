@@ -17,44 +17,44 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static e eAC = new e();
-    private static BdAsyncTaskParallel eAF = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eAD = new ArrayList<>();
-    private final List<com.baidu.tbadk.editortools.emotiontool.a> eAE = new ArrayList();
+    private static e eQf = new e();
+    private static BdAsyncTaskParallel eQi = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eQg = new ArrayList<>();
+    private final List<com.baidu.tbadk.editortools.emotiontool.a> eQh = new ArrayList();
 
-    public static e aVK() {
-        return eAC;
+    public static e bcS() {
+        return eQf;
     }
 
     private e() {
     }
 
     public void b(com.baidu.tbadk.editortools.emotiontool.a aVar) {
-        synchronized (this.eAE) {
-            if (!this.eAE.contains(aVar)) {
-                this.eAE.add(aVar);
-                Collections.sort(this.eAE);
+        synchronized (this.eQh) {
+            if (!this.eQh.contains(aVar)) {
+                this.eQh.add(aVar);
+                Collections.sort(this.eQh);
             }
         }
     }
 
-    public void aVL() {
+    public void bcT() {
         new a().execute(new Void[0]);
     }
 
     /* loaded from: classes2.dex */
     protected class a extends BdAsyncTask<Void, Void, Void> {
-        final ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eAG = new ArrayList<>();
-        final a.InterfaceC0236a eAH = new a.InterfaceC0236a() { // from class: com.baidu.tieba.emotion.editortool.e.a.1
-            @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0236a
+        final ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eQj = new ArrayList<>();
+        final a.InterfaceC0251a eQk = new a.InterfaceC0251a() { // from class: com.baidu.tieba.emotion.editortool.e.a.1
+            @Override // com.baidu.tbadk.editortools.emotiontool.a.InterfaceC0251a
             public void a(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-                a.this.eAG.add(cVar);
+                a.this.eQj.add(cVar);
             }
         };
 
         public a() {
             setPriority(4);
-            setParallel(e.eAF);
+            setParallel(e.eQi);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -64,8 +64,8 @@ public class e {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < e.this.eAE.size()) {
-                    ((com.baidu.tbadk.editortools.emotiontool.a) e.this.eAE.get(i2)).a(this.eAH);
+                if (i2 < e.this.eQh.size()) {
+                    ((com.baidu.tbadk.editortools.emotiontool.a) e.this.eQh.get(i2)).a(this.eQk);
                     i = i2 + 1;
                 } else {
                     return null;
@@ -78,40 +78,40 @@ public class e {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r4) {
             super.onPostExecute((a) r4);
-            e.this.eAD = this.eAG;
+            e.this.eQg = this.eQj;
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001117));
         }
     }
 
-    public boolean oK(String str) {
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eAD.iterator();
+    public boolean pS(String str) {
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eQg.iterator();
         while (it.hasNext()) {
-            if (it.next().oK(str)) {
+            if (it.next().pS(str)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean tU(String str) {
-        if (str == null || !oK(str)) {
+    public boolean vo(String str) {
+        if (str == null || !pS(str)) {
             return false;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eAD.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eQg.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (next.oK(str)) {
-                return next.amf() == EmotionGroupType.LOCAL;
+            if (next.pS(str)) {
+                return next.ari() == EmotionGroupType.LOCAL;
             }
         }
         return false;
     }
 
-    public boolean tV(String str) {
-        return com.baidu.tbadk.imageManager.d.cmI.equals(str) || str.startsWith(com.baidu.tbadk.imageManager.d.cmJ);
+    public boolean vp(String str) {
+        return com.baidu.tbadk.imageManager.d.cuQ.equals(str) || str.startsWith(com.baidu.tbadk.imageManager.d.cuR);
     }
 
-    public String tW(String str) {
+    public String vq(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
@@ -122,8 +122,8 @@ public class e {
         return "";
     }
 
-    public boolean tX(String str) {
-        if (!com.baidu.tbadk.imageManager.d.cmI.equals(str) && str.startsWith("#(meme,")) {
+    public boolean vr(String str) {
+        if (!com.baidu.tbadk.imageManager.d.cuQ.equals(str) && str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
             return substring.contains("_") && !substring.contains("collect_");
@@ -131,18 +131,18 @@ public class e {
         return false;
     }
 
-    public String ad(String str, boolean z) {
+    public String af(String str, boolean z) {
         String substring;
         if (str == null) {
             return null;
         }
         if (str.startsWith("#(meme,")) {
-            if (str.equals(com.baidu.tbadk.imageManager.d.cmI)) {
+            if (str.equals(com.baidu.tbadk.imageManager.d.cuQ)) {
                 return null;
             }
             String replace = str.replace("#(meme,", "");
             if (replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP)).contains("collect_")) {
-                String str2 = m.FK + "/" + TbConfig.getTempDirName() + "/.collect/" + com.baidu.tbadk.imageManager.d.anr() + "/" + substring.replace("collect_", "");
+                String str2 = m.Du + "/" + TbConfig.getTempDirName() + "/.collect/" + com.baidu.tbadk.imageManager.d.asu() + "/" + substring.replace("collect_", "");
                 if (z) {
                     return str2 + "_b.gif";
                 }
@@ -165,38 +165,38 @@ public class e {
         return (z ? "d_" : "s_") + hashCode2;
     }
 
-    public com.baidu.adp.widget.ImageView.a cA(String str, String str2) {
+    public com.baidu.adp.widget.ImageView.a cM(String str, String str2) {
         com.baidu.adp.widget.ImageView.a aVar;
-        Bitmap cB;
-        com.baidu.adp.widget.ImageView.a pj = com.baidu.tbadk.imageManager.c.anm().pj(str2);
-        if (pj != null) {
-            return pj;
+        Bitmap cN;
+        com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(str2);
+        if (qr != null) {
+            return qr;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eAD.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eQg.iterator();
         while (true) {
             if (!it.hasNext()) {
-                aVar = pj;
+                aVar = qr;
                 break;
             }
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (next.oK(str2)) {
-                aVar = next.oL(str2);
+            if (next.pS(str2)) {
+                aVar = next.pT(str2);
                 break;
             }
         }
-        if (aVar == null && str != null && (cB = cB(str, ad(str2, false))) != null) {
-            aVar = new com.baidu.adp.widget.ImageView.a(cB, false, str2);
+        if (aVar == null && str != null && (cN = cN(str, af(str2, false))) != null) {
+            aVar = new com.baidu.adp.widget.ImageView.a(cN, false, str2);
         }
         c(str2, aVar, false);
         return aVar;
     }
 
-    public String ac(String str, boolean z) {
-        if (!d.aVJ().isEmpty()) {
-            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.aVJ().getGroups();
+    public String ae(String str, boolean z) {
+        if (!d.bcR().isEmpty()) {
+            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.bcR().getGroups();
             if (z) {
                 for (com.baidu.tbadk.editortools.emotiontool.c cVar : groups) {
-                    if (cVar.oK(str)) {
+                    if (cVar.pS(str)) {
                         return str;
                     }
                 }
@@ -210,18 +210,18 @@ public class e {
     public void c(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.c.anm().b(ac(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.c.asp().b(ae(str, z), aVar, true);
                 return;
             }
-            com.baidu.tbadk.imageManager.c.anm().b(str, aVar, false);
+            com.baidu.tbadk.imageManager.c.asp().b(str, aVar, false);
         }
     }
 
-    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aVM() {
-        return this.eAD;
+    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> bcU() {
+        return this.eQg;
     }
 
-    public Bitmap cB(String str, String str2) {
-        return m.bF(".emotions/" + str, str2);
+    public Bitmap cN(String str, String str2) {
+        return m.bP(".emotions/" + str, str2);
     }
 }

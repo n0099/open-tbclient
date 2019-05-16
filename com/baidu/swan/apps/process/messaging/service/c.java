@@ -14,12 +14,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
-    public static String aFr;
+    public static String aHk;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static boolean aFs = false;
-    public static boolean aFt = true;
+    private static boolean aHl = false;
+    public static boolean aHm = true;
 
-    public static void c(Context context, Bundle bundle) {
+    public static void b(Context context, Bundle bundle) {
         Intent intent = new Intent(context, SwanAppMessengerService.class);
         intent.setAction("com.baidu.searchbox.action.SWAN_APP_MSG_SERVICE_PRELOAD_NEXT");
         if (bundle != null) {
@@ -35,33 +35,33 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void d(Context context, Bundle bundle) {
-        com.baidu.swan.apps.b.b.c Cz = com.baidu.swan.apps.u.a.Cz();
-        if (Cz == null || Cz.j("swan_preload_keep_alive", true)) {
-            e(context, bundle);
+    public static void c(Context context, Bundle bundle) {
+        com.baidu.swan.apps.b.b.c DE = com.baidu.swan.apps.u.a.DE();
+        if (com.baidu.swan.apps.ac.a.a.Ih() || DE.i("swan_preload_keep_alive", true)) {
+            d(context, bundle);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void e(Context context, Bundle bundle) {
-        a(context, a.Gu().Gx(), bundle);
+    public static void d(Context context, Bundle bundle) {
+        a(context, a.IK().IN(), bundle);
     }
 
     private static void a(Context context, a.b bVar, Bundle bundle) {
-        if (ProcessUtils.isMainProcess() && bVar != null && bVar.aFe.isSwanAppProcess() && !bVar.GG()) {
-            bVar.GD();
+        if (ProcessUtils.isMainProcess() && bVar != null && bVar.aGX.isSwanAppProcess() && !bVar.IW()) {
+            bVar.IT();
             b(context, bVar, bundle);
         }
     }
 
     private static void b(final Context context, final a.b bVar, final Bundle bundle) {
-        if (aFs) {
+        if (aHl) {
             c(context, bVar, bundle);
         } else {
-            com.baidu.swan.apps.b.c.a.a.wh().wi().wf().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.c.1
+            com.baidu.swan.apps.b.c.a.a.wY().wZ().wW().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.c.1
                 @Override // com.baidu.swan.apps.core.container.a.b
-                public void xT() {
-                    boolean unused = c.aFs = true;
+                public void yL() {
+                    boolean unused = c.aHl = true;
                     c.c(context, bVar, bundle);
                 }
             });
@@ -70,9 +70,9 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(final Context context, final a.b bVar, final Bundle bundle) {
-        com.baidu.swan.apps.extcore.cores.a.Bm().a(new com.baidu.swan.apps.extcore.c.a() { // from class: com.baidu.swan.apps.process.messaging.service.c.2
+        com.baidu.swan.apps.extcore.cores.a.Cp().a(new com.baidu.swan.apps.extcore.c.a() { // from class: com.baidu.swan.apps.process.messaging.service.c.2
             @Override // com.baidu.swan.apps.extcore.c.a
-            public void uK() {
+            public void vu() {
                 c.d(context, bVar, bundle);
             }
         }, 0);
@@ -80,16 +80,16 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void d(Context context, a.b bVar, Bundle bundle) {
-        boolean vf = com.baidu.swan.apps.u.a.Cz() != null ? com.baidu.swan.apps.u.a.Cz().vf() : false;
+        boolean vH = com.baidu.swan.apps.u.a.DE() != null ? com.baidu.swan.apps.u.a.DE().vH() : false;
         boolean isMainProcess = ProcessUtils.isMainProcess();
         String str = isMainProcess ? "main" : "aiapp";
         long currentTimeMillis = System.currentTimeMillis();
-        if (vf) {
-            if (isMainProcess && TextUtils.isEmpty(aFr)) {
+        if (vH) {
+            if (isMainProcess && TextUtils.isEmpty(aHk)) {
                 try {
-                    aFr = new WebView(context).getSettings().getUserAgentString();
+                    aHk = new WebView(context).getSettings().getUserAgentString();
                 } catch (Exception e) {
-                    aFr = "exception::" + e.toString();
+                    aHk = "exception::" + e.toString();
                     if (DEBUG) {
                         e.printStackTrace();
                     }
@@ -98,62 +98,62 @@ public final class c {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
-                jSONObject.put("process", bVar.aFe.id);
-                jSONObject.put("ua", aFr);
+                jSONObject.put("process", bVar.aGX.id);
+                jSONObject.put("ua", aHk);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
                 }
             }
-            f.a fK = new f.a("812").fI("swan").fJ("launch").fK(str);
-            fK.ai(jSONObject);
-            f.onEvent(fK);
+            f.a fZ = new f.a("812").fX("swan").fY("launch").fZ(str);
+            fZ.aj(jSONObject);
+            f.onEvent(fZ);
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        if (vf) {
+        if (vH) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis2);
-                jSONObject2.put("process", bVar.aFe.id);
+                jSONObject2.put("process", bVar.aGX.id);
                 jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
             } catch (JSONException e3) {
                 if (DEBUG) {
                     e3.printStackTrace();
                 }
             }
-            f.a fK2 = new f.a("812").fI("swan").fJ("swan_updated").fK(str);
-            fK2.ai(jSONObject2);
-            f.onEvent(fK2);
+            f.a fZ2 = new f.a("812").fX("swan").fY("swan_updated").fZ(str);
+            fZ2.aj(jSONObject2);
+            f.onEvent(fZ2);
         }
-        Intent intent = new Intent(context, bVar.aFe.service);
+        Intent intent = new Intent(context, bVar.aGX.service);
         intent.addCategory("android.intent.category.DEFAULT");
         if (bundle != null) {
             intent.putExtras(bundle);
         }
-        if (DEBUG && com.baidu.swan.apps.swancore.b.KM()) {
-            com.baidu.swan.apps.swancore.c.a.KR();
+        if (DEBUG && com.baidu.swan.apps.swancore.b.Nl()) {
+            com.baidu.swan.apps.swancore.c.a.Nq();
         }
-        intent.putExtra("bundle_key_swan_core", com.baidu.swan.apps.swancore.b.dJ(0));
-        intent.putExtra("bundle_key_extension_core", com.baidu.swan.apps.extcore.a.Bh().As());
-        intent.putExtra("bundle_key_preload_switch", com.baidu.swan.apps.u.a.CS().vr());
+        intent.putExtra("bundle_key_swan_core", com.baidu.swan.apps.swancore.b.dU(0));
+        intent.putExtra("bundle_key_extension_core", com.baidu.swan.apps.extcore.a.Ck().BB());
+        intent.putExtra("bundle_key_preload_switch", com.baidu.swan.apps.u.a.DX().wg());
         intent.putExtra("bundle_key_preload_launch_time", currentTimeMillis);
-        intent.putExtra("bundle_key_v8_ab", com.baidu.swan.apps.u.a.Cz().vo());
+        intent.putExtra("bundle_key_v8_ab", com.baidu.swan.apps.u.a.DE().vR());
         intent.putExtra("bundle_key_preload_swan_updated_time", currentTimeMillis2);
         intent.putExtra("bundle_key_preload_src", str);
-        intent.putExtra("bundle_key_process", bVar.aFe.id);
+        intent.putExtra("bundle_key_process", bVar.aGX.id);
         intent.setExtrasClassLoader(SwanCoreVersion.class.getClassLoader());
         try {
             context.startService(intent);
-            aFt = false;
+            aHm = false;
         } catch (Exception e4) {
-            aFt = true;
+            aHm = true;
             if (DEBUG) {
                 e4.printStackTrace();
             }
         }
     }
 
-    public static void L(Intent intent) {
-        intent.putExtra("bundle_key_v8_ab", com.baidu.swan.apps.u.a.Cz().vo());
+    public static void K(Intent intent) {
+        intent.putExtra("bundle_key_v8_ab", com.baidu.swan.apps.u.a.DE().vR());
     }
 }

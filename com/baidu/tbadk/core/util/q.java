@@ -9,23 +9,23 @@ public interface q {
 
     boolean a(String str, Handler handler, int i, int i2, int i3, boolean z);
 
-    ArrayList<BasicNameValuePair> acf();
+    ArrayList<BasicNameValuePair> ahd();
 
-    String acg();
+    String ahe();
 
-    byte[] ach();
+    byte[] ahf();
 
-    String aci();
+    String ahg();
 
-    String acj();
+    String ahh();
 
     void d(String str, byte[] bArr);
 
-    void ji();
+    void ia();
 
-    void jl();
+    void ie();
 
-    void r(ArrayList<BasicNameValuePair> arrayList);
+    void o(String str, String str2);
 
-    void x(String str, String str2);
+    void u(ArrayList<BasicNameValuePair> arrayList);
 }

@@ -5,14 +5,10 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
+import com.baidu.pyramid.runtime.multiprocess.b;
 import com.baidu.pyramid.runtime.multiprocess.c;
-import com.baidu.pyramid.runtime.multiprocess.d;
-import com.baidu.pyramid.runtime.multiprocess.h;
 /* loaded from: classes.dex */
 public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
-    private static final boolean DEBUG = h.DEBUG;
-
     public a() {
         super(0, 100);
     }
@@ -30,7 +26,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Cursor a(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         if (i == 1) {
-            return new d(c.a.tT());
+            return new c(b.a.uE());
         }
         return null;
     }
@@ -70,11 +66,8 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Bundle call(String str, String str2, Bundle bundle) {
-        if (DEBUG) {
-            Log.d("ServiceManagerChannel", "call " + str);
-        }
         if ("_get_service_handler".equals(str)) {
-            return c.a.tT();
+            return b.a.uE();
         }
         return null;
     }

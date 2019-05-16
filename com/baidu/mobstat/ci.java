@@ -145,7 +145,7 @@ public abstract class ci extends cf implements ce, Runnable {
         }
         db dbVar = new db();
         dbVar.a(rawPath);
-        dbVar.a(HTTP.TARGET_HOST, this.b.getHost() + (h() != 80 ? Config.TRACE_TODAY_VISIT_SPLIT + h : ""));
+        dbVar.a(HTTP.TARGET_HOST, this.b.getHost() + (h() != 80 ? ":" + h : ""));
         if (this.j != null) {
             for (Map.Entry<String, String> entry : this.j.entrySet()) {
                 dbVar.a(entry.getKey(), entry.getValue());

@@ -14,24 +14,25 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.aiapps.apps.address.c.d;
 import com.baidu.tieba.aiapps.apps.address.view.a;
-import com.baidu.tieba.d;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class b extends BaseAdapter implements a.InterfaceC0266a {
-    private EditText cRY;
-    private a cSa;
+public class b extends BaseAdapter implements a.InterfaceC0281a {
+    private EditText dar;
+    private a dau;
     private Context mContext;
     private List<com.baidu.tieba.aiapps.apps.address.c.a> mDataList;
-    private Map<String, Object> cRZ = new HashMap();
-    private Map<String, Boolean> cSb = new HashMap(5);
-    private Map<String, Boolean> cSc = new HashMap(4);
+    private Map<String, Object> das = new HashMap();
+    private Map<String, Boolean> dav = new HashMap(5);
+    private Map<String, Boolean> daw = new HashMap(4);
 
     /* loaded from: classes4.dex */
     public interface a {
-        void fN(boolean z);
+        void gk(boolean z);
     }
 
     public b(Context context) {
@@ -50,17 +51,17 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: lK */
+    /* renamed from: mx */
     public com.baidu.tieba.aiapps.apps.address.c.a getItem(int i) {
         return this.mDataList.get(i);
     }
 
     public void p(Map<String, Boolean> map) {
-        this.cSc = map;
+        this.daw = map;
     }
 
     public void q(Map<String, Boolean> map) {
-        this.cSb = map;
+        this.dav = map;
     }
 
     public void setData(List<com.baidu.tieba.aiapps.apps.address.c.a> list) {
@@ -75,11 +76,11 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
     }
 
     public void setDeliveryEditChangedListener(a aVar) {
-        this.cSa = aVar;
+        this.dau = aVar;
     }
 
-    public boolean ayb() {
-        return ayl();
+    public boolean aDj() {
+        return aDt();
     }
 
     @Override // android.widget.Adapter
@@ -88,24 +89,24 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
         c cVar;
         com.baidu.tieba.aiapps.apps.address.c.a item = getItem(i);
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.delivery_edit_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.mContext).inflate(R.layout.delivery_edit_item_layout, viewGroup, false);
             cVar = new c(view);
             view.setTag(cVar);
         } else {
             cVar = (c) view.getTag();
         }
         a(cVar);
-        TextView textView = cVar.cSf;
-        EditText editText = cVar.cSg;
-        ImageView imageView = cVar.cSh;
+        TextView textView = cVar.daA;
+        EditText editText = cVar.daB;
+        ImageView imageView = cVar.daC;
         textView.setText(item.label);
         editText.setText(item.content);
         editText.setHint(item.hint);
         editText.setTag(item.type);
-        if (item.cSq) {
+        if (item.daL) {
             editText.setInputType(2);
         }
-        editText.addTextChangedListener(new C0264b(editText));
+        editText.addTextChangedListener(new C0279b(editText));
         if (TextUtils.equals(item.type, "region")) {
             editText.setFocusable(false);
             imageView.setVisibility(0);
@@ -114,51 +115,51 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
                 public void onClick(View view2) {
                     com.baidu.tieba.aiapps.apps.address.view.a aVar = new com.baidu.tieba.aiapps.apps.address.view.a(b.this.mContext);
                     aVar.a(b.this);
-                    aVar.ayD();
+                    aVar.aDL();
                 }
             });
-            this.cRY = editText;
+            this.dar = editText;
         }
         return view;
     }
 
     public void a(c cVar) {
-        if (!com.baidu.tieba.aiapps.apps.o.a.Dq()) {
+        if (!com.baidu.tieba.aiapps.apps.q.a.Ev()) {
             return;
         }
-        cVar.cRX.setBackgroundColor(Color.parseColor("#191919"));
-        cVar.cSf.setTextColor(Color.parseColor("#4D4D4D"));
-        cVar.cSg.setTextColor(Color.parseColor("#666666"));
-        cVar.cSg.setHintTextColor(Color.parseColor("#333333"));
-        cVar.cSi.setBackgroundColor(Color.parseColor("#222222"));
+        cVar.daq.setBackgroundColor(Color.parseColor("#191919"));
+        cVar.daA.setTextColor(Color.parseColor("#4D4D4D"));
+        cVar.daB.setTextColor(Color.parseColor("#666666"));
+        cVar.daB.setHintTextColor(Color.parseColor("#333333"));
+        cVar.daD.setBackgroundColor(Color.parseColor("#222222"));
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0266a
-    public void az(List<com.baidu.tieba.aiapps.apps.address.c.d> list) {
+    @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0281a
+    public void aG(List<d> list) {
         if (list != null && list.size() == 3) {
-            this.cRY.setTag(d.g.region_province, list.get(0));
-            this.cRY.setTag(d.g.region_city, list.get(1));
-            this.cRY.setTag(d.g.region_county, list.get(2));
-            String aB = com.baidu.tieba.aiapps.apps.address.c.d.aB(list);
-            if (this.cRY != null) {
-                this.cRY.setText(aB);
+            this.dar.setTag(R.id.region_province, list.get(0));
+            this.dar.setTag(R.id.region_city, list.get(1));
+            this.dar.setTag(R.id.region_county, list.get(2));
+            String aI = d.aI(list);
+            if (this.dar != null) {
+                this.dar.setText(aI);
             }
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.cRZ;
+        return this.das;
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0264b implements TextWatcher {
-        private String cSe;
+    private class C0279b implements TextWatcher {
+        private String daz;
         private EditText mEditText;
 
-        public C0264b(EditText editText) {
+        public C0279b(EditText editText) {
             this.mEditText = editText;
-            this.cSe = this.mEditText.getText().toString();
+            this.daz = this.mEditText.getText().toString();
         }
 
         @Override // android.text.TextWatcher
@@ -173,43 +174,43 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
         public void afterTextChanged(Editable editable) {
             String valueOf = String.valueOf(this.mEditText.getTag());
             if (!TextUtils.isEmpty(valueOf)) {
-                if (TextUtils.equals(editable.toString(), this.cSe)) {
-                    b.this.cSb.put(valueOf, false);
+                if (TextUtils.equals(editable.toString(), this.daz)) {
+                    b.this.dav.put(valueOf, false);
                 } else {
-                    b.this.cSb.put(valueOf, true);
+                    b.this.dav.put(valueOf, true);
                 }
                 if (editable != null && !TextUtils.isEmpty(editable.toString())) {
                     String obj = editable.toString();
-                    if (!TextUtils.equals(valueOf, "region") || b.this.cRY == null) {
-                        b.this.cRZ.put(valueOf, obj);
+                    if (!TextUtils.equals(valueOf, "region") || b.this.dar == null) {
+                        b.this.das.put(valueOf, obj);
                     } else {
-                        com.baidu.tieba.aiapps.apps.address.c.d lL = b.this.lL(d.g.region_province);
-                        if (lL != null) {
-                            b.this.cRZ.put("l1", lL);
+                        d my = b.this.my(R.id.region_province);
+                        if (my != null) {
+                            b.this.das.put("l1", my);
                         }
-                        com.baidu.tieba.aiapps.apps.address.c.d lL2 = b.this.lL(d.g.region_city);
-                        if (lL2 != null) {
-                            b.this.cRZ.put("l2", lL2);
+                        d my2 = b.this.my(R.id.region_city);
+                        if (my2 != null) {
+                            b.this.das.put("l2", my2);
                         }
-                        b.this.cRZ.put("l3", b.this.lL(d.g.region_county));
+                        b.this.das.put("l3", b.this.my(R.id.region_county));
                     }
                     if (!TextUtils.equals(valueOf, "zipcode")) {
-                        b.this.cSc.put(valueOf, true);
+                        b.this.daw.put(valueOf, true);
                     }
-                    if (b.this.ayk() && b.this.ayl()) {
-                        b.this.cSa.fN(false);
+                    if (b.this.aDs() && b.this.aDt()) {
+                        b.this.dau.gk(false);
                     }
                 } else if (!TextUtils.equals(valueOf, "zipcode")) {
-                    b.this.cSc.put(valueOf, false);
-                    b.this.cSa.fN(true);
+                    b.this.daw.put(valueOf, false);
+                    b.this.dau.gk(true);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayk() {
-        for (Boolean bool : this.cSc.values()) {
+    public boolean aDs() {
+        for (Boolean bool : this.daw.values()) {
             if (!bool.booleanValue()) {
                 return false;
             }
@@ -218,8 +219,8 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean ayl() {
-        for (Boolean bool : this.cSb.values()) {
+    public boolean aDt() {
+        for (Boolean bool : this.dav.values()) {
             if (bool.booleanValue()) {
                 return true;
             }
@@ -228,29 +229,29 @@ public class b extends BaseAdapter implements a.InterfaceC0266a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.tieba.aiapps.apps.address.c.d lL(int i) {
+    public d my(int i) {
         Object tag;
-        if (this.cRY == null || (tag = this.cRY.getTag(i)) == null || !(tag instanceof com.baidu.tieba.aiapps.apps.address.c.d)) {
+        if (this.dar == null || (tag = this.dar.getTag(i)) == null || !(tag instanceof d)) {
             return null;
         }
-        return (com.baidu.tieba.aiapps.apps.address.c.d) tag;
+        return (d) tag;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class c {
-        private View cRX;
-        private TextView cSf;
-        private EditText cSg;
-        private ImageView cSh;
-        private View cSi;
+        private TextView daA;
+        private EditText daB;
+        private ImageView daC;
+        private View daD;
+        private View daq;
 
         public c(View view) {
-            this.cRX = view;
-            this.cSf = (TextView) view.findViewById(d.g.delivery_label);
-            this.cSg = (EditText) view.findViewById(d.g.delivery_content);
-            this.cSh = (ImageView) view.findViewById(d.g.delivery_arrow);
-            this.cSi = view.findViewById(d.g.delivery_highlight_line);
+            this.daq = view;
+            this.daA = (TextView) view.findViewById(R.id.delivery_label);
+            this.daB = (EditText) view.findViewById(R.id.delivery_content);
+            this.daC = (ImageView) view.findViewById(R.id.delivery_arrow);
+            this.daD = view.findViewById(R.id.delivery_highlight_line);
         }
     }
 }

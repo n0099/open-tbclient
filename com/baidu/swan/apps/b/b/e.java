@@ -3,11 +3,11 @@ package com.baidu.swan.apps.b.b;
 public interface e {
     void bL(int i);
 
-    int vr();
+    int wg();
 
-    boolean vs();
+    boolean wh();
 
-    boolean vt();
+    boolean wi();
 
-    int vu();
+    int wj();
 }

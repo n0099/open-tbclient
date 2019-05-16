@@ -1,9 +1,9 @@
 package com.xiaomi.slim;
 
 import android.os.Build;
-import com.baidu.mobstat.Config;
 import com.xiaomi.push.protobuf.b;
-import com.xiaomi.push.service.at;
+import com.xiaomi.push.service.bb;
+import com.xiaomi.push.service.bh;
 import java.io.BufferedOutputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
@@ -15,15 +15,16 @@ public class d {
     ByteBuffer a = ByteBuffer.allocate(2048);
     private ByteBuffer b = ByteBuffer.allocate(4);
     private Adler32 c = new Adler32();
-    private com.xiaomi.smack.a d;
+    private g d;
     private OutputStream e;
     private int f;
     private int g;
+    private byte[] h;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d(OutputStream outputStream, com.xiaomi.smack.a aVar) {
+    public d(OutputStream outputStream, g gVar) {
         this.e = new BufferedOutputStream(outputStream);
-        this.d = aVar;
+        this.d = gVar;
         TimeZone timeZone = TimeZone.getDefault();
         this.f = timeZone.getRawOffset() / 3600000;
         this.g = timeZone.useDaylightTime() ? 1 : 0;
@@ -35,20 +36,30 @@ public class d {
             com.xiaomi.channel.commonutils.logger.b.a("Blob size=" + l + " should be less than 32768 Drop blob chid=" + bVar.c() + " id=" + bVar.h());
             return 0;
         }
-        if (this.a.capacity() > 4096) {
-            this.a = ByteBuffer.allocate(2048);
-        }
         this.a.clear();
+        if (l + 8 + 4 > this.a.capacity() || this.a.capacity() > 4096) {
+            this.a = ByteBuffer.allocate(l + 8 + 4);
+        }
+        this.a.putShort((short) -15618);
+        this.a.putShort((short) 5);
+        this.a.putInt(l);
+        int position = this.a.position();
         this.a = bVar.a(this.a);
+        if (!"CONN".equals(bVar.a())) {
+            if (this.h == null) {
+                this.h = this.d.a();
+            }
+            bb.a(this.h, this.a.array(), true, position, l);
+        }
         this.c.reset();
         this.c.update(this.a.array(), 0, this.a.position());
         this.b.putInt(0, (int) this.c.getValue());
         this.e.write(this.a.array(), 0, this.a.position());
         this.e.write(this.b.array(), 0, 4);
         this.e.flush();
-        int position = this.a.position() + 4;
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + bVar.a() + ";chid=" + bVar.c() + ";len=" + position + "}");
-        return position;
+        int position2 = this.a.position() + 4;
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + bVar.a() + ";chid=" + bVar.c() + ";len=" + position2 + "}");
+        return position2;
     }
 
     public void a() {
@@ -56,15 +67,15 @@ public class d {
         eVar.a(106);
         eVar.a(Build.MODEL);
         eVar.b(Build.VERSION.INCREMENTAL);
-        eVar.c(at.e());
-        eVar.b(26);
-        eVar.d(this.d.e());
-        eVar.e(this.d.d());
+        eVar.c(bh.e());
+        eVar.b(37);
+        eVar.d(this.d.f());
+        eVar.e(this.d.e());
         eVar.f(Locale.getDefault().toString());
         eVar.c(Build.VERSION.SDK_INT);
-        byte[] a = this.d.c().a();
+        byte[] a = this.d.d().a();
         if (a != null) {
-            eVar.a(b.C0466b.b(a));
+            eVar.a(b.C0486b.b(a));
         }
         b bVar = new b();
         bVar.a(0);
@@ -72,7 +83,7 @@ public class d {
         bVar.a(0L, "xiaomi.com", null);
         bVar.a(eVar.c(), (String) null);
         a(bVar);
-        com.xiaomi.channel.commonutils.logger.b.a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=26 hash=" + at.e() + " tz=" + this.f + Config.TRACE_TODAY_VISIT_SPLIT + this.g + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=37 hash=" + bh.e() + " tz=" + this.f + ":" + this.g + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {

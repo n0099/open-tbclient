@@ -12,7 +12,7 @@ public class c {
         }
         switch (iBaseDialogData.getType()) {
             case 1:
-                am amVar = new am(b.a.hhK);
+                am amVar = new am(b.a.hzc);
                 int i = 0;
                 switch (iBaseDialogData.getFrom()) {
                     case 0:
@@ -25,7 +25,7 @@ public class c {
                         i = 4;
                         break;
                 }
-                amVar.T("obj_type", i);
+                amVar.P("obj_type", i);
                 TiebaStatic.log(amVar);
                 return new d(tbPageContext, (CustomDialogData) iBaseDialogData);
             default:

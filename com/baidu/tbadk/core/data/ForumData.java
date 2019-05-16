@@ -40,6 +40,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
     private String image_url;
     public boolean isBrandForum;
     public int isShowAllTopThread;
+    private boolean isShowBawuTask;
     private int is_local_effect;
     private int is_private_forum;
     private boolean is_sign;
@@ -71,6 +72,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
     private String topic_special_icon_right;
     private String warning_msg;
     private bo yuleData;
+    public boolean isBlockBawuDelete = false;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -115,6 +117,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
         this.mThemeColorInfo = null;
         this.topIcon = null;
         this.is_private_forum = 0;
+        this.isShowBawuTask = false;
     }
 
     public AnchorPower getAnchorPower() {
@@ -336,6 +339,10 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
         return this.is_private_forum;
     }
 
+    public boolean getIsShowBawuTask() {
+        return this.isShowBawuTask;
+    }
+
     public void parserProtobuf(ForumInfo forumInfo) {
         if (forumInfo != null) {
             try {
@@ -456,6 +463,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.mThemeColorInfo = forumInfo.theme_color;
                 this.topIcon = forumInfo.is_top_img;
                 this.is_private_forum = forumInfo.is_private_forum.intValue();
+                this.isShowBawuTask = forumInfo.is_show_bawutask.intValue() == 1;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -463,6 +471,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
     }
 
     public void parserProtobuf(SimpleForum simpleForum) {
+        boolean z = false;
         if (simpleForum != null) {
             try {
                 this.id = String.valueOf(simpleForum.id);
@@ -476,6 +485,10 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.member_num = simpleForum.member_num.intValue();
                 this.post_num = simpleForum.post_num.intValue();
                 this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
+                if (simpleForum.multi_forum_perm != null && simpleForum.multi_forum_perm.is_block_bawu_delete.intValue() == 1) {
+                    z = true;
+                }
+                this.isBlockBawuDelete = z;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -618,6 +631,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tba
                 this.topic_special_icon_right = jSONObject.optString("topic_special_icon_right");
                 this.topIcon = jSONObject.optString("is_top_img");
                 this.is_private_forum = jSONObject.optInt("is_private_forum");
+                this.isShowBawuTask = jSONObject.optInt("is_show_bawutask") == 1;
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }

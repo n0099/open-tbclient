@@ -6,27 +6,27 @@ import android.os.Looper;
 import java.lang.ref.SoftReference;
 /* loaded from: classes3.dex */
 public final class d extends Thread {
-    private static boolean aco = false;
-    private final Context aaZ;
-    private final SoftReference<Looper> acp;
-    private SoftReference<Handler> acq;
-    private final int acr;
-    private volatile int acs;
-    private a act;
-    private final Runnable acu;
+    private static boolean aad = false;
+    private final Context YR;
+    private final SoftReference<Looper> aae;
+    private SoftReference<Handler> aaf;
+    private final int aag;
+    private volatile int aah;
+    private a aai;
+    private final Runnable aaj;
 
     private d(Context context, int i) {
-        this.acp = new SoftReference<>(Looper.getMainLooper());
-        this.acs = 0;
-        this.acu = new e(this);
-        this.aaZ = context;
-        this.acr = 3000;
+        this.aae = new SoftReference<>(Looper.getMainLooper());
+        this.aah = 0;
+        this.aaj = new e(this);
+        this.YR = context;
+        this.aag = 3000;
         switch (i) {
             case 1:
-                this.act = new b(context);
+                this.aai = new b(context);
                 return;
             case 2:
-                this.act = new c(context);
+                this.aai = new c(context);
                 return;
             default:
                 return;
@@ -40,45 +40,45 @@ public final class d extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         int i;
-        com.baidu.crabsdk.c.a.v("***isRunning = " + aco + "***");
-        if (aco) {
+        com.baidu.crabsdk.c.a.v("***isRunning = " + aad + "***");
+        if (aad) {
             return;
         }
-        aco = true;
+        aad = true;
         setName("|AnrWatchThread|");
-        com.baidu.crabsdk.c.a.cv("AnrWatchThread start!");
+        com.baidu.crabsdk.c.a.cf("AnrWatchThread start!");
         do {
             if (isInterrupted()) {
                 break;
             }
-            i = this.acs;
-            if (this.acp.get() == null) {
-                aco = false;
+            i = this.aah;
+            if (this.aae.get() == null) {
+                aad = false;
                 break;
             }
             try {
-                if (this.acq == null || this.acq.get() == null) {
-                    this.acq = new SoftReference<>(new Handler(this.acp.get()));
+                if (this.aaf == null || this.aaf.get() == null) {
+                    this.aaf = new SoftReference<>(new Handler(this.aae.get()));
                 }
-                this.acq.get().post(this.acu);
-                Thread.sleep(this.acr);
+                this.aaf.get().post(this.aaj);
+                Thread.sleep(this.aag);
                 if (com.baidu.crabsdk.a.I == 0) {
-                    aco = false;
-                    com.baidu.crabsdk.c.a.cx("anr watch thread is breakdown!");
+                    aad = false;
+                    com.baidu.crabsdk.c.a.ch("anr watch thread is breakdown!");
                     break;
                 }
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.w("AnrWatchThread Exception: " + e.getMessage());
             }
-        } while (this.acs != i);
-        if (this.aaZ != null && !com.baidu.crabsdk.a.J) {
-            com.baidu.crabsdk.c.a.cv("onAppNotResponding!");
-            if (this.act != null) {
-                this.act.d("/data/anr/traces.txt");
+        } while (this.aah != i);
+        if (this.YR != null && !com.baidu.crabsdk.a.J) {
+            com.baidu.crabsdk.c.a.cf("onAppNotResponding!");
+            if (this.aai != null) {
+                this.aai.d("/data/anr/traces.txt");
             }
         }
-        aco = false;
-        aco = false;
-        com.baidu.crabsdk.c.a.cx("anr watch thread is over!");
+        aad = false;
+        aad = false;
+        com.baidu.crabsdk.c.a.ch("anr watch thread is over!");
     }
 }

@@ -7,14 +7,14 @@ import com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class c {
-    private static c bfq;
-    private HashMap<String, a> bfr = new HashMap<>();
+    private static c bkB;
+    private HashMap<String, a> bkC = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void Pf();
+        void Sy();
 
-        void cF(int i);
+        void cI(int i);
 
         void d(int i, long j, long j2);
     }
@@ -22,58 +22,45 @@ public class c {
     private c() {
     }
 
-    public static c Pe() {
-        if (bfq == null) {
+    public static c Sx() {
+        if (bkB == null) {
             synchronized (c.class) {
-                if (bfq == null) {
-                    bfq = new c();
+                if (bkB == null) {
+                    bkB = new c();
                 }
             }
         }
-        return bfq;
+        return bkB;
     }
 
     public void a(String str, a aVar) {
-        com.baidu.swan.apps.ae.b IV;
-        if (aVar != null && !TextUtils.isEmpty(str) && (IV = com.baidu.swan.apps.ae.b.IV()) != null) {
-            if (com.baidu.swan.games.subpackage.a.Pd().gh(str)) {
-                aVar.Pf();
+        com.baidu.swan.apps.ae.b Lq;
+        if (aVar != null && !TextUtils.isEmpty(str) && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null) {
+            if (com.baidu.swan.games.subpackage.a.Sw().jU(str)) {
+                aVar.Sy();
                 return;
             }
-            String gj = com.baidu.swan.games.subpackage.a.Pd().gj(str);
-            if (TextUtils.isEmpty(gj)) {
-                aVar.cF(2112);
+            String gE = com.baidu.swan.games.subpackage.a.Sw().gE(str);
+            if (TextUtils.isEmpty(gE)) {
+                aVar.cI(2112);
                 return;
             }
-            com.baidu.swan.apps.process.messaging.client.a BP = IV.BP();
-            if (BP != null) {
+            com.baidu.swan.apps.process.messaging.client.a CR = Lq.CR();
+            if (CR != null) {
                 SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = new SwanGameSubPackageAPSInfo();
                 String a2 = a(aVar);
-                swanGameSubPackageAPSInfo.appId = IV.id;
-                swanGameSubPackageAPSInfo.appVersion = IV.getVersion();
-                swanGameSubPackageAPSInfo.key = gj;
-                swanGameSubPackageAPSInfo.bfx = e.Ea().DJ();
-                swanGameSubPackageAPSInfo.bfy = com.baidu.swan.games.subpackage.a.Pd().L(str, 1);
-                swanGameSubPackageAPSInfo.bfA = a2;
-                swanGameSubPackageAPSInfo.bfB = com.baidu.swan.games.subpackage.a.Pd().L(str, 2);
-                BP.a(11, swanGameSubPackageAPSInfo);
-                this.bfr.put(a2, aVar);
+                swanGameSubPackageAPSInfo.appId = Lq.id;
+                swanGameSubPackageAPSInfo.appVersion = Lq.getVersion();
+                swanGameSubPackageAPSInfo.key = gE;
+                swanGameSubPackageAPSInfo.bkI = e.FV().FE();
+                swanGameSubPackageAPSInfo.bkJ = com.baidu.swan.games.subpackage.a.Sw().G(str, 1);
+                swanGameSubPackageAPSInfo.bkL = a2;
+                swanGameSubPackageAPSInfo.bkM = com.baidu.swan.games.subpackage.a.Sw().G(str, 2);
+                CR.a(11, swanGameSubPackageAPSInfo);
+                this.bkC.put(a2, aVar);
                 return;
             }
-            aVar.cF(2113);
-        }
-    }
-
-    public void v(Bundle bundle) {
-        a aVar;
-        if (bundle != null) {
-            bundle.setClassLoader(getClass().getClassLoader());
-            SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfr.get(swanGameSubPackageAPSInfo.bfA)) != null) {
-                com.baidu.swan.games.subpackage.a.Pd().D(swanGameSubPackageAPSInfo.bfy, true);
-                aVar.Pf();
-                this.bfr.remove(swanGameSubPackageAPSInfo.bfA);
-            }
+            aVar.cI(2113);
         }
     }
 
@@ -82,25 +69,38 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfr.get(swanGameSubPackageAPSInfo.bfA)) != null) {
-                aVar.cF(swanGameSubPackageAPSInfo.resultCode);
-                this.bfr.remove(swanGameSubPackageAPSInfo.bfA);
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bkC.get(swanGameSubPackageAPSInfo.bkL)) != null) {
+                com.baidu.swan.games.subpackage.a.Sw().s(swanGameSubPackageAPSInfo.bkJ, true);
+                aVar.Sy();
+                this.bkC.remove(swanGameSubPackageAPSInfo.bkL);
             }
         }
     }
 
-    public void y(Bundle bundle) {
+    public void x(Bundle bundle) {
+        a aVar;
+        if (bundle != null) {
+            bundle.setClassLoader(getClass().getClassLoader());
+            SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bkC.get(swanGameSubPackageAPSInfo.bkL)) != null) {
+                aVar.cI(swanGameSubPackageAPSInfo.resultCode);
+                this.bkC.remove(swanGameSubPackageAPSInfo.bkL);
+            }
+        }
+    }
+
+    public void z(Bundle bundle) {
         a aVar;
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             long j = bundle.getLong("aigames_sub_package_bytes_read_key");
             long j2 = bundle.getLong("aigames_sub_package_content_length_key");
             String string = bundle.getString("aigames_sub_package_callback_key");
-            if (!TextUtils.isEmpty(string) && (aVar = this.bfr.get(string)) != null) {
+            if (!TextUtils.isEmpty(string) && (aVar = this.bkC.get(string)) != null) {
                 if (j2 == -1 && j != 0) {
                     aVar.d(0, j, j2);
                 } else if (j2 <= 0 || j > j2 || j == 0) {
-                    aVar.cF(0);
+                    aVar.cI(2114);
                 } else {
                     int floor = (int) Math.floor((100 * j) / j2);
                     if (floor != 100) {

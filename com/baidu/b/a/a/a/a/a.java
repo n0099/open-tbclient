@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a {
-    protected List<String> acG;
-    protected List<com.baidu.b.a.b.a.a> acH;
+    protected List<String> aau;
+    protected List<com.baidu.b.a.b.a.a> aav;
     protected String mChannelId;
     protected String mChannelName;
 
@@ -19,9 +19,9 @@ public abstract class a {
         }
         this.mChannelId = str;
         this.mChannelName = str2;
-        this.acG = new ArrayList();
-        this.acG.add(str3);
-        this.acH = new ArrayList();
+        this.aau = new ArrayList();
+        this.aau.add(str3);
+        this.aav = new ArrayList();
     }
 
     public a(String str, String str2, List<String> list) {
@@ -33,7 +33,7 @@ public abstract class a {
         }
         this.mChannelId = str;
         this.mChannelName = str2;
-        this.acG = list;
-        this.acH = new ArrayList();
+        this.aau = list;
+        this.aav = new ArrayList();
     }
 }

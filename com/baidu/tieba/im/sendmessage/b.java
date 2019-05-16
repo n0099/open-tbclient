@@ -6,18 +6,18 @@ import com.baidu.tbadk.coreExtra.data.k;
 import com.baidu.tbadk.coreExtra.data.l;
 /* loaded from: classes.dex */
 public class b {
-    public String xs(String str) {
-        k agm;
+    public String yH(String str) {
+        k all;
         if (str != null) {
             try {
                 com.baidu.tbadk.core.voice.service.b bVar = new com.baidu.tbadk.core.voice.service.b(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                String S = m.S(str, 1);
+                String O = m.O(str, 1);
                 bVar.addPostParam("type", 2);
-                l nz = bVar.nz(S);
-                if (nz != null && nz.isSuccess() && (agm = nz.agm()) != null) {
-                    String agk = agm.agk();
-                    com.baidu.tbadk.core.voice.a.b.renameFile(str, agk);
-                    return agk;
+                l oJ = bVar.oJ(O);
+                if (oJ != null && oJ.isSuccess() && (all = oJ.all()) != null) {
+                    String alj = all.alj();
+                    com.baidu.tbadk.core.voice.a.b.renameFile(str, alj);
+                    return alj;
                 }
             } catch (Exception e) {
             }

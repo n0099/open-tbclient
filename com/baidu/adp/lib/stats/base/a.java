@@ -7,36 +7,36 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class a {
-    protected String EI;
-    protected String EK;
-    protected i EL;
-    private String Ey;
-    private StringBuffer Ez = new StringBuffer();
-    private StringBuffer EA = new StringBuffer();
-    private int EB = 0;
-    private int EC = 0;
-    private long Er = 0;
-    private long ED = 0;
-    protected long EE = 0;
-    private long EF = 0;
-    private long EG = 0;
-    protected int EH = 50;
-    protected final String EJ = ".log";
+    private String Ch;
+    protected String Cr;
+    protected String Ct;
+    protected i Cu;
+    private StringBuffer Ci = new StringBuffer();
+    private StringBuffer Cj = new StringBuffer();
+    private int Ck = 0;
+    private int Cl = 0;
+    private long Ca = 0;
+    private long Cm = 0;
+    protected long Cn = 0;
+    private long Co = 0;
+    private long Cp = 0;
+    protected int Cq = 50;
+    protected final String Cs = ".log";
     protected boolean mUseSdCard = false;
     protected boolean mMustSuccess = false;
     private boolean isUploading = false;
 
     public a(i iVar) {
-        this.EL = iVar;
+        this.Cu = iVar;
     }
 
     public synchronized void a(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.Ez.append(aVar.toString());
-                    this.Ez.append("\r\n");
-                    this.EB++;
+                    this.Ci.append(aVar.toString());
+                    this.Ci.append("\r\n");
+                    this.Ck++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -44,19 +44,19 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.EL != null) {
-            this.EL.g(this);
+        if (this.Cu != null) {
+            this.Cu.g(this);
         }
-        this.Er = System.currentTimeMillis();
+        this.Ca = System.currentTimeMillis();
     }
 
     public synchronized void b(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
             try {
                 try {
-                    this.EA.append(aVar.toString());
-                    this.EA.append("\r\n");
-                    this.EC++;
+                    this.Cj.append(aVar.toString());
+                    this.Cj.append("\r\n");
+                    this.Cl++;
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -64,51 +64,51 @@ public class a {
                 e2.printStackTrace();
             }
         }
-        if (this.EL != null) {
-            this.EL.g(this);
+        if (this.Cu != null) {
+            this.Cu.g(this);
         }
-        this.ED = System.currentTimeMillis();
+        this.Cm = System.currentTimeMillis();
     }
 
-    public int jW() {
-        return this.EB;
+    public int iQ() {
+        return this.Ck;
     }
 
-    public int jX() {
-        return this.EC;
+    public int iR() {
+        return this.Cl;
     }
 
-    public long jY() {
-        return this.EE;
+    public long iS() {
+        return this.Cn;
     }
 
-    public void n(long j) {
-        this.EE = j;
+    public void k(long j) {
+        this.Cn = j;
     }
 
-    public long jZ() {
-        return this.Er;
+    public long iT() {
+        return this.Ca;
     }
 
-    public long ka() {
-        return this.ED;
+    public long iU() {
+        return this.Cm;
     }
 
-    public String kb() {
-        if (TextUtils.isEmpty(this.EK)) {
+    public String iV() {
+        if (TextUtils.isEmpty(this.Ct)) {
             StringBuilder sb = new StringBuilder(30);
-            sb.append(this.EI);
+            sb.append(this.Cr);
             sb.append(BdStatisticsManager.getInstance().getProcessName());
             sb.append("Writing");
             sb.append(".log");
-            this.EK = sb.toString();
+            this.Ct = sb.toString();
         }
-        return this.EK;
+        return this.Ct;
     }
 
-    public String kc() {
+    public String iW() {
         StringBuilder sb = new StringBuilder(40);
-        sb.append(this.EI);
+        sb.append(this.Cr);
         sb.append(System.currentTimeMillis());
         sb.append(BdStatisticsManager.getInstance().getProcessName());
         sb.append("Uploading");
@@ -116,77 +116,77 @@ public class a {
         return sb.toString();
     }
 
-    public long kd() {
-        return this.EF;
+    public long iX() {
+        return this.Co;
     }
 
-    public long ke() {
-        return this.EG;
+    public long iY() {
+        return this.Cp;
     }
 
-    public void o(long j) {
-        this.EF = j;
+    public void l(long j) {
+        this.Co = j;
     }
 
-    public void p(long j) {
-        this.EG = j;
+    public void m(long j) {
+        this.Cp = j;
     }
 
-    public synchronized void kf() {
-        this.Ez = new StringBuffer();
-        this.EB = 0;
-        this.EF = 0L;
+    public synchronized void iZ() {
+        this.Ci = new StringBuffer();
+        this.Ck = 0;
+        this.Co = 0L;
     }
 
-    public synchronized void kg() {
-        this.EA = new StringBuffer();
-        this.EC = 0;
-        this.EG = 0L;
+    public synchronized void ja() {
+        this.Cj = new StringBuffer();
+        this.Cl = 0;
+        this.Cp = 0L;
     }
 
-    public void ba(String str) {
+    public void aK(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.Ey = str;
+            this.Ch = str;
         }
     }
 
-    public String kh() {
-        return this.Ey;
+    public String jb() {
+        return this.Ch;
     }
 
-    public boolean ki() {
+    public boolean jc() {
         return this.isUploading;
     }
 
-    public void ak(boolean z) {
+    public void ac(boolean z) {
         this.isUploading = z;
     }
 
-    public String kj() {
+    public String jd() {
         return "omp";
     }
 
-    public StringBuffer kk() {
-        return this.Ez;
+    public StringBuffer je() {
+        return this.Ci;
     }
 
-    public StringBuffer kl() {
-        return this.EA;
+    public StringBuffer jf() {
+        return this.Cj;
     }
 
-    public boolean km() {
+    public boolean jg() {
         return this.mUseSdCard;
     }
 
-    public boolean kn() {
+    public boolean jh() {
         return this.mMustSuccess;
     }
 
-    public String ko() {
-        return this.EI;
+    public String ji() {
+        return this.Cr;
     }
 
-    public static String bb(String str) {
+    public static String aL(String str) {
         if ("net".equals(str) || Config.OPERATOR.equals(str) || "crash".equals(str) || "msg".equals(str)) {
             return "error";
         }

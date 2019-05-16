@@ -8,40 +8,40 @@ import java.util.Queue;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a bcZ;
-    private Queue<DuMixGameSurfaceView> bda = new ArrayDeque();
+    private static volatile a bhg;
+    private Queue<DuMixGameSurfaceView> bhh = new ArrayDeque();
 
-    public static a Oq() {
-        if (bcZ == null) {
+    public static a Rq() {
+        if (bhg == null) {
             synchronized (a.class) {
-                if (bcZ == null) {
-                    bcZ = new a();
+                if (bhg == null) {
+                    bhg = new a();
                 }
             }
         }
-        return bcZ;
+        return bhg;
     }
 
-    public DuMixGameSurfaceView cw(Context context) {
-        if (this.bda.isEmpty()) {
+    public DuMixGameSurfaceView bZ(Context context) {
+        if (this.bhh.isEmpty()) {
             if (DEBUG) {
                 Log.d("SwanGameSurfaceView", "obtainSurfaceView crateNew.");
             }
-            return cx(context);
+            return ca(context);
         }
         if (DEBUG) {
             Log.d("SwanGameSurfaceView", "obtainSurfaceView take from pool.");
         }
-        return this.bda.remove();
+        return this.bhh.remove();
     }
 
     public void f(DuMixGameSurfaceView duMixGameSurfaceView) {
-        if (!this.bda.contains(duMixGameSurfaceView)) {
-            this.bda.add(duMixGameSurfaceView);
+        if (!this.bhh.contains(duMixGameSurfaceView)) {
+            this.bhh.add(duMixGameSurfaceView);
         }
     }
 
-    public DuMixGameSurfaceView cx(Context context) {
+    public DuMixGameSurfaceView ca(Context context) {
         return new DuMixGameSurfaceView(context);
     }
 }

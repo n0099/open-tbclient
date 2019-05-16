@@ -7,24 +7,24 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum fNa;
+    private CardForum gei;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.fNa = cardForum;
+            this.gei = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(aQV() + cardForum.position.intValue());
+                setYuelaouLocate(aYe() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(aQV() + 0);
+                setYuelaouLocate(aYe() + 0);
             }
-            if (v.S(cardForum.forum_list) > 0) {
+            if (v.Z(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
                         eVar.forumAvatar = personalForum.avatar;
                         eVar.forumName = personalForum.forum_name;
-                        eVar.forumId = com.baidu.adp.lib.g.b.l("" + personalForum.forum_id, -1);
+                        eVar.forumId = com.baidu.adp.lib.g.b.f("" + personalForum.forum_id, -1);
                         eVar.isLiked = personalForum.is_like.intValue() == 1;
                         b(eVar);
                     }
@@ -35,35 +35,35 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.fNa != null) {
-            return this.fNa.position.intValue();
+        if (this.gei != null) {
+            return this.gei.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aQT() {
+    public boolean aYc() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void hT(boolean z) {
+    public void iy(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void hU(boolean z) {
+    public void iz(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean axr() {
-        if (v.S(getDataList()) > 0) {
+    public boolean aCx() {
+        if (v.Z(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean sB(int i) {
+    public static boolean tI(int i) {
         return i == 1;
     }
 }

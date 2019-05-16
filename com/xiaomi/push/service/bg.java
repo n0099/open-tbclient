@@ -1,35 +1,47 @@
 package com.xiaomi.push.service;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-class bg extends BroadcastReceiver {
-    final /* synthetic */ XMPushService a;
+public class bg implements ServiceConnection {
+    final /* synthetic */ be a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public bg(XMPushService xMPushService) {
-        this.a = xMPushService;
+    public bg(be beVar) {
+        this.a = beVar;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
-        boolean a;
-        if (intent.getAction().equals("com.xiaomi.metok.geofencing.state_change")) {
-            String stringExtra = intent.getStringExtra("Location");
-            String stringExtra2 = intent.getStringExtra("Describe");
-            String stringExtra3 = intent.getStringExtra("State");
-            if (TextUtils.isEmpty(stringExtra2)) {
-                return;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        List<Message> list;
+        List list2;
+        Messenger messenger;
+        synchronized (this.a) {
+            this.a.h = new Messenger(iBinder);
+            this.a.g = false;
+            list = this.a.f;
+            for (Message message : list) {
+                try {
+                    messenger = this.a.h;
+                    messenger.send(message);
+                } catch (RemoteException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                }
             }
-            a = this.a.a(stringExtra3, stringExtra2, context);
-            if (!a) {
-                stringExtra3 = "Unknown";
-                com.xiaomi.channel.commonutils.logger.b.a(" updated geofence statue about geo_id:" + stringExtra2 + " falied. current_statue:Unknown");
-            }
-            com.xiaomi.smack.util.e.a(new bh(this, context, stringExtra2, stringExtra3));
-            com.xiaomi.channel.commonutils.logger.b.c("ownresilt结果:state= " + stringExtra3 + "\n describe=" + stringExtra2 + "\n location=" + stringExtra);
+            list2 = this.a.f;
+            list2.clear();
         }
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        this.a.h = null;
+        this.a.g = false;
     }
 }

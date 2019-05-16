@@ -2,15 +2,15 @@ package com.baidu.swan.apps.core.pms;
 /* loaded from: classes2.dex */
 public class PkgDownloadError extends Throwable {
     private com.baidu.swan.apps.ak.a mErrCode;
-    private com.baidu.swan.pms.model.f mPackage;
+    private com.baidu.swan.pms.model.e mPackage;
 
-    public PkgDownloadError(com.baidu.swan.pms.model.f fVar, com.baidu.swan.apps.ak.a aVar) {
-        super(aVar.Ly());
-        this.mPackage = fVar;
+    public PkgDownloadError(com.baidu.swan.pms.model.e eVar, com.baidu.swan.apps.ak.a aVar) {
+        super(aVar.Oe());
+        this.mPackage = eVar;
         this.mErrCode = aVar;
     }
 
-    public com.baidu.swan.pms.model.f getPackage() {
+    public com.baidu.swan.pms.model.e getPackage() {
         return this.mPackage;
     }
 

@@ -1,190 +1,187 @@
 package com.baidu.tbadk.coreExtra.c;
 
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.location.Location;
 import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.s;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbDomainConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.d;
-import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
-import com.tencent.connect.common.Constants;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.util.m;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    private a cbT;
-    private b cbU;
-    private String cbV = TbadkCoreApplication.getInst().getContext().getString(d.j.share_tail);
-    private String cbW = TbadkCoreApplication.getInst().getContext().getString(d.j.weibo_share_tail) + this.cbV;
-    private final Context mContext;
+    public static final String cjU = m.Du + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int bLs;
+    public String cjC;
+    public String cjD;
+    public int cjJ;
+    public String cjK;
+    public String cjL;
+    public String cjM;
+    private Bundle cjO;
+    public String cjT;
+    public String cjw;
+    public Bundle cjz;
+    public String fid;
+    public String imageUrl;
+    public OriginalThreadInfo originalThreadInfo;
+    public String tid;
+    public String topic;
+    public String uid;
+    public boolean cjk = false;
+    public boolean cjl = false;
+    public boolean cjm = false;
+    public boolean cjn = false;
+    public boolean cjo = false;
+    public boolean cjp = false;
+    public boolean cjq = false;
+    public boolean cjr = false;
+    public boolean cjs = false;
+    public boolean cjt = false;
+    public boolean cju = false;
+    public String cjv = "";
+    public int cjE = 0;
+    public int cjF = 3;
+    public int cjG = 0;
+    public int cjH = 0;
+    public int cjI = 0;
+    public int shareType = 0;
+    public boolean cjP = true;
+    public boolean cjQ = true;
+    public boolean cjR = true;
+    public int cjS = 0;
+    public String title = null;
+    public String content = null;
+    public String linkUrl = null;
+    public String cjx = null;
+    public Uri imageUri = null;
+    public Location cjA = null;
+    private WeakReference<Bitmap> cjN = null;
+    public String cjB = null;
+    public String extData = null;
+    public String cjy = null;
 
-    public e(Context context, a aVar) {
-        c cVar;
-        this.cbT = null;
-        this.cbU = null;
-        this.mContext = context;
-        this.cbT = aVar;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
-        if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.cbU = cVar.a(this.mContext, this.cbT);
+    public Bundle aoQ() {
+        return this.cjO;
+    }
+
+    public void E(Bundle bundle) {
+        this.cjO = bundle;
+    }
+
+    public Bitmap aoR() {
+        Bitmap bitmap;
+        if (this.cjN == null || (bitmap = this.cjN.get()) == null || bitmap.isRecycled()) {
+            return null;
+        }
+        return bitmap;
+    }
+
+    public void n(Bitmap bitmap) {
+        this.cjN = new WeakReference<>(bitmap);
+    }
+
+    public byte[] aoS() {
+        Bitmap bitmap;
+        byte[] bArr;
+        if (this.cjN == null || (bitmap = this.cjN.get()) == null || bitmap.isRecycled()) {
+            return null;
+        }
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        if (!bitmap.compress(Bitmap.CompressFormat.PNG, 85, byteArrayOutputStream)) {
+            bArr = null;
+        } else {
+            bArr = byteArrayOutputStream.toByteArray();
+        }
+        try {
+            byteArrayOutputStream.close();
+            return bArr;
+        } catch (IOException e) {
+            return bArr;
         }
     }
 
-    public static boolean dc(Context context) {
-        return ajT();
-    }
-
-    public static boolean ajT() {
-        return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
-    }
-
-    public static String bQ(String str, String str2) {
-        return E(str, "copy", str2);
-    }
-
-    public void b(d dVar) {
-        if (this.cbU != null && dVar != null) {
-            if (StringUtils.isNull(dVar.tid)) {
-                dVar.content = b(dVar.content, 80, 20, dVar.cbP ? this.cbV : "");
-            }
-            this.cbU.a(a(dVar, "weixin"), 3, false);
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [240=4, 241=4, 243=4, 244=4] */
+    public void aoT() {
+        FileOutputStream fileOutputStream = null;
+        if (this.cjN == null) {
+            return;
         }
-    }
-
-    public void c(d dVar) {
-        if (this.cbU != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.cbP ? this.cbV : "");
-            this.cbU.a(a(dVar, "weixin_timeline"), 2, false);
-        }
-    }
-
-    public void d(d dVar) {
-        if (this.cbU != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.cbP ? this.cbV : "");
-            this.cbU.a(a(dVar, "qqfriend"), 8, true);
-        }
-    }
-
-    public void e(d dVar) {
-        if (this.cbU != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.cbP ? this.cbV : "");
-            this.cbU.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
-        }
-    }
-
-    public void f(d dVar) {
-        if (this.cbU != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbV : "");
-            this.cbU.a(a(dVar, "tencent_weibo"), 5, true);
-        }
-    }
-
-    public void g(d dVar) {
-        if (this.cbU != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbW : "");
-            this.cbU.a(a(dVar, "sina_weibo"), 6, true);
-        }
-    }
-
-    public void h(d dVar) {
-        if (this.cbU != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.cbP ? this.cbV : "");
-            this.cbU.a(a(dVar, "renren"), 7, true);
-        }
-    }
-
-    private String b(String str, int i, int i2, String str2) {
-        if (str != null) {
-            int min = Math.min((i - str2.length()) - i2, str.length());
-            if (min < str.length()) {
-                return str.substring(0, min - 1) + ("..." + str2);
-            }
-            return str + str2;
-        }
-        return str2;
-    }
-
-    private d a(d dVar, String str) {
-        if ((dVar.imageUri == null || dVar.imageUri.equals("")) && dVar.ajQ() == null) {
-            String str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
-            if (str.startsWith("weixin")) {
-                str2 = "http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg";
-            }
-            dVar.imageUri = Uri.parse(str2);
-        }
-        if (dVar.imageUri != null && !dVar.imageUri.equals("")) {
-            String uri = dVar.imageUri.toString();
-            if (!od(uri) && !oe(uri)) {
-                dVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
-            } else {
-                dVar.imageUri = Uri.parse(uri);
-                bR(uri, "sfc=" + str);
-            }
-        }
-        if (dVar.cbQ) {
-            dVar.linkUrl = E(dVar.linkUrl, str, dVar.tid);
-        }
-        return dVar;
-    }
-
-    protected boolean od(String str) {
-        if (!TextUtils.isEmpty(str) && str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
+        FileOutputStream fileOutputStream2 = null;
+        try {
             try {
-                File file = new File(new URI(str));
-                return file.isFile() && file.exists();
-            } catch (URISyntaxException e) {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    private static String E(String str, String str2, String str3) {
-        String bC;
-        if (ap.isEmpty(str)) {
-            str = TbDomainConfig.DOMAIN_HTTPS_TIEBA;
-        }
-        String bR = bR(bR(bR(bR(str, "sfc=" + str2), "client_type=2"), "client_version=" + TbConfig.getVersion()), "st=" + (System.currentTimeMillis() / 1000));
-        if (str3 != null) {
-            if (com.baidu.adp.lib.b.d.iQ().aO("android_url_need_cuid") == 1) {
-                bC = s.bC(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
-            } else {
-                bC = s.bC(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
-            }
-            return bR(bR, "unique=" + bC);
-        }
-        return bR;
-    }
-
-    private static String bR(String str, String str2) {
-        String str3 = "&";
-        if (!str.contains("?")) {
-            str = str + "?";
-            str3 = "";
-        }
-        return str + str3 + str2;
-    }
-
-    private boolean oe(String str) {
-        String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (ba.adA().mT(str)) {
-            if (split == null || split.length <= 0) {
-                return true;
-            }
-            for (String str2 : split) {
-                if (str2 != null && !str2.equals("") && (str.endsWith(str2) || str.endsWith(str2.toUpperCase()))) {
-                    return true;
+                if (m.gs()) {
+                    File file = new File(cjU);
+                    if (file.exists()) {
+                        file.delete();
+                    }
+                    File parentFile = file.getParentFile();
+                    if (parentFile != null && !parentFile.exists()) {
+                        parentFile.mkdirs();
+                    }
+                    byte[] aoS = aoS();
+                    if (aoS != null) {
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(file);
+                        try {
+                            fileOutputStream3.write(aoS);
+                            fileOutputStream3.close();
+                            this.imageUri = Uri.fromFile(file);
+                            this.cjN = null;
+                            if (fileOutputStream3 != null) {
+                                try {
+                                    fileOutputStream3.close();
+                                    return;
+                                } catch (IOException e) {
+                                    BdLog.e(e.toString());
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = fileOutputStream3;
+                            BdLog.e(e.toString());
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                    return;
+                                } catch (IOException e3) {
+                                    BdLog.e(e3.toString());
+                                    return;
+                                }
+                            }
+                            return;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileOutputStream = fileOutputStream3;
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e4) {
+                                    BdLog.e(e4.toString());
+                                }
+                            }
+                            throw th;
+                        }
+                    }
                 }
+                if (0 != 0) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e5) {
+                        BdLog.e(e5.toString());
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } catch (Exception e6) {
+            e = e6;
         }
-        return false;
     }
 }

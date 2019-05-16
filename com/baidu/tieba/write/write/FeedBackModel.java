@@ -12,23 +12,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FeedBackModel extends BdBaseModel<TbPageContext> {
-    private a jrR;
-    private ArrayList<bg> jrS;
+    private a jKT;
+    private ArrayList<bg> jKU;
     private TbPageContext mContext;
     private int mErrCode;
 
     public FeedBackModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.jrR = null;
-        this.jrS = null;
+        this.jKT = null;
+        this.jKU = null;
         this.mErrCode = 0;
         this.mContext = tbPageContext;
-        this.jrS = new ArrayList<>();
+        this.jKU = new ArrayList<>();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<bg> cqj() {
-        return this.jrS;
+    public ArrayList<bg> cyo() {
+        return this.jKU;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,11 +37,11 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void ED(String str) {
-        if (this.jrR == null) {
-            this.jrR = new a();
-            this.jrR.setPriority(3);
-            this.jrR.execute(str);
+    public void FZ(String str) {
+        if (this.jKT == null) {
+            this.jKT = new a();
+            this.jKT.setPriority(3);
+            this.jKT.execute(str);
         }
     }
 
@@ -55,17 +55,17 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: J */
+        /* renamed from: K */
         public FeedBackModel doInBackground(Object... objArr) {
             String obj = objArr[0].toString();
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/f/frs/toplist");
-            this.mNetWork.x("kw", obj);
-            String acg = this.mNetWork.acg();
-            if (!this.mNetWork.acE().adD().isRequestSuccess()) {
+            this.mNetWork.o("kw", obj);
+            String ahe = this.mNetWork.ahe();
+            if (!this.mNetWork.ahC().aiC().isRequestSuccess()) {
                 return null;
             }
             FeedBackModel feedBackModel = new FeedBackModel(FeedBackModel.this.mContext);
-            feedBackModel.parserJson(acg);
+            feedBackModel.parserJson(ahe);
             return feedBackModel;
         }
 
@@ -75,16 +75,16 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
         /* renamed from: c */
         public void onPostExecute(FeedBackModel feedBackModel) {
             super.onPostExecute(feedBackModel);
-            FeedBackModel.this.jrR = null;
+            FeedBackModel.this.jKT = null;
             FeedBackModel.this.mLoadDataCallBack.m(feedBackModel);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            FeedBackModel.this.jrR = null;
+            FeedBackModel.this.jKT = null;
             if (this.mNetWork != null) {
-                this.mNetWork.ji();
+                this.mNetWork.ia();
             }
         }
     }
@@ -108,7 +108,7 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
                         if (jSONObject2 != null) {
                             bg bgVar = new bg();
                             bgVar.parserJson(jSONObject2);
-                            this.jrS.add(bgVar);
+                            this.jKU.add(bgVar);
                         }
                     }
                 }
@@ -125,8 +125,8 @@ public class FeedBackModel extends BdBaseModel<TbPageContext> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.jrR != null) {
-            this.jrR.cancel();
+        if (this.jKT != null) {
+            this.jKT.cancel();
             return true;
         }
         return true;

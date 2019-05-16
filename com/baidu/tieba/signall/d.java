@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d implements ae {
     private String avatar;
-    private int dhd;
+    private int drG;
+    private int eJF;
     private String errorMsg;
-    private int eub;
     private int forumId;
     private String forumName;
-    private int ixs;
-    private int ixt;
-    private int ixu;
-    private boolean ixv;
-    private boolean ixw;
-    private boolean ixx;
-    private boolean ixy;
-    private int ixz;
+    private int iQf;
+    private int iQg;
+    private int iQh;
+    private boolean iQi;
+    private boolean iQj;
+    private boolean iQk;
+    private boolean iQl;
+    private int iQm;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int cbU() {
-        return this.ixs;
+    public int cjZ() {
+        return this.iQf;
     }
 
-    public int cbV() {
-        return this.dhd;
+    public int cka() {
+        return this.drG;
     }
 
-    public int cbW() {
-        return this.eub;
+    public int ckb() {
+        return this.eJF;
     }
 
-    public int cbX() {
-        return this.ixt;
+    public int ckc() {
+        return this.iQg;
     }
 
-    public int cbY() {
-        return this.ixu;
+    public int ckd() {
+        return this.iQh;
     }
 
-    public void yW(int i) {
-        this.ixs = i;
+    public void Ae(int i) {
+        this.iQf = i;
     }
 
-    public void yX(int i) {
-        this.dhd = i;
+    public void Af(int i) {
+        this.drG = i;
     }
 
-    public void yY(int i) {
-        this.eub = i;
+    public void Ag(int i) {
+        this.eJF = i;
     }
 
-    public boolean aCg() {
-        return this.ixv;
+    public boolean aIt() {
+        return this.iQi;
     }
 
-    public void pJ(boolean z) {
-        this.ixv = z;
-        this.ixs = 1;
+    public void qy(boolean z) {
+        this.iQi = z;
+        this.iQf = 1;
     }
 
-    public boolean cbZ() {
-        return this.ixx;
+    public boolean cke() {
+        return this.iQk;
     }
 
-    public void pK(boolean z) {
-        this.ixx = z;
-        this.ixs = 0;
+    public void qz(boolean z) {
+        this.iQk = z;
+        this.iQf = 0;
     }
 
-    public boolean cca() {
-        return this.ixy;
+    public boolean ckf() {
+        return this.iQl;
     }
 
-    public void pL(boolean z) {
-        this.ixy = z;
+    public void qA(boolean z) {
+        this.iQl = z;
     }
 
-    public int ccb() {
-        return this.ixz;
+    public int ckg() {
+        return this.iQm;
     }
 
-    public void yZ(int i) {
-        this.ixz = i;
+    public void Ah(int i) {
+        this.iQm = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean ccc() {
-        return this.ixw;
+    public boolean ckh() {
+        return this.iQj;
     }
 
-    public void pM(boolean z) {
-        this.ixw = z;
+    public void qB(boolean z) {
+        this.iQj = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.ixs = jSONObject.optInt("is_sign_in");
-            this.dhd = jSONObject.optInt("cont_sign_num");
-            this.eub = jSONObject.optInt("user_level");
-            this.ixt = jSONObject.optInt("user_exp");
-            this.ixu = jSONObject.optInt("need_exp");
-            if (this.ixs != 0) {
-                this.ixv = true;
-                this.ixx = false;
+            this.iQf = jSONObject.optInt("is_sign_in");
+            this.drG = jSONObject.optInt("cont_sign_num");
+            this.eJF = jSONObject.optInt("user_level");
+            this.iQg = jSONObject.optInt("user_exp");
+            this.iQh = jSONObject.optInt("need_exp");
+            if (this.iQf != 0) {
+                this.iQi = true;
+                this.iQk = false;
             }
         }
     }

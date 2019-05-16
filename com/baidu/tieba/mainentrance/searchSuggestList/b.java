@@ -12,39 +12,39 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
-    private String bii;
-    private List<String> gOc;
+    private String bol;
+    private List<String> hfu;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.gOc = arrayList;
+        this.hfu = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.gOc = list;
-        if (this.gOc != null) {
+        this.hfu = list;
+        if (this.hfu != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void yh(String str) {
+    public void zx(String str) {
         if (!StringUtils.isNull(str)) {
-            this.bii = str.trim();
+            this.bol = str.trim();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gOc == null) {
+        if (this.hfu == null) {
             return 0;
         }
-        return this.gOc.size();
+        return this.hfu.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.gOc.get(i);
+        return this.hfu.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -66,11 +66,11 @@ public class b extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.search_suggest_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.mRootView = view.findViewById(d.g.rootview);
-            aVar2.gOd = (TextView) view.findViewById(d.g.searchSuggestTitle);
-            aVar2.bjO = view.findViewById(d.g.searchItemSep);
+            aVar2.mRootView = view.findViewById(R.id.rootview);
+            aVar2.hfv = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.bpR = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -78,13 +78,13 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(aVar.gOd, item);
+            a(aVar.hfv, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
-                al.k(aVar.mRootView, d.f.addresslist_item_bg);
-                al.j(aVar.gOd, d.C0277d.cp_cont_b);
-                al.l(aVar.bjO, d.C0277d.cp_bg_line_c);
+                al.k(aVar.mRootView, R.drawable.addresslist_item_bg);
+                al.j(aVar.hfv, R.color.cp_cont_b);
+                al.l(aVar.bpR, R.color.cp_bg_line_c);
             }
         }
         return view;
@@ -92,8 +92,8 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class a {
-        View bjO;
-        TextView gOd;
+        View bpR;
+        TextView hfv;
         View mRootView;
         int mSkinType;
 
@@ -103,17 +103,17 @@ public class b extends BaseAdapter {
     }
 
     public void a(TextView textView, String str) {
-        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bii)) {
+        if (textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.bol)) {
             String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.bii.toLowerCase();
+            String lowerCase2 = this.bol.toLowerCase();
             if (!lowerCase.contains(lowerCase2)) {
                 textView.setText(str);
                 return;
             }
             int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(al.getColor(d.C0277d.cp_cont_h));
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(al.getColor(R.color.cp_cont_h));
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bii.length() + indexOf, 33);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.bol.length() + indexOf, 33);
             textView.setText(spannableStringBuilder);
         }
     }

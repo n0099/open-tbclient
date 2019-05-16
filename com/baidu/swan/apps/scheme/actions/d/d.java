@@ -1,247 +1,80 @@
 package com.baidu.swan.apps.scheme.actions.d;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.media.ExifInterface;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import android.view.View;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.scheme.actions.y;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.res.widget.floatlayer.a;
+import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
+import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class d extends y {
+public class d extends z {
     public d(j jVar) {
-        super(jVar, "/swan/showToast");
+        super(jVar, "/swan/showLoading");
     }
 
-    @Override // com.baidu.swan.apps.scheme.actions.y
-    public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        HashMap<String, String> params = unitedSchemeEntity.getParams();
-        if (params == null || params.size() == 0) {
-            com.baidu.swan.apps.console.c.e("ShowToastAction", "hasMmap for params is null");
+    @Override // com.baidu.swan.apps.scheme.actions.z
+    public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        LoadingView loadingView;
+        if (DEBUG) {
+            Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
+        }
+        if (!(context instanceof SwanAppActivity)) {
+            com.baidu.swan.apps.console.c.e("showLoading", "context not support");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+            return false;
+        }
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            com.baidu.swan.apps.console.c.e("showLoading", "none params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        String str = params.get("params");
-        if (TextUtils.isEmpty(str)) {
-            com.baidu.swan.apps.console.c.e("ShowToastAction", "the key params is null");
+        com.baidu.swan.apps.console.c.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
+        String optString = optParamsAsJo.optString("title");
+        if (TextUtils.isEmpty(optString)) {
+            com.baidu.swan.apps.console.c.e("showLoading", "none title");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("type", "1");
-            final int ac = ac(jSONObject);
-            final String optString2 = jSONObject.optString("message");
-            if (TextUtils.isEmpty(optString2)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                com.baidu.swan.apps.console.c.e("ShowToastAction", "message is null");
-                return false;
-            }
-            final boolean optBoolean = jSONObject.optBoolean("mask");
-            String optString3 = jSONObject.optString("image", LivenessStat.TYPE_STRING_DEFAULT);
-            final Drawable a = a(context, optString3, bVar);
-            if (DEBUG) {
-                Log.e("ShowToastAction", "imagepath = " + optString3);
-            }
-            String str2 = (!TextUtils.equals(optString3, LivenessStat.TYPE_STRING_DEFAULT) && a == null && TextUtils.equals(optString, "2")) ? "1" : optString;
-            char c = 65535;
-            switch (str2.hashCode()) {
-                case 49:
-                    if (str2.equals("1")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 50:
-                    if (str2.equals("2")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 51:
-                    if (str2.equals("3")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.d.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.this.a(context, callbackHandler, unitedSchemeEntity, optString2, ac, optBoolean);
-                        }
-                    });
-                    break;
-                case 1:
-                    aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.d.2
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.this.a(context, callbackHandler, unitedSchemeEntity, optString2, ac, a, optBoolean);
-                        }
-                    });
-                    break;
-                case 2:
-                    aa.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.d.d.3
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            d.this.b(context, callbackHandler, unitedSchemeEntity, optString2, ac, optBoolean);
-                        }
-                    });
-                    break;
-                default:
-                    l(unitedSchemeEntity);
-                    return false;
-            }
-            return true;
-        } catch (JSONException e) {
-            if (DEBUG) {
-                e.printStackTrace();
-            }
-            com.baidu.swan.apps.console.c.e("ShowToastAction", "json exception");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
+        com.baidu.swan.apps.core.d.e vi = ((SwanAppActivity) context).vi();
+        if (vi == null) {
+            com.baidu.swan.apps.console.c.e("showLoading", "none fragment");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
             return false;
         }
-    }
-
-    private int ac(JSONObject jSONObject) {
-        int gB = gB(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
-        if (gB <= 0) {
-            return 2;
+        com.baidu.swan.apps.core.d.b zK = vi.zK();
+        if (!(zK instanceof a.InterfaceC0170a)) {
+            com.baidu.swan.apps.console.c.e("showLoading", "fragment not support");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+            return false;
         }
-        return gB;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).dv(i).bY(z).dr(2).II();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).e(drawable).dv(i).bY(z).IL();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, H(str, 14)).dv(i).bY(z).IM();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-    }
-
-    private void l(UnitedSchemeEntity unitedSchemeEntity) {
-        if (DEBUG) {
-            Log.w("ShowToastAction", "the toast type is unknown");
+        com.baidu.swan.apps.res.widget.floatlayer.a ve = ((a.InterfaceC0170a) zK).ve();
+        if (ve == null) {
+            com.baidu.swan.apps.console.c.e("showLoading", "can't get floatLayer");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
+            return false;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
-    }
-
-    private String H(String str, int i) {
-        char[] charArray;
-        int i2 = 0;
-        if (TextUtils.isEmpty(str)) {
-            return "";
+        View view = ve.getView();
+        if (view instanceof LoadingView) {
+            loadingView = (LoadingView) view;
+        } else {
+            loadingView = new LoadingView(context);
+            ve.ae(loadingView);
         }
-        StringBuffer stringBuffer = new StringBuffer();
-        for (char c : str.trim().toCharArray()) {
-            if (c >= 161) {
-                i2 += 2;
-                if (i2 > i) {
-                    break;
-                }
-                stringBuffer.append(c);
-            } else {
-                i2++;
-                if (i2 > i) {
-                    break;
-                }
-                stringBuffer.append(c);
-            }
+        if (!TextUtils.isEmpty(optString)) {
+            loadingView.setMsg(optString);
         }
-        if (i2 > i) {
-            stringBuffer.append("...");
-        }
-        return stringBuffer.toString();
-    }
-
-    private int gB(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        try {
-            return (int) Float.parseFloat(str);
-        } catch (NumberFormatException e) {
-            return -1;
-        }
-    }
-
-    private Drawable a(Context context, String str, com.baidu.swan.apps.ae.b bVar) {
-        BitmapDrawable bitmapDrawable;
-        if (TextUtils.isEmpty(str) || bVar == null || context == null) {
-            return null;
-        }
-        if (DEBUG) {
-            Log.e("ShowToastAction", "imagePath = " + str);
-        }
-        ExifInterface gF = gF(str);
-        if (gF == null) {
-            if (DEBUG) {
-                Log.e("ShowToastAction", "exifInterface is null");
-                return null;
-            }
-            return null;
-        }
-        int intValue = Integer.valueOf(gF.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(gF.getAttribute("ImageLength")).intValue();
-        if (DEBUG) {
-            Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
-        }
-        File file = new File(str);
-        if (!file.exists() || !file.isFile()) {
-            if (DEBUG) {
-                Log.e("ShowToastAction", "image file not exists");
-                return null;
-            }
-            return null;
-        }
-        try {
-            bitmapDrawable = new BitmapDrawable(context.getResources(), BitmapFactory.decodeStream(new FileInputStream(file)));
-        } catch (FileNotFoundException e) {
-            if (DEBUG) {
-                Log.e("ShowToastAction", "FileNotFoundException");
-                e.printStackTrace();
-            }
-            bitmapDrawable = null;
-        }
-        return bitmapDrawable;
-    }
-
-    private ExifInterface gF(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        try {
-            return new ExifInterface(str);
-        } catch (IOException e) {
-            return null;
-        }
+        ve.setMask(optBoolean);
+        com.baidu.swan.apps.console.c.i("showLoading", "show loading success");
+        unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        return true;
     }
 }

@@ -1,102 +1,88 @@
 package com.baidu.swan.ubc;
 
-import android.content.Context;
-import android.os.IBinder;
 import android.os.RemoteException;
+import android.text.TextUtils;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.ubc.IRemoteUBCService;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes2.dex */
 public class q {
-    private static volatile IRemoteUBCService bqd;
-
-    public static final j Tq() {
-        return com.baidu.swan.apps.z.b.Fp();
-    }
-
-    public static final void onEvent(String str) {
-        onEvent(str, "", 0);
-    }
-
-    public static final void onEvent(String str, String str2) {
-        onEvent(str, str2, 0);
-    }
-
-    public static final void onEvent(String str, JSONObject jSONObject) {
-        onEvent(str, jSONObject, 0);
-    }
-
-    public static final void onEvent(String str, Map<String, String> map) {
-        onEvent(str, map, 0);
-    }
-
-    public static final void onEvent(String str, Map<String, String> map, int i) {
-        j Tq = Tq();
-        if (com.baidu.swan.b.c.TC()) {
-            n.Tj().onEvent(str, map, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
-                Tq.b(str, map, i);
+    public static void Xn() {
+        IPCServiceManager.addService("open_log", new IRemoteUBCService.Stub() { // from class: com.baidu.swan.ubc.OpenStatisticIPCManager$1
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
+                s.onEvent(str, str2, i);
             }
-        } else if (Tq != null) {
-            Tq.b(str, map, i);
-        }
-    }
 
-    public static void onEvent(String str, String str2, int i) {
-        j Tq = Tq();
-        if (com.baidu.swan.b.c.TC()) {
-            n.Tj().onEvent(str, str2, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
-                Tq.b(str, str2, i);
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
+                return s.g(str, str2, i);
             }
-        } else if (Tq != null) {
-            Tq.b(str, str2, i);
-        }
-    }
 
-    public static void onEvent(String str, JSONObject jSONObject, int i) {
-        j Tq = Tq();
-        if (com.baidu.swan.b.c.TC()) {
-            n.Tj().onEvent(str, jSONObject, i);
-            if (com.baidu.pyramid.runtime.multiprocess.a.tQ() && Tq != null) {
-                Tq.b(str, jSONObject, i);
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
+                if (flow != null) {
+                    flow.addEvent(str, str2);
+                }
             }
-        } else if (Tq != null) {
-            Tq.b(str, jSONObject, i);
-        }
-    }
 
-    public static final Flow jT(String str) {
-        return i(str, "", 0);
-    }
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
+                if (flow != null) {
+                    flow.addEvent(str, str2, j);
+                }
+            }
 
-    public static Flow i(String str, String str2, int i) {
-        return n.Tj().i(str, str2, i);
-    }
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowSetValue(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.setValue(str);
+                }
+            }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Context getContext() {
-        return AppRuntime.getAppContext();
-    }
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.setValueWithDuration(str);
+                }
+            }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static IRemoteUBCService Tk() throws RemoteException {
-        if (bqd == null) {
-            synchronized (q.class) {
-                if (bqd == null) {
-                    IBinder i = IPCServiceManager.i("open_log", true);
-                    if (i == null) {
-                        throw new RemoteException("UBC get remote service empty !");
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
+                if (flow != null) {
+                    if (TextUtils.isEmpty(str2)) {
+                        flow.startSlot(str, null);
+                        return;
                     }
-                    if (i != null) {
-                        bqd = IRemoteUBCService.Stub.asInterface(i);
+                    try {
+                        flow.startSlot(str, new JSONObject(str2));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
-        }
-        return bqd;
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowEndSlot(Flow flow, String str) throws RemoteException {
+                if (flow != null) {
+                    flow.endSlot(str);
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowCancel(Flow flow) throws RemoteException {
+                if (flow != null) {
+                    flow.cancel();
+                }
+            }
+
+            @Override // com.baidu.swan.ubc.IRemoteUBCService
+            public void flowEnd(Flow flow) throws RemoteException {
+                if (flow != null) {
+                    flow.end();
+                }
+            }
+        }, false);
     }
 }

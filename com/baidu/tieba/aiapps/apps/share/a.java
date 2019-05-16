@@ -4,8 +4,8 @@ import android.net.Uri;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.tbadk.coreExtra.c.d {
-    public void aX(JSONObject jSONObject) throws JSONException {
+public class a extends com.baidu.tbadk.coreExtra.c.e {
+    public void bi(JSONObject jSONObject) throws JSONException {
         this.title = jSONObject.getString("title");
         this.linkUrl = jSONObject.getString("linkUrl");
         this.content = jSONObject.optString("content");

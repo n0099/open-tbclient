@@ -10,9 +10,9 @@ public class a {
 
     /* renamed from: com.baidu.tieba.im.chat.photolive.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0312a {
-        public long geD;
-        public String geE;
+    public static class C0329a {
+        public long gvP;
+        public String gvQ;
         public String portrait = null;
         public String userId = null;
         public String userName = null;
@@ -21,31 +21,31 @@ public class a {
         public String forumName = null;
         public long postId = 0;
         public int msgType = 0;
-        public int geF = 0;
+        public int gvR = 0;
     }
 
-    public static C0312a wu(String str) {
+    public static C0329a xJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0312a c0312a = new C0312a();
+        C0329a c0329a = new C0329a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0312a.portrait = optJSONObject.optString("head_url");
-                c0312a.userId = optJSONObject.optString("user_id");
-                c0312a.userName = optJSONObject.optString("nick_name");
-                c0312a.geD = optJSONObject.optLong("caller_time");
-                c0312a.geE = optJSONObject.optString("caller_content");
-                c0312a.threadId = optJSONObject.optLong("thread_id");
-                c0312a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                c0312a.forumName = optJSONObject.optString("forum_name");
-                c0312a.postId = optJSONObject.optLong("post_id");
-                c0312a.msgType = optJSONObject.optInt("msg_type");
-                c0312a.geF = optJSONObject.optInt("remind_count");
+                c0329a.portrait = optJSONObject.optString("head_url");
+                c0329a.userId = optJSONObject.optString("user_id");
+                c0329a.userName = optJSONObject.optString("nick_name");
+                c0329a.gvP = optJSONObject.optLong("caller_time");
+                c0329a.gvQ = optJSONObject.optString("caller_content");
+                c0329a.threadId = optJSONObject.optLong("thread_id");
+                c0329a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                c0329a.forumName = optJSONObject.optString("forum_name");
+                c0329a.postId = optJSONObject.optLong("post_id");
+                c0329a.msgType = optJSONObject.optInt("msg_type");
+                c0329a.gvR = optJSONObject.optInt("remind_count");
             }
-            return c0312a;
+            return c0329a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

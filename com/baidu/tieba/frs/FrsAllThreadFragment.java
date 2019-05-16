@@ -6,43 +6,72 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.d;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ag {
-    private static final String TAG = FrsAllThreadFragment.class.getSimpleName();
-    private BdSwipeRefreshLayout dcF;
-    private View eXX;
-    private RecyclerView eXY;
+    private BdSwipeRefreshLayout dnh;
+    private View foh;
+    private RecyclerView foi;
+    private String forumId;
+    private int tabId;
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.eXX != null && this.eXX.getParent() != null) {
-            ((ViewGroup) this.eXX.getParent()).removeView(this.eXX);
+        Bundle arguments = getArguments();
+        if (arguments != null) {
+            this.forumId = arguments.getString("forum_id", "");
+            this.tabId = arguments.getInt(MyBookrackActivityConfig.TAB_ID);
         }
-        return this.eXX;
+        bju();
+        return this.foh;
     }
 
     public void setView(View view) {
-        this.eXX = view;
-        this.eXY = (RecyclerView) this.eXX.findViewById(d.g.frs_lv_thread);
-        this.dcF = (BdSwipeRefreshLayout) this.eXX.findViewById(d.g.frs_pull_refresh_layout);
+        this.foh = view;
+        this.foi = (RecyclerView) this.foh.findViewById(R.id.frs_lv_thread);
+        this.dnh = (BdSwipeRefreshLayout) this.foh.findViewById(R.id.frs_pull_refresh_layout);
+        bju();
     }
 
-    @Override // com.baidu.tieba.frs.ag
-    public void bcb() {
-        if (this.eXY != null) {
-            this.eXY.scrollToPosition(0);
+    private void bju() {
+        if (this.foh != null && (this.foh.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.foh.getParent()).removeView(this.foh);
+            this.foh.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aCq() {
-        if (this.dcF != null) {
-            bcb();
-            this.dcF.setRefreshing(true);
+    public void bjv() {
+        if (this.foi != null) {
+            this.foi.scrollToPosition(0);
         }
+    }
+
+    @Override // com.baidu.tieba.frs.ag
+    public void aID() {
+        if (this.dnh != null) {
+            bjv();
+            this.dnh.setRefreshing(true);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onLoad() {
+        if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+            ak(2, "4");
+        } else {
+            ak(2, "5");
+        }
+    }
+
+    private void ak(int i, String str) {
+        TiebaStatic.log(new com.baidu.tbadk.core.util.am("c13008").bT("fid", this.forumId).bT("obj_type", str).P("obj_locate", i).bT("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 }

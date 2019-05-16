@@ -10,18 +10,18 @@ import android.widget.ImageView;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class SwanAppRoundedImageView extends ImageView {
-    private static final ImageView.ScaleType[] aYC = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
-    private ImageView.ScaleType On;
-    private int Op;
-    private Drawable Or;
-    private boolean aYD;
+    private static final ImageView.ScaleType[] bbq = {ImageView.ScaleType.MATRIX, ImageView.ScaleType.FIT_XY, ImageView.ScaleType.FIT_START, ImageView.ScaleType.FIT_CENTER, ImageView.ScaleType.FIT_END, ImageView.ScaleType.CENTER, ImageView.ScaleType.CENTER_CROP, ImageView.ScaleType.CENTER_INSIDE};
+    private ImageView.ScaleType LX;
+    private int LZ;
+    private Drawable Mb;
+    private boolean bbr;
     private int mBorderColor;
     private int mBorderWidth;
     private Drawable mDrawable;
 
     public SwanAppRoundedImageView(Context context) {
         super(context);
-        this.Op = 20;
+        this.LZ = 20;
         this.mBorderWidth = 2;
         this.mBorderColor = ViewCompat.MEASURED_STATE_MASK;
     }
@@ -35,24 +35,24 @@ public class SwanAppRoundedImageView extends ImageView {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(a.j.RoundedImageView_android_scaleType, -1);
         if (i2 >= 0) {
-            setScaleType(aYC[i2]);
+            setScaleType(bbq[i2]);
         }
-        this.Op = obtainStyledAttributes.getDimensionPixelSize(a.j.RoundedImageView_corner_radius, -1);
+        this.LZ = obtainStyledAttributes.getDimensionPixelSize(a.j.RoundedImageView_corner_radius, -1);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(a.j.RoundedImageView_border_width, -1);
-        if (this.Op < 0) {
-            this.Op = 20;
+        if (this.LZ < 0) {
+            this.LZ = 20;
         }
         if (this.mBorderWidth < 0) {
             this.mBorderWidth = 2;
         }
         this.mBorderColor = obtainStyledAttributes.getColor(a.j.RoundedImageView_border_color, ViewCompat.MEASURED_STATE_MASK);
-        this.aYD = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_round_background, false);
+        this.bbr = obtainStyledAttributes.getBoolean(a.j.RoundedImageView_round_background, false);
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.ImageView
     public ImageView.ScaleType getScaleType() {
-        return this.On;
+        return this.LX;
     }
 
     @Override // android.widget.ImageView
@@ -60,8 +60,8 @@ public class SwanAppRoundedImageView extends ImageView {
         if (scaleType == null) {
             throw new NullPointerException();
         }
-        if (this.On != scaleType) {
-            this.On = scaleType;
+        if (this.LX != scaleType) {
+            this.LX = scaleType;
             switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[scaleType.ordinal()]) {
                 case 1:
                 case 2:
@@ -79,8 +79,8 @@ public class SwanAppRoundedImageView extends ImageView {
             if ((this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) && ((com.baidu.swan.apps.res.ui.c) this.mDrawable).getScaleType() != scaleType) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setScaleType(scaleType);
             }
-            if ((this.Or instanceof com.baidu.swan.apps.res.ui.c) && ((com.baidu.swan.apps.res.ui.c) this.Or).getScaleType() != scaleType) {
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setScaleType(scaleType);
+            if ((this.Mb instanceof com.baidu.swan.apps.res.ui.c) && ((com.baidu.swan.apps.res.ui.c) this.Mb).getScaleType() != scaleType) {
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setScaleType(scaleType);
             }
             setWillNotCacheDrawing(true);
             requestLayout();
@@ -129,7 +129,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         if (drawable != null) {
-            this.mDrawable = com.baidu.swan.apps.res.ui.c.a(drawable, this.On, this.Op, this.mBorderWidth, this.mBorderColor);
+            this.mDrawable = com.baidu.swan.apps.res.ui.c.a(drawable, this.LX, this.LZ, this.mBorderWidth, this.mBorderColor);
         } else {
             this.mDrawable = null;
         }
@@ -139,9 +139,9 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null) {
-            this.mDrawable = new com.baidu.swan.apps.res.ui.c(bitmap, this.Op, this.mBorderWidth, this.mBorderColor);
-            if (this.On != null) {
-                ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setScaleType(this.On);
+            this.mDrawable = new com.baidu.swan.apps.res.ui.c(bitmap, this.LZ, this.mBorderWidth, this.mBorderColor);
+            if (this.LX != null) {
+                ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setScaleType(this.LX);
             }
         } else {
             this.mDrawable = null;
@@ -157,26 +157,26 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.view.View
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
-        if (this.aYD && drawable != null) {
-            this.Or = com.baidu.swan.apps.res.ui.c.a(drawable, this.On, this.Op, this.mBorderWidth, this.mBorderColor);
+        if (this.bbr && drawable != null) {
+            this.Mb = com.baidu.swan.apps.res.ui.c.a(drawable, this.LX, this.LZ, this.mBorderWidth, this.mBorderColor);
         } else {
-            this.Or = drawable;
+            this.Mb = drawable;
         }
-        super.setBackgroundDrawable(this.Or);
+        super.setBackgroundDrawable(this.Mb);
     }
 
     public int getCornerRadius() {
-        return this.Op;
+        return this.LZ;
     }
 
     public void setCornerRadius(int i) {
-        if (this.Op != i) {
-            this.Op = i;
+        if (this.LZ != i) {
+            this.LZ = i;
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setCornerRadius(i);
             }
-            if (this.aYD && (this.Or instanceof com.baidu.swan.apps.res.ui.c)) {
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setCornerRadius(i);
+            if (this.bbr && (this.Mb instanceof com.baidu.swan.apps.res.ui.c)) {
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setCornerRadius(i);
             }
         }
     }
@@ -195,8 +195,8 @@ public class SwanAppRoundedImageView extends ImageView {
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setBorderColor(i);
             }
-            if (this.aYD && (this.Or instanceof com.baidu.swan.apps.res.ui.c)) {
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setBorderColor(i);
+            if (this.bbr && (this.Mb instanceof com.baidu.swan.apps.res.ui.c)) {
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setBorderColor(i);
             }
             if (this.mBorderWidth > 0) {
                 invalidate();
@@ -210,28 +210,28 @@ public class SwanAppRoundedImageView extends ImageView {
             if (this.mDrawable instanceof com.baidu.swan.apps.res.ui.c) {
                 ((com.baidu.swan.apps.res.ui.c) this.mDrawable).setBorderWidth(i);
             }
-            if (this.aYD && (this.Or instanceof com.baidu.swan.apps.res.ui.c)) {
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setBorderWidth(i);
+            if (this.bbr && (this.Mb instanceof com.baidu.swan.apps.res.ui.c)) {
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setBorderWidth(i);
             }
             invalidate();
         }
     }
 
     public void setRoundBackground(boolean z) {
-        if (this.aYD != z) {
-            this.aYD = z;
+        if (this.bbr != z) {
+            this.bbr = z;
             if (z) {
-                if (this.Or instanceof com.baidu.swan.apps.res.ui.c) {
-                    ((com.baidu.swan.apps.res.ui.c) this.Or).setScaleType(this.On);
-                    ((com.baidu.swan.apps.res.ui.c) this.Or).setCornerRadius(this.Op);
-                    ((com.baidu.swan.apps.res.ui.c) this.Or).setBorderWidth(this.mBorderWidth);
-                    ((com.baidu.swan.apps.res.ui.c) this.Or).setBorderColor(this.mBorderColor);
+                if (this.Mb instanceof com.baidu.swan.apps.res.ui.c) {
+                    ((com.baidu.swan.apps.res.ui.c) this.Mb).setScaleType(this.LX);
+                    ((com.baidu.swan.apps.res.ui.c) this.Mb).setCornerRadius(this.LZ);
+                    ((com.baidu.swan.apps.res.ui.c) this.Mb).setBorderWidth(this.mBorderWidth);
+                    ((com.baidu.swan.apps.res.ui.c) this.Mb).setBorderColor(this.mBorderColor);
                 } else {
-                    setBackgroundDrawable(this.Or);
+                    setBackgroundDrawable(this.Mb);
                 }
-            } else if (this.Or instanceof com.baidu.swan.apps.res.ui.c) {
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setBorderWidth(0);
-                ((com.baidu.swan.apps.res.ui.c) this.Or).setCornerRadius(0.0f);
+            } else if (this.Mb instanceof com.baidu.swan.apps.res.ui.c) {
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setBorderWidth(0);
+                ((com.baidu.swan.apps.res.ui.c) this.Mb).setCornerRadius(0.0f);
             }
             invalidate();
         }

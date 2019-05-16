@@ -2,7 +2,6 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.s;
 import tbclient.GetToken.DataReq;
 import tbclient.GetToken.GetTokenReqIdl;
 /* loaded from: classes.dex */
@@ -20,7 +19,7 @@ public class GetTokenRequestMessage extends NetMessage {
         builder.token = this.mToken;
         builder.shoubaicuid = this.mBaiduCuid;
         if (z) {
-            s.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.s.bindCommonParamsToProtobufData(builder, true);
         }
         GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
         builder2.data = builder.build(false);

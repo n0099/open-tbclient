@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String buQ;
-    private int buR;
-    private int buS;
-    private int buT;
-    private int buU;
-    private int buV;
-    private int buW;
-    private int buX;
-    private int buY;
-    private int buZ;
-    private int bva;
-    private int bvb;
-    private int bvc;
-    private int bvd;
-    private int bve;
-    private int bvf;
-    private int bvg;
-    private int bvh;
-    private int bvi;
-    private int bvj;
-    private int bvk;
-    private StringBuffer bvl = new StringBuffer();
+    private String bBT;
+    private int bBU;
+    private int bBV;
+    private int bBW;
+    private int bBX;
+    private int bBY;
+    private int bBZ;
+    private int bCa;
+    private int bCb;
+    private int bCc;
+    private int bCd;
+    private int bCe;
+    private int bCf;
+    private int bCg;
+    private int bCh;
+    private int bCi;
+    private int bCj;
+    private int bCk;
+    private int bCl;
+    private int bCm;
+    private int bCn;
+    private StringBuffer bCo = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.bvl.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.bCo.toString() + "]";
     }
 
-    public void kS(String str) {
-        this.bvl.append(str).append(" || ");
+    public void lX(String str) {
+        this.bCo.append(str).append(" || ");
     }
 
-    public int VZ() {
-        return this.bvf;
+    public int aaF() {
+        return this.bCi;
     }
 
-    public void fD(int i) {
-        this.bvf = i;
+    public void gp(int i) {
+        this.bCi = i;
     }
 
-    public int Wa() {
-        return this.bvg;
+    public int aaG() {
+        return this.bCj;
     }
 
-    public void fE(int i) {
-        this.bvg = i;
+    public void gq(int i) {
+        this.bCj = i;
     }
 
-    public int Wb() {
-        return this.bvd;
+    public int aaH() {
+        return this.bCg;
     }
 
-    public void fF(int i) {
-        this.bvd = i;
+    public void gr(int i) {
+        this.bCg = i;
     }
 
-    public int Wc() {
-        return this.bve;
+    public int aaI() {
+        return this.bCh;
     }
 
-    public void fG(int i) {
-        this.bve = i;
+    public void gs(int i) {
+        this.bCh = i;
     }
 
-    public int Wd() {
-        return this.bvb;
+    public int aaJ() {
+        return this.bCe;
     }
 
-    public void fH(int i) {
-        this.bvb = i;
+    public void gt(int i) {
+        this.bCe = i;
     }
 
-    public int We() {
-        return this.bvc;
+    public int aaK() {
+        return this.bCf;
     }
 
-    public void fI(int i) {
-        this.bvc = i;
+    public void gu(int i) {
+        this.bCf = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int Wf() {
-        return this.bvh;
+    public int aaL() {
+        return this.bCk;
     }
 
-    public void fJ(int i) {
-        this.bvh = i;
+    public void gv(int i) {
+        this.bCk = i;
     }
 
-    public int Wg() {
-        return this.bvi;
+    public int aaM() {
+        return this.bCl;
     }
 
-    public void fK(int i) {
-        this.bvi = i;
+    public void gw(int i) {
+        this.bCl = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void kT(String str) {
-        this.buQ = str;
+    public void lY(String str) {
+        this.bBT = str;
     }
 
-    public int Wh() {
-        return this.buR;
+    public int aaN() {
+        return this.bBU;
     }
 
-    public void fL(int i) {
-        this.buR = i;
+    public void gx(int i) {
+        this.bBU = i;
     }
 
-    public int Wi() {
-        return this.buS;
+    public int aaO() {
+        return this.bBV;
     }
 
-    public void fM(int i) {
-        this.buS = i;
+    public void gy(int i) {
+        this.bBV = i;
     }
 
-    public int Wj() {
-        return this.buV;
+    public int aaP() {
+        return this.bBY;
     }
 
-    public void fN(int i) {
-        this.buV = i;
+    public void gz(int i) {
+        this.bBY = i;
     }
 
-    public int Wk() {
-        return this.buW;
+    public int aaQ() {
+        return this.bBZ;
     }
 
-    public void fO(int i) {
-        this.buW = i;
+    public void gA(int i) {
+        this.bBZ = i;
     }
 
-    public int Wl() {
-        return this.buT;
+    public int aaR() {
+        return this.bBW;
     }
 
-    public void fP(int i) {
-        this.buT = i;
+    public void gB(int i) {
+        this.bBW = i;
     }
 
-    public int Wm() {
-        return this.buU;
+    public int aaS() {
+        return this.bBX;
     }
 
-    public void fQ(int i) {
-        this.buU = i;
+    public void gC(int i) {
+        this.bBX = i;
     }
 
-    public int Wn() {
-        return this.buY;
+    public int aaT() {
+        return this.bCb;
     }
 
-    public int Wo() {
-        return this.buX;
+    public int aaU() {
+        return this.bCa;
     }
 
-    public void fR(int i) {
-        this.buX = i;
+    public void gD(int i) {
+        this.bCa = i;
     }
 
-    public void fS(int i) {
-        this.buY = i;
+    public void gE(int i) {
+        this.bCb = i;
     }
 
-    public int Wp() {
-        return this.bva;
+    public int aaV() {
+        return this.bCd;
     }
 
-    public void fT(int i) {
-        this.bva = i;
+    public void gF(int i) {
+        this.bCd = i;
     }
 
-    public int Wq() {
-        return this.buZ;
+    public int aaW() {
+        return this.bCc;
     }
 
-    public void fU(int i) {
-        this.buZ = i;
+    public void gG(int i) {
+        this.bCc = i;
     }
 
-    public int Wr() {
-        return this.bvj;
+    public int aaX() {
+        return this.bCm;
     }
 
-    public void fV(int i) {
-        this.bvj = i;
+    public void gH(int i) {
+        this.bCm = i;
     }
 
-    public int Ws() {
-        return this.bvk;
+    public int aaY() {
+        return this.bCn;
     }
 
-    public void fW(int i) {
-        this.bvk = i;
+    public void gI(int i) {
+        this.bCn = i;
     }
 }

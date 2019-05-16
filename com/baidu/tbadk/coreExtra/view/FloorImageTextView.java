@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.view;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -14,26 +15,26 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextView extends AbsFloorImageTextView {
-    private static final int ccQ = l.h(TbadkApplication.getInst(), d.e.tbds56);
-    private static final int ccR = l.h(TbadkApplication.getInst(), d.e.tbds45);
-    private static final int ccS = l.h(TbadkApplication.getInst(), d.e.tbds34);
-    private TbRichTextView ccT;
-    private EditorScrollView ccU;
-    private int ccV;
-    private boolean ccW;
-    private final View.OnTouchListener ccX;
+    private static final int ckU = l.g(TbadkApplication.getInst(), R.dimen.tbds56);
+    private static final int ckV = l.g(TbadkApplication.getInst(), R.dimen.tbds45);
+    private static final int ckW = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    private TbRichTextView ckX;
+    private EditorScrollView ckY;
+    private int ckZ;
+    private boolean cla;
+    private final View.OnTouchListener clb;
     private float mLastMotionY;
     private int mMaxHeight;
 
     public FloorImageTextView(Context context) {
         super(context);
-        this.ccW = false;
-        this.ccX = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.3
+        this.cla = false;
+        this.clb = new View.OnTouchListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 return true;
@@ -42,20 +43,20 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         init(context);
     }
 
-    private boolean akb() {
-        return this.ccU.akb();
+    private boolean apc() {
+        return this.ckY.apc();
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(d.h.floorimage_textview_layout, (ViewGroup) this, true);
-        al.l(this, d.C0277d.black_alpha50);
-        this.ccT = (TbRichTextView) findViewById(d.g.textview);
-        this.ccT.setVerticalScrollBarEnabled(true);
-        this.ccT.setTextSize(cbY);
-        this.ccT.setTextColor(al.getColor(d.C0277d.white_alpha83));
-        this.ccU = (EditorScrollView) findViewById(d.g.scrollview);
-        this.ccU.setPadding(0, TOP, 0, BOTTOM);
-        this.ccU.setOnTouchListener(this.ccb);
+        LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout, (ViewGroup) this, true);
+        al.l(this, R.color.black_alpha50);
+        this.ckX = (TbRichTextView) findViewById(R.id.textview);
+        this.ckX.setVerticalScrollBarEnabled(true);
+        this.ckX.setTextSize(ckd);
+        this.ckX.setTextColor(al.getColor(R.color.white_alpha83));
+        this.ckY = (EditorScrollView) findViewById(R.id.scrollview);
+        this.ckY.setPadding(0, TOP, 0, BOTTOM);
+        this.ckY.setOnTouchListener(this.ckg);
         setVisibility(8);
     }
 
@@ -64,70 +65,93 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         super.onSizeChanged(i, i2, i3, i4);
     }
 
-    private void d(Pair<Integer, Integer> pair) {
+    private void e(Pair<Integer, Integer> pair) {
         if (pair != null) {
             int intValue = ((Integer) pair.second).intValue();
             if (intValue >= 5) {
-                this.mMaxHeight = iY(5) + ccS;
+                this.mMaxHeight = jM(5) + ckW;
             } else {
-                this.mMaxHeight = iY(intValue) + ccS;
+                this.mMaxHeight = jM(intValue) + ckW;
             }
             if (intValue > 2) {
-                this.ccW = true;
-                this.ccV = iY(2) + ccR;
+                this.cla = true;
+                this.ckZ = jM(2) + ckV;
             } else if (intValue == 2) {
-                this.ccW = false;
-                this.ccV = iY(2) + ccS;
+                this.cla = false;
+                this.ckZ = jM(2) + ckW;
             } else {
-                this.ccW = false;
-                this.ccV = iY(1);
+                this.cla = false;
+                this.ckZ = jM(1);
             }
-            iV(this.ccV);
+            jJ(this.ckZ);
         }
     }
 
-    private int iY(int i) {
-        return (ccQ * i) + TOP + BOTTOM;
+    private int jM(int i) {
+        return (ckU * i) + TOP + BOTTOM;
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void a(ImageUrlData imageUrlData) {
         JSONArray jSONArray;
-        this.cbZ = imageUrlData;
+        this.cke = imageUrlData;
         JSONArray jSONArray2 = null;
-        if (imageUrlData == null) {
-            jSONArray = null;
-        } else {
+        if (imageUrlData != null) {
             try {
-                jSONArray = new JSONArray(imageUrlData.richTextArray);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            if (!TextUtils.isEmpty(imageUrlData.richTextArray)) {
+                jSONArray = new JSONArray(imageUrlData.richTextArray);
+                jSONArray2 = jSONArray;
+                if (imageUrlData == null && jSONArray2 != null && jSONArray2.length() > 0) {
+                    setVisibility(0);
+                    TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
+                    e(pp(a.toString()));
+                    this.ckX.setText(a);
+                    return;
+                }
+                setVisibility(8);
+            }
         }
+        jSONArray = null;
         jSONArray2 = jSONArray;
-        if (imageUrlData != null && jSONArray2 != null && jSONArray2.length() > 0) {
-            setVisibility(0);
-            TbRichText a = TbRichTextView.a(getContext(), jSONArray2, false);
-            d(og(a.toString()));
-            this.ccT.setText(a);
-            return;
+        if (imageUrlData == null) {
         }
         setVisibility(8);
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
-    public void ep(boolean z) {
-        eq(z);
+    public void o(boolean z, boolean z2) {
+        if (z2) {
+            eM(z);
+        } else {
+            setExpandState(z);
+        }
     }
 
-    private void eq(boolean z) {
+    private void setExpandState(boolean z) {
+        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        if (layoutParams != null) {
+            setVisibility(0);
+            if (z) {
+                layoutParams.height = this.ckZ;
+                setLayoutParams(layoutParams);
+                return;
+            }
+            layoutParams.height = 0;
+            setLayoutParams(layoutParams);
+        }
+    }
+
+    private void eM(boolean z) {
         ValueAnimator ofInt;
         final ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams != null) {
             int i = layoutParams.height;
             setVisibility(0);
             if (z) {
-                ofInt = ValueAnimator.ofInt(0, this.ccV);
+                ofInt = ValueAnimator.ofInt(0, this.ckZ);
                 ofInt.setDuration(300L);
                 ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tbadk.coreExtra.view.FloorImageTextView.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -138,7 +162,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
                         }
                     }
                 });
-                TiebaStatic.log(new am("c13336").bJ("uid", this.mUserId).bJ("obj_locate", "2"));
+                TiebaStatic.log(new am("c13336").bT("uid", this.mUserId).bT("obj_locate", "2"));
             } else {
                 ofInt = ValueAnimator.ofInt(i, 0);
                 ofInt.setDuration(300L);
@@ -151,7 +175,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
                         }
                     }
                 });
-                TiebaStatic.log(new am("c13336").bJ("uid", this.mUserId).bJ("obj_locate", "1"));
+                TiebaStatic.log(new am("c13336").bT("uid", this.mUserId).bT("obj_locate", "1"));
             }
             ofInt.start();
         }
@@ -176,7 +200,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         } else if (action == 2) {
             float f = this.mLastMotionY - y;
             if (e(this, motionEvent)) {
-                am(f);
+                ao(f);
             }
             this.mLastMotionY = y;
         } else if (action == 1 || action == 3) {
@@ -196,23 +220,23 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         return motionEvent.getRawX() >= ((float) i) && motionEvent.getRawX() <= ((float) (i + view.getWidth())) && motionEvent.getRawY() >= ((float) i2) && motionEvent.getRawY() <= ((float) (i2 + view.getHeight()));
     }
 
-    private void am(float f) {
+    private void ao(float f) {
         boolean z = false;
-        if (this.ccW) {
+        if (this.cla) {
             int height = ((int) f) + getHeight();
             boolean z2 = height < this.mMaxHeight;
-            boolean z3 = height > this.ccV;
+            boolean z3 = height > this.ckZ;
             if (f > 0.0f) {
                 z = z2;
-            } else if (f < 0.0f && akb()) {
+            } else if (f < 0.0f && apc()) {
                 z = z3;
             }
             if (z) {
-                this.ccU.setOnTouchListener(this.ccX);
-                iV(height);
+                this.ckY.setOnTouchListener(this.clb);
+                jJ(height);
                 return;
             }
-            this.ccU.setOnTouchListener(this.ccb);
+            this.ckY.setOnTouchListener(this.ckg);
         }
     }
 }

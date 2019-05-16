@@ -1,263 +1,372 @@
 package com.baidu.android.pushservice;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Environment;
+import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.android.pushservice.h.o;
-import com.baidu.android.pushservice.j.m;
-import com.baidu.mobstat.Config;
-import com.sina.weibo.sdk.utils.WbAuthConstants;
-import java.io.File;
-import java.io.FileInputStream;
-import java.net.InetAddress;
-import java.util.ArrayList;
-import java.util.Properties;
+import com.baidu.android.pushservice.d.aa;
+import com.baidu.android.pushservice.d.j;
+import com.baidu.android.pushservice.d.k;
+import com.baidu.android.pushservice.d.l;
+import com.baidu.android.pushservice.d.n;
+import com.baidu.android.pushservice.d.o;
+import com.baidu.android.pushservice.d.p;
+import com.baidu.android.pushservice.d.q;
+import com.baidu.android.pushservice.d.r;
+import com.baidu.android.pushservice.d.s;
+import com.baidu.android.pushservice.d.u;
+import com.baidu.android.pushservice.d.v;
+import com.baidu.android.pushservice.d.w;
+import com.baidu.android.pushservice.d.x;
+import com.baidu.android.pushservice.d.z;
+import com.baidu.android.pushservice.g.m;
+import com.baidu.android.pushservice.message.PublicMsg;
+import com.coloros.mcssdk.mode.CommandMessage;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
-public final class h {
-    private static String g = "api.tuisong.baidu.com";
-    private static String[] h = {"api0.tuisong.baidu.com", "api1.tuisong.baidu.com", "api2.tuisong.baidu.com", "api3.tuisong.baidu.com", "api4.tuisong.baidu.com", "api5.tuisong.baidu.com", "api6.tuisong.baidu.com", "api7.tuisong.baidu.com", "api8.tuisong.baidu.com", "api9.tuisong.baidu.com"};
-    private static String i = "sa.tuisong.baidu.com";
-    private static String[] j = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
-    public static int a = 5287;
-    public static int b = 5288;
-    private static final String[] k = {"202.108.23.109", "180.149.132.103", "111.13.12.174", "111.13.12.61"};
-    public static String[] c = {"202.108.23.105", "180.149.132.107", "111.13.12.162", "180.149.131.209", "111.13.12.110", "111.13.100.86", " 111.13.100.85", " 61.135.185.18", "220.181.163.183", "220.181.163.182", " 115.239.210.219", "115.239.210.246"};
-    private static boolean l = true;
-    private static String m = "http://m.baidu.com";
-    public static String d = "http://m.baidu.com";
-    private static ArrayList<String> n = null;
-    private static ArrayList<String> o = null;
-    public static final String e = m;
-    public static final String f = e + "/searchbox?action=publicsrv&type=issuedcode";
-    private static boolean p = false;
+public class h {
+    private static h c;
+    private Context a;
+    private m b;
 
-    public static int a(Context context) {
-        return m.F(context) ? b : a;
+    private h(Context context) {
+        this.a = context;
+        com.baidu.android.pushservice.a.b.a(context);
+        i.a(context);
+        com.baidu.android.pushservice.h.d.a();
     }
 
-    public static String a() {
-        return "http://" + g;
-    }
-
-    public static String a(Context context, boolean z) {
-        if (o == null || o.isEmpty() || l) {
-            o = a(context, ".baidu.push.sa");
+    public static synchronized h a(Context context) {
+        h hVar;
+        synchronized (h.class) {
+            if (c == null) {
+                c = new h(context);
+            }
+            hVar = c;
         }
-        if (o != null && o.size() > 0) {
-            if (!z) {
-                o.remove(0);
-            }
-            if (o.size() > 0) {
-                return o.get(0);
-            }
-        }
-        return null;
+        return hVar;
     }
 
-    private static ArrayList<String> a(Context context, String str) {
-        int i2 = 0;
-        ArrayList<String> b2 = b(context, str);
-        if (b2.size() <= 0) {
-            if (str.equals(".baidu.push.http")) {
-                String[] strArr = k;
-                int length = strArr.length;
-                while (i2 < length) {
-                    b2.add(strArr[i2]);
-                    i2++;
-                }
-            } else {
-                String[] strArr2 = c;
-                int length2 = strArr2.length;
-                while (i2 < length2) {
-                    b2.add(strArr2[i2]);
-                    i2++;
-                }
-            }
-            l = true;
-            c(context);
+    private void b(Intent intent) {
+        boolean a;
+        l lVar = new l(intent);
+        int intExtra = intent.getIntExtra("bind_status", 0);
+        int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_BIND ", this.a);
+        com.baidu.android.pushservice.i.l.b("RegistrationService#handleBind#METHOD_BIND request arrive at " + System.currentTimeMillis(), this.a);
+        String f = com.baidu.android.pushservice.a.b.a(this.a).f(lVar.e);
+        if (!TextUtils.isEmpty(lVar.i) && com.baidu.android.pushservice.a.b.a(this.a).b(lVar.e, lVar.i) && !TextUtils.isEmpty(f)) {
+            Intent intent2 = new Intent();
+            intent2.putExtra("method", lVar.a);
+            intent2.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
+            intent2.putExtra("content", f.getBytes());
+            intent2.putExtra("bind_status", intExtra);
+            com.baidu.android.pushservice.i.l.b(this.a, intent2, PushConstants.ACTION_RECEIVE, lVar.e);
+            com.baidu.android.pushservice.i.l.b("RegistrationService#handleBind#returned by cacheContent = " + f, this.a);
+            return;
+        }
+        com.baidu.android.pushservice.i.l.b("RegistrationService#handleBind#METHOD_BIND request start at " + System.currentTimeMillis(), this.a);
+        if (intent.hasExtra("bind_notify_status")) {
+            a = a(new com.baidu.android.pushservice.d.f(lVar, this.a, intExtra, intExtra2, intent.getStringExtra("bind_notify_status")));
+            com.baidu.android.pushservice.i.l.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
         } else {
-            l = false;
+            a = a(new com.baidu.android.pushservice.d.f(lVar, this.a, intExtra, intExtra2));
+            com.baidu.android.pushservice.i.l.b("submitApiProcessor for bind=" + lVar.toString(), this.a);
         }
-        return b2;
+        if (a) {
+            return;
+        }
+        new Thread(new com.baidu.android.pushservice.d.f(lVar, this.a, intExtra, intExtra2)).start();
+        com.baidu.android.pushservice.i.l.b("submitApiProcessor failed bind " + lVar.toString(), this.a);
     }
 
-    public static String b() {
-        return "https://" + g;
+    private void c(Intent intent) {
+        l lVar = new l(intent);
+        int intExtra = intent.getIntExtra("bind_status", 0);
+        int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
+        int intExtra3 = intent.getIntExtra("sdk_client_version", 0);
+        com.baidu.android.pushservice.a.g gVar = new com.baidu.android.pushservice.a.g(lVar.i, lVar.e);
+        gVar.a(intExtra3);
+        com.baidu.android.pushservice.a.h.a(this.a).a((com.baidu.android.pushservice.a.a) gVar, true);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_SDK_BIND ", this.a);
+        a(new com.baidu.android.pushservice.d.f(lVar, this.a, intExtra, intExtra2));
     }
 
-    public static String b(Context context, boolean z) {
-        if (n == null || n.isEmpty()) {
-            n = a(context, ".baidu.push.http");
-        }
-        if (n != null && n.size() > 0) {
-            if (!z) {
-                n.remove(0);
+    private void d(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
+        if (!TextUtils.isEmpty(lVar.e) && !TextUtils.isEmpty(lVar.i)) {
+            com.baidu.android.pushservice.a.f c2 = com.baidu.android.pushservice.a.b.a(this.a).c(lVar.e);
+            if (c2 != null && !TextUtils.isEmpty(c2.a())) {
+                lVar.f = c2.a();
             }
-            if (n.size() > 0) {
-                return n.get(0);
-            }
+            com.baidu.android.pushservice.a.b.a(this.a).g(lVar.e);
         }
-        return null;
+        a(new z(lVar, this.a));
     }
 
-    private static ArrayList<String> b(Context context, String str) {
-        String[] split;
-        ArrayList<String> arrayList = new ArrayList<>();
-        String string = context.getSharedPreferences("pst", 0).getString(str, null);
-        if (!TextUtils.isEmpty(string) && (split = string.split(Config.TRACE_TODAY_VISIT_SPLIT)) != null && split.length > 0) {
-            for (String str2 : split) {
-                arrayList.add(str2);
-            }
-        }
-        return arrayList;
+    private void e(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_SDK_UNBIND ", this.a);
+        a(new z(lVar, this.a));
     }
 
-    public static void b(Context context) {
-        FileInputStream fileInputStream;
-        File file = new File(Environment.getExternalStorageDirectory(), "pushservice.cfg");
-        if (!file.exists()) {
-            String a2 = PushSettings.a(context);
-            if (TextUtils.isEmpty(a2) || a2.length() <= 0) {
-                return;
-            }
-            try {
-                int parseInt = Integer.parseInt(a2.substring(a2.length() - 1));
-                g = h[parseInt % 10];
-                i = j[parseInt % 10];
-                return;
-            } catch (Exception e2) {
-                return;
-            }
+    private boolean f(Intent intent) {
+        com.baidu.android.pushservice.a.f c2;
+        String stringExtra = intent.getStringExtra(Constants.PACKAGE_NAME);
+        String stringExtra2 = intent.getStringExtra(Constants.APP_ID);
+        if (TextUtils.isEmpty(stringExtra2) && (c2 = com.baidu.android.pushservice.a.b.a(this.a).c(stringExtra)) != null) {
+            stringExtra2 = c2.a();
         }
-        Properties properties = new Properties();
-        FileInputStream fileInputStream2 = null;
+        String stringExtra3 = intent.getStringExtra("user_id");
+        l lVar = new l();
+        lVar.a = "com.baidu.android.pushservice.action.UNBINDAPP";
+        if (!TextUtils.isEmpty(stringExtra)) {
+            lVar.e = stringExtra;
+        }
+        if (!TextUtils.isEmpty(stringExtra2) && !"null".equals(stringExtra2)) {
+            lVar.f = stringExtra2;
+        }
+        if (!TextUtils.isEmpty(stringExtra3) && !"null".equals(stringExtra3)) {
+            lVar.g = stringExtra3;
+        }
+        if (!TextUtils.isEmpty(lVar.e)) {
+            com.baidu.android.pushservice.a.f c3 = com.baidu.android.pushservice.a.b.a(this.a).c(lVar.e);
+            if (c3 != null && !TextUtils.isEmpty(c3.a())) {
+                lVar.f = c3.a();
+            }
+            com.baidu.android.pushservice.a.b.a(this.a).g(lVar.e);
+        }
+        return a(new aa(lVar, this.a));
+    }
+
+    private void g(Intent intent) {
+        l lVar = new l(intent);
+        int intExtra = intent.getIntExtra("fetch_type", 1);
+        int intExtra2 = intent.getIntExtra("fetch_num", 1);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_FETCH ", this.a);
+        a(new com.baidu.android.pushservice.d.m(lVar, this.a, intExtra, intExtra2));
+    }
+
+    private void h(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_COUNT ", this.a);
+        a(new com.baidu.android.pushservice.d.h(lVar, this.a));
+    }
+
+    private void i(Intent intent) {
+        l lVar = new l(intent);
+        String[] stringArrayExtra = intent.getStringArrayExtra("msg_ids");
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_DELETE ", this.a);
+        a(new k(lVar, this.a, stringArrayExtra));
+    }
+
+    private void j(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra("gid");
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
+        a(new o(lVar, this.a, stringExtra));
+    }
+
+    private void k(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.a);
+        a(new x(lVar, this.a, stringExtra));
+    }
+
+    private void l(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_GBIND ", this.a);
+        a(new j(lVar, this.a, stringExtra));
+    }
+
+    private void m(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra("gid");
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_GUNBIND ", this.a);
+        a(new r(lVar, this.a, stringExtra));
+    }
+
+    private void n(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra("gid");
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_GINFO ", this.a);
+        a(new p(lVar, this.a, stringExtra));
+    }
+
+    private void o(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.a);
+        a(new s(lVar, this.a));
+    }
+
+    private void p(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_GLIST ", this.a);
+        a(new q(lVar, this.a));
+    }
+
+    private void q(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra("gid");
+        int intExtra = intent.getIntExtra("group_fetch_type", 1);
+        int intExtra2 = intent.getIntExtra("group_fetch_num", 1);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_FETCHGMSG ", this.a);
+        a(new n(lVar, this.a, stringExtra, intExtra, intExtra2));
+    }
+
+    private void r(Intent intent) {
+        l lVar = new l(intent);
+        String stringExtra = intent.getStringExtra("gid");
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_COUNTGMSG ", this.a);
+        a(new com.baidu.android.pushservice.d.i(lVar, this.a, stringExtra));
+    }
+
+    private void s(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_ONLINE ", this.a);
+        a(new u(lVar, this.a));
+    }
+
+    private void t(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_SEND ", this.a);
+        a(new v(lVar, this.a, intent.getStringExtra("push_ msg")));
+    }
+
+    private void u(Intent intent) {
+        l lVar = new l(intent);
+        com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_SEND_MSG_TO_USER ", this.a);
+        a(new w(lVar, this.a, intent.getStringExtra(Constants.APP_ID), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
+    }
+
+    private void v(Intent intent) {
+        if (this.b == null) {
+            this.b = new m(this.a);
+        }
+        this.b.a();
+    }
+
+    private void w(Intent intent) {
+        PushSettings.a(this.a, 0);
+    }
+
+    public boolean a(Intent intent) {
+        boolean z = false;
+        if (intent == null || TextUtils.isEmpty(intent.getAction())) {
+            return false;
+        }
+        String action = intent.getAction();
+        com.baidu.android.pushservice.i.l.b("handleIntent#action = " + action, this.a);
+        if ("com.baidu.pushservice.action.publicmsg.CLICK_V2".equals(action) || "com.baidu.pushservice.action.publicmsg.DELETE_V2".equals(action)) {
+            PublicMsg publicMsg = (PublicMsg) intent.getParcelableExtra("public_msg");
+            String host = intent.getData().getHost();
+            if (publicMsg != null) {
+                publicMsg.handle(this.a, action, host);
+                return true;
+            }
+            return true;
+        } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
+            PublicMsg publicMsg2 = (PublicMsg) intent.getParcelableExtra("public_msg");
+            if (com.baidu.android.pushservice.i.l.b(this.a, publicMsg2)) {
+                publicMsg2.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra(Constants.APP_ID), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+                return true;
+            }
+            return true;
+        } else if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
+            com.baidu.android.pushservice.i.l.b("push_passthrough: receive  click delete and notified action", this.a);
+            com.baidu.android.pushservice.g.i.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra(Constants.APP_ID) ? intent.getStringExtra(Constants.APP_ID) : null, action);
+            return true;
+        } else if ("com.baidu.pushservice.action.TOKEN".equals(action)) {
+            com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< ACTION_TOKEN ", this.a);
+            if (i.a(this.a).e()) {
+                return true;
+            }
+            i.a(this.a).a(this.a, true, null);
+            return true;
+        } else if (PushConstants.ACTION_METHOD.equals(action)) {
+            String stringExtra = intent.getStringExtra("method");
+            if (PushConstants.METHOD_BIND.equals(stringExtra)) {
+                b(intent);
+                z = true;
+            } else if ("method_sdk_bind".equals(stringExtra)) {
+                c(intent);
+                z = true;
+            } else if ("method_unbind".equals(stringExtra)) {
+                d(intent);
+                z = true;
+            } else if ("method_sdk_unbind".equals(stringExtra)) {
+                e(intent);
+                z = true;
+            } else if ("com.baidu.android.pushservice.action.UNBINDAPP".equals(stringExtra)) {
+                f(intent);
+                z = true;
+            } else if ("method_fetch".equals(stringExtra)) {
+                g(intent);
+                z = true;
+            } else if ("method_count".equals(stringExtra)) {
+                h(intent);
+                z = true;
+            } else if ("method_delete".equals(stringExtra)) {
+                i(intent);
+                z = true;
+            } else if ("method_gbind".equals(stringExtra)) {
+                j(intent);
+                z = true;
+            } else if ("method_set_tags".equals(stringExtra) || "method_set_sdk_tags".equals(stringExtra)) {
+                k(intent);
+                z = true;
+            } else if ("method_del_tags".equals(stringExtra) || "method_del_sdk_tags".equals(stringExtra)) {
+                l(intent);
+                z = true;
+            } else if ("method_gunbind".equals(stringExtra)) {
+                m(intent);
+                z = true;
+            } else if ("method_ginfo".equals(stringExtra)) {
+                n(intent);
+                z = true;
+            } else if ("method_glist".equals(stringExtra)) {
+                p(intent);
+                z = true;
+            } else if ("method_listtags".equals(stringExtra) || "method_list_sdk_tags".equals(stringExtra)) {
+                o(intent);
+                z = true;
+            } else if ("method_fetchgmsg".equals(stringExtra)) {
+                q(intent);
+                z = true;
+            } else if ("method_countgmsg".equals(stringExtra)) {
+                r(intent);
+                z = true;
+            } else if ("method_online".equals(stringExtra)) {
+                s(intent);
+                z = true;
+            } else if ("method_send".equals(stringExtra)) {
+                t(intent);
+                z = true;
+            } else if ("com.baidu.android.pushservice.action.SEND_APPSTAT".equals(stringExtra)) {
+                v(intent);
+                z = true;
+            } else if ("com.baidu.android.pushservice.action.ENBALE_APPSTAT".equals(stringExtra)) {
+                w(intent);
+                z = true;
+            } else if ("method_send_msg_to_user".equals(stringExtra)) {
+                u(intent);
+                z = true;
+            }
+            return z;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean a(com.baidu.android.pushservice.d.a aVar) {
         try {
-            if (m.u(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    properties.load(fileInputStream);
-                } catch (Exception e3) {
-                    com.baidu.android.pushservice.f.b.a(fileInputStream);
-                    return;
-                } catch (Throwable th) {
-                    fileInputStream2 = fileInputStream;
-                    th = th;
-                    com.baidu.android.pushservice.f.b.a(fileInputStream2);
-                    throw th;
-                }
-            } else {
-                properties.put("http_server", "http://10.95.41.15:8080");
-                if (m.F(context)) {
-                    properties.put("socket_server_port_v3", "8006");
-                } else {
-                    properties.put("socket_server_port", WbAuthConstants.AUTH_FAILED_QUICK_NULL_TOKEN_ERROR_CODE);
-                }
-                properties.put("socket_server", "10.95.41.15");
-                fileInputStream = null;
-            }
-            String property = properties.getProperty("http_server");
-            if (!TextUtils.isEmpty(property)) {
-                if (property.startsWith("http://")) {
-                    property = property.replace("http://", "");
-                }
-                g = property;
-            }
-            String property2 = properties.getProperty("socket_server");
-            if (!TextUtils.isEmpty(property2)) {
-                i = property2;
-            }
-            if (m.F(context)) {
-                String property3 = properties.getProperty("socket_server_port_v3");
-                if (!TextUtils.isEmpty(property3)) {
-                    b = Integer.parseInt(property3);
-                }
-            } else {
-                String property4 = properties.getProperty("socket_server_port");
-                if (!TextUtils.isEmpty(property4)) {
-                    a = Integer.parseInt(property4);
-                }
-            }
-            String property5 = properties.getProperty("config_server");
-            if (!TextUtils.isEmpty(property5)) {
-                m = property5;
-            }
-            if (!TextUtils.isEmpty(properties.getProperty("lightapp_server"))) {
-                d = property5;
-            }
-            if (f.a == 0) {
-                String property6 = properties.getProperty("api_key");
-                if (TextUtils.equals(properties.getProperty(PushConstants.PACKAGE_NAME), context.getPackageName()) && !TextUtils.isEmpty(property6)) {
-                    f.b = property6;
-                }
-            }
-            p = true;
-            com.baidu.android.pushservice.f.b.a(fileInputStream);
-        } catch (Exception e4) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
+            com.baidu.android.pushservice.h.d.a().a(aVar);
+            return true;
+        } catch (Exception e) {
+            com.baidu.android.pushservice.f.a.a("RegistrationService", e, this.a);
+            return false;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean b(Context context, String str, String str2) {
-        try {
-            if (str.startsWith("http://")) {
-                str = str.replace("http://", "");
-            }
-            InetAddress[] allByName = InetAddress.getAllByName(str);
-            if (context != null && allByName != null && allByName.length > 0) {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
-                String str3 = "";
-                for (int i2 = 0; i2 < allByName.length; i2++) {
-                    str3 = str3 + Config.TRACE_TODAY_VISIT_SPLIT + allByName[i2].getHostAddress();
-                }
-                if (str3.length() > 1) {
-                    String substring = str3.substring(1);
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putString(str2, substring);
-                    edit.commit();
-                    return true;
-                }
-            }
-        } catch (Exception e2) {
-            o.a(context, e2);
-        }
-        return false;
-    }
-
-    public static String c() {
-        return i;
-    }
-
-    public static void c(final Context context) {
-        final SharedPreferences sharedPreferences = context.getSharedPreferences("pst", 0);
-        if (System.currentTimeMillis() - sharedPreferences.getLong(".baidu.push.dns.refresh", 0L) > 86400000) {
-            com.baidu.android.pushservice.i.d.a().a(new com.baidu.android.pushservice.i.c("updateBackupIp", (short) 95) { // from class: com.baidu.android.pushservice.h.1
-                @Override // com.baidu.android.pushservice.i.c
-                public void a() {
-                    boolean b2 = h.b(context.getApplicationContext(), h.i, ".baidu.push.sa");
-                    boolean b3 = h.b(context.getApplicationContext(), h.g, ".baidu.push.http");
-                    if (b2 && b3) {
-                        SharedPreferences.Editor edit = sharedPreferences.edit();
-                        edit.putLong(".baidu.push.dns.refresh", System.currentTimeMillis());
-                        edit.commit();
-                    }
-                }
-            });
-        }
-    }
-
-    public static String d() {
-        return p ? a() + "/rest/2.0/channel/channel" : b() + "/rest/2.0/channel/channel";
-    }
-
-    public static String e() {
-        return p ? a() + "/rest/2.0/channel/" : b() + "/rest/2.0/channel/";
-    }
-
-    public static boolean f() {
-        return p;
     }
 }

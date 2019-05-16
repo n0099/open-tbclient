@@ -19,24 +19,24 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ImageCoverView extends SimpleDraweeView implements a {
     private static final boolean DEBUG = b.DEBUG;
-    private CoverViewHelper aZo;
-    private com.baidu.swan.apps.view.coverview.b.a aZp;
+    private CoverViewHelper bcc;
+    private com.baidu.swan.apps.view.coverview.b.a bcd;
 
     public ImageCoverView(Context context) {
         super(context);
-        this.aZo = new CoverViewHelper();
-        getHierarchy().b(n.b.jDh);
+        this.bcc = new CoverViewHelper();
+        getHierarchy().b(n.b.jVU);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void a(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.aZp = aVar;
-            this.aZo.am(this);
-            JSONObject jSONObject = aVar.akl;
+            this.bcd = aVar;
+            this.bcc.ap(this);
+            JSONObject jSONObject = aVar.akx;
             if (jSONObject != null) {
-                this.aZo.a(this, jSONObject);
-                this.aZo.c(this, jSONObject);
+                this.bcc.a(this, jSONObject);
+                this.bcc.c(this, jSONObject);
                 b(aVar);
             }
         }
@@ -44,51 +44,51 @@ public class ImageCoverView extends SimpleDraweeView implements a {
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setAlpha(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
-        if (aVar.akl != null) {
-            this.aZo.b(this, aVar.akl);
+        if (aVar.akx != null) {
+            this.bcc.b(this, aVar.akx);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setModel(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
         if (aVar != null) {
-            this.aZp = aVar;
-            this.aZo.am(this);
+            this.bcd = aVar;
+            this.bcc.ap(this);
         }
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public void setOnActionCallback(com.baidu.swan.apps.view.coverview.a aVar) {
-        this.aZo.setOnActionCallback(aVar);
+        this.bcc.setOnActionCallback(aVar);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public CoverViewHelper.a getClickPosition() {
-        return this.aZo.getClickPosition();
+        return this.bcc.getClickPosition();
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
     public com.baidu.swan.apps.view.coverview.b.a getModel() {
-        return this.aZp;
+        return this.bcd;
     }
 
     protected void b(@NonNull com.baidu.swan.apps.view.coverview.b.a aVar) {
-        Uri hU;
-        if (aVar.akl != null && (aVar instanceof com.baidu.swan.apps.view.coverview.b.b)) {
-            String str = ((com.baidu.swan.apps.view.coverview.b.b) aVar).aZj;
-            if (!TextUtils.isEmpty(str) && (hU = hU(str)) != null) {
+        Uri iz;
+        if (aVar.akx != null && (aVar instanceof com.baidu.swan.apps.view.coverview.b.b)) {
+            String str = ((com.baidu.swan.apps.view.coverview.b.b) aVar).bbX;
+            if (!TextUtils.isEmpty(str) && (iz = iz(str)) != null) {
                 if (DEBUG) {
-                    Log.d("CoverImage", "Image Uri:" + hU);
+                    Log.d("CoverImage", "Image Uri:" + iz);
                 }
-                final boolean z = ((com.baidu.swan.apps.view.coverview.b.b) aVar).aZk;
-                e b = c.cuw().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
+                final boolean z = ((com.baidu.swan.apps.view.coverview.b.b) aVar).bbY;
+                e b = c.cCs().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                     public void g(String str2, Throwable th) {
                         super.g(str2, th);
-                        if (ImageCoverView.this.aZo != null) {
-                            com.baidu.swan.apps.view.coverview.a MR = ImageCoverView.this.aZo.MR();
-                            if (z && MR != null) {
-                                MR.a(0, ImageCoverView.this, null);
+                        if (ImageCoverView.this.bcc != null) {
+                            com.baidu.swan.apps.view.coverview.a PA = ImageCoverView.this.bcc.PA();
+                            if (z && PA != null) {
+                                PA.a(0, ImageCoverView.this, null);
                             }
                         }
                     }
@@ -97,35 +97,35 @@ public class ImageCoverView extends SimpleDraweeView implements a {
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                     public void a(String str2, com.facebook.imagepipeline.f.e eVar, Animatable animatable) {
                         super.a(str2, (String) eVar, animatable);
-                        if (ImageCoverView.this.aZo != null) {
-                            com.baidu.swan.apps.view.coverview.a MR = ImageCoverView.this.aZo.MR();
-                            if (z && MR != null) {
-                                MR.a(1, ImageCoverView.this, null);
+                        if (ImageCoverView.this.bcc != null) {
+                            com.baidu.swan.apps.view.coverview.a PA = ImageCoverView.this.bcc.PA();
+                            if (z && PA != null) {
+                                PA.a(1, ImageCoverView.this, null);
                             }
                         }
                     }
                 });
-                b.C(hU);
-                com.facebook.drawee.controller.a cvc = b.cvg();
+                b.I(iz);
+                com.facebook.drawee.controller.a cCY = b.cDc();
                 RoundingParams roundingParams = new RoundingParams();
-                roundingParams.aX(this.aZo.an(aVar.akl));
-                com.facebook.drawee.generic.a cvQ = new com.facebook.drawee.generic.b(getResources()).cvQ();
-                cvQ.a(roundingParams);
-                cvQ.b(n.b.jDh);
-                setHierarchy(cvQ);
-                setController(cvc);
+                roundingParams.bb(this.bcc.ap(aVar.akx));
+                com.facebook.drawee.generic.a cDM = new com.facebook.drawee.generic.b(getResources()).cDM();
+                cDM.a(roundingParams);
+                cDM.b(n.b.jVU);
+                setHierarchy(cDM);
+                setController(cCY);
             }
         }
     }
 
-    private Uri hU(@NonNull String str) {
+    private Uri iz(@NonNull String str) {
         String str2;
         String str3;
-        PathType gZ = com.baidu.swan.apps.storage.b.gZ(str);
-        com.baidu.swan.apps.ae.b IV = com.baidu.swan.apps.ae.b.IV();
-        if (IV != null) {
-            str3 = IV.id;
-            str2 = IV.getVersion();
+        PathType hA = com.baidu.swan.apps.storage.b.hA(str);
+        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
+        if (Lq != null) {
+            str3 = Lq.id;
+            str2 = Lq.getVersion();
         } else {
             str2 = null;
             str3 = null;
@@ -133,19 +133,19 @@ public class ImageCoverView extends SimpleDraweeView implements a {
         if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        switch (gZ) {
+        switch (hA) {
             case BD_FILE:
-                String aC = com.baidu.swan.apps.storage.b.aC(str, str3);
-                if (TextUtils.isEmpty(aC)) {
+                String aE = com.baidu.swan.apps.storage.b.aE(str, str3);
+                if (TextUtils.isEmpty(aE)) {
                     return null;
                 }
-                return Uri.fromFile(new File(aC));
+                return Uri.fromFile(new File(aE));
             case RELATIVE:
                 File file = new File(str);
                 if (file.exists()) {
                     return Uri.fromFile(file);
                 }
-                String a = com.baidu.swan.apps.storage.b.a(str, IV, str2);
+                String a = com.baidu.swan.apps.storage.b.a(str, Lq, str2);
                 if (TextUtils.isEmpty(a)) {
                     return null;
                 }

@@ -1,88 +1,17 @@
 package com.xiaomi.xmpush.thrift;
 
 import java.io.Serializable;
-import java.util.BitSet;
-import java.util.Collections;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.thrift.TFieldIdEnum;
 /* loaded from: classes3.dex */
-public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
-    public static final Map<a, org.apache.thrift.meta_data.b> k;
-    private static final org.apache.thrift.protocol.j l = new org.apache.thrift.protocol.j("XmPushActionRegistrationResult");
-    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("target", (byte) 12, 2);
-    private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
-    private static final org.apache.thrift.protocol.b q = new org.apache.thrift.protocol.b("request", (byte) 12, 5);
-    private static final org.apache.thrift.protocol.b r = new org.apache.thrift.protocol.b("errorCode", (byte) 10, 6);
-    private static final org.apache.thrift.protocol.b s = new org.apache.thrift.protocol.b("reason", (byte) 11, 7);
-    private static final org.apache.thrift.protocol.b t = new org.apache.thrift.protocol.b("regId", (byte) 11, 8);
-    private static final org.apache.thrift.protocol.b u = new org.apache.thrift.protocol.b("regSecret", (byte) 11, 9);
-    private static final org.apache.thrift.protocol.b v = new org.apache.thrift.protocol.b("packageName", (byte) 11, 10);
-    public String a;
-    public u b;
-    public String c;
-    public String d;
-    public af e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    private BitSet w = new BitSet(1);
+public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, TFieldIdEnum> {
+    private static final org.apache.thrift.protocol.j b = new org.apache.thrift.protocol.j("XmPushActionCustomConfig");
+    private static final org.apache.thrift.protocol.b c = new org.apache.thrift.protocol.b("", (byte) 15, 1);
+    public List<s> a;
 
-    /* loaded from: classes3.dex */
-    public enum a {
-        DEBUG(1, "debug"),
-        TARGET(2, "target"),
-        ID(3, "id"),
-        APP_ID(4, "appId"),
-        REQUEST(5, "request"),
-        ERROR_CODE(6, "errorCode"),
-        REASON(7, "reason"),
-        REG_ID(8, "regId"),
-        REG_SECRET(9, "regSecret"),
-        PACKAGE_NAME(10, "packageName");
-        
-        private static final Map<String, a> k = new HashMap();
-        private final short l;
-        private final String m;
-
-        static {
-            Iterator it = EnumSet.allOf(a.class).iterator();
-            while (it.hasNext()) {
-                a aVar = (a) it.next();
-                k.put(aVar.a(), aVar);
-            }
-        }
-
-        a(short s, String str) {
-            this.l = s;
-            this.m = str;
-        }
-
-        public String a() {
-            return this.m;
-        }
-    }
-
-    static {
-        EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b("target", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
-        enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.REQUEST, (a) new org.apache.thrift.meta_data.b("request", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, af.class)));
-        enumMap.put((EnumMap) a.ERROR_CODE, (a) new org.apache.thrift.meta_data.b("errorCode", (byte) 1, new org.apache.thrift.meta_data.c((byte) 10)));
-        enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b("reason", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.REG_ID, (a) new org.apache.thrift.meta_data.b("regId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.REG_SECRET, (a) new org.apache.thrift.meta_data.b("regSecret", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        k = Collections.unmodifiableMap(enumMap);
-        org.apache.thrift.meta_data.b.a(ag.class, k);
+    public List<s> a() {
+        return this.a;
     }
 
     @Override // org.apache.thrift.a
@@ -92,94 +21,23 @@ public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
             org.apache.thrift.protocol.b i = eVar.i();
             if (i.b == 0) {
                 eVar.h();
-                if (!f()) {
-                    throw new org.apache.thrift.protocol.f("Required field 'errorCode' was not found in serialized data! Struct: " + toString());
-                }
-                k();
+                c();
                 return;
             }
             switch (i.c) {
                 case 1:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
+                    if (i.b == 15) {
+                        org.apache.thrift.protocol.c m = eVar.m();
+                        this.a = new ArrayList(m.b);
+                        for (int i2 = 0; i2 < m.b; i2++) {
+                            s sVar = new s();
+                            sVar.a(eVar);
+                            this.a.add(sVar);
+                        }
+                        eVar.n();
                         break;
                     } else {
-                        this.a = eVar.w();
-                        break;
-                    }
-                case 2:
-                    if (i.b != 12) {
                         org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.b = new u();
-                        this.b.a(eVar);
-                        break;
-                    }
-                case 3:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.c = eVar.w();
-                        break;
-                    }
-                case 4:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.d = eVar.w();
-                        break;
-                    }
-                case 5:
-                    if (i.b != 12) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.e = new af();
-                        this.e.a(eVar);
-                        break;
-                    }
-                case 6:
-                    if (i.b != 10) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.f = eVar.u();
-                        a(true);
-                        break;
-                    }
-                case 7:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.g = eVar.w();
-                        break;
-                    }
-                case 8:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.h = eVar.w();
-                        break;
-                    }
-                case 9:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.i = eVar.w();
-                        break;
-                    }
-                case 10:
-                    if (i.b != 11) {
-                        org.apache.thrift.protocol.h.a(eVar, i.b);
-                        break;
-                    } else {
-                        this.j = eVar.w();
                         break;
                     }
                 default:
@@ -190,147 +48,27 @@ public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
         }
     }
 
-    public void a(boolean z) {
-        this.w.set(0, z);
-    }
-
-    public boolean a() {
-        return this.a != null;
-    }
-
     public boolean a(ag agVar) {
         if (agVar == null) {
             return false;
         }
-        boolean a2 = a();
-        boolean a3 = agVar.a();
-        if ((a2 || a3) && !(a2 && a3 && this.a.equals(agVar.a))) {
-            return false;
-        }
-        boolean b = b();
-        boolean b2 = agVar.b();
-        if ((b || b2) && !(b && b2 && this.b.a(agVar.b))) {
-            return false;
-        }
-        boolean c = c();
-        boolean c2 = agVar.c();
-        if ((c || c2) && !(c && c2 && this.c.equals(agVar.c))) {
-            return false;
-        }
-        boolean d = d();
-        boolean d2 = agVar.d();
-        if ((d || d2) && !(d && d2 && this.d.equals(agVar.d))) {
-            return false;
-        }
-        boolean e = e();
-        boolean e2 = agVar.e();
-        if (((e || e2) && !(e && e2 && this.e.a(agVar.e))) || this.f != agVar.f) {
-            return false;
-        }
-        boolean g = g();
-        boolean g2 = agVar.g();
-        if ((g || g2) && !(g && g2 && this.g.equals(agVar.g))) {
-            return false;
-        }
-        boolean h = h();
-        boolean h2 = agVar.h();
-        if ((h || h2) && !(h && h2 && this.h.equals(agVar.h))) {
-            return false;
-        }
-        boolean i = i();
-        boolean i2 = agVar.i();
-        if ((i || i2) && !(i && i2 && this.i.equals(agVar.i))) {
-            return false;
-        }
-        boolean j = j();
-        boolean j2 = agVar.j();
-        return !(j || j2) || (j && j2 && this.j.equals(agVar.j));
+        boolean b2 = b();
+        boolean b3 = agVar.b();
+        return !(b2 || b3) || (b2 && b3 && this.a.equals(agVar.a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: b */
     public int compareTo(ag agVar) {
-        int a2;
-        int a3;
-        int a4;
-        int a5;
-        int a6;
-        int a7;
-        int a8;
-        int a9;
-        int a10;
-        int a11;
+        int a;
         if (getClass().equals(agVar.getClass())) {
-            int compareTo = Boolean.valueOf(a()).compareTo(Boolean.valueOf(agVar.a()));
+            int compareTo = Boolean.valueOf(b()).compareTo(Boolean.valueOf(agVar.b()));
             if (compareTo == 0) {
-                if (!a() || (a11 = org.apache.thrift.b.a(this.a, agVar.a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(agVar.b()));
-                    if (compareTo2 == 0) {
-                        if (!b() || (a10 = org.apache.thrift.b.a(this.b, agVar.b)) == 0) {
-                            int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(agVar.c()));
-                            if (compareTo3 == 0) {
-                                if (!c() || (a9 = org.apache.thrift.b.a(this.c, agVar.c)) == 0) {
-                                    int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(agVar.d()));
-                                    if (compareTo4 == 0) {
-                                        if (!d() || (a8 = org.apache.thrift.b.a(this.d, agVar.d)) == 0) {
-                                            int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(agVar.e()));
-                                            if (compareTo5 == 0) {
-                                                if (!e() || (a7 = org.apache.thrift.b.a(this.e, agVar.e)) == 0) {
-                                                    int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(agVar.f()));
-                                                    if (compareTo6 == 0) {
-                                                        if (!f() || (a6 = org.apache.thrift.b.a(this.f, agVar.f)) == 0) {
-                                                            int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(agVar.g()));
-                                                            if (compareTo7 == 0) {
-                                                                if (!g() || (a5 = org.apache.thrift.b.a(this.g, agVar.g)) == 0) {
-                                                                    int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(agVar.h()));
-                                                                    if (compareTo8 == 0) {
-                                                                        if (!h() || (a4 = org.apache.thrift.b.a(this.h, agVar.h)) == 0) {
-                                                                            int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(agVar.i()));
-                                                                            if (compareTo9 == 0) {
-                                                                                if (!i() || (a3 = org.apache.thrift.b.a(this.i, agVar.i)) == 0) {
-                                                                                    int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(agVar.j()));
-                                                                                    if (compareTo10 == 0) {
-                                                                                        if (!j() || (a2 = org.apache.thrift.b.a(this.j, agVar.j)) == 0) {
-                                                                                            return 0;
-                                                                                        }
-                                                                                        return a2;
-                                                                                    }
-                                                                                    return compareTo10;
-                                                                                }
-                                                                                return a3;
-                                                                            }
-                                                                            return compareTo9;
-                                                                        }
-                                                                        return a4;
-                                                                    }
-                                                                    return compareTo8;
-                                                                }
-                                                                return a5;
-                                                            }
-                                                            return compareTo7;
-                                                        }
-                                                        return a6;
-                                                    }
-                                                    return compareTo6;
-                                                }
-                                                return a7;
-                                            }
-                                            return compareTo5;
-                                        }
-                                        return a8;
-                                    }
-                                    return compareTo4;
-                                }
-                                return a9;
-                            }
-                            return compareTo3;
-                        }
-                        return a10;
-                    }
-                    return compareTo2;
+                if (!b() || (a = org.apache.thrift.b.a(this.a, agVar.a)) == 0) {
+                    return 0;
                 }
-                return a11;
+                return a;
             }
             return compareTo;
         }
@@ -339,54 +77,15 @@ public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
 
     @Override // org.apache.thrift.a
     public void b(org.apache.thrift.protocol.e eVar) {
-        k();
-        eVar.a(l);
-        if (this.a != null && a()) {
-            eVar.a(m);
-            eVar.a(this.a);
-            eVar.b();
-        }
-        if (this.b != null && b()) {
-            eVar.a(n);
-            this.b.b(eVar);
-            eVar.b();
-        }
-        if (this.c != null) {
-            eVar.a(o);
-            eVar.a(this.c);
-            eVar.b();
-        }
-        if (this.d != null) {
-            eVar.a(p);
-            eVar.a(this.d);
-            eVar.b();
-        }
-        if (this.e != null && e()) {
-            eVar.a(q);
-            this.e.b(eVar);
-            eVar.b();
-        }
-        eVar.a(r);
-        eVar.a(this.f);
-        eVar.b();
-        if (this.g != null && g()) {
-            eVar.a(s);
-            eVar.a(this.g);
-            eVar.b();
-        }
-        if (this.h != null && h()) {
-            eVar.a(t);
-            eVar.a(this.h);
-            eVar.b();
-        }
-        if (this.i != null && i()) {
-            eVar.a(u);
-            eVar.a(this.i);
-            eVar.b();
-        }
-        if (this.j != null && j()) {
-            eVar.a(v);
-            eVar.a(this.j);
+        c();
+        eVar.a(b);
+        if (this.a != null) {
+            eVar.a(c);
+            eVar.a(new org.apache.thrift.protocol.c((byte) 12, this.a.size()));
+            for (s sVar : this.a) {
+                sVar.b(eVar);
+            }
+            eVar.e();
             eVar.b();
         }
         eVar.c();
@@ -394,19 +93,13 @@ public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
     }
 
     public boolean b() {
-        return this.b != null;
+        return this.a != null;
     }
 
-    public boolean c() {
-        return this.c != null;
-    }
-
-    public boolean d() {
-        return this.d != null;
-    }
-
-    public boolean e() {
-        return this.e != null;
+    public void c() {
+        if (this.a == null) {
+            throw new org.apache.thrift.protocol.f("Required field 'customConfigs' was not present! Struct: " + toString());
+        }
     }
 
     public boolean equals(Object obj) {
@@ -416,128 +109,17 @@ public class ag implements Serializable, Cloneable, org.apache.thrift.a<ag, a> {
         return false;
     }
 
-    public boolean f() {
-        return this.w.get(0);
-    }
-
-    public boolean g() {
-        return this.g != null;
-    }
-
-    public boolean h() {
-        return this.h != null;
-    }
-
     public int hashCode() {
         return 0;
     }
 
-    public boolean i() {
-        return this.i != null;
-    }
-
-    public boolean j() {
-        return this.j != null;
-    }
-
-    public void k() {
-        if (this.c == null) {
-            throw new org.apache.thrift.protocol.f("Required field 'id' was not present! Struct: " + toString());
-        }
-        if (this.d == null) {
-            throw new org.apache.thrift.protocol.f("Required field 'appId' was not present! Struct: " + toString());
-        }
-    }
-
     public String toString() {
-        boolean z = false;
-        StringBuilder sb = new StringBuilder("XmPushActionRegistrationResult(");
-        boolean z2 = true;
-        if (a()) {
-            sb.append("debug:");
-            if (this.a == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.a);
-            }
-            z2 = false;
-        }
-        if (b()) {
-            if (!z2) {
-                sb.append(", ");
-            }
-            sb.append("target:");
-            if (this.b == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.b);
-            }
-        } else {
-            z = z2;
-        }
-        if (!z) {
-            sb.append(", ");
-        }
-        sb.append("id:");
-        if (this.c == null) {
+        StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
+        sb.append("customConfigs:");
+        if (this.a == null) {
             sb.append("null");
         } else {
-            sb.append(this.c);
-        }
-        sb.append(", ");
-        sb.append("appId:");
-        if (this.d == null) {
-            sb.append("null");
-        } else {
-            sb.append(this.d);
-        }
-        if (e()) {
-            sb.append(", ");
-            sb.append("request:");
-            if (this.e == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.e);
-            }
-        }
-        sb.append(", ");
-        sb.append("errorCode:");
-        sb.append(this.f);
-        if (g()) {
-            sb.append(", ");
-            sb.append("reason:");
-            if (this.g == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.g);
-            }
-        }
-        if (h()) {
-            sb.append(", ");
-            sb.append("regId:");
-            if (this.h == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.h);
-            }
-        }
-        if (i()) {
-            sb.append(", ");
-            sb.append("regSecret:");
-            if (this.i == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.i);
-            }
-        }
-        if (j()) {
-            sb.append(", ");
-            sb.append("packageName:");
-            if (this.j == null) {
-                sb.append("null");
-            } else {
-                sb.append(this.j);
-            }
+            sb.append(this.a);
         }
         sb.append(")");
         return sb.toString();

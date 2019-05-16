@@ -4,45 +4,45 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    private boolean jGg;
-    private boolean jGh;
-    private boolean jGi;
-    private boolean jGj;
+    private boolean jYT;
+    private boolean jYU;
+    private boolean jYV;
+    private boolean jYW;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b jGk;
-    private int jGf = 100;
-    private Bitmap.Config FI = Bitmap.Config.ARGB_8888;
+    private com.facebook.imagepipeline.decoder.b jYX;
+    private int jYS = 100;
+    private Bitmap.Config Ds = Bitmap.Config.ARGB_8888;
 
-    public int cwK() {
-        return this.jGf;
+    public int cEG() {
+        return this.jYS;
     }
 
-    public boolean cwL() {
-        return this.jGg;
+    public boolean cEH() {
+        return this.jYT;
     }
 
-    public boolean cwM() {
-        return this.jGh;
+    public boolean cEI() {
+        return this.jYU;
     }
 
-    public boolean cwN() {
-        return this.jGi;
+    public boolean cEJ() {
+        return this.jYV;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b cwO() {
-        return this.jGk;
+    public com.facebook.imagepipeline.decoder.b cEK() {
+        return this.jYX;
     }
 
-    public boolean cwP() {
-        return this.jGj;
+    public boolean cEL() {
+        return this.jYW;
     }
 
-    public Bitmap.Config cwQ() {
-        return this.FI;
+    public Bitmap.Config cEM() {
+        return this.Ds;
     }
 
-    public a cwR() {
+    public a cEN() {
         return new a(this);
     }
 }

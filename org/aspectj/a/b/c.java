@@ -5,58 +5,58 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object jSN;
-    Object jSO;
-    a.InterfaceC0474a jSP;
+    Object kle;
+    a.InterfaceC0495a klf;
+    Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
-    public static class a implements a.InterfaceC0474a {
-        String jSQ;
-        org.aspectj.lang.c jSR;
-        org.aspectj.lang.reflect.d jSS;
+    public static class a implements a.InterfaceC0495a {
+        String klg;
+        org.aspectj.lang.c klh;
+        org.aspectj.lang.reflect.d kli;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.jSQ = str;
-            this.jSR = cVar;
-            this.jSS = dVar;
+            this.klg = str;
+            this.klh = cVar;
+            this.kli = dVar;
         }
 
-        public String cCG() {
-            return this.jSQ;
+        public String cKm() {
+            return this.klg;
         }
 
-        public org.aspectj.lang.c cCH() {
-            return this.jSR;
+        public org.aspectj.lang.c cKn() {
+            return this.klh;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.FR(cCG()));
+            stringBuffer.append(hVar.Hj(cKm()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) cCH()).a(hVar));
+            stringBuffer.append(((f) cKn()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.jTk);
+            return a(h.klA);
         }
     }
 
-    public c(a.InterfaceC0474a interfaceC0474a, Object obj, Object obj2, Object[] objArr) {
-        this.jSP = interfaceC0474a;
-        this.jSN = obj;
-        this.jSO = obj2;
+    public c(a.InterfaceC0495a interfaceC0495a, Object obj, Object obj2, Object[] objArr) {
+        this.klf = interfaceC0495a;
+        this.kle = obj;
+        this.target = obj2;
         this.args = objArr;
     }
 
     @Override // org.aspectj.lang.a
     public Object getTarget() {
-        return this.jSO;
+        return this.target;
     }
 
     public final String toString() {
-        return this.jSP.toString();
+        return this.klf.toString();
     }
 }

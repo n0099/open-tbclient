@@ -1,20 +1,20 @@
 package com.xiaomi.stats;
 
 import com.xiaomi.push.service.XMPushService;
-import com.xiaomi.push.service.ak;
+import com.xiaomi.push.service.as;
 import com.xiaomi.stats.d;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public class a implements ak.b.a {
+public class a implements as.b.a {
     private XMPushService a;
-    private ak.b b;
+    private as.b b;
     private com.xiaomi.smack.a c;
     private int e;
     private boolean f = false;
-    private ak.c d = ak.c.binding;
+    private as.c d = as.c.binding;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public a(XMPushService xMPushService, ak.b bVar) {
+    public a(XMPushService xMPushService, as.b bVar) {
         this.a = xMPushService;
         this.b = bVar;
     }
@@ -54,7 +54,7 @@ public class a implements ak.b.a {
                     break;
             }
             if (f != null) {
-                f.b(this.c.d());
+                f.b(this.c.e());
                 f.d(this.b.b);
                 f.c = 1;
                 try {
@@ -69,12 +69,12 @@ public class a implements ak.b.a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
         this.b.a(this);
-        this.c = this.a.h();
+        this.c = this.a.g();
     }
 
-    @Override // com.xiaomi.push.service.ak.b.a
-    public void a(ak.c cVar, ak.c cVar2, int i) {
-        if (!this.f && cVar == ak.c.binding) {
+    @Override // com.xiaomi.push.service.as.b.a
+    public void a(as.c cVar, as.c cVar2, int i) {
+        if (!this.f && cVar == as.c.binding) {
             this.d = cVar2;
             this.e = i;
             this.f = true;

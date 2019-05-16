@@ -10,15 +10,15 @@ public class a {
         }
     }
 
-    public static synchronized void c(List<Object> list, boolean z) {
+    public static synchronized void b(List<Object> list, boolean z) {
         synchronized (a.class) {
         }
     }
 
-    public static void T(String str, String str2) {
+    public static void N(String str, String str2) {
     }
 
-    public static int d(String str, List<String> list) {
+    public static int c(String str, List<String> list) {
         return -1;
     }
 }

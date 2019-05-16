@@ -15,7 +15,7 @@ public class f {
         return fArr;
     }
 
-    public static Bitmap aZ(View view) {
+    public static Bitmap bf(View view) {
         Bitmap bitmap = null;
         if (view == null || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return null;

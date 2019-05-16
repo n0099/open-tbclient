@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes4.dex */
-public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.data.c, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a>> {
+public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCenter.data.d, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a>> {
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -25,12 +25,12 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personCen
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.data.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> aVar) {
-        aVar.aRg().a(cVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personCenter.data.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personCenter.view.a> aVar) {
+        aVar.aYp().a(dVar);
         return aVar.getView();
     }
 
-    public void bQp() {
+    public void bYi() {
     }
 
     public void destroy() {

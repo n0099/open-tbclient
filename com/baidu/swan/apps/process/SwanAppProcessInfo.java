@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.process;
 
 import android.text.TextUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.SwanAppActivity1;
 import com.baidu.swan.apps.SwanAppActivity2;
@@ -23,14 +24,15 @@ public enum SwanAppProcessInfo {
     P4(4, SwanAppActivity4.class, SwanAppLocalService4.class),
     P5(5, SwanAppActivity5.class, SwanAppLocalService5.class);
     
-    public static final int PROCESS_ID_END = 5;
+    public static final int MAX_PROCESS = 5;
     public static final int PROCESS_ID_START = 0;
     private static final String SWAN_APP_PROCESS_SUFFIX = ":swan";
-    private static SwanAppProcessInfo sCurrent = UNKNOWN;
     private static SwanAppProcessInfo[] sIndexById;
     public final Class<? extends SwanAppActivity> activity;
     public final int id;
     public final Class<? extends SwanAppLocalService> service;
+    private static SwanAppProcessInfo sCurrent = UNKNOWN;
+    public static final int PROCESS_ID_END = (int) (((b.bo(AppRuntime.getAppContext()) * 5.0f) + 0.0f) + 0.5d);
 
     public static SwanAppProcessInfo getById(int i) {
         return (i <= UNKNOWN.id || i >= indexById().length || indexById()[i] == null) ? UNKNOWN : indexById()[i];
@@ -79,6 +81,6 @@ public enum SwanAppProcessInfo {
     }
 
     public static boolean checkProcessId(int i) {
-        return i >= 0 && i <= 5;
+        return i >= 0 && i <= PROCESS_ID_END;
     }
 }

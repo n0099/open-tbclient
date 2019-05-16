@@ -32,7 +32,6 @@ import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Xml;
-import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -1208,7 +1207,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             float[] fArr;
             String str = " ";
             for (int i = 0; i < pathDataNodeArr.length; i++) {
-                str = str + pathDataNodeArr[i].mType + Config.TRACE_TODAY_VISIT_SPLIT;
+                str = str + pathDataNodeArr[i].mType + ":";
                 for (int i2 = 0; i2 < pathDataNodeArr[i].mParams.length; i2++) {
                     str = str + fArr[i2] + Constants.ACCEPT_TIME_SEPARATOR_SP;
                 }

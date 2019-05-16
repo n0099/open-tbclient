@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a Js;
-    protected Path Jq = new Path();
-    protected Paint Jr = null;
-    protected boolean Jt = false;
+    private a Hc;
+    protected Path Ha = new Path();
+    protected Paint Hb = null;
+    protected boolean Hd = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,42 +23,42 @@ public abstract class j extends b {
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(cVar, imageView, scaleType);
-        if (this.Js != null && (a2 = this.Js.a(ml())) != null) {
-            this.Jq.set(a2);
-            if (this.Jr == null) {
-                this.Jr = new Paint();
-                this.Jr.setStyle(Paint.Style.STROKE);
-                this.Jr.setAntiAlias(true);
-                this.Jr.setColor(637534208);
-                this.Jr.setDither(true);
-                this.Jr.setStrokeWidth(2.0f);
+        if (this.Hc != null && (a2 = this.Hc.a(lf())) != null) {
+            this.Ha.set(a2);
+            if (this.Hb == null) {
+                this.Hb = new Paint();
+                this.Hb.setStyle(Paint.Style.STROKE);
+                this.Hb.setAntiAlias(true);
+                this.Hb.setColor(637534208);
+                this.Hb.setDither(true);
+                this.Hb.setStrokeWidth(2.0f);
             }
-            mq();
+            lk();
         }
     }
 
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, c cVar, ImageView imageView) {
         super.a(canvas, cVar, imageView);
-        if (this.Jt) {
-            canvas.drawPath(this.Jq, this.Jr);
-            if (this.Js != null) {
-                this.Js.e(canvas);
+        if (this.Hd) {
+            canvas.drawPath(this.Ha, this.Hb);
+            if (this.Hc != null) {
+                this.Hc.e(canvas);
             }
         }
     }
 
-    public void mq() {
+    public void lk() {
     }
 
-    public void mr() {
+    public void ll() {
     }
 
     public void a(a aVar) {
-        this.Js = aVar;
+        this.Hc = aVar;
     }
 
-    public void an(boolean z) {
-        this.Jt = z;
+    public void af(boolean z) {
+        this.Hd = z;
     }
 }

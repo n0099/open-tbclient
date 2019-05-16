@@ -10,12 +10,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends BaseAdapter {
-    private View.OnClickListener bQN;
+    private View.OnClickListener bYE;
     private Context mContext;
     private List<InterestFrsData.Card> mData;
 
@@ -24,7 +24,7 @@ public class c extends BaseAdapter {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bQN = onClickListener;
+        this.bYE = onClickListener;
     }
 
     public void setData(List<InterestFrsData.Card> list) {
@@ -57,50 +57,50 @@ public class c extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext).inflate(d.h.new_user_img_item, viewGroup, false);
+            view = LayoutInflater.from(this.mContext).inflate(R.layout.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.eIa = (TbImageView) view.findViewById(d.g.pic);
-            aVar.eIb = (ImageView) view.findViewById(d.g.select_icon);
-            aVar.iMV = (RelativeLayout) view.findViewById(d.g.lay_select);
-            aVar.ahO = (TextView) view.findViewById(d.g.tv_fname);
-            aVar.iMU = (FrameLayout) view.findViewById(d.g.pic_layout);
-            aVar.iMU.setOnClickListener(this.bQN);
+            aVar.eYj = (TbImageView) view.findViewById(R.id.pic);
+            aVar.eYk = (ImageView) view.findViewById(R.id.select_icon);
+            aVar.jfO = (RelativeLayout) view.findViewById(R.id.lay_select);
+            aVar.aif = (TextView) view.findViewById(R.id.tv_fname);
+            aVar.jfN = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.jfN.setOnClickListener(this.bYE);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.eIa.setTag(null);
-        aVar.iMV.setTag(null);
-        aVar.ahO.setText("");
-        aVar.iMU.setTag(null);
+        aVar.eYj.setTag(null);
+        aVar.jfO.setTag(null);
+        aVar.aif.setText("");
+        aVar.jfN.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            b(aVar.eIb, card.getIs_like() == 1);
-            aVar.iMV.setTag(card);
-            aVar.iMU.setTag(card);
-            aVar.eIa.setTag(card.getIcon_url());
-            aVar.eIa.startLoad(card.getIcon_url(), 21, false);
-            aVar.ahO.setText(card.getFname());
+            b(aVar.eYk, card.getIs_like() == 1);
+            aVar.jfO.setTag(card);
+            aVar.jfN.setTag(card);
+            aVar.eYj.setTag(card.getIcon_url());
+            aVar.eYj.startLoad(card.getIcon_url(), 21, false);
+            aVar.aif.setText(card.getFname());
         }
         return view;
     }
 
     public void b(ImageView imageView, boolean z) {
         if (!z) {
-            imageView.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.icon_startpage2_add_pic_n));
+            imageView.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.icon_startpage2_add_pic_n));
         } else {
-            imageView.setBackgroundDrawable(this.mContext.getResources().getDrawable(d.f.icon_startpage2_add_ba_s));
+            imageView.setBackgroundDrawable(this.mContext.getResources().getDrawable(R.drawable.icon_startpage2_add_ba_s));
         }
     }
 
     /* loaded from: classes4.dex */
     private class a {
-        TextView ahO;
-        TbImageView eIa;
-        ImageView eIb;
-        FrameLayout iMU;
-        RelativeLayout iMV;
+        TextView aif;
+        TbImageView eYj;
+        ImageView eYk;
+        FrameLayout jfN;
+        RelativeLayout jfO;
 
         private a() {
         }

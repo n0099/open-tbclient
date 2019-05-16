@@ -3,10 +3,10 @@ package com.baidu.swan.apps.x.a;
 import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.an.x;
+import com.baidu.swan.apps.an.z;
 /* loaded from: classes2.dex */
 public class d {
-    public static int E(String str, int i) {
+    public static int B(String str, int i) {
         int i2;
         if (TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.console.c.w("map", "color string is empty, use default " + Integer.toHexString(i));
@@ -34,6 +34,6 @@ public class d {
     }
 
     public static float f(double d) {
-        return (float) (x.cq(AppRuntime.getAppContext()) * d);
+        return (float) (z.bT(AppRuntime.getAppContext()) * d);
     }
 }

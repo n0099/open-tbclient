@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    public static <T> void R(List<T> list) {
+    public static <T> void Y(List<T> list) {
         if (list != null) {
             list.clear();
         }
     }
 
-    public static <T> int S(List<T> list) {
+    public static <T> int Z(List<T> list) {
         if (list == null || list.isEmpty()) {
             return 0;
         }
@@ -30,8 +30,8 @@ public class v {
         return list.indexOf(t);
     }
 
-    public static <T> boolean T(List<T> list) {
-        return S(list) <= 0;
+    public static <T> boolean aa(List<T> list) {
+        return Z(list) <= 0;
     }
 
     public static <T> T d(List<T> list, int i) {
@@ -65,17 +65,17 @@ public class v {
     }
 
     public static <T> List<T> c(List<T> list, int i, int i2) {
-        int S = S(list);
-        if (S > 0 && i >= 0 && i2 <= S) {
+        int Z = Z(list);
+        if (Z > 0 && i >= 0 && i2 <= Z) {
             return list.subList(i, i2);
         }
         return null;
     }
 
     public static <T> void d(List<T> list, int i, int i2) {
-        int S = S(list);
-        if (S > 0 && i >= 0 && i2 <= S) {
-            R(list.subList(i, i2));
+        int Z = Z(list);
+        if (Z > 0 && i >= 0 && i2 <= Z) {
+            Y(list.subList(i, i2));
         }
     }
 

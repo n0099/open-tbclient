@@ -1,24 +1,35 @@
 package com.xiaomi.push.service;
 
-import com.xiaomi.mipush.sdk.ErrorCode;
-import com.xiaomi.push.service.ak;
+import android.content.Context;
+import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class ab implements ak.b.a {
-    final /* synthetic */ XMPushService a;
+public final class ab extends XMPushService.i {
+    final /* synthetic */ XMPushService b;
+    final /* synthetic */ com.xiaomi.xmpush.thrift.af c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ab(XMPushService xMPushService) {
-        this.a = xMPushService;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ab(int i, XMPushService xMPushService, com.xiaomi.xmpush.thrift.af afVar) {
+        super(i);
+        this.b = xMPushService;
+        this.c = afVar;
     }
 
-    @Override // com.xiaomi.push.service.ak.b.a
-    public void a(ak.c cVar, ak.c cVar2, int i) {
-        if (cVar2 == ak.c.binded) {
-            r.a(this.a);
-            r.b(this.a);
-        } else if (cVar2 == ak.c.unbind) {
-            r.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public void a() {
+        try {
+            com.xiaomi.xmpush.thrift.af a = x.a((Context) this.b, this.c);
+            a.m().a("miui_message_unrecognized", "1");
+            af.a(this.b, a);
+        } catch (com.xiaomi.smack.l e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
+            this.b.a(10, e);
         }
+    }
+
+    @Override // com.xiaomi.push.service.XMPushService.i
+    public String b() {
+        return "send ack message for unrecognized new miui message.";
     }
 }

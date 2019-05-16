@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String afr() {
-        return q.ly();
+    public static String akq() {
+        return q.ks();
     }
 
-    public static String nv(String str) {
+    public static String oF(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -22,14 +22,14 @@ public class a {
     }
 
     public static String getVoiceFilePath(String str) {
-        return m.S(str, 1);
+        return m.O(str, 1);
     }
 
-    public static String nw(String str) {
-        return f.bk(nv(str));
+    public static String oG(String str) {
+        return f.aU(oF(str));
     }
 
-    public static boolean bo(String str) {
+    public static boolean aY(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

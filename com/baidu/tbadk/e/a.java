@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static b btz = null;
-    private static a btA = null;
-    private static boolean btB = false;
-    private static String btC = "";
-    private static transient List<String> btD = new ArrayList(5);
+    private static b bAB = null;
+    private static a bAC = null;
+    private static boolean bAD = false;
+    private static String bAE = "";
+    private static transient List<String> bAF = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (btA == null) {
+        if (bAC == null) {
             synchronized (a.class) {
-                if (btA == null) {
-                    btA = new a();
-                    btz = b.c(baseFragmentActivity);
+                if (bAC == null) {
+                    bAC = new a();
+                    bAB = b.c(baseFragmentActivity);
                 }
             }
-        } else if (btz != null) {
-            btz.a(baseFragmentActivity.getPageContext());
+        } else if (bAB != null) {
+            bAB.a(baseFragmentActivity.getPageContext());
         }
-        if (btB && btz != null) {
-            btz.Vl();
-            btz.Vm();
-            btB = false;
+        if (bAD && bAB != null) {
+            bAB.ZP();
+            bAB.ZQ();
+            bAD = false;
         }
-        return btA;
+        return bAC;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        Vh();
+        ZL();
         if (z) {
-            Vc();
+            ZG();
         }
         if (z2) {
-            Vd();
+            ZH();
         }
-        da(z3);
+        dt(z3);
         a(aVar);
     }
 
-    public void Vc() {
-        Vh();
-        if (btz != null) {
-            btz.Vl();
-            btB = false;
+    public void ZG() {
+        ZL();
+        if (bAB != null) {
+            bAB.ZP();
+            bAD = false;
         }
     }
 
-    public void Vd() {
-        Vh();
-        if (btz != null) {
-            btz.Vm();
-            btB = false;
+    public void ZH() {
+        ZL();
+        if (bAB != null) {
+            bAB.ZQ();
+            bAD = false;
         }
     }
 
-    public void da(boolean z) {
-        Vh();
-        if (btz != null) {
-            btz.da(z);
+    public void dt(boolean z) {
+        ZL();
+        if (bAB != null) {
+            bAB.dt(z);
         }
     }
 
     public void a(b.a aVar) {
-        Vh();
-        if (btz != null) {
-            btz.c(aVar);
+        ZL();
+        if (bAB != null) {
+            bAB.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        Vh();
-        if (btz != null) {
-            if (btz.Vi()) {
-                btz.c(aVar);
+        ZL();
+        if (bAB != null) {
+            if (bAB.ZM()) {
+                bAB.c(aVar);
             }
-            btz.Vk();
+            bAB.ZO();
         }
     }
 
     public void a(int i, b.a aVar) {
-        Vh();
-        if (btz != null) {
-            if (btz.Vi()) {
-                btz.c(aVar);
+        ZL();
+        if (bAB != null) {
+            if (bAB.ZM()) {
+                bAB.c(aVar);
             }
-            btz.fB(i);
+            bAB.gm(i);
         }
     }
 
-    public void Ve() {
-        Vh();
-        if (btz != null) {
-            btz.Ve();
-            btB = true;
+    public void ZI() {
+        ZL();
+        if (bAB != null) {
+            bAB.ZI();
+            bAD = true;
         }
     }
 
-    public void Vf() {
-        Vh();
-        if (btz != null) {
-            btz.Vf();
+    public void ZJ() {
+        ZL();
+        if (bAB != null) {
+            bAB.ZJ();
         }
     }
 
-    public void Vg() {
-        Vh();
-        Vf();
-        Ve();
+    public void ZK() {
+        ZL();
+        ZJ();
+        ZI();
     }
 
-    private void Vh() {
-        if (btz == null) {
+    private void ZL() {
+        if (bAB == null) {
         }
     }
 
-    public static void Hf() {
+    public static void Jv() {
         try {
-            if (btz != null) {
-                if (btA != null) {
-                    btA.Vg();
+            if (bAB != null) {
+                if (bAC != null) {
+                    bAC.ZK();
                 }
-                btz.Vj();
-                btz.Vn();
-                btz = null;
+                bAB.ZN();
+                bAB.ZR();
+                bAB = null;
             }
-            if (btA != null) {
-                btA = null;
+            if (bAC != null) {
+                bAC = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

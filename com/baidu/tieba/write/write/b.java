@@ -9,13 +9,13 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String blZ;
-    private ArrayList<String> jkX;
+    private String bsb;
+    private ArrayList<String> jEb;
 
     public void m(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.T(this.jkX)) {
+        if (spannable != null && !v.aa(this.jEb)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jkX.iterator();
+                Iterator<String> it = this.jEb.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = al.getColor(d.C0277d.cp_btn_a);
-                int color2 = al.getColor(d.C0277d.cp_cont_h_alpha85);
+                int color = al.getColor(R.color.cp_btn_a);
+                int color2 = al.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.T(cnW())) {
+        if (v.aa(cwc())) {
             return false;
         }
         return n(editText) || n(editText2);
@@ -106,19 +106,19 @@ public class b {
         }
     }
 
-    public void aE(ArrayList<String> arrayList) {
-        this.jkX = arrayList;
+    public void aI(ArrayList<String> arrayList) {
+        this.jEb = arrayList;
     }
 
-    public ArrayList<String> cnW() {
-        return this.jkX;
+    public ArrayList<String> cwc() {
+        return this.jEb;
     }
 
-    public void Ei(String str) {
-        this.blZ = str;
+    public void FE(String str) {
+        this.bsb = str;
     }
 
-    public String coa() {
-        return this.blZ;
+    public String cwg() {
+        return this.bsb;
     }
 }

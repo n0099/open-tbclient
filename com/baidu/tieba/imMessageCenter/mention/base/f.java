@@ -10,66 +10,66 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class f {
-    private HeadImageView gcB;
-    private TextView gcC;
-    private MessageRedDotView gcF;
-    private View gzG;
-    private LinearLayout gzH;
-    private ImageView gzI;
+    private View gQS;
+    private LinearLayout gQT;
+    private ImageView gQU;
+    private HeadImageView gtQ;
+    private TextView gtR;
+    private MessageRedDotView gtU;
     private int mIcon;
     private View mLine;
 
     public f(TbPageContext tbPageContext) {
-        this.gzG = LayoutInflater.from(tbPageContext.getContext()).inflate(d.h.reply_and_at_item, (ViewGroup) null, false);
-        this.gzH = (LinearLayout) this.gzG.findViewById(d.g.reply_and_at_item);
-        this.gzI = (ImageView) this.gzG.findViewById(d.g.arrow_view);
-        this.gcB = (HeadImageView) this.gzG.findViewById(d.g.reply_and_at_head);
-        this.gcB.setIsRound(true);
-        this.gcB.setDrawBorder(false);
-        this.mLine = this.gzG.findViewById(d.g.line);
-        this.gcF = (MessageRedDotView) this.gzG.findViewById(d.g.new_message);
-        this.gcC = (TextView) this.gzG.findViewById(d.g.desc_view);
+        this.gQS = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.reply_and_at_item, (ViewGroup) null, false);
+        this.gQT = (LinearLayout) this.gQS.findViewById(R.id.reply_and_at_item);
+        this.gQU = (ImageView) this.gQS.findViewById(R.id.arrow_view);
+        this.gtQ = (HeadImageView) this.gQS.findViewById(R.id.reply_and_at_head);
+        this.gtQ.setIsRound(true);
+        this.gtQ.setDrawBorder(false);
+        this.mLine = this.gQS.findViewById(R.id.line);
+        this.gtU = (MessageRedDotView) this.gQS.findViewById(R.id.new_message);
+        this.gtR = (TextView) this.gQS.findViewById(R.id.desc_view);
     }
 
-    public void aY(String str, int i) {
-        this.gcC.setText(str);
+    public void aU(String str, int i) {
+        this.gtR.setText(str);
         this.mIcon = i;
-        bxS();
+        bFA();
     }
 
-    public void E(int i, boolean z) {
+    public void J(int i, boolean z) {
         if (i > 0) {
             if (z) {
                 i = 0;
             }
-            this.gcF.refresh(i);
-            this.gcF.setVisibility(0);
+            this.gtU.refresh(i);
+            this.gtU.setVisibility(0);
             return;
         }
-        this.gcF.setVisibility(8);
+        this.gtU.setVisibility(8);
     }
 
-    public void bxS() {
-        al.d(this.gcC, d.C0277d.cp_cont_b, 1);
-        al.k(this.gzG, d.f.addresslist_item_bg);
-        al.k(this.mLine, d.C0277d.cp_bg_line_c);
-        al.c(this.gzI, d.f.icon_arrow_gray_right_n);
-        al.c(this.gcB, this.mIcon);
-        if (this.gcF != null) {
-            this.gcF.onChangeSkinType();
+    public void bFA() {
+        al.f(this.gtR, R.color.cp_cont_b, 1);
+        al.k(this.gQS, R.drawable.addresslist_item_bg);
+        al.k(this.mLine, R.color.cp_bg_line_c);
+        al.c(this.gQU, (int) R.drawable.icon_arrow_gray_right_n);
+        al.c(this.gtQ, this.mIcon);
+        if (this.gtU != null) {
+            this.gtU.onChangeSkinType();
         }
     }
 
-    public void uy(int i) {
+    public void vF(int i) {
         if (this.mLine != null) {
             this.mLine.setVisibility(i);
         }
     }
 
     public View getView() {
-        return this.gzG;
+        return this.gQS;
     }
 }

@@ -11,12 +11,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Jy;
-        public c bLQ;
-        public boolean bYA;
-        public String bYB;
-        public BlockPopInfoData bYC;
-        public JSONObject bYz;
+        public boolean Hi;
+        public c bTB;
+        public JSONObject cgw;
+        public boolean cgx;
+        public String cgy;
+        public BlockPopInfoData cgz;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -25,12 +25,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean isShowMessage = false;
         public int status = 0;
 
-        public void N(String str, boolean z) {
+        public void P(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.bYz = jSONObject;
+                    this.cgw = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -40,7 +40,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         }
                         this.isShowMessage = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        aO(optJSONObject);
+                        ba(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -48,18 +48,18 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        private void aO(JSONObject jSONObject) {
+        private void ba(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bYB = jSONObject.optString("block_dealurl");
+                this.cgy = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ap.isEmpty(optString) && !ap.isEmpty(this.bYB) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
-                    this.bYC = new BlockPopInfoData();
-                    this.bYC.block_info = optString;
-                    this.bYC.ahead_url = this.bYB;
-                    this.bYC.ahead_info = optString2;
-                    this.bYC.ok_info = optString3;
+                if (!ap.isEmpty(optString) && !ap.isEmpty(this.cgy) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
+                    this.cgz = new BlockPopInfoData();
+                    this.cgz.block_info = optString;
+                    this.cgz.ahead_url = this.cgy;
+                    this.cgz.ahead_info = optString2;
+                    this.cgz.ok_info = optString3;
                 }
             }
         }
@@ -73,7 +73,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Jy;
+        return getData().Hi;
     }
 
     public boolean isAttention() {

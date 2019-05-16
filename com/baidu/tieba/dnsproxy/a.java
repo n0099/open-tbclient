@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    private static final String[] exW = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] exX = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] exY = {"111.206.37.190"};
-    private static final String[] exZ = {"115.239.211.146", "180.97.33.196"};
-    private volatile int exV;
+    private volatile int eNy;
     private volatile String imsi;
+    private static final String[] eNz = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] eNA = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] eNB = {"111.206.37.190"};
+    private static final String[] eNC = {"115.239.211.146", "180.97.33.196"};
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String aUT() {
-        aUU();
-        if (j.kZ()) {
-            return exZ[new Random().nextInt(exZ.length)];
+    public String bcb() {
+        bcc();
+        if (j.jT()) {
+            return eNC[new Random().nextInt(eNC.length)];
         }
-        if (j.la()) {
-            if (this.exV == 1) {
-                return exW[new Random().nextInt(exW.length)];
+        if (j.jU()) {
+            if (this.eNy == 1) {
+                return eNz[new Random().nextInt(eNz.length)];
             }
-            if (this.exV == 2) {
-                return exX[new Random().nextInt(exX.length)];
+            if (this.eNy == 2) {
+                return eNA[new Random().nextInt(eNA.length)];
             }
-            if (this.exV == 3) {
-                return exY[new Random().nextInt(exY.length)];
+            if (this.eNy == 3) {
+                return eNB[new Random().nextInt(eNB.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void aUU() {
+    protected void bcc() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.exV = 0;
+        this.eNy = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.exV = 1;
+                this.eNy = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.exV = 2;
+                this.eNy = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.exV = 3;
+                this.eNy = 3;
             }
         }
     }

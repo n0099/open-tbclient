@@ -15,7 +15,7 @@ public abstract class b<T> {
     public abstract <T> T l(Cursor cursor) throws SQLException;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean a(Cursor cursor, com.baidu.swan.pms.model.f fVar) {
+    public boolean a(Cursor cursor, com.baidu.swan.pms.model.e eVar) {
         if (cursor != null) {
             int columnIndex = cursor.getColumnIndex("bundle_id");
             int columnIndex2 = cursor.getColumnIndex("category");
@@ -35,40 +35,40 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            fVar.bma = string;
-            fVar.category = cursor.getInt(columnIndex2);
-            fVar.versionName = cursor.getString(columnIndex3);
-            fVar.versionCode = cursor.getInt(columnIndex4);
-            fVar.size = cursor.getLong(columnIndex5);
-            fVar.md5 = cursor.getString(columnIndex6);
-            fVar.sign = cursor.getString(columnIndex7);
-            fVar.downloadUrl = cursor.getString(columnIndex8);
-            fVar.filePath = cursor.getString(columnIndex10);
-            fVar.currentSize = cursor.getLong(columnIndex11);
-            fVar.createTime = cursor.getLong(columnIndex12);
-            fVar.updateTime = cursor.getLong(columnIndex13);
-            fVar.acN = cursor.getLong(columnIndex9);
-            fVar.state = cursor.getInt(columnIndex14);
+            eVar.bsc = string;
+            eVar.category = cursor.getInt(columnIndex2);
+            eVar.versionName = cursor.getString(columnIndex3);
+            eVar.versionCode = cursor.getInt(columnIndex4);
+            eVar.size = cursor.getLong(columnIndex5);
+            eVar.md5 = cursor.getString(columnIndex6);
+            eVar.sign = cursor.getString(columnIndex7);
+            eVar.downloadUrl = cursor.getString(columnIndex8);
+            eVar.filePath = cursor.getString(columnIndex10);
+            eVar.currentSize = cursor.getLong(columnIndex11);
+            eVar.createTime = cursor.getLong(columnIndex12);
+            eVar.updateTime = cursor.getLong(columnIndex13);
+            eVar.aaA = cursor.getLong(columnIndex9);
+            eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
         return false;
     }
 
-    public ContentValues e(com.baidu.swan.pms.model.f fVar) {
+    public ContentValues g(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", fVar.bma);
-        contentValues.put("category", Integer.valueOf(fVar.category));
-        contentValues.put("version_name", fVar.versionName);
-        contentValues.put("version_code", Integer.valueOf(fVar.versionCode));
-        contentValues.put("size", Long.valueOf(fVar.size));
-        contentValues.put("md5", fVar.md5);
-        contentValues.put("sign", fVar.sign);
-        contentValues.put("downloadUrl", fVar.downloadUrl);
-        contentValues.put("file_path", fVar.filePath);
-        contentValues.put("current_size", Long.valueOf(fVar.currentSize));
-        contentValues.put("create_time", Long.valueOf(fVar.createTime));
-        contentValues.put("update_time", Long.valueOf(fVar.updateTime));
-        contentValues.put(WXLoginActivity.KEY_BASE_RESP_STATE, Integer.valueOf(fVar.state));
+        contentValues.put("bundle_id", eVar.bsc);
+        contentValues.put("category", Integer.valueOf(eVar.category));
+        contentValues.put("version_name", eVar.versionName);
+        contentValues.put("version_code", Integer.valueOf(eVar.versionCode));
+        contentValues.put("size", Long.valueOf(eVar.size));
+        contentValues.put("md5", eVar.md5);
+        contentValues.put("sign", eVar.sign);
+        contentValues.put("downloadUrl", eVar.downloadUrl);
+        contentValues.put("file_path", eVar.filePath);
+        contentValues.put("current_size", Long.valueOf(eVar.currentSize));
+        contentValues.put("create_time", Long.valueOf(eVar.createTime));
+        contentValues.put("update_time", Long.valueOf(eVar.updateTime));
+        contentValues.put(WXLoginActivity.KEY_BASE_RESP_STATE, Integer.valueOf(eVar.state));
         return contentValues;
     }
 }

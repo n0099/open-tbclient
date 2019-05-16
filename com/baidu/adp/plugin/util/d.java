@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Mz = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Kk = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        Mz.put(Boolean.class, Boolean.TYPE);
-        Mz.put(Byte.class, Byte.TYPE);
-        Mz.put(Character.class, Character.TYPE);
-        Mz.put(Short.class, Short.TYPE);
-        Mz.put(Integer.class, Integer.TYPE);
-        Mz.put(Float.class, Float.TYPE);
-        Mz.put(Long.class, Long.TYPE);
-        Mz.put(Double.class, Double.TYPE);
-        Mz.put(Boolean.TYPE, Boolean.TYPE);
-        Mz.put(Byte.TYPE, Byte.TYPE);
-        Mz.put(Character.TYPE, Character.TYPE);
-        Mz.put(Short.TYPE, Short.TYPE);
-        Mz.put(Integer.TYPE, Integer.TYPE);
-        Mz.put(Float.TYPE, Float.TYPE);
-        Mz.put(Long.TYPE, Long.TYPE);
-        Mz.put(Double.TYPE, Double.TYPE);
+        Kk.put(Boolean.class, Boolean.TYPE);
+        Kk.put(Byte.class, Byte.TYPE);
+        Kk.put(Character.class, Character.TYPE);
+        Kk.put(Short.class, Short.TYPE);
+        Kk.put(Integer.class, Integer.TYPE);
+        Kk.put(Float.class, Float.TYPE);
+        Kk.put(Long.class, Long.TYPE);
+        Kk.put(Double.class, Double.TYPE);
+        Kk.put(Boolean.TYPE, Boolean.TYPE);
+        Kk.put(Byte.TYPE, Byte.TYPE);
+        Kk.put(Character.TYPE, Character.TYPE);
+        Kk.put(Short.TYPE, Short.TYPE);
+        Kk.put(Integer.TYPE, Integer.TYPE);
+        Kk.put(Float.TYPE, Float.TYPE);
+        Kk.put(Long.TYPE, Long.TYPE);
+        Kk.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -41,7 +41,7 @@ public class d {
     }
 
     public static <T> T d(Object obj, String str, Object[] objArr) throws SecurityException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException {
-        return (T) e(obj.getClass(), str, h(objArr)).invoke(obj, j(objArr));
+        return (T) e(obj.getClass(), str, g(objArr)).invoke(obj, h(objArr));
     }
 
     public static void a(Object obj, Class<?> cls, String str, Object obj2) throws NoSuchFieldException, NoSuchFieldError, IllegalArgumentException, IllegalAccessException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Mz.containsKey(clsArr[i]) && Mz.get(clsArr[i]).equals(Mz.get(clsArr2[i]))) {
+                if (Kk.containsKey(clsArr[i]) && Kk.get(clsArr[i]).equals(Kk.get(clsArr2[i]))) {
                     return true;
                 }
             }
@@ -124,7 +124,7 @@ public class d {
         return obj;
     }
 
-    private static Class<?>[] h(Object[] objArr) {
+    private static Class<?>[] g(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -145,7 +145,7 @@ public class d {
         }
     }
 
-    private static Object[] j(Object[] objArr) {
+    private static Object[] h(Object[] objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }

@@ -12,20 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> gst = new HashMap<>();
+    protected HashMap<String, ChatSetting> gJG = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, k<Void> kVar);
 
-    protected abstract l<String> bvW();
+    protected abstract l<String> bDE();
 
-    public abstract ChatSetting da(String str, String str2);
+    public abstract ChatSetting dn(String str, String str2);
 
-    public void s(Class<? extends ChatSetting> cls) {
+    public void r(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.gst) {
-            this.gst.clear();
+        synchronized (this.gJG) {
+            this.gJG.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.gst) {
-                l<String> bvW = bvW();
-                List<l.b<String>> b = r.b(bvW);
+            synchronized (this.gJG) {
+                l<String> bDE = bDE();
+                List<l.b<String>> b = r.b(bDE);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = bvW.get(str4)) != null) {
-                            this.gst.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = bDE.get(str4)) != null) {
+                            this.gJG.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -48,28 +48,29 @@ public abstract class a {
         }
     }
 
-    public void t(String str, String str2, boolean z) {
-        ChatSetting da = da(str, str2);
-        if (da != null) {
-            da.setAcceptNotify(z);
-            a(da);
+    public void w(String str, String str2, boolean z) {
+        ChatSetting dn = dn(str, str2);
+        if (dn != null) {
+            dn.setAcceptNotify(z);
+            a(dn);
         }
     }
 
     public void a(String str, String str2, boolean z, k<Void> kVar) {
-        ChatSetting da = da(str, str2);
-        if (da != null) {
-            da.setAcceptNotify(z);
-            a(da, kVar);
+        ChatSetting dn = dn(str, str2);
+        if (dn != null) {
+            dn.setAcceptNotify(z);
+            a(dn, kVar);
         }
     }
 
-    public boolean db(String str, String str2) {
-        ChatSetting da = da(str, str2);
-        if (da == null) {
+    /* renamed from: do  reason: not valid java name */
+    public boolean m23do(String str, String str2) {
+        ChatSetting dn = dn(str, str2);
+        if (dn == null) {
             return false;
         }
-        return da.isAcceptNotify();
+        return dn.isAcceptNotify();
     }
 
     public void a(final String str, final String str2, k<Boolean> kVar) {
@@ -78,11 +79,11 @@ public abstract class a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.z
             public Boolean doInBackground() {
-                ChatSetting da = a.this.da(str, str2);
-                if (da == null) {
+                ChatSetting dn = a.this.dn(str, str2);
+                if (dn == null) {
                     return false;
                 }
-                return Boolean.valueOf(da.isAcceptNotify());
+                return Boolean.valueOf(dn.isAcceptNotify());
             }
         }, kVar);
     }

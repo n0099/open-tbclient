@@ -45,7 +45,7 @@ public class a implements PermissionCheck.c {
             } else {
                 Intent intent2 = new Intent(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR);
                 intent2.putExtra("error_code", message.arg1);
-                intent2.putExtra(SDKInitializer.SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE, (String) message.obj);
+                intent2.putExtra("error_message", (String) message.obj);
                 intent = intent2;
             }
             this.b.sendBroadcast(intent);

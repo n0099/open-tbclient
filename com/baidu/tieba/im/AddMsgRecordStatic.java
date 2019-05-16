@@ -14,7 +14,7 @@ import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
 public class AddMsgRecordStatic {
     static {
         com.baidu.tieba.tbadkCore.a.a.c(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, com.baidu.tieba.tbadkCore.a.a.br(TbConfig.ADD_MSG_RECORD, 309265));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, com.baidu.tieba.tbadkCore.a.a.bn(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265) { // from class: com.baidu.tieba.im.AddMsgRecordStatic.1

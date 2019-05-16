@@ -25,6 +25,5 @@ public class TaskRegisterStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902090));
     }
 }

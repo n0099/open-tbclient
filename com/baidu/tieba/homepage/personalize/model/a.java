@@ -1,23 +1,17 @@
 package com.baidu.tieba.homepage.personalize.model;
 
 import android.text.TextUtils;
-import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.data.ad;
 import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.i;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.k;
 import com.baidu.tieba.card.data.l;
 import com.baidu.tieba.card.data.p;
-import com.baidu.tieba.d;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
@@ -25,13 +19,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private int fNk = 0;
-    private com.baidu.tieba.homepage.personalize.b.d fNl = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c fGU = new c();
-    private final int dfX = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
+    private int get = 0;
+    private com.baidu.tieba.homepage.personalize.b.d geu = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c fYd = new c();
+    private final int dqz = com.baidu.tbadk.core.sharedPref.b.agM().getInt("home_page_max_thread_count", 300);
 
-    public int bmU() {
-        return this.dfX;
+    public int buw() {
+        return this.dqz;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -47,15 +41,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.dfX);
+        a(builder, i, this.dqz);
         d.e(builder);
         List<p> b = d.b(builder);
-        cx(b);
+        cF(b);
         List<m> l = l(builder.thread_list, b);
-        this.fNl.cA(l);
+        this.geu.cI(l);
         b.a(builder, l);
-        this.fGU.cHM = l;
-        return this.fGU;
+        this.fYd.cPV = l;
+        return this.fYd;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -73,12 +67,12 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.fNk);
+        d.a(z, builder, builder2, i, this.get);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
         if (list != null && list2 != null) {
-            int S = v.S(list);
+            int Z = v.Z(list);
             HashSet hashSet = new HashSet();
             HashSet hashSet2 = new HashSet();
             for (ThreadInfo threadInfo : list) {
@@ -89,7 +83,7 @@ public class a {
                 }
             }
             if (i == 1) {
-                this.fNl.ay(list);
+                this.geu.aF(list);
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
                         if (!hashSet2.contains(threadInfo2.lego_card)) {
@@ -100,9 +94,9 @@ public class a {
                     }
                 }
             } else {
-                this.fNl.a(z, list2.size() - 1, list, list2);
-                for (int S2 = v.S(list2) - 1; S2 >= 0; S2--) {
-                    ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, S2);
+                this.geu.a(z, list2.size() - 1, list, list2);
+                for (int Z2 = v.Z(list2) - 1; Z2 >= 0; Z2--) {
+                    ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, Z2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
                         if (!hashSet2.contains(threadInfo3.lego_card)) {
                             list.add(0, threadInfo3);
@@ -112,13 +106,13 @@ public class a {
                     }
                 }
             }
-            int S3 = v.S(list);
-            this.fGU.fNn = S3 - S;
-            this.fNk = S3 - S;
+            int Z3 = v.Z(list);
+            this.fYd.gew = Z3 - Z;
+            this.get = Z3 - Z;
         }
     }
 
-    private void cx(List<p> list) {
+    private void cF(List<p> list) {
         if (list != null) {
             Collections.sort(list, new Comparator<p>() { // from class: com.baidu.tieba.homepage.personalize.model.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -138,227 +132,157 @@ public class a {
     }
 
     private List<m> l(List<ThreadInfo> list, List<p> list2) {
-        boolean z;
-        boolean z2;
-        p pVar;
         int i;
+        int i2;
+        int i3;
+        int i4 = 0;
         if (list == null) {
             return null;
         }
         LinkedList linkedList = new LinkedList();
-        p pVar2 = null;
-        if (v.S(list2) > 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        Iterator<ThreadInfo> it = list.iterator();
-        boolean z3 = true;
-        int i2 = 0;
-        int i3 = 0;
-        while (true) {
-            boolean z4 = z3;
-            if (!it.hasNext()) {
-                return linkedList;
-            }
-            ThreadInfo next = it.next();
-            if (z && z4 && i2 < v.S(list2)) {
-                z2 = false;
-                pVar = (p) v.c(list2, i2);
-            } else {
-                p pVar3 = pVar2;
-                z2 = z4;
-                pVar = pVar3;
-            }
-            if (next != null) {
-                if (pVar != null && pVar.getPosition() - 1 == i3) {
-                    linkedList.add(pVar);
-                    z2 = true;
-                    i2++;
-                }
+        int i5 = 0;
+        for (ThreadInfo threadInfo : list) {
+            if (threadInfo != null) {
                 bg bgVar = new bg();
-                bgVar.a(next);
+                bgVar.a(threadInfo);
                 bgVar.setCurrentPage(1);
-                if (!TextUtils.isEmpty(bgVar.ZQ())) {
+                if (!TextUtils.isEmpty(bgVar.aex())) {
                     ad adVar = new ad();
-                    adVar.lb(bgVar.ZQ());
-                    adVar.position = i3;
+                    adVar.mg(bgVar.aex());
+                    adVar.position = i5;
                     linkedList.add(adVar);
+                } else if (com.baidu.tieba.homepage.topic.topictab.b.a.V(bgVar)) {
+                    if (!StringUtils.isNull(bgVar.afn().topic_name)) {
+                        com.baidu.tieba.homepage.topic.topictab.b.a aVar = new com.baidu.tieba.homepage.topic.topictab.b.a();
+                        aVar.a(bgVar.afn());
+                        aVar.from = 1;
+                        aVar.position = i5;
+                        aVar.ai(bgVar);
+                        linkedList.add(aVar);
+                    }
                 } else if (k.V(bgVar) || l.V(bgVar)) {
-                    int[] ap = ap(bgVar);
-                    k ar = d.ar(bgVar);
-                    if (ar != null) {
-                        ar.tid = bgVar.getTid();
-                        ar.position = i3;
-                        d.a(ar);
+                    int[] afo = bgVar.afo();
+                    k ap = d.ap(bgVar);
+                    if (ap != null) {
+                        ap.tid = bgVar.getTid();
+                        ap.position = i5;
+                        d.a(ap);
                     }
-                    if (ar != null && ar.isValid()) {
-                        linkedList.add(ar);
+                    if (ap != null && ap.isValid()) {
+                        linkedList.add(ap);
                     }
-                    com.baidu.tieba.card.data.c aq = d.aq(bgVar);
-                    if (aq != null) {
-                        aq.tid = bgVar.getTid();
-                        aq.position = i3;
-                        if (aq instanceof k) {
-                            if (bgVar.ZM() == 1) {
-                                d.b(aq);
-                                aq.bAR = ap[0];
-                                aq.bAS = ap[1];
-                            } else if (bgVar.ZM() >= 2) {
-                                d.c(aq);
+                    com.baidu.tieba.card.data.c ao = d.ao(bgVar);
+                    if (ao != null) {
+                        ao.tid = bgVar.getTid();
+                        ao.position = i5;
+                        if (ao instanceof k) {
+                            if (bgVar.aet() == 1) {
+                                d.b(ao);
+                                ao.bIf = afo[0];
+                                ao.bIg = afo[1];
+                            } else if (bgVar.aet() >= 2) {
+                                d.c(ao);
                             } else {
-                                d.d(aq);
+                                d.d(ao);
                             }
-                        } else if (aq instanceof l) {
-                            d.e(aq);
+                        } else if (ao instanceof l) {
+                            d.e(ao);
                         }
                     }
-                    if (aq != null && aq.isValid()) {
-                        linkedList.add(aq);
+                    if (ao != null && ao.isValid()) {
+                        linkedList.add(ao);
                     }
-                    k ar2 = d.ar(bgVar);
-                    if (ar2 != null) {
-                        ar2.tid = bgVar.getTid();
-                        ar2.position = i3;
-                        d.f(ar2);
+                    k ap2 = d.ap(bgVar);
+                    if (ap2 != null) {
+                        ap2.tid = bgVar.getTid();
+                        ap2.position = i5;
+                        d.f(ap2);
                     }
-                    if (ar2 != null && ar2.isValid()) {
-                        linkedList.add(ar2);
+                    if (ap2 != null && ap2.isValid()) {
+                        linkedList.add(ap2);
                     }
-                    if (next.top_agree_post != null) {
-                        k ar3 = d.ar(bgVar);
-                        if (ar3 != null) {
-                            ar3.tid = bgVar.getTid();
-                            ar3.position = i3;
-                            d.g(ar3);
+                    if (threadInfo.top_agree_post != null) {
+                        k ap3 = d.ap(bgVar);
+                        if (ap3 != null) {
+                            ap3.tid = bgVar.getTid();
+                            ap3.position = i5;
+                            d.g(ap3);
                         }
-                        if (ar3 != null && ar3.isValid()) {
-                            linkedList.add(ar3);
+                        if (ap3 != null && ap3.isValid()) {
+                            linkedList.add(ap3);
                         }
                     }
-                    k ar4 = d.ar(bgVar);
-                    if (ar4 != null) {
-                        ar4.tid = bgVar.getTid();
-                        ar4.position = i3;
-                        d.h(ar4);
+                    k ap4 = d.ap(bgVar);
+                    if (ap4 != null) {
+                        ap4.tid = bgVar.getTid();
+                        ap4.position = i5;
+                        d.h(ap4);
                     }
-                    if (ar4 != null && ar4.isValid()) {
-                        linkedList.add(ar4);
+                    if (ap4 != null && ap4.isValid()) {
+                        linkedList.add(ap4);
                     }
                 } else {
-                    com.baidu.tieba.card.data.c aq2 = d.aq(bgVar);
-                    if (aq2 != null) {
-                        aq2.tid = bgVar.getTid();
-                        aq2.position = i3;
+                    com.baidu.tieba.card.data.c ao2 = d.ao(bgVar);
+                    if (ao2 != null) {
+                        ao2.tid = bgVar.getTid();
+                        ao2.position = i5;
                     }
-                    if (aq2 != null && aq2.isValid()) {
-                        linkedList.add(aq2);
+                    if (ao2 != null && ao2.isValid()) {
+                        linkedList.add(ao2);
                     }
                 }
-                i = i3 + 1;
+                i3 = i5 + 1;
             } else {
-                i = i3;
+                i3 = i5;
             }
-            i3 = i;
-            z3 = z2;
-            pVar2 = pVar;
+            i5 = i3;
         }
-    }
-
-    private int[] ap(bg bgVar) {
-        int i;
-        int[] iArr = new int[2];
-        int size = View.MeasureSpec.getSize(com.baidu.adp.lib.util.l.aS(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds44) * 2);
-        int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds10);
-        int i2 = (int) ((size - (dimensionPixelSize * 2)) / 3.0f);
-        ArrayList<MediaData> YY = bgVar.YY();
-        if (i.Wv().Wz() && v.S(YY) != 0) {
-            LinkedList linkedList = new LinkedList();
-            for (int i3 = 0; i3 < YY.size(); i3++) {
-                MediaData mediaData = (MediaData) v.c(YY, i3);
-                if (mediaData != null && mediaData.getType() == 3) {
-                    linkedList.add(mediaData);
-                }
-            }
-        }
-        MediaData mediaData2 = (MediaData) v.c(YY, 0);
-        if (mediaData2 != null && mediaData2.picWidth > 0 && mediaData2.picHeight > 0) {
-            if (mediaData2.picWidth * 2 <= mediaData2.picHeight) {
-                i = ((int) (i2 * 1.5f)) + dimensionPixelSize;
-                i2 = (i2 * 2) + dimensionPixelSize;
-            } else if (mediaData2.picHeight * 2 <= mediaData2.picWidth) {
-                i = (i2 * 2) + dimensionPixelSize;
-                i2 = ((int) (i2 * 1.5f)) + dimensionPixelSize;
-            } else if (mediaData2.picWidth < i2) {
-                if (mediaData2.picHeight < i2) {
-                    if (mediaData2.picWidth < mediaData2.picHeight) {
-                        int i4 = (mediaData2.picHeight * i2) / mediaData2.picWidth;
-                        i = i2;
-                        i2 = i4;
-                    } else {
-                        i = (mediaData2.picWidth * i2) / mediaData2.picHeight;
+        int i6 = 0;
+        int i7 = 0;
+        while (i4 < v.Z(list2)) {
+            p pVar = (p) v.c(list2, i4);
+            if (pVar == null || i7 >= linkedList.size()) {
+                i = i6;
+            } else {
+                while (true) {
+                    i2 = i7;
+                    if (!(linkedList.get(i2) instanceof com.baidu.tieba.card.data.c) || (((com.baidu.tieba.card.data.c) linkedList.get(i2)).position + i6 != pVar.getPosition() - 1 && i2 < linkedList.size())) {
+                        i7 = i2 + 1;
                     }
-                } else if (mediaData2.picHeight < i2 || mediaData2.picHeight >= i2 * 2) {
-                    i2 = 0;
-                    i = 0;
-                } else {
-                    int i5 = (mediaData2.picHeight * i2) / mediaData2.picWidth;
-                    i = i2;
-                    i2 = i5;
                 }
-            } else if (mediaData2.picWidth >= i2 && mediaData2.picWidth < i2 * 2) {
-                if (mediaData2.picHeight < i2) {
-                    i = (mediaData2.picWidth * i2) / mediaData2.picHeight;
-                } else if (mediaData2.picHeight >= i2 && mediaData2.picHeight < i2 * 2) {
-                    int i6 = mediaData2.picWidth;
-                    i2 = mediaData2.picHeight;
+                if (linkedList.size() <= i2 || i2 <= 0) {
                     i = i6;
+                    i7 = i2;
                 } else {
-                    i2 = (i2 * 2) + dimensionPixelSize;
-                    i = (mediaData2.picWidth * i2) / mediaData2.picHeight;
+                    linkedList.add(i2, pVar);
+                    i = i6 + 1;
+                    i7 = i2;
                 }
-            } else if (mediaData2.picHeight < i2) {
-                i2 = 0;
-                i = 0;
-            } else if (mediaData2.picHeight >= i2 && mediaData2.picHeight < i2 * 2) {
-                int i7 = (i2 * 2) + dimensionPixelSize;
-                i2 = (mediaData2.picHeight * i7) / mediaData2.picWidth;
-                i = i7;
-            } else if (mediaData2.picWidth < mediaData2.picHeight) {
-                i2 = (i2 * 2) + dimensionPixelSize;
-                i = (mediaData2.picWidth * i2) / mediaData2.picHeight;
-            } else {
-                int i8 = (i2 * 2) + dimensionPixelSize;
-                i2 = (mediaData2.picHeight * i8) / mediaData2.picWidth;
-                i = i8;
             }
-        } else {
-            i2 = (i2 * 2) + dimensionPixelSize;
-            i = i2;
+            i4++;
+            i6 = i;
         }
-        iArr[0] = i;
-        iArr[1] = i2;
-        return iArr;
+        return linkedList;
     }
 
     private void a(DataRes.Builder builder, int i, int i2) {
         if (builder != null && builder.thread_list != null) {
             List<ThreadInfo> list = builder.thread_list;
             if (i == 1) {
-                int S = (v.S(list) - i2) + 30;
+                int Z = (v.Z(list) - i2) + 30;
                 while (true) {
-                    S--;
-                    if (S >= 30) {
-                        if (list.size() > S) {
-                            list.remove(S);
+                    Z--;
+                    if (Z >= 30) {
+                        if (list.size() > Z) {
+                            list.remove(Z);
                         }
                     } else {
                         return;
                     }
                 }
             } else {
-                for (int S2 = v.S(list) - 1; S2 >= i2; S2--) {
-                    list.remove(S2);
+                for (int Z2 = v.Z(list) - 1; Z2 >= i2; Z2--) {
+                    list.remove(Z2);
                 }
             }
         }

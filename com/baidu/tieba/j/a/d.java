@@ -11,7 +11,7 @@ public class d extends a<com.baidu.tieba.play.b.b> {
     }
 
     @Override // com.baidu.tieba.j.a.c
-    public void bEE() {
-        m22do(this.list);
+    public void bMp() {
+        dw(this.list);
     }
 }

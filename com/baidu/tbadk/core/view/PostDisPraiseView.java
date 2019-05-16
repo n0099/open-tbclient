@@ -3,29 +3,29 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes3.dex */
 public class PostDisPraiseView extends PostPraiseView {
     public PostDisPraiseView(Context context) {
         super(context);
-        aed();
+        ajc();
     }
 
     public PostDisPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        aed();
+        ajc();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void aed() {
+    public void ajc() {
         this.agreeType = 5;
-        this.bOh = d.j.action_dislike;
-        this.bOk = d.C0277d.cp_cont_j;
-        this.bOl = d.C0277d.cp_link_tip_a;
-        this.bOi = d.f.icon_card_dislike_n;
-        this.bOj = d.f.icon_card_dislike_s;
+        this.bVV = R.string.action_dislike;
+        this.bVY = R.color.cp_cont_j;
+        this.bVZ = R.color.cp_link_tip_a;
+        this.bVW = R.drawable.icon_card_dislike_n;
+        this.bVX = R.drawable.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -33,43 +33,43 @@ public class PostDisPraiseView extends PostPraiseView {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((PostData) this.mData).aai();
+        return ((PostData) this.mData).aeP();
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView
-    public int aef() {
+    public int aje() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).beU() && aeg()) {
-            ((PostData) this.mData).gz(5);
-            ((PostData) this.mData).pZ(false);
-            ((PostData) this.mData).af(((PostData) this.mData).aah());
-            ((PostData) this.mData).ag(((PostData) this.mData).aai() - 1);
+        if (((PostData) this.mData).bmm() && ajf()) {
+            ((PostData) this.mData).hl(5);
+            ((PostData) this.mData).qO(false);
+            ((PostData) this.mData).ar(((PostData) this.mData).aeO());
+            ((PostData) this.mData).as(((PostData) this.mData).aeP() - 1);
             i = 1;
         } else {
-            int aak = ((PostData) this.mData).aak();
-            if ((((PostData) this.mData).beU() && aak == 2) || aak == 1) {
-                ((PostData) this.mData).af(((PostData) this.mData).aah() - 1);
+            int aeR = ((PostData) this.mData).aeR();
+            if ((((PostData) this.mData).bmm() && aeR == 2) || aeR == 1) {
+                ((PostData) this.mData).ar(((PostData) this.mData).aeO() - 1);
             }
-            ((PostData) this.mData).pZ(true);
-            ((PostData) this.mData).ag(((PostData) this.mData).aai() + 1);
-            ((PostData) this.mData).gz(5);
+            ((PostData) this.mData).qO(true);
+            ((PostData) this.mData).as(((PostData) this.mData).aeP() + 1);
+            ((PostData) this.mData).hl(5);
             i = 0;
         }
         return i;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView
-    public int aF(View view) {
-        int aF = super.aF(view);
-        dI(aF == 0);
-        return aF;
+    public int aL(View view) {
+        int aL = super.aL(view);
+        ee(aL == 0);
+        return aL;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView
-    public boolean aeg() {
-        return this.mData != 0 && ((PostData) this.mData).aak() == 5;
+    public boolean ajf() {
+        return this.mData != 0 && ((PostData) this.mData).aeR() == 5;
     }
 }

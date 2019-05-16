@@ -1,7 +1,6 @@
 package com.baidu.pass.http;
 
 import android.content.Context;
-import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -125,7 +124,7 @@ public class a implements Runnable {
             String headerFieldKey = httpURLConnection.getHeaderFieldKey(i);
             String headerField = httpURLConnection.getHeaderField(i);
             sb.append(headerFieldKey);
-            sb.append(Config.TRACE_TODAY_VISIT_SPLIT);
+            sb.append(":");
             sb.append(headerField);
             sb.append("\n");
         }

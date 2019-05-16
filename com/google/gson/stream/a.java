@@ -1,1231 +1,338 @@
 package com.google.gson.stream;
 
-import com.google.gson.internal.a.e;
-import com.google.gson.internal.d;
 import java.io.Closeable;
-import java.io.EOFException;
+import java.io.Flushable;
 import java.io.IOException;
-import java.io.Reader;
+import java.io.Writer;
 /* loaded from: classes2.dex */
-public class a implements Closeable {
-    private static final char[] jPW = ")]}'\n".toCharArray();
-    private final Reader in;
-    private int jOc;
-    private String[] jOd;
-    private int[] jOe;
-    private long jQb;
-    private int jQc;
-    private String jQd;
-    private boolean jMG = false;
-    private final char[] jPX = new char[1024];
-    private int pos = 0;
-    private int limit = 0;
-    private int jPY = 0;
-    private int jPZ = 0;
-    int jQa = 0;
-    private int[] jQe = new int[32];
+public class a implements Closeable, Flushable {
+    private static final String[] kix = new String[128];
+    private static final String[] kiy;
+    private String indent;
+    private boolean kfm;
+    private boolean kfn;
+    private boolean kfq;
+    private String kiB;
+    private final Writer out;
+    private String separator;
+    private int[] kiz = new int[32];
+    private int kiA = 0;
 
     static {
-        d.jNl = new d() { // from class: com.google.gson.stream.a.1
-            @Override // com.google.gson.internal.d
-            public void g(a aVar) throws IOException {
-                if (aVar instanceof e) {
-                    ((e) aVar).cBt();
-                    return;
-                }
-                int i = aVar.jQa;
-                if (i == 0) {
-                    i = aVar.cBE();
-                }
-                if (i == 13) {
-                    aVar.jQa = 9;
-                } else if (i == 12) {
-                    aVar.jQa = 8;
-                } else if (i == 14) {
-                    aVar.jQa = 10;
-                } else {
-                    throw new IllegalStateException("Expected a name but was " + aVar.cBq() + aVar.cBu());
-                }
-            }
-        };
+        for (int i = 0; i <= 31; i++) {
+            kix[i] = String.format("\\u%04x", Integer.valueOf(i));
+        }
+        kix[34] = "\\\"";
+        kix[92] = "\\\\";
+        kix[9] = "\\t";
+        kix[8] = "\\b";
+        kix[10] = "\\n";
+        kix[13] = "\\r";
+        kix[12] = "\\f";
+        kiy = (String[]) kix.clone();
+        kiy[60] = "\\u003c";
+        kiy[62] = "\\u003e";
+        kiy[38] = "\\u0026";
+        kiy[61] = "\\u003d";
+        kiy[39] = "\\u0027";
     }
 
-    public a(Reader reader) {
-        this.jOc = 0;
-        int[] iArr = this.jQe;
-        int i = this.jOc;
-        this.jOc = i + 1;
-        iArr[i] = 6;
-        this.jOd = new String[32];
-        this.jOe = new int[32];
-        if (reader == null) {
-            throw new NullPointerException("in == null");
+    public a(Writer writer) {
+        DQ(6);
+        this.separator = ":";
+        this.kfm = true;
+        if (writer == null) {
+            throw new NullPointerException("out == null");
         }
-        this.in = reader;
+        this.out = writer;
+    }
+
+    public final void setIndent(String str) {
+        if (str.length() == 0) {
+            this.indent = null;
+            this.separator = ":";
+            return;
+        }
+        this.indent = str;
+        this.separator = ": ";
     }
 
     public final void setLenient(boolean z) {
-        this.jMG = z;
+        this.kfq = z;
     }
 
-    public final boolean isLenient() {
-        return this.jMG;
+    public boolean isLenient() {
+        return this.kfq;
     }
 
-    public void beginArray() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 3) {
-            CM(1);
-            this.jOe[this.jOc - 1] = 0;
-            this.jQa = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected BEGIN_ARRAY but was " + cBq() + cBu());
+    public final void sr(boolean z) {
+        this.kfn = z;
     }
 
-    public void endArray() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 4) {
-            this.jOc--;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            this.jQa = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected END_ARRAY but was " + cBq() + cBu());
+    public final boolean cJt() {
+        return this.kfn;
     }
 
-    public void beginObject() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 1) {
-            CM(3);
-            this.jQa = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected BEGIN_OBJECT but was " + cBq() + cBu());
+    public final void ss(boolean z) {
+        this.kfm = z;
     }
 
-    public void endObject() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 2) {
-            this.jOc--;
-            this.jOd[this.jOc] = null;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            this.jQa = 0;
-            return;
-        }
-        throw new IllegalStateException("Expected END_OBJECT but was " + cBq() + cBu());
+    public final boolean cJu() {
+        return this.kfm;
     }
 
-    public boolean hasNext() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        return (i == 2 || i == 4) ? false : true;
+    public a cJm() throws IOException {
+        cJw();
+        return aN(1, "[");
     }
 
-    public JsonToken cBq() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
+    public a cJn() throws IOException {
+        return m(1, 2, "]");
+    }
+
+    public a cJo() throws IOException {
+        cJw();
+        return aN(3, "{");
+    }
+
+    public a cJp() throws IOException {
+        return m(3, 5, "}");
+    }
+
+    private a aN(int i, String str) throws IOException {
+        beforeValue();
+        DQ(i);
+        this.out.write(str);
+        return this;
+    }
+
+    private a m(int i, int i2, String str) throws IOException {
+        int cJv = cJv();
+        if (cJv != i2 && cJv != i) {
+            throw new IllegalStateException("Nesting problem.");
         }
-        switch (i) {
-            case 1:
-                return JsonToken.BEGIN_OBJECT;
-            case 2:
-                return JsonToken.END_OBJECT;
-            case 3:
-                return JsonToken.BEGIN_ARRAY;
-            case 4:
-                return JsonToken.END_ARRAY;
-            case 5:
-            case 6:
-                return JsonToken.BOOLEAN;
-            case 7:
-                return JsonToken.NULL;
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-                return JsonToken.STRING;
-            case 12:
-            case 13:
-            case 14:
-                return JsonToken.NAME;
-            case 15:
-            case 16:
-                return JsonToken.NUMBER;
-            case 17:
-                return JsonToken.END_DOCUMENT;
-            default:
-                throw new AssertionError();
+        if (this.kiB != null) {
+            throw new IllegalStateException("Dangling name: " + this.kiB);
+        }
+        this.kiA--;
+        if (cJv == i2) {
+            newline();
+        }
+        this.out.write(str);
+        return this;
+    }
+
+    private void DQ(int i) {
+        if (this.kiA == this.kiz.length) {
+            int[] iArr = new int[this.kiA * 2];
+            System.arraycopy(this.kiz, 0, iArr, 0, this.kiA);
+            this.kiz = iArr;
+        }
+        int[] iArr2 = this.kiz;
+        int i2 = this.kiA;
+        this.kiA = i2 + 1;
+        iArr2[i2] = i;
+    }
+
+    private int cJv() {
+        if (this.kiA == 0) {
+            throw new IllegalStateException("JsonWriter is closed.");
+        }
+        return this.kiz[this.kiA - 1];
+    }
+
+    private void DR(int i) {
+        this.kiz[this.kiA - 1] = i;
+    }
+
+    public a Ha(String str) throws IOException {
+        if (str == null) {
+            throw new NullPointerException("name == null");
+        }
+        if (this.kiB != null) {
+            throw new IllegalStateException();
+        }
+        if (this.kiA == 0) {
+            throw new IllegalStateException("JsonWriter is closed.");
+        }
+        this.kiB = str;
+        return this;
+    }
+
+    private void cJw() throws IOException {
+        if (this.kiB != null) {
+            cJx();
+            string(this.kiB);
+            this.kiB = null;
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    int cBE() throws IOException {
-        int i = this.jQe[this.jOc - 1];
-        if (i == 1) {
-            this.jQe[this.jOc - 1] = 2;
-        } else if (i == 2) {
-            switch (rC(true)) {
-                case 44:
-                    break;
-                case 59:
-                    cBJ();
-                    break;
-                case 93:
-                    this.jQa = 4;
-                    return 4;
-                default:
-                    throw FJ("Unterminated array");
-            }
-        } else if (i == 3 || i == 5) {
-            this.jQe[this.jOc - 1] = 4;
-            if (i == 5) {
-                switch (rC(true)) {
-                    case 44:
-                        break;
-                    case 59:
-                        cBJ();
-                        break;
-                    case 125:
-                        this.jQa = 2;
-                        return 2;
-                    default:
-                        throw FJ("Unterminated object");
-                }
-            }
-            int rC = rC(true);
-            switch (rC) {
-                case 34:
-                    this.jQa = 13;
-                    return 13;
-                case 39:
-                    cBJ();
-                    this.jQa = 12;
-                    return 12;
-                case 125:
-                    if (i != 5) {
-                        this.jQa = 2;
-                        return 2;
-                    }
-                    throw FJ("Expected name");
-                default:
-                    cBJ();
-                    this.pos--;
-                    if (h((char) rC)) {
-                        this.jQa = 14;
-                        return 14;
-                    }
-                    throw FJ("Expected name");
-            }
-        } else if (i == 4) {
-            this.jQe[this.jOc - 1] = 5;
-            switch (rC(true)) {
-                case 58:
-                    break;
-                case 59:
-                case 60:
-                default:
-                    throw FJ("Expected ':'");
-                case 61:
-                    cBJ();
-                    if ((this.pos < this.limit || CN(1)) && this.jPX[this.pos] == '>') {
-                        this.pos++;
-                        break;
-                    }
-                    break;
-            }
-        } else if (i == 6) {
-            if (this.jMG) {
-                cBK();
-            }
-            this.jQe[this.jOc - 1] = 7;
-        } else if (i == 7) {
-            if (rC(false) == -1) {
-                this.jQa = 17;
-                return 17;
-            }
-            cBJ();
-            this.pos--;
-        } else if (i == 8) {
-            throw new IllegalStateException("JsonReader is closed");
+    public a Hb(String str) throws IOException {
+        if (str == null) {
+            return cJq();
         }
-        switch (rC(true)) {
-            case 34:
-                this.jQa = 9;
-                return 9;
-            case 39:
-                cBJ();
-                this.jQa = 8;
-                return 8;
-            case 44:
-            case 59:
-                break;
-            case 91:
-                this.jQa = 3;
-                return 3;
-            case 93:
-                if (i == 1) {
-                    this.jQa = 4;
-                    return 4;
-                }
-                break;
-            case 123:
-                this.jQa = 1;
-                return 1;
-            default:
-                this.pos--;
-                int cBF = cBF();
-                if (cBF == 0) {
-                    int cBG = cBG();
-                    if (cBG == 0) {
-                        if (!h(this.jPX[this.pos])) {
-                            throw FJ("Expected value");
-                        }
-                        cBJ();
-                        this.jQa = 10;
-                        return 10;
-                    }
-                    return cBG;
-                }
-                return cBF;
-        }
-        if (i == 1 || i == 2) {
-            cBJ();
-            this.pos--;
-            this.jQa = 7;
-            return 7;
-        }
-        throw FJ("Unexpected value");
+        cJw();
+        beforeValue();
+        string(str);
+        return this;
     }
 
-    private int cBF() throws IOException {
-        String str;
-        String str2;
-        int i;
-        char c = this.jPX[this.pos];
-        if (c == 't' || c == 'T') {
-            str = "true";
-            str2 = "TRUE";
-            i = 5;
-        } else if (c == 'f' || c == 'F') {
-            str = "false";
-            str2 = "FALSE";
-            i = 6;
-        } else if (c != 'n' && c != 'N') {
-            return 0;
-        } else {
-            str = "null";
-            str2 = "NULL";
-            i = 7;
-        }
-        int length = str.length();
-        for (int i2 = 1; i2 < length; i2++) {
-            if (this.pos + i2 >= this.limit && !CN(i2 + 1)) {
-                return 0;
-            }
-            char c2 = this.jPX[this.pos + i2];
-            if (c2 != str.charAt(i2) && c2 != str2.charAt(i2)) {
-                return 0;
-            }
-        }
-        if ((this.pos + length < this.limit || CN(length + 1)) && h(this.jPX[this.pos + length])) {
-            return 0;
-        }
-        this.pos += length;
-        this.jQa = i;
-        return i;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:105:?, code lost:
-        return 15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:112:?, code lost:
-        return 16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0021, code lost:
-        if (r3 != 2) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0023, code lost:
-        if (r4 == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0029, code lost:
-        if (r6 != Long.MIN_VALUE) goto L16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x002b, code lost:
-        if (r5 == false) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x002d, code lost:
-        if (r5 == false) goto L20;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x002f, code lost:
-        r15.jQb = r6;
-        r15.pos += r10;
-        r15.jQa = 15;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0052, code lost:
-        if (h(r2) == false) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0054, code lost:
-        return 0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00dc, code lost:
-        r6 = -r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x00e0, code lost:
-        if (r3 == 2) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x00e3, code lost:
-        if (r3 == 4) goto L28;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x00e6, code lost:
-        if (r3 != 7) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x00e8, code lost:
-        r15.jQc = r10;
-        r15.jQa = 16;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x00f0, code lost:
-        return 0;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    private int cBG() throws IOException {
-        char c;
-        boolean z;
-        boolean z2;
-        char[] cArr = this.jPX;
-        int i = this.pos;
-        long j = 0;
-        boolean z3 = false;
-        boolean z4 = true;
-        char c2 = 0;
-        int i2 = 0;
-        int i3 = this.limit;
-        int i4 = i;
-        while (true) {
-            if (i4 + i2 == i3) {
-                if (i2 == cArr.length) {
-                    return 0;
-                }
-                if (CN(i2 + 1)) {
-                    i4 = this.pos;
-                    i3 = this.limit;
-                }
-            }
-            char c3 = cArr[i4 + i2];
-            switch (c3) {
-                case '+':
-                    if (c2 == 5) {
-                        c = 6;
-                        z = z4;
-                        z2 = z3;
-                        break;
-                    } else {
-                        return 0;
-                    }
-                case '-':
-                    if (c2 == 0) {
-                        c = 1;
-                        boolean z5 = z4;
-                        z2 = true;
-                        z = z5;
-                        break;
-                    } else if (c2 == 5) {
-                        c = 6;
-                        z = z4;
-                        z2 = z3;
-                        break;
-                    } else {
-                        return 0;
-                    }
-                case '.':
-                    if (c2 == 2) {
-                        c = 3;
-                        z = z4;
-                        z2 = z3;
-                        break;
-                    } else {
-                        return 0;
-                    }
-                case 'E':
-                case 'e':
-                    if (c2 == 2 || c2 == 4) {
-                        c = 5;
-                        z = z4;
-                        z2 = z3;
-                        break;
-                    } else {
-                        return 0;
-                    }
-                    break;
-                default:
-                    if (c3 >= '0' && c3 <= '9') {
-                        if (c2 == 1 || c2 == 0) {
-                            j = -(c3 - '0');
-                            c = 2;
-                            z = z4;
-                            z2 = z3;
-                            break;
-                        } else if (c2 == 2) {
-                            if (j == 0) {
-                                return 0;
-                            }
-                            long j2 = (10 * j) - (c3 - '0');
-                            boolean z6 = (j > -922337203685477580L || (j == -922337203685477580L && j2 < j)) & z4;
-                            z2 = z3;
-                            j = j2;
-                            char c4 = c2;
-                            z = z6;
-                            c = c4;
-                            break;
-                        } else if (c2 == 3) {
-                            c = 4;
-                            z = z4;
-                            z2 = z3;
-                            break;
-                        } else if (c2 != 5 && c2 != 6) {
-                            c = c2;
-                            z = z4;
-                            z2 = z3;
-                            break;
-                        } else {
-                            c = 7;
-                            z = z4;
-                            z2 = z3;
-                            break;
-                        }
-                    }
-                    break;
-            }
-            i2++;
-            z3 = z2;
-            z4 = z;
-            c2 = c;
-        }
-    }
-
-    private boolean h(char c) throws IOException {
-        switch (c) {
-            case '\t':
-            case '\n':
-            case '\f':
-            case '\r':
-            case ' ':
-            case ',':
-            case ':':
-            case '[':
-            case ']':
-            case '{':
-            case '}':
-                break;
-            default:
-                return true;
-            case '#':
-            case '/':
-            case ';':
-            case '=':
-            case '\\':
-                cBJ();
-                break;
-        }
-        return false;
-    }
-
-    public String nextName() throws IOException {
-        String i;
-        int i2 = this.jQa;
-        if (i2 == 0) {
-            i2 = cBE();
-        }
-        if (i2 == 14) {
-            i = cBH();
-        } else if (i2 == 12) {
-            i = i('\'');
-        } else if (i2 == 13) {
-            i = i('\"');
-        } else {
-            throw new IllegalStateException("Expected a name but was " + cBq() + cBu());
-        }
-        this.jQa = 0;
-        this.jOd[this.jOc - 1] = i;
-        return i;
-    }
-
-    public String nextString() throws IOException {
-        String str;
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 10) {
-            str = cBH();
-        } else if (i == 8) {
-            str = i('\'');
-        } else if (i == 9) {
-            str = i('\"');
-        } else if (i == 11) {
-            str = this.jQd;
-            this.jQd = null;
-        } else if (i == 15) {
-            str = Long.toString(this.jQb);
-        } else if (i == 16) {
-            str = new String(this.jPX, this.pos, this.jQc);
-            this.pos += this.jQc;
-        } else {
-            throw new IllegalStateException("Expected a string but was " + cBq() + cBu());
-        }
-        this.jQa = 0;
-        int[] iArr = this.jOe;
-        int i2 = this.jOc - 1;
-        iArr[i2] = iArr[i2] + 1;
-        return str;
-    }
-
-    public boolean nextBoolean() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 5) {
-            this.jQa = 0;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return true;
-        } else if (i == 6) {
-            this.jQa = 0;
-            int[] iArr2 = this.jOe;
-            int i3 = this.jOc - 1;
-            iArr2[i3] = iArr2[i3] + 1;
-            return false;
-        } else {
-            throw new IllegalStateException("Expected a boolean but was " + cBq() + cBu());
-        }
-    }
-
-    public void nextNull() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 7) {
-            this.jQa = 0;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return;
-        }
-        throw new IllegalStateException("Expected null but was " + cBq() + cBu());
-    }
-
-    public double nextDouble() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 15) {
-            this.jQa = 0;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return this.jQb;
-        }
-        if (i == 16) {
-            this.jQd = new String(this.jPX, this.pos, this.jQc);
-            this.pos += this.jQc;
-        } else if (i == 8 || i == 9) {
-            this.jQd = i(i == 8 ? '\'' : '\"');
-        } else if (i == 10) {
-            this.jQd = cBH();
-        } else if (i != 11) {
-            throw new IllegalStateException("Expected a double but was " + cBq() + cBu());
-        }
-        this.jQa = 11;
-        double parseDouble = Double.parseDouble(this.jQd);
-        if (!this.jMG && (Double.isNaN(parseDouble) || Double.isInfinite(parseDouble))) {
-            throw new MalformedJsonException("JSON forbids NaN and infinities: " + parseDouble + cBu());
-        }
-        this.jQd = null;
-        this.jQa = 0;
-        int[] iArr2 = this.jOe;
-        int i3 = this.jOc - 1;
-        iArr2[i3] = iArr2[i3] + 1;
-        return parseDouble;
-    }
-
-    public long nextLong() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
-        }
-        if (i == 15) {
-            this.jQa = 0;
-            int[] iArr = this.jOe;
-            int i2 = this.jOc - 1;
-            iArr[i2] = iArr[i2] + 1;
-            return this.jQb;
-        }
-        if (i == 16) {
-            this.jQd = new String(this.jPX, this.pos, this.jQc);
-            this.pos += this.jQc;
-        } else if (i == 8 || i == 9 || i == 10) {
-            if (i == 10) {
-                this.jQd = cBH();
+    public a cJq() throws IOException {
+        if (this.kiB != null) {
+            if (this.kfm) {
+                cJw();
             } else {
-                this.jQd = i(i == 8 ? '\'' : '\"');
+                this.kiB = null;
+                return this;
             }
-            try {
-                long parseLong = Long.parseLong(this.jQd);
-                this.jQa = 0;
-                int[] iArr2 = this.jOe;
-                int i3 = this.jOc - 1;
-                iArr2[i3] = iArr2[i3] + 1;
-                return parseLong;
-            } catch (NumberFormatException e) {
-            }
-        } else {
-            throw new IllegalStateException("Expected a long but was " + cBq() + cBu());
         }
-        this.jQa = 11;
-        double parseDouble = Double.parseDouble(this.jQd);
-        long j = (long) parseDouble;
-        if (j != parseDouble) {
-            throw new NumberFormatException("Expected a long but was " + this.jQd + cBu());
-        }
-        this.jQd = null;
-        this.jQa = 0;
-        int[] iArr3 = this.jOe;
-        int i4 = this.jOc - 1;
-        iArr3[i4] = iArr3[i4] + 1;
-        return j;
+        beforeValue();
+        this.out.write("null");
+        return this;
     }
 
-    private String i(char c) throws IOException {
-        char[] cArr = this.jPX;
-        StringBuilder sb = new StringBuilder();
-        do {
-            int i = this.pos;
-            int i2 = this.limit;
-            int i3 = i;
-            while (i3 < i2) {
-                int i4 = i3 + 1;
-                char c2 = cArr[i3];
-                if (c2 == c) {
-                    this.pos = i4;
-                    sb.append(cArr, i, (i4 - i) - 1);
-                    return sb.toString();
-                }
-                if (c2 == '\\') {
-                    this.pos = i4;
-                    sb.append(cArr, i, (i4 - i) - 1);
-                    sb.append(readEscapeCharacter());
-                    i = this.pos;
-                    i2 = this.limit;
-                    i4 = i;
-                } else if (c2 == '\n') {
-                    this.jPY++;
-                    this.jPZ = i4;
-                }
-                i3 = i4;
-            }
-            sb.append(cArr, i, i3 - i);
-            this.pos = i3;
-        } while (CN(1));
-        throw FJ("Unterminated string");
+    public a sq(boolean z) throws IOException {
+        cJw();
+        beforeValue();
+        this.out.write(z ? "true" : "false");
+        return this;
     }
 
-    private String cBH() throws IOException {
-        String sb;
-        StringBuilder sb2 = null;
-        int i = 0;
-        while (true) {
-            if (this.pos + i < this.limit) {
-                switch (this.jPX[this.pos + i]) {
-                    case '\t':
-                    case '\n':
-                    case '\f':
-                    case '\r':
-                    case ' ':
-                    case ',':
-                    case ':':
-                    case '[':
-                    case ']':
-                    case '{':
-                    case '}':
-                        break;
-                    case '#':
-                    case '/':
-                    case ';':
-                    case '=':
-                    case '\\':
-                        cBJ();
-                        break;
-                    default:
-                        i++;
-                }
-            } else if (i < this.jPX.length) {
-                if (CN(i + 1)) {
-                }
-            } else {
-                if (sb2 == null) {
-                    sb2 = new StringBuilder();
-                }
-                sb2.append(this.jPX, this.pos, i);
-                this.pos = i + this.pos;
-                if (CN(1)) {
-                    i = 0;
-                } else {
-                    i = 0;
-                }
-            }
+    public a m(Boolean bool) throws IOException {
+        if (bool == null) {
+            return cJq();
         }
-        if (sb2 == null) {
-            sb = new String(this.jPX, this.pos, i);
-        } else {
-            sb2.append(this.jPX, this.pos, i);
-            sb = sb2.toString();
-        }
-        this.pos = i + this.pos;
-        return sb;
+        cJw();
+        beforeValue();
+        this.out.write(bool.booleanValue() ? "true" : "false");
+        return this;
     }
 
-    private void j(char c) throws IOException {
-        char[] cArr = this.jPX;
-        do {
-            int i = this.pos;
-            int i2 = this.limit;
-            int i3 = i;
-            while (i3 < i2) {
-                int i4 = i3 + 1;
-                char c2 = cArr[i3];
-                if (c2 == c) {
-                    this.pos = i4;
-                    return;
-                }
-                if (c2 == '\\') {
-                    this.pos = i4;
-                    readEscapeCharacter();
-                    i4 = this.pos;
-                    i2 = this.limit;
-                } else if (c2 == '\n') {
-                    this.jPY++;
-                    this.jPZ = i4;
-                }
-                i3 = i4;
-            }
-            this.pos = i3;
-        } while (CN(1));
-        throw FJ("Unterminated string");
+    public a eF(long j) throws IOException {
+        cJw();
+        beforeValue();
+        this.out.write(Long.toString(j));
+        return this;
     }
 
-    private void cBI() throws IOException {
-        do {
-            int i = 0;
-            while (this.pos + i < this.limit) {
-                switch (this.jPX[this.pos + i]) {
-                    case '\t':
-                    case '\n':
-                    case '\f':
-                    case '\r':
-                    case ' ':
-                    case ',':
-                    case ':':
-                    case '[':
-                    case ']':
-                    case '{':
-                    case '}':
-                        this.pos = i + this.pos;
-                        return;
-                    case '#':
-                    case '/':
-                    case ';':
-                    case '=':
-                    case '\\':
-                        cBJ();
-                        this.pos = i + this.pos;
-                        return;
-                    default:
-                        i++;
-                }
-            }
-            this.pos = i + this.pos;
-        } while (CN(1));
+    public a a(Number number) throws IOException {
+        if (number == null) {
+            return cJq();
+        }
+        cJw();
+        String obj = number.toString();
+        if (!this.kfq && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+            throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
+        }
+        beforeValue();
+        this.out.append((CharSequence) obj);
+        return this;
     }
 
-    public int nextInt() throws IOException {
-        int i = this.jQa;
-        if (i == 0) {
-            i = cBE();
+    public void flush() throws IOException {
+        if (this.kiA == 0) {
+            throw new IllegalStateException("JsonWriter is closed.");
         }
-        if (i == 15) {
-            int i2 = (int) this.jQb;
-            if (this.jQb != i2) {
-                throw new NumberFormatException("Expected an int but was " + this.jQb + cBu());
-            }
-            this.jQa = 0;
-            int[] iArr = this.jOe;
-            int i3 = this.jOc - 1;
-            iArr[i3] = iArr[i3] + 1;
-            return i2;
-        }
-        if (i == 16) {
-            this.jQd = new String(this.jPX, this.pos, this.jQc);
-            this.pos += this.jQc;
-        } else if (i == 8 || i == 9 || i == 10) {
-            if (i == 10) {
-                this.jQd = cBH();
-            } else {
-                this.jQd = i(i == 8 ? '\'' : '\"');
-            }
-            try {
-                int parseInt = Integer.parseInt(this.jQd);
-                this.jQa = 0;
-                int[] iArr2 = this.jOe;
-                int i4 = this.jOc - 1;
-                iArr2[i4] = iArr2[i4] + 1;
-                return parseInt;
-            } catch (NumberFormatException e) {
-            }
-        } else {
-            throw new IllegalStateException("Expected an int but was " + cBq() + cBu());
-        }
-        this.jQa = 11;
-        double parseDouble = Double.parseDouble(this.jQd);
-        int i5 = (int) parseDouble;
-        if (i5 != parseDouble) {
-            throw new NumberFormatException("Expected an int but was " + this.jQd + cBu());
-        }
-        this.jQd = null;
-        this.jQa = 0;
-        int[] iArr3 = this.jOe;
-        int i6 = this.jOc - 1;
-        iArr3[i6] = iArr3[i6] + 1;
-        return i5;
+        this.out.flush();
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        this.jQa = 0;
-        this.jQe[0] = 8;
-        this.jOc = 1;
-        this.in.close();
-    }
-
-    public void skipValue() throws IOException {
-        int i = 0;
-        do {
-            int i2 = this.jQa;
-            if (i2 == 0) {
-                i2 = cBE();
-            }
-            if (i2 == 3) {
-                CM(1);
-                i++;
-            } else if (i2 == 1) {
-                CM(3);
-                i++;
-            } else if (i2 == 4) {
-                this.jOc--;
-                i--;
-            } else if (i2 == 2) {
-                this.jOc--;
-                i--;
-            } else if (i2 == 14 || i2 == 10) {
-                cBI();
-            } else if (i2 == 8 || i2 == 12) {
-                j('\'');
-            } else if (i2 == 9 || i2 == 13) {
-                j('\"');
-            } else if (i2 == 16) {
-                this.pos += this.jQc;
-            }
-            this.jQa = 0;
-        } while (i != 0);
-        int[] iArr = this.jOe;
-        int i3 = this.jOc - 1;
-        iArr[i3] = iArr[i3] + 1;
-        this.jOd[this.jOc - 1] = "null";
-    }
-
-    private void CM(int i) {
-        if (this.jOc == this.jQe.length) {
-            int[] iArr = new int[this.jOc * 2];
-            int[] iArr2 = new int[this.jOc * 2];
-            String[] strArr = new String[this.jOc * 2];
-            System.arraycopy(this.jQe, 0, iArr, 0, this.jOc);
-            System.arraycopy(this.jOe, 0, iArr2, 0, this.jOc);
-            System.arraycopy(this.jOd, 0, strArr, 0, this.jOc);
-            this.jQe = iArr;
-            this.jOe = iArr2;
-            this.jOd = strArr;
+        this.out.close();
+        int i = this.kiA;
+        if (i > 1 || (i == 1 && this.kiz[i - 1] != 7)) {
+            throw new IOException("Incomplete document");
         }
-        int[] iArr3 = this.jQe;
-        int i2 = this.jOc;
-        this.jOc = i2 + 1;
-        iArr3[i2] = i;
+        this.kiA = 0;
     }
 
-    private boolean CN(int i) throws IOException {
-        char[] cArr = this.jPX;
-        this.jPZ -= this.pos;
-        if (this.limit != this.pos) {
-            this.limit -= this.pos;
-            System.arraycopy(cArr, this.pos, cArr, 0, this.limit);
-        } else {
-            this.limit = 0;
-        }
-        this.pos = 0;
-        do {
-            int read = this.in.read(cArr, this.limit, cArr.length - this.limit);
-            if (read == -1) {
-                return false;
-            }
-            this.limit = read + this.limit;
-            if (this.jPY == 0 && this.jPZ == 0 && this.limit > 0 && cArr[0] == 65279) {
-                this.pos++;
-                this.jPZ++;
-                i++;
-            }
-        } while (this.limit < i);
-        return true;
-    }
-
-    private int rC(boolean z) throws IOException {
-        char[] cArr = this.jPX;
-        int i = this.pos;
-        int i2 = this.limit;
-        while (true) {
-            if (i == i2) {
-                this.pos = i;
-                if (CN(1)) {
-                    i = this.pos;
-                    i2 = this.limit;
-                } else if (z) {
-                    throw new EOFException("End of input" + cBu());
-                } else {
-                    return -1;
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void string(String str) throws IOException {
+        int i;
+        String str2;
+        int i2 = 0;
+        String[] strArr = this.kfn ? kiy : kix;
+        this.out.write("\"");
+        int length = str.length();
+        for (i = 0; i < length; i = i + 1) {
+            char charAt = str.charAt(i);
+            if (charAt < 128) {
+                str2 = strArr[charAt];
+                i = str2 == null ? i + 1 : 0;
+                if (i2 < i) {
+                    this.out.write(str, i2, i - i2);
                 }
-            }
-            int i3 = i + 1;
-            char c = cArr[i];
-            if (c == '\n') {
-                this.jPY++;
-                this.jPZ = i3;
-                i = i3;
-            } else if (c == ' ' || c == '\r') {
-                i = i3;
-            } else if (c == '\t') {
-                i = i3;
-            } else if (c == '/') {
-                this.pos = i3;
-                if (i3 == i2) {
-                    this.pos--;
-                    boolean CN = CN(2);
-                    this.pos++;
-                    if (!CN) {
-                        return c;
-                    }
-                }
-                cBJ();
-                switch (cArr[this.pos]) {
-                    case '*':
-                        this.pos++;
-                        if (!FI("*/")) {
-                            throw FJ("Unterminated comment");
-                        }
-                        i = this.pos + 2;
-                        i2 = this.limit;
-                        continue;
-                    case '/':
-                        this.pos++;
-                        skipToEndOfLine();
-                        i = this.pos;
-                        i2 = this.limit;
-                        continue;
-                    default:
-                        return c;
-                }
-            } else if (c == '#') {
-                this.pos = i3;
-                cBJ();
-                skipToEndOfLine();
-                i = this.pos;
-                i2 = this.limit;
+                this.out.write(str2);
+                i2 = i + 1;
             } else {
-                this.pos = i3;
-                return c;
+                if (charAt == 8232) {
+                    str2 = "\\u2028";
+                } else if (charAt == 8233) {
+                    str2 = "\\u2029";
+                }
+                if (i2 < i) {
+                }
+                this.out.write(str2);
+                i2 = i + 1;
+            }
+        }
+        if (i2 < length) {
+            this.out.write(str, i2, length - i2);
+        }
+        this.out.write("\"");
+    }
+
+    private void newline() throws IOException {
+        if (this.indent != null) {
+            this.out.write("\n");
+            int i = this.kiA;
+            for (int i2 = 1; i2 < i; i2++) {
+                this.out.write(this.indent);
             }
         }
     }
 
-    private void cBJ() throws IOException {
-        if (!this.jMG) {
-            throw FJ("Use JsonReader.setLenient(true) to accept malformed JSON");
+    private void cJx() throws IOException {
+        int cJv = cJv();
+        if (cJv == 5) {
+            this.out.write(44);
+        } else if (cJv != 3) {
+            throw new IllegalStateException("Nesting problem.");
         }
+        newline();
+        DR(4);
     }
 
-    private void skipToEndOfLine() throws IOException {
-        char c;
-        do {
-            if (this.pos < this.limit || CN(1)) {
-                char[] cArr = this.jPX;
-                int i = this.pos;
-                this.pos = i + 1;
-                c = cArr[i];
-                if (c == '\n') {
-                    this.jPY++;
-                    this.jPZ = this.pos;
-                    return;
-                }
-            } else {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    private void beforeValue() throws IOException {
+        switch (cJv()) {
+            case 1:
+                DR(2);
+                newline();
                 return;
-            }
-        } while (c != '\r');
-    }
-
-    private boolean FI(String str) throws IOException {
-        int i;
-        while (true) {
-            if (this.pos + str.length() > this.limit && !CN(str.length())) {
-                return false;
-            }
-            if (this.jPX[this.pos] == '\n') {
-                this.jPY++;
-                this.jPZ = this.pos + 1;
-            } else {
-                for (i = 0; i < str.length(); i = i + 1) {
-                    i = this.jPX[this.pos + i] == str.charAt(i) ? i + 1 : 0;
-                }
-                return true;
-            }
-            this.pos++;
-        }
-    }
-
-    public String toString() {
-        return getClass().getSimpleName() + cBu();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public String cBu() {
-        return " at line " + (this.jPY + 1) + " column " + ((this.pos - this.jPZ) + 1) + " path " + getPath();
-    }
-
-    public String getPath() {
-        StringBuilder append = new StringBuilder().append('$');
-        int i = this.jOc;
-        for (int i2 = 0; i2 < i; i2++) {
-            switch (this.jQe[i2]) {
-                case 1:
-                case 2:
-                    append.append('[').append(this.jOe[i2]).append(']');
-                    break;
-                case 3:
-                case 4:
-                case 5:
-                    append.append('.');
-                    if (this.jOd[i2] != null) {
-                        append.append(this.jOd[i2]);
-                        break;
-                    } else {
-                        break;
-                    }
-            }
-        }
-        return append.toString();
-    }
-
-    private char readEscapeCharacter() throws IOException {
-        int i;
-        if (this.pos == this.limit && !CN(1)) {
-            throw FJ("Unterminated escape sequence");
-        }
-        char[] cArr = this.jPX;
-        int i2 = this.pos;
-        this.pos = i2 + 1;
-        char c = cArr[i2];
-        switch (c) {
-            case '\n':
-                this.jPY++;
-                this.jPZ = this.pos;
-                return c;
-            case '\"':
-            case '\'':
-            case '/':
-            case '\\':
-                return c;
-            case 'b':
-                return '\b';
-            case 'f':
-                return '\f';
-            case 'n':
-                return '\n';
-            case 'r':
-                return '\r';
-            case 't':
-                return '\t';
-            case 'u':
-                if (this.pos + 4 > this.limit && !CN(4)) {
-                    throw FJ("Unterminated escape sequence");
-                }
-                int i3 = this.pos;
-                int i4 = i3 + 4;
-                char c2 = 0;
-                for (int i5 = i3; i5 < i4; i5++) {
-                    char c3 = this.jPX[i5];
-                    char c4 = (char) (c2 << 4);
-                    if (c3 >= '0' && c3 <= '9') {
-                        i = c3 - '0';
-                    } else if (c3 >= 'a' && c3 <= 'f') {
-                        i = (c3 - 'a') + 10;
-                    } else if (c3 >= 'A' && c3 <= 'F') {
-                        i = (c3 - 'A') + 10;
-                    } else {
-                        throw new NumberFormatException("\\u" + new String(this.jPX, this.pos, 4));
-                    }
-                    c2 = (char) (c4 + i);
-                }
-                this.pos += 4;
-                return c2;
+            case 2:
+                this.out.append(',');
+                newline();
+                return;
+            case 3:
+            case 5:
             default:
-                throw FJ("Invalid escape sequence");
-        }
-    }
-
-    private IOException FJ(String str) throws IOException {
-        throw new MalformedJsonException(str + cBu());
-    }
-
-    private void cBK() throws IOException {
-        rC(true);
-        this.pos--;
-        if (this.pos + jPW.length <= this.limit || CN(jPW.length)) {
-            for (int i = 0; i < jPW.length; i++) {
-                if (this.jPX[this.pos + i] != jPW[i]) {
-                    return;
+                throw new IllegalStateException("Nesting problem.");
+            case 4:
+                this.out.append((CharSequence) this.separator);
+                DR(5);
+                return;
+            case 6:
+                break;
+            case 7:
+                if (!this.kfq) {
+                    throw new IllegalStateException("JSON must have only one top-level value.");
                 }
-            }
-            this.pos += jPW.length;
+                break;
         }
+        DR(7);
     }
 }

@@ -14,66 +14,66 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class m extends com.baidu.adp.base.c<MembersActivity> {
-    private BdListView gee;
-    private MembersActivity gjR;
-    private l gkk;
-    private TextView gkl;
-    private NoDataView gkm;
-    private ViewGroup gkn;
-    private ViewGroup gko;
-    private RelativeLayout gkp;
-    private ViewGroup gkq;
-    private TextView gkr;
-    private TextView gks;
-    private TextView gkt;
-    private View gku;
-    private View gkv;
+    private ViewGroup gBA;
+    private ViewGroup gBB;
+    private RelativeLayout gBC;
+    private ViewGroup gBD;
+    private TextView gBE;
+    private TextView gBF;
+    private TextView gBG;
+    private View gBH;
+    private View gBI;
+    private MembersActivity gBe;
+    private l gBx;
+    private TextView gBy;
+    private NoDataView gBz;
+    private BdListView gvr;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private ViewGroup mRootView;
 
     public m(MembersActivity membersActivity) {
         super(membersActivity.getPageContext());
-        this.gjR = membersActivity;
-        membersActivity.setContentView(d.h.im_members_activity);
+        this.gBe = membersActivity;
+        membersActivity.setContentView(R.layout.im_members_activity);
         g(membersActivity);
         h(membersActivity);
         i(membersActivity);
     }
 
     private void g(MembersActivity membersActivity) {
-        this.mRootView = (ViewGroup) this.gjR.findViewById(d.g.rootView);
-        this.mNavigationBar = (NavigationBar) this.gjR.findViewById(d.g.view_navigation_bar);
-        this.mNavigationBar.setTitleText(this.gjR.getPageContext().getString(d.j.group_info_member));
+        this.mRootView = (ViewGroup) this.gBe.findViewById(R.id.rootView);
+        this.mNavigationBar = (NavigationBar) this.gBe.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setTitleText(this.gBe.getPageContext().getString(R.string.group_info_member));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.m.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                m.this.gjR.finish();
+                m.this.gBe.finish();
             }
         });
-        this.gkv = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, d.h.group_member_navi_right_button, (View.OnClickListener) null);
-        this.gkl = (TextView) this.gkv.findViewById(d.g.right_textview);
-        this.gkl.setText(this.gjR.getResources().getString(d.j.members_order));
-        this.gkl.setOnClickListener(membersActivity);
+        this.gBI = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_member_navi_right_button, (View.OnClickListener) null);
+        this.gBy = (TextView) this.gBI.findViewById(R.id.right_textview);
+        this.gBy.setText(this.gBe.getResources().getString(R.string.members_order));
+        this.gBy.setOnClickListener(membersActivity);
     }
 
     private void h(MembersActivity membersActivity) {
-        this.gee = (BdListView) membersActivity.findViewById(d.g.members_list);
-        this.gkm = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(d.g.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
-        this.gkk = new l(this.gjR);
-        this.gee.setAdapter((ListAdapter) this.gkk);
-        this.gee.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
+        this.gvr = (BdListView) membersActivity.findViewById(R.id.members_list);
+        this.gBz = NoDataViewFactory.a(getPageContext().getPageActivity(), (FrameLayout) membersActivity.findViewById(R.id.content_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), null, null);
+        this.gBx = new l(this.gBe);
+        this.gvr.setAdapter((ListAdapter) this.gBx);
+        this.gvr.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.im.frsgroup.m.2
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (i == 0) {
-                    if (m.this.gku != null) {
-                        m.this.gku.setVisibility(0);
+                    if (m.this.gBH != null) {
+                        m.this.gBH.setVisibility(0);
                     }
-                } else if (m.this.gku != null) {
-                    m.this.gku.setVisibility(8);
+                } else if (m.this.gBH != null) {
+                    m.this.gBH.setVisibility(8);
                 }
             }
 
@@ -84,98 +84,98 @@ public class m extends com.baidu.adp.base.c<MembersActivity> {
     }
 
     private void i(MembersActivity membersActivity) {
-        this.gkn = (ViewGroup) membersActivity.findViewById(d.g.bottom_manager);
-        this.gku = membersActivity.findViewById(d.g.bottom_divider_line);
-        this.gko = (ViewGroup) membersActivity.findViewById(d.g.bottom_edit);
-        this.gkp = (RelativeLayout) membersActivity.findViewById(d.g.edit_lay);
-        this.gkq = (ViewGroup) membersActivity.findViewById(d.g.bottom_send_edit);
-        this.gkr = (TextView) membersActivity.findViewById(d.g.edit_cancel);
-        this.gks = (TextView) membersActivity.findViewById(d.g.edit_num);
-        this.gkt = (TextView) membersActivity.findViewById(d.g.members_edit);
-        this.mProgressBar = (ProgressBar) membersActivity.findViewById(d.g.progress_loading);
-        tP(0);
+        this.gBA = (ViewGroup) membersActivity.findViewById(R.id.bottom_manager);
+        this.gBH = membersActivity.findViewById(R.id.bottom_divider_line);
+        this.gBB = (ViewGroup) membersActivity.findViewById(R.id.bottom_edit);
+        this.gBC = (RelativeLayout) membersActivity.findViewById(R.id.edit_lay);
+        this.gBD = (ViewGroup) membersActivity.findViewById(R.id.bottom_send_edit);
+        this.gBE = (TextView) membersActivity.findViewById(R.id.edit_cancel);
+        this.gBF = (TextView) membersActivity.findViewById(R.id.edit_num);
+        this.gBG = (TextView) membersActivity.findViewById(R.id.members_edit);
+        this.mProgressBar = (ProgressBar) membersActivity.findViewById(R.id.progress_loading);
+        uW(0);
     }
 
-    public void lf(boolean z) {
+    public void lU(boolean z) {
         this.mProgressBar.setVisibility(z ? 0 : 8);
     }
 
-    public ViewGroup btg() {
-        return this.gko;
+    public ViewGroup bAS() {
+        return this.gBB;
     }
 
     public void onChangeSkinType(int i) {
-        this.gjR.getLayoutMode().setNightMode(i == 1);
-        this.gjR.getLayoutMode().onModeChanged(this.mRootView);
-        this.gjR.getLayoutMode().onModeChanged(this.gkv);
+        this.gBe.getLayoutMode().setNightMode(i == 1);
+        this.gBe.getLayoutMode().onModeChanged(this.mRootView);
+        this.gBe.getLayoutMode().onModeChanged(this.gBI);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.gkt.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
-        if (this.gkk != null) {
-            this.gkk.notifyDataSetChanged();
+        this.gBG.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_brief_edit), (Drawable) null, (Drawable) null, (Drawable) null);
+        if (this.gBx != null) {
+            this.gBx.notifyDataSetChanged();
         }
     }
 
-    public TextView bth() {
-        return this.gkr;
+    public TextView bAT() {
+        return this.gBE;
     }
 
-    public TextView bti() {
-        return this.gks;
+    public TextView bAU() {
+        return this.gBF;
     }
 
-    public void tP(int i) {
-        this.gks.setText(this.gjR.getPageContext().getPageActivity().getString(d.j.members_delete_num, new Object[]{Integer.valueOf(i)}));
+    public void uW(int i) {
+        this.gBF.setText(this.gBe.getPageContext().getPageActivity().getString(R.string.members_delete_num, new Object[]{Integer.valueOf(i)}));
     }
 
     public void setController(boolean z) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gee.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.gvr.getLayoutParams();
         if (z) {
-            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.h(this.gjR.getPageContext().getPageActivity(), d.e.ds150);
-            this.gkn.setVisibility(0);
-            this.gkp.setVisibility(0);
-            this.gkq.setVisibility(8);
+            layoutParams.bottomMargin = com.baidu.adp.lib.util.l.g(this.gBe.getPageContext().getPageActivity(), R.dimen.ds150);
+            this.gBA.setVisibility(0);
+            this.gBC.setVisibility(0);
+            this.gBD.setVisibility(8);
         } else {
             layoutParams.bottomMargin = 0;
-            this.gkn.setVisibility(8);
+            this.gBA.setVisibility(8);
         }
-        this.gee.requestLayout();
+        this.gvr.requestLayout();
     }
 
-    public void lg(boolean z) {
+    public void lV(boolean z) {
         if (z) {
-            this.gkp.setVisibility(8);
-            this.gkq.setVisibility(0);
+            this.gBC.setVisibility(8);
+            this.gBD.setVisibility(0);
             return;
         }
-        this.gkp.setVisibility(0);
-        this.gkq.setVisibility(8);
+        this.gBC.setVisibility(0);
+        this.gBD.setVisibility(8);
     }
 
-    public void bin() {
-        this.gee.completePullRefreshPostDelayed(0L);
+    public void bpD() {
+        this.gvr.completePullRefreshPostDelayed(0L);
     }
 
-    public NoDataView btj() {
-        return this.gkm;
+    public NoDataView bAV() {
+        return this.gBz;
     }
 
-    public l btk() {
-        return this.gkk;
+    public l bAW() {
+        return this.gBx;
     }
 
-    public void btl() {
-        this.gkk.notifyDataSetChanged();
+    public void bAX() {
+        this.gBx.notifyDataSetChanged();
     }
 
-    public TextView btm() {
-        return this.gkl;
+    public TextView bAY() {
+        return this.gBy;
     }
 
-    public void lh(boolean z) {
-        this.gkl.setEnabled(z);
+    public void lW(boolean z) {
+        this.gBy.setEnabled(z);
     }
 
-    public BdListView bqz() {
-        return this.gee;
+    public BdListView byl() {
+        return this.gvr;
     }
 }

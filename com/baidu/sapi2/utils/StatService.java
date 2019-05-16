@@ -93,7 +93,7 @@ public final class StatService {
         StringBuilder sb = new StringBuilder();
         sb.append("{");
         for (String str : linkedHashMap.keySet()) {
-            sb.append(str).append(Config.TRACE_TODAY_VISIT_SPLIT).append(linkedHashMap.get(str));
+            sb.append(str).append(":").append(linkedHashMap.get(str));
         }
         sb.append("}");
         map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));

@@ -8,8 +8,8 @@ import com.baidu.card.a.a;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes3.dex */
 public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, j {
-    protected x Xr;
-    private com.baidu.tieba.card.ab<T> Xs;
+    protected x Vi;
+    private com.baidu.tieba.card.ab<T> Vj;
     protected Context mContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -20,32 +20,32 @@ public abstract class b<T extends com.baidu.tbadk.core.data.a> implements i<T>, 
     }
 
     public void a(x xVar) {
-        this.Xr = xVar;
+        this.Vi = xVar;
     }
 
-    public void bt(int i) {
+    public void bm(int i) {
     }
 
-    public void bu(int i) {
+    public void bn(int i) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void rj() {
+    public void qe() {
     }
 
-    public com.baidu.tieba.card.ab<T> rk() {
-        return this.Xs;
+    public com.baidu.tieba.card.ab<T> qf() {
+        return this.Vj;
     }
 
     public void b(com.baidu.tieba.card.ab<T> abVar) {
-        this.Xs = abVar;
+        this.Vj = abVar;
     }
 
     public void a(int i, a.b bVar) {
-        this.Xr.a(i, bVar);
+        this.Vi.a(i, bVar);
     }
 
-    public void bv(int i) {
+    public void bo(int i) {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

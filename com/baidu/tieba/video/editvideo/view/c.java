@@ -8,60 +8,60 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.view.HorizontalListView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class c extends com.baidu.adp.base.c {
-    private a iVY;
-    private HorizontalListView iYM;
-    private com.baidu.tieba.video.editvideo.a.b iYN;
-    private com.baidu.tieba.video.editvideo.b.a iYO;
+    private a joV;
+    private HorizontalListView jrH;
+    private com.baidu.tieba.video.editvideo.a.b jrI;
+    private com.baidu.tieba.video.editvideo.b.a jrJ;
     private Resources mResources;
     private View mRootView;
 
     public c(e eVar, a aVar) {
         super(eVar);
-        this.iVY = aVar;
-        this.mRootView = LayoutInflater.from(eVar.getPageActivity()).inflate(d.h.edit_filter_layout, (ViewGroup) null);
+        this.joV = aVar;
+        this.mRootView = LayoutInflater.from(eVar.getPageActivity()).inflate(R.layout.edit_filter_layout, (ViewGroup) null);
         this.mResources = this.mRootView.getResources();
         initView();
     }
 
     public void a(com.baidu.tieba.video.editvideo.b.a aVar) {
-        this.iYO = aVar;
+        this.jrJ = aVar;
     }
 
     private void initView() {
-        this.iYM = (HorizontalListView) this.mRootView.findViewById(d.g.edit_filter_horizontal_list);
-        this.iYN = new com.baidu.tieba.video.editvideo.a.b();
-        ed(com.baidu.tieba.video.editvideo.b.a.ey(this.mRootView.getContext()));
-        this.iYM.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.c.1
+        this.jrH = (HorizontalListView) this.mRootView.findViewById(R.id.edit_filter_horizontal_list);
+        this.jrI = new com.baidu.tieba.video.editvideo.a.b();
+        en(com.baidu.tieba.video.editvideo.b.a.eo(this.mRootView.getContext()));
+        this.jrH.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.video.editvideo.view.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) c.this.iYN.getItem(i);
-                if (c.this.iYO != null) {
-                    c.this.iYO.a(aVar);
+                com.baidu.tieba.video.editvideo.data.a aVar = (com.baidu.tieba.video.editvideo.data.a) c.this.jrI.getItem(i);
+                if (c.this.jrJ != null) {
+                    c.this.jrJ.a(aVar);
                 }
-                if (c.this.iVY != null && c.this.iVY.cka() != null) {
-                    c.this.iVY.cka().setFilter(aVar);
+                if (c.this.joV != null && c.this.joV.csd() != null) {
+                    c.this.joV.csd().setFilter(aVar);
                 }
             }
         });
     }
 
-    public void ed(List<com.baidu.tieba.video.editvideo.data.a> list) {
-        this.iYN.setData(list);
-        this.iYM.setAdapter((ListAdapter) this.iYN);
+    public void en(List<com.baidu.tieba.video.editvideo.data.a> list) {
+        this.jrI.setData(list);
+        this.jrH.setAdapter((ListAdapter) this.jrI);
     }
 
-    public void cK(View view) {
+    public void cS(View view) {
     }
 
     public View getRootView() {
         return this.mRootView;
     }
 
-    public void qB(boolean z) {
+    public void rq(boolean z) {
     }
 
     public void onPause() {

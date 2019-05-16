@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private View cRX;
-    private HeadImageView hJl;
-    private TextView hJm;
-    private TextView hJn;
-    private ImageView hJo;
+    private View daq;
+    private HeadImageView ibk;
+    private TextView ibl;
+    private TextView ibm;
+    private ImageView ibn;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.cRX = null;
-        this.hJl = null;
-        this.hJm = null;
-        this.hJn = null;
-        this.hJo = null;
-        this.cRX = LayoutInflater.from(context).inflate(d.h.zan_list_item, (ViewGroup) null);
-        this.hJl = (HeadImageView) this.cRX.findViewById(d.g.zan_list_item_head);
-        this.hJm = (TextView) this.cRX.findViewById(d.g.zan_list_item_name);
-        this.hJn = (TextView) this.cRX.findViewById(d.g.zan_list_item_time);
-        this.hJo = (ImageView) this.cRX.findViewById(d.g.zan_list_item_line_bottom);
-        this.hJo.setVisibility(0);
-        this.cRX.setTag(this);
+        this.daq = null;
+        this.ibk = null;
+        this.ibl = null;
+        this.ibm = null;
+        this.ibn = null;
+        this.daq = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.ibk = (HeadImageView) this.daq.findViewById(R.id.zan_list_item_head);
+        this.ibl = (TextView) this.daq.findViewById(R.id.zan_list_item_name);
+        this.ibm = (TextView) this.daq.findViewById(R.id.zan_list_item_time);
+        this.ibn = (ImageView) this.daq.findViewById(R.id.zan_list_item_line_bottom);
+        this.ibn.setVisibility(0);
+        this.daq.setTag(this);
     }
 
     public View getView() {
-        return this.cRX;
+        return this.daq;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.hJm.setText(str);
-        this.hJl.setImageDrawable(null);
-        this.hJn.setText(ap.ao(j));
-        this.hJl.startLoad(str2, 28, false);
+        this.ibl.setText(str);
+        this.ibk.setImageDrawable(null);
+        this.ibm.setText(ap.aC(j));
+        this.ibk.startLoad(str2, 28, false);
     }
 }

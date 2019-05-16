@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.d;
+import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> iZA = new ArrayList<>();
-    private boolean iZB = false;
+    private ArrayList<d> jsv = new ArrayList<>();
+    private boolean jsw = false;
     private Context mContext;
 
     public a(Context context) {
@@ -21,25 +21,25 @@ public class a extends BaseAdapter {
     }
 
     public void setData(List<d> list) {
-        this.iZB = true;
-        this.iZA.clear();
+        this.jsw = true;
+        this.jsv.clear();
         if ((list != null ? list.size() : 0) > 0) {
-            this.iZA.addAll(list);
+            this.jsv.addAll(list);
         }
         notifyDataSetChanged();
     }
 
-    public void DG(String str) {
-        if (this.iZA != null && !TextUtils.isEmpty(str)) {
+    public void Fc(String str) {
+        if (this.jsv != null && !TextUtils.isEmpty(str)) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iZA.size()) {
-                    d dVar = this.iZA.get(i2);
+                if (i2 < this.jsv.size()) {
+                    d dVar = this.jsv.get(i2);
                     if (dVar == null || !str.equals(dVar.getVideoPath())) {
                         i = i2 + 1;
                     } else {
-                        this.iZA.remove(i2);
+                        this.jsv.remove(i2);
                         notifyDataSetChanged();
                         return;
                     }
@@ -52,20 +52,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (v.T(this.iZA)) {
+        if (v.aa(this.jsv)) {
             return 0;
         }
-        return this.iZA.size();
+        return this.jsv.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: Au */
+    /* renamed from: BC */
     public d getItem(int i) {
-        if (this.iZA == null || this.iZA.isEmpty() || i < 0 || i >= this.iZA.size()) {
+        if (this.jsv == null || this.jsv.isEmpty() || i < 0 || i >= this.jsv.size()) {
             return null;
         }
-        return this.iZA.get(i);
+        return this.jsv.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -78,8 +78,8 @@ public class a extends BaseAdapter {
         LocalVideoInfoView localVideoInfoView;
         View view2;
         if (view == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(d.h.local_video_item_layout, (ViewGroup) null);
-            LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(d.g.local_video_info_view);
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.local_video_item_layout, (ViewGroup) null);
+            LocalVideoInfoView localVideoInfoView2 = (LocalVideoInfoView) inflate.findViewById(R.id.local_video_info_view);
             inflate.setTag(localVideoInfoView2);
             localVideoInfoView = localVideoInfoView2;
             view2 = inflate;
@@ -93,12 +93,12 @@ public class a extends BaseAdapter {
         if (localVideoInfoView == null) {
             return null;
         }
-        if (this.iZA != null && this.iZA.size() > i) {
-            localVideoInfoView.a(this.iZA.get(i));
-        } else if (i == 0 && this.iZB) {
-            localVideoInfoView.qD(true);
+        if (this.jsv != null && this.jsv.size() > i) {
+            localVideoInfoView.a(this.jsv.get(i));
+        } else if (i == 0 && this.jsw) {
+            localVideoInfoView.rs(true);
         } else {
-            localVideoInfoView.qD(false);
+            localVideoInfoView.rs(false);
         }
         return view2;
     }

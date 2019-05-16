@@ -13,38 +13,38 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class b {
-    private f bmo;
-    private AtomicBoolean bmq = new AtomicBoolean(false);
-    private com.baidu.swan.pms.b.a.c.b bmr = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
+    private f bsq;
+    private AtomicBoolean bsr = new AtomicBoolean(false);
+    private com.baidu.swan.pms.b.a.c.b bss = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void d(f<T> fVar) {
-            b.this.bmo = fVar;
+            b.this.bsq = fVar;
         }
 
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void e(f<T> fVar) {
-            if (b.this.bmo == fVar) {
-                b.this.bmo = null;
+            if (b.this.bsq == fVar) {
+                b.this.bsq = null;
             }
         }
     };
-    private l bms = new l(this.bmr);
-    private com.baidu.swan.pms.b.a.c.a bmt = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
+    private l bst = new l(this.bss);
+    private com.baidu.swan.pms.b.a.c.a bsu = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
         @Override // com.baidu.swan.pms.b.a.c.a
-        public Runnable cR(boolean z) {
-            return b.this.cQ(z);
+        public Runnable di(boolean z) {
+            return b.this.dh(z);
         }
     };
-    private a<f> bml = new a<>();
-    private BlockingQueue<Runnable> bmm = new LinkedBlockingQueue();
-    private ThreadPoolExecutor bmn = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bmm);
+    private a<f> bsn = new a<>();
+    private BlockingQueue<Runnable> bso = new LinkedBlockingQueue();
+    private ThreadPoolExecutor bsp = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bso);
 
     public void a(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bms.e(bVar);
+        this.bst.e(bVar);
     }
 
     public void b(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bms.f(bVar);
+        this.bst.f(bVar);
     }
 
     public synchronized <T> void b(f<T> fVar) {
@@ -53,27 +53,27 @@ public class b {
     }
 
     public synchronized <T> void c(f<T> fVar) {
-        this.bml.V(fVar);
+        this.bsn.X(fVar);
         if (e.DEBUG) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.bml);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bmm);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.bsn);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bso);
         }
     }
 
     public synchronized void start() {
-        if (this.bmm.size() < 1) {
-            this.bmn.execute(new g(this.bmq, this.bms, this.bmt));
+        if (this.bso.size() < 1) {
+            this.bsp.execute(new g(this.bsr, this.bst, this.bsu));
         }
     }
 
-    public synchronized Runnable cQ(boolean z) {
+    public synchronized Runnable dh(boolean z) {
         f fVar;
-        if (this.bml != null) {
+        if (this.bsn != null) {
             if (z) {
-                fVar = this.bml.RQ();
+                fVar = this.bsn.VE();
             } else {
-                fVar = this.bml.get();
+                fVar = this.bsn.get();
             }
         } else {
             fVar = null;
@@ -83,16 +83,16 @@ public class b {
 
     public synchronized boolean a(f fVar, c cVar) {
         boolean z;
-        if (this.bmo != null && this.bmo.h(fVar)) {
-            this.bmo.a(cVar);
+        if (this.bsq != null && this.bsq.h(fVar)) {
+            this.bsq.a(cVar);
             z = true;
         } else {
-            f W = this.bml.W(fVar);
-            if (W != null) {
+            f Y = this.bsn.Y(fVar);
+            if (Y != null) {
                 if (e.DEBUG) {
                     Log.w("PMSThreadQueue", "found duplicated task in mWaitingQueue:" + fVar.toString());
                 }
-                W.a(cVar);
+                Y.a(cVar);
                 z = true;
             } else {
                 z = false;

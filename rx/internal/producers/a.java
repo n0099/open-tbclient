@@ -3,16 +3,16 @@ package rx.internal.producers;
 import rx.f;
 /* loaded from: classes2.dex */
 public final class a implements f {
-    static final f jYJ = new f() { // from class: rx.internal.producers.a.1
+    static final f kqY = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f jYF;
-    long jYG;
-    long jYH;
-    f jYI;
+    f kqU;
+    long kqV;
+    long kqW;
+    f kqX;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.jYG += j;
+                    this.kqV += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,11 +33,11 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.jYF;
+                        f fVar = this.kqU;
                         if (fVar != null) {
                             fVar.request(j);
                         }
-                        cEa();
+                        cLG();
                     } catch (Throwable th) {
                         synchronized (this) {
                             this.emitting = false;
@@ -50,13 +50,13 @@ public final class a implements f {
     }
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void em(long j) {
+    public void eL(long j) {
         if (j <= 0) {
             throw new IllegalArgumentException("n > 0 required");
         }
         synchronized (this) {
             if (this.emitting) {
-                this.jYH += j;
+                this.kqW += j;
                 return;
             }
             this.emitting = true;
@@ -69,7 +69,7 @@ public final class a implements f {
                     }
                     this.requested = j3;
                 }
-                cEa();
+                cLG();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -84,18 +84,18 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = jYJ;
+                    fVar = kqY;
                 }
-                this.jYI = fVar;
+                this.kqX = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.jYF = fVar;
+                this.kqU = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
-                cEa();
+                cLG();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -105,19 +105,19 @@ public final class a implements f {
         }
     }
 
-    public void cEa() {
+    public void cLG() {
         while (true) {
             synchronized (this) {
-                long j = this.jYG;
-                long j2 = this.jYH;
-                f fVar = this.jYI;
+                long j = this.kqV;
+                long j2 = this.kqW;
+                f fVar = this.kqX;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.jYG = 0L;
-                this.jYH = 0L;
-                this.jYI = null;
+                this.kqV = 0L;
+                this.kqW = 0L;
+                this.kqX = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == jYJ) {
-                        this.jYF = null;
+                    if (fVar == kqY) {
+                        this.kqU = null;
                     } else {
-                        this.jYF = fVar;
+                        this.kqU = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.jYF;
+                    f fVar2 = this.kqU;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

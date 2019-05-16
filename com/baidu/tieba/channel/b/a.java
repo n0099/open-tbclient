@@ -9,98 +9,98 @@ import com.baidu.adp.lib.g.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
 import com.baidu.tieba.channel.activity.ChannelHomeActivity;
 import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.channel.data.d;
 import com.baidu.tieba.channel.view.ChannelMoreView;
 import com.baidu.tieba.channel.view.k;
-import com.baidu.tieba.d;
 /* loaded from: classes6.dex */
 public class a {
-    private View.OnClickListener ccD = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
+    private View.OnClickListener ckH = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.enQ.getCancelView()) {
-                if (view != a.this.enQ.getLayerView()) {
-                    if (view == a.this.enQ.getUpInfoView()) {
-                        a.this.aOi();
-                        if (a.this.aRm()) {
-                            a.this.Qi();
+            if (view != a.this.eDz.getCancelView()) {
+                if (view != a.this.eDz.getLayerView()) {
+                    if (view == a.this.eDz.getUpInfoView()) {
+                        a.this.aUs();
+                        if (a.this.aYv()) {
+                            a.this.TU();
                         }
                         TiebaStatic.log("c11994");
-                    } else if (view == a.this.enQ.getPushView()) {
-                        if (a.this.enR != null) {
-                            a.this.enR.a(18, null, null, -1);
+                    } else if (view == a.this.eDz.getPushView()) {
+                        if (a.this.eDA != null) {
+                            a.this.eDA.a(18, null, null, -1);
                         }
-                        if (a.this.aRm()) {
-                            a.this.Qi();
+                        if (a.this.aYv()) {
+                            a.this.TU();
                         }
                     }
-                } else if (a.this.aRm()) {
-                    a.this.Qi();
+                } else if (a.this.aYv()) {
+                    a.this.TU();
                 }
-            } else if (a.this.aRm()) {
-                a.this.Qi();
+            } else if (a.this.aYv()) {
+                a.this.TU();
             }
         }
     };
-    private Runnable cnL;
-    private d emQ;
-    private k enP;
-    private ChannelMoreView enQ;
-    private ChannelHomeActivity enR;
+    private Runnable cvS;
+    private d eCB;
+    private ChannelHomeActivity eDA;
+    private k eDy;
+    private ChannelMoreView eDz;
 
     public a(ChannelHomeActivity channelHomeActivity) {
-        this.enR = channelHomeActivity;
+        this.eDA = channelHomeActivity;
     }
 
     public void showPopWindow() {
-        if (this.emQ != null) {
-            if (this.enP == null) {
-                this.enQ = new ChannelMoreView(this.enR.getApplicationContext(), this.emQ, this.ccD);
-                this.enQ.setBackGround();
-                this.enP = new k(this.enR.getActivity(), this.enQ);
+        if (this.eCB != null) {
+            if (this.eDy == null) {
+                this.eDz = new ChannelMoreView(this.eDA.getApplicationContext(), this.eCB, this.ckH);
+                this.eDz.setBackGround();
+                this.eDy = new k(this.eDA.getActivity(), this.eDz);
             }
-            this.enP.showAtLocation(this.enR.findViewById(d.g.channel_home_navigation_bar), 17, 0, 0);
+            this.eDy.showAtLocation(this.eDA.findViewById(R.id.channel_home_navigation_bar), 17, 0, 0);
         }
     }
 
-    public void Qi() {
-        if (this.cnL == null) {
-            this.cnL = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
+    public void TU() {
+        if (this.cvS == null) {
+            this.cvS = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.enP != null) {
-                        g.a(a.this.enP, a.this.enR.getPageContext().getPageActivity());
-                        a.this.enP = null;
+                    if (a.this.eDy != null) {
+                        g.a(a.this.eDy, a.this.eDA.getPageContext().getPageActivity());
+                        a.this.eDy = null;
                     }
                 }
             };
         }
-        e.jH().postDelayed(this.cnL, 100L);
+        e.iB().postDelayed(this.cvS, 100L);
     }
 
-    public void b(com.baidu.tieba.channel.data.d dVar) {
-        this.emQ = dVar;
+    public void b(d dVar) {
+        this.eCB = dVar;
     }
 
-    public boolean aRm() {
-        return this.enP != null && this.enP.isShowing();
+    public boolean aYv() {
+        return this.eDy != null && this.eDy.isShowing();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.enQ != null) {
-            this.enQ.setBackGround();
+        if (this.eDz != null) {
+            this.eDz.setBackGround();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aOi() {
-        if (this.emQ != null && this.emQ.aRq() != null) {
-            ChannelInfo aRq = this.emQ.aRq();
-            String valueOf = String.valueOf(aRq.getUserId());
+    public void aUs() {
+        if (this.eCB != null && this.eCB.aYz() != null) {
+            ChannelInfo aYz = this.eCB.aYz();
+            String valueOf = String.valueOf(aYz.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.enR.getPageContext().getPageActivity()).createNormalConfig(aRq.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.eDA.getPageContext().getPageActivity()).createNormalConfig(aYz.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

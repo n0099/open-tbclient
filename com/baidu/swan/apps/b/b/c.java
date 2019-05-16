@@ -3,41 +3,55 @@ package com.baidu.swan.apps.b.b;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public interface c {
-    String V(String str, String str2);
+    String Q(String str, String str2);
 
-    boolean j(String str, boolean z);
+    boolean i(String str, boolean z);
 
-    boolean va();
+    int s(String str, int i);
 
-    int vb();
+    boolean vC();
 
-    int vc();
+    int vD();
 
-    int vd();
+    int vE();
 
-    int ve();
+    int vF();
 
-    boolean vf();
+    int vG();
 
-    boolean vg();
+    boolean vH();
 
-    JSONObject vh();
+    boolean vI();
 
-    boolean vi();
+    JSONObject vJ();
 
-    boolean vj();
+    boolean vK();
 
-    boolean vk();
+    boolean vL();
 
-    String vl();
+    boolean vM();
 
-    boolean vm();
+    String vN();
 
-    boolean vn();
+    boolean vO();
 
-    boolean vo();
+    boolean vP();
 
-    boolean vp();
+    boolean vQ();
 
-    boolean vq();
+    boolean vR();
+
+    boolean vS();
+
+    boolean vT();
+
+    boolean vU();
+
+    boolean vV();
+
+    boolean vW();
+
+    String vX();
+
+    boolean vY();
 }

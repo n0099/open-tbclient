@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    public static void lN(String str) {
+    public static void mV(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -39,12 +39,12 @@ public class j {
         }
         if (i > 0) {
             am amVar = new am("c12231");
-            amVar.T("obj_param1", i);
+            amVar.P("obj_param1", i);
             TiebaStatic.log(amVar);
         }
     }
 
-    public static void aca() {
+    public static void agY() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
             @Override // java.lang.Runnable
             public void run() {
@@ -53,7 +53,7 @@ public class j {
                 int i;
                 com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
                 try {
-                    cursor = mainDBDatabaseManager.ga().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    cursor = mainDBDatabaseManager.eT().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
                     i = 0;
                     while (cursor.moveToNext()) {
                         try {
@@ -64,8 +64,8 @@ public class j {
                                 mainDBDatabaseManager.c(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 am amVar = new am("c12232");
-                                amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-                                amVar.T("obj_param1", i);
+                                amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
+                                amVar.P("obj_param1", i);
                                 TiebaStatic.log(amVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.e(cursor);
@@ -80,8 +80,8 @@ public class j {
                     i = 0;
                 }
                 am amVar2 = new am("c12232");
-                amVar2.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar2.T("obj_param1", i);
+                amVar2.bT("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar2.P("obj_param1", i);
                 TiebaStatic.log(amVar2);
             }
         }).start();

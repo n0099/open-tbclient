@@ -6,20 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<a<com.airbnb.lottie.model.content.h, Path>> pC;
-    private final List<a<Integer, Integer>> pD;
-    private final List<Mask> pE;
+    private final List<a<com.airbnb.lottie.model.content.h, Path>> nb;
+    private final List<a<Integer, Integer>> nc;
+    private final List<Mask> nd;
 
     public g(List<Mask> list) {
-        this.pE = list;
-        this.pC = new ArrayList(list.size());
-        this.pD = new ArrayList(list.size());
+        this.nd = list;
+        this.nb = new ArrayList(list.size());
+        this.nc = new ArrayList(list.size());
         int i = 0;
         while (true) {
             int i2 = i;
             if (i2 < list.size()) {
-                this.pC.add(list.get(i2).en().dF());
-                this.pD.add(list.get(i2).dU().dF());
+                this.nb.add(list.get(i2).dh().cz());
+                this.nc.add(list.get(i2).cO().cz());
                 i = i2 + 1;
             } else {
                 return;
@@ -27,15 +27,15 @@ public class g {
         }
     }
 
-    public List<Mask> dt() {
-        return this.pE;
+    public List<Mask> cn() {
+        return this.nd;
     }
 
-    public List<a<com.airbnb.lottie.model.content.h, Path>> du() {
-        return this.pC;
+    public List<a<com.airbnb.lottie.model.content.h, Path>> co() {
+        return this.nb;
     }
 
-    public List<a<Integer, Integer>> dv() {
-        return this.pD;
+    public List<a<Integer, Integer>> cp() {
+        return this.nc;
     }
 }

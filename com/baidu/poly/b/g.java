@@ -8,11 +8,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 public class g extends ThreadPoolExecutor {
-    private static g agL;
+    private static g agU;
     private static final int jJ = Runtime.getRuntime().availableProcessors();
     private static final int CORE_POOL_SIZE = jJ + 1;
     private static final int jK = (jJ * 2) + 1;
-    private static final ThreadFactory agM = new ThreadFactory() { // from class: com.baidu.poly.b.g.1
+    private static final ThreadFactory agV = new ThreadFactory() { // from class: com.baidu.poly.b.g.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
@@ -25,13 +25,13 @@ public class g extends ThreadPoolExecutor {
         super(i, i2, j, timeUnit, blockingQueue, threadFactory);
     }
 
-    public static synchronized g tz() {
+    public static synchronized g uk() {
         g gVar;
         synchronized (g.class) {
-            if (agL == null) {
-                agL = new g(CORE_POOL_SIZE, jK, 5L, TimeUnit.SECONDS, new LinkedBlockingDeque(), agM);
+            if (agU == null) {
+                agU = new g(CORE_POOL_SIZE, jK, 5L, TimeUnit.SECONDS, new LinkedBlockingDeque(), agV);
             }
-            gVar = agL;
+            gVar = agU;
         }
         return gVar;
     }

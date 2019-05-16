@@ -8,26 +8,26 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanGameSubPackageAPSInfo> CREATOR = new Parcelable.Creator<SwanGameSubPackageAPSInfo>() { // from class: com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: m */
+        /* renamed from: o */
         public SwanGameSubPackageAPSInfo createFromParcel(Parcel parcel) {
             return new SwanGameSubPackageAPSInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eI */
+        /* renamed from: fc */
         public SwanGameSubPackageAPSInfo[] newArray(int i) {
             return new SwanGameSubPackageAPSInfo[i];
         }
     };
     public String appId;
     public String appVersion;
-    public String bfA;
-    public String bfB;
-    public int bfw;
-    public String bfx;
-    public String bfy;
-    public String bfz;
+    public int bkH;
+    public String bkI;
+    public String bkJ;
+    public String bkK;
+    public String bkL;
+    public String bkM;
     public String key;
     public int resultCode;
 
@@ -39,12 +39,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         this.appVersion = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.bfw = parcel.readInt();
-        this.bfx = parcel.readString();
-        this.bfy = parcel.readString();
-        this.bfz = parcel.readString();
-        this.bfA = parcel.readString();
-        this.bfB = parcel.readString();
+        this.bkH = parcel.readInt();
+        this.bkI = parcel.readString();
+        this.bkJ = parcel.readString();
+        this.bkK = parcel.readString();
+        this.bkL = parcel.readString();
+        this.bkM = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.appVersion);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.bfw);
-        parcel.writeString(this.bfx);
-        parcel.writeString(this.bfy);
-        parcel.writeString(this.bfz);
-        parcel.writeString(this.bfA);
-        parcel.writeString(this.bfB);
+        parcel.writeInt(this.bkH);
+        parcel.writeString(this.bkI);
+        parcel.writeString(this.bkJ);
+        parcel.writeString(this.bkK);
+        parcel.writeString(this.bkL);
+        parcel.writeString(this.bkM);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfw + ",appRootPath:" + this.bfx + ",subPackageRoot:" + this.bfy + ",zipPath:" + this.bfz + ",callbackKey:" + this.bfA + ",subPackagePath:" + this.bfB;
+        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bkH + ",appRootPath:" + this.bkI + ",subPackageRoot:" + this.bkJ + ",zipPath:" + this.bkK + ",callbackKey:" + this.bkL + ",subPackagePath:" + this.bkM;
     }
 }
