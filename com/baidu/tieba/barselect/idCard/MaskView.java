@@ -18,10 +18,10 @@ import com.baidu.tieba.R;
 public class MaskView extends View {
     private int bZk;
     private int cPU;
-    private Paint esN;
-    private Paint etk;
-    private Rect etl;
-    private Drawable etm;
+    private Paint esO;
+    private Paint etl;
+    private Rect etm;
+    private Drawable etn;
     private Path lS;
     private int maskType;
 
@@ -34,13 +34,13 @@ public class MaskView extends View {
     }
 
     public Rect getFrameRect() {
-        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.etl);
+        return this.maskType == 0 ? new Rect(0, 0, getWidth(), getHeight()) : new Rect(this.etm);
     }
 
     public Rect getFrameRectExtend() {
-        Rect rect = new Rect(this.etl);
-        int i = (int) ((this.etl.right - this.etl.left) * 0.02f);
-        int i2 = (int) ((this.etl.bottom - this.etl.top) * 0.02f);
+        Rect rect = new Rect(this.etm);
+        int i = (int) ((this.etm.right - this.etm.left) * 0.02f);
+        int i2 = (int) ((this.etm.bottom - this.etm.top) * 0.02f);
         rect.left -= i;
         rect.right = i + rect.right;
         rect.top -= i2;
@@ -52,10 +52,10 @@ public class MaskView extends View {
         this.maskType = i;
         switch (i) {
             case 1:
-                this.etm = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+                this.etn = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
                 break;
             case 2:
-                this.etm = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
+                this.etn = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
                 break;
         }
         invalidate();
@@ -73,15 +73,15 @@ public class MaskView extends View {
         this.bZk = -1;
         this.maskType = 1;
         this.cPU = Color.argb(100, 0, 0, 0);
-        this.esN = new Paint(1);
-        this.etk = new Paint(1);
-        this.etl = new Rect();
+        this.esO = new Paint(1);
+        this.etl = new Paint(1);
+        this.etm = new Rect();
         this.lS = new Path();
         setLayerType(1, null);
-        this.etk.setColor(-1);
-        this.etk.setStyle(Paint.Style.STROKE);
-        this.etk.setStrokeWidth(6.0f);
-        this.esN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.etl.setColor(-1);
+        this.etl.setStyle(Paint.Style.STROKE);
+        this.etl.setStrokeWidth(6.0f);
+        this.esO.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
@@ -90,15 +90,15 @@ public class MaskView extends View {
         this.bZk = -1;
         this.maskType = 1;
         this.cPU = Color.argb(100, 0, 0, 0);
-        this.esN = new Paint(1);
-        this.etk = new Paint(1);
-        this.etl = new Rect();
+        this.esO = new Paint(1);
+        this.etl = new Paint(1);
+        this.etm = new Rect();
         this.lS = new Path();
         setLayerType(1, null);
-        this.etk.setColor(-1);
-        this.etk.setStyle(Paint.Style.STROKE);
-        this.etk.setStrokeWidth(6.0f);
-        this.esN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.etl.setColor(-1);
+        this.etl.setStyle(Paint.Style.STROKE);
+        this.etl.setStrokeWidth(6.0f);
+        this.esO.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
@@ -107,20 +107,20 @@ public class MaskView extends View {
         this.bZk = -1;
         this.maskType = 1;
         this.cPU = Color.argb(100, 0, 0, 0);
-        this.esN = new Paint(1);
-        this.etk = new Paint(1);
-        this.etl = new Rect();
+        this.esO = new Paint(1);
+        this.etl = new Paint(1);
+        this.etm = new Rect();
         this.lS = new Path();
         setLayerType(1, null);
-        this.etk.setColor(-1);
-        this.etk.setStyle(Paint.Style.STROKE);
-        this.etk.setStrokeWidth(6.0f);
-        this.esN.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.etl.setColor(-1);
+        this.etl.setStyle(Paint.Style.STROKE);
+        this.etl.setStrokeWidth(6.0f);
+        this.esO.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         init();
     }
 
     private void init() {
-        this.etm = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+        this.etn = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
     }
 
     @Override // android.view.View
@@ -131,10 +131,10 @@ public class MaskView extends View {
             int i6 = (i5 * 400) / 620;
             int i7 = (i - i5) / 2;
             int i8 = (i2 - i6) / 2;
-            this.etl.left = i7;
-            this.etl.top = i8;
-            this.etl.right = i5 + i7;
-            this.etl.bottom = i6 + i8;
+            this.etm.left = i7;
+            this.etm.top = i8;
+            this.etm.right = i5 + i7;
+            this.etm.bottom = i6 + i8;
         }
     }
 
@@ -142,7 +142,7 @@ public class MaskView extends View {
     @RequiresApi(api = 21)
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Rect rect = this.etl;
+        Rect rect = this.etm;
         int width = rect.width();
         int height = rect.height();
         int i = rect.left;
@@ -151,15 +151,15 @@ public class MaskView extends View {
         int i4 = rect.bottom;
         canvas.drawColor(this.cPU);
         a(i, i2, i3, i4, 30.0f, 30.0f, false);
-        canvas.drawPath(this.lS, this.etk);
-        canvas.drawPath(this.lS, this.esN);
+        canvas.drawPath(this.lS, this.etl);
+        canvas.drawPath(this.lS, this.esO);
         if (this.maskType == 1) {
-            this.etm.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
+            this.etn.setBounds((int) (i + (0.5974155f * width)), (int) (i2 + (0.17405063f * height)), (int) (i + (0.95725644f * width)), (int) (i2 + (0.7531645f * height)));
         } else if (this.maskType == 2) {
-            this.etm.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
+            this.etn.setBounds((int) (i + (0.050695825f * width)), (int) (i2 + (0.07594936f * height)), (int) (i + (0.24850895f * width)), (int) (i2 + (0.41455695f * height)));
         }
-        if (this.etm != null) {
-            this.etm.draw(canvas);
+        if (this.etn != null) {
+            this.etn.draw(canvas);
         }
     }
 

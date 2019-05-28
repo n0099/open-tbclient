@@ -139,7 +139,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int a(a aVar) {
-        if (!aVar.axe()) {
+        if (!aVar.axf()) {
             return this.verticalSpacing;
         }
         return aVar.verticalSpacing;
@@ -154,7 +154,7 @@ public class FlowLayout extends ViewGroup {
     }
 
     private int b(a aVar) {
-        if (!aVar.axd()) {
+        if (!aVar.axe()) {
             return this.horizontalSpacing;
         }
         return aVar.horizontalSpacing;
@@ -185,7 +185,7 @@ public class FlowLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: axc */
+    /* renamed from: axd */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2);
     }
@@ -302,11 +302,11 @@ public class FlowLayout extends ViewGroup {
             this.cIl = false;
         }
 
-        public boolean axd() {
+        public boolean axe() {
             return this.horizontalSpacing != cIk;
         }
 
-        public boolean axe() {
+        public boolean axf() {
             return this.verticalSpacing != cIk;
         }
 

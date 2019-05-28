@@ -9,8 +9,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private String ama;
     private int aqt;
-    private final Runnable cZd;
-    private b jcN;
+    private final Runnable cZe;
+    private b jcP;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -20,15 +20,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> cYx;
+        private final WeakReference<CountDownTextView> cYy;
 
         private a(CountDownTextView countDownTextView) {
-            this.cYx = new WeakReference<>(countDownTextView);
+            this.cYy = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.cYx.get();
+            CountDownTextView countDownTextView = this.cYy.get();
             if (countDownTextView != null) {
                 countDownTextView.ms(1);
             }
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.aqt = 0;
         this.ama = "";
-        this.jcN = null;
+        this.jcP = null;
         this.mHandler = new Handler();
-        this.cZd = new a();
+        this.cZe = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.jcN = bVar;
+        this.jcP = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -57,7 +57,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aCK();
+        aCN();
     }
 
     @Override // android.view.View
@@ -66,7 +66,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             ms(0);
         } else {
-            aCK();
+            aCN();
         }
     }
 
@@ -77,7 +77,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void aCK() {
+    private void aCN() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void ms(int i) {
         this.aqt -= i;
         if (this.aqt == 0) {
-            if (this.jcN != null) {
-                this.jcN.bn(this);
+            if (this.jcP != null) {
+                this.jcP.bn(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
@@ -94,7 +94,7 @@ public class CountDownTextView extends TextView {
         if (this.aqt > 0) {
             setText(String.format("%s %s", this.ama, Integer.valueOf(this.aqt)));
         }
-        this.mHandler.removeCallbacks(this.cZd);
-        this.mHandler.postDelayed(this.cZd, 1000L);
+        this.mHandler.removeCallbacks(this.cZe);
+        this.mHandler.postDelayed(this.cZe, 1000L);
     }
 }

@@ -119,19 +119,19 @@ public class TbRichTextCommInfo extends OrmObject {
         return this.mLink;
     }
 
-    public int axA() {
+    public int axB() {
         return this.cKI;
     }
 
-    public String axB() {
+    public String axC() {
         return this.cKJ;
     }
 
-    public int axC() {
+    public int axD() {
         return this.cKL;
     }
 
-    public void axD() {
+    public void axE() {
         if (this.ama != null) {
             this.ama = this.ama.replaceAll("\n", "");
         }

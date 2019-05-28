@@ -57,8 +57,8 @@ public class a implements com.baidu.tieba.lego.card.b.b {
     public b.a getParallelCharge() {
         if (this.RU == null) {
             this.RU = new b.a();
-            this.RU.gXO = this.RR;
-            this.RU.gXP = this.RT;
+            this.RU.gXR = this.RR;
+            this.RU.gXS = this.RT;
         }
         return this.RU;
     }

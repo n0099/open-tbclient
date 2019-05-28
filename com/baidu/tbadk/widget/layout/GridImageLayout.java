@@ -162,7 +162,7 @@ public class GridImageLayout extends RelativeLayout {
             this.cIG = arrayList;
             this.mSize = arrayList.size();
             this.cII = this.mSize > 9 ? TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(this.mSize - 9)}) : "";
-            axg();
+            axh();
         }
     }
 
@@ -203,25 +203,25 @@ public class GridImageLayout extends RelativeLayout {
         return v.c(this.cIG, arrayList);
     }
 
-    private void axg() {
+    private void axh() {
         if (!v.aa(this.cIG)) {
             removeAllViews();
             if (this.mSize == 1) {
-                axh();
-            } else {
                 axi();
+            } else {
+                axj();
             }
         }
     }
 
-    private void axh() {
+    private void axi() {
         TbRichTextImageInfo tbRichTextImageInfo;
         if (!v.aa(this.cIG) && (tbRichTextImageInfo = this.cIG.get(0)) != null) {
             int width = tbRichTextImageInfo.getWidth();
             int height = tbRichTextImageInfo.getHeight();
             if (height > 0) {
                 float f = (width * 1.0f) / height;
-                if (TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.axY()) {
+                if (TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.axZ()) {
                     a(0, f, tbRichTextImageInfo);
                 } else {
                     b(0, f, tbRichTextImageInfo);
@@ -230,7 +230,7 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    private void axi() {
+    private void axj() {
         if (!v.aa(this.cIG)) {
             int i = 0;
             while (true) {
@@ -242,7 +242,7 @@ public class GridImageLayout extends RelativeLayout {
                         int height = tbRichTextImageInfo.getHeight();
                         if (height > 0) {
                             float f = (width * 1.0f) / height;
-                            if (TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.axY()) {
+                            if (TbadkCoreApplication.getInst().isGifAutoPlay() && !tbRichTextImageInfo.axZ()) {
                                 a(i2, f, tbRichTextImageInfo);
                             } else {
                                 b(i2, f, tbRichTextImageInfo);
@@ -274,7 +274,7 @@ public class GridImageLayout extends RelativeLayout {
             gifView.setRadius(this.cIK);
             gifView.setOnClickListener(this.mOnClickListener);
             gifView.setDefaultBgResource(com.baidu.tbadk.util.e.get());
-            gifView.setIsLongPic(tbRichTextImageInfo.axY());
+            gifView.setIsLongPic(tbRichTextImageInfo.axZ());
             if (i == 8 && !ap.isEmpty(this.cII)) {
                 gifView.setLongIconSupport(false);
                 gifView.setGifIconSupport(false);
@@ -286,18 +286,18 @@ public class GridImageLayout extends RelativeLayout {
                 gifView.setSupportNoImage(true);
             }
             gifView.setDefaultNoImageDay(al.ih(R.drawable.icon_click));
-            String axU = tbRichTextImageInfo.axU();
-            if (StringUtils.isNull(axU)) {
-                if (this.cIF.axx()) {
-                    axU = this.cIF.mIsFromCDN ? tbRichTextImageInfo.axQ() : tbRichTextImageInfo.axS();
+            String axV = tbRichTextImageInfo.axV();
+            if (StringUtils.isNull(axV)) {
+                if (this.cIF.axy()) {
+                    axV = this.cIF.mIsFromCDN ? tbRichTextImageInfo.axR() : tbRichTextImageInfo.axT();
                 }
-                if (StringUtils.isNull(axU)) {
-                    axU = this.cIF.mIsFromCDN ? tbRichTextImageInfo.axT() : tbRichTextImageInfo.getSrc();
+                if (StringUtils.isNull(axV)) {
+                    axV = this.cIF.mIsFromCDN ? tbRichTextImageInfo.axU() : tbRichTextImageInfo.getSrc();
                 }
             }
             gifView.setShowStaticDrawable(false);
-            gifView.Z(axU, 38);
-            a(gifView, i, f, tbRichTextImageInfo.axY());
+            gifView.Z(axV, 38);
+            a(gifView, i, f, tbRichTextImageInfo.axZ());
         }
     }
 
@@ -320,7 +320,7 @@ public class GridImageLayout extends RelativeLayout {
                 tbImageView2.setRadius(this.cIK);
                 tbImageView2.setOnClickListener(this.mOnClickListener);
                 tbImageView2.setDefaultBgResource(com.baidu.tbadk.util.e.get());
-                tbImageView2.setIsLongPic(tbRichTextImageInfo.axY());
+                tbImageView2.setIsLongPic(tbRichTextImageInfo.axZ());
                 if (i == 8 && !ap.isEmpty(this.cII)) {
                     tbImageView2.setLongIconSupport(false);
                     tbImageView2.setGifIconSupport(false);
@@ -331,11 +331,11 @@ public class GridImageLayout extends RelativeLayout {
                 if (this.cIF.cKn) {
                     tbImageView2.setSupportNoImage(true);
                 }
-                tbImageView2.startLoad(this.cIF.axx() ? tbRichTextImageInfo.axQ() : tbRichTextImageInfo.axT(), this.cIF.mIsFromCDN ? 13 : 14, false);
-                if (!tbRichTextImageInfo.axV()) {
+                tbImageView2.startLoad(this.cIF.axy() ? tbRichTextImageInfo.axR() : tbRichTextImageInfo.axU(), this.cIF.mIsFromCDN ? 13 : 14, false);
+                if (!tbRichTextImageInfo.axW()) {
                     tbImageView2.setAdjustViewBounds(false);
                 }
-                a(tbImageView, i, f, tbRichTextImageInfo.axY());
+                a(tbImageView, i, f, tbRichTextImageInfo.axZ());
             }
         }
     }

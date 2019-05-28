@@ -9,11 +9,11 @@ import com.baidu.swan.ubc.m;
 import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean cZl = false;
+    private static boolean cZm = false;
 
     public static void a(Application application, boolean z) {
         gj(z);
-        if (aCY()) {
+        if (aDb()) {
             d(application);
             e(application);
         }
@@ -30,16 +30,16 @@ public class c {
     private static void e(Application application) {
         com.facebook.drawee.a.a.c.initialize(application);
         if (ProcessUtils.isMainProcess()) {
-            aCX();
+            aDa();
             com.baidu.swan.apps.env.d.Cg().l(null);
         }
-        a.dd(application).aCU();
+        a.dd(application).aCX();
         if (com.baidu.swan.apps.b.DEBUG) {
             com.baidu.swan.apps.am.a.E(0, 1);
         }
     }
 
-    private static void aCX() {
+    private static void aDa() {
         final boolean z = true;
         final boolean z2 = com.baidu.swan.apps.core.pms.a.co(0) && com.baidu.swan.pms.d.a.fJ(0);
         if (!com.baidu.swan.apps.core.pms.a.co(1) || !com.baidu.swan.pms.d.a.fJ(1)) {
@@ -61,10 +61,10 @@ public class c {
     }
 
     private static void gj(boolean z) {
-        cZl = z;
+        cZm = z;
     }
 
-    public static boolean aCY() {
-        return !cZl || com.baidu.swan.apps.an.a.hasLollipop();
+    public static boolean aDb() {
+        return !cZm || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

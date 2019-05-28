@@ -25,28 +25,28 @@ import org.json.JSONObject;
 public class d {
     public static a.b a(a.b bVar) {
         a.b bVar2;
-        String[] bLI;
+        String[] bLL;
         if (bVar == null) {
             return null;
         }
         try {
-            bLI = bLI();
+            bLL = bLL();
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        if (bLI != null) {
+        if (bLL != null) {
             ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
             arrayList.add(new BasicNameValuePair("crypttype", "1"));
             arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
             arrayList.add(new BasicNameValuePair("appid", "1"));
             arrayList.add(new BasicNameValuePair("clientip", getClientIP()));
-            arrayList.add(new BasicNameValuePair("cert_id", bLI[0]));
+            arrayList.add(new BasicNameValuePair("cert_id", bLL[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.BT);
             jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.bCK);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bLI[1], jSONObject.toString())));
+            arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bLL[1], jSONObject.toString())));
             arrayList.add(new BasicNameValuePair("sig", c(arrayList, TbConfig.PassConfig.ENC_KEY)));
             x xVar = new x(TbConfig.PassConfig.LOGIN_BDUSS_URL);
             xVar.ahC().aiB().mIsNeedAddCommenParam = false;
@@ -71,7 +71,7 @@ public class d {
         return null;
     }
 
-    private static String[] bLI() {
+    private static String[] bLL() {
         try {
             x xVar = new x(TbConfig.PassConfig.GET_CERT_URL);
             xVar.ahC().aiB().mIsNeedAddCommenParam = false;

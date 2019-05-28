@@ -137,7 +137,7 @@ public class a {
         this.cKd = i;
     }
 
-    public boolean axx() {
+    public boolean axy() {
         return this.cKx;
     }
 

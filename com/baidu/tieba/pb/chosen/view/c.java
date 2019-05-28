@@ -14,11 +14,11 @@ import tbclient.User;
 /* loaded from: classes5.dex */
 public class c {
     private TextView bBh;
-    private View eyi;
-    private View hAp;
-    private b hAq;
-    private b hAr;
-    private b hAs;
+    private View eyj;
+    private View hAs;
+    private b hAt;
+    private b hAu;
+    private b hAv;
     private View rootView;
 
     /* loaded from: classes5.dex */
@@ -29,11 +29,11 @@ public class c {
     public c(Context context, a aVar) {
         this.rootView = LayoutInflater.from(context).inflate(R.layout.chosen_pb_comment_layout, (ViewGroup) null);
         this.bBh = (TextView) this.rootView.findViewById(R.id.chosen_pb_comment_title);
-        this.eyi = this.rootView.findViewById(R.id.chosen_pb_comment_line);
-        this.hAp = this.rootView.findViewById(R.id.comment_layout_blank_view);
-        this.hAq = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
-        this.hAr = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
-        this.hAs = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
+        this.eyj = this.rootView.findViewById(R.id.chosen_pb_comment_line);
+        this.hAs = this.rootView.findViewById(R.id.comment_layout_blank_view);
+        this.hAt = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_first), aVar);
+        this.hAu = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_second), aVar);
+        this.hAv = new b((ViewStub) this.rootView.findViewById(R.id.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -42,31 +42,31 @@ public class c {
         boolean z3;
         if (list == null || list.isEmpty()) {
             this.bBh.setVisibility(8);
-            this.hAq.nK(false);
-            this.hAr.nK(false);
-            this.hAs.nK(false);
-            this.eyi.setVisibility(8);
+            this.hAt.nK(false);
+            this.hAu.nK(false);
+            this.hAv.nK(false);
+            this.eyj.setVisibility(8);
             return;
         }
-        this.eyi.setVisibility(0);
+        this.eyj.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.hAq.a(context, list.get(0), a(list.get(0), list2));
-            this.hAr.nK(false);
-            this.hAs.nK(false);
+            boolean a2 = this.hAt.a(context, list.get(0), a(list.get(0), list2));
+            this.hAu.nK(false);
+            this.hAv.nK(false);
             z2 = false;
             z3 = a2;
             z = false;
         } else if (size == 2) {
-            z3 = this.hAq.a(context, list.get(0), a(list.get(0), list2));
-            boolean a3 = this.hAr.a(context, list.get(1), a(list.get(1), list2));
-            this.hAs.nK(false);
+            z3 = this.hAt.a(context, list.get(0), a(list.get(0), list2));
+            boolean a3 = this.hAu.a(context, list.get(1), a(list.get(1), list2));
+            this.hAv.nK(false);
             z2 = a3;
             z = false;
         } else if (size >= 3) {
-            boolean a4 = this.hAq.a(context, list.get(0), a(list.get(0), list2));
-            boolean a5 = this.hAr.a(context, list.get(1), a(list.get(1), list2));
-            z = this.hAs.a(context, list.get(2), a(list.get(2), list2));
+            boolean a4 = this.hAt.a(context, list.get(0), a(list.get(0), list2));
+            boolean a5 = this.hAu.a(context, list.get(1), a(list.get(1), list2));
+            z = this.hAv.a(context, list.get(2), a(list.get(2), list2));
             z2 = a5;
             z3 = a4;
         } else {
@@ -99,12 +99,12 @@ public class c {
 
     public void onChangeSkinType() {
         al.k(this.rootView, R.color.common_color_10187);
-        al.l(this.hAp, R.color.cp_bg_line_d);
+        al.l(this.hAs, R.color.cp_bg_line_d);
         al.f(this.bBh, R.color.cp_cont_f, 1);
-        al.l(this.eyi, R.color.cp_bg_line_b);
-        this.hAq.onChangeSkinType();
-        this.hAr.onChangeSkinType();
-        this.hAs.onChangeSkinType();
+        al.l(this.eyj, R.color.cp_bg_line_b);
+        this.hAt.onChangeSkinType();
+        this.hAu.onChangeSkinType();
+        this.hAv.onChangeSkinType();
     }
 
     public View getView() {

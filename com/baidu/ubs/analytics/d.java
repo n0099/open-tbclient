@@ -14,20 +14,20 @@ public final class d {
     private String h;
     private String i;
     private boolean j;
-    private JSONArray jPl;
+    private JSONArray jPm;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        public static final d jPm = new d((byte) 0);
+        public static final d jPn = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> cAk() {
+    public final Map<String, g> cAm() {
         return this.k;
     }
 
@@ -39,8 +39,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d cAl() {
-        return a.jPm;
+    public static d cAn() {
+        return a.jPn;
     }
 
     public final void a(Context context) {
@@ -87,7 +87,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult Gk(String str) {
-        if (this.jPl == null) {
+        if (this.jPm == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -96,8 +96,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.jPl.length(); i++) {
-            JSONObject optJSONObject = this.jPl.optJSONObject(i);
+        for (int i = 0; i < this.jPm.length(); i++) {
+            JSONObject optJSONObject = this.jPm.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.Gx(optJSONObject.optString("group"));
             }

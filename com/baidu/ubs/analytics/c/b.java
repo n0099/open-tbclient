@@ -8,19 +8,19 @@ import java.util.Date;
 public final class b {
     private static boolean ad = false;
     private static a.InterfaceC0440a jPA;
-    private static a.InterfaceC0440a jPz;
+    private static a.InterfaceC0440a jPB;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void c(Context context) {
         synchronized (b.class) {
             if (!ad) {
                 com.baidu.ubs.analytics.d.b.Gr(" ActivityLifeTask   add  " + new Date().toLocaleString());
-                jPz = new c();
-                jPA = new m();
-                a.cAo().S();
-                a.cAo().a(jPA);
-                a.cAo().a(jPz);
-                a.cAo().c(context);
+                jPA = new c();
+                jPB = new m();
+                a.cAq().S();
+                a.cAq().a(jPB);
+                a.cAq().a(jPA);
+                a.cAq().c(context);
                 ad = true;
             } else {
                 com.baidu.ubs.analytics.d.b.Gr(" ActivityLifeTask  is added  " + new Date().toLocaleString());

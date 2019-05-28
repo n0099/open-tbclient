@@ -23,11 +23,11 @@ import com.baidu.tieba.barselect.data.f;
 public class NewAnounceLayout extends CardBasicLayout {
     private float cbk;
     private View.OnClickListener ckH;
-    private View etE;
-    private TextView etF;
-    private View etG;
-    private TextView etH;
+    private View etF;
+    private TextView etG;
+    private View etH;
     private TextView etI;
+    private TextView etJ;
     private Context mContext;
 
     public NewAnounceLayout(Context context) {
@@ -40,9 +40,9 @@ public class NewAnounceLayout extends CardBasicLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 new am("c13447").aif();
-                if (NewAnounceLayout.this.etD != null && NewAnounceLayout.this.etD.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.etD.aWE())) {
+                if (NewAnounceLayout.this.etE != null && NewAnounceLayout.this.etE.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.etE.aWH())) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
-                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.etD.getTid() + "", (String) null, (String) null, true);
+                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.etE.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
             }
@@ -63,77 +63,77 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     private void qA() {
-        this.etE = findViewById(R.id.announce_content);
-        this.etE.setOnClickListener(this.ckH);
-        this.etF = (TextView) findViewById(R.id.first_line_tv);
-        this.etG = findViewById(R.id.second_content);
-        this.etH = (TextView) findViewById(R.id.second_line_tv);
-        this.etI = (TextView) findViewById(R.id.announce_tail);
+        this.etF = findViewById(R.id.announce_content);
+        this.etF.setOnClickListener(this.ckH);
+        this.etG = (TextView) findViewById(R.id.first_line_tv);
+        this.etH = findViewById(R.id.second_content);
+        this.etI = (TextView) findViewById(R.id.second_line_tv);
+        this.etJ = (TextView) findViewById(R.id.announce_tail);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.epN == null || this.etD == null || this.status < 0) {
+        if (this.epO == null || this.etE == null || this.status < 0) {
             setVisibility(8);
             return;
         }
         this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
-        if (this.status == a.etS) {
+        if (this.status == a.etT) {
             this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
         }
-        if (this.status == a.etU) {
+        if (this.status == a.etV) {
             this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
         }
-        if (this.status == a.etT) {
+        if (this.status == a.etU) {
             this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
-            this.etE.setPadding(0, 0, 0, 0);
             this.etF.setPadding(0, 0, 0, 0);
-            this.etH.setPadding(0, 0, 0, 0);
+            this.etG.setPadding(0, 0, 0, 0);
             this.etI.setPadding(0, 0, 0, 0);
+            this.etJ.setPadding(0, 0, 0, 0);
         }
-        uQ(this.etD.aWE());
+        uQ(this.etE.aWH());
     }
 
     private void uQ(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
-            this.etG.setVisibility(8);
-            this.etF.setText(getResources().getString(R.string.empty_announce));
+            this.etH.setVisibility(8);
+            this.etG.setText(getResources().getString(R.string.empty_announce));
             return;
         }
-        this.etG.setVisibility(0);
-        int lineEnd = new StaticLayout(str, this.etF.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+        this.etH.setVisibility(0);
+        int lineEnd = new StaticLayout(str, this.etG.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
         String substring = str.substring(0, lineEnd);
         if (lineEnd >= str.length()) {
-            this.etG.setVisibility(8);
-            this.etF.setText(substring);
+            this.etH.setVisibility(8);
+            this.etG.setText(substring);
             return;
         }
         String substring2 = str.substring(lineEnd, str.length());
-        if (new StaticLayout(substring2, this.etH.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
-            this.etI.setVisibility(8);
+        if (new StaticLayout(substring2, this.etI.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+            this.etJ.setVisibility(8);
         } else {
-            this.etI.setVisibility(0);
+            this.etJ.setVisibility(0);
         }
-        this.etG.setVisibility(0);
-        this.etF.setText(substring);
-        this.etH.setText(substring2);
+        this.etH.setVisibility(0);
+        this.etG.setText(substring);
+        this.etI.setText(substring2);
     }
 
     public void nq(int i) {
-        if (this.etD != null) {
-            if (this.status != a.etT) {
-                al.h(this.etE, R.color.cp_bg_line_e, i);
-            } else if (this.etE != null) {
-                this.etE.setBackgroundColor(0);
+        if (this.etE != null) {
+            if (this.status != a.etU) {
+                al.h(this.etF, R.color.cp_bg_line_e, i);
+            } else if (this.etF != null) {
+                this.etF.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.etD.aWE())) {
-                al.c(this.etF, R.color.cp_cont_d, 1, i);
+            if (TextUtils.isEmpty(this.etE.aWH())) {
+                al.c(this.etG, R.color.cp_cont_d, 1, i);
             } else {
-                al.c(this.etF, R.color.cp_cont_b, 1, i);
+                al.c(this.etG, R.color.cp_cont_b, 1, i);
             }
-            al.c(this.etH, R.color.cp_cont_b, 1, i);
-            al.c(this.etI, R.color.cp_link_tip_c, 1, i);
+            al.c(this.etI, R.color.cp_cont_b, 1, i);
+            al.c(this.etJ, R.color.cp_link_tip_c, 1, i);
         }
     }
 }

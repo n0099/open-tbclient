@@ -4,19 +4,19 @@ import android.os.Looper;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a knc = new a();
-    private final g knd;
+    private static final a knd = new a();
+    private final g kne;
 
     private a() {
-        g cLo = rx.a.a.a.cLl().cLm().cLo();
-        if (cLo != null) {
-            this.knd = cLo;
+        g cLq = rx.a.a.a.cLn().cLo().cLq();
+        if (cLq != null) {
+            this.kne = cLq;
         } else {
-            this.knd = new b(Looper.getMainLooper());
+            this.kne = new b(Looper.getMainLooper());
         }
     }
 
-    public static g cLp() {
-        return knc.knd;
+    public static g cLr() {
+        return knd.kne;
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
     private View bBg;
-    private TextView fkv;
     private TextView fkw;
     private TextView fkx;
+    private TextView fky;
     private Context mContext;
 
     public BawuManagerApplyInfoView(Context context) {
@@ -37,32 +37,32 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     private void initView() {
         this.bBg = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_manager_apply_layout, this);
-        this.fkv = (TextView) this.bBg.findViewById(R.id.imageview_apply_btn);
-        this.fkw = (TextView) this.bBg.findViewById(R.id.textview_manager_apply);
-        this.fkx = (TextView) this.bBg.findViewById(R.id.textview_manager_left_num);
+        this.fkw = (TextView) this.bBg.findViewById(R.id.imageview_apply_btn);
+        this.fkx = (TextView) this.bBg.findViewById(R.id.textview_manager_apply);
+        this.fky = (TextView) this.bBg.findViewById(R.id.textview_manager_left_num);
     }
 
     public void as(String str, int i) {
-        this.fkw.setText(str);
+        this.fkx.setText(str);
         if (i > 0) {
-            this.fkx.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ap.aG(i)));
-            this.fkv.setEnabled(true);
-            this.fkv.setClickable(true);
-            al.f(this.fkw, R.color.cp_link_tip_a, 1);
-            al.f(this.fkx, R.color.cp_cont_d, 1);
-            al.k(this.fkv, R.drawable.bg_manager_apply);
+            this.fky.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ap.aG(i)));
+            this.fkw.setEnabled(true);
+            this.fkw.setClickable(true);
+            al.f(this.fkx, R.color.cp_link_tip_a, 1);
+            al.f(this.fky, R.color.cp_cont_d, 1);
+            al.k(this.fkw, R.drawable.bg_manager_apply);
             return;
         }
-        this.fkx.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-        this.fkv.setEnabled(false);
-        this.fkv.setClickable(false);
-        al.f(this.fkw, R.color.cp_cont_d, 1);
+        this.fky.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+        this.fkw.setEnabled(false);
+        this.fkw.setClickable(false);
         al.f(this.fkx, R.color.cp_cont_d, 1);
-        al.k(this.fkv, R.drawable.icon_number_add_d);
+        al.f(this.fky, R.color.cp_cont_d, 1);
+        al.k(this.fkw, R.drawable.icon_number_add_d);
     }
 
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.fkv.setOnClickListener(onClickListener);
+        this.fkw.setOnClickListener(onClickListener);
     }
 }

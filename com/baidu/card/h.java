@@ -86,7 +86,7 @@ public class h extends f {
         PostData aeT = aVar.abv().aeT();
         if (this.Vx != null && aeT != null && aeT.adv() != null && aeT.adv().getUserId() != null) {
             this.Vx.bT("tid", aVar.abv().tid).bT("post_id", aeT.getId()).bT("uid", aeT.adv().getUserId());
-            com.baidu.tieba.card.t.aXM().b(this.Vx);
+            com.baidu.tieba.card.t.aXP().b(this.Vx);
         }
         this.Vw.setData(aVar.abv());
     }

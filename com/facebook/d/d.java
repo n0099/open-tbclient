@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> jQR = d.class;
+    private static final Class<?> jQS = d.class;
 
     d() {
     }
@@ -20,7 +20,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(jQR, "Unsupported orientation");
+                com.facebook.common.c.a.e(jQS, "Unsupported orientation");
                 return 0;
             case 3:
                 return SubsamplingScaleImageView.ORIENTATION_180;
@@ -34,20 +34,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.kep - 8;
+        int i2 = aVar.keq - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.ken, 274), aVar.ken);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.keo, 274), aVar.keo);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean ken;
-        int keo;
+        boolean keo;
         int kep;
+        int keq;
 
         private a() {
         }
@@ -57,17 +57,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.keo = c.a(inputStream, 4, false);
+        aVar.kep = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.keo != 1229531648 && aVar.keo != 1296891946) {
-            com.facebook.common.c.a.g(jQR, "Invalid TIFF header");
+        if (aVar.kep != 1229531648 && aVar.kep != 1296891946) {
+            com.facebook.common.c.a.g(jQS, "Invalid TIFF header");
             return 0;
         }
-        aVar.ken = aVar.keo == 1229531648;
-        aVar.kep = c.a(inputStream, 4, aVar.ken);
+        aVar.keo = aVar.kep == 1229531648;
+        aVar.keq = c.a(inputStream, 4, aVar.keo);
         int i3 = i2 - 4;
-        if (aVar.kep < 8 || aVar.kep - 8 > i3) {
-            com.facebook.common.c.a.g(jQR, "Invalid offset");
+        if (aVar.keq < 8 || aVar.keq - 8 > i3) {
+            com.facebook.common.c.a.g(jQS, "Invalid offset");
             return 0;
         }
         return i3;

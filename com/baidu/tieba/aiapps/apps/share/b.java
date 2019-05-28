@@ -20,7 +20,7 @@ public class b extends ActivityDelegation {
 
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     public void onAttachedToWindow() {
-        aFZ();
+        aGc();
         au(getAgent(), this.mParams.getString("options"));
     }
 
@@ -29,13 +29,13 @@ public class b extends ActivityDelegation {
         if (DEBUG) {
             Log.d("ShareDelegation", "onSelfFinish.");
         }
-        aGa();
+        aGd();
     }
 
-    private void aFZ() {
+    private void aGc() {
     }
 
-    private void aGa() {
+    private void aGd() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class b extends ActivityDelegation {
             Log.d("ShareDelegation", "notify callBack: " + z);
         }
         this.mResult.putBoolean("share_result", z);
-        aGa();
+        aGd();
         finish();
     }
 

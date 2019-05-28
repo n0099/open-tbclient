@@ -13,15 +13,15 @@ import com.baidu.tieba.im.data.GroupInfoData;
 public class f extends v.a {
     public int ccI;
     public View dividerLine;
-    public GroupImageView gAe;
-    public TextView gAf;
+    public GroupImageView gAf;
     public TextView gAg;
     public TextView gAh;
     public TextView gAi;
-    public ImageView gAj;
+    public TextView gAj;
     public ImageView gAk;
     public ImageView gAl;
-    public ImageView[] gAm;
+    public ImageView gAm;
+    public ImageView[] gAn;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
@@ -29,41 +29,41 @@ public class f extends v.a {
         this.ccI = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.gAe = (GroupImageView) view.findViewById(R.id.item_head);
-        this.gAf = (TextView) view.findViewById(R.id.item_group_name);
-        this.gAg = (TextView) view.findViewById(R.id.item_group_meizi);
-        this.gAh = (TextView) view.findViewById(R.id.item_group_num);
-        this.gAi = (TextView) view.findViewById(R.id.item_introduce);
-        this.gAj = (ImageView) view.findViewById(R.id.item_grade1);
-        this.gAk = (ImageView) view.findViewById(R.id.item_grade2);
-        this.gAl = (ImageView) view.findViewById(R.id.item_grade3);
+        this.gAf = (GroupImageView) view.findViewById(R.id.item_head);
+        this.gAg = (TextView) view.findViewById(R.id.item_group_name);
+        this.gAh = (TextView) view.findViewById(R.id.item_group_meizi);
+        this.gAi = (TextView) view.findViewById(R.id.item_group_num);
+        this.gAj = (TextView) view.findViewById(R.id.item_introduce);
+        this.gAk = (ImageView) view.findViewById(R.id.item_grade1);
+        this.gAl = (ImageView) view.findViewById(R.id.item_grade2);
+        this.gAm = (ImageView) view.findViewById(R.id.item_grade3);
         this.dividerLine = view.findViewById(R.id.divider_line);
-        this.gAm = new ImageView[4];
-        this.gAm[1] = this.gAj;
-        this.gAm[2] = this.gAk;
-        this.gAm[3] = this.gAl;
+        this.gAn = new ImageView[4];
+        this.gAn[1] = this.gAk;
+        this.gAn[2] = this.gAl;
+        this.gAn[3] = this.gAm;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.gAe.setTag(null);
-            this.gAe.setDrawBorder(true);
-            this.gAe.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.gAf.setTag(null);
+            this.gAf.setDrawBorder(true);
+            this.gAf.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.gAe.setTag(portrait);
-                this.gAe.startLoad(portrait, 10, false);
+                this.gAf.setTag(portrait);
+                this.gAf.startLoad(portrait, 10, false);
             }
-            this.gAf.setText(groupInfoData.getName());
-            this.gAg.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.gAh.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.gAi.setText(groupInfoData.getIntro().trim());
-            a(this.gAm, groupInfoData.getGrade());
+            this.gAg.setText(groupInfoData.getName());
+            this.gAh.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.gAi.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.gAj.setText(groupInfoData.getIntro().trim());
+            a(this.gAn, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                al.f(this.gAf, R.color.common_color_10009, 1);
-                al.c(this.gAj, (int) R.drawable.icon_vip_grade_big_small_s);
+                al.f(this.gAg, R.color.common_color_10009, 1);
                 al.c(this.gAk, (int) R.drawable.icon_vip_grade_big_small_s);
                 al.c(this.gAl, (int) R.drawable.icon_vip_grade_big_small_s);
+                al.c(this.gAm, (int) R.drawable.icon_vip_grade_big_small_s);
             }
         }
     }

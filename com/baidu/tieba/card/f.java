@@ -16,18 +16,18 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
-    private LinearLayout evR;
-    private TextView evS;
-    private LinearLayout evT;
-    private d evU;
-    private e evV;
+    private LinearLayout evS;
+    private TextView evT;
+    private LinearLayout evU;
+    private d evV;
     private e evW;
-    private com.baidu.tieba.e.a evX;
-    private com.baidu.tieba.e.b evY;
+    private e evX;
+    private com.baidu.tieba.e.a evY;
     private com.baidu.tieba.e.b evZ;
-    private View ewa;
+    private com.baidu.tieba.e.b ewa;
     private View ewb;
-    private a ewc;
+    private View ewc;
+    private a ewd;
     private String mForumId;
 
     /* loaded from: classes4.dex */
@@ -42,35 +42,24 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     private void init(View view) {
-        this.evR = (LinearLayout) view.findViewById(R.id.card_frs_game_head_line_layout);
-        this.evS = (TextView) view.findViewById(R.id.frs_game_head_line_title);
-        this.evT = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
-        this.ewa = view.findViewById(R.id.divider_line_1);
-        this.ewb = view.findViewById(R.id.divider_line_2);
+        this.evS = (LinearLayout) view.findViewById(R.id.card_frs_game_head_line_layout);
+        this.evT = (TextView) view.findViewById(R.id.frs_game_head_line_title);
+        this.evU = (LinearLayout) view.findViewById(R.id.frs_game_head_line_container);
+        this.ewb = view.findViewById(R.id.divider_line_1);
+        this.ewc = view.findViewById(R.id.divider_line_2);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds44);
-        if (this.evU == null) {
-            this.evU = new d(this.mTbPageContext, null, null);
-        }
-        this.evU.q(0, 0, 0, 0);
-        this.evU.pk(8);
-        this.evU.pl(8);
-        if (this.evU.getView().getParent() != null) {
-            ((ViewGroup) this.evU.getView().getParent()).removeView(this.evU.getView());
-        }
-        this.evU.getView().setOnClickListener(this);
-        this.evU.getView().setVisibility(8);
-        this.evT.addView(this.evU.getView());
         if (this.evV == null) {
-            this.evV = new e(this.mTbPageContext);
+            this.evV = new d(this.mTbPageContext, null, null);
         }
+        this.evV.q(0, 0, 0, 0);
+        this.evV.pk(8);
         this.evV.pl(8);
-        this.evV.r(0, dimensionPixelSize, 0, 0);
         if (this.evV.getView().getParent() != null) {
             ((ViewGroup) this.evV.getView().getParent()).removeView(this.evV.getView());
         }
         this.evV.getView().setOnClickListener(this);
         this.evV.getView().setVisibility(8);
-        this.evT.addView(this.evV.getView());
+        this.evU.addView(this.evV.getView());
         if (this.evW == null) {
             this.evW = new e(this.mTbPageContext);
         }
@@ -81,23 +70,34 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
         }
         this.evW.getView().setOnClickListener(this);
         this.evW.getView().setVisibility(8);
-        this.evT.addView(this.evW.getView());
+        this.evU.addView(this.evW.getView());
+        if (this.evX == null) {
+            this.evX = new e(this.mTbPageContext);
+        }
+        this.evX.pl(8);
+        this.evX.r(0, dimensionPixelSize, 0, 0);
+        if (this.evX.getView().getParent() != null) {
+            ((ViewGroup) this.evX.getView().getParent()).removeView(this.evX.getView());
+        }
+        this.evX.getView().setOnClickListener(this);
+        this.evX.getView().setVisibility(8);
+        this.evU.addView(this.evX.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         al.k(getView(), R.color.cp_bg_line_d);
-        al.f(this.evS, R.color.cp_cont_f, 1);
-        al.k(this.ewa, R.color.cp_bg_line_e);
+        al.f(this.evT, R.color.cp_cont_f, 1);
         al.k(this.ewb, R.color.cp_bg_line_e);
-        if (this.evU != null) {
-            this.evU.onChangeSkinType(tbPageContext, i);
-        }
+        al.k(this.ewc, R.color.cp_bg_line_e);
         if (this.evV != null) {
             this.evV.onChangeSkinType(tbPageContext, i);
         }
         if (this.evW != null) {
             this.evW.onChangeSkinType(tbPageContext, i);
+        }
+        if (this.evX != null) {
+            this.evX.onChangeSkinType(tbPageContext, i);
         }
     }
 
@@ -109,30 +109,30 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.bbU() != null) {
-            if (!TextUtils.isEmpty(dVar.bbU().title)) {
-                this.evS.setText(dVar.bbU().title);
+        if (dVar != null && dVar.bbX() != null) {
+            if (!TextUtils.isEmpty(dVar.bbX().title)) {
+                this.evT.setText(dVar.bbX().title);
             }
-            List<bg> list = dVar.bbU().sub_nodes;
+            List<bg> list = dVar.bbX().sub_nodes;
             if (com.baidu.tbadk.core.util.v.Z(list) >= 1) {
-                this.evX = new com.baidu.tieba.e.a();
-                this.evX.setData(list.get(0));
-                this.evU.getView().setVisibility(0);
-                this.evU.a(this.evX);
-            }
-            if (com.baidu.tbadk.core.util.v.Z(list) >= 2) {
-                this.evY = new com.baidu.tieba.e.b();
-                this.evY.setData(list.get(1));
+                this.evY = new com.baidu.tieba.e.a();
+                this.evY.setData(list.get(0));
                 this.evV.getView().setVisibility(0);
                 this.evV.a(this.evY);
-                this.evV.pm(8);
             }
-            if (com.baidu.tbadk.core.util.v.Z(list) >= 3) {
+            if (com.baidu.tbadk.core.util.v.Z(list) >= 2) {
                 this.evZ = new com.baidu.tieba.e.b();
-                this.evZ.setData(list.get(2));
+                this.evZ.setData(list.get(1));
                 this.evW.getView().setVisibility(0);
                 this.evW.a(this.evZ);
                 this.evW.pm(8);
+            }
+            if (com.baidu.tbadk.core.util.v.Z(list) >= 3) {
+                this.ewa = new com.baidu.tieba.e.b();
+                this.ewa.setData(list.get(2));
+                this.evX.getView().setVisibility(0);
+                this.evX.a(this.ewa);
+                this.evX.pm(8);
             }
         }
     }
@@ -140,25 +140,25 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TiebaStatic.log(new am("c13047").P("obj_locate", 6).bT("fid", this.mForumId));
-        if (view == this.evU.getView()) {
-            if (this.evX != null) {
-                if (this.ewc != null) {
-                    this.ewc.b(view, this.evX);
-                }
-                Q(this.evX.abv());
-            }
-        } else if (view == this.evV.getView()) {
+        if (view == this.evV.getView()) {
             if (this.evY != null) {
-                if (this.ewc != null) {
-                    this.ewc.b(view, this.evY);
+                if (this.ewd != null) {
+                    this.ewd.b(view, this.evY);
                 }
                 Q(this.evY.abv());
             }
-        } else if (view == this.evW.getView() && this.evZ != null) {
-            if (this.ewc != null) {
-                this.ewc.b(view, this.evZ);
+        } else if (view == this.evW.getView()) {
+            if (this.evZ != null) {
+                if (this.ewd != null) {
+                    this.ewd.b(view, this.evZ);
+                }
+                Q(this.evZ.abv());
             }
-            Q(this.evZ.abv());
+        } else if (view == this.evX.getView() && this.ewa != null) {
+            if (this.ewd != null) {
+                this.ewd.b(view, this.ewa);
+            }
+            Q(this.ewa.abv());
         }
     }
 
@@ -172,6 +172,6 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     public void a(a aVar) {
-        this.ewc = aVar;
+        this.ewd = aVar;
     }
 }

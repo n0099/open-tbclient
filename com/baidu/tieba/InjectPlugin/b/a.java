@@ -18,7 +18,7 @@ public class a extends g {
         this.cPT = false;
     }
 
-    public o azr() {
+    public o azs() {
         return this.cPR;
     }
 
@@ -26,7 +26,7 @@ public class a extends g {
         this.cPR = oVar;
     }
 
-    public Object azs() {
+    public Object azt() {
         return this.cPS;
     }
 

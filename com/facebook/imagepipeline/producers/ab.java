@@ -16,20 +16,20 @@ public class ab implements ai<com.facebook.common.references.a<com.facebook.imag
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jVar, aj ajVar) {
-        al cHx = ajVar.cHx();
+        al cHz = ajVar.cHz();
         String id = ajVar.getId();
-        final ImageRequest cHw = ajVar.cHw();
-        final ao<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aoVar = new ao<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>(jVar, cHx, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ab.1
+        final ImageRequest cHy = ajVar.cHy();
+        final ao<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aoVar = new ao<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>(jVar, cHz, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ab.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.e
-            /* renamed from: cGs */
+            /* renamed from: cGu */
             public com.facebook.common.references.a<com.facebook.imagepipeline.f.b> getResult() throws Exception {
-                Bitmap createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(cHw.cIs().getPath(), ab.l(cHw));
+                Bitmap createVideoThumbnail = ThumbnailUtils.createVideoThumbnail(cHy.cIu().getPath(), ab.l(cHy));
                 if (createVideoThumbnail == null) {
                     return null;
                 }
-                return com.facebook.common.references.a.d(new com.facebook.imagepipeline.f.c(createVideoThumbnail, com.facebook.imagepipeline.b.g.cEe(), com.facebook.imagepipeline.f.f.kaZ, 0));
+                return com.facebook.common.references.a.d(new com.facebook.imagepipeline.f.c(createVideoThumbnail, com.facebook.imagepipeline.b.g.cEg(), com.facebook.imagepipeline.f.f.kba, 0));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public class ab implements ai<com.facebook.common.references.a<com.facebook.imag
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ab.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cHD() {
+            public void cHF() {
                 aoVar.cancel();
             }
         });

@@ -21,7 +21,7 @@ public class RelationshipStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseOnlineMessage) && TbadkCoreApplication.getCurrentAccount() != null && com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 1001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseOnlineMessage) && TbadkCoreApplication.getCurrentAccount() != null && !TbadkCoreApplication.getInst().checkInterrupt() && com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                     MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
                 }
             }
@@ -64,7 +64,7 @@ public class RelationshipStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2002014) {
-                    h.aCr();
+                    h.aCu();
                 }
             }
         });

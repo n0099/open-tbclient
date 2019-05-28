@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cLq()) {
+                synchronized (aVar.cLs()) {
                     aVar.println(sb.toString());
                 }
                 return;
@@ -153,7 +153,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object cLq();
+        abstract Object cLs();
 
         abstract void println(Object obj);
 
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream kng;
+        private final PrintStream knh;
 
         b(PrintStream printStream) {
-            this.kng = printStream;
+            this.knh = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cLq() {
-            return this.kng;
-        }
-
-        @Override // rx.exceptions.CompositeException.a
-        void println(Object obj) {
-            this.kng.println(obj);
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    static final class c extends a {
-        private final PrintWriter knh;
-
-        c(PrintWriter printWriter) {
-            this.knh = printWriter;
-        }
-
-        @Override // rx.exceptions.CompositeException.a
-        Object cLq() {
+        Object cLs() {
             return this.knh;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
             this.knh.println(obj);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    static final class c extends a {
+        private final PrintWriter kni;
+
+        c(PrintWriter printWriter) {
+            this.kni = printWriter;
+        }
+
+        @Override // rx.exceptions.CompositeException.a
+        Object cLs() {
+            return this.kni;
+        }
+
+        @Override // rx.exceptions.CompositeException.a
+        void println(Object obj) {
+            this.kni.println(obj);
         }
     }
 

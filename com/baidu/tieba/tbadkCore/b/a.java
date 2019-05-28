@@ -26,7 +26,7 @@ import com.baidu.tieba.R;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c iXN;
+    private static c iXP;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -119,8 +119,8 @@ public class a {
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                if (a.iXN != null) {
-                                    a.iXN.dismiss();
+                                if (a.iXP != null) {
+                                    a.iXP.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BaseActivity.this.getPageContext().getPageActivity(), true, 23004, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone("posting_V8.9", "bubble_pop_ups_opende/renewalfee_button_V8.9");
@@ -152,7 +152,7 @@ public class a {
                 });
                 dVar.T(true);
                 dVar.V(false);
-                iXN = dVar.hL();
+                iXP = dVar.hL();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -166,15 +166,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void i(Activity activity, boolean z) {
-        if (iXN != null) {
-            iXN.n(activity);
+        if (iXP != null) {
+            iXP.n(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.iXN != null) {
-                        a.iXN.dismiss();
+                    if (a.iXP != null) {
+                        a.iXP.dismiss();
                     }
                 }
             }, 5000L);

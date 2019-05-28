@@ -11,13 +11,13 @@ import tbclient.ChannelVideoInfo;
 public class h implements m {
     private int cLq;
     private long createTime;
-    private int eDK;
-    private long eDL;
-    private int eDM;
+    private int eDL;
+    private long eDM;
     private int eDN;
     private int eDO;
-    private String eDP;
-    private int eDQ;
+    private int eDP;
+    private String eDQ;
+    private int eDR;
     private int forumId;
     private String forumName;
     private BdUniqueId mType;
@@ -57,7 +57,7 @@ public class h implements m {
         this.title = str;
     }
 
-    public int aYF() {
+    public int aYI() {
         return this.cLq;
     }
 
@@ -86,11 +86,11 @@ public class h implements m {
     }
 
     public void pB(int i) {
-        this.eDK = i;
+        this.eDL = i;
     }
 
     public void cA(long j) {
-        this.eDL = j;
+        this.eDM = j;
     }
 
     public String getThumbnailUrl() {
@@ -102,19 +102,19 @@ public class h implements m {
     }
 
     public void pC(int i) {
-        this.eDM = i;
-    }
-
-    public void pD(int i) {
         this.eDN = i;
     }
 
+    public void pD(int i) {
+        this.eDO = i;
+    }
+
     public boolean aec() {
-        return this.eDO == 1;
+        return this.eDP == 1;
     }
 
     public void pE(int i) {
-        this.eDO = i;
+        this.eDP = i;
     }
 
     public long getCreateTime() {
@@ -125,8 +125,8 @@ public class h implements m {
         this.createTime = j;
     }
 
-    public int aYG() {
-        return this.eDQ;
+    public int aYJ() {
+        return this.eDR;
     }
 
     public void setType(BdUniqueId bdUniqueId) {
@@ -135,7 +135,7 @@ public class h implements m {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0295a.eDx : this.mType;
+        return this.mType == null ? a.C0295a.eDy : this.mType;
     }
 
     public static ChannelHomeVideoList<h> bx(List<ChannelVideoInfo> list) {
@@ -182,17 +182,17 @@ public class h implements m {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
-        this.eDP = jSONObject.optString("play_time");
+        this.eDQ = jSONObject.optString("play_time");
         this.cLq = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.eDK = jSONObject.optInt("video_length");
-        this.eDL = jSONObject.optInt("video_type");
+        this.eDL = jSONObject.optInt("video_length");
+        this.eDM = jSONObject.optInt("video_type");
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.eDM = jSONObject.optInt("thumbnail_width");
-        this.eDN = jSONObject.optInt("thumbnail_height");
-        this.eDQ = jSONObject.optInt("already_add");
+        this.eDN = jSONObject.optInt("thumbnail_width");
+        this.eDO = jSONObject.optInt("thumbnail_height");
+        this.eDR = jSONObject.optInt("already_add");
     }
 }

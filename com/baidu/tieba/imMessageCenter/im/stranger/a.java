@@ -13,14 +13,14 @@ public class a {
     /* loaded from: classes4.dex */
     public static class C0343a {
         public String cjw;
-        public String fDY;
-        public int gNT;
-        public String gNU;
+        public String fDZ;
+        public int gNU;
         public String gNV;
-        public int gNW;
-        public String gNX;
+        public String gNW;
+        public int gNX;
         public String gNY;
-        public String gNx;
+        public String gNZ;
+        public String gNy;
         public String postId;
         public String threadId;
         public int threadType;
@@ -37,9 +37,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0343a.gNU = optJSONObject.optString("title");
-                c0343a.gNx = optJSONObject.optString("content");
-                c0343a.gNX = optJSONObject.optString("quote_content");
+                c0343a.gNV = optJSONObject.optString("title");
+                c0343a.gNy = optJSONObject.optString("content");
+                c0343a.gNY = optJSONObject.optString("quote_content");
                 c0343a.cjw = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 c0343a.threadId = optJSONObject.optString("thread_id");
                 c0343a.postId = optJSONObject.optString("post_id");
@@ -48,14 +48,14 @@ public class a {
                 c0343a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0343a.gNV = optJSONObject2.optString("id");
-                    c0343a.gNY = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0343a.gNW = optJSONObject2.optInt("gender");
+                    c0343a.gNW = optJSONObject2.optString("id");
+                    c0343a.gNZ = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0343a.gNX = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
-                    c0343a.fDY = optJSONObject3.optString("id");
-                    c0343a.gNT = optJSONObject3.optInt("gender");
+                    c0343a.fDZ = optJSONObject3.optString("id");
+                    c0343a.gNU = optJSONObject3.optInt("gender");
                 }
             }
             return c0343a;

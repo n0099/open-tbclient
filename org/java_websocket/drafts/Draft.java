@@ -22,10 +22,10 @@ import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class Draft {
-    public static int klZ = 1000;
-    public static int kma = 64;
-    protected WebSocket.Role klN = null;
-    protected Framedata.Opcode kmb = null;
+    public static int kma = 1000;
+    public static int kmb = 64;
+    protected WebSocket.Role klO = null;
+    protected Framedata.Opcode kmc = null;
 
     /* loaded from: classes2.dex */
     public enum CloseHandshakeType {
@@ -56,9 +56,9 @@ public abstract class Draft {
 
     public abstract b b(b bVar) throws InvalidHandshakeException;
 
-    public abstract CloseHandshakeType cKy();
+    public abstract CloseHandshakeType cKA();
 
-    public abstract Draft cKz();
+    public abstract Draft cKB();
 
     public abstract List<Framedata> n(ByteBuffer byteBuffer) throws InvalidDataException;
 
@@ -150,10 +150,10 @@ public abstract class Draft {
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
-        if (this.kmb != null) {
+        if (this.kmc != null) {
             iVar = new org.java_websocket.framing.c();
         } else {
-            this.kmb = opcode;
+            this.kmc = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
                 iVar = new org.java_websocket.framing.a();
             } else {
@@ -163,11 +163,11 @@ public abstract class Draft {
         iVar.q(byteBuffer);
         iVar.su(z);
         try {
-            iVar.cKJ();
+            iVar.cKL();
             if (z) {
-                this.kmb = null;
+                this.kmc = null;
             } else {
-                this.kmb = opcode;
+                this.kmc = opcode;
             }
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e) {
@@ -186,14 +186,14 @@ public abstract class Draft {
             sb.append(((org.java_websocket.c.a) fVar).getResourceDescriptor());
             sb.append(" HTTP/1.1");
         } else if (fVar instanceof h) {
-            sb.append("HTTP/1.1 101 ").append(((h) fVar).cKR());
+            sb.append("HTTP/1.1 101 ").append(((h) fVar).cKT());
         } else {
             throw new IllegalArgumentException("unknown role");
         }
         sb.append("\r\n");
-        Iterator<String> cKS = fVar.cKS();
-        while (cKS.hasNext()) {
-            String next = cKS.next();
+        Iterator<String> cKU = fVar.cKU();
+        while (cKU.hasNext()) {
+            String next = cKU.next();
             String Hq = fVar.Hq(next);
             sb.append(next);
             sb.append(": ");
@@ -213,7 +213,7 @@ public abstract class Draft {
     }
 
     public f o(ByteBuffer byteBuffer) throws InvalidHandshakeException {
-        return a(byteBuffer, this.klN);
+        return a(byteBuffer, this.klO);
     }
 
     public int Eg(int i) throws LimitExedeedException, InvalidDataException {
@@ -237,7 +237,7 @@ public abstract class Draft {
     }
 
     public void a(WebSocket.Role role) {
-        this.klN = role;
+        this.klO = role;
     }
 
     public String toString() {

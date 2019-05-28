@@ -49,12 +49,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.ceQ().a(advertAppInfo.bDW, advertAppInfo.bDV, str2, i, com.baidu.tieba.recapp.download.d.CR(advertAppInfo.bDW).intValue(), null, true, false, true, advertAppInfo.bEc.userPortrait, downloadStaticsData, advertAppInfo.bEc.userName);
+        com.baidu.tieba.recapp.download.d.ceS().a(advertAppInfo.bDW, advertAppInfo.bDV, str2, i, com.baidu.tieba.recapp.download.d.CR(advertAppInfo.bDW).intValue(), null, true, false, true, advertAppInfo.bEc.userPortrait, downloadStaticsData, advertAppInfo.bEc.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.ceQ().x(advertAppInfo.bDV, advertAppInfo.bDW, true);
+        com.baidu.tieba.recapp.download.d.ceS().x(advertAppInfo.bDV, advertAppInfo.bDW, true);
     }
 
     public static final void aF(Context context, String str) {
@@ -166,11 +166,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.ceJ().sendFRS(z, str, str2, str3, list, str4);
+        r.ceL().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.ceJ().a(z, str, str2, str3, str4, list, str5);
+        r.ceL().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -189,15 +189,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h ceG = r.ceJ().ceG();
-        if (ceG == null) {
+        h ceI = r.ceL().ceI();
+        if (ceI == null) {
             return false;
         }
-        if (ceG.rZ(str)) {
-            ceG.a(tbPageContext.getPageActivity(), strArr, true);
+        if (ceI.rZ(str)) {
+            ceI.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return ceG.c(tbPageContext.getPageActivity(), strArr);
+        return ceI.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aG(Context context, String str) {
@@ -216,14 +216,14 @@ public class s {
 
     private static boolean aH(Context context, String str) {
         String[] strArr = {str};
-        h ceG = r.ceJ().ceG();
-        if (ceG == null) {
+        h ceI = r.ceL().ceI();
+        if (ceI == null) {
             return false;
         }
-        if (ceG.rZ(str)) {
-            ceG.a(context, strArr, true);
+        if (ceI.rZ(str)) {
+            ceI.a(context, strArr, true);
             return true;
         }
-        return ceG.c(context, strArr);
+        return ceI.c(context, strArr);
     }
 }

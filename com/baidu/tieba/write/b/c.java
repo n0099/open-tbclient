@@ -11,19 +11,19 @@ import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private b jIa;
-    private a jIb;
-    private int joS;
+    private b jIb;
+    private a jIc;
+    private int joT;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a jIc = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a jId = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
         public void mu(int i) {
-            c.this.joS = i;
-            c.this.bdO();
-            if (c.this.jIb != null) {
-                c.this.jIb.Ct(c.this.joS);
+            c.this.joT = i;
+            c.this.bdR();
+            if (c.this.jIc != null) {
+                c.this.jIc.Ct(c.this.joT);
             }
         }
     };
@@ -31,17 +31,17 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.jIa == null) {
-                    c.this.jIa = new b(c.this.mContext);
-                    c.this.jIa.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.jIa.a(c.this.jIc);
-                    c.this.jIa.qp(c.this.mStatusBarHeight);
+                if (c.this.jIb == null) {
+                    c.this.jIb = new b(c.this.mContext);
+                    c.this.jIb.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.jIb.a(c.this.jId);
+                    c.this.jIb.qp(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_all), 0));
-                c.this.jIa.setData(arrayList, c.this.joS);
-                c.this.jIa.bm(c.this.mTitle);
+                c.this.jIb.setData(arrayList, c.this.joT);
+                c.this.jIb.bm(c.this.mTitle);
                 c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_retract), (Drawable) null);
             }
         }
@@ -65,13 +65,13 @@ public class c {
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.joS = i;
+        this.joT = i;
         this.mStatusBarHeight = i2;
     }
 
-    public void bdO() {
-        if (cxH()) {
-            switch (this.joS) {
+    public void bdR() {
+        if (cxJ()) {
+            switch (this.joT) {
                 case 0:
                     this.mTitle.setText(R.string.write_zone_all);
                     break;
@@ -83,16 +83,16 @@ public class c {
         }
     }
 
-    public boolean cxH() {
-        return this.joS == 0 || this.joS == 1;
+    public boolean cxJ() {
+        return this.joT == 0 || this.joT == 1;
     }
 
     public void a(a aVar) {
-        this.jIb = aVar;
+        this.jIc = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cxH()) {
+        if (cxJ()) {
             al.f(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_spread), (Drawable) null);

@@ -9,13 +9,13 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes4.dex */
 public class ac {
     private TextView bNl;
-    private NavigationBarCoverTip fNs;
-    private int fNt;
+    private NavigationBarCoverTip fNt;
+    private int fNu;
     private com.baidu.adp.base.e mContext;
 
     public ac(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.fNs = navigationBarCoverTip;
+        this.fNt = navigationBarCoverTip;
         init();
     }
 
@@ -30,25 +30,25 @@ public class ac {
     }
 
     public void Bk(String str) {
-        if (this.fNs != null) {
-            if (com.baidu.tbadk.core.util.ap.isEmpty(str) || this.fNt > 0) {
+        if (this.fNt != null) {
+            if (com.baidu.tbadk.core.util.ap.isEmpty(str) || this.fNu > 0) {
                 onDestory();
-                this.fNs.setVisibility(8);
+                this.fNt.setVisibility(8);
                 return;
             }
-            this.fNs.setVisibility(0);
-            this.fNt++;
+            this.fNt.setVisibility(0);
+            this.fNu++;
             this.bNl.setText(str);
             com.baidu.tbadk.core.util.al.j(this.bNl, R.color.cp_btn_a);
-            this.fNs.removeAllViews();
-            this.fNs.addView(this.bNl);
-            this.fNs.i(this.mContext.getPageActivity(), UIMsg.m_AppUI.MSG_APP_GPS);
+            this.fNt.removeAllViews();
+            this.fNt.addView(this.bNl);
+            this.fNt.i(this.mContext.getPageActivity(), UIMsg.m_AppUI.MSG_APP_GPS);
         }
     }
 
     public void onDestory() {
-        if (this.fNs != null) {
-            this.fNs.onDestroy();
+        if (this.fNt != null) {
+            this.fNt.onDestroy();
         }
     }
 }

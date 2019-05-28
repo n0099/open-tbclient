@@ -19,8 +19,8 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     private final com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> bNG;
     private com.baidu.tbadk.h.c cks;
-    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fZg;
-    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> fdp;
+    private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> fZh;
+    private CoverFlowView<com.baidu.tieba.homepage.daily.b.a> fdq;
     private List<com.baidu.tieba.homepage.daily.b.a> mData;
 
     public AutoBannerView(Context context) {
@@ -28,8 +28,8 @@ public class AutoBannerView extends RelativeLayout {
         this.bNG = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a>() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void B(int i, String str) {
-                if (AutoBannerView.this.fZg != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fZg.B(i, str);
+                if (AutoBannerView.this.fZh != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fZh.B(i, str);
                 }
                 AutoBannerView.this.xv(str);
             }
@@ -37,8 +37,8 @@ public class AutoBannerView extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.homepage.daily.b.a aVar) {
-                if (AutoBannerView.this.fZg != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.fZg.a(i, aVar);
+                if (AutoBannerView.this.fZh != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.fZh.a(i, aVar);
                 }
                 if (aVar == null) {
                 }
@@ -48,7 +48,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.fdp = new CoverFlowView<>(getContext());
+        this.fdq = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.homepage.daily.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e agc() {
@@ -83,11 +83,11 @@ public class AutoBannerView extends RelativeLayout {
                 return null;
             }
         };
-        this.fdp.setIndicatorNoOffet(true);
-        this.fdp.setDisableParentEvent(false);
-        this.fdp.setCoverFlowFactory(bVar);
-        this.fdp.setCallback(this.bNG);
-        addView(this.fdp);
+        this.fdq.setIndicatorNoOffet(true);
+        this.fdq.setDisableParentEvent(false);
+        this.fdq.setCoverFlowFactory(bVar);
+        this.fdq.setCallback(this.bNG);
+        addView(this.fdq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,20 +103,20 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void aki() {
-        if (this.fdp != null) {
-            this.fdp.agf();
+        if (this.fdq != null) {
+            this.fdq.agf();
         }
     }
 
     public void akh() {
-        if (this.fdp != null) {
-            this.fdp.age();
+        if (this.fdq != null) {
+            this.fdq.age();
         }
     }
 
     public void cC(List<com.baidu.tieba.homepage.daily.b.a> list) {
         this.mData = list;
-        this.fdp.setData(list);
+        this.fdq.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
@@ -124,12 +124,12 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setOutOnCoverViewCallback(com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.homepage.daily.b.a> dVar) {
-        this.fZg = dVar;
+        this.fZh = dVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.fdp != null) {
-            this.fdp.onChangeSkinType();
+        if (this.fdq != null) {
+            this.fdq.onChangeSkinType();
         }
     }
 

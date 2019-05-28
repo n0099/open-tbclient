@@ -6,12 +6,12 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 /* loaded from: classes4.dex */
 public abstract class a extends BaseAdapter {
-    private boolean fAR = true;
-    private f fAW;
+    private boolean fAS = true;
+    private f fAX;
 
-    public abstract int bnu();
+    public abstract int bnx();
 
-    public abstract int bnv();
+    public abstract int bny();
 
     public abstract View c(int i, View view, ViewGroup viewGroup);
 
@@ -23,21 +23,21 @@ public abstract class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (bnz()) {
-            if (this.fAR) {
-                return this.fAW.getArrowIndex() + 1;
+        if (bnC()) {
+            if (this.fAS) {
+                return this.fAX.getArrowIndex() + 1;
             }
-            if (this.fAW != null && this.fAW.bnx()) {
-                return bnv() + 1;
+            if (this.fAX != null && this.fAX.bnA()) {
+                return bny() + 1;
             }
-            return bnv();
+            return bny();
         }
-        return bnv();
+        return bny();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (bnz()) {
+        if (bnC()) {
             int rR = rR(i);
             if (rR >= 0) {
                 return rO(rR);
@@ -49,7 +49,7 @@ public abstract class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (bnz()) {
+        if (bnC()) {
             int rR = rR(i);
             if (rR >= 0) {
                 return rP(rR);
@@ -67,34 +67,34 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (bnz() && (arrowIndex = this.fAW.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (bnC() && (arrowIndex = this.fAX.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return bnz() ? 2 : 1;
+        return bnC() ? 2 : 1;
     }
 
     public void a(f fVar) {
-        this.fAW = fVar;
+        this.fAX = fVar;
     }
 
     private View bS(View view) {
-        if (this.fAW != null) {
-            if (view == null || view != this.fAW.getArrowView()) {
-                view = this.fAW.getArrowView();
+        if (this.fAX != null) {
+            if (view == null || view != this.fAX.getArrowView()) {
+                view = this.fAX.getArrowView();
                 if (view.getLayoutParams() == null) {
-                    view.setLayoutParams(new AbsListView.LayoutParams(-1, bnu()));
+                    view.setLayoutParams(new AbsListView.LayoutParams(-1, bnx()));
                 }
             }
-            this.fAW.bR(view);
+            this.fAX.bR(view);
         }
         return view;
     }
 
     public int rR(int i) {
         int arrowIndex;
-        if (this.fAW != null && this.fAW.bnx() && i >= (arrowIndex = this.fAW.getArrowIndex())) {
+        if (this.fAX != null && this.fAX.bnA() && i >= (arrowIndex = this.fAX.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -103,11 +103,11 @@ public abstract class a extends BaseAdapter {
         return i;
     }
 
-    public boolean bnz() {
-        return this.fAW != null && this.fAW.bnx() && bnv() + (-1) > this.fAW.getArrowIndex();
+    public boolean bnC() {
+        return this.fAX != null && this.fAX.bnA() && bny() + (-1) > this.fAX.getArrowIndex();
     }
 
     public void kq(boolean z) {
-        this.fAR = z;
+        this.fAS = z;
     }
 }

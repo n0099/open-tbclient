@@ -18,16 +18,16 @@ import java.util.ArrayList;
 public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
     private BdListView MS;
     private View bBg;
-    private NoNetworkView eRU;
-    private IMBlackListActivity gMI;
-    private a gMM;
+    private NoNetworkView eRV;
+    private IMBlackListActivity gMJ;
+    private a gMN;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private ProgressBar mProgress;
 
     public b(IMBlackListActivity iMBlackListActivity) {
         super(iMBlackListActivity.getPageContext());
-        this.gMI = iMBlackListActivity;
+        this.gMJ = iMBlackListActivity;
         initialize();
     }
 
@@ -35,31 +35,31 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         this.mProgress.setVisibility(0);
     }
 
-    public void bEu() {
+    public void bEx() {
         this.mProgress.setVisibility(8);
     }
 
     public void b(BlackListItemData blackListItemData) {
-        this.gMM.b(blackListItemData);
-        if (this.gMM.getCount() <= 0) {
+        this.gMN.b(blackListItemData);
+        if (this.gMN.getCount() <= 0) {
             this.MS.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.MS.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gMM.notifyDataSetChanged();
+        this.gMN.notifyDataSetChanged();
     }
 
     public void refreshData() {
-        if (this.gMM.getCount() <= 0) {
+        if (this.gMN.getCount() <= 0) {
             this.MS.setVisibility(8);
             this.mNoDataView.setVisibility(0);
             return;
         }
         this.MS.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gMM.notifyDataSetChanged();
+        this.gMN.notifyDataSetChanged();
     }
 
     public void ag(ArrayList<BlackListItemData> arrayList) {
@@ -70,31 +70,31 @@ public class b extends com.baidu.adp.base.c<IMBlackListActivity> {
         }
         this.MS.setVisibility(0);
         this.mNoDataView.setVisibility(8);
-        this.gMM.setData(arrayList);
-        this.gMM.notifyDataSetChanged();
+        this.gMN.setData(arrayList);
+        this.gMN.notifyDataSetChanged();
     }
 
     private void initialize() {
-        this.gMI.setContentView(R.layout.im_black_list);
-        this.bBg = this.gMI.findViewById(R.id.root_view);
-        this.eRU = (NoNetworkView) this.bBg.findViewById(R.id.view_no_network);
+        this.gMJ.setContentView(R.layout.im_black_list);
+        this.bBg = this.gMJ.findViewById(R.id.root_view);
+        this.eRV = (NoNetworkView) this.bBg.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.bBg.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.chat_black_list_title);
         this.MS = (BdListView) this.bBg.findViewById(R.id.black_list);
-        this.mNoDataView = NoDataViewFactory.a(this.gMI.getPageContext().getContext(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.cBh), NoDataViewFactory.d.iH(R.string.black_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.gMJ.getPageContext().getContext(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.cBh), NoDataViewFactory.d.iH(R.string.black_list_no_data_text), null);
         this.mProgress = (ProgressBar) this.bBg.findViewById(R.id.progress);
-        this.gMM = new a(this.gMI);
-        this.MS.setAdapter((ListAdapter) this.gMM);
+        this.gMN = new a(this.gMJ);
+        this.MS.setAdapter((ListAdapter) this.gMN);
         ajG();
     }
 
     private void ajG() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.gMI.getLayoutMode().setNightMode(skinType == 1);
-        this.gMI.getLayoutMode().onModeChanged(this.bBg);
-        this.mNavigationBar.onChangeSkinType(this.gMI.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.gMI.getPageContext(), skinType);
-        this.eRU.onChangeSkinType(this.gMI.getPageContext(), skinType);
+        this.gMJ.getLayoutMode().setNightMode(skinType == 1);
+        this.gMJ.getLayoutMode().onModeChanged(this.bBg);
+        this.mNavigationBar.onChangeSkinType(this.gMJ.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.gMJ.getPageContext(), skinType);
+        this.eRV.onChangeSkinType(this.gMJ.getPageContext(), skinType);
     }
 }

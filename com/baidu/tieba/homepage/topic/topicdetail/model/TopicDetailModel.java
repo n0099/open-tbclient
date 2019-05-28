@@ -18,14 +18,14 @@ import com.baidu.tieba.message.RequestBlessMessage;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a gcz;
-    private com.baidu.tieba.homepage.topic.topicdetail.a gfE;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.a gfF;
+    private com.baidu.adp.framework.listener.a gcA;
+    private com.baidu.tieba.homepage.topic.topicdetail.a gfF;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.a gfG;
     private TbPageContext<?> mPageContext;
 
     public TopicDetailModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gcz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
+        this.gcA = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_BLESS, 309085) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -44,8 +44,8 @@ public class TopicDetailModel extends BdBaseModel {
                     if (j == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
                         j = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
                     }
-                    if (j != 0 && TopicDetailModel.this.gfF != null && TopicDetailModel.this.gfF.gfl != null && TopicDetailModel.this.gfF.gfl.gfq != null && TopicDetailModel.this.gfF.gfl.gfq.pkId == j) {
-                        TopicDetailModel.this.gfF.gfl.gfq.userPkId = j2;
+                    if (j != 0 && TopicDetailModel.this.gfG != null && TopicDetailModel.this.gfG.gfm != null && TopicDetailModel.this.gfG.gfm.gfr != null && TopicDetailModel.this.gfG.gfm.gfr.pkId == j) {
+                        TopicDetailModel.this.gfG.gfm.gfr.userPkId = j2;
                     }
                 }
             }
@@ -54,21 +54,21 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_DETAIL, 309629) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gfE != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gfF != null) {
                     if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                        TopicDetailModel.this.gfF = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.gfG = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
                     if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                        TopicDetailModel.this.gfF = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                        TopicDetailModel.this.gfG = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
                     }
-                    TopicDetailModel.this.gfE.a(responsedMessage.getError(), TopicDetailModel.this.gfF);
+                    TopicDetailModel.this.gfF.a(responsedMessage.getError(), TopicDetailModel.this.gfG);
                 }
             }
         });
         registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_TOPIC_THREAD, 309631) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.TopicDetailModel.3
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gfE != null) {
+                if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && TopicDetailModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && TopicDetailModel.this.gfF != null) {
                     List<m> list = null;
                     boolean z = false;
                     if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
@@ -79,21 +79,21 @@ public class TopicDetailModel extends BdBaseModel {
                         list = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getDataList();
                         z = ((ResponseSocketGetTopicThreadMessage) responsedMessage).getHasMore();
                     }
-                    TopicDetailModel.this.gfE.a(responsedMessage.getError(), z, list);
+                    TopicDetailModel.this.gfF.a(responsedMessage.getError(), z, list);
                 }
             }
         });
-        registerListener(this.gcz);
+        registerListener(this.gcA);
     }
 
     public void a(com.baidu.tieba.homepage.topic.topicdetail.a aVar) {
-        this.gfE = aVar;
+        this.gfF = aVar;
     }
 
     public void dl(long j) {
         if (!j.jG()) {
-            if (this.gfE != null) {
-                this.gfE.a(-1, null);
+            if (this.gfF != null) {
+                this.gfF.a(-1, null);
                 return;
             }
             return;
@@ -107,8 +107,8 @@ public class TopicDetailModel extends BdBaseModel {
 
     public void d(long j, long j2, long j3) {
         if (!j.jG()) {
-            if (this.gfE != null) {
-                this.gfE.a(-1, false, null);
+            if (this.gfF != null) {
+                this.gfF.a(-1, false, null);
                 return;
             }
             return;

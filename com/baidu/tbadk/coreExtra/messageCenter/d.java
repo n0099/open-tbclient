@@ -31,7 +31,7 @@ public class d {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.cno();
+        com.baidu.tieba.tbadkCore.util.a.cnq();
     }
 
     public void ang() {

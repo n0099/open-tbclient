@@ -20,16 +20,16 @@ public interface d {
 
     void a(e eVar);
 
-    void aWS();
+    void aWV();
 
     @ICameraControl.FlashMode
-    int aWT();
+    int aWW();
 
-    View aWU();
+    View aWX();
 
-    Rect aXb();
+    Rect aXe();
 
-    void aXc();
+    void aXf();
 
     void pause();
 

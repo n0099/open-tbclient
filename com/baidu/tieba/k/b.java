@@ -10,9 +10,9 @@ import com.baidu.tieba.play.QuickVideoView;
 import java.io.File;
 /* loaded from: classes5.dex */
 public class b implements e {
-    private boolean hql = false;
-    private boolean hqm = false;
-    private e.a hqn;
+    private boolean hqo = false;
+    private boolean hqp = false;
+    private e.a hqq;
     private String mLocalPath;
 
     public b(String str) {
@@ -21,15 +21,15 @@ public class b implements e {
 
     @Override // com.baidu.tieba.j.e
     public void a(e.a aVar) {
-        this.hqn = aVar;
+        this.hqq = aVar;
     }
 
     @Override // com.baidu.tieba.j.e
-    public void bLL() {
+    public void bLO() {
         if (f.aoy()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.pn(this.mLocalPath)) {
-                if (this.hqn != null) {
-                    this.hqn.wH(2);
+                if (this.hqq != null) {
+                    this.hqq.wH(2);
                     return;
                 }
                 return;
@@ -38,11 +38,11 @@ public class b implements e {
                 @Override // com.baidu.tieba.k.a.b
                 public void j(Integer num) {
                     if (num != null && num.intValue() == 1) {
-                        b.this.hql = true;
-                        b.this.bMq();
+                        b.this.hqo = true;
+                        b.this.bMt();
                     }
-                    if (b.this.hqn != null) {
-                        b.this.hqn.wH(num.intValue());
+                    if (b.this.hqq != null) {
+                        b.this.hqq.wH(num.intValue());
                     }
                 }
             });
@@ -50,11 +50,11 @@ public class b implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bMq() {
+    public void bMt() {
         if (f.aoy()) {
             if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.pn(this.mLocalPath)) {
-                if (this.hqn != null) {
-                    this.hqn.onChange(false);
+                if (this.hqq != null) {
+                    this.hqq.onChange(false);
                     return;
                 }
                 return;
@@ -62,11 +62,11 @@ public class b implements e {
             a.a(this.mLocalPath, this.mLocalPath + "_moov_head_suffix", new a.InterfaceC0347a() { // from class: com.baidu.tieba.k.b.2
                 @Override // com.baidu.tieba.k.a.InterfaceC0347a
                 public void nj(boolean z) {
-                    if (b.this.hql && z) {
-                        b.this.hqm = true;
+                    if (b.this.hqo && z) {
+                        b.this.hqp = true;
                     }
-                    if (b.this.hqn != null) {
-                        b.this.hqn.onChange(z);
+                    if (b.this.hqq != null) {
+                        b.this.hqq.onChange(z);
                     }
                 }
             });
@@ -74,11 +74,11 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void bLM() {
+    public void bLP() {
         if (f.aoy()) {
-            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.hql || !this.hqm) {
-                if (this.hqn != null) {
-                    this.hqn.nh(false);
+            if (StringUtils.isNull(this.mLocalPath) || !new File(this.mLocalPath).exists() || !new File(this.mLocalPath + "_moov_head_suffix").exists() || !this.hqo || !this.hqp) {
+                if (this.hqq != null) {
+                    this.hqq.nh(false);
                     return;
                 }
                 return;
@@ -99,8 +99,8 @@ public class b implements e {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(Boolean bool) {
                     super.onPostExecute((AnonymousClass3) bool);
-                    if (b.this.hqn != null) {
-                        b.this.hqn.nh(bool.booleanValue());
+                    if (b.this.hqq != null) {
+                        b.this.hqq.nh(bool.booleanValue());
                     }
                 }
             }.execute(this.mLocalPath);
@@ -108,10 +108,10 @@ public class b implements e {
     }
 
     @Override // com.baidu.tieba.j.e
-    public void bLN() {
+    public void bLQ() {
         if (StringUtils.isNull(this.mLocalPath) || !QuickVideoView.pn(this.mLocalPath)) {
-            if (this.hqn != null) {
-                this.hqn.wH(2);
+            if (this.hqq != null) {
+                this.hqq.wH(2);
                 return;
             }
             return;
@@ -150,15 +150,15 @@ public class b implements e {
                 if (cVarArr != null && cVarArr.length == 1 && cVarArr[0] != null) {
                     c cVar = cVarArr[0];
                     if (cVar.type == 1) {
-                        if (b.this.hqn != null) {
-                            b.this.hqn.wH(cVar.value);
+                        if (b.this.hqq != null) {
+                            b.this.hqq.wH(cVar.value);
                         }
                     } else if (cVar.type == 2) {
-                        if (b.this.hqn != null) {
-                            b.this.hqn.onChange(cVar.value == 1);
+                        if (b.this.hqq != null) {
+                            b.this.hqq.onChange(cVar.value == 1);
                         }
-                    } else if (cVar.type == 3 && b.this.hqn != null) {
-                        b.this.hqn.nh(cVar.value == 1);
+                    } else if (cVar.type == 3 && b.this.hqq != null) {
+                        b.this.hqq.nh(cVar.value == 1);
                     }
                 }
             }

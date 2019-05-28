@@ -17,7 +17,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object azi() {
+    public Object azj() {
         return this.cPK;
     }
 
@@ -25,7 +25,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
         this.cPK = obj;
     }
 
-    public int azj() {
+    public int azk() {
         return this.cPL;
     }
 
@@ -41,7 +41,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
         }
     }
 
-    public static List<BdUniqueId> azk() {
+    public static List<BdUniqueId> azl() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < cPJ.size(); i++) {
             arrayList.add(cPJ.valueAt(i));

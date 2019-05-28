@@ -5,7 +5,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public interface b {
-    d cEd();
+    d cEf();
 
     a eB(Context context);
 }

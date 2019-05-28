@@ -163,7 +163,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             }
             final boolean z = this.cJk;
             cancelAnimation();
-            axk();
+            axl();
             InputStream ch = ch(str, "data.json");
             if (ch != null) {
                 this.cJi = e.a.a(getContext(), ch, new h() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.2
@@ -194,7 +194,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    private void axk() {
+    private void axl() {
         if (this.cJi != null) {
             this.cJi.cancel();
             this.cJi = null;
@@ -242,7 +242,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         this.cJl = false;
     }
 
-    public void axl() {
+    public void axm() {
         this.cJl = true;
     }
 }

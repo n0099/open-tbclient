@@ -6,7 +6,7 @@ import rx.d;
 public final class OperatorElementAt<T> implements d.b<T, T> {
     final T defaultValue;
     final int index;
-    final boolean kpc;
+    final boolean kpd;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -36,7 +36,7 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.kpc) {
+                    if (OperatorElementAt.this.kpd) {
                         jVar.onNext(OperatorElementAt.this.defaultValue);
                         jVar.onCompleted();
                         return;

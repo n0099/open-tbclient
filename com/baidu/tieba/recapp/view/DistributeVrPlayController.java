@@ -6,28 +6,28 @@ import com.baidu.tieba.ad.play.a;
 import com.baidu.tieba.recapp.a;
 /* loaded from: classes3.dex */
 public class DistributeVrPlayController extends a {
-    private boolean iGH;
+    private boolean iGJ;
 
     public DistributeVrPlayController(IVrPlayView iVrPlayView) {
         super(iVrPlayView);
-        this.iGH = true;
+        this.iGJ = true;
     }
 
     @Override // com.baidu.tieba.recapp.a
     public void initListener() {
-        this.cVQ = new a.InterfaceC0268a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
+        this.cVR = new a.InterfaceC0268a() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.1
             @Override // com.baidu.tieba.ad.play.a.InterfaceC0268a
             public void onLoading() {
-                DistributeVrPlayController.this.iyH.loading();
+                DistributeVrPlayController.this.iyJ.loading();
             }
 
             @Override // com.baidu.tieba.ad.play.a.InterfaceC0268a
             public void onPlay() {
-                if (DistributeVrPlayController.this.iGH) {
-                    DistributeVrPlayController.this.iGH = false;
-                    DistributeVrPlayController.this.iyH.showPanoramaPrompt();
+                if (DistributeVrPlayController.this.iGJ) {
+                    DistributeVrPlayController.this.iGJ = false;
+                    DistributeVrPlayController.this.iyJ.showPanoramaPrompt();
                 }
-                DistributeVrPlayController.this.iyH.play();
+                DistributeVrPlayController.this.iyJ.play();
                 DistributeVrPlayController.this.mStatus = 1;
             }
         };
@@ -39,26 +39,26 @@ public class DistributeVrPlayController extends a {
                 }
             }
         };
-        this.iyK = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
+        this.iyM = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.3
             @Override // android.media.MediaPlayer.OnCompletionListener
             public void onCompletion(MediaPlayer mediaPlayer) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.iyH.complete();
+                DistributeVrPlayController.this.iyJ.complete();
             }
         };
-        this.iyL = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
+        this.iyN = new a.b() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.4
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                DistributeVrPlayController.this.iyH.loading();
+                DistributeVrPlayController.this.iyJ.loading();
                 DistributeVrPlayController.this.playVideo();
                 aVar.dismiss();
             }
         };
-        this.cSm = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
+        this.cSn = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.recapp.view.DistributeVrPlayController.5
             @Override // android.media.MediaPlayer.OnErrorListener
             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
                 DistributeVrPlayController.this.stopPlay();
-                DistributeVrPlayController.this.iyH.error();
+                DistributeVrPlayController.this.iyJ.error();
                 return true;
             }
         };

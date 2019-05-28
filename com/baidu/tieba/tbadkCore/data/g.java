@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class g {
-    private String iYf;
+    private String iYh;
     private int isFromDecreaseGiftStepStrategy = 0;
     private int status;
 
@@ -9,12 +9,12 @@ public class g {
         this.status = i;
     }
 
-    public String clW() {
-        return this.iYf;
+    public String clY() {
+        return this.iYh;
     }
 
     public void DS(String str) {
-        this.iYf = str;
+        this.iYh = str;
     }
 
     public int isFromDecreaseGiftStepStrategy() {

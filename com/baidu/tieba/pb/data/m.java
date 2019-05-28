@@ -6,8 +6,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class m {
     public String forum_top_list;
-    public final List<PostData> hCk = new ArrayList();
-    public final List<Long> hCl = new ArrayList();
+    public final List<PostData> hCn = new ArrayList();
+    public final List<Long> hCo = new ArrayList();
     private int count = 0;
 
     public int getCount() {

@@ -20,7 +20,7 @@ public class c {
     private final com.baidu.tbadk.widget.largeImage.a.b cHj;
     private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> cuK;
 
-    public void awY() {
+    public void awZ() {
         for (BdAsyncTask bdAsyncTask : this.cHG) {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
@@ -30,7 +30,7 @@ public class c {
     }
 
     public void onDestory() {
-        awY();
+        awZ();
         if (this.cHH != null) {
             this.cHH.ae(0);
             this.cHH.clear();
@@ -61,7 +61,7 @@ public class c {
             /* renamed from: a */
             public void entryRemoved(boolean z, a.C0261a c0261a, com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.a aVar2) {
                 if (z && c.this.cuK != null && aVar != null) {
-                    aVar.awx();
+                    aVar.awy();
                     c.this.cuK.t(aVar);
                 }
             }
@@ -74,16 +74,16 @@ public class c {
         if (aVar == null) {
             return;
         }
-        aVar.a(this, this.cHj, this.cHF, awZ());
+        aVar.a(this, this.cHj, this.cHF, axa());
         aVar.execute(new Object[0]);
         this.cHG.add(aVar);
     }
 
-    public com.baidu.adp.lib.e.a<a.C0261a, com.baidu.tbadk.widget.largeImage.a.a> awZ() {
+    public com.baidu.adp.lib.e.a<a.C0261a, com.baidu.tbadk.widget.largeImage.a.a> axa() {
         return this.cHH;
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> axa() {
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> axb() {
         return this.cuK;
     }
 
@@ -100,41 +100,41 @@ public class c {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object[] objArr) {
-            com.baidu.tbadk.widget.largeImage.a.a awF;
+            com.baidu.tbadk.widget.largeImage.a.a awG;
             if (this.cHH != null && this.cHJ.v(this.row, this.column, this.cGW)) {
                 Rect w = this.cHJ.w(this.row, this.column, this.cGW);
                 this.cHJ.h(w);
                 if (!i(w)) {
                     try {
-                        awF = this.cHL.axa().iu();
-                        if (awF != null) {
-                            if (!awF.g(w)) {
+                        awG = this.cHL.axb().iu();
+                        if (awG != null) {
+                            if (!awG.g(w)) {
                                 System.currentTimeMillis();
-                                awF.awx();
+                                awG.awy();
                             }
                         } else {
-                            awF = this.cHJ.awF();
+                            awG = this.cHJ.awG();
                         }
                     } catch (Throwable th) {
                         TbadkCoreApplication.getInst().onAppMemoryLow();
                         this.cHH.ae((int) (this.cHH.getMaxSize() * 0.8d));
                         System.gc();
                         try {
-                            awF = this.cHJ.awF();
+                            awG = this.cHJ.awG();
                         } catch (Throwable th2) {
                         }
                     }
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = this.cGW;
-                    options.inBitmap = awF.getBitmap();
+                    options.inBitmap = awG.getBitmap();
                     options.inMutable = true;
                     System.currentTimeMillis();
                     Bitmap decodeRegion = this.cHF.decodeRegion(w, options);
                     if (decodeRegion != null) {
                         decodeRegion.prepareToDraw();
-                        awF.setBitmap(decodeRegion);
-                        awF.u(this.row, this.column, this.cGW);
-                        this.cHH.put(awF.awA(), awF);
+                        awG.setBitmap(decodeRegion);
+                        awG.u(this.row, this.column, this.cGW);
+                        this.cHH.put(awG.awB(), awG);
                         if (this.cHK != null) {
                             this.cHK.apH();
                         }

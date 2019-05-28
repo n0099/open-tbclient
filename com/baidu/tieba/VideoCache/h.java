@@ -2,22 +2,22 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class h {
     private String bzP;
-    private String cTS;
-    private boolean cTT;
-    private long cTU = -1;
+    private String cTT;
+    private boolean cTU;
     private long cTV = -1;
-    private long cTW = 0;
+    private long cTW = -1;
     private long cTX = 0;
+    private long cTY = 0;
 
-    public String aAN() {
-        return this.cTS;
+    public String aAQ() {
+        return this.cTT;
     }
 
     public void rE(String str) {
-        this.cTS = str;
+        this.cTT = str;
     }
 
-    public String aAO() {
+    public String aAR() {
         return this.bzP;
     }
 
@@ -25,43 +25,43 @@ public class h {
         this.bzP = str;
     }
 
-    public boolean aAP() {
-        return this.cTT;
-    }
-
-    public void gf(boolean z) {
-        this.cTT = z;
-    }
-
-    public long aAQ() {
+    public boolean aAS() {
         return this.cTU;
     }
 
-    public void bK(long j) {
-        this.cTU = j;
+    public void gf(boolean z) {
+        this.cTU = z;
     }
 
-    public long aAR() {
+    public long aAT() {
         return this.cTV;
     }
 
-    public void bL(long j) {
+    public void bK(long j) {
         this.cTV = j;
     }
 
-    public long getTotalLength() {
+    public long aAU() {
         return this.cTW;
     }
 
-    public void bd(long j) {
+    public void bL(long j) {
         this.cTW = j;
     }
 
-    public void bM(long j) {
+    public long getTotalLength() {
+        return this.cTX;
+    }
+
+    public void bd(long j) {
         this.cTX = j;
     }
 
-    public long aAS() {
-        return this.cTX;
+    public void bM(long j) {
+        this.cTY = j;
+    }
+
+    public long aAV() {
+        return this.cTY;
     }
 }

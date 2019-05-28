@@ -3,13 +3,13 @@ package com.baidu.tieba.video.meida;
 public abstract class d {
     int aBP;
     int channelCount;
-    String jsX;
+    String jsY;
 
     public abstract void Fi(String str);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(String str) {
-        this.jsX = str;
+        this.jsY = str;
     }
 
     public void setSampleRate(int i) {

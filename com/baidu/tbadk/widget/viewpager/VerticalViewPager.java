@@ -1261,12 +1261,12 @@ public class VerticalViewPager extends ViewGroup {
             }
             throw new IllegalStateException("onPageScrolled did not call superclass implementation");
         }
-        b ayW = ayW();
+        b ayX = ayX();
         int clientHeight = getClientHeight();
         int i2 = this.mPageMargin + clientHeight;
         float f2 = this.mPageMargin / clientHeight;
-        int i3 = ayW.position;
-        float f3 = ((i / clientHeight) - ayW.offset) / (ayW.cPn + f2);
+        int i3 = ayX.position;
+        float f3 = ((i / clientHeight) - ayX.offset) / (ayX.cPn + f2);
         this.mCalledSuper = false;
         onPageScrolled(i3, f3, (int) (i2 * f3));
         if (!this.mCalledSuper) {
@@ -1518,8 +1518,8 @@ public class VerticalViewPager extends ViewGroup {
                         this.mPopulatePending = true;
                         int clientHeight = getClientHeight();
                         int scrollY = getScrollY();
-                        b ayW = ayW();
-                        setCurrentItemInternal(determineTargetPage(ayW.position, ((scrollY / clientHeight) - ayW.offset) / ayW.cPn, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
+                        b ayX = ayX();
+                        setCurrentItemInternal(determineTargetPage(ayX.position, ((scrollY / clientHeight) - ayX.offset) / ayX.cPn, yVelocity, (int) (MotionEventCompat.getY(motionEvent, MotionEventCompat.findPointerIndex(motionEvent, this.mActivePointerId)) - this.mInitialMotionY)), true, true, yVelocity);
                         this.mActivePointerId = -1;
                         endDrag();
                         z = this.cPh.onRelease() | this.cPg.onRelease();
@@ -1624,7 +1624,7 @@ public class VerticalViewPager extends ViewGroup {
         return r2;
     }
 
-    private b ayW() {
+    private b ayX() {
         int i;
         b bVar;
         int clientHeight = getClientHeight();
@@ -1844,7 +1844,7 @@ public class VerticalViewPager extends ViewGroup {
     public boolean arrowScroll(int i) {
         View view;
         boolean z;
-        boolean ayX;
+        boolean ayY;
         View findFocus = findFocus();
         if (findFocus == this) {
             view = null;
@@ -1880,34 +1880,34 @@ public class VerticalViewPager extends ViewGroup {
                 int i2 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).top;
                 int i3 = getChildRectInPagerCoordinates(this.mTempRect, view).top;
                 if (view != null && i2 >= i3) {
-                    ayX = ayX();
+                    ayY = ayY();
                 } else {
-                    ayX = findNextFocus.requestFocus();
+                    ayY = findNextFocus.requestFocus();
                 }
             } else {
                 if (i == 130) {
                     int i4 = getChildRectInPagerCoordinates(this.mTempRect, findNextFocus).bottom;
                     int i5 = getChildRectInPagerCoordinates(this.mTempRect, view).bottom;
                     if (view != null && i4 <= i5) {
-                        ayX = ayY();
+                        ayY = ayZ();
                     } else {
-                        ayX = findNextFocus.requestFocus();
+                        ayY = findNextFocus.requestFocus();
                     }
                 }
-                ayX = false;
+                ayY = false;
             }
         } else if (i == 33 || i == 1) {
-            ayX = ayX();
+            ayY = ayY();
         } else {
             if (i == 130 || i == 2) {
-                ayX = ayY();
+                ayY = ayZ();
             }
-            ayX = false;
+            ayY = false;
         }
-        if (ayX) {
+        if (ayY) {
             playSoundEffect(SoundEffectConstants.getContantForFocusDirection(i));
         }
-        return ayX;
+        return ayY;
     }
 
     private Rect getChildRectInPagerCoordinates(Rect rect, View view) {
@@ -1932,7 +1932,7 @@ public class VerticalViewPager extends ViewGroup {
         return rect2;
     }
 
-    boolean ayX() {
+    boolean ayY() {
         if (this.mCurItem > 0) {
             setCurrentItem(this.mCurItem - 1, true);
             return true;
@@ -1940,7 +1940,7 @@ public class VerticalViewPager extends ViewGroup {
         return false;
     }
 
-    boolean ayY() {
+    boolean ayZ() {
         if (this.mAdapter == null || this.mCurItem >= this.mAdapter.getCount() - 1) {
             return false;
         }

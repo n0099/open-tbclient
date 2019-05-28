@@ -7,19 +7,19 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes4.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
-    private int foj;
-    private boolean fok;
-    private a fol;
-    private boolean fom;
+    private int fok;
+    private boolean fol;
+    private a fom;
     private boolean fon;
+    private boolean foo;
     private Activity mActivity;
     private float x;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bjw();
+        boolean bjA();
 
-        boolean bjx();
+        void bjz();
     }
 
     public FrsBaseViewPager(Context context) {
@@ -28,10 +28,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     public FrsBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.foj = 16;
-        this.fon = true;
+        this.fok = 16;
+        this.foo = true;
         this.mActivity = (Activity) context;
-        this.foj = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.foj);
+        this.fok = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.fok);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this.mActivity);
         aVar.ja(1000);
         aVar.b(this);
@@ -43,30 +43,30 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.fol != null) {
-                    this.fol.bjw();
+                if (this.fom != null) {
+                    this.fom.bjz();
                 }
-                if (this.x >= getMeasuredWidth() - this.foj && this.x <= getMeasuredWidth()) {
+                if (this.x >= getMeasuredWidth() - this.fok && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
-                    this.fok = true;
-                    this.fon = true;
+                    this.fol = true;
+                    this.foo = true;
                     break;
                 } else {
-                    this.fon = false;
+                    this.foo = false;
                     break;
                 }
                 break;
             case 1:
-                this.fon = true;
+                this.foo = true;
                 break;
             case 2:
-                if (this.fon) {
-                    boolean bjx = this.fol != null ? this.fol.bjx() : true;
-                    if (this.fok && bjx) {
+                if (this.foo) {
+                    boolean bjA = this.fom != null ? this.fom.bjA() : true;
+                    if (this.fol && bjA) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.fon = bjx;
+                    this.foo = bjA;
                     break;
                 }
                 break;
@@ -76,7 +76,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.fom || this.fok) {
+        if (this.fon || this.fol) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -87,11 +87,11 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 1:
-                if (this.fok) {
-                    this.fok = false;
+                if (this.fol) {
+                    this.fol = false;
                 }
-                if (this.fom) {
-                    this.fom = false;
+                if (this.fon) {
+                    this.fon = false;
                 }
                 setmDisallowSlip(false);
                 break;
@@ -100,10 +100,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     }
 
     public void setForceIntercept(boolean z) {
-        this.fom = z;
+        this.fon = z;
     }
 
     public void setOnTouchEventListener(a aVar) {
-        this.fol = aVar;
+        this.fom = aVar;
     }
 }

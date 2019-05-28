@@ -299,11 +299,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     protected void aQ(View view) {
         if (this.can != null && this.VK != null && this.cao != null && !this.VK.aff()) {
             if (!this.VK.afe()) {
-                if (com.baidu.tieba.frs.a.biT().Z(this.VK)) {
+                if (com.baidu.tieba.frs.a.biW().Z(this.VK)) {
                     this.VK.dI(true);
                 }
             } else {
-                com.baidu.tieba.frs.a.biT().aa(this.VK);
+                com.baidu.tieba.frs.a.biW().aa(this.VK);
                 this.VK.dI(false);
             }
             al.j(this.cao, this.VK.afe() ? R.color.cp_link_tip_a : R.drawable.selector_comment_and_prise_item_text_color);
@@ -548,7 +548,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             eVar.E(bundle);
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, eVar, true, true);
             shareDialogConfig.setIsAlaLive(this.VK.getThreadType() == 49 || this.VK.getThreadType() == 60);
-            com.baidu.tieba.c.e.aZz().a(shareDialogConfig);
+            com.baidu.tieba.c.e.aZC().a(shareDialogConfig);
         }
     }
 
@@ -683,7 +683,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     this.mMaskView.setVisibility(8);
                 }
                 this.cap.setVisibility(8);
-            } else if (this.caA && com.baidu.tieba.frs.a.biT().biU()) {
+            } else if (this.caA && com.baidu.tieba.frs.a.biW().biX()) {
                 if (this.mMaskView == null) {
                     this.mMaskView = new View(getContext());
                     al.l(this.mMaskView, R.color.cp_bg_line_d);

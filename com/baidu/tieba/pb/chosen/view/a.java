@@ -122,7 +122,7 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.hVx) || "1".equals(eVar.hVx)) {
+            if (StringUtils.isNull(eVar.hVA) || "1".equals(eVar.hVA)) {
                 c0371a.Sm.setVisibility(8);
             } else {
                 c0371a.Sm.setVisibility(0);
@@ -156,8 +156,8 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof g) {
             g gVar = (g) item;
-            textView.setText(gVar.bWK());
-            switch (gVar.bWM()) {
+            textView.setText(gVar.bWN());
+            switch (gVar.bWP()) {
                 case 1:
                     textView.setGravity(17);
                     break;
@@ -168,8 +168,8 @@ public class a extends BaseAdapter {
                     textView.setGravity(3);
                     break;
             }
-            if (!StringUtils.isNull(gVar.bWN())) {
-                if (!al.e(textView, gVar.bWN())) {
+            if (!StringUtils.isNull(gVar.bWQ())) {
+                if (!al.e(textView, gVar.bWQ())) {
                     al.f(textView, R.color.cp_cont_b, 1);
                 }
             } else {

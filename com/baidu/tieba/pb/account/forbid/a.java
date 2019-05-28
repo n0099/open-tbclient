@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class a {
-    private static final String hzx = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String hzA = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -31,8 +31,8 @@ public class a {
         private String FG;
         private String cjb;
         private String cjf;
-        private String hzy;
-        private WeakReference<b> hzz;
+        private String hzB;
+        private WeakReference<b> hzC;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -44,12 +44,12 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.hzy = str6;
+            this.hzB = str6;
             this.cjf = str8;
             this.cjb = str9;
             this.FG = str7;
             this.mPostId = str5;
-            this.hzz = new WeakReference<>(bVar);
+            this.hzC = new WeakReference<>(bVar);
             setPriority(3);
         }
 
@@ -58,8 +58,8 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: A */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.hzx);
-            xVar.o(Config.TRACE_VISIT_RECENT_DAY, this.hzy);
+            x xVar = new x(a.hzA);
+            xVar.o(Config.TRACE_VISIT_RECENT_DAY, this.hzB);
             xVar.o("un", this.mUserName);
             xVar.o("fid", this.mForumId);
             xVar.o("word", this.mForumName);
@@ -93,7 +93,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.hzz.get();
+            b bVar = this.hzC.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ap.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

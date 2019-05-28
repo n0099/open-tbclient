@@ -15,14 +15,14 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity jIh;
+    private HotTopicChangeFourmActivity jIi;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.jIh = hotTopicChangeFourmActivity;
-        this.mContext = this.jIh.getPageContext().getContext();
+        this.jIi = hotTopicChangeFourmActivity;
+        this.mContext = this.jIi.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -83,29 +83,29 @@ public class a extends BaseAdapter {
     private C0429a a(Object obj, HotTopicBussinessData hotTopicBussinessData) {
         C0429a c0429a;
         if (obj == null) {
-            c0429a = cxI();
+            c0429a = cxK();
         } else {
             c0429a = (C0429a) obj;
         }
-        c0429a.jIj.setText(FP(hotTopicBussinessData.mForumName));
-        c0429a.jIi.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0429a.jIk.setText(FP(hotTopicBussinessData.mForumName));
+        c0429a.jIj.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         al.k(c0429a.mRootView, R.drawable.select_forum_item_bg);
-        al.j(c0429a.jIj, R.color.cp_cont_b);
-        al.l(c0429a.fyR, R.color.cp_bg_line_e);
+        al.j(c0429a.jIk, R.color.cp_cont_b);
+        al.l(c0429a.fyS, R.color.cp_bg_line_e);
         return c0429a;
     }
 
-    private C0429a cxI() {
+    private C0429a cxK() {
         C0429a c0429a = new C0429a();
         c0429a.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.hot_topic_change_item, (ViewGroup) null);
         al.k(c0429a.mRootView, R.drawable.select_forum_item_bg);
-        al.j(c0429a.jIj, R.color.cp_cont_b);
-        c0429a.jIj = (TextView) c0429a.mRootView.findViewById(R.id.fourm_tv);
-        c0429a.fyR = c0429a.mRootView.findViewById(R.id.line_view);
-        c0429a.jIi = (TbImageView) c0429a.mRootView.findViewById(R.id.icon_img);
-        c0429a.jIi.setDefaultBgResource(R.color.cp_bg_line_e);
-        c0429a.jIi.setDefaultResource(R.drawable.transparent_bg);
-        c0429a.jIi.setDefaultErrorResource(R.drawable.icon_default_ba_120);
+        al.j(c0429a.jIk, R.color.cp_cont_b);
+        c0429a.jIk = (TextView) c0429a.mRootView.findViewById(R.id.fourm_tv);
+        c0429a.fyS = c0429a.mRootView.findViewById(R.id.line_view);
+        c0429a.jIj = (TbImageView) c0429a.mRootView.findViewById(R.id.icon_img);
+        c0429a.jIj.setDefaultBgResource(R.color.cp_bg_line_e);
+        c0429a.jIj.setDefaultResource(R.drawable.transparent_bg);
+        c0429a.jIj.setDefaultErrorResource(R.drawable.icon_default_ba_120);
         c0429a.mRootView.setTag(c0429a);
         return c0429a;
     }
@@ -114,9 +114,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0429a {
-        public View fyR;
-        public TbImageView jIi;
-        public TextView jIj;
+        public View fyS;
+        public TbImageView jIj;
+        public TextView jIk;
         public View mRootView;
 
         private C0429a() {

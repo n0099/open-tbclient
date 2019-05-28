@@ -30,7 +30,7 @@ import org.apache.http.protocol.HTTP;
 public class c implements q {
     private static int bRi = 2097152;
     private final com.baidu.tbadk.core.util.a.a bRc;
-    private com.baidu.tieba.recapp.download.http.c izZ = new com.baidu.tieba.recapp.download.http.c();
+    private com.baidu.tieba.recapp.download.http.c iAb = new com.baidu.tieba.recapp.download.http.c();
     private Context mContext = TbadkCoreApplication.getInst().getApp();
 
     public c(com.baidu.tbadk.core.util.a.a aVar) {
@@ -125,13 +125,13 @@ public class c implements q {
 
     @Override // com.baidu.tbadk.core.util.q
     public void ia() {
-        this.izZ.cancel();
+        this.iAb.cancel();
     }
 
     @Override // com.baidu.tbadk.core.util.q
     public void ie() {
-        if (this.izZ != null) {
-            this.izZ.ie();
+        if (this.iAb != null) {
+            this.iAb.ie();
         }
     }
 
@@ -215,21 +215,21 @@ public class c implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.izZ.isCanceled()) {
+            if (this.iAb.isCanceled()) {
                 return null;
             }
-            if (this.izZ.b(this.bRc.aiB().aiE().mUrl, this.bRc.aiB().aiE().bUc, this.bRc.aiB().aiE().bUe, 5, -1, ahL()) == null) {
+            if (this.iAb.b(this.bRc.aiB().aiE().mUrl, this.bRc.aiB().aiE().bUc, this.bRc.aiB().aiE().bUe, 5, -1, ahL()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g ceY = this.izZ.ceY();
-            if (ceY == null) {
+            com.baidu.tieba.recapp.download.http.g cfa = this.iAb.cfa();
+            if (cfa == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cfa = ceY.cfa();
-            if (ceY == null || ceY.im() == null || ceY.im().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cfc = cfa.cfc();
+            if (cfa == null || cfa.im() == null || cfa.im().size() > 0) {
             }
-            this.bRc.aiC().AM = cfa.responseCode;
-            this.bRc.aiC().mHeader = cfa.AN;
+            this.bRc.aiC().AM = cfc.responseCode;
+            this.bRc.aiC().mHeader = cfc.AN;
             if (this.bRc.aiC().AM != 200) {
                 if (this.bRc.aiD().bTI != null && !TextUtils.isEmpty(this.bRc.aiD().bTI.Au)) {
                     this.bRc.aiC().bTH = this.bRc.aiD().bTI.Au;
@@ -238,10 +238,10 @@ public class c implements q {
                 }
                 TiebaStatic.net(this.bRc);
                 return null;
-            } else if (this.izZ.isCanceled()) {
+            } else if (this.iAb.isCanceled()) {
                 return null;
             } else {
-                str = new String(cfa.AO, "utf-8");
+                str = new String(cfc.AO, "utf-8");
                 try {
                     if (this.bRc.aiB().aiE().mIsBaiduServer && this.bRc.aiB().aiE().bUf) {
                         nH(str);
@@ -379,19 +379,19 @@ public class c implements q {
             e = e5;
             iVar = null;
         }
-        if (this.izZ.isCanceled()) {
+        if (this.iAb.isCanceled()) {
             throw new BdHttpCancelException();
         }
         long j = new Date().getTime();
-        this.izZ.b(str, z, 5, 100, -1, -1, ahL());
-        com.baidu.tieba.recapp.download.http.g ceY = this.izZ.ceY();
-        if (ceY == null) {
+        this.iAb.b(str, z, 5, 100, -1, -1, ahL());
+        com.baidu.tieba.recapp.download.http.g cfa = this.iAb.cfa();
+        if (cfa == null) {
             return null;
         }
-        iVar = ceY.cfa();
-        if (ceY != null) {
+        iVar = cfa.cfc();
+        if (cfa != null) {
             try {
-                if (ceY.im() == null || ceY.im().size() > 0) {
+                if (cfa.im() == null || cfa.im().size() > 0) {
                 }
             } catch (BdHttpCancelException e6) {
                 iVar2 = iVar;
@@ -561,21 +561,21 @@ public class c implements q {
         if (TbConfig.getDebugSwitch()) {
         }
         try {
-            if (this.izZ.isCanceled()) {
+            if (this.iAb.isCanceled()) {
                 return null;
             }
-            if (this.izZ.b(this.bRc.aiB().aiE().mUrl, this.bRc.aiB().aiE().bUc, this.bRc.aiB().aiE().bUe, 5, -1, ahL()) == null) {
+            if (this.iAb.b(this.bRc.aiB().aiE().mUrl, this.bRc.aiB().aiE().bUc, this.bRc.aiB().aiE().bUe, 5, -1, ahL()) == null) {
                 throw new BdHttpCancelException();
             }
-            com.baidu.tieba.recapp.download.http.g ceY = this.izZ.ceY();
-            if (ceY == null) {
+            com.baidu.tieba.recapp.download.http.g cfa = this.iAb.cfa();
+            if (cfa == null) {
                 return null;
             }
-            com.baidu.tieba.recapp.download.http.i cfa = ceY.cfa();
-            if (ceY == null || ceY.im() == null || ceY.im().size() > 0) {
+            com.baidu.tieba.recapp.download.http.i cfc = cfa.cfc();
+            if (cfa == null || cfa.im() == null || cfa.im().size() > 0) {
             }
-            this.bRc.aiC().AM = cfa.responseCode;
-            this.bRc.aiC().mHeader = cfa.AN;
+            this.bRc.aiC().AM = cfc.responseCode;
+            this.bRc.aiC().mHeader = cfc.AN;
             if (this.bRc.aiC().AM != 200) {
                 if (this.bRc.aiD().bTI != null && !TextUtils.isEmpty(this.bRc.aiD().bTI.Au)) {
                     this.bRc.aiC().bTH = this.bRc.aiD().bTI.Au;
@@ -584,10 +584,10 @@ public class c implements q {
                 }
                 TiebaStatic.net(this.bRc);
                 return null;
-            } else if (this.izZ.isCanceled()) {
+            } else if (this.iAb.isCanceled()) {
                 return null;
             } else {
-                str = new String(cfa.AO, "utf-8");
+                str = new String(cfc.AO, "utf-8");
                 try {
                     if (this.bRc.aiB().aiE().mIsBaiduServer && this.bRc.aiB().aiE().bUf) {
                         nH(str);
@@ -671,10 +671,10 @@ public class c implements q {
     @Override // com.baidu.tbadk.core.util.q
     public boolean a(String str, final Handler handler, final int i, int i2, int i3, boolean z) {
         try {
-            if (this.izZ.isCanceled()) {
+            if (this.iAb.isCanceled()) {
                 return false;
             }
-            return this.izZ.a(this.bRc.aiB().aiE().mUrl, (z ? new File(str) : m.ng(str)).getAbsolutePath(), false, i2, i3, -1, -1, ahL(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.c.1
+            return this.iAb.a(this.bRc.aiB().aiE().mUrl, (z ? new File(str) : m.ng(str)).getAbsolutePath(), false, i2, i3, -1, -1, ahL(), new com.baidu.tieba.recapp.download.http.j() { // from class: com.baidu.tieba.recapp.download.c.1
                 int bRk = 0;
                 int bRl = 0;
                 int bRm = 0;

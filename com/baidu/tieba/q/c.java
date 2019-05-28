@@ -17,9 +17,9 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c iVZ;
-    private SparseArray<HashSet<String>> iWc;
-    private a iWd;
+    private static c iWb;
+    private SparseArray<HashSet<String>> iWe;
+    private a iWf;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.q.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -28,7 +28,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.fJO = false;
+                        aVar.fJP = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -44,79 +44,79 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.iWc != null) {
-                    c.this.iWc.clear();
+                if (c.this.iWe != null) {
+                    c.this.iWe.clear();
                 }
-                c.this.iWa.cls();
+                c.this.iWc.clu();
             }
         }
     };
-    private int iWb = com.baidu.tbadk.core.sharedPref.b.agM().getInt("card_show_statistic_max_count", 200);
-    private final b iWa = new b();
+    private int iWd = com.baidu.tbadk.core.sharedPref.b.agM().getInt("card_show_statistic_max_count", 200);
+    private final b iWc = new b();
 
     private c() {
         MessageManager.getInstance().registerListener(this.bCA);
     }
 
-    public static c clt() {
-        if (iVZ == null) {
+    public static c clv() {
+        if (iWb == null) {
             synchronized (c.class) {
-                if (iVZ == null) {
-                    iVZ = new c();
+                if (iWb == null) {
+                    iWb = new c();
                 }
             }
         }
-        return iVZ;
+        return iWb;
     }
 
     public void u(BdUniqueId bdUniqueId) {
         l.kg();
         if (bdUniqueId != null) {
-            this.iWa.u(bdUniqueId);
+            this.iWc.u(bdUniqueId);
         }
     }
 
     public void v(BdUniqueId bdUniqueId) {
         l.kg();
         if (bdUniqueId != null) {
-            this.iWa.v(bdUniqueId);
+            this.iWc.v(bdUniqueId);
             x(bdUniqueId);
         }
     }
 
     public void x(BdUniqueId bdUniqueId) {
-        if (this.iWc != null) {
-            this.iWc.remove(bdUniqueId.getId());
+        if (this.iWe != null) {
+            this.iWe.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, am amVar) {
-        this.iWa.a(bdUniqueId, true);
+        this.iWc.a(bdUniqueId, true);
         TiebaStatic.log(amVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, am amVar) {
         if (bdUniqueId != null && amVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.iWa.w(bdUniqueId)) {
+            if (!this.iWc.w(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + amVar.getKey());
             }
-            if (this.iWc == null) {
-                this.iWc = new SparseArray<>();
+            if (this.iWe == null) {
+                this.iWe = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.iWc.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.iWe.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.iWc.put(bdUniqueId.getId(), hashSet);
+                this.iWe.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = amVar.getKey() + "_" + str;
-            if (!hashSet.contains(str2) && !bpA()) {
+            if (!hashSet.contains(str2) && !bpD()) {
                 hashSet.add(str2);
-                this.iWa.a(bdUniqueId, amVar);
+                this.iWc.a(bdUniqueId, amVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -124,29 +124,29 @@ public class c {
         }
     }
 
-    private boolean bpA() {
-        if (this.iWd == null) {
-            this.iWd = new a();
+    private boolean bpD() {
+        if (this.iWf == null) {
+            this.iWf = new a();
         }
-        if (this.iWd.fJO) {
+        if (this.iWf.fJP) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.iWd.isRunning) {
-            this.iWd.count++;
-            if (currentTimeMillis - this.iWd.fJN < 120000) {
-                if (this.iWd.count >= this.iWb) {
-                    this.iWd.fJO = true;
-                    a(this.iWd);
+        if (this.iWf.isRunning) {
+            this.iWf.count++;
+            if (currentTimeMillis - this.iWf.fJO < 120000) {
+                if (this.iWf.count >= this.iWd) {
+                    this.iWf.fJP = true;
+                    a(this.iWf);
                     return true;
                 }
             } else {
-                this.iWd.isRunning = false;
-                this.iWd.count = 0;
+                this.iWf.isRunning = false;
+                this.iWf.count = 0;
             }
         } else {
-            this.iWd.isRunning = true;
-            this.iWd.fJN = currentTimeMillis;
+            this.iWf.isRunning = true;
+            this.iWf.fJO = currentTimeMillis;
         }
         return false;
     }
@@ -163,22 +163,22 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.iWa.a(bdUniqueId, z);
+        this.iWc.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
         public int count;
-        public long fJN;
-        public boolean fJO;
+        public long fJO;
+        public boolean fJP;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.fJN = 0L;
-            this.fJO = false;
+            this.fJO = 0L;
+            this.fJP = false;
         }
     }
 }

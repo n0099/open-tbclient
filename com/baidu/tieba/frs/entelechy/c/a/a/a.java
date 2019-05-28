@@ -11,7 +11,7 @@ import java.util.List;
 public class a extends b {
     private List<v> mDatas;
 
-    public List<v> bnj() {
+    public List<v> bnm() {
         return this.mDatas;
     }
 

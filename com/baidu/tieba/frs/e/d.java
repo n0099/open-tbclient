@@ -9,19 +9,19 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d fKU;
+    private static d fKV;
     private LruCache<String, String> aha = new LruCache<>(10);
-    private l<String> fKT = com.baidu.tbadk.core.c.a.afD().mB("tb.recently_vistited_forum_animation");
+    private l<String> fKU = com.baidu.tbadk.core.c.a.afD().mB("tb.recently_vistited_forum_animation");
 
-    public static d bpM() {
-        if (fKU == null) {
+    public static d bpP() {
+        if (fKV == null) {
             synchronized (d.class) {
-                if (fKU == null) {
-                    fKU = new d();
+                if (fKV == null) {
+                    fKV = new d();
                 }
             }
         }
-        return fKU;
+        return fKV;
     }
 
     private d() {
@@ -35,12 +35,12 @@ public class d {
                     }
                     if (sb.length() > 1) {
                         sb.deleteCharAt(sb.length() - 1);
-                        d.this.fKT.g("transition_cache_key", sb.toString());
+                        d.this.fKU.g("transition_cache_key", sb.toString());
                     }
                 }
             }
         });
-        this.fKT.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.e.d.2
+        this.fKU.a("transition_cache_key", new l.a<String>() { // from class: com.baidu.tieba.frs.e.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.cache.l.a
             /* renamed from: db */

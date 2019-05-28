@@ -19,9 +19,9 @@ import java.util.List;
 public class j extends b<com.baidu.tieba.card.data.h> {
     private View.OnClickListener bVi;
     private List<com.baidu.tieba.horizonalList.widget.c> bqT;
-    private com.baidu.tieba.horizonalList.widget.b ewI;
-    private HListView ewR;
-    public k ewS;
+    private com.baidu.tieba.horizonalList.widget.b ewJ;
+    private HListView ewS;
+    public k ewT;
     private TbPageContext<?> mContext;
 
     public j(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -29,27 +29,27 @@ public class j extends b<com.baidu.tieba.card.data.h> {
         this.bVi = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.aXo() != null) {
-                    j.this.aXo().a(view, null);
+                if (j.this.aXr() != null) {
+                    j.this.aXr().a(view, null);
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.ewR = new HListView(getContext());
-        this.ewR.setHeaderDividersEnabled(false);
-        this.ewR.setFooterDividersEnabled(false);
-        this.ewR.setSelector(R.drawable.list_selector_transparent);
-        this.ewR.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
-        this.ewS = new k(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
-        this.ewI = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.card_homepage_rec_god_item, this.ewS);
-        this.ewI.setOnClickListener(this.bVi);
-        this.ewR.setAdapter((ListAdapter) this.ewI);
-        this.evc.addView(this.ewR);
-        this.evb.setVisibility(8);
-        this.euV.setTextSize(0, com.baidu.adp.lib.util.l.g(this.mContext.getPageActivity(), R.dimen.ds28));
-        this.euW.setVisibility(0);
-        this.euW.setText(this.mContext.getResources().getString(R.string.recommend_frs_hot_thread_more));
-        this.euU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.j.2
+        this.ewS = new HListView(getContext());
+        this.ewS.setHeaderDividersEnabled(false);
+        this.ewS.setFooterDividersEnabled(false);
+        this.ewS.setSelector(R.drawable.list_selector_transparent);
+        this.ewS.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
+        this.ewT = new k(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
+        this.ewJ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.card_homepage_rec_god_item, this.ewT);
+        this.ewJ.setOnClickListener(this.bVi);
+        this.ewS.setAdapter((ListAdapter) this.ewJ);
+        this.evd.addView(this.ewS);
+        this.evc.setVisibility(8);
+        this.euW.setTextSize(0, com.baidu.adp.lib.util.l.g(this.mContext.getPageActivity(), R.dimen.ds28));
+        this.euX.setVisibility(0);
+        this.euX.setText(this.mContext.getResources().getString(R.string.recommend_frs_hot_thread_more));
+        this.euV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.j.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
@@ -59,16 +59,16 @@ public class j extends b<com.baidu.tieba.card.data.h> {
                 }
             }
         });
-        this.ewS.setUniqueId(bdUniqueId);
+        this.ewT.setUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
-        if (this.ewR != null && this.ewI != null) {
+        if (this.ewS != null && this.ewJ != null) {
+            al.j(this.euX, R.color.cp_cont_d);
             al.j(this.euW, R.color.cp_cont_d);
-            al.j(this.euV, R.color.cp_cont_d);
-            this.ewI.iA(i);
+            this.ewJ.iA(i);
         }
     }
 
@@ -78,12 +78,12 @@ public class j extends b<com.baidu.tieba.card.data.h> {
         super.a((j) hVar);
         if (hVar != null && !com.baidu.tbadk.core.util.v.aa(hVar.getDataList())) {
             if (StringUtils.isNull(hVar.mGroupTitle)) {
-                this.euV.setText(this.mContext.getPageActivity().getResources().getString(R.string.the_gods_you_may_interest_in));
+                this.euW.setText(this.mContext.getPageActivity().getResources().getString(R.string.the_gods_you_may_interest_in));
             }
             if (bv(hVar.getDataList())) {
                 this.bqT = hVar.getDataList();
-                this.ewI.setData(this.bqT);
-                this.ewI.notifyDataSetChanged();
+                this.ewJ.setData(this.bqT);
+                this.ewJ.notifyDataSetChanged();
             }
         }
     }

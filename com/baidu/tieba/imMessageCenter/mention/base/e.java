@@ -11,12 +11,12 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
     private BdTypeRecyclerView NZ;
-    private ArrayList<m> ePw;
-    private b gQK;
-    private b gQL;
-    private b gQM;
+    private ArrayList<m> ePx;
     private b gQN;
     private b gQO;
+    private b gQP;
+    private b gQQ;
+    private b gQR;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.gQK = new b(tbPageContext, a.gQt);
-        this.gQL = new b(tbPageContext, a.gQu);
-        this.gQM = new b(tbPageContext, a.gQx);
         this.gQN = new b(tbPageContext, a.gQw);
-        this.gQO = new b(tbPageContext, a.gQv);
-        this.mAdapters.add(this.gQK);
-        this.mAdapters.add(this.gQL);
-        this.mAdapters.add(this.gQM);
+        this.gQO = new b(tbPageContext, a.gQx);
+        this.gQP = new b(tbPageContext, a.gQA);
+        this.gQQ = new b(tbPageContext, a.gQz);
+        this.gQR = new b(tbPageContext, a.gQy);
         this.mAdapters.add(this.gQN);
         this.mAdapters.add(this.gQO);
+        this.mAdapters.add(this.gQP);
+        this.mAdapters.add(this.gQQ);
+        this.mAdapters.add(this.gQR);
         this.NZ.addAdapters(this.mAdapters);
     }
 
@@ -47,7 +47,7 @@ public class e {
 
     public void setData(ArrayList<m> arrayList) {
         this.NZ.setData(arrayList);
-        this.ePw = arrayList;
+        this.ePx = arrayList;
     }
 
     public void notifyDataSetChanged() {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
-        this.gQO.b(abVar);
-        this.gQN.b(abVar);
-        this.gQM.b(abVar);
+        this.gQR.b(abVar);
+        this.gQQ.b(abVar);
+        this.gQP.b(abVar);
     }
 }

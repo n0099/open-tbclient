@@ -44,11 +44,11 @@ public class f {
         return this.height;
     }
 
-    public String aym() {
+    public String ayn() {
         return this.cLp;
     }
 
-    public boolean ayn() {
+    public boolean ayo() {
         return this.cLo == 15;
     }
 

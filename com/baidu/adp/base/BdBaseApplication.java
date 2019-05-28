@@ -6,13 +6,17 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.megapp.ma.MAApplication;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
+import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;
     protected Handler mAppInitHandler;
+    private boolean mHasCheckedNewUserStatus;
+    private boolean mIsNewUser;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
     private boolean mIsPluginResourceOpen = true;
@@ -102,5 +106,60 @@ public class BdBaseApplication extends MAApplication {
 
     public boolean getIsPluginResourcOpen() {
         return this.mIsPluginResourceOpen;
+    }
+
+    public void setIsPluginResourceOpen(boolean z) {
+        this.mIsPluginResourceOpen = true;
+    }
+
+    public boolean checkInterrupt() {
+        return checkInterrupt(System.currentTimeMillis());
+    }
+
+    private boolean checkInterrupt(long j) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019, 5, 7, 19, 20, 0);
+        long timeInMillis = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 7, 21, 0, 0);
+        long timeInMillis2 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 20, 10, 0);
+        long timeInMillis3 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 21, 50, 0);
+        long timeInMillis4 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 20, 0, 0);
+        long timeInMillis5 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 20, 30, 0);
+        return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
+    }
+
+    public boolean checkNewUser() {
+        if (this.mHasCheckedNewUserStatus) {
+            return this.mIsNewUser;
+        }
+        try {
+            this.mIsNewUser = checkInterrupt(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).firstInstallTime);
+            this.mHasCheckedNewUserStatus = true;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+        return this.mIsNewUser;
+    }
+
+    public boolean checkInLater30Min() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2019, 5, 7, 21, 0, 0);
+        long timeInMillis = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 7, 21, 30, 0);
+        long timeInMillis2 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 21, 50, 0);
+        long timeInMillis3 = calendar.getTimeInMillis();
+        calendar.set(2019, 5, 15, 22, 20, 0);
+        long timeInMillis4 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 20, 30, 0);
+        long timeInMillis5 = calendar.getTimeInMillis();
+        calendar.set(2019, 4, 27, 21, 0, 0);
+        long timeInMillis6 = calendar.getTimeInMillis();
+        long currentTimeMillis = System.currentTimeMillis();
+        return (timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || (timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6);
     }
 }

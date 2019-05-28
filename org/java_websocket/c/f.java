@@ -7,7 +7,7 @@ public interface f {
 
     boolean Hr(String str);
 
-    Iterator<String> cKS();
+    Iterator<String> cKU();
 
     byte[] getContent();
 }

@@ -7,7 +7,7 @@ public class c {
         this.cPM = obj;
     }
 
-    public Object azm() {
+    public Object azn() {
         return this.cPM;
     }
 }

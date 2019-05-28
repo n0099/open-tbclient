@@ -19,9 +19,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String fVY = null;
+    private String fVZ = null;
     private TextView mTextView = null;
-    private TextView fWm = null;
+    private TextView fWn = null;
     LinearLayout bZi = null;
 
     public static void ax(Context context, String str) {
@@ -41,17 +41,17 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         super.onCreate(bundle);
         setContentView(R.layout.create_bar_success_activity);
         initData();
-        bsF();
+        bsI();
     }
 
     private void initData() {
-        this.fVY = getIntent().getStringExtra("barname");
-        if (this.fVY == null) {
-            this.fVY = "";
+        this.fVZ = getIntent().getStringExtra("barname");
+        if (this.fVZ == null) {
+            this.fVZ = "";
         }
     }
 
-    private void bsF() {
+    private void bsI() {
         this.bZi = (LinearLayout) findViewById(R.id.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -63,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.create_bar));
         this.mTextView = (TextView) findViewById(R.id.text);
-        this.fWm = (TextView) findViewById(R.id.text_more);
+        this.fWn = (TextView) findViewById(R.id.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -75,10 +75,10 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         boolean iE = new r().iE();
         String string = iE ? getPageContext().getString(R.string.create_bar_new_tip) : getPageContext().getString(R.string.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(iE ? string + this.fVY + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.fVY + getPageContext().getString(R.string.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(R.color.common_color_10252)), length, this.fVY.length() + length, 33);
+        SpannableString spannableString = new SpannableString(iE ? string + this.fVZ + getPageContext().getString(R.string.create_bar_new_tip2) : string + this.fVZ + getPageContext().getString(R.string.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(R.color.common_color_10252)), length, this.fVZ.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.fWm.setVisibility(iE ? 0 : 8);
+        this.fWn.setVisibility(iE ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

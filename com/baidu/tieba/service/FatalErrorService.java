@@ -384,7 +384,7 @@ public class FatalErrorService extends BdBaseService {
             try {
                 a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                 a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                cgs();
+                cgu();
                 if (!TbConfig.getVersion().equals(b.agM().getString("native_crash_dump_version", ""))) {
                     b.agM().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
@@ -408,7 +408,7 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void cgs() {
+        private void cgu() {
             File nb = m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
             if (nb != null) {
                 try {

@@ -18,7 +18,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
     protected MediaPlayer bzd;
-    protected ScalableType jqi;
+    protected ScalableType jqj;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -31,11 +31,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.jqi = ScalableType.NONE;
+        this.jqj = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.jqi = ScalableType.values()[i2];
+            this.jqj = ScalableType.values()[i2];
         }
     }
 
@@ -82,12 +82,12 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void ay(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.jqi)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.jqj)) != null) {
             setTransform(a);
         }
     }
 
-    private void aCL() {
+    private void aCO() {
         if (this.bzd == null) {
             this.bzd = new MediaPlayer();
             this.bzd.setOnVideoSizeChangedListener(this);
@@ -111,32 +111,32 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setDataSource(String str) throws IOException {
-        aCL();
+        aCO();
         this.bzd.setDataSource(str);
     }
 
     public void setDataSource(Context context, Uri uri, Map<String, String> map) throws IOException {
-        aCL();
+        aCO();
         this.bzd.setDataSource(context, uri, map);
     }
 
     public void setDataSource(Context context, Uri uri) throws IOException {
-        aCL();
+        aCO();
         this.bzd.setDataSource(context, uri);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor, long j, long j2) throws IOException {
-        aCL();
+        aCO();
         this.bzd.setDataSource(fileDescriptor, j, j2);
     }
 
     public void setDataSource(FileDescriptor fileDescriptor) throws IOException {
-        aCL();
+        aCO();
         this.bzd.setDataSource(fileDescriptor);
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.jqi = scalableType;
+        this.jqj = scalableType;
         ay(getVideoWidth(), getVideoHeight());
     }
 

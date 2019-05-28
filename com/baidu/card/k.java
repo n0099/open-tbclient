@@ -33,7 +33,7 @@ public class k extends ac {
         this.Xi = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.VB = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.Xj = qj();
-        this.Xj.caV().setBackgroundResource(R.color.transparent);
+        this.Xj.caY().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -14,30 +14,30 @@ import com.baidu.tieba.interestlabel.view.LabelSettingView;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements a {
-    private LabelSettingView gUq;
-    private LabelSettingModel gUr;
+    private LabelSettingView gUt;
+    private LabelSettingModel gUu;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gUq = new LabelSettingView(getPageContext(), this);
-        this.gUr = new LabelSettingModel(getPageContext());
-        setContentView(this.gUq);
-        this.gUr.a(this);
-        bGy();
+        this.gUt = new LabelSettingView(getPageContext(), this);
+        this.gUu = new LabelSettingModel(getPageContext());
+        setContentView(this.gUt);
+        this.gUu.a(this);
+        bGB();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void bGy() {
+    public void bGB() {
         if (!j.jG()) {
-            this.gUq.hideLoadingView();
-            this.gUq.jk(true);
+            this.gUt.hideLoadingView();
+            this.gUt.jk(true);
             return;
         }
-        this.gUq.aHH();
-        this.gUq.cV(true);
-        this.gUr.bGE();
+        this.gUt.aHK();
+        this.gUt.cV(true);
+        this.gUu.bGH();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
@@ -45,7 +45,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         if (!j.jG()) {
             showToast(R.string.neterror);
         } else {
-            this.gUr.di(list);
+            this.gUu.di(list);
         }
     }
 
@@ -53,13 +53,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     public void a(LabelRequestEnum labelRequestEnum, b bVar, int i) {
         switch (labelRequestEnum) {
             case GET_LABEL:
-                this.gUq.hideLoadingView();
-                if (bVar == null || v.aa(bVar.bGC())) {
-                    this.gUq.jk(true);
+                this.gUt.hideLoadingView();
+                if (bVar == null || v.aa(bVar.bGF())) {
+                    this.gUt.jk(true);
                     return;
                 }
-                this.gUq.aHH();
-                this.gUq.setData(bVar);
+                this.gUt.aHK();
+                this.gUt.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
@@ -77,13 +77,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gUq.onChangeSkinType();
+        this.gUt.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.gUq != null && this.gUq.bGO()) {
-            this.gUq.showDialog();
+        if (i == 4 && this.gUt != null && this.gUt.bGR()) {
+            this.gUt.showDialog();
             return true;
         }
         return super.onKeyDown(i, keyEvent);

@@ -57,14 +57,14 @@ public class LinearGradientView extends View {
 
     private void init() {
         this.mPath = new Path();
-        awb();
+        awc();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            this.cDA = awc();
+            this.cDA = awd();
         }
     }
 
@@ -72,11 +72,11 @@ public class LinearGradientView extends View {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.cDB == null) {
-            this.cDA = awc();
+            this.cDA = awd();
         }
         int width = getWidth();
         int height = getHeight();
-        awa();
+        awb();
         if (this.cDD == 0) {
             canvas.drawRect(0.0f, 0.0f, width, height, this.cDB);
         } else {
@@ -84,7 +84,7 @@ public class LinearGradientView extends View {
         }
     }
 
-    private void awa() {
+    private void awb() {
         if ((getWidth() != this.mWidth || getHeight() != this.mHeight || this.cDC != this.mRadius) && this.cDD != 0) {
             this.mWidth = getWidth();
             this.mHeight = getHeight();
@@ -125,7 +125,7 @@ public class LinearGradientView extends View {
         this.cDx = i2;
         this.cDy = i3;
         this.cDz = i4;
-        this.cDA = awc();
+        this.cDA = awd();
         invalidate();
     }
 
@@ -137,25 +137,25 @@ public class LinearGradientView extends View {
             this.cDx = com.baidu.tieba.lego.card.d.a.parseColor(str2);
             this.cDy = com.baidu.tieba.lego.card.d.a.parseColor(str3);
             this.cDz = com.baidu.tieba.lego.card.d.a.parseColor(str4);
-            this.cDA = awc();
+            this.cDA = awd();
             invalidate();
         }
     }
 
-    private void awb() {
+    private void awc() {
         this.cDw = com.baidu.tieba.lego.card.d.a.parseColor("#2BB8FF");
         this.cDx = com.baidu.tieba.lego.card.d.a.parseColor("#2BB8FF");
         this.cDy = com.baidu.tieba.lego.card.d.a.parseColor("#249BD6");
         this.cDz = com.baidu.tieba.lego.card.d.a.parseColor("#246CD6");
-        this.cDA = awc();
+        this.cDA = awd();
     }
 
     public void setDefaultGradientColor() {
-        awb();
+        awc();
         invalidate();
     }
 
-    private LinearGradient awc() {
+    private LinearGradient awd() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         boolean z = skinType == 1;
         this.cDA = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{z ? this.cDy : this.cDw, z ? this.cDz : this.cDx}, (float[]) null, Shader.TileMode.CLAMP);
@@ -166,7 +166,7 @@ public class LinearGradientView extends View {
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.cDA = awc();
+            this.cDA = awd();
             invalidate();
         }
         this.mSkinType = i;

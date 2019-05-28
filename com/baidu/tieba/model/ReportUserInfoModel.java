@@ -15,8 +15,8 @@ import com.baidu.tieba.message.ResponseReportUserInfoMessage;
 public class ReportUserInfoModel extends BdBaseModel {
     public static final long TIME_INTERVAL = 300000;
     public static final int TYPE_ADDRESS = 1;
-    private a hoR;
-    private final HttpMessageListener hoS;
+    private a hoU;
+    private final HttpMessageListener hoV;
     public long timeInterval;
 
     /* loaded from: classes.dex */
@@ -27,22 +27,22 @@ public class ReportUserInfoModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.hoR = aVar;
+        this.hoU = aVar;
     }
 
     public ReportUserInfoModel(Context context) {
         super(null);
         this.timeInterval = TIME_INTERVAL;
-        this.hoS = new HttpMessageListener(CmdConfigHttp.REPORT_USER_INFO) { // from class: com.baidu.tieba.model.ReportUserInfoModel.1
+        this.hoV = new HttpMessageListener(CmdConfigHttp.REPORT_USER_INFO) { // from class: com.baidu.tieba.model.ReportUserInfoModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && ReportUserInfoModel.this.hoR != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001522 && ReportUserInfoModel.this.hoU != null && (httpResponsedMessage instanceof ResponseReportUserInfoMessage)) {
                     ResponseReportUserInfoMessage responseReportUserInfoMessage = (ResponseReportUserInfoMessage) httpResponsedMessage;
                     if (responseReportUserInfoMessage.getErrorCode() == 0) {
-                        ReportUserInfoModel.this.hoR.wG(responseReportUserInfoMessage.getTimeInterval());
+                        ReportUserInfoModel.this.hoU.wG(responseReportUserInfoMessage.getTimeInterval());
                     } else {
-                        ReportUserInfoModel.this.hoR.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
+                        ReportUserInfoModel.this.hoU.onError(responseReportUserInfoMessage.getErrorCode(), responseReportUserInfoMessage.getErrorMsg());
                     }
                 }
             }
@@ -59,11 +59,11 @@ public class ReportUserInfoModel extends BdBaseModel {
         return false;
     }
 
-    public boolean bLF() {
+    public boolean bLI() {
         return Math.abs(System.currentTimeMillis() - TbadkCoreApplication.getInst().getReporyUserInfoLastTime()) >= this.timeInterval;
     }
 
-    public void bLG() {
+    public void bLJ() {
         TbadkCoreApplication.getInst().setReporyUserInfoCurrentTime();
     }
 
@@ -71,12 +71,12 @@ public class ReportUserInfoModel extends BdBaseModel {
         this.timeInterval = j;
     }
 
-    public void bLH() {
+    public void bLK() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
         tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
         messageManager.registerTask(tbHttpMessageTask);
-        messageManager.registerListener(this.hoS);
+        messageManager.registerListener(this.hoV);
     }
 
     public void a(int i, float f, float f2) {
@@ -88,6 +88,6 @@ public class ReportUserInfoModel extends BdBaseModel {
     }
 
     public void unRegisterListener() {
-        MessageManager.getInstance().unRegisterListener(this.hoS);
+        MessageManager.getInstance().unRegisterListener(this.hoV);
     }
 }

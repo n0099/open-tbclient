@@ -20,7 +20,7 @@ import tbclient.PbContent;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemInfoView extends LinearLayout {
-    private TextView gzt;
+    private TextView gzu;
 
     public ItemInfoView(Context context) {
         super(context);
@@ -36,14 +36,14 @@ public class ItemInfoView extends LinearLayout {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.forum_detail_info, (ViewGroup) this, true);
         setVisibility(8);
-        this.gzt = (TextView) findViewById(R.id.info_brief_content);
+        this.gzu = (TextView) findViewById(R.id.info_brief_content);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
         if ((recommendForumInfo != null && recommendForumInfo.content != null && recommendForumInfo.content.size() > 0) || (recommendForumInfo != null && !ap.isEmpty(recommendForumInfo.slogan))) {
-            this.gzt.setText(i(recommendForumInfo.content, recommendForumInfo.slogan));
+            this.gzu.setText(i(recommendForumInfo.content, recommendForumInfo.slogan));
         } else {
-            this.gzt.setText(getResources().getString(R.string.forum_detail_info_no_brief));
+            this.gzu.setText(getResources().getString(R.string.forum_detail_info_no_brief));
         }
         setVisibility(0);
     }
@@ -73,7 +73,7 @@ public class ItemInfoView extends LinearLayout {
     }
 
     public void a(ForumDetailActivity forumDetailActivity, int i) {
-        al.f(this.gzt, R.color.common_color_10177, 1);
+        al.f(this.gzu, R.color.common_color_10177, 1);
         forumDetailActivity.getLayoutMode().setNightMode(i == 1);
         forumDetailActivity.getLayoutMode().onModeChanged(this);
     }

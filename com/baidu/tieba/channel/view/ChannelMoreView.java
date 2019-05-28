@@ -12,10 +12,10 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 public class ChannelMoreView extends LinearLayout {
     private TextView bpQ;
     private View.OnClickListener ckH;
-    private com.baidu.tieba.channel.data.d eCB;
-    private TextView eFp;
+    private com.baidu.tieba.channel.data.d eCC;
     private TextView eFq;
-    private View eFr;
+    private TextView eFr;
+    private View eFs;
     private View.OnClickListener mClickListener;
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
@@ -27,33 +27,33 @@ public class ChannelMoreView extends LinearLayout {
             }
         };
         this.mClickListener = onClickListener;
-        this.eCB = dVar;
+        this.eCC = dVar;
         initView();
     }
 
     private void initView() {
         View.inflate(getContext(), R.layout.channel_more_view_layout, this);
         this.bpQ = (TextView) findViewById(R.id.channel_more_cancel);
-        this.eFr = findViewById(R.id.channel_more_layer);
-        this.eFp = (TextView) findViewById(R.id.channel_up_info);
-        this.eFq = (TextView) findViewById(R.id.channel_push_switch);
+        this.eFs = findViewById(R.id.channel_more_layer);
+        this.eFq = (TextView) findViewById(R.id.channel_up_info);
+        this.eFr = (TextView) findViewById(R.id.channel_push_switch);
         this.bpQ.setOnClickListener(this.mClickListener);
-        this.eFr.setOnClickListener(this.mClickListener);
-        this.eFp.setOnClickListener(this.mClickListener);
+        this.eFs.setOnClickListener(this.mClickListener);
         this.eFq.setOnClickListener(this.mClickListener);
-        if (this.eCB != null && this.eCB.aYz() != null) {
-            ChannelInfo aYz = this.eCB.aYz();
-            if (aYz.isSubscribe()) {
-                this.eFq.setVisibility(0);
-                if (aYz.isPushOpen()) {
-                    this.eFq.setText(getContext().getResources().getString(R.string.channel_push_switch_close));
+        this.eFr.setOnClickListener(this.mClickListener);
+        if (this.eCC != null && this.eCC.aYC() != null) {
+            ChannelInfo aYC = this.eCC.aYC();
+            if (aYC.isSubscribe()) {
+                this.eFr.setVisibility(0);
+                if (aYC.isPushOpen()) {
+                    this.eFr.setText(getContext().getResources().getString(R.string.channel_push_switch_close));
                     return;
                 } else {
-                    this.eFq.setText(getContext().getResources().getString(R.string.channel_push_switch_open));
+                    this.eFr.setText(getContext().getResources().getString(R.string.channel_push_switch_open));
                     return;
                 }
             }
-            this.eFq.setVisibility(8);
+            this.eFr.setVisibility(8);
         }
     }
 
@@ -62,24 +62,24 @@ public class ChannelMoreView extends LinearLayout {
     }
 
     public View getLayerView() {
-        return this.eFr;
+        return this.eFs;
     }
 
     public TextView getUpInfoView() {
-        return this.eFp;
+        return this.eFq;
     }
 
     public TextView getPushView() {
-        return this.eFq;
+        return this.eFr;
     }
 
     public void setBackGround() {
         al.k(this.bpQ, R.drawable.pb_more_pop_cancle_selector);
         al.f(this.bpQ, R.color.channel_pop_cancel_text_color, 1);
-        al.k(this.eFp, R.drawable.pb_more_pop_cancle_selector);
-        al.f(this.eFp, R.color.channel_pop_text_color, 1);
         al.k(this.eFq, R.drawable.pb_more_pop_cancle_selector);
         al.f(this.eFq, R.color.channel_pop_text_color, 1);
+        al.k(this.eFr, R.drawable.pb_more_pop_cancle_selector);
+        al.f(this.eFr, R.color.channel_pop_text_color, 1);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         View findViewById = findViewById(R.id.channel_devide_line);
         if (skinType == 1) {

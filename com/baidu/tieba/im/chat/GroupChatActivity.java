@@ -27,14 +27,14 @@ import com.baidu.tieba.im.model.GroupMsglistModel;
 public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
-    public void bxi() {
+    public void bxl() {
         final GroupData group;
-        super.bxi();
-        if ((this.gtA instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.gtA).getGroup()) != null) {
+        super.bxl();
+        if ((this.gtB instanceof CommonGroupMsglistModel) && (group = ((CommonGroupMsglistModel) this.gtB).getGroup()) != null) {
             if (group != null) {
                 String name = group.getName();
                 if (!TextUtils.isEmpty(name)) {
-                    this.gtz.refreshHeaderFooter(name, true);
+                    this.gtA.refreshHeaderFooter(name, true);
                 }
             }
             aa.b(new z<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupChatActivity.1
@@ -42,7 +42,7 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.z
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(com.baidu.tieba.im.settingcache.b.bDF().m23do(TbadkApplication.getCurrentAccount(), String.valueOf(group.getGroupId())));
+                    return Boolean.valueOf(com.baidu.tieba.im.settingcache.b.bDI().m23do(TbadkApplication.getCurrentAccount(), String.valueOf(group.getGroupId())));
                 }
             }, new k<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupChatActivity.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -50,14 +50,14 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
                 public void onReturnDataInUI(Boolean bool) {
                     if (bool != null) {
                         if (bool.booleanValue()) {
-                            GroupChatActivity.this.gtz.closeNotNotify();
+                            GroupChatActivity.this.gtA.closeNotNotify();
                         } else {
-                            GroupChatActivity.this.gtz.showNotNotfiy();
+                            GroupChatActivity.this.gtA.showNotNotfiy();
                         }
-                        if (GroupChatActivity.this.gtA != null && group != null) {
+                        if (GroupChatActivity.this.gtB != null && group != null) {
                             String name2 = group.getName();
                             if (!TextUtils.isEmpty(name2)) {
-                                GroupChatActivity.this.gtz.refreshHeaderFooter(name2, true);
+                                GroupChatActivity.this.gtA.refreshHeaderFooter(name2, true);
                             }
                         }
                     }
@@ -85,25 +85,25 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
 
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
     protected void initView() {
-        this.gtz = new GroupChatView(this, this.gtA.getIsAcceptNotify());
-        this.gtz.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        if (this.gtA instanceof GroupMsglistModel) {
+        this.gtA = new GroupChatView(this, this.gtB.getIsAcceptNotify());
+        this.gtA.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
+        if (this.gtB instanceof GroupMsglistModel) {
             long j = 0;
-            if (((GroupMsglistModel) this.gtA).getGroup() != null) {
-                j = ((GroupMsglistModel) this.gtA).getGroup().getGroupId();
-                this.gtz.refreshHeaderFooter(((GroupMsglistModel) this.gtA).getGroup().getName(), true);
+            if (((GroupMsglistModel) this.gtB).getGroup() != null) {
+                j = ((GroupMsglistModel) this.gtB).getGroup().getGroupId();
+                this.gtA.refreshHeaderFooter(((GroupMsglistModel) this.gtB).getGroup().getName(), true);
             }
-            this.gtz.bindDataAndRefresh(this.gtA.getData(), j);
-            this.gtz.setRecordCallback(new AbsMsglistView.a() { // from class: com.baidu.tieba.im.chat.GroupChatActivity.3
+            this.gtA.bindDataAndRefresh(this.gtB.getData(), j);
+            this.gtA.setRecordCallback(new AbsMsglistView.a() { // from class: com.baidu.tieba.im.chat.GroupChatActivity.3
                 @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
                 public void d(VoiceData.VoiceModel voiceModel) {
                     if (voiceModel != null) {
-                        GroupChatActivity.this.gtA.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
+                        GroupChatActivity.this.gtB.sendMsgVoice(voiceModel.voiceId, voiceModel.duration);
                     }
                 }
 
                 @Override // com.baidu.tieba.im.chat.AbsMsglistView.a
-                public void bxh() {
+                public void bxk() {
                 }
             });
         }
@@ -112,11 +112,11 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gtz.getBtnGroupInfo()) {
-            sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getPageContext().getContext(), ((GroupMsglistModel) this.gtA).getGroup().getGroupId(), 3)));
+        if (view == this.gtA.getBtnGroupInfo()) {
+            sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getPageContext().getContext(), ((GroupMsglistModel) this.gtB).getGroup().getGroupId(), 3)));
             String stringExtra = getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
-            if (!StringUtils.isNull(TbadkApplication.getCurrentAccount()) && TbadkApplication.getCurrentAccount().equals(stringExtra) && (this.gtz instanceof GroupChatView)) {
-                ((GroupChatView) this.gtz).bxr();
+            if (!StringUtils.isNull(TbadkApplication.getCurrentAccount()) && TbadkApplication.getCurrentAccount().equals(stringExtra) && (this.gtA instanceof GroupChatView)) {
+                ((GroupChatView) this.gtA).bxu();
             }
         }
     }
@@ -126,9 +126,9 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         super.b(view, i, i2, j);
         switch (i) {
             case 2:
-                ChatMessage msg = this.gtA.getMsg(i2);
+                ChatMessage msg = this.gtB.getMsg(i2);
                 if (msg != null && msg.getUserInfo() != null && msg.getUserInfo().getName_show() != null) {
-                    this.gtz.addAt2SendMsg(msg.getUserInfo().getName_show());
+                    this.gtA.addAt2SendMsg(msg.getUserInfo().getName_show());
                     return;
                 }
                 return;
@@ -140,14 +140,14 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy, com.baidu.tieba.im.chat.MsglistActivity
     protected boolean U(Bundle bundle) {
         try {
-            this.gtA = new GroupMsglistModel(this);
-            this.gtA.setLoadDataCallBack(this.gtK);
+            this.gtB = new GroupMsglistModel(this);
+            this.gtB.setLoadDataCallBack(this.gtL);
             if (bundle != null) {
                 V(bundle);
             } else {
-                bxj();
+                bxm();
             }
-            return bxk();
+            return bxn();
         } catch (Exception e) {
             return false;
         }
@@ -156,36 +156,36 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        if (this.gtA != null) {
-            this.gtA.onDestroy();
-            this.gtA = null;
+        if (this.gtB != null) {
+            this.gtB.onDestroy();
+            this.gtB = null;
         }
         super.onNewIntent(intent);
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void bxn() {
-        bxo();
+    public void bxq() {
+        bxr();
     }
 
-    private void bxo() {
+    private void bxr() {
         if (getIntent() != null) {
             String stringExtra = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
             if (!com.baidu.adp.lib.util.k.isEmpty(stringExtra)) {
                 getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_EXTRA_MSG);
-                this.gtA.sendExtraMessage(stringExtra);
+                this.gtB.sendExtraMessage(stringExtra);
             }
             String stringExtra2 = getIntent().getStringExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
             if (!com.baidu.adp.lib.util.k.isEmpty(stringExtra2) && stringExtra2.trim().length() > 0) {
                 getIntent().removeExtra(GroupChatActivityConfig.AUTO_SEND_TEXT_MSG);
-                this.gtA.sendTextMessage(stringExtra2);
+                this.gtB.sendTextMessage(stringExtra2);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected boolean a(d dVar) {
-        this.gtA.loadFirst(dVar);
+        this.gtB.loadFirst(dVar);
         return true;
     }
 
@@ -193,14 +193,14 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy
     public void W(Bundle bundle) {
         super.W(bundle);
-        bxp();
+        bxs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.CommonGroupChatActiviy
     public void ak(Intent intent) {
         super.ak(intent);
-        bxp();
+        bxs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -210,12 +210,12 @@ public class GroupChatActivity extends CommonGroupChatActiviy<GroupChatActivity>
         ChatStatusManager.getInst().setCurId(2, "");
     }
 
-    private void bxp() {
-        if (this.gtA == null || !(this.gtA instanceof GroupMsglistModel)) {
+    private void bxs() {
+        if (this.gtB == null || !(this.gtB instanceof GroupMsglistModel)) {
             ChatStatusManager.getInst().setCurId(2, "");
             return;
         }
-        GroupData group = ((GroupMsglistModel) this.gtA).getGroup();
+        GroupData group = ((GroupMsglistModel) this.gtB).getGroup();
         if (group != null) {
             ChatStatusManager.getInst().setCurId(2, String.valueOf(group.getGroupId()));
         } else {

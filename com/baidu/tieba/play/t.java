@@ -5,83 +5,83 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class t {
-    private static i iqz = null;
-    private static boolean iqA = true;
-    private static boolean iqB = true;
+    private static i iqC = null;
+    private static boolean iqD = true;
+    private static boolean iqE = true;
 
-    private static i cbI() {
-        if (iqz == null) {
-            iqA = com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("prefs_save_paled_video", true);
+    private static i cbL() {
+        if (iqC == null) {
+            iqD = com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("prefs_save_paled_video", true);
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016479, i.class);
             if (runTask != null) {
-                iqz = (i) runTask.getData();
+                iqC = (i) runTask.getData();
             }
         }
-        return iqz;
+        return iqC;
     }
 
     public static String as(String str, boolean z) {
         if (z) {
-            if (iqB && cbI() != null) {
-                return cbI().T(str, true);
+            if (iqE && cbL() != null) {
+                return cbL().T(str, true);
             }
             return str;
-        } else if (iqB && iqA && cbI() != null) {
-            return cbI().rL(str);
+        } else if (iqE && iqD && cbL() != null) {
+            return cbL().rL(str);
         } else {
             return str;
         }
     }
 
     public static String rM(String str) {
-        if (cbI() != null) {
-            return cbI().rM(str);
+        if (cbL() != null) {
+            return cbL().rM(str);
         }
         return null;
     }
 
     public static void f(Context context, String str, int i) {
-        if (cbI() != null) {
-            cbI().f(context, str, i);
+        if (cbL() != null) {
+            cbL().f(context, str, i);
         }
     }
 
     public static void ar(Context context, String str) {
-        if (cbI() != null) {
-            cbI().ar(context, str);
+        if (cbL() != null) {
+            cbL().ar(context, str);
         }
     }
 
     public static void as(Context context, String str) {
-        if (iqB && iqA && cbI() != null) {
-            cbI().as(context, str);
+        if (iqE && iqD && cbL() != null) {
+            cbL().as(context, str);
         }
     }
 
     public static void rN(String str) {
-        if (iqB && iqA && cbI() != null) {
-            cbI().rN(str);
+        if (iqE && iqD && cbL() != null) {
+            cbL().rN(str);
         }
     }
 
     public static void clearCache(Context context) {
-        if (cbI() != null) {
-            cbI().clearCache(context);
+        if (cbL() != null) {
+            cbL().clearCache(context);
         }
     }
 
     public static String rO(String str) {
-        if (cbI() != null) {
-            return cbI().rO(str);
+        if (cbL() != null) {
+            return cbL().rO(str);
         }
         return null;
     }
 
     public static void pR(boolean z) {
-        iqA = z;
+        iqD = z;
     }
 
-    public static void cbJ() {
-        iqB = com.baidu.adp.lib.b.d.hI().ay("android_video_cache_open") == 1;
+    public static void cbM() {
+        iqE = com.baidu.adp.lib.b.d.hI().ay("android_video_cache_open") == 1;
     }
 }

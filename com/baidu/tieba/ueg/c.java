@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String jmJ;
-    private a jmK;
+    private String jmK;
+    private a jmL;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bGl();
+        void bGo();
 
-        void bGm();
+        void bGp();
 
-        void bGn();
+        void bGq();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.jmJ = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.jmK = aVar;
+        this.jmK = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.jmL = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.jmJ);
+            x xVar = new x(this.jmK);
             xVar.ahC().aiB().mIsNeedAddCommenParam = false;
             xVar.ahC().aiB().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.ahf())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.jmK != null && num != null) {
+        if (this.jmL != null && num != null) {
             if (num.intValue() == -1) {
-                this.jmK.onError(null);
+                this.jmL.onError(null);
             } else if (num.intValue() == 1) {
-                this.jmK.bGl();
+                this.jmL.bGo();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.jmK.bGm();
+                this.jmL.bGp();
             } else {
-                this.jmK.bGn();
+                this.jmL.bGq();
             }
         }
     }

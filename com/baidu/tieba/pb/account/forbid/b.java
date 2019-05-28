@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class b {
-    private static final String hzA = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    private static final String hzD = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -26,14 +26,14 @@ public class b {
 
     /* loaded from: classes4.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
-        private String hzB;
-        private String hzC;
-        private WeakReference<InterfaceC0370b> hzz;
+        private WeakReference<InterfaceC0370b> hzC;
+        private String hzE;
+        private String hzF;
 
         public a(String str, String str2, InterfaceC0370b interfaceC0370b) {
-            this.hzB = str;
-            this.hzC = str2;
-            this.hzz = new WeakReference<>(interfaceC0370b);
+            this.hzE = str;
+            this.hzF = str2;
+            this.hzC = new WeakReference<>(interfaceC0370b);
             setPriority(3);
         }
 
@@ -42,9 +42,9 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: B */
         public ForbidTplData doInBackground(String... strArr) {
-            x xVar = new x(b.hzA);
-            xVar.o("forum_id", this.hzB);
-            xVar.o("user_id", this.hzC);
+            x xVar = new x(b.hzD);
+            xVar.o("forum_id", this.hzE);
+            xVar.o("user_id", this.hzF);
             String ahe = xVar.ahe();
             if (xVar.ahC().aiC().isRequestSuccess()) {
                 try {
@@ -68,7 +68,7 @@ public class b {
         /* renamed from: c */
         public void onPostExecute(ForbidTplData forbidTplData) {
             super.onPostExecute(forbidTplData);
-            InterfaceC0370b interfaceC0370b = this.hzz.get();
+            InterfaceC0370b interfaceC0370b = this.hzC.get();
             if (interfaceC0370b != null) {
                 if (forbidTplData.error.errno == 0 && ap.isEmpty(forbidTplData.error.errMsg)) {
                     interfaceC0370b.a(forbidTplData);

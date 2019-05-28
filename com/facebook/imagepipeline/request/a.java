@@ -13,15 +13,15 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class a {
     @Nullable
-    private final List<b> kej;
-    private final boolean kek;
+    private final List<b> kek;
+    private final boolean kel;
     private final String mMediaId;
     private final String mSource;
 
     private a(C0456a c0456a) {
         this.mMediaId = c0456a.mMediaId;
-        this.kej = c0456a.kej;
         this.kek = c0456a.kek;
+        this.kel = c0456a.kel;
         this.mSource = c0456a.mSource;
     }
 
@@ -29,28 +29,28 @@ public class a {
         return this.mMediaId;
     }
 
-    public int cIy() {
-        if (this.kej == null) {
+    public int cIA() {
+        if (this.kek == null) {
             return 0;
         }
-        return this.kej.size();
+        return this.kek.size();
     }
 
     public List<b> a(Comparator<b> comparator) {
-        int cIy = cIy();
-        if (cIy == 0) {
+        int cIA = cIA();
+        if (cIA == 0) {
             return Collections.emptyList();
         }
-        ArrayList arrayList = new ArrayList(cIy);
-        for (int i = 0; i < cIy; i++) {
-            arrayList.add(this.kej.get(i));
+        ArrayList arrayList = new ArrayList(cIA);
+        for (int i = 0; i < cIA; i++) {
+            arrayList.add(this.kek.get(i));
         }
         Collections.sort(arrayList, comparator);
         return arrayList;
     }
 
-    public boolean cIz() {
-        return this.kek;
+    public boolean cIB() {
+        return this.kel;
     }
 
     public String getSource() {
@@ -60,23 +60,23 @@ public class a {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return f.equal(this.mMediaId, aVar.mMediaId) && this.kek == aVar.kek && f.equal(this.kej, aVar.kej);
+            return f.equal(this.mMediaId, aVar.mMediaId) && this.kel == aVar.kel && f.equal(this.kek, aVar.kek);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.mMediaId, Boolean.valueOf(this.kek), this.kej, this.mSource);
+        return f.hashCode(this.mMediaId, Boolean.valueOf(this.kel), this.kek, this.mSource);
     }
 
     public String toString() {
-        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.kek), this.kej, this.mSource);
+        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.kel), this.kek, this.mSource);
     }
 
     /* loaded from: classes2.dex */
     public static final class b {
         @Nullable
-        private final ImageRequest.CacheChoice kea;
+        private final ImageRequest.CacheChoice keb;
         private final int mHeight;
         private final Uri mUri;
         private final int mWidth;
@@ -85,7 +85,7 @@ public class a {
             this.mUri = uri;
             this.mWidth = i;
             this.mHeight = i2;
-            this.kea = cacheChoice;
+            this.keb = cacheChoice;
         }
 
         public Uri getUri() {
@@ -101,14 +101,14 @@ public class a {
         }
 
         @Nullable
-        public ImageRequest.CacheChoice cIi() {
-            return this.kea;
+        public ImageRequest.CacheChoice cIk() {
+            return this.keb;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.kea == bVar.kea;
+                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.keb == bVar.keb;
             }
             return false;
         }
@@ -118,7 +118,7 @@ public class a {
         }
 
         public String toString() {
-            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.kea);
+            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.keb);
         }
     }
 
@@ -129,27 +129,27 @@ public class a {
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0456a {
-        private List<b> kej;
-        private boolean kek;
+        private List<b> kek;
+        private boolean kel;
         private final String mMediaId;
         private String mSource;
 
         private C0456a(String str) {
-            this.kek = false;
+            this.kel = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
         public C0456a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
-            if (this.kej == null) {
-                this.kej = new ArrayList();
+            if (this.kek == null) {
+                this.kek = new ArrayList();
             }
-            this.kej.add(new b(uri, i, i2, cacheChoice));
+            this.kek.add(new b(uri, i, i2, cacheChoice));
             return this;
         }
 
         public C0456a sn(boolean z) {
-            this.kek = z;
+            this.kel = z;
             return this;
         }
 
@@ -158,7 +158,7 @@ public class a {
             return this;
         }
 
-        public a cIA() {
+        public a cIC() {
             return new a(this);
         }
     }

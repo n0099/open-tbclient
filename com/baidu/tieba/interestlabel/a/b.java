@@ -15,43 +15,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter {
-    private LabelSettingView gUq;
-    private List<com.baidu.tieba.interestlabel.b.a> gUs;
-    private List<Integer> gUt = new ArrayList();
+    private LabelSettingView gUt;
+    private List<com.baidu.tieba.interestlabel.b.a> gUv;
+    private List<Integer> gUw = new ArrayList();
     private com.baidu.tieba.interestlabel.b.b mLabelDataSet;
 
     public b(LabelSettingView labelSettingView) {
-        this.gUq = labelSettingView;
+        this.gUt = labelSettingView;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !v.aa(bVar.bGC())) {
+        if (bVar != null && !v.aa(bVar.bGF())) {
             this.mLabelDataSet = bVar;
-            this.gUs = bVar.bGC();
-            if (!v.aa(bVar.bGD())) {
-                this.gUt = new ArrayList(bVar.bGD());
+            this.gUv = bVar.bGF();
+            if (!v.aa(bVar.bGG())) {
+                this.gUw = new ArrayList(bVar.bGG());
             }
         }
     }
 
-    public List<Integer> bGz() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bGD();
+    public List<Integer> bGC() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.bGG();
     }
 
-    public List<Integer> bGA() {
-        return this.gUt;
+    public List<Integer> bGD() {
+        return this.gUw;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.Z(this.gUs);
+        return v.Z(this.gUv);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: vL */
     public com.baidu.tieba.interestlabel.b.a getItem(int i) {
-        return (com.baidu.tieba.interestlabel.b.a) v.c(this.gUs, i);
+        return (com.baidu.tieba.interestlabel.b.a) v.c(this.gUv, i);
     }
 
     @Override // android.widget.Adapter
@@ -68,17 +68,17 @@ public class b extends BaseAdapter {
         C0346b c0346b;
         View view2;
         if (view == null) {
-            view2 = LayoutInflater.from(this.gUq.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
+            view2 = LayoutInflater.from(this.gUt.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
             C0346b c0346b2 = new C0346b();
-            c0346b2.gUv = (TextView) view2;
+            c0346b2.gUy = (TextView) view2;
             view2.setTag(c0346b2);
             c0346b = c0346b2;
         } else {
             c0346b = (C0346b) view.getTag();
             view2 = view;
         }
-        c0346b.gUv.setOnClickListener(new a(i));
-        a(c0346b.gUv, getItem(i));
+        c0346b.gUy.setOnClickListener(new a(i));
+        a(c0346b.gUy, getItem(i));
         return view2;
     }
 
@@ -105,7 +105,7 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     class C0346b {
-        TextView gUv;
+        TextView gUy;
 
         C0346b() {
         }
@@ -128,12 +128,12 @@ public class b extends BaseAdapter {
                     b.this.a((TextView) view, item);
                 }
                 if (item.isFollow) {
-                    b.this.gUt.add(Integer.valueOf(item.labelId));
+                    b.this.gUw.add(Integer.valueOf(item.labelId));
                 } else {
-                    b.this.gUt.remove(Integer.valueOf(item.labelId));
+                    b.this.gUw.remove(Integer.valueOf(item.labelId));
                 }
-                if (b.this.gUq != null) {
-                    b.this.gUq.mH(v.Z(b.this.gUt) > 0);
+                if (b.this.gUt != null) {
+                    b.this.gUt.mH(v.Z(b.this.gUw) > 0);
                 }
             }
         }

@@ -7,9 +7,9 @@ import android.os.SystemClock;
 /* loaded from: classes2.dex */
 public class b extends g implements Runnable {
     private int Ce;
-    private boolean jVd;
-    float jVe;
-    private boolean jVf;
+    private boolean jVe;
+    float jVf;
+    private boolean jVg;
 
     public b(Drawable drawable, int i) {
         this(drawable, i, true);
@@ -17,10 +17,10 @@ public class b extends g implements Runnable {
 
     public b(Drawable drawable, int i, boolean z) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jVe = 0.0f;
-        this.jVf = false;
+        this.jVf = 0.0f;
+        this.jVg = false;
         this.Ce = i;
-        this.jVd = z;
+        this.jVe = z;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -29,31 +29,31 @@ public class b extends g implements Runnable {
         Rect bounds = getBounds();
         int i = bounds.right - bounds.left;
         int i2 = bounds.bottom - bounds.top;
-        float f = this.jVe;
-        if (!this.jVd) {
-            f = 360.0f - this.jVe;
+        float f = this.jVf;
+        if (!this.jVe) {
+            f = 360.0f - this.jVf;
         }
         canvas.rotate(f, (i / 2) + bounds.left, bounds.top + (i2 / 2));
         super.draw(canvas);
         canvas.restoreToCount(save);
-        cDf();
+        cDh();
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.jVf = false;
-        this.jVe += cDg();
+        this.jVg = false;
+        this.jVf += cDi();
         invalidateSelf();
     }
 
-    private void cDf() {
-        if (!this.jVf) {
-            this.jVf = true;
+    private void cDh() {
+        if (!this.jVg) {
+            this.jVg = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + 20);
         }
     }
 
-    private int cDg() {
+    private int cDi() {
         return (int) ((20.0f / this.Ce) * 360.0f);
     }
 }

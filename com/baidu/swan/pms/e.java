@@ -8,6 +8,6 @@ public class e {
     }
 
     public static a Vh() {
-        return com.baidu.tieba.aiapps.apps.n.b.aFW();
+        return com.baidu.tieba.aiapps.apps.n.b.aFZ();
     }
 }

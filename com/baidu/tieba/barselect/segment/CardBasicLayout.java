@@ -11,8 +11,8 @@ import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CardBasicLayout extends LinearLayout {
-    protected f epN;
-    protected d etD;
+    protected f epO;
+    protected d etE;
     public int status;
 
     public CardBasicLayout(Context context) {
@@ -25,29 +25,29 @@ public class CardBasicLayout extends LinearLayout {
     }
 
     public void setData(int i, f fVar) {
-        e aWQ;
-        this.epN = fVar;
-        if (this.epN != null && this.epN.aWQ() != null && (aWQ = this.epN.aWQ()) != null) {
-            int status = aWQ.getStatus();
-            if (status == com.baidu.tieba.barselect.a.d.etW) {
-                if (i == VoteCandidateCard.eug) {
-                    this.status = a.etU;
-                    this.etD = this.epN.aWP();
+        e aWT;
+        this.epO = fVar;
+        if (this.epO != null && this.epO.aWT() != null && (aWT = this.epO.aWT()) != null) {
+            int status = aWT.getStatus();
+            if (status == com.baidu.tieba.barselect.a.d.etX) {
+                if (i == VoteCandidateCard.euh) {
+                    this.status = a.etV;
+                    this.etE = this.epO.aWS();
                     return;
                 }
-                this.status = a.etR;
-                List<d> aWO = this.epN.aWO();
-                if (aWO != null && aWO.size() > i) {
-                    this.etD = aWO.get(i);
+                this.status = a.etS;
+                List<d> aWR = this.epO.aWR();
+                if (aWR != null && aWR.size() > i) {
+                    this.etE = aWR.get(i);
                 }
-            } else if (status == com.baidu.tieba.barselect.a.d.etX) {
-                if (i == VoteCandidateCard.eug) {
-                    this.status = a.etT;
-                    List<d> aWO2 = this.epN.aWO();
-                    if (aWO2 != null && aWO2.size() > 0) {
-                        for (d dVar : aWO2) {
+            } else if (status == com.baidu.tieba.barselect.a.d.etY) {
+                if (i == VoteCandidateCard.euh) {
+                    this.status = a.etU;
+                    List<d> aWR2 = this.epO.aWR();
+                    if (aWR2 != null && aWR2.size() > 0) {
+                        for (d dVar : aWR2) {
                             if (dVar.getRank() == 1) {
-                                this.etD = dVar;
+                                this.etE = dVar;
                                 return;
                             }
                         }
@@ -55,12 +55,12 @@ public class CardBasicLayout extends LinearLayout {
                     }
                     return;
                 }
-                this.status = a.etS;
-                List<d> aWO3 = this.epN.aWO();
-                if (aWO3 != null && aWO3.size() > i) {
-                    this.etD = aWO3.get(i);
-                    if (this.etD.getRank() == 1 && i == 0) {
-                        this.status = a.etT;
+                this.status = a.etT;
+                List<d> aWR3 = this.epO.aWR();
+                if (aWR3 != null && aWR3.size() > i) {
+                    this.etE = aWR3.get(i);
+                    if (this.etE.getRank() == 1 && i == 0) {
+                        this.status = a.etU;
                     }
                 }
             }

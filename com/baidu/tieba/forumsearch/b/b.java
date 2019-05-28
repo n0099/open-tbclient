@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fnv = BdUniqueId.gen();
-    private String eRn;
-    private String fmY;
-    private String fnr;
+    public static final BdUniqueId fnw = BdUniqueId.gen();
+    private String eRo;
+    private String fmZ;
     private String fns;
     private String fnt;
-    private boolean fnu;
+    private String fnu;
+    private boolean fnv;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.fmY = str;
+        this.fmZ = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fnv;
+        return fnw;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.eRn = searchForum.avatar;
-            this.fnr = searchForum.post_num;
-            this.fns = searchForum.concern_num;
-            this.fnt = searchForum.slogan;
+            this.eRo = searchForum.avatar;
+            this.fns = searchForum.post_num;
+            this.fnt = searchForum.concern_num;
+            this.fnu = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.fnu = searchForum.has_concerned.intValue() != 0;
+            this.fnv = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.eRn;
+        return this.eRo;
     }
 
-    public String biO() {
+    public String biR() {
+        return this.fnt;
+    }
+
+    public String biS() {
         return this.fns;
-    }
-
-    public String biP() {
-        return this.fnr;
     }
 
     public String getForumName() {
@@ -57,7 +57,7 @@ public class b extends com.baidu.tieba.card.data.b {
         return this.mForumId;
     }
 
-    public String biQ() {
-        return this.fmY;
+    public String biT() {
+        return this.fmZ;
     }
 }

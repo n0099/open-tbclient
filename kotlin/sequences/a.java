@@ -5,9 +5,9 @@ import java.util.NoSuchElementException;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a<T> implements c<T> {
-    private final c<T> kkB;
-    private final boolean kkC;
-    private final kotlin.jvm.a.b<T, Boolean> kkD;
+    private final c<T> kkC;
+    private final boolean kkD;
+    private final kotlin.jvm.a.b<T, Boolean> kkE;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -15,9 +15,9 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.k(cVar, "sequence");
         p.k(bVar, "predicate");
-        this.kkB = cVar;
-        this.kkC = z;
-        this.kkD = bVar;
+        this.kkC = cVar;
+        this.kkD = z;
+        this.kkE = bVar;
     }
 
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
@@ -25,7 +25,7 @@ public final class a<T> implements c<T> {
     public static final class C0493a implements Iterator<T> {
         private T Ep;
         private final Iterator<T> iterator;
-        private int kkE = -1;
+        private int kkF = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -34,41 +34,41 @@ public final class a<T> implements c<T> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         C0493a() {
-            this.iterator = a.this.kkB.iterator();
+            this.iterator = a.this.kkC.iterator();
         }
 
-        private final void cKj() {
+        private final void cKl() {
             while (this.iterator.hasNext()) {
                 T next = this.iterator.next();
-                if (((Boolean) a.this.kkD.invoke(next)).booleanValue() == a.this.kkC) {
+                if (((Boolean) a.this.kkE.invoke(next)).booleanValue() == a.this.kkD) {
                     this.Ep = next;
-                    this.kkE = 1;
+                    this.kkF = 1;
                     return;
                 }
             }
-            this.kkE = 0;
+            this.kkF = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.kkE == -1) {
-                cKj();
+            if (this.kkF == -1) {
+                cKl();
             }
-            if (this.kkE == 0) {
+            if (this.kkF == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.Ep;
             this.Ep = null;
-            this.kkE = -1;
+            this.kkF = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.kkE == -1) {
-                cKj();
+            if (this.kkF == -1) {
+                cKl();
             }
-            return this.kkE == 1;
+            return this.kkF == 1;
         }
     }
 

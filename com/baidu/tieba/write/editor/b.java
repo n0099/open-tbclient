@@ -24,19 +24,19 @@ public class b extends k {
         }
     }
 
-    public void bea() {
+    public void bed() {
         if (this.cqE instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.cqE).bea();
+            ((EditorInfoContainer) this.cqE).bed();
         }
     }
 
-    public void cxy() {
+    public void cxA() {
         if (this.cqE instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.cqE).cxy();
+            ((EditorInfoContainer) this.cqE).cxA();
         }
     }
 
-    public void cxC() {
+    public void cxE() {
         if (this.cqE instanceof EditorInfoContainer) {
             ((EditorInfoContainer) this.cqE).hide();
         }

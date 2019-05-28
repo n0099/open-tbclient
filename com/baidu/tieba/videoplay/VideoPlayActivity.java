@@ -31,19 +31,19 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class VideoPlayActivity extends BaseFragmentActivity {
     private String bFP;
-    private int dke;
-    private String dve;
-    private VideoPlayView jyh;
-    private List<VideoItemData> jyi;
-    private String jyj;
-    private VideoPlayModel jyl;
+    private int dkf;
+    private String dvf;
+    private VideoPlayView jyi;
+    private List<VideoItemData> jyj;
+    private String jyk;
+    private VideoPlayModel jym;
     private String mFrom;
     private String mLocate;
     private Rect mRect;
     private String mStType;
     private boolean mHasMore = true;
     private long mStartTime = 0;
-    private CustomMessageListener jyk = new CustomMessageListener(2921320) { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.1
+    private CustomMessageListener jyl = new CustomMessageListener(2921320) { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -51,14 +51,14 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 h hVar = (h) customResponsedMessage.getData();
                 List<VideoItemData> list = hVar.mVideoItemDatas;
                 if (!v.aa(list)) {
-                    if (VideoPlayActivity.this.jyi == null) {
-                        VideoPlayActivity.this.jyi = new ArrayList();
+                    if (VideoPlayActivity.this.jyj == null) {
+                        VideoPlayActivity.this.jyj = new ArrayList();
                     }
-                    VideoPlayActivity.this.jyi.clear();
-                    VideoPlayActivity.this.jyi.addAll(list);
+                    VideoPlayActivity.this.jyj.clear();
+                    VideoPlayActivity.this.jyj.addAll(list);
                 }
-                if (VideoPlayActivity.this.jyh != null) {
-                    VideoPlayActivity.this.jyh.notifyDataSetChanged();
+                if (VideoPlayActivity.this.jyi != null) {
+                    VideoPlayActivity.this.jyi.notifyDataSetChanged();
                 }
                 VideoPlayActivity.this.mHasMore = hVar.mHasMore;
             }
@@ -74,9 +74,9 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         this.mStartTime = System.currentTimeMillis();
         setContentView(R.layout.video_play_activity);
-        registerListener(this.jyk);
+        registerListener(this.jyl);
         initData();
-        cut();
+        cuv();
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
     }
@@ -92,16 +92,16 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.jyh != null) {
-            this.jyh.onPause();
+        if (this.jyi != null) {
+            this.jyi.onPause();
         }
         c.Yk().Yp();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
-        if (this.jyh != null) {
-            this.jyh.onChangeSkinType(i);
+        if (this.jyi != null) {
+            this.jyi.onChangeSkinType(i);
         }
     }
 
@@ -109,19 +109,19 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.jyh != null) {
-            this.jyh.onDestroy();
+        if (this.jyi != null) {
+            this.jyi.onDestroy();
         }
         long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
         if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.mFrom)) {
             String str = "a002";
-            if ("index".equals(this.jyj)) {
+            if ("index".equals(this.jyk)) {
                 str = "a002";
-            } else if ("concern_tab".equals(this.jyj)) {
+            } else if ("concern_tab".equals(this.jyk)) {
                 str = "a038";
-            } else if ("frs".equals(this.jyj)) {
+            } else if ("frs".equals(this.jyk)) {
                 str = "a006";
-            } else if ("homepage".equals(this.jyj)) {
+            } else if ("homepage".equals(this.jyk)) {
                 str = "a002";
             }
             TiebaStatic.log(new am("stime").bT("obj_type", "a023").l("obj_duration", currentTimeMillis).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str).bT("is_vertical", "1"));
@@ -130,16 +130,16 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         TiebaStatic.log(new am("stime").bT("obj_type", "a023").l("obj_duration", currentTimeMillis).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "a020"));
     }
 
-    private void cut() {
-        this.jyh = new VideoPlayView(this, this.dve);
-        this.jyh.a(new VideoPlayView.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
+    private void cuv() {
+        this.jyi = new VideoPlayView(this, this.dvf);
+        this.jyi.a(new VideoPlayView.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.2
             @Override // com.baidu.tieba.videoplay.VideoPlayView.a
-            public void cuu() {
+            public void cuw() {
                 if (VideoPlayActivity.this.mHasMore) {
                     if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(VideoPlayActivity.this.mFrom)) {
-                        if (VideoPlayActivity.this.jyl != null) {
-                            VideoPlayActivity.this.jyl.setFrom(VideoPlayActivity.this.dve);
-                            VideoPlayActivity.this.jyl.aHq();
+                        if (VideoPlayActivity.this.jym != null) {
+                            VideoPlayActivity.this.jym.setFrom(VideoPlayActivity.this.dvf);
+                            VideoPlayActivity.this.jym.aHt();
                             return;
                         }
                         return;
@@ -148,39 +148,39 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 }
             }
         });
-        this.jyh.a(this.jyi, this.dke, this.mRect);
-        this.jyh.Fu(this.mFrom);
-        this.jyh.Fx(this.bFP);
+        this.jyi.a(this.jyj, this.dkf, this.mRect);
+        this.jyi.Fu(this.mFrom);
+        this.jyi.Fx(this.bFP);
     }
 
     private void initData() {
-        this.jyi = (List) getIntent().getSerializableExtra(VideoPlayActivityConfig.VIDEO_LIST);
-        this.dke = getIntent().getIntExtra(VideoPlayActivityConfig.VIDEO_INDEX, 0);
+        this.jyj = (List) getIntent().getSerializableExtra(VideoPlayActivityConfig.VIDEO_LIST);
+        this.dkf = getIntent().getIntExtra(VideoPlayActivityConfig.VIDEO_INDEX, 0);
         this.mRect = getIntent().getSourceBounds();
         this.mFrom = getIntent().getStringExtra(VideoPlayActivityConfig.PAGE_FROM);
-        this.dve = getIntent().getStringExtra("from");
-        this.jyj = getIntent().getStringExtra(VideoPlayActivityConfig.SOURCE_FROM);
+        this.dvf = getIntent().getStringExtra("from");
+        this.jyk = getIntent().getStringExtra(VideoPlayActivityConfig.SOURCE_FROM);
         this.mStType = getIntent().getStringExtra("st_type");
         this.mLocate = getIntent().getStringExtra("yuelaou_locate");
-        if (v.aa(this.jyi) && !v.aa(VideoPlayActivityConfig.bigDataList)) {
-            this.jyi = new ArrayList();
-            this.jyi.addAll(VideoPlayActivityConfig.bigDataList);
+        if (v.aa(this.jyj) && !v.aa(VideoPlayActivityConfig.bigDataList)) {
+            this.jyj = new ArrayList();
+            this.jyj.addAll(VideoPlayActivityConfig.bigDataList);
         }
-        if (v.aa(this.jyi)) {
+        if (v.aa(this.jyj)) {
             l.showToast(this, (int) R.string.net_error);
             finish();
         } else if (VideoPlayActivityConfig.FROM_NANI_VIDEO.equals(this.mFrom)) {
-            this.jyl = new VideoPlayModel(this);
-            this.jyl.setFrom(this.dve);
-            this.jyl.a(new VideoPlayModel.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.3
+            this.jym = new VideoPlayModel(this);
+            this.jym.setFrom(this.dvf);
+            this.jym.a(new VideoPlayModel.a() { // from class: com.baidu.tieba.videoplay.VideoPlayActivity.3
                 @Override // com.baidu.tieba.videoplay.VideoPlayModel.a
                 public void r(List<VideoItemData> list, boolean z) {
                     VideoPlayActivity.this.mHasMore = z;
-                    if (!v.aa(list) && !v.aa(VideoPlayActivity.this.jyi)) {
-                        VideoPlayActivity.this.jyi.clear();
-                        VideoPlayActivity.this.jyi.addAll(list);
-                        if (VideoPlayActivity.this.jyh != null) {
-                            VideoPlayActivity.this.jyh.notifyDataSetChanged();
+                    if (!v.aa(list) && !v.aa(VideoPlayActivity.this.jyj)) {
+                        VideoPlayActivity.this.jyj.clear();
+                        VideoPlayActivity.this.jyj.addAll(list);
+                        if (VideoPlayActivity.this.jyi != null) {
+                            VideoPlayActivity.this.jyi.notifyDataSetChanged();
                         }
                     }
                 }
@@ -188,19 +188,19 @@ public class VideoPlayActivity extends BaseFragmentActivity {
                 @Override // com.baidu.tieba.videoplay.VideoPlayModel.a
                 public void s(List<VideoItemData> list, boolean z) {
                     VideoPlayActivity.this.mHasMore = z;
-                    if (!v.aa(list) && !v.aa(VideoPlayActivity.this.jyi)) {
-                        VideoPlayActivity.this.jyi.addAll(list);
-                        if (VideoPlayActivity.this.jyh != null) {
-                            VideoPlayActivity.this.jyh.notifyDataSetChanged();
+                    if (!v.aa(list) && !v.aa(VideoPlayActivity.this.jyj)) {
+                        VideoPlayActivity.this.jyj.addAll(list);
+                        if (VideoPlayActivity.this.jyi != null) {
+                            VideoPlayActivity.this.jyi.notifyDataSetChanged();
                         }
                     }
                 }
             });
-            if (this.jyi.get(0) != null) {
-                this.bFP = this.jyi.get(0).thread_id;
+            if (this.jyj.get(0) != null) {
+                this.bFP = this.jyj.get(0).thread_id;
             }
-            this.jyl.setFrom(this.dve);
-            this.jyl.a(this.jyi.get(0), this.mStType, this.mLocate);
+            this.jym.setFrom(this.dvf);
+            this.jym.a(this.jyj.get(0), this.mStType, this.mLocate);
         }
     }
 
@@ -213,8 +213,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         VideoItemData videoItemData;
         if (i == 4) {
-            if (this.jyh == null || !this.jyh.cuG()) {
-                if (this.jyh.jzr != this.jyh.jzq && this.jyh.jzq >= 0 && this.jyh.jzq < this.jyi.size() && (videoItemData = this.jyi.get(this.jyh.jzq)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
+            if (this.jyi == null || !this.jyi.cuI()) {
+                if (this.jyi.jzs != this.jyi.jzr && this.jyi.jzr >= 0 && this.jyi.jzr < this.jyj.size() && (videoItemData = this.jyj.get(this.jyi.jzr)) != null && !StringUtils.isNull(videoItemData.thread_id)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921321, videoItemData.thread_id));
                 }
                 finish();
@@ -229,8 +229,8 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.jyh != null) {
-            this.jyh.a(i, i2, intent);
+        if (this.jyi != null) {
+            this.jyi.a(i, i2, intent);
         }
     }
 
@@ -245,7 +245,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public long getMissionTid() {
-        VideoItemData videoItemData = (VideoItemData) v.c(this.jyi, this.dke);
+        VideoItemData videoItemData = (VideoItemData) v.c(this.jyj, this.dkf);
         if (videoItemData == null || TextUtils.isEmpty(videoItemData.thread_id)) {
             return 0L;
         }

@@ -12,19 +12,19 @@ import com.baidu.tieba.frs.z;
 public class FrsMemberStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        z.blA().ru(3);
+        z.blD().ru(3);
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.forumMember.member.FrsMemberStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.flx));
-                    absDelegateAdapterList.add(new l(null, m.flJ));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.foz));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.fla));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.fld));
-                    absDelegateAdapterList.add(new o(null, p.flZ));
+                    absDelegateAdapterList.add(new i(null, j.fly));
+                    absDelegateAdapterList.add(new l(null, m.flK));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.foA));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.flb));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.fle));
+                    absDelegateAdapterList.add(new o(null, p.fma));
                 }
             }
         });

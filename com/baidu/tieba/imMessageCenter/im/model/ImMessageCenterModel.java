@@ -44,7 +44,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData dn = b.bDF().dn(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData dn = b.bDI().dn(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (dn != null) {
                 buildNormalItem.setGroupSetting(dn);
             }
@@ -65,7 +65,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData dn = e.bDI().dn(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                PersonalSettingItemData dn = e.bDL().dn(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                 if (dn != null) {
                     buildNormalItem.setGroupSetting(dn);
                 }

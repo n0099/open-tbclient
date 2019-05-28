@@ -25,11 +25,11 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 class b {
     private HttpURLConnection Aa;
-    private int iAr;
-    private g iAs;
+    private int iAt;
+    private g iAu;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String boundary = "--------7da3d81520810*";
-    private final int iAq = 5;
+    private final int iAs = 5;
     private long Ab = 0;
     private long Ac = 0;
     private long ub = 0;
@@ -65,21 +65,21 @@ class b {
         if (gVar == null) {
             throw new NullPointerException("init HttpImpl's args context is null");
         }
-        this.iAs = gVar;
+        this.iAu = gVar;
     }
 
     public void ia() {
-        this.iAs.cfa().AK = true;
+        this.iAu.cfc().AK = true;
         com.baidu.adp.lib.g.a.f(this.Aa);
     }
 
     private URL a(String str, e eVar) throws Exception {
-        a ceX;
+        a ceZ;
         URL url = new URL(str);
-        if (this.Ah && (ceX = a.ceX()) != null) {
-            String az = ceX.az(str);
+        if (this.Ah && (ceZ = a.ceZ()) != null) {
+            String az = ceZ.az(str);
             if (!TextUtils.isEmpty(az)) {
-                this.iAs.ceZ().q(HTTP.TARGET_HOST, url.getHost());
+                this.iAu.cfb().q(HTTP.TARGET_HOST, url.getHost());
                 URL url2 = new URL(str.replace("://" + url.getHost(), "://" + az));
                 this.Ag = true;
                 eVar.Ay = az;
@@ -118,7 +118,7 @@ class b {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.iAs.ceZ().q("X-Online-Host", url.getHost());
+                            this.iAu.cfb().q("X-Online-Host", url.getHost());
                             httpURLConnection2 = httpURLConnection;
                         } catch (Exception e2) {
                             e = e2;
@@ -152,13 +152,13 @@ class b {
         Map<String, List<String>> map;
         List<String> list;
         eVar.Aw = -1;
-        if (this.iAs.cfa().AK) {
+        if (this.iAu.cfc().AK) {
             throw new BdHttpCancelException();
         }
-        String c = this.iAs.ceZ().c(eVar);
+        String c = this.iAu.cfb().c(eVar);
         eVar.url = c;
         URL a = a(c, eVar);
-        if (this.iAs.cfa().AK) {
+        if (this.iAu.cfc().AK) {
             throw new BdHttpCancelException();
         }
         eVar.Aw = -2;
@@ -172,8 +172,8 @@ class b {
             this.Aa.setRequestMethod("GET");
             this.Aa.setConnectTimeout(i2);
             this.Aa.setReadTimeout(i);
-            this.iAs.ceZ().d(this.Aa);
-            if (this.iAs.cfa().AK) {
+            this.iAu.cfb().d(this.Aa);
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.At = new Date().getTime() - currentTimeMillis;
@@ -185,7 +185,7 @@ class b {
             this.Ac = System.currentTimeMillis();
             eVar.Aw = -5;
             eVar.connectTime = (new Date().getTime() - currentTimeMillis) - eVar.At;
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.Aa.getContentType();
@@ -193,22 +193,22 @@ class b {
             if (f.aF(contentType)) {
                 this.Aa.disconnect();
                 this.Aa.connect();
-                if (this.iAs.cfa().AK) {
+                if (this.iAu.cfc().AK) {
                     throw new BdHttpCancelException();
                 }
             }
             eVar.Aw = -8;
-            this.iAs.cfa().e(this.Aa);
-            if (c.contains("c.tieba.baidu.com") && (map = this.iAs.cfa().AN) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+            this.iAu.cfc().e(this.Aa);
+            if (c.contains("c.tieba.baidu.com") && (map = this.iAu.cfc().AN) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                 eVar.Az = list.get(0);
                 eVar.AA = list.get(1);
             }
-            eVar.Av = this.iAs.cfa().responseCode;
+            eVar.Av = this.iAu.cfc().responseCode;
             eVar.Ap = this.Aa.getHeaderFields().toString().getBytes().length;
             byte[] c2 = c(this.Aa);
             if (c2 != null) {
                 eVar.Ap += c2.length;
-                this.iAs.cfa().AO = c(this.iAs.cfa().contentEncoding, c2);
+                this.iAu.cfc().AO = c(this.iAu.cfc().contentEncoding, c2);
             }
             eVar.Aw = -9;
             eVar.Aq = new Date().getTime() - currentTimeMillis;
@@ -241,7 +241,7 @@ class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 inputStream2 = httpURLConnection.getInputStream();
-                while (!this.iAs.cfa().AK && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.iAu.cfc().AK && (read = inputStream2.read(bArr2)) != -1) {
                     try {
                         byteArrayOutputStream.write(bArr2, 0, read);
                     } catch (Throwable th2) {
@@ -253,7 +253,7 @@ class b {
                         throw th;
                     }
                 }
-                if (this.iAs.cfa().AK) {
+                if (this.iAu.cfc().AK) {
                     throw new BdHttpCancelException();
                 }
                 bArr = byteArrayOutputStream.toByteArray();
@@ -273,10 +273,10 @@ class b {
     public void b(int i, int i2, e eVar) throws Exception {
         eVar.Aw = -1;
         try {
-            String url = this.iAs.ceZ().getUrl();
+            String url = this.iAu.cfb().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.Aw = -2;
@@ -292,11 +292,11 @@ class b {
             this.Aa.setConnectTimeout(i2);
             this.Aa.setReadTimeout(i);
             this.Aa.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
-            this.iAs.ceZ().d(this.Aa);
-            if (this.iAs.cfa().AK) {
+            this.iAu.cfb().d(this.Aa);
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
@@ -309,36 +309,36 @@ class b {
             this.Ac = System.currentTimeMillis();
             eVar.Aw = -5;
             eVar.connectTime = (new Date().getTime() - time) - eVar.At;
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             if (this.Ak != null) {
                 this.Ak.schedule(this.Aj, 45000L);
             }
             eVar.Aw = -6;
-            this.iAs.ceZ().a(this.Aa, boundary, eVar);
+            this.iAu.cfb().a(this.Aa, boundary, eVar);
             eVar.Aw = -7;
             String contentType = this.Aa.getContentType();
             this.ub = System.currentTimeMillis();
             if (f.aF(contentType)) {
                 this.Aa.disconnect();
                 this.Aa.connect();
-                if (this.iAs.cfa().AK) {
+                if (this.iAu.cfc().AK) {
                     throw new BdHttpCancelException();
                 }
             }
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.Aw = -8;
-            this.iAs.cfa().e(this.Aa);
-            eVar.Av = this.iAs.cfa().responseCode;
+            this.iAu.cfc().e(this.Aa);
+            eVar.Av = this.iAu.cfc().responseCode;
             eVar.Ap = this.Aa.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.Aa);
             if (c != null) {
                 eVar.Ap += c.length;
-                this.iAs.cfa().AP = c.length;
-                this.iAs.cfa().AO = c(this.iAs.cfa().contentEncoding, c);
+                this.iAu.cfc().AP = c.length;
+                this.iAu.cfc().AO = c(this.iAu.cfc().contentEncoding, c);
             }
             eVar.Aq = new Date().getTime() - time;
             eVar.Aw = -9;
@@ -355,16 +355,16 @@ class b {
         InputStream inputStream;
         String headerField;
         int indexOf;
-        this.iAr = 0;
+        this.iAt = 0;
         FileOutputStream fileOutputStream = null;
         e eVar2 = eVar == null ? new e() : eVar;
         try {
-            String url = this.iAs.ceZ().getUrl();
+            String url = this.iAu.cfb().getUrl();
             eVar2.url = url;
             this.Aa = a(a(url, eVar2), i2, i);
             this.Aa.setInstanceFollowRedirects(true);
             HttpURLConnection.setFollowRedirects(false);
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 this.Ae = System.currentTimeMillis();
                 com.baidu.adp.lib.g.a.g(null);
                 com.baidu.adp.lib.g.a.f(this.Aa);
@@ -381,7 +381,7 @@ class b {
             long length = file.length();
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
-                this.iAs.ceZ().d(this.Aa);
+                this.iAu.cfb().d(this.Aa);
                 this.Aa.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 this.Aa.connect();
                 if (this.Ab <= 0) {
@@ -389,19 +389,19 @@ class b {
                 }
                 this.Ac = System.currentTimeMillis();
                 int responseCode = this.Aa.getResponseCode();
-                while (yU(responseCode) && this.iAr <= 5) {
+                while (yU(responseCode) && this.iAt <= 5) {
                     this.Aa = a(this.Aa, i2, i);
-                    this.iAs.ceZ().d(this.Aa);
+                    this.iAu.cfb().d(this.Aa);
                     this.Aa.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     this.Aa.connect();
                     responseCode = this.Aa.getResponseCode();
                 }
                 this.ub = System.currentTimeMillis();
-                this.iAs.cfa().responseCode = responseCode;
+                this.iAu.cfc().responseCode = responseCode;
                 if (ib()) {
                     if (this.Aa.getContentType() != null && this.Aa.getContentType().contains("text/vnd.wap.wml")) {
                         this.Aa.disconnect();
-                        this.iAs.cfa().responseCode = 0;
+                        this.iAu.cfc().responseCode = 0;
                         boolean a = a(str, jVar, i, i2, z, eVar2, z2);
                         this.Ae = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.g(null);
@@ -414,12 +414,12 @@ class b {
                     if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                         i3 = com.baidu.adp.lib.g.b.f(headerField2.substring(indexOf + 1), 0);
                     }
-                    int f = (i3 == 0 && this.iAs.cfa().responseCode == 200 && (headerField = this.Aa.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.f(headerField, 0) : i3;
-                    this.iAs.cfa().contentLength = String.valueOf(f);
+                    int f = (i3 == 0 && this.iAu.cfc().responseCode == 200 && (headerField = this.Aa.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.f(headerField, 0) : i3;
+                    this.iAu.cfc().contentLength = String.valueOf(f);
                     eVar2.Ao = url.getBytes().length;
                     eVar2.Ap = this.Aa.getHeaderFields().toString().getBytes().length;
                     eVar2.Ap += f;
-                    if (this.iAs.cfa().responseCode == 416 || this.iAs.cfa().responseCode == 204) {
+                    if (this.iAu.cfc().responseCode == 416 || this.iAu.cfc().responseCode == 204) {
                         this.Ae = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.g(null);
                         com.baidu.adp.lib.g.a.f(this.Aa);
@@ -442,7 +442,7 @@ class b {
                             if (jVar != null && length > 0) {
                                 jVar.m((int) length, f);
                             }
-                            while (!this.iAs.cfa().AK) {
+                            while (!this.iAu.cfc().AK) {
                                 int read = inputStream2.read(bArr);
                                 if (read != -1) {
                                     try {
@@ -500,7 +500,7 @@ class b {
         URL url = httpURLConnection.getURL().toURI().resolve(httpURLConnection.getHeaderField("Location")).toURL();
         com.baidu.adp.lib.g.a.f(httpURLConnection);
         HttpURLConnection a = a(url, i, i2);
-        this.iAr++;
+        this.iAt++;
         return a;
     }
 
@@ -509,16 +509,16 @@ class b {
     }
 
     private boolean ib() {
-        return this.iAs.cfa().responseCode == 200 || this.iAs.cfa().responseCode == 206;
+        return this.iAu.cfc().responseCode == 200 || this.iAu.cfc().responseCode == 206;
     }
 
     public void c(int i, int i2, e eVar) throws Exception {
         eVar.Aw = -1;
         try {
-            String url = this.iAs.ceZ().getUrl();
+            String url = this.iAu.cfb().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.Aw = -2;
@@ -534,11 +534,11 @@ class b {
             this.Aa.setConnectTimeout(i2);
             this.Aa.setReadTimeout(i);
             this.Aa.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
-            this.iAs.ceZ().d(this.Aa);
-            if (this.iAs.cfa().AK) {
+            this.iAu.cfb().d(this.Aa);
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.At = System.currentTimeMillis() - currentTimeMillis;
@@ -550,13 +550,13 @@ class b {
             this.Ac = System.currentTimeMillis();
             eVar.Aw = -5;
             eVar.connectTime = (System.currentTimeMillis() - currentTimeMillis) - eVar.At;
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             eVar.Aw = -6;
-            this.iAs.ceZ().a(this.Aa, eVar);
+            this.iAu.cfb().a(this.Aa, eVar);
             eVar.Aw = -7;
-            if (this.iAs.cfa().AK) {
+            if (this.iAu.cfc().AK) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.Aa.getContentType();
@@ -564,19 +564,19 @@ class b {
             if (f.aF(contentType)) {
                 this.Aa.disconnect();
                 this.Aa.connect();
-                if (this.iAs.cfa().AK) {
+                if (this.iAu.cfc().AK) {
                     throw new BdHttpCancelException();
                 }
             }
-            this.iAs.cfa().e(this.Aa);
+            this.iAu.cfc().e(this.Aa);
             eVar.Aw = -8;
-            eVar.Av = this.iAs.cfa().responseCode;
+            eVar.Av = this.iAu.cfc().responseCode;
             eVar.Ap = this.Aa.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.Aa);
             if (c != null) {
                 eVar.Ap += c.length;
-                this.iAs.cfa().AP = c.length;
-                this.iAs.cfa().AO = c(this.iAs.cfa().contentEncoding, c);
+                this.iAu.cfc().AP = c.length;
+                this.iAu.cfc().AO = c(this.iAu.cfc().contentEncoding, c);
             }
             eVar.Aq = new Date().getTime() - currentTimeMillis;
             eVar.Aw = -9;

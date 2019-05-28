@@ -8,16 +8,16 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
     private AgreeData agreeData;
-    private boolean gRU;
+    private boolean gRX;
     private boolean isBlockedPic;
     private boolean isFirstPost;
     private boolean isLongPic;
-    private String gRS = null;
+    private String gRV = null;
     private String imageUrl = null;
     private String cLb = null;
     private int width = 0;
     private int height = 0;
-    private String gRT = null;
+    private String gRW = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
@@ -25,17 +25,17 @@ public class f {
     private long overAllIndex = 0;
     private String postId = null;
     private String commentNum = null;
-    private JSONArray gRV = null;
+    private JSONArray gRY = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String bFU() {
-        return this.gRS;
+    public String bFX() {
+        return this.gRV;
     }
 
-    public String bFV() {
+    public String bFY() {
         return this.postId;
     }
 
@@ -51,12 +51,12 @@ public class f {
         return this.index;
     }
 
-    public String axQ() {
+    public String axR() {
         return this.cLb;
     }
 
-    public String axW() {
-        return this.gRT;
+    public String axX() {
+        return this.gRW;
     }
 
     public long getOriginalSize() {
@@ -71,11 +71,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean bFW() {
-        return this.gRU;
+    public boolean bFZ() {
+        return this.gRX;
     }
 
-    public boolean bFX() {
+    public boolean bGa() {
         return this.isBlockedPic;
     }
 
@@ -83,11 +83,11 @@ public class f {
         return this.isLongPic;
     }
 
-    public long bFY() {
+    public long bGb() {
         return this.overAllIndex;
     }
 
-    public String bFZ() {
+    public String bGc() {
         return this.commentNum;
     }
 
@@ -95,11 +95,11 @@ public class f {
         return this.agreeData;
     }
 
-    public JSONArray bGa() {
-        return this.gRV;
+    public JSONArray bGd() {
+        return this.gRY;
     }
 
-    public boolean bGb() {
+    public boolean bGe() {
         return this.isFirstPost;
     }
 
@@ -108,7 +108,7 @@ public class f {
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
             this.postId = jSONObject.optString("post_id");
-            this.gRU = jSONObject.optInt("show_original_btn") == 1;
+            this.gRX = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
@@ -127,15 +127,15 @@ public class f {
                 this.agreeData.hasAgree = z;
                 this.agreeData.diffAgreeNum = optInt - optInt2;
             }
-            this.gRV = jSONObject.optJSONArray("post_content");
+            this.gRY = jSONObject.optJSONArray("post_content");
             JSONObject optJSONObject3 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
             if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
-                this.gRS = optJSONObject.optString("id");
+                this.gRV = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
                 this.cLb = optJSONObject.optString("big_cdn_src", null);
-                this.gRT = optJSONObject.optString("original_src");
+                this.gRW = optJSONObject.optString("original_src");
                 this.originalSize = optJSONObject.optInt("size");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");

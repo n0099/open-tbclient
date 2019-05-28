@@ -12,52 +12,52 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e {
-    private List<String> jmT;
     private List<String> jmU;
+    private List<String> jmV;
     private String mCurrentFileName;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static final e jmW = new e();
+        private static final e jmX = new e();
     }
 
     private e() {
-        this.jmT = new ArrayList();
         this.jmU = new ArrayList();
+        this.jmV = new ArrayList();
         if (f.gs()) {
-            cqx();
+            cqz();
         }
     }
 
-    private void cqx() {
+    private void cqz() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.j.d.Ae(c.a.cTY);
-                com.baidu.tieba.j.d.Ae(c.a.hpd);
-                com.baidu.tieba.j.d.Ae(c.a.hpe);
+                com.baidu.tieba.j.d.Ae(c.a.cTZ);
                 com.baidu.tieba.j.d.Ae(c.a.hpg);
                 com.baidu.tieba.j.d.Ae(c.a.hph);
+                com.baidu.tieba.j.d.Ae(c.a.hpj);
+                com.baidu.tieba.j.d.Ae(c.a.hpk);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e cqy() {
-        return a.jmW;
+    public static e cqA() {
+        return a.jmX;
     }
 
-    public void cqt() {
+    public void cqv() {
         if (f.gs()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List EI = e.EI(c.a.hpf);
+                    List EI = e.EI(c.a.hpi);
                     if (EI != null) {
                         int size = EI.size();
                         for (int i = 0; i < size; i++) {
@@ -104,20 +104,20 @@ public class e {
 
     public synchronized void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.jmT.add(jSONObject.toString());
-            String bMl = bMl();
+            this.jmU.add(jSONObject.toString());
+            String bMo = bMo();
             if (f.gs()) {
-                l(jSONObject, bMl);
+                l(jSONObject, bMo);
             }
-            if (this.jmT.size() >= com.baidu.tbadk.coreExtra.model.f.aox() || z) {
-                a(new d(this.jmT, bMl));
-                this.jmT.clear();
+            if (this.jmU.size() >= com.baidu.tbadk.coreExtra.model.f.aox() || z) {
+                a(new d(this.jmU, bMo));
+                this.jmU.clear();
                 this.mCurrentFileName = null;
             }
         }
     }
 
-    private String bMl() {
+    private String bMo() {
         if (StringUtils.isNull(this.mCurrentFileName)) {
             if (f.gs()) {
                 this.mCurrentFileName = String.valueOf(System.currentTimeMillis());
@@ -125,7 +125,7 @@ public class e {
                 return null;
             }
         }
-        return c.a.hpf + this.mCurrentFileName;
+        return c.a.hpi + this.mCurrentFileName;
     }
 
     private void l(JSONObject jSONObject, String str) {
@@ -147,7 +147,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized boolean ep(String str, String str2) {
         boolean f;
-        if (this.jmU.contains(str)) {
+        if (this.jmV.contains(str)) {
             f = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.h(c.ek(dVar.jmR), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.jmS)) {
-                m.deleteFile(new File(dVar.jmS));
-                this.jmU.add(dVar.jmS);
+            if (c.h(c.ek(dVar.jmS), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.jmT)) {
+                m.deleteFile(new File(dVar.jmT));
+                this.jmV.add(dVar.jmT);
             }
         } catch (Exception e) {
             e.printStackTrace();

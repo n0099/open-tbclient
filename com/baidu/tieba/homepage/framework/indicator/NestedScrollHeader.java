@@ -26,10 +26,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class NestedScrollHeader extends RelativeLayout {
     private View.OnClickListener bVi;
-    CustomMessageListener eWe;
-    View.OnClickListener fSu;
-    private ImageView gaa;
-    private TextView gab;
+    CustomMessageListener eWf;
+    View.OnClickListener fSv;
+    private ImageView gab;
+    private TextView gac;
     private View view;
 
     public NestedScrollHeader(@NonNull Context context) {
@@ -42,22 +42,22 @@ public class NestedScrollHeader extends RelativeLayout {
 
     public NestedScrollHeader(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.fSu = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.1
+        this.fSv = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (NestedScrollHeader.this.gaa == view) {
+                if (NestedScrollHeader.this.gab == view) {
                     if (NestedScrollHeader.this.bVi != null) {
                         NestedScrollHeader.this.bVi.onClick(view);
                     }
-                    NestedScrollHeader.this.btp();
+                    NestedScrollHeader.this.bts();
                     com.baidu.tbadk.browser.a.af(NestedScrollHeader.this.getContext(), "https://haokan.baidu.com/activity/h5/vault?productid=8&tab=act&tag=shitu&pd=1&source=1-101-1&idfrom=1&tbioswk=1");
-                } else if (NestedScrollHeader.this.gab == view) {
+                } else if (NestedScrollHeader.this.gac == view) {
                     TiebaStatic.log(new am("c10378").P("obj_type", 1));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(NestedScrollHeader.this.getContext(), "", false)));
                 }
             }
         };
-        this.eWe = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.2
+        this.eWf = new CustomMessageListener(2921396) { // from class: com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -69,18 +69,18 @@ public class NestedScrollHeader extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.layout_presenlize_scroll_header, (ViewGroup) this, true);
-        this.gaa = (ImageView) findViewById(R.id.task);
-        this.gaa.setOnClickListener(this.fSu);
-        this.gab = (TextView) findViewById(R.id.search);
-        this.gab.setOnClickListener(this.fSu);
+        this.gab = (ImageView) findViewById(R.id.task);
+        this.gab.setOnClickListener(this.fSv);
+        this.gac = (TextView) findViewById(R.id.search);
+        this.gac.setOnClickListener(this.fSv);
         this.view = findViewById(R.id.view);
         onChangeSkinType();
         if (ao.iE()) {
-            this.gaa.setVisibility(0);
+            this.gab.setVisibility(0);
         } else {
-            this.gaa.setVisibility(8);
+            this.gab.setVisibility(8);
         }
-        MessageManager.getInstance().registerListener(this.eWe);
+        MessageManager.getInstance().registerListener(this.eWf);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
@@ -89,48 +89,48 @@ public class NestedScrollHeader extends RelativeLayout {
 
     public void setSearchHint(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gab.setText(str);
+            this.gac.setText(str);
         }
     }
 
     public void aF(float f) {
         if (f >= 0.0f && f <= 1.0f) {
-            if (this.gaa.getVisibility() == 0 && this.gaa.getAlpha() != f) {
-                this.gaa.setAlpha(f);
-            }
-            if (this.gab.getAlpha() != f) {
+            if (this.gab.getVisibility() == 0 && this.gab.getAlpha() != f) {
                 this.gab.setAlpha(f);
+            }
+            if (this.gac.getAlpha() != f) {
+                this.gac.setAlpha(f);
             }
         }
     }
 
     public void onChangeSkinType() {
         al.l(this, R.color.cp_bg_line_d);
-        al.j(this.gab, R.color.cp_cont_d);
-        al.k(this.gab, R.drawable.task_scroll_search_bg);
+        al.j(this.gac, R.color.cp_cont_d);
+        al.k(this.gac, R.drawable.task_scroll_search_bg);
         al.l(this.view, R.color.cp_bg_line_d);
-        this.gab.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_home_search_n), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.c(this.gaa, (int) R.drawable.btn_home_task_n);
+        this.gac.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_home_search_n), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.c(this.gab, (int) R.drawable.btn_home_task_n);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.eWe);
+        MessageManager.getInstance().registerListener(this.eWf);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.eWe);
+        MessageManager.getInstance().unRegisterListener(this.eWf);
     }
 
     public ImageView getTaskView() {
-        return this.gaa;
+        return this.gab;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btp() {
+    public void bts() {
         am amVar = new am("c13422");
         amVar.P("obj_type", 2);
         amVar.P("obj_locate", 1);

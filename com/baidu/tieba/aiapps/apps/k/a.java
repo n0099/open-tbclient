@@ -7,21 +7,21 @@ import java.util.zip.CRC32;
 /* loaded from: classes4.dex */
 public class a {
     public final long delta;
-    public final String dft;
-    public final Map<String, String> dfu = new HashMap();
+    public final String dfu;
+    public final Map<String, String> dfv = new HashMap();
     public final long serverTime;
 
-    public static a aFw() {
+    public static a aFz() {
         return new a(0L);
     }
 
     private a(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.dft = Long.toHexString(sP(this.serverTime + "#" + this.delta));
-        this.dfu.put("timestamp", Long.toString(this.serverTime));
-        this.dfu.put("delta", Long.toString(this.delta));
-        this.dfu.put("rasign", this.dft);
+        this.dfu = Long.toHexString(sP(this.serverTime + "#" + this.delta));
+        this.dfv.put("timestamp", Long.toString(this.serverTime));
+        this.dfv.put("delta", Long.toString(this.delta));
+        this.dfv.put("rasign", this.dfu);
     }
 
     private long sP(String str) {
@@ -32,6 +32,6 @@ public class a {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dft;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dfu;
     }
 }

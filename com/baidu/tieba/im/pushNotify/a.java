@@ -25,9 +25,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a gIx;
+    private static volatile a gIy;
     private List<ImMessageCenterPojo> mList = new LinkedList();
-    private final CustomMessageListener gvh = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
+    private final CustomMessageListener gvi = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -53,15 +53,15 @@ public class a {
         }
     };
 
-    public static a bDn() {
-        if (gIx == null) {
+    public static a bDq() {
+        if (gIy == null) {
             synchronized (a.class) {
-                if (gIx == null) {
-                    gIx = new a();
+                if (gIy == null) {
+                    gIy = new a();
                 }
             }
         }
-        return gIx;
+        return gIy;
     }
 
     private a() {
@@ -69,11 +69,11 @@ public class a {
     }
 
     private void registerListener() {
-        MessageManager.getInstance().registerListener(2016004, this.gvh);
-        MessageManager.getInstance().registerListener(2016007, this.gvh);
-        MessageManager.getInstance().registerListener(2016001, this.gvh);
-        MessageManager.getInstance().registerListener(2016010, this.gvh);
-        MessageManager.getInstance().registerListener(2016002, this.gvh);
+        MessageManager.getInstance().registerListener(2016004, this.gvi);
+        MessageManager.getInstance().registerListener(2016007, this.gvi);
+        MessageManager.getInstance().registerListener(2016001, this.gvi);
+        MessageManager.getInstance().registerListener(2016010, this.gvi);
+        MessageManager.getInstance().registerListener(2016002, this.gvi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -100,13 +100,13 @@ public class a {
 
     private boolean q(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
-            return com.baidu.tieba.im.settingcache.e.bDI().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return com.baidu.tieba.im.settingcache.e.bDL().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         if (imMessageCenterPojo.getCustomGroupType() == 1) {
-            return com.baidu.tieba.im.settingcache.b.bDF().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return com.baidu.tieba.im.settingcache.b.bDI().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         if (imMessageCenterPojo.getCustomGroupType() == 4) {
-            return d.bDH().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            return d.bDK().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
         }
         return imMessageCenterPojo.getCustomGroupType() == -3 || imMessageCenterPojo.getCustomGroupType() == -4;
     }
@@ -199,7 +199,7 @@ public class a {
     private void a(ImMessageCenterPojo imMessageCenterPojo, e eVar) {
         if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 1) {
             HashMap<String, String> aok = eVar.aok();
-            if (!com.baidu.tieba.im.settingcache.b.bDF().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+            if (!com.baidu.tieba.im.settingcache.b.bDI().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
                 eVar.jy(eVar.aod() + imMessageCenterPojo.getUnread_count());
             } else if (imMessageCenterPojo.getUnread_count() > 0) {
                 if (TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name())) {
@@ -232,7 +232,7 @@ public class a {
         String str8;
         String str9;
         String str10 = null;
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && d.bDH().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 4 && d.bDK().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) && !StringUtils.isNull(imMessageCenterPojo.getLast_content()) && imMessageCenterPojo.getUnread_count() > 0 && (userType = imMessageCenterPojo.getUserType()) != 3) {
             e.a aVar = new e.a();
             aVar.gid = imMessageCenterPojo.getGid();
             aVar.ciK = imMessageCenterPojo.getGroup_name();
@@ -318,7 +318,7 @@ public class a {
     }
 
     private void c(ImMessageCenterPojo imMessageCenterPojo, e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && com.baidu.tieba.im.settingcache.e.bDI().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && com.baidu.tieba.im.settingcache.e.bDL().m23do(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
             if (imMessageCenterPojo.getUnread_count() > 0) {
                 eVar.pf(imMessageCenterPojo.getLast_content());
                 String nameShow = imMessageCenterPojo.getNameShow();
@@ -332,13 +332,13 @@ public class a {
     }
 
     private void d(ImMessageCenterPojo imMessageCenterPojo, e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && f.bDJ().isAcceptNotify()) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && f.bDM().isAcceptNotify()) {
             eVar.jF(imMessageCenterPojo.getUnread_count());
         }
     }
 
     private void e(ImMessageCenterPojo imMessageCenterPojo, e eVar) {
-        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && c.bDG().isAcceptNotify()) {
+        if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && c.bDJ().isAcceptNotify()) {
             eVar.jE(imMessageCenterPojo.getUnread_count());
         }
     }

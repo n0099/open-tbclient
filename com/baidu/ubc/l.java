@@ -5,7 +5,7 @@ public interface l {
 
     boolean Ht();
 
-    m aGl();
+    m aGo();
 
     boolean fK(String str);
 }

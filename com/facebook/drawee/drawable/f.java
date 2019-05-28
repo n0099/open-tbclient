@@ -7,100 +7,100 @@ import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
     long aej;
-    private final Drawable[] jUX;
-    int jVj;
+    private final Drawable[] jUY;
     int jVk;
-    int[] jVl;
+    int jVl;
     int[] jVm;
-    boolean[] jVn;
-    int jVo;
+    int[] jVn;
+    boolean[] jVo;
+    int jVp;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.jUX = drawableArr;
-        this.jVl = new int[drawableArr.length];
+        this.jUY = drawableArr;
         this.jVm = new int[drawableArr.length];
+        this.jVn = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.jVn = new boolean[drawableArr.length];
-        this.jVo = 0;
+        this.jVo = new boolean[drawableArr.length];
+        this.jVp = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.jVo == 0) {
+        if (this.jVp == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void cDh() {
-        this.jVo++;
+    public void cDj() {
+        this.jVp++;
     }
 
-    public void cDi() {
-        this.jVo--;
+    public void cDk() {
+        this.jVp--;
         invalidateSelf();
     }
 
     public void CY(int i) {
-        this.jVk = i;
-        if (this.jVj == 1) {
-            this.jVj = 0;
+        this.jVl = i;
+        if (this.jVk == 1) {
+            this.jVk = 0;
         }
     }
 
     private void resetInternal() {
-        this.jVj = 2;
-        Arrays.fill(this.jVl, 0);
-        this.jVl[0] = 255;
+        this.jVk = 2;
         Arrays.fill(this.jVm, 0);
         this.jVm[0] = 255;
-        Arrays.fill(this.jVn, false);
-        this.jVn[0] = true;
+        Arrays.fill(this.jVn, 0);
+        this.jVn[0] = 255;
+        Arrays.fill(this.jVo, false);
+        this.jVo[0] = true;
     }
 
     public void CZ(int i) {
-        this.jVj = 0;
-        this.jVn[i] = true;
+        this.jVk = 0;
+        this.jVo[i] = true;
         invalidateSelf();
     }
 
     public void Da(int i) {
-        this.jVj = 0;
-        this.jVn[i] = false;
+        this.jVk = 0;
+        this.jVo[i] = false;
         invalidateSelf();
     }
 
-    public void cDj() {
-        this.jVj = 0;
-        Arrays.fill(this.jVn, true);
+    public void cDl() {
+        this.jVk = 0;
+        Arrays.fill(this.jVo, true);
         invalidateSelf();
     }
 
-    public void cDk() {
-        this.jVj = 2;
-        for (int i = 0; i < this.jUX.length; i++) {
-            this.jVm[i] = this.jVn[i] ? 255 : 0;
+    public void cDm() {
+        this.jVk = 2;
+        for (int i = 0; i < this.jUY.length; i++) {
+            this.jVn[i] = this.jVo[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aY(float f) {
         boolean z = true;
-        for (int i = 0; i < this.jUX.length; i++) {
-            this.jVm[i] = (int) (((this.jVn[i] ? 1 : -1) * 255 * f) + this.jVl[i]);
-            if (this.jVm[i] < 0) {
-                this.jVm[i] = 0;
+        for (int i = 0; i < this.jUY.length; i++) {
+            this.jVn[i] = (int) (((this.jVo[i] ? 1 : -1) * 255 * f) + this.jVm[i]);
+            if (this.jVn[i] < 0) {
+                this.jVn[i] = 0;
             }
-            if (this.jVm[i] > 255) {
-                this.jVm[i] = 255;
+            if (this.jVn[i] > 255) {
+                this.jVn[i] = 255;
             }
-            if (this.jVn[i] && this.jVm[i] < 255) {
+            if (this.jVo[i] && this.jVn[i] < 255) {
                 z = false;
             }
-            if (!this.jVn[i] && this.jVm[i] > 0) {
+            if (!this.jVo[i] && this.jVn[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.jVj) {
+        switch (this.jVk) {
             case 0:
-                System.arraycopy(this.jVm, 0, this.jVl, 0, this.jUX.length);
-                this.aej = cDl();
-                boolean aY = aY(this.jVk == 0 ? 1.0f : 0.0f);
-                this.jVj = aY ? 2 : 1;
+                System.arraycopy(this.jVn, 0, this.jVm, 0, this.jUY.length);
+                this.aej = cDn();
+                boolean aY = aY(this.jVl == 0 ? 1.0f : 0.0f);
+                this.jVk = aY ? 2 : 1;
                 z = aY;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.jVk > 0);
-                boolean aY2 = aY(((float) (cDl() - this.aej)) / this.jVk);
-                this.jVj = aY2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.jVl > 0);
+                boolean aY2 = aY(((float) (cDn() - this.aej)) / this.jVl);
+                this.jVk = aY2 ? 2 : 1;
                 z = aY2;
                 break;
         }
-        for (int i = 0; i < this.jUX.length; i++) {
-            a(canvas, this.jUX[i], (this.jVm[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.jUY.length; i++) {
+            a(canvas, this.jUY[i], (this.jVn[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.jVo++;
+            this.jVp++;
             drawable.mutate().setAlpha(i);
-            this.jVo--;
+            this.jVp--;
             drawable.draw(canvas);
         }
     }
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long cDl() {
+    protected long cDn() {
         return SystemClock.uptimeMillis();
     }
 }

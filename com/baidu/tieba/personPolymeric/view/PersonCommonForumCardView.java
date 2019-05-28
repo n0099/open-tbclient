@@ -9,50 +9,50 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class PersonCommonForumCardView extends FlowLayout {
-    private List<com.baidu.tieba.personPolymeric.c.f> imj;
-    private List<PersonCommonForumItemView> imk;
-    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> iml;
+    private List<com.baidu.tieba.personPolymeric.c.f> imm;
+    private List<PersonCommonForumItemView> imn;
+    private com.baidu.adp.lib.e.b<PersonCommonForumItemView> imo;
     private Context mContext;
 
     public PersonCommonForumCardView(Context context) {
         super(context);
-        this.imk = new ArrayList();
+        this.imn = new ArrayList();
         this.mContext = context;
     }
 
     public void setData(List<com.baidu.tieba.personPolymeric.c.f> list) {
-        this.imj = list;
-        aUY();
+        this.imm = list;
+        aVb();
     }
 
-    private void aUY() {
-        if (!v.aa(this.imj)) {
-            for (com.baidu.tieba.personPolymeric.c.f fVar : this.imj) {
+    private void aVb() {
+        if (!v.aa(this.imm)) {
+            for (com.baidu.tieba.personPolymeric.c.f fVar : this.imm) {
                 if (fVar != null) {
-                    PersonCommonForumItemView iu = this.iml.iu();
+                    PersonCommonForumItemView iu = this.imo.iu();
                     iu.setData(fVar);
                     addView(iu, new ViewGroup.LayoutParams(((com.baidu.adp.lib.util.l.af(this.mContext) - com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds88)) - com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds96)) / 2, -2));
-                    this.imk.add(iu);
+                    this.imn.add(iu);
                 }
             }
         }
     }
 
     public void recycle() {
-        if (!v.aa(this.imk)) {
-            for (PersonCommonForumItemView personCommonForumItemView : this.imk) {
-                this.iml.t(personCommonForumItemView);
+        if (!v.aa(this.imn)) {
+            for (PersonCommonForumItemView personCommonForumItemView : this.imn) {
+                this.imo.t(personCommonForumItemView);
             }
             removeAllViews();
         }
     }
 
     public void setForumItemViewBdObjectPool(com.baidu.adp.lib.e.b<PersonCommonForumItemView> bVar) {
-        this.iml = bVar;
+        this.imo = bVar;
     }
 
     public void onChangeSkinType() {
-        for (PersonCommonForumItemView personCommonForumItemView : this.imk) {
+        for (PersonCommonForumItemView personCommonForumItemView : this.imn) {
             if (personCommonForumItemView != null) {
                 personCommonForumItemView.onChangeSkinType();
             }

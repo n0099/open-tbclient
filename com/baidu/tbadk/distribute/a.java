@@ -349,7 +349,7 @@ public class a {
         }
         b a = f.a(downloadStaticsData, 101, 0);
         a.dZ("dl", IntentConfig.START);
-        c.cfE().a(a);
+        c.cfG().a(a);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -380,7 +380,7 @@ public class a {
                 return;
             }
             a.dZ("dl", str2);
-            c.cfE().a(a);
+            c.cfG().a(a);
         }
     }
 
@@ -390,7 +390,7 @@ public class a {
             b a = f.a(downloadStaticsData, 101, 0);
             a.setDownloadStaticsData(null);
             a.dZ("dl", WriteImageActivityConfig.DELET_FLAG);
-            c.cfE().a(a);
+            c.cfG().a(a);
         }
     }
 

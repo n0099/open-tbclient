@@ -13,11 +13,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
-    private ImageView dWN;
-    private String iRb;
-    private String iRc;
-    private boolean iRd;
-    private TbImageView iRe;
+    private ImageView dWO;
+    private String iRd;
+    private String iRe;
+    private boolean iRf;
+    private TbImageView iRg;
     private ImageView mIcon;
     private NavigationBar mNavigationBar;
 
@@ -28,11 +28,11 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.iRb = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
-        this.iRc = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
-        this.iRd = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+        this.iRd = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.iRe = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
+        this.iRf = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
-        cko();
+        ckq();
     }
 
     private void initUI() {
@@ -40,10 +40,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
         this.mIcon = (ImageView) findViewById(R.id.signallforum_icon);
-        this.iRe = (TbImageView) findViewById(R.id.signallforum_advert_pic);
-        this.dWN = (ImageView) findViewById(R.id.signallforum_advert_close);
-        this.iRe.setDefaultBgResource(R.drawable.transparent_bg);
-        com.baidu.adp.lib.f.c.iv().a(this.iRb, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
+        this.iRg = (TbImageView) findViewById(R.id.signallforum_advert_pic);
+        this.dWO = (ImageView) findViewById(R.id.signallforum_advert_close);
+        this.iRg.setDefaultBgResource(R.drawable.transparent_bg);
+        com.baidu.adp.lib.f.c.iv().a(this.iRd, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -54,16 +54,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                 }
             }
         }, null);
-        this.iRe.startLoad(this.iRb, 10, false);
-        this.iRe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
+        this.iRg.startLoad(this.iRd, 10, false);
+        this.iRg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.signall.SignAllForumAdvertActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ba.aiz().c(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.iRc});
+                ba.aiz().c(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.iRe});
             }
         });
-        this.dWN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
+        this.dWO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SignAllForumAdvertActivity.this.finish();
@@ -71,7 +71,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         });
     }
 
-    private void cko() {
+    private void ckq() {
         TiebaStatic.log("c10746");
     }
 

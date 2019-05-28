@@ -22,7 +22,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     private void initView(Context context) {
-        ayz();
+        ayA();
         initViews();
         initAnim();
         if (this.cMC.cMF == null) {
@@ -58,7 +58,7 @@ public class b extends a implements View.OnClickListener {
         if (this.cMC.cME != null) {
             this.cNU.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void ayx() {
+                public void ayy() {
                     try {
                         b.this.cMC.cME.p(c.cNW.parse(b.this.cNU.getTime()));
                     } catch (ParseException e) {
@@ -69,27 +69,27 @@ public class b extends a implements View.OnClickListener {
         }
         this.cNU.fV(this.cMC.cMP);
         if (this.cMC.startYear != 0 && this.cMC.endYear != 0 && this.cMC.startYear <= this.cMC.endYear) {
-            ayC();
+            ayD();
         }
         if (this.cMC.cMM != null && this.cMC.cMN != null) {
             if (this.cMC.cMM.getTimeInMillis() > this.cMC.cMN.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            ayD();
+            ayE();
         } else if (this.cMC.cMM != null) {
             if (this.cMC.cMM.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            ayD();
+            ayE();
         } else if (this.cMC.cMN != null) {
             if (this.cMC.cMN.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            ayD();
+            ayE();
         } else {
-            ayD();
+            ayE();
         }
-        ayF();
+        ayG();
         this.cNU.c(this.cMC.cMQ, this.cMC.cMR, this.cMC.cMS, this.cMC.cMT, this.cMC.cMU, this.cMC.cMV);
         this.cNU.h(this.cMC.cMW, this.cMC.cMX, this.cMC.cMY, this.cMC.cMZ, this.cMC.cNa, this.cMC.cNb);
         fU(this.cMC.cNu);
@@ -102,17 +102,17 @@ public class b extends a implements View.OnClickListener {
         this.cNU.fW(this.cMC.cNv);
     }
 
-    private void ayC() {
+    private void ayD() {
         this.cNU.setStartYear(this.cMC.startYear);
         this.cNU.lQ(this.cMC.endYear);
     }
 
-    private void ayD() {
+    private void ayE() {
         this.cNU.a(this.cMC.cMM, this.cMC.cMN);
-        ayE();
+        ayF();
     }
 
-    private void ayE() {
+    private void ayF() {
         if (this.cMC.cMM != null && this.cMC.cMN != null) {
             if (this.cMC.cML == null || this.cMC.cML.getTimeInMillis() < this.cMC.cMM.getTimeInMillis() || this.cMC.cML.getTimeInMillis() > this.cMC.cMN.getTimeInMillis()) {
                 this.cMC.cML = this.cMC.cMM;
@@ -124,7 +124,7 @@ public class b extends a implements View.OnClickListener {
         }
     }
 
-    private void ayF() {
+    private void ayG() {
         int i;
         int i2;
         int i3;
@@ -154,12 +154,12 @@ public class b extends a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            ayG();
+            ayH();
         }
         dismiss();
     }
 
-    public void ayG() {
+    public void ayH() {
         if (this.cMC.cMD != null) {
             try {
                 this.cMC.cMD.a(c.cNW.parse(this.cNU.getTime()), this.cNP);
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean ayB() {
+    public boolean ayC() {
         return this.cMC.cNt;
     }
 }

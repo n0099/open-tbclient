@@ -32,7 +32,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aAr();
+        aAu();
         registerTask();
     }
 
@@ -96,7 +96,7 @@ public class SignStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aAr() {
+    private static void aAu() {
         ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
             @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {

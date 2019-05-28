@@ -30,7 +30,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
                 if ((customResponsedMessage.getData() instanceof PostData) && PostPraiseView.this.mData != 0 && !TextUtils.isEmpty(((PostData) PostPraiseView.this.mData).getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && ((PostData) PostPraiseView.this.mData).getId().equals(postData.getId())) {
                     ((PostData) PostPraiseView.this.mData).ar(postData.aeO());
                     ((PostData) PostPraiseView.this.mData).as(postData.aeP());
-                    ((PostData) PostPraiseView.this.mData).qO(postData.bmm());
+                    ((PostData) PostPraiseView.this.mData).qO(postData.bmp());
                     ((PostData) PostPraiseView.this.mData).hl(postData.aeR());
                     PostPraiseView.this.Jf();
                 }
@@ -68,7 +68,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         }
         this.bWa.setText(string);
         this.bWa.setContentDescription(context.getString(this.bVV) + num);
-        if (this.mData != 0 && ((PostData) this.mData).bmm() && ajf()) {
+        if (this.mData != 0 && ((PostData) this.mData).bmp() && ajf()) {
             this.bWb.setImageDrawable(W(this.bVX, this.bVW));
             this.bWa.setTextColor(createColorStateList(this.bVZ, this.bVY));
             return;
@@ -82,20 +82,20 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).bmm() && ajf()) {
+        if (((PostData) this.mData).bmp() && ajf()) {
             ((PostData) this.mData).hl(2);
             ((PostData) this.mData).qO(false);
             ((PostData) this.mData).ar(((PostData) this.mData).aeO() - 1);
             ((PostData) this.mData).as(((PostData) this.mData).aeP());
             i = 1;
         } else {
-            if (((PostData) this.mData).bmm() && ((PostData) this.mData).aeR() == 5) {
+            if (((PostData) this.mData).bmp() && ((PostData) this.mData).aeR() == 5) {
                 ((PostData) this.mData).as(((PostData) this.mData).aeP() - 1);
             }
             ((PostData) this.mData).qO(true);
             ((PostData) this.mData).ar(((PostData) this.mData).aeO() + 1);
             ((PostData) this.mData).hl(2);
-            com.baidu.tieba.n.a.cer().x(getTbPageContext());
+            com.baidu.tieba.n.a.cet().x(getTbPageContext());
             i = 0;
         }
         return i;

@@ -16,16 +16,16 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
     private static final Pattern bTp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a cVw = new a();
+    private static a cVx = new a();
     private final List<h.a> mListeners = new LinkedList();
     private final ConcurrentHashMap<String, h.b> bTn = new ConcurrentHashMap<>();
-    private h.c cVx = null;
+    private h.c cVy = null;
 
     private a() {
     }
 
-    public static a aBH() {
-        return cVw;
+    public static a aBK() {
+        return cVx;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.cVx = cVar;
+        this.cVy = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.cVx != null) {
+        if (!z3 && this.cVy != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -153,7 +153,7 @@ public final class a implements h {
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
         if (bTp.matcher(str2).find()) {
-            this.cVx.b(context, str, str2, z, dVar, z2);
+            this.cVy.b(context, str, str2, z, dVar, z2);
         }
     }
 

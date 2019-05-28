@@ -5,19 +5,19 @@ import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String eAB = "";
+    public String eAC = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo eAA = null;
+    public AdvertAppInfo eAB = null;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.eAA != null && this.eAA.getType() == AdvertAppInfo.bDB) {
+        if (this.eAB != null && this.eAB.getType() == AdvertAppInfo.bDB) {
             return AdvertAppInfo.bDH;
         }
-        if (this.eAA != null && this.eAA.legoCard != null) {
+        if (this.eAB != null && this.eAB.legoCard != null) {
             BdUniqueId bdUniqueId = AdvertAppInfo.bDK;
-            switch (this.eAA.legoCard.getGoodsStyle()) {
+            switch (this.eAB.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
                     return AdvertAppInfo.bDL;
@@ -41,11 +41,11 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.f(this.eAA != null ? this.eAA.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
+        return com.baidu.adp.lib.g.b.f(this.eAB != null ? this.eAB.adPosition : LivenessStat.TYPE_STRING_DEFAULT, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aYc() {
+    public boolean aYf() {
         return false;
     }
 
@@ -57,7 +57,7 @@ public class d extends b implements p {
     public void iz(boolean z) {
     }
 
-    public AdvertAppInfo aYd() {
-        return this.eAA;
+    public AdvertAppInfo aYg() {
+        return this.eAB;
     }
 }

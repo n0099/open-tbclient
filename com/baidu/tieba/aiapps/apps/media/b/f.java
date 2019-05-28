@@ -27,50 +27,50 @@ public class f implements com.baidu.swan.apps.media.a {
     private boolean SE;
     private String aAu;
     private SwanAppNAViewContainer akG;
-    private com.baidu.tbadk.ala.d ddK;
-    private d.a ddL;
-    private o ddN;
-    private FrameLayout ddP;
-    private Activity ddQ;
+    private com.baidu.tbadk.ala.d ddL;
+    private d.a ddM;
+    private o ddO;
+    private FrameLayout ddQ;
+    private Activity ddR;
     private boolean mDetached;
     CustomMessageListener mNetworkChangedListener;
-    private a ddJ = a.aEJ();
-    private com.baidu.tieba.aiapps.apps.media.b.a.a ddM = new com.baidu.tieba.aiapps.apps.media.b.a.a();
-    private volatile boolean ddO = false;
-    private String ddR = "AiAppLiveErr";
+    private a ddK = a.aEM();
+    private com.baidu.tieba.aiapps.apps.media.b.a.a ddN = new com.baidu.tieba.aiapps.apps.media.b.a.a();
+    private volatile boolean ddP = false;
+    private String ddS = "AiAppLiveErr";
 
     public f(Context context, String str) {
         this.aAu = str;
-        this.ddQ = (Activity) context;
+        this.ddR = (Activity) context;
         if (!TextUtils.isEmpty(this.aAu)) {
             com.baidu.swan.apps.media.b.a(this);
         }
         BdLog.d("AiAppsLivePlayer create: " + this.aAu);
         this.akG = new SwanAppNAViewContainer(context);
-        this.ddL = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.f.1
+        this.ddM = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.f.1
             @Override // com.baidu.tbadk.ala.d.a
             public void onFirstFrame(int i, int i2, int i3) {
                 BdLog.d("onFirstFrame " + i2 + " " + i3);
-                f.this.ddM.mVideoWidth = i2;
-                f.this.ddM.mVideoHeight = i3;
+                f.this.ddN.mVideoWidth = i2;
+                f.this.ddN.mVideoHeight = i3;
             }
 
             @Override // com.baidu.tbadk.ala.d.a
             public void a(int i, AlaLivePlayerData alaLivePlayerData) {
-                if (alaLivePlayerData != null && f.this.ddM != null) {
-                    if (alaLivePlayerData.fpsAvg != f.this.ddM.ddT) {
+                if (alaLivePlayerData != null && f.this.ddN != null) {
+                    if (alaLivePlayerData.fpsAvg != f.this.ddN.ddU) {
                         f.this.mF(940);
                     }
-                    if (alaLivePlayerData.videoBitrate != f.this.ddM.aeK) {
+                    if (alaLivePlayerData.videoBitrate != f.this.ddN.aeK) {
                         f.this.mF(939);
                     }
-                    if (alaLivePlayerData.audioBitrate != f.this.ddM.aeQ) {
+                    if (alaLivePlayerData.audioBitrate != f.this.ddN.aeQ) {
                         f.this.mF(938);
                     }
-                    f.this.ddM.ddU = (int) alaLivePlayerData.bandWidth;
-                    f.this.ddM.ddT = (int) alaLivePlayerData.fpsAvg;
-                    f.this.ddM.aeQ = (int) alaLivePlayerData.audioBitrate;
-                    f.this.ddM.aeK = (int) alaLivePlayerData.videoBitrate;
+                    f.this.ddN.ddV = (int) alaLivePlayerData.bandWidth;
+                    f.this.ddN.ddU = (int) alaLivePlayerData.fpsAvg;
+                    f.this.ddN.aeQ = (int) alaLivePlayerData.audioBitrate;
+                    f.this.ddN.aeK = (int) alaLivePlayerData.videoBitrate;
                 }
             }
         };
@@ -79,41 +79,41 @@ public class f implements com.baidu.swan.apps.media.a {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    f.this.aEP();
+                    f.this.aES();
                 }
             }
         };
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        this.ddN = new o(this.ddQ);
-        this.ddN.start();
-        this.ddQ.getWindow().addFlags(128);
+        this.ddO = new o(this.ddR);
+        this.ddO.start();
+        this.ddR.getWindow().addFlags(128);
     }
 
-    public a aEL() {
-        return this.ddJ;
+    public a aEO() {
+        return this.ddK;
     }
 
     public void a(a aVar) {
-        this.ddJ = aVar;
-        if (!this.ddJ.hidden && this.ddJ.aAD) {
+        this.ddK = aVar;
+        if (!this.ddK.hidden && this.ddK.aAD) {
             start();
         }
     }
 
     public void start() {
-        if (this.ddJ != null) {
-            if (this.ddJ.hidden) {
-                BdLog.d("mPlayerId = " + this.aAu + "can not start(), hide = " + this.ddJ.hidden);
+        if (this.ddK != null) {
+            if (this.ddK.hidden) {
+                BdLog.d("mPlayerId = " + this.aAu + "can not start(), hide = " + this.ddK.hidden);
                 return;
             }
             BdLog.d(this.aAu + " start()");
-            if (this.ddK != null) {
-                aEM();
+            if (this.ddL != null) {
+                aEP();
             }
-            aEN();
-            c(this.ddJ);
-            c(this.ddJ.mSrc, "", "", false);
-            aEO();
+            aEQ();
+            c(this.ddK);
+            c(this.ddK.mSrc, "", "", false);
+            aER();
             this.mDetached = false;
         }
     }
@@ -125,7 +125,7 @@ public class f implements com.baidu.swan.apps.media.a {
 
     @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.ddJ.aDm;
+        return this.ddK.aDm;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -146,23 +146,23 @@ public class f implements com.baidu.swan.apps.media.a {
     @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         BdLog.d("onBackPressed ");
-        if (this.ddJ != null && this.akG != null && d(this.ddQ, this.akG)) {
-            if (this.ddQ.getRequestedOrientation() != 1) {
-                this.ddN.bIi();
+        if (this.ddK != null && this.akG != null && d(this.ddR, this.akG)) {
+            if (this.ddR.getRequestedOrientation() != 1) {
+                this.ddO.bIl();
             }
-            f(this.ddQ, 0);
+            f(this.ddR, 0);
             return true;
         }
         release();
         return false;
     }
 
-    public void aEM() {
-        if (this.ddK != null) {
-            this.ddK.stop();
-            this.ddK.destroy();
+    public void aEP() {
+        if (this.ddL != null) {
+            this.ddL.stop();
+            this.ddL.destroy();
         }
-        this.ddK = null;
+        this.ddL = null;
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -173,27 +173,27 @@ public class f implements com.baidu.swan.apps.media.a {
 
     public void release() {
         BdLog.d(this.aAu + " release()");
-        this.ddQ.getWindow().clearFlags(128);
+        this.ddR.getWindow().clearFlags(128);
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
         com.baidu.swan.apps.media.b.b(this);
-        this.ddN.stop();
-        if (this.ddK != null) {
-            this.ddK.stop();
-            this.ddK.destroy();
-            this.ddK = null;
+        this.ddO.stop();
+        if (this.ddL != null) {
+            this.ddL.stop();
+            this.ddL.destroy();
+            this.ddL = null;
         }
     }
 
-    private void aEN() {
-        bo(this.ddJ.ddA);
-        mD(this.ddJ.ddC);
-        mE(this.ddJ.ddD);
-        if (TextUtils.equals(this.ddJ.ddE, "horizontal")) {
+    private void aEQ() {
+        bo(this.ddK.ddB);
+        mD(this.ddK.ddD);
+        mE(this.ddK.ddE);
+        if (TextUtils.equals(this.ddK.ddF, "horizontal")) {
             setVideoRotation(90);
         } else {
             setVideoRotation(0);
         }
-        if (TextUtils.equals(this.ddJ.aCA, "contain")) {
+        if (TextUtils.equals(this.ddK.aCA, "contain")) {
             setVideoScalingMode(2);
         } else {
             setVideoScalingMode(0);
@@ -202,8 +202,8 @@ public class f implements com.baidu.swan.apps.media.a {
 
     public void bo(boolean z) {
         BdLog.d("mPlayerId + \" mute() isMuted: \" + isMuted");
-        if (this.ddK != null) {
-            this.ddK.setAudioMute(z);
+        if (this.ddL != null) {
+            this.ddL.setAudioMute(z);
         }
     }
 
@@ -218,8 +218,8 @@ public class f implements com.baidu.swan.apps.media.a {
 
     public void setVideoScalingMode(int i) {
         BdLog.d("setVideoScalingMode scalingMode: " + i);
-        if (this.ddK != null) {
-            this.ddK.setRenderVideoModel(1, i != 2 ? 1 : 2);
+        if (this.ddL != null) {
+            this.ddL.setRenderVideoModel(1, i != 2 ? 1 : 2);
             BdLog.d("setVideoScalingMode " + i);
             return;
         }
@@ -244,28 +244,28 @@ public class f implements com.baidu.swan.apps.media.a {
         return true;
     }
 
-    private boolean aEO() {
+    private boolean aER() {
         boolean z;
         int i;
         int i2;
         CustomResponsedMessage runTask;
-        if (this.ddK == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.ddQ)) != null && runTask.getData() != null) {
-            this.ddK = (com.baidu.tbadk.ala.d) runTask.getData();
-            this.ddK.a(this.ddL);
+        if (this.ddL == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.ddR)) != null && runTask.getData() != null) {
+            this.ddL = (com.baidu.tbadk.ala.d) runTask.getData();
+            this.ddL.a(this.ddM);
         }
-        if (this.ddK == null) {
+        if (this.ddL == null) {
             return false;
         }
-        if (this.ddK.a(1, this.ddJ.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
-            this.ddO = true;
+        if (this.ddL.a(1, this.ddK.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
+            this.ddP = true;
         }
-        if (this.ddP != null) {
+        if (this.ddQ != null) {
             int i3 = 0;
             while (true) {
-                if (i3 >= this.ddP.getChildCount()) {
+                if (i3 >= this.ddQ.getChildCount()) {
                     z = false;
                     break;
-                } else if (this.ddP.getChildAt(i3) == this.ddK.Zm()) {
+                } else if (this.ddQ.getChildAt(i3) == this.ddL.Zm()) {
                     z = true;
                     break;
                 } else {
@@ -273,16 +273,16 @@ public class f implements com.baidu.swan.apps.media.a {
                 }
             }
             if (!z) {
-                if (this.ddJ.aDo != null) {
-                    i2 = this.ddJ.aDo.getWidth();
-                    i = this.ddJ.aDo.getHeight();
+                if (this.ddK.aDo != null) {
+                    i2 = this.ddK.aDo.getWidth();
+                    i = this.ddK.aDo.getHeight();
                 } else {
-                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.ddR, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.ddJ.toString(), "position", this.ddJ.aDo == null ? "null" : this.ddJ.aDo.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
+                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.ddS, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.ddK.toString(), "position", this.ddK.aDo == null ? "null" : this.ddK.aDo.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
                     i = 0;
                     i2 = 0;
                 }
-                this.ddP.addView(this.ddK.Zm(), new LinearLayout.LayoutParams(i2, i));
-                if (TextUtils.equals(this.ddJ.aCA, "contain")) {
+                this.ddQ.addView(this.ddL.Zm(), new LinearLayout.LayoutParams(i2, i));
+                if (TextUtils.equals(this.ddK.aCA, "contain")) {
                     setVideoScalingMode(2);
                 } else {
                     setVideoScalingMode(0);
@@ -302,12 +302,12 @@ public class f implements com.baidu.swan.apps.media.a {
         }
         com.baidu.swan.apps.model.a.a.a GI = aVar.GI();
         GI.id = this.aAu;
-        GI.aDm = this.ddJ.aDm;
+        GI.aDm = this.ddK.aDm;
         GI.aDn = aVar.aDn;
         if (com.baidu.swan.apps.view.container.c.b.a(GI.aDm, this.aAu, com.baidu.swan.apps.view.container.c.c.ix(GI.aDm)) == null) {
             BdLog.d("insertOrUpdateCoverContainer 00");
-            this.ddP = new FrameLayout(this.ddQ);
-            return this.akG.a(this.ddP, GI);
+            this.ddQ = new FrameLayout(this.ddR);
+            return this.akG.a(this.ddQ, GI);
         }
         BdLog.d("insertOrUpdateCoverContainer 01");
         return this.akG.a(GI);
@@ -319,57 +319,57 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     private boolean d(a aVar) {
-        if (this.ddJ == null) {
+        if (this.ddK == null) {
             return false;
         }
-        return (this.ddJ.ddA == aVar.ddA && this.ddJ.ddC == aVar.ddC && this.ddJ.ddD == aVar.ddD && TextUtils.equals(this.ddJ.ddE, aVar.ddE) && TextUtils.equals(this.ddJ.aCA, aVar.aCA)) ? false : true;
+        return (this.ddK.ddB == aVar.ddB && this.ddK.ddD == aVar.ddD && this.ddK.ddE == aVar.ddE && TextUtils.equals(this.ddK.ddF, aVar.ddF) && TextUtils.equals(this.ddK.aCA, aVar.aCA)) ? false : true;
     }
 
     public void e(@NonNull a aVar) {
         BdLog.d("updatePlayerConfig params: " + aVar.toString());
         if (d(aVar)) {
-            this.ddJ = aVar;
-            aEN();
+            this.ddK = aVar;
+            aEQ();
         }
-        this.ddJ = aVar;
-        c(this.ddJ);
+        this.ddK = aVar;
+        c(this.ddK);
     }
 
     public boolean isPlaying() {
-        if (this.ddK != null) {
-            return this.ddO;
+        if (this.ddL != null) {
+            return this.ddP;
         }
         return false;
     }
 
     public void stop() {
-        if (this.ddK != null) {
-            this.ddK.stop();
-            this.ddK.destroy();
-            this.ddK.a(null);
-            this.ddK = null;
-            this.ddO = false;
+        if (this.ddL != null) {
+            this.ddL.stop();
+            this.ddL.destroy();
+            this.ddL.a(null);
+            this.ddL = null;
+            this.ddP = false;
         }
     }
 
     public void j(boolean z, int i) {
         BdLog.d("setFullScreen  = " + z + " direction  = " + i);
         this.SE = z;
-        int af = l.af(this.ddQ);
-        int ah = l.ah(this.ddQ);
+        int af = l.af(this.ddR);
+        int ah = l.ah(this.ddR);
         if (z) {
             if (i == 90 || i == -90) {
-                this.ddN.bIi();
+                this.ddO.bIl();
                 af = ah;
                 ah = af;
             }
-        } else if (this.ddQ.getRequestedOrientation() != 1) {
-            this.ddN.bIi();
+        } else if (this.ddR.getRequestedOrientation() != 1) {
+            this.ddO.bIl();
         }
         if (z) {
-            a(this.ddQ, i, af, ah);
+            a(this.ddR, i, af, ah);
         } else {
-            f(this.ddQ, i);
+            f(this.ddR, i);
         }
     }
 
@@ -384,16 +384,16 @@ public class f implements com.baidu.swan.apps.media.a {
                 viewGroup.removeView(this.akG);
                 viewGroup.addView(this.akG);
             }
-            if (this.ddK != null && this.ddK.Zm().getParent() != null) {
-                ((ViewGroup) this.ddK.Zm().getParent()).removeView(this.ddK.Zm());
+            if (this.ddL != null && this.ddL.Zm().getParent() != null) {
+                ((ViewGroup) this.ddL.Zm().getParent()).removeView(this.ddL.Zm());
             }
-            this.ddP.addView(this.ddK.Zm(), new LinearLayout.LayoutParams(i2, i3));
+            this.ddQ.addView(this.ddL.Zm(), new LinearLayout.LayoutParams(i2, i3));
             this.akG.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void f(Activity activity, int i) {
-        if (activity == null || this.ddJ == null) {
+        if (activity == null || this.ddK == null) {
             BdLog.d("updatePortraitEmbedScreen activity = null or mParams = null");
             return;
         }
@@ -401,14 +401,14 @@ public class f implements com.baidu.swan.apps.media.a {
         if (this.akG != null && this.akG.getParent() != null) {
             ((ViewGroup) this.akG.getParent()).removeView(this.akG);
         }
-        if (this.ddK != null && this.ddK.Zm().getParent() != null) {
-            ((ViewGroup) this.ddK.Zm().getParent()).removeView(this.ddK.Zm());
+        if (this.ddL != null && this.ddL.Zm().getParent() != null) {
+            ((ViewGroup) this.ddL.Zm().getParent()).removeView(this.ddL.Zm());
         }
-        int width = this.ddJ.aDo.getWidth();
-        int height = this.ddJ.aDo.getHeight();
-        this.ddJ.aDo.getLeft();
-        this.ddJ.aDo.getTop();
-        this.ddP.addView(this.ddK.Zm(), new LinearLayout.LayoutParams(width, height));
+        int width = this.ddK.aDo.getWidth();
+        int height = this.ddK.aDo.getHeight();
+        this.ddK.aDo.getLeft();
+        this.ddK.aDo.getTop();
+        this.ddQ.addView(this.ddL.Zm(), new LinearLayout.LayoutParams(width, height));
         this.akG.Ps();
     }
 
@@ -418,8 +418,8 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEP() {
-        String GG = this.ddM.GG();
+    public void aES() {
+        String GG = this.ddN.GG();
         if (!TextUtils.isEmpty(GG)) {
             BdLog.d(this.aAu + " dispatchNetStatusEvent statusData: " + GG);
             c.J(getSlaveId(), Gc(), GG);

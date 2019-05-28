@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    public static boolean cgk() {
+    public static boolean cgm() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
@@ -97,7 +97,7 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long coR() {
+    public static long coT() {
         return es(System.currentTimeMillis());
     }
 
@@ -111,7 +111,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean coS() {
+    public static boolean coU() {
         return com.baidu.tbadk.core.sharedPref.b.agM().getInt("sync_local_dialog", 1) == 1;
     }
 }

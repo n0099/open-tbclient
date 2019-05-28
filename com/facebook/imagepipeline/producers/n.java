@@ -7,51 +7,51 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class n implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> kbY;
-    private final com.facebook.imagepipeline.c.l kcv;
+    private final ai<com.facebook.imagepipeline.f.d> kbZ;
+    private final com.facebook.imagepipeline.c.l kcw;
 
     public n(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.kbY = aiVar;
-        this.kcv = lVar;
+        this.kbZ = aiVar;
+        this.kcw = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        ImageRequest cHw = ajVar.cHw();
-        if (!cHw.cIr()) {
+        ImageRequest cHy = ajVar.cHy();
+        if (!cHy.cIt()) {
             c(jVar, ajVar);
             return;
         }
-        ajVar.cHx().ez(ajVar.getId(), "DiskCacheProducer");
+        ajVar.cHz().ez(ajVar.getId(), "DiskCacheProducer");
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.kcv.a(cHw, ajVar.cCS(), atomicBoolean).a(b(jVar, ajVar));
+        this.kcw.a(cHy, ajVar.cCU(), atomicBoolean).a(b(jVar, ajVar));
         a(atomicBoolean, ajVar);
     }
 
     private bolts.f<com.facebook.imagepipeline.f.d, Void> b(final j<com.facebook.imagepipeline.f.d> jVar, final aj ajVar) {
         final String id = ajVar.getId();
-        final al cHx = ajVar.cHx();
+        final al cHz = ajVar.cHz();
         return new bolts.f<com.facebook.imagepipeline.f.d, Void>() { // from class: com.facebook.imagepipeline.producers.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // bolts.f
             /* renamed from: b */
             public Void a(bolts.g<com.facebook.imagepipeline.f.d> gVar) throws Exception {
                 if (n.c(gVar)) {
-                    cHx.b(id, "DiskCacheProducer", null);
-                    jVar.cBy();
+                    cHz.b(id, "DiskCacheProducer", null);
+                    jVar.cBA();
                 } else if (gVar.bf()) {
-                    cHx.a(id, "DiskCacheProducer", gVar.bg(), null);
-                    n.this.kbY.a(jVar, ajVar);
+                    cHz.a(id, "DiskCacheProducer", gVar.bg(), null);
+                    n.this.kbZ.a(jVar, ajVar);
                 } else {
                     com.facebook.imagepipeline.f.d result = gVar.getResult();
                     if (result != null) {
-                        cHx.a(id, "DiskCacheProducer", n.a(cHx, id, true, result.getSize()));
+                        cHz.a(id, "DiskCacheProducer", n.a(cHz, id, true, result.getSize()));
                         jVar.aQ(1.0f);
                         jVar.e(result, true);
                         result.close();
                     } else {
-                        cHx.a(id, "DiskCacheProducer", n.a(cHx, id, false, 0));
-                        n.this.kbY.a(jVar, ajVar);
+                        cHz.a(id, "DiskCacheProducer", n.a(cHz, id, false, 0));
+                        n.this.kbZ.a(jVar, ajVar);
                     }
                 }
                 return null;
@@ -65,10 +65,10 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     }
 
     private void c(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        if (ajVar.cHy().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
+        if (ajVar.cHA().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
         } else {
-            this.kbY.a(jVar, ajVar);
+            this.kbZ.a(jVar, ajVar);
         }
     }
 
@@ -85,7 +85,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
     private void a(final AtomicBoolean atomicBoolean, aj ajVar) {
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.n.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cHD() {
+            public void cHF() {
                 atomicBoolean.set(true);
             }
         });

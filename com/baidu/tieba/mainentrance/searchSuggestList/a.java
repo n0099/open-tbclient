@@ -24,36 +24,36 @@ import tbclient.SearchSug.ForumInfo;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
     private String bol;
-    private List<ForumInfo> hfo;
-    private ArrayList<Object> hfp;
+    private List<ForumInfo> hfr;
+    private ArrayList<Object> hfs;
     private final Context mContext;
-    private final boolean hea = true;
+    private final boolean hed = true;
     private LikeModel ccn = new LikeModel(null);
 
     public a(Context context, ArrayList<ForumInfo> arrayList) {
         this.mContext = context;
-        this.hfo = arrayList;
+        this.hfr = arrayList;
     }
 
     public void dq(List<ForumInfo> list) {
-        this.hfo = list;
-        this.hfp = new ArrayList<>();
+        this.hfr = list;
+        this.hfs = new ArrayList<>();
         int i = 0;
         while (true) {
-            if (i >= this.hfo.size()) {
+            if (i >= this.hfr.size()) {
                 i = 0;
                 break;
-            } else if (this.hfo.get(i).has_concerned.intValue() == 0) {
+            } else if (this.hfr.get(i).has_concerned.intValue() == 0) {
                 break;
             } else {
                 i++;
             }
         }
-        this.hfp.addAll(this.hfo);
+        this.hfs.addAll(this.hfr);
         if (i > 0) {
-            this.hfp.add(i, "divider");
+            this.hfs.add(i, "divider");
         }
-        if (this.hfo != null) {
+        if (this.hfr != null) {
             notifyDataSetChanged();
         }
     }
@@ -64,10 +64,10 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hfp == null || TextUtils.isEmpty(this.bol)) {
+        if (this.hfs == null || TextUtils.isEmpty(this.bol)) {
             return 0;
         }
-        return this.hfp.size();
+        return this.hfs.size();
     }
 
     @Override // android.widget.Adapter
@@ -76,7 +76,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.hfp.get(i);
+        return this.hfs.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -94,11 +94,11 @@ public class a extends BaseAdapter {
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
                 c0357a = new C0357a();
-                c0357a.hed = (BarImageView) view.findViewById(R.id.forum_avatar);
-                c0357a.hed.setGifIconSupport(false);
+                c0357a.heg = (BarImageView) view.findViewById(R.id.forum_avatar);
+                c0357a.heg.setGifIconSupport(false);
                 c0357a.caT = (TextView) view.findViewById(R.id.name);
-                c0357a.hee = (TextView) view.findViewById(R.id.forum_member_count);
-                c0357a.hef = (TextView) view.findViewById(R.id.forum_thread_count);
+                c0357a.heh = (TextView) view.findViewById(R.id.forum_member_count);
+                c0357a.hei = (TextView) view.findViewById(R.id.forum_thread_count);
                 c0357a.mFollowBtn = (TextView) view.findViewById(R.id.follow_text_view);
                 view.setTag(c0357a);
             } else {
@@ -106,20 +106,20 @@ public class a extends BaseAdapter {
             }
             if (forumInfo != null) {
                 String str2 = forumInfo.avatar;
-                c0357a.hed.setTag(str2);
-                c0357a.hed.startLoad(str2, 15, false);
-                c0357a.hed.invalidate();
-                if (this.hea) {
+                c0357a.heg.setTag(str2);
+                c0357a.heg.startLoad(str2, 15, false);
+                c0357a.heg.invalidate();
+                if (this.hed) {
                     str = this.mContext.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
                 } else {
                     str = forumInfo.forum_name;
                 }
                 a(c0357a.caT, str);
-                c0357a.hed.setTag(forumInfo.avatar);
-                c0357a.hee.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
-                c0357a.hef.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
-                al.j(c0357a.hee, R.color.cp_cont_d);
-                al.j(c0357a.hef, R.color.cp_cont_d);
+                c0357a.heg.setTag(forumInfo.avatar);
+                c0357a.heh.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
+                c0357a.hei.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
+                al.j(c0357a.heh, R.color.cp_cont_d);
+                al.j(c0357a.hei, R.color.cp_cont_d);
                 al.j(c0357a.caT, R.color.cp_cont_b);
                 if (forumInfo.has_concerned.intValue() > 0) {
                     c0357a.mFollowBtn.setText(R.string.followed);
@@ -184,9 +184,9 @@ public class a extends BaseAdapter {
     /* loaded from: classes6.dex */
     private class C0357a {
         TextView caT;
-        BarImageView hed;
-        TextView hee;
-        TextView hef;
+        BarImageView heg;
+        TextView heh;
+        TextView hei;
         TextView mFollowBtn;
 
         private C0357a() {

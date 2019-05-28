@@ -15,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> kuH;
+    final State<T> kuI;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -23,22 +23,22 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.kuH = state;
+        this.kuI = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.kuH.onNext(t);
+        this.kuI.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.kuH.onError(th);
+        this.kuI.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.kuH.onCompleted();
+        this.kuI.onCompleted();
     }
 
     /* loaded from: classes2.dex */
@@ -62,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.cMp() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.cMr() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.cMp() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.cMr() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }

@@ -15,58 +15,58 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private BaseActivity cVo;
-    private PbListView dlX;
-    private NoNetworkView eRU;
-    private com.baidu.tieba.godSquare.a.a fVe;
+    private BaseActivity cVp;
+    private PbListView dlY;
+    private NoNetworkView eRV;
+    private com.baidu.tieba.godSquare.a.a fVf;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private i mPullView;
     private View mRootView;
 
     public a(BaseActivity baseActivity) {
-        this.cVo = baseActivity;
-        this.cVo.setContentView(R.layout.god_square_activity);
-        this.mRootView = this.cVo.findViewById(R.id.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.cVo.findViewById(R.id.view_navigation_bar);
+        this.cVp = baseActivity;
+        this.cVp.setContentView(R.layout.god_square_activity);
+        this.mRootView = this.cVp.findViewById(R.id.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.cVp.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(R.string.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eRU = (NoNetworkView) this.cVo.findViewById(R.id.view_no_network);
-        this.dlX = new PbListView(this.cVo.getPageContext().getPageActivity());
-        this.dlX.nG();
-        this.dlX.ajy();
-        this.mListView = (BdTypeListView) this.cVo.findViewById(R.id.god_square_list_view);
-        this.mPullView = new i(this.cVo.getPageContext());
-        if (this.cVo instanceof h.c) {
-            this.mPullView.setListPullRefreshListener((h.c) this.cVo);
+        this.eRV = (NoNetworkView) this.cVp.findViewById(R.id.view_no_network);
+        this.dlY = new PbListView(this.cVp.getPageContext().getPageActivity());
+        this.dlY.nG();
+        this.dlY.ajy();
+        this.mListView = (BdTypeListView) this.cVp.findViewById(R.id.god_square_list_view);
+        this.mPullView = new i(this.cVp.getPageContext());
+        if (this.cVp instanceof h.c) {
+            this.mPullView.setListPullRefreshListener((h.c) this.cVp);
         }
-        if (this.cVo instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVo);
+        if (this.cVp instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVp);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.fVe = new com.baidu.tieba.godSquare.a.a(this.cVo.getPageContext(), this.mListView);
-        this.mListView.addAdapters(this.fVe.aHM());
-        this.mListView.setNextPage(this.dlX);
+        this.fVf = new com.baidu.tieba.godSquare.a.a(this.cVp.getPageContext(), this.mListView);
+        this.mListView.addAdapters(this.fVf.aHP());
+        this.mListView.setNextPage(this.dlY);
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.cVo.showLoadingView(this.mRootView, true);
+        this.cVp.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.cVo.hideLoadingView(this.mRootView);
+        this.cVp.hideLoadingView(this.mRootView);
     }
 
     public void wk(String str) {
         this.mListView.setVisibility(8);
-        this.cVo.showNetRefreshView(this.mRootView, str, true);
+        this.cVp.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void aHH() {
+    public void aHK() {
         this.mListView.setVisibility(0);
-        this.cVo.hideNetRefreshView(this.mRootView);
+        this.cVp.hideNetRefreshView(this.mRootView);
     }
 
     public void cx(List<m> list) {
@@ -80,29 +80,29 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.fVe.notifyDataSetChanged();
+        this.fVf.notifyDataSetChanged();
     }
 
-    public void bsm() {
-        this.dlX.ajy();
+    public void bsp() {
+        this.dlY.ajy();
     }
 
-    public void bsn() {
-        this.dlX.setText(this.cVo.getResources().getString(R.string.network_ungeilivable));
-        this.dlX.ajz();
+    public void bsq() {
+        this.dlY.setText(this.cVp.getResources().getString(R.string.network_ungeilivable));
+        this.dlY.ajz();
     }
 
-    public void bso() {
-        this.dlX.setText(this.cVo.getResources().getString(R.string.list_no_more));
-        this.dlX.ajz();
+    public void bsr() {
+        this.dlY.setText(this.cVp.getResources().getString(R.string.list_no_more));
+        this.dlY.ajz();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.cVo.getPageContext(), i);
-        this.dlX.iO(R.color.cp_bg_line_c);
-        this.dlX.setTextColor(al.getColor(R.color.cp_cont_d));
-        this.dlX.iP(i);
-        this.eRU.onChangeSkinType(this.cVo.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.cVp.getPageContext(), i);
+        this.dlY.iO(R.color.cp_bg_line_c);
+        this.dlY.setTextColor(al.getColor(R.color.cp_cont_d));
+        this.dlY.iP(i);
+        this.eRV.onChangeSkinType(this.cVp.getPageContext(), i);
     }
 
     public void startPullRefresh() {
@@ -111,7 +111,7 @@ public class a {
 
     public void g(NoNetworkView.a aVar) {
         if (aVar != null) {
-            this.eRU.a(aVar);
+            this.eRV.a(aVar);
         }
     }
 }

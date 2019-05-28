@@ -24,15 +24,15 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void bxi() {
-        super.bxi();
+    public void bxl() {
+        super.bxl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ak(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         c(userData);
-        ((CommonPersonalMsglistModel) this.gtA).setUser(userData);
+        ((CommonPersonalMsglistModel) this.gtB).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,7 +40,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            ((CommonPersonalMsglistModel) this.gtA).setUser(userData);
+            ((CommonPersonalMsglistModel) this.gtB).setUser(userData);
         }
     }
 
@@ -48,30 +48,30 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.gtA).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.gtB).getUser()));
     }
 
     protected void c(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean bxk() {
+    public boolean bxn() {
         UserData user;
-        return (!(this.gtA instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.gtA).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.gtB instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.gtB).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void V(Bundle bundle) throws Exception {
-        this.gtA.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        this.gtB.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
         W(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bxj() {
+    public void bxm() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.gtA != null) {
-            this.gtA.setIsAcceptNotify(booleanExtra);
+        if (this.gtB != null) {
+            this.gtB.setIsAcceptNotify(booleanExtra);
             ak(intent);
         }
     }
@@ -83,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (bxU() && this.gtA != null && (msg = this.gtA.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
+                if (bxX() && this.gtB != null && (msg = this.gtB.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);

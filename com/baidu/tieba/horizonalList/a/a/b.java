@@ -7,26 +7,26 @@ import android.view.MenuItem;
 import com.baidu.tieba.horizonalList.widget.AbsHListView;
 /* loaded from: classes.dex */
 public class b implements a {
-    private a gig;
-    private AbsHListView gih;
+    private a gih;
+    private AbsHListView gii;
 
     public b(AbsHListView absHListView) {
-        this.gih = absHListView;
+        this.gii = absHListView;
     }
 
     public void a(a aVar) {
-        this.gig = aVar;
+        this.gih = aVar;
     }
 
-    public boolean buT() {
-        return this.gig != null;
+    public boolean buW() {
+        return this.gih != null;
     }
 
     @Override // android.view.ActionMode.Callback
     @TargetApi(11)
     public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        if (this.gig.onCreateActionMode(actionMode, menu)) {
-            this.gih.setLongClickable(false);
+        if (this.gih.onCreateActionMode(actionMode, menu)) {
+            this.gii.setLongClickable(false);
             return true;
         }
         return false;
@@ -35,32 +35,32 @@ public class b implements a {
     @Override // android.view.ActionMode.Callback
     @TargetApi(11)
     public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        return this.gig.onPrepareActionMode(actionMode, menu);
+        return this.gih.onPrepareActionMode(actionMode, menu);
     }
 
     @Override // android.view.ActionMode.Callback
     @TargetApi(11)
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        return this.gig.onActionItemClicked(actionMode, menuItem);
+        return this.gih.onActionItemClicked(actionMode, menuItem);
     }
 
     @Override // android.view.ActionMode.Callback
     @TargetApi(11)
     public void onDestroyActionMode(ActionMode actionMode) {
-        this.gig.onDestroyActionMode(actionMode);
-        this.gih.mChoiceActionMode = null;
-        this.gih.clearChoices();
-        this.gih.mDataChanged = true;
-        this.gih.rememberSyncState();
-        this.gih.requestLayout();
-        this.gih.setLongClickable(true);
+        this.gih.onDestroyActionMode(actionMode);
+        this.gii.mChoiceActionMode = null;
+        this.gii.clearChoices();
+        this.gii.mDataChanged = true;
+        this.gii.rememberSyncState();
+        this.gii.requestLayout();
+        this.gii.setLongClickable(true);
     }
 
     @Override // com.baidu.tieba.horizonalList.a.a.a
     @TargetApi(11)
     public void onItemCheckedStateChanged(ActionMode actionMode, int i, long j, boolean z) {
-        this.gig.onItemCheckedStateChanged(actionMode, i, j, z);
-        if (this.gih.getCheckedItemCount() == 0) {
+        this.gih.onItemCheckedStateChanged(actionMode, i, j, z);
+        if (this.gii.getCheckedItemCount() == 0) {
             actionMode.finish();
         }
     }

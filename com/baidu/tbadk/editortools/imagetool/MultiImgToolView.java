@@ -60,7 +60,7 @@ public class MultiImgToolView extends DragContainer implements l, DragHorizonScr
         this.crU = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void bc(View view) {
-                if (!MultiImgToolView.this.crJ.cmU()) {
+                if (!MultiImgToolView.this.crJ.cmW()) {
                     MultiImgToolView.this.cO(view);
                     int cP = MultiImgToolView.this.crJ.cP(view);
                     if (cP >= 0 && cP < MultiImgToolView.this.crM.getChosedFiles().size()) {
@@ -104,7 +104,7 @@ public class MultiImgToolView extends DragContainer implements l, DragHorizonScr
         this.crU = new a() { // from class: com.baidu.tbadk.editortools.imagetool.MultiImgToolView.1
             @Override // com.baidu.tbadk.editortools.imagetool.MultiImgToolView.a
             public void bc(View view) {
-                if (!MultiImgToolView.this.crJ.cmU()) {
+                if (!MultiImgToolView.this.crJ.cmW()) {
                     MultiImgToolView.this.cO(view);
                     int cP = MultiImgToolView.this.crJ.cP(view);
                     if (cP >= 0 && cP < MultiImgToolView.this.crM.getChosedFiles().size()) {

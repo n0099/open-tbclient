@@ -21,21 +21,21 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bLS();
-
-    void bLT();
-
-    void bLU();
-
     void bLV();
 
     void bLW();
 
     void bLX();
 
-    String bLY();
+    void bLY();
 
-    String bLZ();
+    void bLZ();
+
+    void bMa();
+
+    String bMb();
+
+    String bMc();
 
     void i(int i, int i2, String str);
 

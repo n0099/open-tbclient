@@ -17,16 +17,16 @@ import com.baidu.tieba.setting.model.AboutModel;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class AboutActivity extends BaseActivity<AboutActivity> {
-    private com.baidu.tieba.setting.more.a iJQ;
-    private AboutModel iJR;
-    private a iJS = null;
-    private String iJT = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
+    private com.baidu.tieba.setting.more.a iJS;
+    private AboutModel iJT;
+    private a iJU = null;
+    private String iJV = com.baidu.tbadk.data.d.SERVER_ADDRESS_WEB_VIEW + TbConfig.FUNCTION_INTRO_WEBVIEW;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iJQ = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
+        this.iJS = new com.baidu.tieba.setting.more.a(this, new d() { // from class: com.baidu.tieba.setting.more.AboutActivity.1
             @Override // com.baidu.tieba.setting.more.d
             public void zB(int i) {
                 if (i == 0) {
@@ -36,23 +36,23 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     AboutActivity.this.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(AboutActivity.this.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    com.baidu.tbadk.core.sharedPref.b.agM().putBoolean(SettingTextFunctionIntroView.iMJ, true);
-                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.iJT, true, false, false);
+                    com.baidu.tbadk.core.sharedPref.b.agM().putBoolean(SettingTextFunctionIntroView.iML, true);
+                    com.baidu.tbadk.browser.a.a(AboutActivity.this.getPageContext().getPageActivity(), AboutActivity.this.getPageContext().getString(R.string.function_intro), AboutActivity.this.iJV, true, false, false);
                 } else if (i == 4) {
                     m.bQ(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE, m.mY(TbConfig.FATAL_ERROR_FILE));
                 }
             }
         });
-        this.iJQ.cgR();
-        bxl();
+        this.iJS.cgT();
+        bxo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.iJQ != null) {
-            this.iJQ.cgR();
+        if (this.iJS != null) {
+            this.iJS.cgT();
         }
     }
 
@@ -60,12 +60,12 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bxm();
-        if (this.iJR != null) {
-            this.iJR.cancelLoadData();
+        bxp();
+        if (this.iJT != null) {
+            this.iJT.cancelLoadData();
         }
-        if (this.iJQ != null) {
-            this.iJQ.bpD();
+        if (this.iJS != null) {
+            this.iJS.bpG();
         }
     }
 
@@ -73,33 +73,33 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.iJQ != null) {
-            this.iJQ.jT(i);
+        if (this.iJS != null) {
+            this.iJS.jT(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void checkUpdata() {
-        if (this.iJR == null) {
-            this.iJR = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
+        if (this.iJT == null) {
+            this.iJT = new AboutModel(this, new com.baidu.adp.base.d() { // from class: com.baidu.tieba.setting.more.AboutActivity.2
                 @Override // com.baidu.adp.base.d
                 public void m(Object obj) {
                     AboutActivity.this.ax(obj);
                 }
             });
         } else {
-            this.iJR.cancelLoadData();
+            this.iJT.cancelLoadData();
         }
-        this.iJR.cgK();
-        if (this.iJQ != null) {
-            this.iJQ.cgQ();
+        this.iJT.cgM();
+        if (this.iJS != null) {
+            this.iJS.cgS();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ax(Object obj) {
-        if (this.iJQ != null) {
-            this.iJQ.bpD();
+        if (this.iJS != null) {
+            this.iJS.bpG();
         }
         com.baidu.tbadk.coreExtra.model.d dVar = obj != null ? (com.baidu.tbadk.coreExtra.model.d) obj : null;
         if (dVar != null) {
@@ -117,8 +117,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             } else {
                 showToast(getResources().getString(R.string.neednot_update));
             }
-            if (this.iJQ != null) {
-                this.iJQ.cgR();
+            if (this.iJS != null) {
+                this.iJS.cgT();
                 return;
             }
             return;
@@ -134,22 +134,22 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (AboutActivity.this.iJQ != null) {
-                AboutActivity.this.iJQ.cgR();
+            if (AboutActivity.this.iJS != null) {
+                AboutActivity.this.iJS.cgT();
             }
         }
     }
 
-    private void bxl() {
-        this.iJS = new a();
+    private void bxo() {
+        this.iJU = new a();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
-        registerReceiver(this.iJS, intentFilter);
+        registerReceiver(this.iJU, intentFilter);
     }
 
-    private void bxm() {
-        if (this.iJS != null) {
-            unregisterReceiver(this.iJS);
+    private void bxp() {
+        if (this.iJU != null) {
+            unregisterReceiver(this.iJU);
         }
     }
 }

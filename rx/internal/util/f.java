@@ -4,22 +4,22 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final int ksD = cMa();
-    private static final boolean ksE;
+    private static final int ksE = cMc();
+    private static final boolean ksF;
 
     static {
-        ksE = ksD != 0;
+        ksF = ksE != 0;
     }
 
-    public static boolean cLY() {
+    public static boolean cMa() {
+        return ksF;
+    }
+
+    public static int cMb() {
         return ksE;
     }
 
-    public static int cLZ() {
-        return ksD;
-    }
-
-    private static int cMa() {
+    private static int cMc() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public final class f {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
-            /* renamed from: cMb */
+            /* renamed from: cMd */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

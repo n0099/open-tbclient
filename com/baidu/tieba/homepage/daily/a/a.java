@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eTX;
-    private e fYB;
-    private d fYC;
-    private c fYD;
-    private b fYE;
-    private f fYF;
+    private r eTY;
+    private e fYC;
+    private d fYD;
+    private c fYE;
+    private b fYF;
+    private f fYG;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eTX = rVar;
+        this.eTY = rVar;
         initAdapters();
-        this.eTX.addAdapters(this.mAdapters);
+        this.eTY.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.fYB = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.fYT);
-        this.fYC = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.fYP);
-        this.fYD = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.fYN);
-        this.fYE = new b(this.mPageContext, bg.bIi);
-        this.fYF = new f(this.mPageContext, bg.bIw);
-        this.mAdapters.add(this.fYB);
+        this.fYC = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.fYU);
+        this.fYD = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.fYQ);
+        this.fYE = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.fYO);
+        this.fYF = new b(this.mPageContext, bg.bIi);
+        this.fYG = new f(this.mPageContext, bg.bIw);
         this.mAdapters.add(this.fYC);
         this.mAdapters.add(this.fYD);
         this.mAdapters.add(this.fYE);
         this.mAdapters.add(this.fYF);
+        this.mAdapters.add(this.fYG);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eTX != null) {
-            this.eTX.getListAdapter().notifyDataSetChanged();
+        if (this.eTY != null) {
+            this.eTY.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eTX.setData(list);
+        this.eTY.setData(list);
     }
 
     public void onChangeSkinType(int i) {

@@ -50,28 +50,13 @@ public class b {
     }
 
     public static boolean a(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
-        if (PluginPackageManager.mc().getPluginConfig("com.baidu.tieba.pluginHotTopic") == null) {
-            String string = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_install);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string, null);
-                return true;
-            }
-            return true;
-        } else if (!fE(z2)) {
-            String string2 = tbPageContext.getResources().getString(R.string.plugin_hottopic_install_tips);
-            String string3 = tbPageContext.getResources().getString(R.string.plugin_go_install);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string2, string3);
-                return true;
-            }
+        if (!fE(z2)) {
+            tbPageContext.getResources().getString(R.string.plugin_hottopic_install_tips);
+            tbPageContext.getResources().getString(R.string.plugin_go_install);
             return true;
         } else if (auB()) {
-            String string4 = tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
-            String string5 = tbPageContext.getResources().getString(R.string.setup);
-            if (z) {
-                showGoPluginDetailDialog(tbPageContext, string4, string5);
-                return true;
-            }
+            tbPageContext.getResources().getString(R.string.plugin_hottopic_not_active);
+            tbPageContext.getResources().getString(R.string.setup);
             return true;
         } else {
             return false;

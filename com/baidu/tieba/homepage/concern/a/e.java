@@ -13,7 +13,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.concern.b.a, a> {
     public e(Context context) {
-        super(context, com.baidu.tieba.homepage.concern.b.a.fXT);
+        super(context, com.baidu.tieba.homepage.concern.b.a.fXU);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -32,7 +32,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (aVar.bWj != null) {
             aVar2.bXJ.setText(aVar.bWj);
         }
-        switch (aVar.fXU) {
+        switch (aVar.fXV) {
             case 2:
                 aVar2.bB(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
                 break;
@@ -47,14 +47,14 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public static class a extends v.a {
         public TextView bXJ;
         private int ccI;
-        public ViewGroup fXy;
-        public ImageView fXz;
+        public ImageView fXA;
+        public ViewGroup fXz;
 
         public a(View view) {
             super(view);
             this.ccI = 3;
-            this.fXy = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.fXz = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.fXz = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.fXA = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
             this.bXJ = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
@@ -62,7 +62,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             if (this.ccI != i) {
                 al.j(this.bXJ, R.color.cp_cont_b);
             }
-            al.c(this.fXz, i2);
+            al.c(this.fXA, i2);
             this.ccI = i;
         }
     }

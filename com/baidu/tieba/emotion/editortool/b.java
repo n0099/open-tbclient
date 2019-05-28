@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes2.dex */
 public class b {
     private int column;
-    private EmotionGroupType ePX;
-    private int ePY;
+    private EmotionGroupType ePY;
     private int ePZ;
-    private com.baidu.tbadk.editortools.emotiontool.c eQa;
-    private int eQb;
+    private int eQa;
+    private com.baidu.tbadk.editortools.emotiontool.c eQb;
     private int eQc;
+    private int eQd;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.eQa = cVar;
+        this.eQb = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c bcJ() {
-        return this.eQa;
+    public com.baidu.tbadk.editortools.emotiontool.c bcM() {
+        return this.eQb;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.ePX = emotionGroupType;
+        this.ePY = emotionGroupType;
     }
 
-    public EmotionGroupType bcK() {
-        return this.ePX;
+    public EmotionGroupType bcN() {
+        return this.ePY;
     }
 
     public void kt(int i) {
@@ -43,39 +43,39 @@ public class b {
         this.column = i;
     }
 
-    public int bcL() {
+    public int bcO() {
         return this.column;
     }
 
     public void pW(int i) {
-        this.eQc = i;
+        this.eQd = i;
     }
 
-    public int bcM() {
-        return this.eQc;
+    public int bcP() {
+        return this.eQd;
     }
 
     public void pX(int i) {
-        this.eQb = i;
+        this.eQc = i;
     }
 
-    public int bcN() {
-        return this.eQb;
+    public int bcQ() {
+        return this.eQc;
     }
 
     public void pY(int i) {
-        this.ePY = i;
+        this.ePZ = i;
     }
 
-    public int bcO() {
-        return this.ePY;
+    public int bcR() {
+        return this.ePZ;
     }
 
     public void pZ(int i) {
         this.startIndex = i;
     }
 
-    public int bcP() {
+    public int bcS() {
         return this.startIndex;
     }
 
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void qa(int i) {
-        this.ePZ = i;
+        this.eQa = i;
     }
 
-    public int bcQ() {
-        return this.ePZ;
+    public int bcT() {
+        return this.eQa;
     }
 }

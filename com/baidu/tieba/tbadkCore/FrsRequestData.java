@@ -25,8 +25,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String iWU;
-    private String iWV;
+    private String iWW;
+    private String iWX;
     private int isGood;
     private String kw;
     private String lastId;
@@ -45,14 +45,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int iWT = 30;
+    private int iWV = 30;
     private String caE = "";
     private int mSortType = -1;
     private int mLoadType = 1;
-    private int iWW = 0;
+    private int iWY = 0;
     private int callFrom = 0;
-    private HashMap<String, String> iWX = null;
-    private long iWY = 0;
+    private HashMap<String, String> iWZ = null;
+    private long iXa = 0;
 
     public void setLastClickTid(long j) {
         this.mLastClickTid = j;
@@ -187,15 +187,15 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void DK(String str) {
-        this.iWU = str;
+        this.iWW = str;
     }
 
     public void setObjSource(String str) {
-        this.iWV = str;
+        this.iWX = str;
     }
 
     public void Aq(int i) {
-        this.iWW = i;
+        this.iWY = i;
     }
 
     public void setCallFrom(int i) {
@@ -209,14 +209,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
 
     @Override // com.baidu.tbadk.mvc.b.g
     public HashMap<String, String> asZ() {
-        return this.iWX;
+        return this.iWZ;
     }
 
     public void ej(String str, String str2) {
-        if (this.iWX == null) {
-            this.iWX = new HashMap<>();
+        if (this.iWZ == null) {
+            this.iWZ = new HashMap<>();
         }
-        this.iWX.put(str, str2);
+        this.iWZ.put(str, str2);
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -225,7 +225,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.iWT);
+        builder.rn_need = Integer.valueOf(this.iWV);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -243,13 +243,13 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.caE;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.cfz().cfC();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.cfB().cfE();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.iWU;
-        builder.obj_source = this.iWV;
-        builder.is_selection = Integer.valueOf(this.iWW);
+        builder.obj_locate = this.iWW;
+        builder.obj_source = this.iWX;
+        builder.is_selection = Integer.valueOf(this.iWY);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.iWY);
+        builder.hot_thread_id = Long.valueOf(this.iXa);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -267,7 +267,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void en(long j) {
-        this.iWY = j;
+        this.iXa = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
@@ -286,6 +286,6 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void Ar(int i) {
-        this.iWT = i;
+        this.iWV = i;
     }
 }

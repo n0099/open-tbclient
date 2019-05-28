@@ -14,17 +14,17 @@ import com.baidu.tieba.view.EmotionButton;
 public class i extends v.a {
     public TextView bNm;
     private int bYz;
-    public TbImageView gAu;
-    public EmotionButton gAv;
+    public TbImageView gAv;
+    public EmotionButton gAw;
     public TextView mTitleView;
 
     public i(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.gAu = (TbImageView) view.findViewById(R.id.net_refresh_image);
+        this.gAv = (TbImageView) view.findViewById(R.id.net_refresh_image);
         this.bNm = (TextView) view.findViewById(R.id.net_refresh_desc);
         this.mTitleView = (TextView) view.findViewById(R.id.net_refresh_title);
-        this.gAv = (EmotionButton) view.findViewById(R.id.net_refresh_button);
-        this.gAv.setOnClickListener(onClickListener);
+        this.gAw = (EmotionButton) view.findViewById(R.id.net_refresh_button);
+        this.gAw.setOnClickListener(onClickListener);
     }
 
     public void a(NoDataViewFactory.ImgType imgType, String str, String str2, String str3) {
@@ -32,34 +32,34 @@ public class i extends v.a {
         al.f(this.mTitleView, R.color.cp_cont_j, 1);
         this.bNm.setText(str);
         this.mTitleView.setText(str2);
-        this.gAv.setText(str3);
+        this.gAw.setText(str3);
         kE(0);
         uU(com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds30));
         if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-            this.gAu.setImageBitmap(al.m19if(R.drawable.new_pic_emotion_08));
+            this.gAv.setImageBitmap(al.m19if(R.drawable.new_pic_emotion_08));
         } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-            this.gAu.setImageBitmap(al.m19if(R.drawable.new_pic_emotion_05));
+            this.gAv.setImageBitmap(al.m19if(R.drawable.new_pic_emotion_05));
         } else {
             d(imgType);
-            this.gAu.setImageBitmap(al.m19if(this.bYz));
+            this.gAv.setImageBitmap(al.m19if(this.bYz));
         }
     }
 
     public void kE(int i) {
-        ViewGroup.LayoutParams layoutParams = this.gAu.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.gAv.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.gAu.setLayoutParams(marginLayoutParams);
+            this.gAv.setLayoutParams(marginLayoutParams);
         }
     }
 
     public void uU(int i) {
-        ViewGroup.LayoutParams layoutParams = this.gAv.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.gAw.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.bottomMargin = i;
-            this.gAv.setLayoutParams(marginLayoutParams);
+            this.gAw.setLayoutParams(marginLayoutParams);
         }
     }
 

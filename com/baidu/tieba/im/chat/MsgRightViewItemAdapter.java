@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean gsR;
+    private boolean gsS;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.gsR = false;
+        this.gsS = false;
     }
 
     public void lx(boolean z) {
-        this.gsR = z;
+        this.gsS = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,17 +34,17 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView bxP = aVar.bxP();
-        bxP.uC(this.gsI);
-        bxP.lx(this.gsR);
+        MsgrightView bxS = aVar.bxS();
+        bxS.uC(this.gsJ);
+        bxS.lx(this.gsS);
         chatMessage.getCacheData().setIs_left(0);
-        bxP.a(this.gsy);
-        bxP.setOnItemViewLongClickListener(this.gsz);
-        bxP.setPosition(i);
-        bxP.dr(this.gsF);
-        bxP.dq(chatMessage.getCacheData().getLastMsgTime());
-        bxP.a(viewGroup, chatMessage);
-        bxP.b(viewGroup, chatMessage);
+        bxS.a(this.gsz);
+        bxS.setOnItemViewLongClickListener(this.gsA);
+        bxS.setPosition(i);
+        bxS.dr(this.gsG);
+        bxS.dq(chatMessage.getCacheData().getLastMsgTime());
+        bxS.a(viewGroup, chatMessage);
+        bxS.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

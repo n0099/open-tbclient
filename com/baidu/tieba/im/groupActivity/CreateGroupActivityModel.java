@@ -6,39 +6,39 @@ import com.baidu.tieba.im.data.GroupActivityData;
 import com.baidu.tieba.im.message.RequestCreateGroupActivityMessage;
 /* loaded from: classes5.dex */
 public class CreateGroupActivityModel extends BdBaseModel<BaseActivity> {
-    private BaseActivity cVo;
-    private GroupActivityData gCd;
-    RequestCreateGroupActivityMessage gCe;
+    private BaseActivity cVp;
+    private GroupActivityData gCe;
+    RequestCreateGroupActivityMessage gCf;
 
     public CreateGroupActivityModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.gCd = new GroupActivityData();
-        this.cVo = baseActivity;
+        this.gCe = new GroupActivityData();
+        this.cVp = baseActivity;
     }
 
-    public GroupActivityData bBg() {
-        return this.gCd;
+    public GroupActivityData bBj() {
+        return this.gCe;
     }
 
     public void lY(boolean z) {
-        if (this.gCd != null) {
-            this.gCe = new RequestCreateGroupActivityMessage();
-            this.gCe.setCommitType(z ? 1 : 0);
+        if (this.gCe != null) {
+            this.gCf = new RequestCreateGroupActivityMessage();
+            this.gCf.setCommitType(z ? 1 : 0);
             if (z) {
-                this.gCe.setActivityId(this.gCd.getActivityId());
+                this.gCf.setActivityId(this.gCe.getActivityId());
             }
-            this.gCe.setgActivityArea(this.gCd.getgActivityArea());
-            this.gCe.setgActivityContent(this.gCd.getgActivityContent());
-            this.gCe.setgActivityTime(this.gCd.getgActivityTime());
-            this.gCe.setgActivityTitle(this.gCd.getgActivityTitle());
-            this.gCe.setGroupId(this.gCd.getGroupId());
-            this.cVo.sendMessage(this.gCe);
+            this.gCf.setgActivityArea(this.gCe.getgActivityArea());
+            this.gCf.setgActivityContent(this.gCe.getgActivityContent());
+            this.gCf.setgActivityTime(this.gCe.getgActivityTime());
+            this.gCf.setgActivityTitle(this.gCe.getgActivityTitle());
+            this.gCf.setGroupId(this.gCe.getGroupId());
+            this.cVp.sendMessage(this.gCf);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.gCe != null) {
+        if (this.gCf != null) {
         }
     }
 

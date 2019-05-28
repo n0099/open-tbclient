@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect hdF;
+    private Rect hdI;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.hdF = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.hdI = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         setTextColor(al.getColor(R.color.cp_cont_c));
-        bIX();
+        bJa();
     }
 
     public void setState(int i, String str) {
@@ -48,18 +48,18 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        bIX();
+        bJa();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void bIX() {
+    public void bJa() {
         if (this.mState == 1) {
             Drawable drawable = al.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.hdF);
+                drawable.setBounds(this.hdI);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.aa(getContext()), (Animatable) drawable);
@@ -67,7 +67,7 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = al.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.hdF);
+            drawable2.setBounds(this.hdI);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

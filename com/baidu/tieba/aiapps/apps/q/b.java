@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.aGd().putBoolean(str, z);
+            a.aGg().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.e(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.aGd().getBoolean(str, z);
+            return a.aGg().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.e(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -33,11 +33,11 @@ public class b {
         /* renamed from: com.baidu.tieba.aiapps.apps.q.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
         public static final class C0287a {
-            private static final a dgc = new a();
+            private static final a dgd = new a();
         }
 
-        public static a aGd() {
-            return C0287a.dgc;
+        public static a aGg() {
+            return C0287a.dgd;
         }
     }
 
@@ -102,7 +102,7 @@ public class b {
         protected Bundle a(e eVar) {
             switch (eVar.aVQ) {
                 case 1:
-                    a.aGd().putBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS));
+                    a.aGg().putBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS));
                     break;
             }
             return Bundle.EMPTY;
@@ -121,7 +121,7 @@ public class b {
             Bundle bundle = new Bundle();
             switch (eVar.aVQ) {
                 case 1:
-                    bundle.putBoolean("result_value", a.aGd().getBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS)));
+                    bundle.putBoolean("result_value", a.aGg().getBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS)));
                     break;
             }
             return bundle;

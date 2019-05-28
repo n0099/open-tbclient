@@ -21,11 +21,11 @@ public class g {
         return this.pageContext;
     }
 
-    public b azp() {
+    public b azq() {
         return this.cPQ;
     }
 
-    public int azq() {
+    public int azr() {
         return this.cPP;
     }
 }

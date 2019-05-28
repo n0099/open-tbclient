@@ -18,103 +18,103 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 /* loaded from: classes6.dex */
 public class f {
     private ImageView cbW;
-    private TextView eEI;
-    private HeadImageView eEJ;
-    private TextView eEK;
-    private ChannelHomeSubOrAddVideoView eEL;
-    private ChannelHomeDescView eEM;
-    private LinearLayout eEN;
-    private TextView eEO;
-    private b eEP;
-    private ViewStub eEQ;
-    private TbImageView eEs;
+    private TextView eEJ;
+    private HeadImageView eEK;
+    private TextView eEL;
+    private ChannelHomeSubOrAddVideoView eEM;
+    private ChannelHomeDescView eEN;
+    private LinearLayout eEO;
+    private TextView eEP;
+    private b eEQ;
+    private ViewStub eER;
+    private TbImageView eEt;
     private Context mContext;
     private View mRootView;
 
     public f(Context context, b bVar) {
         this.mContext = context;
-        this.eEP = bVar;
+        this.eEQ = bVar;
         initView();
     }
 
     private void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.channel_home_header_layout, (ViewGroup) null);
-        this.eEJ = (HeadImageView) this.mRootView.findViewById(R.id.channel_home_header_channel_img);
-        this.eEJ.setIsRound(false);
-        this.eEJ.setRadius(0);
-        this.eEJ.setDrawBorder(true);
-        this.eEJ.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds1));
-        this.eEJ.setDefaultErrorResource(R.drawable.avatar_channel_poto_defaul160);
-        this.eEJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.1
+        this.eEK = (HeadImageView) this.mRootView.findViewById(R.id.channel_home_header_channel_img);
+        this.eEK.setIsRound(false);
+        this.eEK.setRadius(0);
+        this.eEK.setDrawBorder(true);
+        this.eEK.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds1));
+        this.eEK.setDefaultErrorResource(R.drawable.avatar_channel_poto_defaul160);
+        this.eEK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.eEP != null) {
-                    f.this.eEP.a(20, view, null, -1);
+                if (f.this.eEQ != null) {
+                    f.this.eEQ.a(20, view, null, -1);
                 }
             }
         });
-        this.eEs = (TbImageView) this.mRootView.findViewById(R.id.channel_home_top_bg);
-        this.eEs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.2
+        this.eEt = (TbImageView) this.mRootView.findViewById(R.id.channel_home_top_bg);
+        this.eEt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.eEP != null) {
-                    f.this.eEP.a(19, view, null, -1);
+                if (f.this.eEQ != null) {
+                    f.this.eEQ.a(19, view, null, -1);
                 }
             }
         });
-        this.eEs.setDefaultErrorResource(R.drawable.bg_avatar_weiba_head);
-        this.eEs.setDefaultBgResource(R.drawable.bg_avatar_weiba_head);
-        this.eEI = (TextView) this.mRootView.findViewById(R.id.channel_home_top_right_textview);
-        this.eEI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.3
+        this.eEt.setDefaultErrorResource(R.drawable.bg_avatar_weiba_head);
+        this.eEt.setDefaultBgResource(R.drawable.bg_avatar_weiba_head);
+        this.eEJ = (TextView) this.mRootView.findViewById(R.id.channel_home_top_right_textview);
+        this.eEJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (f.this.eEP != null) {
-                    f.this.eEP.a(21, view, null, -1);
+                if (f.this.eEQ != null) {
+                    f.this.eEQ.a(21, view, null, -1);
                 }
             }
         });
-        this.eEK = (TextView) this.mRootView.findViewById(R.id.channel_home_header_channel_name);
-        this.eEN = (LinearLayout) this.mRootView.findViewById(R.id.channel_home_channel_name_layout);
+        this.eEL = (TextView) this.mRootView.findViewById(R.id.channel_home_header_channel_name);
+        this.eEO = (LinearLayout) this.mRootView.findViewById(R.id.channel_home_channel_name_layout);
         this.cbW = (ImageView) this.mRootView.findViewById(R.id.channel_home_channel_icon);
-        this.eEM = (ChannelHomeDescView) this.mRootView.findViewById(R.id.channel_home_header_channel_desc);
-        this.eEL = (ChannelHomeSubOrAddVideoView) this.mRootView.findViewById(R.id.channel_home_header_botton_btn);
-        this.eEO = (TextView) this.mRootView.findViewById(R.id.channel_home_header_video_count);
+        this.eEN = (ChannelHomeDescView) this.mRootView.findViewById(R.id.channel_home_header_channel_desc);
+        this.eEM = (ChannelHomeSubOrAddVideoView) this.mRootView.findViewById(R.id.channel_home_header_botton_btn);
+        this.eEP = (TextView) this.mRootView.findViewById(R.id.channel_home_header_video_count);
     }
 
-    public View aUT() {
+    public View aUW() {
         return this.mRootView;
     }
 
     public void iE(boolean z) {
-        this.eEM.a(z, this.eEP);
-        this.eEL.a(z, this.eEP);
+        this.eEN.a(z, this.eEQ);
+        this.eEM.a(z, this.eEQ);
     }
 
     public void d(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar != null && dVar.aYz() != null) {
-            ChannelInfo aYz = dVar.aYz();
-            if (!dVar.isHost() && !aYz.isSubscribe()) {
-                aYM();
+        if (dVar != null && dVar.aYC() != null) {
+            ChannelInfo aYC = dVar.aYC();
+            if (!dVar.isHost() && !aYC.isSubscribe()) {
+                aYP();
             }
-            this.eEI.setText(this.mContext.getResources().getString(R.string.channel_subscribe_num, ap.aG(aYz.getFansCount())));
-            this.eEs.startLoad(TextUtils.isEmpty(aYz.getChannelSmallCover()) ? aYz.getChannelCover() : aYz.getChannelSmallCover(), 10, this.eEs.getWidth(), this.eEs.getHeight(), false);
-            this.eEJ.startLoad(aYz.getChannelAvatar(), 10, this.eEJ.getWidth(), this.eEJ.getHeight(), false);
-            this.eEK.setText(aYz.getChannelName());
+            this.eEJ.setText(this.mContext.getResources().getString(R.string.channel_subscribe_num, ap.aG(aYC.getFansCount())));
+            this.eEt.startLoad(TextUtils.isEmpty(aYC.getChannelSmallCover()) ? aYC.getChannelCover() : aYC.getChannelSmallCover(), 10, this.eEt.getWidth(), this.eEt.getHeight(), false);
+            this.eEK.startLoad(aYC.getChannelAvatar(), 10, this.eEK.getWidth(), this.eEK.getHeight(), false);
+            this.eEL.setText(aYC.getChannelName());
+            this.eEN.ao(dVar);
             this.eEM.ao(dVar);
-            this.eEL.ao(dVar);
             f(dVar);
         }
     }
 
-    private void aYM() {
+    private void aYP() {
         if (!com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("is_channel_tips_have_show", false)) {
-            if (this.eEQ == null) {
-                this.eEQ = (ViewStub) this.mRootView.findViewById(R.id.channel_home_header_tips);
-                this.eEQ.inflate();
-                this.eEQ.postDelayed(new Runnable() { // from class: com.baidu.tieba.channel.view.f.4
+            if (this.eER == null) {
+                this.eER = (ViewStub) this.mRootView.findViewById(R.id.channel_home_header_tips);
+                this.eER.inflate();
+                this.eER.postDelayed(new Runnable() { // from class: com.baidu.tieba.channel.view.f.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        f.this.eEQ.setVisibility(8);
+                        f.this.eER.setVisibility(8);
                     }
                 }, 5000L);
             }
@@ -123,35 +123,35 @@ public class f {
     }
 
     public void onChangeSkinType(int i) {
-        this.eEL.onChangeSkinType(i);
-        this.eEJ.setBorderColor(al.getColor(R.color.cp_bg_line_a_alpha80));
+        this.eEM.onChangeSkinType(i);
+        this.eEK.setBorderColor(al.getColor(R.color.cp_bg_line_a_alpha80));
         al.k(this.cbW, R.drawable.icon_weiba);
     }
 
-    public int aYN() {
-        return this.eEN.getBottom();
+    public int aYQ() {
+        return this.eEO.getBottom();
     }
 
     public void e(com.baidu.tieba.channel.data.d dVar) {
-        this.eEL.ao(dVar);
-        this.eEI.setText(this.mContext.getResources().getString(R.string.channel_subscribe_num, ap.aG(dVar.aYz().getFansCount())));
+        this.eEM.ao(dVar);
+        this.eEJ.setText(this.mContext.getResources().getString(R.string.channel_subscribe_num, ap.aG(dVar.aYC().getFansCount())));
     }
 
     public void e(ChannelInfo channelInfo) {
         if (channelInfo != null) {
-            this.eEs.startLoad(channelInfo.getChannelSmallCover(), 10, this.eEs.getWidth(), this.eEs.getHeight(), false);
-            this.eEJ.startLoad(channelInfo.getChannelAvatar(), 10, this.eEJ.getWidth(), this.eEJ.getHeight(), false);
-            this.eEK.setText(channelInfo.getChannelName());
-            this.eEM.d(channelInfo);
+            this.eEt.startLoad(channelInfo.getChannelSmallCover(), 10, this.eEt.getWidth(), this.eEt.getHeight(), false);
+            this.eEK.startLoad(channelInfo.getChannelAvatar(), 10, this.eEK.getWidth(), this.eEK.getHeight(), false);
+            this.eEL.setText(channelInfo.getChannelName());
+            this.eEN.d(channelInfo);
         }
     }
 
     public void f(com.baidu.tieba.channel.data.d dVar) {
-        if (dVar == null || dVar.aYy() || dVar.aYz() == null) {
-            this.eEO.setVisibility(8);
+        if (dVar == null || dVar.aYB() || dVar.aYC() == null) {
+            this.eEP.setVisibility(8);
             return;
         }
-        this.eEO.setText(this.mContext.getResources().getString(R.string.channel_home_video_count, Integer.valueOf(dVar.aYz().getVideoCount())));
-        this.eEO.setVisibility(0);
+        this.eEP.setText(this.mContext.getResources().getString(R.string.channel_home_video_count, Integer.valueOf(dVar.aYC().getVideoCount())));
+        this.eEP.setVisibility(0);
     }
 }

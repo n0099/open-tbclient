@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a hrE;
-    private CustomMessageListener hrF = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a hrH;
+    private CustomMessageListener hrI = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.hrE.bMH()) {
-                    CollectTabActivity.this.hrE.nn(z);
+                if (i != -1 && i == CollectTabActivity.this.hrH.bMK()) {
+                    CollectTabActivity.this.hrH.nn(z);
                 }
             }
         }
@@ -39,13 +39,13 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.collect_tab_activity);
-        this.hrE = new a(this);
-        registerListener(this.hrF);
-        bMG();
+        this.hrH = new a(this);
+        registerListener(this.hrI);
+        bMJ();
         ao(getIntent());
     }
 
-    protected void bMG() {
+    protected void bMJ() {
         com.baidu.tbadk.collectTab.a aVar = new com.baidu.tbadk.collectTab.a(getPageContext().getPageActivity());
         ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
         aVar.a(threadDelegateStatic);
@@ -57,19 +57,19 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 return;
             }
         }
-        this.hrE.aq(aVar.getList());
+        this.hrH.aq(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.hrE.onChangeSkinType(i);
+        this.hrH.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.hrE.bMJ()) {
-            this.hrE.nm(!this.hrE.bMK());
+        if (view == this.hrH.bMM()) {
+            this.hrH.nm(!this.hrH.bMN());
         }
     }
 
@@ -77,8 +77,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        b.bML().no(true);
-        b.bML().np(false);
+        b.bMO().no(true);
+        b.bMO().np(false);
         NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
     }
 
@@ -86,16 +86,16 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        b.bML().no(false);
+        b.bMO().no(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment bMI = this.hrE.bMI();
-        if (bMI != null) {
-            bMI.onActivityResult(i, i2, intent);
+        Fragment bML = this.hrH.bML();
+        if (bML != null) {
+            bML.onActivityResult(i, i2, intent);
         }
     }
 

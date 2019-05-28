@@ -92,12 +92,12 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
-        /* JADX WARN: Removed duplicated region for block: B:13:0x0122  */
-        /* JADX WARN: Removed duplicated region for block: B:17:0x0140  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0160  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0219 A[Catch: Exception -> 0x03b0, TRY_LEAVE, TryCatch #0 {Exception -> 0x03b0, blocks: (B:29:0x0212, B:31:0x0219), top: B:66:0x0212 }] */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x02da  */
-        /* JADX WARN: Removed duplicated region for block: B:65:0x03be  */
+        /* JADX WARN: Removed duplicated region for block: B:17:0x0127  */
+        /* JADX WARN: Removed duplicated region for block: B:21:0x0145  */
+        /* JADX WARN: Removed duplicated region for block: B:26:0x0165  */
+        /* JADX WARN: Removed duplicated region for block: B:35:0x021e A[Catch: Exception -> 0x03b6, TRY_LEAVE, TryCatch #3 {Exception -> 0x03b6, blocks: (B:33:0x0217, B:35:0x021e), top: B:75:0x0217 }] */
+        /* JADX WARN: Removed duplicated region for block: B:56:0x02e0  */
+        /* JADX WARN: Removed duplicated region for block: B:68:0x03c4  */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         /*
@@ -108,7 +108,9 @@ public class HttpClient extends com.baidu.adp.framework.client.a<HttpMessage, Ht
             Exception e;
             HttpResponsedMessage newInstance;
             boolean z2;
-            HttpClient.this.tA.getController().b(this.tE, this.tF);
+            if (HttpClient.this.tA.getController().b(this.tE, this.tF) == null) {
+                return null;
+            }
             List<Map.Entry<String, Object>> encodeInBackGround = this.tE.encodeInBackGround();
             long currentTimeMillis = System.currentTimeMillis();
             this.tG.ik().setUrl(this.tF.getUrl());

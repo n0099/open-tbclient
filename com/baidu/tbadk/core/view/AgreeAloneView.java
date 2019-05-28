@@ -283,7 +283,7 @@ public class AgreeAloneView extends LinearLayout {
                         this.bVp.agreeNum++;
                         this.bVp.disAgreeNum--;
                         ed(true);
-                        com.baidu.tieba.n.a.cer().x(getTbPageContext());
+                        com.baidu.tieba.n.a.cet().x(getTbPageContext());
                         i = 0;
                     }
                 } else {
@@ -292,7 +292,7 @@ public class AgreeAloneView extends LinearLayout {
                     this.bVp.diffAgreeNum++;
                     this.bVp.agreeNum++;
                     ed(true);
-                    com.baidu.tieba.n.a.cer().x(getTbPageContext());
+                    com.baidu.tieba.n.a.cet().x(getTbPageContext());
                     if (!StringUtils.isNull(this.bVr)) {
                         TiebaStatic.log(new am("c13358").bT("tid", this.bVp.threadId).bT("topic_id", this.bVr));
                     }

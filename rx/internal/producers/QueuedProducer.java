@@ -20,7 +20,7 @@ public final class QueuedProducer<T> extends AtomicLong implements e<T>, f {
     final AtomicInteger wip;
 
     public QueuedProducer(j<? super T> jVar) {
-        this(jVar, ae.cMp() ? new x() : new rx.internal.util.atomic.e());
+        this(jVar, ae.cMr() ? new x() : new rx.internal.util.atomic.e());
     }
 
     public QueuedProducer(j<? super T> jVar, Queue<Object> queue) {

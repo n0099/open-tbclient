@@ -9,28 +9,28 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes.dex */
 public class h {
-    private static h gyo;
+    private static h gyp;
 
-    public static h bzX() {
-        if (gyo == null) {
+    public static h bAa() {
+        if (gyp == null) {
             synchronized (h.class) {
-                if (gyo == null) {
-                    gyo = new h();
+                if (gyp == null) {
+                    gyp = new h();
                 }
             }
         }
-        return gyo;
+        return gyp;
     }
 
-    public void bzY() {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV != null) {
-            if (bzV.inTransaction()) {
+    public void bAb() {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY != null) {
+            if (bzY.inTransaction()) {
                 BdLog.e("there is exist transaction");
                 return;
             }
             try {
-                bzV.beginTransaction();
+                bzY.beginTransaction();
                 BdLog.i("db.beginTransaction");
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "startTransaction", new Object[0]);
@@ -40,13 +40,13 @@ public class h {
     }
 
     public void endTransaction() {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV != null) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY != null) {
             BdLog.i("begin commit transaction");
-            if (bzV.inTransaction()) {
+            if (bzY.inTransaction()) {
                 try {
-                    bzV.setTransactionSuccessful();
-                    bzV.endTransaction();
+                    bzY.setTransactionSuccessful();
+                    bzY.endTransaction();
                     return;
                 } catch (Exception e) {
                     TiebaStatic.printDBExceptionLog(e, "endTransaction", new Object[0]);
@@ -59,12 +59,12 @@ public class h {
     }
 
     public boolean yk(String str) {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV == null) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY == null) {
             return false;
         }
         try {
-            bzV.execSQL(str);
+            bzY.execSQL(str);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -73,12 +73,12 @@ public class h {
     }
 
     public Cursor rawQuery(String str, String[] strArr) {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV == null) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY == null) {
             return null;
         }
         try {
-            return bzV.rawQuery(str, strArr);
+            return bzY.rawQuery(str, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage() + str);
             return null;
@@ -86,12 +86,12 @@ public class h {
     }
 
     public boolean a(String str, String str2, String[] strArr) {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY == null || TextUtils.isEmpty(str)) {
             return false;
         }
         try {
-            return bzV.delete(str, str2, strArr) > 0;
+            return bzY.delete(str, str2, strArr) > 0;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -99,12 +99,12 @@ public class h {
     }
 
     public int update(String str, ContentValues contentValues, String str2, String[] strArr) {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY == null || TextUtils.isEmpty(str)) {
             return -1;
         }
         try {
-            return bzV.update(str, contentValues, str2, strArr);
+            return bzY.update(str, contentValues, str2, strArr);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1;
@@ -124,12 +124,12 @@ public class h {
     }
 
     public long insert(String str, String str2, ContentValues contentValues) {
-        SQLiteDatabase bzV = g.bzV();
-        if (bzV == null || TextUtils.isEmpty(str)) {
+        SQLiteDatabase bzY = g.bzY();
+        if (bzY == null || TextUtils.isEmpty(str)) {
             return -1L;
         }
         try {
-            return bzV.insert(str, str2, contentValues);
+            return bzY.insert(str, str2, contentValues);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return -1L;
@@ -137,12 +137,12 @@ public class h {
     }
 
     public SQLiteStatement compileStatement(String str) {
-        SQLiteDatabase bzV;
-        if (TextUtils.isEmpty(str) || (bzV = g.bzV()) == null) {
+        SQLiteDatabase bzY;
+        if (TextUtils.isEmpty(str) || (bzY = g.bzY()) == null) {
             return null;
         }
         try {
-            return bzV.compileStatement(str);
+            return bzY.compileStatement(str);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return null;

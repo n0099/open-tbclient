@@ -18,51 +18,51 @@ import com.baidu.tieba.setting.model.MsgRemindModel;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements View.OnClickListener, BdSwitchView.a {
-    private MsgRemindModel iLI;
-    private g iLT;
-    private final com.baidu.tbadk.widget.timepicker.a.d.e iLU = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.1
+    private MsgRemindModel iLK;
+    private g iLV;
+    private final com.baidu.tbadk.widget.timepicker.a.d.e iLW = new com.baidu.tbadk.widget.timepicker.a.d.e() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.1
         @Override // com.baidu.tbadk.widget.timepicker.a.d.e
         public void a(Date date, View view) {
-            if (MsgRemindActivity.this.iLT != null) {
+            if (MsgRemindActivity.this.iLV != null) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().setSignAlertTime(date.getHours(), date.getMinutes());
-                MsgRemindActivity.this.iLT.cia();
-                MsgRemindActivity.this.iLT.ciA();
+                MsgRemindActivity.this.iLV.cic();
+                MsgRemindActivity.this.iLV.ciC();
             }
         }
     };
-    private MsgRemindModel.a iJE = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.3
+    private MsgRemindModel.a iJG = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.3
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
         public void e(int i, boolean z, final boolean z2) {
             if (i == 14) {
-                final BdSwitchView cid = MsgRemindActivity.this.iLT.cid();
+                final BdSwitchView cif = MsgRemindActivity.this.iLV.cif();
                 if (z) {
                     if (z2) {
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().jr(300);
-                        MsgRemindActivity.this.iLT.qr(true);
+                        MsgRemindActivity.this.iLV.qr(true);
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().jr(0);
-                        MsgRemindActivity.this.iLT.qr(false);
+                        MsgRemindActivity.this.iLV.qr(false);
                     }
-                    if (cid != null) {
+                    if (cif != null) {
                         com.baidu.adp.lib.g.e.iB().postDelayed(new Runnable() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.3.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 if (z2) {
-                                    cid.mT();
+                                    cif.mT();
                                 } else {
-                                    cid.mU();
+                                    cif.mU();
                                 }
                             }
                         }, 500L);
                     }
-                } else if (cid != null) {
+                } else if (cif != null) {
                     com.baidu.adp.lib.g.e.iB().postDelayed(new Runnable() { // from class: com.baidu.tieba.setting.more.MsgRemindActivity.3.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (z2) {
-                                cid.mU();
+                                cif.mU();
                             } else {
-                                cid.mT();
+                                cif.mT();
                             }
                         }
                     }, 500L);
@@ -71,12 +71,12 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().eH(z2);
                 }
-                MsgRemindActivity.this.iLT.ciw();
+                MsgRemindActivity.this.iLV.ciy();
             } else if (i == 3) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().eI(z2);
                 }
-                MsgRemindActivity.this.iLT.cix();
+                MsgRemindActivity.this.iLV.ciz();
             } else if (i == 4) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().ey(z2);
@@ -84,22 +84,22 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                         TiebaStatic.eventStat(MsgRemindActivity.this.getPageContext().getPageActivity(), "group_message_remind", "check_click", 1, new Object[0]);
                     }
                 }
-                MsgRemindActivity.this.iLT.ciz();
+                MsgRemindActivity.this.iLV.ciB();
             } else if (i == 5) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().ex(z2);
                 }
-                MsgRemindActivity.this.iLT.ciy();
+                MsgRemindActivity.this.iLV.ciA();
             } else if (i == 1) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().eG(z2);
                 }
-                MsgRemindActivity.this.iLT.ciu();
+                MsgRemindActivity.this.iLV.ciw();
             } else if (i == 20) {
                 if (z) {
                     com.baidu.tbadk.coreExtra.messageCenter.d.anf().ez(z2);
                 }
-                MsgRemindActivity.this.iLT.civ();
+                MsgRemindActivity.this.iLV.cix();
             }
         }
     };
@@ -108,129 +108,129 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iLT = new g(this);
-        this.iLT.b(this);
-        this.iLI = new MsgRemindModel(this);
+        this.iLV = new g(this);
+        this.iLV.b(this);
+        this.iLK = new MsgRemindModel(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iLT.onChangeSkinType(i);
+        this.iLV.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.iLT.cic()) {
+        if (view == this.iLV.cie()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().setSignAlertOn(true);
                 TiebaStatic.log(new am("c12939").P("obj_type", 2));
                 TiebaStatic.log(new am("c13254").P("obj_type", 1));
-                this.iLT.cia();
-                this.iLT.qq(true);
+                this.iLV.cic();
+                this.iLV.qq(true);
                 return;
             }
             com.baidu.tbadk.coreExtra.messageCenter.d.anf().setSignAlertOn(false);
             TiebaStatic.log(new am("c12939").P("obj_type", 1));
             TiebaStatic.log(new am("c13254").P("obj_type", 0));
-            this.iLT.qq(false);
-        } else if (view == this.iLT.cid()) {
-            this.iLI.a(14, switchState == BdSwitchView.SwitchState.ON, this.iJE);
-        } else if (view == this.iLT.cif()) {
+            this.iLV.qq(false);
+        } else if (view == this.iLV.cif()) {
+            this.iLK.a(14, switchState == BdSwitchView.SwitchState.ON, this.iJG);
+        } else if (view == this.iLV.cih()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eB(true);
-                this.iLT.qp(true);
+                this.iLV.qp(true);
                 return;
             }
             com.baidu.tbadk.coreExtra.messageCenter.d.anf().eB(false);
-            this.iLT.qp(false);
-        } else if (view == this.iLT.cij()) {
+            this.iLV.qp(false);
+        } else if (view == this.iLV.cil()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eE(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eE(false);
             }
-        } else if (view == this.iLT.cik()) {
+        } else if (view == this.iLV.cim()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eC(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eC(false);
             }
-        } else if (view == this.iLT.cil()) {
+        } else if (view == this.iLV.cin()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eD(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eD(false);
             }
-        } else if (view == this.iLT.cim()) {
+        } else if (view == this.iLV.cio()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eF(true);
             } else {
                 com.baidu.tbadk.coreExtra.messageCenter.d.anf().eF(false);
             }
-        } else if (view == this.iLT.cin()) {
+        } else if (view == this.iLV.cip()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(1, true, this.iJE);
+                this.iLK.a(1, true, this.iJG);
             } else {
-                this.iLI.a(1, false, this.iJE);
+                this.iLK.a(1, false, this.iJG);
             }
-        } else if (view == this.iLT.cio()) {
+        } else if (view == this.iLV.ciq()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(20, true, this.iJE);
+                this.iLK.a(20, true, this.iJG);
             } else {
-                this.iLI.a(20, false, this.iJE);
+                this.iLK.a(20, false, this.iJG);
             }
-        } else if (view == this.iLT.cip()) {
+        } else if (view == this.iLV.cir()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(2, true, this.iJE);
+                this.iLK.a(2, true, this.iJG);
             } else {
-                this.iLI.a(2, false, this.iJE);
+                this.iLK.a(2, false, this.iJG);
             }
-        } else if (view == this.iLT.ciq()) {
+        } else if (view == this.iLV.cis()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(5, true, this.iJE);
+                this.iLK.a(5, true, this.iJG);
             } else {
-                this.iLI.a(5, false, this.iJE);
+                this.iLK.a(5, false, this.iJG);
             }
-        } else if (view == this.iLT.cir()) {
+        } else if (view == this.iLV.cit()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(4, true, this.iJE);
+                this.iLK.a(4, true, this.iJG);
             } else {
-                this.iLI.a(4, false, this.iJE);
+                this.iLK.a(4, false, this.iJG);
             }
-        } else if (view == this.iLT.cis()) {
+        } else if (view == this.iLV.ciu()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLI.a(3, true, this.iJE);
+                this.iLK.a(3, true, this.iJG);
             } else {
-                this.iLI.a(3, false, this.iJE);
+                this.iLK.a(3, false, this.iJG);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        this.iLT.chU().performClick();
+        this.iLV.chW().performClick();
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iLT.chU()) {
-            if (this.iLT.iMw) {
+        if (view == this.iLV.chW()) {
+            if (this.iLV.iMy) {
                 finish();
             } else {
-                this.iLT.qs(true);
+                this.iLV.qs(true);
             }
-        } else if (view == this.iLT.cie()) {
-            com.baidu.tbadk.coreExtra.messageCenter.f.anA().a(getPageContext(), this.iLU);
-        } else if (view == this.iLT.cig()) {
-            this.iLT.qs(false);
-        } else if (view == this.iLT.cih()) {
+        } else if (view == this.iLV.cig()) {
+            com.baidu.tbadk.coreExtra.messageCenter.f.anA().a(getPageContext(), this.iLW);
+        } else if (view == this.iLV.cii()) {
+            this.iLV.qs(false);
+        } else if (view == this.iLV.cij()) {
             showDialog(R.id.no_disturb_start_time);
-        } else if (view == this.iLT.cii()) {
+        } else if (view == this.iLV.cik()) {
             showDialog(R.id.no_disturb_end_time);
-        } else if (view == this.iLT.cit()) {
+        } else if (view == this.iLV.civ()) {
             TiebaStatic.log(new am("c13286").bT("uid", TbadkCoreApplication.getCurrentAccount()));
             sendMessage(new CustomMessage(2002001, new MsgReceiveActivityConfig(getPageContext().getPageActivity())));
         }
@@ -240,11 +240,11 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         switch (i) {
             case 4:
-                if (this.iLT.iMw) {
+                if (this.iLV.iMy) {
                     finish();
                     return true;
                 }
-                this.iLT.qs(true);
+                this.iLV.qs(true);
                 return true;
             default:
                 return super.onKeyDown(i, keyEvent);
@@ -281,7 +281,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                     } else {
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().oX(str);
                     }
-                    MsgRemindActivity.this.iLT.cib();
+                    MsgRemindActivity.this.iLV.cid();
                 }
             }
         }, 0, 0, true);
@@ -314,8 +314,8 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iLT != null) {
-            this.iLT.onDestroy();
+        if (this.iLV != null) {
+            this.iLV.onDestroy();
         }
     }
 }

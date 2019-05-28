@@ -42,7 +42,7 @@ public class PostDisPraiseView extends PostPraiseView {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).bmm() && ajf()) {
+        if (((PostData) this.mData).bmp() && ajf()) {
             ((PostData) this.mData).hl(5);
             ((PostData) this.mData).qO(false);
             ((PostData) this.mData).ar(((PostData) this.mData).aeO());
@@ -50,7 +50,7 @@ public class PostDisPraiseView extends PostPraiseView {
             i = 1;
         } else {
             int aeR = ((PostData) this.mData).aeR();
-            if ((((PostData) this.mData).bmm() && aeR == 2) || aeR == 1) {
+            if ((((PostData) this.mData).bmp() && aeR == 2) || aeR == 1) {
                 ((PostData) this.mData).ar(((PostData) this.mData).aeO() - 1);
             }
             ((PostData) this.mData).qO(true);

@@ -11,7 +11,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e.eUw);
+        super(tbPageContext.getPageActivity(), e.eUx);
         this.mPageContext = tbPageContext;
     }
 
@@ -30,11 +30,11 @@ public class d extends com.baidu.adp.widget.ListView.a<e, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.d> aVar) {
-        if (eVar == null || aVar == null || aVar.aYp() == null) {
+        if (eVar == null || aVar == null || aVar.aYs() == null) {
             return null;
         }
-        aVar.aYp().a(eVar);
-        aVar.aYp().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aYs().a(eVar);
+        aVar.aYs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

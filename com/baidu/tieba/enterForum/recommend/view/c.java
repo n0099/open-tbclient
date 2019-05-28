@@ -9,9 +9,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.d> {
-    private TextView eVV;
     private TextView eVW;
-    private com.baidu.tieba.enterForum.recommend.b.d eVX;
+    private TextView eVX;
+    private com.baidu.tieba.enterForum.recommend.b.d eVY;
     private TbPageContext mContext;
     private int mSkinType;
 
@@ -24,15 +24,15 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     private void initUI() {
         View view = getView();
-        this.eVV = (TextView) view.findViewById(R.id.recommend_title);
-        this.eVW = (TextView) view.findViewById(R.id.recommend_update);
-        this.eVW.setOnClickListener(this);
+        this.eVW = (TextView) view.findViewById(R.id.recommend_title);
+        this.eVX = (TextView) view.findViewById(R.id.recommend_update);
+        this.eVX.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        al.j(this.eVV, R.color.cp_cont_j);
+        al.j(this.eVW, R.color.cp_cont_j);
         al.l(getView(), R.color.cp_bg_line_c);
     }
 
@@ -40,10 +40,10 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.enterForum.recommend.b.d dVar) {
         if (dVar != null) {
-            this.eVX = dVar;
+            this.eVY = dVar;
             onChangeSkinType(this.mContext, this.mSkinType);
             if (!StringUtils.isNull(dVar.getTitle())) {
-                this.eVV.setText(dVar.getTitle());
+                this.eVW.setText(dVar.getTitle());
             }
         }
     }
@@ -55,9 +55,9 @@ public class c extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        ab<com.baidu.tieba.enterForum.recommend.b.d> aXo;
-        if (view == this.eVW && (aXo = aXo()) != null && this.eVX.beq() < this.eVX.getForumList().size()) {
-            aXo.a(view, this.eVX);
+        ab<com.baidu.tieba.enterForum.recommend.b.d> aXr;
+        if (view == this.eVX && (aXr = aXr()) != null && this.eVY.bet() < this.eVY.getForumList().size()) {
+            aXr.a(view, this.eVY);
         }
     }
 }

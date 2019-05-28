@@ -8,15 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ak extends k<com.baidu.tieba.pb.data.i, al> {
-    private BdUniqueId hMv;
-    private BdUniqueId hMw;
+    private BdUniqueId hMy;
+    private BdUniqueId hMz;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.hMv = BdUniqueId.gen();
-        this.hMw = BdUniqueId.gen();
+        this.hMy = BdUniqueId.gen();
+        this.hMz = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,13 +24,13 @@ public class ak extends k<com.baidu.tieba.pb.data.i, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bC */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.hGm.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
+        al alVar = new al(this.hGp.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
         alVar.PU = false;
         alVar.N(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.i.hBU) {
-            alVar.i(this.hMv);
-        } else if (getType() == com.baidu.tieba.pb.data.i.hBV) {
-            alVar.q(this.hMw);
+        if (getType() == com.baidu.tieba.pb.data.i.hBX) {
+            alVar.i(this.hMy);
+        } else if (getType() == com.baidu.tieba.pb.data.i.hBY) {
+            alVar.q(this.hMz);
         }
         return alVar;
     }
@@ -48,8 +48,8 @@ public class ak extends k<com.baidu.tieba.pb.data.i, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hMv);
-        MessageManager.getInstance().unRegisterListener(this.hMw);
+        MessageManager.getInstance().unRegisterListener(this.hMy);
+        MessageManager.getInstance().unRegisterListener(this.hMz);
     }
 
     public void v(View.OnClickListener onClickListener) {

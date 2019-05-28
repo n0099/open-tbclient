@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements ag {
-    private BdSwipeRefreshLayout dnh;
-    private View foh;
-    private RecyclerView foi;
+    private BdSwipeRefreshLayout dni;
+    private View foi;
+    private RecyclerView foj;
     private String forumId;
     private int tabId;
 
@@ -29,36 +29,36 @@ public class FrsAllThreadFragment extends BaseFragment implements ag {
             this.forumId = arguments.getString("forum_id", "");
             this.tabId = arguments.getInt(MyBookrackActivityConfig.TAB_ID);
         }
-        bju();
-        return this.foh;
+        bjx();
+        return this.foi;
     }
 
     public void setView(View view) {
-        this.foh = view;
-        this.foi = (RecyclerView) this.foh.findViewById(R.id.frs_lv_thread);
-        this.dnh = (BdSwipeRefreshLayout) this.foh.findViewById(R.id.frs_pull_refresh_layout);
-        bju();
+        this.foi = view;
+        this.foj = (RecyclerView) this.foi.findViewById(R.id.frs_lv_thread);
+        this.dni = (BdSwipeRefreshLayout) this.foi.findViewById(R.id.frs_pull_refresh_layout);
+        bjx();
     }
 
-    private void bju() {
-        if (this.foh != null && (this.foh.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) this.foh.getParent()).removeView(this.foh);
-            this.foh.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+    private void bjx() {
+        if (this.foi != null && (this.foi.getParent() instanceof ViewGroup)) {
+            ((ViewGroup) this.foi.getParent()).removeView(this.foi);
+            this.foi.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void bjv() {
-        if (this.foi != null) {
-            this.foi.scrollToPosition(0);
+    public void bjy() {
+        if (this.foj != null) {
+            this.foj.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aID() {
-        if (this.dnh != null) {
-            bjv();
-            this.dnh.setRefreshing(true);
+    public void aIG() {
+        if (this.dni != null) {
+            bjy();
+            this.dni.setRefreshing(true);
         }
     }
 

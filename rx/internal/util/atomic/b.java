@@ -5,22 +5,8 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 abstract class b<E> extends AbstractQueue<E> {
-    private final AtomicReference<LinkedQueueNode<E>> ksS = new AtomicReference<>();
     private final AtomicReference<LinkedQueueNode<E>> ksT = new AtomicReference<>();
-
-    protected final LinkedQueueNode<E> cMg() {
-        return this.ksS.get();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cMh() {
-        return this.ksS.get();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public final void a(LinkedQueueNode<E> linkedQueueNode) {
-        this.ksS.lazySet(linkedQueueNode);
-    }
+    private final AtomicReference<LinkedQueueNode<E>> ksU = new AtomicReference<>();
 
     protected final LinkedQueueNode<E> cMi() {
         return this.ksT.get();
@@ -32,8 +18,22 @@ abstract class b<E> extends AbstractQueue<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+    public final void a(LinkedQueueNode<E> linkedQueueNode) {
         this.ksT.lazySet(linkedQueueNode);
+    }
+
+    protected final LinkedQueueNode<E> cMk() {
+        return this.ksU.get();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final LinkedQueueNode<E> cMl() {
+        return this.ksU.get();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
+        this.ksU.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -44,21 +44,21 @@ abstract class b<E> extends AbstractQueue<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
+        LinkedQueueNode<E> cMk = cMk();
         LinkedQueueNode<E> cMi = cMi();
-        LinkedQueueNode<E> cMg = cMg();
         int i = 0;
-        while (cMi != cMg && i < Integer.MAX_VALUE) {
+        while (cMk != cMi && i < Integer.MAX_VALUE) {
             do {
-                lvNext = cMi.lvNext();
+                lvNext = cMk.lvNext();
             } while (lvNext == null);
             i++;
-            cMi = lvNext;
+            cMk = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return cMi() == cMg();
+        return cMk() == cMi();
     }
 }

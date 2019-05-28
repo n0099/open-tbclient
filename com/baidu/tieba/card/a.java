@@ -10,7 +10,7 @@ import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
     public int currentPageType;
-    protected ab<T> euT;
+    protected ab<T> euU;
     public Context mContext;
     private String mFrom;
     public int mSkinType;
@@ -81,11 +81,11 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
     }
 
     public void d(ab<T> abVar) {
-        this.euT = abVar;
+        this.euU = abVar;
     }
 
-    public ab<T> aXo() {
-        return this.euT;
+    public ab<T> aXr() {
+        return this.euU;
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {

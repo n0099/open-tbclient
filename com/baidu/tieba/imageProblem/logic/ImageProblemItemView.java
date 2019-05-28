@@ -20,8 +20,8 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView aif;
     protected LinearLayout cmN;
     protected TextView cmO;
-    protected LinearLayout gTK;
-    protected TextView gTL;
+    protected LinearLayout gTN;
+    protected TextView gTO;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -69,19 +69,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTK.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTN.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.gTK.setLayoutParams(layoutParams);
-            this.gTL.setText("");
-            this.gTL.setVisibility(8);
+            this.gTN.setLayoutParams(layoutParams);
+            this.gTO.setText("");
+            this.gTO.setVisibility(8);
             return;
         }
-        this.gTK.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gTK.getLayoutParams();
+        this.gTN.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gTN.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.gTK.setLayoutParams(layoutParams2);
-        this.gTL.setText(str);
-        this.gTL.setVisibility(0);
+        this.gTN.setLayoutParams(layoutParams2);
+        this.gTO.setText(str);
+        this.gTO.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -121,8 +121,8 @@ public class ImageProblemItemView extends FrameLayout {
         this.aif = (TextView) findViewById(R.id.text);
         this.cmO = (TextView) findViewById(R.id.tip);
         this.agT = (ImageView) findViewById(R.id.arrow2);
-        this.gTK = (LinearLayout) findViewById(R.id.ll_container);
-        this.gTL = (TextView) findViewById(R.id.tv_help);
+        this.gTN = (LinearLayout) findViewById(R.id.ll_container);
+        this.gTO = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {

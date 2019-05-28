@@ -55,10 +55,10 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
             C0313a c0313a2 = new C0313a();
-            c0313a2.fIL = (RelativeLayout) view.findViewById(R.id.card);
-            c0313a2.fIJ = (HeadImageView) view.findViewById(R.id.portrait);
+            c0313a2.fIM = (RelativeLayout) view.findViewById(R.id.card);
+            c0313a2.fIK = (HeadImageView) view.findViewById(R.id.portrait);
             c0313a2.mTitle = (TextView) view.findViewById(R.id.title);
-            c0313a2.fIK = (TextView) view.findViewById(R.id.desc);
+            c0313a2.fIL = (TextView) view.findViewById(R.id.desc);
             view.setTag(c0313a2);
             c0313a = c0313a2;
         } else {
@@ -66,22 +66,22 @@ public class a extends BaseAdapter {
         }
         b bVar = (b) getItem(i);
         int g = l.g(this.mContext.getPageActivity(), R.dimen.tbds136);
-        c0313a.fIJ.setIsRound(true);
-        c0313a.fIJ.startLoad(bVar.avatar, 10, g, g, false);
+        c0313a.fIK.setIsRound(true);
+        c0313a.fIK.startLoad(bVar.avatar, 10, g, g, false);
         c0313a.mTitle.setText(bVar.name);
-        c0313a.fIK.setText(bVar.fIN);
+        c0313a.fIL.setText(bVar.fIO);
         al.f(c0313a.mTitle, R.color.cp_cont_b, 1);
-        al.f(c0313a.fIK, R.color.cp_cont_d, 1);
-        al.k(c0313a.fIL, R.drawable.lite_progrom_icorner_bg);
+        al.f(c0313a.fIL, R.color.cp_cont_d, 1);
+        al.k(c0313a.fIM, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0313a {
-        HeadImageView fIJ;
-        TextView fIK;
-        RelativeLayout fIL;
+        HeadImageView fIK;
+        TextView fIL;
+        RelativeLayout fIM;
         TextView mTitle;
 
         public C0313a() {

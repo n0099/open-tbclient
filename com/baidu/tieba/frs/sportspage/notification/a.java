@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private CustomMessageListener fJA = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
+    private CustomMessageListener fJB = new CustomMessageListener(2921404) { // from class: com.baidu.tieba.frs.sportspage.notification.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -55,6 +55,6 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.fJA);
+        this.mContext.registerListener(this.fJB);
     }
 }

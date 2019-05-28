@@ -15,10 +15,10 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b iro = null;
-    private com.baidu.tieba.play.a.a irn;
-    private InterfaceC0385b irp = null;
-    private int irq = 0;
+    private static b irr = null;
+    private com.baidu.tieba.play.a.a irq;
+    private InterfaceC0385b irs = null;
+    private int irt = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -29,41 +29,41 @@ public class b {
     private b() {
     }
 
-    public static b cbV() {
-        if (iro == null) {
+    public static b cbY() {
+        if (irr == null) {
             synchronized (b.class) {
-                if (iro == null) {
-                    iro = new b();
+                if (irr == null) {
+                    irr = new b();
                 }
             }
         }
-        return iro;
+        return irr;
     }
 
     public void a(InterfaceC0385b interfaceC0385b) {
-        this.irp = interfaceC0385b;
+        this.irs = interfaceC0385b;
     }
 
     public boolean Cm(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (Cn(str) && this.irn.cbU().size() > this.irq) {
-            if (this.irp != null) {
-                InterfaceC0385b interfaceC0385b = this.irp;
-                List<String> cbU = this.irn.cbU();
-                int i = this.irq;
-                this.irq = i + 1;
-                interfaceC0385b.dS(cbU.get(i), str);
+        if (Cn(str) && this.irq.cbX().size() > this.irt) {
+            if (this.irs != null) {
+                InterfaceC0385b interfaceC0385b = this.irs;
+                List<String> cbX = this.irq.cbX();
+                int i = this.irt;
+                this.irt = i + 1;
+                interfaceC0385b.dS(cbX.get(i), str);
             }
             return true;
-        } else if (this.irn != null && this.irn.cbU() != null && this.irn.cbU().size() <= this.irq) {
-            this.irq = 0;
-            this.irn = null;
+        } else if (this.irq != null && this.irq.cbX() != null && this.irq.cbX().size() <= this.irt) {
+            this.irt = 0;
+            this.irq = null;
             return false;
         } else {
-            this.irq = 0;
-            this.irn = null;
+            this.irt = 0;
+            this.irq = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -72,7 +72,7 @@ public class b {
     }
 
     private boolean Cn(String str) {
-        return (this.irn == null || TextUtils.isEmpty(str) || !str.equals(this.irn.getHost()) || v.aa(this.irn.cbU()) || this.irn.ei(System.currentTimeMillis()) || this.irn.cbU().size() <= this.irq) ? false : true;
+        return (this.irq == null || TextUtils.isEmpty(str) || !str.equals(this.irq.getHost()) || v.aa(this.irq.cbX()) || this.irq.ei(System.currentTimeMillis()) || this.irq.cbX().size() <= this.irt) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.FC)) {
-                b.this.irn = aVarArr[0];
-                if (!v.aa(aVarArr[0].cbU()) && b.this.irp != null) {
-                    b.this.irp.dS(aVarArr[0].cbU().get(0), aVarArr[0].getHost());
+                b.this.irq = aVarArr[0];
+                if (!v.aa(aVarArr[0].cbX()) && b.this.irs != null) {
+                    b.this.irs.dS(aVarArr[0].cbX().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.irp != null) {
-                b.this.irp.dS(null, null);
+            if (b.this.irs != null) {
+                b.this.irs.dS(null, null);
             }
         }
 

@@ -9,7 +9,7 @@ public class a {
     private Context mContext;
     private static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static SharedPreferences cZk = null;
+    private static SharedPreferences cZl = null;
 
     private a(Context context) {
         this.mContext = null;
@@ -21,10 +21,10 @@ public class a {
     }
 
     private static SharedPreferences de(Context context) {
-        if (cZk == null) {
-            cZk = context.getSharedPreferences("downgradefile", 0);
+        if (cZl == null) {
+            cZl = context.getSharedPreferences("downgradefile", 0);
         }
-        return cZk;
+        return cZl;
     }
 
     private int df(Context context) {
@@ -55,7 +55,7 @@ public class a {
         edit.apply();
     }
 
-    public void aCU() {
+    public void aCX() {
         int dg = dg(this.mContext);
         int df = df(this.mContext);
         if (DEBUG) {
@@ -74,7 +74,7 @@ public class a {
             t(this.mContext, dg);
             u(this.mContext, df);
         } else {
-            aCV();
+            aCY();
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         com.baidu.swan.apps.am.a.E(0, i);
     }
 
-    private void aCV() {
+    private void aCY() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + df(this.mContext));
         }

@@ -15,7 +15,7 @@ import com.baidu.tieba.video.record.VideoEffectLayout;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class k extends BaseAdapter {
-    private VideoEffectLayout.a jvX;
+    private VideoEffectLayout.a jvY;
     private List<StickerItem> mDataList;
 
     @Override // android.widget.Adapter
@@ -44,76 +44,76 @@ public class k extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_sticker, (ViewGroup) null);
             aVar = new a();
-            aVar.jwb = (TbImageView) view.findViewById(R.id.top_sticker);
-            aVar.jwc = (TbImageView) view.findViewById(R.id.bottom_sticker);
-            aVar.jvZ = (RelativeLayout) view.findViewById(R.id.top_container);
-            aVar.jwf = (ImageView) view.findViewById(R.id.no_sticker);
-            aVar.jwa = (RelativeLayout) view.findViewById(R.id.bottom_container);
-            aVar.jwd = (ProgressBar) view.findViewById(R.id.top_progressbar);
-            aVar.jwe = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
+            aVar.jwc = (TbImageView) view.findViewById(R.id.top_sticker);
+            aVar.jwd = (TbImageView) view.findViewById(R.id.bottom_sticker);
+            aVar.jwa = (RelativeLayout) view.findViewById(R.id.top_container);
+            aVar.jwg = (ImageView) view.findViewById(R.id.no_sticker);
+            aVar.jwb = (RelativeLayout) view.findViewById(R.id.bottom_container);
+            aVar.jwe = (ProgressBar) view.findViewById(R.id.top_progressbar);
+            aVar.jwf = (ProgressBar) view.findViewById(R.id.bottom_progressbar);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.jwb.setAutoChangeStyle(false);
         aVar.jwc.setAutoChangeStyle(false);
-        aVar.jwb.setGifIconSupport(false);
+        aVar.jwd.setAutoChangeStyle(false);
         aVar.jwc.setGifIconSupport(false);
+        aVar.jwd.setGifIconSupport(false);
         if (v.c(this.mDataList, i * 2) instanceof StickerItem) {
-            aVar.jvZ.setVisibility(0);
+            aVar.jwa.setVisibility(0);
             if (this.mDataList.get(i * 2).id == -1) {
-                aVar.jwf.setVisibility(0);
-                aVar.jwb.setVisibility(8);
-                aVar.jwf.setImageResource(R.drawable.icon_video_sticker_no);
+                aVar.jwg.setVisibility(0);
+                aVar.jwc.setVisibility(8);
+                aVar.jwg.setImageResource(R.drawable.icon_video_sticker_no);
             } else {
-                aVar.jwf.setVisibility(8);
-                aVar.jwb.setVisibility(0);
-                aVar.jwb.startLoad(this.mDataList.get(i * 2).img, 10, true);
+                aVar.jwg.setVisibility(8);
+                aVar.jwc.setVisibility(0);
+                aVar.jwc.startLoad(this.mDataList.get(i * 2).img, 10, true);
             }
-            aVar.jvZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.k.1
+            aVar.jwa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (!((StickerItem) k.this.mDataList.get(i * 2)).isSelect && k.this.jvX != null) {
-                        k.this.jvX.a((StickerItem) k.this.mDataList.get(i * 2));
+                    if (!((StickerItem) k.this.mDataList.get(i * 2)).isSelect && k.this.jvY != null) {
+                        k.this.jvY.a((StickerItem) k.this.mDataList.get(i * 2));
                     }
                 }
             });
             if (this.mDataList.get(i * 2).isDownLoading) {
-                aVar.jwd.setVisibility(0);
-            } else {
-                aVar.jwd.setVisibility(8);
-            }
-            if (this.mDataList.get(i * 2).isSelect) {
-                al.k(aVar.jvZ, R.drawable.bg_select_sticker);
-            } else {
-                aVar.jvZ.setBackgroundResource(R.color.transparent);
-            }
-        } else {
-            aVar.jvZ.setVisibility(8);
-        }
-        if (v.c(this.mDataList, (i * 2) + 1) instanceof StickerItem) {
-            aVar.jwa.setVisibility(0);
-            aVar.jwc.startLoad(this.mDataList.get((i * 2) + 1).img, 10, true);
-            aVar.jwa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.k.2
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    if (!((StickerItem) k.this.mDataList.get((i * 2) + 1)).isSelect && k.this.jvX != null) {
-                        k.this.jvX.a((StickerItem) k.this.mDataList.get((i * 2) + 1));
-                    }
-                }
-            });
-            if (this.mDataList.get((i * 2) + 1).isDownLoading) {
                 aVar.jwe.setVisibility(0);
             } else {
                 aVar.jwe.setVisibility(8);
             }
-            if (this.mDataList.get((i * 2) + 1).isSelect) {
+            if (this.mDataList.get(i * 2).isSelect) {
                 al.k(aVar.jwa, R.drawable.bg_select_sticker);
             } else {
                 aVar.jwa.setBackgroundResource(R.color.transparent);
             }
         } else {
             aVar.jwa.setVisibility(8);
+        }
+        if (v.c(this.mDataList, (i * 2) + 1) instanceof StickerItem) {
+            aVar.jwb.setVisibility(0);
+            aVar.jwd.startLoad(this.mDataList.get((i * 2) + 1).img, 10, true);
+            aVar.jwb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.k.2
+                @Override // android.view.View.OnClickListener
+                public void onClick(View view2) {
+                    if (!((StickerItem) k.this.mDataList.get((i * 2) + 1)).isSelect && k.this.jvY != null) {
+                        k.this.jvY.a((StickerItem) k.this.mDataList.get((i * 2) + 1));
+                    }
+                }
+            });
+            if (this.mDataList.get((i * 2) + 1).isDownLoading) {
+                aVar.jwf.setVisibility(0);
+            } else {
+                aVar.jwf.setVisibility(8);
+            }
+            if (this.mDataList.get((i * 2) + 1).isSelect) {
+                al.k(aVar.jwb, R.drawable.bg_select_sticker);
+            } else {
+                aVar.jwb.setBackgroundResource(R.color.transparent);
+            }
+        } else {
+            aVar.jwb.setVisibility(8);
         }
         return view;
     }
@@ -123,18 +123,18 @@ public class k extends BaseAdapter {
     }
 
     public void a(VideoEffectLayout.a aVar) {
-        this.jvX = aVar;
+        this.jvY = aVar;
     }
 
     /* loaded from: classes5.dex */
     public class a {
-        public RelativeLayout jvZ;
         public RelativeLayout jwa;
-        public TbImageView jwb;
+        public RelativeLayout jwb;
         public TbImageView jwc;
-        public ProgressBar jwd;
+        public TbImageView jwd;
         public ProgressBar jwe;
-        public ImageView jwf;
+        public ProgressBar jwf;
+        public ImageView jwg;
 
         public a() {
         }

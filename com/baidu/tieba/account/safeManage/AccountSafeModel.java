@@ -7,18 +7,18 @@ import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
     private boolean cAl;
-    private com.baidu.tieba.setting.im.more.a cVk;
-    private String cVl;
+    private com.baidu.tieba.setting.im.more.a cVl;
     private String cVm;
     private String cVn;
+    private String cVo;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a aBA() {
-        return this.cVk;
+    public com.baidu.tieba.setting.im.more.a aBD() {
+        return this.cVl;
     }
 
-    public String aBB() {
-        return this.cVl;
+    public String aBE() {
+        return this.cVm;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage aBC() {
+    private PrivateInfoNetMessage aBF() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean aBD() {
+    public boolean aBG() {
         if (this.cAl) {
             return false;
         }
         this.cAl = true;
         this.mFinished = false;
-        sendMessage(aBC());
+        sendMessage(aBF());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.cVk = aVar;
-        aBE();
+        this.cVl = aVar;
+        aBH();
     }
 
-    private void aBE() {
-        SimpleUser aBF = aBF();
-        if (aBF != null) {
-            this.cVm = aBF.secureemail;
-            this.cVn = aBF.securemobil;
-            this.cVl = aBF.ahead_url;
+    private void aBH() {
+        SimpleUser aBI = aBI();
+        if (aBI != null) {
+            this.cVn = aBI.secureemail;
+            this.cVo = aBI.securemobil;
+            this.cVm = aBI.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser aBF() {
-        if (this.cVk == null || this.cVk.aBF() == null) {
+    private SimpleUser aBI() {
+        if (this.cVl == null || this.cVl.aBI() == null) {
             return null;
         }
-        return this.cVk.aBF();
+        return this.cVl.aBI();
     }
 
     public boolean pu() {

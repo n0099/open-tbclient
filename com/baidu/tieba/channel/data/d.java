@@ -3,61 +3,61 @@ package com.baidu.tieba.channel.data;
 import tbclient.GetChannelInfo.DataRes;
 /* loaded from: classes6.dex */
 public class d {
-    private int eDD = 1;
-    private g eDE;
-    private ChannelInfo eDF;
-    private ChannelHomeVideoList<h> eDG;
+    private int eDE = 1;
+    private g eDF;
+    private ChannelInfo eDG;
+    private ChannelHomeVideoList<h> eDH;
 
-    public g aYx() {
-        return this.eDE;
-    }
-
-    public boolean aYy() {
-        return this.eDG == null || this.eDG.size() == 0;
-    }
-
-    public void a(g gVar) {
-        this.eDE = gVar;
-    }
-
-    public ChannelInfo aYz() {
+    public g aYA() {
         return this.eDF;
     }
 
-    public void a(ChannelInfo channelInfo) {
-        this.eDF = channelInfo;
+    public boolean aYB() {
+        return this.eDH == null || this.eDH.size() == 0;
     }
 
-    public ChannelHomeVideoList<h> aYA() {
+    public void a(g gVar) {
+        this.eDF = gVar;
+    }
+
+    public ChannelInfo aYC() {
         return this.eDG;
     }
 
+    public void a(ChannelInfo channelInfo) {
+        this.eDG = channelInfo;
+    }
+
+    public ChannelHomeVideoList<h> aYD() {
+        return this.eDH;
+    }
+
     public void a(ChannelHomeVideoList<h> channelHomeVideoList) {
-        this.eDG = channelHomeVideoList;
+        this.eDH = channelHomeVideoList;
     }
 
     public boolean isHost() {
-        return this.eDD == 0;
+        return this.eDE == 0;
     }
 
     public void py(int i) {
-        this.eDD = i;
+        this.eDE = i;
     }
 
-    public boolean aYB() {
-        return this.eDE != null && this.eDE.isHasMore();
+    public boolean aYE() {
+        return this.eDF != null && this.eDF.isHasMore();
     }
 
     public void b(ChannelHomeVideoList<h> channelHomeVideoList) {
-        if (this.eDG != null && channelHomeVideoList != null) {
-            this.eDG.addAll(channelHomeVideoList);
+        if (this.eDH != null && channelHomeVideoList != null) {
+            this.eDH.addAll(channelHomeVideoList);
             checkBigVideoType();
         }
     }
 
     public void checkBigVideoType() {
-        if (this.eDG != null) {
-            this.eDG.checkBigVideoType();
+        if (this.eDH != null) {
+            this.eDH.checkBigVideoType();
         }
     }
 

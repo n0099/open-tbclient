@@ -5,6 +5,6 @@ public class ap extends am {
     public String errMsg;
     public boolean isLocal = true;
     public boolean hasMore = true;
-    public boolean ftd = true;
     public boolean fte = true;
+    public boolean ftf = true;
 }

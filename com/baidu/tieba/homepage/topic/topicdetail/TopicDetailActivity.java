@@ -14,23 +14,23 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
     private long bGJ;
-    private long fwA;
-    private TopicDetailModel gfc;
-    private TopicDetailView gfd;
-    private long gfe = 1;
+    private long fwB;
+    private TopicDetailModel gfd;
+    private TopicDetailView gfe;
+    private long gff = 1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gfc = new TopicDetailModel(getPageContext());
-        this.gfd = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.gfd);
+        this.gfd = new TopicDetailModel(getPageContext());
+        this.gfe = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.gfe);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.gfc.a(this);
+        this.gfd.a(this);
         loadData();
-        this.gfd.getEditor().buJ();
+        this.gfe.getEditor().buM();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,8 +44,8 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.gfd != null && this.gfd.getEditor() != null) {
-            this.gfd.getEditor().arM();
+        if (this.gfe != null && this.gfe.getEditor() != null) {
+            this.gfe.getEditor().arM();
         }
     }
 
@@ -63,53 +63,53 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
         this.bGJ = longExtra;
         if (!j.jG()) {
-            this.gfd.hideLoadingView();
-            this.gfd.jk(true);
+            this.gfe.hideLoadingView();
+            this.gfe.jk(true);
             return;
         }
-        this.gfd.aHH();
-        this.gfd.cV(false);
-        if (this.gfd != null && this.gfd.getEditor() != null) {
-            this.gfd.getEditor().setTopicId(longExtra);
+        this.gfe.aHK();
+        this.gfe.cV(false);
+        if (this.gfe != null && this.gfe.getEditor() != null) {
+            this.gfe.getEditor().setTopicId(longExtra);
         }
-        this.gfc.dl(longExtra);
+        this.gfd.dl(longExtra);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.b.a aVar) {
-        this.gfd.hideLoadingView();
+        this.gfe.hideLoadingView();
         if (i != 0 || aVar == null || v.aa(aVar.mDataList)) {
-            this.gfd.jk(true);
+            this.gfe.jk(true);
             return;
         }
-        this.gfd.aHH();
-        this.gfd.setData(aVar);
+        this.gfe.aHK();
+        this.gfe.setData(aVar);
     }
 
     public void dk(long j) {
-        this.gfe++;
-        this.fwA = j;
-        this.gfc.d(this.bGJ, this.gfe, this.fwA);
+        this.gff++;
+        this.fwB = j;
+        this.gfd.d(this.bGJ, this.gff, this.fwB);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<m> list) {
-        this.gfd.setNextData(i, z, list);
+        this.gfe.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gfd.onChangeSkinType();
+        this.gfe.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gfd != null && this.gfd.getEditor() != null) {
-            this.gfd.getEditor().onActivityResult(i, i2, intent);
+        if (this.gfe != null && this.gfe.getEditor() != null) {
+            this.gfe.getEditor().onActivityResult(i, i2, intent);
         }
     }
 

@@ -14,7 +14,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    private final c fYd = new c();
+    private final c fYe = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -159,8 +159,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.fYd.cPV = linkedList;
-        return this.fYd;
+        this.fYe.cPV = linkedList;
+        return this.fYe;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -187,7 +187,7 @@ public class a {
                     }
                 }
             }
-            this.fYd.gew = v.Z(list) - Z;
+            this.fYe.gex = v.Z(list) - Z;
         }
     }
 

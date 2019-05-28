@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.square.square.d;
 /* loaded from: classes5.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
-    private boolean eTB;
-    private a iSb;
-    private b iSc;
-    private String iSd;
-    private String iSe;
+    private boolean eTC;
+    private a iSd;
+    private b iSe;
     private String iSf;
-    private boolean iSg;
+    private String iSg;
+    private String iSh;
+    private boolean iSi;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -27,42 +27,42 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     public DirMenuModel(TbPageContext<ForumListActivity> tbPageContext, String str, String str2, String str3) {
         super(tbPageContext);
-        this.eTB = false;
-        this.iSg = false;
-        this.iSd = str;
-        this.iSe = str2;
-        this.iSf = str3;
+        this.eTC = false;
+        this.iSi = false;
+        this.iSf = str;
+        this.iSg = str2;
+        this.iSh = str3;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        this.iSb = new a();
-        this.iSb.execute(new Object[0]);
+        this.iSd = new a();
+        this.iSd.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.iSb != null) {
-            this.iSb.cancel();
+        if (this.iSd != null) {
+            this.iSd.cancel();
             return false;
         }
         return false;
     }
 
     public void a(b bVar) {
-        this.iSc = bVar;
+        this.iSe = bVar;
     }
 
     /* loaded from: classes5.dex */
     private class a extends BdAsyncTask<Object, Integer, com.baidu.tieba.square.square.c> {
-        com.baidu.tieba.square.square.c iSh;
+        com.baidu.tieba.square.square.c iSj;
         private x mNetwork;
 
         private a() {
             this.mNetwork = null;
-            this.iSh = new com.baidu.tieba.square.square.c();
+            this.iSj = new com.baidu.tieba.square.square.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -71,8 +71,8 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate(numArr);
-            if (this.iSh != null) {
-                DirMenuModel.this.iSc.a(true, this.iSh.getErrorCode(), this.iSh.cle(), this.iSh.getErrorMsg(), DirMenuModel.this.iSg);
+            if (this.iSj != null) {
+                DirMenuModel.this.iSe.a(true, this.iSj.getErrorCode(), this.iSj.clg(), this.iSj.getErrorMsg(), DirMenuModel.this.iSi);
             }
         }
 
@@ -85,37 +85,37 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             String str = null;
             l<String> mB = com.baidu.tbadk.core.c.a.afD().mB("tb.my_posts");
             if (mB != null) {
-                str = mB.get(TbadkCoreApplication.getCurrentAccount() + "_" + DirMenuModel.this.iSd + "_dir");
+                str = mB.get(TbadkCoreApplication.getCurrentAccount() + "_" + DirMenuModel.this.iSf + "_dir");
             }
             if (str != null) {
-                this.iSh.parserJson(str);
-                DirMenuModel.this.iSg = true;
+                this.iSj.parserJson(str);
+                DirMenuModel.this.iSi = true;
                 publishProgress(new Integer[0]);
             }
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/f/forum/seconddir");
-                this.mNetwork.o("menu_name", DirMenuModel.this.iSd);
-                this.mNetwork.o(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.iSe);
-                this.mNetwork.o("menu_id", DirMenuModel.this.iSf);
+                this.mNetwork.o("menu_name", DirMenuModel.this.iSf);
+                this.mNetwork.o(ForumListActivityConfig.KEY_MENU_TYPE, DirMenuModel.this.iSg);
+                this.mNetwork.o("menu_id", DirMenuModel.this.iSh);
                 ahe = this.mNetwork.ahe();
             } catch (Exception e) {
-                this.iSh.setErrorMsg(e.getMessage());
+                this.iSj.setErrorMsg(e.getMessage());
                 BdLog.detailException(e);
             }
             if (ahe == null) {
-                return this.iSh;
+                return this.iSj;
             }
             if (this.mNetwork.ahC().aiC().isRequestSuccess()) {
-                this.iSh.parserJson(ahe);
-                DirMenuModel.this.eTB = true;
+                this.iSj.parserJson(ahe);
+                DirMenuModel.this.eTC = true;
                 if (mB != null) {
-                    mB.a(TbadkCoreApplication.getCurrentAccount() + "_" + DirMenuModel.this.iSd + "_dir", ahe, 86400000L);
+                    mB.a(TbadkCoreApplication.getCurrentAccount() + "_" + DirMenuModel.this.iSf + "_dir", ahe, 86400000L);
                 }
             } else {
-                this.iSh.setErrorMsg(this.mNetwork.getErrorString());
-                DirMenuModel.this.eTB = false;
+                this.iSj.setErrorMsg(this.mNetwork.getErrorString());
+                DirMenuModel.this.eTC = false;
             }
-            return this.iSh;
+            return this.iSj;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -123,10 +123,10 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(com.baidu.tieba.square.square.c cVar) {
-            if (!DirMenuModel.this.eTB) {
-                DirMenuModel.this.iSc.a(false, -1, null, cVar.getErrorMsg(), DirMenuModel.this.iSg);
-            } else if (cVar.cle() != null) {
-                DirMenuModel.this.iSc.a(true, cVar.getErrorCode(), cVar.cle(), cVar.getErrorMsg(), DirMenuModel.this.iSg);
+            if (!DirMenuModel.this.eTC) {
+                DirMenuModel.this.iSe.a(false, -1, null, cVar.getErrorMsg(), DirMenuModel.this.iSi);
+            } else if (cVar.clg() != null) {
+                DirMenuModel.this.iSe.a(true, cVar.getErrorCode(), cVar.clg(), cVar.getErrorMsg(), DirMenuModel.this.iSi);
             }
         }
 

@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private View cSY;
-    private String dcA;
-    private boolean dcB;
-    private TextView dcy;
-    private EditText dcz;
+    private View cSZ;
+    private EditText dcA;
+    private String dcB;
+    private boolean dcC;
+    private TextView dcz;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -40,77 +40,77 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, R.layout.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
-        this.dcy = (TextView) findViewById(R.id.invoice_info_desc);
-        this.dcz = (EditText) findViewById(R.id.invoice_info_content);
-        this.cSY = findViewById(R.id.divider_line);
-        this.dcy.setTextColor(getResources().getColor(R.color.invoice_info_desc));
-        this.dcz.setTextColor(getResources().getColor(R.color.invoice_info_content));
-        this.dcz.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
-        this.cSY.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.dcz = (TextView) findViewById(R.id.invoice_info_desc);
+        this.dcA = (EditText) findViewById(R.id.invoice_info_content);
+        this.cSZ = findViewById(R.id.divider_line);
+        this.dcz.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.dcA.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.dcA.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.cSZ.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.dcB = aVar.dcB;
-            this.dcy.setText(aVar.aYJ);
-            this.dcz.setHint(aVar.dcD);
-            if (!aVar.dcE) {
-                this.dcz.setSingleLine();
+            this.dcC = aVar.dcC;
+            this.dcz.setText(aVar.aYJ);
+            this.dcA.setHint(aVar.dcE);
+            if (!aVar.dcF) {
+                this.dcA.setSingleLine();
             } else {
-                aVar.dcC |= 131072;
+                aVar.dcD |= 131072;
             }
-            this.dcz.setInputType(aVar.dcC);
-            if (!TextUtils.isEmpty(aVar.dcF)) {
-                this.dcz.setKeyListener(DigitsKeyListener.getInstance(aVar.dcF));
+            this.dcA.setInputType(aVar.dcD);
+            if (!TextUtils.isEmpty(aVar.dcG)) {
+                this.dcA.setKeyListener(DigitsKeyListener.getInstance(aVar.dcG));
             }
-            this.dcA = aVar.dcA;
+            this.dcB = aVar.dcB;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.dcz != null) {
-            return this.dcz.getText().toString().trim();
+        if (this.dcA != null) {
+            return this.dcA.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.dcz != null) {
-            this.dcz.setText(charSequence);
+        if (this.dcA != null) {
+            this.dcA.setText(charSequence);
         }
     }
 
-    public boolean aEw() {
-        return this.dcB;
+    public boolean aEz() {
+        return this.dcC;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.dcz != null && textWatcher != null) {
-            this.dcz.addTextChangedListener(textWatcher);
+        if (this.dcA != null && textWatcher != null) {
+            this.dcA.addTextChangedListener(textWatcher);
         }
     }
 
     public void removeTextChangedListener(TextWatcher textWatcher) {
-        if (this.dcz != null) {
-            this.dcz.removeTextChangedListener(textWatcher);
+        if (this.dcA != null) {
+            this.dcA.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
         private String aYJ;
-        private String dcA;
-        private boolean dcB = false;
-        private int dcC = 1;
-        private String dcD;
-        private boolean dcE;
-        private String dcF;
+        private String dcB;
+        private boolean dcC = false;
+        private int dcD = 1;
+        private String dcE;
+        private boolean dcF;
+        private String dcG;
         private String mErrorMessage;
 
         public a gq(boolean z) {
-            this.dcB = z;
+            this.dcC = z;
             return this;
         }
 
@@ -120,17 +120,17 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a mA(int i) {
-            this.dcC = i;
+            this.dcD = i;
             return this;
         }
 
         public a sL(String str) {
-            this.dcD = str;
+            this.dcE = str;
             return this;
         }
 
         public a sM(String str) {
-            this.dcA = str;
+            this.dcB = str;
             return this;
         }
 
@@ -140,12 +140,12 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a gr(boolean z) {
-            this.dcE = z;
+            this.dcF = z;
             return this;
         }
 
         public a sO(String str) {
-            this.dcF = str;
+            this.dcG = str;
             return this;
         }
     }

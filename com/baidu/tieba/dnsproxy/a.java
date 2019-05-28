@@ -7,44 +7,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    private volatile int eNy;
+    private static final String[] eNA = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] eNB = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] eNC = {"111.206.37.190"};
+    private static final String[] eND = {"115.239.211.146", "180.97.33.196"};
+    private volatile int eNz;
     private volatile String imsi;
-    private static final String[] eNz = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] eNA = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] eNB = {"111.206.37.190"};
-    private static final String[] eNC = {"115.239.211.146", "180.97.33.196"};
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String bcb() {
-        bcc();
+    public String bce() {
+        bcf();
         if (j.jT()) {
-            return eNC[new Random().nextInt(eNC.length)];
+            return eND[new Random().nextInt(eND.length)];
         }
         if (j.jU()) {
-            if (this.eNy == 1) {
-                return eNz[new Random().nextInt(eNz.length)];
-            }
-            if (this.eNy == 2) {
+            if (this.eNz == 1) {
                 return eNA[new Random().nextInt(eNA.length)];
             }
-            if (this.eNy == 3) {
+            if (this.eNz == 2) {
                 return eNB[new Random().nextInt(eNB.length)];
+            }
+            if (this.eNz == 3) {
+                return eNC[new Random().nextInt(eNC.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void bcc() {
+    protected void bcf() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.eNy = 0;
+        this.eNz = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.eNy = 1;
+                this.eNz = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.eNy = 2;
+                this.eNz = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.eNy = 3;
+                this.eNz = 3;
             }
         }
     }

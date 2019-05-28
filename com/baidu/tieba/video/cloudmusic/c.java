@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bmo();
+        void bmr();
 
-        void crb();
+        void crd();
     }
 
     /* loaded from: classes5.dex */

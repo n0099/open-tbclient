@@ -9,8 +9,8 @@ import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class c {
     private final MediaMuxer aeT;
-    private int jpD = 2;
-    private int kex = 0;
+    private int jpE = 2;
+    private int kez = 0;
     private boolean mIsStarted = false;
 
     public c(String str) throws IOException {
@@ -20,8 +20,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         Log.v("MediaMuxerWrapper", "start:");
-        this.kex++;
-        if (this.jpD > 0 && this.kex == this.jpD) {
+        this.kez++;
+        if (this.jpE > 0 && this.kez == this.jpE) {
             this.aeT.start();
             this.mIsStarted = true;
             notifyAll();
@@ -32,9 +32,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.kex);
-        this.kex--;
-        if (this.jpD > 0 && this.kex <= 0) {
+        Log.v("MediaMuxerWrapper", "stop:mStatredCount=" + this.kez);
+        this.kez--;
+        if (this.jpE > 0 && this.kez <= 0) {
             this.aeT.stop();
             this.aeT.release();
             this.mIsStarted = false;
@@ -49,13 +49,13 @@ public class c {
             throw new IllegalStateException("muxer already started");
         }
         addTrack = this.aeT.addTrack(mediaFormat);
-        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.jpD + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        Log.i("MediaMuxerWrapper", "addTrack:trackNum=" + this.jpE + ",trackIx=" + addTrack + ",format=" + mediaFormat);
         return addTrack;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        if (this.kex > 0) {
+        if (this.kez > 0) {
             this.aeT.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }

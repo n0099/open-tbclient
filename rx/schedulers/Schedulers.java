@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> kuf = new AtomicReference<>();
-    private final g kuc;
+    private static final AtomicReference<Schedulers> kug = new AtomicReference<>();
     private final g kud;
     private final g kue;
+    private final g kuf;
 
-    private static Schedulers cMM() {
+    private static Schedulers cMO() {
         Schedulers schedulers;
         while (true) {
-            schedulers = kuf.get();
+            schedulers = kug.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (kuf.compareAndSet(null, schedulers)) {
+                if (kug.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cMO();
+                schedulers.cMQ();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g cMD = f.cMy().cMD();
-        g cMH = cMD.cMH();
-        if (cMH != null) {
-            this.kuc = cMH;
-        } else {
-            this.kuc = rx.c.g.cME();
-        }
-        g cMI = cMD.cMI();
-        if (cMI != null) {
-            this.kud = cMI;
-        } else {
-            this.kud = rx.c.g.cMF();
-        }
-        g cMJ = cMD.cMJ();
+        rx.c.g cMF = f.cMA().cMF();
+        g cMJ = cMF.cMJ();
         if (cMJ != null) {
-            this.kue = cMJ;
+            this.kud = cMJ;
         } else {
-            this.kue = rx.c.g.cMG();
+            this.kud = rx.c.g.cMG();
+        }
+        g cMK = cMF.cMK();
+        if (cMK != null) {
+            this.kue = cMK;
+        } else {
+            this.kue = rx.c.g.cMH();
+        }
+        g cML = cMF.cML();
+        if (cML != null) {
+            this.kuf = cML;
+        } else {
+            this.kuf = rx.c.g.cMI();
         }
     }
 
     public static g immediate() {
-        return e.krM;
+        return e.krN;
     }
 
     public static g trampoline() {
-        return j.ksm;
+        return j.ksn;
     }
 
     public static g newThread() {
-        return c.i(cMM().kue);
+        return c.i(cMO().kuf);
     }
 
     public static g computation() {
-        return c.g(cMM().kuc);
+        return c.g(cMO().kud);
     }
 
     public static g io() {
-        return c.h(cMM().kud);
+        return c.h(cMO().kue);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = kuf.getAndSet(null);
+        Schedulers andSet = kug.getAndSet(null);
         if (andSet != null) {
-            andSet.cMO();
+            andSet.cMQ();
         }
     }
 
     public static void start() {
-        Schedulers cMM = cMM();
-        cMM.cMN();
-        synchronized (cMM) {
-            d.krJ.start();
+        Schedulers cMO = cMO();
+        cMO.cMP();
+        synchronized (cMO) {
+            d.krK.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cMM = cMM();
-        cMM.cMO();
-        synchronized (cMM) {
-            d.krJ.shutdown();
+        Schedulers cMO = cMO();
+        cMO.cMQ();
+        synchronized (cMO) {
+            d.krK.shutdown();
         }
     }
 
-    synchronized void cMN() {
-        if (this.kuc instanceof h) {
-            ((h) this.kuc).start();
-        }
+    synchronized void cMP() {
         if (this.kud instanceof h) {
             ((h) this.kud).start();
         }
         if (this.kue instanceof h) {
             ((h) this.kue).start();
         }
+        if (this.kuf instanceof h) {
+            ((h) this.kuf).start();
+        }
     }
 
-    synchronized void cMO() {
-        if (this.kuc instanceof h) {
-            ((h) this.kuc).shutdown();
-        }
+    synchronized void cMQ() {
         if (this.kud instanceof h) {
             ((h) this.kud).shutdown();
         }
         if (this.kue instanceof h) {
             ((h) this.kue).shutdown();
+        }
+        if (this.kuf instanceof h) {
+            ((h) this.kuf).shutdown();
         }
     }
 }

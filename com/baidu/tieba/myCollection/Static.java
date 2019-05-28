@@ -94,11 +94,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.bNj().destroy();
+                        com.baidu.tieba.myCollection.a.a.bNm().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.bNj().start();
+                        com.baidu.tieba.myCollection.a.a.bNm().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.bNj().destroy();
+                        com.baidu.tieba.myCollection.a.a.bNm().destroy();
                     }
                 }
             }
@@ -108,9 +108,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.bNj().restart();
+                    com.baidu.tieba.myCollection.a.a.bNm().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.bNj().destroy();
+                    com.baidu.tieba.myCollection.a.a.bNm().destroy();
                 }
             }
         });
@@ -119,8 +119,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.bML().bMO();
-                    b.bML().np(true);
+                    b.bMO().bMR();
+                    b.bMO().np(true);
                 }
             }
         });

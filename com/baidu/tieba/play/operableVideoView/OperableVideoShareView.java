@@ -25,13 +25,13 @@ import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class OperableVideoShareView extends LinearLayout {
     private bg VK;
-    private c isF;
-    private View isG;
-    private ImageView isH;
-    private View isI;
-    private ImageView isJ;
-    private View isK;
-    private ImageView isL;
+    private c isI;
+    private View isJ;
+    private ImageView isK;
+    private View isL;
+    private ImageView isM;
+    private View isN;
+    private ImageView isO;
     private View.OnClickListener mOnClickListener;
 
     public OperableVideoShareView(Context context) {
@@ -40,11 +40,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!i.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.isG) {
+                    if (view == OperableVideoShareView.this.isJ) {
                         OperableVideoShareView.this.yw(3);
-                    } else if (view == OperableVideoShareView.this.isI) {
+                    } else if (view == OperableVideoShareView.this.isL) {
                         OperableVideoShareView.this.yw(2);
-                    } else if (view == OperableVideoShareView.this.isK) {
+                    } else if (view == OperableVideoShareView.this.isN) {
                         OperableVideoShareView.this.yw(8);
                     }
                 }
@@ -59,11 +59,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!i.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.isG) {
+                    if (view == OperableVideoShareView.this.isJ) {
                         OperableVideoShareView.this.yw(3);
-                    } else if (view == OperableVideoShareView.this.isI) {
+                    } else if (view == OperableVideoShareView.this.isL) {
                         OperableVideoShareView.this.yw(2);
-                    } else if (view == OperableVideoShareView.this.isK) {
+                    } else if (view == OperableVideoShareView.this.isN) {
                         OperableVideoShareView.this.yw(8);
                     }
                 }
@@ -78,11 +78,11 @@ public class OperableVideoShareView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!i.isFastDoubleClick()) {
-                    if (view == OperableVideoShareView.this.isG) {
+                    if (view == OperableVideoShareView.this.isJ) {
                         OperableVideoShareView.this.yw(3);
-                    } else if (view == OperableVideoShareView.this.isI) {
+                    } else if (view == OperableVideoShareView.this.isL) {
                         OperableVideoShareView.this.yw(2);
-                    } else if (view == OperableVideoShareView.this.isK) {
+                    } else if (view == OperableVideoShareView.this.isN) {
                         OperableVideoShareView.this.yw(8);
                     }
                 }
@@ -97,20 +97,20 @@ public class OperableVideoShareView extends LinearLayout {
 
     private void init() {
         inflate(getContext(), getLayoutR(), this);
-        this.isG = findViewById(R.id.share_weixin);
-        this.isI = findViewById(R.id.share_weixin_timeline);
-        this.isK = findViewById(R.id.share_qq);
-        this.isH = (ImageView) findViewById(R.id.share_weixin_img);
-        this.isJ = (ImageView) findViewById(R.id.share_weixin_timeline_img);
-        this.isL = (ImageView) findViewById(R.id.share_qq_img);
-        this.isG.setOnClickListener(this.mOnClickListener);
-        this.isI.setOnClickListener(this.mOnClickListener);
-        this.isK.setOnClickListener(this.mOnClickListener);
+        this.isJ = findViewById(R.id.share_weixin);
+        this.isL = findViewById(R.id.share_weixin_timeline);
+        this.isN = findViewById(R.id.share_qq);
+        this.isK = (ImageView) findViewById(R.id.share_weixin_img);
+        this.isM = (ImageView) findViewById(R.id.share_weixin_timeline_img);
+        this.isO = (ImageView) findViewById(R.id.share_qq_img);
+        this.isJ.setOnClickListener(this.mOnClickListener);
+        this.isL.setOnClickListener(this.mOnClickListener);
+        this.isN.setOnClickListener(this.mOnClickListener);
         setOnClickListener(this.mOnClickListener);
     }
 
     public void setVideoContainer(c cVar) {
-        this.isF = cVar;
+        this.isI = cVar;
     }
 
     public void setShareData(bg bgVar) {
@@ -205,10 +205,10 @@ public class OperableVideoShareView extends LinearLayout {
 
     public void ae(boolean z, boolean z2) {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) getLayoutParams();
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.isI.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams3 = this.isH.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams4 = this.isJ.getLayoutParams();
-        ViewGroup.LayoutParams layoutParams5 = this.isL.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.isL.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams3 = this.isK.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams4 = this.isM.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams5 = this.isO.getLayoutParams();
         if (!z2) {
             if (z) {
                 layoutParams2.leftMargin = (int) getResources().getDimension(R.dimen.tbds30);
@@ -238,6 +238,6 @@ public class OperableVideoShareView extends LinearLayout {
             layoutParams3.height = dimension2;
         }
         setLayoutParams(layoutParams);
-        this.isI.setLayoutParams(layoutParams2);
+        this.isL.setLayoutParams(layoutParams2);
     }
 }

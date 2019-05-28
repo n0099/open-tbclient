@@ -294,7 +294,7 @@ public class f {
             if (eVar.cju) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.bBf, eVar, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                com.baidu.tieba.c.e.aZz().a(shareDialogConfig);
+                com.baidu.tieba.c.e.aZC().a(shareDialogConfig);
                 return;
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.bBf, eVar, true, aay())));

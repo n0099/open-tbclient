@@ -44,7 +44,7 @@ public class b extends g {
         this.cPV = list;
     }
 
-    public List<Object> azt() {
+    public List<Object> azu() {
         return this.cPX;
     }
 
@@ -52,7 +52,7 @@ public class b extends g {
         this.cPX = list;
     }
 
-    public List<m> azu() {
+    public List<m> azv() {
         return this.cPW;
     }
 
@@ -60,7 +60,7 @@ public class b extends g {
         this.cPW = list;
     }
 
-    public boolean azv() {
+    public boolean azw() {
         return this.cPY;
     }
 
@@ -76,7 +76,7 @@ public class b extends g {
         this.cPZ = z;
     }
 
-    public int azw() {
+    public int azx() {
         return this.currentPage;
     }
 
@@ -92,7 +92,7 @@ public class b extends g {
         this.ccI = i;
     }
 
-    public boolean azx() {
+    public boolean azy() {
         return this.cQa;
     }
 
@@ -116,7 +116,7 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String azy() {
+    public String azz() {
         return this.cQb;
     }
 
@@ -124,7 +124,7 @@ public class b extends g {
         this.cQb = str;
     }
 
-    public String azz() {
+    public String azA() {
         return this.cQc;
     }
 
@@ -132,7 +132,7 @@ public class b extends g {
         this.cQc = str;
     }
 
-    public String azA() {
+    public String azB() {
         return this.cQd;
     }
 

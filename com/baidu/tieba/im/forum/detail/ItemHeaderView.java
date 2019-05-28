@@ -16,10 +16,10 @@ import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemHeaderView extends RelativeLayout {
     private TextView caT;
-    private TextView fRl;
-    private BarImageView gzi;
-    private TextView gzj;
+    private TextView fRm;
+    private BarImageView gzj;
     private TextView gzk;
+    private TextView gzl;
     private Context mContext;
 
     public ItemHeaderView(Context context) {
@@ -41,11 +41,11 @@ public class ItemHeaderView extends RelativeLayout {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.forum_detail_header, (ViewGroup) this, true);
         setVisibility(8);
-        this.gzi = (BarImageView) findViewById(R.id.h_forum_portrait);
+        this.gzj = (BarImageView) findViewById(R.id.h_forum_portrait);
         this.caT = (TextView) findViewById(R.id.h_forum_name);
-        this.gzj = (TextView) findViewById(R.id.forum_authen);
-        this.fRl = (TextView) findViewById(R.id.h_fans_num);
-        this.gzk = (TextView) findViewById(R.id.h_thread_num);
+        this.gzk = (TextView) findViewById(R.id.forum_authen);
+        this.fRm = (TextView) findViewById(R.id.h_fans_num);
+        this.gzl = (TextView) findViewById(R.id.h_thread_num);
     }
 
     public void setData(RecommendForumInfo recommendForumInfo) {
@@ -57,16 +57,16 @@ public class ItemHeaderView extends RelativeLayout {
                 bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
                 this.caT.setCompoundDrawables(null, null, bitmapDrawable, null);
                 this.caT.setCompoundDrawablePadding(l.dip2px(this.mContext, this.mContext.getResources().getDimension(R.dimen.ds4)));
-                this.gzj.setText(recommendForumInfo.authen);
-                this.gzj.setVisibility(0);
+                this.gzk.setText(recommendForumInfo.authen);
+                this.gzk.setVisibility(0);
             } else {
                 this.caT.setCompoundDrawables(null, null, null, null);
-                this.gzj.setVisibility(8);
+                this.gzk.setVisibility(8);
             }
-            this.fRl.setText(ap.aG(recommendForumInfo.member_count.intValue()));
-            this.gzk.setText(ap.aG(recommendForumInfo.thread_count.intValue()));
+            this.fRm.setText(ap.aG(recommendForumInfo.member_count.intValue()));
+            this.gzl.setText(ap.aG(recommendForumInfo.thread_count.intValue()));
             int dip2px = l.dip2px(this.mContext, 80.0f);
-            this.gzi.startLoad(recommendForumInfo.avatar, 10, dip2px, dip2px, false);
+            this.gzj.startLoad(recommendForumInfo.avatar, 10, dip2px, dip2px, false);
             setVisibility(0);
         }
     }

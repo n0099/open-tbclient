@@ -18,13 +18,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
 /* loaded from: classes4.dex */
 public class TopicDetailHeadView extends RelativeLayout {
-    private TbImageView eUC;
-    private TextView eUF;
-    private TbImageView gfO;
-    private LinearLayout gfP;
-    private View gfQ;
-    public TopicPkView gfR;
-    private TopicTimelineView gfS;
+    private TbImageView eUD;
+    private TextView eUG;
+    private TbImageView gfP;
+    private LinearLayout gfQ;
+    private View gfR;
+    public TopicPkView gfS;
+    private TopicTimelineView gfT;
     private int mSkinType;
 
     public TopicDetailHeadView(Context context) {
@@ -47,24 +47,24 @@ public class TopicDetailHeadView extends RelativeLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.topic_detail_head_view_layout, (ViewGroup) this, true);
-        this.gfO = (TbImageView) findViewById(R.id.topic_detail_head_bg);
-        this.gfO.setDrawingCacheEnabled(true);
-        this.eUF = (TextView) findViewById(R.id.topic_detail_head_des);
-        this.gfP = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
-        this.eUC = (TbImageView) findViewById(R.id.topic_detail_head_img);
-        this.gfQ = findViewById(R.id.topic_detail_head_img_placeholder);
-        this.gfR = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
-        this.gfS = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
-        ViewGroup.LayoutParams layoutParams = this.eUC.getLayoutParams();
+        this.gfP = (TbImageView) findViewById(R.id.topic_detail_head_bg);
+        this.gfP.setDrawingCacheEnabled(true);
+        this.eUG = (TextView) findViewById(R.id.topic_detail_head_des);
+        this.gfQ = (LinearLayout) findViewById(R.id.topic_detail_head_img_layout);
+        this.eUD = (TbImageView) findViewById(R.id.topic_detail_head_img);
+        this.gfR = findViewById(R.id.topic_detail_head_img_placeholder);
+        this.gfS = (TopicPkView) findViewById(R.id.topic_detail_head_pk);
+        this.gfT = (TopicTimelineView) findViewById(R.id.topic_detail_head_timeline);
+        ViewGroup.LayoutParams layoutParams = this.eUD.getLayoutParams();
         layoutParams.height = ((l.af(getContext()) - l.g(getContext(), R.dimen.tbds88)) * 9) / 16;
-        this.eUC.setLayoutParams(layoutParams);
-        this.eUC.setRadius(l.g(context, R.dimen.tbds22));
-        this.eUC.setConrers(15);
+        this.eUD.setLayoutParams(layoutParams);
+        this.eUD.setRadius(l.g(context, R.dimen.tbds22));
+        this.eUD.setConrers(15);
         onChangeSkinType();
     }
 
     public TbImageView getmBgImg() {
-        return this.gfO;
+        return this.gfP;
     }
 
     public void setData(com.baidu.tieba.homepage.topic.topicdetail.b.b bVar) {
@@ -73,44 +73,44 @@ public class TopicDetailHeadView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        if (bVar.gfq == null && StringUtils.isNull(bVar.gfo)) {
-            ((LinearLayout.LayoutParams) this.eUF.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
+        if (bVar.gfr == null && StringUtils.isNull(bVar.gfp)) {
+            ((LinearLayout.LayoutParams) this.eUG.getLayoutParams()).bottomMargin = l.g(getContext(), R.dimen.tbds130);
         }
-        this.eUF.setText(bVar.bHE);
-        if (StringUtils.isNull(bVar.gfo)) {
-            this.gfP.setVisibility(8);
-            this.gfO.setDefaultBgResource(R.drawable.topic_detail_default_bg);
-        } else {
-            this.gfP.setVisibility(0);
-            this.eUC.startLoad(bVar.gfo, 10, false);
-            this.gfO.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
-        }
-        if (bVar.gfq == null) {
+        this.eUG.setText(bVar.bHE);
+        if (StringUtils.isNull(bVar.gfp)) {
             this.gfQ.setVisibility(8);
-            this.gfR.setVisibility(8);
+            this.gfP.setDefaultBgResource(R.drawable.topic_detail_default_bg);
         } else {
             this.gfQ.setVisibility(0);
-            this.gfR.setVisibility(0);
-            this.gfR.setData(bVar.gfq);
+            this.eUD.startLoad(bVar.gfp, 10, false);
+            this.gfP.setDefaultBgResource(R.drawable.topic_detail_img_default_bg);
         }
-        if (bVar.gfr == null || v.aa(bVar.gfr.gfA)) {
+        if (bVar.gfr == null) {
+            this.gfR.setVisibility(8);
             this.gfS.setVisibility(8);
         } else {
+            this.gfR.setVisibility(0);
             this.gfS.setVisibility(0);
             this.gfS.setData(bVar.gfr);
         }
-        this.gfO.startLoad(bVar.gfp, 10, false);
+        if (bVar.gfs == null || v.aa(bVar.gfs.gfB)) {
+            this.gfT.setVisibility(8);
+        } else {
+            this.gfT.setVisibility(0);
+            this.gfT.setData(bVar.gfs);
+        }
+        this.gfP.startLoad(bVar.gfq, 10, false);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            this.gfO.setIsNight(this.mSkinType == 1);
-            al.j(this.eUF, R.color.cp_btn_a);
-            this.eUC.setIsNight(this.mSkinType == 1);
-            this.gfR.onChangeSkinType();
+            this.gfP.setIsNight(this.mSkinType == 1);
+            al.j(this.eUG, R.color.cp_btn_a);
+            this.eUD.setIsNight(this.mSkinType == 1);
             this.gfS.onChangeSkinType();
+            this.gfT.onChangeSkinType();
         }
     }
 }

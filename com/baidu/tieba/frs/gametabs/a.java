@@ -18,12 +18,12 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends n {
     private l bOL;
-    private String eAB;
+    private String eAC;
 
     public a(l lVar, String str) {
         super(lVar);
         this.bOL = lVar;
-        this.eAB = str;
+        this.eAC = str;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -46,9 +46,9 @@ public class a extends n {
                 if (StringUtils.isNull(optString2)) {
                     wI(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.ceQ().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.CR(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.ceS().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.CR(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
-                TiebaStatic.log(new am("c12775").bT("fid", StringUtils.isNull(this.eAB) ? "" : this.eAB));
+                TiebaStatic.log(new am("c12775").bT("fid", StringUtils.isNull(this.eAC) ? "" : this.eAC));
             }
         }
     }

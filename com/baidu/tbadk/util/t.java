@@ -62,7 +62,7 @@ public class t {
             if (jS) {
                 if (com.baidu.adp.lib.util.j.jT()) {
                     ar.ail().ea(true);
-                    com.baidu.tieba.recapp.d.a.cfz().Db(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.d.a.cfB().Db(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.jU()) {
                     ar.ail().ea(false);
                 }

@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class aq<T> implements ai<T> {
-    private final ar jZq;
-    private final ai<T> kbY;
+    private final ar jZr;
+    private final ai<T> kbZ;
 
     public aq(ai<T> aiVar, ar arVar) {
-        this.kbY = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
-        this.jZq = arVar;
+        this.kbZ = (ai) com.facebook.common.internal.g.checkNotNull(aiVar);
+        this.jZr = arVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(final j<T> jVar, final aj ajVar) {
-        final al cHx = ajVar.cHx();
+        final al cHz = ajVar.cHz();
         final String id = ajVar.getId();
-        final ao<T> aoVar = new ao<T>(jVar, cHx, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.aq.1
+        final ao<T> aoVar = new ao<T>(jVar, cHz, "BackgroundThreadHandoffProducer", id) { // from class: com.facebook.imagepipeline.producers.aq.1
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
             public void onSuccess(T t) {
-                cHx.a(id, "BackgroundThreadHandoffProducer", null);
-                aq.this.kbY.a(jVar, ajVar);
+                cHz.a(id, "BackgroundThreadHandoffProducer", null);
+                aq.this.kbZ.a(jVar, ajVar);
             }
 
             @Override // com.facebook.imagepipeline.producers.ao, com.facebook.common.b.e
@@ -32,11 +32,11 @@ public class aq<T> implements ai<T> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.aq.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cHD() {
+            public void cHF() {
                 aoVar.cancel();
-                aq.this.jZq.remove(aoVar);
+                aq.this.jZr.remove(aoVar);
             }
         });
-        this.jZq.u(aoVar);
+        this.jZr.u(aoVar);
     }
 }

@@ -19,7 +19,7 @@ public class SettingTextImageView extends FrameLayout {
     private ImageView agT;
     private TextView aif;
     private LinearLayout cmN;
-    private HeadImageView iMK;
+    private HeadImageView iMM;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -40,18 +40,18 @@ public class SettingTextImageView extends FrameLayout {
     public void jT(int i) {
         al.f(this.aif, R.color.common_color_10039, 1);
         al.b(this.agT, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iMK.invalidate();
+        this.iMM.invalidate();
     }
 
-    public void ciF() {
-        if (this.iMK != null) {
-            this.iMK.setVisibility(8);
+    public void ciH() {
+        if (this.iMM != null) {
+            this.iMM.setVisibility(8);
         }
     }
 
-    public void ciG() {
-        if (this.iMK != null) {
-            this.iMK.setVisibility(0);
+    public void ciI() {
+        if (this.iMM != null) {
+            this.iMM.setVisibility(0);
         }
     }
 
@@ -61,9 +61,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iMK.startLoad(str, 26, false);
+            this.iMM.startLoad(str, 26, false);
         } else {
-            this.iMK.startLoad(str, 12, false);
+            this.iMM.startLoad(str, 12, false);
         }
     }
 
@@ -74,7 +74,7 @@ public class SettingTextImageView extends FrameLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.cmN = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.iMK = (HeadImageView) findViewById(R.id.icon);
+        this.iMM = (HeadImageView) findViewById(R.id.icon);
         this.agT = (ImageView) findViewById(R.id.arrow);
     }
 

@@ -92,6 +92,7 @@ public class RecPersonalizeRequest extends NetMessage {
         builder.q_type = 1;
         builder.need_forumlist = Integer.valueOf(this.needForumlist);
         builder.new_net_type = Integer.valueOf(j.netType());
+        builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
         builder.request_times = Integer.valueOf(this.requestTime);
         builder.invoke_source = this.sourceFrom;
         PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();

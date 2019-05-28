@@ -152,7 +152,7 @@ public class a {
                     public Boolean call(String str) {
                         return Boolean.valueOf(a.this.Gz());
                     }
-                }).a(rx.a.b.a.cLp()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
+                }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: c */

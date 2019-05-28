@@ -271,7 +271,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
                 this.bZI.setExtrusionRemind(true);
             }
             this.bZI.bZO = this.bZK.getTipText();
-            this.bZI.ftf = this.bZK.ajQ();
+            this.bZI.ftg = this.bZK.ajQ();
             if (this.bZI.getParent() != null) {
                 this.bZy.removeView(this.bZI);
             }
@@ -287,7 +287,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
             if (this.bZJ != null) {
                 this.bZJ.iT(this.bZI.getTipViewHeight());
             }
-            this.bZI.blN();
+            this.bZI.blQ();
         }
     }
 

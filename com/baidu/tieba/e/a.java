@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId eNc = BdUniqueId.gen();
+    public static final BdUniqueId eNd = BdUniqueId.gen();
     private bg cbg;
 
     public void setData(bg bgVar) {
@@ -17,6 +17,6 @@ public class a extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eNc;
+        return eNd;
     }
 }

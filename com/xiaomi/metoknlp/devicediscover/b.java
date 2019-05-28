@@ -15,23 +15,33 @@ public class b extends Handler {
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
-        synchronized (n.a(this.a)) {
+        Object obj;
+        d dVar;
+        d dVar2;
+        k kVar;
+        k kVar2;
+        obj = this.a.b;
+        synchronized (obj) {
             switch (message.what) {
                 case 0:
-                    n.a(this.a, (HashMap) message.obj);
+                    this.a.a((HashMap) message.obj);
                     break;
                 case 1:
-                    n.a(this.a, 0);
-                    if (n.b(this.a) != null) {
-                        n.b(this.a).cancel(true);
+                    this.a.d = 0;
+                    kVar = this.a.g;
+                    if (kVar != null) {
+                        kVar2 = this.a.g;
+                        kVar2.cancel(true);
                     }
                     this.a.c();
                     break;
                 case 3:
                     if (message.obj != null) {
                         String str = (String) message.obj;
-                        if (n.c(this.a) != null) {
-                            n.c(this.a).d(str);
+                        dVar = this.a.e;
+                        if (dVar != null) {
+                            dVar2 = this.a.e;
+                            dVar2.d(str);
                         }
                     }
                     this.a.c();

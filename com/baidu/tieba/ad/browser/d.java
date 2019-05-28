@@ -45,7 +45,7 @@ public class d {
     private View bBu;
     private int bBv;
     private int bBw;
-    private AdBaseWebViewActivity cVM;
+    private AdBaseWebViewActivity cVN;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     protected View bBg = null;
@@ -53,31 +53,31 @@ public class d {
     private boolean bBx = true;
 
     public d(AdBaseWebViewActivity adBaseWebViewActivity) {
-        this.cVM = adBaseWebViewActivity;
+        this.cVN = adBaseWebViewActivity;
         initUI();
     }
 
     private void initUI() {
-        this.cVM.setContentView(R.layout.base_webview_activity);
-        this.bBg = this.cVM.findViewById(R.id.root_view);
-        this.mNavigationBar = (NavigationBar) this.cVM.findViewById(R.id.view_navigation_bar);
+        this.cVN.setContentView(R.layout.base_webview_activity);
+        this.bBg = this.cVN.findViewById(R.id.root_view);
+        this.mNavigationBar = (NavigationBar) this.cVN.findViewById(R.id.view_navigation_bar);
         lV("");
-        this.bBm = (LinearLayout) this.cVM.findViewById(R.id.webview_container);
+        this.bBm = (LinearLayout) this.cVN.findViewById(R.id.webview_container);
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bBm.getLayoutParams();
         layoutParams.addRule(3, R.id.view_navigation_bar);
         this.bBm.setLayoutParams(layoutParams);
-        this.bBn = (TextView) this.cVM.findViewById(R.id.webview_crash_tip);
-        this.mProgressBar = (ProgressBar) this.cVM.findViewById(R.id.webview_progress);
+        this.bBn = (TextView) this.cVN.findViewById(R.id.webview_crash_tip);
+        this.mProgressBar = (ProgressBar) this.cVN.findViewById(R.id.webview_progress);
         this.bBi = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.widget_nb_item_finish, new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.cVM != null) {
-                    d.this.cVM.finish();
+                if (d.this.cVN != null) {
+                    d.this.cVN.finish();
                 }
             }
         });
         this.bBj = (ImageView) this.bBi.findViewById(R.id.widget_navi_back_button);
-        this.bBj.setContentDescription(this.cVM.getResources().getString(R.string.close));
+        this.bBj.setContentDescription(this.cVN.getResources().getString(R.string.close));
         this.bBq = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_more, new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -85,8 +85,8 @@ public class d {
             }
         });
         this.bBk = (ImageView) this.bBq.findViewById(R.id.widget_navi_more_button);
-        View inflate = LayoutInflater.from(this.cVM.getPageContext().getPageActivity()).inflate(R.layout.tb_webview_pop_more, (ViewGroup) null);
-        this.bBr = new MorePopupWindow(this.cVM.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.cVM.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.ad.browser.d.3
+        View inflate = LayoutInflater.from(this.cVN.getPageContext().getPageActivity()).inflate(R.layout.tb_webview_pop_more, (ViewGroup) null);
+        this.bBr = new MorePopupWindow(this.cVN.getPageContext().getPageActivity(), inflate, this.mNavigationBar, this.cVN.getPageContext().getResources().getDrawable(R.drawable.bg_pull_down_right_n), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.ad.browser.d.3
             @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
             public void aaA() {
                 d.this.TT();
@@ -97,24 +97,24 @@ public class d {
             }
         });
         this.bBs = inflate.findViewById(R.id.webview_more_pop_item_share_friend_layout);
-        this.bBs.setOnClickListener(this.cVM);
-        if (com.baidu.tbadk.coreExtra.c.f.cI(this.cVM.getPageContext().getPageActivity())) {
+        this.bBs.setOnClickListener(this.cVN);
+        if (com.baidu.tbadk.coreExtra.c.f.cI(this.cVN.getPageContext().getPageActivity())) {
             this.bBs.setVisibility(0);
         } else {
             this.bBs.setVisibility(8);
         }
         this.bBr.refresh();
         this.bBu = inflate.findViewById(R.id.webview_more_pop_item_open_browser_layout);
-        this.bBu.setOnClickListener(this.cVM);
+        this.bBu.setOnClickListener(this.cVN);
         this.bBt = inflate.findViewById(R.id.webview_more_pop_item_copy_link_layout);
-        this.bBt.setOnClickListener(this.cVM);
+        this.bBt.setOnClickListener(this.cVN);
         aar();
     }
 
     private void aar() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
-        int g = l.g(this.cVM.getPageContext().getPageActivity(), R.dimen.ds98);
-        int i = l.s(this.cVM.getPageContext().getPageActivity()).heightPixels;
+        int g = l.g(this.cVN.getPageContext().getPageActivity(), R.dimen.ds98);
+        int i = l.s(this.cVN.getPageContext().getPageActivity()).heightPixels;
         this.bBv = (i - statusBarHeight) - g;
         this.bBw = i - statusBarHeight;
     }
@@ -125,7 +125,7 @@ public class d {
 
     public boolean aav() {
         try {
-            this.bBm.addView(this.cVM.createWebView());
+            this.bBm.addView(this.cVN.createWebView());
             this.bBn.setVisibility(8);
             if (!this.bBx) {
                 this.mNavigationBar.setStatusBarVisibility(8);
@@ -174,7 +174,7 @@ public class d {
     }
 
     public void TU() {
-        com.baidu.adp.lib.g.g.a(this.bBr, this.cVM.getPageContext().getPageActivity());
+        com.baidu.adp.lib.g.g.a(this.bBr, this.cVN.getPageContext().getPageActivity());
     }
 
     public void showProgressBar() {
@@ -196,12 +196,12 @@ public class d {
 
     public void a(com.baidu.tbadk.coreExtra.c.e eVar) {
         if (eVar != null) {
-            TiebaStatic.eventStat(this.cVM.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
+            TiebaStatic.eventStat(this.cVN.getPageContext().getPageActivity(), TbConfig.TMP_SHARE_DIR_NAME, "click", 1, new Object[0]);
             am amVar = new am("c10898");
             amVar.bT("obj_url", eVar.linkUrl);
             amVar.P("obj_type", 0);
             TiebaStatic.log(amVar);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.cVM.getPageContext().getPageActivity(), eVar, true, aay())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.cVN.getPageContext().getPageActivity(), eVar, true, aay())));
         }
     }
 
@@ -221,13 +221,13 @@ public class d {
 
     public void onChangeSkinType(int i) {
         if (this.mNavigationBar != null) {
-            this.mNavigationBar.onChangeSkinType(this.cVM.getPageContext(), i);
+            this.mNavigationBar.onChangeSkinType(this.cVN.getPageContext(), i);
         }
         if (this.bBr != null) {
-            this.bBr.onChangeSkinType(this.cVM, i, al.getDrawable(R.drawable.bg_pull_down_right_n));
+            this.bBr.onChangeSkinType(this.cVN, i, al.getDrawable(R.drawable.bg_pull_down_right_n));
         }
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.cVM.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.cVN.getPageContext(), i);
         }
         al.a(this.bBj, (int) R.drawable.icon_nav_close, (int) R.drawable.icon_nav_close_w, (int) R.drawable.icon_nav_close, i);
         al.a(this.bBk, (int) R.drawable.icon_more_bg_s, (int) R.drawable.icon_more_bg_s, (int) R.drawable.icon_more_bg_s, i);
@@ -242,9 +242,9 @@ public class d {
 
     public void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.cVM.getPageContext().getPageActivity(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.d.bW(null, this.cVM.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.cVM.getResources().getString(R.string.refresh), this.bBp)));
+            this.mNoDataView = NoDataViewFactory.a(this.cVN.getPageContext().getPageActivity(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.WEBVIEW, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)), NoDataViewFactory.d.bW(null, this.cVN.getPageContext().getString(R.string.url_not_found)), NoDataViewFactory.b.a(new NoDataViewFactory.a(this.cVN.getResources().getString(R.string.refresh), this.bBp)));
         }
-        this.mNoDataView.onChangeSkinType(this.cVM.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        this.mNoDataView.onChangeSkinType(this.cVN.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         this.bBm.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
@@ -261,7 +261,7 @@ public class d {
             this.mNavigationBar.release();
         }
         if (this.bBr != null) {
-            com.baidu.adp.lib.g.g.a(this.bBr, this.cVM.getPageContext().getPageActivity());
+            com.baidu.adp.lib.g.g.a(this.bBr, this.cVN.getPageContext().getPageActivity());
         }
     }
 
@@ -275,7 +275,7 @@ public class d {
         al.k(this.bBj, R.drawable.frs_star_navigation_bg);
         al.k(this.bBk, R.drawable.frs_star_navigation_bg);
         lV("");
-        this.cVM.getWindow().setFlags(1024, 1024);
+        this.cVN.getWindow().setFlags(1024, 1024);
     }
 
     public void aaz() {
@@ -285,7 +285,7 @@ public class d {
         this.bBj.setBackgroundDrawable(null);
         this.bBk.setBackgroundDrawable(null);
         this.mNavigationBar.showBottomLine(true);
-        this.cVM.getWindow().clearFlags(1024);
+        this.cVN.getWindow().clearFlags(1024);
     }
 
     public void dz(boolean z) {

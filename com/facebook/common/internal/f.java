@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0444a jRY;
         private C0444a jRZ;
-        private boolean jSa;
+        private C0444a jSa;
+        private boolean jSb;
 
         private a(String str) {
-            this.jRY = new C0444a();
-            this.jRZ = this.jRY;
-            this.jSa = false;
+            this.jRZ = new C0444a();
+            this.jSa = this.jRZ;
+            this.jSb = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.jSa;
+            boolean z = this.jSb;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0444a c0444a = this.jRY.jSb; c0444a != null; c0444a = c0444a.jSb) {
+            for (C0444a c0444a = this.jRZ.jSc; c0444a != null; c0444a = c0444a.jSc) {
                 if (!z || c0444a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -70,17 +70,17 @@ public final class f {
             return append.append('}').toString();
         }
 
-        private C0444a cBA() {
+        private C0444a cBC() {
             C0444a c0444a = new C0444a();
-            this.jRZ.jSb = c0444a;
-            this.jRZ = c0444a;
+            this.jSa.jSc = c0444a;
+            this.jSa = c0444a;
             return c0444a;
         }
 
         private a u(String str, @Nullable Object obj) {
-            C0444a cBA = cBA();
-            cBA.value = obj;
-            cBA.name = (String) g.checkNotNull(str);
+            C0444a cBC = cBC();
+            cBC.value = obj;
+            cBC.name = (String) g.checkNotNull(str);
             return this;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0444a {
-            C0444a jSb;
+            C0444a jSc;
             String name;
             Object value;
 

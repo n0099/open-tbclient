@@ -14,43 +14,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static c iEY;
-    private CustomMessageListener iFa = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c iFa;
+    private CustomMessageListener iFc = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jS() && c.this.iEZ != null) {
-                c.this.iEZ.cfG();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jS() && c.this.iFb != null) {
+                c.this.iFb.cfI();
             }
         }
     };
-    private d iEZ = new g();
+    private d iFb = new g();
 
-    public static c cfE() {
-        if (iEY == null) {
+    public static c cfG() {
+        if (iFa == null) {
             synchronized (c.class) {
-                if (iEY == null) {
-                    iEY = new c();
+                if (iFa == null) {
+                    iFa = new c();
                 }
             }
         }
-        return iEY;
+        return iFa;
     }
 
-    private boolean cfF() {
+    private boolean cfH() {
         return com.baidu.adp.lib.b.d.hI().ay("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.iFa);
+        MessageManager.getInstance().registerListener(this.iFc);
     }
 
     public void a(b bVar) {
-        if (cfF() && bVar != null && this.iEZ != null) {
+        if (cfH() && bVar != null && this.iFb != null) {
             if (j.jS()) {
-                this.iEZ.b(bVar);
+                this.iFb.b(bVar);
             } else {
-                this.iEZ.c(bVar);
+                this.iFb.c(bVar);
             }
         }
     }

@@ -23,24 +23,24 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends a {
     private bg VK;
-    private com.baidu.tbadk.core.view.userLike.c ewX;
-    public TextView fyK;
-    public EntelechyUserLikeButton fyL;
-    private CommonUserLikeButton.a fyM;
-    private View.OnClickListener fyN;
+    private com.baidu.tbadk.core.view.userLike.c ewY;
+    public TextView fyL;
+    public EntelechyUserLikeButton fyM;
+    private CommonUserLikeButton.a fyN;
+    private View.OnClickListener fyO;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         this.mSkinType = 3;
-        this.fyM = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
+        this.fyN = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
             public void iZ(int i) {
                 b.this.rH(i);
             }
         };
-        this.fyN = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
+        this.fyO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (b.this.VK != null && b.this.VK.adv() != null && !StringUtils.isNull(b.this.VK.adv().getName_show()) && !StringUtils.isNull(b.this.VK.adv().getUserId()) && b.this.VK.adA() != null) {
@@ -49,26 +49,26 @@ public class b extends a {
             }
         };
         this.mPageContext = tbPageContext;
-        this.fyK = new TextView(tbPageContext.getPageActivity());
-        this.fyK.setIncludeFontPadding(false);
-        this.fyK.setTextSize(0, l.g(tbPageContext.getPageActivity(), R.dimen.ds24));
+        this.fyL = new TextView(tbPageContext.getPageActivity());
+        this.fyL.setIncludeFontPadding(false);
+        this.fyL.setTextSize(0, l.g(tbPageContext.getPageActivity(), R.dimen.ds24));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = l.g(tbPageContext.getPageActivity(), R.dimen.ds6);
-        this.fyK.setLayoutParams(layoutParams);
-        this.fyK.setOnClickListener(this.fyN);
-        this.dCd.addView(this.fyK, 1);
-        this.fyL = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
-        this.fyL.setFanNumCallBack(this.fyM);
+        this.fyL.setLayoutParams(layoutParams);
+        this.fyL.setOnClickListener(this.fyO);
+        this.dCe.addView(this.fyL, 1);
+        this.fyM = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.fyM.setFanNumCallBack(this.fyN);
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.g(this.mPageContext.getPageActivity(), R.dimen.ds56));
         layoutParams2.addRule(11);
         layoutParams2.addRule(3, R.id.header_divider);
         layoutParams2.rightMargin = l.g(this.mPageContext.getPageActivity(), R.dimen.ds32);
         layoutParams2.topMargin = l.g(this.mPageContext.getPageActivity(), R.dimen.ds24);
-        this.fyL.setLayoutParams(layoutParams2);
-        ((ViewGroup) getView()).addView(this.fyL);
-        this.ewX = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fyL);
-        this.ewX.setFromType("1");
-        this.ewX.i(bdUniqueId);
+        this.fyM.setLayoutParams(layoutParams2);
+        ((ViewGroup) getView()).addView(this.fyM);
+        this.ewY = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fyM);
+        this.ewY.setFromType("1");
+        this.ewY.i(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -79,26 +79,26 @@ public class b extends a {
         if (bgVar != null) {
             this.VK = bgVar;
             if (bgVar.adv() != null) {
-                this.ewX.a(bgVar.adv());
+                this.ewY.a(bgVar.adv());
                 rH(bgVar.adv().getFansNum());
                 if (!this.VK.ady()) {
-                    this.fyL.setVisibility(8);
+                    this.fyM.setVisibility(8);
                 } else if (this.VK.adv().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.VK.adv().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.fyL.setVisibility(8);
+                    this.fyM.setVisibility(8);
                     return;
                 } else if (this.VK.adv().getGodUserData() != null && this.VK.adv().getGodUserData().getIsLike()) {
                     if (this.VK.adv().getGodUserData().getIsFromNetWork()) {
-                        this.fyL.setVisibility(8);
+                        this.fyM.setVisibility(8);
                     } else {
-                        this.fyL.setVisibility(0);
-                        this.fyL.f(true, 1);
+                        this.fyM.setVisibility(0);
+                        this.fyM.f(true, 1);
                     }
                 } else {
-                    this.fyL.setVisibility(0);
+                    this.fyM.setVisibility(0);
                 }
             }
-            int i = ((RelativeLayout.LayoutParams) this.dCe.getLayoutParams()).height;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fyL.getLayoutParams();
+            int i = ((RelativeLayout.LayoutParams) this.dCf.getLayoutParams()).height;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fyM.getLayoutParams();
             if (bgVar.adQ() != null) {
                 layoutParams.topMargin = i + l.g(this.mPageContext.getPageActivity(), R.dimen.ds4);
             } else {
@@ -111,8 +111,8 @@ public class b extends a {
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         super.onChangeSkinType(tbPageContext, i);
         if (this.mSkinType != i) {
-            al.j(this.fyK, R.color.cp_cont_d);
-            this.fyL.onChangeSkinType(i);
+            al.j(this.fyL, R.color.cp_cont_d);
+            this.fyM.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
@@ -124,19 +124,19 @@ public class b extends a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void rH(int i) {
-        if (this.fyK != null) {
+        if (this.fyL != null) {
             String string = this.mPageContext.getResources().getString(R.string.fans_default_name_god_user);
             if (this.VK != null && !StringUtils.isNull(this.VK.adA()) && this.VK.adA().equals(this.mForumName)) {
                 if (this.VK.ady()) {
                     String format = String.format(string, ap.aG(i));
-                    this.fyK.setVisibility(0);
-                    this.fyK.setText(format);
+                    this.fyL.setVisibility(0);
+                    this.fyL.setText(format);
                     return;
                 }
-                this.fyK.setVisibility(8);
+                this.fyL.setVisibility(8);
                 return;
             }
-            this.fyK.setText(this.mPageContext.getResources().getString(R.string.default_personalized_name));
+            this.fyL.setText(this.mPageContext.getResources().getString(R.string.default_personalized_name));
         }
     }
 }

@@ -9,18 +9,18 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class e {
-    public static final SparseIntArray gXG = new SparseIntArray();
-    public static final SparseArray<BdUniqueId> gXH = new SparseArray<>();
+    public static final SparseIntArray gXJ = new SparseIntArray();
+    public static final SparseArray<BdUniqueId> gXK = new SparseArray<>();
 
     public abstract <T> com.baidu.tieba.lego.card.view.e a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
 
-    protected abstract void bHp();
+    protected abstract void bHs();
 
     public abstract ICardInfo d(JSONObject jSONObject, int i) throws CardParseException;
 
     public abstract String key();
 
     public e() {
-        bHp();
+        bHs();
     }
 }

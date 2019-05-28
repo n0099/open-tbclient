@@ -17,16 +17,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements u {
-    u.a dfX;
-    private CustomMessageListener dfY = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    u.a dfY;
+    private CustomMessageListener dfZ = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.dfX != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.dfY != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.dfX.EA();
+                    d.this.dfY.EA();
                 } else {
-                    d.this.dfX.EB();
+                    d.this.dfY.EB();
                 }
             }
         }
@@ -34,13 +34,13 @@ public class d implements u {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.dfY);
+        MessageManager.getInstance().registerListener(this.dfZ);
     }
 
     @Override // com.baidu.swan.apps.u.b.u
     public void a(Context context, JSONObject jSONObject, final u.a aVar) {
         if (context instanceof Activity) {
-            this.dfX = aVar;
+            this.dfY = aVar;
             Bundle bundle = new Bundle();
             try {
                 String string = jSONObject.getString("linkUrl");

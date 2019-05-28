@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeDetach<T> implements d.a<T> {
-    final rx.d<T> kno;
+    final rx.d<T> knp;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,14 +17,14 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
         a aVar = new a(bVar);
         jVar.add(aVar);
         jVar.setProducer(aVar);
-        this.kno.a((rx.j) bVar);
+        this.knp.a((rx.j) bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
         final AtomicReference<rx.j<? super T>> actual;
-        final AtomicReference<rx.f> knT = new AtomicReference<>();
+        final AtomicReference<rx.f> knU = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         public b(rx.j<? super T> jVar) {
@@ -41,7 +41,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.knT.lazySet(TerminatedProducer.INSTANCE);
+            this.knU.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onError(th);
@@ -52,7 +52,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.knT.lazySet(TerminatedProducer.INSTANCE);
+            this.knU.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onCompleted();
@@ -63,13 +63,13 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            rx.f fVar = this.knT.get();
+            rx.f fVar = this.knU.get();
             if (fVar != null) {
                 fVar.request(j);
                 return;
             }
             rx.internal.operators.a.a(this.requested, j);
-            rx.f fVar2 = this.knT.get();
+            rx.f fVar2 = this.knU.get();
             if (fVar2 != null && fVar2 != TerminatedProducer.INSTANCE) {
                 fVar2.request(this.requested.getAndSet(0L));
             }
@@ -77,15 +77,15 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            if (this.knT.compareAndSet(null, fVar)) {
+            if (this.knU.compareAndSet(null, fVar)) {
                 fVar.request(this.requested.getAndSet(0L));
-            } else if (this.knT.get() != TerminatedProducer.INSTANCE) {
+            } else if (this.knU.get() != TerminatedProducer.INSTANCE) {
                 throw new IllegalStateException("Producer already set!");
             }
         }
 
-        void cLy() {
-            this.knT.lazySet(TerminatedProducer.INSTANCE);
+        void cLA() {
+            this.knU.lazySet(TerminatedProducer.INSTANCE);
             this.actual.lazySet(null);
             unsubscribe();
         }
@@ -94,25 +94,25 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> implements rx.f, rx.k {
-        final b<T> knS;
+        final b<T> knT;
 
         public a(b<T> bVar) {
-            this.knS = bVar;
+            this.knT = bVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            this.knS.eK(j);
+            this.knT.eK(j);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.knS.isUnsubscribed();
+            return this.knT.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.knS.cLy();
+            this.knT.cLA();
         }
     }
 

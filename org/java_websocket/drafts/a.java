@@ -34,14 +34,14 @@ import org.java_websocket.framing.f;
 /* loaded from: classes2.dex */
 public class a extends Draft {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private b kmc;
-    private List<b> kmd;
-    private org.java_websocket.d.a kme;
-    private List<org.java_websocket.d.a> kmf;
-    private Framedata kmg;
-    private List<ByteBuffer> kmh;
-    private ByteBuffer kmi;
-    private final Random kmj;
+    private b kmd;
+    private List<b> kme;
+    private org.java_websocket.d.a kmf;
+    private List<org.java_websocket.d.a> kmg;
+    private Framedata kmh;
+    private List<ByteBuffer> kmi;
+    private ByteBuffer kmj;
+    private final Random kmk;
 
     static {
         $assertionsDisabled = !a.class.desiredAssertionStatus();
@@ -57,15 +57,15 @@ public class a extends Draft {
 
     public a(List<b> list, List<org.java_websocket.d.a> list2) {
         boolean z;
-        this.kmc = new org.java_websocket.b.a();
-        this.kmj = new Random();
+        this.kmd = new org.java_websocket.b.a();
+        this.kmk = new Random();
         if (list == null || list2 == null) {
             throw new IllegalArgumentException();
         }
-        this.kmd = new ArrayList(list.size());
-        this.kmf = new ArrayList(list2.size());
+        this.kme = new ArrayList(list.size());
+        this.kmg = new ArrayList(list2.size());
         boolean z2 = false;
-        this.kmh = new ArrayList();
+        this.kmi = new ArrayList();
         Iterator<b> it = list.iterator();
         while (true) {
             z = z2;
@@ -74,11 +74,11 @@ public class a extends Draft {
             }
             z2 = it.next().getClass().equals(org.java_websocket.b.a.class) ? true : z;
         }
-        this.kmd.addAll(list);
+        this.kme.addAll(list);
         if (!z) {
-            this.kmd.add(this.kmd.size(), this.kmc);
+            this.kme.add(this.kme.size(), this.kmd);
         }
-        this.kmf.addAll(list2);
+        this.kmg.addAll(list2);
     }
 
     @Override // org.java_websocket.drafts.Draft
@@ -90,23 +90,23 @@ public class a extends Draft {
         }
         Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
         String Hq = aVar.Hq("Sec-WebSocket-Extensions");
-        Iterator<b> it = this.kmd.iterator();
+        Iterator<b> it = this.kme.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             b next = it.next();
             if (next.Hm(Hq)) {
-                this.kmc = next;
+                this.kmd = next;
                 Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
-                bj("acceptHandshakeAsServer - Matching extension found: " + this.kmc.toString());
+                bj("acceptHandshakeAsServer - Matching extension found: " + this.kmd.toString());
                 handshakeState2 = handshakeState3;
                 break;
             }
         }
         Draft.HandshakeState handshakeState4 = Draft.HandshakeState.NOT_MATCHED;
         String Hq2 = aVar.Hq("Sec-WebSocket-Protocol");
-        Iterator<org.java_websocket.d.a> it2 = this.kmf.iterator();
+        Iterator<org.java_websocket.d.a> it2 = this.kmg.iterator();
         while (true) {
             if (!it2.hasNext()) {
                 handshakeState = handshakeState4;
@@ -114,9 +114,9 @@ public class a extends Draft {
             }
             org.java_websocket.d.a next2 = it2.next();
             if (next2.Hs(Hq2)) {
-                this.kme = next2;
+                this.kmf = next2;
                 handshakeState = Draft.HandshakeState.MATCHED;
-                bj("acceptHandshakeAsServer - Matching protocol found: " + this.kme.toString());
+                bj("acceptHandshakeAsServer - Matching protocol found: " + this.kmf.toString());
                 break;
             }
         }
@@ -143,23 +143,23 @@ public class a extends Draft {
             }
             Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
             String Hq = hVar.Hq("Sec-WebSocket-Extensions");
-            Iterator<b> it = this.kmd.iterator();
+            Iterator<b> it = this.kme.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 b next = it.next();
                 if (next.Hn(Hq)) {
-                    this.kmc = next;
+                    this.kmd = next;
                     Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
-                    bj("acceptHandshakeAsClient - Matching extension found: " + this.kmc.toString());
+                    bj("acceptHandshakeAsClient - Matching extension found: " + this.kmd.toString());
                     handshakeState2 = handshakeState3;
                     break;
                 }
             }
             Draft.HandshakeState handshakeState4 = Draft.HandshakeState.NOT_MATCHED;
             String Hq2 = hVar.Hq("Sec-WebSocket-Protocol");
-            Iterator<org.java_websocket.d.a> it2 = this.kmf.iterator();
+            Iterator<org.java_websocket.d.a> it2 = this.kmg.iterator();
             while (true) {
                 if (!it2.hasNext()) {
                     handshakeState = handshakeState4;
@@ -167,9 +167,9 @@ public class a extends Draft {
                 }
                 org.java_websocket.d.a next2 = it2.next();
                 if (next2.Hs(Hq2)) {
-                    this.kme = next2;
+                    this.kmf = next2;
                     handshakeState = Draft.HandshakeState.MATCHED;
-                    bj("acceptHandshakeAsClient - Matching protocol found: " + this.kme.toString());
+                    bj("acceptHandshakeAsClient - Matching protocol found: " + this.kmf.toString());
                     break;
                 }
             }
@@ -181,20 +181,20 @@ public class a extends Draft {
         }
     }
 
-    public b cKA() {
-        return this.kmc;
-    }
-
-    public List<b> cKB() {
+    public b cKC() {
         return this.kmd;
     }
 
-    public org.java_websocket.d.a cKC() {
+    public List<b> cKD() {
         return this.kme;
     }
 
-    public List<org.java_websocket.d.a> cKD() {
+    public org.java_websocket.d.a cKE() {
         return this.kmf;
+    }
+
+    public List<org.java_websocket.d.a> cKF() {
+        return this.kmg;
     }
 
     @Override // org.java_websocket.drafts.Draft
@@ -202,28 +202,28 @@ public class a extends Draft {
         bVar.put("Upgrade", "websocket");
         bVar.put(HTTP.CONN_DIRECTIVE, "Upgrade");
         byte[] bArr = new byte[16];
-        this.kmj.nextBytes(bArr);
+        this.kmk.nextBytes(bArr);
         bVar.put("Sec-WebSocket-Key", org.java_websocket.e.a.encodeBytes(bArr));
         bVar.put("Sec-WebSocket-Version", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
         StringBuilder sb = new StringBuilder();
-        for (b bVar2 : this.kmd) {
-            if (bVar2.cKG() != null && bVar2.cKG().length() != 0) {
+        for (b bVar2 : this.kme) {
+            if (bVar2.cKI() != null && bVar2.cKI().length() != 0) {
                 if (sb.length() > 0) {
                     sb.append(", ");
                 }
-                sb.append(bVar2.cKG());
+                sb.append(bVar2.cKI());
             }
         }
         if (sb.length() != 0) {
             bVar.put("Sec-WebSocket-Extensions", sb.toString());
         }
         StringBuilder sb2 = new StringBuilder();
-        for (org.java_websocket.d.a aVar : this.kmf) {
-            if (aVar.cKT().length() != 0) {
+        for (org.java_websocket.d.a aVar : this.kmg) {
+            if (aVar.cKV().length() != 0) {
                 if (sb2.length() > 0) {
                     sb2.append(", ");
                 }
-                sb2.append(aVar.cKT());
+                sb2.append(aVar.cKV());
             }
         }
         if (sb2.length() != 0) {
@@ -241,36 +241,36 @@ public class a extends Draft {
             throw new InvalidHandshakeException("missing Sec-WebSocket-Key");
         }
         iVar.put("Sec-WebSocket-Accept", Hl(Hq));
-        if (cKA().cKH().length() != 0) {
-            iVar.put("Sec-WebSocket-Extensions", cKA().cKH());
+        if (cKC().cKJ().length() != 0) {
+            iVar.put("Sec-WebSocket-Extensions", cKC().cKJ());
         }
-        if (cKC() != null && cKC().cKT().length() != 0) {
-            iVar.put("Sec-WebSocket-Protocol", cKC().cKT());
+        if (cKE() != null && cKE().cKV().length() != 0) {
+            iVar.put("Sec-WebSocket-Protocol", cKE().cKV());
         }
         iVar.Hp("Web Socket Protocol Handshake");
         iVar.put(HTTP.SERVER_HEADER, "TooTallNate Java-WebSocket");
-        iVar.put(HTTP.DATE_HEADER, cKE());
+        iVar.put(HTTP.DATE_HEADER, cKG());
         return iVar;
     }
 
     @Override // org.java_websocket.drafts.Draft
-    public Draft cKz() {
+    public Draft cKB() {
         ArrayList arrayList = new ArrayList();
-        for (b bVar : cKB()) {
-            arrayList.add(bVar.cKI());
+        for (b bVar : cKD()) {
+            arrayList.add(bVar.cKK());
         }
         ArrayList arrayList2 = new ArrayList();
-        for (org.java_websocket.d.a aVar : cKD()) {
-            arrayList2.add(aVar.cKU());
+        for (org.java_websocket.d.a aVar : cKF()) {
+            arrayList2.add(aVar.cKW());
         }
         return new a(arrayList, arrayList2);
     }
 
     @Override // org.java_websocket.drafts.Draft
     public ByteBuffer a(Framedata framedata) {
-        cKA().d(framedata);
+        cKC().d(framedata);
         if (org.java_websocket.c.DEBUG) {
-            System.out.println("afterEnconding(" + framedata.cKL().remaining() + "): {" + (framedata.cKL().remaining() > 1000 ? "too big to display" : new String(framedata.cKL().array())) + '}');
+            System.out.println("afterEnconding(" + framedata.cKN().remaining() + "): {" + (framedata.cKN().remaining() > 1000 ? "too big to display" : new String(framedata.cKN().array())) + '}');
         }
         return b(framedata);
     }
@@ -278,16 +278,16 @@ public class a extends Draft {
     private ByteBuffer b(Framedata framedata) {
         int i;
         int i2 = 0;
-        ByteBuffer cKL = framedata.cKL();
-        boolean z = this.klN == WebSocket.Role.CLIENT;
-        if (cKL.remaining() <= 125) {
+        ByteBuffer cKN = framedata.cKN();
+        boolean z = this.klO == WebSocket.Role.CLIENT;
+        if (cKN.remaining() <= 125) {
             i = 1;
         } else {
-            i = cKL.remaining() <= 65535 ? 2 : 8;
+            i = cKN.remaining() <= 65535 ? 2 : 8;
         }
-        ByteBuffer allocate = ByteBuffer.allocate((z ? 4 : 0) + (i > 1 ? i + 1 : i) + 1 + cKL.remaining());
-        allocate.put((byte) (((byte) (framedata.cKM() ? -128 : 0)) | a(framedata.cKQ())));
-        byte[] v = v(cKL.remaining(), i);
+        ByteBuffer allocate = ByteBuffer.allocate((z ? 4 : 0) + (i > 1 ? i + 1 : i) + 1 + cKN.remaining());
+        allocate.put((byte) (((byte) (framedata.cKO() ? -128 : 0)) | a(framedata.cKS())));
+        byte[] v = v(cKN.remaining(), i);
         if ($assertionsDisabled || v.length == i) {
             if (i == 1) {
                 allocate.put((byte) (v[0] | (z ? Byte.MIN_VALUE : (byte) 0)));
@@ -302,15 +302,15 @@ public class a extends Draft {
             }
             if (z) {
                 ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                allocate2.putInt(this.kmj.nextInt());
+                allocate2.putInt(this.kmk.nextInt());
                 allocate.put(allocate2.array());
-                while (cKL.hasRemaining()) {
-                    allocate.put((byte) (cKL.get() ^ allocate2.get(i2 % 4)));
+                while (cKN.hasRemaining()) {
+                    allocate.put((byte) (cKN.get() ^ allocate2.get(i2 % 4)));
                     i2++;
                 }
             } else {
-                allocate.put(cKL);
-                cKL.flip();
+                allocate.put(cKN);
+                cKN.flip();
             }
             if ($assertionsDisabled || allocate.remaining() == 0) {
                 allocate.flip();
@@ -401,12 +401,12 @@ public class a extends Draft {
         b5.sx(z4);
         allocate.flip();
         b5.q(allocate);
-        cKA().e(b5);
-        cKA().c(b5);
+        cKC().e(b5);
+        cKC().c(b5);
         if (org.java_websocket.c.DEBUG) {
-            System.out.println("afterDecoding(" + b5.cKL().remaining() + "): {" + (b5.cKL().remaining() > 1000 ? "too big to display" : new String(b5.cKL().array())) + '}');
+            System.out.println("afterDecoding(" + b5.cKN().remaining() + "): {" + (b5.cKN().remaining() > 1000 ? "too big to display" : new String(b5.cKN().array())) + '}');
         }
-        b5.cKJ();
+        b5.cKL();
         return b5;
     }
 
@@ -415,30 +415,30 @@ public class a extends Draft {
         LinkedList linkedList;
         while (true) {
             linkedList = new LinkedList();
-            if (this.kmi == null) {
+            if (this.kmj == null) {
                 break;
             }
             try {
                 byteBuffer.mark();
                 int remaining = byteBuffer.remaining();
-                int remaining2 = this.kmi.remaining();
+                int remaining2 = this.kmj.remaining();
                 if (remaining2 > remaining) {
-                    this.kmi.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                    this.kmj.put(byteBuffer.array(), byteBuffer.position(), remaining);
                     byteBuffer.position(remaining + byteBuffer.position());
                     return Collections.emptyList();
                 }
-                this.kmi.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                this.kmj.put(byteBuffer.array(), byteBuffer.position(), remaining2);
                 byteBuffer.position(byteBuffer.position() + remaining2);
-                linkedList.add(p((ByteBuffer) this.kmi.duplicate().position(0)));
-                this.kmi = null;
+                linkedList.add(p((ByteBuffer) this.kmj.duplicate().position(0)));
+                this.kmj = null;
             } catch (IncompleteException e) {
                 ByteBuffer allocate = ByteBuffer.allocate(Eg(e.getPreferredSize()));
-                if (!$assertionsDisabled && allocate.limit() <= this.kmi.limit()) {
+                if (!$assertionsDisabled && allocate.limit() <= this.kmj.limit()) {
                     throw new AssertionError();
                 }
-                this.kmi.rewind();
-                allocate.put(this.kmi);
-                this.kmi = allocate;
+                this.kmj.rewind();
+                allocate.put(this.kmj);
+                this.kmj = allocate;
             }
         }
         while (byteBuffer.hasRemaining()) {
@@ -447,8 +447,8 @@ public class a extends Draft {
                 linkedList.add(p(byteBuffer));
             } catch (IncompleteException e2) {
                 byteBuffer.reset();
-                this.kmi = ByteBuffer.allocate(Eg(e2.getPreferredSize()));
-                this.kmi.put(byteBuffer);
+                this.kmj = ByteBuffer.allocate(Eg(e2.getPreferredSize()));
+                this.kmj.put(byteBuffer);
             }
         }
         return linkedList;
@@ -460,7 +460,7 @@ public class a extends Draft {
         aVar.q(byteBuffer);
         aVar.sy(z);
         try {
-            aVar.cKJ();
+            aVar.cKL();
             return Collections.singletonList(aVar);
         } catch (InvalidDataException e) {
             throw new NotSendableException(e);
@@ -473,7 +473,7 @@ public class a extends Draft {
         iVar.q(ByteBuffer.wrap(org.java_websocket.e.c.Ht(str)));
         iVar.sy(z);
         try {
-            iVar.cKJ();
+            iVar.cKL();
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e) {
             throw new NotSendableException(e);
@@ -482,15 +482,15 @@ public class a extends Draft {
 
     @Override // org.java_websocket.drafts.Draft
     public void reset() {
-        this.kmi = null;
-        if (this.kmc != null) {
-            this.kmc.reset();
+        this.kmj = null;
+        if (this.kmd != null) {
+            this.kmd.reset();
         }
-        this.kmc = new org.java_websocket.b.a();
-        this.kme = null;
+        this.kmd = new org.java_websocket.b.a();
+        this.kmf = null;
     }
 
-    private String cKE() {
+    private String cKG() {
         Calendar calendar = Calendar.getInstance();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -562,8 +562,8 @@ public class a extends Draft {
 
     @Override // org.java_websocket.drafts.Draft
     public void a(org.java_websocket.c cVar, Framedata framedata) throws InvalidDataException {
-        Framedata.Opcode cKQ = framedata.cKQ();
-        if (cKQ == Framedata.Opcode.CLOSING) {
+        Framedata.Opcode cKS = framedata.cKS();
+        if (cKS == Framedata.Opcode.CLOSING) {
             int i = 1005;
             String str = "";
             if (framedata instanceof org.java_websocket.framing.b) {
@@ -573,70 +573,70 @@ public class a extends Draft {
             }
             if (cVar.getReadyState() == WebSocket.READYSTATE.CLOSING) {
                 cVar.j(i, str, true);
-            } else if (cKy() == Draft.CloseHandshakeType.TWOWAY) {
+            } else if (cKA() == Draft.CloseHandshakeType.TWOWAY) {
                 cVar.i(i, str, true);
             } else {
                 cVar.k(i, str, false);
             }
-        } else if (cKQ == Framedata.Opcode.PING) {
-            cVar.cKx().onWebsocketPing(cVar, framedata);
-        } else if (cKQ == Framedata.Opcode.PONG) {
-            cVar.cKw();
-            cVar.cKx().onWebsocketPong(cVar, framedata);
-        } else if (!framedata.cKM() || cKQ == Framedata.Opcode.CONTINUOUS) {
-            if (cKQ != Framedata.Opcode.CONTINUOUS) {
-                if (this.kmg != null) {
+        } else if (cKS == Framedata.Opcode.PING) {
+            cVar.cKz().onWebsocketPing(cVar, framedata);
+        } else if (cKS == Framedata.Opcode.PONG) {
+            cVar.cKy();
+            cVar.cKz().onWebsocketPong(cVar, framedata);
+        } else if (!framedata.cKO() || cKS == Framedata.Opcode.CONTINUOUS) {
+            if (cKS != Framedata.Opcode.CONTINUOUS) {
+                if (this.kmh != null) {
                     throw new InvalidDataException(1002, "Previous continuous frame sequence not completed.");
                 }
-                this.kmg = framedata;
-                this.kmh.add(framedata.cKL());
-            } else if (framedata.cKM()) {
-                if (this.kmg == null) {
+                this.kmh = framedata;
+                this.kmi.add(framedata.cKN());
+            } else if (framedata.cKO()) {
+                if (this.kmh == null) {
                     throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
                 }
-                this.kmh.add(framedata.cKL());
-                if (this.kmg.cKQ() == Framedata.Opcode.TEXT) {
-                    ((f) this.kmg).q(cKF());
-                    ((f) this.kmg).cKJ();
+                this.kmi.add(framedata.cKN());
+                if (this.kmh.cKS() == Framedata.Opcode.TEXT) {
+                    ((f) this.kmh).q(cKH());
+                    ((f) this.kmh).cKL();
                     try {
-                        cVar.cKx().onWebsocketMessage(cVar, org.java_websocket.e.c.r(this.kmg.cKL()));
+                        cVar.cKz().onWebsocketMessage(cVar, org.java_websocket.e.c.r(this.kmh.cKN()));
                     } catch (RuntimeException e) {
-                        cVar.cKx().onWebsocketError(cVar, e);
+                        cVar.cKz().onWebsocketError(cVar, e);
                     }
-                } else if (this.kmg.cKQ() == Framedata.Opcode.BINARY) {
-                    ((f) this.kmg).q(cKF());
-                    ((f) this.kmg).cKJ();
+                } else if (this.kmh.cKS() == Framedata.Opcode.BINARY) {
+                    ((f) this.kmh).q(cKH());
+                    ((f) this.kmh).cKL();
                     try {
-                        cVar.cKx().onWebsocketMessage(cVar, this.kmg.cKL());
+                        cVar.cKz().onWebsocketMessage(cVar, this.kmh.cKN());
                     } catch (RuntimeException e2) {
-                        cVar.cKx().onWebsocketError(cVar, e2);
+                        cVar.cKz().onWebsocketError(cVar, e2);
                     }
                 }
-                this.kmg = null;
-                this.kmh.clear();
-            } else if (this.kmg == null) {
+                this.kmh = null;
+                this.kmi.clear();
+            } else if (this.kmh == null) {
                 throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
             }
-            if (cKQ == Framedata.Opcode.TEXT && !org.java_websocket.e.c.s(framedata.cKL())) {
+            if (cKS == Framedata.Opcode.TEXT && !org.java_websocket.e.c.s(framedata.cKN())) {
                 throw new InvalidDataException(PointerIconCompat.TYPE_CROSSHAIR);
             }
-            if (cKQ == Framedata.Opcode.CONTINUOUS && this.kmg != null) {
-                this.kmh.add(framedata.cKL());
+            if (cKS == Framedata.Opcode.CONTINUOUS && this.kmh != null) {
+                this.kmi.add(framedata.cKN());
             }
-        } else if (this.kmg != null) {
+        } else if (this.kmh != null) {
             throw new InvalidDataException(1002, "Continuous frame sequence not completed.");
         } else {
-            if (cKQ == Framedata.Opcode.TEXT) {
+            if (cKS == Framedata.Opcode.TEXT) {
                 try {
-                    cVar.cKx().onWebsocketMessage(cVar, org.java_websocket.e.c.r(framedata.cKL()));
+                    cVar.cKz().onWebsocketMessage(cVar, org.java_websocket.e.c.r(framedata.cKN()));
                 } catch (RuntimeException e3) {
-                    cVar.cKx().onWebsocketError(cVar, e3);
+                    cVar.cKz().onWebsocketError(cVar, e3);
                 }
-            } else if (cKQ == Framedata.Opcode.BINARY) {
+            } else if (cKS == Framedata.Opcode.BINARY) {
                 try {
-                    cVar.cKx().onWebsocketMessage(cVar, framedata.cKL());
+                    cVar.cKz().onWebsocketMessage(cVar, framedata.cKN());
                 } catch (RuntimeException e4) {
-                    cVar.cKx().onWebsocketError(cVar, e4);
+                    cVar.cKz().onWebsocketError(cVar, e4);
                 }
             } else {
                 throw new InvalidDataException(1002, "non control or continious frame expected");
@@ -645,18 +645,18 @@ public class a extends Draft {
     }
 
     @Override // org.java_websocket.drafts.Draft
-    public Draft.CloseHandshakeType cKy() {
+    public Draft.CloseHandshakeType cKA() {
         return Draft.CloseHandshakeType.TWOWAY;
     }
 
     @Override // org.java_websocket.drafts.Draft
     public String toString() {
         String draft = super.toString();
-        if (cKA() != null) {
-            draft = draft + " extension: " + cKA().toString();
-        }
         if (cKC() != null) {
-            return draft + " protocol: " + cKC().toString();
+            draft = draft + " extension: " + cKC().toString();
+        }
+        if (cKE() != null) {
+            return draft + " protocol: " + cKE().toString();
         }
         return draft;
     }
@@ -669,20 +669,20 @@ public class a extends Draft {
             return false;
         }
         a aVar = (a) obj;
-        if (this.kmc == null ? aVar.kmc != null : !this.kmc.equals(aVar.kmc)) {
+        if (this.kmd == null ? aVar.kmd != null : !this.kmd.equals(aVar.kmd)) {
             return false;
         }
-        return this.kme != null ? this.kme.equals(aVar.kme) : aVar.kme == null;
+        return this.kmf != null ? this.kmf.equals(aVar.kmf) : aVar.kmf == null;
     }
 
     public int hashCode() {
-        return ((this.kmc != null ? this.kmc.hashCode() : 0) * 31) + (this.kme != null ? this.kme.hashCode() : 0);
+        return ((this.kmd != null ? this.kmd.hashCode() : 0) * 31) + (this.kmf != null ? this.kmf.hashCode() : 0);
     }
 
-    private ByteBuffer cKF() throws LimitExedeedException {
+    private ByteBuffer cKH() throws LimitExedeedException {
         long j;
         long j2 = 0;
-        Iterator<ByteBuffer> it = this.kmh.iterator();
+        Iterator<ByteBuffer> it = this.kmi.iterator();
         while (true) {
             j = j2;
             if (!it.hasNext()) {
@@ -694,7 +694,7 @@ public class a extends Draft {
             throw new LimitExedeedException("Payloadsize is to big...");
         }
         ByteBuffer allocate = ByteBuffer.allocate((int) j);
-        for (ByteBuffer byteBuffer : this.kmh) {
+        for (ByteBuffer byteBuffer : this.kmi) {
             allocate.put(byteBuffer);
         }
         allocate.flip();

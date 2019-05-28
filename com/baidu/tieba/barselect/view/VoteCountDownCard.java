@@ -15,12 +15,12 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.view.VoteCountDownView;
 /* loaded from: classes3.dex */
 public class VoteCountDownCard extends LinearLayout {
-    private f epN;
-    private a eqr;
-    private e erj;
-    private VoteCountDownView.a euA;
-    private VoteCountDownView euw;
-    private TextView eux;
+    private f epO;
+    private a eqs;
+    private e erk;
+    private TextView euA;
+    private VoteCountDownView.a euB;
+    private VoteCountDownView eux;
     private TextView euy;
     private TextView euz;
     private Context mContext;
@@ -36,12 +36,12 @@ public class VoteCountDownCard extends LinearLayout {
 
     public VoteCountDownCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.euA = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
+        this.euB = new VoteCountDownView.a() { // from class: com.baidu.tieba.barselect.view.VoteCountDownCard.1
             @Override // com.baidu.tieba.view.VoteCountDownView.a
             public void onFinished() {
-                VoteCountDownCard.this.aXn();
-                if (VoteCountDownCard.this.eqr != null) {
-                    VoteCountDownCard.this.eqr.onRefresh();
+                VoteCountDownCard.this.aXq();
+                if (VoteCountDownCard.this.eqs != null) {
+                    VoteCountDownCard.this.eqs.onRefresh();
                 }
             }
         };
@@ -61,54 +61,54 @@ public class VoteCountDownCard extends LinearLayout {
     }
 
     private void qA() {
-        this.euz = (TextView) findViewById(R.id.count_down_view_title);
-        this.euw = (VoteCountDownView) findViewById(R.id.count_down_view);
-        this.eux = (TextView) findViewById(R.id.candidate_num);
-        this.euy = (TextView) findViewById(R.id.totel_vote_num);
+        this.euA = (TextView) findViewById(R.id.count_down_view_title);
+        this.eux = (VoteCountDownView) findViewById(R.id.count_down_view);
+        this.euy = (TextView) findViewById(R.id.candidate_num);
+        this.euz = (TextView) findViewById(R.id.totel_vote_num);
     }
 
     public void setData(f fVar) {
-        this.epN = fVar;
-        if (this.epN == null || this.epN.aWQ() == null) {
+        this.epO = fVar;
+        if (this.epO == null || this.epO.aWT() == null) {
             setVisibility(8);
             return;
         }
-        this.erj = this.epN.aWQ();
-        if (this.erj.getStatus() != d.etW) {
+        this.erk = this.epO.aWT();
+        if (this.erk.getStatus() != d.etX) {
             setVisibility(8);
             return;
         }
-        long aWL = this.erj.aWL();
-        if (this.euA != null) {
-            this.euw.setOnCountDownFinished(this.euA);
+        long aWO = this.erk.aWO();
+        if (this.euB != null) {
+            this.eux.setOnCountDownFinished(this.euB);
         }
-        this.euw.setData(aWL * 1000);
-        this.eux.setText("候选人" + this.erj.aWH());
-        this.euy.setText("投票数" + this.erj.aWI() + "");
+        this.eux.setData(aWO * 1000);
+        this.euy.setText("候选人" + this.erk.aWK());
+        this.euz.setText("投票数" + this.erk.aWL() + "");
     }
 
     public void nq(int i) {
-        al.c(this.euz, R.color.cp_cont_b, 1, i);
-        al.c(this.eux, R.color.cp_cont_b, 1, i);
+        al.c(this.euA, R.color.cp_cont_b, 1, i);
         al.c(this.euy, R.color.cp_cont_b, 1, i);
+        al.c(this.euz, R.color.cp_cont_b, 1, i);
         al.g(this, R.drawable.bar_select_bg_shadow_and_radius, i);
-        if (this.euw != null) {
-            this.euw.nq(i);
+        if (this.eux != null) {
+            this.eux.nq(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXn() {
-        this.euz.setText(getResources().getString(R.string.vote_finished_tip));
+    public void aXq() {
+        this.euA.setText(getResources().getString(R.string.vote_finished_tip));
     }
 
     public void setOnRefreshListener(a aVar) {
-        this.eqr = aVar;
+        this.eqs = aVar;
     }
 
     public void onDestroy() {
-        if (this.euw != null) {
-            this.euw.onDestroy();
+        if (this.eux != null) {
+            this.eux.onDestroy();
         }
     }
 }

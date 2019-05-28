@@ -60,7 +60,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.mHeight;
     }
 
-    public String aye() {
+    public String ayf() {
         return this.cdn_src;
     }
 
@@ -68,7 +68,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.link;
     }
 
-    public boolean axV() {
+    public boolean axW() {
         return this.cLd;
     }
 }

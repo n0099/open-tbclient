@@ -27,12 +27,12 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     public y onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.frs_video_activity_item, (ViewGroup) null);
         y yVar = new y(inflate);
-        al.j(yVar.dsY, R.color.cp_cont_b);
-        al.j(yVar.fyh, R.color.cp_cont_h);
-        al.c(yVar.fyg, (int) R.drawable.icon_news_list_prompt);
-        al.c(yVar.fyi, (int) R.drawable.icon_index_category_arrow_r);
-        al.l(yVar.fyj, R.color.cp_bg_line_b);
+        al.j(yVar.dsZ, R.color.cp_cont_b);
+        al.j(yVar.fyi, R.color.cp_cont_h);
+        al.c(yVar.fyh, (int) R.drawable.icon_news_list_prompt);
+        al.c(yVar.fyj, (int) R.drawable.icon_index_category_arrow_r);
         al.l(yVar.fyk, R.color.cp_bg_line_b);
+        al.l(yVar.fyl, R.color.cp_bg_line_b);
         al.k(inflate, R.drawable.home_thread_card_item_bg);
         return yVar;
     }
@@ -55,11 +55,11 @@ public class x extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
                 }
             }
         });
-        yVar.dsY.setText(lVar != null ? lVar.text : "");
+        yVar.dsZ.setText(lVar != null ? lVar.text : "");
         if (dd(com.baidu.tbadk.core.sharedPref.b.agM().getLong("frs_video_activity_tip" + this.mForumId, 0L))) {
-            yVar.fyg.setVisibility(0);
+            yVar.fyh.setVisibility(0);
         } else {
-            yVar.fyg.setVisibility(8);
+            yVar.fyh.setVisibility(8);
         }
         return yVar.getView();
     }

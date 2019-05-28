@@ -19,21 +19,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     private DialogInterface.OnCancelListener bLZ;
-    protected V hCv;
-    protected D hCw;
+    protected V hCy;
+    protected D hCz;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
     private int bLN = -1;
-    private boolean hCt = true;
-    private boolean hCu = false;
+    private boolean hCw = true;
+    private boolean hCx = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.hCv = v;
-        this.hCw = d;
+        this.hCy = v;
+        this.hCz = d;
         a(d);
     }
 
@@ -43,13 +43,13 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             com.baidu.adp.lib.g.g.a(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.hCu) {
+        if (this.hCx) {
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.search_dialog).create();
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(aMG());
-        this.mDialog.setCancelable(aMH());
+        this.mDialog.setCanceledOnTouchOutside(aMJ());
+        this.mDialog.setCancelable(aMK());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
         if (this.bLZ != null) {
             this.mDialog.setOnCancelListener(this.bLZ);
@@ -76,9 +76,9 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.hCv.getViewGroup());
+            window.setContentView(this.hCy.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bc.a(this.hCv.getViewGroup(), false, new bc.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+            bc.a(this.hCy.getViewGroup(), false, new bc.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
                 @Override // com.baidu.tbadk.core.util.bc.a
                 public boolean aG(View view) {
                     if (view instanceof EditText) {
@@ -115,13 +115,13 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
     }
 
     public a nQ(boolean z) {
-        this.hCu = z;
+        this.hCx = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.hCv != null) {
-            this.hCv.a(d);
+        if (this.hCy != null) {
+            this.hCy.a(d);
         }
     }
 }

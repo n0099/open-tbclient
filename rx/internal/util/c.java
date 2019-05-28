@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    int ksA;
-    final int ksx;
-    Object[] ksy;
+    Object[] ksA;
+    int ksB;
+    final int ksy;
     Object[] ksz;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.ksy = new Object[this.ksx + 1];
-            this.ksz = this.ksy;
-            this.ksy[0] = obj;
-            this.ksA = 1;
+            this.ksz = new Object[this.ksy + 1];
+            this.ksA = this.ksz;
+            this.ksz[0] = obj;
+            this.ksB = 1;
             this.size = 1;
-        } else if (this.ksA == this.ksx) {
-            Object[] objArr = new Object[this.ksx + 1];
+        } else if (this.ksB == this.ksy) {
+            Object[] objArr = new Object[this.ksy + 1];
             objArr[0] = obj;
-            this.ksz[this.ksx] = objArr;
-            this.ksz = objArr;
-            this.ksA = 1;
+            this.ksA[this.ksy] = objArr;
+            this.ksA = objArr;
+            this.ksB = 1;
             this.size++;
         } else {
-            this.ksz[this.ksA] = obj;
-            this.ksA++;
+            this.ksA[this.ksB] = obj;
+            this.ksB++;
             this.size++;
         }
     }
 
-    public Object[] cLV() {
-        return this.ksy;
+    public Object[] cLX() {
+        return this.ksz;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cLW() {
-        int i = this.ksx;
+    List<Object> cLY() {
+        int i = this.ksy;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cLV = cLV();
+        Object[] cLX = cLX();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cLV[i4]);
+            arrayList.add(cLX[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cLV = (Object[]) cLV[i];
+                cLX = (Object[]) cLX[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return cLW().toString();
+        return cLY().toString();
     }
 }

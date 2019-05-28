@@ -11,7 +11,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(19)
 /* loaded from: classes2.dex */
 public class d extends b {
-    private final i jXz;
+    private final i jXA;
 
     @Override // com.facebook.imagepipeline.h.b, com.facebook.imagepipeline.h.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config) {
@@ -29,14 +29,14 @@ public class d extends b {
     }
 
     public d(i iVar) {
-        this.jXz = iVar;
+        this.jXA = iVar;
     }
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, BitmapFactory.Options options) {
         PooledByteBuffer pooledByteBuffer = aVar.get();
         int size = pooledByteBuffer.size();
-        com.facebook.common.references.a<byte[]> Dw = this.jXz.Dw(size);
+        com.facebook.common.references.a<byte[]> Dw = this.jXA.Dw(size);
         try {
             byte[] bArr = Dw.get();
             pooledByteBuffer.c(0, bArr, 0, size);
@@ -48,10 +48,10 @@ public class d extends b {
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        byte[] bArr = a(aVar, i) ? null : kbV;
+        byte[] bArr = a(aVar, i) ? null : kbW;
         PooledByteBuffer pooledByteBuffer = aVar.get();
         g.checkArgument(i <= pooledByteBuffer.size());
-        com.facebook.common.references.a<byte[]> Dw = this.jXz.Dw(i + 2);
+        com.facebook.common.references.a<byte[]> Dw = this.jXA.Dw(i + 2);
         try {
             byte[] bArr2 = Dw.get();
             pooledByteBuffer.c(0, bArr2, 0, i);

@@ -465,7 +465,7 @@ public class UrlDragImageView extends RelativeLayout {
                 apu();
             } else {
                 if (this.cnb && this.cnn != null) {
-                    this.cnn.avX();
+                    this.cnn.avY();
                 }
                 this.mRatio = 1.0f;
                 invalidate();
@@ -481,8 +481,8 @@ public class UrlDragImageView extends RelativeLayout {
     private boolean r(float f, float f2) {
         if (this.cmV.getVisibility() != 0 || this.cmV.isCanDrag()) {
             if (this.cke == null || !this.cke.isLongPic || this.cmV.getVisibility() != 0 || this.cmV.isViewTop()) {
-                if (this.cke == null || !this.cke.isLongPic || this.cmV.getVisibility() == 0 || this.cmT.avD()) {
-                    if (this.cmV.getVisibility() == 0 || this.cmT.avF()) {
+                if (this.cke == null || !this.cke.isLongPic || this.cmV.getVisibility() == 0 || this.cmT.avE()) {
+                    if (this.cmV.getVisibility() == 0 || this.cmT.avG()) {
                         if (this.cnd != null && getScrollY() == 0 && f2 < 0.0f && !this.cne) {
                             this.cmT.setImageOnLongClickListener(null);
                             this.cmV.setOnLongClickListener(null);
@@ -490,7 +490,7 @@ public class UrlDragImageView extends RelativeLayout {
                             this.cnf = 0.0f;
                             this.mRatio = 1.0f;
                             if (this.cnn != null) {
-                                this.cnn.avV();
+                                this.cnn.avW();
                             }
                         }
                         if (!this.cne || this.cnd == null) {
@@ -546,7 +546,7 @@ public class UrlDragImageView extends RelativeLayout {
     private void apu() {
         if (this.cke == null) {
             if (this.cnn != null) {
-                this.cnn.avW();
+                this.cnn.avX();
                 return;
             }
             return;
@@ -555,7 +555,7 @@ public class UrlDragImageView extends RelativeLayout {
         final Rect dstRectInScreen = this.cke.getDstRectInScreen();
         if (sourceImageRectInScreen == null || dstRectInScreen == null) {
             if (this.cnn != null) {
-                this.cnn.avW();
+                this.cnn.avX();
                 return;
             }
             return;
@@ -586,7 +586,7 @@ public class UrlDragImageView extends RelativeLayout {
                 UrlDragImageView.this.cne = false;
                 UrlDragImageView.this.invalidate();
                 if (UrlDragImageView.this.cnn != null) {
-                    UrlDragImageView.this.cnn.avW();
+                    UrlDragImageView.this.cnn.avX();
                 }
             }
 
@@ -700,7 +700,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     private boolean apw() {
-        return this.cmT != null && this.cmT.avT();
+        return this.cmT != null && this.cmT.avU();
     }
 
     public void apx() {
@@ -733,7 +733,7 @@ public class UrlDragImageView extends RelativeLayout {
                     public void onReady() {
                         UrlDragImageView.this.cnF = null;
                         UrlDragImageView.this.mProgressBar.setVisibility(8);
-                        UrlDragImageView.this.cmT.avP();
+                        UrlDragImageView.this.cmT.avQ();
                         UrlDragImageView.this.cmT.setVisibility(4);
                     }
 
@@ -834,7 +834,7 @@ public class UrlDragImageView extends RelativeLayout {
                 this.cnz = false;
             } else {
                 if (this.cke != null && this.cke.isLongPic) {
-                    this.cmT.avI();
+                    this.cmT.avJ();
                     this.cmT.setImageLoadCallBack(new com.baidu.tbadk.widget.largeImage.logic.a() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.13
                         @Override // com.baidu.tbadk.widget.largeImage.logic.a
                         public void apH() {
@@ -927,7 +927,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mProgressBar.setVisibility(8);
         } else {
             if (this.cke != null && this.cke.isLongPic) {
-                this.cmT.avI();
+                this.cmT.avJ();
                 this.cmT.setImageLoadCallBack(new com.baidu.tbadk.widget.largeImage.logic.a() { // from class: com.baidu.tbadk.coreExtra.view.UrlDragImageView.3
                     @Override // com.baidu.tbadk.widget.largeImage.logic.a
                     public void apH() {
@@ -976,7 +976,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.mProgressBar.setVisibility(8);
         }
         e.iB().removeCallbacks(this.cnI);
-        com.baidu.tieba.view.c.cvb().setColor(-1);
+        com.baidu.tieba.view.c.cvd().setColor(-1);
     }
 
     public void release() {
@@ -1000,7 +1000,7 @@ public class UrlDragImageView extends RelativeLayout {
         String str;
         if (this.cmT != null && (str = (String) this.cmT.getTag()) != null) {
             if (this.cmT.getImageType() == 1) {
-                if (this.cmT.getGifCache() == null || !this.cmT.avT()) {
+                if (this.cmT.getGifCache() == null || !this.cmT.avU()) {
                     e(str, z, z2);
                 }
             } else if (this.cmT.getImageType() == 2) {
@@ -1012,8 +1012,8 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     private boolean apB() {
-        if (this.cmT.getImageBitmap() != null && this.cmT.avT()) {
-            if (this.cke == null || !this.cke.isLongPic || this.cmT.avJ()) {
+        if (this.cmT.getImageBitmap() != null && this.cmT.avU()) {
+            if (this.cke == null || !this.cke.isLongPic || this.cmT.avK()) {
                 return false;
             }
             this.cmZ = false;

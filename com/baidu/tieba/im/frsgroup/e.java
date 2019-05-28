@@ -68,15 +68,15 @@ public class e extends com.baidu.tieba.frs.h<GroupInfoData, f> {
             fVar.rootView.setTag(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, Integer.valueOf(i));
             fVar.a(groupInfoData);
             al.k(fVar.rootView, R.drawable.frs_group_item_bg);
-            al.f(fVar.gAf, R.color.cp_cont_b, 1);
             al.f(fVar.gAg, R.color.cp_cont_b, 1);
-            al.k(fVar.gAg, R.drawable.bg_jinqun_meizi);
-            fVar.gAg.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
             al.f(fVar.gAh, R.color.cp_cont_b, 1);
-            al.k(fVar.gAj, R.drawable.icon_grade_small_star);
+            al.k(fVar.gAh, R.drawable.bg_jinqun_meizi);
+            fVar.gAh.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_jinqun_meizi), (Drawable) null, (Drawable) null, (Drawable) null);
+            al.f(fVar.gAi, R.color.cp_cont_b, 1);
             al.k(fVar.gAk, R.drawable.icon_grade_small_star);
             al.k(fVar.gAl, R.drawable.icon_grade_small_star);
-            al.f(fVar.gAi, R.color.cp_cont_c, 1);
+            al.k(fVar.gAm, R.drawable.icon_grade_small_star);
+            al.f(fVar.gAj, R.color.cp_cont_c, 1);
             al.l(fVar.dividerLine, R.color.cp_bg_line_b);
         }
         return view;

@@ -64,7 +64,7 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
     }
 
     public void bx(int i) {
-        this.Xb.ezM = i;
+        this.Xb.ezN = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

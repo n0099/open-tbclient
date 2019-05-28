@@ -9,39 +9,39 @@ import android.widget.ScrollView;
 /* loaded from: classes.dex */
 public class EditorScrollView extends ScrollView {
     public View contentView;
-    private boolean eXP;
-    private int hSh;
-    private ViewTreeObserver.OnScrollChangedListener hSi;
-    private a hSj;
-    private boolean hSk;
-    private boolean hSl;
+    private boolean eXQ;
+    private int hSk;
+    private ViewTreeObserver.OnScrollChangedListener hSl;
+    private a hSm;
+    private boolean hSn;
+    private boolean hSo;
 
     /* loaded from: classes.dex */
     public interface a {
         void a(EditorScrollView editorScrollView, int i, int i2, int i3, int i4);
 
-        void bVE();
+        void bVH();
 
-        void bVF();
+        void bVI();
     }
 
     public EditorScrollView(Context context) {
         super(context);
-        this.hSh = 50;
+        this.hSk = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hSh = 50;
+        this.hSk = 50;
     }
 
     public EditorScrollView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hSh = 50;
+        this.hSk = 50;
     }
 
     public boolean apc() {
-        return this.hSk;
+        return this.hSn;
     }
 
     @Override // android.widget.ScrollView, android.view.View
@@ -49,11 +49,11 @@ public class EditorScrollView extends ScrollView {
         switch (motionEvent.getAction()) {
             case 0:
             case 2:
-                this.eXP = true;
+                this.eXQ = true;
                 break;
             case 1:
             case 3:
-                this.eXP = false;
+                this.eXQ = false;
                 break;
         }
         return super.onTouchEvent(motionEvent);
@@ -62,17 +62,17 @@ public class EditorScrollView extends ScrollView {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.hSj != null) {
-            this.hSj.a(this, i, i2, i3, i4);
+        if (this.hSm != null) {
+            this.hSm.a(this, i, i2, i3, i4);
         }
-        if (getHeight() + i2 >= this.contentView.getHeight() && this.hSj != null) {
-            this.hSj.bVF();
+        if (getHeight() + i2 >= this.contentView.getHeight() && this.hSm != null) {
+            this.hSm.bVI();
         }
-        if ((i2 == 0 || getHeight() + i2 > this.contentView.getHeight()) && this.hSj != null) {
-            this.hSj.bVE();
+        if ((i2 == 0 || getHeight() + i2 > this.contentView.getHeight()) && this.hSm != null) {
+            this.hSm.bVH();
         }
-        if (this.hSi != null && this.eXP && Math.abs(i3 - i2) >= this.hSh) {
-            this.hSi.onScrollChanged();
+        if (this.hSl != null && this.eXQ && Math.abs(i3 - i2) >= this.hSk) {
+            this.hSl.onScrollChanged();
         }
     }
 
@@ -80,12 +80,12 @@ public class EditorScrollView extends ScrollView {
     protected void onOverScrolled(int i, int i2, boolean z, boolean z2) {
         super.onOverScrolled(i, i2, z, z2);
         if (i2 == 0) {
-            this.hSk = z2;
-            this.hSl = false;
+            this.hSn = z2;
+            this.hSo = false;
             return;
         }
-        this.hSk = false;
-        this.hSl = z2;
+        this.hSn = false;
+        this.hSo = z2;
     }
 
     @Override // android.view.View
@@ -97,10 +97,10 @@ public class EditorScrollView extends ScrollView {
     }
 
     public void setListener(ViewTreeObserver.OnScrollChangedListener onScrollChangedListener) {
-        this.hSi = onScrollChangedListener;
+        this.hSl = onScrollChangedListener;
     }
 
     public void setOnScrollChangedListener(a aVar) {
-        this.hSj = aVar;
+        this.hSm = aVar;
     }
 }

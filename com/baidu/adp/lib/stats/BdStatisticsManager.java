@@ -73,7 +73,9 @@ public class BdStatisticsManager {
                 g.js().jz();
             }
             BdStatisticsManager.mHandler.removeMessages(2);
-            BdStatisticsManager.mHandler.sendMessageDelayed(BdStatisticsManager.mHandler.obtainMessage(2), 15000L);
+            if (!BdBaseApplication.getInst().checkInterrupt()) {
+                BdStatisticsManager.mHandler.sendMessageDelayed(BdStatisticsManager.mHandler.obtainMessage(2), 15000L);
+            }
         }
     };
 
@@ -112,7 +114,7 @@ public class BdStatisticsManager {
             }
         }
         try {
-            if (this.mMultiProcessReceiver == null && this.mContext != null) {
+            if (this.mMultiProcessReceiver == null && this.mContext != null && !BdBaseApplication.getInst().checkInterrupt()) {
                 this.mMultiProcessReceiver = new a();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("adp.bdstatisticsmanager.multiproceess.uploadallfile");
@@ -125,7 +127,21 @@ public class BdStatisticsManager {
         if (j >= 60000) {
             this.mUploadInterval = j;
         }
-        startOrNextUploadTimer();
+        boolean checkInterrupt = BdBaseApplication.getInst().checkInterrupt();
+        if (BdBaseApplication.getInst().checkInLater30Min()) {
+            long random = (((int) (Math.random() * 30.0d)) + 1) * 60 * 1000;
+            if (random > this.mUploadInterval) {
+                this.mUploadInterval = random;
+            }
+            startOrNextUploadTimer();
+        } else if (checkInterrupt) {
+            if (!BdBaseApplication.getInst().checkNewUser()) {
+                this.mUploadInterval = 3600000L;
+                startOrNextUploadTimer();
+            }
+        } else {
+            startOrNextUploadTimer();
+        }
     }
 
     public long getClientLogId() {
@@ -206,7 +222,7 @@ public class BdStatisticsManager {
     }
 
     public void addEntryToTmpSwitchConfDic(String str, String str2, BdUploadStatMsgData bdUploadStatMsgData) {
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null) {
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && bdUploadStatMsgData != null && !BdBaseApplication.getInst().checkInterrupt()) {
             forceUploadAllLogIgnoreSwitch();
             com.baidu.adp.lib.stats.switchs.a.jk().a(str, str2, bdUploadStatMsgData);
         }
@@ -238,7 +254,9 @@ public class BdStatisticsManager {
     }
 
     public void saveAndUploadlog(String str) {
-        g.js().d(g.js().r(str, null));
+        if (!BdBaseApplication.getInst().checkInterrupt()) {
+            g.js().d(g.js().r(str, null));
+        }
     }
 
     public void forceUploadAllLog() {
@@ -246,11 +264,13 @@ public class BdStatisticsManager {
     }
 
     public void forceUploadAllLogIgnoreSwitch() {
-        g.js().jw();
-        if (this.mIsMainProcess) {
-            Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
-            intent.setPackage(BdBaseApplication.getInst().getPackageName());
-            this.mContext.sendBroadcast(intent);
+        if (!BdBaseApplication.getInst().checkInterrupt()) {
+            g.js().jw();
+            if (this.mIsMainProcess) {
+                Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
+                intent.setPackage(BdBaseApplication.getInst().getPackageName());
+                this.mContext.sendBroadcast(intent);
+            }
         }
     }
 

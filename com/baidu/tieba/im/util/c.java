@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.util;
 
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class c extends Thread {
@@ -20,10 +21,12 @@ public class c extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        xVar.o("obj", this.bRZ);
-        xVar.o("obj_tp", this.mObjTp);
-        xVar.o("group_id", this.mGroupId);
-        xVar.ahe();
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            xVar.o("obj", this.bRZ);
+            xVar.o("obj_tp", this.mObjTp);
+            xVar.o("group_id", this.mGroupId);
+            xVar.ahe();
+        }
     }
 }

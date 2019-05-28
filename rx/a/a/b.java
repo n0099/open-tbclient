@@ -3,13 +3,13 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes2.dex */
 public class b {
-    private static final b knb = new b();
+    private static final b knc = new b();
 
-    public static b cLn() {
-        return knb;
+    public static b cLp() {
+        return knc;
     }
 
-    public g cLo() {
+    public g cLq() {
         return null;
     }
 

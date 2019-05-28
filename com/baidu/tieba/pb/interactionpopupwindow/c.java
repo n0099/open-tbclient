@@ -12,7 +12,7 @@ public class c {
         }
         switch (iBaseDialogData.getType()) {
             case 1:
-                am amVar = new am(b.a.hzc);
+                am amVar = new am(b.a.hzf);
                 int i = 0;
                 switch (iBaseDialogData.getFrom()) {
                     case 0:

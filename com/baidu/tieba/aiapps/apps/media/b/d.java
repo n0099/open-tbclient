@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements m {
-    protected String ddG = "";
+    protected String ddH = "";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
@@ -41,8 +41,8 @@ public class d implements m {
             return null;
         }
         com.baidu.swan.apps.media.a p = com.baidu.swan.apps.media.b.p(str, str2, str3);
-        if (p == null && ap.equals("/swan/live/open", this.ddG)) {
-            this.ddG = "";
+        if (p == null && ap.equals("/swan/live/open", this.ddH)) {
+            this.ddH = "";
             return new f(context, str3);
         } else if (p == null || !(p.Ge() instanceof f)) {
             return null;
@@ -66,7 +66,7 @@ public class d implements m {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(fh, d.aEL());
+        com.baidu.tieba.aiapps.apps.media.b.a a2 = com.baidu.tieba.aiapps.apps.media.b.a.a(fh, d.aEO());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("Live", "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -131,7 +131,7 @@ public class d implements m {
         return a(context, unitedSchemeEntity, callbackHandler, bVar, new a() { // from class: com.baidu.tieba.aiapps.apps.media.b.d.5
             @Override // com.baidu.tieba.aiapps.apps.media.b.d.a
             public boolean a(Context context2, com.baidu.tieba.aiapps.apps.media.b.a aVar, f fVar) {
-                fVar.bo(aVar.ddA);
+                fVar.bo(aVar.ddB);
                 return true;
             }
         });
@@ -183,7 +183,7 @@ public class d implements m {
 
     @Override // com.baidu.swan.apps.u.b.m
     public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        this.ddG = "/swan/live/open";
+        this.ddH = "/swan/live/open";
         return v(context, unitedSchemeEntity, callbackHandler, bVar);
     }
 

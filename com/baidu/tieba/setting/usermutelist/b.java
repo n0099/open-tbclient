@@ -15,16 +15,16 @@ import com.baidu.tieba.R;
 public class b extends c<UserMuteListActivity> {
     private BdListView MS;
     private View bBg;
-    private BaseActivity<UserMuteListActivity> cVo;
-    private NoNetworkView eRU;
-    private a iNo;
+    private BaseActivity<UserMuteListActivity> cVp;
+    private NoNetworkView eRV;
+    private a iNq;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.cVo = baseActivity;
-        this.iNo = aVar;
+        this.cVp = baseActivity;
+        this.iNq = aVar;
         initUI();
     }
 
@@ -33,33 +33,33 @@ public class b extends c<UserMuteListActivity> {
     }
 
     private void initUI() {
-        this.cVo.setContentView((int) R.layout.user_mute_list_activity);
-        this.bBg = this.cVo.findViewById(R.id.root_view);
-        this.eRU = (NoNetworkView) this.bBg.findViewById(R.id.view_no_network);
+        this.cVp.setContentView((int) R.layout.user_mute_list_activity);
+        this.bBg = this.cVp.findViewById(R.id.root_view);
+        this.eRV = (NoNetworkView) this.bBg.findViewById(R.id.view_no_network);
         this.mNavigationBar = (NavigationBar) this.bBg.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(R.string.user_mute_list_text);
         this.MS = (BdListView) this.bBg.findViewById(R.id.mute_user_list);
-        this.mNoDataView = NoDataViewFactory.a(this.cVo.getPageContext().getContext(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.cBh), NoDataViewFactory.d.iH(R.string.user_mute_list_no_data_text), null);
+        this.mNoDataView = NoDataViewFactory.a(this.cVp.getPageContext().getContext(), this.bBg, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, BdListViewHelper.cBh), NoDataViewFactory.d.iH(R.string.user_mute_list_no_data_text), null);
         ajG();
     }
 
     private void ajG() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.cVo.getLayoutMode().setNightMode(skinType == 1);
-        this.cVo.getLayoutMode().onModeChanged(this.bBg);
-        this.mNavigationBar.onChangeSkinType(this.cVo.getPageContext(), skinType);
-        this.mNoDataView.onChangeSkinType(this.cVo.getPageContext(), skinType);
-        this.eRU.onChangeSkinType(this.cVo.getPageContext(), skinType);
+        this.cVp.getLayoutMode().setNightMode(skinType == 1);
+        this.cVp.getLayoutMode().onModeChanged(this.bBg);
+        this.mNavigationBar.onChangeSkinType(this.cVp.getPageContext(), skinType);
+        this.mNoDataView.onChangeSkinType(this.cVp.getPageContext(), skinType);
+        this.eRV.onChangeSkinType(this.cVp.getPageContext(), skinType);
     }
 
-    public void boJ() {
+    public void boM() {
         this.MS.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.user_mute_list_no_data_text));
     }
 
-    public void ciM() {
+    public void ciO() {
         this.MS.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.refresh_view_title_text));

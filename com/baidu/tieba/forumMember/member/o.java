@@ -53,23 +53,23 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
                 qVar.mRootLayout.setVisibility(8);
             } else {
                 if (qVar.mSkinType != this.mSkinType) {
-                    al.f(qVar.fmg, R.color.cp_cont_d, 1);
-                    al.f(qVar.fmf, R.color.cp_cont_b, 1);
-                    al.k(qVar.fmh, R.drawable.frs_member_manito_bg);
+                    al.f(qVar.fmh, R.color.cp_cont_d, 1);
+                    al.f(qVar.fmg, R.color.cp_cont_b, 1);
+                    al.k(qVar.fmi, R.drawable.frs_member_manito_bg);
                 }
-                int bix = pVar.bix();
-                if (bix > 0) {
-                    qVar.fmg.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ap.aG(bix)));
-                    qVar.fmh.setTag(R.id.assist_apply_tip, pVar.biy());
-                    qVar.fmh.setOnClickListener(this.mClickListener);
-                    qVar.fmh.setEnabled(true);
-                    qVar.fmh.setClickable(true);
+                int biA = pVar.biA();
+                if (biA > 0) {
+                    qVar.fmh.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), ap.aG(biA)));
+                    qVar.fmi.setTag(R.id.assist_apply_tip, pVar.biB());
+                    qVar.fmi.setOnClickListener(this.mClickListener);
+                    qVar.fmi.setEnabled(true);
+                    qVar.fmi.setClickable(true);
                 } else {
-                    qVar.fmg.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    qVar.fmh.setEnabled(false);
-                    qVar.fmh.setClickable(false);
+                    qVar.fmh.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
+                    qVar.fmi.setEnabled(false);
+                    qVar.fmi.setClickable(false);
                 }
-                qVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                qVar.fmh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                 qVar.mSkinType = this.mSkinType;
             }
         }

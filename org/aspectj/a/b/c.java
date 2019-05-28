@@ -5,48 +5,48 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class c implements org.aspectj.lang.b {
     Object[] args;
-    Object kle;
-    a.InterfaceC0495a klf;
+    Object klf;
+    a.InterfaceC0495a klg;
     Object target;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public static class a implements a.InterfaceC0495a {
-        String klg;
-        org.aspectj.lang.c klh;
-        org.aspectj.lang.reflect.d kli;
+        String klh;
+        org.aspectj.lang.c kli;
+        org.aspectj.lang.reflect.d klj;
 
         public a(String str, org.aspectj.lang.c cVar, org.aspectj.lang.reflect.d dVar) {
-            this.klg = str;
-            this.klh = cVar;
-            this.kli = dVar;
+            this.klh = str;
+            this.kli = cVar;
+            this.klj = dVar;
         }
 
-        public String cKm() {
-            return this.klg;
-        }
-
-        public org.aspectj.lang.c cKn() {
+        public String cKo() {
             return this.klh;
+        }
+
+        public org.aspectj.lang.c cKp() {
+            return this.kli;
         }
 
         String a(h hVar) {
             StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(hVar.Hj(cKm()));
+            stringBuffer.append(hVar.Hj(cKo()));
             stringBuffer.append("(");
-            stringBuffer.append(((f) cKn()).a(hVar));
+            stringBuffer.append(((f) cKp()).a(hVar));
             stringBuffer.append(")");
             return stringBuffer.toString();
         }
 
         public final String toString() {
-            return a(h.klA);
+            return a(h.klB);
         }
     }
 
     public c(a.InterfaceC0495a interfaceC0495a, Object obj, Object obj2, Object[] objArr) {
-        this.klf = interfaceC0495a;
-        this.kle = obj;
+        this.klg = interfaceC0495a;
+        this.klf = obj;
         this.target = obj2;
         this.args = objArr;
     }
@@ -57,6 +57,6 @@ public class c implements org.aspectj.lang.b {
     }
 
     public final String toString() {
-        return this.klf.toString();
+        return this.klg.toString();
     }
 }

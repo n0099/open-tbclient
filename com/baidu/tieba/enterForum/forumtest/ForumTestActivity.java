@@ -38,21 +38,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ForumTestActivity extends BaseActivity implements b {
-    private NoNetworkView dlW;
-    private ForumTestWebView eRx;
-    private long eRy;
-    private g eRz;
-    private i eyo;
-    private k eyp;
-    private List<g> eyt;
+    private NoNetworkView dlX;
+    private g eRA;
+    private ForumTestWebView eRy;
+    private long eRz;
+    private i eyp;
+    private k eyq;
+    private List<g> eyu;
     private NavigationBar mNavigationBar;
     private a mPermissionJudgement;
     private String mUrl = "https://tieba.baidu.com/mo/q/recomforum?testId=";
-    private k.b eRA = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
+    private k.b eRB = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            ForumTestActivity.this.nE(ForumTestActivity.this.eRx.getHitTestResult().getExtra());
-            ForumTestActivity.this.aXH();
+            ForumTestActivity.this.nE(ForumTestActivity.this.eRy.getHitTestResult().getExtra());
+            ForumTestActivity.this.aXK();
         }
     };
 
@@ -65,36 +65,36 @@ public class ForumTestActivity extends BaseActivity implements b {
         setContentView(R.layout.activity_forum_test_layout);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.activity_forum_test_nav);
         this.mNavigationBar.setVisibility(8);
-        this.dlW = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
-        this.eRx = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
-        this.eRx.a(this);
+        this.dlX = (NoNetworkView) findViewById(R.id.activity_forum_test_net);
+        this.eRy = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
+        this.eRy.a(this);
         initData();
-        this.eRx.loadUrl(this.mUrl);
-        this.eRx.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
+        this.eRy.loadUrl(this.mUrl);
+        this.eRy.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return ForumTestActivity.this.handleLongClick();
             }
         });
-        bdv();
+        bdy();
     }
 
     private void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            this.eRy = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
-            this.mUrl += this.eRy;
+            this.eRz = intent.getLongExtra(ForumTestActivityConfig.TEST_ID, 0L);
+            this.mUrl += this.eRz;
         }
     }
 
-    private void bdv() {
-        if (this.eyo == null) {
-            this.eyp = new k(this);
+    private void bdy() {
+        if (this.eyp == null) {
+            this.eyq = new k(this);
         }
-        if (this.eyt == null) {
-            this.eyt = new ArrayList();
+        if (this.eyu == null) {
+            this.eyu = new ArrayList();
         }
-        this.eyo = new i(getPageContext(), this.eyp.afZ());
+        this.eyp = new i(getPageContext(), this.eyq.afZ());
     }
 
     @Override // com.baidu.tieba.enterForum.forumtest.js.b
@@ -134,11 +134,11 @@ public class ForumTestActivity extends BaseActivity implements b {
                 return true;
             } else if ("finishTestAnswer".equals(str2)) {
                 try {
-                    this.eRy = new JSONObject(str3).optLong("testId");
+                    this.eRz = new JSONObject(str3).optLong("testId");
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.eRy)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(this.eRz)));
                 finish();
                 jsPromptResult.confirm("finishTestAnswer");
                 return true;
@@ -151,20 +151,20 @@ public class ForumTestActivity extends BaseActivity implements b {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.eRx.onResume();
+        this.eRy.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.eRx.onPause();
+        this.eRy.onPause();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.eRx.canGoBack()) {
-            this.eRx.goBack();
+        if (i == 4 && this.eRy.canGoBack()) {
+            this.eRy.goBack();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -173,12 +173,12 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.eRx != null) {
-            this.eRx.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
-            this.eRx.clearHistory();
-            ((ViewGroup) this.eRx.getParent()).removeView(this.eRx);
-            this.eRx.destroy();
-            this.eRx = null;
+        if (this.eRy != null) {
+            this.eRy.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            this.eRy.clearHistory();
+            ((ViewGroup) this.eRy.getParent()).removeView(this.eRy);
+            this.eRy.destroy();
+            this.eRy = null;
         }
         super.onDestroy();
     }
@@ -186,26 +186,26 @@ public class ForumTestActivity extends BaseActivity implements b {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean handleLongClick() {
         WebView.HitTestResult hitTestResult;
-        if (this.eRx == null || (hitTestResult = this.eRx.getHitTestResult()) == null || hitTestResult.getType() != 5) {
+        if (this.eRy == null || (hitTestResult = this.eRy.getHitTestResult()) == null || hitTestResult.getType() != 5) {
             return false;
         }
-        bdw();
+        bdz();
         show();
         return true;
     }
 
-    private void bdw() {
-        this.eyt.clear();
-        this.eRz = new g(getString(R.string.save_this_image), this.eyp);
-        this.eRz.a(this.eRA);
-        this.eyt.add(this.eRz);
-        this.eyp.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
+    private void bdz() {
+        this.eyu.clear();
+        this.eRA = new g(getString(R.string.save_this_image), this.eyq);
+        this.eRA.a(this.eRB);
+        this.eyu.add(this.eRA);
+        this.eyq.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                ForumTestActivity.this.aXH();
+                ForumTestActivity.this.aXK();
             }
         });
-        this.eyp.W(this.eyt);
+        this.eyq.W(this.eyu);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -232,15 +232,15 @@ public class ForumTestActivity extends BaseActivity implements b {
     }
 
     private void show() {
-        if (this.eyo != null && !isFinishing()) {
-            this.eyo.showDialog();
+        if (this.eyp != null && !isFinishing()) {
+            this.eyp.showDialog();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXH() {
-        if (this.eyo != null && this.eyo.isShowing()) {
-            this.eyo.dismiss();
+    public void aXK() {
+        if (this.eyp != null && this.eyp.isShowing()) {
+            this.eyp.dismiss();
         }
     }
 }

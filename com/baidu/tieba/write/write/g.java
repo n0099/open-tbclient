@@ -17,14 +17,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
-    private WriteImageGridView jNl;
-    private f jNm;
+    private WriteImageGridView jNm;
+    private f jNn;
     private TbPageContext<WriteActivity> mContext;
     private WriteImagesInfo mWriteImagesInfo;
     private com.baidu.tbadk.img.b crN = new com.baidu.tbadk.img.b();
     private String mFrom = AlbumActivityConfig.FROM_WRITE;
     private String mForumId = "";
-    private f.a jNn = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a jNo = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
         public void Cz(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -32,10 +32,10 @@ public class g {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.gt().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.jNm.a(g.this.mWriteImagesInfo);
-                g.this.jNm.notifyDataSetChanged();
+                g.this.jNn.a(g.this.mWriteImagesInfo);
+                g.this.jNn.notifyDataSetChanged();
                 if (v.aa(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
-                    ((WriteActivity) g.this.mContext.getOrignalPage()).cju();
+                    ((WriteActivity) g.this.mContext.getOrignalPage()).cjw();
                 }
             }
         }
@@ -50,7 +50,7 @@ public class g {
         }
 
         @Override // com.baidu.tieba.write.write.f.a
-        public void czt() {
+        public void czv() {
             if (g.this.mWriteImagesInfo != null) {
                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) g.this.mContext.getPageActivity(), g.this.mWriteImagesInfo.toJsonString(), true, true);
                 albumActivityConfig.getIntent().putExtra("forum_id", g.this.mForumId);
@@ -64,17 +64,17 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.jNl = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
-        this.jNm = new f(view.getContext(), this.crN, null, this.jNn);
-        this.jNl.setAdapter((ListAdapter) this.jNm);
+        this.jNm = (WriteImageGridView) view.findViewById(R.id.write_image_grid_view);
+        this.jNn = new f(view.getContext(), this.crN, null, this.jNo);
+        this.jNm.setAdapter((ListAdapter) this.jNn);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.jNm.a(this.mWriteImagesInfo);
-        this.jNm.notifyDataSetChanged();
+        this.jNn.a(this.mWriteImagesInfo);
+        this.jNn.notifyDataSetChanged();
     }
 
     public void destroy() {
@@ -82,6 +82,6 @@ public class g {
     }
 
     public void rR(boolean z) {
-        this.jNm.rR(z);
+        this.jNn.rR(z);
     }
 }

@@ -41,13 +41,13 @@ public class a {
                     str2 = str;
                     a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bLm, z2, str2, (String) null, i3);
                     if (a == null) {
-                        a.P("list_order", c.bpz().a(bVar));
+                        a.P("list_order", c.bpC().a(bVar));
                         if (z) {
                             a.P("obj_isofficial", bgVar.adO().user_info.is_official);
                             a.delete("thread_type");
                             a.P("thread_type", bgVar.getThreadType());
                         }
-                        com.baidu.tieba.q.c.clt().b(bdUniqueId, a);
+                        com.baidu.tieba.q.c.clv().b(bdUniqueId, a);
                         return;
                     }
                     return;
@@ -64,8 +64,8 @@ public class a {
     public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar, int i) {
         am a;
         if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", i, false, null, null)) != null) {
-            a.P("list_order", c.bpz().a(bVar));
-            com.baidu.tieba.q.c.clt().a(bdUniqueId, bgVar.getId(), a);
+            a.P("list_order", c.bpC().a(bVar));
+            com.baidu.tieba.q.c.clv().a(bdUniqueId, bgVar.getId(), a);
         }
     }
 
@@ -99,13 +99,13 @@ public class a {
                     str2 = str;
                     a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bLm, z2, str2, (String) null, i2);
                     if (a == null) {
-                        a.P("list_order", c.bpz().a(bVar));
+                        a.P("list_order", c.bpC().a(bVar));
                         if (z) {
                             a.P("obj_isofficial", bgVar.adO().user_info.is_official);
                             a.delete("thread_type");
                             a.P("thread_type", bgVar.getThreadType());
                         }
-                        com.baidu.tieba.q.c.clt().a(bdUniqueId, bgVar.getId(), a);
+                        com.baidu.tieba.q.c.clv().a(bdUniqueId, bgVar.getId(), a);
                         return;
                     }
                     return;
@@ -153,7 +153,7 @@ public class a {
                 }
             }
             b.P("list_order", i2);
-            com.baidu.tieba.q.c.clt().b(bdUniqueId, b);
+            com.baidu.tieba.q.c.clv().b(bdUniqueId, b);
         }
     }
 }

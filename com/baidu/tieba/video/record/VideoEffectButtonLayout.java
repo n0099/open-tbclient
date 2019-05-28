@@ -11,26 +11,26 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.video.record.i;
 /* loaded from: classes5.dex */
 public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, i.a {
-    private ImageView jwF;
     private ImageView jwG;
     private ImageView jwH;
     private ImageView jwI;
-    private LinearLayout jwJ;
+    private ImageView jwJ;
     private LinearLayout jwK;
     private LinearLayout jwL;
     private LinearLayout jwM;
-    private a jwN;
-    private View jwO;
+    private LinearLayout jwN;
+    private a jwO;
+    private View jwP;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void ctH();
-
-        void ctI();
-
         void ctJ();
 
         void ctK();
+
+        void ctL();
+
+        void ctM();
     }
 
     public VideoEffectButtonLayout(Context context) {
@@ -50,37 +50,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), R.layout.layout_video_effect_button, this);
-        this.jwJ = (LinearLayout) findViewById(R.id.layout_music);
-        this.jwK = (LinearLayout) findViewById(R.id.layout_sticker);
-        this.jwL = (LinearLayout) findViewById(R.id.layout_beauty);
-        this.jwM = (LinearLayout) findViewById(R.id.layout_filter);
-        this.jwF = (ImageView) findViewById(R.id.img_music);
-        this.jwG = (ImageView) findViewById(R.id.img_sticker);
-        this.jwH = (ImageView) findViewById(R.id.img_beauty);
-        this.jwI = (ImageView) findViewById(R.id.img_filter);
-        this.jwF.setOnClickListener(this);
+        this.jwK = (LinearLayout) findViewById(R.id.layout_music);
+        this.jwL = (LinearLayout) findViewById(R.id.layout_sticker);
+        this.jwM = (LinearLayout) findViewById(R.id.layout_beauty);
+        this.jwN = (LinearLayout) findViewById(R.id.layout_filter);
+        this.jwG = (ImageView) findViewById(R.id.img_music);
+        this.jwH = (ImageView) findViewById(R.id.img_sticker);
+        this.jwI = (ImageView) findViewById(R.id.img_beauty);
+        this.jwJ = (ImageView) findViewById(R.id.img_filter);
         this.jwG.setOnClickListener(this);
         this.jwH.setOnClickListener(this);
         this.jwI.setOnClickListener(this);
+        this.jwJ.setOnClickListener(this);
     }
 
     public void reset() {
-        this.jwO = null;
+        this.jwP = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.jwJ.setVisibility(i2);
-                return;
-            case 1:
                 this.jwK.setVisibility(i2);
                 return;
-            case 2:
+            case 1:
                 this.jwL.setVisibility(i2);
                 return;
-            case 3:
+            case 2:
                 this.jwM.setVisibility(i2);
+                return;
+            case 3:
+                this.jwN.setVisibility(i2);
                 return;
             default:
                 return;
@@ -90,16 +90,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public void setViewChoosed(int i, boolean z) {
         switch (i) {
             case 0:
-                this.jwF.setSelected(z);
-                return;
-            case 1:
                 this.jwG.setSelected(z);
                 return;
-            case 2:
+            case 1:
                 this.jwH.setSelected(z);
                 return;
-            case 3:
+            case 2:
                 this.jwI.setSelected(z);
+                return;
+            case 3:
+                this.jwJ.setSelected(z);
                 return;
             default:
                 return;
@@ -108,21 +108,21 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jwN != null) {
+        if (this.jwO != null) {
             int id = view.getId();
-            this.jwO = view;
+            this.jwP = view;
             am amVar = new am("c12495");
             if (id == R.id.img_music) {
-                this.jwN.ctH();
+                this.jwO.ctJ();
                 amVar.P("obj_type", 6);
             } else if (id == R.id.img_sticker) {
-                this.jwN.ctI();
+                this.jwO.ctK();
                 amVar.P("obj_type", 4);
             } else if (id == R.id.img_beauty) {
-                this.jwN.ctJ();
+                this.jwO.ctL();
                 amVar.P("obj_type", 3);
             } else if (id == R.id.img_filter) {
-                this.jwN.ctK();
+                this.jwO.ctM();
                 amVar.P("obj_type", 2);
             }
             TiebaStatic.log(amVar);
@@ -130,15 +130,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     public void setListener(a aVar) {
-        this.jwN = aVar;
+        this.jwO = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.i.a
     public void BJ(int i) {
         if (i == 1) {
-            this.jwF.setImageResource(R.drawable.icon_video_music);
+            this.jwG.setImageResource(R.drawable.icon_video_music);
         } else {
-            this.jwF.setImageResource(R.drawable.icon_video_music_disable);
+            this.jwG.setImageResource(R.drawable.icon_video_music_disable);
         }
     }
 }

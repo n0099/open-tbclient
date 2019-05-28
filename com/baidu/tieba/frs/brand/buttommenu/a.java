@@ -21,62 +21,62 @@ import tbclient.SubBottomMenu;
 public class a implements BottomMenuView.a {
     private int bnH;
     private ForumData csU;
-    private ImageView fvN;
-    private BottomMenuView fvO;
-    private List<BottomMenu> fvP;
-    private int fvQ;
+    private ImageView fvO;
+    private BottomMenuView fvP;
+    private List<BottomMenu> fvQ;
     private int fvR;
+    private int fvS;
     private TbPageContext<?> mPageContext;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.fvN = (ImageView) view.findViewById(R.id.normal_write_icon);
-        this.fvO = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
-        this.fvO.setOnMenuItemClickListener(this);
+        this.fvO = (ImageView) view.findViewById(R.id.normal_write_icon);
+        this.fvP = (BottomMenuView) view.findViewById(R.id.bottom_menu_view);
+        this.fvP.setOnMenuItemClickListener(this);
         this.bnH = l.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
-        this.fvQ = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
-        this.fvR = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
+        this.fvR = l.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.fvS = l.g(tbPageContext.getPageActivity(), R.dimen.ds4);
     }
 
     public void a(List<BottomMenu> list, ForumData forumData) {
-        this.fvP = list;
+        this.fvQ = list;
         this.csU = forumData;
         boolean z = v.Z(list) > 0;
         kj(z);
         if (z) {
-            this.fvO.setVisibility(0);
-            this.fvO.a(list, this.mPageContext);
+            this.fvP.setVisibility(0);
+            this.fvP.a(list, this.mPageContext);
             return;
         }
-        this.fvO.setVisibility(8);
+        this.fvP.setVisibility(8);
     }
 
     private void kj(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fvN.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fvO.getLayoutParams();
         if (z) {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
             layoutParams.addRule(14, 0);
             layoutParams.bottomMargin = this.bnH;
-            layoutParams.rightMargin = this.fvQ;
+            layoutParams.rightMargin = this.fvR;
             return;
         }
         layoutParams.addRule(11, 0);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = this.fvR;
+        layoutParams.bottomMargin = this.fvS;
         layoutParams.rightMargin = 0;
     }
 
     public void kk(boolean z) {
-        this.fvO.setVisibility(z ? 0 : 8);
+        this.fvP.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.fvO.getVisibility() == 0) {
-            this.fvO.onChangeSkinType(tbPageContext, i);
+        if (this.fvP.getVisibility() == 0) {
+            this.fvP.onChangeSkinType(tbPageContext, i);
         }
     }
 

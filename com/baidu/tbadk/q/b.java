@@ -173,6 +173,10 @@ public class b implements com.baidu.adp.plugin.packageManager.pluginServerConfig
         }
 
         private String b(l<String> lVar, String str) {
+            boolean checkNewUser = TbadkCoreApplication.getInst().checkNewUser();
+            if (TbadkCoreApplication.getInst().checkInterrupt() && checkNewUser) {
+                return null;
+            }
             this.mNetWork = new x(b.ADDRESS);
             this.mNetWork.o("plugin_upload_config", str);
             return this.mNetWork.ahe();

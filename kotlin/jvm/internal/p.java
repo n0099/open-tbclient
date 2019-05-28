@@ -9,7 +9,7 @@ public class p {
     private p() {
     }
 
-    public static void cJZ() {
+    public static void cKb() {
         throw ((KotlinNullPointerException) E(new KotlinNullPointerException()));
     }
 
@@ -43,7 +43,7 @@ public class p {
         return obj == null ? obj2 == null : obj.equals(obj2);
     }
 
-    public static void cKa() {
+    public static void cKc() {
         Hh("This function has a reified type parameter and thus can only be inlined at compilation time, not called directly.");
     }
 
@@ -52,7 +52,7 @@ public class p {
     }
 
     public static void aO(int i, String str) {
-        cKa();
+        cKc();
     }
 
     private static <T extends Throwable> T E(T t) {

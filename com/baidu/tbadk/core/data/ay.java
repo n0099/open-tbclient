@@ -19,7 +19,7 @@ public class ay {
     public com.baidu.tieba.card.data.n acF() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.eBv = acE();
+        nVar.eBw = acE();
         if (this.bHB != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.bHB) {
@@ -29,7 +29,7 @@ public class ay {
             }
             arrayList = arrayList2;
         }
-        nVar.eBw = arrayList;
+        nVar.eBx = arrayList;
         return nVar;
     }
 

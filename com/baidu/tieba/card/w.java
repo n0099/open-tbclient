@@ -25,13 +25,13 @@ import java.util.ArrayList;
 public class w extends a<bg> implements com.baidu.tieba.a.e {
     private bg VK;
     private String Wt;
-    private final View cSY;
-    private HeadImageView eqF;
-    private ConstrainImageGroup exN;
-    private TextView ezC;
+    private final View cSZ;
+    private HeadImageView eqG;
+    private ConstrainImageGroup exO;
     private TextView ezD;
     private TextView ezE;
-    private u ezF;
+    private TextView ezF;
+    private u ezG;
     private TbPageContext<?> mPageContext;
 
     public w(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
@@ -39,31 +39,31 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
         View view = getView();
         view.setOnClickListener(this);
         this.mPageContext = tbPageContext;
-        this.eqF = (HeadImageView) view.findViewById(R.id.topic_icon);
-        this.eqF.setIsRound(true);
-        this.eqF.setDefaultResource(R.drawable.pic_head_topic);
-        this.ezC = (TextView) view.findViewById(R.id.card_topic_name);
-        this.ezE = (TextView) view.findViewById(R.id.card_thread_title);
-        this.ezD = (TextView) view.findViewById(R.id.card_reply_time);
-        this.exN = (ConstrainImageGroup) view.findViewById(R.id.card_img_layout);
-        this.cSY = view.findViewById(R.id.card_divider_line);
-        this.exN.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        this.eqG = (HeadImageView) view.findViewById(R.id.topic_icon);
+        this.eqG.setIsRound(true);
+        this.eqG.setDefaultResource(R.drawable.pic_head_topic);
+        this.ezD = (TextView) view.findViewById(R.id.card_topic_name);
+        this.ezF = (TextView) view.findViewById(R.id.card_thread_title);
+        this.ezE = (TextView) view.findViewById(R.id.card_reply_time);
+        this.exO = (ConstrainImageGroup) view.findViewById(R.id.card_img_layout);
+        this.cSZ = view.findViewById(R.id.card_divider_line);
+        this.exO.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
         fVar.h(1.0d);
-        this.exN.setImageProcessor(fVar);
-        this.exN.setFromCDN(true);
-        this.exN.setClickable(false);
+        this.exO.setImageProcessor(fVar);
+        this.exO.setFromCDN(true);
+        this.exO.setClickable(false);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        this.eqF.invalidate();
-        al.j(this.ezC, R.color.cp_cont_b);
-        al.j(this.ezD, R.color.cp_cont_d);
+        this.eqG.invalidate();
+        al.j(this.ezD, R.color.cp_cont_b);
+        al.j(this.ezE, R.color.cp_cont_d);
         al.k(getView(), R.drawable.addresslist_item_bg);
-        al.l(this.cSY, R.color.cp_bg_line_e);
-        this.exN.onChangeSkinType();
-        this.eqF.setDefaultBgResource(i);
+        al.l(this.cSZ, R.color.cp_bg_line_e);
+        this.exO.onChangeSkinType();
+        this.eqG.setDefaultBgResource(i);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -87,14 +87,14 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
             getView().setOnClickListener(this);
         }
         if (bgVar.adv() != null) {
-            this.ezC.setText(bgVar.adv().getName_show());
+            this.ezD.setText(bgVar.adv().getName_show());
         }
-        this.ezD.setText(ap.aC(bgVar.ado() * 1000));
+        this.ezE.setText(ap.aC(bgVar.ado() * 1000));
         String str = bgVar.aeX() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bgVar.m(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
-        this.ezE.setText(spannableStringBuilder);
+        this.ezF.setText(spannableStringBuilder);
         ArrayList<MediaData> adF = bgVar.adF();
         if (com.baidu.tbadk.core.i.abb().abf() && com.baidu.tbadk.core.util.v.Z(adF) != 0) {
             ArrayList arrayList = new ArrayList();
@@ -105,33 +105,33 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
                 }
             }
             if (com.baidu.tbadk.core.util.v.Z(arrayList) > 0) {
-                this.exN.setVisibility(0);
-                this.exN.setImageMediaList(arrayList);
+                this.exO.setVisibility(0);
+                this.exO.setImageMediaList(arrayList);
             } else {
-                this.exN.setVisibility(8);
+                this.exO.setVisibility(8);
             }
         } else {
-            this.exN.setVisibility(8);
+            this.exO.setVisibility(8);
         }
-        n.a(this.ezE, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.VK != null) {
-            if (aXo() != null) {
-                aXo().a(view, (View) this.VK, (Object) this.ezF);
+            if (aXr() != null) {
+                aXr().a(view, (View) this.VK, (Object) this.ezG);
             }
             if (view == getView()) {
                 n.uS(this.VK.getTid());
-                n.a(this.ezE, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                aXN();
+                n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                aXQ();
             }
         }
     }
 
-    private void aXN() {
+    private void aXQ() {
         if (this.VK != null && this.VK.adv() != null && this.VK.adv().getName_show() != null) {
             long fid = this.VK.getFid();
             if (this.VK.bKZ != null) {
@@ -148,14 +148,14 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
     }
 
     public void setConstrainLayoutPool(com.baidu.adp.lib.e.b<ConstrainImageLayout> bVar) {
-        if (this.exN != null) {
-            this.exN.setConstrainLayoutPool(bVar);
+        if (this.exO != null) {
+            this.exO.setConstrainLayoutPool(bVar);
         }
     }
 
     public void setConstrainImagePool(com.baidu.adp.lib.e.b<TbImageView> bVar) {
-        if (this.exN != null) {
-            this.exN.setImageViewPool(bVar);
+        if (this.exO != null) {
+            this.exO.setImageViewPool(bVar);
         }
     }
 
@@ -165,6 +165,6 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
     }
 
     public void a(u uVar) {
-        this.ezF = uVar;
+        this.ezG = uVar;
     }
 }

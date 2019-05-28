@@ -89,7 +89,7 @@ public class a {
         return this;
     }
 
-    public b ayw() {
+    public b ayx() {
         return new b(this.cMC);
     }
 }

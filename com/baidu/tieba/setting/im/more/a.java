@@ -6,67 +6,67 @@ import tbclient.SimpleUser;
 public class a {
     private int cpw;
     private int cpz;
-    private int iIN;
-    private int iIO;
-    private boolean iIP;
+    private int iIP;
     private int iIQ;
-    private SimpleUser iIR;
+    private boolean iIR;
     private int iIS;
+    private SimpleUser iIT;
+    private int iIU;
 
-    public boolean cgt() {
+    public boolean cgv() {
         com.baidu.tbadk.core.sharedPref.b agM = com.baidu.tbadk.core.sharedPref.b.agM();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.iIN = agM.getInt("post" + currentAccount, 0);
-        this.iIO = agM.getInt("like" + currentAccount, 0);
+        this.iIP = agM.getInt("post" + currentAccount, 0);
+        this.iIQ = agM.getInt("like" + currentAccount, 0);
         this.cpw = agM.getInt("group" + currentAccount, 0);
         this.cpz = agM.getInt("live" + currentAccount, 0);
-        this.iIQ = agM.getInt("reply" + currentAccount, 1);
-        this.iIP = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.iIN == 0 && this.iIO == 0 && this.cpw == 0 && this.cpz == 0 && this.iIQ == 1) ? false : true;
+        this.iIS = agM.getInt("reply" + currentAccount, 1);
+        this.iIR = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.iIP == 0 && this.iIQ == 0 && this.cpw == 0 && this.cpz == 0 && this.iIS == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.iIN = aVar.iIN;
-            this.iIO = aVar.iIO;
-            this.cpw = aVar.cpw;
             this.iIP = aVar.iIP;
-            this.cpz = aVar.cpz;
-            this.iIS = aVar.iIS;
             this.iIQ = aVar.iIQ;
+            this.cpw = aVar.cpw;
+            this.iIR = aVar.iIR;
+            this.cpz = aVar.cpz;
+            this.iIU = aVar.iIU;
+            this.iIS = aVar.iIS;
         }
     }
 
-    public int cgu() {
-        return this.iIN;
+    public int cgw() {
+        return this.iIP;
     }
 
     public void bj(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.agM().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void cgv() {
+    public void cgx() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b agM = com.baidu.tbadk.core.sharedPref.b.agM();
-        agM.putInt("post" + currentAccount, this.iIN);
-        agM.putInt("like" + currentAccount, this.iIO);
+        agM.putInt("post" + currentAccount, this.iIP);
+        agM.putInt("like" + currentAccount, this.iIQ);
         agM.putInt("group" + currentAccount, this.cpw);
         agM.putInt("live" + currentAccount, this.cpz);
-        agM.putInt("reply" + currentAccount, this.iIQ);
-        TbadkCoreApplication.getInst().setLocationShared(this.iIP);
+        agM.putInt("reply" + currentAccount, this.iIS);
+        TbadkCoreApplication.getInst().setLocationShared(this.iIR);
     }
 
     public void zr(int i) {
-        this.iIN = i;
+        this.iIP = i;
     }
 
-    public int cgw() {
-        return this.iIO;
+    public int cgy() {
+        return this.iIQ;
     }
 
     public void zs(int i) {
         if (i <= 3 && i >= 1) {
-            this.iIO = i;
+            this.iIQ = i;
         }
     }
 
@@ -80,7 +80,7 @@ public class a {
         }
     }
 
-    public int cgx() {
+    public int cgz() {
         return this.cpw;
     }
 
@@ -90,42 +90,42 @@ public class a {
         }
     }
 
-    public boolean cgy() {
-        return this.iIP;
+    public boolean cgA() {
+        return this.iIR;
     }
 
     public void zv(int i) {
         switch (i) {
             case 1:
-                this.iIP = true;
+                this.iIR = true;
                 return;
             default:
-                this.iIP = false;
+                this.iIR = false;
                 return;
         }
     }
 
-    public SimpleUser aBF() {
-        return this.iIR;
+    public SimpleUser aBI() {
+        return this.iIT;
     }
 
     public void b(SimpleUser simpleUser) {
-        this.iIR = simpleUser;
+        this.iIT = simpleUser;
     }
 
     public void zw(int i) {
-        this.iIS = i;
+        this.iIU = i;
     }
 
     public void zx(int i) {
         if (i == 0) {
-            this.iIQ = 1;
+            this.iIS = 1;
         } else {
-            this.iIQ = i;
+            this.iIS = i;
         }
     }
 
-    public int cgz() {
-        return this.iIQ;
+    public int cgB() {
+        return this.iIS;
     }
 }

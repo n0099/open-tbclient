@@ -17,39 +17,39 @@ import com.baidu.tieba.homepage.daily.b.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private List<e.a> fYU;
-    private int fZq;
+    private List<e.a> fYV;
     private int fZr;
+    private int fZs;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        this.fZq = ((((l.af(context) - (l.g(context, R.dimen.tbds44) * 2)) - l.g(context, R.dimen.tbds60)) / 2) - l.g(context, R.dimen.tbds104)) - l.g(context, R.dimen.tbds26);
+        this.fZr = ((((l.af(context) - (l.g(context, R.dimen.tbds44) * 2)) - l.g(context, R.dimen.tbds60)) / 2) - l.g(context, R.dimen.tbds104)) - l.g(context, R.dimen.tbds26);
     }
 
     public void setData(List<e.a> list) {
         if (list != null) {
-            this.fYU = list;
+            this.fYV = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.Z(this.fYU);
+        return v.Z(this.fYV);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: to */
     public e.a getItem(int i) {
-        return (e.a) v.c(this.fYU, i);
+        return (e.a) v.c(this.fYV, i);
     }
 
-    public String bte() {
-        e.a aVar = (e.a) v.c(this.fYU, 0);
+    public String bth() {
+        e.a aVar = (e.a) v.c(this.fYV, 0);
         if (aVar != null) {
-            return aVar.bte();
+            return aVar.bth();
         }
         return null;
     }
@@ -65,9 +65,9 @@ public class d extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.daily_topic_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.fZs = (TbImageView) view.findViewById(R.id.topic_pic);
-            aVar2.fZk = (TextView) view.findViewById(R.id.topic_title);
-            aVar2.fZt = (TextView) view.findViewById(R.id.topic_abstract);
+            aVar2.fZt = (TbImageView) view.findViewById(R.id.topic_pic);
+            aVar2.fZl = (TextView) view.findViewById(R.id.topic_title);
+            aVar2.fZu = (TextView) view.findViewById(R.id.topic_abstract);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,26 +75,26 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.fZs.startLoad(item.btc(), 10, false);
-            aVar.fZk.setText(this.mContext.getString(R.string.daily_topic_name, b(aVar.fZk.getPaint(), item.acE(), this.fZq)));
-            aVar.fZt.setText(item.btd());
+            aVar.fZt.startLoad(item.btf(), 10, false);
+            aVar.fZl.setText(this.mContext.getString(R.string.daily_topic_name, b(aVar.fZl.getPaint(), item.acE(), this.fZr)));
+            aVar.fZu.setText(item.btg());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 
     public String b(TextPaint textPaint, String str, int i) {
-        if (this.fZr <= 0) {
-            this.fZr = i - l.c(textPaint, "##");
+        if (this.fZs <= 0) {
+            this.fZs = i - l.c(textPaint, "##");
         }
-        return l.a(textPaint, str, this.fZr);
+        return l.a(textPaint, str, this.fZs);
     }
 
     /* loaded from: classes4.dex */
     private static class a {
-        public TextView fZk;
-        public TbImageView fZs;
-        public TextView fZt;
+        public TextView fZl;
+        public TbImageView fZt;
+        public TextView fZu;
         private int mSkinType;
 
         private a() {
@@ -104,9 +104,9 @@ public class d extends BaseAdapter {
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
                 this.mSkinType = i;
-                this.fZs.setBorderColor(al.getColor(R.color.black_alpha15));
-                al.j(this.fZk, R.color.cp_cont_b);
-                al.j(this.fZt, R.color.cp_cont_d);
+                this.fZt.setBorderColor(al.getColor(R.color.black_alpha15));
+                al.j(this.fZl, R.color.cp_cont_b);
+                al.j(this.fZu, R.color.cp_cont_d);
             }
         }
     }

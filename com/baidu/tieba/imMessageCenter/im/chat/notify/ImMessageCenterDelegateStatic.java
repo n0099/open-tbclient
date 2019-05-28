@@ -18,8 +18,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment;
 /* loaded from: classes4.dex */
 public class ImMessageCenterDelegateStatic extends b {
-    private MessageRedDotView gMb;
-    private CustomMessageListener gMc;
+    private MessageRedDotView gMc;
+    private CustomMessageListener gMd;
 
     @Override // com.baidu.tbadk.mainTab.b
     public boolean isAvailable() {
@@ -40,13 +40,13 @@ public class ImMessageCenterDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cO(Context context) {
         this.cvZ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.gMb = new MessageRedDotView(context);
+        this.gMc = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
         aVar.cwK = this.cvZ;
-        aVar.view = this.gMb;
+        aVar.view = this.gMc;
         aVar.cwH = true;
         this.cvZ.b("msg", aVar);
-        this.gMb.setVisibility(4);
+        this.gMc.setVisibility(4);
         return this.cvZ;
     }
 
@@ -66,7 +66,7 @@ public class ImMessageCenterDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public void asI() {
-        this.gMc = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
+        this.gMd = new CustomMessageListener(2921002) { // from class: com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -91,24 +91,24 @@ public class ImMessageCenterDelegateStatic extends b {
                 }
             }
         };
-        MessageManager.getInstance().registerListener(this.gMc);
+        MessageManager.getInstance().registerListener(this.gMd);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(boolean z, int i) {
-        if (this.gMb != null) {
+        if (this.gMc != null) {
             if (z) {
-                this.gMb.refresh(i);
-                this.gMb.setVisibility(0);
+                this.gMc.refresh(i);
+                this.gMc.setVisibility(0);
                 return;
             }
-            this.gMb.setVisibility(8);
+            this.gMc.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public void fn() {
         super.fn();
-        MessageManager.getInstance().unRegisterListener(this.gMc);
+        MessageManager.getInstance().unRegisterListener(this.gMd);
     }
 }

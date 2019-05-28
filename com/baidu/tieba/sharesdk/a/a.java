@@ -106,7 +106,7 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap ciV() {
+    public Bitmap ciX() {
         return BitmapHelper.getCashBitmap(R.drawable.icon);
     }
 

@@ -20,33 +20,33 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c {
-    private PopupWindow fNm;
-    private Runnable fNo = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
+    private PopupWindow fNn;
+    private Runnable fNp = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.1
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.mTabHost != null && c.this.fNm != null && c.this.fNm.getContentView() != null) {
+            if (c.this.mTabHost != null && c.this.fNn != null && c.this.fNn.getContentView() != null) {
                 FragmentTabWidget fragmentTabWidget = c.this.mTabHost.getFragmentTabWidget();
-                int af = l.af(c.this.jfa.getActivity());
-                int g = l.g(c.this.jfa.getActivity(), R.dimen.ds278);
-                c.this.fNm.getContentView().measure(0, 0);
-                g.showPopupWindowAsDropDown(c.this.fNm, fragmentTabWidget, (af - l.g(c.this.jfa.getActivity(), R.dimen.ds430)) / 2, -g);
-                com.baidu.tbadk.core.sharedPref.b.agM().putLong("home_tip", c.this.gfJ);
-                e.iB().postDelayed(c.this.fNp, 5000L);
+                int af = l.af(c.this.jfc.getActivity());
+                int g = l.g(c.this.jfc.getActivity(), R.dimen.ds278);
+                c.this.fNn.getContentView().measure(0, 0);
+                g.showPopupWindowAsDropDown(c.this.fNn, fragmentTabWidget, (af - l.g(c.this.jfc.getActivity(), R.dimen.ds430)) / 2, -g);
+                com.baidu.tbadk.core.sharedPref.b.agM().putLong("home_tip", c.this.gfK);
+                e.iB().postDelayed(c.this.fNq, 5000L);
                 TiebaStatic.log(new am("c13016").P("obj_locate", 1));
             }
         }
     };
-    private Runnable fNp = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
+    private Runnable fNq = new Runnable() { // from class: com.baidu.tieba.tblauncher.c.2
         @Override // java.lang.Runnable
         public void run() {
-            c.this.bqS();
+            c.this.bqV();
         }
     };
-    private View.OnClickListener fNq = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
+    private View.OnClickListener fNr = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncher.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.bqR();
-            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.jfa, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
+            c.this.bqU();
+            WriteActivityConfig writeActivityConfig = new WriteActivityConfig(c.this.jfc, 9, String.valueOf(0), "", null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
             if (!StringUtils.isNull(c.this.mTopicName)) {
                 writeActivityConfig.setTitle(c.this.mTopicName, true);
             }
@@ -54,52 +54,52 @@ public class c {
             TiebaStatic.log(new am("c13017").P("obj_locate", 1));
         }
     };
-    private long gfJ;
-    private TextView gnw;
-    private MainTabActivity jfa;
-    private View jfb;
-    private TextView jfc;
+    private long gfK;
+    private TextView gnx;
+    private MainTabActivity jfc;
+    private View jfd;
+    private TextView jfe;
     private FragmentTabHost mTabHost;
     private String mTopicName;
 
     public c(MainTabActivity mainTabActivity) {
-        this.jfa = mainTabActivity;
-        this.mTabHost = (FragmentTabHost) this.jfa.findViewById(R.id.tab_host);
+        this.jfc = mainTabActivity;
+        this.mTabHost = (FragmentTabHost) this.jfc.findViewById(R.id.tab_host);
     }
 
     public void j(String str, String str2, long j) {
         if (com.baidu.tbadk.core.sharedPref.b.agM().getLong("home_tip", 0L) != j && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             this.mTopicName = str2;
-            this.gfJ = j;
-            if (this.jfb == null) {
-                this.jfb = LayoutInflater.from(this.jfa.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
-                this.gnw = (TextView) this.jfb.findViewById(R.id.tips);
-                this.jfc = (TextView) this.jfb.findViewById(R.id.tips_content);
-                this.jfb.setOnClickListener(this.fNq);
+            this.gfK = j;
+            if (this.jfd == null) {
+                this.jfd = LayoutInflater.from(this.jfc.getActivity()).inflate(R.layout.tips_blue_twice_line_down, (ViewGroup) null);
+                this.gnx = (TextView) this.jfd.findViewById(R.id.tips);
+                this.jfe = (TextView) this.jfd.findViewById(R.id.tips_content);
+                this.jfd.setOnClickListener(this.fNr);
             }
-            this.gnw.setText(ap.l(str, 24, "..."));
-            this.jfc.setText(R.string.topic_join);
-            if (this.fNm == null) {
-                this.fNm = new PopupWindow(this.jfb, -2, -2);
+            this.gnx.setText(ap.l(str, 24, "..."));
+            this.jfe.setText(R.string.topic_join);
+            if (this.fNn == null) {
+                this.fNn = new PopupWindow(this.jfd, -2, -2);
             } else {
-                bqR();
+                bqU();
             }
-            e.iB().removeCallbacks(this.fNo);
-            e.iB().postDelayed(this.fNo, 100L);
+            e.iB().removeCallbacks(this.fNp);
+            e.iB().postDelayed(this.fNp, 100L);
         }
     }
 
-    public void bqR() {
-        e.iB().removeCallbacks(this.fNo);
+    public void bqU() {
         e.iB().removeCallbacks(this.fNp);
-        bqS();
+        e.iB().removeCallbacks(this.fNq);
+        bqV();
     }
 
-    public void bqS() {
-        g.a(this.fNm);
+    public void bqV() {
+        g.a(this.fNn);
     }
 
     public void onDestroy() {
-        bqR();
+        bqU();
     }
 }

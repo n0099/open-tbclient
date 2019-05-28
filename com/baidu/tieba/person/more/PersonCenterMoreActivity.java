@@ -18,33 +18,33 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes6.dex */
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
-    private b icO;
-    private Bundle icP;
-    private g icQ;
+    private b icR;
+    private Bundle icS;
+    private g icT;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null && getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE) != null) {
-            this.icP = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.icS = getIntent().getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.icO = new b(getPageContext(), this.icP, new ab<g>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
+        this.icR = new b(getPageContext(), this.icS, new ab<g>() { // from class: com.baidu.tieba.person.more.PersonCenterMoreActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, g gVar) {
-                PersonCenterMoreActivity.this.icQ = gVar;
-                if (PersonCenterMoreActivity.this.icQ != null && !PersonCenterMoreActivity.this.aPt()) {
-                    PersonCenterMoreActivity.this.BL(PersonCenterMoreActivity.this.icQ.bCP);
+                PersonCenterMoreActivity.this.icT = gVar;
+                if (PersonCenterMoreActivity.this.icT != null && !PersonCenterMoreActivity.this.aPw()) {
+                    PersonCenterMoreActivity.this.BL(PersonCenterMoreActivity.this.icT.bCP);
                 }
             }
         });
-        this.icO.initView();
+        this.icR.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aPt() {
+    public boolean aPw() {
         Activity pageActivity = getPageContext().getPageActivity();
         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
         aVar.aiM();
@@ -55,7 +55,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            BL(this.icQ.bCP);
+            BL(this.icT.bCP);
         }
     }
 
@@ -92,8 +92,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.icO != null) {
-            this.icO.onChangeSkinType();
+        if (this.icR != null) {
+            this.icR.onChangeSkinType();
         }
     }
 }

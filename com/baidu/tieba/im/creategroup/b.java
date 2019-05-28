@@ -14,29 +14,29 @@ import com.baidu.tieba.R;
 public class b implements o {
     private int MU;
     TextView bNl;
-    CreateGroupStepActivity gwb;
-    TbImageView gwc;
-    private ImageView gwd;
-    private int gwf;
+    CreateGroupStepActivity gwc;
+    TbImageView gwd;
+    private ImageView gwe;
+    private int gwg;
     private int mIndex;
     View mView;
-    private int gwa = 3;
-    private boolean gwe = false;
+    private int gwb = 3;
+    private boolean gwf = false;
 
     public b(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.gwb = null;
-        this.mView = null;
         this.gwc = null;
-        this.bNl = null;
+        this.mView = null;
         this.gwd = null;
-        this.gwb = createGroupStepActivity;
+        this.bNl = null;
+        this.gwe = null;
+        this.gwc = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(R.layout.create_group_step4_view, (ViewGroup) null);
-        this.gwc = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
+        this.gwd = (TbImageView) this.mView.findViewById(R.id.step4_img_bg);
         this.bNl = (TextView) this.mView.findViewById(R.id.txt_tip_view);
-        this.gwd = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
+        this.gwe = (ImageView) this.mView.findViewById(R.id.create_group_address_rightarrwow);
         this.mIndex = i;
         this.MU = i2;
-        this.gwf = i3;
+        this.gwg = i3;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -45,74 +45,74 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public int byq() {
+    public int byt() {
         return this.mIndex;
     }
 
-    public View byr() {
+    public View byu() {
         return this.bNl;
     }
 
-    public int bys() {
-        return this.gwa;
+    public int byv() {
+        return this.gwb;
     }
 
-    public void byt() {
-        this.gwd.setVisibility(0);
-        this.gwe = false;
-        byy();
+    public void byw() {
+        this.gwe.setVisibility(0);
+        this.gwf = false;
+        byB();
         this.bNl.setText(R.string.location_loading);
-        this.gwa = 3;
+        this.gwb = 3;
     }
 
     public void setBusiness(String str) {
-        this.gwd.setVisibility(0);
-        this.gwe = true;
-        byy();
+        this.gwe.setVisibility(0);
+        this.gwf = true;
+        byB();
         this.bNl.setText(str);
-        this.gwa = 0;
+        this.gwb = 0;
     }
 
     public void setAddress(String str) {
-        this.gwd.setVisibility(8);
-        this.gwe = true;
-        byy();
+        this.gwe.setVisibility(8);
+        this.gwf = true;
+        byB();
         this.bNl.setText(str);
-        this.gwa = 4;
+        this.gwb = 4;
     }
 
-    public void byu() {
-        this.gwd.setVisibility(0);
-        this.gwe = false;
-        byy();
-        this.bNl.setText(R.string.address_locate_failed_opengps);
-        this.gwa = 1;
-    }
-
-    public void byv() {
-        this.gwe = false;
-        byy();
-        this.bNl.setText(R.string.address_locate_failed_tryagain);
-        this.gwd.setVisibility(8);
-        this.gwa = 2;
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.o
-    public void byw() {
-        this.gwc.setBackgroundDrawable(null);
-    }
-
-    @Override // com.baidu.tieba.im.creategroup.o
     public void byx() {
-        boolean z = TbadkApplication.getInst().getSkinType() == 1;
-        this.gwb.getLayoutMode().setNightMode(z);
-        this.gwb.getLayoutMode().onModeChanged(this.mView);
-        this.gwc.startLoad(c.a(this.gwb.getActivity(), c.gwg, z), 29, false);
-        byy();
+        this.gwe.setVisibility(0);
+        this.gwf = false;
+        byB();
+        this.bNl.setText(R.string.address_locate_failed_opengps);
+        this.gwb = 1;
     }
 
-    private void byy() {
-        if (this.gwe) {
+    public void byy() {
+        this.gwf = false;
+        byB();
+        this.bNl.setText(R.string.address_locate_failed_tryagain);
+        this.gwe.setVisibility(8);
+        this.gwb = 2;
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.o
+    public void byz() {
+        this.gwd.setBackgroundDrawable(null);
+    }
+
+    @Override // com.baidu.tieba.im.creategroup.o
+    public void byA() {
+        boolean z = TbadkApplication.getInst().getSkinType() == 1;
+        this.gwc.getLayoutMode().setNightMode(z);
+        this.gwc.getLayoutMode().onModeChanged(this.mView);
+        this.gwd.startLoad(c.a(this.gwc.getActivity(), c.gwh, z), 29, false);
+        byB();
+    }
+
+    private void byB() {
+        if (this.gwf) {
             Drawable drawable = al.getDrawable(R.drawable.icon_jq_lbs_s);
             drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
             this.bNl.setCompoundDrawables(drawable, null, null, null);
@@ -127,19 +127,19 @@ public class b implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.gwb.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.MU));
+        return String.format(this.gwc.getPageContext().getString(R.string.group_create_step_address), Integer.valueOf(this.MU));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public String byz() {
-        if (this.mIndex != this.gwf) {
-            return this.gwb.getPageContext().getString(R.string.next_step);
+    public String byC() {
+        if (this.mIndex != this.gwg) {
+            return this.gwc.getPageContext().getString(R.string.next_step);
         }
-        return this.gwb.getPageContext().getString(R.string.group_create_step_done_tip);
+        return this.gwc.getPageContext().getString(R.string.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean byA() {
+    public boolean byD() {
         return true;
     }
 
@@ -149,7 +149,7 @@ public class b implements o {
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
-    public boolean byB() {
+    public boolean byE() {
         return true;
     }
 }

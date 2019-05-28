@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
     private ArrayList<a> bYP;
     private boolean caq;
-    private TextView gOi;
-    private ImageView gOj;
-    private TextView gOk;
+    private TextView gOj;
+    private ImageView gOk;
     private TextView gOl;
+    private TextView gOm;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.gOj = (ImageView) findViewById(R.id.no_network_icon);
-        this.gOk = (TextView) findViewById(R.id.no_network_guide1);
-        this.gOl = (TextView) findViewById(R.id.no_network_guide2);
-        this.gOi = (TextView) findViewById(R.id.no_network_showmore);
+        this.gOk = (ImageView) findViewById(R.id.no_network_icon);
+        this.gOl = (TextView) findViewById(R.id.no_network_guide1);
+        this.gOm = (TextView) findViewById(R.id.no_network_guide2);
+        this.gOj = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.gOi != null) {
-            this.gOi.setOnClickListener(onClickListener);
+        if (this.gOj != null) {
+            this.gOj.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.gOj, (int) R.drawable.icon_error);
+        al.c(this.gOk, (int) R.drawable.icon_error);
         al.k(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1) {
-            this.gOk.setTextColor(-10523526);
-            this.gOl.setTextColor(-8682095);
-            this.gOi.setTextColor(-10523526);
+            this.gOl.setTextColor(-10523526);
+            this.gOm.setTextColor(-8682095);
+            this.gOj.setTextColor(-10523526);
             return;
         }
-        this.gOk.setTextColor(-14277082);
-        this.gOl.setTextColor(-5065030);
-        this.gOi.setTextColor(-14277082);
+        this.gOl.setTextColor(-14277082);
+        this.gOm.setTextColor(-5065030);
+        this.gOj.setTextColor(-14277082);
     }
 }

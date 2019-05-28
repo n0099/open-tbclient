@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
-    private com.baidu.tieba.video.editvideo.data.a jpk;
+    private com.baidu.tieba.video.editvideo.data.a jpl;
     private List<com.baidu.tieba.video.editvideo.data.a> mList = new ArrayList();
 
     public void setData(List<com.baidu.tieba.video.editvideo.data.a> list) {
         if (list != null) {
             this.mList = list;
             if (this.mList.size() > 0) {
-                this.jpk = this.mList.get(0);
+                this.jpl = this.mList.get(0);
             }
         }
     }
@@ -50,16 +50,16 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_filter, (ViewGroup) null);
-            aVar.jpl = (TbImageView) view.findViewById(R.id.iv_effect);
-            aVar.jpl.setIsRound(true);
-            aVar.jpl.setDrawerType(1);
-            aVar.jpl.setDefaultBgResource(R.color.transparent);
-            aVar.jpl.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
-            aVar.jpl.setBorderColor(al.getColor(R.color.cp_link_tip_a));
-            aVar.jpl.setConrers(15);
-            aVar.hIF = (TextView) view.findViewById(R.id.tv_name);
-            al.j(aVar.hIF, R.color.cp_cont_j);
-            aVar.hIF = (TextView) view.findViewById(R.id.tv_name);
+            aVar.jpm = (TbImageView) view.findViewById(R.id.iv_effect);
+            aVar.jpm.setIsRound(true);
+            aVar.jpm.setDrawerType(1);
+            aVar.jpm.setDefaultBgResource(R.color.transparent);
+            aVar.jpm.setBorderWidth(l.g(viewGroup.getContext(), R.dimen.ds4));
+            aVar.jpm.setBorderColor(al.getColor(R.color.cp_link_tip_a));
+            aVar.jpm.setConrers(15);
+            aVar.hII = (TextView) view.findViewById(R.id.tv_name);
+            al.j(aVar.hII, R.color.cp_cont_j);
+            aVar.hII = (TextView) view.findViewById(R.id.tv_name);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -67,15 +67,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
         if (i >= 0 && i < this.mList.size()) {
             com.baidu.tieba.video.editvideo.data.a aVar2 = this.mList.get(i);
             if (aVar2 != null) {
-                aVar.jpl.setTag(aVar2);
-                aVar.jpl.setOnClickListener(this);
-                aVar.jpl.startLoad(String.valueOf(aVar2.jpN), 24, false);
-                aVar.hIF.setText(aVar2.name);
+                aVar.jpm.setTag(aVar2);
+                aVar.jpm.setOnClickListener(this);
+                aVar.jpm.startLoad(String.valueOf(aVar2.jpO), 24, false);
+                aVar.hII.setText(aVar2.name);
             }
-            if (!TextUtils.isEmpty(aVar2.name) && this.jpk != null && TextUtils.equals(aVar2.name, this.jpk.name)) {
-                aVar.jpl.setDrawBorder(true);
+            if (!TextUtils.isEmpty(aVar2.name) && this.jpl != null && TextUtils.equals(aVar2.name, this.jpl.name)) {
+                aVar.jpm.setDrawBorder(true);
             } else {
-                aVar.jpl.setDrawBorder(false);
+                aVar.jpm.setDrawBorder(false);
             }
         }
         return view;
@@ -84,15 +84,15 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.iv_effect && (view.getTag() instanceof com.baidu.tieba.video.editvideo.data.a)) {
-            this.jpk = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
+            this.jpl = (com.baidu.tieba.video.editvideo.data.a) view.getTag();
             notifyDataSetChanged();
         }
     }
 
     /* loaded from: classes5.dex */
     class a {
-        TextView hIF;
-        TbImageView jpl;
+        TextView hII;
+        TbImageView jpm;
 
         a() {
         }

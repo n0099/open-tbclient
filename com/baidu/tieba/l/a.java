@@ -25,12 +25,12 @@ import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public final class a {
     private static final String bNS = "code_cache" + File.separator + "secondary-dexes";
-    private static final Set<String> hqp = new HashSet();
-    private static final boolean hqq = Aw(System.getProperty("java.vm.version"));
+    private static final Set<String> hqs = new HashSet();
+    private static final boolean hqt = Aw(System.getProperty("java.vm.version"));
 
     public static void dT(Context context) {
         Log.i("MultiDex", "install");
-        if (hqq) {
+        if (hqt) {
             Log.i("MultiDex", "VM has multidex support, MultiDex support library is disabled.");
         } else if (Build.VERSION.SDK_INT < 4) {
             throw new RuntimeException("Multi dex installation failed. SDK " + Build.VERSION.SDK_INT + " is unsupported. Min SDK version is 4.");
@@ -38,11 +38,11 @@ public final class a {
             try {
                 ApplicationInfo applicationInfo = getApplicationInfo(context);
                 if (applicationInfo != null) {
-                    Set<String> set = hqp;
-                    synchronized (hqp) {
+                    Set<String> set = hqs;
+                    synchronized (hqs) {
                         String str = applicationInfo.sourceDir;
-                        if (!hqp.contains(str)) {
-                            hqp.add(str);
+                        if (!hqs.contains(str)) {
+                            hqs.add(str);
                             if (Build.VERSION.SDK_INT > 20) {
                                 Log.w("MultiDex", "MultiDex is not guaranteed to work in SDK version " + Build.VERSION.SDK_INT + ": SDK version higher than 20 should be backed by runtime with built-in multidex capabilty but it's not the case here: java.vm.version=\"" + System.getProperty("java.vm.version") + "\"");
                             }

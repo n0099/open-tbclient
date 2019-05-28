@@ -58,10 +58,10 @@ public class RotateLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void resetImpl() {
         this.mHeaderImage.clearAnimation();
-        axw();
+        axx();
     }
 
-    private void axw() {
+    private void axx() {
         if (this.cJV != null) {
             this.cJV.reset();
             this.mHeaderImage.setImageMatrix(this.cJV);

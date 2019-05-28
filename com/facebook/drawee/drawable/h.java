@@ -7,27 +7,27 @@ import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class h extends g {
     private Matrix GA;
-    private int jVr;
     private int jVs;
+    private int jVt;
     private Matrix mMatrix;
 
     public h(Drawable drawable, Matrix matrix) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jVr = 0;
         this.jVs = 0;
+        this.jVt = 0;
         this.mMatrix = matrix;
     }
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        cDn();
+        cDp();
         return j;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        cDm();
+        cDo();
         if (this.GA != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -43,22 +43,22 @@ public class h extends g {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cDn();
+        cDp();
     }
 
-    private void cDm() {
-        if (this.jVr != getCurrent().getIntrinsicWidth() || this.jVs != getCurrent().getIntrinsicHeight()) {
-            cDn();
+    private void cDo() {
+        if (this.jVs != getCurrent().getIntrinsicWidth() || this.jVt != getCurrent().getIntrinsicHeight()) {
+            cDp();
         }
     }
 
-    private void cDn() {
+    private void cDp() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.jVr = intrinsicWidth;
+        this.jVs = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.jVs = intrinsicHeight;
+        this.jVt = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.GA = null;

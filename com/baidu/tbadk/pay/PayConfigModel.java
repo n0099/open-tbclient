@@ -86,13 +86,16 @@ public class PayConfigModel extends BdBaseModel {
         if (!c.atX().atY()) {
             if (this.cyc != null) {
                 this.cyc.atU();
-                return;
             }
-            return;
+        } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
+            if (this.cyc != null) {
+                this.cyc.atV();
+            }
+        } else {
+            ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
+            clientConfigNetMessage.setType("payType");
+            sendMessage(clientConfigNetMessage);
         }
-        ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
-        clientConfigNetMessage.setType("payType");
-        sendMessage(clientConfigNetMessage);
     }
 
     public void onDestroy() {

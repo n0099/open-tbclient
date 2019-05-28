@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e implements AbsListView.OnScrollListener {
-    private a eXd;
-    private b eXf;
+    private a eXe;
+    private b eXg;
     private int mScrollState = -1;
-    private int eXe = 0;
+    private int eXf = 0;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -28,34 +28,34 @@ public class e implements AbsListView.OnScrollListener {
         View childAt;
         if (absListView != null && i >= 0 && absListView.getChildCount() > 0 && (childAt = absListView.getChildAt(0)) != null) {
             if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
-                if (this.eXe != 0 && this.eXf != null) {
-                    this.eXf.a(absListView, 0, -this.eXe);
+                if (this.eXf != 0 && this.eXg != null) {
+                    this.eXg.a(absListView, 0, -this.eXf);
                 }
-                this.eXe = 0;
-                this.eXd = null;
+                this.eXf = 0;
+                this.eXe = null;
                 return;
             }
             a aVar = new a(absListView, i);
-            if (this.eXd == null) {
-                this.eXd = aVar;
-                this.eXe = absListView.getPaddingTop() - childAt.getTop();
-                if (this.eXf != null) {
-                    this.eXf.a(absListView, this.eXe, 0);
+            if (this.eXe == null) {
+                this.eXe = aVar;
+                this.eXf = absListView.getPaddingTop() - childAt.getTop();
+                if (this.eXg != null) {
+                    this.eXg.a(absListView, this.eXf, 0);
                     return;
                 }
                 return;
             }
-            int a2 = this.eXd.a(aVar);
-            this.eXd = aVar;
-            this.eXe += a2;
-            if (this.eXf != null) {
-                this.eXf.a(absListView, this.eXe, a2);
+            int a2 = this.eXe.a(aVar);
+            this.eXe = aVar;
+            this.eXf += a2;
+            if (this.eXg != null) {
+                this.eXg.a(absListView, this.eXf, a2);
             }
         }
     }
 
     public void a(b bVar) {
-        this.eXf = bVar;
+        this.eXg = bVar;
     }
 
     /* loaded from: classes4.dex */

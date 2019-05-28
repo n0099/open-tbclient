@@ -15,20 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    public String fmY;
-    private PostSearchActivity iuE;
-    private String iuX;
-    public ArrayList<String> ivg;
-    public int iuY = 0;
-    public int iuZ = 0;
-    public int iva = 1;
-    public int ivb = 1;
-    public int ivc = 1;
-    public boolean ivd = false;
-    public boolean ive = false;
-    public boolean ivf = false;
-    private int ivh = 0;
-    private final HttpMessageListener ivi = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
+    public String fmZ;
+    private PostSearchActivity iuH;
+    private String iva;
+    public ArrayList<String> ivj;
+    public int ivb = 0;
+    public int ivc = 0;
+    public int ivd = 1;
+    public int ive = 1;
+    public int ivf = 1;
+    public boolean ivg = false;
+    public boolean ivh = false;
+    public boolean ivi = false;
+    private int ivk = 0;
+    private final HttpMessageListener ivl = new HttpMessageListener(CmdConfigHttp.CMD_POST_SEARCH) { // from class: com.baidu.tieba.postsearch.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -41,45 +41,45 @@ public class d {
                 boolean z = d.this.yE(intValue) > 1;
                 PostSearchHttpResponseMessage postSearchHttpResponseMessage = (PostSearchHttpResponseMessage) httpResponsedMessage;
                 if (statusCode == 200 && error == 0) {
-                    d.this.iuE.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
+                    d.this.iuH.a(intValue, postSearchHttpResponseMessage.getSearchData(), z);
                     d.this.yD(intValue);
-                    d.this.cdp();
                     d.this.cds();
+                    d.this.cdv();
                     return;
                 }
                 String errorString = postSearchHttpResponseMessage.getErrorString();
                 if (TextUtils.isEmpty(errorString)) {
-                    errorString = d.this.iuE.getResources().getString(R.string.neterror);
+                    errorString = d.this.iuH.getResources().getString(R.string.neterror);
                 }
-                d.this.iuE.showToast(errorString);
-                d.this.iuE.a(intValue, null, z);
+                d.this.iuH.showToast(errorString);
+                d.this.iuH.a(intValue, null, z);
             }
         }
     };
-    private CustomMessageListener ivj = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
+    private CustomMessageListener ivm = new CustomMessageListener(2009001) { // from class: com.baidu.tieba.postsearch.d.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Object data;
             if (customResponsedMessage != null && (data = customResponsedMessage.getData()) != null && (data instanceof ArrayList)) {
-                d.this.ivg = (ArrayList) data;
-                d.this.iuE.cdb();
+                d.this.ivj = (ArrayList) data;
+                d.this.iuH.cde();
             }
         }
     };
 
     public d(PostSearchActivity postSearchActivity) {
-        this.iuE = postSearchActivity;
-        this.iuE.registerListener(this.ivj);
-        this.iuE.registerListener(this.ivi);
+        this.iuH = postSearchActivity;
+        this.iuH.registerListener(this.ivm);
+        this.iuH.registerListener(this.ivl);
     }
 
     public boolean bg(String str, int i) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        if (!str.equals(this.fmY)) {
-            cdr();
+        if (!str.equals(this.fmZ)) {
+            cdu();
         }
         switch (i) {
             case 1:
@@ -94,70 +94,70 @@ public class d {
     }
 
     public boolean Cv(String str) {
-        if (this.ivd) {
+        if (this.ivg) {
             return false;
         }
-        this.fmY = str;
-        this.ivh = 1;
-        this.iuE.sendMessage(yC(this.ivh));
-        this.ivd = true;
+        this.fmZ = str;
+        this.ivk = 1;
+        this.iuH.sendMessage(yC(this.ivk));
+        this.ivg = true;
         return true;
     }
 
     public boolean Cw(String str) {
-        if (this.ive) {
+        if (this.ivh) {
             return false;
         }
-        this.fmY = str;
-        this.ivh = 2;
-        this.iuE.sendMessage(yC(this.ivh));
-        this.ive = true;
+        this.fmZ = str;
+        this.ivk = 2;
+        this.iuH.sendMessage(yC(this.ivk));
+        this.ivh = true;
         return true;
     }
 
     public boolean Cx(String str) {
-        if (this.ivf) {
+        if (this.ivi) {
             return false;
         }
-        this.fmY = str;
-        this.ivh = 3;
-        this.iuE.sendMessage(yC(this.ivh));
-        this.ivf = true;
+        this.fmZ = str;
+        this.ivk = 3;
+        this.iuH.sendMessage(yC(this.ivk));
+        this.ivi = true;
         return true;
     }
 
-    public void cdo() {
-        this.iuE.sendMessage(new CustomMessage(2009001));
-    }
-
-    public void cdp() {
-        if (!StringUtils.isNull(this.fmY) && !this.fmY.equals(this.iuX)) {
-            this.iuE.sendMessage(new CustomMessage(2009003, this.fmY));
-            this.iuX = this.fmY;
-        }
-    }
-
-    public void cdq() {
-        if (this.ivg != null) {
-            this.ivg.clear();
-        }
-        this.iuE.sendMessage(new CustomMessage(2009004));
-    }
-
     public void cdr() {
-        this.iva = 1;
-        this.ivb = 1;
-        this.ivc = 1;
+        this.iuH.sendMessage(new CustomMessage(2009001));
+    }
+
+    public void cds() {
+        if (!StringUtils.isNull(this.fmZ) && !this.fmZ.equals(this.iva)) {
+            this.iuH.sendMessage(new CustomMessage(2009003, this.fmZ));
+            this.iva = this.fmZ;
+        }
+    }
+
+    public void cdt() {
+        if (this.ivj != null) {
+            this.ivj.clear();
+        }
+        this.iuH.sendMessage(new CustomMessage(2009004));
+    }
+
+    public void cdu() {
+        this.ivd = 1;
+        this.ive = 1;
+        this.ivf = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cds() {
-        if (this.ivg == null) {
-            this.ivg = new ArrayList<>();
+    public void cdv() {
+        if (this.ivj == null) {
+            this.ivj = new ArrayList<>();
         }
-        this.ivg.remove(this.fmY);
-        this.ivg.add(0, this.fmY);
-        dW(this.ivg);
+        this.ivj.remove(this.fmZ);
+        this.ivj.add(0, this.fmZ);
+        dW(this.ivj);
     }
 
     private void dW(List<String> list) {
@@ -172,25 +172,25 @@ public class d {
 
     private HttpMessage yC(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_POST_SEARCH);
-        httpMessage.addParam("word", this.fmY);
+        httpMessage.addParam("word", this.fmZ);
         httpMessage.addParam("rn", 30);
-        httpMessage.addParam("kw", this.iuE.mForumName);
-        httpMessage.setExtra(Integer.valueOf(this.ivh));
+        httpMessage.addParam("kw", this.iuH.mForumName);
+        httpMessage.setExtra(Integer.valueOf(this.ivk));
         switch (i) {
             case 1:
                 httpMessage.addParam("sm", 1);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.iva);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.ivd);
                 break;
             case 2:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 0);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.ivb);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.ive);
                 break;
             case 3:
                 httpMessage.addParam("sm", 2);
                 httpMessage.addParam("only_thread", 1);
-                httpMessage.addParam(Config.PACKAGE_NAME, this.ivc);
+                httpMessage.addParam(Config.PACKAGE_NAME, this.ivf);
                 break;
         }
         return httpMessage;
@@ -200,13 +200,13 @@ public class d {
     public void yD(int i) {
         switch (i) {
             case 1:
-                this.iva++;
+                this.ivd++;
                 return;
             case 2:
-                this.ivb++;
+                this.ive++;
                 return;
             case 3:
-                this.ivc++;
+                this.ivf++;
                 return;
             default:
                 return;
@@ -217,11 +217,11 @@ public class d {
     public int yE(int i) {
         switch (i) {
             case 1:
-                return this.iva;
+                return this.ivd;
             case 2:
-                return this.ivb;
+                return this.ive;
             case 3:
-                return this.ivc;
+                return this.ivf;
             default:
                 return 0;
         }
@@ -231,13 +231,13 @@ public class d {
     public void yF(int i) {
         switch (i) {
             case 1:
-                this.ivd = false;
+                this.ivg = false;
                 return;
             case 2:
-                this.ive = false;
+                this.ivh = false;
                 return;
             case 3:
-                this.ivf = false;
+                this.ivi = false;
                 return;
             default:
                 return;

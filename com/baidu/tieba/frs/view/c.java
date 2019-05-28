@@ -22,26 +22,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends i {
-    private final k ezO;
-    private final List<g> ezR;
-    private final k.c ezW;
-    private FrsViewData fMO;
+    private final k ezP;
+    private final List<g> ezS;
+    private final k.c ezX;
+    private FrsViewData fMP;
     private Context mContext;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ezW = new k.c() { // from class: com.baidu.tieba.frs.view.c.1
+        this.ezX = new k.c() { // from class: com.baidu.tieba.frs.view.c.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 c.this.dismiss();
                 if (!j.jS()) {
                     l.showToast(c.this.mContext, (int) R.string.network_not_available);
                 } else if (i == 1) {
-                    TiebaStatic.log(new am("c13384").bT("fid", c.this.fMO.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()));
-                    if (c.this.fMO != null && c.this.fMO.getForum() != null && !StringUtils.isNull(c.this.fMO.getForum().getId()) && !StringUtils.isNull(c.this.fMO.getForum().getName())) {
+                    TiebaStatic.log(new am("c13384").bT("fid", c.this.fMP.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()));
+                    if (c.this.fMP != null && c.this.fMP.getForum() != null && !StringUtils.isNull(c.this.fMP.getForum().getId()) && !StringUtils.isNull(c.this.fMP.getForum().getName())) {
                         FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(c.this.mPageContext.getPageActivity());
-                        if (frsPrivateShareDialogView.d(c.this.fMO, c.this.mPageContext)) {
+                        if (frsPrivateShareDialogView.d(c.this.fMP, c.this.mPageContext)) {
                             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.mPageContext.getPageActivity());
                             aVar.hr(2);
                             aVar.aF(frsPrivateShareDialogView);
@@ -49,33 +49,33 @@ public class c extends i {
                         }
                     }
                 } else if (i == 2) {
-                    TiebaStatic.log(new am("c12402").bT("fid", c.this.fMO.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.fMO.getForum().getName()));
-                    if (!StringUtils.isNull(c.this.fMO.getForum().getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fMO.getForum().getName(), c.this.fMO.getForum().getId())));
+                    TiebaStatic.log(new am("c12402").bT("fid", c.this.fMP.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.fMP.getForum().getName()));
+                    if (!StringUtils.isNull(c.this.fMP.getForum().getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fMP.getForum().getName(), c.this.fMP.getForum().getId())));
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
         this.mContext = this.mPageContext.getPageActivity();
-        this.ezR = new ArrayList();
-        this.ezO = new k(this.mContext);
-        this.ezO.a(this.ezW);
-        setContentView(this.ezO.afZ());
+        this.ezS = new ArrayList();
+        this.ezP = new k(this.mContext);
+        this.ezP.a(this.ezX);
+        setContentView(this.ezP.afZ());
     }
 
     public void onChangeSkinType() {
-        if (this.ezO != null) {
-            this.ezO.onChangeSkinType();
+        if (this.ezP != null) {
+            this.ezP.onChangeSkinType();
         }
     }
 
     private void createView() {
-        if (this.ezR != null && this.ezO != null) {
-            this.ezR.clear();
-            this.ezR.add(new g(1, getString(R.string.share, new Object[0]), this.ezO));
-            this.ezR.add(new g(2, getString(R.string.search, new Object[0]), this.ezO));
-            this.ezO.W(this.ezR);
+        if (this.ezS != null && this.ezP != null) {
+            this.ezS.clear();
+            this.ezS.add(new g(1, getString(R.string.share, new Object[0]), this.ezP));
+            this.ezS.add(new g(2, getString(R.string.search, new Object[0]), this.ezP));
+            this.ezP.W(this.ezS);
         }
     }
 
@@ -87,7 +87,7 @@ public class c extends i {
     }
 
     public void m(FrsViewData frsViewData) {
-        this.fMO = frsViewData;
+        this.fMP = frsViewData;
         createView();
     }
 }

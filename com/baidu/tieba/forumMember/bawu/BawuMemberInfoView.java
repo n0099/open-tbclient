@@ -19,11 +19,11 @@ import com.baidu.tieba.R;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes5.dex */
 public class BawuMemberInfoView extends RelativeLayout {
-    private TextView ejr;
-    private TextView fkA;
-    private BawuRoleInfoPub fkB;
-    private HeadImageView fky;
-    private ImageView fkz;
+    private TextView ejs;
+    private ImageView fkA;
+    private TextView fkB;
+    private BawuRoleInfoPub fkC;
+    private HeadImageView fkz;
     private Context mContext;
     private View mRootView;
 
@@ -47,62 +47,62 @@ public class BawuMemberInfoView extends RelativeLayout {
 
     public void initView() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.bawu_member_info_item_layout, this);
-        this.fky = (HeadImageView) this.mRootView.findViewById(R.id.imageview_bawu_member);
-        this.fky.setIsRound(true);
-        this.fky.setBorderColor(al.getColor(R.color.common_color_10043));
-        this.fky.setBorderWidth(l.g(this.mContext, R.dimen.ds1));
+        this.fkz = (HeadImageView) this.mRootView.findViewById(R.id.imageview_bawu_member);
+        this.fkz.setIsRound(true);
+        this.fkz.setBorderColor(al.getColor(R.color.common_color_10043));
+        this.fkz.setBorderWidth(l.g(this.mContext, R.dimen.ds1));
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.BawuMemberInfoView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BawuMemberInfoView.this.fkB != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(BawuMemberInfoView.this.mContext, "" + BawuMemberInfoView.this.fkB.user_id, BawuMemberInfoView.this.fkB.user_name)));
+                if (BawuMemberInfoView.this.fkC != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(BawuMemberInfoView.this.mContext, "" + BawuMemberInfoView.this.fkC.user_id, BawuMemberInfoView.this.fkC.user_name)));
                 }
             }
         });
-        this.fkz = (ImageView) this.mRootView.findViewById(R.id.imageview_level_icon);
-        this.ejr = (TextView) this.mRootView.findViewById(R.id.textview_user_name);
-        this.fkA = (TextView) this.mRootView.findViewById(R.id.textview_user_level);
+        this.fkA = (ImageView) this.mRootView.findViewById(R.id.imageview_level_icon);
+        this.ejs = (TextView) this.mRootView.findViewById(R.id.textview_user_name);
+        this.fkB = (TextView) this.mRootView.findViewById(R.id.textview_user_level);
     }
 
     public void a(BawuRoleInfoPub bawuRoleInfoPub) {
         if (bawuRoleInfoPub != null) {
-            this.fkB = bawuRoleInfoPub;
-            this.fky.startLoad(bawuRoleInfoPub.portrait, 12, false);
-            this.ejr.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.fkC = bawuRoleInfoPub;
+            this.fkz.startLoad(bawuRoleInfoPub.portrait, 12, false);
+            this.ejs.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
             if (StringUtils.isNull(bawuRoleInfoPub.level_name)) {
-                this.fkA.setVisibility(8);
+                this.fkB.setVisibility(8);
             } else {
-                this.fkA.setText(bawuRoleInfoPub.level_name);
-                this.fkA.setVisibility(0);
+                this.fkB.setText(bawuRoleInfoPub.level_name);
+                this.fkB.setVisibility(0);
             }
             int smallGradeResourceIdNew = BitmapHelper.getSmallGradeResourceIdNew(bawuRoleInfoPub.user_level.intValue());
             if (smallGradeResourceIdNew == 0) {
-                this.fkz.setVisibility(8);
+                this.fkA.setVisibility(8);
                 return;
             }
-            this.fkz.setContentDescription(this.mContext.getString(R.string.degree) + bawuRoleInfoPub.user_level);
-            al.c(this.fkz, smallGradeResourceIdNew);
-            this.fkz.setVisibility(0);
+            this.fkA.setContentDescription(this.mContext.getString(R.string.degree) + bawuRoleInfoPub.user_level);
+            al.c(this.fkA, smallGradeResourceIdNew);
+            this.fkA.setVisibility(0);
         }
     }
 
     public HeadImageView getPhotoView() {
-        return this.fky;
-    }
-
-    public TextView getUserNameView() {
-        return this.ejr;
-    }
-
-    public ImageView getLevelIcon() {
         return this.fkz;
     }
 
-    public TextView getLevelNameView() {
+    public TextView getUserNameView() {
+        return this.ejs;
+    }
+
+    public ImageView getLevelIcon() {
         return this.fkA;
     }
 
-    public BawuRoleInfoPub getMemberData() {
+    public TextView getLevelNameView() {
         return this.fkB;
+    }
+
+    public BawuRoleInfoPub getMemberData() {
+        return this.fkC;
     }
 }

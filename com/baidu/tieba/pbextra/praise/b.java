@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
-    private View daq;
-    private HeadImageView ibk;
-    private TextView ibl;
-    private TextView ibm;
-    private ImageView ibn;
+    private View dar;
+    private HeadImageView ibn;
+    private TextView ibo;
+    private TextView ibp;
+    private ImageView ibq;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.daq = null;
-        this.ibk = null;
-        this.ibl = null;
-        this.ibm = null;
+        this.dar = null;
         this.ibn = null;
-        this.daq = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.ibk = (HeadImageView) this.daq.findViewById(R.id.zan_list_item_head);
-        this.ibl = (TextView) this.daq.findViewById(R.id.zan_list_item_name);
-        this.ibm = (TextView) this.daq.findViewById(R.id.zan_list_item_time);
-        this.ibn = (ImageView) this.daq.findViewById(R.id.zan_list_item_line_bottom);
-        this.ibn.setVisibility(0);
-        this.daq.setTag(this);
+        this.ibo = null;
+        this.ibp = null;
+        this.ibq = null;
+        this.dar = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.ibn = (HeadImageView) this.dar.findViewById(R.id.zan_list_item_head);
+        this.ibo = (TextView) this.dar.findViewById(R.id.zan_list_item_name);
+        this.ibp = (TextView) this.dar.findViewById(R.id.zan_list_item_time);
+        this.ibq = (ImageView) this.dar.findViewById(R.id.zan_list_item_line_bottom);
+        this.ibq.setVisibility(0);
+        this.dar.setTag(this);
     }
 
     public View getView() {
-        return this.daq;
+        return this.dar;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.ibl.setText(str);
-        this.ibk.setImageDrawable(null);
-        this.ibm.setText(ap.aC(j));
-        this.ibk.startLoad(str2, 28, false);
+        this.ibo.setText(str);
+        this.ibn.setImageDrawable(null);
+        this.ibp.setText(ap.aC(j));
+        this.ibn.startLoad(str2, 28, false);
     }
 }

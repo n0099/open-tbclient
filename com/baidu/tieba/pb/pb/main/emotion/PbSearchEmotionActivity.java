@@ -34,33 +34,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PbSearchEmotionActivity extends BaseActivity implements SearchEditView.a {
-    private String hPB;
-    private TextView hQA;
-    private FrameLayout hQB;
-    private d hQC;
-    private List<String> hQD;
-    private View hmh;
-    private BdListView htY;
-    private LinearLayout hue;
-    private SearchEditView hvc;
-    private TextView hvd;
-    private AutoLineWrapLayout hvf;
-    private SearchEmotionModel hvh;
-    private List<String> hvj;
-    private String hvk;
+    private String hPE;
+    private TextView hQD;
+    private FrameLayout hQE;
+    private d hQF;
+    private List<String> hQG;
+    private View hmk;
+    private BdListView hub;
+    private LinearLayout huh;
+    private SearchEditView hvf;
+    private TextView hvg;
+    private AutoLineWrapLayout hvi;
+    private SearchEmotionModel hvk;
+    private List<String> hvm;
+    private String hvn;
     private Activity mActivity;
     private int mCurrentPage;
     private List<EmotionImageData> mEmotionList;
     private boolean mHasMore;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
-    private final SearchEmotionModel.a eXF = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.3
+    private final SearchEmotionModel.a eXG = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.3
         @Override // com.baidu.tieba.face.SearchEmotionModel.a
         public void a(String str, com.baidu.tieba.face.data.a aVar) {
             PbSearchEmotionActivity.this.hideProgressBar();
-            if (aVar == null || aVar.bfb() == null || aVar.bfb().isEmpty()) {
+            if (aVar == null || aVar.bfe() == null || aVar.bfe().isEmpty()) {
                 if (PbSearchEmotionActivity.this.mCurrentPage == 0) {
-                    PbSearchEmotionActivity.this.bNQ();
+                    PbSearchEmotionActivity.this.bNT();
                     return;
                 }
                 return;
@@ -69,41 +69,41 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             if (PbSearchEmotionActivity.this.mCurrentPage == 1) {
                 PbSearchEmotionActivity.this.mEmotionList.clear();
             }
-            PbSearchEmotionActivity.this.mHasMore = aVar.bfa() != 0;
-            PbSearchEmotionActivity.this.mEmotionList.addAll(aVar.bfb());
-            if (PbSearchEmotionActivity.this.hQC == null) {
-                PbSearchEmotionActivity.this.hQC = new d(PbSearchEmotionActivity.this.mEmotionList);
-                PbSearchEmotionActivity.this.hQC.dJ(PbSearchEmotionActivity.this.hQD);
-                PbSearchEmotionActivity.this.hQC.a(PbSearchEmotionActivity.this.hFc);
-                PbSearchEmotionActivity.this.htY.setAdapter((ListAdapter) PbSearchEmotionActivity.this.hQC);
+            PbSearchEmotionActivity.this.mHasMore = aVar.bfd() != 0;
+            PbSearchEmotionActivity.this.mEmotionList.addAll(aVar.bfe());
+            if (PbSearchEmotionActivity.this.hQF == null) {
+                PbSearchEmotionActivity.this.hQF = new d(PbSearchEmotionActivity.this.mEmotionList);
+                PbSearchEmotionActivity.this.hQF.dJ(PbSearchEmotionActivity.this.hQG);
+                PbSearchEmotionActivity.this.hQF.a(PbSearchEmotionActivity.this.hFf);
+                PbSearchEmotionActivity.this.hub.setAdapter((ListAdapter) PbSearchEmotionActivity.this.hQF);
             } else {
-                PbSearchEmotionActivity.this.hQC.notifyDataSetChanged();
+                PbSearchEmotionActivity.this.hQF.notifyDataSetChanged();
             }
-            PbSearchEmotionActivity.this.bNN();
-            l.b(PbSearchEmotionActivity.this.mActivity, PbSearchEmotionActivity.this.hvc);
+            PbSearchEmotionActivity.this.bNQ();
+            l.b(PbSearchEmotionActivity.this.mActivity, PbSearchEmotionActivity.this.hvf);
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.a
         public void onFail(int i, String str) {
             PbSearchEmotionActivity.this.hideProgressBar();
             if (PbSearchEmotionActivity.this.mCurrentPage == 1) {
-                PbSearchEmotionActivity.this.bNQ();
+                PbSearchEmotionActivity.this.bNT();
             }
         }
     };
     private final BdListView.e mOnScrollToBottomListener = new BdListView.e() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            PbSearchEmotionActivity.this.bNP();
+            PbSearchEmotionActivity.this.bNS();
         }
     };
-    private final a hFc = new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.5
+    private final a hFf = new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.5
         @Override // com.baidu.tieba.pb.pb.main.emotion.a
         public void a(final EmotionImageData emotionImageData, boolean z) {
             if (!TbadkCoreApplication.isLogin()) {
                 bc.cE(PbSearchEmotionActivity.this.getPageContext().getPageActivity());
             } else if (!z) {
-                emotionImageData.setAuthorNameShow(PbSearchEmotionActivity.this.hPB);
+                emotionImageData.setAuthorNameShow(PbSearchEmotionActivity.this.hPE);
                 com.baidu.adp.lib.f.c.iv().a(emotionImageData.getPicUrl(), 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.5.1
                     /* JADX DEBUG: Method merged with bridge method */
                     /* JADX INFO: Access modifiers changed from: protected */
@@ -129,52 +129,52 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         setSwipeBackEnabled(false);
         Intent intent = getIntent();
         if (intent != null) {
-            this.hvj = intent.getStringArrayListExtra(PbSearchEmotionActivityConfig.TOP_WORDS);
-            this.hPB = intent.getStringExtra(PbSearchEmotionActivityConfig.AUTHOR_SHOW_NAME);
-            this.hvk = intent.getStringExtra(PbSearchEmotionActivityConfig.CURRENT_QUERY_WORD);
-            this.hQD = intent.getStringArrayListExtra(PbSearchEmotionActivityConfig.KEEP_IMG_CACHE_LIST);
+            this.hvm = intent.getStringArrayListExtra(PbSearchEmotionActivityConfig.TOP_WORDS);
+            this.hPE = intent.getStringExtra(PbSearchEmotionActivityConfig.AUTHOR_SHOW_NAME);
+            this.hvn = intent.getStringExtra(PbSearchEmotionActivityConfig.CURRENT_QUERY_WORD);
+            this.hQG = intent.getStringArrayListExtra(PbSearchEmotionActivityConfig.KEEP_IMG_CACHE_LIST);
         }
         initView();
-        this.hvh = new SearchEmotionModel();
+        this.hvk = new SearchEmotionModel();
         this.mCurrentPage = 1;
         this.mEmotionList = new ArrayList();
-        if (!TextUtils.isEmpty(this.hvk)) {
-            this.hvc.setText(this.hvk);
-            AH(this.hvk);
+        if (!TextUtils.isEmpty(this.hvn)) {
+            this.hvf.setText(this.hvn);
+            AH(this.hvn);
         }
     }
 
     private void initView() {
-        this.hue = (LinearLayout) this.mActivity.findViewById(R.id.layout_root);
-        this.hQB = (FrameLayout) this.mActivity.findViewById(R.id.layout_content);
-        this.hmh = this.mActivity.findViewById(R.id.view_line);
+        this.huh = (LinearLayout) this.mActivity.findViewById(R.id.layout_root);
+        this.hQE = (FrameLayout) this.mActivity.findViewById(R.id.layout_content);
+        this.hmk = this.mActivity.findViewById(R.id.view_line);
         this.mNavigationBar = (NavigationBar) this.mActivity.findViewById(R.id.view_navigation_bar);
         View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.pb_emotion_search_navigation_view, (View.OnClickListener) null);
-        this.hvc = (SearchEditView) addCustomView.findViewById(R.id.edit_search_view);
-        this.hvc.setCallback(this);
-        this.hQA = (TextView) addCustomView.findViewById(R.id.tv_cancel);
-        this.hvd = (TextView) this.mActivity.findViewById(R.id.tv_tips);
-        this.htY = (BdListView) this.mActivity.findViewById(R.id.listview_emotion);
-        this.htY.setOnSrollToBottomListener(this.mOnScrollToBottomListener);
-        this.hvc.setText("");
-        this.hvc.bfi();
-        ShowSoftKeyPadDelay(this.hvc, 200);
+        this.hvf = (SearchEditView) addCustomView.findViewById(R.id.edit_search_view);
+        this.hvf.setCallback(this);
+        this.hQD = (TextView) addCustomView.findViewById(R.id.tv_cancel);
+        this.hvg = (TextView) this.mActivity.findViewById(R.id.tv_tips);
+        this.hub = (BdListView) this.mActivity.findViewById(R.id.listview_emotion);
+        this.hub.setOnSrollToBottomListener(this.mOnScrollToBottomListener);
+        this.hvf.setText("");
+        this.hvf.bfl();
+        ShowSoftKeyPadDelay(this.hvf, 200);
         this.mActivity.getWindow().setSoftInputMode(1);
-        bVy();
-        bNM();
+        bVB();
+        bNP();
     }
 
-    private void bNM() {
-        this.hvf = (AutoLineWrapLayout) this.mActivity.findViewById(R.id.layout_hot_words);
-        if (this.hvj == null || this.hvj.isEmpty()) {
-            this.hvf.setVisibility(8);
+    private void bNP() {
+        this.hvi = (AutoLineWrapLayout) this.mActivity.findViewById(R.id.layout_hot_words);
+        if (this.hvm == null || this.hvm.isEmpty()) {
+            this.hvi.setVisibility(8);
             return;
         }
-        this.hvd.setVisibility(0);
-        this.hvd.setText(getResources().getString(R.string.hot_emotion));
-        int min = Math.min(this.hvj.size(), 10);
+        this.hvg.setVisibility(0);
+        this.hvg.setText(getResources().getString(R.string.hot_emotion));
+        int min = Math.min(this.hvm.size(), 10);
         for (int i = 0; i < min; i++) {
-            final String str = this.hvj.get(i);
+            final String str = this.hvm.get(i);
             if (!TextUtils.isEmpty(str)) {
                 String str2 = str.length() > 20 ? str.substring(0, 20) + "..." : str;
                 TextView textView = new TextView(this.mActivity);
@@ -188,19 +188,19 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
                 textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        PbSearchEmotionActivity.this.hvc.setText(str);
-                        PbSearchEmotionActivity.this.hvc.setSelection(str.length());
+                        PbSearchEmotionActivity.this.hvf.setText(str);
+                        PbSearchEmotionActivity.this.hvf.setSelection(str.length());
                         PbSearchEmotionActivity.this.AH(str);
                         TiebaStatic.log("c12178");
                     }
                 });
-                this.hvf.addView(textView);
+                this.hvi.addView(textView);
             }
         }
     }
 
-    private void bVy() {
-        this.hQA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.2
+    private void bVB() {
+        this.hQD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.PbSearchEmotionActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 PbSearchEmotionActivity.this.finish();
@@ -217,37 +217,26 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
             }
             showProgressBar();
             this.mCurrentPage = 0;
-            this.hvk = str;
-            this.hvh.a(str, this.mCurrentPage + 1, 40, this.eXF);
+            this.hvn = str;
+            this.hvk.a(str, this.mCurrentPage + 1, 40, this.eXG);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bNP() {
+    public void bNS() {
         if (!j.jS()) {
             showToast(R.string.neterror);
         } else if (this.mHasMore) {
             showProgressBar();
-            this.hvh.a(this.hvk, this.mCurrentPage + 1, 40, this.eXF);
+            this.hvk.a(this.hvn, this.mCurrentPage + 1, 40, this.eXG);
         }
     }
 
-    private void bNO() {
-        this.hvf.setVisibility(0);
-        this.hvd.setText(getResources().getString(R.string.hot_emotion));
-        this.hvd.setVisibility(0);
-        this.htY.setVisibility(8);
-        if (this.mNoDataView != null) {
-            this.mNoDataView.setVisibility(8);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bNN() {
-        this.htY.setVisibility(0);
-        this.hvd.setText(getResources().getString(R.string.click_send_emotion));
-        this.hvd.setVisibility(0);
-        this.hvf.setVisibility(8);
+    private void bNR() {
+        this.hvi.setVisibility(0);
+        this.hvg.setText(getResources().getString(R.string.hot_emotion));
+        this.hvg.setVisibility(0);
+        this.hub.setVisibility(8);
         if (this.mNoDataView != null) {
             this.mNoDataView.setVisibility(8);
         }
@@ -255,14 +244,25 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bNQ() {
+        this.hub.setVisibility(0);
+        this.hvg.setText(getResources().getString(R.string.click_send_emotion));
+        this.hvg.setVisibility(0);
+        this.hvi.setVisibility(8);
+        if (this.mNoDataView != null) {
+            this.mNoDataView.setVisibility(8);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bNT() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.hQB, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.iH(R.string.no_search_emotion), null);
+            this.mNoDataView = NoDataViewFactory.a(this.mActivity, this.hQE, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.mActivity, R.dimen.ds320)), NoDataViewFactory.d.iH(R.string.no_search_emotion), null);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         this.mNoDataView.setVisibility(0);
-        this.hvf.setVisibility(8);
-        this.htY.setVisibility(8);
-        this.hvd.setVisibility(8);
+        this.hvi.setVisibility(8);
+        this.hub.setVisibility(8);
+        this.hvg.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -299,26 +299,26 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.hue);
-        al.k(this.hue, R.color.cp_bg_line_d);
-        al.l(this.hmh, R.color.cp_bg_line_c);
+        getLayoutMode().onModeChanged(this.huh);
+        al.k(this.huh, R.color.cp_bg_line_d);
+        al.l(this.hmk, R.color.cp_bg_line_c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hvh != null) {
-            this.hvh.cancelLoadData();
+        if (this.hvk != null) {
+            this.hvk.cancelLoadData();
         }
-        if (this.htY != null) {
-            this.htY.removeAllViewsInLayout();
-            this.htY = null;
+        if (this.hub != null) {
+            this.hub.removeAllViewsInLayout();
+            this.hub = null;
         }
-        if (this.hQC != null) {
-            this.hQC.removeListener();
-            this.hQC.bNS();
-            this.hQC = null;
+        if (this.hQF != null) {
+            this.hQF.removeListener();
+            this.hQF.bNV();
+            this.hQF = null;
         }
     }
 
@@ -331,10 +331,10 @@ public class PbSearchEmotionActivity extends BaseActivity implements SearchEditV
     public void vz(String str) {
         if (this.mEmotionList != null && str.length() == 0) {
             this.mEmotionList.clear();
-            if (this.hQC != null) {
-                this.hQC.notifyDataSetChanged();
+            if (this.hQF != null) {
+                this.hQF.notifyDataSetChanged();
             }
-            bNO();
+            bNR();
         }
     }
 }

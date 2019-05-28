@@ -19,13 +19,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private int get = 0;
-    private com.baidu.tieba.homepage.personalize.b.d geu = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c fYd = new c();
-    private final int dqz = com.baidu.tbadk.core.sharedPref.b.agM().getInt("home_page_max_thread_count", 300);
+    private int geu = 0;
+    private com.baidu.tieba.homepage.personalize.b.d gev = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c fYe = new c();
+    private final int dqA = com.baidu.tbadk.core.sharedPref.b.agM().getInt("home_page_max_thread_count", 300);
 
-    public int buw() {
-        return this.dqz;
+    public int buz() {
+        return this.dqA;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -41,15 +41,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.dqz);
+        a(builder, i, this.dqA);
         d.e(builder);
         List<p> b = d.b(builder);
         cF(b);
         List<m> l = l(builder.thread_list, b);
-        this.geu.cI(l);
+        this.gev.cI(l);
         b.a(builder, l);
-        this.fYd.cPV = l;
-        return this.fYd;
+        this.fYe.cPV = l;
+        return this.fYe;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -67,7 +67,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.get);
+        d.a(z, builder, builder2, i, this.geu);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -83,7 +83,7 @@ public class a {
                 }
             }
             if (i == 1) {
-                this.geu.aF(list);
+                this.gev.aF(list);
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
                         if (!hashSet2.contains(threadInfo2.lego_card)) {
@@ -94,7 +94,7 @@ public class a {
                     }
                 }
             } else {
-                this.geu.a(z, list2.size() - 1, list, list2);
+                this.gev.a(z, list2.size() - 1, list, list2);
                 for (int Z2 = v.Z(list2) - 1; Z2 >= 0; Z2--) {
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, Z2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
@@ -107,8 +107,8 @@ public class a {
                 }
             }
             int Z3 = v.Z(list);
-            this.fYd.gew = Z3 - Z;
-            this.get = Z3 - Z;
+            this.fYe.gex = Z3 - Z;
+            this.geu = Z3 - Z;
         }
     }
 

@@ -47,56 +47,56 @@ public class TbRichTextItem extends OrmObject {
         this.cKS = tbRichTextLinkImageInfo;
     }
 
-    public TbRichTextLinkImageInfo axN() {
+    public TbRichTextLinkImageInfo axO() {
         if (this.mType == 1280) {
             return this.cKS;
         }
         return null;
     }
 
-    public TbRichTextLinkButtonInfo axO() {
+    public TbRichTextLinkButtonInfo axP() {
         if (this.mType == 1024) {
             return this.cKT;
         }
         return null;
     }
 
-    public TbRichTextImageInfo axF() {
+    public TbRichTextImageInfo axG() {
         if (this.mType == 8) {
             return this.cKN;
         }
         return null;
     }
 
-    public f axJ() {
+    public f axK() {
         if (this.mType != 32) {
             return null;
         }
         return this.cKR;
     }
 
-    public TbRichTextVoiceInfo axH() {
+    public TbRichTextVoiceInfo axI() {
         if (this.mType == 512 || this.mType == 768) {
             return this.cbi;
         }
         return null;
     }
 
-    public TbRichTextEmotionInfo axK() {
+    public TbRichTextEmotionInfo axL() {
         if (this.mType == 17) {
             return this.cKQ;
         }
         return null;
     }
 
-    public TbRichTextMemeInfo axL() {
+    public TbRichTextMemeInfo axM() {
         if (this.mType == 20) {
             return this.cKU;
         }
         return null;
     }
 
-    private SpannableString axZ() {
+    private SpannableString aya() {
         if (this.mType != 1 || this.cLm == null) {
             return null;
         }
@@ -112,8 +112,8 @@ public class TbRichTextItem extends OrmObject {
             if (E != null) {
                 spannableStringBuilder.append(E);
             }
-            if (this.cLm.axA() == 1) {
-                b = b(this.mType, this.cLm.getText(), this.cLm.axB(), 0);
+            if (this.cLm.axB() == 1) {
+                b = b(this.mType, this.cLm.getText(), this.cLm.axC(), 0);
             } else {
                 b = b(this.mType, this.cLm.getText(), this.cLm.getText(), 0);
             }
@@ -149,23 +149,23 @@ public class TbRichTextItem extends OrmObject {
         if (this.mType != 32 || this.cLm == null) {
             return null;
         }
-        if (this.cLm.axA() == 1) {
-            return this.cLm.axB();
+        if (this.cLm.axB() == 1) {
+            return this.cLm.axC();
         }
         return this.cLm.getText();
     }
 
-    private SpannableString aya() {
+    private SpannableString ayb() {
         if ((this.mType != 2 && this.mType != 18) || this.cLm == null) {
             return null;
         }
-        if (this.cLm.axA() == 1) {
-            return b(this.mType, this.cLm.getText(), this.cLm.axB(), 0);
+        if (this.cLm.axB() == 1) {
+            return b(this.mType, this.cLm.getText(), this.cLm.axC(), 0);
         }
-        return b(this.mType, this.cLm.getText(), this.cLm.getLink(), this.cLm.axC());
+        return b(this.mType, this.cLm.getText(), this.cLm.getLink(), this.cLm.axD());
     }
 
-    private SpannableString ayb() {
+    private SpannableString ayc() {
         if (this.mType != 256 || this.cLm == null) {
             return null;
         }
@@ -183,7 +183,7 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString ayc() {
+    private SpannableString ayd() {
         if (this.mType != 16 || this.cLm == null) {
             return null;
         }
@@ -242,7 +242,7 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString ayd() {
+    private SpannableString aye() {
         if (this.mType != 1024 || this.cKT == null) {
             return null;
         }
@@ -259,9 +259,9 @@ public class TbRichTextItem extends OrmObject {
     public CharSequence G(ArrayList<b> arrayList) {
         switch (this.mType) {
             case 1:
-                return axZ();
-            case 2:
                 return aya();
+            case 2:
+                return ayb();
             case 4:
                 return F(arrayList);
             case 8:
@@ -269,22 +269,22 @@ public class TbRichTextItem extends OrmObject {
             default:
                 return null;
             case 16:
-                return ayc();
+                return ayd();
             case 18:
-                return aya();
+                return ayb();
             case 32:
                 return C(arrayList);
             case 128:
                 return D(arrayList);
             case 256:
-                return ayb();
+                return ayc();
             case 1024:
-                return ayd();
+                return aye();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.cKR.ayn() != false) goto L9;
+        if (r7.cKR.ayo() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -361,7 +361,7 @@ public class TbRichTextItem extends OrmObject {
                     break;
             }
             if (this.mType != 1 && this.cLm != null) {
-                this.cLm.axD();
+                this.cLm.axE();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -418,7 +418,7 @@ public class TbRichTextItem extends OrmObject {
                 }
             }
             if (this.mType != 1 && this.cLm != null) {
-                this.cLm.axD();
+                this.cLm.axE();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class c {
-    private a fGB;
-    private HttpMessageListener fGF = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
+    private a fGC;
+    private HttpMessageListener fGG = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fGB != null) {
-                c.this.fGB.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fGC != null) {
+                c.this.fGC.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
@@ -26,9 +26,9 @@ public class c {
     }
 
     public c(a aVar) {
-        this.fGB = aVar;
+        this.fGC = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.fGF);
+        MessageManager.getInstance().registerListener(this.fGG);
     }
 
     private void registerTask() {
@@ -48,6 +48,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        MessageManager.getInstance().unRegisterListener(this.fGF);
+        MessageManager.getInstance().unRegisterListener(this.fGG);
     }
 }

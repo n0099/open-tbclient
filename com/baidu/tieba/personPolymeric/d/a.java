@@ -23,21 +23,21 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes6.dex */
 public class a extends v.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a ikU;
-    private static String ikV;
+    private static com.baidu.adp.widget.ImageView.a ikX;
+    private static String ikY;
     public TextView Xr;
     public TextView bZW;
     public TextView caT;
-    public HeadImageView fIJ;
-    private final LinearLayout hsh;
-    public ReplyLinearLayout ikP;
-    public TextView ikQ;
-    protected final LinearLayout ikR;
-    protected final ColumnLayout ikS;
-    protected final ColumnLayout ikT;
-    private int ikW;
-    public LinearLayout ikX;
-    public TextView ikY;
+    public HeadImageView fIK;
+    private final LinearLayout hsk;
+    public ReplyLinearLayout ikS;
+    public TextView ikT;
+    protected final LinearLayout ikU;
+    protected final ColumnLayout ikV;
+    protected final ColumnLayout ikW;
+    private int ikZ;
+    public LinearLayout ila;
+    public TextView ilb;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -45,40 +45,40 @@ public class a extends v.a implements View.OnClickListener {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.ikP = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.ikP.setIsHost(this.mIsHost);
-        this.ikQ = (TextView) view.findViewById(R.id.original_post_title);
-        this.ikX = (LinearLayout) view.findViewById(R.id.top_line);
-        this.fIJ = (HeadImageView) view.findViewById(R.id.portrait);
+        this.ikS = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.ikS.setIsHost(this.mIsHost);
+        this.ikT = (TextView) view.findViewById(R.id.original_post_title);
+        this.ila = (LinearLayout) view.findViewById(R.id.top_line);
+        this.fIK = (HeadImageView) view.findViewById(R.id.portrait);
         this.Xr = (TextView) view.findViewById(R.id.username);
         this.bZW = (TextView) view.findViewById(R.id.reply_time);
         this.caT = (TextView) view.findViewById(R.id.forum_name);
-        this.ikY = (TextView) view.findViewById(R.id.reply_count);
-        this.hsh = (LinearLayout) view.findViewById(R.id.item_content);
-        this.ikS = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.ikT = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.ikR = (LinearLayout) view.findViewById(R.id.person_child);
-        this.ikW = l.dip2px(view.getContext(), 42.0f);
-        if (this.hsh != null) {
-            this.hsh.setOnClickListener(this);
+        this.ilb = (TextView) view.findViewById(R.id.reply_count);
+        this.hsk = (LinearLayout) view.findViewById(R.id.item_content);
+        this.ikV = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.ikW = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.ikU = (LinearLayout) view.findViewById(R.id.person_child);
+        this.ikZ = l.dip2px(view.getContext(), 42.0f);
+        if (this.hsk != null) {
+            this.hsk.setOnClickListener(this);
         }
-        this.fIJ.setOnClickListener(this);
+        this.fIK.setOnClickListener(this);
         this.Xr.setOnClickListener(this);
         this.caT.setOnClickListener(this);
-        this.ikY.setOnClickListener(this);
-        this.ikS.setOnClickListener(this);
+        this.ilb.setOnClickListener(this);
+        this.ikV.setOnClickListener(this);
+        this.ikW.setOnClickListener(this);
         this.ikT.setOnClickListener(this);
-        this.ikQ.setOnClickListener(this);
     }
 
     public void iP(int i) {
-        al.k(this.ikQ, R.color.cp_bg_line_e);
+        al.k(this.ikT, R.color.cp_bg_line_e);
         al.l(getView(), R.color.cp_bg_line_c);
-        al.k(this.ikR, R.drawable.daily_recommend_item_selector);
+        al.k(this.ikU, R.drawable.daily_recommend_item_selector);
         al.f(this.Xr, R.color.cp_cont_d, 1);
         al.f(this.bZW, R.color.cp_cont_d, 1);
         al.f(this.caT, R.color.cp_cont_d, 1);
-        al.f(this.ikY, R.color.cp_cont_d, 1);
+        al.f(this.ilb, R.color.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
@@ -89,7 +89,7 @@ public class a extends v.a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.ikQ && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.ikT && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -198,26 +198,26 @@ public class a extends v.a implements View.OnClickListener {
             this.bZW.setText(str3);
             this.caT.setText(str2);
             this.caT.setTag(str2);
-            this.ikY.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
+            this.ilb.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
             this.caT.setOnClickListener(this);
             Cc(str);
-            if (this.hsh != null) {
-                this.hsh.setTag(strArr);
+            if (this.hsk != null) {
+                this.hsk.setTag(strArr);
             }
-            this.ikS.setTag(strArr);
-            this.ikT.setTag(strArr);
+            this.ikV.setTag(strArr);
+            this.ikW.setTag(strArr);
         }
     }
 
     private void Cc(String str) {
-        if (ikV != null && !ikV.equals(str)) {
-            ikU = null;
+        if (ikY != null && !ikY.equals(str)) {
+            ikX = null;
         }
-        if (ikU != null) {
-            this.fIJ.setImageBitmap(ikU.ns());
-            ikV = str;
+        if (ikX != null) {
+            this.fIK.setImageBitmap(ikX.ns());
+            ikY = str;
             return;
         }
-        this.fIJ.startLoad(str, 12, this.ikW, this.ikW, false);
+        this.fIK.startLoad(str, 12, this.ikZ, this.ikZ, false);
     }
 }

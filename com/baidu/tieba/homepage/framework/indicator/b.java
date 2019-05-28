@@ -10,12 +10,12 @@ import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
 /* loaded from: classes4.dex */
 public class b extends AppBarLayout.Behavior {
     private AppBarLayout PR;
-    private StickyAppBarLayout.a gaX;
-    private NestedScrollHeader gaY;
-    private HomeTabBarView gaZ;
+    private StickyAppBarLayout.a gaY;
+    private NestedScrollHeader gaZ;
+    private HomeTabBarView gba;
     private boolean PU = false;
     private boolean PV = false;
-    private float gba = -1.0f;
+    private float gbb = -1.0f;
     AppBarLayout.OnOffsetChangedListener PT = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.tieba.homepage.framework.indicator.b.1
         @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
@@ -25,18 +25,18 @@ public class b extends AppBarLayout.Behavior {
             if (abs >= totalScrollRange) {
                 if (!b.this.PU) {
                     b.this.PU = true;
-                    if (b.this.gaX != null) {
-                        b.this.gaX.la(b.this.PU);
+                    if (b.this.gaY != null) {
+                        b.this.gaY.la(b.this.PU);
                     }
                 }
             } else if (b.this.PU) {
                 b.this.PU = false;
-                if (b.this.gaX != null) {
-                    b.this.gaX.la(b.this.PU);
+                if (b.this.gaY != null) {
+                    b.this.gaY.la(b.this.PU);
                 }
             }
-            if (b.this.gba != abs) {
-                b.this.gba = abs;
+            if (b.this.gbb != abs) {
+                b.this.gbb = abs;
                 if (totalScrollRange > 0.0f) {
                     if (abs != 0.0f) {
                         if (abs >= totalScrollRange) {
@@ -52,16 +52,16 @@ public class b extends AppBarLayout.Behavior {
     };
 
     public void setOnHeaderStickyListener(StickyAppBarLayout.a aVar) {
-        this.gaX = aVar;
+        this.gaY = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aG(float f) {
-        if (this.gaZ != null) {
-            this.gaZ.aF(f);
+        if (this.gba != null) {
+            this.gba.aF(f);
         }
-        if (this.gaY != null) {
-            this.gaY.aF(1.0f - f);
+        if (this.gaZ != null) {
+            this.gaZ.aF(1.0f - f);
         }
     }
 
@@ -78,7 +78,7 @@ public class b extends AppBarLayout.Behavior {
         });
     }
 
-    public void btJ() {
+    public void btM() {
         if (this.PR != null) {
             this.PR.setExpanded(true, true);
         }
@@ -113,13 +113,13 @@ public class b extends AppBarLayout.Behavior {
             this.PR = appBarLayout;
             View findViewById = this.PR.findViewById(R.id.home_nested_header);
             if (findViewById instanceof NestedScrollHeader) {
-                this.gaY = (NestedScrollHeader) findViewById;
+                this.gaZ = (NestedScrollHeader) findViewById;
             }
             View findViewById2 = this.PR.findViewById(R.id.home_tab_bar_view);
             if (findViewById2 instanceof HomeTabBarView) {
-                this.gaZ = (HomeTabBarView) findViewById2;
+                this.gba = (HomeTabBarView) findViewById2;
             }
-            btK();
+            btN();
         }
         if (this.PR != null && !this.PV) {
             this.PR.addOnOffsetChangedListener(this.PT);
@@ -128,7 +128,7 @@ public class b extends AppBarLayout.Behavior {
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
 
-    public void btK() {
+    public void btN() {
         StickyAppBarLayout.a onHeaderStickyListener;
         if ((this.PR instanceof StickyAppBarLayout) && (onHeaderStickyListener = ((StickyAppBarLayout) this.PR).getOnHeaderStickyListener()) != null) {
             setOnHeaderStickyListener(onHeaderStickyListener);

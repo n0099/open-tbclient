@@ -27,22 +27,22 @@ public class a {
     private BdListView MS;
     private TextView bNl;
     private View cwu;
-    private ViewEventCenter eQn;
-    private View eTG;
-    private TextView eTH;
-    private View eTI;
-    private TextView eTJ;
-    private c eTK;
-    private MultiConcernModel eTL;
-    private MultiConcernModel.a eTM;
+    private ViewEventCenter eQo;
+    private View eTH;
+    private TextView eTI;
+    private View eTJ;
+    private TextView eTK;
+    private c eTL;
+    private MultiConcernModel eTM;
+    private MultiConcernModel.a eTN;
     private List<b> forumList;
     private boolean isShowing = false;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != a.this.cwu) {
-                if (view != a.this.eTH) {
-                    if (view == a.this.eTJ) {
+                if (view != a.this.eTI) {
+                    if (view == a.this.eTK) {
                         ArrayList<Long> arrayList = new ArrayList<>();
                         StringBuilder sb = new StringBuilder();
                         for (b bVar : a.this.forumList) {
@@ -53,42 +53,42 @@ public class a {
                         }
                         TiebaStatic.log(new am("c12239").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT("fid", sb.toString()));
                         if (v.aa(arrayList)) {
-                            a.this.aGK();
+                            a.this.aGN();
                             com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("show_recommend_forums_window_", false);
                             return;
                         } else if (!l.ki()) {
                             l.showToast(a.this.mContext.getPageActivity(), (int) R.string.neterror);
                             return;
                         } else {
-                            a.this.eTJ.setClickable(false);
-                            if (a.this.eTL == null) {
-                                a.this.eTL = new MultiConcernModel(a.this.mContext);
-                            }
+                            a.this.eTK.setClickable(false);
                             if (a.this.eTM == null) {
-                                a.this.eTM = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
+                                a.this.eTM = new MultiConcernModel(a.this.mContext);
+                            }
+                            if (a.this.eTN == null) {
+                                a.this.eTN = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
                                     @Override // com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.a
                                     public void ah(int i, String str) {
-                                        a.this.eTJ.setClickable(true);
+                                        a.this.eTK.setClickable(true);
                                         if (i != 0) {
                                             l.showToast(a.this.mContext.getPageActivity(), str);
                                             return;
                                         }
-                                        a.this.aGK();
+                                        a.this.aGN();
                                         com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("show_recommend_forums_window_", false);
-                                        if (a.this.eQn != null) {
-                                            a.this.eQn.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
+                                        if (a.this.eQo != null) {
+                                            a.this.eQo.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
                                         }
                                     }
                                 };
-                                a.this.eTL.a(a.this.eTM);
+                                a.this.eTM.a(a.this.eTN);
                             }
-                            a.this.eTL.O(arrayList);
+                            a.this.eTM.O(arrayList);
                             return;
                         }
                     }
                     return;
                 }
-                a.this.aGK();
+                a.this.aGN();
                 com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("show_recommend_forums_window_", false);
                 TiebaStatic.log(new am("c12240").bT("uid", TbadkCoreApplication.getCurrentAccount()));
             }
@@ -101,33 +101,33 @@ public class a {
         if (tbPageContext != null && viewGroup != null) {
             this.mContext = tbPageContext;
             this.mRootView = viewGroup;
-            this.eQn = viewEventCenter;
+            this.eQo = viewEventCenter;
         }
     }
 
     private void createView() {
         this.cwu = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.layout_recommend_forums_by_tag, (ViewGroup) null);
-        this.eTG = this.cwu.findViewById(R.id.rec_forum_list_container);
-        this.eTH = (TextView) this.cwu.findViewById(R.id.view_skip);
+        this.eTH = this.cwu.findViewById(R.id.rec_forum_list_container);
+        this.eTI = (TextView) this.cwu.findViewById(R.id.view_skip);
         this.bNl = (TextView) this.cwu.findViewById(R.id.view_recommend_tip);
-        this.eTI = this.cwu.findViewById(R.id.view_top_divider);
+        this.eTJ = this.cwu.findViewById(R.id.view_top_divider);
         this.MS = (BdListView) this.cwu.findViewById(R.id.listview_forums);
-        this.eTJ = (TextView) this.cwu.findViewById(R.id.view_forums_concern);
-        this.eTJ.setClickable(true);
-        this.eTK = new c(this.mContext.getPageActivity());
-        this.MS.setAdapter((ListAdapter) this.eTK);
+        this.eTK = (TextView) this.cwu.findViewById(R.id.view_forums_concern);
+        this.eTK.setClickable(true);
+        this.eTL = new c(this.mContext.getPageActivity());
+        this.MS.setAdapter((ListAdapter) this.eTL);
         this.MS.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (v.c(a.this.forumList, i) != null) {
                     ((b) v.c(a.this.forumList, i)).isSelected = !((b) v.c(a.this.forumList, i)).isSelected;
-                    a.this.eTK.setData(a.this.forumList);
-                    a.this.eTK.notifyDataSetChanged();
+                    a.this.eTL.setData(a.this.forumList);
+                    a.this.eTL.notifyDataSetChanged();
                 }
             }
         });
-        this.eTH.setOnClickListener(this.mClickListener);
-        this.eTJ.setOnClickListener(this.mClickListener);
+        this.eTI.setOnClickListener(this.mClickListener);
+        this.eTK.setOnClickListener(this.mClickListener);
         this.cwu.setOnClickListener(this.mClickListener);
         onChangeSkinType();
     }
@@ -136,13 +136,13 @@ public class a {
         this.forumList = list;
         if (!this.isShowing && this.mRootView != null) {
             if (v.aa(list)) {
-                aGK();
+                aGN();
                 return;
             }
             if (this.cwu == null) {
                 createView();
             }
-            this.eTJ.setClickable(true);
+            this.eTK.setClickable(true);
             this.isShowing = true;
             if (this.cwu.getParent() == null) {
                 e.be(this.mRootView).a(this.mRootView, this.cwu, false);
@@ -153,16 +153,16 @@ public class a {
                     Animation loadAnimation = AnimationUtils.loadAnimation(a.this.mContext.getPageActivity(), R.anim.anim_recommend_forums_window);
                     loadAnimation.setFillAfter(true);
                     a.this.cwu.setVisibility(0);
-                    a.this.eTG.startAnimation(loadAnimation);
+                    a.this.eTH.startAnimation(loadAnimation);
                 }
             }, 100L);
-            this.eTK.setData(this.forumList);
-            this.eTK.notifyDataSetChanged();
+            this.eTL.setData(this.forumList);
+            this.eTL.notifyDataSetChanged();
             TiebaStatic.log(new am("c12238").bT("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public void aGK() {
+    public void aGN() {
         if (this.isShowing) {
             this.isShowing = false;
             if (this.cwu != null && this.mRootView != null) {
@@ -175,24 +175,24 @@ public class a {
     }
 
     public void onDestroy() {
-        aGK();
-        if (this.eTL != null) {
-            this.eTL.cancelMessage();
+        aGN();
+        if (this.eTM != null) {
+            this.eTM.cancelMessage();
         }
     }
 
     public void onChangeSkinType() {
-        al.j(this.eTH, R.color.cp_cont_d);
+        al.j(this.eTI, R.color.cp_cont_d);
         al.j(this.bNl, R.color.cp_cont_d);
-        al.l(this.eTI, R.color.cp_bg_line_c);
-        al.j(this.eTJ, R.color.common_color_10310);
-        al.k(this.eTJ, R.drawable.bule_bg_commen_label_button);
+        al.l(this.eTJ, R.color.cp_bg_line_c);
+        al.j(this.eTK, R.color.common_color_10310);
+        al.k(this.eTK, R.drawable.bule_bg_commen_label_button);
         al.k(this.cwu, R.color.black_alpha50);
-        al.k(this.eTG, R.drawable.bg_recommend_forum_by_tag);
-        this.eTK.notifyDataSetChanged();
+        al.k(this.eTH, R.drawable.bg_recommend_forum_by_tag);
+        this.eTL.notifyDataSetChanged();
     }
 
-    public View ben() {
+    public View beq() {
         return this.cwu;
     }
 

@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode kml;
-    private ByteBuffer kmm = org.java_websocket.e.b.cKV();
-    private boolean kmk = true;
-    private boolean kmn = false;
+    private Framedata.Opcode kmm;
+    private ByteBuffer kmn = org.java_websocket.e.b.cKX();
+    private boolean kml = true;
     private boolean kmo = false;
     private boolean kmp = false;
     private boolean kmq = false;
+    private boolean kmr = false;
 
-    public abstract void cKJ() throws InvalidDataException;
+    public abstract void cKL() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.kml = opcode;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean cKN() {
-        return this.kmo;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean cKO() {
-        return this.kmp;
+        this.kmm = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean cKP() {
+        return this.kmp;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean cKQ() {
         return this.kmq;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cKM() {
-        return this.kmk;
+    public boolean cKR() {
+        return this.kmr;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode cKQ() {
+    public boolean cKO() {
         return this.kml;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cKL() {
+    public Framedata.Opcode cKS() {
         return this.kmm;
     }
 
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer cKN() {
+        return this.kmn;
+    }
+
     public String toString() {
-        return "Framedata{ optcode:" + cKQ() + ", fin:" + cKM() + ", rsv1:" + cKN() + ", rsv2:" + cKO() + ", rsv3:" + cKP() + ", payloadlength:[pos:" + this.kmm.position() + ", len:" + this.kmm.remaining() + "], payload:" + (this.kmm.remaining() > 1000 ? "(too big to display)" : new String(this.kmm.array())) + '}';
+        return "Framedata{ optcode:" + cKS() + ", fin:" + cKO() + ", rsv1:" + cKP() + ", rsv2:" + cKQ() + ", rsv3:" + cKR() + ", payloadlength:[pos:" + this.kmn.position() + ", len:" + this.kmn.remaining() + "], payload:" + (this.kmn.remaining() > 1000 ? "(too big to display)" : new String(this.kmn.array())) + '}';
     }
 
     public void q(ByteBuffer byteBuffer) {
-        this.kmm = byteBuffer;
+        this.kmn = byteBuffer;
     }
 
     public void su(boolean z) {
-        this.kmk = z;
+        this.kml = z;
     }
 
     public void sv(boolean z) {
-        this.kmo = z;
-    }
-
-    public void sw(boolean z) {
         this.kmp = z;
     }
 
-    public void sx(boolean z) {
+    public void sw(boolean z) {
         this.kmq = z;
     }
 
+    public void sx(boolean z) {
+        this.kmr = z;
+    }
+
     public void sy(boolean z) {
-        this.kmn = z;
+        this.kmo = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.kmk == fVar.kmk && this.kmn == fVar.kmn && this.kmo == fVar.kmo && this.kmp == fVar.kmp && this.kmq == fVar.kmq && this.kml == fVar.kml) {
-            if (this.kmm != null) {
-                z = this.kmm.equals(fVar.kmm);
-            } else if (fVar.kmm != null) {
+        if (this.kml == fVar.kml && this.kmo == fVar.kmo && this.kmp == fVar.kmp && this.kmq == fVar.kmq && this.kmr == fVar.kmr && this.kmm == fVar.kmm) {
+            if (this.kmn != null) {
+                z = this.kmn.equals(fVar.kmn);
+            } else if (fVar.kmn != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.kmp ? 1 : 0) + (((this.kmo ? 1 : 0) + (((this.kmn ? 1 : 0) + (((this.kmm != null ? this.kmm.hashCode() : 0) + ((((this.kmk ? 1 : 0) * 31) + this.kml.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.kmq ? 1 : 0);
+        return (((this.kmq ? 1 : 0) + (((this.kmp ? 1 : 0) + (((this.kmo ? 1 : 0) + (((this.kmn != null ? this.kmn.hashCode() : 0) + ((((this.kml ? 1 : 0) * 31) + this.kmm.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.kmr ? 1 : 0);
     }
 }

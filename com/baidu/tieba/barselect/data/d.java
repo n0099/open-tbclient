@@ -5,12 +5,12 @@ import tbclient.Myrecord;
 /* loaded from: classes3.dex */
 public class d {
     private String apply_declaration;
-    private int eqW;
-    private String eqX;
-    private int eqY;
+    private int eqX;
+    private String eqY;
     private int eqZ;
     private int era;
-    private boolean erb = false;
+    private int erb;
+    private boolean erc = false;
     private String portrait;
     private int post_num;
     private int rank;
@@ -18,16 +18,16 @@ public class d {
     private long tid;
     private long uid;
 
-    public int aWA() {
-        return this.era;
+    public int aWD() {
+        return this.erb;
     }
 
-    public int aWB() {
-        return this.eqW;
+    public int aWE() {
+        return this.eqX;
     }
 
-    public int aWC() {
-        return this.eqY;
+    public int aWF() {
+        return this.eqZ;
     }
 
     public int getPost_num() {
@@ -46,16 +46,16 @@ public class d {
         return this.uid;
     }
 
-    public int aWD() {
-        return this.eqZ;
+    public int aWG() {
+        return this.era;
     }
 
-    public String aWE() {
+    public String aWH() {
         return this.apply_declaration;
     }
 
-    public String aWF() {
-        return this.eqX;
+    public String aWI() {
+        return this.eqY;
     }
 
     public String getPortrait() {
@@ -66,8 +66,8 @@ public class d {
         return this.tid;
     }
 
-    public boolean aWG() {
-        return this.erb;
+    public boolean aWJ() {
+        return this.erc;
     }
 
     public static d a(ElectionList electionList) {
@@ -112,11 +112,11 @@ public class d {
     }
 
     public void oX(int i) {
-        this.era = i;
+        this.erb = i;
     }
 
     public void oY(int i) {
-        this.eqW = i;
+        this.eqX = i;
     }
 
     public void uM(String str) {
@@ -124,11 +124,11 @@ public class d {
     }
 
     public void oZ(int i) {
-        this.eqY = i;
+        this.eqZ = i;
     }
 
     public void uN(String str) {
-        this.eqX = str;
+        this.eqY = str;
     }
 
     public void setPortrait(String str) {
@@ -152,11 +152,11 @@ public class d {
     }
 
     public void pb(int i) {
-        this.eqZ = i;
+        this.era = i;
     }
 
     public void ik(boolean z) {
-        this.erb = z;
+        this.erc = z;
     }
 
     public void setTid(long j) {

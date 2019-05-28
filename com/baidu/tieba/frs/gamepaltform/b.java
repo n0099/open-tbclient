@@ -6,12 +6,12 @@ import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends v.a {
-    public GameRankHorizontalLayout fBC;
-    public TextView fBD;
+    public GameRankHorizontalLayout fBD;
+    public TextView fBE;
 
     public b(View view) {
         super(view);
-        this.fBC = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.fBD = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.fBD = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
+        this.fBE = (TextView) view.findViewById(R.id.close_game_rank_btn);
     }
 }

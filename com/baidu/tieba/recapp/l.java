@@ -1,9 +1,9 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface l {
-    void cev();
+    void cex();
 
-    void cew();
+    void cey();
 
-    int cex();
+    int cez();
 }
