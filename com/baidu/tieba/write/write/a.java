@@ -15,11 +15,11 @@ import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<MetaData> aHF;
-    private TbCheckBox.a gNc;
-    private AtListActivity jKN;
-    private boolean jKP;
+    private TbCheckBox.a gNd;
+    private AtListActivity jKO;
+    private boolean jKQ;
     private final Context mContext;
-    private b jKO = null;
+    private b jKP = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.jKO = bVar;
+        this.jKP = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.jKP = true;
-        this.jKN = atListActivity;
-        this.mContext = this.jKN.getPageContext().getContext();
-        this.jKP = z;
+        this.jKQ = true;
+        this.jKO = atListActivity;
+        this.mContext = this.jKO.getPageContext().getContext();
+        this.jKQ = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.gNc = aVar;
+        this.gNd = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -94,37 +94,37 @@ public class a extends BaseAdapter {
         C0436a c0436a;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (obj == null) {
-            c0436a = cyn();
+            c0436a = cyp();
         } else {
             c0436a = (C0436a) obj;
         }
-        if (this.jKO != null) {
-            this.jKO.a(c0436a.rootView, metaData);
+        if (this.jKP != null) {
+            this.jKP.a(c0436a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0436a.epd.setText(metaData.getName_show());
-        c0436a.gNf.setTagData(metaData);
-        c0436a.gMK.setTag(portrait);
-        if (this.jKP) {
-            c0436a.gNf.setVisibility(0);
+        c0436a.epe.setText(metaData.getName_show());
+        c0436a.gNg.setTagData(metaData);
+        c0436a.gML.setTag(portrait);
+        if (this.jKQ) {
+            c0436a.gNg.setVisibility(0);
         } else {
-            c0436a.gNf.setVisibility(8);
+            c0436a.gNg.setVisibility(8);
         }
-        c0436a.gMK.startLoad(portrait, 12, false);
-        this.jKN.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.jKN.getPageContext().getLayoutMode().onModeChanged(c0436a.rootView);
+        c0436a.gML.startLoad(portrait, 12, false);
+        this.jKO.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.jKO.getPageContext().getLayoutMode().onModeChanged(c0436a.rootView);
         return c0436a;
     }
 
-    private C0436a cyn() {
+    private C0436a cyp() {
         C0436a c0436a = new C0436a();
         c0436a.rootView = LayoutInflater.from(this.mContext).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
-        c0436a.gMK = (HeadImageView) c0436a.rootView.findViewById(R.id.photo);
-        c0436a.gMK.setIsRound(false);
-        c0436a.epd = (TextView) c0436a.rootView.findViewById(R.id.txt_user_name);
-        c0436a.gNf = (TbCheckBox) c0436a.rootView.findViewById(R.id.ckb_select);
-        if (this.gNc != null) {
-            c0436a.gNf.setStatedChangedListener(this.gNc);
+        c0436a.gML = (HeadImageView) c0436a.rootView.findViewById(R.id.photo);
+        c0436a.gML.setIsRound(false);
+        c0436a.epe = (TextView) c0436a.rootView.findViewById(R.id.txt_user_name);
+        c0436a.gNg = (TbCheckBox) c0436a.rootView.findViewById(R.id.ckb_select);
+        if (this.gNd != null) {
+            c0436a.gNg.setStatedChangedListener(this.gNd);
         }
         c0436a.rootView.setTag(c0436a);
         return c0436a;
@@ -134,9 +134,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0436a {
-        public TextView epd;
-        public HeadImageView gMK;
-        public TbCheckBox gNf;
+        public TextView epe;
+        public HeadImageView gML;
+        public TbCheckBox gNg;
         public View rootView;
 
         private C0436a() {

@@ -7,38 +7,38 @@ import tbclient.SearchPostForum.DataRes;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes6.dex */
 public class c {
-    private String fmY;
-    private SearchForum fnw;
-    private List<SearchForum> fnx;
-    private ArrayList<m> fny;
+    private String fmZ;
+    private SearchForum fnx;
+    private List<SearchForum> fny;
+    private ArrayList<m> fnz;
 
     public c(String str) {
-        this.fmY = str;
+        this.fmZ = str;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.fnw = dataRes.exact_match;
-            this.fnx = dataRes.fuzzy_match;
-            this.fny = new ArrayList<>();
-            b bVar = new b(this.fmY);
-            if (this.fnw != null) {
-                bVar.a(this.fnw);
-                this.fny.add(bVar);
-            }
+            this.fnx = dataRes.exact_match;
+            this.fny = dataRes.fuzzy_match;
+            this.fnz = new ArrayList<>();
+            b bVar = new b(this.fmZ);
             if (this.fnx != null) {
-                for (SearchForum searchForum : this.fnx) {
+                bVar.a(this.fnx);
+                this.fnz.add(bVar);
+            }
+            if (this.fny != null) {
+                for (SearchForum searchForum : this.fny) {
                     if (searchForum != null) {
-                        b bVar2 = new b(this.fmY);
+                        b bVar2 = new b(this.fmZ);
                         bVar2.a(searchForum);
-                        this.fny.add(bVar2);
+                        this.fnz.add(bVar2);
                     }
                 }
             }
         }
     }
 
-    public ArrayList<m> biR() {
-        return this.fny;
+    public ArrayList<m> biU() {
+        return this.fnz;
     }
 }

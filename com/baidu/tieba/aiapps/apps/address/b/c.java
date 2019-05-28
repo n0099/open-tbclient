@@ -13,42 +13,42 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c daK;
+    private static volatile c daL;
     private boolean aJY;
-    private List<d> daH = new ArrayList();
-    private Map<d, List<d>> daI = new HashMap();
+    private List<d> daI = new ArrayList();
     private Map<d, List<d>> daJ = new HashMap();
+    private Map<d, List<d>> daK = new HashMap();
 
-    public static c aDz() {
-        if (daK == null) {
+    public static c aDC() {
+        if (daL == null) {
             synchronized (c.class) {
-                if (daK == null) {
-                    daK = new c();
+                if (daL == null) {
+                    daL = new c();
                 }
             }
         }
-        return daK;
+        return daL;
     }
 
     public void initData() {
-        D(aDE());
+        D(aDH());
         this.aJY = true;
     }
 
-    public boolean aDA() {
+    public boolean aDD() {
         return this.aJY;
     }
 
-    public List<d> aDB() {
-        return this.daH;
-    }
-
-    public Map<d, List<d>> aDC() {
+    public List<d> aDE() {
         return this.daI;
     }
 
-    public Map<d, List<d>> aDD() {
+    public Map<d, List<d>> aDF() {
         return this.daJ;
+    }
+
+    public Map<d, List<d>> aDG() {
+        return this.daK;
     }
 
     private void D(JSONArray jSONArray) {
@@ -60,12 +60,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (bg = d.bg(optJSONObject)) != null) {
-                        this.daH.add(bg);
-                        if (bg.aDI()) {
-                            this.daI.put(bg, bg.acx);
+                        this.daI.add(bg);
+                        if (bg.aDL()) {
+                            this.daJ.put(bg, bg.acx);
                             for (d dVar : bg.acx) {
-                                if (dVar.aDI()) {
-                                    this.daJ.put(dVar, dVar.acx);
+                                if (dVar.aDL()) {
+                                    this.daK.put(dVar, dVar.acx);
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray aDE() {
+    private JSONArray aDH() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

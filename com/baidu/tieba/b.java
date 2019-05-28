@@ -20,8 +20,8 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.ceJ().ceE() != null) {
-                r.ceJ().ceE().cew();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.ceL().ceG() != null) {
+                r.ceL().ceG().cey();
             }
         }
     };
@@ -30,7 +30,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                b.this.aze();
+                b.this.azf();
             }
         }
     };
@@ -41,14 +41,14 @@ public class b {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cPy != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (!data.getClass().getSimpleName().equals("LoginActivity") && b.this.azf()) {
+                    if (!data.getClass().getSimpleName().equals("LoginActivity") && b.this.azg()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && b.this.azf()) {
+                } else if ((data instanceof BaseFragmentActivity) && b.this.azg()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -77,7 +77,7 @@ public class b {
     private boolean cPA = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b azd() {
+    public static b aze() {
         if (cPB == null) {
             synchronized (b.class) {
                 if (cPB == null) {
@@ -93,20 +93,20 @@ public class b {
         MessageManager.getInstance().registerListener(this.cPE);
         MessageManager.getInstance().registerListener(this.cPC);
         MessageManager.getInstance().registerListener(this.cPF);
-        if (r.ceJ().ceE() != null) {
-            r.ceJ().ceE().cev();
+        if (r.ceL().ceG() != null) {
+            r.ceL().ceG().cex();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aze() {
+    public void azf() {
         this.cPA = true;
         this.cPy = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean azf() {
-        azg();
+    public boolean azg() {
+        azh();
         this.cPA = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (this.cPz) {
@@ -115,12 +115,12 @@ public class b {
         } else if (currentTimeMillis - this.cPy <= 2 || currentTimeMillis - this.cPy <= this.interval) {
             return false;
         } else {
-            l ceE = r.ceJ().ceE();
-            return (ceE != null ? ceE.cex() : 3) < 3;
+            l ceG = r.ceL().ceG();
+            return (ceG != null ? ceG.cez() : 3) < 3;
         }
     }
 
-    private void azg() {
+    private void azh() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
             this.interval = adAdSense.alb();

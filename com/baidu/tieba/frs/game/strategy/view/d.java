@@ -14,10 +14,10 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.data.b> {
-    private ImageView ezI;
-    private TbImageView fBc;
-    private TextView fBd;
+    private ImageView ezJ;
+    private TbImageView fBd;
     private TextView fBe;
+    private TextView fBf;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -30,21 +30,21 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
     }
 
     private void initView() {
-        this.fBc = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
-        this.fBc.setDefaultErrorResource(R.drawable.icon_morenpic);
-        this.fBc.setDefaultResource(R.drawable.icon_morenpic);
-        this.ezI = (ImageView) this.mRootView.findViewById(R.id.frs_game_video_icon);
+        this.fBd = (TbImageView) this.mRootView.findViewById(R.id.frs_game_left_image);
+        this.fBd.setDefaultErrorResource(R.drawable.icon_morenpic);
+        this.fBd.setDefaultResource(R.drawable.icon_morenpic);
+        this.ezJ = (ImageView) this.mRootView.findViewById(R.id.frs_game_video_icon);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_title);
-        this.fBd = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
-        this.fBe = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
+        this.fBe = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_scan_info);
+        this.fBf = (TextView) this.mRootView.findViewById(R.id.frs_game_strategy_info_source);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         al.j(this.mTitle, R.color.cp_cont_b);
-        al.j(this.fBd, R.color.cp_cont_d);
-        al.j(this.fBe, R.color.cp_btn_a);
+        al.j(this.fBe, R.color.cp_cont_d);
+        al.j(this.fBf, R.color.cp_btn_a);
         al.k(this.mRootView, R.drawable.addresslist_item_bg);
     }
 
@@ -68,27 +68,27 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
             String aG = ap.aG(abv.adn());
             String aE = ap.aE(abv.adf());
             if (!StringUtils.isNull(aG) && !StringUtils.isNull(aE)) {
-                this.fBd.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), aG, aE));
+                this.fBe.setText(String.format(this.mContext.getString(R.string.frs_game_strategy_scan_info), aG, aE));
             }
             String str = null;
             if (abv.getThreadType() == 40) {
-                this.ezI.setVisibility(0);
+                this.ezJ.setVisibility(0);
                 if (abv.adM() != null) {
                     str = abv.adM().thumbnail_url;
                 }
             } else {
-                this.ezI.setVisibility(8);
+                this.ezJ.setVisibility(8);
                 if (abv.adF() != null && abv.adF().size() >= 1) {
                     str = abv.adF().get(0).getOriginalUrl();
                 }
             }
-            this.fBc.startLoad(str, 10, false);
+            this.fBd.startLoad(str, 10, false);
             if (!StringUtils.isNull(abv.adk())) {
-                this.fBe.setText(abv.adk());
-                this.fBe.setVisibility(0);
+                this.fBf.setText(abv.adk());
+                this.fBf.setVisibility(0);
                 return;
             }
-            this.fBe.setVisibility(8);
+            this.fBf.setVisibility(8);
         }
     }
 
@@ -98,11 +98,11 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.frs.game.strategy.
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public d fBf;
+        public d fBg;
 
         public a(d dVar) {
             super(dVar.getView());
-            this.fBf = dVar;
+            this.fBg = dVar;
         }
     }
 }

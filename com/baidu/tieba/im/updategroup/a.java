@@ -6,21 +6,21 @@ import com.baidu.tbadk.core.dialog.a;
 public interface a {
     void b(a.b bVar);
 
-    String bDP();
+    String bDS();
 
-    View bDQ();
+    View bDT();
 
-    void bDR();
+    void bDU();
 
-    int bDS();
+    int bDV();
 
-    boolean bDT();
+    boolean bDW();
 
-    View byJ();
+    View byM();
 
-    boolean bzl();
+    boolean bzo();
 
-    View bzv();
+    View bzy();
 
     void c(a.b bVar);
 

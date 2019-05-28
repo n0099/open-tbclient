@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> izu;
+    private List<AppData> izw;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
@@ -58,35 +58,35 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j ceD() {
-        return b.cet();
+    public j ceF() {
+        return b.cev();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l ceE() {
-        return b.cet();
+    public l ceG() {
+        return b.cev();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a ceF() {
-        return com.baidu.tieba.ad.statis.a.aBP();
+    public com.baidu.tieba.p.a ceH() {
+        return com.baidu.tieba.ad.statis.a.aBS();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h ceG() {
-        return com.baidu.tieba.ad.a.aBH();
+    public h ceI() {
+        return com.baidu.tieba.ad.a.aBK();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> ceH() {
-        if (this.izu == null) {
-            this.izu = new ArrayList();
+    public List<AppData> ceJ() {
+        if (this.izw == null) {
+            this.izw = new ArrayList();
         }
-        return this.izu;
+        return this.izw;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void ceI() {
-        AdDebugService.updateFloatView(this.izu != null ? StringUtils.string(Integer.valueOf(this.izu.size())) : "0");
+    public void ceK() {
+        AdDebugService.updateFloatView(this.izw != null ? StringUtils.string(Integer.valueOf(this.izw.size())) : "0");
     }
 }

@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void bLL();
+    void bLO();
 
-    void bLM();
+    void bLP();
 
-    void bLN();
+    void bLQ();
 }

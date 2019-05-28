@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int hvO = 3;
+    private static int hvR = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,31 +61,31 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView caT;
-        public BarImageView hvQ;
-        public View jIR;
+        public BarImageView hvT;
+        public View jIS;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
                 this.caT = (TextView) view.findViewById(R.id.transmit_forum_name);
-                this.hvQ = (BarImageView) view.findViewById(R.id.forum_avatar);
-                this.jIR = view.findViewById(R.id.divider_line);
+                this.hvT = (BarImageView) view.findViewById(R.id.forum_avatar);
+                this.jIS = view.findViewById(R.id.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.caT.setText(transmitForumData.forumName);
-                this.hvQ.startLoad(transmitForumData.avatar, 10, false);
+                this.hvT.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void ajG() {
-            if (b.hvO != this.mSkinType) {
+            if (b.hvR != this.mSkinType) {
                 al.j(this.caT, R.color.cp_cont_b);
-                al.l(this.jIR, R.color.cp_bg_line_c);
+                al.l(this.jIS, R.color.cp_bg_line_c);
             }
-            this.mSkinType = b.hvO;
+            this.mSkinType = b.hvR;
         }
     }
 
@@ -97,9 +97,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (hvO != i) {
+        if (hvR != i) {
             notifyDataSetChanged();
         }
-        hvO = i;
+        hvR = i;
     }
 }

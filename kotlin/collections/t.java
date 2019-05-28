@@ -11,15 +11,15 @@ public class t extends s {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable kjU;
+        final /* synthetic */ Iterable kjV;
 
         public a(Iterable iterable) {
-            this.kjU = iterable;
+            this.kjV = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.kjU.iterator();
+            return this.kjV.iterator();
         }
     }
 

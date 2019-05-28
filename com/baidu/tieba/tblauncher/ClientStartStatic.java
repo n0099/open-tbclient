@@ -49,9 +49,11 @@ public class ClientStartStatic {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-            xVar.o("type", "1");
-            xVar.ahe();
+            if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+                x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                xVar.o("type", "1");
+                xVar.ahe();
+            }
             return null;
         }
     }

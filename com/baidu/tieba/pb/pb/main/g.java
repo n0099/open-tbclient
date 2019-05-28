@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes4.dex */
 public class g {
-    private static g hGU;
-    private com.baidu.adp.lib.cache.l<byte[]> hGV = null;
-    private com.baidu.adp.lib.cache.l<byte[]> hGW = null;
+    private static g hGX;
+    private com.baidu.adp.lib.cache.l<byte[]> hGY = null;
+    private com.baidu.adp.lib.cache.l<byte[]> hGZ = null;
 
-    public static synchronized g bSp() {
+    public static synchronized g bSs() {
         g gVar;
         synchronized (g.class) {
-            if (hGU == null) {
-                hGU = new g();
+            if (hGX == null) {
+                hGX = new g();
             }
-            gVar = hGU;
+            gVar = hGX;
         }
         return gVar;
     }
@@ -23,34 +23,34 @@ public class g {
     }
 
     private void Wx() {
-        if (this.hGV == null) {
-            this.hGV = com.baidu.tbadk.core.c.a.afD().mA("tb.pb_mark");
+        if (this.hGY == null) {
+            this.hGY = com.baidu.tbadk.core.c.a.afD().mA("tb.pb_mark");
         }
-        if (this.hGW == null) {
-            this.hGW = com.baidu.tbadk.core.c.a.afD().mA("tb.pb_normal");
+        if (this.hGZ == null) {
+            this.hGZ = com.baidu.tbadk.core.c.a.afD().mA("tb.pb_normal");
         }
     }
 
     public void ao(String str, boolean z) {
         if (z) {
-            if (this.hGV != null && str != null) {
-                this.hGV.b(str, new byte[0], 0L);
+            if (this.hGY != null && str != null) {
+                this.hGY.b(str, new byte[0], 0L);
             }
-        } else if (this.hGW != null && str != null) {
-            this.hGW.b(str, new byte[0], 0L);
+        } else if (this.hGZ != null && str != null) {
+            this.hGZ.b(str, new byte[0], 0L);
         }
     }
 
     public byte[] ap(String str, boolean z) {
         l.b<byte[]> ap;
         if (z) {
-            if (this.hGV != null && str != null) {
-                ap = this.hGV.ap(str);
+            if (this.hGY != null && str != null) {
+                ap = this.hGY.ap(str);
             }
             ap = null;
         } else {
-            if (this.hGW != null && str != null) {
-                ap = this.hGW.ap(str);
+            if (this.hGZ != null && str != null) {
+                ap = this.hGZ.ap(str);
             }
             ap = null;
         }
@@ -64,9 +64,9 @@ public class g {
         if (str != null) {
             Wx();
             if (z) {
-                this.hGV.a(str, bArr, 604800000L);
+                this.hGY.a(str, bArr, 604800000L);
             } else {
-                this.hGW.a(str, bArr, 86400000L);
+                this.hGZ.a(str, bArr, 86400000L);
             }
         }
     }
@@ -74,7 +74,7 @@ public class g {
     public void l(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             Wx();
-            this.hGV.a(str, bArr, 2592000000L);
+            this.hGY.a(str, bArr, 2592000000L);
         }
     }
 }

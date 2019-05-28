@@ -25,9 +25,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends BaseAdapter {
-    private static final int ivl = TbadkCoreApplication.getInst().getListItemRule().alr();
+    private static final int ivo = TbadkCoreApplication.getInst().getListItemRule().alr();
     private TbPageContext<?> mContext;
-    private int eca = -1;
+    private int ecb = -1;
     private List<b.a> mData = new ArrayList();
 
     public e(TbPageContext<?> tbPageContext) {
@@ -39,11 +39,11 @@ public class e extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= ivl) {
+        if (size <= ivo) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - ivl;
+        int i = size - ivo;
         yG(i);
         this.mData.addAll(list);
         return i;
@@ -95,11 +95,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.ivo = (TextView) view.findViewById(R.id.title_text);
-            aVar.ivp = (TextView) view.findViewById(R.id.content_text);
-            aVar.ivq = (TextView) view.findViewById(R.id.label_text);
-            aVar.ecB = (TextView) view.findViewById(R.id.user_name);
-            aVar.ivr = (TextView) view.findViewById(R.id.time_text);
+            aVar.ivr = (TextView) view.findViewById(R.id.title_text);
+            aVar.ivs = (TextView) view.findViewById(R.id.content_text);
+            aVar.ivt = (TextView) view.findViewById(R.id.label_text);
+            aVar.ecC = (TextView) view.findViewById(R.id.user_name);
+            aVar.ivu = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -109,24 +109,24 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.ivo.setText(Html.fromHtml(ap.bU(aVar3.title, str)));
-            aVar2.ivp.setText(Html.fromHtml(ap.bU(aVar3.content, str)));
-            aVar2.ecB.setText(aVar3.name_show);
-            aVar2.ivr.setText(ap.aC(aVar3.time));
-            aVar2.ivq.setVisibility(0);
-            if (aVar3.iuL == 1) {
-                aVar2.ivq.setText(R.string.floor_text);
-            } else if (aVar3.iuM == 1) {
-                aVar2.ivq.setText(R.string.reply_post);
+            aVar2.ivr.setText(Html.fromHtml(ap.bU(aVar3.title, str)));
+            aVar2.ivs.setText(Html.fromHtml(ap.bU(aVar3.content, str)));
+            aVar2.ecC.setText(aVar3.name_show);
+            aVar2.ivu.setText(ap.aC(aVar3.time));
+            aVar2.ivt.setVisibility(0);
+            if (aVar3.iuO == 1) {
+                aVar2.ivt.setText(R.string.floor_text);
+            } else if (aVar3.iuP == 1) {
+                aVar2.ivt.setText(R.string.reply_post);
             } else {
-                aVar2.ivq.setVisibility(8);
+                aVar2.ivt.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.mContext != null) {
                         e.this.a(aVar3);
-                        if (aVar3.iuL == 1) {
+                        if (aVar3.iuO == 1) {
                             SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.mContext.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
                             e.this.mContext.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
@@ -146,17 +146,17 @@ public class e extends BaseAdapter {
     }
 
     public void setTabType(int i) {
-        this.eca = i;
+        this.ecb = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(b.a aVar) {
         am bT = new am("c12405").bT(ImageViewerConfig.FORUM_NAME, aVar.fname).bT("uid", TbadkCoreApplication.getCurrentAccount());
-        if (this.eca > 0) {
-            bT.P(MyBookrackActivityConfig.TAB_ID, this.eca);
+        if (this.ecb > 0) {
+            bT.P(MyBookrackActivityConfig.TAB_ID, this.ecb);
         }
         if (aVar != null) {
-            if (aVar.iuL == 1 || aVar.iuM == 1) {
+            if (aVar.iuO == 1 || aVar.iuP == 1) {
                 bT.l(Info.kBaiduPIDKey, aVar.pid);
             } else {
                 bT.l("tid", aVar.tid);
@@ -167,11 +167,11 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private static class a {
-        TextView ecB;
-        TextView ivo;
-        TextView ivp;
-        TextView ivq;
+        TextView ecC;
         TextView ivr;
+        TextView ivs;
+        TextView ivt;
+        TextView ivu;
 
         private a() {
         }

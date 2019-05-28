@@ -116,7 +116,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            cnh();
+            cnj();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -314,7 +314,7 @@ public class AntiHelper {
         }
     }
 
-    private static void cnh() {
+    private static void cnj() {
         com.baidu.tbadk.core.sharedPref.b.agM().remove("anti_vcode_no_longer_tip");
     }
 }

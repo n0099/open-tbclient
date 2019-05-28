@@ -20,11 +20,11 @@ public class c extends BaseAdapter {
     /* loaded from: classes4.dex */
     public static class a {
         public View dividerLine;
-        public TbImageView eTP;
-        public TextView eTQ;
+        public TbImageView eTQ;
         public TextView eTR;
         public TextView eTS;
-        public View eTT;
+        public TextView eTT;
+        public View eTU;
     }
 
     public c(Context context) {
@@ -63,28 +63,28 @@ public class c extends BaseAdapter {
         } else {
             View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.item_recommend_forum_by_tag, viewGroup, false);
             aVar = new a();
-            aVar.eTP = (TbImageView) inflate.findViewById(R.id.imageview_forum);
-            aVar.eTQ = (TextView) inflate.findViewById(R.id.textview_forum_name);
-            aVar.eTR = (TextView) inflate.findViewById(R.id.textview_forum_concern_count);
-            aVar.eTS = (TextView) inflate.findViewById(R.id.textview_forum_thread_count);
-            aVar.eTT = inflate.findViewById(R.id.view_check_state);
+            aVar.eTQ = (TbImageView) inflate.findViewById(R.id.imageview_forum);
+            aVar.eTR = (TextView) inflate.findViewById(R.id.textview_forum_name);
+            aVar.eTS = (TextView) inflate.findViewById(R.id.textview_forum_concern_count);
+            aVar.eTT = (TextView) inflate.findViewById(R.id.textview_forum_thread_count);
+            aVar.eTU = inflate.findViewById(R.id.view_check_state);
             aVar.dividerLine = inflate.findViewById(R.id.view_bottom_line);
             inflate.setTag(aVar);
             view2 = inflate;
         }
         if (item != null) {
-            aVar.eTP.startLoad(item.avatar, 10, false);
-            aVar.eTQ.setText(item.forumName);
-            aVar.eTR.setText(String.format(this.mContext.getString(R.string.concern), ap.aG(item.followNum)));
-            aVar.eTS.setText(String.format(this.mContext.getString(R.string.forum_thread_number), ap.aG(item.threadNum)));
+            aVar.eTQ.startLoad(item.avatar, 10, false);
+            aVar.eTR.setText(item.forumName);
+            aVar.eTS.setText(String.format(this.mContext.getString(R.string.concern), ap.aG(item.followNum)));
+            aVar.eTT.setText(String.format(this.mContext.getString(R.string.forum_thread_number), ap.aG(item.threadNum)));
             if (item.isSelected) {
-                al.k(aVar.eTT, R.drawable.icon_list_confirm_s);
+                al.k(aVar.eTU, R.drawable.icon_list_confirm_s);
             } else {
-                al.k(aVar.eTT, R.drawable.icon_jinba_confirm_n);
+                al.k(aVar.eTU, R.drawable.icon_jinba_confirm_n);
             }
-            al.j(aVar.eTQ, R.color.cp_cont_b);
-            al.j(aVar.eTR, R.color.cp_cont_f);
+            al.j(aVar.eTR, R.color.cp_cont_b);
             al.j(aVar.eTS, R.color.cp_cont_f);
+            al.j(aVar.eTT, R.color.cp_cont_f);
             al.l(aVar.dividerLine, R.color.cp_bg_line_c);
         }
         return view2;

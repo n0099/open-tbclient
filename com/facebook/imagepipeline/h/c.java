@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c extends b {
-    private static Method kbX;
+    private static Method kbY;
 
     @Override // com.facebook.imagepipeline.h.b, com.facebook.imagepipeline.h.e
     public /* bridge */ /* synthetic */ com.facebook.common.references.a a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config) {
@@ -38,7 +38,7 @@ public class c extends b {
 
     @Override // com.facebook.imagepipeline.h.b
     protected Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options) {
-        return a(aVar, i, a(aVar, i) ? null : kbV, options);
+        return a(aVar, i, a(aVar, i) ? null : kbW, options);
     }
 
     private static MemoryFile a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, @Nullable byte[] bArr) throws IOException {
@@ -91,20 +91,20 @@ public class c extends b {
         }
     }
 
-    private synchronized Method cHv() {
-        if (kbX == null) {
+    private synchronized Method cHx() {
+        if (kbY == null) {
             try {
-                kbX = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
+                kbY = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
             } catch (Exception e) {
                 throw k.r(e);
             }
         }
-        return kbX;
+        return kbY;
     }
 
     private FileDescriptor a(MemoryFile memoryFile) {
         try {
-            return (FileDescriptor) cHv().invoke(memoryFile, new Object[0]);
+            return (FileDescriptor) cHx().invoke(memoryFile, new Object[0]);
         } catch (Exception e) {
             throw k.r(e);
         }
@@ -115,7 +115,7 @@ public class c extends b {
         try {
             try {
                 memoryFile = a(aVar, i, bArr);
-                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.jTc.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
+                return (Bitmap) g.checkNotNull(com.facebook.common.g.c.jTd.decodeFileDescriptor(a(memoryFile), null, options), "BitmapFactory returned null");
             } catch (IOException e) {
                 throw k.r(e);
             }

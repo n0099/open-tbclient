@@ -17,33 +17,33 @@ import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes4.dex */
 public class TextureRenderView extends TextureView implements com.baidu.tieba.aiapps.apps.media.videoplayer.a {
-    private com.baidu.tieba.aiapps.apps.media.videoplayer.b deU;
-    private int deV;
-    private SurfaceTexture deW;
-    public b deX;
+    private com.baidu.tieba.aiapps.apps.media.videoplayer.b deV;
+    private int deW;
+    private SurfaceTexture deX;
+    public b deY;
 
     public TextureRenderView(Context context) {
         super(context);
-        this.deV = 0;
+        this.deW = 0;
         initView(context);
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.deV = 0;
+        this.deW = 0;
         initView(context);
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.deV = 0;
+        this.deW = 0;
         initView(context);
     }
 
     private void initView(Context context) {
-        this.deU = new com.baidu.tieba.aiapps.apps.media.videoplayer.b(this);
-        this.deX = new b(this);
-        setSurfaceTextureListener(this.deX);
+        this.deV = new com.baidu.tieba.aiapps.apps.media.videoplayer.b(this);
+        this.deY = new b(this);
+        setSurfaceTextureListener(this.deY);
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
@@ -60,7 +60,7 @@ public class TextureRenderView extends TextureView implements com.baidu.tieba.ai
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     public void setVideoSize(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.deU.setVideoSize(i, i2);
+            this.deV.setVideoSize(i, i2);
             requestLayout();
         }
     }
@@ -68,42 +68,42 @@ public class TextureRenderView extends TextureView implements com.baidu.tieba.ai
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     public void setVideoSampleAspectRatio(int i, int i2) {
         if (i > 0 && i2 > 0) {
-            this.deU.setVideoSampleAspectRatio(i, i2);
+            this.deV.setVideoSampleAspectRatio(i, i2);
             requestLayout();
         }
     }
 
     public void setVideoRotation(int i) {
-        this.deU.setVideoRotation(i);
+        this.deV.setVideoRotation(i);
         setRotation(i);
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     public void setAspectRatio(int i) {
-        this.deU.setAspectRatio(i);
+        this.deV.setAspectRatio(i);
         requestLayout();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.deU.aE(i, i2);
-        setMeasuredDimension(this.deU.getMeasuredWidth(), this.deU.getMeasuredHeight());
+        this.deV.aE(i, i2);
+        setMeasuredDimension(this.deV.getMeasuredWidth(), this.deV.getMeasuredHeight());
     }
 
     public void setCurrentMediaPlayerCode(int i) {
-        this.deV = i;
+        this.deW = i;
     }
 
     public int getCurrentMediaPlayerCode() {
-        return this.deV;
-    }
-
-    public SurfaceTexture getLastSurfaceTexture() {
         return this.deW;
     }
 
+    public SurfaceTexture getLastSurfaceTexture() {
+        return this.deX;
+    }
+
     public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.deW = surfaceTexture;
+        this.deX = surfaceTexture;
     }
 
     public a.b getSurfaceHolder() {
@@ -113,112 +113,112 @@ public class TextureRenderView extends TextureView implements com.baidu.tieba.ai
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static final class a implements a.b {
-        private TextureRenderView deY;
+        private TextureRenderView deZ;
 
         public a(TextureRenderView textureRenderView) {
-            this.deY = textureRenderView;
+            this.deZ = textureRenderView;
         }
 
         @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.b
         @TargetApi(16)
         public void a(g gVar) {
-            if (gVar != null && this.deY.getSurfaceTexture() != null) {
-                if (gVar.hashCode() != this.deY.getCurrentMediaPlayerCode()) {
-                    gVar.setSurface(aFp());
-                } else if (!this.deY.getLastSurfaceTexture().equals(this.deY.getSurfaceTexture())) {
-                    this.deY.setSurfaceTexture(this.deY.getLastSurfaceTexture());
+            if (gVar != null && this.deZ.getSurfaceTexture() != null) {
+                if (gVar.hashCode() != this.deZ.getCurrentMediaPlayerCode()) {
+                    gVar.setSurface(aFs());
+                } else if (!this.deZ.getLastSurfaceTexture().equals(this.deZ.getSurfaceTexture())) {
+                    this.deZ.setSurfaceTexture(this.deZ.getLastSurfaceTexture());
                 }
-                this.deY.setCurrentMediaPlayerCode(gVar.hashCode());
+                this.deZ.setCurrentMediaPlayerCode(gVar.hashCode());
             }
         }
 
         @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.b
-        public com.baidu.tieba.aiapps.apps.media.videoplayer.a aFl() {
-            return this.deY;
+        public com.baidu.tieba.aiapps.apps.media.videoplayer.a aFo() {
+            return this.deZ;
         }
 
-        public SurfaceTexture aFp() {
-            return this.deY.getSurfaceTexture();
+        public SurfaceTexture aFs() {
+            return this.deZ.getSurfaceTexture();
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     public void a(a.InterfaceC0286a interfaceC0286a) {
-        this.deX.a(interfaceC0286a);
+        this.deY.a(interfaceC0286a);
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     public void b(a.InterfaceC0286a interfaceC0286a) {
-        this.deX.b(interfaceC0286a);
+        this.deY.b(interfaceC0286a);
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a
     @TargetApi(16)
     public void release() {
-        if (this.deW != null) {
+        if (this.deX != null) {
             if (isAvailable()) {
-                this.deX.gy(true);
+                this.deY.gy(true);
                 return;
             }
-            this.deW.release();
-            this.deW = null;
+            this.deX.release();
+            this.deX = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static final class b implements TextureView.SurfaceTextureListener {
-        private boolean deZ;
-        private WeakReference<TextureRenderView> dfb;
+        private boolean dfa;
+        private WeakReference<TextureRenderView> dfc;
         private int mHeight;
         private SurfaceTexture mSurfaceTexture;
         private int mWidth;
-        private volatile boolean dfa = false;
-        private Map<a.InterfaceC0286a, Object> dfc = new ConcurrentHashMap();
+        private volatile boolean dfb = false;
+        private Map<a.InterfaceC0286a, Object> dfd = new ConcurrentHashMap();
 
         public b(TextureRenderView textureRenderView) {
-            this.dfb = new WeakReference<>(textureRenderView);
+            this.dfc = new WeakReference<>(textureRenderView);
         }
 
         public void gy(boolean z) {
-            this.dfa = z;
+            this.dfb = z;
         }
 
         public void a(a.InterfaceC0286a interfaceC0286a) {
-            this.dfc.put(interfaceC0286a, interfaceC0286a);
+            this.dfd.put(interfaceC0286a, interfaceC0286a);
             a aVar = null;
             if (this.mSurfaceTexture != null) {
                 if (0 == 0) {
-                    aVar = new a(this.dfb.get());
+                    aVar = new a(this.dfc.get());
                 }
                 interfaceC0286a.a(aVar, this.mWidth, this.mHeight);
             }
-            if (this.deZ) {
+            if (this.dfa) {
                 if (aVar == null) {
-                    aVar = new a(this.dfb.get());
+                    aVar = new a(this.dfc.get());
                 }
                 interfaceC0286a.a(aVar, 0, this.mWidth, this.mHeight);
             }
         }
 
         public void b(a.InterfaceC0286a interfaceC0286a) {
-            this.dfc.remove(interfaceC0286a);
+            this.dfd.remove(interfaceC0286a);
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         @TargetApi(16)
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
             this.mSurfaceTexture = surfaceTexture;
-            if (this.dfb.get() == null) {
+            if (this.dfc.get() == null) {
                 Log.e("TextureRenderView", "!!!!!Too bad, textureview in callback is released. function will not work normally");
-            } else if (this.dfb.get().getLastSurfaceTexture() == null) {
-                this.dfb.get().setLastSurfaceTexture(surfaceTexture);
+            } else if (this.dfc.get().getLastSurfaceTexture() == null) {
+                this.dfc.get().setLastSurfaceTexture(surfaceTexture);
             }
-            this.deZ = false;
+            this.dfa = false;
             this.mWidth = 0;
             this.mHeight = 0;
-            a aVar = new a(this.dfb.get());
-            for (a.InterfaceC0286a interfaceC0286a : this.dfc.keySet()) {
+            a aVar = new a(this.dfc.get());
+            for (a.InterfaceC0286a interfaceC0286a : this.dfd.keySet()) {
                 interfaceC0286a.a(aVar, 0, 0);
             }
         }
@@ -226,11 +226,11 @@ public class TextureRenderView extends TextureView implements com.baidu.tieba.ai
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
             this.mSurfaceTexture = surfaceTexture;
-            this.deZ = true;
+            this.dfa = true;
             this.mWidth = i;
             this.mHeight = i2;
-            a aVar = new a(this.dfb.get());
-            for (a.InterfaceC0286a interfaceC0286a : this.dfc.keySet()) {
+            a aVar = new a(this.dfc.get());
+            for (a.InterfaceC0286a interfaceC0286a : this.dfd.keySet()) {
                 interfaceC0286a.a(aVar, 0, i, i2);
             }
         }
@@ -238,14 +238,14 @@ public class TextureRenderView extends TextureView implements com.baidu.tieba.ai
         @Override // android.view.TextureView.SurfaceTextureListener
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
             this.mSurfaceTexture = surfaceTexture;
-            this.deZ = false;
+            this.dfa = false;
             this.mWidth = 0;
             this.mHeight = 0;
-            a aVar = new a(this.dfb.get());
-            for (a.InterfaceC0286a interfaceC0286a : this.dfc.keySet()) {
+            a aVar = new a(this.dfc.get());
+            for (a.InterfaceC0286a interfaceC0286a : this.dfd.keySet()) {
                 interfaceC0286a.a(aVar);
             }
-            return this.dfa;
+            return this.dfb;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener

@@ -35,24 +35,24 @@ public class a implements com.baidu.tieba.ueg.a {
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.hTc.j(errorString);
+                a.this.hTf.j(errorString);
             }
         }
     };
-    private b hTb = new b();
-    private e hTc = new e();
+    private b hTe = new b();
+    private e hTf = new e();
     private Context mContext;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.hTc.bXF = 1000L;
+        this.hTf.bXF = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void r(BdUniqueId bdUniqueId) {
         this.Xk = bdUniqueId;
-        this.hTb.setTag(bdUniqueId);
+        this.hTe.setTag(bdUniqueId);
         this.bSe.setTag(bdUniqueId);
         this.bSe.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.bSe);
@@ -60,13 +60,13 @@ public class a implements com.baidu.tieba.ueg.a {
 
     public void By(String str) {
         showLoadingDialog();
-        this.hTb.By(str);
+        this.hTe.By(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void ut(String str) {
         showLoadingDialog();
-        this.hTb.ut(str);
+        this.hTe.ut(str);
     }
 
     private void showLoadingDialog() {

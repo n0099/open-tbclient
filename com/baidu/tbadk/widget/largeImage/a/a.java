@@ -38,7 +38,7 @@ public class a {
         this.aKd = new Canvas();
     }
 
-    public void awx() {
+    public void awy() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
             this.aKd.setBitmap(this.mBitmap);
             this.aKd.drawColor(-1, PorterDuff.Mode.CLEAR);
@@ -57,11 +57,11 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect awy() {
+    public Rect awz() {
         return this.cGS;
     }
 
-    public Rect awz() {
+    public Rect awA() {
         return this.cGT;
     }
 
@@ -79,11 +79,11 @@ public class a {
         this.cGR.cGW = i3;
     }
 
-    public C0261a awA() {
+    public C0261a awB() {
         return this.cGR;
     }
 
-    public Rect awB() {
+    public Rect awC() {
         int i = this.cGV * this.cGR.column * this.cGR.cGW;
         int i2 = this.cGV * this.cGR.row * this.cGR.cGW;
         this.cGU.set(i, i2, (this.cGV * this.cGR.cGW) + i, (this.cGV * this.cGR.cGW) + i2);
@@ -113,7 +113,7 @@ public class a {
         public boolean equals(Object obj) {
             if (obj instanceof C0261a) {
                 C0261a c0261a = (C0261a) obj;
-                return this.row == c0261a.getRow() && this.column == c0261a.arW() && this.cGW == c0261a.awC();
+                return this.row == c0261a.getRow() && this.column == c0261a.arW() && this.cGW == c0261a.awD();
             }
             return false;
         }
@@ -130,7 +130,7 @@ public class a {
             return this.column;
         }
 
-        public int awC() {
+        public int awD() {
             return this.cGW;
         }
     }

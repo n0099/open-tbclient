@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class CardGroupDividerView extends LinearLayout {
-    private View eBZ;
     private View eCa;
-    private int eCb;
+    private View eCb;
+    private int eCc;
     private TextView mTitle;
 
     public void setTitleClickListener(View.OnClickListener onClickListener) {
@@ -24,35 +24,35 @@ public class CardGroupDividerView extends LinearLayout {
 
     public CardGroupDividerView(Context context) {
         super(context);
-        this.eCb = R.color.cp_bg_line_c;
+        this.eCc = R.color.cp_bg_line_c;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.eCb = R.color.cp_bg_line_c;
+        this.eCc = R.color.cp_bg_line_c;
         init();
     }
 
     public CardGroupDividerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eCb = R.color.cp_bg_line_c;
+        this.eCc = R.color.cp_bg_line_c;
         init();
     }
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(R.layout.card_divider_view, (ViewGroup) this, true);
-        this.eBZ = findViewById(R.id.card_divider_top_margin);
+        this.eCa = findViewById(R.id.card_divider_top_margin);
         this.mTitle = (TextView) findViewById(R.id.card_divider_tv);
-        this.eCa = findViewById(R.id.bottom_line);
+        this.eCb = findViewById(R.id.bottom_line);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
         al.l(this, R.color.cp_bg_line_d);
-        al.l(this.eBZ, R.color.cp_bg_line_c);
+        al.l(this.eCa, R.color.cp_bg_line_c);
         al.j(this.mTitle, R.color.cp_cont_d);
-        al.l(this.eCa, this.eCb);
+        al.l(this.eCb, this.eCc);
     }
 
     public void setTitleText(String str) {
@@ -64,11 +64,11 @@ public class CardGroupDividerView extends LinearLayout {
     }
 
     private void setDividerColor(int i) {
-        this.eCb = i;
-        al.l(this.eCa, this.eCb);
+        this.eCc = i;
+        al.l(this.eCb, this.eCc);
     }
 
     public View getBotttomLine() {
-        return this.eCa;
+        return this.eCb;
     }
 }

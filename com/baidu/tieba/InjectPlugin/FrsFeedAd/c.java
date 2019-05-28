@@ -5,7 +5,7 @@ public class c {
     private int cPL;
     private int threadType;
 
-    public Object azi() {
+    public Object azj() {
         return this.cPK;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.threadType = i;
     }
 
-    public int azj() {
+    public int azk() {
         return this.cPL;
     }
 

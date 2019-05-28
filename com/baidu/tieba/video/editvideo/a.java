@@ -11,13 +11,13 @@ public interface a {
 
     void H(Bitmap bitmap);
 
-    void bXw();
+    void bXz();
 
-    void crn();
-
-    void crq();
+    void crp();
 
     void crs();
+
+    void cru();
 
     void em(List<PendantData> list);
 

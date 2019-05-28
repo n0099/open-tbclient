@@ -18,9 +18,9 @@ import java.util.List;
 public class d extends v.a {
     public TextView bBh;
     public int ccI;
-    public View icE;
-    public HTypeListView icF;
-    public e icG;
+    public View icH;
+    public HTypeListView icI;
+    public e icJ;
     public TbPageContext mPageContext;
     public View rootView;
 
@@ -29,15 +29,15 @@ public class d extends v.a {
         this.ccI = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.icE = view.findViewById(R.id.divider_view_under_photo_album);
+        this.icH = view.findViewById(R.id.divider_view_under_photo_album);
         this.bBh = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.icF = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.icG = new e(this.mPageContext, this.icF);
+        this.icI = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.icJ = new e(this.mPageContext, this.icI);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.icG.setDatas(dM(fVar.getPhotoAlbum()));
+            this.icJ.setDatas(dM(fVar.getPhotoAlbum()));
         }
     }
 
@@ -56,9 +56,9 @@ public class d extends v.a {
         if (this.ccI != TbadkCoreApplication.getInst().getSkinType()) {
             this.ccI = TbadkCoreApplication.getInst().getSkinType();
             al.l(this.rootView, R.color.cp_bg_line_d);
-            al.l(this.icE, R.color.cp_bg_line_c);
+            al.l(this.icH, R.color.cp_bg_line_c);
             al.f(this.bBh, R.color.cp_cont_d, 1);
-            this.icG.notifyDataSetChanged();
+            this.icJ.notifyDataSetChanged();
         }
     }
 }

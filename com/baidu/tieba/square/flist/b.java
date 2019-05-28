@@ -22,23 +22,23 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter implements View.OnClickListener {
     private LikeModel ccn;
-    private int fFW;
-    private TbPageContext fan;
-    public int iST = -1;
-    private int iSU = 0;
-    private boolean iSA = true;
-    private ForumDetailActivityConfig.FromType iSV = ForumDetailActivityConfig.FromType.BAR_DIR;
-    private ForumInfoData[] iSW = new ForumInfoData[0];
+    private int fFX;
+    private TbPageContext fao;
+    public int iSV = -1;
+    private int iSW = 0;
+    private boolean iSC = true;
+    private ForumDetailActivityConfig.FromType iSX = ForumDetailActivityConfig.FromType.BAR_DIR;
+    private ForumInfoData[] iSY = new ForumInfoData[0];
 
     /* loaded from: classes5.dex */
     class a {
         TextView aXI;
-        BarImageView hed;
-        TextView hee;
-        TextView hef;
-        TextView heg;
-        TextView iSX;
-        TextView iSY;
+        BarImageView heg;
+        TextView heh;
+        TextView hei;
+        TextView hej;
+        TextView iSZ;
+        TextView iTa;
         TextView mName;
 
         a() {
@@ -46,22 +46,22 @@ public class b extends BaseAdapter implements View.OnClickListener {
     }
 
     public b(TbPageContext tbPageContext, int i) {
-        this.fFW = 0;
-        this.fan = tbPageContext;
-        this.fFW = i;
+        this.fFX = 0;
+        this.fao = tbPageContext;
+        this.fFX = i;
     }
 
-    public ForumInfoData[] ckR() {
-        return this.iSW;
+    public ForumInfoData[] ckT() {
+        return this.iSY;
     }
 
     public void a(ForumDetailActivityConfig.FromType fromType) {
-        this.iSV = fromType;
+        this.iSX = fromType;
     }
 
     public void a(ForumInfoData[] forumInfoDataArr) {
-        this.iSW = forumInfoDataArr;
-        if (this.iSW != null) {
+        this.iSY = forumInfoDataArr;
+        if (this.iSY != null) {
             notifyDataSetChanged();
         }
     }
@@ -76,47 +76,47 @@ public class b extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public void ckS() {
-        for (int i = 0; i < this.iSU; i++) {
-            int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.iSW[i].forum_name);
+    public void ckU() {
+        for (int i = 0; i < this.iSW; i++) {
+            int hasLikeForum = TbadkCoreApplication.getInst().hasLikeForum(this.iSY[i].forum_name);
             if (hasLikeForum == 1) {
-                this.iSW[i].is_like = 1;
+                this.iSY[i].is_like = 1;
             } else if (hasLikeForum == -1) {
-                this.iSW[i].is_like = 0;
+                this.iSY[i].is_like = 0;
             }
         }
     }
 
-    public boolean ckT() {
+    public boolean ckV() {
         if (this.ccn == null) {
             return false;
         }
-        return this.ccn.clK();
+        return this.ccn.clM();
     }
 
     public void zw(int i) {
-        this.iSU = i;
+        this.iSW = i;
         notifyDataSetChanged();
     }
 
     public void i(Boolean bool) {
-        this.iSA = bool.booleanValue();
+        this.iSC = bool.booleanValue();
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iSW == null) {
+        if (this.iSY == null) {
             return 0;
         }
-        return this.iSU <= this.iSW.length ? this.iSU : this.iSW.length;
+        return this.iSW <= this.iSY.length ? this.iSW : this.iSY.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (i > this.iSU) {
+        if (i > this.iSW) {
             return null;
         }
-        return this.iSW[i];
+        return this.iSY[i];
     }
 
     @Override // android.widget.Adapter
@@ -127,17 +127,17 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null || view.getTag() == null) {
-            view = View.inflate(this.fan.getContext(), R.layout.forum_list_forum_item, null);
+            view = View.inflate(this.fao.getContext(), R.layout.forum_list_forum_item, null);
             a aVar = new a();
-            aVar.hed = (BarImageView) view.findViewById(R.id.forum_avatar);
-            aVar.hed.setGifIconSupport(false);
+            aVar.heg = (BarImageView) view.findViewById(R.id.forum_avatar);
+            aVar.heg.setGifIconSupport(false);
             aVar.mName = (TextView) view.findViewById(R.id.name);
-            aVar.hee = (TextView) view.findViewById(R.id.member_count);
-            aVar.hef = (TextView) view.findViewById(R.id.thread_count);
-            aVar.heg = (TextView) view.findViewById(R.id.slogan);
-            aVar.iSY = (TextView) view.findViewById(R.id.like);
+            aVar.heh = (TextView) view.findViewById(R.id.member_count);
+            aVar.hei = (TextView) view.findViewById(R.id.thread_count);
+            aVar.hej = (TextView) view.findViewById(R.id.slogan);
+            aVar.iTa = (TextView) view.findViewById(R.id.like);
             aVar.aXI = (TextView) view.findViewById(R.id.rank_badge);
-            aVar.iSX = (TextView) view.findViewById(R.id.rise_no);
+            aVar.iSZ = (TextView) view.findViewById(R.id.rise_no);
             view.setTag(aVar);
         }
         View findViewById = view.findViewById(R.id.bd_list_top_divider);
@@ -150,22 +150,22 @@ public class b extends BaseAdapter implements View.OnClickListener {
             findViewById.setVisibility(8);
         }
         a aVar2 = (a) view.getTag();
-        this.fan.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.fan.getLayoutMode().onModeChanged(view);
-        ForumInfoData forumInfoData = this.iSW[i];
-        String str = this.iSW[i].avatar;
-        aVar2.hed.setTag(str);
-        aVar2.hed.invalidate();
-        aVar2.hed.startLoad(str, 10, false);
+        this.fao.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.fao.getLayoutMode().onModeChanged(view);
+        ForumInfoData forumInfoData = this.iSY[i];
+        String str = this.iSY[i].avatar;
+        aVar2.heg.setTag(str);
+        aVar2.heg.invalidate();
+        aVar2.heg.startLoad(str, 10, false);
         aVar2.mName.setText(forumInfoData.forum_name);
         aVar2.mName.setTag(Integer.valueOf(forumInfoData.forum_id));
-        aVar2.iSY.setTag(forumInfoData.forum_name);
-        aVar2.hee.setText(this.fan.getString(R.string.attention) + " " + wi(forumInfoData.member_count));
-        aVar2.hef.setText(this.fan.getString(R.string.text_post) + " " + wi(forumInfoData.thread_count));
-        aVar2.heg.setText(forumInfoData.slogan);
-        if (this.fFW == 0) {
-            aVar2.iSX.setVisibility(8);
-            if (!this.iSA) {
+        aVar2.iTa.setTag(forumInfoData.forum_name);
+        aVar2.heh.setText(this.fao.getString(R.string.attention) + " " + wi(forumInfoData.member_count));
+        aVar2.hei.setText(this.fao.getString(R.string.text_post) + " " + wi(forumInfoData.thread_count));
+        aVar2.hej.setText(forumInfoData.slogan);
+        if (this.fFX == 0) {
+            aVar2.iSZ.setVisibility(8);
+            if (!this.iSC) {
                 aVar2.aXI.setVisibility(8);
             } else {
                 aVar2.aXI.setVisibility(0);
@@ -188,12 +188,12 @@ public class b extends BaseAdapter implements View.OnClickListener {
             }
         } else {
             aVar2.aXI.setVisibility(8);
-            aVar2.iSX.setVisibility(0);
-            aVar2.iSX.setText((CharSequence) null);
-            aVar2.iSX.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
-            aVar2.iSX.setText(this.fan.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.fan.getString(R.string.number));
+            aVar2.iSZ.setVisibility(0);
+            aVar2.iSZ.setText((CharSequence) null);
+            aVar2.iSZ.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_rise), (Drawable) null, (Drawable) null, (Drawable) null);
+            aVar2.iSZ.setText(this.fao.getString(R.string.rise) + String.valueOf(forumInfoData.mbr_inter_rank) + this.fao.getString(R.string.number));
         }
-        aVar2.iSY.setOnClickListener(this);
+        aVar2.iTa.setOnClickListener(this);
         view.setOnClickListener(this);
         return view;
     }
@@ -201,22 +201,22 @@ public class b extends BaseAdapter implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == R.id.like) {
-            TiebaStatic.eventStat(this.fan.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-            this.fan.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fan.getPageActivity()).createNormalCfg((String) view.getTag(), null).setCallFrom(5)));
+            TiebaStatic.eventStat(this.fao.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+            this.fao.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fao.getPageActivity()).createNormalCfg((String) view.getTag(), null).setCallFrom(5)));
             return;
         }
         a aVar = (a) view.getTag();
         if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class) && d.hI().ay("bar_detail") == 0) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.fan.getPageActivity(), String.valueOf(aVar.mName.getTag()), this.iSV)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.fao.getPageActivity(), String.valueOf(aVar.mName.getTag()), this.iSX)));
             return;
         }
-        TiebaStatic.eventStat(this.fan.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
-        this.fan.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fan.getPageActivity()).createNormalCfg(aVar.mName.getText().toString(), null)));
+        TiebaStatic.eventStat(this.fao.getContext(), "forumlist_to_frs", "tofrsclick", 1, new Object[0]);
+        this.fao.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.fao.getPageActivity()).createNormalCfg(aVar.mName.getText().toString(), null)));
     }
 
     public String wi(int i) {
         if (i >= 100000) {
-            return String.valueOf(i / 10000) + this.fan.getString(R.string.member_count_unit);
+            return String.valueOf(i / 10000) + this.fao.getString(R.string.member_count_unit);
         }
         return String.valueOf(i);
     }

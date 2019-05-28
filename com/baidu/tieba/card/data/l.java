@@ -7,22 +7,22 @@ import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class l extends c implements com.baidu.tbadk.core.util.e.a {
     public static final BdUniqueId bIw = BdUniqueId.gen();
-    public static final BdUniqueId eBk = BdUniqueId.gen();
     public static final BdUniqueId eBl = BdUniqueId.gen();
-    public static String eAT = "";
+    public static final BdUniqueId eBm = BdUniqueId.gen();
     public static String eAU = "";
-    public static String eBm = "";
-    public static String eAS = "";
+    public static String eAV = "";
     public static String eBn = "";
+    public static String eAT = "";
     public static String eBo = "";
     public static String eBp = "";
-    public boolean eBj = false;
-    public boolean eBq = true;
+    public static String eBq = "";
+    public boolean eBk = false;
+    public boolean eBr = true;
     public boolean bHV = false;
-    public boolean eBr = false;
+    public boolean eBs = false;
     public boolean bIa = false;
     public boolean bIb = false;
-    public boolean eBi = false;
+    public boolean eBj = false;
     public int sourceType = 0;
 
     public l(bg bgVar) {
@@ -39,19 +39,19 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
             return k.TYPE;
         }
         if (this.bHV) {
-            return k.eAX;
+            return k.eAY;
         }
-        if (this.eBr) {
+        if (this.eBs) {
             return bIw;
         }
         if (this.bIa) {
-            return k.eBe;
+            return k.eBf;
         }
         if (this.bIb) {
-            return k.eBd;
+            return k.eBe;
         }
-        if (this.eBi) {
-            return k.eBc;
+        if (this.eBj) {
+            return k.eBd;
         }
         return bIw;
     }
@@ -81,7 +81,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
             amVar.l("fid", this.threadData.getFid());
             amVar.bT("tid", this.threadData.getTid());
             amVar.P("obj_type", 2);
-            amVar.P("obj_param1", aYb() ? 2 : 1);
+            amVar.P("obj_param1", aYe() ? 2 : 1);
             if (this.threadData.adv() != null) {
                 amVar.bT(VideoPlayActivityConfig.OBJ_ID, this.threadData.adv().getUserId());
             }
@@ -89,11 +89,11 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return amVar;
     }
 
-    public am aYh() {
-        am U = U(eBm, true);
+    public am aYk() {
+        am U = U(eBn, true);
         if (U != null && abv() != null) {
             bg abv = abv();
-            U.P("obj_name", abv.aeT() != null && (abv.aeT().cmw() != null || abv.aeT().axH() != null) ? 1 : 0);
+            U.P("obj_name", abv.aeT() != null && (abv.aeT().cmy() != null || abv.aeT().axI() != null) ? 1 : 0);
             if (abv.adv() != null) {
                 U.P("ab_type", abv.adv().hadConcerned() ? 1 : 0);
             }
@@ -103,9 +103,9 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
 
     public am b(bg bgVar, int i) {
         if (bgVar.aeF() != null && bgVar.aeF().channelId > 0) {
-            return U(eBn, true);
+            return U(eBo, true);
         }
-        am U = U(eAS, true);
+        am U = U(eAT, true);
         if (U != null && i != -1) {
             U.P("click_locate", i);
             return U;
@@ -117,16 +117,16 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return b(bgVar, -1);
     }
 
-    public am aYo() {
-        return U(eBp, true);
+    public am aYr() {
+        return U(eBq, true);
     }
 
-    public am aYj() {
-        return U(eAU, true);
+    public am aYm() {
+        return U(eAV, true);
     }
 
     public am Y(bg bgVar) {
-        return (bgVar.aeF() == null || bgVar.aeF().channelId <= 0) ? U(eAT, true) : U(eBo, true);
+        return (bgVar.aeF() == null || bgVar.aeF().channelId <= 0) ? U(eAU, true) : U(eBp, true);
     }
 
     @Override // com.baidu.tbadk.core.util.e.a

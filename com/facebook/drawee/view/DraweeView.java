@@ -16,49 +16,49 @@ import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private final a.C0453a jWO;
-    private float jWP;
-    private b<DH> jWQ;
-    private boolean jWR;
+    private final a.C0453a jWP;
+    private float jWQ;
+    private b<DH> jWR;
+    private boolean jWS;
 
     public DraweeView(Context context) {
         super(context);
-        this.jWO = new a.C0453a();
-        this.jWP = 0.0f;
-        this.jWR = false;
+        this.jWP = new a.C0453a();
+        this.jWQ = 0.0f;
+        this.jWS = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jWO = new a.C0453a();
-        this.jWP = 0.0f;
-        this.jWR = false;
+        this.jWP = new a.C0453a();
+        this.jWQ = 0.0f;
+        this.jWS = false;
         init(context);
     }
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jWO = new a.C0453a();
-        this.jWP = 0.0f;
-        this.jWR = false;
+        this.jWP = new a.C0453a();
+        this.jWQ = 0.0f;
+        this.jWS = false;
         init(context);
     }
 
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.jWO = new a.C0453a();
-        this.jWP = 0.0f;
-        this.jWR = false;
+        this.jWP = new a.C0453a();
+        this.jWQ = 0.0f;
+        this.jWS = false;
         init(context);
     }
 
     private void init(Context context) {
         ColorStateList imageTintList;
-        if (!this.jWR) {
-            this.jWR = true;
-            this.jWQ = b.a(null, context);
+        if (!this.jWS) {
+            this.jWS = true;
+            this.jWR = b.a(null, context);
             if (Build.VERSION.SDK_INT >= 21 && (imageTintList = getImageTintList()) != null) {
                 setColorFilter(imageTintList.getDefaultColor());
             }
@@ -66,33 +66,33 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     }
 
     public void setHierarchy(DH dh) {
-        this.jWQ.setHierarchy(dh);
-        super.setImageDrawable(this.jWQ.getTopLevelDrawable());
+        this.jWR.setHierarchy(dh);
+        super.setImageDrawable(this.jWR.getTopLevelDrawable());
     }
 
     public DH getHierarchy() {
-        return this.jWQ.getHierarchy();
+        return this.jWR.getHierarchy();
     }
 
     @Nullable
     public Drawable getTopLevelDrawable() {
-        return this.jWQ.getTopLevelDrawable();
+        return this.jWR.getTopLevelDrawable();
     }
 
     public void setController(@Nullable com.facebook.drawee.d.a aVar) {
-        this.jWQ.setController(aVar);
-        super.setImageDrawable(this.jWQ.getTopLevelDrawable());
+        this.jWR.setController(aVar);
+        super.setImageDrawable(this.jWR.getTopLevelDrawable());
     }
 
     @Nullable
     public com.facebook.drawee.d.a getController() {
-        return this.jWQ.getController();
+        return this.jWR.getController();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cCO();
+        cCQ();
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -110,28 +110,28 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Override // android.view.View
     public void onFinishTemporaryDetach() {
         super.onFinishTemporaryDetach();
-        cCO();
+        cCQ();
     }
 
-    protected void cCO() {
-        cDZ();
+    protected void cCQ() {
+        cEb();
     }
 
     protected void onDetach() {
-        cEa();
+        cEc();
     }
 
-    protected void cDZ() {
-        this.jWQ.cCO();
+    protected void cEb() {
+        this.jWR.cCQ();
     }
 
-    protected void cEa() {
-        this.jWQ.onDetach();
+    protected void cEc() {
+        this.jWR.onDetach();
     }
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.jWQ.onTouchEvent(motionEvent)) {
+        if (this.jWR.onTouchEvent(motionEvent)) {
             return true;
         }
         return super.onTouchEvent(motionEvent);
@@ -141,7 +141,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageDrawable(Drawable drawable) {
         init(getContext());
-        this.jWQ.setController(null);
+        this.jWR.setController(null);
         super.setImageDrawable(drawable);
     }
 
@@ -149,7 +149,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageBitmap(Bitmap bitmap) {
         init(getContext());
-        this.jWQ.setController(null);
+        this.jWR.setController(null);
         super.setImageBitmap(bitmap);
     }
 
@@ -157,7 +157,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageResource(int i) {
         init(getContext());
-        this.jWQ.setController(null);
+        this.jWR.setController(null);
         super.setImageResource(i);
     }
 
@@ -165,31 +165,31 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @Deprecated
     public void setImageURI(Uri uri) {
         init(getContext());
-        this.jWQ.setController(null);
+        this.jWR.setController(null);
         super.setImageURI(uri);
     }
 
     public void setAspectRatio(float f) {
-        if (f != this.jWP) {
-            this.jWP = f;
+        if (f != this.jWQ) {
+            this.jWQ = f;
             requestLayout();
         }
     }
 
     public float getAspectRatio() {
-        return this.jWP;
+        return this.jWQ;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
-        this.jWO.width = i;
-        this.jWO.height = i2;
-        a.a(this.jWO, this.jWP, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
-        super.onMeasure(this.jWO.width, this.jWO.height);
+        this.jWP.width = i;
+        this.jWP.height = i2;
+        a.a(this.jWP, this.jWQ, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
+        super.onMeasure(this.jWP.width, this.jWP.height);
     }
 
     @Override // android.view.View
     public String toString() {
-        return f.aC(this).t("holder", this.jWQ != null ? this.jWQ.toString() : "<no holder set>").toString();
+        return f.aC(this).t("holder", this.jWR != null ? this.jWR.toString() : "<no holder set>").toString();
     }
 }

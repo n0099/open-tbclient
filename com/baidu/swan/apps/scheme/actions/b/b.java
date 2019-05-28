@@ -97,7 +97,7 @@ public class b extends z {
             public Boolean call(String str3) {
                 return Boolean.valueOf(com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver(), str3, false));
             }
-        }).a(rx.a.b.a.cLp()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
+        }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: c */

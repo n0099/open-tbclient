@@ -6,12 +6,12 @@ public class b {
     public String authen;
     public String avatar;
     public boolean bHO;
-    public int eUj;
-    public String eUk;
-    public boolean eUl;
-    public String eUm;
+    public int eUk;
+    public String eUl;
+    public boolean eUm;
     public String eUn;
-    public int eUo;
+    public String eUo;
+    public int eUp;
     public String extra;
     public long forumId;
     public String forumName;
@@ -28,14 +28,14 @@ public class b {
         this.memberCount = recommendForumInfo.member_count.intValue();
         this.threadCount = recommendForumInfo.thread_count.intValue();
         this.slogan = recommendForumInfo.slogan;
-        this.eUj = recommendForumInfo.forum_type.intValue();
+        this.eUk = recommendForumInfo.forum_type.intValue();
         this.authen = recommendForumInfo.authen;
-        this.eUk = recommendForumInfo.recom_reason;
-        this.eUl = recommendForumInfo.is_brand_forum.intValue() == 1;
-        this.eUm = recommendForumInfo.hot_text;
-        this.eUn = recommendForumInfo.abtest_tag;
+        this.eUl = recommendForumInfo.recom_reason;
+        this.eUm = recommendForumInfo.is_brand_forum.intValue() == 1;
+        this.eUn = recommendForumInfo.hot_text;
+        this.eUo = recommendForumInfo.abtest_tag;
         this.source = recommendForumInfo.source;
         this.extra = recommendForumInfo.extra;
-        this.eUo = 1;
+        this.eUp = 1;
     }
 }

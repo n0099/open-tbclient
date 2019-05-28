@@ -133,7 +133,7 @@ public class j {
     }
 
     public void WZ() {
-        if (this.mId != null && this.mId.equals(this.aFq) && e.cAd().kH(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.aFq) && e.cAf().kH(this.mId)) {
             this.bvE = UBC.getUBCContext().Hs();
         }
     }

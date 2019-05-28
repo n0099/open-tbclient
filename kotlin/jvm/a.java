@@ -9,7 +9,7 @@ public final class a {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [71=9] */
     public static final <T> Class<T> a(c<T> cVar) {
         p.k(cVar, "$receiver");
-        Class<T> cls = (Class<T>) ((l) cVar).cJX();
+        Class<T> cls = (Class<T>) ((l) cVar).cJZ();
         if (cls.isPrimitive()) {
             String name = cls.getName();
             if (name != null) {

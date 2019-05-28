@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gAo = BdUniqueId.gen();
+    public static final BdUniqueId gAp = BdUniqueId.gen();
     private Object Xp;
-    private NoDataViewFactory.ImgType gAp;
-    private String gAq;
+    private NoDataViewFactory.ImgType gAq;
     private String gAr;
     private String gAs;
-    private int gAt;
+    private String gAt;
+    private int gAu;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gAo;
+        return gAp;
     }
 
-    public String bAA() {
-        return this.gAq;
-    }
-
-    public void yo(String str) {
-        this.gAq = str;
-    }
-
-    public String bAB() {
+    public String bAD() {
         return this.gAr;
     }
 
-    public void yp(String str) {
+    public void yo(String str) {
         this.gAr = str;
     }
 
-    public String bAC() {
+    public String bAE() {
         return this.gAs;
     }
 
-    public void yq(String str) {
+    public void yp(String str) {
         this.gAs = str;
     }
 
-    public int bAD() {
+    public String bAF() {
         return this.gAt;
     }
 
+    public void yq(String str) {
+        this.gAt = str;
+    }
+
+    public int bAG() {
+        return this.gAu;
+    }
+
     public void uT(int i) {
-        this.gAt = i;
+        this.gAu = i;
     }
 
     public Object qy() {
@@ -57,11 +57,11 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.Xp = obj;
     }
 
-    public NoDataViewFactory.ImgType bAE() {
-        return this.gAp;
+    public NoDataViewFactory.ImgType bAH() {
+        return this.gAq;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gAp = imgType;
+        this.gAq = imgType;
     }
 }

@@ -3,45 +3,45 @@ package com.baidu.tieba.barselect.data;
 import tbclient.ElectionInfo.Basic;
 /* loaded from: classes3.dex */
 public class e {
-    private long erc;
     private long erd;
     private long ere;
     private long erf;
-    private int erg;
+    private long erg;
     private int erh;
-    private boolean eri;
+    private int eri;
+    private boolean erj;
     private int status = 0;
 
-    public int aWH() {
-        return this.erg;
+    public int aWK() {
+        return this.erh;
     }
 
     public int getStatus() {
         return this.status;
     }
 
-    public int aWI() {
-        return this.erh;
-    }
-
-    public long aWJ() {
-        return this.erc;
-    }
-
-    public long aWK() {
-        return this.ere;
-    }
-
-    public long aWL() {
-        return this.erf;
+    public int aWL() {
+        return this.eri;
     }
 
     public long aWM() {
         return this.erd;
     }
 
-    public boolean aWN() {
-        return this.eri;
+    public long aWN() {
+        return this.erf;
+    }
+
+    public long aWO() {
+        return this.erg;
+    }
+
+    public long aWP() {
+        return this.ere;
+    }
+
+    public boolean aWQ() {
+        return this.erj;
     }
 
     public static e a(Basic basic) {
@@ -70,19 +70,19 @@ public class e {
     }
 
     public void pc(int i) {
-        this.erg = i;
+        this.erh = i;
     }
 
     public void cw(long j) {
-        this.erc = j;
+        this.erd = j;
     }
 
     public void cx(long j) {
-        this.ere = j;
+        this.erf = j;
     }
 
     public void cy(long j) {
-        this.erf = j;
+        this.erg = j;
     }
 
     public void setStatus(int i) {
@@ -90,14 +90,14 @@ public class e {
     }
 
     public void pd(int i) {
-        this.erh = i;
+        this.eri = i;
     }
 
     public void cz(long j) {
-        this.erd = j;
+        this.ere = j;
     }
 
     public void il(boolean z) {
-        this.eri = z;
+        this.erj = z;
     }
 }

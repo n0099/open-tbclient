@@ -15,30 +15,30 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<b>> {
     private List<b> Rm;
-    private b fuF;
-    private boolean fuG;
-    private a fuH;
-    private boolean fuI;
-    private ab<g> fuJ;
+    private b fuG;
+    private boolean fuH;
+    private a fuI;
+    private boolean fuJ;
+    private ab<g> fuK;
     private Handler mHandler;
     private TbPageContext mPageContext;
 
     public e(TbPageContext<?> tbPageContext, a aVar, boolean z) {
-        super(tbPageContext.getPageActivity().getBaseContext(), g.fuO);
+        super(tbPageContext.getPageActivity().getBaseContext(), g.fuP);
         this.Rm = new ArrayList();
         this.mHandler = new Handler();
-        this.fuJ = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
+        this.fuK = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, g gVar) {
                 if (view != null && gVar != null) {
                     if ((view.getId() == R.id.video_container || view.getId() == R.id.video_agg_container || view.getId() == R.id.mobile_network_play) && view.getTag() != null && (view.getTag() instanceof b)) {
                         b bVar = (b) view.getTag();
-                        if (e.this.fuF != null && e.this.fuF != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
-                            e.this.fuF.bmc();
+                        if (e.this.fuG != null && e.this.fuG != bVar && (view.getId() == R.id.video_container || view.getId() == R.id.mobile_network_play)) {
+                            e.this.fuG.bmf();
                         }
-                        if (e.this.fuF != bVar) {
-                            e.this.fuF = bVar;
+                        if (e.this.fuG != bVar) {
+                            e.this.fuG = bVar;
                         }
                     }
                     if (view.getId() == R.id.title) {
@@ -88,20 +88,20 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
             }
         };
         this.mPageContext = tbPageContext;
-        this.fuH = aVar;
-        this.fuI = z;
+        this.fuI = aVar;
+        this.fuJ = z;
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        if (this.fuF != null) {
-            this.fuG = true;
-            this.fuF.onConfigurationChanged(configuration);
+        if (this.fuG != null) {
+            this.fuH = true;
+            this.fuG.onConfigurationChanged(configuration);
             if (configuration.orientation == 1) {
                 this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.aggregation.e.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (e.this.fuG) {
-                            e.this.fuG = false;
+                        if (e.this.fuH) {
+                            e.this.fuH = false;
                         }
                     }
                 }, 500L);
@@ -114,8 +114,8 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
     public com.baidu.tieba.card.a.a<b> onCreateViewHolder(ViewGroup viewGroup) {
-        b bVar = new b(this.mPageContext, this.fuI);
-        bVar.d(this.fuJ);
+        b bVar = new b(this.mPageContext, this.fuJ);
+        bVar.d(this.fuK);
         this.Rm.add(bVar);
         return new com.baidu.tieba.card.a.a<>(bVar);
     }
@@ -128,29 +128,29 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
         if (gVar == null || aVar == null) {
             return null;
         }
-        if (!this.fuG) {
-            aVar.aYp().a(gVar, i, this.fuH);
-            aVar.aYp().mPosition = i;
+        if (!this.fuH) {
+            aVar.aYs().a(gVar, i, this.fuI);
+            aVar.aYs().mPosition = i;
         }
         return aVar.getView();
     }
 
     public boolean oT() {
-        if (this.fuF != null) {
-            return this.fuF.isPlaying();
+        if (this.fuG != null) {
+            return this.fuG.isPlaying();
         }
         return false;
     }
 
     public void oR() {
-        if (this.fuF != null) {
-            this.fuF.bmb();
+        if (this.fuG != null) {
+            this.fuG.bme();
         }
     }
 
     public void oS() {
-        if (this.fuF != null) {
-            this.fuF.bmc();
+        if (this.fuG != null) {
+            this.fuG.bmf();
         }
     }
 
@@ -163,9 +163,9 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     }
 
     public boolean rz(int i) {
-        if (this.fuF == null) {
+        if (this.fuG == null) {
             return false;
         }
-        return this.fuF.rz(i);
+        return this.fuG.rz(i);
     }
 }

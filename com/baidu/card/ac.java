@@ -51,11 +51,11 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
                     com.baidu.tieba.card.n.a(ac.this.mTitle, ac.this.Vq.abv().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 } else if (c0038a.getActionType() == 2) {
                     if (ac.this.Xj != null) {
-                        ac.this.Xj.cbW();
+                        ac.this.Xj.cbZ();
                     }
                 } else if (c0038a.getActionType() == 3) {
                     if (ac.this.Xj != null) {
-                        ac.this.Xj.cbX();
+                        ac.this.Xj.cca();
                     }
                 } else if (c0038a.getActionType() == 6) {
                     if (ac.this.Xj != null) {
@@ -92,7 +92,7 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
             this.Xi = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
             this.Xj = qj();
-            this.Xj.caV().setBackgroundResource(R.color.transparent);
+            this.Xj.caY().setBackgroundResource(R.color.transparent);
             this.Xj.setUniqueId(this.Xk);
             this.Xj.setFrom(this.mFrom);
         }
@@ -119,12 +119,12 @@ public abstract class ac extends b<com.baidu.tbadk.core.data.a> implements com.b
             int i = layoutParams.width;
             int i2 = layoutParams.height;
             if (this.Vq.abv().adM().is_vertical.intValue() == 1) {
-                com.baidu.tieba.play.v cbw = this.Xj.cbw();
-                if (cbw != null) {
+                com.baidu.tieba.play.v cbz = this.Xj.cbz();
+                if (cbz != null) {
                     int i3 = (Xg / 9) * 16;
                     int i4 = Xh;
-                    int videoWidth = cbw.getVideoWidth();
-                    int videoHeight = cbw.getVideoHeight();
+                    int videoWidth = cbz.getVideoWidth();
+                    int videoHeight = cbz.getVideoHeight();
                     layoutParams.width = Xg;
                     boolean z2 = i != layoutParams.width;
                     if (videoWidth == 0 || videoHeight == 0) {

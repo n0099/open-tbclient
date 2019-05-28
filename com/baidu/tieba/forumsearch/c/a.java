@@ -12,23 +12,23 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private final TextView dle;
-    private final ImageView fnz;
+    private final TextView dlf;
+    private final ImageView fnA;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.fnz = (ImageView) getView().findViewById(R.id.history_delete);
-        this.dle = (TextView) getView().findViewById(R.id.history_title);
-        this.fnz.setOnClickListener(this);
+        this.fnA = (ImageView) getView().findViewById(R.id.history_delete);
+        this.dlf = (TextView) getView().findViewById(R.id.history_title);
+        this.fnA.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(this.fnz, R.drawable.icon_search_history_del);
-            al.j(this.dle, R.color.cp_cont_e);
+            al.k(this.fnA, R.drawable.icon_search_history_del);
+            al.j(this.dlf, R.color.cp_cont_e);
             this.mSkinType = i;
         }
     }
@@ -45,14 +45,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fnz) {
+        if (view == this.fnA) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
             aVar.hn(R.string.confirm_delete_all_history);
             aVar.dN(true);
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    e.biM();
+                    e.biP();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
                     aVar2.dismiss();
                 }

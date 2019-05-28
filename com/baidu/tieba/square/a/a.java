@@ -4,21 +4,21 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.d;
 /* loaded from: classes5.dex */
 public class a extends d {
-    private static final String iRU = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    private static final String iRW = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
 
-    public String ckH() {
-        setUrl(iRU);
+    public String ckJ() {
+        setUrl(iRW);
         return getResult();
     }
 
-    public long ckI() {
+    public long ckK() {
         if (this.mNetWork != null) {
             return this.mNetWork.ahC().aiD().bTI.Aq;
         }
         return 0L;
     }
 
-    public long ckJ() {
+    public long ckL() {
         if (this.mNetWork != null) {
             return this.mNetWork.ahC().aiD().bTI.connectTime;
         }

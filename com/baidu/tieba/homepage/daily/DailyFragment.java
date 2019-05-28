@@ -24,36 +24,36 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes4.dex */
 public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae {
-    private boolean eTW;
-    private com.baidu.tieba.homepage.daily.model.a fYs;
-    private a fYt;
-    private a.InterfaceC0321a fYu = new a.InterfaceC0321a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
+    private boolean eTX;
+    private com.baidu.tieba.homepage.daily.model.a fYt;
+    private a fYu;
+    private a.InterfaceC0321a fYv = new a.InterfaceC0321a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0321a
         public void a(b bVar, boolean z, boolean z2) {
-            DailyFragment.this.fYt.hideLoadingView();
-            DailyFragment.this.fYt.aHZ();
-            DailyFragment.this.fYt.a(bVar);
-            if (!DailyFragment.this.fYs.btf()) {
-                DailyFragment.this.fYt.aIG();
+            DailyFragment.this.fYu.hideLoadingView();
+            DailyFragment.this.fYu.aIc();
+            DailyFragment.this.fYu.a(bVar);
+            if (!DailyFragment.this.fYt.bti()) {
+                DailyFragment.this.fYu.aIJ();
             } else if (z2) {
-                DailyFragment.this.fYt.bsW();
+                DailyFragment.this.fYu.bsZ();
             } else {
-                DailyFragment.this.fYt.aIF();
+                DailyFragment.this.fYu.aII();
             }
         }
 
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0321a
         public void M(int i, String str) {
-            DailyFragment.this.fYt.hideLoadingView();
-            DailyFragment.this.fYt.aHZ();
-            if (DailyFragment.this.fYs.atJ()) {
-                DailyFragment.this.fYt.showNetRefreshView(DailyFragment.this.fYt.getRootView(), str);
+            DailyFragment.this.fYu.hideLoadingView();
+            DailyFragment.this.fYu.aIc();
+            if (DailyFragment.this.fYt.atJ()) {
+                DailyFragment.this.fYu.showNetRefreshView(DailyFragment.this.fYu.getRootView(), str);
                 return;
             }
             if (j.jS()) {
                 DailyFragment.this.showToast(str);
             }
-            DailyFragment.this.fYt.bsW();
+            DailyFragment.this.fYu.bsZ();
         }
     };
 
@@ -62,25 +62,25 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
 
     public DailyFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.fYs = new com.baidu.tieba.homepage.daily.model.a(pageContext);
-        this.fYt = new a(pageContext);
+        this.fYt = new com.baidu.tieba.homepage.daily.model.a(pageContext);
+        this.fYu = new a(pageContext);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fYs.a(this.fYu);
-        this.fYs.setPageUniqueId(getUniqueId());
-        this.fYt.setListPullRefreshListener(this);
-        this.fYt.setOnSrollToBottomListener(this);
-        this.fYt.w(getNetRefreshListener());
+        this.fYt.a(this.fYv);
         this.fYt.setPageUniqueId(getUniqueId());
+        this.fYu.setListPullRefreshListener(this);
+        this.fYu.setOnSrollToBottomListener(this);
+        this.fYu.w(getNetRefreshListener());
+        this.fYu.setPageUniqueId(getUniqueId());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View rootView = this.fYt.getRootView();
+        View rootView = this.fYu.getRootView();
         if (rootView != null && (rootView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) rootView.getParent()).removeView(rootView);
         }
@@ -90,30 +90,30 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (!this.eTW) {
-            this.fYt.showLoadingView();
-            this.fYs.refresh();
-            this.eTW = true;
+        if (!this.eTX) {
+            this.fYu.showLoadingView();
+            this.fYt.refresh();
+            this.eTX = true;
         }
     }
 
-    public void aID() {
-        this.fYt.aID();
+    public void aIG() {
+        this.fYu.aIG();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aHI() {
-        if (this.eTW) {
-            this.fYt.reload();
+    public void aHL() {
+        if (this.eTX) {
+            this.fYu.reload();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aHJ() {
+    public void aHM() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aHK() {
+    public void aHN() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -132,7 +132,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fYt.onChangeSkinType(i);
+        this.fYu.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -141,36 +141,36 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
 
     @Override // com.baidu.tbadk.core.view.h.c
     public void en(boolean z) {
-        this.fYs.refresh();
+        this.fYt.refresh();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.fYs.hasMore()) {
-            if (!this.fYs.pu()) {
-                this.fYt.aIE();
-                this.fYs.aHq();
+        if (this.fYt.hasMore()) {
+            if (!this.fYt.pu()) {
+                this.fYu.aIH();
+                this.fYt.aHt();
                 return;
             }
             return;
         }
-        this.fYt.aIF();
+        this.fYu.aII();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (j.jS()) {
-            this.fYt.aHH();
-            this.fYt.showLoadingView();
-            this.fYs.refresh();
+            this.fYu.aHK();
+            this.fYu.showLoadingView();
+            this.fYt.refresh();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
+        this.fYu.onDestroy();
         this.fYt.onDestroy();
-        this.fYs.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.o.a

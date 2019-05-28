@@ -28,7 +28,7 @@ public class ae extends k<com.baidu.tieba.pb.data.h, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.h hVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, hVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        cVar.mTextView.setText(hVar.hBT);
+        cVar.mTextView.setText(hVar.hBW);
         com.baidu.tbadk.core.util.al.c(cVar.cGr, (int) R.drawable.pic_emotion_gray_03);
         com.baidu.tbadk.core.util.al.j(cVar.mTextView, R.color.cp_cont_d);
         return view;

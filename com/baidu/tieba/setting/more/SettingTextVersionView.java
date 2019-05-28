@@ -10,7 +10,7 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static String iMJ = "has_shown_funtion_intro";
+    public static String iML = "has_shown_funtion_intro";
 
     public SettingTextVersionView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

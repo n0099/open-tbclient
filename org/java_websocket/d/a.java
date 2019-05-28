@@ -3,9 +3,9 @@ package org.java_websocket.d;
 public interface a {
     boolean Hs(String str);
 
-    String cKT();
+    String cKV();
 
-    a cKU();
+    a cKW();
 
     String toString();
 }

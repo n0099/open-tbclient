@@ -22,9 +22,9 @@ public class a {
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0263a {
-        void aza();
-
         void azb();
+
+        void azc();
 
         void w(float f, float f2);
     }
@@ -69,14 +69,14 @@ public class a {
                         this.cPo.w(motionEvent.getRawX(), motionEvent.getRawY());
                     }
                 } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cPp - motionEvent.getY()) && this.cPo != null) {
-                    this.cPo.azb();
+                    this.cPo.azc();
                 }
                 if (!this.cPt && this.cPs && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cPp - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
                             if (!a.this.cPt && a.this.cPs && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cPp - motionEvent.getY()) < 30.0f && a.this.cPo != null) {
-                                a.this.cPo.aza();
+                                a.this.cPo.azb();
                             }
                         }
                     }, 300L);

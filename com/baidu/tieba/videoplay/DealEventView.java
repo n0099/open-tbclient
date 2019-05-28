@@ -11,17 +11,17 @@ public class DealEventView extends FrameLayout {
     private float NT;
     private float NU;
     private boolean cPt;
-    private long jyd;
-    private a jye;
-    private boolean jyf;
+    private long jye;
+    private a jyf;
+    private boolean jyg;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void aza();
-
         void azb();
 
-        void cus();
+        void azc();
+
+        void cuu();
     }
 
     public DealEventView(Context context) {
@@ -47,34 +47,34 @@ public class DealEventView extends FrameLayout {
                 this.NT = motionEvent.getX();
                 this.NU = motionEvent.getY();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.jyd < 300) {
+                if (currentTimeMillis - this.jye < 300) {
                     this.cPt = true;
-                    if (this.jye != null) {
-                        this.jye.cus();
+                    if (this.jyf != null) {
+                        this.jyf.cuu();
                     }
                 } else {
                     this.cPt = false;
                 }
-                this.jyd = currentTimeMillis;
+                this.jye = currentTimeMillis;
                 break;
             case 1:
                 if (this.NT - motionEvent.getX() < 10.0f && this.NU - motionEvent.getY() < 10.0f) {
-                    this.jyf = true;
+                    this.jyg = true;
                 } else {
-                    this.jyf = false;
+                    this.jyg = false;
                 }
                 postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.DealEventView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!DealEventView.this.cPt && DealEventView.this.jyf && DealEventView.this.jye != null) {
-                            DealEventView.this.jye.aza();
+                        if (!DealEventView.this.cPt && DealEventView.this.jyg && DealEventView.this.jyf != null) {
+                            DealEventView.this.jyf.azb();
                         }
                     }
                 }, 300L);
                 break;
             case 2:
-                if (this.NT - motionEvent.getX() > 60.0f && (this.NT - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.NU) && !this.cPt && this.jye != null) {
-                    this.jye.azb();
+                if (this.NT - motionEvent.getX() > 60.0f && (this.NT - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.NU) && !this.cPt && this.jyf != null) {
+                    this.jyf.azc();
                     break;
                 }
                 break;
@@ -101,6 +101,6 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.jye = aVar;
+        this.jyf = aVar;
     }
 }

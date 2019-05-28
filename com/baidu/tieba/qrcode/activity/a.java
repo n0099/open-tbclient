@@ -3,13 +3,13 @@ package com.baidu.tieba.qrcode.activity;
 public interface a {
     void Cz(String str);
 
-    void cdL();
-
-    void cdM();
-
-    void cdN();
-
     void cdO();
+
+    void cdP();
+
+    void cdQ();
+
+    void cdR();
 
     void dT(String str, String str2);
 }

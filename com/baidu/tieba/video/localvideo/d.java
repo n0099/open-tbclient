@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class d {
     private long duration;
     private boolean hasLoaded = false;
-    private String jsR;
+    private String jsS;
     private long lastModified;
     private String mimeType;
     private Bitmap thumbnailBitmap;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void Fe(String str) {
-        this.jsR = str;
+        this.jsS = str;
     }
 
     public long getLastModified() {
@@ -82,7 +82,7 @@ public class d {
         this.hasLoaded = z;
     }
 
-    public boolean csE() {
+    public boolean csG() {
         return this.hasLoaded;
     }
 }

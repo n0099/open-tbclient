@@ -17,27 +17,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private o fml;
-    private r fmm;
+    private o fmm;
+    private r fmn;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
-    public List<com.baidu.adp.widget.ListView.a> aHM() {
+    public List<com.baidu.adp.widget.ListView.a> aHP() {
         return this.mAdapters;
     }
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.flx));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.flJ));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.foz));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.fla));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.fld));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.fly));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.flK));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.foA));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.flb));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.fle));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.fml = new o(baseActivity.getPageContext(), p.flZ);
-        this.mAdapters.add(this.fml);
-        this.fmm = new r(baseActivity.getPageContext(), s.fmj);
+        this.fmm = new o(baseActivity.getPageContext(), p.fma);
         this.mAdapters.add(this.fmm);
+        this.fmn = new r(baseActivity.getPageContext(), s.fmk);
+        this.mAdapters.add(this.fmn);
     }
 
     public void notifyDataSetChanged() {
@@ -47,7 +47,7 @@ public class a {
     }
 
     public void onDestroy() {
-        this.fml.onDestroy();
         this.fmm.onDestroy();
+        this.fmn.onDestroy();
     }
 }

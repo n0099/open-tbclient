@@ -91,7 +91,6 @@ public class r {
             jSONObject.putOpt("system", jSONObject2);
             jSONObject.putOpt("officialNo", Integer.valueOf(this.bwc));
             jSONObject.putOpt("containerNo", Integer.valueOf(this.bwd));
-            jSONObject.putOpt("cfrom", this.bwe);
             jSONObject.putOpt("appVersion", this.appVersion);
             jSONObject.putOpt("appBranch", this.bwf);
             jSONObject.putOpt("appPackageName", this.bwg);

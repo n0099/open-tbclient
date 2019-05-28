@@ -52,20 +52,20 @@ public class d extends h<e, f> {
             if (fVar.mSkinType != this.mSkinType) {
                 al.k(fVar.getView(), R.drawable.frs_member_manito_bg);
                 al.f(fVar.bmf, R.color.cp_cont_f, 1);
-                al.f(fVar.eCS, R.color.cp_cont_d, 1);
+                al.f(fVar.eCT, R.color.cp_cont_d, 1);
                 al.l(fVar.dividerLine, R.color.cp_bg_line_c);
-                al.f(fVar.flg, R.color.cp_cont_d, 1);
+                al.f(fVar.flh, R.color.cp_cont_d, 1);
             }
-            fVar.flf.startLoad(eVar.bis(), 12, false);
+            fVar.flg.startLoad(eVar.biv(), 12, false);
             fVar.bmf.setText(ab.ac(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.eCS.setText(R.string.god_intro_default);
+                fVar.eCT.setText(R.string.god_intro_default);
             } else {
-                fVar.eCS.setText(ab.ac(eVar.getIntro(), 30));
+                fVar.eCT.setText(ab.ac(eVar.getIntro(), 30));
             }
             int color = al.getColor(R.color.cp_cont_h);
             String aG = ap.aG(eVar.getFansNum());
-            fVar.flg.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aG), new String[]{aG}, new int[]{color}));
+            fVar.flh.setText(a(String.format(this.mContext.getResources().getString(R.string.fans_count), aG), new String[]{aG}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

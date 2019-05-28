@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.alf().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cuP();
+                                aVar.cuR();
                                 if (b.this.a(aVar.alf(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
                                     aVar.arL();
                                     return;

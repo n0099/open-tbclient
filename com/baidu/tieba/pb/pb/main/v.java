@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.bc;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickListener {
-    private com.baidu.tieba.pb.data.d hGB;
+    private com.baidu.tieba.pb.data.d hGE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public v(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -32,7 +32,7 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
         if (wVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (wVar.mSkinType != skinType) {
-                com.baidu.tbadk.s.a.a(this.hGm.getPageContext(), wVar.getView());
+                com.baidu.tbadk.s.a.a(this.hGp.getPageContext(), wVar.getView());
             }
             wVar.mSkinType = skinType;
         }
@@ -45,19 +45,19 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.a aVar, w wVar) {
         super.onFillViewHolder(i, view, viewGroup, aVar, wVar);
         a(wVar);
-        wVar.hJd.setOnClickListener(this);
-        wVar.hJc.setOnClickListener(this);
-        wVar.hJd.setTag(aVar);
-        wVar.hJc.setTag(aVar);
+        wVar.hJg.setOnClickListener(this);
+        wVar.hJf.setOnClickListener(this);
+        wVar.hJg.setTag(aVar);
+        wVar.hJf.setTag(aVar);
         if (aVar != null) {
             aVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.hGm.getUniqueId(), this.hGB, aVar, aVar.locate, 7);
-            wVar.hJb.startLoad(aVar.getPortrait(), 28, false);
-            wVar.epd.setText(aVar.getUserName());
-            wVar.gua.setText(aVar.bPC());
+            com.baidu.tieba.pb.c.a.a(this.hGp.getUniqueId(), this.hGE, aVar, aVar.locate, 7);
+            wVar.hJe.startLoad(aVar.getPortrait(), 28, false);
+            wVar.epe.setText(aVar.getUserName());
+            wVar.gub.setText(aVar.bPF());
             wVar.text.setText(aVar.getText());
-            wVar.hJc.startLoad(aVar.getPicUrl(), 10, false);
-            wVar.hJd.setText(aVar.bPD());
+            wVar.hJf.startLoad(aVar.getPicUrl(), 10, false);
+            wVar.hJg.setText(aVar.bPG());
         }
         return view;
     }
@@ -68,15 +68,15 @@ public class v extends k<com.baidu.tieba.pb.data.a, w> implements View.OnClickLi
     public void onClick(View view) {
         if ((view.getTag() instanceof com.baidu.tieba.pb.data.a) && bc.cE(this.mContext)) {
             com.baidu.tieba.pb.data.a aVar = (com.baidu.tieba.pb.data.a) view.getTag();
-            String bPE = aVar.bPE();
-            if (!StringUtils.isNull(bPE)) {
-                ba.aiz().c(this.hGm.getPageContext(), new String[]{bPE});
+            String bPH = aVar.bPH();
+            if (!StringUtils.isNull(bPH)) {
+                ba.aiz().c(this.hGp.getPageContext(), new String[]{bPH});
             }
-            com.baidu.tieba.pb.c.a.a(this.hGB, aVar, aVar.locate, 7);
+            com.baidu.tieba.pb.c.a.a(this.hGE, aVar, aVar.locate, 7);
         }
     }
 
     public void setData(com.baidu.tieba.pb.data.d dVar) {
-        this.hGB = dVar;
+        this.hGE = dVar;
     }
 }

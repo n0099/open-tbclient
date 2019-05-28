@@ -79,13 +79,13 @@ public class f {
                     }
                 }
             }
-            com.baidu.tieba.im.db.d.bzR().q(linkedList);
+            com.baidu.tieba.im.db.d.bzU().q(linkedList);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
             imMessageCenterPojo.setIs_hidden(1);
             imMessageCenterPojo.setCustomGroupType(-2);
             imMessageCenterPojo.setPulled_msgId(j);
-            j.bAa().f(imMessageCenterPojo);
+            j.bAd().f(imMessageCenterPojo);
             if (groupNewsPojo2 != null) {
                 ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                 imMessageCenterPojo2.setGid(String.valueOf("-1002"));
@@ -95,7 +95,7 @@ public class f {
                 imMessageCenterPojo2.setLast_content_time(groupNewsPojo2.getTime());
                 imMessageCenterPojo2.setLast_content(groupNewsPojo2.getContent());
                 imMessageCenterPojo2.setIs_hidden(0);
-                j.bAa().a(imMessageCenterPojo2, 2);
+                j.bAd().a(imMessageCenterPojo2, 2);
             }
             if (groupNewsPojo3 != null) {
                 ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
@@ -106,7 +106,7 @@ public class f {
                 imMessageCenterPojo3.setLast_content_time(groupNewsPojo3.getTime());
                 imMessageCenterPojo3.setLast_content(groupNewsPojo3.getContent());
                 imMessageCenterPojo3.setIs_hidden(0);
-                j.bAa().a(imMessageCenterPojo3, 2);
+                j.bAd().a(imMessageCenterPojo3, 2);
             }
             Iterator<GroupNewsPojo> it2 = o.iterator();
             while (it2.hasNext()) {
@@ -192,7 +192,7 @@ public class f {
                 str4 = jSONObject.optString("userName");
                 str5 = jSONObject.optString("groupName");
             }
-            ImMessageCenterPojo aP = com.baidu.tieba.im.memorycache.b.bCo().aP(str3, 1);
+            ImMessageCenterPojo aP = com.baidu.tieba.im.memorycache.b.bCr().aP(str3, 1);
             if (aP != null) {
                 str5 = aP.getGroup_name();
             }

@@ -12,8 +12,8 @@ import java.net.URL;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class DnsProxyStatic {
-    private static int eNU = 0;
     private static int eNV = 0;
+    private static int eNW = 0;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2007015) { // from class: com.baidu.tieba.dnsproxy.DnsProxyStatic.2
@@ -24,9 +24,9 @@ public class DnsProxyStatic {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (com.baidu.adp.lib.b.d.hI().ay("switch_dnsproxy") == 1) {
-                            DnsProxyStatic.bci();
+                            DnsProxyStatic.bcl();
                         } else {
-                            DnsProxyStatic.bcj();
+                            DnsProxyStatic.bcm();
                         }
                     }
                 }, 1000L);
@@ -34,7 +34,7 @@ public class DnsProxyStatic {
         });
     }
 
-    public static final void bci() {
+    public static final void bcl() {
         com.baidu.adp.lib.network.http.a.a(new com.baidu.adp.lib.network.http.a() { // from class: com.baidu.tieba.dnsproxy.DnsProxyStatic.1
             @Override // com.baidu.adp.lib.network.http.a
             public void a(com.baidu.adp.lib.network.http.e eVar) {
@@ -56,9 +56,9 @@ public class DnsProxyStatic {
 
             @Override // com.baidu.adp.lib.network.http.a
             public String az(String str) {
-                if (f.bcm().vj(str)) {
+                if (f.bcp().vj(str)) {
                     try {
-                        return e.bcf().ac(new URL(str).getHost(), f.bcm().vk(str));
+                        return e.bci().ac(new URL(str).getHost(), f.bcp().vk(str));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                         return null;
@@ -67,12 +67,12 @@ public class DnsProxyStatic {
                 return null;
             }
         });
-        e.bcf().start();
+        e.bci().start();
     }
 
-    public static final void bcj() {
+    public static final void bcm() {
         com.baidu.adp.lib.network.http.a.a((com.baidu.adp.lib.network.http.a) null);
-        e.bcf().close();
+        e.bci().close();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -89,40 +89,40 @@ public class DnsProxyStatic {
             if (bArr != null && bArr.length == 0) {
                 z = true;
             }
-            com.baidu.tieba.dnsproxy.a.d.bcs().ad(dVar.Ay, z ? false : true);
+            com.baidu.tieba.dnsproxy.a.d.bcv().ad(dVar.Ay, z ? false : true);
             if (z) {
                 try {
                     URL url = new URL(eVar.ik().getUrl());
                     com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.append("workflow", "dnsproxy_use");
-                    statsItem.c("sucnum", Integer.valueOf(eNU));
+                    statsItem.c("sucnum", Integer.valueOf(eNV));
                     statsItem.c("failnum", 1);
                     statsItem.append("host", url.getHost());
                     statsItem.append("ip", dVar.Ay);
                     statsItem.append("reason", dVar.Au);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                    eNU = 0;
+                    eNV = 0;
                     return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
                     return;
                 }
             }
-            eNU++;
-            if (eNU >= 100) {
-                bck();
+            eNV++;
+            if (eNV >= 100) {
+                bcn();
             }
         }
     }
 
-    public static final void bck() {
-        if (eNU > 0) {
+    public static final void bcn() {
+        if (eNV > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("workflow", "dnsproxy_use");
-                statsItem.c("sucnum", Integer.valueOf(eNU));
+                statsItem.c("sucnum", Integer.valueOf(eNV));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                eNU = 0;
+                eNV = 0;
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
@@ -149,33 +149,33 @@ public class DnsProxyStatic {
                     URL url = new URL(eVar.ik().getUrl());
                     com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.append("workflow", "dnsproxy_unuse");
-                    statsItem.c("sucnum", Integer.valueOf(eNV));
+                    statsItem.c("sucnum", Integer.valueOf(eNW));
                     statsItem.c("failnum", 1);
                     statsItem.append("host", url.getHost());
                     statsItem.append("reason", dVar.Au);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                    eNV = 0;
+                    eNW = 0;
                     return;
                 } catch (Throwable th) {
                     BdLog.detailException(th);
                     return;
                 }
             }
-            eNV++;
-            if (eNV >= 100) {
-                bcl();
+            eNW++;
+            if (eNW >= 100) {
+                bco();
             }
         }
     }
 
-    public static final void bcl() {
-        if (eNV > 0) {
+    public static final void bco() {
+        if (eNW > 0) {
             try {
                 com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                 statsItem.append("workflow", "dnsproxy_unuse");
-                statsItem.c("sucnum", Integer.valueOf(eNV));
+                statsItem.c("sucnum", Integer.valueOf(eNW));
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
-                eNV = 0;
+                eNW = 0;
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }

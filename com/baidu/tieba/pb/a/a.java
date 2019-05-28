@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0367a hCo;
+    private InterfaceC0367a hCr;
     private int count = 0;
-    private long hCm = 0;
-    private long hCn = 0;
-    private long hCp = 500;
+    private long hCp = 0;
+    private long hCq = 0;
+    private long hCs = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.hCm = 0L;
-                a.this.hCn = 0L;
+                a.this.hCp = 0L;
+                a.this.hCq = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.hCo != null) {
-                    a.this.hCo.bQz();
+                if (a.this.hCr != null) {
+                    a.this.hCr.bQC();
                 }
                 a.this.count = 0;
-                a.this.hCm = 0L;
-                a.this.hCn = 0L;
+                a.this.hCp = 0L;
+                a.this.hCq = 0L;
             }
         }
     };
@@ -32,30 +32,30 @@ public class a implements View.OnTouchListener {
     /* renamed from: com.baidu.tieba.pb.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0367a {
-        void bQy();
+        void bQB();
 
-        void bQz();
+        void bQC();
     }
 
     public a(InterfaceC0367a interfaceC0367a) {
-        this.hCo = interfaceC0367a;
+        this.hCr = interfaceC0367a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.hCo == null) {
+            if (this.hCr == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.hCm = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.hCp);
+                this.hCp = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.hCs);
                 return true;
             } else if (this.count == 2) {
-                this.hCn = System.currentTimeMillis();
-                if (this.hCn - this.hCm < this.hCp) {
-                    this.hCo.bQy();
+                this.hCq = System.currentTimeMillis();
+                if (this.hCq - this.hCp < this.hCs) {
+                    this.hCr.bQB();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

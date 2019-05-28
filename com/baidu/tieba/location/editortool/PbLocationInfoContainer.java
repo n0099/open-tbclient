@@ -16,14 +16,14 @@ import com.baidu.tieba.R;
 public class PbLocationInfoContainer extends LinearLayout implements View.OnClickListener, l {
     private PbNewLocationInfoView csH;
     private ImageView csJ;
-    private boolean fwn;
-    private EditorTools hdD;
-    private int hdE;
+    private boolean fwo;
+    private EditorTools hdG;
+    private int hdH;
 
     public PbLocationInfoContainer(Context context) {
         super(context);
-        this.hdE = 0;
-        this.fwn = true;
+        this.hdH = 0;
+        this.fwo = true;
         initView();
     }
 
@@ -104,24 +104,24 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.hdD = editorTools;
+        this.hdG = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.hdD != null) {
-            this.hdD.b(aVar);
+        if (this.hdG != null) {
+            this.hdG.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.hdE = i;
+        this.hdH = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.hdE;
+        return this.hdH;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -130,8 +130,8 @@ public class PbLocationInfoContainer extends LinearLayout implements View.OnClic
 
     @Override // com.baidu.tbadk.editortools.l
     public void pO() {
-        if (this.fwn) {
-            this.fwn = false;
+        if (this.fwo) {
+            this.fwo = false;
             b(new com.baidu.tbadk.editortools.a(18, -1, Config.TRACE_VISIT_FIRST));
         }
         setVisibility(0);

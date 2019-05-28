@@ -15,16 +15,16 @@ import com.baidu.tieba.barselect.data.e;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class VoteStatusCard extends LinearLayout {
-    private f epN;
-    private e erj;
-    private TextView euC;
-    private VoteStatusView euD;
-    private TextView euE;
+    private f epO;
+    private e erk;
+    private TextView euD;
+    private VoteStatusView euE;
     private TextView euF;
     private TextView euG;
     private TextView euH;
     private TextView euI;
     private TextView euJ;
+    private TextView euK;
     private Context mContext;
     private int status;
 
@@ -34,7 +34,7 @@ public class VoteStatusCard extends LinearLayout {
 
     public VoteStatusCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.status = d.etW;
+        this.status = d.etX;
         initUI();
     }
 
@@ -52,54 +52,54 @@ public class VoteStatusCard extends LinearLayout {
     }
 
     private void qA() {
-        this.euC = (TextView) findViewById(R.id.bar_maneger_apply_title);
-        this.euD = (VoteStatusView) findViewById(R.id.vote_status_view);
-        this.euE = (TextView) findViewById(R.id.apply_title);
-        this.euF = (TextView) findViewById(R.id.apply_start_time);
-        this.euG = (TextView) findViewById(R.id.vote_title);
-        this.euH = (TextView) findViewById(R.id.vote_start_time);
-        this.euI = (TextView) findViewById(R.id.publicity_title);
-        this.euJ = (TextView) findViewById(R.id.publicity_start_time);
+        this.euD = (TextView) findViewById(R.id.bar_maneger_apply_title);
+        this.euE = (VoteStatusView) findViewById(R.id.vote_status_view);
+        this.euF = (TextView) findViewById(R.id.apply_title);
+        this.euG = (TextView) findViewById(R.id.apply_start_time);
+        this.euH = (TextView) findViewById(R.id.vote_title);
+        this.euI = (TextView) findViewById(R.id.vote_start_time);
+        this.euJ = (TextView) findViewById(R.id.publicity_title);
+        this.euK = (TextView) findViewById(R.id.publicity_start_time);
     }
 
     public void setData(f fVar) {
-        this.epN = fVar;
-        if (this.epN == null || this.epN.aWQ() == null) {
+        this.epO = fVar;
+        if (this.epO == null || this.epO.aWT() == null) {
             setVisibility(8);
             return;
         }
-        this.erj = this.epN.aWQ();
-        this.status = this.erj.getStatus();
-        this.euD.setStatus(this.status);
-        long aWL = this.erj.aWL() * 1000;
-        this.euF.setText(ap.aw(this.erj.aWJ() * 1000));
-        this.euH.setText(ap.av(this.erj.aWM() * 1000));
-        this.euJ.setText(ap.av(this.erj.aWK() * 1000));
+        this.erk = this.epO.aWT();
+        this.status = this.erk.getStatus();
+        this.euE.setStatus(this.status);
+        long aWO = this.erk.aWO() * 1000;
+        this.euG.setText(ap.aw(this.erk.aWM() * 1000));
+        this.euI.setText(ap.av(this.erk.aWP() * 1000));
+        this.euK.setText(ap.av(this.erk.aWN() * 1000));
     }
 
     public void nq(int i) {
         int color = al.getColor(i, R.color.cp_cont_b);
         int color2 = al.getColor(i, R.color.cp_cont_d);
-        if (this.euE != null) {
-            this.euE.setTextColor(color);
+        if (this.euF != null) {
+            this.euF.setTextColor(color);
         }
-        if (this.euG != null) {
-            this.euG.setTextColor(this.status > d.etV ? color : color2);
+        if (this.euH != null) {
+            this.euH.setTextColor(this.status > d.etW ? color : color2);
         }
-        if (this.euI != null) {
-            TextView textView = this.euI;
-            if (this.status <= d.etW) {
+        if (this.euJ != null) {
+            TextView textView = this.euJ;
+            if (this.status <= d.etX) {
                 color = color2;
             }
             textView.setTextColor(color);
         }
-        if (this.euD != null) {
-            this.euD.nq(i);
+        if (this.euE != null) {
+            this.euE.nq(i);
         }
-        al.c(this.euC, R.color.cp_cont_b, 1, i);
-        al.c(this.euF, R.color.cp_cont_d, 1, i);
-        al.c(this.euH, R.color.cp_cont_d, 1, i);
-        al.c(this.euJ, R.color.cp_cont_d, 1, i);
+        al.c(this.euD, R.color.cp_cont_b, 1, i);
+        al.c(this.euG, R.color.cp_cont_d, 1, i);
+        al.c(this.euI, R.color.cp_cont_d, 1, i);
+        al.c(this.euK, R.color.cp_cont_d, 1, i);
         al.g(this, R.drawable.bar_select_bg_shadow_and_radius, i);
     }
 }

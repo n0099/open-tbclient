@@ -11,7 +11,7 @@ public interface s {
 
     void a(BasePool basePool);
 
-    void cHc();
+    void cHe();
 
-    void cHd();
+    void cHf();
 }

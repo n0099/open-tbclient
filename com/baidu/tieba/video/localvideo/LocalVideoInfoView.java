@@ -13,33 +13,33 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object jsp = new Object();
-    private static long jsq = 3600000;
+    public static final Object jsq = new Object();
+    private static long jsr = 3600000;
     private ImageView agT;
     private TextView aif;
-    private TextView jso;
-    private SimpleDateFormat jsr;
+    private TextView jsp;
     private SimpleDateFormat jss;
-    private boolean jst;
+    private SimpleDateFormat jst;
+    private boolean jsu;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.jst = false;
+        this.jsu = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jst = false;
+        this.jsu = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jst = false;
+        this.jsu = false;
         init(context);
     }
 
@@ -49,17 +49,17 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.agT = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
         this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.aif = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.jso = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.jsp = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.jss = new SimpleDateFormat("mm:ss");
-        this.jsr = new SimpleDateFormat("HH:mm:ss");
+        this.jst = new SimpleDateFormat("mm:ss");
+        this.jss = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+        this.jst.setTimeZone(timeZone);
         this.jss.setTimeZone(timeZone);
-        this.jsr.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.jst) {
+        if (!this.jsu) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -78,13 +78,13 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     public void rs(boolean z) {
-        this.jst = true;
+        this.jsu = true;
         if (z) {
             this.agT.setScaleType(ImageView.ScaleType.CENTER);
             this.agT.setImageBitmap(null);
             this.agT.setImageResource(0);
             this.agT.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.jso.setVisibility(0);
+            this.jsp.setVisibility(0);
             return;
         }
         this.agT.setScaleType(ImageView.ScaleType.CENTER);
@@ -92,14 +92,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.agT.setImageBitmap(null);
         this.agT.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
         this.aif.setText("");
-        this.jso.setVisibility(8);
+        this.jsp.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.jst = false;
-        this.jso.setVisibility(8);
+        this.jsu = false;
+        this.jsp.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.csE()) {
+        if (dVar != null && dVar.csG()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -107,6 +107,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String eu(long j) {
-        return j > jsq ? this.jsr.format(Long.valueOf(j)) : this.jss.format(Long.valueOf(j));
+        return j > jsr ? this.jss.format(Long.valueOf(j)) : this.jst.format(Long.valueOf(j));
     }
 }

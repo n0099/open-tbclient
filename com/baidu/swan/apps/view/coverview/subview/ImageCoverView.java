@@ -25,7 +25,7 @@ public class ImageCoverView extends SimpleDraweeView implements a {
     public ImageCoverView(Context context) {
         super(context);
         this.bcc = new CoverViewHelper();
-        getHierarchy().b(n.b.jVU);
+        getHierarchy().b(n.b.jVV);
     }
 
     @Override // com.baidu.swan.apps.view.coverview.subview.a
@@ -81,7 +81,7 @@ public class ImageCoverView extends SimpleDraweeView implements a {
                     Log.d("CoverImage", "Image Uri:" + iz);
                 }
                 final boolean z = ((com.baidu.swan.apps.view.coverview.b.b) aVar).bbY;
-                e b = c.cCs().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
+                e b = c.cCu().b(getController()).b(new com.facebook.drawee.controller.b<com.facebook.imagepipeline.f.e>() { // from class: com.baidu.swan.apps.view.coverview.subview.ImageCoverView.1
                     @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                     public void g(String str2, Throwable th) {
                         super.g(str2, th);
@@ -106,14 +106,14 @@ public class ImageCoverView extends SimpleDraweeView implements a {
                     }
                 });
                 b.I(iz);
-                com.facebook.drawee.controller.a cCY = b.cDc();
+                com.facebook.drawee.controller.a cDa = b.cDe();
                 RoundingParams roundingParams = new RoundingParams();
                 roundingParams.bb(this.bcc.ap(aVar.akx));
-                com.facebook.drawee.generic.a cDM = new com.facebook.drawee.generic.b(getResources()).cDM();
-                cDM.a(roundingParams);
-                cDM.b(n.b.jVU);
-                setHierarchy(cDM);
-                setController(cCY);
+                com.facebook.drawee.generic.a cDO = new com.facebook.drawee.generic.b(getResources()).cDO();
+                cDO.a(roundingParams);
+                cDO.b(n.b.jVV);
+                setHierarchy(cDO);
+                setController(cDa);
             }
         }
     }

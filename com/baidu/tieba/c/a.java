@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0292a interfaceC0292a);
 
-    void aZp();
+    void aZs();
 }

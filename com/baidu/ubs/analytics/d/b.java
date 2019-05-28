@@ -9,48 +9,48 @@ import java.util.TimeZone;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class b {
-    private static boolean jPf;
-    private static boolean jQd;
-    private static StringBuffer jQe = new StringBuffer();
+    private static boolean jPg;
+    private static boolean jQe;
+    private static StringBuffer jQf = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.cAl() != null) {
-            jPf = !a.cAG();
-            jQd = true;
-            jQe.append("ABsdkLog-");
-            jQe.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            jQe.append("_");
+        if (com.baidu.ubs.analytics.d.cAn() != null) {
+            jPg = !a.cAI();
+            jQe = true;
+            jQf.append("ABsdkLog-");
+            jQf.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            jQf.append("_");
             try {
-                jQe.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.cAl().getContext()).getBytes(HTTP.UTF_8)));
+                jQf.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.cAn().getContext()).getBytes(HTTP.UTF_8)));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            jQe.append(".log");
+            jQf.append(".log");
         }
     }
 
-    public static String cAI() {
-        return jQe.toString();
+    public static String cAK() {
+        return jQf.toString();
     }
 
     public static void Gq(String str) {
-        if (jPf) {
+        if (jPg) {
             Log.w("BaiDuUbs", str);
         }
         a(Config.DEVICE_WIDTH, "BaiDuUbs", str);
     }
 
     public static void Gr(String str) {
-        if (jPf) {
+        if (jPg) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (jQd) {
+        if (jQe) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -64,7 +64,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.b(stringBuffer.toString(), a.jQa, b.jQe.toString());
+                    g.b(stringBuffer.toString(), a.jQb, b.jQf.toString());
                 }
             });
         }

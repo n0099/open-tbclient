@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
-    private BaseFragment eSK;
+    private BaseFragment eSL;
     private boolean isPrimary;
     private List<a> mFragments;
     private int mPrimaryPosition;
@@ -70,16 +70,16 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
             if (obj instanceof BaseFragment) {
                 BaseFragment baseFragment = (BaseFragment) obj;
                 baseFragment.setPrimary(true);
-                this.eSK = baseFragment;
+                this.eSL = baseFragment;
             }
         }
     }
 
-    public int bdR() {
-        if (this.eSK instanceof EnterForumFragment) {
+    public int bdU() {
+        if (this.eSL instanceof EnterForumFragment) {
             return 1;
         }
-        if (this.eSK instanceof RecommendFragment) {
+        if (this.eSL instanceof RecommendFragment) {
             return 2;
         }
         return -1;
@@ -90,8 +90,8 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
     }
 
     public String getCurrentPageKey() {
-        if (this.eSK instanceof BaseFragment) {
-            return this.eSK.getCurrentPageKey();
+        if (this.eSL instanceof BaseFragment) {
+            return this.eSL.getCurrentPageKey();
         }
         return null;
     }

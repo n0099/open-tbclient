@@ -10,7 +10,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
     private static final boolean DEBUG = b.DEBUG;
-    private BdContextMenuView dgq;
+    private BdContextMenuView dgr;
 
     public a(View view) {
         super(view);
@@ -22,7 +22,7 @@ public class a extends com.baidu.swan.apps.res.widget.a.a {
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         BdContextMenuView bdContextMenuView = new BdContextMenuView(context);
-        this.dgq = bdContextMenuView;
+        this.dgr = bdContextMenuView;
         return bdContextMenuView;
     }
 

@@ -30,7 +30,7 @@ public class b {
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.aYc()) {
+                    if (pVar.aYf()) {
                         pVar2.iy(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
                             pVar.iz(false);

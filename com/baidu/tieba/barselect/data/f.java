@@ -6,22 +6,22 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
     private BdUniqueId Xk;
-    private e erj;
-    private d erk;
-    private List<d> erl;
+    private e erk;
+    private d erl;
+    private List<d> erm;
     private long fid;
     private boolean hasMore;
 
-    public List<d> aWO() {
+    public List<d> aWR() {
+        return this.erm;
+    }
+
+    public d aWS() {
         return this.erl;
     }
 
-    public d aWP() {
+    public e aWT() {
         return this.erk;
-    }
-
-    public e aWQ() {
-        return this.erj;
     }
 
     public boolean getHasMore() {
@@ -37,15 +37,15 @@ public class f {
     }
 
     public void L(ArrayList<d> arrayList) {
-        this.erl = arrayList;
+        this.erm = arrayList;
     }
 
     public void a(e eVar) {
-        this.erj = eVar;
+        this.erk = eVar;
     }
 
     public void a(d dVar) {
-        this.erk = dVar;
+        this.erl = dVar;
     }
 
     public void setHasMore(boolean z) {

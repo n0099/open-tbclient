@@ -17,9 +17,9 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cZI = "cookieMap";
-    public static String cZJ = "ptokenDomains";
-    public static String cZK = "bdussDomains";
+    public static String cZJ = "cookieMap";
+    public static String cZK = "ptokenDomains";
+    public static String cZL = "bdussDomains";
 
     public static void ds(Context context) {
         if (ProcessUtils.isMainProcess()) {
@@ -48,10 +48,10 @@ public class p {
                 stringArrayList = null;
                 map = c.j(context, hashMap);
             } else {
-                Map<String, String> map2 = delegateResult.mResult.getSerializable(cZI) != null ? (Map) delegateResult.mResult.getSerializable(cZI) : null;
-                stringArrayList = delegateResult.mResult.containsKey(cZK) ? delegateResult.mResult.getStringArrayList(cZK) : null;
-                if (delegateResult.mResult.containsKey(cZJ)) {
-                    arrayList = delegateResult.mResult.getStringArrayList(cZJ);
+                Map<String, String> map2 = delegateResult.mResult.getSerializable(cZJ) != null ? (Map) delegateResult.mResult.getSerializable(cZJ) : null;
+                stringArrayList = delegateResult.mResult.containsKey(cZL) ? delegateResult.mResult.getStringArrayList(cZL) : null;
+                if (delegateResult.mResult.containsKey(cZK)) {
+                    arrayList = delegateResult.mResult.getStringArrayList(cZK);
                     map = map2;
                 } else {
                     map = map2;

@@ -7,6 +7,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
@@ -15,6 +16,26 @@ import java.net.URL;
 import java.net.URLDecoder;
 /* loaded from: classes.dex */
 public class ae {
+    private static BaseWebView mBaseWebView;
+
+    public static void avz() {
+        try {
+            if (mBaseWebView == null) {
+                mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String getUserAgent() {
+        avz();
+        if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
+            return null;
+        }
+        return mBaseWebView.getSettings().getUserAgentString();
+    }
+
     public static String ce(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {

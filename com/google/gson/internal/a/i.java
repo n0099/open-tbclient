@@ -8,20 +8,20 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 /* loaded from: classes2.dex */
 public final class i extends n<Date> {
-    public static final o kgA = new o() { // from class: com.google.gson.internal.a.i.1
+    public static final o kgB = new o() { // from class: com.google.gson.internal.a.i.1
         @Override // com.google.gson.o
         public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cJr() == Date.class) {
+            if (aVar.cJt() == Date.class) {
                 return new i();
             }
             return null;
         }
     };
-    private final DateFormat kha = new SimpleDateFormat("MMM d, yyyy");
+    private final DateFormat khb = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.n
     public synchronized void a(com.google.gson.stream.a aVar, Date date) throws IOException {
-        aVar.Hb(date == null ? null : this.kha.format((java.util.Date) date));
+        aVar.Hb(date == null ? null : this.khb.format((java.util.Date) date));
     }
 }

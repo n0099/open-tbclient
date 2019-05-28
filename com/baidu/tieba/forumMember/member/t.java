@@ -9,9 +9,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class t extends v.a {
     public View bMo;
-    public TextView fmf;
     public TextView fmg;
-    public RelativeLayout fmh;
+    public TextView fmh;
+    public RelativeLayout fmi;
     public LinearLayout mRootLayout;
     public int mSkinType;
 
@@ -20,8 +20,8 @@ public class t extends v.a {
         this.mSkinType = 3;
         this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_private_member_apply);
         this.bMo = view.findViewById(R.id.private_apply_line);
-        this.fmf = (TextView) view.findViewById(R.id.private_apply_tip);
-        this.fmg = (TextView) view.findViewById(R.id.private_left_tv);
-        this.fmh = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
+        this.fmg = (TextView) view.findViewById(R.id.private_apply_tip);
+        this.fmh = (TextView) view.findViewById(R.id.private_left_tv);
+        this.fmi = (RelativeLayout) view.findViewById(R.id.private_apply_layout);
     }
 }

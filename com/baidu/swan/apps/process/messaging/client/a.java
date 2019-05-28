@@ -68,7 +68,7 @@ public final class a {
         this.aGK = new f();
         this.mMessenger = new Messenger(this.aGK);
         this.aGO = new ArrayList();
-        this.aGP = new ServiceConnection() { // from class: com.baidu.swan.apps.process.messaging.client.a.2
+        this.aGP = new ServiceConnection() { // from class: com.baidu.swan.apps.process.messaging.client.a.3
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 if (a.DEBUG) {
@@ -177,11 +177,16 @@ public final class a {
         if (DEBUG) {
             Log.i("SwanAppMessengerClient", "onConnectionDown mMsgCachedList.size=" + this.aGO.size());
         }
-        this.aGL = null;
-        if (this.aGN != null) {
-            this.aGN.IJ();
-        }
-        this.aGO.clear();
+        ac.k(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.a.2
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.aGL = null;
+                if (a.this.aGN != null) {
+                    a.this.aGN.IJ();
+                }
+                a.this.aGO.clear();
+            }
+        });
         SwanAppLocalService.startForRebindMsgService(SwanAppProcessInfo.current());
     }
 

@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c icS;
-    private d idi;
-    private com.baidu.tieba.personCenter.a.a idj;
-    private com.baidu.tieba.personCenter.a.b idk;
-    private f idm;
-    private e idn;
+    private com.baidu.tieba.personCenter.a.c icV;
+    private d idm;
+    private com.baidu.tieba.personCenter.a.a idn;
+    private com.baidu.tieba.personCenter.a.b ido;
+    private f idp;
+    private e idq;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -29,18 +29,18 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.idi = new d(tbPageContext, h.idT);
-        this.idj = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.idC);
-        this.idk = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.idD);
-        this.idm = new f(tbPageContext, m.ied);
-        this.icS = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.idS);
-        this.idn = new e(tbPageContext, j.idX);
-        this.mAdapters.add(this.idi);
-        this.mAdapters.add(this.idj);
-        this.mAdapters.add(this.idk);
+        this.idm = new d(tbPageContext, h.idW);
+        this.idn = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.d.idF);
+        this.ido = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.e.idG);
+        this.idp = new f(tbPageContext, m.ieg);
+        this.icV = new com.baidu.tieba.personCenter.a.c(tbPageContext, g.idV);
+        this.idq = new e(tbPageContext, j.iea);
         this.mAdapters.add(this.idm);
-        this.mAdapters.add(this.icS);
         this.mAdapters.add(this.idn);
+        this.mAdapters.add(this.ido);
+        this.mAdapters.add(this.idp);
+        this.mAdapters.add(this.icV);
+        this.mAdapters.add(this.idq);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -50,11 +50,11 @@ public class a {
         }
     }
 
-    public void bYi() {
-        this.idj.bYi();
+    public void bYl() {
+        this.idn.bYl();
     }
 
-    public void bYj() {
-        this.idj.destroy();
+    public void bYm() {
+        this.idn.destroy();
     }
 }

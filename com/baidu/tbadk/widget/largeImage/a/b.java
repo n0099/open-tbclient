@@ -34,7 +34,7 @@ public class b {
         return this.cGV;
     }
 
-    public Rect awD() {
+    public Rect awE() {
         return this.cHf;
     }
 
@@ -42,28 +42,28 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        return aVar.awB();
+        return aVar.awC();
     }
 
-    public Point[] awE() {
-        awG();
-        int awC = awC();
-        int i = (this.cGY.top / awC) / this.cGV;
-        int i2 = (this.cGY.left / awC) / this.cGV;
+    public Point[] awF() {
+        awH();
+        int awD = awD();
+        int i = (this.cGY.top / awD) / this.cGV;
+        int i2 = (this.cGY.left / awD) / this.cGV;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.cGY.bottom / awC) / this.cGV) * awC) + 1;
-        point2.x = (awC * ((this.cGY.right / awC) / this.cGV)) + 1;
+        point2.y = (((this.cGY.bottom / awD) / this.cGV) * awD) + 1;
+        point2.x = (awD * ((this.cGY.right / awD) / this.cGV)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a awF() {
+    public a awG() {
         return new a(this.cGV);
     }
 
-    public Rect awG() {
+    public Rect awH() {
         this.mMatrix.mapRect(this.cGX, this.cGZ);
         a(this.cGY, this.cGX);
         return this.cGY;
@@ -77,11 +77,11 @@ public class b {
         return this.cHa;
     }
 
-    public int awH() {
+    public int awI() {
         return this.cHb;
     }
 
-    public List<a> awI() {
+    public List<a> awJ() {
         return this.cHd;
     }
 
@@ -89,11 +89,11 @@ public class b {
         this.cHc = f;
     }
 
-    public float awJ() {
+    public float awK() {
         return this.cHc;
     }
 
-    public int awC() {
+    public int awD() {
         int i = 1;
         while (i < Math.round(this.cHc)) {
             i *= 2;
@@ -108,7 +108,7 @@ public class b {
         }
     }
 
-    public a awK() {
+    public a awL() {
         return this.cHe;
     }
 
@@ -125,7 +125,7 @@ public class b {
     }
 
     public boolean v(int i, int i2, int i3) {
-        if (i3 == awC()) {
+        if (i3 == awD()) {
             return w(i, i2, i3).intersect(this.cGY);
         }
         return false;

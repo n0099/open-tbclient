@@ -9,7 +9,7 @@ public class f implements l {
     private Context mContext = AppRuntime.getAppContext();
 
     @Override // com.baidu.ubc.l
-    public m aGl() {
+    public m aGo() {
         return new a(this.mContext);
     }
 

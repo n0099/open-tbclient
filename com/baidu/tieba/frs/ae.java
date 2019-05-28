@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes3.dex */
 public interface ae {
-    void aHI();
+    void aHL();
 
-    void aHJ();
+    void aHM();
 
-    void aHK();
+    void aHN();
 
     void ajG();
 

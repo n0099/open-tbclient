@@ -18,17 +18,17 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class b extends BaseAdapter {
     private String bol;
-    private List<String> hfu;
+    private List<String> hfx;
     private Context mContext;
 
     public b(Context context, ArrayList<String> arrayList) {
         this.mContext = context;
-        this.hfu = arrayList;
+        this.hfx = arrayList;
     }
 
     public void setData(List<String> list) {
-        this.hfu = list;
-        if (this.hfu != null) {
+        this.hfx = list;
+        if (this.hfx != null) {
             notifyDataSetChanged();
         }
     }
@@ -41,10 +41,10 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hfu == null) {
+        if (this.hfx == null) {
             return 0;
         }
-        return this.hfu.size();
+        return this.hfx.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class b extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.hfu.get(i);
+        return this.hfx.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -69,7 +69,7 @@ public class b extends BaseAdapter {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.search_suggest_item, (ViewGroup) null);
             a aVar2 = new a();
             aVar2.mRootView = view.findViewById(R.id.rootview);
-            aVar2.hfv = (TextView) view.findViewById(R.id.searchSuggestTitle);
+            aVar2.hfy = (TextView) view.findViewById(R.id.searchSuggestTitle);
             aVar2.bpR = view.findViewById(R.id.searchItemSep);
             view.setTag(aVar2);
             aVar = aVar2;
@@ -78,12 +78,12 @@ public class b extends BaseAdapter {
         }
         String item = getItem(i);
         if (!StringUtils.isNull(item)) {
-            a(aVar.hfv, item);
+            a(aVar.hfy, item);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (skinType != aVar.mSkinType) {
                 aVar.mSkinType = skinType;
                 al.k(aVar.mRootView, R.drawable.addresslist_item_bg);
-                al.j(aVar.hfv, R.color.cp_cont_b);
+                al.j(aVar.hfy, R.color.cp_cont_b);
                 al.l(aVar.bpR, R.color.cp_bg_line_c);
             }
         }
@@ -93,7 +93,7 @@ public class b extends BaseAdapter {
     /* loaded from: classes6.dex */
     private class a {
         View bpR;
-        TextView hfv;
+        TextView hfy;
         View mRootView;
         int mSkinType;
 

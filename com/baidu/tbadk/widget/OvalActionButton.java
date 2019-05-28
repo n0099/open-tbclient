@@ -56,7 +56,7 @@ public class OvalActionButton extends ImageView {
     }
 
     private void init() {
-        avY();
+        avZ();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -69,7 +69,7 @@ public class OvalActionButton extends ImageView {
         setLayerType(1, null);
     }
 
-    private void avY() {
+    private void avZ() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = com.baidu.tieba.lego.card.d.a.parseColor("#2bb8ff");
@@ -253,7 +253,7 @@ public class OvalActionButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            avY();
+            avZ();
             this.color = al.getColor(this.mSkinType, R.color.cp_link_tip_e);
             this.cDi = true;
             this.cDj.setColor(al.getColor(R.color.cp_btn_a));

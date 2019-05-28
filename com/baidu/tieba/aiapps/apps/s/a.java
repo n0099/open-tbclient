@@ -28,7 +28,7 @@ public class a implements h {
                     com.baidu.swan.c.a.f(new File(string), new File(string2));
                     return null;
                 }
-            }).a(rx.a.b.a.cLp()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.s.a.1
+            }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.s.a.1
                 @Override // rx.functions.b
                 public void call(Object obj) {
                     bundle2.putString("path", string2);

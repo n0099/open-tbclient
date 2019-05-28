@@ -59,28 +59,28 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.new_user_img_item, viewGroup, false);
             aVar = new a();
-            aVar.eYj = (TbImageView) view.findViewById(R.id.pic);
-            aVar.eYk = (ImageView) view.findViewById(R.id.select_icon);
-            aVar.jfO = (RelativeLayout) view.findViewById(R.id.lay_select);
+            aVar.eYk = (TbImageView) view.findViewById(R.id.pic);
+            aVar.eYl = (ImageView) view.findViewById(R.id.select_icon);
+            aVar.jfP = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.aif = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.jfN = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.jfN.setOnClickListener(this.bYE);
+            aVar.jfO = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.jfO.setOnClickListener(this.bYE);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.eYj.setTag(null);
-        aVar.jfO.setTag(null);
+        aVar.eYk.setTag(null);
+        aVar.jfP.setTag(null);
         aVar.aif.setText("");
-        aVar.jfN.setTag(null);
+        aVar.jfO.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
-            b(aVar.eYk, card.getIs_like() == 1);
+            b(aVar.eYl, card.getIs_like() == 1);
+            aVar.jfP.setTag(card);
             aVar.jfO.setTag(card);
-            aVar.jfN.setTag(card);
-            aVar.eYj.setTag(card.getIcon_url());
-            aVar.eYj.startLoad(card.getIcon_url(), 21, false);
+            aVar.eYk.setTag(card.getIcon_url());
+            aVar.eYk.startLoad(card.getIcon_url(), 21, false);
             aVar.aif.setText(card.getFname());
         }
         return view;
@@ -97,10 +97,10 @@ public class c extends BaseAdapter {
     /* loaded from: classes4.dex */
     private class a {
         TextView aif;
-        TbImageView eYj;
-        ImageView eYk;
-        FrameLayout jfN;
-        RelativeLayout jfO;
+        TbImageView eYk;
+        ImageView eYl;
+        FrameLayout jfO;
+        RelativeLayout jfP;
 
         private a() {
         }

@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.util.am;
 public class z {
     public String bFP;
     public String bVL;
-    public String eAB;
-    public String eAx;
-    public String ire;
-    public String irf;
-    public String irg;
+    public String eAC;
+    public String eAy;
     public String irh;
     public String iri;
     public String irj;
     public String irk;
+    public String irl;
+    public String irm;
+    public String irn;
     public String mFloor;
     public String mLocate;
     public String mSource;
@@ -31,8 +31,8 @@ public class z {
             if (!StringUtils.isNull(this.bVL)) {
                 amVar.bT("tid", this.bVL);
             }
-            if (!StringUtils.isNull(this.eAB)) {
-                amVar.bT("fid", this.eAB);
+            if (!StringUtils.isNull(this.eAC)) {
+                amVar.bT("fid", this.eAC);
             }
             if (!StringUtils.isNull(this.mUid)) {
                 amVar.bT("uid", this.mUid);
@@ -42,35 +42,35 @@ public class z {
             } else {
                 amVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
             }
-            if (!StringUtils.isNull(this.ire)) {
-                amVar.bT("obj_param1", this.ire);
+            if (!StringUtils.isNull(this.irh)) {
+                amVar.bT("obj_param1", this.irh);
             } else {
                 amVar.P("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.irf)) {
-                amVar.bT("obj_param2", this.irf);
+            if (!StringUtils.isNull(this.iri)) {
+                amVar.bT("obj_param2", this.iri);
             }
-            if (!StringUtils.isNull(this.irg)) {
-                amVar.bT("obj_param3", this.irg);
+            if (!StringUtils.isNull(this.irj)) {
+                amVar.bT("obj_param3", this.irj);
             }
             if (!StringUtils.isNull(this.bFP)) {
                 amVar.bT(VideoPlayActivityConfig.OBJ_ID, this.bFP);
             }
-            if (!StringUtils.isNull(this.irh)) {
-                amVar.bT("ab_tag", this.irh);
+            if (!StringUtils.isNull(this.irk)) {
+                amVar.bT("ab_tag", this.irk);
             } else {
                 amVar.P("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.irj)) {
-                amVar.bT("topic_type", this.irj);
+            if (!StringUtils.isNull(this.irm)) {
+                amVar.bT("topic_type", this.irm);
             }
-            if (!StringUtils.isNull(this.eAx)) {
-                amVar.bT("extra", this.eAx);
+            if (!StringUtils.isNull(this.eAy)) {
+                amVar.bT("extra", this.eAy);
             } else {
                 amVar.P("extra", 0);
             }
-            if (!StringUtils.isNull(this.irk)) {
-                amVar.bT("is_vertical", this.irk);
+            if (!StringUtils.isNull(this.irn)) {
+                amVar.bT("is_vertical", this.irn);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 amVar.bT("obj_floor", this.mFloor);
@@ -79,21 +79,21 @@ public class z {
         return amVar;
     }
 
-    public z cbT() {
+    public z cbW() {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;
         zVar.bVL = this.bVL;
-        zVar.eAB = this.eAB;
+        zVar.eAC = this.eAC;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.ire = this.ire;
-        zVar.irf = this.irf;
-        zVar.irg = this.irg;
-        zVar.bFP = this.bFP;
         zVar.irh = this.irh;
         zVar.iri = this.iri;
         zVar.irj = this.irj;
+        zVar.bFP = this.bFP;
+        zVar.irk = this.irk;
+        zVar.irl = this.irl;
+        zVar.irm = this.irm;
         zVar.mFloor = this.mFloor;
         return zVar;
     }

@@ -31,10 +31,10 @@ import com.baidu.tieba.tbadkCore.u;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class b implements View.OnClickListener {
-    private ShareGridLayout jmo;
-    private a jmq;
-    private boolean jmr = false;
-    private CustomMessageListener jms = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.transmitShare.b.1
+    private ShareGridLayout jmq;
+    private a jmr;
+    private boolean jms = false;
+    private CustomMessageListener jmt = new CustomMessageListener(2016563) { // from class: com.baidu.tieba.transmitShare.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -47,28 +47,28 @@ public class b implements View.OnClickListener {
     private ArrayList<TransmitForumData> mForumList;
     private int mPrivateThread;
     private e mShareItem;
-    private static final int dQY = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds156);
-    private static final int dOt = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds234);
-    private static final int iOo = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-    private static final int iOp = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds36);
-    private static final int iOq = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    private static final int dQZ = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds156);
+    private static final int dOu = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds234);
+    private static final int iOq = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+    private static final int iOr = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds36);
+    private static final int iOs = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
     private static final int ckd = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
 
     public b(Context context) {
         this.mContext = context;
-        MessageManager.getInstance().registerListener(this.jms);
+        MessageManager.getInstance().registerListener(this.jmt);
     }
 
-    public ShareGridLayout cqo() {
-        if (this.jmo == null) {
+    public ShareGridLayout cqq() {
+        if (this.jmq == null) {
             initView();
         }
-        return this.jmo;
+        return this.jmq;
     }
 
     private void initView() {
-        this.jmo = new ShareGridLayout(this.mContext);
-        this.jmo.setItemParams(dQY, dOt);
+        this.jmq = new ShareGridLayout(this.mContext);
+        this.jmq.setItemParams(dQZ, dOu);
     }
 
     private void ah(int i, int i2, int i3) {
@@ -77,9 +77,9 @@ public class b implements View.OnClickListener {
         linearLayout.setTag(Integer.valueOf(i3));
         ImageView imageView = new ImageView(this.mContext);
         imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iOo, iOo);
-        layoutParams.topMargin = iOp;
-        layoutParams.bottomMargin = iOq;
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(iOq, iOq);
+        layoutParams.topMargin = iOr;
+        layoutParams.bottomMargin = iOs;
         layoutParams.gravity = 1;
         linearLayout.addView(imageView, layoutParams);
         TextView textView = new TextView(this.mContext);
@@ -91,16 +91,16 @@ public class b implements View.OnClickListener {
         al.c(imageView, i);
         al.j(textView, R.color.cp_cont_f);
         linearLayout.setOnClickListener(this);
-        this.jmo.addView(linearLayout, new ViewGroup.LayoutParams(dQY, dOt));
+        this.jmq.addView(linearLayout, new ViewGroup.LayoutParams(dQZ, dOu));
     }
 
     public void a(ShareDialogConfig shareDialogConfig, boolean z) {
         this.mShareItem = shareDialogConfig.shareItem;
         this.mForumList = shareDialogConfig.mForumList;
         this.mPrivateThread = shareDialogConfig.mPrivateThread;
-        this.jmo.removeAllViews();
-        this.jmr = shareDialogConfig.mShowMoreForumShare;
-        if (this.jmr) {
+        this.jmq.removeAllViews();
+        this.jms = shareDialogConfig.mShowMoreForumShare;
+        if (this.jms) {
             ah(R.drawable.icon_share_wechat_n, R.string.share_weixin, 4);
             ah(R.drawable.icon_share_circle_n, R.string.share_weixin_timeline, 3);
             ah(R.drawable.icon_share_qq_n, R.string.share_qq_friends, 9);
@@ -124,13 +124,13 @@ public class b implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.jmq = aVar;
+        this.jmr = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jmq != null) {
-            this.jmq.cR(view);
+        if (this.jmr != null) {
+            this.jmr.cR(view);
         }
         if (view.getTag() instanceof Integer) {
             Integer num = (Integer) view.getTag();
@@ -219,7 +219,7 @@ public class b implements View.OnClickListener {
             a("1", null, this.mPrivateThread);
             Bm(11);
         } else if (i == 13) {
-            cqp();
+            cqr();
             Bm(13);
         }
     }
@@ -228,10 +228,10 @@ public class b implements View.OnClickListener {
         return i == 4 || i == 3 || i == 9 || i == 5 || i == 7 || i == 10;
     }
 
-    private void cqp() {
+    private void cqr() {
         SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.mContext, 25018);
         selectForumActivityConfig.setForumList(this.mForumList);
-        if (this.jmr) {
+        if (this.jms) {
             selectForumActivityConfig.setFrom(4);
             selectForumActivityConfig.setMoreForumImg(this.mShareItem.imageUrl);
             selectForumActivityConfig.setMoreForumUrl(this.mShareItem.linkUrl);
@@ -261,7 +261,7 @@ public class b implements View.OnClickListener {
     }
 
     public void release() {
-        MessageManager.getInstance().unRegisterListener(this.jms);
+        MessageManager.getInstance().unRegisterListener(this.jmt);
     }
 
     private void k(String str, Object... objArr) {

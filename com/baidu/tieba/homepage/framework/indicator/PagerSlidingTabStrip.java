@@ -63,8 +63,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int cMw;
     private boolean cMx;
     private int dividerPadding;
-    private final b gar;
-    private a gas;
+    private final b gas;
+    private a gat;
     private boolean isLoading;
     private Locale locale;
     private int mCurrentTabIndex;
@@ -87,7 +87,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     public PagerSlidingTabStrip(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gar = new b();
+        this.gas = new b();
         this.mSkinType = 3;
         this.mCurrentTabIndex = 0;
         this.cMe = 0.0f;
@@ -155,7 +155,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         invalidate();
     }
 
-    public boolean btw() {
+    public boolean btz() {
         return this.cMj;
     }
 
@@ -166,7 +166,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     public void setViewPager(ViewPager viewPager) {
         this.bWC = viewPager;
         if (viewPager.getAdapter() != null) {
-            viewPager.setOnPageChangeListener(this.gar);
+            viewPager.setOnPageChangeListener(this.gas);
             notifyDataSetChanged();
         }
     }
@@ -211,8 +211,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (!PagerSlidingTabStrip.this.isLoading) {
-                    if (PagerSlidingTabStrip.this.gas != null) {
-                        PagerSlidingTabStrip.this.gas.r(view2, i);
+                    if (PagerSlidingTabStrip.this.gat != null) {
+                        PagerSlidingTabStrip.this.gat.r(view2, i);
                     }
                     if (PagerSlidingTabStrip.this.bWC.getCurrentItem() == i) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001384, 0));
@@ -420,7 +420,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
                 if (PagerSlidingTabStrip.this.bWA != null) {
                     PagerSlidingTabStrip.this.bWA.onPageScrollStateChanged(i);
                 }
-                HomePageStatic.fWw = false;
+                HomePageStatic.fWx = false;
             }
         }
 
@@ -500,6 +500,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     }
 
     public void setOnTabItemClickListener(a aVar) {
-        this.gas = aVar;
+        this.gat = aVar;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.tieba.video.editvideo.data.PendantData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private InterfaceC0416a jpf;
+    private InterfaceC0416a jpg;
     private List<PendantData> mList;
     private e mPageContext;
 
@@ -59,21 +59,21 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.jph = (TextView) view.findViewById(R.id.cover_text);
-            bVar.jpi = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.jpj = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.jpi.setDefaultBgResource(R.color.transparent);
-            bVar.jpi.setDefaultErrorResource(R.color.cp_btn_a);
-            bVar.jpi.setDefaultResource(R.color.cp_btn_a);
+            bVar.jpi = (TextView) view.findViewById(R.id.cover_text);
+            bVar.jpj = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.jpk = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.jpj.setDefaultBgResource(R.color.transparent);
+            bVar.jpj.setDefaultErrorResource(R.color.cp_btn_a);
+            bVar.jpj.setDefaultResource(R.color.cp_btn_a);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.jpf != null) {
+                    if (a.this.jpg != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.jpi.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.jpi.getTag();
+                        if (bVar2.jpj.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.jpj.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.jpf.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.jpg.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -86,45 +86,45 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.jpi.setTag(Integer.valueOf(i));
+            bVar.jpj.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.jph.setVisibility(0);
-                    bVar.jpi.setVisibility(8);
-                    bVar.jpj.setVisibility(8);
-                    bVar.jph.setTextColor(al.getColor(R.color.cp_cont_e));
-                    bVar.jph.setText("No");
-                    bVar.jph.setBackgroundDrawable(al.getDrawable(R.drawable.bg_cover_text_border));
-                    break;
-                case 1:
-                    bVar.jph.setVisibility(0);
-                    bVar.jpi.setVisibility(8);
-                    bVar.jpj.setVisibility(8);
-                    bVar.jph.setTextColor(al.getColor(R.color.cp_cont_g));
-                    bVar.jph.setText("T");
-                    bVar.jph.setBackgroundColor(al.getColor(R.color.cp_link_tip_a));
-                    break;
-                case 2:
-                    bVar.jph.setVisibility(0);
-                    bVar.jpi.setVisibility(8);
-                    bVar.jpj.setVisibility(8);
-                    bVar.jph.setTextColor(al.getColor(R.color.cp_cont_g));
-                    bVar.jph.setText("T");
-                    bVar.jph.setBackgroundColor(al.getColor(R.color.cp_cont_d));
-                    break;
-                case 3:
-                    bVar.jph.setVisibility(0);
-                    bVar.jpi.setVisibility(8);
-                    bVar.jpj.setVisibility(8);
-                    bVar.jph.setTextColor(al.getColor(R.color.cp_cont_d));
-                    bVar.jph.setText("T");
-                    bVar.jph.setBackgroundDrawable(al.getDrawable(R.drawable.bg_cover_text_border));
-                    break;
-                default:
-                    bVar.jph.setVisibility(8);
                     bVar.jpi.setVisibility(0);
                     bVar.jpj.setVisibility(8);
-                    bVar.jpi.startLoad(pendantData.img, 10, false);
+                    bVar.jpk.setVisibility(8);
+                    bVar.jpi.setTextColor(al.getColor(R.color.cp_cont_e));
+                    bVar.jpi.setText("No");
+                    bVar.jpi.setBackgroundDrawable(al.getDrawable(R.drawable.bg_cover_text_border));
+                    break;
+                case 1:
+                    bVar.jpi.setVisibility(0);
+                    bVar.jpj.setVisibility(8);
+                    bVar.jpk.setVisibility(8);
+                    bVar.jpi.setTextColor(al.getColor(R.color.cp_cont_g));
+                    bVar.jpi.setText("T");
+                    bVar.jpi.setBackgroundColor(al.getColor(R.color.cp_link_tip_a));
+                    break;
+                case 2:
+                    bVar.jpi.setVisibility(0);
+                    bVar.jpj.setVisibility(8);
+                    bVar.jpk.setVisibility(8);
+                    bVar.jpi.setTextColor(al.getColor(R.color.cp_cont_g));
+                    bVar.jpi.setText("T");
+                    bVar.jpi.setBackgroundColor(al.getColor(R.color.cp_cont_d));
+                    break;
+                case 3:
+                    bVar.jpi.setVisibility(0);
+                    bVar.jpj.setVisibility(8);
+                    bVar.jpk.setVisibility(8);
+                    bVar.jpi.setTextColor(al.getColor(R.color.cp_cont_d));
+                    bVar.jpi.setText("T");
+                    bVar.jpi.setBackgroundDrawable(al.getDrawable(R.drawable.bg_cover_text_border));
+                    break;
+                default:
+                    bVar.jpi.setVisibility(8);
+                    bVar.jpj.setVisibility(0);
+                    bVar.jpk.setVisibility(8);
+                    bVar.jpj.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
@@ -132,14 +132,14 @@ public class a extends BaseAdapter {
     }
 
     public void a(InterfaceC0416a interfaceC0416a) {
-        this.jpf = interfaceC0416a;
+        this.jpg = interfaceC0416a;
     }
 
     /* loaded from: classes5.dex */
     public class b {
-        public TextView jph;
-        public TbImageView jpi;
-        public ProgressBar jpj;
+        public TextView jpi;
+        public TbImageView jpj;
+        public ProgressBar jpk;
 
         public b() {
         }

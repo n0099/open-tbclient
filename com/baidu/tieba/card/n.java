@@ -26,7 +26,7 @@ public class n {
         return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.Ei(str)) ? false : true;
     }
 
-    public static String aXE() {
+    public static String aXH() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
@@ -47,48 +47,48 @@ public class n {
     /* loaded from: classes.dex */
     public static class a {
         public int Ub;
-        public int exH;
-        public String exI;
-        public int exJ;
+        public int exI;
+        public String exJ;
         public int exK;
+        public int exL;
 
         public a(int i, int i2, int i3) {
-            this.exH = -1;
-            this.exI = "";
+            this.exI = -1;
+            this.exJ = "";
             this.Ub = R.color.cp_link_tip_c;
-            this.exJ = R.drawable.pic_dot_title;
-            this.exK = 0;
-            this.exH = i;
+            this.exK = R.drawable.pic_dot_title;
+            this.exL = 0;
+            this.exI = i;
             this.Ub = i2;
-            this.exJ = i3;
+            this.exK = i3;
         }
 
         public a(int i) {
-            this.exH = -1;
-            this.exI = "";
+            this.exI = -1;
+            this.exJ = "";
             this.Ub = R.color.cp_link_tip_c;
-            this.exJ = R.drawable.pic_dot_title;
-            this.exK = 0;
-            this.exH = i;
+            this.exK = R.drawable.pic_dot_title;
+            this.exL = 0;
+            this.exI = i;
         }
 
         public a(String str) {
-            this.exH = -1;
-            this.exI = "";
+            this.exI = -1;
+            this.exJ = "";
             this.Ub = R.color.cp_link_tip_c;
-            this.exJ = R.drawable.pic_dot_title;
-            this.exK = 0;
-            this.exI = str;
+            this.exK = R.drawable.pic_dot_title;
+            this.exL = 0;
+            this.exJ = str;
         }
 
         public a(String str, int i) {
-            this.exH = -1;
-            this.exI = "";
+            this.exI = -1;
+            this.exJ = "";
             this.Ub = R.color.cp_link_tip_c;
-            this.exJ = R.drawable.pic_dot_title;
-            this.exK = 0;
-            this.exI = str;
-            this.exJ = i;
+            this.exK = R.drawable.pic_dot_title;
+            this.exL = 0;
+            this.exJ = str;
+            this.exK = i;
         }
     }
 
@@ -104,24 +104,24 @@ public class n {
         for (int i = 0; i != arrayList.size(); i++) {
             a aVar = arrayList.get(i);
             if (aVar != null) {
-                if (aVar.exH > 0) {
-                    aVar.exI = context.getString(aVar.exH);
+                if (aVar.exI > 0) {
+                    aVar.exJ = context.getString(aVar.exI);
                 }
-                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.exI)) {
+                if (!com.baidu.adp.lib.util.k.isEmpty(aVar.exJ)) {
                     int length = spannableStringBuilder.length();
-                    spannableStringBuilder.append((CharSequence) aVar.exI);
+                    spannableStringBuilder.append((CharSequence) aVar.exJ);
                     spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(aVar.Ub)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
-                    Bitmap id = al.id(aVar.exJ);
+                    Bitmap id = al.id(aVar.exK);
                     BitmapDrawable bitmapDrawable = new BitmapDrawable(id);
                     if (id != null) {
                         bitmapDrawable.setBounds(0, 0, id.getWidth(), id.getHeight());
                     }
                     com.baidu.tbadk.core.view.k kVar = new com.baidu.tbadk.core.view.k(bitmapDrawable);
-                    if (aVar.exK != 0) {
-                        kVar.setOffset(aVar.exK);
+                    if (aVar.exL != 0) {
+                        kVar.setOffset(aVar.exL);
                     }
                     int length2 = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " ");

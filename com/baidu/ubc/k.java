@@ -118,7 +118,7 @@ public class k {
     }
 
     public void WZ() {
-        if (e.cAd().kH(this.mId)) {
+        if (e.cAf().kH(this.mId)) {
             this.bvE = UBC.getUBCContext().Hs();
         }
     }

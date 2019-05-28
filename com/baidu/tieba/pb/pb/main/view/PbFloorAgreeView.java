@@ -14,40 +14,40 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbFloorAgreeView extends FrameLayout {
     private ImageView bWb;
-    private ScaleAnimation fuA;
-    private TextView hSs;
-    private TextView hSt;
-    private boolean hSu;
+    private ScaleAnimation fuB;
+    private TextView hSv;
+    private TextView hSw;
+    private boolean hSx;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.hSu = false;
+        this.hSx = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hSu = false;
+        this.hSx = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hSu = false;
+        this.hSx = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.hSs = new TextView(getContext());
+        this.hSv = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.g(context, R.dimen.tbds48));
         layoutParams.leftMargin = l.g(context, R.dimen.tbds9);
         layoutParams.topMargin = l.g(context, R.dimen.tbds18);
-        this.hSs.setLayoutParams(layoutParams);
-        this.hSs.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
-        this.hSs.setGravity(17);
-        al.j(this.hSs, R.color.cp_cont_j);
+        this.hSv.setLayoutParams(layoutParams);
+        this.hSv.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
+        this.hSv.setGravity(17);
+        al.j(this.hSv, R.color.cp_cont_j);
         this.bWb = new ImageView(context);
         al.c(this.bWb, (int) R.drawable.icon_floor_like_n);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds48), l.g(context, R.dimen.tbds48));
@@ -55,21 +55,21 @@ public class PbFloorAgreeView extends FrameLayout {
         layoutParams2.topMargin = l.g(context, R.dimen.tbds18);
         this.bWb.setLayoutParams(layoutParams2);
         linearLayout.addView(this.bWb);
-        linearLayout.addView(this.hSs);
+        linearLayout.addView(this.hSv);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.hSt = new TextView(getContext());
-        this.hSt.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
-        addView(this.hSt);
-        this.hSt.setVisibility(8);
+        this.hSw = new TextView(getContext());
+        this.hSw.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
+        addView(this.hSw);
+        this.hSw.setVisibility(8);
     }
 
     private Animation getScaleAnimation() {
-        if (this.fuA == null) {
-            this.fuA = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
-            this.fuA.setDuration(200L);
+        if (this.fuB == null) {
+            this.fuB = new ScaleAnimation(1.4f, 1.0f, 1.4f, 1.0f, 1, 0.5f, 1, 1.0f);
+            this.fuB.setDuration(200L);
         }
-        return this.fuA;
+        return this.fuB;
     }
 }

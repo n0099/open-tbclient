@@ -14,9 +14,9 @@ import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
     LinearLayout bZi;
-    TbRichTextView gtZ;
-    TextView gua;
-    ChatImageWithTailView gub;
+    TbRichTextView gua;
+    TextView gub;
+    ChatImageWithTailView guc;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -37,25 +37,25 @@ public class HistoryItemView extends LinearLayout {
         setClickable(false);
         setFocusable(false);
         this.bZi = (LinearLayout) findViewById(R.id.history_container);
-        this.gua = (TextView) findViewById(R.id.history_send_time);
-        this.gtZ = (TbRichTextView) findViewById(R.id.history_txt);
-        this.gub = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        this.gub = (TextView) findViewById(R.id.history_send_time);
+        this.gua = (TbRichTextView) findViewById(R.id.history_txt);
+        this.guc = (ChatImageWithTailView) findViewById(R.id.history_pic);
         al.k(this.bZi, R.drawable.selector_history_multi_single_bg);
-        al.f(this.gua, R.color.common_color_10067, 1);
-        this.gtZ.setTextColor(al.getColor(R.color.cp_cont_c));
-        this.gub.setIsSupportNight(true);
+        al.f(this.gub, R.color.common_color_10067, 1);
+        this.gua.setTextColor(al.getColor(R.color.cp_cont_c));
+        this.guc.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gua.setText(str);
+        this.gub.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gtZ;
+        return this.gua;
     }
 
     public ChatImageWithTailView getImageView() {
-        return this.gub;
+        return this.guc;
     }
 
     public void cb(View view) {

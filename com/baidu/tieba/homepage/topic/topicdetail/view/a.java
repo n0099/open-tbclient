@@ -55,9 +55,9 @@ public class a extends com.baidu.tbadk.editortools.d {
     private boolean ctd;
     private NewWriteModel.d cte;
     private View.OnClickListener cth;
-    private String gfI;
-    private long gfJ;
-    private c gfK;
+    private String gfJ;
+    private long gfK;
+    private c gfL;
     private TbPageContext<?> mContext;
     private AntiHelper.a mInjectListener;
     private WriteImagesInfo writeImagesInfo;
@@ -100,7 +100,7 @@ public class a extends com.baidu.tbadk.editortools.d {
     public a(EditorTools editorTools) {
         super(editorTools);
         this.csm = "";
-        this.gfI = null;
+        this.gfJ = null;
         this.ctd = false;
         this.cst = null;
         this.writeImagesInfo = new WriteImagesInfo();
@@ -307,7 +307,7 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.writeImagesInfo.addChooseFile(imageFileInfo);
             this.writeImagesInfo.updateQuality();
             if (this.writeImagesInfo.getChosedFiles() != null) {
-                buH();
+                buK();
             }
         }
     }
@@ -322,14 +322,14 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.writeImagesInfo.parseJson(stringExtra);
             this.writeImagesInfo.updateQuality();
             if (this.writeImagesInfo.getChosedFiles() != null) {
-                buH();
+                buK();
             }
         }
     }
 
-    private void buH() {
+    private void buK() {
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mContext.getPageActivity(), 9, "0", null, null, null, 0, null, 13003, false, false, null, false, false, null, null, null, 0);
-        writeActivityConfig.setTopicId(String.valueOf(this.gfJ));
+        writeActivityConfig.setTopicId(String.valueOf(this.gfK));
         writeActivityConfig.getIntent().putExtra("from", "topic_detail");
         writeActivityConfig.setCallFrom("1");
         if (!StringUtils.isNull(this.csm)) {
@@ -354,13 +354,13 @@ public class a extends com.baidu.tbadk.editortools.d {
             this.csp.getWriteData().setCanNoForum(true);
             this.csp.getWriteData().setTransmitForumData("[]");
             this.csp.getWriteData().setCallFrom("1");
-            this.csp.getWriteData().setTopicId(String.valueOf(this.gfJ));
+            this.csp.getWriteData().setTopicId(String.valueOf(this.gfK));
             this.csp.getWriteData().setContent(this.csm);
             this.csp.getWriteData().setIsNoTitle(true);
             this.csp.getWriteData().setTitle("");
             this.csp.getWriteData().setVoice(null);
             this.csp.getWriteData().setVoiceDuringTime(-1);
-            if (!this.csp.cnF()) {
+            if (!this.csp.cnH()) {
                 alf().showToast((int) R.string.write_img_limit);
             } else if (this.csx == null || !this.csx.arq()) {
                 if (this.csw != null) {
@@ -376,8 +376,8 @@ public class a extends com.baidu.tbadk.editortools.d {
         b(intent, true);
     }
 
-    public long buI() {
-        return this.gfJ;
+    public long buL() {
+        return this.gfK;
     }
 
     private void arD() {
@@ -393,13 +393,13 @@ public class a extends com.baidu.tbadk.editortools.d {
     public void arM() {
         WriteData writeData = new WriteData(2);
         writeData.setContent(this.csm);
-        writeData.setTopicId(String.valueOf(this.gfJ));
+        writeData.setTopicId(String.valueOf(this.gfK));
         writeData.setWriteImagesInfo(this.writeImagesInfo);
-        t.b(String.valueOf(this.gfJ), writeData);
+        t.b(String.valueOf(this.gfK), writeData);
     }
 
-    public void buJ() {
-        t.d(String.valueOf(this.gfJ), new t.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.5
+    public void buM() {
+        t.d(String.valueOf(this.gfK), new t.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.a.5
             @Override // com.baidu.tieba.tbadkCore.t.a
             public void a(WriteData writeData) {
                 if (writeData != null) {
@@ -422,7 +422,7 @@ public class a extends com.baidu.tbadk.editortools.d {
     }
 
     public void arN() {
-        t.b(String.valueOf(this.gfJ), (WriteData) null);
+        t.b(String.valueOf(this.gfK), (WriteData) null);
     }
 
     private void z(ArrayList<String> arrayList) {
@@ -464,11 +464,11 @@ public class a extends com.baidu.tbadk.editortools.d {
         this.csx = bVar;
     }
 
-    public c buK() {
-        if (this.gfK == null && aqS() != null) {
-            this.gfK = (c) aqS().kj(29);
+    public c buN() {
+        if (this.gfL == null && aqS() != null) {
+            this.gfL = (c) aqS().kj(29);
         }
-        return this.gfK;
+        return this.gfL;
     }
 
     public WriteImagesInfo getWriteImagesInfo() {
@@ -476,6 +476,6 @@ public class a extends com.baidu.tbadk.editortools.d {
     }
 
     public void setTopicId(long j) {
-        this.gfJ = j;
+        this.gfK = j;
     }
 }

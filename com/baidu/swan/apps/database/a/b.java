@@ -211,7 +211,7 @@ public class b {
                     }
                     return b.b(AppRuntime.getAppContext().getContentResolver(), str);
                 }
-            }).a(rx.a.b.a.cLp()).c(new rx.functions.b<Cursor>() { // from class: com.baidu.swan.apps.database.a.b.2
+            }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Cursor>() { // from class: com.baidu.swan.apps.database.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: h */

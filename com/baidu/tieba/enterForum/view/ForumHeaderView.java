@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.tieba.enterForum.data.b eQs;
-    private LinearLayout eWL;
-    private TextView eWM;
-    private ImageView eWN;
+    private com.baidu.tieba.enterForum.data.b eQt;
+    private LinearLayout eWM;
+    private TextView eWN;
+    private ImageView eWO;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -43,11 +43,11 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.eWL = (LinearLayout) findViewById(R.id.search_container);
-        this.eWM = (TextView) findViewById(R.id.search_text);
-        this.eWN = (ImageView) findViewById(R.id.search_icon);
+        this.eWM = (LinearLayout) findViewById(R.id.search_container);
+        this.eWN = (TextView) findViewById(R.id.search_text);
+        this.eWO = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.eWL.setOnClickListener(this);
+        this.eWM.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -65,25 +65,25 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     public void setSearchHint(String str) {
-        this.eWM.setText(UtilHelper.getFixedText(str, 20));
+        this.eWN.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public void onChangeSkinType() {
-        al.c(this.eWN, (int) R.drawable.icon_ba_search_n);
-        al.j(this.eWM, R.color.cp_cont_d);
-        if (this.eQs != null && this.eQs.eQU) {
-            al.k(this.eWL, R.drawable.enter_forum_search_ad_bg);
+        al.c(this.eWO, (int) R.drawable.icon_ba_search_n);
+        al.j(this.eWN, R.color.cp_cont_d);
+        if (this.eQt != null && this.eQt.eQV) {
+            al.k(this.eWM, R.drawable.enter_forum_search_ad_bg);
         } else {
-            al.k(this.eWL, R.drawable.enter_forum_search_bg);
+            al.k(this.eWM, R.drawable.enter_forum_search_bg);
         }
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.b bVar) {
-        this.eQs = bVar;
-        if (bVar != null && bVar.eQU) {
-            al.k(this.eWL, R.drawable.enter_forum_search_ad_bg);
+        this.eQt = bVar;
+        if (bVar != null && bVar.eQV) {
+            al.k(this.eWM, R.drawable.enter_forum_search_ad_bg);
         } else {
-            al.k(this.eWL, R.drawable.enter_forum_search_bg);
+            al.k(this.eWM, R.drawable.enter_forum_search_bg);
         }
     }
 }

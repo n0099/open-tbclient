@@ -147,10 +147,10 @@ public class MultiImageView extends RelativeLayout {
                 if (view == MultiImageView.this.cmy) {
                     DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                     if (currentImageView2 != null) {
-                        currentImageView2.avN();
+                        currentImageView2.avO();
                     }
                 } else if (view == MultiImageView.this.cmz && (currentImageView = MultiImageView.this.getCurrentImageView()) != null) {
-                    currentImageView.avO();
+                    currentImageView.avP();
                 }
             }
         };
@@ -226,7 +226,7 @@ public class MultiImageView extends RelativeLayout {
                 UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
                 DragImageView imageView = urlDragImageView.getImageView();
                 if (imageView != null) {
-                    imageView.avP();
+                    imageView.avQ();
                     if (MultiImageView.this.cmB != null) {
                         MultiImageView.this.cmB.setCurrentView(imageView);
                     }

@@ -9,38 +9,38 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final SparseArray<Integer> ddF = new SparseArray<>(32);
+    private static final SparseArray<Integer> ddG = new SparseArray<>(32);
 
     static {
-        ddF.put(10015, 2001);
-        ddF.put(10013, 2002);
-        ddF.put(904, 2003);
-        ddF.put(10012, 2004);
-        ddF.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
-        ddF.put(701, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
-        ddF.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
-        ddF.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
-        ddF.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL, -2301);
-        ddF.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL, 2101);
-        ddF.put(923, 2103);
-        ddF.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_PARSER_FAILED, 2105);
-        ddF.put(10010, 2106);
-        ddF.put(10003, 2107);
-        ddF.put(10011, 2108);
-        ddF.put(10014, 3001);
-        ddF.put(3002, 3002);
-        ddF.put(3003, 3003);
-        ddF.put(3004, 3005);
+        ddG.put(10015, 2001);
+        ddG.put(10013, 2002);
+        ddG.put(904, 2003);
+        ddG.put(10012, 2004);
+        ddG.put(10004, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
+        ddG.put(701, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
+        ddG.put(10005, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_FORCE_NAV_MODULE));
+        ddG.put(10006, Integer.valueOf((int) UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE));
+        ddG.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_BAIDUMAP_NULL, -2301);
+        ddG.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_NULL, 2101);
+        ddG.put(923, 2103);
+        ddG.put(HistoryTraceConstant.LBS_HISTORY_TRACE_CODE_QUERY_RESULT_PARSER_FAILED, 2105);
+        ddG.put(10010, 2106);
+        ddG.put(10003, 2107);
+        ddG.put(10011, 2108);
+        ddG.put(10014, 3001);
+        ddG.put(3002, 3002);
+        ddG.put(3003, 3003);
+        ddG.put(3004, 3005);
     }
 
     public static int mB(int i) {
-        if (ddF.indexOfKey(i) < 0) {
+        if (ddG.indexOfKey(i) < 0) {
             if (DEBUG) {
                 Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
             }
             return 100;
         }
-        return ddF.get(i).intValue();
+        return ddG.get(i).intValue();
     }
 
     public static String mC(int i) {

@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper jSH;
-    private static final long jSI = TimeUnit.MINUTES.toMillis(2);
-    private volatile File jSK;
-    private volatile File jSM;
+    private static StatFsHelper jSI;
+    private static final long jSJ = TimeUnit.MINUTES.toMillis(2);
+    private volatile File jSL;
+    private volatile File jSN;
     @GuardedBy("lock")
-    private long jSN;
-    private volatile StatFs jSJ = null;
-    private volatile StatFs jSL = null;
+    private long jSO;
+    private volatile StatFs jSK = null;
+    private volatile StatFs jSM = null;
     private volatile boolean mInitialized = false;
-    private final Lock jSO = new ReentrantLock();
+    private final Lock jSP = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cBW() {
+    public static synchronized StatFsHelper cBY() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (jSH == null) {
-                jSH = new StatFsHelper();
+            if (jSI == null) {
+                jSI = new StatFsHelper();
             }
-            statFsHelper = jSH;
+            statFsHelper = jSI;
         }
         return statFsHelper;
     }
@@ -49,16 +49,16 @@ public class StatFsHelper {
 
     private void ensureInitialized() {
         if (!this.mInitialized) {
-            this.jSO.lock();
+            this.jSP.lock();
             try {
                 if (!this.mInitialized) {
-                    this.jSK = Environment.getDataDirectory();
-                    this.jSM = Environment.getExternalStorageDirectory();
-                    cBY();
+                    this.jSL = Environment.getDataDirectory();
+                    this.jSN = Environment.getExternalStorageDirectory();
+                    cCa();
                     this.mInitialized = true;
                 }
             } finally {
-                this.jSO.unlock();
+                this.jSP.unlock();
             }
         }
     }
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        cBX();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.jSJ : this.jSL;
+        cBZ();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.jSK : this.jSM;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cBX() {
-        if (this.jSO.tryLock()) {
+    private void cBZ() {
+        if (this.jSP.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.jSN > jSI) {
-                    cBY();
+                if (SystemClock.uptimeMillis() - this.jSO > jSJ) {
+                    cCa();
                 }
             } finally {
-                this.jSO.unlock();
+                this.jSP.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cBY() {
-        this.jSJ = a(this.jSJ, this.jSK);
-        this.jSL = a(this.jSL, this.jSM);
-        this.jSN = SystemClock.uptimeMillis();
+    private void cCa() {
+        this.jSK = a(this.jSK, this.jSL);
+        this.jSM = a(this.jSM, this.jSN);
+        this.jSO = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {

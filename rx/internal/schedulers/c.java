@@ -24,10 +24,10 @@ public final class c extends rx.g {
     /* loaded from: classes2.dex */
     static final class a extends g.a implements Runnable {
         final Executor executor;
-        final ConcurrentLinkedQueue<ScheduledAction> kpL = new ConcurrentLinkedQueue<>();
+        final ConcurrentLinkedQueue<ScheduledAction> kpM = new ConcurrentLinkedQueue<>();
         final AtomicInteger wip = new AtomicInteger();
-        final rx.subscriptions.b krB = new rx.subscriptions.b();
-        final ScheduledExecutorService krC = d.cLS();
+        final rx.subscriptions.b krC = new rx.subscriptions.b();
+        final ScheduledExecutorService krD = d.cLU();
 
         public a(Executor executor) {
             this.executor = executor;
@@ -36,17 +36,17 @@ public final class c extends rx.g {
         @Override // rx.g.a
         public k c(rx.functions.a aVar) {
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cNb();
+                return rx.subscriptions.e.cNd();
             }
-            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), this.krB);
-            this.krB.add(scheduledAction);
-            this.kpL.offer(scheduledAction);
+            ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), this.krC);
+            this.krC.add(scheduledAction);
+            this.kpM.offer(scheduledAction);
             if (this.wip.getAndIncrement() == 0) {
                 try {
                     this.executor.execute(this);
                     return scheduledAction;
                 } catch (RejectedExecutionException e) {
-                    this.krB.a(scheduledAction);
+                    this.krC.a(scheduledAction);
                     this.wip.decrementAndGet();
                     rx.c.c.onError(e);
                     throw e;
@@ -57,14 +57,14 @@ public final class c extends rx.g {
 
         @Override // java.lang.Runnable
         public void run() {
-            while (!this.krB.isUnsubscribed()) {
-                ScheduledAction poll = this.kpL.poll();
+            while (!this.krC.isUnsubscribed()) {
+                ScheduledAction poll = this.kpM.poll();
                 if (poll != null) {
                     if (!poll.isUnsubscribed()) {
-                        if (!this.krB.isUnsubscribed()) {
+                        if (!this.krC.isUnsubscribed()) {
                             poll.run();
                         } else {
-                            this.kpL.clear();
+                            this.kpM.clear();
                             return;
                         }
                     }
@@ -75,7 +75,7 @@ public final class c extends rx.g {
                     return;
                 }
             }
-            this.kpL.clear();
+            this.kpM.clear();
         }
 
         @Override // rx.g.a
@@ -84,17 +84,17 @@ public final class c extends rx.g {
                 return c(aVar);
             }
             if (isUnsubscribed()) {
-                return rx.subscriptions.e.cNb();
+                return rx.subscriptions.e.cNd();
             }
             final rx.functions.a i = rx.c.c.i(aVar);
             rx.subscriptions.c cVar = new rx.subscriptions.c();
             final rx.subscriptions.c cVar2 = new rx.subscriptions.c();
             cVar2.f(cVar);
-            this.krB.add(cVar2);
+            this.krC.add(cVar2);
             final k l = rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.1
                 @Override // rx.functions.a
                 public void call() {
-                    a.this.krB.a(cVar2);
+                    a.this.krC.a(cVar2);
                 }
             });
             ScheduledAction scheduledAction = new ScheduledAction(new rx.functions.a() { // from class: rx.internal.schedulers.c.a.2
@@ -111,7 +111,7 @@ public final class c extends rx.g {
             });
             cVar.f(scheduledAction);
             try {
-                scheduledAction.add(this.krC.schedule(scheduledAction, j, timeUnit));
+                scheduledAction.add(this.krD.schedule(scheduledAction, j, timeUnit));
                 return l;
             } catch (RejectedExecutionException e) {
                 rx.c.c.onError(e);
@@ -121,13 +121,13 @@ public final class c extends rx.g {
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.krB.isUnsubscribed();
+            return this.krC.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.krB.unsubscribe();
-            this.kpL.clear();
+            this.krC.unsubscribe();
+            this.kpM.clear();
         }
     }
 }

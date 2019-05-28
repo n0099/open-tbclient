@@ -23,15 +23,15 @@ import java.util.Queue;
 /* loaded from: classes4.dex */
 public class SubPbLayout extends ViewGroup {
     private PostData cbh;
-    private TextView dHk;
-    private c hHd;
-    private View.OnClickListener hUF;
-    private View.OnLongClickListener hUG;
-    private View.OnTouchListener hUH;
-    private int hUI;
-    private final Queue<a> hUJ;
-    private RelativeLayout hUK;
-    private ViewGroup.MarginLayoutParams hUL;
+    private TextView dHl;
+    private c hHg;
+    private View.OnClickListener hUI;
+    private View.OnLongClickListener hUJ;
+    private View.OnTouchListener hUK;
+    private int hUL;
+    private final Queue<a> hUM;
+    private RelativeLayout hUN;
+    private ViewGroup.MarginLayoutParams hUO;
     private View mRootView;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -52,36 +52,36 @@ public class SubPbLayout extends ViewGroup {
 
     public SubPbLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hUI = 0;
+        this.hUL = 0;
         this.mRootView = null;
-        this.hUJ = new LinkedList();
-        this.hUL = new ViewGroup.MarginLayoutParams(-1, -2);
-        this.hUK = new RelativeLayout(context);
-        this.hUK.setId(R.id.pb_floor_reply_more);
-        this.dHk = new TextView(context);
-        this.dHk.setPadding(0, l.g(context, R.dimen.tbds2), 0, l.g(context, R.dimen.tbds12));
-        this.dHk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-        this.dHk.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
-        this.dHk.setTextSize(0, l.g(context, R.dimen.tbds40));
-        al.j(this.dHk, R.color.cp_cont_c);
-        this.hUK.addView(this.dHk);
-        addView(this.hUK, -1, -2);
+        this.hUM = new LinkedList();
+        this.hUO = new ViewGroup.MarginLayoutParams(-1, -2);
+        this.hUN = new RelativeLayout(context);
+        this.hUN.setId(R.id.pb_floor_reply_more);
+        this.dHl = new TextView(context);
+        this.dHl.setPadding(0, l.g(context, R.dimen.tbds2), 0, l.g(context, R.dimen.tbds12));
+        this.dHl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
+        this.dHl.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
+        this.dHl.setTextSize(0, l.g(context, R.dimen.tbds40));
+        al.j(this.dHl, R.color.cp_cont_c);
+        this.hUN.addView(this.dHl);
+        addView(this.hUN, -1, -2);
     }
 
     public void setChildOnClickListener(View.OnClickListener onClickListener) {
-        this.hUF = onClickListener;
+        this.hUI = onClickListener;
     }
 
     public void setChildOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.hUG = onLongClickListener;
+        this.hUJ = onLongClickListener;
     }
 
     public void setChildOnTouchListener(View.OnTouchListener onTouchListener) {
-        this.hUH = onTouchListener;
+        this.hUK = onTouchListener;
     }
 
     public void setSubPbAdapter(c cVar) {
-        this.hHd = cVar;
+        this.hHg = cVar;
     }
 
     public void setData(PostData postData, View view) {
@@ -92,48 +92,48 @@ public class SubPbLayout extends ViewGroup {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        ArrayList<PostData> cmr;
-        if (this.hHd == null || this.cbh == null || this.cbh.cmr() == null) {
+        ArrayList<PostData> cmt;
+        if (this.hHg == null || this.cbh == null || this.cbh.cmt() == null) {
             setMeasuredDimension(0, 0);
             return;
         }
         int size = View.MeasureSpec.getSize(i);
-        if (this.cbh.cmq()) {
-            cmr = this.cbh.cmn();
+        if (this.cbh.cms()) {
+            cmt = this.cbh.cmp();
         } else {
-            cmr = this.cbh.cmr();
+            cmt = this.cbh.cmt();
         }
-        setMeasuredDimension(size, cd(v.Z(cmr), size) + n(cmr, size) + 0 + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(size, cd(v.Z(cmt), size) + n(cmt, size) + 0 + getPaddingBottom() + getPaddingTop());
     }
 
     private int n(List<PostData> list, int i) {
         SparseArray sparseArray;
-        if (this.cbh.cmG() == 1 || this.cbh.cmG() == 3) {
-            this.hUI = 0;
+        if (this.cbh.cmI() == 1 || this.cbh.cmI() == 3) {
+            this.hUL = 0;
             return 0;
         } else if (v.Z(list) != 0) {
             int Z = v.Z(list);
-            this.hUI = Z;
-            if (!this.cbh.cmq()) {
+            this.hUL = Z;
+            if (!this.cbh.cms()) {
                 if (Z <= 2) {
-                    this.hUI = Z;
+                    this.hUL = Z;
                 } else {
-                    this.hUI = 2;
+                    this.hUL = 2;
                 }
             }
             int i2 = 0;
             int i3 = 0;
-            while (i2 < this.hUI) {
+            while (i2 < this.hUL) {
                 View childAt = getChildAt(i2);
-                if (childAt == null || childAt.equals(this.hUK)) {
-                    childAt = this.hHd.nG();
+                if (childAt == null || childAt.equals(this.hUN)) {
+                    childAt = this.hHg.nG();
                     childAt.setPadding(0, 0, 0, 0);
-                    this.hUJ.offer(new a(i2, childAt));
+                    this.hUM.offer(new a(i2, childAt));
                 }
                 View view = childAt;
-                view.setOnClickListener(this.hUF);
-                view.setOnLongClickListener(this.hUG);
-                view.setOnTouchListener(this.hUH);
+                view.setOnClickListener(this.hUI);
+                view.setOnLongClickListener(this.hUJ);
+                view.setOnTouchListener(this.hUK);
                 view.setClickable(true);
                 view.setVisibility(0);
                 SparseArray sparseArray2 = (SparseArray) view.getTag();
@@ -154,7 +154,7 @@ public class SubPbLayout extends ViewGroup {
                     sparseArray.put(R.id.tag_photo_userid, list.get(i2).adv().getUserId());
                     sparseArray.put(R.id.tag_clip_board, list.get(i2));
                 }
-                this.hHd.a((c.b) sparseArray.get(R.id.tag_holder), list.get(i2), this.cbh.cmy() > list.size() || list.size() - i2 > 1, i2 == 0, false);
+                this.hHg.a((c.b) sparseArray.get(R.id.tag_holder), list.get(i2), this.cbh.cmA() > list.size() || list.size() - i2 > 1, i2 == 0, false);
                 view.measure(((i - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
                 i2++;
                 i3 += view.getMeasuredHeight();
@@ -166,23 +166,23 @@ public class SubPbLayout extends ViewGroup {
     }
 
     private int cd(int i, int i2) {
-        if (i > 0 && (this.cbh.cmG() == 1 || this.cbh.cmG() == 3 || this.cbh.cmy() > this.hUI)) {
-            this.dHk.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.cbh.cmy())));
-            this.hUK.setOnClickListener(this.hUF);
-            SparseArray sparseArray = (SparseArray) this.hUK.getTag();
+        if (i > 0 && (this.cbh.cmI() == 1 || this.cbh.cmI() == 3 || this.cbh.cmA() > this.hUL)) {
+            this.dHl.setText(String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.sub_pb_load_more), Integer.valueOf(this.cbh.cmA())));
+            this.hUN.setOnClickListener(this.hUI);
+            SparseArray sparseArray = (SparseArray) this.hUN.getTag();
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
-                this.hUK.setTag(sparseArray);
+                this.hUN.setTag(sparseArray);
             }
             sparseArray.put(R.id.tag_load_sub_data, this.cbh);
             sparseArray.put(R.id.tag_load_sub_view, this.mRootView);
-            this.hUK.setVisibility(0);
-            this.hUK.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
+            this.hUN.setVisibility(0);
+            this.hUN.measure(((i2 - getPaddingLeft()) - getPaddingRight()) + 1073741824, 0);
         } else {
-            this.hUK.setVisibility(8);
+            this.hUN.setVisibility(8);
         }
-        if (this.hUK.getVisibility() == 0) {
-            return this.hUK.getMeasuredHeight();
+        if (this.hUN.getVisibility() == 0) {
+            return this.hUN.getMeasuredHeight();
         }
         return 0;
     }
@@ -190,17 +190,17 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int i5;
-        if (this.cbh != null && this.cbh.cmr() != null) {
-            int size = this.hUJ.size();
+        if (this.cbh != null && this.cbh.cmt() != null) {
+            int size = this.hUM.size();
             for (int i6 = 0; i6 < size; i6++) {
-                a poll = this.hUJ.poll();
+                a poll = this.hUM.poll();
                 if (poll.view.getParent() == null) {
-                    addViewInLayout(poll.view, poll.position, this.hUL, true);
+                    addViewInLayout(poll.view, poll.position, this.hUO, true);
                 }
             }
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int i7 = this.hUI;
+            int i7 = this.hUL;
             int i8 = 0;
             int i9 = paddingTop;
             while (i8 < i7) {
@@ -221,15 +221,15 @@ public class SubPbLayout extends ViewGroup {
                 i8++;
                 i9 = i5;
             }
-            if (this.hUK.getVisibility() == 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.hUK.getLayoutParams();
+            if (this.hUN.getVisibility() == 0) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.hUN.getLayoutParams();
                 int i11 = i9 + marginLayoutParams2.topMargin;
-                this.hUK.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.hUK.getMeasuredWidth(), this.hUK.getMeasuredHeight() + i11);
+                this.hUN.layout(marginLayoutParams2.leftMargin + paddingLeft, i11, marginLayoutParams2.leftMargin + paddingLeft + this.hUN.getMeasuredWidth(), this.hUN.getMeasuredHeight() + i11);
             }
             int childCount = getChildCount();
-            for (int i12 = this.hUI; i12 < childCount; i12++) {
+            for (int i12 = this.hUL; i12 < childCount; i12++) {
                 View childAt2 = getChildAt(i12);
-                if (childAt2 != null && childAt2 != this.hUK) {
+                if (childAt2 != null && childAt2 != this.hUN) {
                     childAt2.setVisibility(8);
                 }
             }
@@ -239,15 +239,15 @@ public class SubPbLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         long drawingTime = getDrawingTime();
-        if (this.cbh != null && this.cbh.cmr() != null) {
-            int i = this.hUI;
+        if (this.cbh != null && this.cbh.cmt() != null) {
+            int i = this.hUL;
             for (int i2 = 0; i2 < i; i2++) {
                 if (i < getChildCount()) {
                     drawChild(canvas, getChildAt(i2), drawingTime);
                 }
             }
-            if (this.hUK.getVisibility() == 0) {
-                drawChild(canvas, this.hUK, drawingTime);
+            if (this.hUN.getVisibility() == 0) {
+                drawChild(canvas, this.hUN, drawingTime);
             }
         }
     }
@@ -260,15 +260,15 @@ public class SubPbLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: bWt */
+    /* renamed from: bWw */
     public ViewGroup.MarginLayoutParams generateDefaultLayoutParams() {
         return new ViewGroup.MarginLayoutParams(-2, -2);
     }
 
     public void onChangeSkinType() {
-        if (this.dHk != null) {
-            this.dHk.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
-            al.j(this.dHk, R.color.cp_cont_c);
+        if (this.dHl != null) {
+            this.dHl.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_pb_comment_more_n), (Drawable) null);
+            al.j(this.dHl, R.color.cp_cont_c);
         }
     }
 }

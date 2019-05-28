@@ -105,7 +105,7 @@ public class a extends z {
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cLp()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cLr()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: s */

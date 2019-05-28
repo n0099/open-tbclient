@@ -21,7 +21,7 @@ public final class b extends Handler {
                 this.cOm.a(WheelView.ACTION.FLING);
                 return;
             case 3000:
-                this.cOm.ayU();
+                this.cOm.ayV();
                 return;
             default:
                 return;

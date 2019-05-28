@@ -36,7 +36,7 @@ import java.util.TimerTask;
 /* loaded from: classes3.dex */
 public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewActivity> {
     private static final String[] ALLOWED_NATIVE_SCHEME = {SchemeConfig.DEFAULT_SCHEME_HEAD, "taobao"};
-    protected d cVG;
+    protected d cVH;
     private ae.a mCookieInfo;
     protected boolean mEnableJs;
     protected boolean mIsShowNavBar;
@@ -59,7 +59,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         public void run() {
             com.baidu.tbadk.coreExtra.c.e createShareContent = AdBaseWebViewActivity.this.createShareContent(null, null, null, null);
             if (createShareContent != null) {
-                AdBaseWebViewActivity.this.cVG.a(createShareContent);
+                AdBaseWebViewActivity.this.cVH.a(createShareContent);
             }
         }
     };
@@ -101,24 +101,24 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         initWebView();
-        this.cVG = new d(this);
+        this.cVH = new d(this);
         initData();
-        this.cVG.aav();
-        this.cVG.d(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.AdBaseWebViewActivity.3
+        this.cVH.aav();
+        this.cVH.d(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.AdBaseWebViewActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!j.jS()) {
                     AdBaseWebViewActivity.this.showToast(R.string.neterror);
                     return;
                 }
-                AdBaseWebViewActivity.this.cVG.hideNoDataView();
+                AdBaseWebViewActivity.this.cVH.hideNoDataView();
                 AdBaseWebViewActivity.this.refresh();
             }
         });
-        this.cVG.dx(this.mIsLogin);
-        this.cVG.dx(isNeedShowMenuItem());
-        if (!this.cVG.aat() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bc.b(this.cVG.bBg, R.color.cp_link_tip_b, false);
+        this.cVH.dx(this.mIsLogin);
+        this.cVH.dx(isNeedShowMenuItem());
+        if (!this.cVH.aat() && UtilHelper.canUseStyleImmersiveSticky()) {
+            bc.b(this.cVH.bBg, R.color.cp_link_tip_b, false);
         }
         adjustResizeForSoftInput();
     }
@@ -134,8 +134,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        if (this.cVG != null) {
-            this.cVG.dx(z);
+        if (this.cVH != null) {
+            this.cVH.dx(z);
         }
     }
 
@@ -151,14 +151,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             this.mEnableJs = intent.getBooleanExtra(WebViewActivityConfig.TAG_ENABLE_JS, false);
             this.mIsShowNavBar = intent.getBooleanExtra(WebViewActivityConfig.TAG_NAV_BAR, true);
             this.mIsShowNavBar = this.mIsShowNavBar && isNeedShowNavigationBar();
-            this.cVG.setNavBarVisibility(this.mIsShowNavBar);
+            this.cVH.setNavBarVisibility(this.mIsShowNavBar);
             setUseStyleImmersiveSticky(intent.getBooleanExtra(WebViewActivityConfig.TAG_NEED_STYLE_IMMERSIVE_STICKY, true));
             if (TextUtils.isEmpty(this.mUrl)) {
                 l.showToast(getPageContext().getPageActivity(), getResources().getString(R.string.url_is_null));
                 return;
             }
             if (this.mUrl.contains("useImmersive=0") && "Meizu".equalsIgnoreCase(Build.BRAND)) {
-                this.cVG.dz(false);
+                this.cVH.dz(false);
             }
             this.mHandler.postDelayed(this.mRunnable, 500L);
         }
@@ -272,8 +272,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         dismissAllDialog();
         dismissAllPopupWindow();
         hideListMenu();
-        if (this.cVG != null) {
-            this.cVG.TU();
+        if (this.cVH != null) {
+            this.cVH.TU();
         }
     }
 
@@ -289,8 +289,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         webViewDestory();
         TbadkCoreApplication.getInst().delRemoteActivity(this);
         stopLoadTimer();
-        if (this.cVG != null) {
-            this.cVG.release();
+        if (this.cVH != null) {
+            this.cVH.release();
         }
         super.onDestroy();
     }
@@ -429,14 +429,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onClick(view);
         int id = view.getId();
         if (id == R.id.webview_more_pop_item_share_friend_layout) {
-            this.cVG.TU();
+            this.cVH.TU();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
-            this.cVG.TU();
+            this.cVH.TU();
             e.ah(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
-            this.cVG.TU();
+            this.cVH.TU();
             com.baidu.adp.lib.util.a.aR(this.mUrl);
             l.showToast(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
         }
@@ -492,25 +492,25 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (!this.mAutoChangeStyle) {
             i = 0;
         }
-        this.cVG.onChangeSkinType(i);
+        this.cVH.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showProgressBar() {
-        this.cVG.showProgressBar();
+        this.cVH.showProgressBar();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void hideProgressBar() {
-        this.cVG.hideProgressBar();
+        this.cVH.hideProgressBar();
     }
 
     public void hideCrashTip() {
-        this.cVG.hideCrashTip();
+        this.cVH.hideCrashTip();
     }
 
     public void showNoDataView() {
-        this.cVG.showNoDataView();
+        this.cVH.showNoDataView();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

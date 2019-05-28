@@ -2451,6 +2451,11 @@ public class UtilHelper {
         return (queryIntentActivities == null || queryIntentActivities.isEmpty()) ? false : true;
     }
 
+    public static boolean isHuaWeiU9508Device() {
+        String str = Build.MODEL;
+        return !TextUtils.isEmpty(str) && str.contains("Huawei_HUAWEI U9508");
+    }
+
     public static boolean isMiNotchDevice() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {

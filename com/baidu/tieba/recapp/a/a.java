@@ -41,16 +41,16 @@ public class a extends com.baidu.tbadk.b.a {
     /* loaded from: classes3.dex */
     private class C0394a extends BdAsyncTask<Object, Integer, h> {
         private String bzP;
-        private d ekt;
-        private HashMap<String, String> gWC;
+        private d eku;
+        private HashMap<String, String> gWF;
         private volatile x mNetwork = null;
         private String postUrl;
 
         public C0394a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.bzP = str;
             this.postUrl = str2;
-            this.gWC = hashMap;
-            this.ekt = dVar;
+            this.gWF = hashMap;
+            this.eku = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.gWC.keySet();
+                Set<String> keySet = this.gWF.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.o(str, this.gWC.get(str));
+                            this.mNetwork.o(str, this.gWF.get(str));
                         }
                     }
                 }
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.ekt != null) {
-                this.ekt.m(hVar);
+            if (this.eku != null) {
+                this.eku.m(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.ekt != null) {
-                this.ekt.m(null);
+            if (this.eku != null) {
+                this.eku.m(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.ekt != null) {
-                this.ekt.m(null);
+            if (this.eku != null) {
+                this.eku.m(null);
             }
         }
     }

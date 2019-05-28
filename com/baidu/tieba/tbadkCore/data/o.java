@@ -5,10 +5,10 @@ import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
     private long aGl;
-    private String cVl;
-    private String hxH;
-    private String iZJ;
-    private List<String> iZK;
+    private String cVm;
+    private String hxK;
+    private String iZL;
+    private List<String> iZM;
     private long mStartTime;
     private int mType;
 
@@ -16,10 +16,10 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.aGl = redpacketRain.end_time.longValue() * 1000;
-            this.cVl = redpacketRain.jump_url;
-            this.iZJ = redpacketRain.float_url;
-            this.iZK = redpacketRain.dynamic_img;
-            this.hxH = redpacketRain.activity_id;
+            this.cVm = redpacketRain.jump_url;
+            this.iZL = redpacketRain.float_url;
+            this.iZM = redpacketRain.dynamic_img;
+            this.hxK = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class o {
         return this.aGl;
     }
 
-    public String aBB() {
-        return this.cVl;
-    }
-
-    public String cmI() {
-        return this.iZJ;
-    }
-
-    public List<String> cmJ() {
-        return this.iZK;
+    public String aBE() {
+        return this.cVm;
     }
 
     public String cmK() {
-        return this.hxH;
+        return this.iZL;
+    }
+
+    public List<String> cmL() {
+        return this.iZM;
+    }
+
+    public String cmM() {
+        return this.hxK;
     }
 
     public void setStartTime(long j) {
@@ -57,19 +57,19 @@ public class o {
     }
 
     public void DV(String str) {
-        this.cVl = str;
+        this.cVm = str;
     }
 
     public void DW(String str) {
-        this.iZJ = str;
+        this.iZL = str;
     }
 
     public void ec(List<String> list) {
-        this.iZK = list;
+        this.iZM = list;
     }
 
     public void DX(String str) {
-        this.hxH = str;
+        this.hxK = str;
     }
 
     public int getType() {

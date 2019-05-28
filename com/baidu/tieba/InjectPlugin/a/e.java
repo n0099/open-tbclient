@@ -9,7 +9,7 @@ public class e {
     private e() {
     }
 
-    public static e azo() {
+    public static e azp() {
         return cPN;
     }
 

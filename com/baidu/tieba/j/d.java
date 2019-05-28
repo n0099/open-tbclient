@@ -132,7 +132,7 @@ public class d {
 
     public static void Ag(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.A(new File(g.a.hpl + g.a.hpc + str));
+            com.baidu.tbadk.core.util.m.A(new File(g.a.hpo + g.a.hpf + str));
         }
     }
 }

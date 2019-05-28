@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.a;
 public class b {
     public String bduss;
     public String cZA;
-    public String cZz;
+    public String cZB;
     public String displayName;
     public String uid;
 }

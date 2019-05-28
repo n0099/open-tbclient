@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener ihZ;
+    private View.OnLongClickListener iic;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -50,7 +50,7 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.ihZ = onLongClickListener;
+        this.iic = onLongClickListener;
     }
 
     private SmartApp yi(int i) {
@@ -79,7 +79,7 @@ public class h extends RecyclerView.Adapter<a> {
         if (aVar != null && (yi = yi(i)) != null) {
             aVar.c(yi);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.ihZ);
+            aVar.setOnLongClickListener(this.iic);
             aVar.onChangeSkinType();
         }
     }
@@ -91,25 +91,25 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gQW;
-        private SmartApp iia;
+        private HeadImageView gQZ;
+        private SmartApp iid;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gQW = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gQW.setIsRound(true);
-            this.gQW.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
+            this.gQZ = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.gQZ.setIsRound(true);
+            this.gQZ.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.iia = smartApp;
+            this.iid = smartApp;
             this.mRootView.setTag(smartApp);
             if (!ap.isEmpty(smartApp.avatar)) {
-                this.gQW.startLoad(smartApp.avatar, 10, false, false);
+                this.gQZ.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!ap.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

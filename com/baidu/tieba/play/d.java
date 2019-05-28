@@ -1,23 +1,23 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public interface d {
-    String caY();
-
-    boolean caZ();
-
-    boolean cba();
-
-    boolean cbb();
+    String cbb();
 
     boolean cbc();
 
-    int cbd();
+    boolean cbd();
 
-    void cbe();
+    boolean cbe();
 
-    j cbf();
+    boolean cbf();
 
-    void cbg();
+    int cbg();
+
+    void cbh();
+
+    j cbi();
+
+    void cbj();
 
     void eg(long j);
 

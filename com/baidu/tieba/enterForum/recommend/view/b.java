@@ -22,7 +22,7 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recommend.b.c> {
     private LikeModel ccn;
     private RecommendForumItemView eVA;
-    private RecommendForumItemView eVz;
+    private RecommendForumItemView eVB;
     private TbPageContext mContext;
     private int mSkinType;
 
@@ -31,10 +31,10 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
         this.mSkinType = 3;
         this.mContext = tbPageContext;
         initUI();
-        this.eVz.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.1
+        this.eVA.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.1
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
             public void d(com.baidu.tieba.enterForum.recommend.b.b bVar) {
-                b.this.a(bVar, b.this.eVz);
+                b.this.a(bVar, b.this.eVA);
             }
 
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
@@ -42,10 +42,10 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
                 b.this.c(bVar);
             }
         });
-        this.eVA.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.2
+        this.eVB.setForumItemClickListener(new RecommendForumItemView.a() { // from class: com.baidu.tieba.enterForum.recommend.view.b.2
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
             public void d(com.baidu.tieba.enterForum.recommend.b.b bVar) {
-                b.this.a(bVar, b.this.eVA);
+                b.this.a(bVar, b.this.eVB);
             }
 
             @Override // com.baidu.tieba.enterForum.recommend.view.RecommendForumItemView.a
@@ -57,15 +57,15 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
 
     private void initUI() {
         View view = getView();
-        this.eVz = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_one);
-        this.eVA = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_two);
+        this.eVA = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_one);
+        this.eVB = (RecommendForumItemView) view.findViewById(R.id.reommend_forum_two);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         this.mSkinType = i;
-        this.eVz.onChangeSkinType();
         this.eVA.onChangeSkinType();
+        this.eVB.onChangeSkinType();
         al.l(getView(), R.color.cp_bg_line_c);
     }
 
@@ -74,18 +74,18 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     public void a(com.baidu.tieba.enterForum.recommend.b.c cVar) {
         if (cVar != null) {
             onChangeSkinType(this.mContext, this.mSkinType);
-            if (cVar.eUq != null) {
-                this.eVz.setVisibility(0);
-                this.eVz.f(cVar.eUq);
-            } else {
-                this.eVz.setVisibility(4);
-            }
             if (cVar.eUr != null) {
                 this.eVA.setVisibility(0);
                 this.eVA.f(cVar.eUr);
+            } else {
+                this.eVA.setVisibility(4);
+            }
+            if (cVar.eUs != null) {
+                this.eVB.setVisibility(0);
+                this.eVB.f(cVar.eUs);
                 return;
             }
-            this.eVA.setVisibility(4);
+            this.eVB.setVisibility(4);
         }
     }
 
@@ -102,7 +102,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     public void onDestroy() {
         super.onDestroy();
         if (this.ccn != null) {
-            this.ccn.clJ();
+            this.ccn.clL();
         }
     }
 
@@ -128,10 +128,10 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
                             l.showToast(b.this.mContext.getPageActivity(), b.this.ccn.getErrorString());
                             return;
                         }
-                        if (recommendForumItemView == b.this.eVz) {
-                            b.this.eVz.jj(true);
-                        } else {
+                        if (recommendForumItemView == b.this.eVA) {
                             b.this.eVA.jj(true);
+                        } else {
+                            b.this.eVB.jj(true);
                         }
                         l.showToast(b.this.mContext.getPageActivity(), b.this.mContext.getString(R.string.attention_success));
                     }
@@ -153,7 +153,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.enterForum.recomme
     private void a(com.baidu.tieba.enterForum.recommend.b.b bVar, String str) {
         if (bVar != null) {
             am amVar = new am("c13375");
-            amVar.bT("obj_type", String.valueOf(bVar.eUo));
+            amVar.bT("obj_type", String.valueOf(bVar.eUp));
             amVar.l("fid", bVar.forumId);
             amVar.l("uid", TbadkCoreApplication.getCurrentAccountId());
             amVar.bT("obj_locate", str);

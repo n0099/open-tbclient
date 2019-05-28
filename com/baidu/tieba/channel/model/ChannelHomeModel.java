@@ -17,11 +17,11 @@ import com.baidu.tieba.channel.message.ChannelVideoUnSetTopHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.a.a;
 /* loaded from: classes6.dex */
 public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
-    private boolean eDY;
+    private boolean eDZ;
 
     public ChannelHomeModel(ChannelHomeActivity channelHomeActivity) {
         super(channelHomeActivity.getPageContext());
-        this.eDY = false;
+        this.eDZ = false;
         registerTask();
     }
 
@@ -44,16 +44,16 @@ public class ChannelHomeModel extends BdBaseModel<ChannelHomeActivity> {
     }
 
     public void a(long j, int i, int i2) {
-        this.eDY = true;
+        this.eDZ = true;
         sendMessage(new ChannelInfoGetMessage(j, i, i2));
     }
 
     public void iC(boolean z) {
-        this.eDY = z;
+        this.eDZ = z;
     }
 
-    public boolean aYK() {
-        return this.eDY;
+    public boolean aYN() {
+        return this.eDZ;
     }
 
     public void a(long j, h hVar) {

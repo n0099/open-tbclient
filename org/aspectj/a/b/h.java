@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h klA;
+    static h klA = new h();
     static h klB;
-    static h klz = new h();
-    boolean klq = true;
+    static h klC;
     boolean klr = true;
-    boolean kls = false;
+    boolean kls = true;
     boolean klt = false;
     boolean klu = false;
-    boolean klv = true;
+    boolean klv = false;
     boolean klw = true;
     boolean klx = true;
-    int kly;
+    boolean kly = true;
+    int klz;
 
     h() {
     }
 
     static {
-        klz.klq = true;
-        klz.klr = false;
-        klz.kls = false;
-        klz.klt = false;
-        klz.klu = true;
-        klz.klv = false;
-        klz.klw = false;
-        klz.kly = 0;
-        klA = new h();
-        klA.klq = true;
         klA.klr = true;
         klA.kls = false;
         klA.klt = false;
         klA.klu = false;
-        klz.kly = 1;
+        klA.klv = true;
+        klA.klw = false;
+        klA.klx = false;
+        klA.klz = 0;
         klB = new h();
-        klB.klq = false;
         klB.klr = true;
-        klB.kls = false;
-        klB.klt = true;
+        klB.kls = true;
+        klB.klt = false;
         klB.klu = false;
-        klB.klx = false;
-        klB.kly = 2;
+        klB.klv = false;
+        klA.klz = 1;
+        klC = new h();
+        klC.klr = false;
+        klC.kls = true;
+        klC.klt = false;
+        klC.klu = true;
+        klC.klv = false;
+        klC.kly = false;
+        klC.klz = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Ee(int i) {
-        if (this.klt) {
+        if (this.klu) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String E(Class cls) {
-        return b(cls, cls.getName(), this.klq);
+        return b(cls, cls.getName(), this.klr);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.klu);
+        return b(cls, str, this.klv);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.klr) {
+            if (!this.kls) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.kls && clsArr != null && clsArr.length != 0) {
+        if (this.klt && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

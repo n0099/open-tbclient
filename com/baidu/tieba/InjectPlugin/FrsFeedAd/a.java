@@ -22,7 +22,7 @@ public class a extends f {
             b bVar = (b) obj;
             com.baidu.tieba.InjectPlugin.a.a lX = ((com.baidu.tieba.InjectPlugin.a.b) this.cPI).lX(1);
             if (lX instanceof d) {
-                return ((d) lX).getView(i, view, viewGroup, bVar.azi());
+                return ((d) lX).getView(i, view, viewGroup, bVar.azj());
             }
             return null;
         }
@@ -34,7 +34,7 @@ public class a extends f {
         if (b.j(getType()) != -1 && (obj instanceof b)) {
             com.baidu.tieba.InjectPlugin.a.a lX = ((com.baidu.tieba.InjectPlugin.a.b) this.cPI).lX(1);
             if (lX instanceof d) {
-                return ((d) lX).onCreateViewHolder(viewGroup, ((b) obj).azi());
+                return ((d) lX).onCreateViewHolder(viewGroup, ((b) obj).azj());
             }
             return null;
         }
@@ -46,7 +46,7 @@ public class a extends f {
         if (obj instanceof b) {
             com.baidu.tieba.InjectPlugin.a.a lX = ((com.baidu.tieba.InjectPlugin.a.b) this.cPI).lX(1);
             if (lX instanceof d) {
-                ((d) lX).onFillViewHolder(i, viewGroup, aVar, ((b) obj).azi());
+                ((d) lX).onFillViewHolder(i, viewGroup, aVar, ((b) obj).azj());
             }
         }
     }

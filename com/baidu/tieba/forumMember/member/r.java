@@ -58,52 +58,52 @@ public class r extends com.baidu.tieba.frs.h<s, t> {
             } else {
                 if (tVar.mSkinType != this.mSkinType) {
                     al.l(tVar.bMo, R.color.cp_bg_line_b);
-                    al.f(tVar.fmg, R.color.cp_cont_d, 1);
-                    al.f(tVar.fmf, R.color.cp_cont_b, 1);
-                    al.k(tVar.fmh, R.drawable.frs_member_manito_bg);
+                    al.f(tVar.fmh, R.color.cp_cont_d, 1);
+                    al.f(tVar.fmg, R.color.cp_cont_b, 1);
+                    al.k(tVar.fmi, R.drawable.frs_member_manito_bg);
                 }
-                int biz = sVar.biz();
+                int biC = sVar.biC();
                 String string2 = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (biz == -1) {
-                    int bix = sVar.bix();
-                    String aG = ap.aG(bix);
-                    if (bix > 0) {
+                if (biC == -1) {
+                    int biA = sVar.biA();
+                    String aG = ap.aG(biA);
+                    if (biA > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), aG);
-                        tVar.fmh.setOnClickListener(this.mClickListener);
-                        tVar.fmg.setText(string);
-                        tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
-                        tVar.fmh.setEnabled(z);
-                        tVar.fmh.setClickable(z);
-                        tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                        tVar.fmi.setOnClickListener(this.mClickListener);
+                        tVar.fmh.setText(string);
+                        tVar.fmi.setTag(R.id.private_apply_tip, sVar.biB());
+                        tVar.fmi.setEnabled(z);
+                        tVar.fmi.setClickable(z);
+                        tVar.fmh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                         tVar.mSkinType = this.mSkinType;
                     }
                     z = false;
                     string = string2;
-                    tVar.fmh.setOnClickListener(this.mClickListener);
-                    tVar.fmg.setText(string);
-                    tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
-                    tVar.fmh.setEnabled(z);
-                    tVar.fmh.setClickable(z);
-                    tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.fmi.setOnClickListener(this.mClickListener);
+                    tVar.fmh.setText(string);
+                    tVar.fmi.setTag(R.id.private_apply_tip, sVar.biB());
+                    tVar.fmi.setEnabled(z);
+                    tVar.fmi.setClickable(z);
+                    tVar.fmh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 } else {
-                    if (biz == 0) {
+                    if (biC == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (biz == 1) {
+                    } else if (biC == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (biz == 2) {
+                        if (biC == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                         string = string2;
                     }
-                    tVar.fmh.setOnClickListener(this.mClickListener);
-                    tVar.fmg.setText(string);
-                    tVar.fmh.setTag(R.id.private_apply_tip, sVar.biy());
-                    tVar.fmh.setEnabled(z);
-                    tVar.fmh.setClickable(z);
-                    tVar.fmg.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                    tVar.fmi.setOnClickListener(this.mClickListener);
+                    tVar.fmh.setText(string);
+                    tVar.fmi.setTag(R.id.private_apply_tip, sVar.biB());
+                    tVar.fmi.setEnabled(z);
+                    tVar.fmi.setClickable(z);
+                    tVar.fmh.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     tVar.mSkinType = this.mSkinType;
                 }
             }

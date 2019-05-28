@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
-    protected final String iFs;
-    protected com.baidu.tieba.recapp.report.b iFt;
-    protected AdvertAppInfo iFu;
-    protected com.baidu.tieba.lego.card.b.b iFv;
+    protected final String iFu;
+    protected com.baidu.tieba.recapp.report.b iFv;
+    protected AdvertAppInfo iFw;
+    protected com.baidu.tieba.lego.card.b.b iFx;
     public TbPageContext mContext;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.iFs = str;
+        this.iFu = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -30,24 +30,24 @@ public class e {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void cfI() {
+    public void cfK() {
         this.mRootView.setVisibility(0);
-        if (this.iFt != null) {
-            this.iFt.yZ(303);
-            com.baidu.tieba.recapp.report.c.cfE().a(this.iFt);
+        if (this.iFv != null) {
+            this.iFv.yZ(303);
+            com.baidu.tieba.recapp.report.c.cfG().a(this.iFv);
         }
     }
 
-    public void cfJ() {
+    public void cfL() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.b bVar) {
-        this.iFt = bVar;
+        this.iFv = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.iFv = bVar;
+        this.iFx = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
@@ -64,6 +64,6 @@ public class e {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.iFu = advertAppInfo;
+        this.iFw = advertAppInfo;
     }
 }

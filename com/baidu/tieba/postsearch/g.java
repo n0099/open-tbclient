@@ -6,89 +6,89 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class g {
-    private PostSearchActivity iuE;
-    private a ivv;
-    private c ivw;
-    private f ivx;
+    private PostSearchActivity iuH;
+    private f ivA;
+    private a ivy;
+    private c ivz;
     private View mRootView;
 
     public g(PostSearchActivity postSearchActivity) {
-        this.iuE = postSearchActivity;
+        this.iuH = postSearchActivity;
     }
 
     public void initView() {
-        this.iuE.setContentView(R.layout.post_search_activity);
-        this.mRootView = this.iuE.findViewById(R.id.search_rootview);
-        this.ivv = new a(this.iuE, this.mRootView);
-        this.ivw = new c(this.iuE, this.mRootView);
-        this.ivx = new f(this.iuE, this.mRootView);
+        this.iuH.setContentView(R.layout.post_search_activity);
+        this.mRootView = this.iuH.findViewById(R.id.search_rootview);
+        this.ivy = new a(this.iuH, this.mRootView);
+        this.ivz = new c(this.iuH, this.mRootView);
+        this.ivA = new f(this.iuH, this.mRootView);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        if (this.ivx != null) {
-            this.ivx.setOnPageChangeListener(onPageChangeListener);
+        if (this.ivA != null) {
+            this.ivA.setOnPageChangeListener(onPageChangeListener);
         }
     }
 
     public void aB(ArrayList<String> arrayList) {
-        this.ivx.cZ(false);
-        this.ivw.aB(arrayList);
+        this.ivA.cZ(false);
+        this.ivz.aB(arrayList);
     }
 
     public void yH(int i) {
-        this.ivv.brx();
-        ccX();
-        this.ivv.ccY();
-        this.ivx.cZ(true);
-        this.ivx.yH(i);
+        this.ivy.brA();
+        cda();
+        this.ivy.cdb();
+        this.ivA.cZ(true);
+        this.ivA.yH(i);
     }
 
     public void Cu(String str) {
-        this.ivv.Cu(str);
+        this.ivy.Cu(str);
     }
 
     public void a(int i, b bVar, boolean z) {
-        this.ivx.a(i, bVar, z);
+        this.ivA.a(i, bVar, z);
     }
 
-    public boolean cdc() {
-        return this.ivw.cdk();
+    public boolean cdf() {
+        return this.ivz.cdn();
     }
 
     public void showLoadingView() {
-        this.ivw.showLoadingView();
+        this.ivz.showLoadingView();
     }
 
     public void hideLoadingView() {
-        this.ivw.hideLoadingView();
+        this.ivz.hideLoadingView();
     }
 
-    public void cdj() {
-        this.ivw.cdj();
+    public void cdm() {
+        this.ivz.cdm();
     }
 
-    public void ccX() {
-        this.ivv.ccX();
+    public void cda() {
+        this.ivy.cda();
     }
 
-    public void cdv() {
-        this.ivw.cdi();
+    public void cdy() {
+        this.ivz.cdl();
     }
 
     public int getCurrentTabType() {
-        return this.ivx.getCurrentTabType();
+        return this.ivA.getCurrentTabType();
     }
 
     public void onChangeSkinType(int i) {
-        this.ivv.onChangeSkinType(i);
-        this.ivw.onChangeSkinType(i);
-        this.ivx.onChangeSkinType(i);
-        com.baidu.tbadk.s.a.a(this.iuE.getPageContext(), this.mRootView);
+        this.ivy.onChangeSkinType(i);
+        this.ivz.onChangeSkinType(i);
+        this.ivA.onChangeSkinType(i);
+        com.baidu.tbadk.s.a.a(this.iuH.getPageContext(), this.mRootView);
     }
 
     public void onDestroy() {
-        if (this.ivv != null) {
-            this.ivv.onDestroy();
+        if (this.ivy != null) {
+            this.ivy.onDestroy();
         }
     }
 }

@@ -126,11 +126,11 @@ public class WheelView extends View {
             this.cNs = obtainStyledAttributes.getFloat(4, this.cNs);
             obtainStyledAttributes.recycle();
         }
-        ayP();
+        ayQ();
         cS(context);
     }
 
-    private void ayP() {
+    private void ayQ() {
         if (this.cNs < 1.0f) {
             this.cNs = 1.0f;
         } else if (this.cNs > 4.0f) {
@@ -146,10 +146,10 @@ public class WheelView extends View {
         this.cOG = true;
         this.cOJ = 0.0f;
         this.cOK = -1;
-        ayQ();
+        ayR();
     }
 
-    private void ayQ() {
+    private void ayR() {
         this.cOx = new Paint();
         this.cOx.setColor(this.cNp);
         this.cOx.setAntiAlias(true);
@@ -167,9 +167,9 @@ public class WheelView extends View {
         setLayerType(1, null);
     }
 
-    private void ayR() {
+    private void ayS() {
         if (this.cOA != null) {
-            ayS();
+            ayT();
             int i = (int) (this.cOE * (this.cOO - 1));
             this.cOP = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
@@ -188,7 +188,7 @@ public class WheelView extends View {
         }
     }
 
-    private void ayS() {
+    private void ayT() {
         Rect rect = new Rect();
         for (int i = 0; i < this.cOA.getItemsCount(); i++) {
             String ai = ai(this.cOA.getItem(i));
@@ -204,7 +204,7 @@ public class WheelView extends View {
     }
 
     public void a(ACTION action) {
-        ayT();
+        ayU();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
             this.mOffset = (int) (((this.cOJ % this.cOE) + this.cOE) % this.cOE);
             if (this.mOffset > this.cOE / 2.0f) {
@@ -217,11 +217,11 @@ public class WheelView extends View {
     }
 
     public final void aw(float f) {
-        ayT();
+        ayU();
         this.cOw = this.cOv.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void ayT() {
+    public void ayU() {
         if (this.cOw != null && !this.cOw.isCancelled()) {
             this.cOw.cancel(true);
             this.cOw = null;
@@ -259,7 +259,7 @@ public class WheelView extends View {
 
     public final void setAdapter(a aVar) {
         this.cOA = aVar;
-        ayR();
+        ayS();
         invalidate();
     }
 
@@ -277,7 +277,7 @@ public class WheelView extends View {
         return Math.max(0, Math.min(this.cOL, this.cOA.getItemsCount() - 1));
     }
 
-    public final void ayU() {
+    public final void ayV() {
         if (this.cOt != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
@@ -436,7 +436,7 @@ public class WheelView extends View {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).ayO();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).ayP();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
@@ -490,7 +490,7 @@ public class WheelView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.cOS = i;
-        ayR();
+        ayS();
         setMeasuredDimension(this.cOQ, this.cOP);
     }
 
@@ -503,7 +503,7 @@ public class WheelView extends View {
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                ayT();
+                ayU();
                 this.cOR = motionEvent.getRawY();
                 break;
             case 1:
@@ -605,11 +605,11 @@ public class WheelView extends View {
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
             this.cNs = f;
-            ayP();
+            ayQ();
         }
     }
 
-    public boolean ayV() {
+    public boolean ayW() {
         return this.cOG;
     }
 

@@ -32,9 +32,9 @@ import com.baidu.tieba.personCenter.data.k;
 import com.baidu.tieba.personCenter.data.l;
 /* loaded from: classes4.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
-    private HeadImageView dBO;
-    private ImageView ieI;
-    private com.baidu.tieba.personCenter.data.c ieJ;
+    private HeadImageView dBP;
+    private ImageView ieL;
+    private com.baidu.tieba.personCenter.data.c ieM;
     private TextView mName;
 
     public PersonCenterSmartAppItemView(Context context) {
@@ -48,21 +48,21 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public PersonCenterSmartAppItemView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.person_center_smart_app_item_layout, (ViewGroup) this, true);
-        this.dBO = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
-        this.dBO.setIsRound(true);
-        this.dBO.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
+        this.dBP = (HeadImageView) findViewById(R.id.iv_person_center_smart_app_page_item_avatar);
+        this.dBP.setIsRound(true);
+        this.dBP.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
         this.mName = (TextView) findViewById(R.id.tv_person_center_smart_app_page_item_name);
-        this.ieI = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
+        this.ieL = (ImageView) findViewById(R.id.lv_person_center_smart_app_page_item_recommend);
         onChangeSkinType();
     }
 
     public void b(com.baidu.tieba.personCenter.data.c cVar) {
         if (cVar != null) {
-            this.ieJ = cVar;
-            this.ieI.setVisibility(8);
+            this.ieM = cVar;
+            this.ieL.setVisibility(8);
             if (cVar instanceof l) {
                 l lVar = (l) cVar;
-                this.dBO.startLoad(lVar.getAvatar(), 10, false, false);
+                this.dBP.startLoad(lVar.getAvatar(), 10, false, false);
                 String name = lVar.getName();
                 if (!ap.isEmpty(name)) {
                     this.mName.setText(UtilHelper.getFixedText(name, 5));
@@ -70,14 +70,14 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
                     this.mName.setText(R.string.intelligent_smart_app);
                 }
                 if (cVar.getType() == 1) {
-                    al.c(this.ieI, (int) R.drawable.icon_personal_recommend);
-                    this.ieI.setVisibility(0);
+                    al.c(this.ieL, (int) R.drawable.icon_personal_recommend);
+                    this.ieL.setVisibility(0);
                 } else {
-                    this.ieI.setVisibility(8);
+                    this.ieL.setVisibility(8);
                 }
                 setOnClickListener(this);
             } else if (cVar instanceof k) {
-                al.c(this.dBO, (int) R.drawable.icon_personal_more);
+                al.c(this.dBP, (int) R.drawable.icon_personal_more);
                 this.mName.setText(R.string.more);
                 setOnClickListener(this);
             }
@@ -91,9 +91,9 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ieJ instanceof l) {
-            l lVar = (l) this.ieJ;
-            if (!com.baidu.tieba.aiapps.a.b(lVar.getAppKey(), lVar.getLink(), "1191000600000000", lVar.bYs())) {
+        if (this.ieM instanceof l) {
+            l lVar = (l) this.ieM;
+            if (!com.baidu.tieba.aiapps.a.b(lVar.getAppKey(), lVar.getLink(), "1191000600000000", lVar.bYv())) {
                 if (!ap.isEmpty(lVar.akO())) {
                     ba.aiz().c(cG(getContext()), new String[]{lVar.akO()});
                 } else {
@@ -103,11 +103,11 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
             am amVar = new am("c13274");
             amVar.l("uid", TbadkCoreApplication.getCurrentAccountId());
             amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "personal_center");
-            amVar.l(VideoPlayActivityConfig.OBJ_ID, lVar.bYr().longValue());
+            amVar.l(VideoPlayActivityConfig.OBJ_ID, lVar.bYu().longValue());
             amVar.bT("obj_name", lVar.getName());
-            amVar.P("obj_param1", lVar.bYs().intValue());
+            amVar.P("obj_param1", lVar.bYv().intValue());
             TiebaStatic.log(amVar);
-        } else if (this.ieJ instanceof k) {
+        } else if (this.ieM instanceof k) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
             am amVar2 = new am("c13437");
             amVar2.l("uid", TbadkCoreApplication.getCurrentAccountId());

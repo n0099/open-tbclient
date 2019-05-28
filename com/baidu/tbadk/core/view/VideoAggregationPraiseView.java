@@ -55,7 +55,7 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         }
         this.bWa.setText(string);
         this.bWa.setContentDescription(context.getString(this.bVV) + num);
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).bmm() && ajf()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).bmp() && ajf()) {
             this.bWb.setImageDrawable(W(this.bVX, this.bVW));
             this.bWa.setTextColor(createColorStateList(this.bVZ, this.bVY));
             return;

@@ -13,13 +13,13 @@ public interface h {
 
     void ay(int i, String str);
 
-    void bLO();
-
-    void bLP();
-
-    void bLQ();
-
     void bLR();
+
+    void bLS();
+
+    void bLT();
+
+    void bLU();
 
     void h(int i, int i2, String str);
 }

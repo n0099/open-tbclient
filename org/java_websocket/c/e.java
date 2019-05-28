@@ -1,21 +1,21 @@
 package org.java_websocket.c;
 /* loaded from: classes2.dex */
 public class e extends g implements i {
-    private short kms;
-    private String kmt;
+    private short kmt;
+    private String kmu;
 
     @Override // org.java_websocket.c.h
-    public String cKR() {
-        return this.kmt;
+    public String cKT() {
+        return this.kmu;
     }
 
     @Override // org.java_websocket.c.i
     public void Hp(String str) {
-        this.kmt = str;
+        this.kmu = str;
     }
 
     @Override // org.java_websocket.c.i
     public void i(short s) {
-        this.kms = s;
+        this.kmt = s;
     }
 }

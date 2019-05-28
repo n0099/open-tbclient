@@ -28,13 +28,13 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     private ab<com.baidu.tieba.card.data.k> Vj;
     private String Wt;
     private boolean XJ;
-    private NEGFeedBackView.a cRf;
+    private NEGFeedBackView.a cRg;
     public BdUniqueId cwh;
     private TbPageContext<?> mPageContext;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cRf = null;
+        this.cRg = null;
         this.XJ = true;
         this.Vj = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.k.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -216,7 +216,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ps(kVar.position + 1);
-        t.aXM().b(kVar.uZ("c12351"));
+        t.aXP().b(kVar.uZ("c12351"));
         zVar.qs().setPage(this.Wt);
         zVar.a(kVar);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());

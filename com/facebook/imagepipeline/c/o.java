@@ -5,9 +5,9 @@ public interface o {
 
     void b(h<?, ?> hVar);
 
-    void cEs();
+    void cEA();
 
-    void cEt();
+    void cEB();
 
     void cEu();
 

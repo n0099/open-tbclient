@@ -33,10 +33,10 @@ import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
-    public static int cZs = 0;
+    public static int cZt = 0;
 
     static {
-        aDb();
+        aDe();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -132,12 +132,12 @@ public class SwanAppAbTestStatic {
         MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_BROWSE_HISTORY));
     }
 
-    private static void aDb() {
+    private static void aDe() {
         c.a(TbadkCoreApplication.getInst(), true);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.b.aCW();
-            com.baidu.tieba.aiapps.apps.a.a.aDd().init(TbadkCoreApplication.getInst());
-            com.baidu.tieba.aiapps.apps.share.c.aGb().dx(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.b.aCZ();
+            com.baidu.tieba.aiapps.apps.a.a.aDg().init(TbadkCoreApplication.getInst());
+            com.baidu.tieba.aiapps.apps.share.c.aGe().dx(TbadkCoreApplication.getInst());
         }
     }
 

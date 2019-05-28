@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> gja = new ArrayList<>(5);
-    public int gje;
+    private static ArrayList<a> gjb = new ArrayList<>(5);
     public int gjf;
-    int gjg;
+    public int gjg;
+    int gjh;
     public int type;
 
-    private void aAa() {
-        this.gje = 0;
+    private void aAd() {
         this.gjf = 0;
         this.gjg = 0;
+        this.gjh = 0;
         this.type = 0;
     }
 
@@ -21,8 +21,8 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long bvh() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.gje, this.gjf) : ExpandableListView.getPackedPositionForGroup(this.gje);
+    public long bvk() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.gjf, this.gjg) : ExpandableListView.getPackedPositionForGroup(this.gjf);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -32,20 +32,20 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a w(int i, int i2, int i3, int i4) {
-        a bvi = bvi();
-        bvi.type = i;
-        bvi.gje = i2;
-        bvi.gjf = i3;
-        bvi.gjg = i4;
-        return bvi;
+        a bvl = bvl();
+        bvl.type = i;
+        bvl.gjf = i2;
+        bvl.gjg = i3;
+        bvl.gjh = i4;
+        return bvl;
     }
 
-    private static a bvi() {
+    private static a bvl() {
         a aVar;
-        synchronized (gja) {
-            if (gja.size() > 0) {
-                aVar = gja.remove(0);
-                aVar.aAa();
+        synchronized (gjb) {
+            if (gjb.size() > 0) {
+                aVar = gjb.remove(0);
+                aVar.aAd();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (gja) {
-            if (gja.size() < 5) {
-                gja.add(this);
+        synchronized (gjb) {
+            if (gjb.size() < 5) {
+                gjb.add(this);
             }
         }
     }

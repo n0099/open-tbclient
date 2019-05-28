@@ -13,8 +13,8 @@ public class PbLongPressTipView extends LinearLayout {
     private LinearLayout bMZ;
     private ImageView bXK;
     private Context context;
-    private TextView eQB;
-    private TextView fap;
+    private TextView eQC;
+    private TextView faq;
 
     public PbLongPressTipView(Context context) {
         super(context);
@@ -39,10 +39,10 @@ public class PbLongPressTipView extends LinearLayout {
         setOrientation(1);
         this.bMZ = (LinearLayout) findViewById(R.id.pb_long_tip_content);
         this.bXK = (ImageView) findViewById(R.id.pb_long_tip_image);
-        this.fap = (TextView) findViewById(R.id.long_hint_title);
-        this.eQB = (TextView) findViewById(R.id.long_hint_text);
-        al.f(this.fap, R.color.cp_cont_b, 1);
-        al.f(this.eQB, R.color.common_color_10037, 1);
+        this.faq = (TextView) findViewById(R.id.long_hint_title);
+        this.eQC = (TextView) findViewById(R.id.long_hint_text);
+        al.f(this.faq, R.color.cp_cont_b, 1);
+        al.f(this.eQC, R.color.common_color_10037, 1);
         al.c(this.bXK, (int) R.drawable.pic_pb_popup_longpress);
     }
 }

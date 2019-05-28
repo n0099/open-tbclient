@@ -6,98 +6,98 @@ import com.facebook.imagepipeline.d.h;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class i {
-    private final int jYG;
-    private final boolean jZR;
+    private final int jYH;
     private final boolean jZS;
-    private final com.facebook.common.internal.i<Boolean> jZT;
-    private final q jZU;
-    private final b.a jZV;
-    private final boolean jZW;
-    private final com.facebook.common.g.b jZX;
-    private final boolean jZY;
+    private final boolean jZT;
+    private final com.facebook.common.internal.i<Boolean> jZU;
+    private final q jZV;
+    private final b.a jZW;
+    private final boolean jZX;
+    private final com.facebook.common.g.b jZY;
     private final boolean jZZ;
+    private final boolean kaa;
 
     private i(a aVar, h.a aVar2) {
-        this.jYG = aVar.jYG;
-        this.jZR = aVar.jZR;
+        this.jYH = aVar.jYH;
         this.jZS = aVar.jZS;
-        if (aVar.jZT == null) {
-            this.jZT = new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.i.1
+        this.jZT = aVar.jZT;
+        if (aVar.jZU == null) {
+            this.jZU = new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.common.internal.i
-                /* renamed from: cFv */
+                /* renamed from: cFx */
                 public Boolean get() {
                     return Boolean.FALSE;
                 }
             };
         } else {
-            this.jZT = aVar.jZT;
+            this.jZU = aVar.jZU;
         }
-        this.jZU = aVar.jZU;
         this.jZV = aVar.jZV;
         this.jZW = aVar.jZW;
         this.jZX = aVar.jZX;
         this.jZY = aVar.jZY;
         this.jZZ = aVar.jZZ;
-    }
-
-    public boolean cFy() {
-        return this.jZS;
-    }
-
-    public int cFz() {
-        return this.jYG;
+        this.kaa = aVar.kaa;
     }
 
     public boolean cFA() {
-        return this.jZT.get().booleanValue();
+        return this.jZT;
     }
 
-    @Nullable
-    public q cFB() {
-        return this.jZU;
+    public int cFB() {
+        return this.jYH;
     }
 
     public boolean cFC() {
-        return this.jZZ;
+        return this.jZU.get().booleanValue();
     }
 
-    public boolean cFD() {
-        return this.jZR;
-    }
-
-    public boolean cFE() {
-        return this.jZW;
-    }
-
-    public b.a cFF() {
+    @Nullable
+    public q cFD() {
         return this.jZV;
     }
 
-    public com.facebook.common.g.b cFG() {
+    public boolean cFE() {
+        return this.kaa;
+    }
+
+    public boolean cFF() {
+        return this.jZS;
+    }
+
+    public boolean cFG() {
         return this.jZX;
+    }
+
+    public b.a cFH() {
+        return this.jZW;
+    }
+
+    public com.facebook.common.g.b cFI() {
+        return this.jZY;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private q jZU;
-        private b.a jZV;
-        private com.facebook.common.g.b jZX;
-        private final h.a kab;
-        private int jYG = 0;
-        private boolean jZR = false;
+        private q jZV;
+        private b.a jZW;
+        private com.facebook.common.g.b jZY;
+        private final h.a kac;
+        private int jYH = 0;
         private boolean jZS = false;
-        private com.facebook.common.internal.i<Boolean> jZT = null;
-        private boolean jZW = false;
-        private boolean jZY = false;
+        private boolean jZT = false;
+        private com.facebook.common.internal.i<Boolean> jZU = null;
+        private boolean jZX = false;
         private boolean jZZ = false;
+        private boolean kaa = false;
 
         public a(h.a aVar) {
-            this.kab = aVar;
+            this.kac = aVar;
         }
 
-        public i cFH() {
-            return new i(this, this.kab);
+        public i cFJ() {
+            return new i(this, this.kac);
         }
     }
 }

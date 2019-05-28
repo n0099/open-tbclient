@@ -61,8 +61,8 @@ public final class c {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String cZE;
-        public Map<String, String> cZF;
+        public String cZF;
+        public Map<String, String> cZG;
         public int mErrCode;
         public String mErrMsg;
     }
@@ -89,7 +89,7 @@ public final class c {
     }
 
     public static String dl(Context context) {
-        return !aDf() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !aDi() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
     public static String dm(Context context) {
@@ -98,7 +98,7 @@ public final class c {
     }
 
     public static String aE(Context context) {
-        return !aDf() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !aDi() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     public static String dn(Context context) {
@@ -108,7 +108,7 @@ public final class c {
 
     /* renamed from: do  reason: not valid java name */
     public static String m20do(Context context) {
-        return !aDf() ? "" : TbadkCoreApplication.getInst().getCuid();
+        return !aDi() ? "" : TbadkCoreApplication.getInst().getCuid();
     }
 
     public static boolean dp(Context context) {
@@ -117,7 +117,7 @@ public final class c {
     }
 
     public static boolean aD(Context context) {
-        if (aDf()) {
+        if (aDi()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -150,7 +150,7 @@ public final class c {
     }
 
     public static void a(Context context, Bundle bundle, final com.baidu.swan.apps.a.a aVar) {
-        if (!aDf()) {
+        if (!aDi()) {
             aVar.onResult(-1);
             return;
         }
@@ -169,12 +169,12 @@ public final class c {
         });
     }
 
-    private static boolean aDf() {
+    private static boolean aDi() {
         return ProcessUtils.isMainProcess();
     }
 
     public static void a(com.baidu.swan.apps.a.c cVar) {
-        com.baidu.tieba.aiapps.apps.a.a.aDd().a(cVar);
+        com.baidu.tieba.aiapps.apps.a.a.aDg().a(cVar);
     }
 
     public static void a(String str, final c.a aVar) {
@@ -346,17 +346,17 @@ public final class c {
     }
 
     public static void b(Context context, final com.baidu.swan.apps.an.d.a<Bundle> aVar, @Nullable String... strArr) {
-        if (!aDf()) {
+        if (!aDi()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         a(new a() { // from class: com.baidu.tieba.aiapps.apps.a.c.7
             @Override // com.baidu.tieba.aiapps.apps.a.c.a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.cZF == null) {
+                if (bVar.mErrCode != 0 || bVar.cZG == null) {
                     com.baidu.swan.apps.an.d.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.cZF.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.cZG.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -389,11 +389,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.cZF = getTplStokenResult.tplStokenMap;
+                            bVar.cZG = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.cZE = getTplStokenResult.failureType.name();
+                                bVar.cZF = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.a(bVar);
@@ -406,11 +406,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.cZF = getTplStokenResult.tplStokenMap;
+                            bVar.cZG = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.cZE = getTplStokenResult.failureType.name();
+                                bVar.cZF = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.b(bVar);

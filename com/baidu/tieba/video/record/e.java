@@ -2,7 +2,7 @@ package com.baidu.tieba.video.record;
 /* loaded from: classes5.dex */
 public class e<T> {
     private T jp;
-    private int jtI;
+    private int jtJ;
     private String mName;
     private int mType;
 
@@ -13,7 +13,7 @@ public class e<T> {
         this.mType = i;
         this.mName = str;
         this.jp = t;
-        this.jtI = i2;
+        this.jtJ = i2;
     }
 
     public String getName() {
@@ -24,12 +24,12 @@ public class e<T> {
         this.mName = str;
     }
 
-    public int csS() {
-        return this.jtI;
+    public int csU() {
+        return this.jtJ;
     }
 
     public void BG(int i) {
-        this.jtI = i;
+        this.jtJ = i;
     }
 
     public T getValue() {

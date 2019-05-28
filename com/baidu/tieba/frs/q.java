@@ -9,22 +9,22 @@ import tbclient.FrsPageUserExtend;
 import tbclient.User;
 /* loaded from: classes.dex */
 public class q implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId fsf = BdUniqueId.gen();
-    private List<MetaData> fsc;
-    private int fsb = 0;
-    private String fsd = "本吧都在关注";
-    private boolean fse = false;
+    public static final BdUniqueId fsg = BdUniqueId.gen();
+    private List<MetaData> fsd;
+    private int fsc = 0;
+    private String fse = "本吧都在关注";
+    private boolean fsf = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fsf;
+        return fsg;
     }
 
     public void a(FrsPageUserExtend frsPageUserExtend) {
         if (frsPageUserExtend != null && !com.baidu.tbadk.core.util.v.aa(frsPageUserExtend.data)) {
             List<User> list = frsPageUserExtend.data;
-            this.fsb = frsPageUserExtend.user_extend_storey.intValue();
-            this.fsc = new ArrayList(list.size());
+            this.fsc = frsPageUserExtend.user_extend_storey.intValue();
+            this.fsd = new ArrayList(list.size());
             int i = 0;
             while (true) {
                 int i2 = i;
@@ -33,11 +33,11 @@ public class q implements com.baidu.adp.widget.ListView.m {
                     if (user != null && user.id.longValue() != 0) {
                         MetaData metaData = new MetaData();
                         metaData.parserProtobuf(list.get(i2));
-                        this.fsc.add(metaData);
+                        this.fsd.add(metaData);
                     }
                     i = i2 + 1;
                 } else {
-                    this.fsd = frsPageUserExtend.tips;
+                    this.fse = frsPageUserExtend.tips;
                     return;
                 }
             }
@@ -46,29 +46,29 @@ public class q implements com.baidu.adp.widget.ListView.m {
 
     public void a(FeatureCardGod featureCardGod) {
         if (featureCardGod != null && !com.baidu.tbadk.core.util.v.aa(featureCardGod.sub_nodes)) {
-            this.fsb = featureCardGod.floor.intValue();
-            this.fsc = featureCardGod.sub_nodes;
-            this.fsd = featureCardGod.title;
+            this.fsc = featureCardGod.floor.intValue();
+            this.fsd = featureCardGod.sub_nodes;
+            this.fse = featureCardGod.title;
         }
     }
 
     public int aeC() {
-        return this.fsb;
-    }
-
-    public List<MetaData> getUserInfo() {
         return this.fsc;
     }
 
-    public String bln() {
+    public List<MetaData> getUserInfo() {
         return this.fsd;
     }
 
-    public boolean blo() {
+    public String blq() {
         return this.fse;
     }
 
+    public boolean blr() {
+        return this.fsf;
+    }
+
     public void jU(boolean z) {
-        this.fse = z;
+        this.fsf = z;
     }
 }

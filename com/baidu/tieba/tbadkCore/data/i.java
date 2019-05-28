@@ -11,13 +11,13 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class i {
     private VideoInfo bEu;
-    public String iYg;
-    public boolean iYh;
-    private int iYi;
-    private ArrayList<h> iYj;
-    private ArrayList<k> iYk;
-    private j iYl;
-    private int iYm;
+    public String iYi;
+    public boolean iYj;
+    private int iYk;
+    private ArrayList<h> iYl;
+    private ArrayList<k> iYm;
+    private j iYn;
+    private int iYo;
     public String position;
     private String tagName;
     public long templateId;
@@ -27,27 +27,27 @@ public class i {
             try {
                 this.position = tPointPost.position;
                 this.templateId = tPointPost.template_id.longValue();
-                this.iYh = tPointPost.is_tuiguang.intValue() != 0;
-                this.iYi = tPointPost.template_type.intValue();
+                this.iYj = tPointPost.is_tuiguang.intValue() != 0;
+                this.iYk = tPointPost.template_type.intValue();
                 List<ActBtn> list = tPointPost.act_btn;
                 if (list != null && list.size() > 0) {
-                    this.iYj = new ArrayList<>();
+                    this.iYl = new ArrayList<>();
                     for (int i = 0; i != list.size(); i++) {
-                        this.iYj.add(new h(list.get(i)));
+                        this.iYl.add(new h(list.get(i)));
                     }
                 }
                 List<Timgs> list2 = tPointPost.t_imgs;
                 if (list2 != null && list2.size() > 0) {
-                    this.iYk = new ArrayList<>();
+                    this.iYm = new ArrayList<>();
                     for (int i2 = 0; i2 != list2.size(); i2++) {
-                        this.iYk.add(new k(list2.get(i2)));
+                        this.iYm.add(new k(list2.get(i2)));
                     }
                 }
                 if (tPointPost.detail_info != null) {
-                    this.iYl = new j(tPointPost.detail_info);
+                    this.iYn = new j(tPointPost.detail_info);
                 }
-                this.iYg = tPointPost.monitor_id;
-                this.iYm = tPointPost.hidden_day.intValue();
+                this.iYi = tPointPost.monitor_id;
+                this.iYo = tPointPost.hidden_day.intValue();
                 this.bEu = tPointPost.t_video;
                 this.tagName = tPointPost.tag_name;
             } catch (Exception e) {
@@ -56,8 +56,8 @@ public class i {
         }
     }
 
-    public k clX() {
-        return (k) v.c(this.iYk, 0);
+    public k clZ() {
+        return (k) v.c(this.iYm, 0);
     }
 
     public String getPosition() {
@@ -68,20 +68,20 @@ public class i {
         return this.templateId;
     }
 
-    public ArrayList<h> clY() {
-        return this.iYj;
-    }
-
-    public ArrayList<k> clZ() {
-        return this.iYk;
-    }
-
-    public j cma() {
+    public ArrayList<h> cma() {
         return this.iYl;
     }
 
-    public int cmb() {
-        return this.iYi;
+    public ArrayList<k> cmb() {
+        return this.iYm;
+    }
+
+    public j cmc() {
+        return this.iYn;
+    }
+
+    public int cmd() {
+        return this.iYk;
     }
 
     public String getTagName() {

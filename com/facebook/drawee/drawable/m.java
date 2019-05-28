@@ -9,56 +9,56 @@ import com.facebook.drawee.drawable.n;
 /* loaded from: classes2.dex */
 public class m extends g {
     Matrix GA;
-    n.b jUO;
-    Object jVS;
-    PointF jVT;
-    int jVr;
+    n.b jUP;
+    Object jVT;
+    PointF jVU;
     int jVs;
+    int jVt;
     private Matrix mTempMatrix;
 
     public m(Drawable drawable, n.b bVar) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jVT = null;
-        this.jVr = 0;
+        this.jVU = null;
         this.jVs = 0;
+        this.jVt = 0;
         this.mTempMatrix = new Matrix();
-        this.jUO = bVar;
+        this.jUP = bVar;
     }
 
     @Override // com.facebook.drawee.drawable.g
     public Drawable j(Drawable drawable) {
         Drawable j = super.j(drawable);
-        cDn();
+        cDp();
         return j;
     }
 
-    public n.b cDr() {
-        return this.jUO;
+    public n.b cDt() {
+        return this.jUP;
     }
 
     public void a(n.b bVar) {
-        if (!com.facebook.common.internal.f.equal(this.jUO, bVar)) {
-            this.jUO = bVar;
-            this.jVS = null;
-            cDn();
+        if (!com.facebook.common.internal.f.equal(this.jUP, bVar)) {
+            this.jUP = bVar;
+            this.jVT = null;
+            cDp();
             invalidateSelf();
         }
     }
 
     public void a(PointF pointF) {
-        if (!com.facebook.common.internal.f.equal(this.jVT, pointF)) {
-            if (this.jVT == null) {
-                this.jVT = new PointF();
+        if (!com.facebook.common.internal.f.equal(this.jVU, pointF)) {
+            if (this.jVU == null) {
+                this.jVU = new PointF();
             }
-            this.jVT.set(pointF);
-            cDn();
+            this.jVU.set(pointF);
+            cDp();
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        cDm();
+        cDo();
         if (this.GA != null) {
             int save = canvas.save();
             canvas.clipRect(getBounds());
@@ -72,48 +72,48 @@ public class m extends g {
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
-        cDn();
+        cDp();
     }
 
-    private void cDm() {
+    private void cDo() {
         boolean z;
         boolean z2 = false;
-        if (this.jUO instanceof n.k) {
-            Object state = ((n.k) this.jUO).getState();
-            z = state == null || !state.equals(this.jVS);
-            this.jVS = state;
+        if (this.jUP instanceof n.k) {
+            Object state = ((n.k) this.jUP).getState();
+            z = state == null || !state.equals(this.jVT);
+            this.jVT = state;
         } else {
             z = false;
         }
-        if (this.jVr != getCurrent().getIntrinsicWidth() || this.jVs != getCurrent().getIntrinsicHeight()) {
+        if (this.jVs != getCurrent().getIntrinsicWidth() || this.jVt != getCurrent().getIntrinsicHeight()) {
             z2 = true;
         }
         if (z2 || z) {
-            cDn();
+            cDp();
         }
     }
 
-    void cDn() {
+    void cDp() {
         Drawable current = getCurrent();
         Rect bounds = getBounds();
         int width = bounds.width();
         int height = bounds.height();
         int intrinsicWidth = current.getIntrinsicWidth();
-        this.jVr = intrinsicWidth;
+        this.jVs = intrinsicWidth;
         int intrinsicHeight = current.getIntrinsicHeight();
-        this.jVs = intrinsicHeight;
+        this.jVt = intrinsicHeight;
         if (intrinsicWidth <= 0 || intrinsicHeight <= 0) {
             current.setBounds(bounds);
             this.GA = null;
         } else if (intrinsicWidth == width && intrinsicHeight == height) {
             current.setBounds(bounds);
             this.GA = null;
-        } else if (this.jUO == n.b.jVU) {
+        } else if (this.jUP == n.b.jVV) {
             current.setBounds(bounds);
             this.GA = null;
         } else {
             current.setBounds(0, 0, intrinsicWidth, intrinsicHeight);
-            this.jUO.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.jVT != null ? this.jVT.x : 0.5f, this.jVT != null ? this.jVT.y : 0.5f);
+            this.jUP.a(this.mTempMatrix, bounds, intrinsicWidth, intrinsicHeight, this.jVU != null ? this.jVU.x : 0.5f, this.jVU != null ? this.jVU.y : 0.5f);
             this.GA = this.mTempMatrix;
         }
     }
@@ -121,7 +121,7 @@ public class m extends g {
     @Override // com.facebook.drawee.drawable.g, com.facebook.drawee.drawable.p
     public void e(Matrix matrix) {
         f(matrix);
-        cDm();
+        cDo();
         if (this.GA != null) {
             matrix.preConcat(this.GA);
         }

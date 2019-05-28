@@ -104,25 +104,25 @@ public class f {
     }
 
     public static b c(m mVar, int i) {
-        if (mVar == null || mVar.cmi() == null) {
+        if (mVar == null || mVar.cmk() == null) {
             return null;
         }
-        AppData cmi = mVar.cmi();
+        AppData cmk = mVar.cmk();
         b bVar = new b();
-        bVar.De(cmi.ext_info);
-        if (mVar.iYx) {
+        bVar.De(cmk.ext_info);
+        if (mVar.iYz) {
             bVar.za(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.za(com.baidu.adp.lib.g.b.f(cmi.pos_name, 0));
+            bVar.za(com.baidu.adp.lib.g.b.f(cmk.pos_name, 0));
             bVar.setPageNumber(mVar.pageNumber);
         }
         bVar.yZ(i);
-        bVar.Dg(cmi.price);
+        bVar.Dg(cmk.price);
         bVar.Dj(mVar.bEf);
         bVar.Dk(mVar.bEg);
         bVar.Dl(mVar.forumId);
-        bVar.Dm(mVar.cml());
+        bVar.Dm(mVar.cmn());
         return bVar;
     }
 

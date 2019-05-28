@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a fvX;
+    private a fvY;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,8 +43,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.fvX = new a(context);
-        this.mRecyclerView.setAdapter(this.fvX);
+        this.fvY = new a(context);
+        this.mRecyclerView.setAdapter(this.fvY);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int g = l.g(context, R.dimen.tbds44);
@@ -58,8 +58,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             return;
         }
         setVisibility(0);
-        this.fvX.setData(list);
-        this.fvX.notifyDataSetChanged();
+        this.fvY.setData(list);
+        this.fvY.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -67,7 +67,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.l(this, R.color.cp_bg_line_e);
-            this.fvX.notifyDataSetChanged();
+            this.fvY.notifyDataSetChanged();
         }
     }
 }

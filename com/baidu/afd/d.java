@@ -85,7 +85,7 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     public void oO() {
         if (!this.QX) {
-            com.baidu.tieba.recapp.report.c.cfE().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+            com.baidu.tieba.recapp.report.c.cfG().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.c.a(this);

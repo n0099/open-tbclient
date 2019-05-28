@@ -37,35 +37,35 @@ public class SubPbModel extends DataModel {
     public static final int UPDATE_TYPE_NORMAL = 0;
     public static final int UPDATE_TYPE_PREVIOUS = 3;
     private AntiData ceN;
-    private com.baidu.tieba.tbadkCore.d.b eTs;
-    private int hAZ;
-    private boolean hCi;
-    private PbFakeFloorModel hIz;
-    private k hSm;
-    private PbFakeFloorModel.a hSp;
-    private com.baidu.adp.framework.listener.a hSq;
-    private String hUM;
-    private boolean hUN;
-    private String hUO;
+    private com.baidu.tieba.tbadkCore.d.b eTt;
+    private int hBc;
+    private boolean hCl;
+    private PbFakeFloorModel hIC;
+    private k hSp;
+    private PbFakeFloorModel.a hSs;
+    private com.baidu.adp.framework.listener.a hSt;
     private String hUP;
-    private String hUQ;
+    private boolean hUQ;
     private String hUR;
     private String hUS;
-    private boolean hUT;
+    private String hUT;
     private String hUU;
-    private a hUV;
-    private int hUW;
-    private ArrayList<IconData> hUX;
-    private AttentionHostData hUY;
-    private boolean hUZ;
-    private ArrayList<k> hVa;
-    private SmallTailInfo hVb;
+    private String hUV;
+    private boolean hUW;
+    private String hUX;
+    private a hUY;
+    private int hUZ;
+    private ArrayList<IconData> hVa;
+    private AttentionHostData hVb;
     private boolean hVc;
-    private ArrayList<String> hVd;
-    private ConcurrentHashMap<String, ImageUrlData> hVe;
+    private ArrayList<k> hVd;
+    private SmallTailInfo hVe;
     private boolean hVf;
-    private boolean hVg;
-    private SubPbRequestMessage hVh;
+    private ArrayList<String> hVg;
+    private ConcurrentHashMap<String, ImageUrlData> hVh;
+    private boolean hVi;
+    private boolean hVj;
+    private SubPbRequestMessage hVk;
     private boolean isLoading;
     private TbPageContext<?> mContext;
     private int mLoadType;
@@ -82,63 +82,63 @@ public class SubPbModel extends DataModel {
     public void initWithIntent(Intent intent) {
         if (intent != null) {
             this.pageFromType = intent.getIntExtra(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-            this.hUM = intent.getStringExtra("thread_id");
+            this.hUP = intent.getStringExtra("thread_id");
             this.postID = intent.getStringExtra("post_id");
             this.stType = intent.getStringExtra("st_type");
-            this.hUR = intent.getStringExtra("from_forum_id");
-            this.hUS = intent.getStringExtra(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
-            this.hUN = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
-            this.hUO = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.hUT = intent.getBooleanExtra(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
-            this.hUP = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.hAZ = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
-            this.hVb = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
-            if (this.hVb != null) {
-                this.hVb.updateShowInfo();
+            this.hUU = intent.getStringExtra("from_forum_id");
+            this.hUV = intent.getStringExtra(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
+            this.hUQ = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+            this.hUR = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.hUW = intent.getBooleanExtra(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
+            this.hUS = intent.getStringExtra(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.hBc = intent.getIntExtra(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.hVe = (SmallTailInfo) intent.getSerializableExtra(SubPbActivityConfig.KEY_TAIL);
+            if (this.hVe != null) {
+                this.hVe.updateShowInfo();
             }
             this.ceN = (AntiData) intent.getSerializableExtra(SubPbActivityConfig.KEY_ANTI);
-            this.hUX = (ArrayList) intent.getSerializableExtra(SubPbActivityConfig.ICON_LIST);
-            this.hUZ = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.hVa = (ArrayList) intent.getSerializableExtra(SubPbActivityConfig.ICON_LIST);
+            this.hVc = intent.getBooleanExtra(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
             Bundle bundleExtra = intent.getBundleExtra(SubPbActivityConfig.KEY_IMG_URLS);
             if (bundleExtra != null) {
                 ArrayList<String> stringArrayList = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_URL);
-                this.hVe = new ConcurrentHashMap<>();
+                this.hVh = new ConcurrentHashMap<>();
                 if (stringArrayList != null) {
                     Iterator<String> it = stringArrayList.iterator();
                     while (it.hasNext()) {
                         String next = it.next();
                         if (!StringUtils.isNull(next)) {
-                            this.hVe.put(next, (ImageUrlData) bundleExtra.getSerializable(next));
+                            this.hVh.put(next, (ImageUrlData) bundleExtra.getSerializable(next));
                         }
                     }
                 }
-                this.hVd = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_SRC);
-                this.hVf = bundleExtra.getBoolean(SubPbActivityConfig.SUB_KEY_IMG_CDN, true);
+                this.hVg = bundleExtra.getStringArrayList(SubPbActivityConfig.SUB_KEY_IMG_SRC);
+                this.hVi = bundleExtra.getBoolean(SubPbActivityConfig.SUB_KEY_IMG_CDN, true);
                 this.mOffset = bundleExtra.getInt(SubPbActivityConfig.SUB_KEY_IMG_OFFSET, 0);
             }
-            this.hUQ = intent.getStringExtra("high_light_post_id");
+            this.hUT = intent.getStringExtra("high_light_post_id");
         }
     }
 
     public void initWithBundle(Bundle bundle) {
         if (bundle != null) {
             this.pageFromType = bundle.getInt(SubPbActivityConfig.KEY_PAGE_START_FROM, 0);
-            this.hUM = bundle.getString("thread_id");
+            this.hUP = bundle.getString("thread_id");
             this.postID = bundle.getString("post_id");
             this.stType = bundle.getString("st_type");
-            this.hUR = bundle.getString("from_forum_id");
-            this.hUS = bundle.getString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
-            this.hUN = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
-            this.hUO = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
-            this.hUT = bundle.getBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
-            this.hUP = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
-            this.hAZ = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
+            this.hUU = bundle.getString("from_forum_id");
+            this.hUV = bundle.getString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID);
+            this.hUQ = bundle.getBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, false);
+            this.hUR = bundle.getString(SubPbActivityConfig.KEY_REPLAY_NAME);
+            this.hUW = bundle.getBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, false);
+            this.hUS = bundle.getString(SubPbActivityConfig.KEY_REPLAY_POST_ID);
+            this.hBc = bundle.getInt(SubPbActivityConfig.KEY_USER_IDENTITY, 0);
             String string = bundle.getString(SubPbActivityConfig.KEY_TAIL);
             if (!StringUtils.isNull(string)) {
-                this.hVb = (SmallTailInfo) OrmObject.objectWithJsonStr(string, SmallTailInfo.class);
+                this.hVe = (SmallTailInfo) OrmObject.objectWithJsonStr(string, SmallTailInfo.class);
             }
-            if (this.hVb != null) {
-                this.hVb.updateShowInfo();
+            if (this.hVe != null) {
+                this.hVe.updateShowInfo();
             }
             String string2 = bundle.getString(SubPbActivityConfig.KEY_ANTI);
             if (!StringUtils.isNull(string2)) {
@@ -147,37 +147,37 @@ public class SubPbModel extends DataModel {
             }
             ArrayList<String> stringArrayList = bundle.getStringArrayList(SubPbActivityConfig.ICON_LIST);
             if (!v.aa(stringArrayList)) {
-                this.hUX = new ArrayList<>();
+                this.hVa = new ArrayList<>();
                 Iterator<String> it = stringArrayList.iterator();
                 while (it.hasNext()) {
                     IconData iconData = (IconData) OrmObject.objectWithJsonStr(it.next(), IconData.class);
                     if (iconData != null) {
-                        this.hUX.add(iconData);
+                        this.hVa.add(iconData);
                     }
                 }
             }
-            this.hUZ = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
-            this.hUQ = bundle.getString("high_light_post_id");
+            this.hVc = bundle.getBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
+            this.hUT = bundle.getString("high_light_post_id");
         }
     }
 
     public void ab(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString("thread_id", this.hUM);
+            bundle.putString("thread_id", this.hUP);
             bundle.putString("post_id", this.postID);
             bundle.putString("st_type", this.stType);
-            bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.hUN);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.hUO);
-            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.hUP);
-            bundle.putBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, this.hUT);
-            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.hAZ);
-            bundle.putString(SubPbActivityConfig.KEY_TAIL, OrmObject.jsonStrWithObject(this.hVb));
+            bundle.putBoolean(SubPbActivityConfig.KEY_IS_JUMP_FROM_PB, this.hUQ);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_NAME, this.hUR);
+            bundle.putString(SubPbActivityConfig.KEY_REPLAY_POST_ID, this.hUS);
+            bundle.putBoolean(SubPbActivityConfig.KEY_SHOW_KEYBOARD, this.hUW);
+            bundle.putInt(SubPbActivityConfig.KEY_USER_IDENTITY, this.hBc);
+            bundle.putString(SubPbActivityConfig.KEY_TAIL, OrmObject.jsonStrWithObject(this.hVe));
             if (this.ceN != null) {
                 bundle.putSerializable(SubPbActivityConfig.KEY_ANTI, this.ceN.toJsonString());
             }
-            if (!v.aa(this.hUX)) {
+            if (!v.aa(this.hVa)) {
                 ArrayList<String> arrayList = new ArrayList<>();
-                Iterator<IconData> it = this.hUX.iterator();
+                Iterator<IconData> it = this.hVa.iterator();
                 while (it.hasNext()) {
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(it.next());
                     if (!StringUtils.isNull(jsonStrWithObject)) {
@@ -187,41 +187,41 @@ public class SubPbModel extends DataModel {
                 bundle.putStringArrayList(SubPbActivityConfig.ICON_LIST, arrayList);
             }
             bundle.putBoolean(SubPbActivityConfig.KEY_IS_SHOW_GO_TO_SUBJECT, false);
-            bundle.putString("from_forum_id", this.hUR);
-            bundle.putString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID, this.hUS);
-            bundle.putString("high_light_post_id", this.hUQ);
+            bundle.putString("from_forum_id", this.hUU);
+            bundle.putString(SubPbActivityConfig.KEY_FROM_FRS_FORUM_ID, this.hUV);
+            bundle.putString("high_light_post_id", this.hUT);
         }
     }
 
     public SubPbModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mLoadType = 0;
-        this.hUM = null;
+        this.hUP = null;
         this.postID = null;
         this.stType = null;
-        this.hUN = false;
-        this.hUO = null;
-        this.hUP = null;
-        this.hUQ = null;
+        this.hUQ = false;
+        this.hUR = null;
+        this.hUS = null;
+        this.hUT = null;
         this.pageFromType = 0;
-        this.hUT = false;
-        this.hCi = false;
-        this.hAZ = 0;
-        this.hUU = null;
+        this.hUW = false;
+        this.hCl = false;
+        this.hBc = 0;
+        this.hUX = null;
         this.mContext = null;
-        this.hSm = null;
-        this.hUV = null;
-        this.hUW = 0;
-        this.hUZ = false;
-        this.hVa = null;
-        this.isLoading = false;
-        this.eTs = null;
-        this.hVf = true;
-        this.mOffset = 0;
-        this.hIz = null;
         this.hSp = null;
-        this.hVg = false;
-        this.hSq = new com.baidu.adp.framework.listener.a(CmdConfigHttp.SubPb_HTTP_CMD, 302002) { // from class: com.baidu.tieba.pb.pb.sub.SubPbModel.1
+        this.hUY = null;
+        this.hUZ = 0;
+        this.hVc = false;
+        this.hVd = null;
+        this.isLoading = false;
+        this.eTt = null;
+        this.hVi = true;
+        this.mOffset = 0;
+        this.hIC = null;
+        this.hSs = null;
+        this.hVj = false;
+        this.hSt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.SubPb_HTTP_CMD, 302002) { // from class: com.baidu.tieba.pb.pb.sub.SubPbModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 long j;
@@ -241,7 +241,7 @@ public class SubPbModel extends DataModel {
                         SubPbHttpResponseMessage subPbHttpResponseMessage = (SubPbHttpResponseMessage) responsedMessage;
                         if (subPbHttpResponseMessage.isTreatDelPage()) {
                             if (!subPbHttpResponseMessage.hasError()) {
-                                SubPbModel.this.hVa.add(subPbHttpResponseMessage.pbFloorData);
+                                SubPbModel.this.hVd.add(subPbHttpResponseMessage.pbFloorData);
                                 return;
                             }
                             return;
@@ -257,33 +257,33 @@ public class SubPbModel extends DataModel {
                         SubPbSocketResponseMessage subPbSocketResponseMessage = (SubPbSocketResponseMessage) responsedMessage;
                         if (subPbSocketResponseMessage.isTreatDelPage()) {
                             if (!subPbSocketResponseMessage.hasError()) {
-                                SubPbModel.this.hVa.add(subPbSocketResponseMessage.pbFloorData);
+                                SubPbModel.this.hVd.add(subPbSocketResponseMessage.pbFloorData);
                                 return;
                             }
                             return;
                         }
                     }
-                    if (SubPbModel.this.hVa != null && SubPbModel.this.hVa.size() > 0) {
+                    if (SubPbModel.this.hVd != null && SubPbModel.this.hVd.size() > 0) {
                         try {
-                            for (int size = SubPbModel.this.hVa.size() - 1; size >= 0; size--) {
-                                k kVar2 = (k) SubPbModel.this.hVa.get(size);
-                                if (SubPbModel.this.hVc) {
-                                    SubPbModel.this.hSm.c(kVar2, true);
+                            for (int size = SubPbModel.this.hVd.size() - 1; size >= 0; size--) {
+                                k kVar2 = (k) SubPbModel.this.hVd.get(size);
+                                if (SubPbModel.this.hVf) {
+                                    SubPbModel.this.hSp.c(kVar2, true);
                                 } else {
-                                    SubPbModel.this.hSm.b(kVar2, true);
+                                    SubPbModel.this.hSp.b(kVar2, true);
                                 }
                             }
                         } catch (Exception e) {
                             BdLog.detailException(e);
                         }
-                        SubPbModel.this.hVa.clear();
+                        SubPbModel.this.hVd.clear();
                     }
                     int error = responsedMessage.getError();
                     String errorString = responsedMessage.getErrorString();
-                    if (SubPbModel.this.eTs == null) {
-                        SubPbModel.this.eTs = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                    if (SubPbModel.this.eTt == null) {
+                        SubPbModel.this.eTt = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
                     }
-                    if (SubPbModel.this.eTs != null) {
+                    if (SubPbModel.this.eTt != null) {
                         if (error == 0) {
                             int i = -1;
                             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -298,13 +298,13 @@ public class SubPbModel extends DataModel {
                                 j2 = j4;
                                 j3 = j;
                             }
-                            SubPbModel.this.eTs.a(z, true, error, errorString, i, j3, j2);
-                            SubPbModel.this.eTs = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
-                            SubPbModel.this.eTs = null;
+                            SubPbModel.this.eTt.a(z, true, error, errorString, i, j3, j2);
+                            SubPbModel.this.eTt = new com.baidu.tieba.tbadkCore.d.b("pbfloorStat");
+                            SubPbModel.this.eTt = null;
                         }
                         if (responsedMessage == null || ((!(responsedMessage instanceof SubPbSocketResponseMessage) && !(responsedMessage instanceof SubPbHttpResponseMessage)) || responsedMessage.getError() != 0)) {
-                            if (SubPbModel.this.hUV != null) {
-                                SubPbModel.this.hUV.a(false, error, errorString, null);
+                            if (SubPbModel.this.hUY != null) {
+                                SubPbModel.this.hUY.a(false, error, errorString, null);
                             }
                         } else if (responsedMessage.getCmd() == 302002 || responsedMessage.getCmd() == 1002100) {
                             if (responsedMessage instanceof SubPbHttpResponseMessage) {
@@ -312,37 +312,37 @@ public class SubPbModel extends DataModel {
                             } else {
                                 kVar = responsedMessage instanceof SubPbSocketResponseMessage ? ((SubPbSocketResponseMessage) responsedMessage).pbFloorData : null;
                             }
-                            if (kVar.bQq().errorno.intValue() != 0) {
-                                if (SubPbModel.this.hUV != null) {
-                                    SubPbModel.this.hUV.a(false, kVar.hCj.errorno.intValue(), kVar.hCj.errmsg, null);
+                            if (kVar.bQt().errorno.intValue() != 0) {
+                                if (SubPbModel.this.hUY != null) {
+                                    SubPbModel.this.hUY.a(false, kVar.hCm.errorno.intValue(), kVar.hCm.errmsg, null);
                                     return;
                                 }
                                 return;
                             }
                             if (kVar.abv() != null && kVar.abv().adv() != null) {
                                 kVar.abv().adv().getUserId();
-                                if (v.aa(kVar.bQr().adv().getIconInfo()) && SubPbModel.this.hUX != null) {
-                                    kVar.bQr().adv().setIconInfo(SubPbModel.this.hUX);
+                                if (v.aa(kVar.bQu().adv().getIconInfo()) && SubPbModel.this.hVa != null) {
+                                    kVar.bQu().adv().setIconInfo(SubPbModel.this.hVa);
                                 }
                             }
-                            if (kVar.bQr() != null) {
-                                SubPbModel.this.postID = kVar.bQr().getId();
+                            if (kVar.bQu() != null) {
+                                SubPbModel.this.postID = kVar.bQu().getId();
                             }
                             if (kVar.abv() != null) {
-                                SubPbModel.this.hUM = kVar.abv().getId();
-                                SubPbModel.this.hCi = kVar.ZC();
-                                SubPbModel.this.hUU = kVar.abv().adE();
+                                SubPbModel.this.hUP = kVar.abv().getId();
+                                SubPbModel.this.hCl = kVar.ZC();
+                                SubPbModel.this.hUX = kVar.abv().adE();
                             }
-                            if (SubPbModel.this.hUU != null && SubPbModel.this.postID != null && SubPbModel.this.hUU.equals(SubPbModel.this.postID)) {
-                                SubPbModel.this.hCi = true;
+                            if (SubPbModel.this.hUX != null && SubPbModel.this.postID != null && SubPbModel.this.hUX.equals(SubPbModel.this.postID)) {
+                                SubPbModel.this.hCl = true;
                             }
-                            if (SubPbModel.this.hVc) {
+                            if (SubPbModel.this.hVf) {
                                 SubPbModel.this.f(kVar);
                             } else {
                                 SubPbModel.this.e(kVar);
                             }
-                            if (SubPbModel.this.hUV != null) {
-                                SubPbModel.this.hUV.a(SubPbModel.this.bWv(), error, errorString, SubPbModel.this.hSm);
+                            if (SubPbModel.this.hUY != null) {
+                                SubPbModel.this.hUY.a(SubPbModel.this.bWy(), error, errorString, SubPbModel.this.hSp);
                             }
                         }
                     }
@@ -350,15 +350,15 @@ public class SubPbModel extends DataModel {
             }
         };
         this.mContext = tbPageContext;
-        this.hVa = new ArrayList<>();
-        this.hSm = new k();
+        this.hVd = new ArrayList<>();
+        this.hSp = new k();
         setUniqueId(BdUniqueId.gen());
-        MessageManager.getInstance().unRegisterListener(this.hSq);
-        registerListener(this.hSq);
+        MessageManager.getInstance().unRegisterListener(this.hSt);
+        registerListener(this.hSt);
     }
 
-    public String bSF() {
-        return this.hUM;
+    public String bSI() {
+        return this.hUP;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
@@ -370,48 +370,48 @@ public class SubPbModel extends DataModel {
         return this.stType;
     }
 
-    public k bWu() {
-        return this.hSm;
+    public k bWx() {
+        return this.hSp;
     }
 
-    public AntiData biW() {
+    public AntiData biZ() {
         return this.ceN;
     }
 
-    public boolean bWv() {
-        return (this.hSm == null || this.hSm.bQr() == null) ? false : true;
+    public boolean bWy() {
+        return (this.hSp == null || this.hSp.bQu() == null) ? false : true;
     }
 
     public void a(a aVar) {
-        this.hUV = aVar;
+        this.hUY = aVar;
     }
 
     public MarkData j(PostData postData) {
         MarkData markData = new MarkData();
         Date date = new Date();
         markData.setAccount(TbadkCoreApplication.getCurrentAccount());
-        markData.setThreadId(this.hUM);
+        markData.setThreadId(this.hUP);
         markData.setPostId(postData.getId());
         markData.setTime(date.getTime());
         markData.setHostMode(false);
-        markData.setId(this.hUM);
-        markData.setFloor(postData.cmu());
+        markData.setId(this.hUP);
+        markData.setFloor(postData.cmw());
         return markData;
     }
 
     public void destory() {
         cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.hSq);
-        if (this.hIz != null) {
-            this.hIz.unRegisterListener();
+        MessageManager.getInstance().unRegisterListener(this.hSt);
+        if (this.hIC != null) {
+            this.hIC.unRegisterListener();
         }
-        bek();
+        ben();
     }
 
-    private void bek() {
-        if (this.eTs != null) {
-            this.eTs.destory();
-            this.eTs = null;
+    private void ben() {
+        if (this.eTt != null) {
+            this.eTt.destory();
+            this.eTt = null;
         }
     }
 
@@ -427,41 +427,41 @@ public class SubPbModel extends DataModel {
     }
 
     public void BC(String str) {
-        if (!TextUtils.isEmpty(str) && this.hSm != null && this.hSm.bQv() != null) {
-            ArrayList<PostData> bQv = this.hSm.bQv();
-            int size = bQv.size();
+        if (!TextUtils.isEmpty(str) && this.hSp != null && this.hSp.bQy() != null) {
+            ArrayList<PostData> bQy = this.hSp.bQy();
+            int size = bQy.size();
             for (int i = 0; i < size; i++) {
-                if (str.equals(bQv.get(i).getId())) {
-                    bQv.remove(i);
-                    this.hUW++;
-                    this.hSm.setTotalCount(this.hSm.getTotalCount() - 1);
+                if (str.equals(bQy.get(i).getId())) {
+                    bQy.remove(i);
+                    this.hUZ++;
+                    this.hSp.setTotalCount(this.hSp.getTotalCount() - 1);
                     return;
                 }
             }
         }
     }
 
-    protected int bWw() {
-        int azw = this.hSm.azw();
-        if (azw == 0) {
-            return azw + 1;
+    protected int bWz() {
+        int azx = this.hSp.azx();
+        if (azx == 0) {
+            return azx + 1;
         }
         if (this.mLoadType == 0) {
-            return azw + 1;
+            return azx + 1;
         }
-        if (this.mLoadType == 2 && this.hSm.bQv().size() != 0 && this.hSm.bQv().size() % this.hSm.getPageSize() == 0) {
-            return azw + 1;
+        if (this.mLoadType == 2 && this.hSp.bQy().size() != 0 && this.hSp.bQy().size() % this.hSp.getPageSize() == 0) {
+            return azx + 1;
         }
-        if (this.mLoadType == 3 && this.hVc) {
-            return this.hSm.bQt() - 1;
+        if (this.mLoadType == 3 && this.hVf) {
+            return this.hSp.bQw() - 1;
         }
-        if (this.mLoadType == 3 && azw > 0) {
-            return this.hSm.bQs() - 1;
+        if (this.mLoadType == 3 && azx > 0) {
+            return this.hSp.bQv() - 1;
         }
-        return azw;
+        return azx;
     }
 
-    private SubPbRequestMessage bVH() {
+    private SubPbRequestMessage bVK() {
         this.isLoading = true;
         return l(null);
     }
@@ -480,42 +480,42 @@ public class SubPbModel extends DataModel {
             j2 = com.baidu.adp.lib.g.b.c(this.postID, 0L);
         }
         if (num == null) {
-            intValue = bWw();
+            intValue = bWz();
         } else {
             intValue = num.intValue();
         }
         int i2 = 0;
-        if (this.hVc && this.mLoadType == 0) {
+        if (this.hVf && this.mLoadType == 0) {
             i2 = 1;
             i = 1;
         } else {
             i = intValue;
         }
-        return new SubPbRequestMessage(this.mContext.getPageActivity(), Long.parseLong(this.hUM), j, j2, i, af, ah, f, this.stType, i2);
+        return new SubPbRequestMessage(this.mContext.getPageActivity(), Long.parseLong(this.hUP), j, j2, i, af, ah, f, this.stType, i2);
     }
 
     public boolean atv() {
         return xL(0);
     }
 
-    public boolean bWx() {
+    public boolean bWA() {
         return xL(2);
     }
 
-    public void bWy() {
+    public void bWB() {
         int pageSize;
-        if (this.hUW > 0 && this.hSm != null && (pageSize = this.hSm.getPageSize()) > 0) {
-            int azw = this.hSm.azw();
-            for (int i = (((this.hUW + pageSize) - 1) / pageSize) - 1; i >= 0; i--) {
-                this.hVh = l(Integer.valueOf(azw - i));
-                this.hVh.setTreatDelPage(true);
-                sendMessage(this.hVh);
+        if (this.hUZ > 0 && this.hSp != null && (pageSize = this.hSp.getPageSize()) > 0) {
+            int azx = this.hSp.azx();
+            for (int i = (((this.hUZ + pageSize) - 1) / pageSize) - 1; i >= 0; i--) {
+                this.hVk = l(Integer.valueOf(azx - i));
+                this.hVk.setTreatDelPage(true);
+                sendMessage(this.hVk);
             }
         }
-        this.hUW = 0;
+        this.hUZ = 0;
     }
 
-    public boolean bWz() {
+    public boolean bWC() {
         return xL(1);
     }
 
@@ -524,133 +524,133 @@ public class SubPbModel extends DataModel {
             return false;
         }
         cancelMessage();
-        if (this.hUM == null || this.postID == null) {
+        if (this.hUP == null || this.postID == null) {
             this.isLoading = false;
             return false;
         }
-        bWy();
+        bWB();
         this.mLoadType = i;
-        this.hVh = bVH();
-        sendMessage(this.hVh);
+        this.hVk = bVK();
+        sendMessage(this.hVk);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(k kVar) {
-        ArrayList<PostData> bQv = kVar.bQv();
-        if (bQv == null || bQv.size() == 0) {
-            kVar.setCurrentPage(this.hSm.azw());
+        ArrayList<PostData> bQy = kVar.bQy();
+        if (bQy == null || bQy.size() == 0) {
+            kVar.setCurrentPage(this.hSp.azx());
         }
         if (this.mLoadType == 1) {
-            this.hSm = kVar;
+            this.hSp = kVar;
         } else if (this.mLoadType == 2) {
-            this.hSm.b(kVar, true);
+            this.hSp.b(kVar, true);
         } else if (this.mLoadType == 3) {
-            this.hSm.a(kVar, false);
+            this.hSp.a(kVar, false);
         } else {
-            this.hSm.b(kVar, false);
+            this.hSp.b(kVar, false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void f(k kVar) {
         if (this.mLoadType == 1) {
-            this.hSm = kVar;
-            this.hSm.bQu();
+            this.hSp = kVar;
+            this.hSp.bQx();
         } else if (this.mLoadType == 2) {
-            this.hSm.c(kVar, true);
+            this.hSp.c(kVar, true);
         } else if (this.mLoadType == 3) {
-            this.hSm.d(kVar, false);
+            this.hSp.d(kVar, false);
         } else {
-            this.hSm.a(kVar);
+            this.hSp.a(kVar);
         }
     }
 
-    public boolean bVX() {
-        return this.hUN;
+    public boolean bWa() {
+        return this.hUQ;
     }
 
     public boolean isMarked() {
-        return this.hCi;
+        return this.hCl;
     }
 
-    public boolean bWA() {
+    public boolean bWD() {
         return "hot_topic".equals(getStType());
     }
 
     public void pc(boolean z) {
-        this.hCi = z;
+        this.hCl = z;
     }
 
-    public int bPU() {
-        return this.hAZ;
+    public int bPX() {
+        return this.hBc;
     }
 
-    public String bWB() {
-        return this.hUU;
+    public String bWE() {
+        return this.hUX;
     }
 
     public void BD(String str) {
-        this.hUU = str;
+        this.hUX = str;
     }
 
-    public String bWC() {
-        return this.hUP;
+    public String bWF() {
+        return this.hUS;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData pW(String str) {
-        if (this.hSm == null || this.hSm.bQx() == null || this.hSm.abv() == null || this.hSm.bQr() == null) {
+        if (this.hSp == null || this.hSp.bQA() == null || this.hSp.abv() == null || this.hSp.bQu() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
         writeData.sourceFrom = String.valueOf(this.pageFromType);
-        writeData.setForumName(this.hSm.bQx().getName());
-        writeData.setForumId(this.hSm.bQx().getId());
-        writeData.setFromForumId(this.hUS);
-        writeData.setFloor(this.hSm.bQr().getId());
+        writeData.setForumName(this.hSp.bQA().getName());
+        writeData.setForumId(this.hSp.bQA().getId());
+        writeData.setFromForumId(this.hUV);
+        writeData.setFloor(this.hSp.bQu().getId());
         writeData.setType(2);
-        writeData.setThreadId(this.hSm.abv().getId());
+        writeData.setThreadId(this.hSp.abv().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean arn() {
-        bWx();
+        bWA();
         return true;
     }
 
-    public boolean bWD() {
-        return this.hVg;
+    public boolean bWG() {
+        return this.hVj;
     }
 
     public void pd(boolean z) {
-        this.hVg = z;
+        this.hVj = z;
     }
 
     public void b(PbFakeFloorModel.a aVar) {
-        this.hSp = aVar;
+        this.hSs = aVar;
     }
 
-    public SmallTailInfo bWE() {
-        return this.hVb;
-    }
-
-    public boolean bWF() {
-        return this.hUZ;
-    }
-
-    public ConcurrentHashMap<String, ImageUrlData> bWG() {
+    public SmallTailInfo bWH() {
         return this.hVe;
     }
 
-    public ArrayList<String> bWH() {
-        return this.hVd;
+    public boolean bWI() {
+        return this.hVc;
     }
 
-    public boolean bWI() {
-        return this.hVf;
+    public ConcurrentHashMap<String, ImageUrlData> bWJ() {
+        return this.hVh;
+    }
+
+    public ArrayList<String> bWK() {
+        return this.hVg;
+    }
+
+    public boolean bWL() {
+        return this.hVi;
     }
 
     public int getOffset() {
@@ -658,24 +658,24 @@ public class SubPbModel extends DataModel {
     }
 
     public String getFromForumId() {
-        return this.hUR;
+        return this.hUU;
     }
 
-    public AttentionHostData bWJ() {
-        if (this.hUY == null) {
-            this.hUY = new AttentionHostData();
-            if (this.hSm != null && this.hSm.abv() != null && this.hSm.abv().adv() != null) {
-                this.hUY.parserWithMetaData(this.hSm.abv().adv());
+    public AttentionHostData bWM() {
+        if (this.hVb == null) {
+            this.hVb = new AttentionHostData();
+            if (this.hSp != null && this.hSp.abv() != null && this.hSp.abv().adv() != null) {
+                this.hVb.parserWithMetaData(this.hSp.abv().adv());
             }
         }
-        return this.hUY;
+        return this.hVb;
     }
 
-    public boolean bTu() {
+    public boolean bTx() {
         return this.pageFromType == 13 || this.pageFromType == 12;
     }
 
-    public String bSE() {
-        return this.hUQ;
+    public String bSH() {
+        return this.hUT;
     }
 }

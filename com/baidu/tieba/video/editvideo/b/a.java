@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a jpq;
-    private b jpr;
-    b.a jps;
+    private com.baidu.tieba.video.editvideo.data.a jpr;
+    private b jps;
+    b.a jpt;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.jpq = aVar;
+        this.jpr = aVar;
     }
 
-    public boolean cru() {
-        return (this.jpq == null || "normal".equalsIgnoreCase(this.jpq.value)) ? false : true;
+    public boolean crw() {
+        return (this.jpr == null || "normal".equalsIgnoreCase(this.jpr.value)) ? false : true;
     }
 
     public void EV(String str) {
-        if ((this.jpr == null || !this.jpr.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String crx = crx();
+        if ((this.jps == null || !this.jps.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String crz = crz();
             String str2 = "normal";
-            if (this.jpq != null) {
-                str2 = this.jpq.value;
+            if (this.jpr != null) {
+                str2 = this.jpr.value;
             }
-            this.jpr = new b(this.mContext, str, crx, str2);
-            if (this.jps != null) {
-                this.jpr.a(this.jps);
+            this.jps = new b(this.mContext, str, crz, str2);
+            if (this.jpt != null) {
+                this.jps.a(this.jpt);
             }
-            this.jpr.cry();
+            this.jps.crA();
         }
     }
 
-    public boolean crv() {
-        if (this.jpr != null) {
-            return this.jpr.isRunning();
+    public boolean crx() {
+        if (this.jps != null) {
+            return this.jps.isRunning();
         }
         return false;
     }
 
-    public void crw() {
-        if (this.jpr != null) {
-            this.jpr.crz();
+    public void cry() {
+        if (this.jps != null) {
+            this.jps.crB();
         }
     }
 
     public void a(b.a aVar) {
-        this.jps = aVar;
-        if (this.jpr != null) {
-            this.jpr.a(this.jps);
+        this.jpt = aVar;
+        if (this.jps != null) {
+            this.jps.a(this.jpt);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String crx() {
-        return com.baidu.tieba.video.c.jnn + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String crz() {
+        return com.baidu.tieba.video.c.jno + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

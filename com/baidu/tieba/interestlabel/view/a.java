@@ -12,68 +12,68 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup epW;
-    private TextView gUE;
-    private TextView gUF;
-    private ImageView gUG;
+    private ViewGroup epX;
     private TextView gUH;
-    private ImageView gUI;
-    private TextView gUJ;
-    private int gUK;
-    private int gUL;
-    private int gUM;
+    private TextView gUI;
+    private ImageView gUJ;
+    private TextView gUK;
+    private ImageView gUL;
+    private TextView gUM;
+    private int gUN;
+    private int gUO;
+    private int gUP;
 
     public a(Context context) {
-        this.epW = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.gUE = (TextView) this.epW.findViewById(R.id.choose_like_label);
-        this.gUF = (TextView) this.epW.findViewById(R.id.recommend_interest_thread);
-        this.gUG = (ImageView) this.epW.findViewById(R.id.male_icon);
-        this.gUH = (TextView) this.epW.findViewById(R.id.male_text);
-        this.gUI = (ImageView) this.epW.findViewById(R.id.female_icon);
-        this.gUJ = (TextView) this.epW.findViewById(R.id.female_text);
-        this.gUG.setOnClickListener(this);
-        this.gUI.setOnClickListener(this);
+        this.epX = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.gUH = (TextView) this.epX.findViewById(R.id.choose_like_label);
+        this.gUI = (TextView) this.epX.findViewById(R.id.recommend_interest_thread);
+        this.gUJ = (ImageView) this.epX.findViewById(R.id.male_icon);
+        this.gUK = (TextView) this.epX.findViewById(R.id.male_text);
+        this.gUL = (ImageView) this.epX.findViewById(R.id.female_icon);
+        this.gUM = (TextView) this.epX.findViewById(R.id.female_text);
+        this.gUJ.setOnClickListener(this);
+        this.gUL.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.j(this.gUE, R.color.cp_cont_b);
-        al.j(this.gUF, R.color.cp_cont_d);
-        al.c(this.gUG, (int) R.drawable.img_lable_boy_n);
-        al.j(this.gUH, R.color.cp_cont_d);
-        al.c(this.gUI, (int) R.drawable.img_lable_girl_n);
-        al.j(this.gUJ, R.color.cp_cont_d);
+        al.j(this.gUH, R.color.cp_cont_b);
+        al.j(this.gUI, R.color.cp_cont_d);
+        al.c(this.gUJ, (int) R.drawable.img_lable_boy_n);
+        al.j(this.gUK, R.color.cp_cont_d);
+        al.c(this.gUL, (int) R.drawable.img_lable_girl_n);
+        al.j(this.gUM, R.color.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.Z(list) == 2) {
-            this.gUK = list.get(0).labelId;
-            this.gUL = list.get(1).labelId;
+            this.gUN = list.get(0).labelId;
+            this.gUO = list.get(1).labelId;
         }
     }
 
-    public ViewGroup bGI() {
-        return this.epW;
+    public ViewGroup bGL() {
+        return this.epX;
     }
 
-    public int bGJ() {
-        return this.gUM;
+    public int bGM() {
+        return this.gUP;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         int i = R.color.cp_cont_d;
-        if (view == this.gUG) {
+        if (view == this.gUJ) {
             z = true;
         } else {
-            z = view == this.gUI ? false : false;
+            z = view == this.gUL ? false : false;
         }
-        this.gUM = z ? this.gUK : this.gUL;
-        al.c(this.gUG, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        al.j(this.gUH, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
-        al.c(this.gUI, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        TextView textView = this.gUJ;
+        this.gUP = z ? this.gUN : this.gUO;
+        al.c(this.gUJ, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        al.j(this.gUK, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
+        al.c(this.gUL, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        TextView textView = this.gUM;
         if (!z) {
             i = R.color.cp_cont_h;
         }

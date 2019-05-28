@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f ktT = new f();
-    static final b ktY = new b() { // from class: rx.c.f.1
+    private static final f ktU = new f();
+    static final b ktZ = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> ktU = new AtomicReference<>();
-    private final AtomicReference<d> ktV = new AtomicReference<>();
-    private final AtomicReference<h> ktW = new AtomicReference<>();
-    private final AtomicReference<a> ktX = new AtomicReference<>();
-    private final AtomicReference<g> kna = new AtomicReference<>();
+    private final AtomicReference<b> ktV = new AtomicReference<>();
+    private final AtomicReference<d> ktW = new AtomicReference<>();
+    private final AtomicReference<h> ktX = new AtomicReference<>();
+    private final AtomicReference<a> ktY = new AtomicReference<>();
+    private final AtomicReference<g> knb = new AtomicReference<>();
 
     @Deprecated
-    public static f cMy() {
-        return ktT;
+    public static f cMA() {
+        return ktU;
     }
 
     f() {
     }
 
-    public b cMz() {
-        if (this.ktU.get() == null) {
+    public b cMB() {
+        if (this.ktV.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.ktU.compareAndSet(null, ktY);
+                this.ktV.compareAndSet(null, ktZ);
             } else {
-                this.ktU.compareAndSet(null, (b) a);
-            }
-        }
-        return this.ktU.get();
-    }
-
-    public d cMA() {
-        if (this.ktV.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.ktV.compareAndSet(null, e.cMx());
-            } else {
-                this.ktV.compareAndSet(null, (d) a);
+                this.ktV.compareAndSet(null, (b) a);
             }
         }
         return this.ktV.get();
     }
 
-    public h cMB() {
+    public d cMC() {
         if (this.ktW.get() == null) {
-            Object a = a(h.class, System.getProperties());
+            Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.ktW.compareAndSet(null, i.cML());
+                this.ktW.compareAndSet(null, e.cMz());
             } else {
-                this.ktW.compareAndSet(null, (h) a);
+                this.ktW.compareAndSet(null, (d) a);
             }
         }
         return this.ktW.get();
     }
 
-    public a cMC() {
+    public h cMD() {
         if (this.ktX.get() == null) {
-            Object a = a(a.class, System.getProperties());
+            Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.ktX.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
+                this.ktX.compareAndSet(null, i.cMN());
             } else {
-                this.ktX.compareAndSet(null, (a) a);
+                this.ktX.compareAndSet(null, (h) a);
             }
         }
         return this.ktX.get();
+    }
+
+    public a cME() {
+        if (this.ktY.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.ktY.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.ktY.compareAndSet(null, (a) a);
+            }
+        }
+        return this.ktY.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g cMD() {
-        if (this.kna.get() == null) {
+    public g cMF() {
+        if (this.knb.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.kna.compareAndSet(null, g.cMK());
+                this.knb.compareAndSet(null, g.cMM());
             } else {
-                this.kna.compareAndSet(null, (g) a);
+                this.knb.compareAndSet(null, (g) a);
             }
         }
-        return this.kna.get();
+        return this.knb.get();
     }
 }

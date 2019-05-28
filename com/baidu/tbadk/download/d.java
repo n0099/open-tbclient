@@ -76,6 +76,7 @@ public class d {
     }
 
     public void f(DownloadData downloadData) {
+        DownloadData downloadData2;
         if (downloadData != null) {
             if (!m.gs()) {
                 downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_no_sd));
@@ -92,7 +93,11 @@ public class d {
             while (true) {
                 int i2 = i;
                 if (i2 < mTaskList.size()) {
-                    DownloadData downloadData2 = mTaskList.get(i2);
+                    try {
+                        downloadData2 = mTaskList.get(i2);
+                    } catch (Exception e) {
+                        downloadData2 = null;
+                    }
                     if (downloadData2 == null || downloadData2.getUrl() == null || downloadData.getUrl() == null || !downloadData2.getUrl().equals(downloadData.getUrl()) || downloadData2.getId() == null || downloadData.getId() == null || !downloadData2.getId().equals(downloadData.getId())) {
                         i = i2 + 1;
                     } else {
@@ -242,7 +247,7 @@ public class d {
             }
         }
 
-        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [391=5, 393=4, 394=4, 395=4] */
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [395=5, 397=4, 398=4, 399=4] */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:69:0x01b3 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:71:0x01b5 */
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:? */

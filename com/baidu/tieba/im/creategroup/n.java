@@ -17,39 +17,38 @@ import com.baidu.tieba.R;
 public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
     private TextView cAM;
     private View cAN;
-    private int gwa;
-    private GroupAddressLocateActivity gxC;
-    private View gxD;
-    private TextView gxE;
-    private ImageView gxF;
-    private TextView gxG;
-    private View gxH;
-    private TextView gxI;
-    private ImageView gxJ;
-    private BdListView gxK;
-    private AnimationDrawable gxL;
-    private SettingTextSwitchView gxM;
-    private m gxN;
-    private com.baidu.tieba.im.util.b gxa;
-    private String gxi;
+    private int gwb;
+    private a.b gxA;
+    private GroupAddressLocateActivity gxD;
+    private View gxE;
+    private TextView gxF;
+    private ImageView gxG;
+    private TextView gxH;
+    private View gxI;
+    private TextView gxJ;
+    private ImageView gxK;
+    private BdListView gxL;
+    private AnimationDrawable gxM;
+    private SettingTextSwitchView gxN;
+    private m gxO;
+    private com.baidu.tieba.im.util.b gxb;
     private String gxj;
-    private boolean gxm;
-    private String gxt;
+    private String gxk;
+    private boolean gxn;
     private String gxu;
-    private a.b gxy;
+    private String gxv;
     private a.b gxz;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public n(GroupAddressLocateActivity groupAddressLocateActivity, String str, String str2, boolean z) {
         super(groupAddressLocateActivity.getPageContext());
-        this.gwa = 3;
+        this.gwb = 3;
         this.mNavigationBar = null;
         this.mParent = null;
-        this.gxC = null;
+        this.gxD = null;
         this.cAM = null;
         this.cAN = null;
-        this.gxD = null;
         this.gxE = null;
         this.gxF = null;
         this.gxG = null;
@@ -59,88 +58,89 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         this.gxK = null;
         this.gxL = null;
         this.gxM = null;
-        this.gxt = "";
-        this.gxu = "";
-        this.gxm = false;
         this.gxN = null;
-        this.gxa = null;
-        this.gxi = "";
+        this.gxu = "";
+        this.gxv = "";
+        this.gxn = false;
+        this.gxO = null;
+        this.gxb = null;
         this.gxj = "";
+        this.gxk = "";
+        this.gxA = null;
         this.gxz = null;
-        this.gxy = null;
-        this.gxt = str;
-        this.gxu = str2;
-        this.gxm = z;
+        this.gxu = str;
+        this.gxv = str2;
+        this.gxn = z;
         b(groupAddressLocateActivity);
         c(groupAddressLocateActivity);
         initData();
     }
 
-    public void bzj() {
-        this.gxa.awN();
+    public void bzm() {
+        this.gxb.awO();
     }
 
-    public void bzk() {
-        if (this.gxa != null) {
-            this.gxa.cancelLoad();
-            this.gxa = null;
+    public void bzn() {
+        if (this.gxb != null) {
+            this.gxb.cancelLoad();
+            this.gxb = null;
         }
     }
 
+    public void bzC() {
+        this.gxG.setVisibility(8);
+    }
+
+    public void bzD() {
+        this.gxG.setVisibility(0);
+    }
+
     public void bzz() {
-        this.gxF.setVisibility(8);
-    }
-
-    public void bzA() {
-        this.gxF.setVisibility(0);
-    }
-
-    public void bzw() {
-        if (this.gxN != null) {
-            this.gxN.notifyDataSetChanged();
+        if (this.gxO != null) {
+            this.gxO.notifyDataSetChanged();
         }
     }
 
     private void b(GroupAddressLocateActivity groupAddressLocateActivity) {
-        this.gxC = groupAddressLocateActivity;
+        this.gxD = groupAddressLocateActivity;
         groupAddressLocateActivity.setContentView(R.layout.group_address_locate_activity);
         this.mParent = groupAddressLocateActivity.findViewById(R.id.parent);
         TextView textView = (TextView) groupAddressLocateActivity.findViewById(R.id.address_content_currentpos);
-        this.gxE = (TextView) groupAddressLocateActivity.findViewById(R.id.address_title_currentpos);
-        this.gxD = groupAddressLocateActivity.findViewById(R.id.address_content_container);
-        this.gxD.setOnClickListener(this.gxC);
-        this.gxF = (ImageView) groupAddressLocateActivity.findViewById(R.id.group_address_currentpos_content_arrow);
+        this.gxF = (TextView) groupAddressLocateActivity.findViewById(R.id.address_title_currentpos);
+        this.gxE = groupAddressLocateActivity.findViewById(R.id.address_content_container);
+        this.gxE.setOnClickListener(this.gxD);
+        this.gxG = (ImageView) groupAddressLocateActivity.findViewById(R.id.group_address_currentpos_content_arrow);
         StringBuffer stringBuffer = new StringBuffer();
-        if (!TextUtils.isEmpty(this.gxt)) {
-            stringBuffer.append(this.gxt);
-        }
         if (!TextUtils.isEmpty(this.gxu)) {
             stringBuffer.append(this.gxu);
         }
+        if (!TextUtils.isEmpty(this.gxv)) {
+            stringBuffer.append(this.gxv);
+        }
         String stringBuffer2 = stringBuffer.toString();
         if (stringBuffer2 != null && !stringBuffer2.equals("")) {
-            this.gxD.setVisibility(0);
             this.gxE.setVisibility(0);
+            this.gxF.setVisibility(0);
             textView.setText(stringBuffer2);
         } else {
-            this.gxD.setVisibility(8);
             this.gxE.setVisibility(8);
+            this.gxF.setVisibility(8);
         }
-        this.gxH = groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_layout);
-        this.gxH.setOnClickListener(this.gxC);
-        this.gxI = (TextView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_textview);
-        this.gxJ = (ImageView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_rightarrow);
-        this.gxJ.setVisibility(8);
-        this.gxG = (TextView) groupAddressLocateActivity.findViewById(R.id.address_title_poslist);
-        this.gxK = (BdListView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_addresslist_listview);
-        this.gxK.setOnItemClickListener(this.gxC);
-        this.gxM = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(R.id.address_showorhidden);
-        if (this.gxm) {
-            this.gxM.mV();
+        this.gxI = groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_layout);
+        this.gxI.setOnClickListener(this.gxD);
+        this.gxJ = (TextView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_textview);
+        this.gxK = (ImageView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_locatearea_rightarrow);
+        this.gxK.setVisibility(8);
+        this.gxH = (TextView) groupAddressLocateActivity.findViewById(R.id.address_title_poslist);
+        this.gxL = (BdListView) groupAddressLocateActivity.findViewById(R.id.group_address_locate_addresslist_listview);
+        this.gxL.setOnItemClickListener(this.gxD);
+        this.gxN = (SettingTextSwitchView) groupAddressLocateActivity.findViewById(R.id.address_showorhidden);
+        if (this.gxn) {
+            this.gxN.mV();
         } else {
-            this.gxM.mW();
+            this.gxN.mW();
         }
-        this.gxM.setSwitchStateChangeListener(this.gxC);
+        this.gxN.setSwitchStateChangeListener(this.gxD);
         this.mNavigationBar = (NavigationBar) groupAddressLocateActivity.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(groupAddressLocateActivity.getResources().getString(R.string.group_address_edit));
         this.mNavigationBar.setSystemClickable(false);
@@ -154,76 +154,76 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
     }
 
     private void initData() {
-        this.gxa = new com.baidu.tieba.im.util.b(this.gxC);
-        this.gxa.setUniqueId(this.gxC.getUniqueId());
-        bzj();
+        this.gxb = new com.baidu.tieba.im.util.b(this.gxD);
+        this.gxb.setUniqueId(this.gxD.getUniqueId());
+        bzm();
     }
 
-    public void bzB() {
-        this.gxG.setText(R.string.address_pos_list);
-        this.gxI.setText(R.string.location_loading);
-        this.gxJ.setVisibility(8);
-        this.gwa = 3;
-        bzD();
+    public void bzE() {
+        this.gxH.setText(R.string.address_pos_list);
+        this.gxJ.setText(R.string.location_loading);
+        this.gxK.setVisibility(8);
+        this.gwb = 3;
+        bzG();
     }
 
-    public void bzC() {
-        this.gxG.setText(R.string.address_locate_noaddresslist);
-        this.gxI.setText(R.string.address_locate_failed_tryagain);
-        this.gxJ.setVisibility(0);
-        this.gwa = 2;
-        bzD();
+    public void bzF() {
+        this.gxH.setText(R.string.address_locate_noaddresslist);
+        this.gxJ.setText(R.string.address_locate_failed_tryagain);
+        this.gxK.setVisibility(0);
+        this.gwb = 2;
+        bzG();
     }
 
     public void x(String[] strArr) {
-        this.gxH.setVisibility(8);
+        this.gxI.setVisibility(8);
         if (strArr != null && strArr.length > 0) {
-            this.gxG.setText(R.string.address_pos_list);
-            this.gxN = new m(this.gxC, strArr);
-            this.gxK.setAdapter((ListAdapter) this.gxN);
-            this.gxK.setVisibility(0);
+            this.gxH.setText(R.string.address_pos_list);
+            this.gxO = new m(this.gxD, strArr);
+            this.gxL.setAdapter((ListAdapter) this.gxO);
+            this.gxL.setVisibility(0);
         } else {
-            this.gxG.setText(R.string.address_locate_noaddresslist);
+            this.gxH.setText(R.string.address_locate_noaddresslist);
         }
-        bzD();
+        bzG();
     }
 
-    public void byu() {
-        this.gxG.setText(R.string.address_pos_list);
-        this.gxI.setText(R.string.address_locate_failed_opengps);
-        this.gxJ.setVisibility(0);
-        this.gwa = 1;
-        bzD();
+    public void byx() {
+        this.gxH.setText(R.string.address_pos_list);
+        this.gxJ.setText(R.string.address_locate_failed_opengps);
+        this.gxK.setVisibility(0);
+        this.gwb = 1;
+        bzG();
     }
 
     public void onResume() {
-        Drawable[] compoundDrawables = this.gxI.getCompoundDrawables();
+        Drawable[] compoundDrawables = this.gxJ.getCompoundDrawables();
         if (compoundDrawables != null && compoundDrawables.length > 0 && (compoundDrawables[0] instanceof AnimationDrawable)) {
-            this.gxL = (AnimationDrawable) compoundDrawables[0];
-            bzD();
+            this.gxM = (AnimationDrawable) compoundDrawables[0];
+            bzG();
         }
     }
 
-    private void bzD() {
-        if (this.gxL != null) {
-            if (this.gwa == 3) {
-                this.gxL.start();
+    private void bzG() {
+        if (this.gxM != null) {
+            if (this.gwb == 3) {
+                this.gxM.start();
                 return;
             }
-            this.gxL.stop();
-            this.gxL.selectDrawable(0);
+            this.gxM.stop();
+            this.gxM.selectDrawable(0);
         }
     }
 
     public void xP(String str) {
-        this.gxi = str;
-    }
-
-    public void xQ(String str) {
         this.gxj = str;
     }
 
-    public View bzv() {
+    public void xQ(String str) {
+        this.gxk = str;
+    }
+
+    public View bzy() {
         return this.cAM;
     }
 
@@ -231,31 +231,39 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
         return this.cAN;
     }
 
-    public View bzE() {
-        return this.gxD;
+    public View bzH() {
+        return this.gxE;
     }
 
-    public View bzF() {
-        return this.gxH;
+    public View bzI() {
+        return this.gxI;
     }
 
-    public int bys() {
-        return this.gwa;
+    public int byv() {
+        return this.gwb;
     }
 
     public void b(a.b bVar) {
-        this.gxz = bVar;
+        this.gxA = bVar;
     }
 
     public void c(a.b bVar) {
-        this.gxy = bVar;
+        this.gxz = bVar;
     }
 
     public void showDialog() {
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gxC.getPageContext().getPageActivity());
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.gxD.getPageContext().getPageActivity());
         aVar.dM(false);
         aVar.ho(R.string.group_update_alert_save);
         aVar.a(R.string.group_update_canel, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.1
+            @Override // com.baidu.tbadk.core.dialog.a.b
+            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
+                if (n.this.gxA != null) {
+                    n.this.gxA.onClick(aVar2);
+                }
+            }
+        });
+        aVar.b(R.string.group_update_done, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (n.this.gxz != null) {
@@ -263,21 +271,13 @@ public class n extends com.baidu.adp.base.c<GroupAddressLocateActivity> {
                 }
             }
         });
-        aVar.b(R.string.group_update_done, new a.b() { // from class: com.baidu.tieba.im.creategroup.n.2
-            @Override // com.baidu.tbadk.core.dialog.a.b
-            public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                if (n.this.gxy != null) {
-                    n.this.gxy.onClick(aVar2);
-                }
-            }
-        });
-        aVar.b(this.gxC.getPageContext());
+        aVar.b(this.gxD.getPageContext());
         aVar.afG();
     }
 
     public void onChangeSkinType(int i) {
-        this.gxC.getLayoutMode().setNightMode(i == 1);
-        this.gxC.getLayoutMode().onModeChanged(this.mParent);
+        this.gxD.getLayoutMode().setNightMode(i == 1);
+        this.gxD.getLayoutMode().onModeChanged(this.mParent);
         al.h(this.mParent, i);
         this.mNavigationBar.onChangeSkinType(this.mContext, i);
         al.l(this.mParent, R.color.common_color_10041);

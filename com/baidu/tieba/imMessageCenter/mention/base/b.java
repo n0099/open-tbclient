@@ -37,10 +37,10 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, a aVar, com.baidu.tieba.card.a.a<c> aVar2) {
-        if (aVar == null || aVar2 == null || aVar2.aYp() == null) {
+        if (aVar == null || aVar2 == null || aVar2.aYs() == null) {
             return null;
         }
-        aVar2.aYp().a(aVar);
+        aVar2.aYs().a(aVar);
         return aVar2.getView();
     }
 

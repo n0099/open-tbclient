@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> implements View.OnClickListener {
-    private View dju;
-    private com.baidu.tieba.personPolymeric.b.b iiv;
-    private TextView ilL;
-    private ImageView ilM;
+    private View djv;
+    private com.baidu.tieba.personPolymeric.b.b iiy;
+    private TextView ilO;
+    private ImageView ilP;
     private TextView mHint;
     private View mRootView;
 
@@ -22,21 +22,21 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_privacy_setting_rootview);
-        this.dju = view.findViewById(R.id.top_divider_line);
-        this.ilM = (ImageView) view.findViewById(R.id.lock_img);
-        this.ilL = (TextView) view.findViewById(R.id.one_public_tv);
+        this.djv = view.findViewById(R.id.top_divider_line);
+        this.ilP = (ImageView) view.findViewById(R.id.lock_img);
+        this.ilO = (TextView) view.findViewById(R.id.one_public_tv);
         this.mHint = (TextView) view.findViewById(R.id.card_hint_txt);
-        this.ilL.setOnClickListener(this);
+        this.ilO.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.k(this.mRootView, R.color.cp_bg_line_d);
-            al.k(this.dju, R.color.cp_bg_line_e);
+            al.k(this.djv, R.color.cp_bg_line_e);
             al.f(this.mHint, R.color.cp_cont_d, 1);
-            al.c(this.ilM, (int) R.drawable.pic_pop_key);
-            al.f(this.ilL, R.color.cp_link_tip_c, 1);
+            al.c(this.ilP, (int) R.drawable.pic_pop_key);
+            al.f(this.ilO, R.color.cp_link_tip_c, 1);
         }
         this.mSkinType = i;
     }
@@ -56,23 +56,23 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (this.dju != null) {
-            if (jVar.eBN) {
-                this.dju.setVisibility(8);
+        if (this.djv != null) {
+            if (jVar.eBO) {
+                this.djv.setVisibility(8);
             } else {
-                this.dju.setVisibility(0);
+                this.djv.setVisibility(0);
             }
         }
     }
 
     public void b(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.iiv = bVar;
+        this.iiy = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.iiv != null && view == this.ilL) {
-            this.iiv.bZD();
+        if (view != null && this.iiy != null && view == this.ilO) {
+            this.iiy.bZG();
         }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.tieba.c;
 public class CommonTagView extends TextView {
     private boolean GL;
     private int LZ;
-    private boolean dbV;
+    private boolean dbW;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.GL = true;
-        this.dbV = true;
+        this.dbW = true;
         b(context, attributeSet, i);
     }
 
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.dbV && this.mBorderColor != getCurrentTextColor()) {
+            if (this.dbW && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);

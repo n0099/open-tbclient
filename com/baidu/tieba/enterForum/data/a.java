@@ -5,16 +5,16 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     public String bCP;
-    public int eQS;
     public int eQT;
+    public int eQU;
     public String picUrl;
 
     public void bq(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.picUrl = jSONObject.optString("pic");
             this.bCP = jSONObject.optString("url");
-            this.eQS = jSONObject.optInt("server_time");
-            this.eQT = jSONObject.optInt("adid");
+            this.eQT = jSONObject.optInt("server_time");
+            this.eQU = jSONObject.optInt("adid");
         }
     }
 

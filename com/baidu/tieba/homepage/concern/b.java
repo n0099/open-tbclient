@@ -19,12 +19,12 @@ public class b {
             if (cVar instanceof l) {
                 amVar.P("obj_type", 2);
             } else {
-                amVar.bT("obj_type", cVar.aXY());
+                amVar.bT("obj_type", cVar.aYb());
             }
             amVar.bT("tid", cVar.threadData.getTid());
             amVar.l("fid", cVar.threadData.getFid());
             amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-            amVar.P("obj_param1", cVar.aYb() ? 2 : 1);
+            amVar.P("obj_param1", cVar.aYe() ? 2 : 1);
             TiebaStatic.log(amVar);
         }
     }

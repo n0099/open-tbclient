@@ -153,7 +153,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
         if (context == null || TextUtils.isEmpty(str)) {
             interfaceC0224a.k(null);
         } else if (com.baidu.swan.apps.storage.b.hA(str) == PathType.NETWORK) {
-            c.cCu().e(ImageRequestBuilder.U(ac.iq(str)).cIx(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
+            c.cCw().e(ImageRequestBuilder.U(ac.iq(str)).cIz(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
                 @Override // com.facebook.imagepipeline.e.b
                 protected void f(@Nullable Bitmap bitmap) {
                     if (a.DEBUG) {
@@ -169,7 +169,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
                     }
                     interfaceC0224a.k(null);
                 }
-            }, f.cBz());
+            }, f.cBB());
         } else {
             File file = new File(str);
             if (file.exists()) {

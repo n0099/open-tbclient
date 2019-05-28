@@ -17,41 +17,41 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class q {
-    private com.baidu.tbadk.core.dialog.i eyo;
-    private com.baidu.tbadk.core.dialog.k eyp;
-    private com.baidu.tbadk.core.dialog.a eyq;
-    private a eyr;
-    private CardPersonDynamicThreadData eys;
-    private List<com.baidu.tbadk.core.dialog.g> eyt;
-    private com.baidu.tbadk.core.dialog.g eyu;
+    private com.baidu.tbadk.core.dialog.i eyp;
+    private com.baidu.tbadk.core.dialog.k eyq;
+    private com.baidu.tbadk.core.dialog.a eyr;
+    private a eys;
+    private CardPersonDynamicThreadData eyt;
+    private List<com.baidu.tbadk.core.dialog.g> eyu;
     private com.baidu.tbadk.core.dialog.g eyv;
-    private SetPrivacyModel eyw;
-    private ForumManageModel eyx;
+    private com.baidu.tbadk.core.dialog.g eyw;
+    private SetPrivacyModel eyx;
+    private ForumManageModel eyy;
     private Context mContext;
     private TbPageContext mPageContext;
-    private SetPrivacyModel.a eyy = new SetPrivacyModel.a() { // from class: com.baidu.tieba.card.q.4
+    private SetPrivacyModel.a eyz = new SetPrivacyModel.a() { // from class: com.baidu.tieba.card.q.4
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
         public void onSuccess() {
-            if (q.this.eys.isPrivacy) {
-                q.this.eys.isPrivacy = false;
+            if (q.this.eyt.isPrivacy) {
+                q.this.eyt.isPrivacy = false;
                 com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.thread_has_open);
-                if (q.this.eyu != null) {
-                    q.this.eyu.setText(q.this.mContext.getString(R.string.set_thread_privacy));
+                if (q.this.eyv != null) {
+                    q.this.eyv.setText(q.this.mContext.getString(R.string.set_thread_privacy));
                 }
-                if (q.this.eyr != null) {
-                    q.this.eyr.setPrivacy(false);
+                if (q.this.eys != null) {
+                    q.this.eys.setPrivacy(false);
                     return;
                 }
                 return;
             }
-            q.this.eys.isPrivacy = true;
-            if (q.this.eyu != null) {
-                q.this.eyu.setText(q.this.mContext.getString(R.string.set_thread_public_open));
+            q.this.eyt.isPrivacy = true;
+            if (q.this.eyv != null) {
+                q.this.eyv.setText(q.this.mContext.getString(R.string.set_thread_public_open));
             }
-            if (q.this.eyr != null) {
-                q.this.eyr.setPrivacy(true);
+            if (q.this.eys != null) {
+                q.this.eys.setPrivacy(true);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, q.this.eys.threadId));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016558, q.this.eyt.threadId));
         }
 
         @Override // com.baidu.tieba.model.SetPrivacyModel.a
@@ -59,60 +59,60 @@ public class q {
             com.baidu.adp.lib.util.l.showToast(q.this.mContext, str);
         }
     };
-    private k.b eyz = new k.b() { // from class: com.baidu.tieba.card.q.5
+    private k.b eyA = new k.b() { // from class: com.baidu.tieba.card.q.5
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.jG()) {
                 com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                 return;
             }
-            if (q.this.eys.isPrivacy) {
-                if (q.this.eys.from == 1) {
+            if (q.this.eyt.isPrivacy) {
+                if (q.this.eyt.from == 1) {
                     TiebaStatic.log(new am("c12599").P("obj_type", 2));
                 }
-            } else if (q.this.eys.from != 1) {
-                if (q.this.eys.from == 3) {
+            } else if (q.this.eyt.from != 1) {
+                if (q.this.eyt.from == 3) {
                     TiebaStatic.log(new am("c12600").P("obj_type", 2));
                 }
             } else {
                 TiebaStatic.log(new am("c12599").P("obj_type", 1));
             }
-            if (q.this.eyw == null) {
-                q.this.eyw = new SetPrivacyModel(q.this.mPageContext, q.this.eys);
+            if (q.this.eyx == null) {
+                q.this.eyx = new SetPrivacyModel(q.this.mPageContext, q.this.eyt);
             }
-            if (!q.this.eyw.isRunning()) {
-                q.this.eyw.a(q.this.eyy);
-                q.this.eyw.LoadData();
+            if (!q.this.eyx.isRunning()) {
+                q.this.eyx.a(q.this.eyz);
+                q.this.eyx.LoadData();
             }
-            q.this.aXH();
+            q.this.aXK();
         }
     };
-    private k.b eyA = new k.b() { // from class: com.baidu.tieba.card.q.6
+    private k.b eyB = new k.b() { // from class: com.baidu.tieba.card.q.6
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             if (!com.baidu.adp.lib.util.j.jG()) {
                 com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                 return;
             }
-            if (q.this.eys != null && q.this.eyx != null) {
-                q.this.aXI();
-                q.this.eyq.afG();
+            if (q.this.eyt != null && q.this.eyy != null) {
+                q.this.aXL();
+                q.this.eyr.afG();
             }
-            q.this.aXH();
+            q.this.aXK();
         }
     };
-    private com.baidu.adp.base.d eyB = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.q.7
+    private com.baidu.adp.base.d eyC = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.card.q.7
         @Override // com.baidu.adp.base.d
         public void m(Object obj) {
             if (obj instanceof ForumManageModel.b) {
                 ForumManageModel.b bVar = (ForumManageModel.b) obj;
                 if (bVar.mErrCode == 0) {
                     com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.delete_success);
-                    if (q.this.eys != null && !ap.isEmpty(q.this.eys.threadId)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, q.this.eys.threadId));
+                    if (q.this.eyt != null && !ap.isEmpty(q.this.eyt.threadId)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, q.this.eyt.threadId));
                     }
-                } else if (!ap.isEmpty(bVar.jbh)) {
-                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, bVar.jbh);
+                } else if (!ap.isEmpty(bVar.jbj)) {
+                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, bVar.jbj);
                 } else {
                     com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.delete_fail);
                 }
@@ -129,99 +129,99 @@ public class q {
         if (tbPageContext != null) {
             this.mPageContext = tbPageContext;
             this.mContext = this.mPageContext.getPageActivity();
-            this.eyt = new ArrayList();
-            this.eyp = new com.baidu.tbadk.core.dialog.k(this.mContext);
-            this.eyx = new ForumManageModel(this.mPageContext);
-            this.eyx.setLoadDataCallBack(this.eyB);
+            this.eyu = new ArrayList();
+            this.eyq = new com.baidu.tbadk.core.dialog.k(this.mContext);
+            this.eyy = new ForumManageModel(this.mPageContext);
+            this.eyy.setLoadDataCallBack(this.eyC);
         }
     }
 
     public void onChangeSkinType() {
-        if (this.eyp != null) {
-            this.eyp.onChangeSkinType();
-        }
         if (this.eyq != null) {
-            com.baidu.tbadk.s.a.a(this.mPageContext, this.eyq.afH());
+            this.eyq.onChangeSkinType();
+        }
+        if (this.eyr != null) {
+            com.baidu.tbadk.s.a.a(this.mPageContext, this.eyr.afH());
         }
     }
 
     public void create() {
-        if (this.eyo == null) {
-            this.eyu = new com.baidu.tbadk.core.dialog.g(this.eyp);
-            this.eyu.a(this.eyz);
-            this.eyt.add(this.eyu);
-            this.eyv = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.eyp);
+        if (this.eyp == null) {
+            this.eyv = new com.baidu.tbadk.core.dialog.g(this.eyq);
             this.eyv.a(this.eyA);
-            this.eyt.add(this.eyv);
-            this.eyp.a(new k.a() { // from class: com.baidu.tieba.card.q.1
+            this.eyu.add(this.eyv);
+            this.eyw = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.eyq);
+            this.eyw.a(this.eyB);
+            this.eyu.add(this.eyw);
+            this.eyq.a(new k.a() { // from class: com.baidu.tieba.card.q.1
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    q.this.aXH();
+                    q.this.aXK();
                 }
             });
-            this.eyp.W(this.eyt);
-            this.eyo = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.eyp.afZ());
+            this.eyq.W(this.eyu);
+            this.eyp = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.eyq.afZ());
         }
     }
 
     public void a(a aVar) {
-        this.eyr = aVar;
+        this.eys = aVar;
     }
 
     public void a(CardPersonDynamicThreadData cardPersonDynamicThreadData) {
-        this.eys = cardPersonDynamicThreadData;
-        if (this.eys != null && this.eyu != null) {
-            if (this.eys.isPrivacy) {
-                this.eyu.setText(this.mContext.getString(R.string.set_thread_public_open));
+        this.eyt = cardPersonDynamicThreadData;
+        if (this.eyt != null && this.eyv != null) {
+            if (this.eyt.isPrivacy) {
+                this.eyv.setText(this.mContext.getString(R.string.set_thread_public_open));
             } else {
-                this.eyu.setText(this.mContext.getString(R.string.set_thread_privacy));
+                this.eyv.setText(this.mContext.getString(R.string.set_thread_privacy));
             }
         }
     }
 
     public void show() {
-        if (this.eyo != null) {
-            this.eyo.showDialog();
+        if (this.eyp != null) {
+            this.eyp.showDialog();
         }
     }
 
-    public void aXH() {
-        if (this.eyo != null && this.eyo.isShowing()) {
-            this.eyo.dismiss();
+    public void aXK() {
+        if (this.eyp != null && this.eyp.isShowing()) {
+            this.eyp.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXI() {
-        if (this.eyq == null) {
-            this.eyq = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-            this.eyq.ho(R.string.del_thread_confirm);
-            this.eyq.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.q.2
+    public void aXL() {
+        if (this.eyr == null) {
+            this.eyr = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
+            this.eyr.ho(R.string.del_thread_confirm);
+            this.eyr.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.card.q.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     if (!com.baidu.adp.lib.util.j.jG()) {
                         com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.neterror);
                         return;
                     }
-                    if (q.this.eys.from != 1) {
-                        if (q.this.eys.from == 3) {
+                    if (q.this.eyt.from != 1) {
+                        if (q.this.eyt.from == 3) {
                             TiebaStatic.log(new am("c12600").P("obj_type", 1));
                         }
                     } else {
                         TiebaStatic.log(new am("c12599").P("obj_type", 3));
                     }
-                    q.this.eyx.a(q.this.eys.forumId, q.this.eys.forumName, q.this.eys.threadId, q.this.eys.postId, 0, 0, true);
+                    q.this.eyy.a(q.this.eyt.forumId, q.this.eyt.forumName, q.this.eyt.threadId, q.this.eyt.postId, 0, 0, true);
                     aVar.dismiss();
                 }
             });
-            this.eyq.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.q.3
+            this.eyr.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.card.q.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
             });
-            this.eyq.dM(true);
-            this.eyq.b(this.mPageContext);
+            this.eyr.dM(true);
+            this.eyr.b(this.mPageContext);
         }
     }
 }

@@ -28,14 +28,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements e<T> {
-    protected int gXI;
-    protected View gYB;
-    protected View gYC;
-    protected View gYD;
+    protected int gXL;
     protected View gYE;
-    protected ImageView gYF;
-    protected a gYG;
-    protected c gYH;
+    protected View gYF;
+    protected View gYG;
+    protected View gYH;
+    protected ImageView gYI;
+    protected a gYJ;
+    protected c gYK;
     private boolean isInit;
     protected TbPageContext mContext;
     public String mFrom;
@@ -45,7 +45,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     protected abstract void a(T t, int i);
 
-    protected abstract View bHK();
+    protected abstract View bHN();
 
     public abstract void e(T t);
 
@@ -58,7 +58,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     private void init() {
-        bHM();
+        bHP();
         yl();
         this.isInit = false;
     }
@@ -67,64 +67,64 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         return (S) view.findViewById(i);
     }
 
-    protected final ViewGroup.LayoutParams bHL() {
+    protected final ViewGroup.LayoutParams bHO() {
         return new ViewGroup.LayoutParams(-1, -2);
     }
 
-    public final void bHM() {
+    public final void bHP() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.gYB = bHK();
-        frameLayout.addView(this.gYB, bHL());
-        this.gYC = new View(getContext());
-        al.l(this.gYC, R.color.common_color_10205);
-        frameLayout.addView(this.gYC, new ViewGroup.LayoutParams(-1, -1));
-        this.gYF = new ImageView(getContext());
+        this.gYE = bHN();
+        frameLayout.addView(this.gYE, bHO());
+        this.gYF = new View(getContext());
+        al.l(this.gYF, R.color.common_color_10205);
+        frameLayout.addView(this.gYF, new ViewGroup.LayoutParams(-1, -1));
+        this.gYI = new ImageView(getContext());
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds1));
-        al.l(this.gYF, R.color.cp_bg_line_d);
-        al.c(this.gYF, (int) R.color.cp_bg_line_b);
-        this.gYD = new View(getContext());
-        this.gYE = new View(getContext());
+        al.l(this.gYI, R.color.cp_bg_line_d);
+        al.c(this.gYI, (int) R.color.cp_bg_line_b);
+        this.gYG = new View(getContext());
+        this.gYH = new View(getContext());
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds16));
-        switch (this.gXI) {
+        switch (this.gXL) {
             case 1:
             case 4:
-                this.gYD.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.gYD, layoutParams3);
+                this.gYG.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.gYG, layoutParams3);
                 layoutParams2.bottomMargin = 0;
-                addView(this.gYF, layoutParams2);
+                addView(this.gYI, layoutParams2);
                 addView(frameLayout, layoutParams);
-                this.gYE.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.gYE, layoutParams3);
+                this.gYH.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.gYH, layoutParams3);
                 return;
             case 2:
-                al.l(this.gYD, R.color.cp_bg_line_c);
-                addView(this.gYD, layoutParams3);
-                addView(this.gYF, layoutParams2);
+                al.l(this.gYG, R.color.cp_bg_line_c);
+                addView(this.gYG, layoutParams3);
+                addView(this.gYI, layoutParams2);
                 addView(frameLayout, layoutParams);
-                al.l(this.gYE, R.color.cp_bg_line_c);
-                addView(this.gYE, layoutParams3);
+                al.l(this.gYH, R.color.cp_bg_line_c);
+                addView(this.gYH, layoutParams3);
                 return;
             case 3:
-                al.l(this.gYD, R.color.cp_bg_line_c);
-                addView(this.gYD, layoutParams3);
+                al.l(this.gYG, R.color.cp_bg_line_c);
+                addView(this.gYG, layoutParams3);
                 addView(frameLayout, layoutParams);
                 layoutParams2.bottomMargin = getResources().getDimensionPixelSize(R.dimen.ds1);
-                addView(this.gYF, layoutParams2);
-                al.l(this.gYE, R.color.cp_bg_line_c);
-                addView(this.gYE, layoutParams3);
+                addView(this.gYI, layoutParams2);
+                al.l(this.gYH, R.color.cp_bg_line_c);
+                addView(this.gYH, layoutParams3);
                 return;
             case 5:
                 addView(frameLayout, layoutParams);
                 return;
             default:
-                this.gYD.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.gYD, layoutParams3);
+                this.gYG.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.gYG, layoutParams3);
                 layoutParams2.bottomMargin = 0;
                 addView(frameLayout, layoutParams);
-                addView(this.gYF, layoutParams2);
-                this.gYE.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.gYE, layoutParams3);
+                addView(this.gYI, layoutParams2);
+                this.gYH.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.gYH, layoutParams3);
                 return;
         }
     }
@@ -136,58 +136,58 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         switch (i) {
             case -1:
             case 0:
-                this.gYF.setVisibility(8);
+                this.gYI.setVisibility(8);
                 return;
             case 1:
-                this.gYF.setPadding(0, 0, 0, 0);
-                this.gYF.setVisibility(0);
+                this.gYI.setPadding(0, 0, 0, 0);
+                this.gYI.setVisibility(0);
                 return;
             case 2:
-                this.gYF.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, 0, 0);
-                this.gYF.setVisibility(0);
+                this.gYI.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, 0, 0);
+                this.gYI.setVisibility(0);
                 return;
             case 3:
-                this.gYF.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, getResources().getDimensionPixelSize(R.dimen.ds24), 0);
-                this.gYF.setVisibility(0);
+                this.gYI.setPadding(getResources().getDimensionPixelSize(R.dimen.ds24), 0, getResources().getDimensionPixelSize(R.dimen.ds24), 0);
+                this.gYI.setVisibility(0);
                 return;
             default:
-                this.gYF.setVisibility(8);
+                this.gYI.setVisibility(8);
                 return;
         }
     }
 
     protected final void c(T t) {
-        this.gYC.setVisibility(t.isShowCover() ? 0 : 8);
+        this.gYF.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
         vU(showSpace != 0 ? -1 : t.getShowLine());
         switch (showSpace) {
             case 0:
-                this.gYD.setVisibility(8);
-                this.gYE.setVisibility(8);
+                this.gYG.setVisibility(8);
+                this.gYH.setVisibility(8);
                 return;
             case 1:
-                this.gYD.setVisibility(8);
-                this.gYE.setVisibility(0);
+                this.gYG.setVisibility(8);
+                this.gYH.setVisibility(0);
                 return;
             case 2:
-                this.gYD.setVisibility(0);
-                this.gYE.setVisibility(8);
+                this.gYG.setVisibility(0);
+                this.gYH.setVisibility(8);
                 return;
             case 3:
-                this.gYD.setVisibility(0);
-                this.gYE.setVisibility(0);
+                this.gYG.setVisibility(0);
+                this.gYH.setVisibility(0);
                 return;
             default:
                 return;
         }
     }
 
-    public final void bHN() {
-        this.gYB.setVisibility(0);
+    public final void bHQ() {
+        this.gYE.setVisibility(0);
     }
 
     public final void d(T t) {
-        t.aXM().gM(true);
+        t.aXP().gM(true);
         f(t);
     }
 
@@ -204,10 +204,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
             }
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                bHO();
+                bHR();
                 a((BaseLegoCardInfo) updateCard, this.mSkinType);
             }
-            bHN();
+            bHQ();
             e((BaseLegoCardInfo) updateCard);
             c((BaseLegoCardInfo) updateCard);
         }
@@ -215,8 +215,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     public void f(T t) {
         int e = q.e(this.mContext, t.getScheme());
-        if (this.gYG != null) {
-            this.gYG.b(e, null);
+        if (this.gYJ != null) {
+            this.gYJ.b(e, null);
         }
     }
 
@@ -239,11 +239,11 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public final void setBusinessType(int i) {
-        this.gXI = i;
+        this.gXL = i;
     }
 
     public final int getBusinessType() {
-        return this.gXI;
+        return this.gXL;
     }
 
     public final boolean isNightMode() {
@@ -307,22 +307,22 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         view.setBackgroundColor(i2);
     }
 
-    private void bHO() {
-        al.l(this.gYF, R.color.cp_bg_line_d);
-        al.c(this.gYF, (int) R.color.cp_bg_line_b);
-        switch (this.gXI) {
+    private void bHR() {
+        al.l(this.gYI, R.color.cp_bg_line_d);
+        al.c(this.gYI, (int) R.color.cp_bg_line_b);
+        switch (this.gXL) {
             case 1:
-                this.gYD.setBackgroundColor(getResources().getColor(17170445));
-                this.gYE.setBackgroundColor(getResources().getColor(17170445));
+                this.gYG.setBackgroundColor(getResources().getColor(17170445));
+                this.gYH.setBackgroundColor(getResources().getColor(17170445));
                 return;
             case 2:
             case 3:
-                al.l(this.gYD, R.color.cp_bg_line_c);
-                al.l(this.gYE, R.color.cp_bg_line_c);
+                al.l(this.gYG, R.color.cp_bg_line_c);
+                al.l(this.gYH, R.color.cp_bg_line_c);
                 return;
             default:
-                this.gYD.setBackgroundColor(getResources().getColor(17170445));
-                this.gYE.setBackgroundColor(getResources().getColor(17170445));
+                this.gYG.setBackgroundColor(getResources().getColor(17170445));
+                this.gYH.setBackgroundColor(getResources().getColor(17170445));
                 return;
         }
     }
@@ -355,13 +355,13 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
                 }
             }
             amVar.P("obj_locate", getStatPosition());
-            amVar.bT("obj_param3", n.aXE());
-            t.aXM().b(amVar);
+            amVar.bT("obj_param3", n.aXH());
+            t.aXP().b(amVar);
         }
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void bHP() {
+    public void bHS() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -369,7 +369,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void bHQ() {
+    public void bHT() {
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -378,7 +378,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public final void setAfterClickSchemeListener(a aVar) {
-        this.gYG = aVar;
+        this.gYJ = aVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -388,10 +388,10 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
-        this.gYH = cVar;
+        this.gYK = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
-    public void bHR() {
+    public void bHU() {
     }
 }

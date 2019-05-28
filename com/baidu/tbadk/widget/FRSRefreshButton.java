@@ -57,7 +57,7 @@ public class FRSRefreshButton extends ImageView {
     }
 
     private void init() {
-        avY();
+        avZ();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -70,7 +70,7 @@ public class FRSRefreshButton extends ImageView {
         setLayerType(1, null);
     }
 
-    private void avY() {
+    private void avZ() {
     }
 
     @Override // android.view.View
@@ -232,7 +232,7 @@ public class FRSRefreshButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            avY();
+            avZ();
             this.color = al.getColor(this.mSkinType, R.color.cp_bg_line_d);
             this.mPaint.setColor(al.getColor(R.color.cp_bg_line_d));
             this.cDi = true;

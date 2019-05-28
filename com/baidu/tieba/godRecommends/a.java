@@ -67,12 +67,12 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.god_recommend_list_item, (ViewGroup) null);
             C0319a c0319a2 = new C0319a();
-            c0319a2.efd = (ClickableHeaderImageView) view.findViewById(R.id.photo);
-            c0319a2.epd = (TextView) view.findViewById(R.id.user_name);
-            c0319a2.fUF = (TextView) view.findViewById(R.id.god_info);
-            c0319a2.fUG = (TextView) view.findViewById(R.id.fans_and_thread_count);
-            c0319a2.fjO = (TextView) view.findViewById(R.id.attention_btn);
-            c0319a2.edD = view.findViewById(R.id.bottom_line);
+            c0319a2.efe = (ClickableHeaderImageView) view.findViewById(R.id.photo);
+            c0319a2.epe = (TextView) view.findViewById(R.id.user_name);
+            c0319a2.fUG = (TextView) view.findViewById(R.id.god_info);
+            c0319a2.fUH = (TextView) view.findViewById(R.id.fans_and_thread_count);
+            c0319a2.fjP = (TextView) view.findViewById(R.id.attention_btn);
+            c0319a2.edE = view.findViewById(R.id.bottom_line);
             view.setTag(c0319a2);
             c0319a = c0319a2;
         } else {
@@ -82,34 +82,34 @@ public class a extends BaseAdapter {
         MetaData item = getItem(i);
         if (item != null) {
             String portrait = item.getPortrait();
-            d(c0319a.fjO, item.getGodUserData().getIsLike());
-            c0319a.efd.setGodIconMargin(0);
-            c0319a.efd.setClickable(false);
-            c0319a.efd.startLoad(portrait, 28, false);
-            c0319a.efd.setIsBigV(true);
-            c0319a.efd.setShowV(true);
-            c0319a.epd.setText(item.getName_show());
+            d(c0319a.fjP, item.getGodUserData().getIsLike());
+            c0319a.efe.setGodIconMargin(0);
+            c0319a.efe.setClickable(false);
+            c0319a.efe.startLoad(portrait, 28, false);
+            c0319a.efe.setIsBigV(true);
+            c0319a.efe.setShowV(true);
+            c0319a.epe.setText(item.getName_show());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0319a.fUF.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0319a.fUG.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0319a.fUF.setText(UtilHelper.getFixedBarText(this.mContext.getString(R.string.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0319a.fUG.setText(UtilHelper.getFixedBarText(this.mContext.getString(R.string.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0319a.fUF.setVisibility(8);
+                    c0319a.fUG.setVisibility(8);
                     break;
             }
-            c0319a.fUG.setText(ap.aN(item.getFansNum()) + this.mContext.getString(R.string.fans_default_name) + " " + ap.aN(item.getLikeNum()) + this.mContext.getString(R.string.zan));
+            c0319a.fUH.setText(ap.aN(item.getFansNum()) + this.mContext.getString(R.string.fans_default_name) + " " + ap.aN(item.getLikeNum()) + this.mContext.getString(R.string.zan));
         }
         if (i == getCount() - 1) {
-            c0319a.edD.setVisibility(8);
+            c0319a.edE.setVisibility(8);
         } else {
-            c0319a.edD.setVisibility(0);
+            c0319a.edE.setVisibility(0);
         }
         if (this.mOnClickListener != null && item != null) {
-            c0319a.fjO.setTag(item);
-            c0319a.fjO.setOnClickListener(this.mOnClickListener);
+            c0319a.fjP.setTag(item);
+            c0319a.fjP.setOnClickListener(this.mOnClickListener);
         }
         return view;
     }
@@ -118,10 +118,10 @@ public class a extends BaseAdapter {
         if (c0319a != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (c0319a.mSkinType != skinType) {
-                al.j(c0319a.epd, R.color.cp_cont_h);
-                al.j(c0319a.fUF, R.color.cp_cont_d);
+                al.j(c0319a.epe, R.color.cp_cont_h);
                 al.j(c0319a.fUG, R.color.cp_cont_d);
-                al.l(c0319a.edD, R.color.cp_bg_line_b);
+                al.j(c0319a.fUH, R.color.cp_cont_d);
+                al.l(c0319a.edE, R.color.cp_bg_line_b);
             }
             c0319a.mSkinType = skinType;
         }
@@ -149,12 +149,12 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.godRecommends.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0319a {
-        public View edD;
-        public ClickableHeaderImageView efd;
-        public TextView epd;
-        public TextView fUF;
+        public View edE;
+        public ClickableHeaderImageView efe;
+        public TextView epe;
         public TextView fUG;
-        public TextView fjO;
+        public TextView fUH;
+        public TextView fjP;
         public int mSkinType;
 
         private C0319a() {

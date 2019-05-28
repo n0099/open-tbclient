@@ -12,16 +12,16 @@ import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class l extends Drawable implements j {
     private final float[] bbo = new float[8];
-    final float[] jVy = new float[8];
+    final float[] jVz = new float[8];
     final Paint mPaint = new Paint(1);
-    private boolean jVv = false;
+    private boolean jVw = false;
     private float mBorderWidth = 0.0f;
-    private float jVJ = 0.0f;
+    private float jVK = 0.0f;
     private int mBorderColor = 0;
     final Path mPath = new Path();
-    final Path ddj = new Path();
+    final Path ddk = new Path();
     private int mColor = 0;
-    private final RectF jVN = new RectF();
+    private final RectF jVO = new RectF();
     private int mAlpha = 255;
 
     public l(int i) {
@@ -35,7 +35,7 @@ public class l extends Drawable implements j {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cDq();
+        cDs();
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -47,14 +47,14 @@ public class l extends Drawable implements j {
             this.mPaint.setColor(e.cH(this.mBorderColor, this.mAlpha));
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            canvas.drawPath(this.ddj, this.mPaint);
+            canvas.drawPath(this.ddk, this.mPaint);
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void sh(boolean z) {
-        this.jVv = z;
-        cDq();
+        this.jVw = z;
+        cDs();
         invalidateSelf();
     }
 
@@ -66,7 +66,7 @@ public class l extends Drawable implements j {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
             System.arraycopy(fArr, 0, this.bbo, 0, 8);
         }
-        cDq();
+        cDs();
         invalidateSelf();
     }
 
@@ -74,7 +74,7 @@ public class l extends Drawable implements j {
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkArgument(f >= 0.0f, "radius should be non negative");
         Arrays.fill(this.bbo, f);
-        cDq();
+        cDs();
         invalidateSelf();
     }
 
@@ -93,16 +93,16 @@ public class l extends Drawable implements j {
         }
         if (this.mBorderWidth != f) {
             this.mBorderWidth = f;
-            cDq();
+            cDs();
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void aZ(float f) {
-        if (this.jVJ != f) {
-            this.jVJ = f;
-            cDq();
+        if (this.jVK != f) {
+            this.jVK = f;
+            cDs();
             invalidateSelf();
         }
     }
@@ -129,26 +129,26 @@ public class l extends Drawable implements j {
         return e.CX(e.cH(this.mColor, this.mAlpha));
     }
 
-    private void cDq() {
+    private void cDs() {
         this.mPath.reset();
-        this.ddj.reset();
-        this.jVN.set(getBounds());
-        this.jVN.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-        if (this.jVv) {
-            this.ddj.addCircle(this.jVN.centerX(), this.jVN.centerY(), Math.min(this.jVN.width(), this.jVN.height()) / 2.0f, Path.Direction.CW);
+        this.ddk.reset();
+        this.jVO.set(getBounds());
+        this.jVO.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        if (this.jVw) {
+            this.ddk.addCircle(this.jVO.centerX(), this.jVO.centerY(), Math.min(this.jVO.width(), this.jVO.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.jVy.length; i++) {
-                this.jVy[i] = (this.bbo[i] + this.jVJ) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.jVz.length; i++) {
+                this.jVz[i] = (this.bbo[i] + this.jVK) - (this.mBorderWidth / 2.0f);
             }
-            this.ddj.addRoundRect(this.jVN, this.jVy, Path.Direction.CW);
+            this.ddk.addRoundRect(this.jVO, this.jVz, Path.Direction.CW);
         }
-        this.jVN.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
-        this.jVN.inset(this.jVJ, this.jVJ);
-        if (this.jVv) {
-            this.mPath.addCircle(this.jVN.centerX(), this.jVN.centerY(), Math.min(this.jVN.width(), this.jVN.height()) / 2.0f, Path.Direction.CW);
+        this.jVO.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        this.jVO.inset(this.jVK, this.jVK);
+        if (this.jVw) {
+            this.mPath.addCircle(this.jVO.centerX(), this.jVO.centerY(), Math.min(this.jVO.width(), this.jVO.height()) / 2.0f, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.jVN, this.bbo, Path.Direction.CW);
+            this.mPath.addRoundRect(this.jVO, this.bbo, Path.Direction.CW);
         }
-        this.jVN.inset(-this.jVJ, -this.jVJ);
+        this.jVO.inset(-this.jVK, -this.jVK);
     }
 }

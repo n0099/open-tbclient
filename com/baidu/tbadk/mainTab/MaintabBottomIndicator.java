@@ -79,7 +79,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         this.cwv = this.cwu.findViewById(R.id.container_common_item);
         this.cww = (TBLottieAnimationView) this.cwu.findViewById(R.id.view_bottom_icon);
         this.cww.setSpeed(1.2f);
-        this.cww.axl();
+        this.cww.axm();
         this.mTextView = (TextView) this.cwu.findViewById(R.id.view_bottom_text);
         this.cwx = (OvalActionButton) this.cwu.findViewById(R.id.view_write_icon);
         this.cwy = (TBLottieAnimationView) this.cwu.findViewById(R.id.animation_view);

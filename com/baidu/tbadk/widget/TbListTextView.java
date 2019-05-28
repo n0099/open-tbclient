@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.awf();
+        return a.awg();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -148,7 +148,7 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a awf() {
+        public static a awg() {
             return new a(false, null, null);
         }
 

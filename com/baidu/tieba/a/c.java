@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class c {
-    private boolean cUz = false;
+    private boolean cUA = false;
     private int mChannel;
 
     public c() {
-        aBj();
+        aBm();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -69,37 +69,37 @@ public class c {
         return null;
     }
 
-    private void aBj() {
+    private void aBm() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_abtest_channel", 0);
-        aBk();
+        aBn();
     }
 
     public void mm(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
             com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_abtest_channel", this.mChannel);
-            aBk();
+            aBn();
         }
     }
 
-    private void aBk() {
-        if (!this.cUz && this.mChannel == 1) {
-            this.cUz = aBm();
-            if (!this.cUz) {
+    private void aBn() {
+        if (!this.cUA && this.mChannel == 1) {
+            this.cUA = aBp();
+            if (!this.cUA) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean aBl() {
-        return this.cUz;
+    public boolean aBo() {
+        return this.cUA;
     }
 
-    public boolean aBm() {
+    public boolean aBp() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().ex(TbadkCoreApplication.getInst()).sc(false).ey(30L).CL(1).sd(false).ez(15L).CM(1000).cAj());
+                com.baidu.ubs.analytics.a.a(new c.a().ex(TbadkCoreApplication.getInst()).sc(false).ey(30L).CL(1).sd(false).ez(15L).CM(1000).cAl());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

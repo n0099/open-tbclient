@@ -19,9 +19,9 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes4.dex */
 public class PbTopTipView extends TextView {
     private boolean blR;
-    private Animation dWh;
-    private com.baidu.tieba.f.b dWi;
-    private a.InterfaceC0302a dWj;
+    private Animation dWi;
+    private com.baidu.tieba.f.b dWj;
+    private a.InterfaceC0302a dWk;
     private int mDuration;
     private Runnable mHideTipRunnable;
     private Runnable mRunnable;
@@ -36,7 +36,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.dWj = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.dWk = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0302a
             public void aT(int i, int i2) {
             }
@@ -77,7 +77,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.dWj = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.dWk = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0302a
             public void aT(int i, int i2) {
             }
@@ -118,7 +118,7 @@ public class PbTopTipView extends TextView {
                 PbTopTipView.this.hideTip();
             }
         };
-        this.dWj = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
+        this.dWk = new a.InterfaceC0302a() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.2
             @Override // com.baidu.tieba.f.a.InterfaceC0302a
             public void aT(int i2, int i22) {
             }
@@ -151,16 +151,16 @@ public class PbTopTipView extends TextView {
     }
 
     private void init() {
-        this.dWi = new com.baidu.tieba.f.b(getContext());
-        this.dWi.a(this.dWj);
+        this.dWj = new com.baidu.tieba.f.b(getContext());
+        this.dWj.a(this.dWk);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                return PbTopTipView.this.dWi.onTouchEvent(motionEvent);
+                return PbTopTipView.this.dWj.onTouchEvent(motionEvent);
             }
         });
         setupPaddings();
-        this.dWh = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
+        this.dWi = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_in);
         this.mTipOutAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.push_top_out);
         setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.fontsize30));
         this.mTipOutAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.4
@@ -179,8 +179,8 @@ public class PbTopTipView extends TextView {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.dWh.setDuration(400L);
-        this.dWh.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
+        this.dWi.setDuration(400L);
+        this.dWi.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbTopTipView.5
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -235,7 +235,7 @@ public class PbTopTipView extends TextView {
             layoutParams.addRule(10);
             relativeLayout.addView(this, layoutParams);
             onChangeSkinType(i);
-            startAnimation(this.dWh);
+            startAnimation(this.dWi);
             this.blR = true;
         }
     }

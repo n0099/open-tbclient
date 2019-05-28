@@ -5,22 +5,22 @@ import kotlin.collections.y;
 /* loaded from: classes2.dex */
 final class f extends y {
     private int index;
-    private final int[] kkl;
+    private final int[] kkm;
 
     public f(int[] iArr) {
         p.k(iArr, "array");
-        this.kkl = iArr;
+        this.kkm = iArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.kkl.length;
+        return this.index < this.kkm.length;
     }
 
     @Override // kotlin.collections.y
     public int nextInt() {
         try {
-            int[] iArr = this.kkl;
+            int[] iArr = this.kkm;
             int i = this.index;
             this.index = i + 1;
             return iArr[i];

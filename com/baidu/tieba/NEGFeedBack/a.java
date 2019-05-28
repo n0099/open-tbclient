@@ -15,20 +15,20 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private JSONArray cQD;
-    private HttpMessageListener cQE;
-    private BdUniqueId cQF = BdUniqueId.gen();
+    private JSONArray cQE;
+    private HttpMessageListener cQF;
     private BdUniqueId cQG = BdUniqueId.gen();
-    private CustomMessageListener cQH = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
+    private BdUniqueId cQH = BdUniqueId.gen();
+    private CustomMessageListener cQI = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.NEGFeedBack.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.jG() && a.this.cQD != null) {
-                a.this.a(a.this.cQD, a.this.cQG);
+            if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && j.jG() && a.this.cQE != null) {
+                a.this.a(a.this.cQE, a.this.cQH);
             }
         }
     };
-    private CustomMessageListener cQI = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
+    private CustomMessageListener cQJ = new CustomMessageListener(2016488) { // from class: com.baidu.tieba.NEGFeedBack.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -41,30 +41,30 @@ public class a {
 
     public a(TbPageContext tbPageContext, String str) {
         this.mFrom = str;
-        if (this.cQE == null) {
-            this.cQE = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
+        if (this.cQF == null) {
+            this.cQF = new HttpMessageListener(CmdConfigHttp.CMD_NEG_FEED_BACK) { // from class: com.baidu.tieba.NEGFeedBack.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003184 && httpResponsedMessage.getError() == 0) {
-                        a.this.cQD = null;
+                        a.this.cQE = null;
                     }
                 }
             };
         }
-        this.cQE.setTag(this.cQG);
-        MessageManager.getInstance().registerListener(this.cQE);
-        MessageManager.getInstance().registerListener(this.cQH);
-        this.cQI.setTag(tbPageContext.getUniqueId());
-        this.cQI.setSelfListener(true);
+        this.cQF.setTag(this.cQH);
+        MessageManager.getInstance().registerListener(this.cQF);
         MessageManager.getInstance().registerListener(this.cQI);
+        this.cQJ.setTag(tbPageContext.getUniqueId());
+        this.cQJ.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.cQJ);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.cQE);
-        MessageManager.getInstance().unRegisterListener(this.cQH);
+        MessageManager.getInstance().unRegisterListener(this.cQF);
         MessageManager.getInstance().unRegisterListener(this.cQI);
-        this.cQD = null;
+        MessageManager.getInstance().unRegisterListener(this.cQJ);
+        this.cQE = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,14 +73,14 @@ public class a {
             if (j.jG()) {
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put(jSONObject);
-                a(jSONArray, this.cQF);
+                a(jSONArray, this.cQG);
                 return;
             }
-            if (this.cQD == null) {
-                this.cQD = new JSONArray();
+            if (this.cQE == null) {
+                this.cQE = new JSONArray();
             }
-            if (this.cQD.length() <= 100) {
-                this.cQD.put(jSONObject);
+            if (this.cQE.length() <= 100) {
+                this.cQE.put(jSONObject);
             }
         }
     }

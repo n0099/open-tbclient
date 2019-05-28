@@ -70,11 +70,11 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> cKS;
+                Iterator<String> cKU;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (cKS = hVar.cKS()) != null) {
-                    while (cKS.hasNext()) {
-                        String next = cKS.next();
+                if (hVar != null && (cKU = hVar.cKU()) != null) {
+                    while (cKU.hasNext()) {
+                        String next = cKU.next();
                         hashMap.put(next, hVar.Hq(next));
                     }
                 }

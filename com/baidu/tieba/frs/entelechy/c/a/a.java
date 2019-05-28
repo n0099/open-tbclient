@@ -23,54 +23,54 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private String eAB;
-    private TextView eQD;
-    private View fym;
-    private FrsNewAreaFragment fyn;
-    private TextView fyo;
-    private c fyp;
-    private List<v> fyq;
-    private int fyr = -1;
-    private boolean fys = false;
-    private c.a fyt = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
+    private String eAC;
+    private TextView eQE;
+    private View fyn;
+    private FrsNewAreaFragment fyo;
+    private TextView fyp;
+    private c fyq;
+    private List<v> fyr;
+    private int fys = -1;
+    private boolean fyt = false;
+    private c.a fyu = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
         @Override // com.baidu.tieba.frs.entelechy.c.a.c.a
         public void a(v vVar) {
             if (!j.jG()) {
-                a.this.fyn.showToast(R.string.neterror);
-                a.this.fyp.dismiss();
+                a.this.fyo.showToast(R.string.neterror);
+                a.this.fyq.dismiss();
             } else if (vVar == null) {
-                a.this.fyp.dismiss();
-            } else if (a.this.fyr == vVar.fsB) {
-                a.this.fyp.dismiss();
+                a.this.fyq.dismiss();
+            } else if (a.this.fys == vVar.fsC) {
+                a.this.fyq.dismiss();
             } else {
-                a.this.fys = true;
+                a.this.fyt = true;
                 a.this.wB(vVar.name);
-                if (a.this.fyn.bpm() != null) {
-                    a.this.fyr = vVar.fsB;
-                    a.this.fyp.dismiss();
-                    if (a.this.fyr != 7) {
+                if (a.this.fyo.bpp() != null) {
+                    a.this.fys = vVar.fsC;
+                    a.this.fyq.dismiss();
+                    if (a.this.fys != 7) {
                         y.avq();
-                        e.cns();
+                        e.cnu();
                     } else {
-                        e.cnr();
+                        e.cnt();
                     }
-                    if (a.this.fyn.bpm() != null && a.this.fyn.bpn() != null) {
-                        a.this.fyn.bpm().sg(vVar.fsB);
-                        a.this.fyn.bpn().startPullRefresh();
-                        a.this.bnf();
+                    if (a.this.fyo.bpp() != null && a.this.fyo.bpq() != null) {
+                        a.this.fyo.bpp().sg(vVar.fsC);
+                        a.this.fyo.bpq().startPullRefresh();
+                        a.this.bni();
                     }
                 }
             }
         }
     };
-    private View.OnClickListener fyu = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
+    private View.OnClickListener fyv = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!com.baidu.tieba.frs.a.biT().biU()) {
+            if (!com.baidu.tieba.frs.a.biW().biX()) {
                 if (!j.jG()) {
-                    a.this.fyn.showToast(R.string.neterror);
-                } else if (!com.baidu.tbadk.core.util.v.aa(a.this.fyq)) {
-                    a.this.a(a.this.fyq, view);
+                    a.this.fyo.showToast(R.string.neterror);
+                } else if (!com.baidu.tbadk.core.util.v.aa(a.this.fyr)) {
+                    a.this.a(a.this.fyr, view);
                 }
             }
         }
@@ -78,95 +78,95 @@ public class a {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (a.this.eQD != null) {
+            if (a.this.eQE != null) {
                 Drawable drawable = al.getDrawable(R.drawable.icon_common_arrow20_down_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                a.this.eQD.setCompoundDrawables(null, null, drawable, null);
+                a.this.eQE.setCompoundDrawables(null, null, drawable, null);
             }
         }
     };
 
     public void setFid(String str) {
-        this.eAB = str;
+        this.eAC = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wB(String str) {
-        this.eQD.setText(str);
+        this.eQE.setText(str);
     }
 
     public void rF(int i) {
-        this.fyr = i;
+        this.fys = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<v> list, View view) {
-        if (this.fyp == null) {
-            this.fyp = new c(this.fyn.getContext());
-            this.fyp.setOnDismissListener(this.mOnDismissListener);
-            this.fyp.a(this.fyt);
+        if (this.fyq == null) {
+            this.fyq = new c(this.fyo.getContext());
+            this.fyq.setOnDismissListener(this.mOnDismissListener);
+            this.fyq.a(this.fyu);
         }
-        this.fyp.setData(list, this.fyr);
-        this.fyp.bm(view);
-        this.eQD.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_common_arrow20_down_h), (Drawable) null);
+        this.fyq.setData(list, this.fys);
+        this.fyq.bm(view);
+        this.eQE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_common_arrow20_down_h), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnf() {
+    public void bni() {
         am amVar = new am("c11437");
-        amVar.P("obj_type", this.fyr);
-        amVar.bT("fid", this.eAB);
+        amVar.P("obj_type", this.fys);
+        amVar.bT("fid", this.eAC);
         TiebaStatic.log(amVar);
     }
 
     public a(FrsNewAreaFragment frsNewAreaFragment, RelativeLayout relativeLayout) {
         if (frsNewAreaFragment != null && relativeLayout != null) {
-            this.fyn = frsNewAreaFragment;
-            this.fym = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
-            this.eQD = (TextView) this.fym.findViewById(R.id.sort_tab_menu_button);
-            this.fyo = (TextView) this.fym.findViewById(R.id.sort_tab_sort_name);
-            this.eQD.setOnClickListener(this.fyu);
+            this.fyo = frsNewAreaFragment;
+            this.fyn = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(R.layout.frs_sort_tab_layout, relativeLayout);
+            this.eQE = (TextView) this.fyn.findViewById(R.id.sort_tab_menu_button);
+            this.fyp = (TextView) this.fyn.findViewById(R.id.sort_tab_sort_name);
+            this.eQE.setOnClickListener(this.fyv);
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.eQD != null) {
-            al.j(this.eQD, R.color.cp_cont_j);
-            al.l(this.eQD, R.color.transparent);
-            this.eQD.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_common_arrow20_down_n), (Drawable) null);
+        if (this.eQE != null) {
+            al.j(this.eQE, R.color.cp_cont_j);
+            al.l(this.eQE, R.color.transparent);
+            this.eQE.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_common_arrow20_down_n), (Drawable) null);
         }
-        al.j(this.fyo, R.color.cp_cont_b);
-        al.l(this.fym, R.color.cp_bg_line_d);
+        al.j(this.fyp, R.color.cp_cont_b);
+        al.l(this.fyn, R.color.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (com.baidu.tbadk.core.util.v.aa(list)) {
-            bnh();
-        } else if (this.fyn != null && this.fyn.bpm() != null) {
-            bng();
+            bnk();
+        } else if (this.fyo != null && this.fyo.bpp() != null) {
+            bnj();
             ArrayList arrayList = new ArrayList(list);
             if (!cb(arrayList)) {
-                if (!this.fys) {
+                if (!this.fyt) {
                     rG(i);
                     return;
                 }
                 return;
             }
-            this.fyq = new ArrayList();
+            this.fyr = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
                     v vVar = new v();
-                    vVar.fsB = frsTabInfo.tab_id.intValue();
+                    vVar.fsC = frsTabInfo.tab_id.intValue();
                     vVar.name = frsTabInfo.tab_name;
-                    this.fyq.add(vVar);
+                    this.fyr.add(vVar);
                 }
             }
-            if (!this.fys) {
+            if (!this.fyt) {
                 rG(i);
             }
         } else {
-            bnh();
+            bnk();
         }
     }
 
@@ -175,24 +175,24 @@ public class a {
         boolean z;
         v vVar2 = null;
         if (i <= 0) {
-            v vVar3 = this.fyq.get(0);
+            v vVar3 = this.fyr.get(0);
             if (vVar3 != null) {
-                rF(vVar3.fsB);
+                rF(vVar3.fsC);
                 wB(vVar3.name);
-                if (this.fyn != null && this.fyn.bpm() != null) {
-                    this.fyn.bpm().sg(vVar3.fsB);
+                if (this.fyo != null && this.fyo.bpp() != null) {
+                    this.fyo.bpp().sg(vVar3.fsC);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.fyq.size();
+        int size = this.fyr.size();
         int i2 = 0;
         while (true) {
             if (i2 < size) {
-                vVar2 = this.fyq.get(i2);
-                if (vVar2 == null || vVar2.fsB != i) {
+                vVar2 = this.fyr.get(i2);
+                if (vVar2 == null || vVar2.fsC != i) {
                     i2++;
                 } else {
                     vVar = vVar2;
@@ -210,43 +210,43 @@ public class a {
                 wB(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
                 return;
             }
-            v vVar4 = this.fyq.get(0);
+            v vVar4 = this.fyr.get(0);
             if (vVar4 != null) {
-                rF(vVar4.fsB);
+                rF(vVar4.fsC);
                 wB(vVar4.name);
-                if (this.fyn != null && this.fyn.bpm() != null) {
-                    this.fyn.bpm().sg(vVar4.fsB);
+                if (this.fyo != null && this.fyo.bpp() != null) {
+                    this.fyo.bpp().sg(vVar4.fsC);
                 }
             }
         } else if (vVar != null) {
-            rF(vVar.fsB);
+            rF(vVar.fsC);
             wB(vVar.name);
-            if (this.fyn != null && this.fyn.bpm() != null) {
-                this.fyn.bpm().sg(vVar.fsB);
+            if (this.fyo != null && this.fyo.bpp() != null) {
+                this.fyo.bpp().sg(vVar.fsC);
             }
         }
     }
 
     private boolean cb(List<FrsTabInfo> list) {
-        if (!com.baidu.tbadk.core.util.v.aa(this.fyq) && com.baidu.tbadk.core.util.v.Z(list) == com.baidu.tbadk.core.util.v.Z(this.fyq)) {
+        if (!com.baidu.tbadk.core.util.v.aa(this.fyr) && com.baidu.tbadk.core.util.v.Z(list) == com.baidu.tbadk.core.util.v.Z(this.fyr)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.fyq.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.fyr.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    private void bng() {
-        if (this.eQD != null) {
-            this.eQD.setVisibility(0);
+    private void bnj() {
+        if (this.eQE != null) {
+            this.eQE.setVisibility(0);
         }
     }
 
-    private void bnh() {
-        if (this.eQD != null) {
-            this.eQD.setVisibility(8);
+    private void bnk() {
+        if (this.eQE != null) {
+            this.eQE.setVisibility(8);
         }
     }
 }

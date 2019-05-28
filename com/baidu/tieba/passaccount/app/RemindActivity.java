@@ -24,27 +24,27 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         ((Button) findViewById(R.id.remind_button)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.bOS().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
+                c.bOV().b(new c.a() { // from class: com.baidu.tieba.passaccount.app.RemindActivity.1.1
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void d(boolean z, boolean z2, String str) {
-                        b.bOL().r(z2, str);
+                        b.bOO().r(z2, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void p(boolean z, String str) {
-                        b.bOL().r(z, str);
+                        b.bOO().r(z, str);
                         RemindActivity.this.finishActivity(true);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onUnavailable() {
-                        b.bOL().r(false, null);
+                        b.bOO().r(false, null);
                     }
 
                     @Override // com.baidu.tieba.passaccount.a.c.a
                     public void onFail() {
-                        b.bOL().r(false, null);
+                        b.bOO().r(false, null);
                     }
                 });
             }
@@ -68,7 +68,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finishActivity(boolean z) {
         super.finish();
         if (!z) {
-            b.bOL().a((AuthVerifyData.c) null);
+            b.bOO().a((AuthVerifyData.c) null);
         }
     }
 }

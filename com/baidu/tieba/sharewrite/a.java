@@ -29,11 +29,11 @@ public class a {
     private String bLR;
     private String bLS;
     private DialogInterface.OnCancelListener bLZ;
-    private b iOA;
+    private String iOA;
     private b iOB;
-    private DialogInterface.OnKeyListener iOC;
-    private String iOy;
-    private b iOz;
+    private b iOC;
+    private b iOD;
+    private DialogInterface.OnKeyListener iOE;
     protected final Activity mActivity;
     private View mContentView;
     private AlertDialog mDialog;
@@ -42,8 +42,8 @@ public class a {
     private String mTitle;
     private int bLN = -1;
     private int mIconResId = -1;
-    private int iOw = R.drawable.btn_blue_bg;
-    private int iOx = R.color.cp_cont_g;
+    private int iOy = R.drawable.btn_blue_bg;
+    private int iOz = R.color.cp_cont_g;
     private boolean bMc = false;
     private boolean bMd = true;
 
@@ -58,17 +58,17 @@ public class a {
     }
 
     public a zY(int i) {
-        this.iOw = i;
+        this.iOy = i;
         return this;
     }
 
     public a zZ(int i) {
-        this.iOx = i;
+        this.iOz = i;
         return this;
     }
 
     public a a(DialogInterface.OnKeyListener onKeyListener) {
-        this.iOC = onKeyListener;
+        this.iOE = onKeyListener;
         return this;
     }
 
@@ -82,7 +82,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.bLR = this.mActivity.getResources().getString(i);
-            this.iOz = bVar;
+            this.iOB = bVar;
         }
         return this;
     }
@@ -90,7 +90,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.bLS = this.mActivity.getResources().getString(i);
-            this.iOA = bVar;
+            this.iOC = bVar;
         }
         return this;
     }
@@ -117,8 +117,8 @@ public class a {
             ImageView imageView = (ImageView) this.mRootView.findViewById(R.id.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.message);
             Button button = (Button) this.mRootView.findViewById(R.id.yes);
-            al.k(button, this.iOw);
-            al.f(button, this.iOx, 3);
+            al.k(button, this.iOy);
+            al.f(button, this.iOz, 3);
             Button button2 = (Button) this.mRootView.findViewById(R.id.no);
             Button button3 = (Button) this.mRootView.findViewById(R.id.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -143,8 +143,8 @@ public class a {
                 z = false;
             } else {
                 button.setText(this.bLR);
-                if (this.iOz != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOz));
+                if (this.iOB != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOB));
                 }
                 z = true;
             }
@@ -152,17 +152,17 @@ public class a {
                 z2 = false;
             } else {
                 button2.setText(this.bLS);
-                if (this.iOA != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOA));
+                if (this.iOC != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOC));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.iOy)) {
+            if (TextUtils.isEmpty(this.iOA)) {
                 z3 = false;
             } else {
-                button3.setText(this.iOy);
-                if (this.iOB != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOB));
+                button3.setText(this.iOA);
+                if (this.iOD != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0403a(this, this.iOD));
                 }
                 z3 = true;
             }
@@ -242,8 +242,8 @@ public class a {
             if (this.bLZ != null) {
                 this.mDialog.setOnCancelListener(this.bLZ);
             }
-            if (this.iOC != null) {
-                this.mDialog.setOnKeyListener(this.iOC);
+            if (this.iOE != null) {
+                this.mDialog.setOnKeyListener(this.iOE);
             }
             if (z) {
                 g.a(this.mDialog, this.mActivity);
@@ -279,7 +279,7 @@ public class a {
         return this;
     }
 
-    public a cjf() {
+    public a cjh() {
         return qw(true);
     }
 
@@ -292,18 +292,18 @@ public class a {
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     private class View$OnClickListenerC0403a implements View.OnClickListener {
-        private final a iOE;
-        private final b iOF;
+        private final a iOG;
+        private final b iOH;
 
         public View$OnClickListenerC0403a(a aVar, b bVar) {
-            this.iOE = aVar;
-            this.iOF = bVar;
+            this.iOG = aVar;
+            this.iOH = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.iOF != null) {
-                this.iOF.a(this.iOE);
+            if (this.iOH != null) {
+                this.iOH.a(this.iOG);
             }
         }
     }

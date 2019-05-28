@@ -26,13 +26,13 @@ import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 public class FloatMyRecordCard extends LinearLayout {
     private TextView cbV;
     private View.OnClickListener ckH;
-    private f epN;
-    private ImageView etA;
-    private d etD;
-    private TextView etZ;
-    private TextView etz;
-    private BazhuHeadView eua;
-    private VotedAreaLayout eub;
+    private f epO;
+    private TextView etA;
+    private ImageView etB;
+    private d etE;
+    private TextView eua;
+    private BazhuHeadView eub;
+    private VotedAreaLayout euc;
     private Context mContext;
     private int status;
 
@@ -45,9 +45,9 @@ public class FloatMyRecordCard extends LinearLayout {
         this.ckH = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatMyRecordCard.this.etD != null && FloatMyRecordCard.this.etD.getUid() != 0) {
+                if (FloatMyRecordCard.this.etE != null && FloatMyRecordCard.this.etE.getUid() != 0) {
                     long c = b.c(TbadkCoreApplication.getCurrentAccount(), 0L);
-                    long uid = FloatMyRecordCard.this.etD.getUid();
+                    long uid = FloatMyRecordCard.this.etE.getUid();
                     if (FloatMyRecordCard.this.getContext() instanceof Activity) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FloatMyRecordCard.this.getContext()).createNormalConfig(uid, uid == c, false)));
                     }
@@ -66,71 +66,71 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     private void qA() {
-        this.etZ = (TextView) findViewById(R.id.tv_voted_rank);
-        this.eua = (BazhuHeadView) findViewById(R.id.user_avatar);
-        if (this.eua.getHeadView() != null) {
-            this.eua.getHeadView().setIsRound(true);
+        this.eua = (TextView) findViewById(R.id.tv_voted_rank);
+        this.eub = (BazhuHeadView) findViewById(R.id.user_avatar);
+        if (this.eub.getHeadView() != null) {
+            this.eub.getHeadView().setIsRound(true);
         }
         this.cbV = (TextView) findViewById(R.id.user_name);
-        this.etA = (ImageView) findViewById(R.id.grade);
-        this.etz = (TextView) findViewById(R.id.vote_id);
-        this.eub = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
+        this.etB = (ImageView) findViewById(R.id.grade);
+        this.etA = (TextView) findViewById(R.id.vote_id);
+        this.euc = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
     }
 
     public void setData(f fVar) {
         String str;
-        this.epN = fVar;
-        if (this.epN != null && this.epN.aWQ() != null) {
-            e aWQ = this.epN.aWQ();
-            if (aWQ != null) {
-                this.status = aWQ.getStatus();
+        this.epO = fVar;
+        if (this.epO != null && this.epO.aWT() != null) {
+            e aWT = this.epO.aWT();
+            if (aWT != null) {
+                this.status = aWT.getStatus();
             }
-            this.etD = this.epN.aWP();
+            this.etE = this.epO.aWS();
         }
-        if (this.epN == null || this.etD == null || this.status != com.baidu.tieba.barselect.a.d.etX) {
+        if (this.epO == null || this.etE == null || this.status != com.baidu.tieba.barselect.a.d.etY) {
             setVisibility(8);
             return;
         }
-        int rank = this.etD.getRank();
+        int rank = this.etE.getRank();
         if (rank < 10) {
-            this.etZ.setText("0" + rank);
+            this.eua.setText("0" + rank);
         } else {
-            this.etZ.setText("" + rank);
+            this.eua.setText("" + rank);
         }
         if (rank == 2) {
-            this.etZ.setTextColor(getResources().getColor(R.color.common_color_10263));
+            this.eua.setTextColor(getResources().getColor(R.color.common_color_10263));
         } else if (rank == 3) {
-            this.etZ.setTextColor(getResources().getColor(R.color.common_color_10266));
+            this.eua.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.eua.oy(this.etD.getPortrait());
-        this.eua.setOnClickListener(this.ckH);
-        this.cbV.setText(ap.j(this.etD.aWF(), 14, "..."));
-        setGrade(this.etD.aWC());
-        if (this.etD.aWB() < 1000) {
-            String str2 = "0000" + this.etD.aWB();
+        this.eub.oy(this.etE.getPortrait());
+        this.eub.setOnClickListener(this.ckH);
+        this.cbV.setText(ap.j(this.etE.aWI(), 14, "..."));
+        setGrade(this.etE.aWF());
+        if (this.etE.aWE() < 1000) {
+            String str2 = "0000" + this.etE.aWE();
             str = str2.substring(str2.length() - 4, str2.length());
         } else {
-            str = "" + this.etD.aWB();
+            str = "" + this.etE.aWE();
         }
-        this.etz.setText("NO." + str);
-        this.eub.setMyRecordData(this.etD);
+        this.etA.setText("NO." + str);
+        this.euc.setMyRecordData(this.etE);
     }
 
     public void setGrade(int i) {
-        al.c(this.etA, BitmapHelper.getGradeResourceIdInEnterForum(i));
+        al.c(this.etB, BitmapHelper.getGradeResourceIdInEnterForum(i));
     }
 
     public void nq(int i) {
-        if (this.etD != null) {
-            if (this.etD.getRank() > 3) {
-                al.c(this.etZ, R.color.cp_cont_b, 1, i);
+        if (this.etE != null) {
+            if (this.etE.getRank() > 3) {
+                al.c(this.eua, R.color.cp_cont_b, 1, i);
             }
             al.c(this.cbV, R.color.cp_cont_b, 1, i);
-            setGrade(this.etD.aWC());
-            al.c(this.etz, R.color.cp_cont_d, 1, i);
-            this.eub.nq(i);
+            setGrade(this.etE.aWF());
+            al.c(this.etA, R.color.cp_cont_d, 1, i);
+            this.euc.nq(i);
             al.h(this, R.color.cp_bg_line_d, i);
-            setGrade(this.etD.aWC());
+            setGrade(this.etE.aWF());
         }
     }
 }

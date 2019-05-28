@@ -68,9 +68,9 @@ public interface g {
 
     void a(i iVar);
 
-    int aAm();
+    int aAp();
 
-    boolean aAn();
+    boolean aAq();
 
     void avm();
 

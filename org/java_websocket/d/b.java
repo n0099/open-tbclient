@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String kmv;
+    private final String kmw;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.kmv = str;
+        this.kmw = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean Hs(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.kmv.equals(str2)) {
+            if (this.kmw.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String cKT() {
-        return this.kmv;
+    public String cKV() {
+        return this.kmw;
     }
 
     @Override // org.java_websocket.d.a
-    public a cKU() {
-        return new b(cKT());
+    public a cKW() {
+        return new b(cKV());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return cKT();
+        return cKV();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.kmv.equals(((b) obj).kmv);
+        return this.kmw.equals(((b) obj).kmw);
     }
 
     public int hashCode() {
-        return this.kmv.hashCode();
+        return this.kmw.hashCode();
     }
 }

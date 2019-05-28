@@ -11,20 +11,20 @@ import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes6.dex */
 public class m implements View.OnClickListener {
-    private com.baidu.tieba.personPolymeric.event.b ija = new com.baidu.tieba.personPolymeric.event.b();
-    protected com.baidu.tieba.view.g imw;
-    private com.baidu.tieba.personPolymeric.c.a imx;
+    private com.baidu.tieba.personPolymeric.event.b ijd = new com.baidu.tieba.personPolymeric.event.b();
+    private com.baidu.tieba.personPolymeric.c.a imA;
+    protected com.baidu.tieba.view.g imz;
     private boolean mIsHost;
 
     public m(Context context) {
     }
 
     public void setOnViewResponseListener(com.baidu.tieba.view.g gVar) {
-        this.imw = gVar;
+        this.imz = gVar;
     }
 
     public void a(com.baidu.tieba.personPolymeric.c.a aVar) {
-        this.imx = aVar;
+        this.imA = aVar;
     }
 
     public void setIsHost(boolean z) {
@@ -33,36 +33,36 @@ public class m implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.imw != null && this.imx != null && this.imx.getUserData() != null) {
-            UserData userData = this.imx.getUserData();
-            this.ija.eXv = -1;
+        if (this.imz != null && this.imA != null && this.imA.getUserData() != null) {
+            UserData userData = this.imA.getUserData();
+            this.ijd.eXw = -1;
             if (view.getId() == R.id.person_polymeric_header_user_img) {
                 TiebaStatic.log(new am("c12502").bT("obj_locate", "5"));
-                this.ija.eXv = 1;
-                this.ija.ayy = new Bundle();
-                this.ija.ayy.putSerializable(UserData.TYPE_USER, userData);
+                this.ijd.eXw = 1;
+                this.ijd.ayy = new Bundle();
+                this.ijd.ayy.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == R.id.person_polymeric_header_user_vip_icon) {
                 TiebaStatic.log(new am("c12502").bT("obj_locate", Constants.VIA_SHARE_TYPE_INFO));
-                this.ija.eXv = 2;
+                this.ijd.eXw = 2;
             } else if (view.getId() == R.id.person_polymeric_header_label_box) {
                 TiebaStatic.log(new am("c12502").bT("obj_locate", "4"));
-                this.ija.eXv = 3;
-                this.ija.ayy = new Bundle();
-                this.ija.ayy.putSerializable(UserData.TYPE_USER, userData);
+                this.ijd.eXw = 3;
+                this.ijd.ayy = new Bundle();
+                this.ijd.ayy.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == R.id.container_send_gift) {
                 TiebaStatic.log(new am("c12503").bT("obj_locate", "3"));
-                this.ija.eXv = 12;
-                this.ija.ayy = new Bundle();
-                this.ija.ayy.putSerializable(UserData.TYPE_USER, userData);
+                this.ijd.eXw = 12;
+                this.ijd.ayy = new Bundle();
+                this.ijd.ayy.putSerializable(UserData.TYPE_USER, userData);
             } else if (view.getId() == R.id.seal_prefix_view) {
-                this.ija.eXv = 13;
+                this.ijd.eXw = 13;
             } else if (view.getId() == R.id.person_center_header_tdou_txt || view.getId() == R.id.textview_get_tdou) {
                 if (view.getId() == R.id.person_center_header_tdou_txt) {
                     TiebaStatic.log(new am("c12502").bT("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
                 } else if (view.getId() == R.id.textview_get_tdou) {
                     TiebaStatic.log(new am("c12502").bT("obj_locate", Constants.VIA_REPORT_TYPE_JOININ_GROUP));
                 }
-                this.ija.eXv = 14;
+                this.ijd.eXw = 14;
             } else if (view.getId() == R.id.person_polymeric_header_user_name_txt || view.getId() == R.id.person_polymeric_header_sign_txt || view.getId() == R.id.btn_edit_person_info) {
                 if (view.getId() == R.id.person_polymeric_header_user_name_txt) {
                     TiebaStatic.log(new am("c12502").bT("obj_locate", "7"));
@@ -72,12 +72,12 @@ public class m implements View.OnClickListener {
                     TiebaStatic.log(new am("c12502").bT("obj_locate", Constants.VIA_REPORT_TYPE_START_WAP));
                 }
                 if (this.mIsHost) {
-                    this.ija.ayy = new Bundle();
-                    this.ija.ayy.putSerializable(UserData.TYPE_USER, userData);
-                    if (this.imx != null && this.imx.iks != null) {
-                        this.ija.ayy.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.imx.iks.left_days.intValue());
+                    this.ijd.ayy = new Bundle();
+                    this.ijd.ayy.putSerializable(UserData.TYPE_USER, userData);
+                    if (this.imA != null && this.imA.ikv != null) {
+                        this.ijd.ayy.putInt(UserData.TYPE_USER_NICKNAME_LEFT_DAYS, this.imA.ikv.left_days.intValue());
                     }
-                    this.ija.eXv = 11;
+                    this.ijd.eXw = 11;
                 } else {
                     view.requestLayout();
                     if (view instanceof TextView) {
@@ -90,11 +90,11 @@ public class m implements View.OnClickListener {
                 } else {
                     TiebaStatic.log(new am("c12503").bT("obj_locate", "5"));
                 }
-                this.ija.eXv = 34;
-                this.ija.ayy = new Bundle();
-                this.ija.ayy.putSerializable(UserData.TYPE_USER, userData);
+                this.ijd.eXw = 34;
+                this.ijd.ayy = new Bundle();
+                this.ijd.ayy.putSerializable(UserData.TYPE_USER, userData);
             }
-            this.imw.a(view, this.ija);
+            this.imz.a(view, this.ijd);
         }
     }
 }

@@ -37,37 +37,39 @@ public class ag extends Thread {
     public void run() {
         String str;
         super.run();
-        if (this.bSa) {
-            str = TbConfig.IN_PV_ADDRESS;
-        } else {
-            str = TbConfig.LOAD_REG_PV_ADDRESS;
-        }
-        x xVar = new x(TbConfig.SERVER_ADDRESS + str);
-        xVar.o("st_type", this.mType);
-        if (this.mParam != null) {
-            xVar.o("st_param", this.mParam);
-        }
-        if (this.bRZ != null) {
-            xVar.o("obj", this.bRZ);
-        }
-        if (this.mObjTp != null) {
-            xVar.o("obj_tp", this.mObjTp);
-        }
-        String ahe = xVar.ahe();
-        System.out.println("pv_test !!!");
-        if (ahe != null) {
-            Log.i("USEINTERVAL", ahe);
-            try {
-                JSONObject jSONObject = new JSONObject(ahe);
-                if (jSONObject.has("use_duration")) {
-                    long optLong = jSONObject.optLong("use_duration");
-                    Log.i("USEINTERVAL", "duration " + optLong);
-                    if (optLong >= 0 && optLong != TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                        TbadkCoreApplication.getInst().setUseTimeInterval(optLong);
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            if (this.bSa) {
+                str = TbConfig.IN_PV_ADDRESS;
+            } else {
+                str = TbConfig.LOAD_REG_PV_ADDRESS;
+            }
+            x xVar = new x(TbConfig.SERVER_ADDRESS + str);
+            xVar.o("st_type", this.mType);
+            if (this.mParam != null) {
+                xVar.o("st_param", this.mParam);
+            }
+            if (this.bRZ != null) {
+                xVar.o("obj", this.bRZ);
+            }
+            if (this.mObjTp != null) {
+                xVar.o("obj_tp", this.mObjTp);
+            }
+            String ahe = xVar.ahe();
+            System.out.println("pv_test !!!");
+            if (ahe != null) {
+                Log.i("USEINTERVAL", ahe);
+                try {
+                    JSONObject jSONObject = new JSONObject(ahe);
+                    if (jSONObject.has("use_duration")) {
+                        long optLong = jSONObject.optLong("use_duration");
+                        Log.i("USEINTERVAL", "duration " + optLong);
+                        if (optLong >= 0 && optLong != TbadkCoreApplication.getInst().getUseTimeInterval()) {
+                            TbadkCoreApplication.getInst().setUseTimeInterval(optLong);
+                        }
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }

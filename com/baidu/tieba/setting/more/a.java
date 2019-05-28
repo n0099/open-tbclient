@@ -16,66 +16,66 @@ import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<AboutActivity> {
-    private AboutActivity iJU;
-    private RelativeLayout iJV;
-    private TextView iJW;
-    private SettingTextTestNewView iJX;
-    private ImageView iJY;
-    private TbSettingTextTipView iJZ;
-    private TbSettingTextTipView iKa;
+    private AboutActivity iJW;
+    private RelativeLayout iJX;
+    private TextView iJY;
+    private SettingTextTestNewView iJZ;
+    private ImageView iKa;
     private TbSettingTextTipView iKb;
     private TbSettingTextTipView iKc;
-    protected TextView iKd;
-    private ProgressBar iKe;
+    private TbSettingTextTipView iKd;
+    private TbSettingTextTipView iKe;
+    protected TextView iKf;
+    private ProgressBar iKg;
     private NavigationBar mNavigationBar;
 
     public a(AboutActivity aboutActivity, d dVar) {
         super(aboutActivity.getPageContext());
-        this.iJU = aboutActivity;
+        this.iJW = aboutActivity;
         apq();
         a(dVar);
     }
 
-    public void cgQ() {
-        if (this.iKe != null) {
-            this.iKe.setVisibility(0);
+    public void cgS() {
+        if (this.iKg != null) {
+            this.iKg.setVisibility(0);
         }
     }
 
-    public void bpD() {
-        if (this.iKe != null) {
-            this.iKe.setVisibility(8);
+    public void bpG() {
+        if (this.iKg != null) {
+            this.iKg.setVisibility(8);
         }
     }
 
     private void apq() {
-        this.iJU.setContentView(R.layout.about_activity);
-        this.iJV = (RelativeLayout) this.iJU.findViewById(R.id.parent);
-        this.iJY = (ImageView) this.iJU.findViewById(R.id.image_logo);
-        this.mNavigationBar = (NavigationBar) this.iJU.findViewById(R.id.view_navigation_bar);
+        this.iJW.setContentView(R.layout.about_activity);
+        this.iJX = (RelativeLayout) this.iJW.findViewById(R.id.parent);
+        this.iKa = (ImageView) this.iJW.findViewById(R.id.image_logo);
+        this.mNavigationBar = (NavigationBar) this.iJW.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.iJU.getPageContext().getString(R.string.version_info));
-        this.iJW = (TextView) this.iJU.findViewById(R.id.text_versioninfo);
-        this.iJX = (SettingTextTestNewView) this.iJU.findViewById(R.id.about_version_update);
-        this.iJZ = (TbSettingTextTipView) this.iJU.findViewById(R.id.about_guide);
-        this.iJZ.hideArrow();
-        this.iKa = (TbSettingTextTipView) this.iJU.findViewById(R.id.tieba_protocol_text);
-        this.iKa.hideArrow();
-        this.iKb = (TbSettingTextTipView) this.iJU.findViewById(R.id.tieba_privacy_text);
+        this.mNavigationBar.setTitleText(this.iJW.getPageContext().getString(R.string.version_info));
+        this.iJY = (TextView) this.iJW.findViewById(R.id.text_versioninfo);
+        this.iJZ = (SettingTextTestNewView) this.iJW.findViewById(R.id.about_version_update);
+        this.iKb = (TbSettingTextTipView) this.iJW.findViewById(R.id.about_guide);
         this.iKb.hideArrow();
-        this.iKc = (TbSettingTextTipView) this.iJU.findViewById(R.id.tieba_tdou_use_introduce);
+        this.iKc = (TbSettingTextTipView) this.iJW.findViewById(R.id.tieba_protocol_text);
         this.iKc.hideArrow();
-        this.iKe = (ProgressBar) this.iJU.findViewById(R.id.about_progress);
+        this.iKd = (TbSettingTextTipView) this.iJW.findViewById(R.id.tieba_privacy_text);
+        this.iKd.hideArrow();
+        this.iKe = (TbSettingTextTipView) this.iJW.findViewById(R.id.tieba_tdou_use_introduce);
+        this.iKe.hideArrow();
+        this.iKg = (ProgressBar) this.iJW.findViewById(R.id.about_progress);
         String version = TbConfig.getVersion();
         if (TbConfig.getVersionType() == 1 && !ap.isEmpty(TbConfig.getSubVersion())) {
             version = version + "." + TbConfig.getSubVersion();
         }
-        this.iJW.setText(this.iJU.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.iJU.getPageContext().getString(R.string.setting_version_text) + " " + version);
-        this.iKd = (TextView) this.iJU.findViewById(R.id.text_version_protoco);
+        this.iJY.setText(this.iJW.getPageContext().getString(TbadkCoreApplication.getInst().getApplicationInfo().labelRes) + this.iJW.getPageContext().getString(R.string.setting_version_text) + " " + version);
+        this.iKf = (TextView) this.iJW.findViewById(R.id.text_version_protoco);
         jT(TbadkCoreApplication.getInst().getSkinType());
         if (MessageManager.getInstance().findTask(2015001) == null) {
-            this.iJZ.setVisibility(8);
-            this.iJU.findViewById(R.id.line_about_guide).setVisibility(8);
+            this.iKb.setVisibility(8);
+            this.iJW.findViewById(R.id.line_about_guide).setVisibility(8);
         }
         if (com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("debug_plugin_switcher", false)) {
             zC(0);
@@ -90,15 +90,15 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == a.this.iKa) {
-                    ba.aiz().c(a.this.iJU.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
-                } else if (view == a.this.iKb) {
-                    ba.aiz().a(a.this.iJU.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
-                } else if (view == a.this.iKc) {
-                    ba.aiz().c(a.this.iJU.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
-                } else if (view != a.this.iJX) {
-                    if (view != a.this.iJZ) {
-                        if (view == a.this.iJY) {
+                if (view == a.this.iKc) {
+                    ba.aiz().c(a.this.iJW.getPageContext(), new String[]{"http://tieba.baidu.com/tb/eula_mobile.html"});
+                } else if (view == a.this.iKd) {
+                    ba.aiz().a(a.this.iJW.getPageContext(), new String[]{"http://tieba.baidu.com/tb/cms/client/wise_secretright.html"}, true);
+                } else if (view == a.this.iKe) {
+                    ba.aiz().c(a.this.iJW.getPageContext(), new String[]{"https://tieba.baidu.com/tb/tdou_mobile.html"});
+                } else if (view != a.this.iJZ) {
+                    if (view != a.this.iKb) {
+                        if (view == a.this.iKa) {
                             dVar.zB(4);
                             return;
                         }
@@ -110,29 +110,29 @@ public class a extends com.baidu.adp.base.c<AboutActivity> {
                 }
             }
         };
-        this.iJX.setOnClickListener(onClickListener);
         this.iJZ.setOnClickListener(onClickListener);
-        this.iKa.setOnClickListener(onClickListener);
         this.iKb.setOnClickListener(onClickListener);
         this.iKc.setOnClickListener(onClickListener);
-        this.iJY.setOnClickListener(onClickListener);
+        this.iKd.setOnClickListener(onClickListener);
+        this.iKe.setOnClickListener(onClickListener);
+        this.iKa.setOnClickListener(onClickListener);
     }
 
     private void zC(int i) {
-        this.iJU.findViewById(R.id.line0).setVisibility(i);
+        this.iJW.findViewById(R.id.line0).setVisibility(i);
     }
 
-    public void cgR() {
-        if (this.iJX != null) {
-            this.iJX.refresh();
+    public void cgT() {
+        if (this.iJZ != null) {
+            this.iJZ.refresh();
         }
     }
 
     public void jT(int i) {
-        al.l(this.iJV, R.color.cp_bg_line_d);
+        al.l(this.iJX, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.iJU.getLayoutMode().setNightMode(i == 1);
-        this.iJU.getLayoutMode().onModeChanged(this.iJV);
-        cgR();
+        this.iJW.getLayoutMode().setNightMode(i == 1);
+        this.iJW.getLayoutMode().onModeChanged(this.iJX);
+        cgT();
     }
 }

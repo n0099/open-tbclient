@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes5.dex */
 public class e {
     private Context context;
-    private View hAC;
-    private TextView hAD;
-    private ImageView hAE;
-    private TextView hAF;
+    private View hAF;
     private TextView hAG;
-    private a hAH;
-    public boolean hAI;
-    private Animation hAK;
-    private long hAJ = 0;
-    private boolean hAL = false;
+    private ImageView hAH;
+    private TextView hAI;
+    private TextView hAJ;
+    private a hAK;
+    public boolean hAL;
+    private Animation hAN;
+    private long hAM = 0;
+    private boolean hAO = false;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.hAC = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
-        this.hAD = (TextView) this.hAC.findViewById(R.id.chosen_post_info_copyright);
-        this.hAE = (ImageView) this.hAC.findViewById(R.id.chosen_post_info_praise_icon);
-        this.hAF = (TextView) this.hAC.findViewById(R.id.chosen_post_info_praise_num);
-        this.hAG = (TextView) this.hAC.findViewById(R.id.chosen_post_info_original_post);
+        this.hAF = LayoutInflater.from(context).inflate(R.layout.chosen_pb_post_info, (ViewGroup) null);
+        this.hAG = (TextView) this.hAF.findViewById(R.id.chosen_post_info_copyright);
+        this.hAH = (ImageView) this.hAF.findViewById(R.id.chosen_post_info_praise_icon);
+        this.hAI = (TextView) this.hAF.findViewById(R.id.chosen_post_info_praise_num);
+        this.hAJ = (TextView) this.hAF.findViewById(R.id.chosen_post_info_original_post);
     }
 
-    public View bPz() {
-        return this.hAC;
+    public View bPC() {
+        return this.hAF;
     }
 
     public void a(a aVar) {
-        this.hAH = aVar;
+        this.hAK = aVar;
     }
 
     public void wY(int i) {
-        if (this.hAD != null) {
-            this.hAD.setText(i);
+        if (this.hAG != null) {
+            this.hAG.setText(i);
         }
     }
 
     public void I(View.OnClickListener onClickListener) {
-        if (this.hAG != null) {
-            this.hAG.setOnClickListener(onClickListener);
+        if (this.hAJ != null) {
+            this.hAJ.setOnClickListener(onClickListener);
         }
     }
 
     public void ea(long j) {
         if (j >= 0) {
-            this.hAJ = j;
-            if (this.hAF != null) {
-                this.hAF.setVisibility(0);
-                this.hAF.setText(this.context.getString(R.string.chosen_pb_praise_num, ap.aL(j)));
+            this.hAM = j;
+            if (this.hAI != null) {
+                this.hAI.setVisibility(0);
+                this.hAI.setText(this.context.getString(R.string.chosen_pb_praise_num, ap.aL(j)));
             }
-            if (this.hAF != null && this.hAF.getVisibility() == 8) {
-                this.hAF.setVisibility(0);
+            if (this.hAI != null && this.hAI.getVisibility() == 8) {
+                this.hAI.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             wY(R.string.chosen_pb_copyright);
             ea(excellentPbThreadInfo.zan.zansum.longValue());
             nN(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.hAE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.hAH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.hAL && bc.cE(e.this.context)) {
-                        e.this.hAL = true;
-                        e.this.hAE.startAnimation(e.this.bPB());
-                        if (e.this.hAH != null) {
-                            e.this.hAH.nJ(e.this.hAI);
+                    if (!e.this.hAO && bc.cE(e.this.context)) {
+                        e.this.hAO = true;
+                        e.this.hAH.startAnimation(e.this.bPE());
+                        if (e.this.hAK != null) {
+                            e.this.hAK.nJ(e.this.hAL);
                         }
                     }
                 }
@@ -96,43 +96,43 @@ public class e {
             I(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.hAH != null) {
-                        e.this.hAH.o(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.hAK != null) {
+                        e.this.hAK.o(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
         }
     }
 
-    public void bPA() {
-        this.hAL = false;
+    public void bPD() {
+        this.hAO = false;
     }
 
     public void nM(boolean z) {
         nN(z);
         if (z) {
-            this.hAJ++;
+            this.hAM++;
         } else {
-            this.hAJ--;
+            this.hAM--;
         }
-        ea(this.hAJ);
+        ea(this.hAM);
     }
 
     private void nN(boolean z) {
-        this.hAI = z;
+        this.hAL = z;
         if (z) {
-            al.c(this.hAE, (int) R.drawable.btn_zambia_big_s);
+            al.c(this.hAH, (int) R.drawable.btn_zambia_big_s);
         } else {
-            al.c(this.hAE, (int) R.drawable.btn_zambia_big_n);
+            al.c(this.hAH, (int) R.drawable.btn_zambia_big_n);
         }
-        this.hAE.setVisibility(0);
+        this.hAH.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animation bPB() {
-        if (this.hAK == null) {
-            this.hAK = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
+    public Animation bPE() {
+        if (this.hAN == null) {
+            this.hAN = AnimationUtils.loadAnimation(this.context, R.anim.praise_animation_scale3);
         }
-        return this.hAK;
+        return this.hAN;
     }
 }

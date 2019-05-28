@@ -46,7 +46,7 @@ public class ShareEntity implements Parcelable {
     private String cjy;
     public Bundle cjz;
     private String content;
-    private int iNQ;
+    private int iNS;
     private Uri imageUri;
     private String linkUrl;
     private int shareType;
@@ -99,7 +99,7 @@ public class ShareEntity implements Parcelable {
         this.cjy = str;
     }
 
-    public String ciR() {
+    public String ciT() {
         return this.cjy;
     }
 
@@ -119,15 +119,15 @@ public class ShareEntity implements Parcelable {
         this.cjA = location;
     }
 
-    public int ciS() {
-        return this.iNQ;
+    public int ciU() {
+        return this.iNS;
     }
 
     public void zJ(int i) {
-        this.iNQ = i;
+        this.iNS = i;
     }
 
-    public int ciT() {
+    public int ciV() {
         return this.shareType;
     }
 
@@ -143,8 +143,8 @@ public class ShareEntity implements Parcelable {
         this.shareType = i;
     }
 
-    public boolean ciU() {
-        return this.shareType != 0 && (this.iNQ == 8 || this.iNQ == 4 || this.iNQ == 3 || this.iNQ == 2);
+    public boolean ciW() {
+        return this.shareType != 0 && (this.iNS == 8 || this.iNS == 4 || this.iNS == 3 || this.iNS == 2);
     }
 
     @Override // android.os.Parcelable
@@ -158,7 +158,7 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
         parcel.writeString(this.cjy);
-        parcel.writeInt(this.iNQ);
+        parcel.writeInt(this.iNS);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
         parcel.writeParcelable(this.cjA, i);

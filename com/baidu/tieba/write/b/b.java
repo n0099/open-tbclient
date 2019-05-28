@@ -21,12 +21,12 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends PopupWindow {
-    private View.OnClickListener cYi;
-    private ViewGroup eWp;
-    private View eWr;
-    private a jHW;
-    private TextView jHX;
+    private View.OnClickListener cYj;
+    private ViewGroup eWq;
+    private View eWs;
+    private a jHX;
     private TextView jHY;
+    private TextView jHZ;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -39,23 +39,23 @@ public class b extends PopupWindow {
 
     public b(Context context) {
         super(context);
-        this.cYi = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
+        this.cYj = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.jHX) {
-                    if (b.this.jHW != null) {
-                        b.this.jHW.mu(1);
+                if (view == b.this.jHY) {
+                    if (b.this.jHX != null) {
+                        b.this.jHX.mu(1);
                     }
-                } else if (view == b.this.jHY && b.this.jHW != null) {
-                    b.this.jHW.mu(0);
+                } else if (view == b.this.jHZ && b.this.jHX != null) {
+                    b.this.jHX.mu(0);
                 }
-                b.this.beG();
+                b.this.beJ();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.beG();
+                b.this.beJ();
             }
         };
         this.mContext = context;
@@ -68,51 +68,51 @@ public class b extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View beF() {
+    private View beI() {
         createContentView();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
-        this.eWp = frameLayout2;
+        this.eWq = frameLayout2;
         frameLayout.addView(frameLayout2);
-        frameLayout.addView(this.eWr);
-        this.eWp.setOnClickListener(this.mOnClickListener);
+        frameLayout.addView(this.eWs);
+        this.eWq.setOnClickListener(this.mOnClickListener);
         al.l(this.mLine, R.color.cp_bg_line_c);
-        al.k(this.eWr, R.drawable.window_bg_profession_select);
+        al.k(this.eWs, R.drawable.window_bg_profession_select);
         return frameLayout;
     }
 
     private void createContentView() {
-        this.eWr = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
-        this.jHX = (TextView) this.eWr.findViewById(R.id.profession_select_title_profession);
-        this.mLine = this.eWr.findViewById(R.id.profession_select_line);
-        this.jHY = (TextView) this.eWr.findViewById(R.id.profession_select_title_all);
-        this.jHX.setOnClickListener(this.cYi);
-        this.jHY.setOnClickListener(this.cYi);
+        this.eWs = LayoutInflater.from(this.mContext).inflate(R.layout.layout_profession_select, (ViewGroup) null);
+        this.jHY = (TextView) this.eWs.findViewById(R.id.profession_select_title_profession);
+        this.mLine = this.eWs.findViewById(R.id.profession_select_line);
+        this.jHZ = (TextView) this.eWs.findViewById(R.id.profession_select_title_all);
+        this.jHY.setOnClickListener(this.cYj);
+        this.jHZ.setOnClickListener(this.cYj);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
-            View beF = beF();
+            View beI = beI();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.jHV == 1) {
-                    this.jHX.setText(aVar.jHU);
+                if (aVar.jHW == 1) {
+                    this.jHY.setText(aVar.jHV);
                 } else {
-                    this.jHY.setText(aVar.jHU);
+                    this.jHZ.setText(aVar.jHV);
                 }
                 if (i == 1) {
-                    al.j(this.jHX, R.color.common_color_10140);
-                    al.j(this.jHY, R.color.cp_cont_j);
-                } else {
                     al.j(this.jHY, R.color.common_color_10140);
-                    al.j(this.jHX, R.color.cp_cont_j);
+                    al.j(this.jHZ, R.color.cp_cont_j);
+                } else {
+                    al.j(this.jHZ, R.color.common_color_10140);
+                    al.j(this.jHY, R.color.cp_cont_j);
                 }
             }
-            setContentView(beF);
+            setContentView(beI);
         }
     }
 
     public void a(a aVar) {
-        this.jHW = aVar;
+        this.jHX = aVar;
     }
 
     public void bm(View view) {
@@ -121,7 +121,7 @@ public class b extends PopupWindow {
                 int[] iArr = new int[2];
                 view.getLocationInWindow(iArr);
                 if (g.showPopupWindowAsDropDown(this, view, iArr[0] - (view.getWidth() / 2), 0)) {
-                    beH();
+                    beK();
                     return;
                 }
                 return;
@@ -130,7 +130,7 @@ public class b extends PopupWindow {
             int[] iArr2 = new int[2];
             view.getLocationInWindow(iArr2);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr2[0] + (view.getWidth() / 2), height)) {
-                beH();
+                beK();
             }
         }
     }
@@ -141,11 +141,11 @@ public class b extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        beG();
+        beJ();
     }
 
-    public void beG() {
-        beI();
+    public void beJ() {
+        beL();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -153,18 +153,18 @@ public class b extends PopupWindow {
         super.dismiss();
     }
 
-    private void beH() {
+    private void beK() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
         alphaAnimation.setDuration(350L);
         alphaAnimation.setInterpolator(new LinearInterpolator());
-        this.eWr.startAnimation(translateAnimation);
-        this.eWp.startAnimation(alphaAnimation);
+        this.eWs.startAnimation(translateAnimation);
+        this.eWq.startAnimation(alphaAnimation);
     }
 
-    private void beI() {
+    private void beL() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -186,7 +186,7 @@ public class b extends PopupWindow {
                 b.this.Me();
             }
         });
-        this.eWr.startAnimation(translateAnimation);
-        this.eWp.startAnimation(alphaAnimation);
+        this.eWs.startAnimation(translateAnimation);
+        this.eWq.startAnimation(alphaAnimation);
     }
 }

@@ -39,7 +39,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     private boolean csf;
     private boolean csg;
     private int csh;
-    private ImageView frP;
+    private ImageView frQ;
     private View mBottomLine;
     private TextView mSendView;
 
@@ -76,10 +76,10 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
     }
 
     private void eq(Context context) {
-        this.frP = new ImageView(context);
-        this.frP.setEnabled(true);
-        this.frP.setPadding(0, 0, com.baidu.adp.lib.util.l.g(context, R.dimen.tbds30), com.baidu.adp.lib.util.l.g(context, R.dimen.tbds24));
-        this.frP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
+        this.frQ = new ImageView(context);
+        this.frQ.setEnabled(true);
+        this.frQ.setPadding(0, 0, com.baidu.adp.lib.util.l.g(context, R.dimen.tbds30), com.baidu.adp.lib.util.l.g(context, R.dimen.tbds24));
+        this.frQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.videoplay.editor.VideoPlayInputContainer.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(1, 5, null));
@@ -87,7 +87,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 80;
-        this.csK.addView(this.frP, layoutParams);
+        this.csK.addView(this.frQ, layoutParams);
     }
 
     private void cN(Context context) {
@@ -122,7 +122,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.csG.getText().toString()));
                 }
                 VideoPlayInputContainer.this.mSendView.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
-                VideoPlayInputContainer.this.cuQ();
+                VideoPlayInputContainer.this.cuS();
             }
         });
         this.csG.setHint(context.getString(R.string.reply_something));
@@ -177,7 +177,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                 case 3:
                     if (this.csG.getSelectionStart() > 0) {
                         String substring = this.csG.getText().toString().substring(0, this.csG.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.eXx.matcher(substring);
+                        Matcher matcher = com.baidu.tieba.face.a.eXy.matcher(substring);
                         if (matcher.find()) {
                             this.csG.getText().delete(this.csG.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.csG.getSelectionStart());
                             return;
@@ -214,7 +214,7 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
                         this.csG.setText((CharSequence) null);
                     }
                     this.mSendView.setEnabled(false);
-                    cuQ();
+                    cuS();
                     return;
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof p)) {
@@ -311,12 +311,12 @@ public class VideoPlayInputContainer extends LinearLayout implements l {
             e(this.csG, R.drawable.edittext_cursor_1);
             this.csG.setHintTextColor(al.getColor(i, R.color.cp_cont_d));
         }
-        cuQ();
-        al.c(this.frP, (int) R.drawable.pbeditor_face_button);
+        cuS();
+        al.c(this.frQ, (int) R.drawable.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuQ() {
+    public void cuS() {
         if (this.mSendView.isEnabled()) {
             al.c(this.mSendView, R.color.cp_link_tip_a, 1, this.ccI);
         } else {

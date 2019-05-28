@@ -28,14 +28,14 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes5.dex */
 public class i extends com.baidu.tieba.frs.h<j, k> {
     private LikeModel ccn;
-    private int dYI;
-    private int flv;
+    private int dYJ;
+    private int flw;
     private View.OnClickListener mClickListener;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dYI = 0;
-        this.flv = 0;
+        this.dYJ = 0;
+        this.flw = 0;
         this.mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.i.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -69,7 +69,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: az */
     public k onCreateViewHolder(ViewGroup viewGroup) {
         if (this.ccn == null) {
-            aIr();
+            aIu();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -80,75 +80,75 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, k kVar) {
         super.onFillViewHolder(i, view, viewGroup, jVar, kVar);
-        if (jVar != null && jVar.biv() != null) {
+        if (jVar != null && jVar.biy() != null) {
             int parseColor = Color.parseColor("#56cfa1");
             int color = al.getColor(R.color.cp_cont_d);
-            com.baidu.tieba.tbadkCore.r biv = jVar.biv();
+            com.baidu.tieba.tbadkCore.r biy = jVar.biy();
             if (TbadkCoreApplication.isLogin()) {
-                if (biv.isLike() == 1) {
-                    kVar.flz.setVisibility(8);
-                    kVar.flA.setVisibility(0);
-                    kVar.flA.setText(R.string.mydegree);
-                    al.c(kVar.fkz, BitmapHelper.getSmallGradeResourceIdNew(biv.ckb()));
-                    if (StringUtils.isNull(biv.getLevelName())) {
-                        kVar.fkA.setVisibility(8);
+                if (biy.isLike() == 1) {
+                    kVar.flA.setVisibility(8);
+                    kVar.flB.setVisibility(0);
+                    kVar.flB.setText(R.string.mydegree);
+                    al.c(kVar.fkA, BitmapHelper.getSmallGradeResourceIdNew(biy.ckd()));
+                    if (StringUtils.isNull(biy.getLevelName())) {
+                        kVar.fkB.setVisibility(8);
                     } else {
-                        kVar.fkA.setText(biv.getLevelName());
-                        kVar.fkA.setVisibility(0);
+                        kVar.fkB.setText(biy.getLevelName());
+                        kVar.fkB.setVisibility(0);
                     }
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                    SpannableString spannableString = new SpannableString(biv.getCurScore() + "");
+                    SpannableString spannableString = new SpannableString(biy.getCurScore() + "");
                     spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                    SpannableString spannableString2 = new SpannableString("/" + biv.getLevelupScore());
+                    SpannableString spannableString2 = new SpannableString("/" + biy.getLevelupScore());
                     spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
                     spannableStringBuilder.append((CharSequence) spannableString);
                     spannableStringBuilder.append((CharSequence) spannableString2);
-                    kVar.flC.setText(spannableStringBuilder);
-                    kVar.flC.setVisibility(0);
-                    kVar.flG.setVisibility(0);
+                    kVar.flD.setText(spannableStringBuilder);
+                    kVar.flD.setVisibility(0);
                     kVar.flH.setVisibility(0);
+                    kVar.flI.setVisibility(0);
                 } else {
-                    kVar.flz.setVisibility(0);
-                    kVar.flA.setVisibility(8);
-                    kVar.fkz.setVisibility(8);
+                    kVar.flA.setVisibility(0);
+                    kVar.flB.setVisibility(8);
                     kVar.fkA.setVisibility(8);
-                    kVar.flC.setVisibility(8);
-                    kVar.flG.setVisibility(8);
+                    kVar.fkB.setVisibility(8);
+                    kVar.flD.setVisibility(8);
                     kVar.flH.setVisibility(8);
+                    kVar.flI.setVisibility(8);
                 }
             } else {
-                kVar.flz.setVisibility(8);
                 kVar.flA.setVisibility(8);
-                kVar.fkz.setVisibility(8);
+                kVar.flB.setVisibility(8);
                 kVar.fkA.setVisibility(8);
-                kVar.flC.setVisibility(8);
-                kVar.flG.setVisibility(8);
+                kVar.fkB.setVisibility(8);
+                kVar.flD.setVisibility(8);
                 kVar.flH.setVisibility(8);
+                kVar.flI.setVisibility(8);
             }
-            kVar.flz.setTag(Integer.valueOf(i));
-            kVar.fkA.setTag(Integer.valueOf(i));
-            kVar.fkA.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-            al.l(kVar.flD, R.color.cp_bg_line_d);
+            kVar.flA.setTag(Integer.valueOf(i));
+            kVar.fkB.setTag(Integer.valueOf(i));
+            kVar.fkB.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+            al.l(kVar.flE, R.color.cp_bg_line_d);
             al.l(kVar.aMY, R.color.cp_bg_line_b);
-            al.l(kVar.flE, R.color.cp_bg_line_c);
-            al.k(kVar.flz, R.drawable.frs_btn_like);
-            al.f(kVar.flz, R.color.white_alpha100, 1);
-            al.f(kVar.flA, R.color.cp_cont_b, 1);
-            al.f(kVar.fkA, R.color.cp_cont_d, 1);
-            al.f(kVar.flF, R.color.cp_cont_b, 1);
-            al.k(kVar.flG, R.drawable.forum_member_exp_progress);
-            al.l(kVar.flH, R.color.cp_bg_line_b);
-            if (this.dYI != biv.ckb() || this.flv != biv.getCurScore()) {
-                this.dYI = biv.ckb();
-                this.flv = biv.getCurScore();
-                kVar.flG.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, qL(this.dYI)));
+            al.l(kVar.flF, R.color.cp_bg_line_c);
+            al.k(kVar.flA, R.drawable.frs_btn_like);
+            al.f(kVar.flA, R.color.white_alpha100, 1);
+            al.f(kVar.flB, R.color.cp_cont_b, 1);
+            al.f(kVar.fkB, R.color.cp_cont_d, 1);
+            al.f(kVar.flG, R.color.cp_cont_b, 1);
+            al.k(kVar.flH, R.drawable.forum_member_exp_progress);
+            al.l(kVar.flI, R.color.cp_bg_line_b);
+            if (this.dYJ != biy.ckd() || this.flw != biy.getCurScore()) {
+                this.dYJ = biy.ckd();
+                this.flw = biy.getCurScore();
+                kVar.flH.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, qL(this.dYJ)));
                 float f = 0.0f;
-                this.flv = biv.getCurScore();
-                if (this.flv > biv.getLevelupScore()) {
-                    this.flv = biv.getLevelupScore();
+                this.flw = biy.getCurScore();
+                if (this.flw > biy.getLevelupScore()) {
+                    this.flw = biy.getLevelupScore();
                 }
-                if (biv.getLevelupScore() != 0) {
-                    f = this.flv / biv.getLevelupScore();
+                if (biy.getLevelupScore() != 0) {
+                    f = this.flw / biy.getLevelupScore();
                 }
                 if (f > 0.999f) {
                     f = 1.0f;
@@ -156,13 +156,13 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                 ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, f, 1.0f, 1.0f);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setDuration(1000L);
-                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.flG, scaleAnimation, null);
+                com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) this.mPageContext.getPageActivity(), kVar.flH, scaleAnimation, null);
             }
         }
         return view;
     }
 
-    private void aIr() {
+    private void aIu() {
         if (this.mPageContext != null) {
             this.ccn = new LikeModel(this.mPageContext);
             this.ccn.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2

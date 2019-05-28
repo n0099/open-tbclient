@@ -3,15 +3,15 @@ package com.facebook.imagepipeline.f;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes2.dex */
 public class f implements g {
-    public static final g kaZ = f(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
-    boolean kba;
+    public static final g kba = f(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, true, true);
     boolean kbb;
+    boolean kbc;
     int mQuality;
 
     private f(int i, boolean z, boolean z2) {
         this.mQuality = i;
-        this.kba = z;
-        this.kbb = z2;
+        this.kbb = z;
+        this.kbc = z2;
     }
 
     @Override // com.facebook.imagepipeline.f.g
@@ -20,17 +20,17 @@ public class f implements g {
     }
 
     @Override // com.facebook.imagepipeline.f.g
-    public boolean cGK() {
-        return this.kba;
-    }
-
-    @Override // com.facebook.imagepipeline.f.g
-    public boolean cGL() {
+    public boolean cGM() {
         return this.kbb;
     }
 
+    @Override // com.facebook.imagepipeline.f.g
+    public boolean cGN() {
+        return this.kbc;
+    }
+
     public int hashCode() {
-        return ((this.kba ? 4194304 : 0) ^ this.mQuality) ^ (this.kbb ? 8388608 : 0);
+        return ((this.kbb ? 4194304 : 0) ^ this.mQuality) ^ (this.kbc ? 8388608 : 0);
     }
 
     public boolean equals(Object obj) {
@@ -39,7 +39,7 @@ public class f implements g {
         }
         if (obj instanceof f) {
             f fVar = (f) obj;
-            return this.mQuality == fVar.mQuality && this.kba == fVar.kba && this.kbb == fVar.kbb;
+            return this.mQuality == fVar.mQuality && this.kbb == fVar.kbb && this.kbc == fVar.kbc;
         }
         return false;
     }

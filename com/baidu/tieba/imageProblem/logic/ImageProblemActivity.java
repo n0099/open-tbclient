@@ -8,41 +8,41 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
-    ImageProblemView gTC;
-    ImageProblemAssistant gTD;
-    CheckTask gTE;
+    ImageProblemView gTF;
+    ImageProblemAssistant gTG;
+    CheckTask gTH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gTD = new ImageProblemAssistant(getPageContext().getPageActivity());
-        this.gTC = new ImageProblemView(this, this.gTD);
+        this.gTG = new ImageProblemAssistant(getPageContext().getPageActivity());
+        this.gTF = new ImageProblemView(this, this.gTG);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.gTE != null) {
-            this.gTE.cancel();
-            this.gTE = null;
+        if (this.gTH != null) {
+            this.gTH.cancel();
+            this.gTH = null;
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gTC.getCheckButton()) {
-            if (this.gTE == null) {
-                this.gTC.getCheckButton().setText(getResources().getText(R.string.stop));
-                this.gTE = new CheckTask();
-                this.gTE.execute(new Object[0]);
+        if (view == this.gTF.getCheckButton()) {
+            if (this.gTH == null) {
+                this.gTF.getCheckButton().setText(getResources().getText(R.string.stop));
+                this.gTH = new CheckTask();
+                this.gTH.execute(new Object[0]);
                 return;
             }
-            this.gTC.getCheckButton().setText(getResources().getText(R.string.diagnose));
-            if (this.gTE != null) {
-                this.gTE.cancel();
-                this.gTE = null;
+            this.gTF.getCheckButton().setText(getResources().getText(R.string.diagnose));
+            if (this.gTH != null) {
+                this.gTH.cancel();
+                this.gTH = null;
             }
         }
     }
@@ -50,7 +50,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.gTC.onChangeSkinType(i);
+        this.gTF.onChangeSkinType(i);
     }
 
     /* loaded from: classes2.dex */
@@ -61,7 +61,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            ImageProblemActivity.this.gTC.start();
+            ImageProblemActivity.this.gTF.start();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,19 +70,19 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: f */
         public BdStatSwitchData doInBackground(Object... objArr) {
             publishProgress(0);
-            ImageProblemActivity.this.gTD.networkCheck();
+            ImageProblemActivity.this.gTG.networkCheck();
             publishProgress(1);
-            ImageProblemActivity.this.gTD.checkDNSIP();
+            ImageProblemActivity.this.gTG.checkDNSIP();
             publishProgress(2);
-            ImageProblemActivity.this.gTD.checkProxyIP();
+            ImageProblemActivity.this.gTG.checkProxyIP();
             publishProgress(3);
-            ImageProblemActivity.this.gTD.networkTest();
+            ImageProblemActivity.this.gTG.networkTest();
             publishProgress(4);
-            ImageProblemActivity.this.gTD.checkSetting();
+            ImageProblemActivity.this.gTG.checkSetting();
             publishProgress(5);
-            ImageProblemActivity.this.gTD.checkLoadImg();
+            ImageProblemActivity.this.gTG.checkLoadImg();
             publishProgress(6);
-            ImageProblemActivity.this.gTD.fix();
+            ImageProblemActivity.this.gTG.fix();
             publishProgress(7);
             return null;
         }
@@ -93,7 +93,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
             super.onProgressUpdate(numArr);
-            ImageProblemActivity.this.gTC.setValue(numArr[0].intValue(), ImageProblemActivity.this.gTD.taskList);
+            ImageProblemActivity.this.gTF.setValue(numArr[0].intValue(), ImageProblemActivity.this.gTG.taskList);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -102,9 +102,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         /* renamed from: a */
         public void onPostExecute(BdStatSwitchData bdStatSwitchData) {
             super.onPostExecute(bdStatSwitchData);
-            ImageProblemActivity.this.gTC.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
-            ImageProblemActivity.this.gTC.complete();
-            ImageProblemActivity.this.gTE = null;
+            ImageProblemActivity.this.gTF.getCheckButton().setText(ImageProblemActivity.this.getResources().getText(R.string.diagnose));
+            ImageProblemActivity.this.gTF.complete();
+            ImageProblemActivity.this.gTH = null;
         }
     }
 }

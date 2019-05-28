@@ -42,35 +42,35 @@ import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class PersonThreadFragment extends BaseFragment implements BdListView.e, b.a, PersonPostModel.a, PersonPostModel.b, c {
-    private ShareSuccessReplyToServerModel fEO;
-    private View fmn;
-    public PersonPostModel ijN;
-    private int iud;
-    private d iuf;
-    private h iui;
-    private FrameLayout iuj;
-    private com.baidu.tieba.post.a.a iuk;
-    private boolean iul;
-    private a ium;
-    private b iun;
-    private int iup;
+    private ShareSuccessReplyToServerModel fEP;
+    private View fmo;
+    public PersonPostModel ijQ;
+    private int iug;
+    private d iui;
+    private h iul;
+    private FrameLayout ium;
+    private com.baidu.tieba.post.a.a iun;
+    private boolean iuo;
+    private a iup;
+    private b iuq;
+    private int ius;
     private com.baidu.tbadk.core.view.i mPullView;
     private String mUid;
-    private String iuh = PhoneUtils.CPUInfo.FEATURE_COMMON;
+    private String iuk = PhoneUtils.CPUInfo.FEATURE_COMMON;
     private boolean mHasMore = false;
-    private boolean iue = true;
-    private boolean iuo = true;
+    private boolean iuh = true;
+    private boolean iur = true;
     private boolean cxs = false;
-    private CustomMessageListener ijO = new CustomMessageListener(2016557) { // from class: com.baidu.tieba.post.PersonThreadFragment.1
+    private CustomMessageListener ijR = new CustomMessageListener(2016557) { // from class: com.baidu.tieba.post.PersonThreadFragment.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && PersonThreadFragment.this.iuk != null) {
-                PersonThreadFragment.this.iuk.Ct((String) customResponsedMessage.getData());
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && PersonThreadFragment.this.iun != null) {
+                PersonThreadFragment.this.iun.Ct((String) customResponsedMessage.getData());
             }
         }
     };
-    private CustomMessageListener ijP = new CustomMessageListener(2016558) { // from class: com.baidu.tieba.post.PersonThreadFragment.2
+    private CustomMessageListener ijS = new CustomMessageListener(2016558) { // from class: com.baidu.tieba.post.PersonThreadFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -85,13 +85,13 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
                 if (com.baidu.adp.lib.util.j.jS() && PersonThreadFragment.this.cxs) {
-                    PersonThreadFragment.this.ccG();
-                    PersonThreadFragment.this.ium.bgq();
+                    PersonThreadFragment.this.ccJ();
+                    PersonThreadFragment.this.iup.bgt();
                 }
                 if (TbadkCoreApplication.isMyLive) {
-                    BdListViewHelper.a(PersonThreadFragment.this.fmn, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.jS());
+                    BdListViewHelper.a(PersonThreadFragment.this.fmo, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.jS());
                 } else {
-                    BdListViewHelper.a(PersonThreadFragment.this.fmn, BdListViewHelper.HeadType.HASTAB, true);
+                    BdListViewHelper.a(PersonThreadFragment.this.fmo, BdListViewHelper.HeadType.HASTAB, true);
                 }
             }
         }
@@ -101,9 +101,9 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         registerListener(this.mNetworkChangedMessageListener);
-        this.ijN = new PersonPostModel(getPageContext(), getUniqueId(), this, true, PersonPostModel.FROM_PERSON_POST);
-        this.ijN.setUniqueId(getUniqueId());
-        this.fEO = new ShareSuccessReplyToServerModel();
+        this.ijQ = new PersonPostModel(getPageContext(), getUniqueId(), this, true, PersonPostModel.FROM_PERSON_POST);
+        this.ijQ.setUniqueId(getUniqueId());
+        this.fEP = new ShareSuccessReplyToServerModel();
     }
 
     @Override // android.support.v4.app.Fragment
@@ -111,28 +111,28 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         String string;
         NoDataViewFactory.b bVar;
         View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.person_thread_fragment, viewGroup, false);
-        this.iuj = (FrameLayout) inflate.findViewById(R.id.root_view);
-        this.iui = new h(getActivity(), inflate);
-        if (this.iui.ccJ() == null) {
-            this.iui.b(this.iuf);
+        this.ium = (FrameLayout) inflate.findViewById(R.id.root_view);
+        this.iul = new h(getActivity(), inflate);
+        if (this.iul.ccM() == null) {
+            this.iul.b(this.iui);
         }
-        if (this.iui.ius != null) {
-            al.l(this.iui.ius, R.color.cp_bg_line_d);
+        if (this.iul.iuv != null) {
+            al.l(this.iul.iuv, R.color.cp_bg_line_d);
         }
         String string2 = getArguments().getString("thread_type_key");
         if (!ap.isEmpty(string2)) {
-            this.iuh = string2;
+            this.iuk = string2;
         }
         NoDataViewFactory.a aVar = new NoDataViewFactory.a(getString(R.string.to_be_an_liver), new View.OnClickListener() { // from class: com.baidu.tieba.post.PersonThreadFragment.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PersonThreadFragment.this.ccC();
+                PersonThreadFragment.this.ccF();
             }
         });
         int dimension = (int) getResources().getDimension(R.dimen.ds102);
         String str = "";
         NoDataViewFactory.c a2 = NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, dimension);
-        if (this.iuh.equals("photolive")) {
+        if (this.iuk.equals("photolive")) {
             int i = com.baidu.tbadk.core.sharedPref.b.agM().getInt(TbadkCoreApplication.getCurrentAccount() + "photolive_hostLevel", -1);
             if (i == 0) {
                 str = getPageContext().getResources().getString(R.string.to_live_to_god);
@@ -144,35 +144,35 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
                 bVar = null;
             }
             if (i < 0) {
-                ccD();
+                ccG();
             }
         } else {
             string = getArguments().getString("key_empty_view_text");
             bVar = null;
         }
-        this.iui.mNoDataView = NoDataViewFactory.a(getActivity(), null, a2, NoDataViewFactory.d.bW(string, str), bVar);
+        this.iul.mNoDataView = NoDataViewFactory.a(getActivity(), null, a2, NoDataViewFactory.d.bW(string, str), bVar);
         return inflate;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        registerListener(this.ijO);
-        registerListener(this.ijP);
+        registerListener(this.ijR);
+        registerListener(this.ijS);
     }
 
     @Override // android.support.v4.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         this.mUid = getArguments().getString("key_uid");
-        if (this.iuh.equals("photolive")) {
-            this.iup = 33;
+        if (this.iuk.equals("photolive")) {
+            this.ius = 33;
         }
-        this.iuk = new com.baidu.tieba.post.a.a(getPageContext(), this.iui.ius);
-        this.iui.ccI().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.post.PersonThreadFragment.4
+        this.iun = new com.baidu.tieba.post.a.a(getPageContext(), this.iul.iuv);
+        this.iul.ccL().setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.post.PersonThreadFragment.4
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
                 CardPersonDynamicThreadData cardPersonDynamicThreadData;
-                if (i >= 0 && PersonThreadFragment.this.iuk != null && i < v.Z(PersonThreadFragment.this.ijN.threadList) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) PersonThreadFragment.this.iuk.iiy.getItem(i)) != null) {
+                if (i >= 0 && PersonThreadFragment.this.iun != null && i < v.Z(PersonThreadFragment.this.ijQ.threadList) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) PersonThreadFragment.this.iun.iiB.getItem(i)) != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(PersonThreadFragment.this.getActivity()).createCfgForPersonCenter(String.valueOf(cardPersonDynamicThreadData.threadId), String.valueOf(cardPersonDynamicThreadData.postId), "person_page", 18005)));
                 }
             }
@@ -181,76 +181,76 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         this.mPullView.setListPullRefreshListener(new h.c() { // from class: com.baidu.tieba.post.PersonThreadFragment.5
             @Override // com.baidu.tbadk.core.view.h.c
             public void en(boolean z) {
-                if (PersonThreadFragment.this.ijN != null) {
-                    PersonThreadFragment.this.iue = true;
+                if (PersonThreadFragment.this.ijQ != null) {
+                    PersonThreadFragment.this.iuh = true;
                     if (!com.baidu.adp.lib.util.j.jG()) {
-                        if (PersonThreadFragment.this.iui != null) {
-                            PersonThreadFragment.this.iui.aj(PersonThreadFragment.this.getString(R.string.neterror), true);
+                        if (PersonThreadFragment.this.iul != null) {
+                            PersonThreadFragment.this.iul.aj(PersonThreadFragment.this.getString(R.string.neterror), true);
                             return;
                         }
                         return;
                     }
-                    PersonThreadFragment.this.ccF();
+                    PersonThreadFragment.this.ccI();
                 }
             }
         });
-        this.iui.ius.setPullRefresh(this.mPullView);
+        this.iul.iuv.setPullRefresh(this.mPullView);
         if (TbadkCoreApplication.isMyLive) {
-            this.fmn = BdListViewHelper.a(getActivity(), this.iui.ius, BdListViewHelper.HeadType.DEFAULT);
-            BdListViewHelper.a(this.fmn, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.jS());
+            this.fmo = BdListViewHelper.a(getActivity(), this.iul.iuv, BdListViewHelper.HeadType.DEFAULT);
+            BdListViewHelper.a(this.fmo, BdListViewHelper.HeadType.DEFAULT, com.baidu.adp.lib.util.j.jS());
         } else {
-            this.fmn = BdListViewHelper.a(getActivity(), this.iui.ius, BdListViewHelper.HeadType.HASTAB);
-            BdListViewHelper.a(this.fmn, BdListViewHelper.HeadType.HASTAB, true);
+            this.fmo = BdListViewHelper.a(getActivity(), this.iul.iuv, BdListViewHelper.HeadType.HASTAB);
+            BdListViewHelper.a(this.fmo, BdListViewHelper.HeadType.HASTAB, true);
         }
-        this.iui.ius.setOnSrollToBottomListener(this);
-        this.ium = new a(getBaseFragmentActivity());
-        this.iui.ius.setNextPage(this.ium);
+        this.iul.iuv.setOnSrollToBottomListener(this);
+        this.iup = new a(getBaseFragmentActivity());
+        this.iul.iuv.setNextPage(this.iup);
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (this.mHasMore) {
-            ccG();
-            this.ium.bgq();
+            ccJ();
+            this.iup.bgt();
             this.cxs = true;
             return;
         }
-        this.ium.pW(false);
+        this.iup.pW(false);
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.a
     public void b(PersonPostModel personPostModel, boolean z) {
-        if (personPostModel != null && this.ijN != null) {
+        if (personPostModel != null && this.ijQ != null) {
             if (z) {
-                this.ijN.threadList.clear();
+                this.ijQ.threadList.clear();
             }
             ArrayList<com.baidu.adp.widget.ListView.m> arrayList = personPostModel.threadList;
-            if (personPostModel.view_card_num > 0 && this.iuo) {
+            if (personPostModel.view_card_num > 0 && this.iur) {
                 v.a(arrayList, personPostModel.view_card_num - 1, new com.baidu.tieba.personPolymeric.c.j());
-                this.iuo = false;
+                this.iur = false;
             }
-            if (this.ijN.threadList.isEmpty()) {
+            if (this.ijQ.threadList.isEmpty()) {
                 com.baidu.adp.widget.ListView.m mVar = (com.baidu.adp.widget.ListView.m) v.c(arrayList, 0);
                 if (mVar instanceof CardPersonDynamicThreadData) {
-                    ((CardPersonDynamicThreadData) mVar).eBN = true;
+                    ((CardPersonDynamicThreadData) mVar).eBO = true;
                 } else if (mVar instanceof com.baidu.tieba.personPolymeric.c.j) {
-                    ((com.baidu.tieba.personPolymeric.c.j) mVar).eBN = true;
+                    ((com.baidu.tieba.personPolymeric.c.j) mVar).eBO = true;
                 }
             }
-            this.ijN.threadList.addAll(arrayList);
-            PersonPostModel.mergeDynamicThreadByTime(this.ijN.threadList);
+            this.ijQ.threadList.addAll(arrayList);
+            PersonPostModel.mergeDynamicThreadByTime(this.ijQ.threadList);
         }
-        if (this.iun != null) {
-            this.iun.pT(personPostModel.isShowRecycleBinRedTip);
+        if (this.iuq != null) {
+            this.iuq.pT(personPostModel.isShowRecycleBinRedTip);
         }
         a(personPostModel, z);
-        this.iuk.I(this.ijN.threadList);
-        this.iuk.notifyDataSetChanged();
+        this.iun.I(this.ijQ.threadList);
+        this.iun.notifyDataSetChanged();
     }
 
     /* loaded from: classes6.dex */
     public static class a extends com.baidu.adp.widget.ListView.b {
-        private BaseFragmentActivity cWD;
+        private BaseFragmentActivity cWE;
         private View cxO;
         private int bgColor = R.color.cp_bg_line_d;
         private TextView mTextView = null;
@@ -260,13 +260,13 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         private int mSkinType = 3;
 
         public a(BaseFragmentActivity baseFragmentActivity) {
-            this.cWD = null;
-            this.cWD = baseFragmentActivity;
+            this.cWE = null;
+            this.cWE = baseFragmentActivity;
         }
 
         @Override // com.baidu.adp.widget.ListView.b
         public View nG() {
-            this.bBg = LayoutInflater.from(this.cWD.getPageContext().getContext()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+            this.bBg = LayoutInflater.from(this.cWE.getPageContext().getContext()).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
             this.mTextView = (TextView) this.bBg.findViewById(R.id.pb_more_text);
             this.cxO = this.bBg.findViewById(R.id.pb_more_view);
             al.l(this.bBg, this.bgColor);
@@ -275,12 +275,12 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
             this.mProgressBar = (ProgressBar) this.bBg.findViewById(R.id.progress);
             jT(TbadkCoreApplication.getInst().getSkinType());
             al.j(this.mTextView, R.color.common_color_10039);
-            this.cxO.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.g(this.cWD.getPageContext().getPageActivity(), R.dimen.ds120)));
+            this.cxO.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.g(this.cWE.getPageContext().getPageActivity(), R.dimen.ds120)));
             return this.bBg;
         }
 
         public void jT(int i) {
-            this.cWD.getLayoutMode().onModeChanged(this.cxO);
+            this.cWE.getLayoutMode().onModeChanged(this.cxO);
         }
 
         @SuppressLint({"ResourceAsColor"})
@@ -293,13 +293,13 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
             }
         }
 
-        public void bgq() {
+        public void bgt() {
             this.mProgressBar.setVisibility(0);
-            this.mTextView.setText(this.cWD.getPageContext().getPageActivity().getText(R.string.loading));
+            this.mTextView.setText(this.cWE.getPageContext().getPageActivity().getText(R.string.loading));
             this.cxO.setVisibility(0);
         }
 
-        public void ccH() {
+        public void ccK() {
             al.l(this.bBg, R.color.cp_bg_line_c);
         }
 
@@ -310,11 +310,11 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
             if (this.mTextView != null) {
                 if (!z) {
                     this.cxO.setVisibility(0);
-                    this.mTextView.setText(this.cWD.getResources().getString(R.string.list_no_more));
+                    this.mTextView.setText(this.cWE.getResources().getString(R.string.list_no_more));
                     return;
                 }
                 this.cxO.setVisibility(0);
-                this.mTextView.setText(this.cWD.getResources().getString(R.string.load_more));
+                this.mTextView.setText(this.cWE.getResources().getString(R.string.load_more));
             }
         }
 
@@ -330,35 +330,35 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (isAdded()) {
-            if (this.iui.mNoDataView != null) {
-                this.iui.mNoDataView.e(getPageContext());
+            if (this.iul.mNoDataView != null) {
+                this.iul.mNoDataView.e(getPageContext());
             }
             if (this.mPullView != null) {
                 this.mPullView.iP(i);
             }
-            if (this.iuk != null) {
-                this.iuk.notifyDataSetChanged();
+            if (this.iun != null) {
+                this.iun.notifyDataSetChanged();
             }
-            if (this.ium != null) {
-                this.ium.iP(i);
+            if (this.iup != null) {
+                this.iup.iP(i);
             }
-            al.l(this.iui.ius, R.color.cp_bg_line_d);
+            al.l(this.iul.iuv, R.color.cp_bg_line_d);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStart() {
         super.onStart();
-        if (this.iui.mNoDataView != null) {
-            this.iui.mNoDataView.e(getPageContext());
+        if (this.iul.mNoDataView != null) {
+            this.iul.mNoDataView.e(getPageContext());
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onStop() {
         super.onStop();
-        if (this.iui.mNoDataView != null) {
-            this.iui.mNoDataView.onActivityStop();
+        if (this.iul.mNoDataView != null) {
+            this.iul.mNoDataView.onActivityStop();
         }
     }
 
@@ -366,15 +366,15 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
     public void onResume() {
         super.onResume();
         onActive();
-        if (this.iuk != null) {
-            this.iuk.notifyDataSetChanged();
+        if (this.iun != null) {
+            this.iun.notifyDataSetChanged();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
-        if (this.ijN != null) {
-            this.ijN.cancelLoadData();
+        if (this.ijQ != null) {
+            this.ijQ.cancelLoadData();
         }
         try {
             com.baidu.tbadk.e.a.Jv();
@@ -394,15 +394,15 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
         CardPersonDynamicThreadData cardPersonDynamicThreadData;
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
-            if (i == 18005 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.iuk != null && this.ijN != null && v.Z(this.ijN.threadList) > 0) {
-                int Z = v.Z(this.ijN.threadList);
+            if (i == 18005 && intent != null && (stringExtra = intent.getStringExtra("tid")) != null && this.iun != null && this.ijQ != null && v.Z(this.ijQ.threadList) > 0) {
+                int Z = v.Z(this.ijQ.threadList);
                 int i3 = 0;
                 while (true) {
                     if (i3 >= Z) {
                         z = false;
                         break;
                     }
-                    com.baidu.adp.widget.ListView.m mVar = (com.baidu.adp.widget.ListView.m) v.c(this.ijN.threadList, i3);
+                    com.baidu.adp.widget.ListView.m mVar = (com.baidu.adp.widget.ListView.m) v.c(this.ijQ.threadList, i3);
                     if ((mVar instanceof CardPersonDynamicThreadData) && (cardPersonDynamicThreadData = (CardPersonDynamicThreadData) mVar) != null && stringExtra.equals(String.valueOf(cardPersonDynamicThreadData.threadId))) {
                         z = true;
                         break;
@@ -410,15 +410,15 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
                     i3++;
                 }
                 if (z && intent.getIntExtra("type", -1) == 0) {
-                    v.d(this.ijN.threadList, i3);
-                    this.iuk.notifyDataSetChanged();
+                    v.d(this.ijQ.threadList, i3);
+                    this.iun.notifyDataSetChanged();
                 }
             }
             if (i == 24007) {
                 int intExtra = intent.getIntExtra("extra_share_status", 2);
                 int intExtra2 = intent.getIntExtra("extra_show_channel", 1);
-                if (intExtra == 1 && (shareItem = TbadkCoreApplication.getInst().getShareItem()) != null && shareItem.linkUrl != null && this.fEO != null) {
-                    this.fEO.a(shareItem.linkUrl, intExtra2, new ShareSuccessReplyToServerModel.a() { // from class: com.baidu.tieba.post.PersonThreadFragment.6
+                if (intExtra == 1 && (shareItem = TbadkCoreApplication.getInst().getShareItem()) != null && shareItem.linkUrl != null && this.fEP != null) {
+                    this.fEP.a(shareItem.linkUrl, intExtra2, new ShareSuccessReplyToServerModel.a() { // from class: com.baidu.tieba.post.PersonThreadFragment.6
                         @Override // com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.a
                         public void anI() {
                         }
@@ -441,43 +441,43 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
     }
 
     public void onActive() {
-        if (!this.iul) {
-            this.iui.ius.startPullRefresh();
-            this.iul = true;
+        if (!this.iuo) {
+            this.iul.iuv.startPullRefresh();
+            this.iuo = true;
         }
     }
 
-    public h ccB() {
-        return this.iui;
+    public h ccE() {
+        return this.iul;
     }
 
     @Override // com.baidu.tieba.post.c
-    public void ccw() {
-        if (this.iui != null && this.iui.ius != null) {
-            this.iui.ius.startPullRefresh();
+    public void ccz() {
+        if (this.iul != null && this.iul.iuv != null) {
+            this.iul.iuv.startPullRefresh();
         }
     }
 
     public void a(d dVar) {
-        this.iuf = dVar;
+        this.iui = dVar;
     }
 
     public void a(b bVar) {
-        this.iun = bVar;
+        this.iuq = bVar;
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.b
     public void a(PersonPostModel personPostModel, boolean z) {
         this.cxs = false;
         if (isAdded()) {
-            this.iui.ius.completePullRefreshPostDelayed(0L);
-            this.iui.ius.setEmptyView(null);
-            if (personPostModel != null || this.iue) {
-                if (personPostModel == null || (personPostModel.threadList.size() == 0 && this.iue && StringUtils.isNull(personPostModel.getErrorString()))) {
+            this.iul.iuv.completePullRefreshPostDelayed(0L);
+            this.iul.iuv.setEmptyView(null);
+            if (personPostModel != null || this.iuh) {
+                if (personPostModel == null || (personPostModel.threadList.size() == 0 && this.iuh && StringUtils.isNull(personPostModel.getErrorString()))) {
                     pV(true);
                     return;
                 }
-                if (personPostModel.threadList.size() == 0 && this.iue) {
+                if (personPostModel.threadList.size() == 0 && this.iuh) {
                     pV(true);
                 } else {
                     pV(false);
@@ -492,53 +492,53 @@ public class PersonThreadFragment extends BaseFragment implements BdListView.e, 
                     } else {
                         this.mHasMore = true;
                     }
-                    this.iud = 0;
-                    this.iue = false;
+                    this.iug = 0;
+                    this.iuh = false;
                 }
-                this.ium.pW(this.mHasMore);
+                this.iup.pW(this.mHasMore);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016221));
             }
         }
     }
 
     private void pV(boolean z) {
-        this.iui.ius.removeHeaderView(this.iui.mNoDataView);
+        this.iul.iuv.removeHeaderView(this.iul.mNoDataView);
         if (z) {
-            this.iui.mNoDataView.setVisibility(0);
-            this.iui.ius.addHeaderView(this.iui.mNoDataView);
-            this.ium.getView().setVisibility(8);
+            this.iul.mNoDataView.setVisibility(0);
+            this.iul.iuv.addHeaderView(this.iul.mNoDataView);
+            this.iup.getView().setVisibility(8);
             return;
         }
-        this.ium.getView().setVisibility(0);
-        this.ium.ccH();
+        this.iup.getView().setVisibility(0);
+        this.iup.ccK();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccC() {
+    public void ccF() {
         TiebaStatic.log("c10491");
-        ccE();
+        ccH();
         com.baidu.tbadk.e.a.b(getBaseFragmentActivity()).a(1, this);
     }
 
-    private void ccD() {
-        ccE();
+    private void ccG() {
+        ccH();
         com.baidu.tbadk.e.a.b(getBaseFragmentActivity()).b(this);
     }
 
-    private void ccE() {
+    private void ccH() {
         com.baidu.tbadk.e.a.b(getBaseFragmentActivity()).a(true, true, true, this);
     }
 
-    public void ccF() {
-        if (this.ijN != null) {
-            this.ijN.fetchPost(getPageContext(), this, true, this.mUid, true, this.iup, false, true);
-            this.iuo = true;
+    public void ccI() {
+        if (this.ijQ != null) {
+            this.ijQ.fetchPost(getPageContext(), this, true, this.mUid, true, this.ius, false, true);
+            this.iur = true;
         }
     }
 
-    public void ccG() {
-        if (this.ijN != null) {
-            this.ijN.fetchPost(getPageContext(), this, false, this.mUid, true, false, true);
+    public void ccJ() {
+        if (this.ijQ != null) {
+            this.ijQ.fetchPost(getPageContext(), this, false, this.mUid, true, false, true);
         }
     }
 }

@@ -22,6 +22,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.u;
 import com.baidu.tbadk.d.a;
+import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public final class TbSingleton {
@@ -35,6 +36,7 @@ public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private static int VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE = 2;
     private static int VIDEO_ENTER_TYPE_NO_JUMP_VIDEO_MIDDLE_PAGE = 1;
+    public ArrayList<String> testUrls = new ArrayList<>();
     private long pushDialogLoopTime = ap.bSz;
     private long pushDialogShowTime = 5 * ap.bSy;
     private long lastResumeTime = 0;
@@ -56,6 +58,7 @@ public final class TbSingleton {
     private int mIsNotchScreen = -1;
     private int mIsCutoutScreen = -1;
     public boolean mStartGameClicked = false;
+    private boolean hasDownloadEmotion = false;
     private final BroadcastReceiver mHeadSetStateReceiver = new BroadcastReceiver() { // from class: com.baidu.tbadk.TbSingleton.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -391,6 +394,14 @@ public final class TbSingleton {
 
     public u getShakeData() {
         return this.mShakeData;
+    }
+
+    public boolean hasDownloadEmotion() {
+        return this.hasDownloadEmotion;
+    }
+
+    public void setHasDownloadEmotion(boolean z) {
+        this.hasDownloadEmotion = z;
     }
 
     public String getInvokeSource() {

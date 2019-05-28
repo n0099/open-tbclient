@@ -12,21 +12,21 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes3.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     private NewWriteModel csp;
-    private b jFs;
-    private a jFt;
-    private AccessState jFu;
+    private b jFt;
+    private a jFu;
+    private AccessState jFv;
     private WriteData mWriteData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.jFs = new b(this);
+        this.jFt = new b(this);
         Intent intent = getIntent();
         if (intent != null) {
-            this.jFu = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
+            this.jFv = (AccessState) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_ACCESS_STATE);
             this.mWriteData = (WriteData) intent.getSerializableExtra(AccountAccessActivityConfig.KEY_WRITE_DATA);
-            if (this.mWriteData == null || this.jFu == null) {
+            if (this.mWriteData == null || this.jFv == null) {
                 finish();
                 return;
             }
@@ -35,9 +35,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
             if (this.mWriteData.getWriteImagesInfo() != null) {
                 this.csp.qS(this.mWriteData.getWriteImagesInfo().size() > 0);
             }
-            this.jFt = new a(this.jFs, this.csp);
-            this.jFs.c(this.jFt);
-            this.jFt.U(cwB());
+            this.jFu = new a(this.jFt, this.csp);
+            this.jFt.c(this.jFu);
+            this.jFu.U(cwD());
         }
     }
 
@@ -55,14 +55,14 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jFs.onDestory();
+        this.jFt.onDestory();
     }
 
-    public String cwB() {
-        if (this.jFu == null || this.jFu.getUserInfo() == null) {
+    public String cwD() {
+        if (this.jFv == null || this.jFv.getUserInfo() == null) {
             return null;
         }
-        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.jFu.getToken(), this.jFu.getType(), this.jFu.getUserInfo().strMobile, this.jFu.getUserInfo().strEmail);
+        return String.format("%s?token=%s&type=%s&strMobile=%s&strEmail=%s", "http://tieba.baidu.com/mo/q/account/access", this.jFv.getToken(), this.jFv.getType(), this.jFv.getUserInfo().strMobile, this.jFv.getUserInfo().strEmail);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

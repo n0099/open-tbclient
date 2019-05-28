@@ -252,7 +252,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                 this.csp.getWriteData().setVoice(null);
                 this.csp.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.csp.cnF()) {
+            if (!this.csp.cnH()) {
                 alf().showToast((int) R.string.write_img_limit);
             } else if (this.csx == null || !this.csx.arq()) {
                 if (this.csw != null) {

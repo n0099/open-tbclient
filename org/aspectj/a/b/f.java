@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    int kfL;
-    ClassLoader kla = null;
-    String klj;
-    Class klk;
-    a kll;
-    private String klm;
+    int kfM;
+    ClassLoader klb = null;
+    String klk;
+    Class kll;
+    a klm;
+    private String kln;
     String name;
-    private static boolean eNF = true;
+    private static boolean eNG = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] kln = new Class[0];
+    static Class[] klo = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.kfL = -1;
-        this.kfL = i;
+        this.kfM = -1;
+        this.kfM = i;
         this.name = str;
-        this.klk = cls;
+        this.kll = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (eNF) {
-            if (this.kll == null) {
+        if (eNG) {
+            if (this.klm == null) {
                 try {
-                    this.kll = new b();
+                    this.klm = new b();
                 } catch (Throwable th) {
-                    eNF = false;
+                    eNG = false;
                 }
             } else {
-                str = this.kll.get(hVar.kly);
+                str = this.klm.get(hVar.klz);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (eNF) {
-            this.kll.aP(hVar.kly, str);
+        if (eNG) {
+            this.klm.aP(hVar.klz, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.klA);
+        return a(h.klB);
     }
 
     public int getModifiers() {
-        if (this.kfL == -1) {
-            this.kfL = Eb(0);
+        if (this.kfM == -1) {
+            this.kfM = Eb(0);
         }
-        return this.kfL;
+        return this.kfM;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class cKo() {
+    public Class cKq() {
+        if (this.kll == null) {
+            this.kll = Ec(2);
+        }
+        return this.kll;
+    }
+
+    public String cKr() {
         if (this.klk == null) {
-            this.klk = Ec(2);
+            this.klk = cKq().getName();
         }
         return this.klk;
     }
 
-    public String cKp() {
-        if (this.klj == null) {
-            this.klj = cKo().getName();
+    private ClassLoader cKs() {
+        if (this.klb == null) {
+            this.klb = getClass().getClassLoader();
         }
-        return this.klj;
-    }
-
-    private ClassLoader cKq() {
-        if (this.kla == null) {
-            this.kla = getClass().getClassLoader();
-        }
-        return this.kla;
+        return this.klb;
     }
 
     String Ea(int i) {
         int i2 = 0;
-        int indexOf = this.klm.indexOf(45);
+        int indexOf = this.kln.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.klm.indexOf(45, i2);
+            indexOf = this.kln.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.klm.length();
+            indexOf = this.kln.length();
         }
-        return this.klm.substring(i2, indexOf);
+        return this.kln.substring(i2, indexOf);
     }
 
     int Eb(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class Ec(int i) {
-        return org.aspectj.a.b.b.b(Ea(i), cKq());
+        return org.aspectj.a.b.b.b(Ea(i), cKs());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cKq());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cKs());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference klo;
+        private SoftReference klp;
 
         public b() {
-            cKs();
+            cKu();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] cKr = cKr();
-            if (cKr == null) {
+            String[] cKt = cKt();
+            if (cKt == null) {
                 return null;
             }
-            return cKr[i];
+            return cKt[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void aP(int i, String str) {
-            String[] cKr = cKr();
-            if (cKr == null) {
-                cKr = cKs();
+            String[] cKt = cKt();
+            if (cKt == null) {
+                cKt = cKu();
             }
-            cKr[i] = str;
+            cKt[i] = str;
         }
 
-        private String[] cKr() {
-            return (String[]) this.klo.get();
+        private String[] cKt() {
+            return (String[]) this.klp.get();
         }
 
-        private String[] cKs() {
+        private String[] cKu() {
             String[] strArr = new String[3];
-            this.klo = new SoftReference(strArr);
+            this.klp = new SoftReference(strArr);
             return strArr;
         }
     }

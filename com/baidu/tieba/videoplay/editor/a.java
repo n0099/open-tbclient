@@ -33,8 +33,8 @@ public class a extends d {
     private final NewWriteModel.d csD;
     private String csm;
     private NewWriteModel csp;
-    private com.baidu.tieba.write.b ggd;
-    private InterfaceC0425a jzA;
+    private com.baidu.tieba.write.b gge;
+    private InterfaceC0425a jzB;
     private TbPageContext<?> mContext;
     private String mForumId;
     private String mForumName;
@@ -60,15 +60,15 @@ public class a extends d {
                     if (a.this.aqS() != null) {
                         a.this.aqS().hide();
                     }
-                    if (a.this.jzA != null) {
-                        a.this.jzA.rC(false);
+                    if (a.this.jzB != null) {
+                        a.this.jzB.rC(false);
                     }
                     WriteData writeData2 = writeData == null ? a.this.csp.getWriteData() : writeData;
                     if (z) {
-                        a.this.ggd.FE(null);
-                        a.this.ggd.aI(null);
-                        a.this.ggd.rJ(false);
-                        a.this.cuO();
+                        a.this.gge.FE(null);
+                        a.this.gge.aI(null);
+                        a.this.gge.rJ(false);
+                        a.this.cuQ();
                         a.this.resetData();
                         if (writeData2 != null) {
                             String string = a.this.alf().getResources().getString(R.string.replay_success);
@@ -96,9 +96,9 @@ public class a extends d {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.mContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.Fy(postWriteCallBackData.getErrorString());
-                        a.this.ggd.aI(postWriteCallBackData.getSensitiveWords());
-                        a.this.ggd.FE(postWriteCallBackData.getErrorString());
-                        if (!v.aa(a.this.ggd.cwc())) {
+                        a.this.gge.aI(postWriteCallBackData.getSensitiveWords());
+                        a.this.gge.FE(postWriteCallBackData.getErrorString());
+                        if (!v.aa(a.this.gge.cwe())) {
                             a.this.lj(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.AD(postWriteCallBackData.getErrorCode()))) {
@@ -120,18 +120,18 @@ public class a extends d {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (a.this.ggd != null) {
-                    if (!a.this.ggd.cwf()) {
+                if (a.this.gge != null) {
+                    if (!a.this.gge.cwh()) {
                         a.this.lj(false);
                     }
-                    a.this.ggd.rK(false);
+                    a.this.gge.rK(false);
                 }
             }
         };
         editorTools.fd(true);
-        this.ggd = new com.baidu.tieba.write.b();
-        this.ggd.Cc(R.color.cp_cont_h_alpha85);
-        this.ggd.Cb(R.color.cp_btn_a);
+        this.gge = new com.baidu.tieba.write.b();
+        this.gge.Cc(R.color.cp_cont_h_alpha85);
+        this.gge.Cb(R.color.cp_btn_a);
     }
 
     public void a(TbPageContext<?> tbPageContext) {
@@ -181,14 +181,14 @@ public class a extends d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuO() {
+    public void cuQ() {
         if (aqS() != null) {
             aqS().b(new com.baidu.tbadk.editortools.a(9, -1, true));
             aqS().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             aqS().hide();
         }
-        if (this.jzA != null) {
-            this.jzA.rC(true);
+        if (this.jzB != null) {
+            this.jzB.rC(true);
         }
     }
 
@@ -228,7 +228,7 @@ public class a extends d {
                     this.csD.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.csp.getWriteData(), null);
                     return;
                 } else if (i2 == -1) {
-                    cuO();
+                    cuQ();
                     return;
                 } else {
                     return;
@@ -243,17 +243,17 @@ public class a extends d {
         if (aqS() != null && (aqS().kj(28) instanceof c) && ((c) aqS().kj(28)).getInputView() != null && ((c) aqS().kj(28)).getInputView().getText() != null) {
             EditText inputView = ((c) aqS().kj(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
-            SpannableStringBuilder b = this.ggd.b(inputView.getText());
+            SpannableStringBuilder b = this.gge.b(inputView.getText());
             if (b != null) {
-                this.ggd.rK(true);
+                this.gge.rK(true);
                 inputView.setText(b);
-                if (z && this.ggd.cwd() >= 0) {
+                if (z && this.gge.cwf() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.ggd.cwd());
+                    inputView.setSelection(this.gge.cwf());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.ggd.rJ(this.ggd.cwd() >= 0);
+                this.gge.rJ(this.gge.cwf() >= 0);
             }
         }
     }
@@ -266,10 +266,10 @@ public class a extends d {
     }
 
     public void a(InterfaceC0425a interfaceC0425a) {
-        this.jzA = interfaceC0425a;
+        this.jzB = interfaceC0425a;
     }
 
-    public void cuP() {
+    public void cuR() {
         am amVar = new am("c13026");
         amVar.bT("tid", this.mThreadId);
         amVar.l("uid", TbadkCoreApplication.getCurrentAccountId());

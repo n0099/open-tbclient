@@ -14,47 +14,47 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class d {
-    public static String dbv = "https://mbd.baidu.com";
-
-    public static String aDT() {
-        return String.format("%s/ma/invoice/create", dbv);
-    }
-
-    public static String aDU() {
-        return String.format("%s/ma/invoice/list", dbv);
-    }
-
-    public static String aDV() {
-        return String.format("%s/ma/invoice/oa_list", dbv);
-    }
+    public static String dbw = "https://mbd.baidu.com";
 
     public static String aDW() {
-        return String.format("%s/ma/invoice/modify", dbv);
+        return String.format("%s/ma/invoice/create", dbw);
     }
 
     public static String aDX() {
-        return String.format("%s/ma/invoice/modify_default", dbv);
+        return String.format("%s/ma/invoice/list", dbw);
     }
 
     public static String aDY() {
-        return String.format("%s/ma/invoice/del", dbv);
+        return String.format("%s/ma/invoice/oa_list", dbw);
     }
 
     public static String aDZ() {
-        return String.format("%s/ma/address", dbv);
-    }
-
-    public static String sH(String str) {
-        String m21do = m21do(aEd());
-        String m21do2 = m21do(getUid());
-        return B(B(B(B(B(B(B(B(str, "uid", m21do2), "ua", m21do(VC())), "ut", m21do), "osbranch", aEb()), "pkgname", mL()), "network", aEa()), "appname", getAppName()), "cfrom", aEh());
+        return String.format("%s/ma/invoice/modify", dbw);
     }
 
     public static String aEa() {
-        return aEj() + "_" + aEi();
+        return String.format("%s/ma/invoice/modify_default", dbw);
     }
 
     public static String aEb() {
+        return String.format("%s/ma/invoice/del", dbw);
+    }
+
+    public static String aEc() {
+        return String.format("%s/ma/address", dbw);
+    }
+
+    public static String sH(String str) {
+        String m21do = m21do(aEg());
+        String m21do2 = m21do(getUid());
+        return B(B(B(B(B(B(B(B(str, "uid", m21do2), "ua", m21do(VC())), "ut", m21do), "osbranch", aEe()), "pkgname", mL()), "network", aEd()), "appname", getAppName()), "cfrom", aEk());
+    }
+
+    public static String aEd() {
+        return aEm() + "_" + aEl();
+    }
+
+    public static String aEe() {
         return "a0";
     }
 
@@ -67,13 +67,13 @@ public class d {
         int displayWidth = z.getDisplayWidth(appContext);
         int displayHeight = z.getDisplayHeight(appContext);
         int bU = z.bU(appContext);
-        String aEc = aEc();
+        String aEf = aEf();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(displayWidth);
         stringBuffer.append("_");
         stringBuffer.append(displayHeight);
         stringBuffer.append("_");
-        stringBuffer.append(aEc);
+        stringBuffer.append(aEf);
         stringBuffer.append("_");
         stringBuffer.append(ac.getVersionName());
         stringBuffer.append("_");
@@ -81,7 +81,7 @@ public class d {
         return stringBuffer.toString();
     }
 
-    public static String aEc() {
+    public static String aEf() {
         return "android";
     }
 
@@ -89,14 +89,14 @@ public class d {
         return AppRuntime.getApplication().getPackageName();
     }
 
-    public static String aEd() {
-        String aEg = aEg();
-        String aEf = aEf();
+    public static String aEg() {
+        String aEj = aEj();
+        String aEi = aEi();
         int i = Build.VERSION.SDK_INT;
-        return aEg + "_" + aEf + "_" + i + "_" + aEe();
+        return aEj + "_" + aEi + "_" + i + "_" + aEh();
     }
 
-    public static String aEe() {
+    public static String aEh() {
         String str = Build.MANUFACTURER;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -104,7 +104,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aEf() {
+    public static String aEi() {
         String str = Build.VERSION.RELEASE;
         if (TextUtils.isEmpty(str)) {
             return "0.0";
@@ -112,7 +112,7 @@ public class d {
         return str.replace("_", Constants.ACCEPT_TIME_SEPARATOR_SERVER);
     }
 
-    public static String aEg() {
+    public static String aEj() {
         String str = Build.MODEL;
         if (TextUtils.isEmpty(str)) {
             return "NUL";
@@ -181,11 +181,11 @@ public class d {
         return com.baidu.swan.apps.u.a.DN().getHostName();
     }
 
-    private static String aEh() {
+    private static String aEk() {
         return com.baidu.swan.c.c.XF();
     }
 
-    private static int aEi() {
+    private static int aEl() {
         NetworkInfo activeNetworkInfo = SwanAppNetworkUtils.getActiveNetworkInfo(com.baidu.swan.apps.u.a.DB());
         if (activeNetworkInfo == null) {
             return 0;
@@ -193,7 +193,7 @@ public class d {
         return activeNetworkInfo.getSubtype();
     }
 
-    private static int aEj() {
+    private static int aEm() {
         NetworkInfo networkInfo;
         String str = null;
         try {

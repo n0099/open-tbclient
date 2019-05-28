@@ -9,17 +9,17 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class c extends v.a {
     public View bMo;
-    public ImageView ekC;
-    public RelativeLayout epV;
+    public ImageView ekD;
+    public RelativeLayout epW;
     public int mSkinType;
     public TextView mTitleView;
 
     public c(View view) {
         super(view);
         this.mSkinType = 3;
-        this.epV = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.epW = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
         this.bMo = view.findViewById(R.id.info_complaint_diver_top);
         this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.ekC = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.ekD = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

@@ -23,14 +23,14 @@ import com.baidu.tieba.channel.activity.ChannelFansActivity;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
     private BdListView MS;
-    private NoNetworkView dlW;
-    private ChannelFansActivity eCU;
-    private com.baidu.tieba.channel.a.b eED;
-    private TextView eEh;
-    private ViewStub eEl;
-    private TextView eEm;
-    private AdapterView.OnItemClickListener eEp;
-    private View epY;
+    private NoNetworkView dlX;
+    private ChannelFansActivity eCV;
+    private com.baidu.tieba.channel.a.b eEE;
+    private TextView eEi;
+    private ViewStub eEm;
+    private TextView eEn;
+    private AdapterView.OnItemClickListener eEq;
+    private View epZ;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private com.baidu.tbadk.core.view.i mPullView;
@@ -39,54 +39,54 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
     public d(ChannelFansActivity channelFansActivity) {
         super(channelFansActivity.getPageContext());
         this.mPullView = null;
-        this.eEp = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.d.1
+        this.eEq = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.d.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.channel.data.i item = d.this.eED.getItem(i);
+                com.baidu.tieba.channel.data.i item = d.this.eEE.getItem(i);
                 if (item != null && !TextUtils.isEmpty(item.getUser_name())) {
                     if (!com.baidu.adp.lib.util.j.jS()) {
-                        d.this.eCU.showToast(R.string.neterror);
+                        d.this.eCV.showToast(R.string.neterror);
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.eCU.getPageContext().getPageActivity(), item.aYH() + "", item.getUser_name())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(d.this.eCV.getPageContext().getPageActivity(), item.aYK() + "", item.getUser_name())));
                     }
                 }
             }
         };
-        this.eCU = channelFansActivity;
-        this.eCU.setIsAddSwipeBackLayout(true);
-        this.eCU.setSwipeBackEnabled(true);
-        this.eCU.setUseStyleImmersiveSticky(true);
+        this.eCV = channelFansActivity;
+        this.eCV.setIsAddSwipeBackLayout(true);
+        this.eCV.setSwipeBackEnabled(true);
+        this.eCV.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     private void initViews() {
-        this.eCU.setContentView(R.layout.channel_list_layout);
-        this.mRootView = (RelativeLayout) this.eCU.findViewById(R.id.parent);
-        this.dlW = (NoNetworkView) this.mRootView.findViewById(R.id.channel_list_no_network_view);
+        this.eCV.setContentView(R.layout.channel_list_layout);
+        this.mRootView = (RelativeLayout) this.eCV.findViewById(R.id.parent);
+        this.dlX = (NoNetworkView) this.mRootView.findViewById(R.id.channel_list_no_network_view);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.channel_list_navigation_bar);
         this.mNavigationBar.showBottomLine(false);
-        this.mNavigationBar.setCenterTextTitle(this.eCU.getResources().getString(R.string.subcribe_channel_fans_title));
+        this.mNavigationBar.setCenterTextTitle(this.eCV.getResources().getString(R.string.subcribe_channel_fans_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eEl = (ViewStub) this.mRootView.findViewById(R.id.no_data_viewstub);
+        this.eEm = (ViewStub) this.mRootView.findViewById(R.id.no_data_viewstub);
         this.MS = (BdListView) this.mRootView.findViewById(R.id.channel_list_listview);
-        this.eED = new com.baidu.tieba.channel.a.b(this.eCU);
-        this.mPullView = new com.baidu.tbadk.core.view.i(this.eCU.getPageContext());
+        this.eEE = new com.baidu.tieba.channel.a.b(this.eCV);
+        this.mPullView = new com.baidu.tbadk.core.view.i(this.eCV.getPageContext());
         this.MS.setPullRefresh(this.mPullView);
-        this.MS.setOnItemClickListener(this.eEp);
-        this.MS.setAdapter((ListAdapter) this.eED);
-        this.epY = LayoutInflater.from(this.eCU.getPageContext().getPageActivity()).inflate(R.layout.channel_list_footer, (ViewGroup) null, false);
-        this.mProgressBar = (ProgressBar) this.epY.findViewById(R.id.list_more_progress);
-        this.eEh = (TextView) this.epY.findViewById(R.id.list_more_title);
-        this.MS.addFooterView(this.epY);
+        this.MS.setOnItemClickListener(this.eEq);
+        this.MS.setAdapter((ListAdapter) this.eEE);
+        this.epZ = LayoutInflater.from(this.eCV.getPageContext().getPageActivity()).inflate(R.layout.channel_list_footer, (ViewGroup) null, false);
+        this.mProgressBar = (ProgressBar) this.epZ.findViewById(R.id.list_more_progress);
+        this.eEi = (TextView) this.epZ.findViewById(R.id.list_more_title);
+        this.MS.addFooterView(this.epZ);
     }
 
     public void onDestroy() {
-        if (this.eED != null) {
-            this.eED = null;
+        if (this.eEE != null) {
+            this.eEE = null;
         }
     }
 
-    public void aYL() {
+    public void aYO() {
         this.MS.completePullRefreshPostDelayed(0L);
     }
 
@@ -96,32 +96,32 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.dlW.a(aVar);
+        this.dlX.a(aVar);
     }
 
     public void a(com.baidu.tieba.channel.data.c cVar) {
         if (cVar == null || cVar.getItems() == null || cVar.getItems().size() <= 0) {
-            this.eED.setData(null);
+            this.eEE.setData(null);
             this.MS.setVisibility(8);
-            this.eEl.setVisibility(0);
-            this.eEm = (TextView) this.mRootView.findViewById(R.id.no_data_tip);
-            this.eEm.setText(this.eCU.getResources().getString(R.string.no_fans));
+            this.eEm.setVisibility(0);
+            this.eEn = (TextView) this.mRootView.findViewById(R.id.no_data_tip);
+            this.eEn.setText(this.eCV.getResources().getString(R.string.no_fans));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
         iD(cVar.hasMore());
-        this.eED.setData(cVar.getItems());
+        this.eEE.setData(cVar.getItems());
     }
 
     public void iD(boolean z) {
-        this.epY.setVisibility(0);
+        this.epZ.setVisibility(0);
         if (z) {
             this.mProgressBar.setVisibility(0);
-            this.eEh.setText(getPageContext().getString(R.string.subcribe_channel_list_hasmore));
+            this.eEi.setText(getPageContext().getString(R.string.subcribe_channel_list_hasmore));
             return;
         }
         this.mProgressBar.setVisibility(8);
-        this.eEh.setText(getPageContext().getString(R.string.channel_subscribe_list_no_more));
+        this.eEi.setText(getPageContext().getString(R.string.channel_subscribe_list_no_more));
     }
 
     public void a(h.c cVar) {
@@ -129,14 +129,14 @@ public class d extends com.baidu.adp.base.c<ChannelFansActivity> {
     }
 
     public void onChangeSkinType(int i) {
-        this.eCU.getLayoutMode().setNightMode(i == 1);
-        this.eCU.getLayoutMode().onModeChanged(this.mRootView);
-        this.eCU.getLayoutMode().onModeChanged(this.epY);
+        this.eCV.getLayoutMode().setNightMode(i == 1);
+        this.eCV.getLayoutMode().onModeChanged(this.mRootView);
+        this.eCV.getLayoutMode().onModeChanged(this.epZ);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.dlW.onChangeSkinType(getPageContext(), i);
+        this.dlX.onChangeSkinType(getPageContext(), i);
         this.mPullView.iP(i);
-        if (this.eED != null) {
-            this.eED.notifyDataSetChanged();
+        if (this.eEE != null) {
+            this.eEE.notifyDataSetChanged();
         }
     }
 

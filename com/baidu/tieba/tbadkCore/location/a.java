@@ -10,11 +10,11 @@ public class a {
     private List<C0410a> poi_info;
     private String sn;
 
-    public String cmX() {
+    public String cmZ() {
         return this.formatted_address;
     }
 
-    public List<C0410a> cmY() {
+    public List<C0410a> cna() {
         return this.poi_info;
     }
 

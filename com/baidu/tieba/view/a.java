@@ -21,9 +21,9 @@ public class a {
     private LinearLayout bNf;
     private View bNg;
     private TextView bNh;
-    private d jAg;
-    private b jAh;
-    private boolean jAi;
+    private d jAh;
+    private b jAi;
+    private boolean jAj;
     private String titleText;
     private View view;
 
@@ -66,8 +66,8 @@ public class a {
         this.titleText = str;
     }
 
-    public d cva() {
-        return this.jAg;
+    public d cvc() {
+        return this.jAh;
     }
 
     public void W(List<C0426a> list) {
@@ -91,7 +91,7 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.jAh = bVar;
+        this.jAi = bVar;
     }
 
     public void onChangeSkinType() {
@@ -105,14 +105,14 @@ public class a {
                 c0426a.onChangeSkinType();
             }
         }
-        if (this.jAi) {
+        if (this.jAj) {
             if (!StringUtils.isNull(this.titleText) && this.bBh != null && (this.bBh.getBackground() instanceof GradientDrawable)) {
                 float dimension = getContext().getResources().getDimension(R.dimen.tbds32);
                 ((GradientDrawable) this.bBh.getBackground()).setCornerRadii(new float[]{dimension, dimension, dimension, dimension, 0.0f, 0.0f, 0.0f, 0.0f});
             } else if (v.Z(this.aOH) > 0) {
                 C0426a c0426a2 = this.aOH.get(0);
-                if (!c0426a2.jAm) {
-                    c0426a2.jAm = true;
+                if (!c0426a2.jAn) {
+                    c0426a2.jAn = true;
                     c0426a2.onChangeSkinType();
                 }
             }
@@ -127,11 +127,11 @@ public class a {
             this.bBh.setVisibility(8);
             this.bNg.setVisibility(8);
         }
-        if (this.jAh != null) {
+        if (this.jAi != null) {
             this.bNh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.jAh.onClick();
+                    a.this.jAi.onClick();
                 }
             });
         }
@@ -147,9 +147,9 @@ public class a {
         private int bMR;
         private int bMS;
         private boolean bMU;
-        private a jAk;
-        private c jAl;
-        public boolean jAm;
+        private a jAl;
+        private c jAm;
+        public boolean jAn;
         private int mId;
         private final View.OnClickListener mOnClickListener;
         private int mTextColor;
@@ -168,16 +168,16 @@ public class a {
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0426a.this.jAl != null) {
-                        C0426a.this.jAl.onClick();
+                    if (C0426a.this.jAm != null) {
+                        C0426a.this.jAm.onClick();
                     }
-                    if (C0426a.this.jAk != null && C0426a.this.jAk.cva() != null) {
-                        C0426a.this.jAk.cva().m(C0426a.this.mId, view);
+                    if (C0426a.this.jAl != null && C0426a.this.jAl.cvc() != null) {
+                        C0426a.this.jAl.cvc().m(C0426a.this.mId, view);
                     }
                 }
             };
             this.ama = str;
-            this.jAk = aVar;
+            this.jAl = aVar;
             this.mId = hashCode();
             initView();
             initListener();
@@ -193,12 +193,12 @@ public class a {
         }
 
         public void a(c cVar) {
-            this.jAl = cVar;
+            this.jAm = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
-            if (this.jAm) {
+            if (this.jAn) {
                 al.k(this.mTextView, R.drawable.bg_bottom_up_corner_dialog);
             } else {
                 al.k(this.mTextView, R.drawable.bg_bottom_up_list_dialog_item);
@@ -208,8 +208,8 @@ public class a {
         }
 
         private void initView() {
-            if (this.jAk != null && this.jAk.getContext() != null) {
-                this.mView = LayoutInflater.from(this.jAk.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.jAk.afX(), false);
+            if (this.jAl != null && this.jAl.getContext() != null) {
+                this.mView = LayoutInflater.from(this.jAl.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.jAl.afX(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.ama);
                 this.mTextView.setGravity(this.bMS);

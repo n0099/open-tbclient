@@ -34,8 +34,8 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes4.dex */
 public class j {
-    private static com.baidu.tbadk.core.dialog.c fLA = null;
-    private static a fLB = null;
+    private static com.baidu.tbadk.core.dialog.c fLB = null;
+    private static a fLC = null;
 
     public static void a(FrsViewData frsViewData, TbPageContext tbPageContext) {
         Plugin plugin2;
@@ -126,14 +126,14 @@ public class j {
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         aVar2.dismiss();
                         j.l(TbPageContext.this);
-                        if (j.fLB == null) {
-                            a unused = j.fLB = new a();
+                        if (j.fLC == null) {
+                            a unused = j.fLC = new a();
                         }
-                        j.fLB.c(frsViewData, TbPageContext.this);
+                        j.fLC.c(frsViewData, TbPageContext.this);
                         if (PluginPackageManager.mc().bM(XiaoyingUtil.PKG_NAME_VIDEO)) {
-                            PluginPackageManager.mc().a(j.fLB);
+                            PluginPackageManager.mc().a(j.fLC);
                         } else {
-                            PluginPackageManager.mc().a(pluginConfig, j.fLB);
+                            PluginPackageManager.mc().a(pluginConfig, j.fLC);
                         }
                     }
                 });
@@ -150,72 +150,72 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void l(TbPageContext tbPageContext) {
-        if (fLA == null) {
-            fLA = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
-            fLA.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.4
+        if (fLB == null) {
+            fLB = new com.baidu.tbadk.core.dialog.c(tbPageContext.getPageActivity());
+            fLB.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.4
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    j.bpV();
+                    j.bpY();
                 }
             });
-            fLA.setCancelable(true);
-            fLA.setCanceledOnTouchOutside(false);
-            fLA.setMessage(tbPageContext.getPageActivity().getString(R.string.on_downloading));
+            fLB.setCancelable(true);
+            fLB.setCanceledOnTouchOutside(false);
+            fLB.setMessage(tbPageContext.getPageActivity().getString(R.string.on_downloading));
         }
-        com.baidu.adp.lib.g.g.a(fLA, tbPageContext.getPageActivity());
+        com.baidu.adp.lib.g.g.a(fLB, tbPageContext.getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a implements com.baidu.adp.plugin.packageManager.d {
-        private FrsViewData fLE;
-        private TbPageContext fLF;
+        private FrsViewData fLF;
+        private TbPageContext fLG;
 
         private a() {
-            this.fLE = null;
             this.fLF = null;
+            this.fLG = null;
         }
 
         public void c(FrsViewData frsViewData, TbPageContext tbPageContext) {
-            this.fLE = frsViewData;
-            this.fLF = tbPageContext;
+            this.fLF = frsViewData;
+            this.fLG = tbPageContext;
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData) {
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.fLA != null) {
-                j.fLA.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && j.fLB != null) {
+                j.fLB.setPercent((int) ((bdFileDownloadData.getLength() * 100) / bdFileDownloadData.getSize()));
             }
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void b(BdFileDownloadData bdFileDownloadData) {
-            if (j.fLA != null) {
-                com.baidu.adp.lib.g.g.b(j.fLA, this.fLF);
+            if (j.fLB != null) {
+                com.baidu.adp.lib.g.g.b(j.fLB, this.fLG);
             }
-            this.fLF.showToast(R.string.plugin_video_installing);
+            this.fLG.showToast(R.string.plugin_video_installing);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void c(BdFileDownloadData bdFileDownloadData) {
-            if (j.fLA != null) {
-                com.baidu.adp.lib.g.g.b(j.fLA, this.fLF);
+            if (j.fLB != null) {
+                com.baidu.adp.lib.g.g.b(j.fLB, this.fLG);
             }
-            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.fLF != null) {
-                this.fLF.showToast(bdFileDownloadData.getStatusMsg());
+            if (bdFileDownloadData != null && bdFileDownloadData.getId().equals(XiaoyingUtil.PKG_NAME_VIDEO) && this.fLG != null) {
+                this.fLG.showToast(bdFileDownloadData.getStatusMsg());
             }
             PluginPackageManager.mc().a((com.baidu.adp.plugin.packageManager.d) null);
         }
 
         @Override // com.baidu.adp.plugin.packageManager.d
         public void a(BdFileDownloadData bdFileDownloadData, int i, String str) {
-            if (j.fLA != null) {
-                com.baidu.adp.lib.g.g.b(j.fLA, this.fLF);
+            if (j.fLB != null) {
+                com.baidu.adp.lib.g.g.b(j.fLB, this.fLG);
             }
             if (i == 0) {
-                j.b(this.fLE, this.fLF);
+                j.b(this.fLF, this.fLG);
             } else {
-                this.fLF.showToast(this.fLF.getString(R.string.install_failed) + str);
+                this.fLG.showToast(this.fLG.getString(R.string.install_failed) + str);
             }
             PluginPackageManager.mc().a((com.baidu.adp.plugin.packageManager.d) null);
         }
@@ -223,19 +223,19 @@ public class j {
 
     public static void d(FrsFragment frsFragment, int i) {
         if (frsFragment != null) {
-            FrsViewData bkj = frsFragment.bkj();
-            FrsModelController bjH = frsFragment.bjH();
-            if (bkj != null) {
-                if (bjH != null || bkj.getForum() == null) {
+            FrsViewData bkm = frsFragment.bkm();
+            FrsModelController bjK = frsFragment.bjK();
+            if (bkm != null) {
+                if (bjK != null || bkm.getForum() == null) {
                     int i2 = 0;
-                    if (bkj.getUserData() != null) {
-                        i2 = bkj.getUserData().getIsMem();
+                    if (bkm.getUserData() != null) {
+                        i2 = bkm.getUserData().getIsMem();
                     }
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, bkj.getForum().getId(), frsFragment.getForumName(), null, null, 0, bkj.getAnti(), 13003, false, false, null, false, false, null, null, bkj.getForum().getPrefixData(), i2);
-                    if (w.blz().rs(1) != null) {
-                        writeActivityConfig.setCategroyId(bjH.boZ());
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, bkm.getForum().getId(), frsFragment.getForumName(), null, null, 0, bkm.getAnti(), 13003, false, false, null, false, false, null, null, bkm.getForum().getPrefixData(), i2);
+                    if (w.blC().rs(1) != null) {
+                        writeActivityConfig.setCategroyId(bjK.bpc());
                     }
-                    ForumData forum = bkj.getForum();
+                    ForumData forum = bkm.getForum();
                     writeActivityConfig.setForumDir(forum.getFirst_class(), forum.getSecond_class());
                     frsFragment.sendMessage(new CustomMessage(2002001, writeActivityConfig));
                 }
@@ -243,9 +243,9 @@ public class j {
         }
     }
 
-    public static void bpV() {
+    public static void bpY() {
+        fLC = null;
         fLB = null;
-        fLA = null;
         PluginPackageManager.mc().a((com.baidu.adp.plugin.packageManager.d) null);
     }
 }

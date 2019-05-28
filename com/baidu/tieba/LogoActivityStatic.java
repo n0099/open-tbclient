@@ -5,11 +5,11 @@ import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.atomData.SecretHintActivityConfig;
 /* loaded from: classes.dex */
 public class LogoActivityStatic {
-    private static b cQC;
+    private static b cQD;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SecretHintActivityConfig.class, SecretHintActivity.class);
-        cQC = b.azd();
+        cQD = b.aze();
     }
 }

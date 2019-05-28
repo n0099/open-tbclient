@@ -17,12 +17,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MsgSettingItemView extends LinearLayout {
-    private TbImageView iMA;
     private TextView iMB;
-    private BdSwitchView iMC;
-    private View iMD;
-    private int iME;
-    private TextView iMz;
+    private TbImageView iMC;
+    private TextView iMD;
+    private BdSwitchView iME;
+    private View iMF;
+    private int iMG;
     private View mBottomLine;
 
     public MsgSettingItemView(Context context) {
@@ -38,36 +38,36 @@ public class MsgSettingItemView extends LinearLayout {
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view, (ViewGroup) this, true);
-        this.iMz = (TextView) findViewById(R.id.setting_text);
-        this.iMA = (TbImageView) findViewById(R.id.setting_tip_image);
-        this.iMB = (TextView) findViewById(R.id.setting_tip);
-        this.iMC = (BdSwitchView) findViewById(R.id.setting_switch);
-        l.b(context, this.iMC, 10, 10, 10, 10);
+        this.iMB = (TextView) findViewById(R.id.setting_text);
+        this.iMC = (TbImageView) findViewById(R.id.setting_tip_image);
+        this.iMD = (TextView) findViewById(R.id.setting_tip);
+        this.iME = (BdSwitchView) findViewById(R.id.setting_switch);
+        l.b(context, this.iME, 10, 10, 10, 10);
         this.mBottomLine = findViewById(R.id.bottom_line_ll);
-        this.iMD = findViewById(R.id.space_view);
-        this.iMD.setVisibility(0);
+        this.iMF = findViewById(R.id.space_view);
+        this.iMF.setVisibility(0);
     }
 
     public void setTipImageResource(int i) {
-        this.iME = i;
-        al.c(this.iMA, this.iME);
-        this.iMA.setVisibility(0);
+        this.iMG = i;
+        al.c(this.iMC, this.iMG);
+        this.iMC.setVisibility(0);
     }
 
     public void setTipImageListener(View.OnClickListener onClickListener) {
-        this.iMA.setOnClickListener(onClickListener);
+        this.iMC.setOnClickListener(onClickListener);
     }
 
     public void setText(String str) {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.iMz.setText(str);
+        this.iMB.setText(str);
     }
 
     public void setText(int i) {
         if (i != 0) {
-            this.iMz.setText(i);
+            this.iMB.setText(i);
         }
     }
 
@@ -75,43 +75,43 @@ public class MsgSettingItemView extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.iMB.setVisibility(0);
-        this.iMB.setText(str);
+        this.iMD.setVisibility(0);
+        this.iMD.setText(str);
     }
 
     public void setTipText(int i) {
         if (i != 0) {
-            this.iMB.setVisibility(0);
-            this.iMB.setText(i);
+            this.iMD.setVisibility(0);
+            this.iMD.setText(i);
         }
     }
 
     public void mW() {
-        this.iMC.mW();
+        this.iME.mW();
     }
 
     public void mV() {
-        this.iMC.mV();
+        this.iME.mV();
     }
 
     public void mU() {
-        this.iMC.mU();
+        this.iME.mU();
     }
 
     public void mT() {
-        this.iMC.mT();
+        this.iME.mT();
     }
 
     public void setSwitchStateNoCallback(boolean z) {
         if (z) {
-            this.iMC.mT();
+            this.iME.mT();
         } else {
-            this.iMC.mU();
+            this.iME.mU();
         }
     }
 
     public boolean iE() {
-        return this.iMC.iE();
+        return this.iME.iE();
     }
 
     public void setLineVisibility(boolean z) {
@@ -123,27 +123,27 @@ public class MsgSettingItemView extends LinearLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.iMC;
+        return this.iME;
     }
 
     public void setOnSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.iMC.setOnSwitchStateChangeListener(aVar);
+        this.iME.setOnSwitchStateChangeListener(aVar);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         tbPageContext.getLayoutMode().setNightMode(i == 1);
         tbPageContext.getLayoutMode().onModeChanged(this);
-        this.iMC.setBackgroundRes(al.id(R.drawable.bg_switch_open), al.id(R.drawable.bg_switch_close), al.id(R.drawable.btn_handle));
+        this.iME.setBackgroundRes(al.id(R.drawable.bg_switch_open), al.id(R.drawable.bg_switch_close), al.id(R.drawable.btn_handle));
         al.l(this, R.color.cp_bg_line_d);
-        if (this.iME != 0) {
-            al.c(this.iMA, this.iME);
+        if (this.iMG != 0) {
+            al.c(this.iMC, this.iMG);
         }
     }
 
     public void setSpaceView(int i) {
-        if (this.iMD != null) {
-            this.iMD.setVisibility(i);
+        if (this.iMF != null) {
+            this.iMF.setVisibility(i);
         }
     }
 }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 /* loaded from: classes4.dex */
 public class KeyboardEventLayout extends RelativeLayout {
-    private a hXa;
+    private a hXd;
     public int maxHeight;
 
     /* loaded from: classes4.dex */
@@ -14,36 +14,36 @@ public class KeyboardEventLayout extends RelativeLayout {
     }
 
     public void setOnKeyStateChangedListener(a aVar) {
-        this.hXa = aVar;
+        this.hXd = aVar;
     }
 
     public KeyboardEventLayout(Context context) {
         super(context);
         this.maxHeight = 0;
-        this.hXa = null;
+        this.hXd = null;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet) {
         super(context);
         this.maxHeight = 0;
-        this.hXa = null;
+        this.hXd = null;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.maxHeight = 0;
-        this.hXa = null;
+        this.hXd = null;
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         this.maxHeight = Math.max(Math.max(i4, i2), this.maxHeight);
-        if (i4 != 0 && this.hXa != null) {
+        if (i4 != 0 && this.hXd != null) {
             if (i4 > i2) {
-                this.hXa.xK(0);
+                this.hXd.xK(0);
             } else if (i4 < i2 && i2 >= this.maxHeight) {
-                this.hXa.xK(1);
+                this.hXd.xK(1);
             }
         }
     }

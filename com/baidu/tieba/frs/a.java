@@ -8,38 +8,38 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private AntiData ceN;
-    private final ArrayList<bg> fnL;
-    private boolean fnM;
-    private b fnN;
-    private boolean fnO;
+    private final ArrayList<bg> fnM;
+    private boolean fnN;
+    private b fnO;
+    private boolean fnP;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
         void B(boolean z, boolean z2);
 
-        void bja();
+        void bjd();
 
         void qT(int i);
     }
 
     private a() {
-        this.fnM = false;
-        this.fnL = new ArrayList<>();
+        this.fnN = false;
+        this.fnM = new ArrayList<>();
     }
 
-    public static a biT() {
-        return C0306a.fnP;
+    public static a biW() {
+        return C0306a.fnQ;
     }
 
-    public boolean biU() {
-        return this.fnM;
+    public boolean biX() {
+        return this.fnN;
     }
 
     public void A(boolean z, boolean z2) {
-        this.fnM = z;
-        if (this.fnN != null) {
-            this.fnN.B(this.fnM, z2);
+        this.fnN = z;
+        if (this.fnO != null) {
+            this.fnO.B(this.fnN, z2);
         }
     }
 
@@ -47,42 +47,42 @@ public class a {
         if (bgVar == null) {
             return false;
         }
-        if (this.fnL.size() > 29) {
-            if (this.fnN != null) {
-                this.fnN.bja();
+        if (this.fnM.size() > 29) {
+            if (this.fnO != null) {
+                this.fnO.bjd();
                 return false;
             }
             return false;
         }
-        this.fnL.add(bgVar);
-        if (this.fnN != null) {
-            this.fnN.qT(this.fnL.size());
+        this.fnM.add(bgVar);
+        if (this.fnO != null) {
+            this.fnO.qT(this.fnM.size());
         }
         return true;
     }
 
-    public List<bg> biV() {
-        return this.fnL;
+    public List<bg> biY() {
+        return this.fnM;
     }
 
     public void aa(bg bgVar) {
-        this.fnL.remove(bgVar);
-        if (this.fnN != null) {
-            this.fnN.qT(this.fnL.size());
+        this.fnM.remove(bgVar);
+        if (this.fnO != null) {
+            this.fnO.qT(this.fnM.size());
         }
     }
 
     public void clearData() {
-        Iterator<bg> it = this.fnL.iterator();
+        Iterator<bg> it = this.fnM.iterator();
         while (it.hasNext()) {
             bg next = it.next();
             if (next != null) {
                 next.dI(false);
             }
         }
-        this.fnL.clear();
-        if (this.fnN != null) {
-            this.fnN.qT(0);
+        this.fnM.clear();
+        if (this.fnO != null) {
+            this.fnO.qT(0);
         }
     }
 
@@ -92,17 +92,17 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.fnN = bVar;
+        this.fnO = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0306a {
-        private static a fnP = new a();
+        private static a fnQ = new a();
     }
 
-    public AntiData biW() {
+    public AntiData biZ() {
         return this.ceN;
     }
 
@@ -118,17 +118,17 @@ public class a {
         this.forumId = str;
     }
 
-    public boolean biX() {
-        return this.fnO;
+    public boolean bja() {
+        return this.fnP;
     }
 
     public void jz(boolean z) {
-        this.fnO = z;
+        this.fnP = z;
     }
 
     public void bW(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.aa(list) && !com.baidu.tbadk.core.util.v.aa(this.fnL)) {
-            Iterator<bg> it = this.fnL.iterator();
+        if (!com.baidu.tbadk.core.util.v.aa(list) && !com.baidu.tbadk.core.util.v.aa(this.fnM)) {
+            Iterator<bg> it = this.fnM.iterator();
             while (it.hasNext()) {
                 bg next = it.next();
                 int i = 0;
@@ -144,13 +144,13 @@ public class a {
                     }
                 }
             }
-            if (this.fnN != null) {
-                this.fnN.qT(this.fnL.size());
+            if (this.fnO != null) {
+                this.fnO.qT(this.fnM.size());
             }
         }
     }
 
-    public boolean biY() {
+    public boolean bjb() {
         return this.ceN != null && this.ceN.isMultiDeleteEnable();
     }
 }

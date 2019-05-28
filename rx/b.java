@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b kmG = new b(new a() { // from class: rx.b.1
+    static final b kmH = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cNb());
+            cVar.onSubscribe(rx.subscriptions.e.cNd());
             cVar.onCompleted();
         }
     }, false);
-    static final b kmH = new b(new a() { // from class: rx.b.2
+    static final b kmI = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cNb());
+            cVar.onSubscribe(rx.subscriptions.e.cNd());
         }
     }, false);
-    private final a kmF;
+    private final a kmG;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -55,14 +55,14 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.kmF = rx.c.c.b(aVar);
+        this.kmG = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.kmF = z ? rx.c.c.b(aVar) : aVar;
+        this.kmG = z ? rx.c.c.b(aVar) : aVar;
     }
 
-    public final k cKX() {
+    public final k cKZ() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         a(new c() { // from class: rx.b.3
             @Override // rx.c
@@ -93,7 +93,7 @@ public class b {
     public final void a(c cVar) {
         requireNonNull(cVar);
         try {
-            rx.c.c.b(this, this.kmF).call(cVar);
+            rx.c.c.b(this, this.kmG).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

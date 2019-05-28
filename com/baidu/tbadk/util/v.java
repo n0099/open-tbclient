@@ -1,6 +1,7 @@
 package com.baidu.tbadk.util;
 
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class v extends Thread {
     private int cBO;
@@ -21,12 +22,14 @@ public class v extends Thread {
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         super.run();
-        com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
-        xVar.o("img_num", String.valueOf(this.imageNum));
-        xVar.o("img_total", String.valueOf(this.cBO));
-        if (this.type != null) {
-            xVar.o("img_type", this.type);
+        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+            com.baidu.tbadk.core.util.x xVar = new com.baidu.tbadk.core.util.x(TbConfig.SERVER_ADDRESS + TbConfig.LOAD_REG_PV_ADDRESS);
+            xVar.o("img_num", String.valueOf(this.imageNum));
+            xVar.o("img_total", String.valueOf(this.cBO));
+            if (this.type != null) {
+                xVar.o("img_type", this.type);
+            }
+            xVar.ahe();
         }
-        xVar.ahe();
     }
 }

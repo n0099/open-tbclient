@@ -17,16 +17,16 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity hdY;
+    private SelectLocationActivity heb;
     private boolean isShowLocation;
 
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.hdY = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cmZ().getLocationData();
-        this.isShowLocation = c.cmZ().cna() ? false : true;
+        this.heb = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cnb().getLocationData();
+        this.isShowLocation = c.cnb().cnc() ? false : true;
         if (locationData != null) {
-            this.data = j(locationData.cmY(), locationData.cmX());
+            this.data = j(locationData.cna(), locationData.cmZ());
         }
     }
 
@@ -52,8 +52,8 @@ public class b extends BaseAdapter {
             c0410a3.setName(str);
             arrayList.add(0, c0410a3);
         }
-        if (this.hdY != null) {
-            arrayList.add(0, this.hdY.getPageContext().getString(R.string.select_position_no_location));
+        if (this.heb != null) {
+            arrayList.add(0, this.heb.getPageContext().getString(R.string.select_position_no_location));
         }
         return arrayList;
     }
@@ -114,8 +114,8 @@ public class b extends BaseAdapter {
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public static class C0354b {
-        View eil;
-        ImageView hdZ;
+        View eim;
+        ImageView hec;
         TextView title;
 
         private C0354b() {
@@ -129,11 +129,11 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             String str = (String) item;
             if (view == null || !(view.getTag() instanceof C0354b)) {
-                View inflate = LayoutInflater.from(this.hdY.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.heb.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
                 c0354b = new C0354b();
                 c0354b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0354b.hdZ = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0354b.eil = inflate.findViewById(R.id.select_location_line);
+                c0354b.hec = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0354b.eim = inflate.findViewById(R.id.select_location_line);
                 inflate.setTag(c0354b);
                 view2 = inflate;
             } else {
@@ -141,13 +141,13 @@ public class b extends BaseAdapter {
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0354b.hdZ.setVisibility(0);
-                al.c(c0354b.hdZ, (int) R.drawable.icon_site_ok);
+                c0354b.hec.setVisibility(0);
+                al.c(c0354b.hec, (int) R.drawable.icon_site_ok);
             } else {
-                c0354b.hdZ.setVisibility(4);
+                c0354b.hec.setVisibility(4);
             }
             c0354b.title.setText(str);
-            al.l(c0354b.eil, R.color.cp_bg_line_b);
+            al.l(c0354b.eim, R.color.cp_bg_line_b);
             al.f(c0354b.title, R.color.cp_link_tip_a, 1);
             al.k(view2, R.drawable.home_recommend_item_bg);
             return view2;
@@ -159,8 +159,8 @@ public class b extends BaseAdapter {
     /* loaded from: classes5.dex */
     public static class a {
         TextView bmf;
-        TextView hdR;
-        ImageView hdZ;
+        TextView hdU;
+        ImageView hec;
 
         private a() {
         }
@@ -172,28 +172,28 @@ public class b extends BaseAdapter {
         if (item instanceof a.C0410a) {
             a.C0410a c0410a = (a.C0410a) item;
             if (view == null || !(view.getTag() instanceof C0354b)) {
-                view = LayoutInflater.from(this.hdY.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+                view = LayoutInflater.from(this.heb.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
                 aVar2.bmf = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.hdR = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.hdZ = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.hdU = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.hec = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.hdR.setText(c0410a.getAddr());
+            aVar.hdU.setText(c0410a.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.hdZ.setVisibility(0);
+                aVar.hec.setVisibility(0);
                 if (TextUtils.isEmpty(c0410a.getAddr())) {
-                    aVar.hdR.setText(R.string.select_location_current);
+                    aVar.hdU.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.hdZ.setVisibility(4);
+                aVar.hec.setVisibility(4);
             }
             aVar.bmf.setText(c0410a.getName());
-            this.hdY.getLayoutMode().setNightMode(z);
-            this.hdY.getLayoutMode().onModeChanged(view);
+            this.heb.getLayoutMode().setNightMode(z);
+            this.heb.getLayoutMode().onModeChanged(view);
             al.k(view, R.drawable.home_recommend_item_bg);
             return view;
         }

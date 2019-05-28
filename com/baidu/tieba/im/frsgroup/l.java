@@ -26,14 +26,14 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes5.dex */
 public class l extends BaseAdapter {
-    private final MembersActivity gBe;
-    private a gBf;
-    private boolean gBg;
-    private boolean gBi;
-    private final Set<Long> gBj = new HashSet();
-    private final List<UserData> gBk = new ArrayList();
-    private ArrayList<IconData> gBl = null;
-    private boolean gBh = false;
+    private final MembersActivity gBf;
+    private a gBg;
+    private boolean gBh;
+    private boolean gBj;
+    private final Set<Long> gBk = new HashSet();
+    private final List<UserData> gBl = new ArrayList();
+    private ArrayList<IconData> gBm = null;
+    private boolean gBi = false;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -41,18 +41,18 @@ public class l extends BaseAdapter {
     }
 
     public void a(a aVar) {
-        this.gBf = aVar;
+        this.gBg = aVar;
     }
 
     public void cY(List<UserData> list) {
-        this.gBk.addAll(list);
+        this.gBl.addAll(list);
     }
 
     public void cZ(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.gBk.iterator();
+                Iterator<UserData> it = this.gBl.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -62,65 +62,65 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void bAQ() {
-        this.gBj.clear();
+    public void bAT() {
+        this.gBk.clear();
     }
 
-    public Set<Long> bAR() {
-        return this.gBj;
+    public Set<Long> bAU() {
+        return this.gBk;
     }
 
     public void e(Long l) {
         if (com.baidu.adp.lib.util.l.kh()) {
-            if (this.gBj.contains(l)) {
-                this.gBj.remove(l);
+            if (this.gBk.contains(l)) {
+                this.gBk.remove(l);
             } else {
-                this.gBj.add(l);
+                this.gBk.add(l);
             }
             notifyDataSetChanged();
-            if (this.gBf != null) {
-                this.gBf.uV(this.gBj.size());
+            if (this.gBg != null) {
+                this.gBg.uV(this.gBk.size());
             }
         }
     }
 
     public void reset(boolean z) {
         if (z) {
-            this.gBk.clear();
+            this.gBl.clear();
         }
-        this.gBh = false;
-        this.gBg = true;
+        this.gBi = false;
+        this.gBh = true;
     }
 
     public l(MembersActivity membersActivity) {
-        this.gBe = membersActivity;
+        this.gBf = membersActivity;
     }
 
     public void lR(boolean z) {
-        this.gBg = z;
-    }
-
-    public boolean aYB() {
-        return this.gBg;
-    }
-
-    public void lS(boolean z) {
         this.gBh = z;
     }
 
-    public boolean bxY() {
-        return this.gBi;
+    public boolean aYE() {
+        return this.gBh;
+    }
+
+    public void lS(boolean z) {
+        this.gBi = z;
+    }
+
+    public boolean byb() {
+        return this.gBj;
     }
 
     public void lT(boolean z) {
-        this.gBi = z;
+        this.gBj = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.gBk != null) {
-            int size = this.gBk.size();
-            if (this.gBh) {
+        if (this.gBl != null) {
+            int size = this.gBl.size();
+            if (this.gBi) {
                 return size + 1;
             }
             return size;
@@ -130,12 +130,12 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.c(this.gBk, i);
+        return v.c(this.gBl, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.gBh && i == getCount() - 1) {
+        if (this.gBi && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -155,28 +155,28 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         View view2;
-        if (this.gBk != null) {
+        if (this.gBl != null) {
             if (view == null) {
                 b bVar2 = new b();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.gBe.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_foot, viewGroup, false);
-                    bVar2.gBn = (LinearLayout) inflate.findViewById(R.id.list_more);
-                    bVar2.gBo = (TextView) inflate.findViewById(R.id.more_title);
-                    bVar2.gBp = (ProgressBar) inflate.findViewById(R.id.more_progress);
+                    View inflate = LayoutInflater.from(this.gBf.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_foot, viewGroup, false);
+                    bVar2.gBo = (LinearLayout) inflate.findViewById(R.id.list_more);
+                    bVar2.gBp = (TextView) inflate.findViewById(R.id.more_title);
+                    bVar2.gBq = (ProgressBar) inflate.findViewById(R.id.more_progress);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.gBe.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_item, viewGroup, false);
-                    bVar2.gBr = (HeadImageView) inflate2.findViewById(R.id.item_head);
-                    bVar2.gBr.setIsRound(false);
-                    bVar2.gBr.setAutoChangeStyle(true);
-                    bVar2.gAf = (TextView) inflate2.findViewById(R.id.item_name);
-                    bVar2.gBs = (ImageView) inflate2.findViewById(R.id.item_sex);
-                    bVar2.gBt = (TextView) inflate2.findViewById(R.id.item_time);
-                    bVar2.gBu = (TextView) inflate2.findViewById(R.id.item_address);
-                    bVar2.gBq = (ImageView) inflate2.findViewById(R.id.item_check);
+                    View inflate2 = LayoutInflater.from(this.gBf.getPageContext().getPageActivity()).inflate(R.layout.im_members_list_item, viewGroup, false);
+                    bVar2.gBs = (HeadImageView) inflate2.findViewById(R.id.item_head);
+                    bVar2.gBs.setIsRound(false);
+                    bVar2.gBs.setAutoChangeStyle(true);
+                    bVar2.gAg = (TextView) inflate2.findViewById(R.id.item_name);
+                    bVar2.gBt = (ImageView) inflate2.findViewById(R.id.item_sex);
+                    bVar2.gBu = (TextView) inflate2.findViewById(R.id.item_time);
+                    bVar2.gBv = (TextView) inflate2.findViewById(R.id.item_address);
+                    bVar2.gBr = (ImageView) inflate2.findViewById(R.id.item_check);
                     bVar2.Xu = (UserIconBox) inflate2.findViewById(R.id.user_tshow_icon_box);
-                    bVar2.gBv = inflate2.findViewById(R.id.list_line);
-                    bVar2.gBw = inflate2.findViewById(R.id.list_bottom_line);
+                    bVar2.gBw = inflate2.findViewById(R.id.list_line);
+                    bVar2.gBx = inflate2.findViewById(R.id.list_bottom_line);
                     view2 = inflate2;
                 }
                 view2.setTag(bVar2);
@@ -185,68 +185,68 @@ public class l extends BaseAdapter {
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.gBv.setVisibility(i < getCount() + (-1) ? 0 : 8);
-            bVar.gBw.setVisibility(i < getCount() + (-1) ? 8 : 0);
+            bVar.gBw.setVisibility(i < getCount() + (-1) ? 0 : 8);
+            bVar.gBx.setVisibility(i < getCount() + (-1) ? 8 : 0);
             if (getItemViewType(i) == 1) {
-                if (this.gBg) {
-                    bVar.gBo.setText(R.string.members_load_more_person);
-                    bVar.gBp.setVisibility(0);
+                if (this.gBh) {
+                    bVar.gBp.setText(R.string.members_load_more_person);
+                    bVar.gBq.setVisibility(0);
                 } else {
-                    bVar.gBo.setText(R.string.members_no_more_person);
-                    bVar.gBp.setVisibility(8);
+                    bVar.gBp.setText(R.string.members_no_more_person);
+                    bVar.gBq.setVisibility(8);
                 }
             } else {
                 UserData userData = (UserData) getItem(i);
                 if (userData != null) {
-                    bVar.gBr.setTag(null);
+                    bVar.gBs.setTag(null);
                     String portrait = userData.getPortrait();
                     if (!ap.isEmpty(portrait)) {
-                        bVar.gBr.startLoad(portrait, 12, false);
+                        bVar.gBs.startLoad(portrait, 12, false);
                     }
-                    bVar.gAf.setText(userData.getName_show());
+                    bVar.gAg.setText(userData.getName_show());
                     switch (userData.getSex()) {
                         case 1:
-                            bVar.gBs.setVisibility(0);
-                            al.c(bVar.gBs, (int) R.drawable.icon_pop_qz_boy);
+                            bVar.gBt.setVisibility(0);
+                            al.c(bVar.gBt, (int) R.drawable.icon_pop_qz_boy);
                             break;
                         case 2:
-                            bVar.gBs.setVisibility(0);
-                            al.c(bVar.gBs, (int) R.drawable.icon_pop_qz_girl);
+                            bVar.gBt.setVisibility(0);
+                            al.c(bVar.gBt, (int) R.drawable.icon_pop_qz_girl);
                             break;
                         default:
-                            bVar.gBs.setVisibility(8);
+                            bVar.gBt.setVisibility(8);
                             break;
                     }
-                    bVar.gBt.setText(d(userData));
-                    bVar.gBu.setText(userData.getPosition());
-                    this.gBl = userData.getTShowInfo();
+                    bVar.gBu.setText(d(userData));
+                    bVar.gBv.setText(userData.getPosition());
+                    this.gBm = userData.getTShowInfo();
                     if (bVar.Xu != null) {
-                        bVar.Xu.a(this.gBl, 2, this.gBe.getResources().getDimensionPixelSize(R.dimen.ds38), this.gBe.getResources().getDimensionPixelSize(R.dimen.ds38), this.gBe.getResources().getDimensionPixelSize(R.dimen.ds8), true);
+                        bVar.Xu.a(this.gBm, 2, this.gBf.getResources().getDimensionPixelSize(R.dimen.ds38), this.gBf.getResources().getDimensionPixelSize(R.dimen.ds38), this.gBf.getResources().getDimensionPixelSize(R.dimen.ds8), true);
                     }
-                    if (this.gBi) {
-                        bVar.gBq.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                    if (this.gBj) {
+                        bVar.gBr.setVisibility(userData.getPermission().isController() ? 4 : 0);
                         Long valueOf = Long.valueOf(userData.getUserIdLong());
-                        bVar.gBq.setTag(valueOf);
-                        bVar.gBq.setSelected(this.gBj.contains(valueOf));
-                        bVar.gBq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
+                        bVar.gBr.setTag(valueOf);
+                        bVar.gBr.setSelected(this.gBk.contains(valueOf));
+                        bVar.gBr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view3) {
                                 view3.setSelected(!view3.isSelected());
                                 if (view3.getTag() instanceof Long) {
                                     Long l = (Long) view3.getTag();
                                     if (view3.isSelected()) {
-                                        l.this.gBj.add(l);
+                                        l.this.gBk.add(l);
                                     } else {
-                                        l.this.gBj.remove(l);
+                                        l.this.gBk.remove(l);
                                     }
-                                    if (l.this.gBf != null) {
-                                        l.this.gBf.uV(l.this.gBj.size());
+                                    if (l.this.gBg != null) {
+                                        l.this.gBg.uV(l.this.gBk.size());
                                     }
                                 }
                             }
                         });
                     } else {
-                        bVar.gBq.setVisibility(8);
+                        bVar.gBr.setVisibility(8);
                     }
                     bX(view);
                 }
@@ -256,14 +256,14 @@ public class l extends BaseAdapter {
     }
 
     private void bX(View view) {
-        this.gBe.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.gBe.getLayoutMode().onModeChanged(view);
+        this.gBf.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.gBf.getLayoutMode().onModeChanged(view);
     }
 
     private String d(UserData userData) {
         long lastReplyTime;
-        MembersModel bAK = this.gBe.bAK();
-        switch (bAK.getOrderType()) {
+        MembersModel bAN = this.gBf.bAN();
+        switch (bAN.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,8 +278,8 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (bAK.getOrderType() == 1) {
-                return this.gBe.getPageContext().getString(R.string.members_no_speak);
+            if (bAN.getOrderType() == 1) {
+                return this.gBf.getPageContext().getString(R.string.members_no_speak);
             }
             return "";
         }
@@ -289,17 +289,17 @@ public class l extends BaseAdapter {
     /* loaded from: classes5.dex */
     static class b {
         UserIconBox Xu = null;
-        TextView gAf;
-        LinearLayout gBn;
-        TextView gBo;
-        ProgressBar gBp;
-        ImageView gBq;
-        HeadImageView gBr;
-        ImageView gBs;
-        TextView gBt;
+        TextView gAg;
+        LinearLayout gBo;
+        TextView gBp;
+        ProgressBar gBq;
+        ImageView gBr;
+        HeadImageView gBs;
+        ImageView gBt;
         TextView gBu;
-        View gBv;
+        TextView gBv;
         View gBw;
+        View gBx;
 
         b() {
         }

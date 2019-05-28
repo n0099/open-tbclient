@@ -69,7 +69,7 @@ public class a {
         this.Cz = str;
         this.mContext = context;
         try {
-            if (this.CA == null && this.mContext != null) {
+            if (this.CA == null && this.mContext != null && !BdBaseApplication.getInst().checkInterrupt()) {
                 this.CA = new b();
                 IntentFilter intentFilter = new IntentFilter();
                 intentFilter.addAction("com.baidu.adp.stats.background");
@@ -126,7 +126,7 @@ public class a {
             super.onPostExecute(bdStatSwitchData);
             if (bdStatSwitchData != null) {
                 a.this.CC = bdStatSwitchData;
-                if (a.this.mIsMainProcess && a.this.Cy) {
+                if (a.this.mIsMainProcess && a.this.Cy && !BdBaseApplication.getInst().checkInterrupt()) {
                     a.this.jn();
                     g.js().jv();
                 }

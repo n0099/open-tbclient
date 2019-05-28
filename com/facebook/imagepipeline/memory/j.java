@@ -6,14 +6,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class j extends BasePool<byte[]> implements com.facebook.common.memory.a {
-    private final int[] kbv;
+    private final int[] kbw;
 
     public j(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.kbM;
-        this.kbv = new int[sparseIntArray.size()];
+        SparseIntArray sparseIntArray = rVar.kbN;
+        this.kbw = new int[sparseIntArray.size()];
         for (int i = 0; i < sparseIntArray.size(); i++) {
-            this.kbv[i] = sparseIntArray.keyAt(i);
+            this.kbw[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
@@ -46,7 +46,7 @@ public class j extends BasePool<byte[]> implements com.facebook.common.memory.a 
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.kbv) {
+        for (int i2 : this.kbw) {
             if (i2 >= i) {
                 return i2;
             }

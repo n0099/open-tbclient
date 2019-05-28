@@ -16,11 +16,11 @@ import com.baidu.tieba.channel.activity.ChannelAddVideoActivity;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity eCN;
+    private ChannelAddVideoActivity eCO;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.eCN = channelAddVideoActivity;
+        this.eCO = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -60,59 +60,59 @@ public class a extends BaseAdapter {
         if (view != null) {
             c0294a = (C0294a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.eCN.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.eCO.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_item_layout, viewGroup, false);
             C0294a c0294a2 = new C0294a();
-            c0294a2.eCO = (TbCheckBox) view.findViewById(R.id.item_check_box);
-            c0294a2.eCP = (TbImageView) view.findViewById(R.id.video_cover);
-            c0294a2.eCQ = (TextView) view.findViewById(R.id.video_length);
+            c0294a2.eCP = (TbCheckBox) view.findViewById(R.id.item_check_box);
+            c0294a2.eCQ = (TbImageView) view.findViewById(R.id.video_cover);
+            c0294a2.eCR = (TextView) view.findViewById(R.id.video_length);
             c0294a2.title = (TextView) view.findViewById(R.id.title);
-            c0294a2.eCR = (TextView) view.findViewById(R.id.forum_from);
-            c0294a2.eCS = (TextView) view.findViewById(R.id.intro);
+            c0294a2.eCS = (TextView) view.findViewById(R.id.forum_from);
+            c0294a2.eCT = (TextView) view.findViewById(R.id.intro);
             view.setTag(c0294a2);
             c0294a = c0294a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0294a.eCO.setTagData(item);
-            if (item.aYG() == 1) {
-                c0294a.eCO.setEnabled(false);
-                al.c(c0294a.eCO, (int) R.drawable.icon_choose_channel_n);
+            c0294a.eCP.setTagData(item);
+            if (item.aYJ() == 1) {
+                c0294a.eCP.setEnabled(false);
+                al.c(c0294a.eCP, (int) R.drawable.icon_choose_channel_n);
             } else {
-                c0294a.eCO.setEnabled(true);
-                c0294a.eCO.ajG();
+                c0294a.eCP.setEnabled(true);
+                c0294a.eCP.ajG();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0294a.eCP.setTag(null);
-                c0294a.eCP.startLoad(item.getThumbnailUrl(), 10, false);
-                c0294a.eCP.invalidate();
+                c0294a.eCQ.setTag(null);
+                c0294a.eCQ.startLoad(item.getThumbnailUrl(), 10, false);
+                c0294a.eCQ.invalidate();
             }
-            c0294a.eCQ.setText(ap.ii(item.getVideoDuration() * 1000));
+            c0294a.eCR.setText(ap.ii(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
                 c0294a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0294a.eCR.setText(item.getForumName() + "吧");
+                c0294a.eCS.setText(item.getForumName() + "吧");
             }
-            c0294a.eCS.setText(ap.aG(item.aYF()) + "次播放·" + com.baidu.tieba.channel.c.c.cB(item.getCreateTime()));
+            c0294a.eCT.setText(ap.aG(item.aYI()) + "次播放·" + com.baidu.tieba.channel.c.c.cB(item.getCreateTime()));
         }
-        this.eCN.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.eCN.getLayoutMode().onModeChanged(view);
+        this.eCO.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.eCO.getLayoutMode().onModeChanged(view);
         return view;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean isEnabled(int i) {
-        return getItem(i).aYG() != 1;
+        return getItem(i).aYJ() != 1;
     }
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0294a {
-        public TbCheckBox eCO;
-        public TbImageView eCP;
-        public TextView eCQ;
+        public TbCheckBox eCP;
+        public TbImageView eCQ;
         public TextView eCR;
         public TextView eCS;
+        public TextView eCT;
         public TextView title;
 
         public C0294a() {

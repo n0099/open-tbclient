@@ -9,13 +9,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.recommend.b.e;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<e> {
-    private View eVY;
+    private View eVZ;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eVY = getView().findViewById(R.id.card_recommend_list_placeholder);
+        this.eVZ = getView().findViewById(R.id.card_recommend_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -35,9 +35,9 @@ public class d extends com.baidu.tieba.card.a<e> {
     @Override // com.baidu.tieba.card.a
     public void a(e eVar) {
         if (eVar != null) {
-            ViewGroup.LayoutParams layoutParams = this.eVY.getLayoutParams();
-            layoutParams.height = l.g(this.mContext, eVar.eUx);
-            this.eVY.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.eVZ.getLayoutParams();
+            layoutParams.height = l.g(this.mContext, eVar.eUy);
+            this.eVZ.setLayoutParams(layoutParams);
         }
     }
 

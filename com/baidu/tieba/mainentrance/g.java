@@ -17,8 +17,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class g {
     private View bBg;
-    private TextView heA;
-    private View heB;
+    private TextView heD;
+    private View heE;
     private TbPageContext<?> mContext;
     private TableLayout mTableLayout;
 
@@ -28,20 +28,20 @@ public class g {
 
     public View nG() {
         this.bBg = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.search_topic, (ViewGroup) null);
-        this.heB = this.bBg.findViewById(R.id.titleTopDivider);
-        this.heB.setVisibility(0);
+        this.heE = this.bBg.findViewById(R.id.titleTopDivider);
+        this.heE.setVisibility(0);
         this.mTableLayout = (TableLayout) this.bBg.findViewById(R.id.search_topic_layout);
-        this.heA = (TextView) this.bBg.findViewById(R.id.square_search_fourm_header_text);
-        this.heA.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
+        this.heD = (TextView) this.bBg.findViewById(R.id.square_search_fourm_header_text);
+        this.heD.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
         return this.bBg;
     }
 
     public void setTitleText(String str) {
-        if (this.heA != null) {
+        if (this.heD != null) {
             if (!StringUtils.isNull(str)) {
-                this.heA.setText(str);
+                this.heD.setText(str);
             } else {
-                this.heA.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
+                this.heD.setText(this.mContext.getResources().getString(R.string.hot_topic_title));
             }
         }
     }
@@ -50,7 +50,7 @@ public class g {
         this.mTableLayout.removeAllViews();
         this.bBg.setVisibility(8);
         this.mTableLayout.setVisibility(8);
-        this.heA.setVisibility(8);
+        this.heD.setVisibility(8);
     }
 
     public View a(c cVar, int i) {
@@ -139,13 +139,13 @@ public class g {
     }
 
     public void mV(boolean z) {
-        this.heB.setVisibility(z ? 0 : 8);
+        this.heE.setVisibility(z ? 0 : 8);
     }
 
     public void show() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.bBg.setVisibility(0);
         this.mTableLayout.setVisibility(0);
-        this.heA.setVisibility(0);
+        this.heD.setVisibility(0);
     }
 }

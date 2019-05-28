@@ -12,19 +12,19 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class h extends a<com.baidu.tieba.e.g> {
     private View dividerLine;
-    private TbImageView ewn;
-    private LinearLayout ewo;
-    private TextView ewp;
+    private com.baidu.tieba.e.g ewA;
+    private TbImageView ewo;
+    private LinearLayout ewp;
     private TextView ewq;
     private TextView ewr;
-    private LinearLayout ews;
-    private ImageView ewt;
+    private TextView ews;
+    private LinearLayout ewt;
     private ImageView ewu;
     private ImageView ewv;
     private ImageView eww;
     private ImageView ewx;
-    private TextView ewy;
-    private com.baidu.tieba.e.g ewz;
+    private ImageView ewy;
+    private TextView ewz;
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -32,25 +32,25 @@ public class h extends a<com.baidu.tieba.e.g> {
     }
 
     private void init(View view) {
-        this.ewn = (TbImageView) view.findViewById(R.id.card_frs_game_score_img);
-        this.ewo = (LinearLayout) view.findViewById(R.id.card_frs_game_score_info);
-        this.ewp = (TextView) view.findViewById(R.id.card_frs_game_score_title);
-        this.ewq = (TextView) view.findViewById(R.id.card_frs_game_score_info_dsc);
-        this.ewr = (TextView) view.findViewById(R.id.card_frs_game_score_num);
-        this.ews = (LinearLayout) view.findViewById(R.id.card_frs_game_score_star_container);
-        this.ewt = (ImageView) view.findViewById(R.id.card_frs_game_score_star1);
-        this.ewu = (ImageView) view.findViewById(R.id.card_frs_game_score_star2);
-        this.ewv = (ImageView) view.findViewById(R.id.card_frs_game_score_star3);
-        this.eww = (ImageView) view.findViewById(R.id.card_frs_game_score_star4);
-        this.ewx = (ImageView) view.findViewById(R.id.card_frs_game_score_star5);
-        this.ewy = (TextView) view.findViewById(R.id.card_frs_game_score_audience_num);
-        this.ewn.setDefaultResource(17170445);
-        this.ewn.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.ewn.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.ewn.setDrawBorder(true);
-        this.ewn.setBorderColor(al.getColor(R.color.common_color_10043));
-        this.ewn.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds1));
-        this.ewn.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
+        this.ewo = (TbImageView) view.findViewById(R.id.card_frs_game_score_img);
+        this.ewp = (LinearLayout) view.findViewById(R.id.card_frs_game_score_info);
+        this.ewq = (TextView) view.findViewById(R.id.card_frs_game_score_title);
+        this.ewr = (TextView) view.findViewById(R.id.card_frs_game_score_info_dsc);
+        this.ews = (TextView) view.findViewById(R.id.card_frs_game_score_num);
+        this.ewt = (LinearLayout) view.findViewById(R.id.card_frs_game_score_star_container);
+        this.ewu = (ImageView) view.findViewById(R.id.card_frs_game_score_star1);
+        this.ewv = (ImageView) view.findViewById(R.id.card_frs_game_score_star2);
+        this.eww = (ImageView) view.findViewById(R.id.card_frs_game_score_star3);
+        this.ewx = (ImageView) view.findViewById(R.id.card_frs_game_score_star4);
+        this.ewy = (ImageView) view.findViewById(R.id.card_frs_game_score_star5);
+        this.ewz = (TextView) view.findViewById(R.id.card_frs_game_score_audience_num);
+        this.ewo.setDefaultResource(17170445);
+        this.ewo.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.ewo.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.ewo.setDrawBorder(true);
+        this.ewo.setBorderColor(al.getColor(R.color.common_color_10043));
+        this.ewo.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds1));
+        this.ewo.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
         getView().setOnClickListener(this);
         this.dividerLine = view.findViewById(R.id.divider_line);
     }
@@ -60,11 +60,11 @@ public class h extends a<com.baidu.tieba.e.g> {
         if (this.mSkinType != i) {
             al.k(getView(), R.color.cp_bg_line_d);
             al.k(this.dividerLine, R.color.cp_bg_line_e);
-            al.f(this.ewp, R.color.cp_cont_b, 1);
-            al.f(this.ewq, R.color.cp_cont_j, 1);
-            al.f(this.ewr, R.color.cp_cont_f, 1);
-            al.f(this.ewy, R.color.cp_cont_j, 1);
-            b(this.ewz);
+            al.f(this.ewq, R.color.cp_cont_b, 1);
+            al.f(this.ewr, R.color.cp_cont_j, 1);
+            al.f(this.ews, R.color.cp_cont_f, 1);
+            al.f(this.ewz, R.color.cp_cont_j, 1);
+            b(this.ewA);
         }
         this.mSkinType = i;
     }
@@ -77,65 +77,65 @@ public class h extends a<com.baidu.tieba.e.g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.g gVar) {
-        if (gVar != null && gVar.bbX() != null) {
-            this.ewz = gVar;
-            this.ewn.startLoad(gVar.bbX().avatar, 10, false);
-            this.ewp.setText(gVar.bbX().game_name);
-            this.ewq.setText(gVar.bbX().title_small);
-            this.ewr.setText(String.valueOf(gVar.bbX().game_score));
+        if (gVar != null && gVar.bca() != null) {
+            this.ewA = gVar;
+            this.ewo.startLoad(gVar.bca().avatar, 10, false);
+            this.ewq.setText(gVar.bca().game_name);
+            this.ewr.setText(gVar.bca().title_small);
+            this.ews.setText(String.valueOf(gVar.bca().game_score));
             b(gVar);
-            this.ewy.setText(this.mContext.getResources().getString(R.string.frs_game_score_user_score_num, ap.aH(gVar.bbX().game_score_num)));
+            this.ewz.setText(this.mContext.getResources().getString(R.string.frs_game_score_user_score_num, ap.aH(gVar.bca().game_score_num)));
         }
     }
 
     private void b(com.baidu.tieba.e.g gVar) {
         if (gVar != null) {
-            al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_empty_bg);
             al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_empty_bg);
             al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_empty_bg);
             al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_empty_bg);
             al.c(this.ewx, (int) R.drawable.game_comment_score_btn_small_empty_bg);
-            if (gVar.bbX().game_score > 0.0d) {
-                if (gVar.bbX().game_score < 2.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bbX().game_score == 2.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bbX().game_score < 4.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+            al.c(this.ewy, (int) R.drawable.game_comment_score_btn_small_empty_bg);
+            if (gVar.bca().game_score > 0.0d) {
+                if (gVar.bca().game_score < 2.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bbX().game_score == 4.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score == 2.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bbX().game_score < 6.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score < 4.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bbX().game_score == 6.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score == 4.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bbX().game_score < 8.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score < 6.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bbX().game_score == 8.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score == 6.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_full_bg);
-                } else if (gVar.bbX().game_score < 10.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score < 8.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewx, (int) R.drawable.game_comment_score_btn_small_half_bg);
-                } else if (gVar.bbX().game_score == 10.0d) {
-                    al.c(this.ewt, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score == 8.0d) {
                     al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_full_bg);
                     al.c(this.ewx, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                } else if (gVar.bca().game_score < 10.0d) {
+                    al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewx, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewy, (int) R.drawable.game_comment_score_btn_small_half_bg);
+                } else if (gVar.bca().game_score == 10.0d) {
+                    al.c(this.ewu, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewv, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.eww, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewx, (int) R.drawable.game_comment_score_btn_small_full_bg);
+                    al.c(this.ewy, (int) R.drawable.game_comment_score_btn_small_full_bg);
                 }
             }
         }
@@ -143,8 +143,8 @@ public class h extends a<com.baidu.tieba.e.g> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (aXo() != null) {
-            aXo().a(getView(), this.ewz);
+        if (aXr() != null) {
+            aXr().a(getView(), this.ewA);
         }
     }
 }

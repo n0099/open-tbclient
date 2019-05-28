@@ -8,8 +8,8 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
     private String FC;
-    private List<String> irl;
-    private long irm;
+    private List<String> iro;
+    private long irp;
     private long mStartTime = System.currentTimeMillis();
 
     public a Cl(String str) {
@@ -19,19 +19,19 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.irm = jSONObject.optLong("ttl");
+            this.irp = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.FC = optJSONObject.keys().next();
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.FC);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.irl = new ArrayList();
+                this.iro = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.irl.add((String) optJSONArray.get(i2));
+                        this.iro.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,8 +51,8 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> cbU() {
-        return this.irl;
+    public List<String> cbX() {
+        return this.iro;
     }
 
     public String getHost() {
@@ -60,6 +60,6 @@ public class a {
     }
 
     public boolean ei(long j) {
-        return j - this.mStartTime > this.irm * 1000;
+        return j - this.mStartTime > this.irp * 1000;
     }
 }

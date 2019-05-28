@@ -34,9 +34,9 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         setOnAdapterItemClickListener(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.personalize.a.v.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if (view != null && aVar != null && !ap.isEmpty(aVar.cVl)) {
+                if (view != null && aVar != null && !ap.isEmpty(aVar.cVm)) {
                     TiebaStatic.log(new am("c12885"));
-                    ba.aiz().c(v.this.mPageContext, new String[]{aVar.cVl});
+                    ba.aiz().c(v.this.mPageContext, new String[]{aVar.cVm});
                 }
             }
         });
@@ -48,29 +48,29 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (gVar == null || aVar == null || aVar.aYp() == null) {
+        if (gVar == null || aVar == null || aVar.aYs() == null) {
             return null;
         }
         TiebaStatic.log(new am("c12884"));
-        aVar.aYp().a(gVar);
-        return aVar.aYp().getView();
+        aVar.aYs().a(gVar);
+        return aVar.aYs().getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.personalize.data.g> {
-        private String cVl;
+        private String cVm;
         private ImageView ckq;
-        private TbImageView gdg;
+        private TbImageView gdh;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
-            this.gdg = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
-            this.gdg.setAutoChangeStyle(true);
-            this.gdg.setScaleType(ImageView.ScaleType.FIT_XY);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gdg.getLayoutParams();
+            this.gdh = (TbImageView) getView().findViewById(R.id.quiz_entrance_img);
+            this.gdh.setAutoChangeStyle(true);
+            this.gdh.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gdh.getLayoutParams();
             layoutParams.height = (int) (com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds236) * ((com.baidu.adp.lib.util.l.af(tbPageContext.getPageActivity()) * 1.0f) / 1080.0f));
-            this.gdg.setLayoutParams(layoutParams);
-            this.gdg.setDefaultBgResource(R.drawable.pic_quiz_banner_default);
+            this.gdh.setLayoutParams(layoutParams);
+            this.gdh.setDefaultBgResource(R.drawable.pic_quiz_banner_default);
             this.ckq = (ImageView) getView().findViewById(R.id.close);
             this.ckq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.v.a.1
                 @Override // android.view.View.OnClickListener
@@ -93,13 +93,13 @@ public class v extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
-            if (gVar.Yc >= 0 && gVar.ger >= 0) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gdg.getLayoutParams();
-                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.af(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.Yc) * gVar.ger);
-                this.gdg.setLayoutParams(layoutParams);
+            if (gVar.Yc >= 0 && gVar.ges >= 0) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gdh.getLayoutParams();
+                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.af(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.Yc) * gVar.ges);
+                this.gdh.setLayoutParams(layoutParams);
             }
-            this.gdg.startLoad(gVar.imgUrl, 10, false);
-            this.cVl = gVar.bCP;
+            this.gdh.startLoad(gVar.imgUrl, 10, false);
+            this.cVm = gVar.bCP;
             al.c(this.ckq, (int) R.drawable.icon_live_close_n);
         }
 

@@ -10,11 +10,11 @@ public interface b {
 
     void c(Framedata framedata) throws InvalidDataException;
 
-    String cKG();
+    String cKI();
 
-    String cKH();
+    String cKJ();
 
-    b cKI();
+    b cKK();
 
     void d(Framedata framedata);
 

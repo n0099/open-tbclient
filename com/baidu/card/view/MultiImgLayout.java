@@ -115,11 +115,11 @@ public class MultiImgLayout extends LinearLayout implements i<a> {
         VoiceData.VoiceModel voiceModel = adJ.get(0);
         this.XS.setVoiceModel(voiceModel);
         this.XS.setTag(voiceModel);
-        this.XS.bFA();
+        this.XS.bFD();
         if (voiceModel != null) {
             this.XS.vx(voiceModel.voice_status.intValue());
         }
-        this.XS.cnD();
+        this.XS.cnF();
         this.XV = true;
     }
 

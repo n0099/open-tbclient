@@ -50,7 +50,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
                 while (it.hasNext()) {
                     Map.Entry<Uri, a> next = it.next();
                     if (next != null && next.getValue() != null && it.hasNext()) {
-                        next.getValue().aAi();
+                        next.getValue().aAl();
                         it.remove();
                     }
                 }
@@ -62,7 +62,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     public void addPlayer(IMediaPlayer iMediaPlayer, Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
             if (this.mPlayerList.containsKey(uri) && this.mPlayerList.get(uri) != null) {
-                this.mPlayerList.get(uri).aAi();
+                this.mPlayerList.get(uri).aAl();
             }
             this.mPlayerList.put(uri, new a(iMediaPlayer));
         }
@@ -74,7 +74,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             a aVar = this.mPlayerList.get(uri);
             if (aVar != null) {
                 aVar.count--;
-                IMediaPlayer iMediaPlayer = aVar.cRP;
+                IMediaPlayer iMediaPlayer = aVar.cRQ;
                 if (iMediaPlayer != null) {
                     if (iMediaPlayer.isPlaying()) {
                         iMediaPlayer.pause();
@@ -91,9 +91,9 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     @Override // com.baidu.tieba.QuickPlayer.a
     public IMediaPlayer getPlayer(Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
-            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).cRP != null) {
+            if (this.mPlayerList.get(uri) != null && this.mPlayerList.get(uri).cRQ != null) {
                 this.mPlayerList.get(uri).count++;
-                return this.mPlayerList.get(uri).cRP;
+                return this.mPlayerList.get(uri).cRQ;
             }
             return null;
         }
@@ -117,8 +117,8 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
         ArrayList arrayList = new ArrayList();
         synchronized (QuickMediaPlayerService.class) {
             for (Map.Entry<Uri, a> entry : this.mPlayerList.entrySet()) {
-                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().cRP != null) {
-                    arrayList.add(entry.getValue().cRP.generateMediaID());
+                if (entry != null && entry.getKey() != null && entry.getValue() != null && entry.getValue().cRQ != null) {
+                    arrayList.add(entry.getValue().cRQ.generateMediaID());
                 }
             }
         }
@@ -139,7 +139,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             boolean z = size() > 3;
             V value = entry.getValue();
             if (z && (value instanceof a)) {
-                ((a) value).aAi();
+                ((a) value).aAl();
             }
             return z;
         }
@@ -147,24 +147,24 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
 
     /* loaded from: classes3.dex */
     class a {
-        public IMediaPlayer cRP;
+        public IMediaPlayer cRQ;
         public int count = 1;
 
         public a(IMediaPlayer iMediaPlayer) {
-            this.cRP = iMediaPlayer;
+            this.cRQ = iMediaPlayer;
         }
 
         public boolean equals(Object obj) {
-            return (obj instanceof a) && this.cRP == ((a) obj).cRP;
+            return (obj instanceof a) && this.cRQ == ((a) obj).cRQ;
         }
 
-        public void aAi() {
-            if (this.cRP != null) {
+        public void aAl() {
+            if (this.cRQ != null) {
                 try {
-                    this.cRP.reset();
+                    this.cRQ.reset();
                 } catch (Throwable th) {
                 }
-                this.cRP.release();
+                this.cRQ.release();
             }
         }
     }

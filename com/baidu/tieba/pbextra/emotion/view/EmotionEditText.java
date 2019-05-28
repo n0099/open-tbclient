@@ -20,16 +20,16 @@ public class EmotionEditText extends FrameLayout {
     private int cKg;
     private int cKh;
     private float cPp;
-    private float eXR;
-    private ImageView iaZ;
-    private ImageView iba;
-    private float ibb;
-    private int ibc;
-    private int ibd;
-    private boolean ibe;
-    public int ibf;
+    private float eXS;
+    private ImageView ibc;
+    private ImageView ibd;
+    private float ibe;
+    private int ibf;
     private int ibg;
-    private int ibh;
+    private boolean ibh;
+    public int ibi;
+    private int ibj;
+    private int ibk;
     private float mDownX;
     private EditText mEditText;
     private int mMargin;
@@ -45,40 +45,40 @@ public class EmotionEditText extends FrameLayout {
 
     public EmotionEditText(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.eXR = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.eXS = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         init();
     }
 
     private void init() {
         this.mMargin = getResources().getDimensionPixelSize(R.dimen.ds20);
-        this.ibf = this.mMargin * 2;
-        this.ibc = 24;
-        this.ibd = 16;
-        FrameLayout.LayoutParams bXO = bXO();
-        addView(this.mEditText, bXO);
-        a(bXO);
-        bXN();
-        bXM();
-        setTextSize(2, this.ibc);
+        this.ibi = this.mMargin * 2;
+        this.ibf = 24;
+        this.ibg = 16;
+        FrameLayout.LayoutParams bXR = bXR();
+        addView(this.mEditText, bXR);
+        a(bXR);
+        bXQ();
         bXP();
+        setTextSize(2, this.ibf);
+        bXS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean M(MotionEvent motionEvent) {
-        return Math.abs(motionEvent.getRawX() - this.mDownX) < this.eXR && Math.abs(motionEvent.getRawY() - this.cPp) < this.eXR;
+        return Math.abs(motionEvent.getRawX() - this.mDownX) < this.eXS && Math.abs(motionEvent.getRawY() - this.cPp) < this.eXS;
     }
 
-    private void bXM() {
-        this.iba = new ImageView(getContext());
-        this.iba.setImageResource(R.drawable.icon_frame_enlarge_n);
-        this.iba.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.1
+    private void bXP() {
+        this.ibd = new ImageView(getContext());
+        this.ibd.setImageResource(R.drawable.icon_frame_enlarge_n);
+        this.ibd.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
                         EmotionEditText.this.mDownX = motionEvent.getRawX();
                         EmotionEditText.this.cPp = motionEvent.getRawY();
-                        EmotionEditText.this.ibb = EmotionEditText.this.mDownX;
+                        EmotionEditText.this.ibe = EmotionEditText.this.mDownX;
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
                         layoutParams.setMargins(EmotionEditText.this.getLeft(), EmotionEditText.this.getTop(), 0, 0);
                         EmotionEditText.this.setLayoutParams(layoutParams);
@@ -89,7 +89,7 @@ public class EmotionEditText extends FrameLayout {
                     case 2:
                         float rawX = motionEvent.getRawX();
                         motionEvent.getRawY();
-                        float f = rawX - EmotionEditText.this.ibb;
+                        float f = rawX - EmotionEditText.this.ibe;
                         if (!EmotionEditText.this.M(motionEvent)) {
                             if (f > 0.0f) {
                                 EmotionEditText.this.setSize(f);
@@ -97,15 +97,15 @@ public class EmotionEditText extends FrameLayout {
                                 EmotionEditText.this.setSize(f);
                             }
                         }
-                        EmotionEditText.this.ibb = rawX;
+                        EmotionEditText.this.ibe = rawX;
                         return true;
                 }
             }
         });
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 85;
-        this.iba.setPadding(0, 0, this.mMargin, this.mMargin);
-        addView(this.iba, layoutParams);
+        this.ibd.setPadding(0, 0, this.mMargin, this.mMargin);
+        addView(this.ibd, layoutParams);
     }
 
     private void a(FrameLayout.LayoutParams layoutParams) {
@@ -121,10 +121,10 @@ public class EmotionEditText extends FrameLayout {
         addView(this.mTextView, layoutParams);
     }
 
-    private void bXN() {
-        this.iaZ = new ImageView(getContext());
-        this.iaZ.setImageResource(R.drawable.icon_frame_close_n);
-        this.iaZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.2
+    private void bXQ() {
+        this.ibc = new ImageView(getContext());
+        this.ibc.setImageResource(R.drawable.icon_frame_close_n);
+        this.ibc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pbextra.emotion.view.EmotionEditText.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 EmotionEditText.this.mEditText.setText("");
@@ -132,16 +132,16 @@ public class EmotionEditText extends FrameLayout {
             }
         });
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        this.iaZ.setPadding(this.mMargin, this.mMargin, this.mMargin, this.mMargin);
-        addView(this.iaZ, layoutParams);
+        this.ibc.setPadding(this.mMargin, this.mMargin, this.mMargin, this.mMargin);
+        addView(this.ibc, layoutParams);
     }
 
-    private FrameLayout.LayoutParams bXO() {
+    private FrameLayout.LayoutParams bXR() {
         this.mEditText = new EditText(getContext());
         this.mEditText.setHint(getContext().getResources().getString(R.string.emotion_edit_hint));
         this.mEditText.setBackgroundDrawable(null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(this.ibf, this.ibf, this.ibf, this.ibf);
+        layoutParams.setMargins(this.ibi, this.ibi, this.ibi, this.ibi);
         layoutParams.gravity = 17;
         this.mEditText.setPadding(this.mMargin, this.mMargin / 2, this.mMargin, this.mMargin / 2);
         this.mEditText.setSingleLine();
@@ -167,8 +167,8 @@ public class EmotionEditText extends FrameLayout {
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
                     int width = (EmotionEditText.this.cKg - EmotionEditText.this.getWidth()) - EmotionEditText.this.getLeft();
-                    if (editable.toString().length() <= EmotionEditText.this.mTextView.getText().toString().length() || EmotionEditText.this.mTextView.getTextSize() <= EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibd) || EmotionEditText.this.mTextView.getTextSize() == EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibc) || width != 0) {
-                        if (editable.toString().length() < EmotionEditText.this.mTextView.getText().toString().length() && width > 0 && EmotionEditText.this.mTextView.getTextSize() != EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibc)) {
+                    if (editable.toString().length() <= EmotionEditText.this.mTextView.getText().toString().length() || EmotionEditText.this.mTextView.getTextSize() <= EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibg) || EmotionEditText.this.mTextView.getTextSize() == EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibf) || width != 0) {
+                        if (editable.toString().length() < EmotionEditText.this.mTextView.getText().toString().length() && width > 0 && EmotionEditText.this.mTextView.getTextSize() != EmotionEditText.this.sp2px(EmotionEditText.this.getContext(), EmotionEditText.this.ibf)) {
                             EmotionEditText.this.setTextSize(2, EmotionEditText.this.px2sp(EmotionEditText.this.getContext(), EmotionEditText.this.mTextView.getTextSize()) + 1);
                         }
                     } else {
@@ -180,7 +180,7 @@ public class EmotionEditText extends FrameLayout {
                         EmotionEditText.this.mTextView.setHint("");
                         return;
                     }
-                    EmotionEditText.this.setTextSize(2, EmotionEditText.this.ibc);
+                    EmotionEditText.this.setTextSize(2, EmotionEditText.this.ibf);
                     EmotionEditText.this.mEditText.setHint(EmotionEditText.this.getContext().getResources().getString(R.string.emotion_edit_hint));
                     EmotionEditText.this.mTextView.setHint(EmotionEditText.this.getContext().getResources().getString(R.string.emotion_edit_hint));
                 }
@@ -193,15 +193,15 @@ public class EmotionEditText extends FrameLayout {
     public void setSize(float f) {
         int width = getWidth() - (this.mMargin * 2);
         int height = getHeight() - (this.mMargin * 2);
-        if (this.ibg == 0 && this.ibh == 0) {
-            this.ibg = width;
-            this.ibh = height;
+        if (this.ibj == 0 && this.ibk == 0) {
+            this.ibj = width;
+            this.ibk = height;
         }
         if (f >= 0.0f) {
             if (width + getLeft() < this.cKg && getTop() + height < this.cKh) {
                 setTextSize(2, px2sp(getContext(), this.mTextView.getTextSize()) + 1);
             }
-        } else if (this.mTextView.getTextSize() > sp2px(getContext(), this.ibd)) {
+        } else if (this.mTextView.getTextSize() > sp2px(getContext(), this.ibg)) {
             setTextSize(2, px2sp(getContext(), this.mTextView.getTextSize()) - 1);
         }
     }
@@ -215,7 +215,7 @@ public class EmotionEditText extends FrameLayout {
         this.cKg = i;
         this.cKh = i2;
         if (this.cKg < l.af(getContext()) / 4) {
-            setTextSize(2, this.ibd);
+            setTextSize(2, this.ibg);
         }
     }
 
@@ -239,24 +239,24 @@ public class EmotionEditText extends FrameLayout {
         this.mEditText.setFocusableInTouchMode(false);
     }
 
-    public void bXP() {
-        if (!this.ibe) {
-            this.ibe = true;
+    public void bXS() {
+        if (!this.ibh) {
+            this.ibh = true;
             this.mEditText.setVisibility(4);
             this.mTextView.setVisibility(0);
-            this.iaZ.setVisibility(0);
-            this.iba.setVisibility(0);
+            this.ibc.setVisibility(0);
+            this.ibd.setVisibility(0);
             setEditTextEnable(false);
         }
     }
 
-    public void bXQ() {
-        if (this.ibe) {
-            this.ibe = false;
+    public void bXT() {
+        if (this.ibh) {
+            this.ibh = false;
             this.mEditText.setVisibility(0);
             this.mTextView.setVisibility(4);
-            this.iaZ.setVisibility(4);
-            this.iba.setVisibility(4);
+            this.ibc.setVisibility(4);
+            this.ibd.setVisibility(4);
             setEditTextEnable(true);
         }
     }

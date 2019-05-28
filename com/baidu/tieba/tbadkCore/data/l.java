@@ -17,13 +17,13 @@ import java.util.regex.Pattern;
 public class l {
     private String c;
     private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern iYu = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private static final Pattern iYw = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
     private int type = 0;
     private String text = null;
     private String link = null;
-    private String iYs = null;
-    private SpannableStringBuilder iYt = null;
-    private boolean iYr = false;
+    private String iYu = null;
+    private SpannableStringBuilder iYv = null;
+    private boolean iYt = false;
 
     public static boolean cv(int i, int i2) {
         return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
@@ -41,20 +41,20 @@ public class l {
         return this.text;
     }
 
-    public String cme() {
+    public String cmg() {
         return this.c;
     }
 
-    public SpannableStringBuilder cmf() {
-        return this.iYt;
+    public SpannableStringBuilder cmh() {
+        return this.iYv;
     }
 
     public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.iYt == null) {
-            this.iYt = new SpannableStringBuilder();
+        if (this.iYv == null) {
+            this.iYv = new SpannableStringBuilder();
         }
-        this.iYt.append((CharSequence) spannableString);
-        return this.iYt;
+        this.iYv.append((CharSequence) spannableString);
+        return this.iYv;
     }
 
     public SpannableString ei(Context context) {
@@ -80,7 +80,7 @@ public class l {
                                 e.printStackTrace();
                             }
                         }
-                        Matcher matcher2 = l.iYu.matcher(l.this.link);
+                        Matcher matcher2 = l.iYw.matcher(l.this.link);
                         if (matcher2.find()) {
                             try {
                                 String group2 = matcher2.group();
