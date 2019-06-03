@@ -22,8 +22,9 @@ public class PermissionCheck {
     private static c g = null;
     private static int h = LBSAuthManager.CODE_UNAUTHENTICATE;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
-    private static class a implements LBSAuthManagerListener {
+    public static class a implements LBSAuthManagerListener {
         private a() {
         }
 

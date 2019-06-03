@@ -74,8 +74,9 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         this.cancel.add(new Remover2(this, iVar));
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    final class a implements k {
+    public final class a implements k {
         private final Future<?> krW;
 
         a(Future<?> future) {
