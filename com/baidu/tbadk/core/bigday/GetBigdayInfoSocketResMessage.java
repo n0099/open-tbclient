@@ -43,9 +43,9 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         super.afterDispatchInBackGround(i, (int) bArr);
         if (bArr != null) {
-            l<byte[]> mA = com.baidu.tbadk.core.c.a.afD().mA("tb.bigday_datas");
-            mA.remove("tb.bigday_datas");
-            mA.f("tb.bigday_datas", bArr);
+            l<byte[]> mz = com.baidu.tbadk.core.c.a.afD().mz("tb.bigday_datas");
+            mz.remove("tb.bigday_datas");
+            mz.f("tb.bigday_datas", bArr);
         }
     }
 }

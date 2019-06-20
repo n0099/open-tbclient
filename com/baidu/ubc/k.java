@@ -7,7 +7,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    private long Tb;
+    private long Ta;
     private long aGl;
     private int bvC;
     private JSONObject bvD;
@@ -66,11 +66,11 @@ public class k {
     }
 
     public long Xb() {
-        return this.Tb;
+        return this.Ta;
     }
 
     public void ah(long j) {
-        this.Tb = j;
+        this.Ta = j;
     }
 
     public long getEndTime() {
@@ -85,7 +85,7 @@ public class k {
         return this.mState;
     }
 
-    public void kO(String str) {
+    public void kN(String str) {
         this.mState = str;
     }
 
@@ -113,17 +113,17 @@ public class k {
         this.bvF = z;
     }
 
-    public void kP(String str) {
+    public void kO(String str) {
         this.bvE = str;
     }
 
     public void WZ() {
-        if (e.cAf().kH(this.mId)) {
+        if (e.cAe().kG(this.mId)) {
             this.bvE = UBC.getUBCContext().Hs();
         }
     }
 
-    public void kQ(String str) {
+    public void kP(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 this.bvI = new JSONArray(str);

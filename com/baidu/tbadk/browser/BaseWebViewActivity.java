@@ -162,7 +162,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         this.mView.dx(this.mIsLogin);
         this.mView.dx(isNeedShowMenuItem());
         if (!StringUtils.isNull(this.mUrlTitle)) {
-            this.mView.lV(this.mUrlTitle);
+            this.mView.lU(this.mUrlTitle);
         }
         if (!this.mView.aat() && UtilHelper.canUseStyleImmersiveSticky() && !isTranslucent()) {
             bc.b(this.mView.bBg, R.color.cp_link_tip_b, false);
@@ -193,7 +193,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     }
 
     private void initData() {
-        Map<String, String> nW;
+        Map<String, String> nV;
         Intent intent = getIntent();
         if (intent != null) {
             String dataString = intent.getDataString();
@@ -203,8 +203,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     if (decode.startsWith("//")) {
                         decode = decode.substring(2);
                     }
-                    if (!StringUtils.isNull(decode) && (nW = ba.nW(decode)) != null) {
-                        this.mUrl = nW.get("url");
+                    if (!StringUtils.isNull(decode) && (nV = ba.nV(decode)) != null) {
+                        this.mUrl = nV.get("url");
                         this.mIsShowNavBar = true;
                         this.mEnableJs = true;
                     } else {
@@ -482,7 +482,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             eVar.imageUri = Uri.parse(str4);
         }
-        eVar.cjq = true;
+        eVar.cjr = true;
         eVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", eVar.linkUrl);
@@ -521,14 +521,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         eVar.topic = optString5;
                     }
                     if (!ap.isEmpty(optString6)) {
-                        eVar.cjK = optString6;
+                        eVar.cjL = optString6;
                     }
                     if (!ap.isEmpty(optString7)) {
-                        eVar.cjL = optString7;
+                        eVar.cjM = optString7;
                     }
                     eVar.shareType = jSONObject.optInt("shareimg");
                     if (!ap.isEmpty(optString8) && "1".equals(optString8)) {
-                        eVar.cju = true;
+                        eVar.cjv = true;
                         eVar.title = optString + " " + optString2;
                     }
                     String optString9 = jSONObject.optString("extdata");
@@ -540,7 +540,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString10) && !StringUtils.isNull(optString11)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString10, optString11);
-                                eVar.cjM = jSONObject3.toString();
+                                eVar.cjN = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -729,14 +729,14 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str2;
         boolean z;
         String str3 = "";
-        a.b ma = com.baidu.tbadk.core.a.a.abg().ma(TbadkCoreApplication.getCurrentBduss());
-        if (ma != null) {
-            if (ma.BT != null) {
-                str3 = ma.BT;
+        a.b lZ = com.baidu.tbadk.core.a.a.abg().lZ(TbadkCoreApplication.getCurrentBduss());
+        if (lZ != null) {
+            if (lZ.BS != null) {
+                str3 = lZ.BS;
             }
-            if (ma.bCK != null) {
+            if (lZ.bCL != null) {
                 str = str3;
-                str2 = ma.bCK;
+                str2 = lZ.bCL;
                 ae.a aVar = new ae.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

@@ -14,8 +14,8 @@ public final class l {
             return null;
         }
         l lVar = new l();
-        lVar.bdO = cVar.iR("success");
-        lVar.bdP = cVar.iR(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        lVar.bdO = cVar.iQ("success");
+        lVar.bdP = cVar.iQ(LivenessStat.TYPE_FACE_MATCH_FAIL);
         return lVar;
     }
 
@@ -26,13 +26,13 @@ public final class l {
     }
 
     public void a(String str) {
-        JSONObject iF = iF(str);
+        JSONObject iE = iE(str);
         if (this.bdP != null) {
-            this.bdP.call(iF);
+            this.bdP.call(iE);
         }
     }
 
-    private JSONObject iF(String str) {
+    private JSONObject iE(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("errCode", str);

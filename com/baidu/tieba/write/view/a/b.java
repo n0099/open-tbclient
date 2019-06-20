@@ -11,10 +11,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends a {
     private static int mPadding;
-    private TextView jKn;
-    private TextView jKo;
-    private TextView jKp;
     private TextView jKq;
+    private TextView jKr;
+    private TextView jKs;
+    private TextView jKt;
 
     public b(e eVar) {
         super(eVar);
@@ -26,37 +26,37 @@ public class b extends a {
     }
 
     public void z(View.OnClickListener onClickListener) {
-        this.jKn.setTag(0);
-        this.jKo.setTag(1);
-        this.jKp.setTag(2);
-        this.jKq.setTag(3);
-        this.jKn.setOnClickListener(onClickListener);
-        this.jKo.setOnClickListener(onClickListener);
-        this.jKp.setOnClickListener(onClickListener);
+        this.jKq.setTag(0);
+        this.jKr.setTag(1);
+        this.jKs.setTag(2);
+        this.jKt.setTag(3);
         this.jKq.setOnClickListener(onClickListener);
+        this.jKr.setOnClickListener(onClickListener);
+        this.jKs.setOnClickListener(onClickListener);
+        this.jKt.setOnClickListener(onClickListener);
     }
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_rorate_view, (ViewGroup) null);
-        this.jKn = (TextView) this.mRootView.findViewById(R.id.rotate_left);
-        this.jKo = (TextView) this.mRootView.findViewById(R.id.rotate_right);
-        this.jKp = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
-        this.jKq = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
+        this.jKq = (TextView) this.mRootView.findViewById(R.id.rotate_left);
+        this.jKr = (TextView) this.mRootView.findViewById(R.id.rotate_right);
+        this.jKs = (TextView) this.mRootView.findViewById(R.id.rotate_left_right);
+        this.jKt = (TextView) this.mRootView.findViewById(R.id.rotate_up_down);
     }
 
     public void onChangeSkinType() {
-        al.j(this.jKn, R.color.cp_cont_j);
-        al.j(this.jKo, R.color.cp_cont_j);
-        al.j(this.jKp, R.color.cp_cont_j);
         al.j(this.jKq, R.color.cp_cont_j);
-        this.jKn.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
-        this.jKo.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
-        this.jKq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
-        this.jKp.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
-        this.jKn.setCompoundDrawablePadding(mPadding);
-        this.jKo.setCompoundDrawablePadding(mPadding);
+        al.j(this.jKr, R.color.cp_cont_j);
+        al.j(this.jKs, R.color.cp_cont_j);
+        al.j(this.jKt, R.color.cp_cont_j);
+        this.jKq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_rotate_left), (Drawable) null, (Drawable) null);
+        this.jKr.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_rotate_right), (Drawable) null, (Drawable) null);
+        this.jKt.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_flip_up_down), (Drawable) null, (Drawable) null);
+        this.jKs.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.getDrawable(R.drawable.filter_flip_left_right), (Drawable) null, (Drawable) null);
         this.jKq.setCompoundDrawablePadding(mPadding);
-        this.jKp.setCompoundDrawablePadding(mPadding);
+        this.jKr.setCompoundDrawablePadding(mPadding);
+        this.jKt.setCompoundDrawablePadding(mPadding);
+        this.jKs.setCompoundDrawablePadding(mPadding);
     }
 }

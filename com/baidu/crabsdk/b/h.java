@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class h {
-    private static String ZG = null;
+    private static String ZF = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -52,16 +52,16 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (ZG != null) {
-                return ZG;
+            if (ZF != null) {
+                return ZF;
             }
             try {
-                ZG = a(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                ZF = a(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                ZG = Apn.APN_UNKNOWN;
+                ZF = Apn.APN_UNKNOWN;
             }
-            return ZG;
+            return ZF;
         }
         return Apn.APN_UNKNOWN;
     }

@@ -64,7 +64,7 @@ public class y extends z {
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
-            } else if (com.baidu.swan.apps.an.aa.ij(optString2)) {
+            } else if (com.baidu.swan.apps.an.aa.ii(optString2)) {
                 c.put("linkUrl", optString2);
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -88,7 +88,7 @@ public class y extends z {
         String optString = jSONObject.optString("shareUrl");
         JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
         try {
-            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.ij(optString) || z)) {
+            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.ii(optString) || z)) {
                 jSONObject.put("linkUrl", optString);
             }
             if (optJSONArray != null && optJSONArray.length() > 0 && !z) {

@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener iic;
+    private View.OnLongClickListener iid;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -30,7 +30,7 @@ public class h extends RecyclerView.Adapter<a> {
         this.mDataList = list;
     }
 
-    public SmartApp BY(String str) {
+    public SmartApp Ca(String str) {
         if (v.aa(this.mDataList)) {
             return null;
         }
@@ -50,7 +50,7 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.iic = onLongClickListener;
+        this.iid = onLongClickListener;
     }
 
     private SmartApp yi(int i) {
@@ -58,9 +58,9 @@ public class h extends RecyclerView.Adapter<a> {
     }
 
     public void b(SmartApp smartApp) {
-        SmartApp BY = BY(smartApp.id);
-        if (BY != null && this.mDataList != null) {
-            v.a(this.mDataList, 0, BY);
+        SmartApp Ca = Ca(smartApp.id);
+        if (Ca != null && this.mDataList != null) {
+            v.a(this.mDataList, 0, Ca);
         }
     }
 
@@ -79,7 +79,7 @@ public class h extends RecyclerView.Adapter<a> {
         if (aVar != null && (yi = yi(i)) != null) {
             aVar.c(yi);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.iic);
+            aVar.setOnLongClickListener(this.iid);
             aVar.onChangeSkinType();
         }
     }
@@ -91,25 +91,25 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gQZ;
-        private SmartApp iid;
+        private HeadImageView gRb;
+        private SmartApp iie;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gQZ = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gQZ.setIsRound(true);
-            this.gQZ.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
+            this.gRb = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.gRb.setIsRound(true);
+            this.gRb.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.iid = smartApp;
+            this.iie = smartApp;
             this.mRootView.setTag(smartApp);
             if (!ap.isEmpty(smartApp.avatar)) {
-                this.gQZ.startLoad(smartApp.avatar, 10, false, false);
+                this.gRb.startLoad(smartApp.avatar, 10, false, false);
             }
             if (!ap.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);

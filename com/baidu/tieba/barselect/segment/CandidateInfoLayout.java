@@ -24,8 +24,8 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
 /* loaded from: classes3.dex */
 public class CandidateInfoLayout extends CardBasicLayout {
-    private TextView Xr;
-    private View.OnClickListener ckH;
+    private TextView Xq;
+    private View.OnClickListener ckI;
     private TextView etA;
     private ImageView etB;
     private TextView etC;
@@ -39,7 +39,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
     public CandidateInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckH = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.CandidateInfoLayout.1
+        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.CandidateInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (CandidateInfoLayout.this.etE != null && CandidateInfoLayout.this.etE.getUid() != 0) {
@@ -72,7 +72,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
             this.ety.getHeadView().setIsRound(true);
         }
         this.etz = (LinearLayout) findViewById(R.id.user_name_and_active_status);
-        this.Xr = (TextView) findViewById(R.id.user_name);
+        this.Xq = (TextView) findViewById(R.id.user_name);
         this.etA = (TextView) findViewById(R.id.vote_id);
         this.etC = (TextView) findViewById(R.id.agree_post_reply_num);
         this.etB = (ImageView) findViewById(R.id.grade);
@@ -98,7 +98,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
             this.ety.in(true);
             this.ety.setBawuLogoView(R.drawable.pic_election_bazhu);
             this.ety.setPendantView(R.drawable.icon_crown);
-            this.Xr.setTextSize(0, l.g(this.mContext, R.dimen.tbfontsize46));
+            this.Xq.setTextSize(0, l.g(this.mContext, R.dimen.tbfontsize46));
             setGravity(16);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
             layoutParams2.setMargins(g5, g4, layoutParams2.rightMargin, g3);
@@ -107,9 +107,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
         } else {
             this.ety.in(false);
         }
-        this.ety.oy(this.etE.getPortrait());
-        this.ety.setOnClickListener(this.ckH);
-        this.Xr.setText(ap.j(this.etE.aWI(), 14, "..."));
+        this.ety.ox(this.etE.getPortrait());
+        this.ety.setOnClickListener(this.ckI);
+        this.Xq.setText(ap.j(this.etE.aWI(), 14, "..."));
         setGrade(this.etE.aWF());
         if (this.etE.aWE() < 1000) {
             String str2 = "0000" + this.etE.aWE();
@@ -126,7 +126,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
     }
 
     public void nq(int i) {
-        al.c(this.Xr, R.color.cp_cont_b, 1, i);
+        al.c(this.Xq, R.color.cp_cont_b, 1, i);
         al.c(this.etA, R.color.cp_cont_d, 1, i);
         al.c(this.etC, R.color.cp_cont_d, 1, i);
         if (this.etE != null) {

@@ -18,8 +18,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
     public int pageType = 0;
-    private e ibr = null;
-    private d ibs = null;
+    private e ibs = null;
+    private d ibt = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,62 +29,62 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (bundle != null) {
             this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-            this.ibs = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.ibs.xX(bundle.getInt("KeyIntentPraiseId"));
+            this.ibt = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+            this.ibt.xX(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
             boolean booleanExtra = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-            this.ibs = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+            this.ibt = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             z = booleanExtra;
         } else {
             z = false;
         }
-        if (this.ibs == null) {
-            this.ibs = new d();
+        if (this.ibt == null) {
+            this.ibt = new d();
         }
-        this.ibs.setIsAuthor(z);
-        this.ibr = new e(this, this.ibs.bXW());
-        this.ibr.pj(false);
-        this.ibs.xZ(this.pageType);
+        this.ibt.setIsAuthor(z);
+        this.ibs = new e(this, this.ibt.bXX());
+        this.ibs.pk(false);
+        this.ibt.xZ(this.pageType);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.ibs.e(bundle, IntentConfig.IS_FROM_PB);
-        this.ibs.f(bundle, "thread_id");
-        this.ibs.g(bundle, "post_id");
-        this.ibs.h(bundle, IntentConfig.POST_DESC);
-        this.ibs.i(bundle, "KeyIntentPraiseId");
+        this.ibt.e(bundle, IntentConfig.IS_FROM_PB);
+        this.ibt.f(bundle, "thread_id");
+        this.ibt.g(bundle, "post_id");
+        this.ibt.h(bundle, IntentConfig.POST_DESC);
+        this.ibt.i(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ibr.bXZ()) {
-            bXV();
-            if (this.ibs.bWa()) {
+        if (view == this.ibs.bYa()) {
+            bXW();
+            if (this.ibt.bWb()) {
                 finish();
                 return;
             }
-            r.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.ibs.getThreadId(), null, "praise_list"));
-        } else if (view == this.ibr.bYa() && !this.ibr.pu()) {
-            this.ibr.pj(true);
-            this.ibs.xZ(this.pageType);
+            r.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.ibt.getThreadId(), null, "praise_list"));
+        } else if (view == this.ibs.bYb() && !this.ibs.pu()) {
+            this.ibs.pk(true);
+            this.ibt.xZ(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a xY = this.ibs.xY(i);
+        a xY = this.ibt.xY(i);
         if (xY != null) {
             r.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), xY.getUserId(), xY.getShowName(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
-    private void bXV() {
-        if (this.ibs != null) {
-            this.ibs.unRegister();
+    private void bXW() {
+        if (this.ibt != null) {
+            this.ibt.unRegister();
         }
     }
 
@@ -93,28 +93,28 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(R.string.neterror);
         }
-        this.ibr.bXY();
-        this.ibr.be(str, this.pageType);
+        this.ibs.bXZ();
+        this.ibs.be(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.ibr.bBa();
+        this.ibs.bBb();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        bXV();
+        bXW();
         super.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.ibr.a(getLayoutMode(), i);
+        this.ibs.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
@@ -124,6 +124,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.ibr.b(i, list, i2, i3);
+        this.ibs.b(i, list, i2, i3);
     }
 }

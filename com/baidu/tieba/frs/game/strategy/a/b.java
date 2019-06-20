@@ -161,7 +161,7 @@ public class b implements com.baidu.tieba.frs.game.strategy.tab.a {
         this.dkP = i;
         this.fAo = i2;
         if (i == 0 && i2 == 0) {
-            this.fAq.wC(String.valueOf(this.mFid));
+            this.fAq.wB(String.valueOf(this.mFid));
         } else {
             String bt = bt(i, i2);
             c cVar = this.fAn.get(bt);

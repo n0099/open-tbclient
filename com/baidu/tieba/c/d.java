@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
-    private int bYc;
+    private int bYd;
     private boolean eGT;
     private String eGU;
     private int eHa;
@@ -32,7 +32,7 @@ public class d {
     private int mYOffset = 0;
     private int eHd = 48;
     private int eHe = 4;
-    private boolean zw = false;
+    private boolean zv = false;
     private Runnable eHh = new Runnable() { // from class: com.baidu.tieba.c.d.1
         @Override // java.lang.Runnable
         public void run() {
@@ -49,7 +49,7 @@ public class d {
                             al.j(textView, R.color.cp_btn_a);
                             textView.setTextSize(0, d.this.mPageContext.getResources().getDimensionPixelSize(R.dimen.fontsize28));
                             textView.setHeight(d.this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds76));
-                            textView.setPadding(d.this.bYc, d.this.eHa, d.this.eHb, d.this.eHc);
+                            textView.setPadding(d.this.bYd, d.this.eHa, d.this.eHb, d.this.eHc);
                             textView.setSingleLine(true);
                             al.k(textView, d.this.eGV);
                             if (d.this.eHf != null) {
@@ -80,7 +80,7 @@ public class d {
                     });
                     d.this.eGS = dVar.hL();
                     d.this.eGS.R(false);
-                    d.this.eGS.S(d.this.zw);
+                    d.this.eGS.S(d.this.zv);
                     d.this.eGS.n(d.this.mPageContext.getPageActivity());
                     d.this.eGT = true;
                     d.this.aZz();
@@ -107,13 +107,13 @@ public class d {
     }
 
     public d(TbPageContext tbPageContext, View view) {
-        this.bYc = 0;
+        this.bYd = 0;
         this.eHa = 0;
         this.eHb = 0;
         this.eHc = 0;
         this.mPageContext = tbPageContext;
         this.mTargetView = view;
-        this.bYc = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
+        this.bYd = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
         this.eHa = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
         this.eHb = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds24);
         this.eHc = this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds10);
@@ -146,7 +146,7 @@ public class d {
         }
     }
 
-    public void ve(String str) {
+    public void vd(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {
@@ -194,7 +194,7 @@ public class d {
     }
 
     public void s(int i, int i2, int i3, int i4) {
-        this.bYc = i;
+        this.bYd = i;
         this.eHa = i2;
         this.eHb = i3;
         this.eHc = i4;
@@ -213,6 +213,6 @@ public class d {
     }
 
     public void S(boolean z) {
-        this.zw = z;
+        this.zv = z;
     }
 }

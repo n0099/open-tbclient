@@ -167,7 +167,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
         createFromThreadCfg.setForumId(String.valueOf(bgVar.getFid()));
         createFromThreadCfg.setForumName(bgVar.adA());
         createFromThreadCfg.setStartFrom(0);
-        n.uS(bgVar.getTid());
+        n.uR(bgVar.getTid());
         getTbPageContext().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 

@@ -8,40 +8,40 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a {
-    private List<SimpleForum> fPa;
+    private List<SimpleForum> fPc;
     private String forumId;
-    private com.baidu.adp.framework.listener.a gbk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
+    private com.baidu.adp.framework.listener.a gbm = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450) { // from class: com.baidu.tieba.write.transmit.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetRepostForumHttpResMessage) || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || a.this.mRequestId == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.jEa != null) {
-                                a.this.jEa.onError();
+                            if (a.this.jEd != null) {
+                                a.this.jEd.onError();
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetRepostForumHttpResMessage) {
-                            a.this.fPa = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
+                            a.this.fPc = ((GetRepostForumHttpResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumHttpResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumHttpResMessage) responsedMessage).getPrivateThread();
                         }
                         if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                            a.this.fPa = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
+                            a.this.fPc = ((GetRepostForumSocketResMessage) responsedMessage).getForumList();
                             a.this.recommendExt = ((GetRepostForumSocketResMessage) responsedMessage).getRecommendExtension();
                             a.this.privateThread = ((GetRepostForumSocketResMessage) responsedMessage).getPrivateThread();
                         }
-                        if (a.this.jEa != null) {
-                            a.this.jEa.g(a.this.fPa, a.this.privateThread);
+                        if (a.this.jEd != null) {
+                            a.this.jEd.g(a.this.fPc, a.this.privateThread);
                         }
                     }
                 }
             }
         }
     };
-    private InterfaceC0430a jEa;
+    private InterfaceC0430a jEd;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
     private int privateThread;
@@ -59,10 +59,10 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.gbk.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.gbk);
-        this.gbk.getHttpMessageListener().setSelfListener(true);
-        this.gbk.getSocketMessageListener().setSelfListener(true);
+        this.gbm.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.gbm);
+        this.gbm.getHttpMessageListener().setSelfListener(true);
+        this.gbm.getSocketMessageListener().setSelfListener(true);
     }
 
     public void setRequestId(BdUniqueId bdUniqueId) {
@@ -101,10 +101,10 @@ public class a {
     }
 
     public void a(InterfaceC0430a interfaceC0430a) {
-        this.jEa = interfaceC0430a;
+        this.jEd = interfaceC0430a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.gbk);
+        MessageManager.getInstance().unRegisterListener(this.gbm);
     }
 }

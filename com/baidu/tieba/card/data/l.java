@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.am;
 /* loaded from: classes3.dex */
 public class l extends c implements com.baidu.tbadk.core.util.e.a {
-    public static final BdUniqueId bIw = BdUniqueId.gen();
+    public static final BdUniqueId bIx = BdUniqueId.gen();
     public static final BdUniqueId eBl = BdUniqueId.gen();
     public static final BdUniqueId eBm = BdUniqueId.gen();
     public static String eAU = "";
@@ -18,10 +18,10 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
     public static String eBq = "";
     public boolean eBk = false;
     public boolean eBr = true;
-    public boolean bHV = false;
+    public boolean bHW = false;
     public boolean eBs = false;
-    public boolean bIa = false;
     public boolean bIb = false;
+    public boolean bIc = false;
     public boolean eBj = false;
     public int sourceType = 0;
 
@@ -38,22 +38,22 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         if (this.threadData == null) {
             return k.TYPE;
         }
-        if (this.bHV) {
+        if (this.bHW) {
             return k.eAY;
         }
         if (this.eBs) {
-            return bIw;
-        }
-        if (this.bIa) {
-            return k.eBf;
+            return bIx;
         }
         if (this.bIb) {
+            return k.eBf;
+        }
+        if (this.bIc) {
             return k.eBe;
         }
         if (this.eBj) {
             return k.eBd;
         }
-        return bIw;
+        return bIx;
     }
 
     @Override // com.baidu.tieba.card.data.c, com.baidu.tbadk.core.data.a
@@ -72,10 +72,10 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         if (this.threadData == null) {
             return null;
         }
-        return this.threadData.bKt;
+        return this.threadData.bKu;
     }
 
-    public am uZ(String str) {
+    public am uY(String str) {
         am amVar = new am(str);
         if (this.threadData != null) {
             amVar.l("fid", this.threadData.getFid());
@@ -93,7 +93,7 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         am U = U(eBn, true);
         if (U != null && abv() != null) {
             bg abv = abv();
-            U.P("obj_name", abv.aeT() != null && (abv.aeT().cmy() != null || abv.aeT().axI() != null) ? 1 : 0);
+            U.P("obj_name", abv.aeT() != null && (abv.aeT().cmz() != null || abv.aeT().axI() != null) ? 1 : 0);
             if (abv.adv() != null) {
                 U.P("ab_type", abv.adv().hadConcerned() ? 1 : 0);
             }

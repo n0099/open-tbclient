@@ -21,10 +21,10 @@ public class ak {
                     ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.agZ());
                 }
             } else {
-                File nf = m.nf("camera.jpg");
-                if (nf != null) {
+                File ne = m.ne("camera.jpg");
+                if (ne != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(nf, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(ne, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
@@ -50,9 +50,9 @@ public class ak {
                     return;
                 }
             }
-            String str2 = m.Du + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
+            String str2 = m.Dt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
-            if (m.mW(str2)) {
+            if (m.mV(str2)) {
                 File file = new File(str2 + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();

@@ -9,15 +9,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     @NonNull
-    public static d jY(String str) {
+    public static d jX(String str) {
         d dVar = new d();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            dVar.IA = jSONObject.getInt("errno");
+            dVar.Iz = jSONObject.getInt("errno");
             dVar.errMsg = jSONObject.optString("errmsg");
             dVar.data = jSONObject.optJSONObject("data");
         } catch (JSONException e) {
-            dVar.IA = -1;
+            dVar.Iz = -1;
             dVar.errMsg = "network error: response parse failed.";
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e);

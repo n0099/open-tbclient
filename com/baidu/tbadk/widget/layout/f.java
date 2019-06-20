@@ -7,23 +7,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class f implements c {
-    private int cIX;
-    protected int cIY;
-    private double cIZ;
-    private boolean cJa;
+    private int cIY;
+    protected int cIZ;
+    private double cJa;
+    private boolean cJb;
 
     public f() {
-        this.cIX = 3;
-        this.cIY = this.cIX;
-        this.cJa = true;
+        this.cIY = 3;
+        this.cIZ = this.cIY;
+        this.cJb = true;
     }
 
     public f(int i) {
-        this.cIX = 3;
-        this.cIY = this.cIX;
-        this.cJa = true;
+        this.cIY = 3;
+        this.cIZ = this.cIY;
+        this.cJb = true;
         if (i > 0) {
-            this.cIY = i;
+            this.cIZ = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class f implements c {
         }
         int Z = v.Z(list);
         if (Z >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.cIX);
+            constrainImageLayout.setImageMaxChildCount(this.cIY);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = Z - this.cIY;
+        int i3 = Z - this.cIZ;
         if (i3 > 0) {
-            int i4 = this.cIY + i;
+            int i4 = this.cIZ + i;
             List<MediaData> c = v.c(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(R.string.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.cJa) {
+            if (!this.cJb) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(c, i, true, this.cJa);
+            constrainImageLayout.setUrls(c, i, true, this.cJb);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(v.c(list, i, Z), i);
@@ -75,17 +75,17 @@ public class f implements c {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.cIZ > 0.0d) {
-            return this.cIZ;
+        if (this.cJa > 0.0d) {
+            return this.cJa;
         }
         return 0.6666666666666666d;
     }
 
     public void h(double d) {
-        this.cIZ = d;
+        this.cJa = d;
     }
 
     public void fN(boolean z) {
-        this.cJa = z;
+        this.cJb = z;
     }
 }

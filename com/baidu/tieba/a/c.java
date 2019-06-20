@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class c {
-    private boolean cUA = false;
+    private boolean cUB = false;
     private int mChannel;
 
     public c() {
@@ -58,8 +58,8 @@ public class c {
         if (ap.isEmpty(ml)) {
             return 0;
         }
-        SampleResult Gj = com.baidu.ubs.analytics.a.Gj(ml);
-        return (Gj == SampleResult.T1 || Gj == SampleResult.T2 || Gj == SampleResult.T3 || Gj == SampleResult.T4 || Gj == SampleResult.T5) ? 1 : 0;
+        SampleResult Gl = com.baidu.ubs.analytics.a.Gl(ml);
+        return (Gl == SampleResult.T1 || Gl == SampleResult.T2 || Gl == SampleResult.T3 || Gl == SampleResult.T4 || Gl == SampleResult.T5) ? 1 : 0;
     }
 
     private String ml(int i) {
@@ -83,23 +83,23 @@ public class c {
     }
 
     private void aBn() {
-        if (!this.cUA && this.mChannel == 1) {
-            this.cUA = aBp();
-            if (!this.cUA) {
+        if (!this.cUB && this.mChannel == 1) {
+            this.cUB = aBp();
+            if (!this.cUB) {
                 this.mChannel = 0;
             }
         }
     }
 
     public boolean aBo() {
-        return this.cUA;
+        return this.cUB;
     }
 
     public boolean aBp() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().ex(TbadkCoreApplication.getInst()).sc(false).ey(30L).CL(1).sd(false).ez(15L).CM(1000).cAl());
+                com.baidu.ubs.analytics.a.a(new c.a().ex(TbadkCoreApplication.getInst()).sd(false).ey(30L).CL(1).se(false).ez(15L).CM(1000).cAk());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

@@ -76,13 +76,13 @@ public abstract class BDImageView extends ImageView implements h {
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R.styleable.BDImageView);
             this.mArgs.mRadius = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_radius, com.baidu.adp.lib.util.l.dip2px(getContext(), 4.0f));
-            this.mArgs.GK = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
-            this.mArgs.GL = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
+            this.mArgs.GJ = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_isRound, false);
+            this.mArgs.GK = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_hasBorder, false);
             this.mArgs.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_borderWidth, com.baidu.adp.lib.util.l.dip2px(getContext(), 1.0f));
             this.mArgs.mBorderColor = obtainStyledAttributes.getColor(R.styleable.BDImageView_borderColor, DEFAULT_BORDER_COLOR);
-            this.mArgs.GM = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
-            this.mArgs.GO = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
-            this.mArgs.GQ = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
+            this.mArgs.GL = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_borderSurroundContent, false);
+            this.mArgs.GN = obtainStyledAttributes.getBoolean(R.styleable.BDImageView_showGifIcon, true);
+            this.mArgs.GP = obtainStyledAttributes.getColor(R.styleable.BDImageView_foregroundColor, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(R.styleable.BDImageView_drawerType, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxWidth, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(R.styleable.BDImageView_maxHeight, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
@@ -151,21 +151,21 @@ public abstract class BDImageView extends ImageView implements h {
 
     private void getDisplayBdImage() {
         ImageView.ScaleType scaleType = getScaleType();
-        this.mImage.GI = (BitmapDrawable) getDrawable();
-        this.mImage.GJ = getBdImage();
+        this.mImage.GH = (BitmapDrawable) getDrawable();
+        this.mImage.GI = getBdImage();
         if (this.mImage.lh()) {
-            this.mImage.GJ = null;
+            this.mImage.GI = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else if (this.mImage.li()) {
-            this.mImage.GI = null;
+            this.mImage.GH = null;
             checkReLayout();
             this.mImage.isDefault = false;
             this.mCurBg = this.mBg;
         } else {
-            this.mImage.GI = null;
-            this.mImage.GJ = getDefaultBdImage();
+            this.mImage.GH = null;
+            this.mImage.GI = getDefaultBdImage();
             this.mImage.isDefault = true;
             ImageView.ScaleType scaleType2 = this.mImage.li() ? this.mDefaultScaleType : scaleType;
             this.mCurBg = this.mDefaultBg;
@@ -238,7 +238,7 @@ public abstract class BDImageView extends ImageView implements h {
 
     private void drawContent(Canvas canvas) {
         if (!this.mImage.isAvailable()) {
-            if (this.mArgs.GU) {
+            if (this.mArgs.GR) {
                 this.mDrawer.lg();
                 this.mDrawer.a(this.mImage, this);
                 this.mDrawer.b(canvas, this);
@@ -273,8 +273,8 @@ public abstract class BDImageView extends ImageView implements h {
     }
 
     public void setIsRound(boolean z) {
-        if (this.mArgs.GK != z) {
-            this.mArgs.GK = z;
+        if (this.mArgs.GJ != z) {
+            this.mArgs.GJ = z;
             invalidate();
         }
     }
@@ -287,22 +287,22 @@ public abstract class BDImageView extends ImageView implements h {
     }
 
     public void setIsPreDrawBorder(boolean z) {
-        if (this.mArgs.GU != z) {
-            this.mArgs.GU = z;
+        if (this.mArgs.GR != z) {
+            this.mArgs.GR = z;
             invalidate();
         }
     }
 
     public void setDrawBorder(boolean z) {
-        if (this.mArgs.GL != z) {
-            this.mArgs.GL = z;
+        if (this.mArgs.GK != z) {
+            this.mArgs.GK = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public boolean getDrawBorder() {
-        return this.mArgs.GL;
+        return this.mArgs.GK;
     }
 
     public void setBorderWidth(int i) {
@@ -320,23 +320,23 @@ public abstract class BDImageView extends ImageView implements h {
     }
 
     public void setBorderSurroundContent(boolean z) {
-        if (this.mArgs.GM != z) {
-            this.mArgs.GM = z;
+        if (this.mArgs.GL != z) {
+            this.mArgs.GL = z;
             this.mNeedRecomputeMatrix = true;
             invalidate();
         }
     }
 
     public void setLongIconSupport(boolean z) {
-        if (this.mArgs.GN != z) {
-            this.mArgs.GN = z;
+        if (this.mArgs.GM != z) {
+            this.mArgs.GM = z;
             invalidate();
         }
     }
 
     public void setGifIconSupport(boolean z) {
-        if (this.mArgs.GO != z) {
-            this.mArgs.GO = z;
+        if (this.mArgs.GN != z) {
+            this.mArgs.GN = z;
             invalidate();
         }
     }
@@ -360,7 +360,7 @@ public abstract class BDImageView extends ImageView implements h {
     }
 
     public void setExtraMatrix(Matrix matrix) {
-        this.mArgs.GP = matrix;
+        this.mArgs.GO = matrix;
         invalidate();
     }
 
@@ -407,8 +407,8 @@ public abstract class BDImageView extends ImageView implements h {
     }
 
     public void setForegroundColor(int i) {
-        if (this.mArgs.GQ != i) {
-            this.mArgs.GQ = i;
+        if (this.mArgs.GP != i) {
+            this.mArgs.GP = i;
             invalidate();
         }
     }

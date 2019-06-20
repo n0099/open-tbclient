@@ -14,21 +14,21 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b ctX;
-    private UserData ctY;
+    private static b ctY;
+    private UserData ctZ;
 
     private b() {
     }
 
     public static b ash() {
-        if (ctX == null) {
+        if (ctY == null) {
             synchronized (b.class) {
-                if (ctX == null) {
-                    ctX = new b();
+                if (ctY == null) {
+                    ctY = new b();
                 }
             }
         }
-        return ctX;
+        return ctY;
     }
 
     public void registerTask() {
@@ -47,7 +47,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.ctY = userData;
+        this.ctZ = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -95,6 +95,6 @@ public class b {
     }
 
     public UserData asj() {
-        return this.ctY;
+        return this.ctZ;
     }
 }

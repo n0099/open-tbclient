@@ -23,7 +23,7 @@ import com.baidu.tieba.enterForum.data.k;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private View.OnClickListener cYj;
+    private View.OnClickListener cYk;
     private ViewGroup eWq;
     private InterfaceC0301a eWr;
     private View eWs;
@@ -42,7 +42,7 @@ public class a extends PopupWindow {
 
     public a(Context context) {
         super(context);
-        this.cYj = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
+        this.cYk = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == a.this.eWt) {
@@ -89,8 +89,8 @@ public class a extends PopupWindow {
         this.eWt = (TextView) this.eWs.findViewById(R.id.sort_type_level_text);
         this.mLine = this.eWs.findViewById(R.id.sort_select_line);
         this.eWu = (TextView) this.eWs.findViewById(R.id.sort_type_update_text);
-        this.eWt.setOnClickListener(this.cYj);
-        this.eWu.setOnClickListener(this.cYj);
+        this.eWt.setOnClickListener(this.cYk);
+        this.eWu.setOnClickListener(this.cYk);
     }
 
     public void setData(List<k> list, int i) {

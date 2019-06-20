@@ -30,9 +30,9 @@ public class a {
         if (this.agZ == null) {
             return null;
         }
-        a.c cP = this.agZ.cP(com.baidu.poly.b.b.b.cR(str));
-        if (cP != null) {
-            FileInputStream fileInputStream = (FileInputStream) cP.bH(0);
+        a.c cO = this.agZ.cO(com.baidu.poly.b.b.b.cQ(str));
+        if (cO != null) {
+            FileInputStream fileInputStream = (FileInputStream) cO.bH(0);
             if (i <= 0 || i2 <= 0) {
                 return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
             }
@@ -41,15 +41,15 @@ public class a {
         return null;
     }
 
-    public void cM(String str) {
+    public void cL(String str) {
         if (this.agZ != null) {
             try {
-                a.C0082a cQ = this.agZ.cQ(com.baidu.poly.b.b.b.cR(str));
-                if (cQ != null) {
-                    if (d.a(str, cQ.bE(0))) {
-                        cQ.commit();
+                a.C0082a cP = this.agZ.cP(com.baidu.poly.b.b.b.cQ(str));
+                if (cP != null) {
+                    if (d.a(str, cP.bE(0))) {
+                        cP.commit();
                     } else {
-                        cQ.abort();
+                        cP.abort();
                     }
                     this.agZ.flush();
                 }

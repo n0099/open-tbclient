@@ -15,13 +15,13 @@ import java.util.List;
 public class k {
     private List<? extends j> aOH;
     private TextView bBh;
-    private Context bNd;
-    private ViewGroup bNe;
-    private LinearLayout bNf;
-    private View bNg;
-    private TextView bNh;
-    private c bNi;
-    private a bNj;
+    private Context bNe;
+    private ViewGroup bNf;
+    private LinearLayout bNg;
+    private View bNh;
+    private TextView bNi;
+    private c bNj;
+    private a bNk;
     private String titleText;
 
     /* loaded from: classes.dex */
@@ -41,27 +41,27 @@ public class k {
 
     public k(Context context) {
         if (context != null) {
-            this.bNd = context;
-            this.bNe = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
-            this.bNf = (LinearLayout) this.bNe.findViewById(R.id.content_view);
-            this.bBh = (TextView) this.bNe.findViewById(R.id.title);
-            this.bNg = this.bNe.findViewById(R.id.title_divide_line);
-            this.bNg.setVisibility(8);
+            this.bNe = context;
+            this.bNf = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.popup_dialog_view, (ViewGroup) null);
+            this.bNg = (LinearLayout) this.bNf.findViewById(R.id.content_view);
+            this.bBh = (TextView) this.bNf.findViewById(R.id.title);
+            this.bNh = this.bNf.findViewById(R.id.title_divide_line);
+            this.bNh.setVisibility(8);
             this.aOH = new ArrayList();
-            this.bNh = (TextView) this.bNe.findViewById(R.id.dialog_bottom_cancel_button);
+            this.bNi = (TextView) this.bNf.findViewById(R.id.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.bNd;
+        return this.bNe;
     }
 
     public ViewGroup afX() {
-        return this.bNf;
+        return this.bNg;
     }
 
     public View getRootView() {
-        return this.bNe;
+        return this.bNf;
     }
 
     public void setTitleText(String str) {
@@ -69,24 +69,24 @@ public class k {
     }
 
     public void a(c cVar) {
-        this.bNi = cVar;
+        this.bNj = cVar;
     }
 
     public c afY() {
-        return this.bNi;
+        return this.bNj;
     }
 
     public void W(List<? extends j> list) {
         if (list != null) {
             this.aOH = list;
-            this.bNf.removeAllViews();
+            this.bNg.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     j jVar = list.get(i2);
                     if (jVar != null) {
-                        this.bNf.addView(jVar.getView());
+                        this.bNg.addView(jVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -97,15 +97,15 @@ public class k {
     }
 
     public void a(a aVar) {
-        this.bNj = aVar;
+        this.bNk = aVar;
     }
 
     public void onChangeSkinType() {
         al.k(this.bBh, R.color.cp_bg_line_d);
         al.j(this.bBh, R.color.cp_cont_c);
-        al.l(this.bNg, R.color.cp_bg_line_c);
-        al.k(this.bNh, R.color.cp_bg_line_d);
-        al.j(this.bNh, R.color.cp_cont_j);
+        al.l(this.bNh, R.color.cp_bg_line_c);
+        al.k(this.bNi, R.color.cp_bg_line_d);
+        al.j(this.bNi, R.color.cp_cont_j);
         if (this.aOH != null) {
             for (j jVar : this.aOH) {
                 jVar.onChangeSkinType();
@@ -119,15 +119,15 @@ public class k {
         } else {
             this.bBh.setVisibility(8);
         }
-        if (this.bNj != null) {
-            this.bNh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
+        if (this.bNk != null) {
+            this.bNi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.k.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    k.this.bNj.onClick();
+                    k.this.bNk.onClick();
                 }
             });
         }
         onChangeSkinType();
-        return this.bNe;
+        return this.bNf;
     }
 }

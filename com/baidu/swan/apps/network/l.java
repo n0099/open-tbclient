@@ -115,7 +115,7 @@ public final class l extends z {
                 p.j(string, "taskId");
                 p.j(optString, "reason");
                 webSocketManager.close(string, optInt, optString);
-                bVar.Ly().fI(string);
+                bVar.Ly().fH(string);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             } catch (Exception e) {
@@ -126,13 +126,13 @@ public final class l extends z {
                 }
                 k Ly = bVar.Ly();
                 p.j(string, "taskId");
-                Ly.fI(string);
+                Ly.fH(string);
                 return false;
             }
         } catch (Throwable th) {
             k Ly2 = bVar.Ly();
             p.j(string, "taskId");
-            Ly2.fI(string);
+            Ly2.fH(string);
             throw th;
         }
     }
@@ -313,7 +313,7 @@ public final class l extends z {
             if (string == null || (zX = l.this.zX()) == null || (Ly = zX.Ly()) == null) {
                 return;
             }
-            Ly.fI(string);
+            Ly.fH(string);
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -335,7 +335,7 @@ public final class l extends z {
             if (string == null || (zX = l.this.zX()) == null || (Ly = zX.Ly()) == null) {
                 return;
             }
-            Ly.fI(string);
+            Ly.fH(string);
         }
     }
 

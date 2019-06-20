@@ -106,7 +106,7 @@ public class CanvasView extends AbsCanvasView {
         return null;
     }
 
-    public Bitmap dk(String str) {
+    public Bitmap dj(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

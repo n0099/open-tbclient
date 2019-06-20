@@ -18,7 +18,7 @@ import tbclient.User;
 /* loaded from: classes3.dex */
 public class d {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static d iWp;
+    private static d iWt;
     private com.baidu.adp.lib.cache.l<byte[]> dqB;
     private j responseData = null;
 
@@ -27,18 +27,18 @@ public class d {
         this.dqB = BdCacheService.hq().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static d clw() {
-        if (iWp == null) {
+    public static d clx() {
+        if (iWt == null) {
             synchronized (d.class) {
-                if (iWp == null) {
-                    iWp = new d();
+                if (iWt == null) {
+                    iWt = new d();
                 }
             }
         }
-        return iWp;
+        return iWt;
     }
 
-    public long clx() {
+    public long cly() {
         long j = com.baidu.tbadk.core.sharedPref.b.agM().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
@@ -46,14 +46,14 @@ public class d {
         return j;
     }
 
-    public boolean DI(String str) {
+    public boolean DK(String str) {
         if (this.dqB != null && str != null) {
             byte[] bArr = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new j();
                 this.responseData.parserProtobuf(bArr);
                 if (this.responseData.forum != null && this.responseData.forum.getFrsBannerData() != null) {
-                    this.responseData.forum.getFrsBannerData().bFS = false;
+                    this.responseData.forum.getFrsBannerData().bFT = false;
                 }
                 return true;
             }
@@ -224,10 +224,10 @@ public class d {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.dqB.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, clx());
+                this.dqB.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, cly());
                 return;
             }
-            this.dqB.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, clx());
+            this.dqB.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, cly());
         }
     }
 
@@ -246,7 +246,7 @@ public class d {
         if (str == null || str.length() <= 0 || (ap = this.dqB.ap(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(ap.yH, System.currentTimeMillis());
+        return UtilHelper.isSameDay(ap.yG, System.currentTimeMillis());
     }
 
     public j getResponseData() {

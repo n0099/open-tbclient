@@ -21,9 +21,9 @@ import java.util.Iterator;
 public class h extends j {
     private String fFC;
     private final CustomMessageListener fFL;
-    private bg fIg;
-    private boolean fIh;
-    private PraiseModel fIi;
+    private bg fIi;
+    private boolean fIj;
+    private PraiseModel fIk;
 
     public h(FrsFragment frsFragment) {
         super(frsFragment);
@@ -40,18 +40,18 @@ public class h extends j {
                 }
             }
         };
-        this.fHa.registerListener(this.fFL);
-        this.fIi = bps();
+        this.fHd.registerListener(this.fFL);
+        this.fIk = bpu();
     }
 
-    public final PraiseModel bps() {
-        if (this.fIi == null) {
-            this.fIi = new PraiseModel(this.fHa.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
+    public final PraiseModel bpu() {
+        if (this.fIk == null) {
+            this.fIk = new PraiseModel(this.fHd.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void sm(String str) {
+                public void sl(String str) {
                     int i = 1;
-                    if (h.this.fIh) {
-                        if (h.this.fIg != null && h.this.fIg.adh().getIsLike() == 1) {
+                    if (h.this.fIj) {
+                        if (h.this.fIi != null && h.this.fIi.adh().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.sb(i);
@@ -61,22 +61,22 @@ public class h extends j {
 
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
                 public void onLoadFailed(int i, String str) {
-                    if (h.this.fHa != null && h.this.fHa.getPageContext() != null && h.this.fIh && !TextUtils.isEmpty(str)) {
+                    if (h.this.fHd != null && h.this.fHd.getPageContext() != null && h.this.fIj && !TextUtils.isEmpty(str)) {
                         if (AntiHelper.aG(i, str)) {
-                            AntiHelper.aI(h.this.fHa.getPageContext().getPageActivity(), str);
+                            AntiHelper.aI(h.this.fHd.getPageContext().getPageActivity(), str);
                         } else {
-                            h.this.fHa.showToast(str);
+                            h.this.fHd.showToast(str);
                         }
                     }
                 }
             });
         }
-        return this.fIi;
+        return this.fIk;
     }
 
     public void sb(int i) {
         ArrayList<m> threadList;
-        FrsViewData bkm = this.fHa.bkm();
+        FrsViewData bkm = this.fHd.bkm();
         if (bkm != null && this.foQ != null && (threadList = bkm.getThreadList()) != null) {
             Iterator<m> it = threadList.iterator();
             while (true) {
@@ -86,9 +86,9 @@ public class h extends j {
                 m next = it.next();
                 if (next instanceof bf) {
                     bg bgVar = ((bf) next).threadData;
-                    if (bgVar == this.fIg) {
+                    if (bgVar == this.fIi) {
                         c(bgVar, i);
-                        this.fIg = null;
+                        this.fIi = null;
                         break;
                     } else if (bgVar.getId() != null && bgVar.getId().equals(this.fFC)) {
                         c(bgVar, i);
@@ -142,7 +142,7 @@ public class h extends j {
         }
     }
 
-    public void kz(boolean z) {
-        this.fIh = z;
+    public void kA(boolean z) {
+        this.fIj = z;
     }
 }

@@ -9,31 +9,31 @@ import com.baidu.tbadk.TbConfig;
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private Canvas aKd;
-    private final C0261a cGR;
-    private final Rect cGS;
+    private final C0261a cGS;
     private final Rect cGT;
     private final Rect cGU;
-    private int cGV;
+    private final Rect cGV;
+    private int cGW;
     private Bitmap mBitmap;
 
     public a(int i) {
-        this.cGR = new C0261a();
-        this.cGS = new Rect();
+        this.cGS = new C0261a();
         this.cGT = new Rect();
         this.cGU = new Rect();
+        this.cGV = new Rect();
         this.mBitmap = Bitmap.createBitmap(i, i, TbConfig.BitmapConfig);
-        this.cGV = i;
+        this.cGW = i;
         this.aKd = new Canvas();
     }
 
     public a(Bitmap bitmap) {
-        this.cGR = new C0261a();
-        this.cGS = new Rect();
+        this.cGS = new C0261a();
         this.cGT = new Rect();
         this.cGU = new Rect();
+        this.cGV = new Rect();
         if (bitmap != null) {
             this.mBitmap = bitmap;
-            this.cGS.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
+            this.cGT.set(0, 0, this.mBitmap.getWidth(), this.mBitmap.getHeight());
         }
         this.aKd = new Canvas();
     }
@@ -46,7 +46,7 @@ public class a {
     }
 
     public boolean g(Rect rect) {
-        return rect != null && rect.right - rect.left == this.cGV && rect.bottom - rect.top == this.cGV;
+        return rect != null && rect.right - rect.left == this.cGW && rect.bottom - rect.top == this.cGW;
     }
 
     public void setBitmap(Bitmap bitmap) {
@@ -58,42 +58,42 @@ public class a {
     }
 
     public Rect awz() {
-        return this.cGS;
-    }
-
-    public Rect awA() {
         return this.cGT;
     }
 
+    public Rect awA() {
+        return this.cGU;
+    }
+
     public void m(int i, int i2, int i3, int i4) {
-        this.cGT.set(i, i2, i3, i4);
+        this.cGU.set(i, i2, i3, i4);
     }
 
     public void n(int i, int i2, int i3, int i4) {
-        this.cGS.set(i, i2, i3, i4);
+        this.cGT.set(i, i2, i3, i4);
     }
 
     public void u(int i, int i2, int i3) {
-        this.cGR.row = i;
-        this.cGR.column = i2;
-        this.cGR.cGW = i3;
+        this.cGS.row = i;
+        this.cGS.column = i2;
+        this.cGS.cGX = i3;
     }
 
     public C0261a awB() {
-        return this.cGR;
+        return this.cGS;
     }
 
     public Rect awC() {
-        int i = this.cGV * this.cGR.column * this.cGR.cGW;
-        int i2 = this.cGV * this.cGR.row * this.cGR.cGW;
-        this.cGU.set(i, i2, (this.cGV * this.cGR.cGW) + i, (this.cGV * this.cGR.cGW) + i2);
-        return this.cGU;
+        int i = this.cGW * this.cGS.column * this.cGS.cGX;
+        int i2 = this.cGW * this.cGS.row * this.cGS.cGX;
+        this.cGV.set(i, i2, (this.cGW * this.cGS.cGX) + i, (this.cGW * this.cGS.cGX) + i2);
+        return this.cGV;
     }
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0261a {
-        int cGW;
+        int cGX;
         int column;
         int row;
 
@@ -103,23 +103,23 @@ public class a {
         public C0261a(int i, int i2, int i3) {
             this.row = i;
             this.column = i2;
-            this.cGW = i3;
+            this.cGX = i3;
         }
 
         public String toString() {
-            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.cGW + '}';
+            return "Position{row=" + this.row + ", column=" + this.column + ", sampleScale=" + this.cGX + '}';
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof C0261a) {
                 C0261a c0261a = (C0261a) obj;
-                return this.row == c0261a.getRow() && this.column == c0261a.arW() && this.cGW == c0261a.awD();
+                return this.row == c0261a.getRow() && this.column == c0261a.arW() && this.cGX == c0261a.awD();
             }
             return false;
         }
 
         public int hashCode() {
-            return (17 * (((this.row + 119) * 17) + this.column)) + (this.cGW * 100);
+            return (17 * (((this.row + 119) * 17) + this.column)) + (this.cGX * 100);
         }
 
         public int getRow() {
@@ -131,7 +131,7 @@ public class a {
         }
 
         public int awD() {
-            return this.cGW;
+            return this.cGX;
         }
     }
 }

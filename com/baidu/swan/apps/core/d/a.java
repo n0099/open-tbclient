@@ -73,7 +73,7 @@ public class a extends b implements View.OnClickListener {
         P(view);
         cb(-1);
         cc(ViewCompat.MEASURED_STATE_MASK);
-        dG(null);
+        dF(null);
         ba(true);
     }
 
@@ -162,7 +162,7 @@ public class a extends b implements View.OnClickListener {
                             sb.append("ENABLE CODE CACHE: ").append(com.baidu.swan.apps.u.a.DE().vS()).append("\n");
                             sb.append("ENABLE V8: ").append(com.baidu.swan.apps.core.j.c.Bi().Bu()).append("\n");
                             sb.append("APS VERSION: ").append(TextUtils.isEmpty(vk2.getVersion()) ? "" : vk2.getVersion()).append("\n");
-                            sb.append("APPID VERSION: ").append(com.baidu.swan.apps.f.a.dd(Lq2.id)).append("\n");
+                            sb.append("APPID VERSION: ").append(com.baidu.swan.apps.f.a.dc(Lq2.id)).append("\n");
                             String formatFileSize = Formatter.formatFileSize(AppRuntime.getAppContext(), vk2.EU());
                             StringBuilder append = sb.append("小程序包大小: ");
                             if (TextUtils.isEmpty(formatFileSize)) {
@@ -170,7 +170,7 @@ public class a extends b implements View.OnClickListener {
                             }
                             append.append(formatFileSize).append("(").append(vk2.EU()).append(")").append("\n");
                             g.a aVar = new g.a(a.this.mActivity);
-                            aVar.d(a.this.mActivity.getResources().getString(a.h.aiapps_show_ext_info_title)).gx(sb.toString()).a(new com.baidu.swan.apps.view.b.a()).cb(false);
+                            aVar.d(a.this.mActivity.getResources().getString(a.h.aiapps_show_ext_info_title)).gw(sb.toString()).a(new com.baidu.swan.apps.view.b.a()).cb(false);
                             aVar.b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.3.1
                                 @Override // android.content.DialogInterface.OnClickListener
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -202,7 +202,7 @@ public class a extends b implements View.OnClickListener {
                                     string = a.this.mActivity.getResources().getString(a.h.aiapps_swan_core_history_title);
                                 }
                                 g.a aVar = new g.a(a.this.mActivity);
-                                aVar.d(string).gx(dO).a(new com.baidu.swan.apps.view.b.a()).cb(false);
+                                aVar.d(string).gw(dO).a(new com.baidu.swan.apps.view.b.a()).cb(false);
                                 aVar.b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.4.1
                                     @Override // android.content.DialogInterface.OnClickListener
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -293,7 +293,7 @@ public class a extends b implements View.OnClickListener {
             if (vi == null) {
                 com.baidu.swan.apps.res.widget.b.d.k(this.mActivity, a.h.aiapps_open_fragment_failed_toast).Ld();
             } else {
-                vi.dO("navigateBack").y(0, e.aqU).zS().commit();
+                vi.dN("navigateBack").y(0, e.aqU).zS().commit();
             }
         } else if (id == a.f.open_app_button && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null && Lq.vk() != null) {
             com.baidu.swan.apps.v.b.b vk = Lq.vk();

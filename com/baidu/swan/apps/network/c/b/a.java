@@ -85,7 +85,7 @@ public class a extends b {
     }
 
     @Nullable
-    public static e fJ(String str) {
+    public static e fI(String str) {
         return Hq().get(str);
     }
 

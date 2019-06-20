@@ -143,7 +143,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         super.onResume();
         if (isShow()) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ay.nU(getClass().getName());
+            ay.nT(getClass().getName());
             if (this.isPrimary) {
                 onPrimary();
             }
@@ -157,7 +157,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
                 this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), onClickListener);
             }
             this.mRefreshView.setTitle(str);
-            this.mRefreshView.qx(str2);
+            this.mRefreshView.qw(str2);
             this.mRefreshView.setButtonText(str3);
             this.mRefreshView.attachView(view, z);
             this.mRefreshView.asB();
@@ -176,7 +176,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.mRefreshView == null) {
             this.mRefreshView = new com.baidu.tbadk.m.h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.qx(str);
+        this.mRefreshView.qw(str);
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.asH();
     }
@@ -590,7 +590,7 @@ public abstract class BaseFragment extends MAFragment implements DialogInterface
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.o.d();
         }
-        this.pageStayDurationItem.qD(getCurrentPageKey());
+        this.pageStayDurationItem.qC(getCurrentPageKey());
         this.pageStayDurationItem.ao(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
     }

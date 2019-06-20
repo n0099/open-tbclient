@@ -9,8 +9,8 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.r;
 /* loaded from: classes4.dex */
 public class b extends j {
-    public final com.baidu.adp.base.d fGX;
-    public final com.baidu.adp.base.d fGY;
+    public final com.baidu.adp.base.d fHa;
+    public final com.baidu.adp.base.d fHb;
     private final CustomMessageListener fls;
 
     public b(FrsFragment frsFragment) {
@@ -24,7 +24,7 @@ public class b extends j {
                 }
             }
         };
-        this.fGX = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
+        this.fHa = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.2
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 if (obj instanceof Boolean) {
@@ -32,7 +32,7 @@ public class b extends j {
                 }
             }
         };
-        this.fGY = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
+        this.fHb = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.mc.b.3
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
                 boolean z = false;
@@ -40,7 +40,7 @@ public class b extends j {
                     z = ((Boolean) obj).booleanValue();
                 }
                 if (!z) {
-                    b.this.fHa.refresh();
+                    b.this.fHd.refresh();
                 }
             }
         };
@@ -50,7 +50,7 @@ public class b extends j {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(r rVar) {
         if (rVar != null) {
-            FrsViewData bkm = this.fHa.bkm();
+            FrsViewData bkm = this.fHd.bkm();
             if (this.fph != null && this.fpi != null && this.foQ != null && bkm != null && bkm.getForum() != null && rVar.getFid() != null) {
                 boolean z = rVar.isLike() == 1;
                 if (rVar.getFid().equals(bkm.getForum().getId())) {
@@ -58,24 +58,24 @@ public class b extends j {
                     if (!StringUtils.isNULL(rVar.getLevelName())) {
                         bkm.getForum().setLevelName(rVar.getLevelName());
                     }
-                    if (rVar.ckd() >= 0) {
-                        bkm.getForum().setUser_level(rVar.ckd());
+                    if (rVar.cke() >= 0) {
+                        bkm.getForum().setUser_level(rVar.cke());
                     }
                     if (z) {
                         this.fpi.a(bkm, false);
-                        TbadkCoreApplication.getInst().addLikeForum(this.fHa.getForumName());
+                        TbadkCoreApplication.getInst().addLikeForum(this.fHd.getForumName());
                         return;
                     }
-                    com.baidu.tieba.tbadkCore.d.clw().aw(this.fHa.getForumName(), false);
+                    com.baidu.tieba.tbadkCore.d.clx().aw(this.fHd.getForumName(), false);
                     bkm.getForum().setLike(0);
-                    this.fpi.bqy();
-                    TbadkCoreApplication.getInst().delLikeForum(this.fHa.getForumName());
+                    this.fpi.bqA();
+                    TbadkCoreApplication.getInst().delLikeForum(this.fHd.getForumName());
                     return;
                 }
                 if (rVar.isLike() == 1) {
                     bkm.deleteLikeFeedForum(rVar.getFid());
                     this.fpi.i(bkm);
-                    this.fIk.a(bkm, this.fph.bpj());
+                    this.fIm.a(bkm, this.fph.bpl());
                 }
                 if (bkm.getForum().getBannerListData() != null) {
                     bkm.getForum().getBannerListData().setFeedForumLiked(rVar.getFid(), rVar.isLike());

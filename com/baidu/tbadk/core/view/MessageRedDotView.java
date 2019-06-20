@@ -20,25 +20,25 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private Drawable Mb;
-    private Paint bWt;
-    private int bXX;
-    private boolean bXY;
-    private String bXZ;
-    private int bYa;
-    private Rect bYb;
-    private int bYc;
+    private Drawable Ma;
+    private Paint bWu;
+    private int bXY;
+    private boolean bXZ;
+    private String bYa;
+    private int bYb;
+    private Rect bYc;
     private int bYd;
     private int bYe;
     private int bYf;
-    private RectF bYg;
-    private int bYh;
+    private int bYg;
+    private RectF bYh;
     private int bYi;
     private int bYj;
     private int bYk;
-    private Paint bYl;
-    private RectF bYm;
-    private int bYn;
+    private int bYl;
+    private Paint bYm;
+    private RectF bYn;
+    private int bYo;
     private Paint mShadowPaint;
     private int mShadowRadius;
     private int mType;
@@ -46,21 +46,21 @@ public class MessageRedDotView extends View {
     public MessageRedDotView(@NonNull Context context) {
         super(context);
         this.mType = 1;
-        this.bYn = 3;
+        this.bYo = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mType = 1;
-        this.bYn = 3;
+        this.bYo = 3;
         initView();
     }
 
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mType = 1;
-        this.bYn = 3;
+        this.bYo = 3;
         initView();
     }
 
@@ -68,15 +68,15 @@ public class MessageRedDotView extends View {
     public MessageRedDotView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
         this.mType = 1;
-        this.bYn = 3;
+        this.bYo = 3;
         initView();
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        if (this.Mb != null) {
-            this.bYh = this.bYe >= this.bYf ? this.mShadowRadius + this.bYe : this.mShadowRadius + this.bYf;
-            setMeasuredDimension(this.Mb.getIntrinsicWidth() + (this.bYh * 2), this.Mb.getIntrinsicHeight() + (this.bYh * 2));
+        if (this.Ma != null) {
+            this.bYi = this.bYf >= this.bYg ? this.mShadowRadius + this.bYf : this.mShadowRadius + this.bYg;
+            setMeasuredDimension(this.Ma.getIntrinsicWidth() + (this.bYi * 2), this.Ma.getIntrinsicHeight() + (this.bYi * 2));
             return;
         }
         setMeasuredDimension(0, 0);
@@ -85,19 +85,19 @@ public class MessageRedDotView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.Mb != null) {
-            int intrinsicWidth = this.Mb.getIntrinsicWidth();
-            int intrinsicHeight = this.Mb.getIntrinsicHeight();
-            this.Mb.setBounds(this.bYh, this.bYh, this.bYh + intrinsicWidth, this.bYh + intrinsicHeight);
-            this.Mb.draw(canvas);
-            this.bYg.set(this.bYh, this.bYh, this.bYh + intrinsicWidth, this.bYh + intrinsicHeight);
+        if (this.Ma != null) {
+            int intrinsicWidth = this.Ma.getIntrinsicWidth();
+            int intrinsicHeight = this.Ma.getIntrinsicHeight();
+            this.Ma.setBounds(this.bYi, this.bYi, this.bYi + intrinsicWidth, this.bYi + intrinsicHeight);
+            this.Ma.draw(canvas);
+            this.bYh.set(this.bYi, this.bYi, this.bYi + intrinsicWidth, this.bYi + intrinsicHeight);
             if (intrinsicWidth != intrinsicHeight) {
-                canvas.drawRoundRect(this.bYg, this.bYi, this.bYi, this.mShadowPaint);
+                canvas.drawRoundRect(this.bYh, this.bYj, this.bYj, this.mShadowPaint);
             } else {
-                canvas.drawOval(this.bYg, this.mShadowPaint);
+                canvas.drawOval(this.bYh, this.mShadowPaint);
             }
-            if (!ap.isEmpty(this.bXZ)) {
-                if (this.bXZ.equals("...")) {
+            if (!ap.isEmpty(this.bYa)) {
+                if (this.bYa.equals("...")) {
                     x(canvas);
                 } else {
                     y(canvas);
@@ -107,65 +107,65 @@ public class MessageRedDotView extends View {
     }
 
     private void x(Canvas canvas) {
-        if (this.Mb != null) {
-            int intrinsicWidth = (this.Mb.getIntrinsicWidth() / 2) + this.bYh;
-            int intrinsicHeight = (this.Mb.getIntrinsicHeight() / 2) + this.bYh;
-            int i = intrinsicWidth - (this.bYj / 2);
-            int i2 = intrinsicHeight - (this.bYj / 2);
-            int i3 = intrinsicWidth + (this.bYj / 2);
-            int i4 = intrinsicHeight + (this.bYj / 2);
-            this.bYm.set(i, i2, i3, i4);
-            canvas.drawOval(this.bYm, this.bYl);
-            this.bYm.set((i - this.bYk) - this.bYj, i2, i - this.bYk, i4);
-            canvas.drawOval(this.bYm, this.bYl);
-            this.bYm.set(this.bYk + i3, i2, i3 + this.bYk + this.bYj, i4);
-            canvas.drawOval(this.bYm, this.bYl);
+        if (this.Ma != null) {
+            int intrinsicWidth = (this.Ma.getIntrinsicWidth() / 2) + this.bYi;
+            int intrinsicHeight = (this.Ma.getIntrinsicHeight() / 2) + this.bYi;
+            int i = intrinsicWidth - (this.bYk / 2);
+            int i2 = intrinsicHeight - (this.bYk / 2);
+            int i3 = intrinsicWidth + (this.bYk / 2);
+            int i4 = intrinsicHeight + (this.bYk / 2);
+            this.bYn.set(i, i2, i3, i4);
+            canvas.drawOval(this.bYn, this.bYm);
+            this.bYn.set((i - this.bYl) - this.bYk, i2, i - this.bYl, i4);
+            canvas.drawOval(this.bYn, this.bYm);
+            this.bYn.set(this.bYl + i3, i2, i3 + this.bYl + this.bYk, i4);
+            canvas.drawOval(this.bYn, this.bYm);
         }
     }
 
     private void y(Canvas canvas) {
-        if (!ap.isEmpty(this.bXZ) && this.Mb != null) {
-            this.bWt.getTextBounds(this.bXZ, 0, this.bXZ.length(), this.bYb);
-            Paint.FontMetrics fontMetrics = this.bWt.getFontMetrics();
-            int intrinsicWidth = (this.Mb.getIntrinsicWidth() / 2) + this.bYh;
-            canvas.drawText(this.bXZ, intrinsicWidth, (getResources().getDimension(R.dimen.tbds10) + fontMetrics.bottom) - fontMetrics.ascent, this.bWt);
+        if (!ap.isEmpty(this.bYa) && this.Ma != null) {
+            this.bWu.getTextBounds(this.bYa, 0, this.bYa.length(), this.bYc);
+            Paint.FontMetrics fontMetrics = this.bWu.getFontMetrics();
+            int intrinsicWidth = (this.Ma.getIntrinsicWidth() / 2) + this.bYi;
+            canvas.drawText(this.bYa, intrinsicWidth, (getResources().getDimension(R.dimen.tbds10) + fontMetrics.bottom) - fontMetrics.ascent, this.bWu);
         }
     }
 
     private void initView() {
         setLayerType(1, null);
         ajo();
-        this.bWt = new Paint(1);
-        this.bWt.setColor(al.getColor(R.color.cp_btn_a));
-        this.bWt.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbfontsize26));
-        this.bWt.setTextAlign(Paint.Align.CENTER);
-        this.bWt.setTypeface(Typeface.MONOSPACE);
-        this.bYb = new Rect();
-        this.bYc = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds13);
-        this.bYd = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds42);
+        this.bWu = new Paint(1);
+        this.bWu.setColor(al.getColor(R.color.cp_btn_a));
+        this.bWu.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbfontsize26));
+        this.bWu.setTextAlign(Paint.Align.CENTER);
+        this.bWu.setTypeface(Typeface.MONOSPACE);
+        this.bYc = new Rect();
+        this.bYd = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds13);
+        this.bYe = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds42);
         this.mShadowPaint = new Paint();
         this.mShadowPaint.setAntiAlias(true);
         this.mShadowPaint.setStyle(Paint.Style.FILL);
         this.mShadowPaint.setColor(al.getColor(R.color.transparent));
-        this.bYe = 0;
+        this.bYf = 0;
         this.mShadowRadius = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds8);
-        this.bYf = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds3);
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bYe, this.bYf, al.getColor(R.color.cp_cont_h_alpha66));
-        this.bYg = new RectF();
-        this.bYi = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds21);
-        this.bYj = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds8);
-        this.bYk = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds6);
-        this.bYl = new Paint();
-        this.bYl.setAntiAlias(true);
-        this.bYl.setStyle(Paint.Style.FILL);
-        this.bYl.setColor(al.getColor(R.color.cp_btn_a));
-        this.bYm = new RectF();
+        this.bYg = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds3);
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bYf, this.bYg, al.getColor(R.color.cp_cont_h_alpha66));
+        this.bYh = new RectF();
+        this.bYj = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds21);
+        this.bYk = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds8);
+        this.bYl = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds6);
+        this.bYm = new Paint();
+        this.bYm.setAntiAlias(true);
+        this.bYm.setStyle(Paint.Style.FILL);
+        this.bYm.setColor(al.getColor(R.color.cp_btn_a));
+        this.bYn = new RectF();
     }
 
     private void ajo() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.bYa = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds2);
+            this.bYb = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds2);
         }
     }
 
@@ -174,28 +174,28 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = R.drawable.icon_news_red_dot;
-            this.bXZ = null;
+            this.bYa = null;
         } else if (i < 10) {
-            this.bXZ = String.valueOf(i);
+            this.bYa = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.bXZ = String.valueOf(i);
+            this.bYa = String.valueOf(i);
             i2 = R.drawable.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.bXZ = "...";
+            this.bYa = "...";
             i2 = R.drawable.icon_news_red_dot_three_dot_number;
         } else if (this.mType == 2) {
-            this.bXZ = "99+";
+            this.bYa = "99+";
             i2 = R.drawable.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.bXX) {
-            this.bXY = true;
+        if (i2 != this.bXY) {
+            this.bXZ = true;
         } else {
-            this.bXY = false;
+            this.bXZ = false;
         }
-        this.bXX = i2;
+        this.bXY = i2;
         onChangeSkinType();
     }
 
@@ -204,19 +204,19 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.bYn = TbadkApplication.getInst().getSkinType();
-        if (this.bXX > 0) {
-            this.Mb = al.getDrawable(this.bXX);
-        } else if (this.Mb instanceof GradientDrawable) {
-            ((GradientDrawable) this.Mb).setColor(al.getColor(R.color.cp_cont_h));
+        this.bYo = TbadkApplication.getInst().getSkinType();
+        if (this.bXY > 0) {
+            this.Ma = al.getDrawable(this.bXY);
+        } else if (this.Ma instanceof GradientDrawable) {
+            ((GradientDrawable) this.Ma).setColor(al.getColor(R.color.cp_cont_h));
         }
-        this.bYl.setColor(al.getColor(R.color.cp_btn_a));
-        if (this.bWt != null) {
-            this.bWt.setColor(al.getColor(R.color.cp_btn_a));
+        this.bYm.setColor(al.getColor(R.color.cp_btn_a));
+        if (this.bWu != null) {
+            this.bWu.setColor(al.getColor(R.color.cp_btn_a));
         }
-        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bYe, this.bYf, al.getColor(R.color.cp_cont_h_alpha66));
-        if (this.bXY) {
-            this.bXY = false;
+        this.mShadowPaint.setShadowLayer(this.mShadowRadius, this.bYf, this.bYg, al.getColor(R.color.cp_cont_h_alpha66));
+        if (this.bXZ) {
+            this.bXZ = false;
             requestLayout();
         }
         invalidate();

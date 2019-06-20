@@ -70,7 +70,7 @@ public class f {
             }
         }
     };
-    private CustomMessageListener cSg = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.enterForum.view.f.3
+    private CustomMessageListener cSh = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.enterForum.view.f.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -101,7 +101,7 @@ public class f {
         this.aXs = (Vibrator) tbPageContext.getPageActivity().getSystemService("vibrator");
         this.eXo = new com.baidu.tieba.enterForum.home.e(tbPageContext);
         MessageManager.getInstance().registerListener(this.eXr);
-        MessageManager.getInstance().registerListener(this.cSg);
+        MessageManager.getInstance().registerListener(this.cSh);
         initData();
         initView();
     }
@@ -210,7 +210,7 @@ public class f {
             intent.putExtra("info_forum_image_rect", rect);
             intent.putExtra("info_forum_image_url", barImageView.getUrl());
             Rect rect2 = new Rect();
-            TextView textView = aVar.caT;
+            TextView textView = aVar.caU;
             textView.getGlobalVisibleRect(rect2);
             intent.putExtra("info_forum_name_rect", rect2);
             intent.putExtra("info_forum_name_text", textView.getText());
@@ -388,7 +388,7 @@ public class f {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.eXr);
-        MessageManager.getInstance().unRegisterListener(this.cSg);
+        MessageManager.getInstance().unRegisterListener(this.cSh);
         if (this.eXo != null) {
             this.eXo.onDestroy();
         }

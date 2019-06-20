@@ -35,17 +35,17 @@ public class a extends z {
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "handleSubAction subAction: " + str);
         }
-        JSONObject fh = fh(unitedSchemeEntity.getParam("params"));
-        if (fh == null) {
+        JSONObject fg = fg(unitedSchemeEntity.getParam("params"));
+        if (fg == null) {
             c.e("backgroundAudio", "param is null!");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
         d Lz = bVar.Lz();
         if (TextUtils.equals(str, "/swan/backgroundAudio/open")) {
-            a = com.baidu.swan.apps.media.audio.a.a(fh, new com.baidu.swan.apps.media.audio.a());
+            a = com.baidu.swan.apps.media.audio.a.a(fg, new com.baidu.swan.apps.media.audio.a());
         } else {
-            a = com.baidu.swan.apps.media.audio.a.a(fh, Lz.Gs());
+            a = com.baidu.swan.apps.media.audio.a.a(fg, Lz.Gs());
         }
         if (DEBUG) {
             Log.d("AudioBGPlayerAction", "subAction is : " + str);
@@ -135,7 +135,7 @@ public class a extends z {
             case 6:
                 JSONObject jSONObject2 = new JSONObject();
                 try {
-                    jSONObject2.putOpt(a.aAz, Lz.fg(a.aAz));
+                    jSONObject2.putOpt(a.aAz, Lz.ff(a.aAz));
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
                     return true;
                 } catch (JSONException e) {
@@ -159,7 +159,7 @@ public class a extends z {
         return super.a(context, unitedSchemeEntity, callbackHandler, str, bVar);
     }
 
-    private JSONObject fh(String str) {
+    private JSONObject fg(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

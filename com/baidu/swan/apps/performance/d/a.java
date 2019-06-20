@@ -37,10 +37,10 @@ public class a {
 
     public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            Flow kS = s.kS("770");
+            Flow kR = s.kR("770");
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    kS.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.HZ());
+                    kR.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.HZ());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -59,8 +59,8 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            kS.setValueWithDuration(jSONObject.toString());
-            kS.end();
+            kR.setValueWithDuration(jSONObject.toString());
+            kR.end();
             a(str, list, aGj);
         }
     }

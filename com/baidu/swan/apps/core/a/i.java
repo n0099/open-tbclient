@@ -40,10 +40,10 @@ public class i {
         }
         switch (c) {
             case 0:
-                dx(str2);
+                dw(str2);
                 return;
             case 1:
-                dy(str2);
+                dx(str2);
                 return;
             case 2:
                 m(str2, z);
@@ -53,14 +53,14 @@ public class i {
         }
     }
 
-    private static void dx(String str) {
+    private static void dw(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update ready msg");
         }
         c("updateReady", str, null);
     }
 
-    private static void dy(String str) {
+    private static void dx(String str) {
         if (DEBUG) {
             Log.d("SwanAppPkgUpdateManager", "send update failed msg");
         }
@@ -90,12 +90,12 @@ public class i {
         bundle.putString("eventType", str);
         SwanAppMessengerService serviceObject = SwanAppMessengerService.getServiceObject();
         if (serviceObject != null) {
-            a.b gj = com.baidu.swan.apps.process.messaging.service.a.IK().gj(str2);
+            a.b gi = com.baidu.swan.apps.process.messaging.service.a.IK().gi(str2);
             if (DEBUG) {
-                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gj);
+                Log.d("SwanAppPkgUpdateManager", "appId: " + str2 + ", client: " + gi);
             }
-            if (gj != null && gj.aHb && gj.aGX.isSwanAppProcess()) {
-                serviceObject.sendMessageToClient(gj, 107, bundle);
+            if (gi != null && gi.aHb && gi.aGX.isSwanAppProcess()) {
+                serviceObject.sendMessageToClient(gi, 107, bundle);
                 return;
             }
         }

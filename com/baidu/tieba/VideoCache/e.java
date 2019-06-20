@@ -8,40 +8,40 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e cTN;
-    private c cTP;
-    private HashMap<String, c> cTO = new HashMap<>();
-    private List<c> cTQ = new ArrayList();
+    private static e cTO;
+    private c cTQ;
+    private HashMap<String, c> cTP = new HashMap<>();
+    private List<c> cTR = new ArrayList();
 
     private e() {
     }
 
     public static e aAN() {
-        if (cTN == null) {
+        if (cTO == null) {
             synchronized (e.class) {
-                if (cTN == null) {
-                    cTN = new e();
+                if (cTO == null) {
+                    cTO = new e();
                 }
             }
         }
-        return cTN;
+        return cTO;
     }
 
     public synchronized void s(c cVar) {
         j.am(TAG, "addPlayingCacheFile " + cVar);
-        c cVar2 = this.cTO.get(cVar.getVideoUrl());
+        c cVar2 = this.cTP.get(cVar.getVideoUrl());
         if (cVar2 != null) {
             j.am(TAG, "got pre same CacheFile ****************************************************************");
             cVar2.close();
         }
-        this.cTO.put(cVar.getVideoUrl(), cVar);
+        this.cTP.put(cVar.getVideoUrl(), cVar);
     }
 
     public synchronized void t(c cVar) {
         if (cVar != null) {
-            if (cVar == this.cTO.get(cVar.getVideoUrl())) {
+            if (cVar == this.cTP.get(cVar.getVideoUrl())) {
                 cVar.close();
-                this.cTO.remove(cVar.getVideoUrl());
+                this.cTP.remove(cVar.getVideoUrl());
             }
         }
     }
@@ -50,7 +50,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<Map.Entry<String, c>> it = this.cTO.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.cTP.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -70,18 +70,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean ry(String str) {
+    public synchronized boolean rx(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<Map.Entry<String, c>> it = this.cTO.entrySet().iterator();
+                Iterator<Map.Entry<String, c>> it = this.cTP.entrySet().iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.rJ(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.rI(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -93,32 +93,32 @@ public class e {
     }
 
     public void v(c cVar) {
-        this.cTP = cVar;
+        this.cTQ = cVar;
     }
 
     public c aAO() {
-        return this.cTP;
+        return this.cTQ;
     }
 
     public synchronized void w(c cVar) {
-        this.cTQ.add(cVar);
+        this.cTR.add(cVar);
     }
 
     public synchronized void x(c cVar) {
-        this.cTQ.remove(cVar);
+        this.cTR.remove(cVar);
     }
 
-    public synchronized void rz(String str) {
+    public synchronized void ry(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
-                for (c cVar : this.cTQ) {
+                for (c cVar : this.cTR) {
                     if (cVar != null && str.equals(cVar.getVideoUrl())) {
                         cVar.close();
                         arrayList.add(cVar);
                     }
                 }
-                this.cTQ.removeAll(arrayList);
+                this.cTR.removeAll(arrayList);
             }
         }
     }
@@ -127,7 +127,7 @@ public class e {
         boolean z;
         if (cVar != null) {
             if (cVar.getVideoUrl() != null) {
-                Iterator<c> it = this.cTQ.iterator();
+                Iterator<c> it = this.cTR.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
@@ -145,18 +145,18 @@ public class e {
         return z;
     }
 
-    public synchronized boolean rA(String str) {
+    public synchronized boolean rz(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
-                Iterator<c> it = this.cTQ.iterator();
+                Iterator<c> it = this.cTR.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = false;
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.rJ(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.rI(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -169,15 +169,15 @@ public class e {
 
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0035, code lost:
         r0.close();
-        r3.cTO.remove(r4);
+        r3.cTP.remove(r4);
         com.baidu.tieba.VideoCache.j.am(com.baidu.tieba.VideoCache.e.TAG, "CacheFile close: " + r4);
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void rB(String str) {
+    public synchronized void rA(String str) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.cTO.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.cTP.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -201,7 +201,7 @@ public class e {
     */
     public synchronized void o(String str, long j) {
         if (str != null) {
-            Iterator<Map.Entry<String, c>> it = this.cTO.entrySet().iterator();
+            Iterator<Map.Entry<String, c>> it = this.cTP.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;

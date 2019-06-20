@@ -10,8 +10,8 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class a {
     private boolean aeU;
-    private c ker;
-    private int kes;
+    private c keu;
+    private int kev;
     private MediaCodec.BufferInfo mBufferInfo = new MediaCodec.BufferInfo();
     private MediaCodec mEncoder;
 
@@ -27,9 +27,9 @@ public class a {
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
-        this.kes = -1;
+        this.kev = -1;
         this.aeU = false;
-        this.ker = cVar;
+        this.keu = cVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -64,7 +64,7 @@ public class a {
         }
     }
 
-    public void cIE() throws Exception {
+    public void cID() throws Exception {
         ByteBuffer[] outputBuffers = this.mEncoder.getOutputBuffers();
         while (true) {
             int dequeueOutputBuffer = this.mEncoder.dequeueOutputBuffer(this.mBufferInfo, 10000L);
@@ -77,12 +77,12 @@ public class a {
                     }
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                     Log.d("AudioEncoder", "encoder output format changed: " + outputFormat);
-                    this.kes = this.ker.addTrack(outputFormat);
-                    if (!this.ker.start()) {
-                        synchronized (this.ker) {
-                            while (!this.ker.isStarted()) {
+                    this.kev = this.keu.addTrack(outputFormat);
+                    if (!this.keu.start()) {
+                        synchronized (this.keu) {
+                            while (!this.keu.isStarted()) {
                                 try {
-                                    this.ker.wait(100L);
+                                    this.keu.wait(100L);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -106,7 +106,7 @@ public class a {
                         }
                         byteBuffer.position(this.mBufferInfo.offset);
                         byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                        this.ker.writeSampleData(this.kes, byteBuffer, this.mBufferInfo);
+                        this.keu.writeSampleData(this.kev, byteBuffer, this.mBufferInfo);
                     }
                     this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
                     if ((this.mBufferInfo.flags & 4) != 0) {
@@ -126,9 +126,9 @@ public class a {
                 this.mEncoder.release();
                 this.mEncoder = null;
             }
-            if (this.ker != null) {
-                this.ker.stop();
-                this.ker = null;
+            if (this.keu != null) {
+                this.keu.stop();
+                this.keu = null;
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private int ccV;
-    private List<m> cdc;
+    private int ccW;
     private List<m> cdd;
-    private boolean cde;
+    private List<m> cde;
     private boolean cdf;
-    private int cdg = 2;
-    private int cdh = 1;
+    private boolean cdg;
+    private int cdh = 2;
+    private int cdi = 1;
 
     public d(List<m> list, boolean z, int i) {
-        this.ccV = 2;
-        this.cdc = list;
-        this.cdf = z;
-        this.ccV = i;
+        this.ccW = 2;
+        this.cdd = list;
+        this.cdg = z;
+        this.ccW = i;
         ad(list);
     }
 
     public void ad(List<m> list) {
-        if (list != null && list.size() >= this.cdg && list.size() <= this.ccV) {
-            this.cde = true;
-        } else if (list.size() > this.ccV && this.cdf) {
-            this.cde = true;
+        if (list != null && list.size() >= this.cdh && list.size() <= this.ccW) {
+            this.cdf = true;
+        } else if (list.size() > this.ccW && this.cdg) {
+            this.cdf = true;
         } else {
-            this.cde = false;
+            this.cdf = false;
         }
-        this.cdd = akk();
+        this.cde = akk();
     }
 
     private List<m> akk() {
         ArrayList arrayList = new ArrayList();
-        if (this.cdc != null) {
-            if (this.cde) {
-                if (this.cdc.size() > this.ccV && this.cdc.size() >= this.cdh) {
-                    arrayList.addAll(this.cdc.subList(0, this.ccV));
-                    arrayList.addAll(0, this.cdc.subList(this.ccV - this.cdh, this.ccV));
-                    arrayList.addAll(this.cdc.subList(0, this.cdh));
+        if (this.cdd != null) {
+            if (this.cdf) {
+                if (this.cdd.size() > this.ccW && this.cdd.size() >= this.cdi) {
+                    arrayList.addAll(this.cdd.subList(0, this.ccW));
+                    arrayList.addAll(0, this.cdd.subList(this.ccW - this.cdi, this.ccW));
+                    arrayList.addAll(this.cdd.subList(0, this.cdi));
                 } else {
-                    arrayList.addAll(this.cdc);
-                    arrayList.addAll(0, this.cdc.subList(this.cdc.size() - this.cdh, this.cdc.size()));
-                    arrayList.addAll(this.cdc.subList(0, this.cdh));
+                    arrayList.addAll(this.cdd);
+                    arrayList.addAll(0, this.cdd.subList(this.cdd.size() - this.cdi, this.cdd.size()));
+                    arrayList.addAll(this.cdd.subList(0, this.cdi));
                 }
-            } else if (this.cdc != null && this.cdc.size() > 0 && this.cdc.size() >= this.cdh) {
-                arrayList.addAll(this.cdc.subList(0, this.cdh));
+            } else if (this.cdd != null && this.cdd.size() > 0 && this.cdd.size() >= this.cdi) {
+                arrayList.addAll(this.cdd.subList(0, this.cdi));
             }
         }
         return arrayList;
     }
 
     public int jc(int i) {
-        if (this.cde) {
-            int size = this.cdd.size();
+        if (this.cdf) {
+            int size = this.cde.size();
             if (i == 0) {
-                return (size - 1) - this.cdh;
+                return (size - 1) - this.cdi;
             }
-            if (i == size - this.cdh) {
-                return this.cdh;
+            if (i == size - this.cdi) {
+                return this.cdi;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int jd(int i) {
-        if (this.cde) {
-            return i - this.cdh;
+        if (this.cdf) {
+            return i - this.cdi;
         }
         return i;
     }
 
     public int akl() {
-        if (this.cdc == null) {
+        if (this.cdd == null) {
             return 0;
         }
-        return this.cdc.size();
+        return this.cdd.size();
     }
 
     public int akm() {
-        if (this.cde) {
-            return this.cdh;
+        if (this.cdf) {
+            return this.cdi;
         }
         return 0;
     }
 
     public void je(int i) {
-        this.ccV = i;
-        ad(this.cdc);
+        this.ccW = i;
+        ad(this.cdd);
     }
 
     public void jf(int i) {
-        this.cdg = i;
-        ad(this.cdc);
+        this.cdh = i;
+        ad(this.cdd);
     }
 
     public List<m> akn() {
-        return this.cdd;
+        return this.cde;
     }
 
     public void jg(int i) {
-        this.cdh = i;
-        ad(this.cdc);
+        this.cdi = i;
+        ad(this.cdd);
     }
 }

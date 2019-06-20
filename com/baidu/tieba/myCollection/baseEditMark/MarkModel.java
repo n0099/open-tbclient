@@ -11,85 +11,85 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes6.dex */
 public class MarkModel extends BdBaseModel {
-    private boolean hsM;
-    private MarkData hsN;
-    private a hsO;
-    private a.InterfaceC0236a hsP;
+    private boolean hsN;
+    private MarkData hsO;
+    private a hsP;
+    private a.InterfaceC0236a hsQ;
 
     public void a(a.InterfaceC0236a interfaceC0236a) {
-        this.hsP = interfaceC0236a;
+        this.hsQ = interfaceC0236a;
     }
 
     public MarkModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.hsM = false;
-        this.hsN = null;
+        this.hsN = false;
         this.hsO = null;
         this.hsP = null;
-        this.hsN = new MarkData();
+        this.hsQ = null;
+        this.hsO = new MarkData();
     }
 
     public MarkModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.hsM = false;
-        this.hsN = null;
+        this.hsN = false;
         this.hsO = null;
         this.hsP = null;
-        this.hsN = new MarkData();
+        this.hsQ = null;
+        this.hsO = new MarkData();
     }
 
     public boolean ZC() {
-        return this.hsM;
-    }
-
-    public MarkData ZF() {
         return this.hsN;
     }
 
+    public MarkData ZF() {
+        return this.hsO;
+    }
+
     public void a(MarkData markData) {
-        this.hsN = markData;
+        this.hsO = markData;
     }
 
     public void ds(boolean z) {
-        this.hsM = z;
+        this.hsN = z;
     }
 
     public String ZB() {
-        if (this.hsN != null) {
-            return this.hsN.getPostId();
+        if (this.hsO != null) {
+            return this.hsO.getPostId();
         }
         return null;
     }
 
     public void ZE() {
-        if (this.hsO != null) {
-            this.hsO.cancel();
+        if (this.hsP != null) {
+            this.hsP.cancel();
         }
-        this.hsO = new a(true);
-        this.hsO.setPriority(3);
-        this.hsO.execute(new Boolean[0]);
+        this.hsP = new a(true);
+        this.hsP.setPriority(3);
+        this.hsP.execute(new Boolean[0]);
     }
 
     public void ZD() {
-        if (this.hsO != null) {
-            this.hsO.cancel();
+        if (this.hsP != null) {
+            this.hsP.cancel();
         }
-        this.hsO = new a(false);
-        this.hsO.setPriority(3);
-        this.hsO.execute(new Boolean[0]);
+        this.hsP = new a(false);
+        this.hsP.setPriority(3);
+        this.hsP.execute(new Boolean[0]);
     }
 
     /* loaded from: classes6.dex */
     private class a extends BdAsyncTask<Boolean, Integer, Boolean> {
         private boolean eFJ;
-        private c hsI;
+        private c hsJ;
         private x mNetWork = null;
 
         public a(boolean z) {
             this.eFJ = true;
-            this.hsI = null;
+            this.hsJ = null;
             this.eFJ = z;
-            this.hsI = new c();
+            this.hsJ = new c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -105,16 +105,16 @@ public class MarkModel extends BdBaseModel {
             if (this.eFJ) {
                 this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
                 com.baidu.tieba.myCollection.baseEditMark.a aVar = new com.baidu.tieba.myCollection.baseEditMark.a();
-                aVar.f(MarkModel.this.hsN);
+                aVar.f(MarkModel.this.hsO);
                 this.mNetWork.o("data", aVar.bW(0, 1));
             } else {
                 this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
-                this.mNetWork.o("user_id", MarkModel.this.hsN.getAccount());
-                this.mNetWork.o("tid", MarkModel.this.hsN.getId());
-                this.mNetWork.o("fid", MarkModel.this.hsN.getForumId());
+                this.mNetWork.o("user_id", MarkModel.this.hsO.getAccount());
+                this.mNetWork.o("tid", MarkModel.this.hsO.getId());
+                this.mNetWork.o("fid", MarkModel.this.hsO.getForumId());
             }
-            this.hsI.parserJson(this.mNetWork.ahe());
-            boolean z = this.hsI.getErrorCode() == 0;
+            this.hsJ.parserJson(this.mNetWork.ahe());
+            boolean z = this.hsJ.getErrorCode() == 0;
             if (this.mNetWork.ahC().aiC().isRequestSuccess() && z) {
                 return true;
             }
@@ -127,7 +127,7 @@ public class MarkModel extends BdBaseModel {
             if (this.mNetWork != null) {
                 this.mNetWork.ia();
             }
-            MarkModel.this.hsO = null;
+            MarkModel.this.hsP = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -135,21 +135,21 @@ public class MarkModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             try {
-                if (this.hsI != null) {
-                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.hsI.getErrorCode(), this.hsI.getErrorString(), new Object[0]);
+                if (this.hsJ != null) {
+                    com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "add_collection_thread", this.hsJ.getErrorCode(), this.hsJ.getErrorString(), new Object[0]);
                 }
                 if (bool.booleanValue()) {
-                    if (MarkModel.this.hsP != null) {
-                        MarkModel.this.hsP.c(true, this.eFJ, null);
+                    if (MarkModel.this.hsQ != null) {
+                        MarkModel.this.hsQ.c(true, this.eFJ, null);
                     }
-                } else if (MarkModel.this.hsP != null) {
+                } else if (MarkModel.this.hsQ != null) {
                     if (this.mNetWork == null || this.mNetWork.ahC().aiC().isRequestSuccess()) {
-                        MarkModel.this.hsP.c(false, this.eFJ, this.hsI.getErrorString());
+                        MarkModel.this.hsQ.c(false, this.eFJ, this.hsJ.getErrorString());
                     } else {
-                        MarkModel.this.hsP.c(false, this.eFJ, this.mNetWork.getErrorString());
+                        MarkModel.this.hsQ.c(false, this.eFJ, this.mNetWork.getErrorString());
                     }
                 }
-                MarkModel.this.hsO = null;
+                MarkModel.this.hsP = null;
             } catch (Throwable th) {
                 BdLog.e(th.toString());
             }
@@ -163,8 +163,8 @@ public class MarkModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.hsO != null) {
-            this.hsO.cancel();
+        if (this.hsP != null) {
+            this.hsP.cancel();
             return false;
         }
         return false;

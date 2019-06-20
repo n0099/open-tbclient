@@ -4,29 +4,29 @@ public class b {
 
     /* loaded from: classes.dex */
     private static class a {
-        private static b cod = new b();
+        private static b coe = new b();
     }
 
     public static b apR() {
-        return a.cod;
+        return a.coe;
     }
 
     private b() {
     }
 
     public void apS() {
-        pA("kLCSError=1");
+        pz("kLCSError=1");
     }
 
     public void jU(int i) {
-        pA("kNetStatus=" + i);
+        pz("kNetStatus=" + i);
     }
 
-    public void pz(String str) {
-        pA("kNewIpResult=" + str);
+    public void py(String str) {
+        pz("kNewIpResult=" + str);
     }
 
-    private void pA(String str) {
-        com.baidu.adp.framework.client.socket.i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.bCy, str);
+    private void pz(String str) {
+        com.baidu.adp.framework.client.socket.i.a("IpReconnLogHelper", 0, 0, (String) null, com.baidu.tbadk.core.g.bCz, str);
     }
 }

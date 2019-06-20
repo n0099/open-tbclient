@@ -42,7 +42,7 @@ public interface v {
 
     void bp(boolean z);
 
-    void eC(String str);
+    void eB(String str);
 
     int getCurrentPosition();
 

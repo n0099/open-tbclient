@@ -26,9 +26,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bDT;
-        if (StringUtils.isNull(str) && advertAppInfo.bEc != null) {
-            str = advertAppInfo.bEc.userName;
+        String str = advertAppInfo.bDU;
+        if (StringUtils.isNull(str) && advertAppInfo.bEd != null) {
+            str = advertAppInfo.bEd.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -45,16 +45,16 @@ public class s {
             return false;
         }
         com.baidu.tbadk.distribute.a.aqF().b(advertAppInfo);
-        String str2 = advertAppInfo.bDT;
+        String str2 = advertAppInfo.bDU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.ceS().a(advertAppInfo.bDW, advertAppInfo.bDV, str2, i, com.baidu.tieba.recapp.download.d.CR(advertAppInfo.bDW).intValue(), null, true, false, true, advertAppInfo.bEc.userPortrait, downloadStaticsData, advertAppInfo.bEc.userName);
+        com.baidu.tieba.recapp.download.d.ceT().a(advertAppInfo.bDX, advertAppInfo.bDW, str2, i, com.baidu.tieba.recapp.download.d.CT(advertAppInfo.bDX).intValue(), null, true, false, true, advertAppInfo.bEd.userPortrait, downloadStaticsData, advertAppInfo.bEd.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.ceS().x(advertAppInfo.bDV, advertAppInfo.bDW, true);
+        com.baidu.tieba.recapp.download.d.ceT().x(advertAppInfo.bDW, advertAppInfo.bDX, true);
     }
 
     public static final void aF(Context context, String str) {
@@ -62,11 +62,11 @@ public class s {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File mZ = com.baidu.tbadk.core.util.m.mZ(str.replace(".", "_") + ".apk");
-        if (mZ != null) {
+        File mY = com.baidu.tbadk.core.util.m.mY(str.replace(".", "_") + ".apk");
+        if (mY != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(mZ, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(mY, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -166,11 +166,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.ceL().sendFRS(z, str, str2, str3, list, str4);
+        r.ceM().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.ceL().a(z, str, str2, str3, str4, list, str5);
+        r.ceM().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -189,15 +189,15 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h ceI = r.ceL().ceI();
-        if (ceI == null) {
+        h ceJ = r.ceM().ceJ();
+        if (ceJ == null) {
             return false;
         }
-        if (ceI.rZ(str)) {
-            ceI.a(tbPageContext.getPageActivity(), strArr, true);
+        if (ceJ.rY(str)) {
+            ceJ.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return ceI.c(tbPageContext.getPageActivity(), strArr);
+        return ceJ.c(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aG(Context context, String str) {
@@ -216,14 +216,14 @@ public class s {
 
     private static boolean aH(Context context, String str) {
         String[] strArr = {str};
-        h ceI = r.ceL().ceI();
-        if (ceI == null) {
+        h ceJ = r.ceM().ceJ();
+        if (ceJ == null) {
             return false;
         }
-        if (ceI.rZ(str)) {
-            ceI.a(context, strArr, true);
+        if (ceJ.rY(str)) {
+            ceJ.a(context, strArr, true);
             return true;
         }
-        return ceI.c(context, strArr);
+        return ceJ.c(context, strArr);
     }
 }

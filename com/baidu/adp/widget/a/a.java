@@ -3,18 +3,18 @@ package com.baidu.adp.widget.a;
 import android.util.SparseArray;
 /* loaded from: classes.dex */
 public class a {
-    private SparseArray<c> Ly = new SparseArray<>();
+    private SparseArray<c> Lx = new SparseArray<>();
 
     public boolean setPreloadSize(int i, int i2, int i3) {
         if (i2 <= 0 || i3 <= 0) {
             return false;
         }
-        this.Ly.put(i, new c(i2, i3));
+        this.Lx.put(i, new c(i2, i3));
         return true;
     }
 
     public c getPreloadSize(int i) {
-        return this.Ly.get(i);
+        return this.Lx.get(i);
     }
 
     public boolean isPreloadSizeReady(int i) {

@@ -35,7 +35,7 @@ public class a {
             }
             SwanAppActivity FH = com.baidu.swan.apps.w.e.FV().FH();
             if (FH == null) {
-                jL("shareVideo: swanAppActivity is null");
+                jK("shareVideo: swanAppActivity is null");
             } else {
                 Lv.a(FH, null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.q.b.a.1
                     @Override // com.baidu.swan.apps.a.a
@@ -51,7 +51,7 @@ public class a {
                                 if (a.DEBUG) {
                                     Log.d("ShareVideoApi", "login fail");
                                 }
-                                a.this.jL("shareVideo: fail, no login in");
+                                a.this.jK("shareVideo: fail, no login in");
                                 return;
                         }
                     }
@@ -68,7 +68,7 @@ public class a {
                 if (a.DEBUG) {
                     Log.d("ShareVideoApi", String.format("onFail params = %s;errMsg = %s", cVar2, str));
                 }
-                a.this.jL(str);
+                a.this.jK(str);
             }
         });
     }
@@ -78,18 +78,18 @@ public class a {
         if (this.biL == null) {
             Sk();
         } else if (com.baidu.swan.apps.ae.b.Lq() == null) {
-            jL("shareVideo: fail, swanApp is null");
+            jK("shareVideo: fail, swanApp is null");
         } else {
             String optString = this.biL.optString(QzonePublish.PUBLISH_TO_QZONE_VIDEO_PATH);
             if (TextUtils.isEmpty(optString)) {
-                jL("shareVideo: videoPath is invalid");
+                jK("shareVideo: videoPath is invalid");
             } else {
-                String iZ = g.iZ(optString);
-                if (TextUtils.isEmpty(iZ)) {
-                    jL("shareVideo: videoPath is invalid");
+                String iY = g.iY(optString);
+                if (TextUtils.isEmpty(iY)) {
+                    jK("shareVideo: videoPath is invalid");
                 } else {
                     cVar = new c();
-                    cVar.videoPath = iZ;
+                    cVar.videoPath = iY;
                     cVar.title = this.biL.optString("title");
                     cVar.query = this.biL.optString("query");
                     d dVar = new d();
@@ -126,7 +126,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jL(String str) {
+    public void jK(String str) {
         if (this.biL != null) {
             com.baidu.swan.games.binding.model.b bVar = new com.baidu.swan.games.binding.model.b();
             bVar.errMsg = String.format(Locale.CHINA, "shareVideo: fail, %s", str);

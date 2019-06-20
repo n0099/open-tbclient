@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 public abstract class h {
     private b byF;
     private volatile long byG = 0;
-    private volatile boolean Sw = false;
+    private volatile boolean Sv = false;
     private int mTag = 0;
 
     public h(b bVar) {
@@ -27,11 +27,11 @@ public abstract class h {
     }
 
     public boolean isCompleted() {
-        return this.Sw;
+        return this.Sv;
     }
 
     public synchronized void dp(boolean z) {
-        this.Sw = z;
+        this.Sv = z;
     }
 
     public int getTag() {

@@ -16,11 +16,11 @@ public class ServerProvider extends DispatchableContentProvider {
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
     protected List<a> uO() {
-        List<a> cV = com.baidu.pyramid.runtime.multiprocess.a.a.cV(getAuthority());
-        if (cV == null) {
-            cV = new ArrayList<>();
+        List<a> cU = com.baidu.pyramid.runtime.multiprocess.a.a.cU(getAuthority());
+        if (cU == null) {
+            cU = new ArrayList<>();
         }
-        cV.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
-        return cV;
+        cU.add(0, new com.baidu.pyramid.runtime.multiprocess.internal.a());
+        return cU;
     }
 }

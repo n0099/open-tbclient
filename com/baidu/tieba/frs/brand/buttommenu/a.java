@@ -20,7 +20,7 @@ import tbclient.SubBottomMenu;
 /* loaded from: classes4.dex */
 public class a implements BottomMenuView.a {
     private int bnH;
-    private ForumData csU;
+    private ForumData csV;
     private ImageView fvO;
     private BottomMenuView fvP;
     private List<BottomMenu> fvQ;
@@ -42,7 +42,7 @@ public class a implements BottomMenuView.a {
 
     public void a(List<BottomMenu> list, ForumData forumData) {
         this.fvQ = list;
-        this.csU = forumData;
+        this.csV = forumData;
         boolean z = v.Z(list) > 0;
         kj(z);
         if (z) {
@@ -85,7 +85,7 @@ public class a implements BottomMenuView.a {
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
         if (bottomMenu != null && v.Z(bottomMenu.submenu) == 0) {
             ba.aiz().c(this.mPageContext, new String[]{bottomMenu.url});
-            TiebaStatic.log(new am("c13117").bT("fid", this.csU != null ? this.csU.getId() : "").bT(ImageViewerConfig.FORUM_NAME, this.csU != null ? this.csU.getName() : "").l("uid", currentAccountId).bT("obj_param1", bottomMenu.name));
+            TiebaStatic.log(new am("c13117").bT("fid", this.csV != null ? this.csV.getId() : "").bT(ImageViewerConfig.FORUM_NAME, this.csV != null ? this.csV.getName() : "").l("uid", currentAccountId).bT("obj_param1", bottomMenu.name));
             return;
         }
         TiebaStatic.log(new am("c13118").l("uid", currentAccountId));
@@ -95,7 +95,7 @@ public class a implements BottomMenuView.a {
     public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
         if (subBottomMenu != null) {
             ba.aiz().c(this.mPageContext, new String[]{subBottomMenu.url});
-            TiebaStatic.log(new am("c13117").bT("fid", this.csU != null ? this.csU.getId() : "").bT(ImageViewerConfig.FORUM_NAME, this.csU != null ? this.csU.getName() : "").l("uid", TbadkCoreApplication.getCurrentAccountId()).bT("obj_param1", subBottomMenu.name));
+            TiebaStatic.log(new am("c13117").bT("fid", this.csV != null ? this.csV.getId() : "").bT(ImageViewerConfig.FORUM_NAME, this.csV != null ? this.csV.getName() : "").l("uid", TbadkCoreApplication.getCurrentAccountId()).bT("obj_param1", subBottomMenu.name));
         }
     }
 }

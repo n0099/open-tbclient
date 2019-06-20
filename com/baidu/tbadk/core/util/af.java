@@ -26,34 +26,34 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 /* loaded from: classes.dex */
 public class af {
-    private static af bRQ;
-    private a[] bRI;
-    private boolean bRK;
+    private static af bRR;
+    private a[] bRJ;
     private boolean bRL;
+    private boolean bRM;
     private Drawable[] drawables;
-    private boolean bRM = true;
-    private int bRN = -1315344;
-    private int bRO = -14670029;
-    private PorterDuffColorFilter bRP = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
-    private int[] bRJ = {R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
+    private boolean bRN = true;
+    private int bRO = -1315344;
+    private int bRP = -14670029;
+    private PorterDuffColorFilter bRQ = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private int[] bRK = {R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
 
     /* loaded from: classes.dex */
     public static class a {
-        public Drawable bRX;
         public Drawable bRY;
+        public Drawable bRZ;
     }
 
     private af() {
-        dY(com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("pullview_should_show_3d_loading", this.bRM));
+        dY(com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("pullview_should_show_3d_loading", this.bRN));
     }
 
     public static af ahQ() {
         synchronized (af.class) {
-            if (bRQ == null) {
-                bRQ = new af();
+            if (bRR == null) {
+                bRR = new af();
             }
         }
-        return bRQ;
+        return bRR;
     }
 
     public void e(final String str, final String str2, String str3, String str4, String str5) {
@@ -76,8 +76,8 @@ public class af {
             if (i3 != i || i2 != i4) {
                 com.baidu.tbadk.core.sharedPref.b.agM().putInt("pullview_background_color_day", i);
                 com.baidu.tbadk.core.sharedPref.b.agM().putInt("pullview_background_color_night", i2);
-                this.bRN = i;
-                this.bRO = i2;
+                this.bRO = i;
+                this.bRP = i2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
             }
         }
@@ -144,7 +144,7 @@ public class af {
         if (this.drawables != null) {
             boolean z = i == 1;
             AnimationDrawable animationDrawable = new AnimationDrawable();
-            animationDrawable.setColorFilter(z ? this.bRP : null);
+            animationDrawable.setColorFilter(z ? this.bRQ : null);
             for (Drawable drawable : this.drawables) {
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
@@ -157,29 +157,29 @@ public class af {
 
     public AnimationDrawable hW(int i) {
         a[] aVarArr;
-        if (this.bRI == null) {
-            this.bRI = new a[this.bRJ.length];
-            for (int i2 = 0; i2 < this.bRJ.length; i2++) {
-                this.bRI[i2] = new a();
+        if (this.bRJ == null) {
+            this.bRJ = new a[this.bRK.length];
+            for (int i2 = 0; i2 < this.bRK.length; i2++) {
+                this.bRJ[i2] = new a();
             }
         }
         boolean z = i == 1;
-        if (z && !this.bRK) {
-            this.bRK = true;
-            for (int i3 = 0; i3 < this.bRJ.length; i3++) {
-                this.bRI[i3].bRY = new BitmapDrawable(al.m19if(this.bRJ[i3]));
+        if (z && !this.bRL) {
+            this.bRL = true;
+            for (int i3 = 0; i3 < this.bRK.length; i3++) {
+                this.bRJ[i3].bRZ = new BitmapDrawable(al.m19if(this.bRK[i3]));
             }
         }
-        if (!z && !this.bRL) {
-            this.bRL = true;
-            for (int i4 = 0; i4 < this.bRJ.length; i4++) {
-                this.bRI[i4].bRX = new BitmapDrawable(al.m19if(this.bRJ[i4]));
+        if (!z && !this.bRM) {
+            this.bRM = true;
+            for (int i4 = 0; i4 < this.bRK.length; i4++) {
+                this.bRJ[i4].bRY = new BitmapDrawable(al.m19if(this.bRK[i4]));
             }
         }
         AnimationDrawable animationDrawable = new AnimationDrawable();
-        for (a aVar : this.bRI) {
+        for (a aVar : this.bRJ) {
             if (aVar != null) {
-                Drawable drawable = z ? aVar.bRY : aVar.bRX;
+                Drawable drawable = z ? aVar.bRZ : aVar.bRY;
                 if (drawable != null) {
                     animationDrawable.addFrame(drawable, 100);
                 }
@@ -190,9 +190,9 @@ public class af {
 
     public int hX(int i) {
         if (i == 1) {
-            return this.bRO;
+            return this.bRP;
         }
-        return this.bRN;
+        return this.bRO;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -200,8 +200,8 @@ public class af {
         boolean z = false;
         String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("pull_image_url", "");
         int i = com.baidu.tbadk.core.sharedPref.b.agM().getInt("pull_image_num", 0);
-        this.bRN = com.baidu.tbadk.core.sharedPref.b.agM().getInt("pullview_background_color_day", -1315344);
-        this.bRO = com.baidu.tbadk.core.sharedPref.b.agM().getInt("pullview_background_color_night", -14670029);
+        this.bRO = com.baidu.tbadk.core.sharedPref.b.agM().getInt("pullview_background_color_day", -1315344);
+        this.bRP = com.baidu.tbadk.core.sharedPref.b.agM().getInt("pullview_background_color_night", -14670029);
         if (!TextUtils.isEmpty(string)) {
             if (i > 0 && hY(i)) {
                 this.drawables = new Drawable[i];
@@ -374,7 +374,7 @@ public class af {
         com.baidu.tbadk.core.sharedPref.b.agM().remove("pull_image_num");
         com.baidu.tbadk.core.sharedPref.b.agM().remove("pullview_background_color_day");
         com.baidu.tbadk.core.sharedPref.b.agM().remove("pullview_background_color_night");
-        nI(str);
+        nH(str);
         File ahU = ahU();
         if (e(ahU, str2)) {
             com.baidu.tbadk.core.sharedPref.b.agM().putString("pull_image_url", str);
@@ -386,7 +386,7 @@ public class af {
         deleteDir(ahU);
     }
 
-    private void nI(String str) {
+    private void nH(String str) {
         DefaultHttpClient defaultHttpClient = new DefaultHttpClient();
         try {
             HttpResponse execute = defaultHttpClient.execute(new HttpGet(str));
@@ -529,10 +529,10 @@ public class af {
     }
 
     public boolean ahY() {
-        return this.bRM;
+        return this.bRN;
     }
 
     public void dY(boolean z) {
-        this.bRM = z;
+        this.bRN = z;
     }
 }

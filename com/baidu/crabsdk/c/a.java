@@ -3,33 +3,33 @@ package com.baidu.crabsdk.c;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public final class a {
-    public static String ZV = "CRAB";
-    public static String ZW = "CRAB-NA";
+    public static String ZU = "CRAB";
+    public static String ZV = "CRAB-NA";
 
     public static int a(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(ZV, ci(str), th);
+            return Log.e(ZU, ci(str), th);
         }
         return -1;
     }
 
     public static int cf(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.i(ZV, ci(str));
+            return Log.i(ZU, ci(str));
         }
         return -1;
     }
 
     public static int cg(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(ZW, ci(str));
+            return Log.d(ZV, ci(str));
         }
         return -1;
     }
 
     public static int ch(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(ZV, ci(str));
+            return Log.w(ZU, ci(str));
         }
         return -1;
     }
@@ -51,14 +51,14 @@ public final class a {
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(ZV, ci(str));
+            return Log.d(ZU, ci(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(ZV, ci(str));
+            return Log.e(ZU, ci(str));
         }
         return -1;
     }

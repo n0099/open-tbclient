@@ -52,13 +52,13 @@ public class a extends z {
             }
             return false;
         } else {
-            JSONObject fh = fh(unitedSchemeEntity.getParam("params"));
-            if (TextUtils.equals(str, "/swan/recorder/start") && fh == null) {
+            JSONObject fg = fg(unitedSchemeEntity.getParam("params"));
+            if (TextUtils.equals(str, "/swan/recorder/start") && fg == null) {
                 c.e("record", "none params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
             }
-            final com.baidu.swan.apps.media.c.a a = com.baidu.swan.apps.media.c.a.a(fh, com.baidu.swan.apps.media.c.c.a.Gy().GA());
+            final com.baidu.swan.apps.media.c.a a = com.baidu.swan.apps.media.c.a.a(fg, com.baidu.swan.apps.media.c.c.a.Gy().GA());
             if (a == null) {
                 c.e("record", "error params");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
@@ -76,8 +76,8 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
                 return false;
             }
-            final String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
-            if (TextUtils.isEmpty(hy)) {
+            final String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
+            if (TextUtils.isEmpty(hx)) {
                 c.e("record", "none tmp path");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -92,7 +92,7 @@ public class a extends z {
                     /* renamed from: b */
                     public void D(Boolean bool) {
                         if (bool.booleanValue()) {
-                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a, a2, hy, bVar.id);
+                            a.this.a(context, unitedSchemeEntity, callbackHandler, str, a, a2, hx, bVar.id);
                             return;
                         }
                         c.e("record", "record authorize failure");
@@ -236,7 +236,7 @@ public class a extends z {
         com.baidu.swan.apps.media.c.c.a.release();
     }
 
-    private JSONObject fh(String str) {
+    private JSONObject fg(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);

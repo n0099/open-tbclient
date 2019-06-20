@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac bRB;
-    private static final BdUniqueId bRC = BdUniqueId.gen();
+    private static ac bRC;
+    private static final BdUniqueId bRD = BdUniqueId.gen();
 
     public static synchronized ac ahO() {
         ac acVar;
         synchronized (ac.class) {
-            if (bRB == null) {
-                bRB = new ac();
+            if (bRC == null) {
+                bRC = new ac();
             }
-            acVar = bRB;
+            acVar = bRC;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String bRD;
-        private final boolean bRE;
+        private final String bRE;
         private final boolean bRF;
         private final boolean bRG;
+        private final boolean bRH;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.bRD = str2;
-            this.bRE = z;
-            this.bRF = z2;
-            this.bRG = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bRC));
+            this.bRE = str2;
+            this.bRF = z;
+            this.bRG = z2;
+            this.bRH = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bRD));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.c(this.imageUrl, this.bRD, this.bRE, this.bRF, this.bRG);
+                ac.this.c(this.imageUrl, this.bRE, this.bRF, this.bRG, this.bRH);
             } finally {
                 return null;
             }
@@ -53,17 +53,17 @@ public class ac {
 
     public void c(String str, String str2, boolean z, boolean z2, boolean z3) {
         if (str2 != null && str != null) {
-            String nT = as.nT(str);
-            ao.aig().bQ(str2, nT);
+            String nS = as.nS(str);
+            ao.aig().bQ(str2, nS);
             if (z || z2 || z3) {
                 synchronized (BitmapHelper.lockForSyncImageDecoder) {
-                    int nM = ao.aig().nM(nT);
-                    if (nM > 0) {
+                    int nL = ao.aig().nL(nS);
+                    if (nL > 0) {
                         if (z) {
-                            Bitmap no = ao.aig().no(nT);
-                            com.baidu.tbadk.imageManager.c.asp().kz(nM);
-                            if (no != null) {
-                                a(str, no, z2, ao.aig().nL(nT), z3, nT);
+                            Bitmap nn = ao.aig().nn(nS);
+                            com.baidu.tbadk.imageManager.c.asp().kz(nL);
+                            if (nn != null) {
+                                a(str, nn, z2, ao.aig().nK(nS), z3, nS);
                             }
                         }
                     }

@@ -11,19 +11,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class c {
-    private static volatile c IR;
-    private ArrayList<String> IH = new ArrayList<>();
-    private a IS;
+    private static volatile c IQ;
+    private ArrayList<String> IG = new ArrayList<>();
+    private a IR;
 
     public static c ma() {
-        if (IR == null) {
+        if (IQ == null) {
             synchronized (c.class) {
-                if (IR == null) {
-                    IR = new c();
+                if (IQ == null) {
+                    IQ = new c();
                 }
             }
         }
-        return IR;
+        return IQ;
     }
 
     private c() {
@@ -32,7 +32,7 @@ public class c {
     public void a(PluginSetting pluginSetting) {
         boolean z;
         if (pluginSetting != null && !TextUtils.isEmpty(pluginSetting.packageName)) {
-            Iterator<String> it = this.IH.iterator();
+            Iterator<String> it = this.IG.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -45,7 +45,7 @@ public class c {
                 }
             }
             if (!z) {
-                this.IH.add(pluginSetting.packageName);
+                this.IG.add(pluginSetting.packageName);
             }
             lW();
         }
@@ -53,9 +53,9 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lW() {
-        if (this.IH.size() > 0 && this.IS == null) {
-            this.IS = new a(this.IH.get(0));
-            this.IS.execute(new String[0]);
+        if (this.IG.size() > 0 && this.IR == null) {
+            this.IR = new a(this.IG.get(0));
+            this.IR.execute(new String[0]);
         }
     }
 
@@ -83,16 +83,16 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
-            c.this.IS = null;
-            if (c.this.IH.size() > 0) {
-                Iterator it = c.this.IH.iterator();
+            c.this.IR = null;
+            if (c.this.IG.size() > 0) {
+                Iterator it = c.this.IG.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     String str = (String) it.next();
                     if (str != null && str.equals(this.packageName)) {
-                        c.this.IH.remove(str);
+                        c.this.IG.remove(str);
                         break;
                     }
                 }

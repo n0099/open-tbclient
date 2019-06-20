@@ -8,11 +8,11 @@ import java.util.List;
 import tbclient.GodBanner;
 /* loaded from: classes4.dex */
 public class b {
-    private List<a> fYN;
+    private List<a> fYP;
     private List<m> mDataList = new ArrayList();
 
-    public List<a> bta() {
-        return this.fYN;
+    public List<a> btb() {
+        return this.fYP;
     }
 
     public List<m> getDataList() {
@@ -20,29 +20,29 @@ public class b {
     }
 
     public List<a> cA(List<GodBanner> list) {
-        if (this.fYN == null) {
-            this.fYN = new ArrayList();
+        if (this.fYP == null) {
+            this.fYP = new ArrayList();
         }
-        this.fYN.clear();
+        this.fYP.clear();
         if (v.aa(list)) {
             return null;
         }
         for (GodBanner godBanner : list) {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
-                aVar.ml(godBanner.pic_url);
-                aVar.xr(godBanner.link_url);
+                aVar.mk(godBanner.pic_url);
+                aVar.xt(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.fYN.add(aVar);
-                if (v.Z(this.fYN) == 5) {
+                this.fYP.add(aVar);
+                if (v.Z(this.fYP) == 5) {
                     break;
                 }
             }
         }
-        return this.fYN;
+        return this.fYP;
     }
 
     public boolean atJ() {
-        return v.aa(this.fYN) && v.aa(this.mDataList);
+        return v.aa(this.fYP) && v.aa(this.mDataList);
     }
 }

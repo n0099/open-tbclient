@@ -76,7 +76,7 @@ public class b extends ContextWrapper {
         super(AppRuntime.getApplication());
         this.id = str;
         this.aPX = new com.baidu.swan.apps.af.a.a();
-        this.aPX.gM(str);
+        this.aPX.gL(str);
     }
 
     public void I(Activity activity) {
@@ -95,7 +95,7 @@ public class b extends ContextWrapper {
         if (this.aQa != null) {
             this.aQa.onDestroy();
         }
-        com.baidu.swan.c.a.deleteFile(com.baidu.swan.apps.storage.b.hy(LB()));
+        com.baidu.swan.c.a.deleteFile(com.baidu.swan.apps.storage.b.hx(LB()));
         if (this.aPY != null) {
             this.aPY.release();
         }
@@ -251,14 +251,14 @@ public class b extends ContextWrapper {
         return this.aPX;
     }
 
-    public boolean gz(String str) {
+    public boolean gy(String str) {
         if (TextUtils.isEmpty(str) || this.aPQ == null || this.aPQ.aQn == null) {
             return false;
         }
-        return this.aPQ.aQn.gK(str);
+        return this.aPQ.aQn.gJ(str);
     }
 
-    public boolean gA(String str) {
+    public boolean gz(String str) {
         if (TextUtils.isEmpty(str) || this.aPQ == null || this.aPQ.aQo == null || this.aPQ.aQo.aQB == null || !this.aPQ.aQo.aQB.containsKey(str)) {
             return false;
         }
@@ -268,14 +268,14 @@ public class b extends ContextWrapper {
         return this.aPQ.aQo.aQB.get(str).booleanValue();
     }
 
-    public boolean gB(String str) {
+    public boolean gA(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return com.baidu.swan.apps.database.subpackage.a.Cb().m(this.id, getVersion(), str);
     }
 
-    public boolean gC(String str) {
+    public boolean gB(String str) {
         return new File(com.baidu.swan.apps.w.e.FV().FE(), str).exists();
     }
 
@@ -288,14 +288,14 @@ public class b extends ContextWrapper {
         }
     }
 
-    public String gD(String str) {
+    public String gC(String str) {
         if (this.aPQ == null || this.aPQ.aQo == null || this.aPQ.aQo.aQC == null) {
             return null;
         }
         return this.aPQ.aQo.aQC.get(str);
     }
 
-    public String gE(String str) {
+    public String gD(String str) {
         if (this.aPQ == null || this.aPQ.aQp == null || this.aPQ.aQp.aQD == null) {
             return null;
         }
@@ -313,9 +313,9 @@ public class b extends ContextWrapper {
             if (TextUtils.isEmpty(versionCode)) {
                 versionCode = getVersion();
             }
-            String is = ac.is(versionCode);
-            com.baidu.swan.apps.console.c.e("SwanApp", TextUtils.isEmpty(is) ? " version is empty " : is);
-            return is;
+            String ir = ac.ir(versionCode);
+            com.baidu.swan.apps.console.c.e("SwanApp", TextUtils.isEmpty(ir) ? " version is empty " : ir);
+            return ir;
         }
         return "0";
     }
@@ -333,7 +333,7 @@ public class b extends ContextWrapper {
     }
 
     @Nullable
-    public String gF(String str) {
+    public String gE(String str) {
         if (TextUtils.isEmpty(str) || this.aQb == null) {
             return null;
         }

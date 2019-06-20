@@ -20,7 +20,7 @@ import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 /* loaded from: classes3.dex */
 public class VoteCandidateCard extends CardBasicLayout {
     public static int euh = -1;
-    private View cSZ;
+    private View cTa;
     private VotedAreaLayout euc;
     private TextView eui;
     private View euj;
@@ -69,7 +69,7 @@ public class VoteCandidateCard extends CardBasicLayout {
         this.eun = (NewAnounceLayout) findViewById(R.id.announce_layout);
         this.euo = (VoteAreaLayout) findViewById(R.id.vote_area_layout);
         this.euc = (VotedAreaLayout) findViewById(R.id.voted_area_layout);
-        this.cSZ = findViewById(R.id.divider_line);
+        this.cTa = findViewById(R.id.divider_line);
         this.eus = findViewById(R.id.divider_empty_view);
         this.eut = findViewById(R.id.divider_line_container);
         this.euu = findViewById(R.id.empty_view);
@@ -175,7 +175,7 @@ public class VoteCandidateCard extends CardBasicLayout {
             this.euc.nq(i);
         }
         this.euo.nq(i);
-        al.h(this.cSZ, R.color.cp_bg_line_c, i);
+        al.h(this.cTa, R.color.cp_bg_line_c, i);
         if (this.status == com.baidu.tieba.barselect.a.a.etV) {
             al.g(this.euv, R.drawable.bar_select_bg_shadow_and_radius, i);
             al.c(this.eul, R.color.cp_cont_b, 1, i);

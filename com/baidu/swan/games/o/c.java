@@ -297,7 +297,7 @@ public class c extends a {
                 return;
             }
             try {
-                com.baidu.swan.games.o.a.b[] a = a(c, c.iP("KVDataList"), cVar);
+                com.baidu.swan.games.o.a.b[] a = a(c, c.iO("KVDataList"), cVar);
                 if (a != null) {
                     a(eW(4), a(a).toString(), new ResponseCallback<com.baidu.swan.games.o.a.c>() { // from class: com.baidu.swan.games.o.c.4
                         /* JADX DEBUG: Method merged with bridge method */

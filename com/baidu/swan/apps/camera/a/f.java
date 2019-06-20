@@ -27,14 +27,14 @@ public class f extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview de = com.baidu.swan.apps.camera.a.xe().de(cVar.aDm);
-        if (de == null) {
+        final CameraPreview dd = com.baidu.swan.apps.camera.a.xe().dd(cVar.aDm);
+        if (dd == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
             return false;
         }
-        final String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
-        if (TextUtils.isEmpty(hy)) {
+        final String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
+        if (TextUtils.isEmpty(hx)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera take photo cache path is empty");
             return false;
@@ -45,7 +45,7 @@ public class f extends a {
             /* renamed from: b */
             public void D(Boolean bool) {
                 if (bool.booleanValue()) {
-                    f.this.a(context, unitedSchemeEntity, callbackHandler, bVar, cVar, de, hy);
+                    f.this.a(context, unitedSchemeEntity, callbackHandler, bVar, cVar, dd, hx);
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, (int) UIMsg.f_FUN.FUN_ID_VOICE_SCH_ACTION);
@@ -98,14 +98,14 @@ public class f extends a {
     public void a(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final com.baidu.swan.apps.ae.b bVar, CameraPreview cameraPreview, final com.baidu.swan.apps.camera.d.c cVar, String str) {
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "take photo start");
         cameraPreview.setQuality(cVar.akZ);
-        final String dj = cameraPreview.dj(str);
+        final String di = cameraPreview.di(str);
         try {
-            cameraPreview.a(dj, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
+            cameraPreview.a(di, new com.baidu.swan.apps.camera.b.a() { // from class: com.baidu.swan.apps.camera.a.f.3
                 @Override // com.baidu.swan.apps.camera.b.a
                 public void onSuccess(String str2) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aG(dj, bVar.id));
+                        jSONObject.put("tempImagePath", com.baidu.swan.apps.storage.b.aG(di, bVar.id));
                     } catch (JSONException e) {
                         com.baidu.swan.apps.console.c.e("SwanAppCamera", "take picture onSuccess but json object occur exception");
                         com.baidu.swan.apps.camera.a.xe().c(cVar.aDm, cVar.akY, false);

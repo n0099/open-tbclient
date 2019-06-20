@@ -76,7 +76,7 @@ public class d {
             for (int i = 0; i < length; i++) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 h hVar = (h) a(optJSONObject, new h());
-                hVar.Hj = optJSONObject.optString("sub_path");
+                hVar.Hi = optJSONObject.optString("sub_path");
                 hVar.bsg = optJSONObject.optBoolean("independent");
                 arrayList.add(hVar);
             }
@@ -143,7 +143,7 @@ public class d {
         pMSAppInfo.brZ = jSONObject.optString("domains");
         pMSAppInfo.bsa = jSONObject.optString("ext");
         pMSAppInfo.brS = jSONObject.optLong("app_sign");
-        JSONObject optJSONObject = cZ(pMSAppInfo.bsa).optJSONObject("bear_info");
+        JSONObject optJSONObject = cY(pMSAppInfo.bsa).optJSONObject("bear_info");
         if (optJSONObject != null) {
             pMSAppInfo.auu = optJSONObject.toString();
             return pMSAppInfo;
@@ -151,7 +151,7 @@ public class d {
         return pMSAppInfo;
     }
 
-    public static JSONObject cZ(String str) {
+    public static JSONObject cY(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }

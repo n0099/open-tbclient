@@ -8,27 +8,27 @@ import java.lang.reflect.Type;
 import java.util.Collection;
 /* loaded from: classes2.dex */
 public final class b implements o {
-    private final com.google.gson.internal.b kfk;
+    private final com.google.gson.internal.b kfn;
 
     public b(com.google.gson.internal.b bVar) {
-        this.kfk = bVar;
+        this.kfn = bVar;
     }
 
     @Override // com.google.gson.o
     public <T> n<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cJu = aVar.cJu();
-        Class<? super T> cJt = aVar.cJt();
-        if (!Collection.class.isAssignableFrom(cJt)) {
+        Type cJt = aVar.cJt();
+        Class<? super T> cJs = aVar.cJs();
+        if (!Collection.class.isAssignableFrom(cJs)) {
             return null;
         }
-        Type a2 = C$Gson$Types.a(cJu, (Class<?>) cJt);
-        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.kfk.b(aVar));
+        Type a2 = C$Gson$Types.a(cJt, (Class<?>) cJs);
+        return new a(dVar, a2, dVar.a(com.google.gson.b.a.l(a2)), this.kfn.b(aVar));
     }
 
     /* loaded from: classes2.dex */
     private static final class a<E> extends n<Collection<E>> {
-        private final n<E> kgE;
-        private final com.google.gson.internal.d<? extends Collection<E>> kgF;
+        private final n<E> kgH;
+        private final com.google.gson.internal.d<? extends Collection<E>> kgI;
 
         @Override // com.google.gson.n
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.a aVar, Object obj) throws IOException {
@@ -36,20 +36,20 @@ public final class b implements o {
         }
 
         public a(com.google.gson.d dVar, Type type, n<E> nVar, com.google.gson.internal.d<? extends Collection<E>> dVar2) {
-            this.kgE = new l(dVar, nVar, type);
-            this.kgF = dVar2;
+            this.kgH = new l(dVar, nVar, type);
+            this.kgI = dVar2;
         }
 
         public void a(com.google.gson.stream.a aVar, Collection<E> collection) throws IOException {
             if (collection == null) {
-                aVar.cJs();
+                aVar.cJr();
                 return;
             }
-            aVar.cJo();
+            aVar.cJn();
             for (E e : collection) {
-                this.kgE.a(aVar, e);
+                this.kgH.a(aVar, e);
             }
-            aVar.cJp();
+            aVar.cJo();
         }
     }
 }

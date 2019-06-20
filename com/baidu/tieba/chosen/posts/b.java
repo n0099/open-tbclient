@@ -26,7 +26,7 @@ import java.util.List;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes5.dex */
 public class b extends c<ChosenPostActivity> {
-    private NavigationBar cXZ;
+    private NavigationBar cYa;
     private g dhY;
     private NoNetworkView dyQ;
     private ChosenPostActivity eFF;
@@ -63,9 +63,9 @@ public class b extends c<ChosenPostActivity> {
     public void aZd() {
         this.paddingTop = this.eFF.getResources().getDimensionPixelSize(R.dimen.ds108);
         this.paddingHorizontal = this.eFF.getResources().getDimensionPixelSize(R.dimen.ds150);
-        this.cXZ = (NavigationBar) getView().findViewById(R.id.chosen_post_navigation_bar);
-        this.cXZ.setTitleText(R.string.recommend_frs_hot_thread_title);
-        this.cXZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cYa = (NavigationBar) getView().findViewById(R.id.chosen_post_navigation_bar);
+        this.cYa.setTitleText(R.string.recommend_frs_hot_thread_title);
+        this.cYa.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.eFG = (BdListView) getView().findViewById(R.id.chosen_post_list);
         this.dyQ = (NoNetworkView) getView().findViewById(R.id.view_no_network);
         this.eFH = new com.baidu.tieba.chosen.posts.a(this.eFF.getPageContext(), new Class[]{com.baidu.tieba.chosen.posts.a.c.class, com.baidu.tieba.chosen.posts.a.b.class, com.baidu.tieba.chosen.posts.a.a.class}, new int[]{R.layout.chosen_picture_layout, R.layout.chosen_no_picture_layout, R.layout.chosen_image_text_layout}, this.eFF.atK());
@@ -92,7 +92,7 @@ public class b extends c<ChosenPostActivity> {
             @Override // android.widget.AdapterView.OnItemLongClickListener
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, final int i, long j) {
                 final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(b.this.getActivity());
-                aVar.mE(b.this.getActivity().getString(R.string.chosen_post_dialog_text));
+                aVar.mD(b.this.getActivity().getString(R.string.chosen_post_dialog_text));
                 aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.chosen.posts.b.3.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -181,8 +181,8 @@ public class b extends c<ChosenPostActivity> {
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.cXZ != null) {
-            this.cXZ.onChangeSkinType(tbPageContext, i);
+        if (this.cYa != null) {
+            this.cYa.onChangeSkinType(tbPageContext, i);
         }
         if (this.eFH != null) {
             this.eFH.b(tbPageContext, i);
@@ -258,7 +258,7 @@ public class b extends c<ChosenPostActivity> {
         if (this.eFK == null) {
             this.eFK = new com.baidu.tbadk.m.h(getPageContext().getPageActivity(), new a());
         }
-        this.eFK.qx(str);
+        this.eFK.qw(str);
         this.eFK.attachView(view, z);
         this.eFK.asB();
     }

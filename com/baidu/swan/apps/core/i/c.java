@@ -286,7 +286,7 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     @Override // com.baidu.swan.apps.b.c.c
-    public g cY(String str) {
+    public g cX(String str) {
         g gVar;
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -309,12 +309,12 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public void destroy() {
         c((com.baidu.swan.apps.scheme.actions.k.d) null);
         wP();
-        com.baidu.swan.apps.camera.a.xe().df(this.atc);
+        com.baidu.swan.apps.camera.a.xe().de(this.atc);
         AZ();
         super.destroy();
         this.atf.clear();
         com.baidu.swan.apps.u.a.DM().e(this);
-        com.baidu.swan.apps.media.b.fe(this.atc);
+        com.baidu.swan.apps.media.b.fd(this.atc);
         if (this.atg != null) {
             this.atg.destroy();
         }
@@ -330,9 +330,9 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     private void AZ() {
-        com.baidu.swan.apps.textarea.c.b hU = com.baidu.swan.apps.textarea.c.a.NZ().hU(this.atc);
-        if (hU != null) {
-            hU.hW(this.atc);
+        com.baidu.swan.apps.textarea.c.b hT = com.baidu.swan.apps.textarea.c.a.NZ().hT(this.atc);
+        if (hT != null) {
+            hT.hV(this.atc);
         }
     }
 

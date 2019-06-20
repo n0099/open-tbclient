@@ -19,20 +19,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes4.dex */
 public class b {
-    private a gQs;
-    private ArrayList<m> gQt;
+    private a gQu;
+    private ArrayList<m> gQv;
     public boolean hasMore;
     private BdUniqueId uniqueId;
-    private boolean gQq = false;
-    private long gQr = 0;
-    private com.baidu.adp.framework.listener.a gQu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private boolean gQs = false;
+    private long gQt = 0;
+    private com.baidu.adp.framework.listener.a gQw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.gQs != null) {
-                        b.this.gQs.vY(responsedMessage.getErrorString());
+                    if (b.this.gQu != null) {
+                        b.this.gQu.vX(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -57,7 +57,7 @@ public class b {
     public interface a {
         void V(ArrayList<m> arrayList);
 
-        void vY(String str);
+        void vX(String str);
     }
 
     static {
@@ -68,18 +68,18 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.gQu);
-            this.gQs = aVar;
+            tbPageContext.registerListener(this.gQw);
+            this.gQu = aVar;
         }
     }
 
-    public void bsM() {
+    public void bsO() {
         abr();
         abq();
     }
 
     public void bmw() {
-        this.gQr = 0L;
+        this.gQt = 0L;
         abq();
     }
 
@@ -131,48 +131,48 @@ public class b {
 
     private void abq() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-        agreeMeRequestMessage.id = this.gQr;
+        agreeMeRequestMessage.id = this.gQt;
         agreeMeRequestMessage.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.gQq) {
-            if (v.aa(this.gQt)) {
-                this.gQt = new ArrayList<>();
+        if (!this.gQs) {
+            if (v.aa(this.gQv)) {
+                this.gQv = new ArrayList<>();
             } else {
-                this.gQt.clear();
+                this.gQv.clear();
             }
-            this.gQt.addAll(arrayList);
-            m mVar = (m) v.c(this.gQt, this.gQt.size() - 1);
+            this.gQv.addAll(arrayList);
+            m mVar = (m) v.c(this.gQv, this.gQv.size() - 1);
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-                this.gQr = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+                this.gQt = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
             }
-            if (this.gQs != null && !v.aa(this.gQt)) {
-                this.gQs.V(this.gQt);
+            if (this.gQu != null && !v.aa(this.gQv)) {
+                this.gQu.V(this.gQv);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.gQq = true;
-        if (v.aa(this.gQt)) {
-            this.gQt = new ArrayList<>();
+        this.gQs = true;
+        if (v.aa(this.gQv)) {
+            this.gQv = new ArrayList<>();
         }
         if (!z) {
-            this.gQt.addAll(arrayList);
+            this.gQv.addAll(arrayList);
         } else {
-            this.gQt.clear();
-            this.gQt.addAll(0, arrayList);
+            this.gQv.clear();
+            this.gQv.addAll(0, arrayList);
         }
-        m mVar = (m) v.c(this.gQt, this.gQt.size() - 1);
+        m mVar = (m) v.c(this.gQv, this.gQv.size() - 1);
         if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-            this.gQr = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+            this.gQt = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
         }
-        if (this.gQs != null) {
-            this.gQs.V(this.gQt);
+        if (this.gQu != null) {
+            this.gQu.V(this.gQv);
         }
     }
 }

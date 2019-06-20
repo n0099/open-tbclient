@@ -12,7 +12,7 @@ import org.apache.http.protocol.HTTP;
 public final class aa {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static boolean ij(String str) {
+    public static boolean ii(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -42,7 +42,7 @@ public final class aa {
         return sb.toString();
     }
 
-    public static String ik(String str) {
+    public static String ij(String str) {
         int indexOf;
         if (!TextUtils.isEmpty(str) && (indexOf = str.indexOf("?")) > 0) {
             return str.substring(0, indexOf);
@@ -50,7 +50,7 @@ public final class aa {
         return str;
     }
 
-    public static String il(String str) {
+    public static String ik(String str) {
         if (!TextUtils.isEmpty(str)) {
             String str2 = null;
             int indexOf = str.indexOf("?");
@@ -66,21 +66,21 @@ public final class aa {
         return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
     }
 
-    public static String im(String str) {
+    public static String il(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.fromFile(new File(str)).toString();
     }
 
-    public static Uri in(String str) {
+    public static Uri im(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         return Uri.fromFile(new File(str));
     }
 
-    public static String io(String str) {
+    public static String in(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), HTTP.UTF_8);

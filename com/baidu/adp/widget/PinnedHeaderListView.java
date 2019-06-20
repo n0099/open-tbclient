@@ -14,18 +14,18 @@ import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.BdListView;
 /* loaded from: classes.dex */
 public class PinnedHeaderListView extends BdListView implements AbsListView.OnScrollListener {
-    private AbsListView.OnScrollListener Ok;
-    private View Ol;
+    private AbsListView.OnScrollListener Oj;
+    private View Ok;
+    private int Ol;
     private int Om;
     private int On;
     private int Oo;
     private int Op;
     private int Oq;
     private int Or;
-    private int Os;
+    private boolean Os;
     private boolean Ot;
-    private boolean Ou;
-    private a Ov;
+    private a Ou;
     private final DataSetObserver mObserver;
 
     public PinnedHeaderListView(Context context) {
@@ -49,24 +49,24 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
             @Override // android.database.DataSetObserver
             public void onInvalidated() {
-                PinnedHeaderListView.this.Oq = -1;
+                PinnedHeaderListView.this.Op = -1;
                 PinnedHeaderListView.this.requestLayout();
                 PinnedHeaderListView.this.invalidate();
             }
         };
-        this.Om = -1;
-        this.Ou = false;
+        this.Ol = -1;
+        this.Ot = false;
         super.setOnScrollListener(this);
         Log.d("PinnedHeaderListView", "head count = " + getHeaderViewsCount());
         init();
     }
 
     private void init() {
-        this.Or = this.Oq;
+        this.Oq = this.Op;
         setOnScrollToPullListener(new BdListView.g() { // from class: com.baidu.adp.widget.PinnedHeaderListView.2
             @Override // com.baidu.adp.widget.ListView.BdListView.g
             public void onScrollToPull(boolean z) {
-                PinnedHeaderListView.this.Ou = z;
+                PinnedHeaderListView.this.Ot = z;
             }
         });
     }
@@ -78,23 +78,23 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
             throw new RuntimeException("Adapter must extended from PinnedHeaderListAdapter");
         }
         super.setAdapter(listAdapter);
-        this.Ov = (a) listAdapter;
-        this.Om = this.Ov.od();
-        this.Ol = this.Ov.getPinnedHeaderView();
-        if (this.Ol != null) {
-            if (this.Ol.getLayoutParams() == null) {
-                this.Ol.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+        this.Ou = (a) listAdapter;
+        this.Ol = this.Ou.od();
+        this.Ok = this.Ou.getPinnedHeaderView();
+        if (this.Ok != null) {
+            if (this.Ok.getLayoutParams() == null) {
+                this.Ok.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             }
             setFadingEdgeLength(0);
         }
-        this.Ov.registerDataSetObserver(this.mObserver);
+        this.Ou.registerDataSetObserver(this.mObserver);
     }
 
     private void t(int i, int i2) {
         int makeMeasureSpec;
         int makeMeasureSpec2;
-        if (this.Ol != null) {
-            ViewGroup.LayoutParams layoutParams = this.Ol.getLayoutParams();
+        if (this.Ok != null) {
+            ViewGroup.LayoutParams layoutParams = this.Ok.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = generateDefaultLayoutParams();
             }
@@ -120,9 +120,9 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
                     makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(layoutParams.height, 1073741824);
                     break;
             }
-            this.Ol.measure(makeMeasureSpec, makeMeasureSpec2);
-            this.On = this.Ol.getMeasuredWidth();
-            this.Oo = this.Ol.getMeasuredHeight();
+            this.Ok.measure(makeMeasureSpec, makeMeasureSpec2);
+            this.Om = this.Ok.getMeasuredWidth();
+            this.On = this.Ok.getMeasuredHeight();
         }
     }
 
@@ -137,18 +137,18 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
-        if (this.Ot && !this.Ou && this.Ol.getVisibility() == 0) {
+        if (this.Os && !this.Ot && this.Ok.getVisibility() == 0) {
             long drawingTime = getDrawingTime();
             int save = canvas.save();
-            canvas.translate(0.0f, -this.Op);
-            drawChild(canvas, this.Ol, drawingTime);
+            canvas.translate(0.0f, -this.Oo);
+            drawChild(canvas, this.Ok, drawingTime);
             canvas.restoreToCount(save);
         }
     }
 
     private void ob() {
-        if (this.Ol != null) {
-            a aVar = this.Ov;
+        if (this.Ok != null) {
+            a aVar = this.Ou;
             int firstVisiblePosition = getFirstVisiblePosition();
             if (firstVisiblePosition > 0) {
                 firstVisiblePosition--;
@@ -156,53 +156,53 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
             int i = firstVisiblePosition + 1;
             int itemViewType = aVar.getItemViewType(firstVisiblePosition);
             int itemViewType2 = aVar.getItemViewType(i);
-            if (this.Ot) {
-                if (itemViewType2 == this.Om) {
+            if (this.Os) {
+                if (itemViewType2 == this.Ol) {
                     View childAt = getChildAt(1);
                     if (childAt != null) {
-                        this.Op = Math.min(this.Oo, Math.max(0, this.Oo - childAt.getTop()));
-                        invalidate(0, 0, this.On, this.Oo);
+                        this.Oo = Math.min(this.On, Math.max(0, this.On - childAt.getTop()));
+                        invalidate(0, 0, this.Om, this.On);
                     }
-                } else if (itemViewType == this.Om && firstVisiblePosition != this.Oq) {
-                    aVar.a(this.Ol, this, firstVisiblePosition);
+                } else if (itemViewType == this.Ol && firstVisiblePosition != this.Op) {
+                    aVar.a(this.Ok, this, firstVisiblePosition);
                     t(getMeasuredWidth(), getMeasuredHeight());
-                    this.Ol.layout(0, 0, this.On, this.Oo);
-                    invalidate(0, 0, this.On, this.Oo);
-                    this.Oq = firstVisiblePosition;
-                    this.Os = this.Oq;
+                    this.Ok.layout(0, 0, this.Om, this.On);
+                    invalidate(0, 0, this.Om, this.On);
+                    this.Op = firstVisiblePosition;
+                    this.Or = this.Op;
                 } else {
-                    this.Op = 0;
-                    invalidate(0, 0, this.On, this.Oo);
+                    this.Oo = 0;
+                    invalidate(0, 0, this.Om, this.On);
                 }
                 int aS = aS(i);
                 if (aS == -1) {
-                    this.Ot = false;
+                    this.Os = false;
                     aVar.a(null, this, -1);
-                } else if (aS != this.Os || aS == 0) {
-                    aVar.a(this.Ol, this, aS);
+                } else if (aS != this.Or || aS == 0) {
+                    aVar.a(this.Ok, this, aS);
                     t(getMeasuredWidth(), getMeasuredHeight());
-                    this.Ol.layout(0, 0, this.On, this.Oo);
-                    invalidate(0, 0, this.On, this.Oo);
-                    this.Os = aS;
-                    this.Oq = this.Or;
+                    this.Ok.layout(0, 0, this.Om, this.On);
+                    invalidate(0, 0, this.Om, this.On);
+                    this.Or = aS;
+                    this.Op = this.Oq;
                 }
-            } else if (itemViewType == this.Om) {
-                this.Ot = true;
-                this.Op = 0;
-                aVar.a(this.Ol, this, firstVisiblePosition);
+            } else if (itemViewType == this.Ol) {
+                this.Os = true;
+                this.Oo = 0;
+                aVar.a(this.Ok, this, firstVisiblePosition);
                 t(getMeasuredWidth(), getMeasuredHeight());
-                this.Ol.layout(0, 0, this.On, this.Oo);
-                invalidate(0, 0, this.On, this.Oo);
+                this.Ok.layout(0, 0, this.Om, this.On);
+                invalidate(0, 0, this.Om, this.On);
+                this.Op = firstVisiblePosition;
                 this.Oq = firstVisiblePosition;
-                this.Or = firstVisiblePosition;
             }
         }
     }
 
     private int aS(int i) {
-        a aVar = this.Ov;
+        a aVar = this.Ou;
         for (int i2 = i - 1; i2 >= 0; i2--) {
-            if (aVar.getItemViewType(i2) == this.Om) {
+            if (aVar.getItemViewType(i2) == this.Ol) {
                 return i2;
             }
         }
@@ -211,21 +211,21 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView
     public void setOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.Ok = onScrollListener;
+        this.Oj = onScrollListener;
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (this.Ok != null) {
-            this.Ok.onScrollStateChanged(absListView, i);
+        if (this.Oj != null) {
+            this.Oj.onScrollStateChanged(absListView, i);
         }
     }
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
         ob();
-        if (this.Ok != null) {
-            this.Ok.onScroll(absListView, i, i2, i3);
+        if (this.Oj != null) {
+            this.Oj.onScroll(absListView, i, i2, i3);
         }
     }
 
@@ -239,7 +239,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
     /* loaded from: classes.dex */
     public static abstract class a implements ListAdapter {
-        private final DataSetObservable Ox = new DataSetObservable();
+        private final DataSetObservable Ow = new DataSetObservable();
 
         public abstract void a(View view, AdapterView<?> adapterView, int i);
 
@@ -249,7 +249,7 @@ public class PinnedHeaderListView extends BdListView implements AbsListView.OnSc
 
         @Override // android.widget.Adapter
         public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-            this.Ox.registerObserver(dataSetObserver);
+            this.Ow.registerObserver(dataSetObserver);
         }
     }
 }

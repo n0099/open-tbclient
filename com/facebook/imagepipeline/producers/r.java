@@ -5,39 +5,39 @@ import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class r implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jTJ;
-    private final com.facebook.imagepipeline.c.f jYG;
-    private final ai<com.facebook.imagepipeline.f.d> kbZ;
+    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jTM;
+    private final com.facebook.imagepipeline.c.f jYJ;
+    private final ai<com.facebook.imagepipeline.f.d> kcc;
 
     public r(com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.imagepipeline.c.f fVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.jTJ = tVar;
-        this.jYG = fVar;
-        this.kbZ = aiVar;
+        this.jTM = tVar;
+        this.jYJ = fVar;
+        this.kcc = aiVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
         String id = ajVar.getId();
-        al cHz = ajVar.cHz();
-        cHz.ez(id, "EncodedMemoryCacheProducer");
-        com.facebook.cache.common.b c = this.jYG.c(ajVar.cHy(), ajVar.cCU());
-        com.facebook.common.references.a<PooledByteBuffer> aV = this.jTJ.aV(c);
+        al cHy = ajVar.cHy();
+        cHy.ez(id, "EncodedMemoryCacheProducer");
+        com.facebook.cache.common.b c = this.jYJ.c(ajVar.cHx(), ajVar.cCT());
+        com.facebook.common.references.a<PooledByteBuffer> aV = this.jTM.aV(c);
         try {
             if (aV != null) {
                 com.facebook.imagepipeline.f.d dVar = new com.facebook.imagepipeline.f.d(aV);
                 dVar.t(c);
-                cHz.a(id, "EncodedMemoryCacheProducer", cHz.GT(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+                cHy.a(id, "EncodedMemoryCacheProducer", cHy.GV(id) ? ImmutableMap.of("cached_value_found", "true") : null);
                 jVar.aQ(1.0f);
                 jVar.e(dVar, true);
                 com.facebook.imagepipeline.f.d.e(dVar);
-            } else if (ajVar.cHA().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
-                cHz.a(id, "EncodedMemoryCacheProducer", cHz.GT(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+            } else if (ajVar.cHz().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
+                cHy.a(id, "EncodedMemoryCacheProducer", cHy.GV(id) ? ImmutableMap.of("cached_value_found", "false") : null);
                 jVar.e(null, true);
             } else {
-                a aVar = new a(jVar, this.jTJ, c);
-                cHz.a(id, "EncodedMemoryCacheProducer", cHz.GT(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-                this.kbZ.a(aVar, ajVar);
+                a aVar = new a(jVar, this.jTM, c);
+                cHy.a(id, "EncodedMemoryCacheProducer", cHy.GV(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+                this.kcc.a(aVar, ajVar);
             }
         } finally {
             com.facebook.common.references.a.c(aV);
@@ -46,13 +46,13 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
 
     /* loaded from: classes2.dex */
     private static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jTJ;
-        private final com.facebook.cache.common.b kcB;
+        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> jTM;
+        private final com.facebook.cache.common.b kcE;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.cache.common.b bVar) {
             super(jVar);
-            this.jTJ = tVar;
-            this.kcB = bVar;
+            this.jTM = tVar;
+            this.kcE = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,20 +60,20 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (!z || dVar == null) {
-                cHL().e(dVar, z);
+                cHK().e(dVar, z);
                 return;
             }
-            com.facebook.common.references.a<PooledByteBuffer> cGG = dVar.cGG();
-            if (cGG != null) {
+            com.facebook.common.references.a<PooledByteBuffer> cGF = dVar.cGF();
+            if (cGF != null) {
                 try {
-                    com.facebook.common.references.a<PooledByteBuffer> a = this.jTJ.a(dVar.cGI() != null ? dVar.cGI() : this.kcB, cGG);
+                    com.facebook.common.references.a<PooledByteBuffer> a = this.jTM.a(dVar.cGH() != null ? dVar.cGH() : this.kcE, cGF);
                     if (a != null) {
                         try {
                             com.facebook.imagepipeline.f.d dVar2 = new com.facebook.imagepipeline.f.d(a);
                             dVar2.c(dVar);
                             try {
-                                cHL().aQ(1.0f);
-                                cHL().e(dVar2, true);
+                                cHK().aQ(1.0f);
+                                cHK().e(dVar2, true);
                                 return;
                             } finally {
                                 com.facebook.imagepipeline.f.d.e(dVar2);
@@ -83,10 +83,10 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
                         }
                     }
                 } finally {
-                    com.facebook.common.references.a.c(cGG);
+                    com.facebook.common.references.a.c(cGF);
                 }
             }
-            cHL().e(dVar, true);
+            cHK().e(dVar, true);
         }
     }
 }

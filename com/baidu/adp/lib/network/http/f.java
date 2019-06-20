@@ -14,18 +14,18 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD AG;
+    private HttpMessageTask.HTTP_METHOD AF;
     private String url = "";
-    protected Map<String, String> AH = new HashMap();
-    protected LinkedList<BasicNameValuePair> AI = new LinkedList<>();
-    protected HashMap<String, byte[]> AJ = new HashMap<>();
+    protected Map<String, String> AG = new HashMap();
+    protected LinkedList<BasicNameValuePair> AH = new LinkedList<>();
+    protected HashMap<String, byte[]> AI = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.AG;
+        return this.AF;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.AG = http_method;
+        this.AF = http_method;
     }
 
     public String getUrl() {
@@ -41,13 +41,13 @@ public class f {
     }
 
     public boolean ip() {
-        return this.AJ != null && this.AJ.size() > 0;
+        return this.AI != null && this.AI.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.AI.size() == 0) {
+        if (this.AH.size() == 0) {
             if (dVar != null) {
-                dVar.Ao = this.url.length();
+                dVar.An = this.url.length();
             }
             return this.url;
         }
@@ -61,27 +61,27 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.AI.size()) {
+            if (i2 >= this.AH.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.AI.get(i2).getName());
+            sb.append(this.AH.get(i2).getName());
             sb.append("=");
-            sb.append(k.bh(this.AI.get(i2).getValue()));
+            sb.append(k.bh(this.AH.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.Ao = sb.length();
+            dVar.An = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.AH != null) {
-            for (Map.Entry<String, String> entry : this.AH.entrySet()) {
+        if (httpURLConnection != null && this.AG != null) {
+            for (Map.Entry<String, String> entry : this.AG.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -94,8 +94,8 @@ public class f {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.AI != null) {
-                    Iterator<BasicNameValuePair> it = this.AI.iterator();
+                if (this.AH != null) {
+                    Iterator<BasicNameValuePair> it = this.AH.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -112,8 +112,8 @@ public class f {
                         }
                     }
                 }
-                if (this.AJ != null) {
-                    for (Map.Entry<String, byte[]> entry : this.AJ.entrySet()) {
+                if (this.AI != null) {
+                    for (Map.Entry<String, byte[]> entry : this.AI.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -133,7 +133,7 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.Ao = i;
+            dVar.An = i;
         }
     }
 
@@ -153,14 +153,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.Ao = i;
+            dVar.An = i;
         }
     }
 
     private StringBuilder iq() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.AI != null) {
-            Iterator<BasicNameValuePair> it = this.AI.iterator();
+        if (this.AH != null) {
+            Iterator<BasicNameValuePair> it = this.AH.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -183,12 +183,12 @@ public class f {
     }
 
     public void j(HashMap<String, String> hashMap) {
-        this.AH = hashMap;
+        this.AG = hashMap;
     }
 
     public String aA(String str) {
-        if (this.AH != null) {
-            return this.AH.get(str);
+        if (this.AG != null) {
+            return this.AG.get(str);
         }
         return null;
     }
@@ -199,9 +199,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.AI.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.AH.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.AJ.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.AI.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -211,20 +211,20 @@ public class f {
     }
 
     public void d(String str, byte[] bArr) {
-        this.AJ.put(str, bArr);
+        this.AI.put(str, bArr);
     }
 
     public void o(String str, String str2) {
-        this.AI.add(new BasicNameValuePair(str, str2));
+        this.AH.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.AI.add(basicNameValuePair);
+        this.AH.add(basicNameValuePair);
     }
 
     public void q(String str, String str2) {
-        if (this.AH != null) {
-            this.AH.put(str, str2);
+        if (this.AG != null) {
+            this.AG.put(str, str2);
         }
     }
 }

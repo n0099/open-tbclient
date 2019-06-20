@@ -15,8 +15,8 @@ import android.view.View;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class FrameOverlayView extends View {
-    private GestureDetector cOs;
-    private int cPU;
+    private GestureDetector cOt;
+    private int cPV;
     private GestureDetector.SimpleOnGestureListener esJ;
     private int esK;
     int esL;
@@ -55,7 +55,7 @@ public class FrameOverlayView extends View {
         this.esL = 20;
         this.esM = 100;
         this.esN = 6;
-        this.cPU = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
+        this.cPV = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
         this.paint = new Paint(1);
         this.esO = new Paint(1);
         this.esP = new RectF();
@@ -82,7 +82,7 @@ public class FrameOverlayView extends View {
         this.esL = 20;
         this.esM = 100;
         this.esN = 6;
-        this.cPU = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
+        this.cPV = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
         this.paint = new Paint(1);
         this.esO = new Paint(1);
         this.esP = new RectF();
@@ -109,7 +109,7 @@ public class FrameOverlayView extends View {
         this.esL = 20;
         this.esM = 100;
         this.esN = 6;
-        this.cPU = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
+        this.cPV = Color.argb((int) SubsamplingScaleImageView.ORIENTATION_180, 0, 0, 0);
         this.paint = new Paint(1);
         this.esO = new Paint(1);
         this.esP = new RectF();
@@ -128,7 +128,7 @@ public class FrameOverlayView extends View {
     }
 
     private void init() {
-        this.cOs = new GestureDetector(getContext(), this.esJ);
+        this.cOt = new GestureDetector(getContext(), this.esJ);
         this.esM = com.baidu.tieba.barselect.a.b.dpToPx(18);
         this.esN = com.baidu.tieba.barselect.a.b.dpToPx(3);
     }
@@ -178,7 +178,7 @@ public class FrameOverlayView extends View {
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(this.cPU);
+        canvas.drawColor(this.cPV);
         this.paint.setStrokeWidth(com.baidu.tieba.barselect.a.b.dpToPx(1));
         canvas.drawRect(this.esQ, this.paint);
         canvas.drawRect(this.esQ, this.esO);
@@ -206,7 +206,7 @@ public class FrameOverlayView extends View {
         boolean J = J(motionEvent);
         RectF rectF = new RectF(this.esQ.left - 60.0f, this.esQ.top - 60.0f, this.esQ.right + 60.0f, 60.0f + this.esQ.bottom);
         if (!J && rectF.contains(motionEvent.getX(), motionEvent.getY())) {
-            this.cOs.onTouchEvent(motionEvent);
+            this.cOt.onTouchEvent(motionEvent);
             return true;
         }
         return J;

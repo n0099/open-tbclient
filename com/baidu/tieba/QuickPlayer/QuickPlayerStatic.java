@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickPlayerStatic {
-    private static CustomMessageListener cSf = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
+    private static CustomMessageListener cSg = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,7 +25,7 @@ public class QuickPlayerStatic {
             }
         }
     };
-    private static final CustomMessageListener cSg = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
+    private static final CustomMessageListener cSh = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,7 +34,7 @@ public class QuickPlayerStatic {
             }
         }
     };
-    private static final CustomMessageListener cSh = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
+    private static final CustomMessageListener cSi = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -60,9 +60,9 @@ public class QuickPlayerStatic {
             }
         }).start();
         aAs();
-        MessageManager.getInstance().registerListener(cSg);
-        MessageManager.getInstance().registerListener(cSf);
         MessageManager.getInstance().registerListener(cSh);
+        MessageManager.getInstance().registerListener(cSg);
+        MessageManager.getInstance().registerListener(cSi);
     }
 
     private static void aAs() {

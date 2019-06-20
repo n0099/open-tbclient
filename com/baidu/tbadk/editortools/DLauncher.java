@@ -11,8 +11,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
     private String ama;
-    private TextView cqp;
-    private int cqq;
+    private TextView cqq;
+    private int cqr;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -24,20 +24,20 @@ public class DLauncher extends RelativeLayout implements g {
         if (i > 0 && i2 > 0) {
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(R.dimen.ds144));
-            this.cqp = new TextView(context);
+            this.cqq = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.cqp.setGravity(17);
-            this.cqp.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
-            this.cqq = context.getResources().getDimensionPixelSize(R.dimen.ds12);
-            addView(this.cqp, layoutParams);
+            this.cqq.setGravity(17);
+            this.cqq.setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.fontsize24));
+            this.cqr = context.getResources().getDimensionPixelSize(R.dimen.ds12);
+            addView(this.cqq, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.cqp.setText(str);
+        this.cqq.setText(str);
     }
 
     public void setIcon(int i) {
@@ -59,8 +59,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.cqp.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.cqp.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.cqq.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.cqq.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -68,12 +68,12 @@ public class DLauncher extends RelativeLayout implements g {
         }
     }
 
-    public void pN(String str) {
-        pO(str);
+    public void pM(String str) {
+        pN(str);
         this.mTip.setVisibility(0);
     }
 
-    private void pO(String str) {
+    private void pN(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.ama = str;
             if (this.mTip == null) {
@@ -108,7 +108,7 @@ public class DLauncher extends RelativeLayout implements g {
             if (aVar.data == null) {
                 aqR();
             } else if (aVar.data instanceof String) {
-                pN((String) aVar.data);
+                pM((String) aVar.data);
             }
         }
     }
@@ -126,14 +126,14 @@ public class DLauncher extends RelativeLayout implements g {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         al.g(this, R.drawable.btn_editor_selector, i);
-        al.c(this.cqp, R.color.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.cqp.getText())) {
-            al.g(this.cqp, this.mIcon, i);
+        al.c(this.cqq, R.color.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.cqq.getText())) {
+            al.g(this.cqq, this.mIcon, i);
         } else {
             Drawable S = al.S(i, this.mIcon);
             if (S != null) {
                 S.setBounds(0, 0, getResources().getDimensionPixelSize(R.dimen.ds70), getResources().getDimensionPixelSize(R.dimen.ds72));
-                this.cqp.setCompoundDrawables(null, S, null, null);
+                this.cqq.setCompoundDrawables(null, S, null, null);
             }
         }
         if (this.mTip != null) {

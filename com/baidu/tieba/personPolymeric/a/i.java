@@ -100,10 +100,10 @@ public class i extends com.baidu.adp.widget.ListView.a<CardPersonDynamicThreadDa
         rVar.setConstrainImagePool(this.ftZ);
         rVar.currentPageType = 4;
         if (rVar.eyE != null) {
-            rVar.eyE.caC = 4;
+            rVar.eyE.caD = 4;
         }
         if (rVar.dBS != null) {
-            rVar.dBS.caC = 4;
+            rVar.dBS.caD = 4;
         }
         if (rVar.ezc != null) {
             rVar.ezc.ezN = 4;

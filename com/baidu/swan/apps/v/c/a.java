@@ -11,10 +11,10 @@ public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final Map<String, a> ayW = new HashMap();
     private Map<String, String> ayX = new HashMap();
-    public final b ayY = new b().eU("SwanLaunch").c(Fq());
+    public final b ayY = new b().eT("SwanLaunch").c(Fq());
     public final String id;
 
-    public static a eS(String str) {
+    public static a eR(String str) {
         a aVar = ayW.get(str);
         if (aVar == null) {
             a aVar2 = new a(str);
@@ -32,8 +32,8 @@ public final class a {
         return this.ayY.Fo();
     }
 
-    public b.a eT(String str) {
-        return this.ayY.eT(str);
+    public b.a eS(String str) {
+        return this.ayY.eS(str);
     }
 
     public b.a ak(String str, String str2) {

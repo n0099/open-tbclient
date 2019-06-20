@@ -86,7 +86,7 @@ public class q extends z {
         for (int i = 0; i < jSONArray.length(); i++) {
             UbcFlowEvent aa = aa(jSONArray.optJSONObject(i));
             if (aa != null) {
-                aa.ga("FE");
+                aa.fZ("FE");
                 arrayList.add(aa);
             }
         }

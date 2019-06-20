@@ -110,7 +110,7 @@ public class ab {
         return this.forumGameLabel;
     }
 
-    public void wt(String str) {
+    public void ws(String str) {
         this.fsS = str;
     }
 }

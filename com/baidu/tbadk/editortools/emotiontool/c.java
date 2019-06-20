@@ -4,8 +4,8 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a crD;
     private com.baidu.adp.widget.ImageView.a crE;
+    private com.baidu.adp.widget.ImageView.a crF;
     private int rows;
 
     public abstract boolean arh();
@@ -24,32 +24,32 @@ public abstract class c {
 
     public abstract String km(int i);
 
-    public abstract boolean pS(String str);
+    public abstract boolean pR(String str);
+
+    public abstract com.baidu.adp.widget.ImageView.a pS(String str);
 
     public abstract com.baidu.adp.widget.ImageView.a pT(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a pU(String str);
-
     public com.baidu.adp.widget.ImageView.a arj() {
-        return this.crD;
+        return this.crE;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.ns();
         }
-        this.crD = aVar;
+        this.crE = aVar;
     }
 
     public com.baidu.adp.widget.ImageView.a ark() {
-        return this.crE;
+        return this.crF;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
             aVar.ns();
         }
-        this.crE = aVar;
+        this.crF = aVar;
     }
 
     public int arl() {

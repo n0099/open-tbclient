@@ -15,7 +15,7 @@ public class f extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.favorite.b
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        if (com.baidu.swan.apps.database.favorite.a.ef(this.aRU)) {
+        if (com.baidu.swan.apps.database.favorite.a.ee(this.aRU)) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("success", "1");

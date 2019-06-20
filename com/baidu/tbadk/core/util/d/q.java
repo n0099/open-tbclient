@@ -42,7 +42,7 @@ public class q extends a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.util.d.a
-    public com.baidu.adp.lib.Disk.ops.c ok(String str) {
+    public com.baidu.adp.lib.Disk.ops.c oj(String str) {
         return new com.baidu.adp.lib.Disk.ops.b(TbConfig.IMAGE_CACHE_DIR_NAME, str, DiskFileOperate.Action.READ);
     }
 
@@ -50,13 +50,13 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(str);
-        if (qr != null) {
-            qr.LO.LQ = "memory";
-            qr.LO.LR = 0L;
-            qr.LO.LS = true;
+        com.baidu.adp.widget.ImageView.a qq = com.baidu.tbadk.imageManager.c.asp().qq(str);
+        if (qq != null) {
+            qq.LN.LP = "memory";
+            qq.LN.LQ = 0L;
+            qq.LN.LR = true;
         }
-        return qr;
+        return qq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

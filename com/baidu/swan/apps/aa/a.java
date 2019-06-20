@@ -41,7 +41,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         this.mAppKey = str2;
     }
 
-    public boolean fL(String str) {
+    public boolean fK(String str) {
         if (TextUtils.isEmpty(str)) {
             this.azG.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -56,7 +56,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 }
                 a.this.c(i, "baiduqianbao", str2);
                 if (i != 0 || !TextUtils.equals(a.this.mVersion, "2.0")) {
-                    a.this.fN(null);
+                    a.this.fM(null);
                 } else {
                     com.baidu.swan.apps.u.a.Ee().a(a.this.mAppKey, a.this);
                 }
@@ -66,7 +66,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
         return true;
     }
 
-    public boolean fM(String str) {
+    public boolean fL(String str) {
         com.baidu.swan.apps.console.c.d(TAG, "start UnitedSchemeWalletDispatcher ACTION_REQUEST_ALI_PAYMENT");
         if (TextUtils.isEmpty(str)) {
             this.azG.result = UnitedSchemeUtility.wrapCallbackParams(1001);
@@ -82,7 +82,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 }
                 a.this.c(i, "alipay", str2);
                 if (i != 0 || !TextUtils.equals(a.this.mVersion, "2.0")) {
-                    a.this.fN(null);
+                    a.this.fM(null);
                 } else {
                     com.baidu.swan.apps.u.a.Ee().a(a.this.mAppKey, a.this);
                 }
@@ -117,7 +117,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 }
                 a.this.mStatusCode = 5;
                 a.this.aFb = null;
-                a.this.fN(null);
+                a.this.fM(null);
             }
         });
         return true;
@@ -174,15 +174,20 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                 bundle.putString("signFieldsRange", jSONObject2.optString("signFieldsRange"));
             }
             if (strArr != null) {
-                String[] strArr2 = new String[strArr.length + 1];
-                strArr2[0] = PayChannel.WECHAT;
-                for (int i = 1; i < strArr.length; i++) {
+                String[] strArr2 = new String[strArr.length];
+                for (int i = 0; i < strArr.length; i++) {
                     String str2 = strArr[i];
                     char c = 65535;
                     switch (str2.hashCode()) {
+                        case -1708856474:
+                            if (str2.equals("WeChat")) {
+                                c = 1;
+                                break;
+                            }
+                            break;
                         case 1865715419:
                             if (str2.equals("BDWallet")) {
-                                c = 1;
+                                c = 2;
                                 break;
                             }
                             break;
@@ -198,13 +203,14 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                             strArr2[i] = PayChannel.ALIPAY;
                             break;
                         case 1:
+                            strArr2[i] = PayChannel.WECHAT;
+                            break;
+                        case 2:
                             strArr2[i] = PayChannel.BAIFUBAO;
                             break;
                     }
                 }
                 bundle.putStringArray("blockedPayChannels", strArr2);
-            } else {
-                bundle.putStringArray("blockedPayChannels", new String[]{PayChannel.WECHAT});
             }
             G(this.aFa.getActivity()).a(bundle, new a.c() { // from class: com.baidu.swan.apps.aa.a.4
                 @Override // com.baidu.poly.a.c
@@ -230,7 +236,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                             a.this.aFb = null;
                             a.this.c(6, "nuomi", str3);
                         }
-                        a.this.fN(null);
+                        a.this.fM(null);
                     }
                 }
 
@@ -243,7 +249,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
                     a.this.mStatusCode = 2;
                     a.this.aFb = str3;
                     a.this.c(2, "nuomi", str3);
-                    a.this.fN(null);
+                    a.this.fM(null);
                 }
             });
         } catch (JSONException e) {
@@ -299,7 +305,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
             return true;
         }
         this.azG.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-        e.hm("wechatH5Action");
+        e.hl("wechatH5Action");
         return false;
     }
 
@@ -310,7 +316,7 @@ public class a implements com.baidu.swan.apps.aa.a.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fN(String str) {
+    public void fM(String str) {
         String str2;
         com.baidu.swan.apps.console.c.d(TAG, "sendSecondCallback, statusCode: " + this.mStatusCode + ", params: " + this.aFb);
         String str3 = this.azG.getParams().get("params");
@@ -375,6 +381,6 @@ public class a implements com.baidu.swan.apps.aa.a.c {
     public void onFail(String str) {
         com.baidu.swan.apps.console.c.e(TAG, "request payId failed");
         com.baidu.swan.apps.console.c.e(TAG, str);
-        fN(null);
+        fM(null);
     }
 }

@@ -107,14 +107,14 @@ public class a {
                             this.bap.cC(true);
                         }
                     } else if (800200 == optInt) {
-                        this.bap.iw("errNo:" + optInt + ",errMsg:" + jSONObject.optString("errmsg"));
+                        this.bap.iv("errNo:" + optInt + ",errMsg:" + jSONObject.optString("errmsg"));
                     } else {
-                        this.bap.iw("errNo:" + optInt);
+                        this.bap.iv("errNo:" + optInt);
                     }
                 } catch (JSONException e) {
                     if (a.DEBUG) {
                         e.printStackTrace();
-                        this.bap.iw(e.getMessage());
+                        this.bap.iv(e.getMessage());
                     }
                 }
             }
@@ -124,7 +124,7 @@ public class a {
         public void onFail(Exception exc) {
             if (a.DEBUG) {
                 exc.printStackTrace();
-                this.bap.iw(exc.getMessage());
+                this.bap.iv(exc.getMessage());
             }
         }
     }

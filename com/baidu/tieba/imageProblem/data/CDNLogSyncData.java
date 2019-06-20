@@ -11,59 +11,59 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class CDNLogSyncData {
-    private boolean bEZ;
-    private int bFa;
+    private boolean bFa;
     private int bFb;
-    private int bFc = 25;
+    private int bFc;
     private int bFd = 25;
-    private int bFe = 10;
+    private int bFe = 25;
+    private int bFf = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.bFc;
-    }
-
-    public void setSuccRank(int i) {
-        this.bFc = i;
-    }
-
-    public int getErrRank() {
         return this.bFd;
     }
 
-    public void setErrRank(int i) {
+    public void setSuccRank(int i) {
         this.bFd = i;
     }
 
-    public int getSlowRank() {
+    public int getErrRank() {
         return this.bFe;
     }
 
-    public void setSlowRank(int i) {
+    public void setErrRank(int i) {
         this.bFe = i;
     }
 
+    public int getSlowRank() {
+        return this.bFf;
+    }
+
+    public void setSlowRank(int i) {
+        this.bFf = i;
+    }
+
     public boolean ismSwitch() {
-        return this.bEZ;
+        return this.bFa;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.bEZ != z) {
+        if (this.bFa != z) {
             a iw = s.iw();
             iw.append(SocialConstants.PARAM_ACT, "fallback");
             iw.append("result", z ? "1" : "0");
             iw.append("type", "switch");
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, iw);
         }
-        this.bEZ = z;
+        this.bFa = z;
     }
 
     public int getSlowNumber() {
-        return this.bFa;
+        return this.bFb;
     }
 
     public void setSlowNumber(int i) {
-        this.bFa = i;
+        this.bFb = i;
     }
 
     public int getTime() {
@@ -75,11 +75,11 @@ public class CDNLogSyncData {
     }
 
     public int getErrNumber() {
-        return this.bFb;
+        return this.bFc;
     }
 
     public void setErrNumber(int i) {
-        this.bFb = i;
+        this.bFc = i;
     }
 
     public void parseJson(String str) {
@@ -88,7 +88,7 @@ public class CDNLogSyncData {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.bEZ = false;
+            this.bFa = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -97,30 +97,30 @@ public class CDNLogSyncData {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.bEZ = true;
+                    this.bFa = true;
                 } else {
-                    this.bEZ = false;
+                    this.bFa = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.bFb = optJSONObject.optInt("num");
+                    this.bFc = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-                    this.bFa = optJSONObject2.optInt("num");
+                    this.bFb = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.bFc = optJSONObject3.optInt("succ");
-                    this.bFd = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.bFe = optJSONObject3.optInt("slow");
+                    this.bFd = optJSONObject3.optInt("succ");
+                    this.bFe = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.bFf = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.bFa <= 0 || this.bFb <= 0) {
-                    this.bEZ = false;
+                if (this.time <= 0 || this.bFb <= 0 || this.bFc <= 0) {
+                    this.bFa = false;
                 }
             } catch (Exception e) {
-                this.bEZ = false;
+                this.bFa = false;
                 BdLog.e(e.getMessage());
             }
         }

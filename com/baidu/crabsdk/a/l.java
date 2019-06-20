@@ -7,16 +7,16 @@ import android.util.Printer;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 final class l implements Printer {
-    private final Context YR;
-    private i Zd;
+    private final Context YQ;
+    private i Zc;
+    private long Za = 0;
     private long Zb = 0;
-    private long Zc = 0;
-    private boolean Ze = false;
+    private boolean Zd = false;
 
     public l(i iVar, Context context) {
-        this.Zd = null;
-        this.Zd = iVar;
-        this.YR = context;
+        this.Zc = null;
+        this.Zc = iVar;
+        this.YQ = context;
     }
 
     @Override // android.util.Printer
@@ -24,24 +24,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.Ze) {
-            this.Zb = System.currentTimeMillis();
-            this.Zc = SystemClock.currentThreadTimeMillis();
-            this.Ze = true;
-            if (c.as(this.YR).YP != null) {
-                c.as(this.YR).YP.start();
+        if (!this.Zd) {
+            this.Za = System.currentTimeMillis();
+            this.Zb = SystemClock.currentThreadTimeMillis();
+            this.Zd = true;
+            if (c.as(this.YQ).YO != null) {
+                c.as(this.YQ).YO.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.Ze = false;
-        if (currentTimeMillis - this.Zb >= ((long) a.U)) {
-            com.baidu.crabsdk.c.a.cf("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Zb + "=" + (currentTimeMillis - this.Zb) + " >= " + a.U);
-            j.qJ().post(new m(this, this.Zb, currentTimeMillis, this.Zc, SystemClock.currentThreadTimeMillis()));
+        this.Zd = false;
+        if (currentTimeMillis - this.Za >= ((long) a.U)) {
+            com.baidu.crabsdk.c.a.cf("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Za + "=" + (currentTimeMillis - this.Za) + " >= " + a.U);
+            j.qJ().post(new m(this, this.Za, currentTimeMillis, this.Zb, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.as(this.YR).YP != null) {
-            c.as(this.YR).YP.stop();
+        if (c.as(this.YQ).YO != null) {
+            c.as(this.YQ).YO.stop();
         }
     }
 }

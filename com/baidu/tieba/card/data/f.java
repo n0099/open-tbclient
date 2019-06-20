@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.MetaData;
 public class f extends b {
     public static BdUniqueId eAD = BdUniqueId.gen();
     public static BdUniqueId eAE = BdUniqueId.gen();
-    public MetaData bJa;
+    public MetaData bJb;
     public int type = 0;
     public int rank = 1;
 

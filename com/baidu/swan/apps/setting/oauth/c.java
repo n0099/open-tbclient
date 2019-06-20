@@ -242,7 +242,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, e eVar) {
-        new g.a(context).d(context.getString(a.h.aiapps_auth_dialog_title, getAppName(context))).gx(eVar.description).b(a.h.aiapps_auth_scope_desc_dialog_btn_pos, null).a(new com.baidu.swan.apps.view.b.a()).KK();
+        new g.a(context).d(context.getString(a.h.aiapps_auth_dialog_title, getAppName(context))).gw(eVar.description).b(a.h.aiapps_auth_scope_desc_dialog_btn_pos, null).a(new com.baidu.swan.apps.view.b.a()).KK();
     }
 
     @Deprecated
@@ -282,7 +282,7 @@ public final class c {
             } else {
                 str3 = str5 + str2;
             }
-            new a.C0181a(i).hj(str4).hk(str3).Fr();
+            new a.C0181a(i).hi(str4).hj(str3).Fr();
             if (DEBUG) {
                 Log.d("OAuthUtils", "error reported: " + i + " ,content: " + str3);
             }
@@ -291,7 +291,7 @@ public final class c {
                 Log.e("OAuthUtils", "error report error: " + i);
                 e.printStackTrace();
             }
-            new a.C0181a(i).hk("ReportError" + e.getMessage()).Fr();
+            new a.C0181a(i).hj("ReportError" + e.getMessage()).Fr();
         }
     }
 

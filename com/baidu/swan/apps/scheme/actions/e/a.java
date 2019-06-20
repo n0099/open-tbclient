@@ -35,12 +35,12 @@ public final class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final C0172a ha = C0172a.ha(unitedSchemeEntity.getParam("params"));
-        if (ha == null || !ha.isValid()) {
+        final C0172a gZ = C0172a.gZ(unitedSchemeEntity.getParam("params"));
+        if (gZ == null || !gZ.isValid()) {
             c.e(Headers.LOCATION, "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (TextUtils.isEmpty(ha.aSL)) {
+        } else if (TextUtils.isEmpty(gZ.aSL)) {
             c.e(Headers.LOCATION, "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
@@ -56,9 +56,9 @@ public final class a extends z {
                 public void D(Boolean bool) {
                     c.i("GetLocationAction", "authorized result is " + bool);
                     if (bool.booleanValue()) {
-                        a.this.a(context, callbackHandler, ha);
+                        a.this.a(context, callbackHandler, gZ);
                     } else {
-                        callbackHandler.handleSchemeDispatchCallback(ha.aSL, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
+                        callbackHandler.handleSchemeDispatchCallback(gZ.aSL, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
                     }
                 }
             });
@@ -135,7 +135,7 @@ public final class a extends z {
         private C0172a() {
         }
 
-        public static C0172a ha(String str) {
+        public static C0172a gZ(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }

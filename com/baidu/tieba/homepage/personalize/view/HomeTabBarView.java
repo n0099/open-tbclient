@@ -22,8 +22,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes4.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView gfb;
-    private PagerSlidingTabStrip gfc;
+    private ImageView gfd;
+    private PagerSlidingTabStrip gfe;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -46,11 +46,11 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.gfb = (ImageView) findViewById(R.id.home_page_search_icon);
-        this.gfb.setClickable(false);
-        this.gfc = (PagerSlidingTabStrip) findViewById(R.id.home_page_tabstrip);
-        this.gfc.d(l.g(context, R.dimen.tbds44), l.g(context, R.dimen.tbds68), l.g(context, R.dimen.tbds32), true);
-        this.gfb.setOnClickListener(this);
+        this.gfd = (ImageView) findViewById(R.id.home_page_search_icon);
+        this.gfd.setClickable(false);
+        this.gfe = (PagerSlidingTabStrip) findViewById(R.id.home_page_tabstrip);
+        this.gfe.d(l.g(context, R.dimen.tbds44), l.g(context, R.dimen.tbds68), l.g(context, R.dimen.tbds32), true);
+        this.gfd.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -60,39 +60,39 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gfb) {
+        if (view == this.gfd) {
             TiebaStatic.log(new am("c10378").P("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.gfc.setOnPageChangeListener(onPageChangeListener);
+        this.gfe.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.gfc != null) {
-            this.gfc.setShowConcernRedTip(z);
+        if (this.gfe != null) {
+            this.gfe.setShowConcernRedTip(z);
         }
     }
 
-    public boolean btz() {
-        if (this.gfc != null) {
-            return this.gfc.btz();
+    public boolean btA() {
+        if (this.gfe != null) {
+            return this.gfe.btA();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.gfc.setViewPager(viewPager);
+        this.gfe.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.gfc.setTabItemClicked(z);
+        this.gfe.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.gfc.notifyDataSetChanged();
+        this.gfe.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -100,34 +100,34 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.l(this, R.color.cp_bg_line_d);
-            aq.aik().d(this.gfb, R.drawable.icon_common_top_search, R.color.select_topbar_icon_color_tint);
-            this.gfc.onChangeSkinType();
+            aq.aik().d(this.gfd, R.drawable.icon_common_top_search, R.color.select_topbar_icon_color_tint);
+            this.gfe.onChangeSkinType();
         }
     }
 
     public View tA(int i) {
-        return this.gfc.tA(i);
+        return this.gfe.tA(i);
     }
 
     public void onResume() {
-        aq.aik().d(this.gfb, R.drawable.icon_common_top_search, R.color.select_topbar_icon_color_tint);
+        aq.aik().d(this.gfd, R.drawable.icon_common_top_search, R.color.select_topbar_icon_color_tint);
     }
 
     public void setConcernTabIndex(int i) {
-        this.gfc.setConcernTabIndex(i);
+        this.gfe.setConcernTabIndex(i);
     }
 
     public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
-        this.gfc.setOnTabItemClickListener(aVar);
+        this.gfe.setOnTabItemClickListener(aVar);
     }
 
     public void aF(float f) {
-        if (f <= 1.0f && f >= 0.0f && this.gfb != null && this.gfb.getAlpha() != f) {
-            this.gfb.setAlpha(f);
+        if (f <= 1.0f && f >= 0.0f && this.gfd != null && this.gfd.getAlpha() != f) {
+            this.gfd.setAlpha(f);
             if (f == 0.0f) {
-                this.gfb.setClickable(false);
+                this.gfd.setClickable(false);
             } else {
-                this.gfb.setClickable(true);
+                this.gfd.setClickable(true);
             }
         }
     }

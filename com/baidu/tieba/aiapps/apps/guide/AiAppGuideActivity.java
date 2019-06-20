@@ -11,8 +11,8 @@ import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class AiAppGuideActivity extends BaseActivity {
-    private ImageView cSR;
-    private GifView ckp;
+    private ImageView cSS;
+    private GifView ckq;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -28,15 +28,15 @@ public class AiAppGuideActivity extends BaseActivity {
         setSwipeBackEnabled(false);
         setActivityBgTransparent();
         setContentView(R.layout.activity_aiapp_guide);
-        this.ckp = (GifView) findViewById(R.id.view_gif);
-        this.ckp.setGifRaw(R.raw.aiapp_guide);
-        this.cSR = (ImageView) findViewById(R.id.img_close);
-        this.cSR.setOnClickListener(this.mOnClickListener);
+        this.ckq = (GifView) findViewById(R.id.view_gif);
+        this.ckq.setGifRaw(R.raw.aiapp_guide);
+        this.cSS = (ImageView) findViewById(R.id.img_close);
+        this.cSS.setOnClickListener(this.mOnClickListener);
         int af = l.af(getActivity()) - (l.g(getActivity(), R.dimen.tbds44) * 2);
-        ViewGroup.LayoutParams layoutParams = this.ckp.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.ckq.getLayoutParams();
         layoutParams.width = af;
         layoutParams.height = (int) (((af * 828) * 1.0f) / 760.0f);
-        this.ckp.setLayoutParams(layoutParams);
+        this.ckq.setLayoutParams(layoutParams);
     }
 
     @Override // android.app.Activity
@@ -48,6 +48,6 @@ public class AiAppGuideActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.c(this.cSR, (int) R.drawable.icon_use_close_n);
+        al.c(this.cSS, (int) R.drawable.icon_use_close_n);
     }
 }

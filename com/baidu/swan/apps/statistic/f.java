@@ -19,7 +19,7 @@ public class f extends com.baidu.swan.apps.process.b.a.a {
     @Override // com.baidu.swan.apps.process.b.a.a
     public void u(@NonNull Bundle bundle) {
         JSONObject jSONObject;
-        com.baidu.swan.apps.database.a dV;
+        com.baidu.swan.apps.database.a dU;
         String string = bundle.getString("key_swan_appid", "");
         String string2 = bundle.getString("key_report_info", "");
         if (TextUtils.isEmpty(string2)) {
@@ -37,9 +37,9 @@ public class f extends com.baidu.swan.apps.process.b.a.a {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        if (!TextUtils.isEmpty(string) && (dV = SwanAppDbControl.aX(AppRuntime.getAppContext()).dV(string)) != null) {
+        if (!TextUtils.isEmpty(string) && (dU = SwanAppDbControl.aX(AppRuntime.getAppContext()).dU(string)) != null) {
             try {
-                jSONObject.put("appDbInfo", dV.toShortString());
+                jSONObject.put("appDbInfo", dU.toShortString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -47,17 +47,17 @@ public class f extends com.baidu.swan.apps.process.b.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new a.C0181a(10002).hk(jSONObject.toString()).Fr();
+        new a.C0181a(10002).hj(jSONObject.toString()).Fr();
         finish();
     }
 
-    public static boolean ho(@Nullable String str) {
+    public static boolean hn(@Nullable String str) {
         return TextUtils.isEmpty(str) || TextUtils.equals("0", str);
     }
 
     public static void c(String str, String str2, @Nullable JSONObject jSONObject) {
         Intent intent;
-        if (ho(str2)) {
+        if (hn(str2)) {
             JSONObject jSONObject2 = new JSONObject();
             if (str2 == null) {
                 str2 = "null";

@@ -39,7 +39,7 @@ public class a extends z {
             }
             return false;
         }
-        final String optString = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.e("history", "none cb");
             if (DEBUG) {

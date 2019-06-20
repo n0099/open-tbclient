@@ -46,10 +46,10 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class r extends a<CardPersonDynamicThreadData> {
-    private TextView VC;
-    private boolean XJ;
-    public PlayVoiceBntNew XS;
-    private TbImageView.a cIw;
+    private TextView VB;
+    private boolean XI;
+    public PlayVoiceBntNew XR;
+    private TbImageView.a cIx;
     public NewThreadCommentAndPraiseInfoLayout dBS;
     private ConstrainImageGroup exO;
     private View.OnClickListener exT;
@@ -98,7 +98,7 @@ public class r extends a<CardPersonDynamicThreadData> {
         this.eyF = "1";
         this.eyG = "2";
         this.mSkinType = 3;
-        this.XJ = true;
+        this.XI = true;
         this.ezh = new com.baidu.tieba.view.h() { // from class: com.baidu.tieba.card.r.5
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
@@ -139,9 +139,9 @@ public class r extends a<CardPersonDynamicThreadData> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && r.this.eyt != null && r.this.eyt.threadId != null && r.this.mTitle != null && r.this.VC != null && ((String) customResponsedMessage.getData()).equals(r.this.eyt.threadId) && !r.this.isHost()) {
+                if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && r.this.eyt != null && r.this.eyt.threadId != null && r.this.mTitle != null && r.this.VB != null && ((String) customResponsedMessage.getData()).equals(r.this.eyt.threadId) && !r.this.isHost()) {
                     n.a(r.this.mTitle, r.this.eyt.threadId, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                    n.a(r.this.VC, r.this.eyt.threadId, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
+                    n.a(r.this.VB, r.this.eyt.threadId, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
                 }
             }
         };
@@ -172,7 +172,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 }
             }
         };
-        this.cIw = new TbImageView.a() { // from class: com.baidu.tieba.card.r.2
+        this.cIx = new TbImageView.a() { // from class: com.baidu.tieba.card.r.2
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void O(String str, boolean z) {
                 if (z && r.this.eyQ != null) {
@@ -195,10 +195,10 @@ public class r extends a<CardPersonDynamicThreadData> {
         this.eyM = (TextView) this.mRootView.findViewById(R.id.tv_privacy_status);
         this.eyN = (ImageView) this.mRootView.findViewById(R.id.iv_more);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.thread_title);
-        this.XS = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.card_dynamic_thread_abstract_voice);
-        this.XS.setAfterClickListener(this.exU);
-        this.VC = (TextView) this.mRootView.findViewById(R.id.thread_content);
-        this.VC.setVisibility(8);
+        this.XR = (PlayVoiceBntNew) this.mRootView.findViewById(R.id.card_dynamic_thread_abstract_voice);
+        this.XR.setAfterClickListener(this.exU);
+        this.VB = (TextView) this.mRootView.findViewById(R.id.thread_content);
+        this.VB.setVisibility(8);
         this.exO = (ConstrainImageGroup) this.mRootView.findViewById(R.id.card_dynamic_thread_img_layout);
         this.exO.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         this.exO.setChildClickListener(this.ezj);
@@ -239,8 +239,8 @@ public class r extends a<CardPersonDynamicThreadData> {
         this.dBS.setIsBarViewVisible(false);
         this.dBS.setFrom(8);
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.bEy = 8;
-        dVar.bED = 3;
+        dVar.bEz = 8;
+        dVar.bEE = 3;
         this.dBS.setAgreeStatisticData(dVar);
         this.dBS.setShareReportFrom(6);
         this.dBS.setStType("person_page");
@@ -269,7 +269,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 this.eyN.setImageDrawable(al.getDrawable(R.drawable.icon_card_more));
             }
             al.j(this.mTitle, R.color.cp_cont_b);
-            al.j(this.VC, R.color.cp_cont_f);
+            al.j(this.VB, R.color.cp_cont_f);
             al.j(this.eyT, R.color.cp_cont_f);
             if (this.eyO != null) {
                 this.eyO.onChangeSkinType();
@@ -371,18 +371,18 @@ public class r extends a<CardPersonDynamicThreadData> {
         }
         VoiceData.VoiceModel[] voiceModelArr = cardPersonDynamicThreadData.eBJ;
         if (voiceModelArr != null && voiceModelArr.length > 0) {
-            this.XS.setVisibility(0);
+            this.XR.setVisibility(0);
             it(true);
             VoiceData.VoiceModel voiceModel = voiceModelArr[0];
-            this.XS.setVoiceModel(voiceModel);
-            this.XS.setTag(voiceModel);
-            this.XS.bFD();
+            this.XR.setVoiceModel(voiceModel);
+            this.XR.setTag(voiceModel);
+            this.XR.bFE();
             if (voiceModel != null) {
-                this.XS.vx(voiceModel.voice_status.intValue());
+                this.XR.vx(voiceModel.voice_status.intValue());
             }
-            this.XS.cnF();
+            this.XR.cnG();
         } else {
-            this.XS.setVisibility(8);
+            this.XR.setVisibility(8);
             it(false);
         }
         MediaData[] mediaDataArr = cardPersonDynamicThreadData.eBI;
@@ -414,7 +414,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 if (this.eyt.videoInfo != null) {
                     this.eyQ.setDefaultErrorResource(0);
                     this.eyQ.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                    this.eyQ.setEvent(this.cIw);
+                    this.eyQ.setEvent(this.cIx);
                     this.eyQ.startLoad(this.eyt.videoInfo.thumbnail_url, 17, false);
                     if (this.ezf) {
                         this.eza.setVisibility(0);
@@ -430,7 +430,7 @@ public class r extends a<CardPersonDynamicThreadData> {
             this.exO.setVisibility(8);
             if (this.eyt.threadData.adO() != null && this.eyt.threadData.adO().user_info != null && this.eyt.eBB == 60) {
                 String str = this.eyt.threadData.adO().user_info.user_name;
-                if (com.baidu.tbadk.util.ab.qX(str) > 14) {
+                if (com.baidu.tbadk.util.ab.qW(str) > 14) {
                     str = com.baidu.tbadk.util.ab.ad(str, 14) + "...";
                 }
                 this.eyT.setText(n.cF(str + ":", this.eyt.threadData.getTitle()));
@@ -450,7 +450,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 if (this.eyt.threadData.adO() != null) {
                     this.eyQ.setDefaultErrorResource(0);
                     this.eyQ.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-                    this.eyQ.setEvent(this.cIw);
+                    this.eyQ.setEvent(this.cIx);
                     this.eyQ.startLoad(cardPersonDynamicThreadData.threadData.adO().cover, 10, false);
                     this.eyR.setVisibility(8);
                     this.eyZ.setVisibility(0);
@@ -474,7 +474,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 }
                 if (com.baidu.tbadk.core.util.v.Z(linkedList) > 0) {
                     this.exO.setVisibility(0);
-                    this.exO.setFromCDN(this.XJ);
+                    this.exO.setFromCDN(this.XI);
                     this.exO.setSingleImageRatio(0.67d);
                     this.exO.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.card.r.4
                         @Override // com.baidu.tbadk.widget.layout.d
@@ -495,11 +495,11 @@ public class r extends a<CardPersonDynamicThreadData> {
             }
             this.eyS.setVisibility(8);
         }
-        if (cardPersonDynamicThreadData.threadData != null && cardPersonDynamicThreadData.threadData.bKP != null) {
+        if (cardPersonDynamicThreadData.threadData != null && cardPersonDynamicThreadData.threadData.bKQ != null) {
             this.ezc.setVisibility(0);
-            this.ezc.b(cardPersonDynamicThreadData.threadData.bKP);
+            this.ezc.b(cardPersonDynamicThreadData.threadData.bKQ);
             this.ezc.setOnClickListener(this);
-            this.XS.setVisibility(8);
+            this.XR.setVisibility(8);
             this.exO.setVisibility(8);
             this.eyS.setVisibility(8);
             if (this.ezg) {
@@ -557,7 +557,7 @@ public class r extends a<CardPersonDynamicThreadData> {
     }
 
     private void aXJ() {
-        this.XS.setClickable(true);
+        this.XR.setClickable(true);
         int childCount = this.exO.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.exO.getChildAt(i);
@@ -574,7 +574,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 return;
             }
             if (!isHost()) {
-                n.uS(this.eyt.threadId);
+                n.uR(this.eyt.threadId);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.eyt.threadData.adO());
@@ -589,7 +589,7 @@ public class r extends a<CardPersonDynamicThreadData> {
     public void aXN() {
         if (this.eyt != null && this.eyt.threadData != null && this.eyt.threadData.adO() != null && this.eyt.threadData.adO().share_info != null) {
             if (!isHost()) {
-                n.uS(this.eyt.threadId);
+                n.uR(this.eyt.threadId);
             }
             if (this.eyt.threadData.adO().share_info.record_tid <= 0) {
                 aXM();
@@ -607,9 +607,9 @@ public class r extends a<CardPersonDynamicThreadData> {
     public void aoV() {
         if (this.eyt != null) {
             if (!isHost()) {
-                n.uS(this.eyt.threadId);
+                n.uR(this.eyt.threadId);
                 n.a(this.mTitle, this.eyt.threadId, (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
-                n.a(this.VC, this.eyt.threadId, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
+                n.a(this.VB, this.eyt.threadId, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
             }
             PbActivityConfig pbActivityConfig = new PbActivityConfig(this.mPageContext.getPageActivity());
             if (this.eyt.eBB == 40) {
@@ -629,8 +629,8 @@ public class r extends a<CardPersonDynamicThreadData> {
     }
 
     private void aXO() {
-        if (this.eyt != null && this.eyt.threadData != null && this.eyt.threadData.bKP != null) {
-            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.eyt.threadData.bKP.threadId, null, "person_page", 18005);
+        if (this.eyt != null && this.eyt.threadData != null && this.eyt.threadData.bKQ != null) {
+            PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.eyt.threadData.bKQ.threadId, null, "person_page", 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
             TiebaStatic.log(new am("c12943").bT("obj_type", "3").bT("tid", this.eyt.threadId).P("obj_param1", this.eyt.isHost ? 1 : 2));
@@ -690,7 +690,7 @@ public class r extends a<CardPersonDynamicThreadData> {
             if (mediaData != null && !StringUtils.isNull(mediaData.getPicUrl())) {
                 arrayList.add(mediaData.getPicUrl());
                 ImageUrlData imageUrlData = new ImageUrlData();
-                imageUrlData.urlType = this.XJ ? 13 : 14;
+                imageUrlData.urlType = this.XI ? 13 : 14;
                 imageUrlData.imageUrl = mediaData.getPicUrl();
                 imageUrlData.originalUrl = mediaData.getOriginalUrl();
                 imageUrlData.originalSize = mediaData.getOriginalSize();
@@ -701,7 +701,7 @@ public class r extends a<CardPersonDynamicThreadData> {
                 concurrentHashMap.put(mediaData.getPicUrl(), imageUrlData);
             }
         }
-        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bgVar.adA(), String.valueOf(bgVar.getFid()), bgVar.getTid(), this.XJ, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+        ImageViewerConfig createConfig = new ImageViewerConfig(this.mPageContext.getPageActivity()).createConfig(arrayList, i, bgVar.adA(), String.valueOf(bgVar.getFid()), bgVar.getTid(), this.XI, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
         createConfig.getIntent().putExtra("from", ImageViewerConfig.FROM_OTHER);
         Rect rect = new Rect();
         view.getGlobalVisibleRect(rect);

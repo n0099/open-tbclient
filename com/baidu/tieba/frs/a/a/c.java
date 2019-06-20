@@ -82,11 +82,11 @@ public class c extends v.a {
 
     public void a(com.baidu.tieba.tbadkCore.v vVar) {
         if (vVar != null) {
-            bi clR = vVar.clR();
-            bl clS = vVar.clS();
-            this.top_code = clR;
-            this.news_info = clS;
-            if (vVar.bte()) {
+            bi clS = vVar.clS();
+            bl clT = vVar.clT();
+            this.top_code = clS;
+            this.news_info = clT;
+            if (vVar.btf()) {
                 this.fzF.setVisibility(0);
             } else {
                 this.fzF.setVisibility(8);
@@ -102,10 +102,10 @@ public class c extends v.a {
                 this.fzC.setVisibility(0);
                 this.fzx.startLoad(this.top_code.abS(), 10, false);
                 this.fzy.setText(this.top_code.getSummary());
-                if (StringUtils.isNull(clR.aft())) {
+                if (StringUtils.isNull(clS.aft())) {
                     this.fzB.setVisibility(8);
                 } else {
-                    this.fzB.setText(clR.aft());
+                    this.fzB.setText(clS.aft());
                     this.fzB.setVisibility(0);
                 }
                 int afq = this.top_code.afq();
@@ -119,7 +119,7 @@ public class c extends v.a {
                         this.fzz.setText(spannableString);
                         this.fzz.setVisibility(0);
                     }
-                    if (clR.afs() <= 0) {
+                    if (clS.afs() <= 0) {
                         this.fzA.setVisibility(8);
                     } else {
                         String str2 = this.mContext.getResources().getString(R.string.u9_worth) + this.top_code.afs();
@@ -130,16 +130,16 @@ public class c extends v.a {
                     }
                 } else {
                     this.fzA.setVisibility(8);
-                    this.fzz.setText(clR.getSubTitle());
+                    this.fzz.setText(clS.getSubTitle());
                     this.fzz.setVisibility(0);
                 }
             }
-            if (this.news_info == null || StringUtils.isNull(clS.getSummary())) {
+            if (this.news_info == null || StringUtils.isNull(clT.getSummary())) {
                 this.fzw.setVisibility(8);
                 return;
             }
             this.fzw.setVisibility(0);
-            this.fzD.setText(clS.getSummary());
+            this.fzD.setText(clT.getSummary());
         }
     }
 

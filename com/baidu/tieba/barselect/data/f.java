@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private BdUniqueId Xk;
+    private BdUniqueId Xj;
     private e erk;
     private d erl;
     private List<d> erm;
@@ -33,7 +33,7 @@ public class f {
     }
 
     public BdUniqueId getUniqueId() {
-        return this.Xk;
+        return this.Xj;
     }
 
     public void L(ArrayList<d> arrayList) {
@@ -57,6 +57,6 @@ public class f {
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.Xk = bdUniqueId;
+        this.Xj = bdUniqueId;
     }
 }

@@ -17,27 +17,27 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends v.a {
     public TextView bBh;
-    public int ccI;
-    public View icH;
-    public HTypeListView icI;
-    public e icJ;
+    public int ccJ;
+    public View icI;
+    public HTypeListView icJ;
+    public e icK;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.ccI = 3;
+        this.ccJ = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.icH = view.findViewById(R.id.divider_view_under_photo_album);
+        this.icI = view.findViewById(R.id.divider_view_under_photo_album);
         this.bBh = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.icI = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.icJ = new e(this.mPageContext, this.icI);
+        this.icJ = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.icK = new e(this.mPageContext, this.icJ);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.icJ.setDatas(dM(fVar.getPhotoAlbum()));
+            this.icK.setDatas(dM(fVar.getPhotoAlbum()));
         }
     }
 
@@ -53,12 +53,12 @@ public class d extends v.a {
     }
 
     public void asn() {
-        if (this.ccI != TbadkCoreApplication.getInst().getSkinType()) {
-            this.ccI = TbadkCoreApplication.getInst().getSkinType();
+        if (this.ccJ != TbadkCoreApplication.getInst().getSkinType()) {
+            this.ccJ = TbadkCoreApplication.getInst().getSkinType();
             al.l(this.rootView, R.color.cp_bg_line_d);
-            al.l(this.icH, R.color.cp_bg_line_c);
+            al.l(this.icI, R.color.cp_bg_line_c);
             al.f(this.bBh, R.color.cp_cont_d, 1);
-            this.icJ.notifyDataSetChanged();
+            this.icK.notifyDataSetChanged();
         }
     }
 }

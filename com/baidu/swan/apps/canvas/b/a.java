@@ -16,8 +16,8 @@ public abstract class a {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
-        c cVar = (c) e.FV().dU(aVar.aDm);
-        return cVar != null ? cVar.cY(aVar.id) : null;
+        c cVar = (c) e.FV().dT(aVar.aDm);
+        return cVar != null ? cVar.cX(aVar.id) : null;
     }
 
     public CanvasView b(com.baidu.swan.apps.canvas.c.a aVar) {

@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends BdAsyncTask<String, String, Integer> {
-    private String jmK;
-    private a jmL;
+    private String jmO;
+    private a jmP;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bGo();
-
         void bGp();
 
         void bGq();
+
+        void bGr();
 
         void onError(String str);
     }
 
     public c(String str, a aVar) {
-        this.jmK = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
-        this.jmL = aVar;
+        this.jmO = "https://lookup.api.bsb.baidu.com/urlquery?url=" + str + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getImei();
+        this.jmP = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,7 +33,7 @@ public class c extends BdAsyncTask<String, String, Integer> {
     public Integer doInBackground(String... strArr) {
         int i = -1;
         try {
-            x xVar = new x(this.jmK);
+            x xVar = new x(this.jmO);
             xVar.ahC().aiB().mIsNeedAddCommenParam = false;
             xVar.ahC().aiB().mIsUseCurrentBDUSS = false;
             JSONArray optJSONArray = new JSONObject(new String(xVar.ahf())).optJSONArray("result");
@@ -57,15 +57,15 @@ public class c extends BdAsyncTask<String, String, Integer> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(Integer num) {
-        if (this.jmL != null && num != null) {
+        if (this.jmP != null && num != null) {
             if (num.intValue() == -1) {
-                this.jmL.onError(null);
+                this.jmP.onError(null);
             } else if (num.intValue() == 1) {
-                this.jmL.bGo();
+                this.jmP.bGp();
             } else if (num.intValue() == 2 || num.intValue() == 0) {
-                this.jmL.bGp();
+                this.jmP.bGq();
             } else {
-                this.jmL.bGq();
+                this.jmP.bGr();
             }
         }
     }

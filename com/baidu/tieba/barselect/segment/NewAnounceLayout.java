@@ -21,8 +21,8 @@ import com.baidu.tieba.barselect.a.a;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class NewAnounceLayout extends CardBasicLayout {
-    private float cbk;
-    private View.OnClickListener ckH;
+    private float cbl;
+    private View.OnClickListener ckI;
     private View etF;
     private TextView etG;
     private View etH;
@@ -36,7 +36,7 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     public NewAnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckH = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
+        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 new am("c13447").aif();
@@ -64,7 +64,7 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     private void qA() {
         this.etF = findViewById(R.id.announce_content);
-        this.etF.setOnClickListener(this.ckH);
+        this.etF.setOnClickListener(this.ckI);
         this.etG = (TextView) findViewById(R.id.first_line_tv);
         this.etH = findViewById(R.id.second_content);
         this.etI = (TextView) findViewById(R.id.second_line_tv);
@@ -78,31 +78,31 @@ public class NewAnounceLayout extends CardBasicLayout {
             setVisibility(8);
             return;
         }
-        this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
+        this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
         if (this.status == a.etT) {
-            this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
+            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
         }
         if (this.status == a.etV) {
-            this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
         }
         if (this.status == a.etU) {
-            this.cbk = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
+            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
             this.etF.setPadding(0, 0, 0, 0);
             this.etG.setPadding(0, 0, 0, 0);
             this.etI.setPadding(0, 0, 0, 0);
             this.etJ.setPadding(0, 0, 0, 0);
         }
-        uQ(this.etE.aWH());
+        uP(this.etE.aWH());
     }
 
-    private void uQ(String str) {
+    private void uP(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             this.etH.setVisibility(8);
             this.etG.setText(getResources().getString(R.string.empty_announce));
             return;
         }
         this.etH.setVisibility(0);
-        int lineEnd = new StaticLayout(str, this.etG.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+        int lineEnd = new StaticLayout(str, this.etG.getPaint(), (int) this.cbl, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
         String substring = str.substring(0, lineEnd);
         if (lineEnd >= str.length()) {
             this.etH.setVisibility(8);
@@ -110,7 +110,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             return;
         }
         String substring2 = str.substring(lineEnd, str.length());
-        if (new StaticLayout(substring2, this.etI.getPaint(), (int) this.cbk, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+        if (new StaticLayout(substring2, this.etI.getPaint(), (int) this.cbl, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
             this.etJ.setVisibility(8);
         } else {
             this.etJ.setVisibility(0);

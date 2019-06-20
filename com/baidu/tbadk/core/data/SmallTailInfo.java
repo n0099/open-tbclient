@@ -47,9 +47,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                         sb.append(smallTailInfoContent.text);
                     }
                 } else if (smallTailInfoContent.type == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                    String pR = TbFaceManager.aso().pR(smallTailInfoContent.text);
-                    if (!StringUtils.isNull(pR)) {
-                        sb.append("#(" + pR + ")");
+                    String pQ = TbFaceManager.aso().pQ(smallTailInfoContent.text);
+                    if (!StringUtils.isNull(pQ)) {
+                        sb.append("#(" + pQ + ")");
                     }
                 }
             }
@@ -59,13 +59,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
 
     private void acM() {
         try {
-            this.showColorId = Color.parseColor(mk(this.color));
+            this.showColorId = Color.parseColor(mj(this.color));
         } catch (Exception e) {
-            this.showColorId = Color.parseColor(mk(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
+            this.showColorId = Color.parseColor(mj(TbadkCoreApplication.getInst().getString(R.string.tail_color_default)));
         }
     }
 
-    private String mk(String str) {
+    private String mj(String str) {
         if (str == null) {
             return null;
         }

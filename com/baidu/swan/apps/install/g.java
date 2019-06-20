@@ -101,7 +101,7 @@ public class g {
 
     private void log(String str) {
         if (DEBUG) {
-            com.baidu.swan.apps.v.c.a.eS(this.axM.getString("launch_id", "")).eT(str).eV("SwanInstaller");
+            com.baidu.swan.apps.v.c.a.eR(this.axM.getString("launch_id", "")).eS(str).eU("SwanInstaller");
             Log.i("SwanInstaller", str);
         }
     }

@@ -17,7 +17,7 @@ public abstract class a {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.b.b.d.a.gg(this.aGA)) {
+        if (!com.baidu.swan.apps.process.b.b.d.a.gf(this.aGA)) {
             if (DEBUG) {
                 Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.aGz + " observer: " + this.aGA);
             }

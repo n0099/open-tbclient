@@ -34,7 +34,7 @@ public class b {
             }
         }
     };
-    private View.OnClickListener bYE = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener bYF = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!b.this.eQp.beW()) {
@@ -92,7 +92,7 @@ public class b {
                     this.mTitle.setText(R.string.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bYE);
+            this.mTitle.setOnClickListener(this.bYF);
             jd(this.eSD);
         }
     }

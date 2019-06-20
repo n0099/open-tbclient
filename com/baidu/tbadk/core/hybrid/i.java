@@ -3,5 +3,5 @@ package com.baidu.tbadk.core.hybrid;
 interface i {
     void agu();
 
-    void mK(String str);
+    void mJ(String str);
 }

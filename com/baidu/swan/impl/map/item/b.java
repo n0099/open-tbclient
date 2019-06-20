@@ -44,7 +44,7 @@ public class b {
         return null;
     }
 
-    public List<c> kd(String str) {
+    public List<c> kc(String str) {
         ArrayList arrayList = new ArrayList(1);
         for (c cVar : this.azM) {
             if (cVar.bnt != null && TextUtils.equals(str, cVar.bnt.id)) {

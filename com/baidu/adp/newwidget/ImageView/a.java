@@ -11,22 +11,22 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class a {
-    private static final Matrix.ScaleToFit[] Gx = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
-    private static final PorterDuffColorFilter Gy = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
-    private InterfaceC0020a Gw;
+    private static final Matrix.ScaleToFit[] Gw = {Matrix.ScaleToFit.FILL, Matrix.ScaleToFit.START, Matrix.ScaleToFit.CENTER, Matrix.ScaleToFit.END};
+    private static final PorterDuffColorFilter Gx = new PorterDuffColorFilter(-5000269, PorterDuff.Mode.MULTIPLY);
+    private InterfaceC0020a Gv;
     public Paint mPaint = new Paint(6);
     public Paint mBorderPaint = new Paint();
-    protected Paint Gz = new Paint();
-    protected Matrix GA = new Matrix();
-    protected RectF GB = new RectF();
+    protected Paint Gy = new Paint();
+    protected Matrix Gz = new Matrix();
+    protected RectF GA = new RectF();
     protected RectF mBorderRect = new RectF();
+    private RectF GB = new RectF();
     private RectF GC = new RectF();
     private RectF GD = new RectF();
-    private RectF GE = new RectF();
     protected d mArgs = new d();
     private float[] mValues = new float[9];
-    private PointF GF = new PointF();
-    protected RectF GG = new RectF();
+    private PointF GE = new PointF();
+    protected RectF GF = new RectF();
 
     /* renamed from: com.baidu.adp.newwidget.ImageView.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -46,12 +46,12 @@ public abstract class a {
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setAntiAlias(true);
         this.mPaint.setAntiAlias(true);
-        this.Gz.setAntiAlias(true);
-        this.Gz.setStyle(Paint.Style.FILL);
+        this.Gy.setAntiAlias(true);
+        this.Gy.setStyle(Paint.Style.FILL);
     }
 
     public void a(InterfaceC0020a interfaceC0020a) {
-        this.Gw = interfaceC0020a;
+        this.Gv = interfaceC0020a;
     }
 
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
@@ -65,18 +65,18 @@ public abstract class a {
             int width2 = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
             int height2 = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
             if (scaleType == ImageView.ScaleType.MATRIX) {
-                this.GB.set(0.0f, 0.0f, width, height);
+                this.GA.set(0.0f, 0.0f, width, height);
                 a(cVar, imageView);
                 return;
             }
             boolean z = (width <= 0 || width2 == width) && (height <= 0 || height2 == height);
-            this.GA.reset();
+            this.Gz.reset();
             if (ImageView.ScaleType.FIT_XY == scaleType || z) {
-                this.GB.set(0.0f, 0.0f, width2, height2);
+                this.GA.set(0.0f, 0.0f, width2, height2);
             } else {
-                this.GB.set(0.0f, 0.0f, width, height);
+                this.GA.set(0.0f, 0.0f, width, height);
                 if (ImageView.ScaleType.CENTER == scaleType) {
-                    this.GA.setTranslate((width2 - width) * 0.5f, (height2 - height) * 0.5f);
+                    this.Gz.setTranslate((width2 - width) * 0.5f, (height2 - height) * 0.5f);
                 } else if (ImageView.ScaleType.CENTER_CROP == scaleType) {
                     if (width * height2 > width2 * height) {
                         f = height2 / height;
@@ -86,20 +86,20 @@ public abstract class a {
                         f = width2 / width;
                         f2 = (height2 - (height * f)) * 0.5f;
                     }
-                    this.GA.setScale(f, f);
-                    this.GA.postTranslate(f3, f2);
+                    this.Gz.setScale(f, f);
+                    this.Gz.postTranslate(f3, f2);
                 } else if (ImageView.ScaleType.CENTER_INSIDE == scaleType) {
                     if (width <= width2 && height <= height2) {
                         min = 1.0f;
                     } else {
                         min = Math.min(width2 / width, height2 / height);
                     }
-                    this.GA.setScale(min, min);
-                    this.GA.postTranslate((width2 - (width * min)) * 0.5f, (height2 - (height * min)) * 0.5f);
+                    this.Gz.setScale(min, min);
+                    this.Gz.postTranslate((width2 - (width * min)) * 0.5f, (height2 - (height * min)) * 0.5f);
                 } else {
-                    this.GC.set(0.0f, 0.0f, width, height);
-                    this.GD.set(0.0f, 0.0f, width2, height2);
-                    this.GA.setRectToRect(this.GC, this.GD, a(scaleType));
+                    this.GB.set(0.0f, 0.0f, width, height);
+                    this.GC.set(0.0f, 0.0f, width2, height2);
+                    this.Gz.setRectToRect(this.GB, this.GC, a(scaleType));
                 }
             }
             a(cVar, imageView);
@@ -118,15 +118,15 @@ public abstract class a {
         canvas.clipRect(scrollX + paddingLeft, scrollY + paddingTop, ((scrollX + imageView.getRight()) - imageView.getLeft()) - paddingRight, ((scrollY + imageView.getBottom()) - imageView.getTop()) - paddingBottom);
         canvas.translate(paddingLeft, paddingTop);
         int save2 = canvas.save();
-        if (this.mArgs.GP != null) {
-            canvas.concat(this.mArgs.GP);
+        if (this.mArgs.GO != null) {
+            canvas.concat(this.mArgs.GO);
         }
-        if (cVar.GJ != null && cVar.GJ.nz()) {
-            if ((cVar.GJ.ns().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.GJ.ns().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.GA != null) {
-                canvas.concat(this.GA);
+        if (cVar.GI != null && cVar.GI.nz()) {
+            if ((cVar.GI.ns().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.GI.ns().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.Gz != null) {
+                canvas.concat(this.Gz);
             }
-            this.GE.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-            cVar.GJ.a(canvas, this.GE);
+            this.GD.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
+            cVar.GI.a(canvas, this.GD);
         } else {
             b(canvas, cVar, imageView);
         }
@@ -151,7 +151,7 @@ public abstract class a {
     }
 
     protected void a(Canvas canvas, Drawable drawable) {
-        if (this.Gw == null || !this.Gw.b(canvas, drawable)) {
+        if (this.Gv == null || !this.Gv.b(canvas, drawable)) {
             drawable.draw(canvas);
         }
     }
@@ -161,22 +161,22 @@ public abstract class a {
     }
 
     public Matrix le() {
-        return this.GA;
+        return this.Gz;
     }
 
     public void d(Matrix matrix) {
-        this.GA = matrix;
+        this.Gz = matrix;
     }
 
     public RectF lf() {
-        return this.GB;
+        return this.GA;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void lg() {
         this.mPaint.setAlpha((int) (255.0f * this.mArgs.mAlpha));
         if (this.mArgs.mIsNight) {
-            this.mPaint.setColorFilter(Gy);
+            this.mPaint.setColorFilter(Gx);
         } else {
             this.mPaint.setColorFilter(null);
         }
@@ -195,13 +195,13 @@ public abstract class a {
                 i = 4;
             }
         }
-        return Gx[i - 1];
+        return Gw[i - 1];
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public PointF a(float f, float f2, Matrix matrix) {
         matrix.getValues(this.mValues);
-        this.GF.set((int) ((this.mValues[0] * f) + (this.mValues[1] * f2) + this.mValues[2]), (int) ((this.mValues[3] * f) + (this.mValues[4] * f2) + this.mValues[5]));
-        return this.GF;
+        this.GE.set((int) ((this.mValues[0] * f) + (this.mValues[1] * f2) + this.mValues[2]), (int) ((this.mValues[3] * f) + (this.mValues[4] * f2) + this.mValues[5]));
+        return this.GE;
     }
 }

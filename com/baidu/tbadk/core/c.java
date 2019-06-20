@@ -55,7 +55,7 @@ public class c {
             this.pluginRes = this.contextRes;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.lY(str);
+            bVar.lX(str);
             for (int i = 0; i < attributeCount; i++) {
                 String attributeName = attributeSet.getAttributeName(i);
                 String attributeValue = attributeSet.getAttributeValue(i);
@@ -130,7 +130,7 @@ public class c {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (f = com.baidu.adp.lib.g.b.f(attributeValue.substring(1), 0)) != 0) {
-                    bVar.lX(attributeName + "=" + this.contextRes.getResourceName(f));
+                    bVar.lW(attributeName + "=" + this.contextRes.getResourceName(f));
                 }
             }
             if (z) {

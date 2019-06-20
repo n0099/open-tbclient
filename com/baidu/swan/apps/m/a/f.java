@@ -14,7 +14,7 @@ public class f<T> extends a {
     }
 
     @Override // com.baidu.swan.apps.m.a.a
-    public String er(String str) {
+    public String eq(String str) {
         if (this.mData instanceof String) {
             String encode = this.avM ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {

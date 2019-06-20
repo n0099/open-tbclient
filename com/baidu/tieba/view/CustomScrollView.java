@@ -13,10 +13,10 @@ import com.baidu.adp.lib.util.l;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class CustomScrollView extends ScrollView {
-    private int jAv;
-    private int jAw;
-    protected Field jAx;
-    private a jAy;
+    protected Field jAA;
+    private a jAB;
+    private int jAy;
+    private int jAz;
     private GestureDetector mGestureDetector;
 
     /* loaded from: classes3.dex */
@@ -26,8 +26,8 @@ public class CustomScrollView extends ScrollView {
 
     public CustomScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jAv = 0;
-        this.jAw = 0;
+        this.jAy = 0;
+        this.jAz = 0;
         this.mGestureDetector = new GestureDetector(context, new b());
         setFadingEdgeLength(0);
     }
@@ -41,7 +41,7 @@ public class CustomScrollView extends ScrollView {
     }
 
     public void setOnScrollListener(a aVar) {
-        this.jAy = aVar;
+        this.jAB = aVar;
     }
 
     /* loaded from: classes3.dex */
@@ -57,16 +57,16 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
-        if (this.jAy != null) {
-            this.jAy.onScrollChanged(i, i2, i3, i4);
+        if (this.jAB != null) {
+            this.jAB.onScrollChanged(i, i2, i3, i4);
         }
-        boolean z = this.jAv - this.jAw == i2;
+        boolean z = this.jAy - this.jAz == i2;
         if (i2 == 0 || z) {
             try {
-                if (this.jAx == null) {
-                    this.jAx = l.getDeclaredField(this, "mScroller");
+                if (this.jAA == null) {
+                    this.jAA = l.getDeclaredField(this, "mScroller");
                 }
-                Object obj = this.jAx.get(this);
+                Object obj = this.jAA.get(this);
                 if (obj != null && (obj instanceof Scroller)) {
                     ((Scroller) obj).abortAnimation();
                 } else {
@@ -81,10 +81,10 @@ public class CustomScrollView extends ScrollView {
 
     private void stopAnim() {
         try {
-            if (this.jAx == null) {
-                this.jAx = l.getDeclaredField(this, "mScroller");
+            if (this.jAA == null) {
+                this.jAA = l.getDeclaredField(this, "mScroller");
             }
-            Object obj = this.jAx.get(this);
+            Object obj = this.jAA.get(this);
             if (obj != null) {
                 obj.getClass().getMethod("abortAnimation", new Class[0]).invoke(obj, new Object[0]);
             }
@@ -95,15 +95,15 @@ public class CustomScrollView extends ScrollView {
 
     @Override // android.widget.ScrollView, android.view.View
     protected int computeVerticalScrollRange() {
-        this.jAv = super.computeVerticalScrollRange();
-        return this.jAv;
+        this.jAy = super.computeVerticalScrollRange();
+        return this.jAy;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (z) {
-            this.jAw = i4 - i2;
+            this.jAz = i4 - i2;
         }
     }
 

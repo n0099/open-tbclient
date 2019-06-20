@@ -19,17 +19,17 @@ import com.baidu.tieba.square.view.BestStringsFitTextView;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private ArrayList<d> iUl;
-    View.OnClickListener iUm = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
+    private ArrayList<d> iUp;
+    View.OnClickListener iUq = new View.OnClickListener() { // from class: com.baidu.tieba.square.square.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             d dVar;
             Object tag = view.getTag();
-            if ((tag instanceof C0406a) && (dVar = ((C0406a) tag).iUq) != null) {
-                if (dVar.iSg == null) {
-                    BarFolderFirstDirActivity.h(a.this.clf(), null);
+            if ((tag instanceof C0406a) && (dVar = ((C0406a) tag).iUu) != null) {
+                if (dVar.iSk == null) {
+                    BarFolderFirstDirActivity.h(a.this.clg(), null);
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.clf(), dVar.iSf, dVar.iSg, dVar.iSh)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2902025, new ForumListActivityConfig(a.this.clg(), dVar.iSj, dVar.iSk, dVar.iSl)));
                 }
             }
         }
@@ -38,11 +38,11 @@ public class a extends BaseAdapter {
 
     public a(Activity activity, b bVar, boolean z) {
         this.mContext = activity;
-        this.iUl = bVar.cle();
+        this.iUp = bVar.clf();
     }
 
-    public ArrayList<d> cle() {
-        return this.iUl;
+    public ArrayList<d> clf() {
+        return this.iUp;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -50,24 +50,24 @@ public class a extends BaseAdapter {
     /* loaded from: classes5.dex */
     public static class C0406a {
         public TextView bmf;
-        public BarImageView iUo;
-        public BestStringsFitTextView iUp;
-        public d iUq;
+        public BarImageView iUs;
+        public BestStringsFitTextView iUt;
+        public d iUu;
 
         protected C0406a() {
         }
     }
 
     public void aD(ArrayList<d> arrayList) {
-        this.iUl = arrayList;
+        this.iUp = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.iUl == null) {
+        if (this.iUp == null) {
             return 0;
         }
-        return (this.iUl.size() * 2) + 1;
+        return (this.iUp.size() * 2) + 1;
     }
 
     @Override // android.widget.Adapter
@@ -101,33 +101,33 @@ public class a extends BaseAdapter {
             return LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_bottom_item, viewGroup, false);
         }
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.bar_folder_first_dir_item, viewGroup, false);
-        inflate.setOnClickListener(this.iUm);
+        inflate.setOnClickListener(this.iUq);
         C0406a c0406a = new C0406a();
-        c0406a.iUo = (BarImageView) inflate.findViewById(R.id.portrait);
+        c0406a.iUs = (BarImageView) inflate.findViewById(R.id.portrait);
         c0406a.bmf = (TextView) inflate.findViewById(R.id.name);
-        c0406a.iUp = (BestStringsFitTextView) inflate.findViewById(R.id.description);
+        c0406a.iUt = (BestStringsFitTextView) inflate.findViewById(R.id.description);
         inflate.setTag(c0406a);
         return inflate;
     }
 
     private void a(ViewGroup viewGroup, C0406a c0406a, int i) {
-        d dVar = this.iUl.get(i / 2);
-        c0406a.iUq = dVar;
-        c0406a.bmf.setText(dVar.iSf);
-        if (dVar.iUt != null) {
-            c0406a.iUp.setVisibility(0);
-            String[] strArr = new String[dVar.iUt.size()];
-            for (int i2 = 0; i2 < dVar.iUt.size(); i2++) {
-                strArr[i2] = dVar.iUt.get(i2).iSf;
+        d dVar = this.iUp.get(i / 2);
+        c0406a.iUu = dVar;
+        c0406a.bmf.setText(dVar.iSj);
+        if (dVar.iUx != null) {
+            c0406a.iUt.setVisibility(0);
+            String[] strArr = new String[dVar.iUx.size()];
+            for (int i2 = 0; i2 < dVar.iUx.size(); i2++) {
+                strArr[i2] = dVar.iUx.get(i2).iSj;
             }
-            c0406a.iUp.setTextArray(strArr);
+            c0406a.iUt.setTextArray(strArr);
         } else {
-            c0406a.iUp.setVisibility(8);
+            c0406a.iUt.setVisibility(8);
         }
         if (dVar.logoUrl != null) {
             int dip2px = l.dip2px(this.mContext, 45.0f);
-            c0406a.iUo.setTag(dVar.logoUrl);
-            c0406a.iUo.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
+            c0406a.iUs.setTag(dVar.logoUrl);
+            c0406a.iUs.startLoad(dVar.logoUrl, 10, dip2px, dip2px, false);
         }
     }
 
@@ -154,7 +154,7 @@ public class a extends BaseAdapter {
         return 2;
     }
 
-    protected Activity clf() {
+    protected Activity clg() {
         return this.mContext;
     }
 }

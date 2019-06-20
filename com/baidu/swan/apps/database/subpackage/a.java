@@ -42,7 +42,7 @@ public class a {
         }
     }
 
-    public void ek(String str) {
+    public void ej(String str) {
         if (!TextUtils.isEmpty(str)) {
             int delete = this.mContext.getContentResolver().delete(b.avb, SubPackageTable.Table.app_id + "=?", new String[]{str});
             if (DEBUG) {

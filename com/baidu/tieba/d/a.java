@@ -35,7 +35,7 @@ public class a implements a.InterfaceC0393a {
     private boolean eHB = false;
     private boolean eHC = false;
     private boolean eHD = false;
-    private CustomMessageListener cVh = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
+    private CustomMessageListener cVi = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -66,7 +66,7 @@ public class a implements a.InterfaceC0393a {
     @Override // com.baidu.tieba.r.a.InterfaceC0393a
     public void f(Application application) {
         MessageManager.getInstance().registerListener(this.bxW);
-        MessageManager.getInstance().registerListener(this.cVh);
+        MessageManager.getInstance().registerListener(this.cVi);
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
         if (!this.eHB) {
             g(application);

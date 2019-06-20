@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String FC;
-    private List<String> iro;
-    private long irp;
+    private String FB;
+    private List<String> irp;
+    private long irq;
     private long mStartTime = System.currentTimeMillis();
 
-    public a Cl(String str) {
+    public a Cn(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.irp = jSONObject.optLong("ttl");
+            this.irq = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.FC = optJSONObject.keys().next();
+                this.FB = optJSONObject.keys().next();
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.FC);
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.FB);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.iro = new ArrayList();
+                this.irp = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.iro.add((String) optJSONArray.get(i2));
+                        this.irp.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,15 +51,15 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> cbX() {
-        return this.iro;
+    public List<String> cbY() {
+        return this.irp;
     }
 
     public String getHost() {
-        return this.FC;
+        return this.FB;
     }
 
     public boolean ei(long j) {
-        return j - this.mStartTime > this.irp * 1000;
+        return j - this.mStartTime > this.irq * 1000;
     }
 }

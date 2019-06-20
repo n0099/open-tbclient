@@ -118,7 +118,7 @@ public class SwanAppLocalService extends Service {
             if (TextUtils.isEmpty(stringExtra)) {
                 stringExtra = "0";
             }
-            HybridUbcFlow ar = f.fO("preload").f(new UbcFlowEvent("na_pre_load_launch").M(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").M(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").M(currentTimeMillis)).ar("with_preload", "1");
+            HybridUbcFlow ar = f.fN("preload").f(new UbcFlowEvent("na_pre_load_launch").M(longExtra)).f(new UbcFlowEvent("na_pre_load_swan_updated").M(longExtra2)).f(new UbcFlowEvent("na_pre_load_receive").M(currentTimeMillis)).ar("with_preload", "1");
             if (!TextUtils.isEmpty(stringExtra)) {
                 ar.ar("preload_scene", stringExtra);
             }
@@ -135,9 +135,9 @@ public class SwanAppLocalService extends Service {
                         e.printStackTrace();
                     }
                 }
-                f.a fZ = new f.a("812").fX("swan").fY("receive").fZ(intent.getStringExtra("bundle_key_preload_src"));
-                fZ.aj(jSONObject);
-                f.onEvent(fZ);
+                f.a fY = new f.a("812").fW("swan").fX("receive").fY(intent.getStringExtra("bundle_key_preload_src"));
+                fY.aj(jSONObject);
+                f.onEvent(fY);
             }
             c.b.D(intent);
             e.FV().I(intent);

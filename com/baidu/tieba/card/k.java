@@ -34,11 +34,11 @@ public class k extends com.baidu.tieba.horizonalList.widget.e {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (k.this.ewZ != null && k.this.ewZ.bJa != null && !StringUtils.isNull(k.this.ewZ.bJa.getName_show()) && !StringUtils.isNull(k.this.ewZ.bJa.getUserId())) {
-                    if (k.this.ckH != null) {
-                        k.this.ckH.onClick(view2);
+                if (k.this.ewZ != null && k.this.ewZ.bJb != null && !StringUtils.isNull(k.this.ewZ.bJb.getName_show()) && !StringUtils.isNull(k.this.ewZ.bJb.getUserId())) {
+                    if (k.this.ckI != null) {
+                        k.this.ckI.onClick(view2);
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(k.this.mContext.getPageActivity(), k.this.ewZ.bJa.getUserId(), k.this.ewZ.bJa.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(k.this.mContext.getPageActivity(), k.this.ewZ.bJb.getUserId(), k.this.ewZ.bJb.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
@@ -67,18 +67,18 @@ public class k extends com.baidu.tieba.horizonalList.widget.e {
     public void a(com.baidu.tieba.horizonalList.widget.c cVar) {
         if (cVar instanceof com.baidu.tieba.card.data.i) {
             this.ewZ = (com.baidu.tieba.card.data.i) cVar;
-            if (this.ewZ.bJa != null) {
-                getView().setTag(R.id.rec_god_item_root, this.ewZ.bJa.getUserId());
-                this.ewV.setTag(R.id.rec_god_item_root, this.ewZ.bJa.getUserId());
-                this.ewX.setTag(this.ewZ.bJa);
-                this.ewV.setData(this.ewZ.bJa);
-                this.ewV.setAfterClickListener(this.ckH);
-                this.epe.setText(ap.R(this.ewZ.bJa.getName_show(), 5));
+            if (this.ewZ.bJb != null) {
+                getView().setTag(R.id.rec_god_item_root, this.ewZ.bJb.getUserId());
+                this.ewV.setTag(R.id.rec_god_item_root, this.ewZ.bJb.getUserId());
+                this.ewX.setTag(this.ewZ.bJb);
+                this.ewV.setData(this.ewZ.bJb);
+                this.ewV.setAfterClickListener(this.ckI);
+                this.epe.setText(ap.R(this.ewZ.bJb.getName_show(), 5));
                 getView().setOnClickListener(this.mOnClickListener);
-                if (this.ewZ.bJa.getGodUserData() != null) {
-                    this.ewW.setText(ap.R(this.ewZ.bJa.getGodUserData().getIntro(), 6));
+                if (this.ewZ.bJb.getGodUserData() != null) {
+                    this.ewW.setText(ap.R(this.ewZ.bJb.getGodUserData().getIntro(), 6));
                 }
-                this.ewY.a(this.ewZ.bJa);
+                this.ewY.a(this.ewZ.bJb);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             }
         }

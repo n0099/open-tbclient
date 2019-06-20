@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void qI(String str) {
+    public void qH(String str) {
         this.series = str;
     }
 

@@ -382,16 +382,16 @@ public class FatalErrorService extends BdBaseService {
             File[] listFiles;
             boolean z = true;
             try {
-                a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
-                a(m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
-                cgu();
+                a(m.na(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
+                a(m.na(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
+                cgv();
                 if (!TbConfig.getVersion().equals(b.agM().getString("native_crash_dump_version", ""))) {
                     b.agM().putString("native_crash_dump_version", TbConfig.getVersion());
                     z = false;
                 }
-                File mZ = m.mZ(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                if (mZ != null) {
-                    for (File file : mZ.listFiles()) {
+                File mY = m.mY(TbConfig.FATAL_ERROR_NATIVE_DIR);
+                if (mY != null) {
+                    for (File file : mY.listFiles()) {
                         if (file.length() >= 1024 && z) {
                             S(file);
                             a(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
@@ -408,11 +408,11 @@ public class FatalErrorService extends BdBaseService {
             }
         }
 
-        private void cgu() {
-            File nb = m.nb(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
-            if (nb != null) {
+        private void cgv() {
+            File na = m.na(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_ALERT_FILE);
+            if (na != null) {
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(nb)));
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(na)));
                     StringBuffer stringBuffer = new StringBuffer();
                     while (true) {
                         String readLine = bufferedReader.readLine();
@@ -422,7 +422,7 @@ public class FatalErrorService extends BdBaseService {
                             String stringBuffer2 = stringBuffer.toString();
                             BdLog.i("sendLogForAlert log = " + stringBuffer2);
                             BdStatisticsManager.getInstance().alert("alert_crash", stringBuffer2);
-                            nb.delete();
+                            na.delete();
                             return;
                         }
                     }

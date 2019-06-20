@@ -33,7 +33,7 @@ import com.baidu.tieba.aiapps.apps.guide.AiAppGuideActivity;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class SwanAppAbTestStatic {
-    public static int cZt = 0;
+    public static int cZu = 0;
 
     static {
         aDe();

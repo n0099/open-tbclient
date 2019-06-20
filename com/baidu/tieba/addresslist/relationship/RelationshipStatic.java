@@ -45,11 +45,11 @@ public class RelationshipStatic {
                     ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                     if (responseNewFriendUpdateUiMsg.getAction() == 0) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                        aVar.pk(responseNewFriendUpdateUiMsg.getKey());
+                        aVar.pj(responseNewFriendUpdateUiMsg.getKey());
                         aVar.setQuanpin(responseNewFriendUpdateUiMsg.getQuanping());
                         aVar.setUserId(responseNewFriendUpdateUiMsg.getFriendId());
                         aVar.setUserName(responseNewFriendUpdateUiMsg.getName());
-                        aVar.pj(responseNewFriendUpdateUiMsg.getPortrait());
+                        aVar.pi(responseNewFriendUpdateUiMsg.getPortrait());
                         MessageManager.getInstance().sendMessage(new CustomMessage(2001179, aVar));
                     } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
                         com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();

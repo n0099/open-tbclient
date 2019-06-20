@@ -53,10 +53,10 @@ public class LaunchStatic {
         aba();
         bj.auJ();
         com.baidu.tieba.tbadkCore.location.b.init();
-        com.baidu.tieba.im.widget.b.bEe();
+        com.baidu.tieba.im.widget.b.bEf();
         com.baidu.tieba.im.b.init();
-        ImMemoryCacheRegister.bCE();
-        com.baidu.tieba.im.db.i.bAc();
+        ImMemoryCacheRegister.bCF();
+        com.baidu.tieba.im.db.i.bAd();
         com.baidu.tbadk.browser.d.init();
         h.init();
         com.baidu.tieba.wallet.d.init();

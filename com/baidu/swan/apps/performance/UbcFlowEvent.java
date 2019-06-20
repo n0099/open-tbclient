@@ -39,7 +39,7 @@ public class UbcFlowEvent {
         return this.mValue;
     }
 
-    public UbcFlowEvent ga(String str) {
+    public UbcFlowEvent fZ(String str) {
         this.aGg = str;
         return this;
     }

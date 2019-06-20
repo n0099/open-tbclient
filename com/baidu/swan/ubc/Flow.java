@@ -123,7 +123,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                s.Xi().flowSetValue(this, r.kR(str));
+                s.Xi().flowSetValue(this, r.kQ(str));
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -158,7 +158,7 @@ public class Flow implements Parcelable {
                 return;
             }
             try {
-                s.Xi().flowSetValueWithDuration(this, r.kR(str));
+                s.Xi().flowSetValueWithDuration(this, r.kQ(str));
             } catch (RemoteException e2) {
                 e2.printStackTrace();
             }

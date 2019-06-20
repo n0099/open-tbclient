@@ -15,7 +15,7 @@ import com.baidu.tieba.tblauncherInterestGuide.data.InterestFrsData;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends BaseAdapter {
-    private View.OnClickListener bYE;
+    private View.OnClickListener bYF;
     private Context mContext;
     private List<InterestFrsData.Card> mData;
 
@@ -24,7 +24,7 @@ public class c extends BaseAdapter {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bYE = onClickListener;
+        this.bYF = onClickListener;
     }
 
     public void setData(List<InterestFrsData.Card> list) {
@@ -61,24 +61,24 @@ public class c extends BaseAdapter {
             aVar = new a();
             aVar.eYk = (TbImageView) view.findViewById(R.id.pic);
             aVar.eYl = (ImageView) view.findViewById(R.id.select_icon);
-            aVar.jfP = (RelativeLayout) view.findViewById(R.id.lay_select);
+            aVar.jfT = (RelativeLayout) view.findViewById(R.id.lay_select);
             aVar.aif = (TextView) view.findViewById(R.id.tv_fname);
-            aVar.jfO = (FrameLayout) view.findViewById(R.id.pic_layout);
-            aVar.jfO.setOnClickListener(this.bYE);
+            aVar.jfS = (FrameLayout) view.findViewById(R.id.pic_layout);
+            aVar.jfS.setOnClickListener(this.bYF);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
         }
         aVar.eYk.setTag(null);
-        aVar.jfP.setTag(null);
+        aVar.jfT.setTag(null);
         aVar.aif.setText("");
-        aVar.jfO.setTag(null);
+        aVar.jfS.setTag(null);
         Object item = getItem(i);
         if (item != null && (item instanceof InterestFrsData.Card)) {
             InterestFrsData.Card card = (InterestFrsData.Card) item;
             b(aVar.eYl, card.getIs_like() == 1);
-            aVar.jfP.setTag(card);
-            aVar.jfO.setTag(card);
+            aVar.jfT.setTag(card);
+            aVar.jfS.setTag(card);
             aVar.eYk.setTag(card.getIcon_url());
             aVar.eYk.startLoad(card.getIcon_url(), 21, false);
             aVar.aif.setText(card.getFname());
@@ -99,8 +99,8 @@ public class c extends BaseAdapter {
         TextView aif;
         TbImageView eYk;
         ImageView eYl;
-        FrameLayout jfO;
-        RelativeLayout jfP;
+        FrameLayout jfS;
+        RelativeLayout jfT;
 
         private a() {
         }

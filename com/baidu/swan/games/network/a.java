@@ -17,7 +17,7 @@ public class a {
     protected static final Set<String> aDV = h.L("localhost", "127.0.0.1");
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public HttpUrl fD(String str) {
+    public HttpUrl fC(String str) {
         HttpUrl parse = HttpUrl.parse(str);
         if ((com.baidu.swan.apps.ae.b.Lq() == null ? null : com.baidu.swan.apps.ae.b.Lq().getActivity()) == null) {
             if (a(parse)) {

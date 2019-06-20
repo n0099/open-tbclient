@@ -37,7 +37,7 @@ public class c extends b {
         setRightZoneVisibility(false);
         String BM = this.ajM == null ? "" : this.ajM.BM();
         if (!TextUtils.isEmpty(BM)) {
-            dG(BM);
+            dF(BM);
         }
         this.aqh.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.d.c.1
             @Override // android.view.View.OnClickListener

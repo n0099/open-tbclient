@@ -17,7 +17,7 @@ public class b {
                     subPackageAPSInfo.mKey = hVar.bsc;
                     subPackageAPSInfo.mAppId = str;
                     subPackageAPSInfo.mAppVersion = String.valueOf(i);
-                    subPackageAPSInfo.ayf = hVar.Hj;
+                    subPackageAPSInfo.ayf = hVar.Hi;
                     subPackageAPSInfo.aye = e.d.ae(str, String.valueOf(i)).getPath();
                     com.baidu.swan.apps.core.a.d.a.a(subPackageAPSInfo, hVar.sign, hVar.filePath, false);
                 }

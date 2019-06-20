@@ -97,7 +97,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
         com.baidu.tbadk.core.util.a.i iVar = new com.baidu.tbadk.core.util.a.i();
         if (aVar != null) {
-            aVar.Bf = iVar;
+            aVar.Be = iVar;
         }
         byte[] N = iVar.N(str3, !booleanValue);
         if (iVar.aiJ() && iVar.errorCode == -11) {
@@ -130,7 +130,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.bUt) {
+        if (!iVar.bUu) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.ImageView.a(bitmap, com.baidu.adp.lib.util.l.k(bArr), str, bArr);
@@ -165,11 +165,11 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     public static void a(String str, byte[] bArr, boolean z, com.baidu.adp.lib.f.a aVar) {
-        String om = om(str);
-        com.baidu.adp.lib.Disk.ops.c a = a(nT(str), DiskFileOperate.Action.WRITE_FORCE);
+        String ol = ol(str);
+        com.baidu.adp.lib.Disk.ops.c a = a(nS(str), DiskFileOperate.Action.WRITE_FORCE);
         a.O(z);
-        if (om != null) {
-            a.P(oo(str));
+        if (ol != null) {
+            a.P(om(str));
         } else {
             a.P(true);
         }
@@ -177,20 +177,20 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(a);
-            aVar.Bf = eVar;
+            aVar.Be = eVar;
         }
         com.baidu.adp.lib.Disk.d.gt().c(a);
     }
 
     public static byte[] a(String str, com.baidu.adp.lib.f.a aVar) {
-        String om = om(str);
+        String ol = ol(str);
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c a = a(nT(str), DiskFileOperate.Action.READ);
+        com.baidu.adp.lib.Disk.ops.c a = a(nS(str), DiskFileOperate.Action.READ);
         a.q(bArr);
         if (aVar != null) {
             e eVar = new e();
             eVar.f(a);
-            aVar.Bf = eVar;
+            aVar.Be = eVar;
         }
         if (com.baidu.adp.lib.Disk.d.gt().c(a)) {
             int i = 2000;
@@ -205,7 +205,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 }
             }
             if (a.isSuccess()) {
-                if (om == null || a.gP() || !oo(str)) {
+                if (ol == null || a.gP() || !om(str)) {
                     return a.gQ();
                 }
                 return null;
@@ -215,28 +215,28 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public static String nT(String str) {
-        String om = om(str);
-        if (om != null) {
-            str = om;
+    public static String nS(String str) {
+        String ol = ol(str);
+        if (ol != null) {
+            str = ol;
         }
-        return as.nT(str);
+        return as.nS(str);
     }
 
-    public static boolean ol(String str) {
-        String nT = nT(str);
-        if (TextUtils.isEmpty(nT)) {
+    public static boolean ok(String str) {
+        String nS = nS(str);
+        if (TextUtils.isEmpty(nS)) {
             return false;
         }
-        return a(nT, DiskFileOperate.Action.INFO).gu();
+        return a(nS, DiskFileOperate.Action.INFO).gu();
     }
 
-    private static String om(String str) {
+    private static String ol(String str) {
         int i;
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.l.qP(str)) {
+        if (com.baidu.tbadk.util.l.qO(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -259,9 +259,9 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    private static boolean oo(String str) {
+    private static boolean om(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.l.qP(str)) {
+        if (str != null && com.baidu.tbadk.util.l.qO(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

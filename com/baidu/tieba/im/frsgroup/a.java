@@ -17,11 +17,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes5.dex */
 public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
-    private View.OnClickListener bYE;
+    private View.OnClickListener bYF;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.bYE = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
+        this.bYF = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view != null) {
@@ -45,7 +45,7 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bp */
     public b onCreateViewHolder(ViewGroup viewGroup) {
-        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.bYE);
+        return new b(LayoutInflater.from(this.mContext).inflate(R.layout.frs_create_group_item_view, (ViewGroup) null), this.bYF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class a extends com.baidu.tieba.frs.h<GroupPermData, b> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         bVar.rootView.setTag(Integer.valueOf(i));
         al.k(bVar.rootView, R.drawable.frs_group_item_bg);
-        al.l(bVar.gqJ, R.color.cp_bg_line_c);
-        al.f(bVar.gzG, R.color.cp_cont_b, 1);
-        bVar.gzG.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
+        al.l(bVar.gqL, R.color.cp_bg_line_c);
+        al.f(bVar.gzI, R.color.cp_cont_b, 1);
+        bVar.gzI.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_add_croup), (Drawable) null, (Drawable) null, (Drawable) null);
         al.k(bVar.divider, R.color.cp_bg_line_b);
         return view;
     }

@@ -9,14 +9,14 @@ import android.view.ViewConfiguration;
 import android.widget.RelativeLayout;
 /* loaded from: classes.dex */
 public class NoPressedRelativeLayout extends RelativeLayout {
-    int MD;
-    private View bYR;
+    int MC;
     private View bYS;
-    float bYT;
-    private Rect bYU;
-    private boolean bYV;
-    private a bYW;
-    private boolean bYX;
+    private View bYT;
+    float bYU;
+    private Rect bYV;
+    private boolean bYW;
+    private a bYX;
+    private boolean bYY;
     float startY;
 
     /* loaded from: classes.dex */
@@ -25,17 +25,17 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     public void setDispathEventAction(a aVar) {
-        this.bYW = aVar;
+        this.bYX = aVar;
     }
 
     public NoPressedRelativeLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.startY = 0.0f;
-        this.MD = 0;
-        this.bYT = 0.0f;
-        this.bYV = false;
-        this.bYX = false;
-        this.MD = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.MC = 0;
+        this.bYU = 0.0f;
+        this.bYW = false;
+        this.bYY = false;
+        this.MC = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,35 +45,35 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.bYW != null) {
-            this.bYW.u(motionEvent);
+        if (this.bYX != null) {
+            this.bYX.u(motionEvent);
         }
-        if (this.bYR != null) {
+        if (this.bYS != null) {
             switch (motionEvent.getAction()) {
                 case 0:
                     this.startY = motionEvent.getRawY();
-                    this.bYT = 0.0f;
+                    this.bYU = 0.0f;
                     if (getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                        this.bYV = true;
+                        this.bYW = true;
                         setBottomViewClickEventEnabled(false);
                     } else {
-                        this.bYV = false;
+                        this.bYW = false;
                         setBottomViewClickEventEnabled(true);
                     }
                     return super.dispatchTouchEvent(motionEvent);
                 case 1:
                 case 3:
-                    if (this.bYV && Math.abs(this.startY - motionEvent.getRawY()) < this.MD && this.bYT < this.MD && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                    if (this.bYW && Math.abs(this.startY - motionEvent.getRawY()) < this.MC && this.bYU < this.MC && getTopViewRect() != null && getTopViewRect().contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                         setBottomViewClickEventEnabled(false);
-                        if (this.bYR.isClickable()) {
-                            this.bYR.performClick();
+                        if (this.bYS.isClickable()) {
+                            this.bYS.performClick();
                         }
                         return true;
                     }
                     break;
                 case 2:
-                    this.bYT = this.bYT > Math.abs(this.startY - motionEvent.getRawY()) ? this.bYT : Math.abs(this.startY - motionEvent.getRawY());
-                    if (this.bYV && this.bYT < this.MD) {
+                    this.bYU = this.bYU > Math.abs(this.startY - motionEvent.getRawY()) ? this.bYU : Math.abs(this.startY - motionEvent.getRawY());
+                    if (this.bYW && this.bYU < this.MC) {
                         setBottomViewClickEventEnabled(false);
                     } else {
                         setBottomViewClickEventEnabled(true);
@@ -86,50 +86,50 @@ public class NoPressedRelativeLayout extends RelativeLayout {
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.bYX) {
+        if (this.bYY) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
     }
 
     public void setNeedInterceptTouchEvent(boolean z) {
-        this.bYX = z;
+        this.bYY = z;
     }
 
     public void setTopOrderView(View view) {
-        this.bYR = view;
+        this.bYS = view;
     }
 
     private boolean ajt() {
-        if (this.bYR == null) {
+        if (this.bYS == null) {
             return false;
         }
-        if (this.bYU == null) {
+        if (this.bYV == null) {
             return true;
         }
-        return this.bYU.width() <= 0 || this.bYU.height() <= 0;
+        return this.bYV.width() <= 0 || this.bYV.height() <= 0;
     }
 
     private Rect getTopViewRect() {
         if (ajt()) {
             int[] iArr = {0, 0};
-            if (this.bYR != null) {
-                this.bYR.getLocationOnScreen(iArr);
-                this.bYU = new Rect(iArr[0], iArr[1], iArr[0] + this.bYR.getWidth(), iArr[1] + this.bYR.getHeight());
+            if (this.bYS != null) {
+                this.bYS.getLocationOnScreen(iArr);
+                this.bYV = new Rect(iArr[0], iArr[1], iArr[0] + this.bYS.getWidth(), iArr[1] + this.bYS.getHeight());
             }
         }
-        return this.bYU;
+        return this.bYV;
     }
 
     private void setBottomViewClickEventEnabled(boolean z) {
-        if (this.bYS != null) {
-            this.bYS.setEnabled(z);
-            this.bYS.setClickable(z);
-            this.bYS.setLongClickable(z);
+        if (this.bYT != null) {
+            this.bYT.setEnabled(z);
+            this.bYT.setClickable(z);
+            this.bYT.setLongClickable(z);
         }
     }
 
     public void setBottomOrderView(View view) {
-        this.bYS = view;
+        this.bYT = view;
     }
 }

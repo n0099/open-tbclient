@@ -30,9 +30,9 @@ public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static void d(Context context, final com.baidu.swan.apps.v.b.b bVar) {
-        Uri iq;
+        Uri ip;
         String iconUrl = bVar.getIconUrl();
-        if (!TextUtils.isEmpty(iconUrl) && (iq = ac.iq(iconUrl)) != null) {
+        if (!TextUtils.isEmpty(iconUrl) && (ip = ac.ip(iconUrl)) != null) {
             q(bVar);
             final c cVar = new c();
             cVar.mAppId = bVar.getAppId();
@@ -45,8 +45,8 @@ public final class a {
             cVar.ayS = bVar.Fg();
             cVar.ayT = bVar.getOrientation();
             cVar.ayP = c.c(bVar.getAppId(), bVar.EW(), bVar.Fg());
-            if (m.i(iq)) {
-                a(context, bVar, cVar, m.b(iq, context));
+            if (m.i(ip)) {
+                a(context, bVar, cVar, m.b(ip, context));
             } else {
                 com.baidu.swan.apps.core.a.b.a(iconUrl, new m.a() { // from class: com.baidu.swan.apps.ah.a.1
                     @Override // com.baidu.swan.apps.an.m.a
@@ -78,7 +78,7 @@ public final class a {
 
     private static void q(com.baidu.swan.apps.v.b.b bVar) {
         bVar.setPage(null);
-        bVar.eI("1230000000000000");
+        bVar.eH("1230000000000000");
     }
 
     private static void bD(Context context) {

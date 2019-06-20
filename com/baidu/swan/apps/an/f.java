@@ -14,7 +14,7 @@ public class f {
         if (OJ == null || OJ.size() <= 0) {
             return null;
         }
-        File file = new File(OJ.get(0).wV, "baidu/aiapps/debug/");
+        File file = new File(OJ.get(0).wU, "baidu/aiapps/debug/");
         if (!file.exists()) {
             file.mkdirs();
         }

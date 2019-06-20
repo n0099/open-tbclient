@@ -22,16 +22,16 @@ import com.baidu.tieba.R;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
-    public static final int clK = l.g(TbadkApplication.getInst(), R.dimen.tbds130);
-    private AgreeView bZY;
-    private TextView bZZ;
-    private ImageUrlData cke;
-    private a clI;
-    private TextView clL;
-    private TbImageView clM;
-    private View clN;
-    private TbImageView clO;
-    private boolean clP;
+    public static final int clL = l.g(TbadkApplication.getInst(), R.dimen.tbds130);
+    private AgreeView bZZ;
+    private TextView caa;
+    private ImageUrlData ckf;
+    private a clJ;
+    private TextView clM;
+    private TbImageView clN;
+    private View clO;
+    private TbImageView clP;
+    private boolean clQ;
     private String mUserId;
 
     /* loaded from: classes3.dex */
@@ -41,44 +41,44 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     public ImageViewerBottomLayout(Context context) {
         super(context);
-        this.clI = null;
-        this.clP = true;
+        this.clJ = null;
+        this.clQ = true;
         init(context);
         initListener();
     }
 
     public ImageViewerBottomLayout(Context context, boolean z) {
         super(context);
-        this.clI = null;
-        this.clP = true;
-        this.clP = z;
+        this.clJ = null;
+        this.clQ = true;
+        this.clQ = z;
         init(context);
         initListener();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.image_viewer_bottom_layout, (ViewGroup) this, true);
-        this.clN = findViewById(R.id.unfold_root);
-        this.clL = (TextView) findViewById(R.id.unfold_text);
-        this.clM = (TbImageView) findViewById(R.id.unfold_icon);
-        this.clN.setVisibility(8);
-        al.c(this.clM, (int) R.drawable.icon_picture_unfold_white_n);
-        this.clO = (TbImageView) findViewById(R.id.comment_icon);
-        al.c(this.clO, (int) R.drawable.icon_picture_comment_white_n);
-        this.bZZ = (TextView) findViewById(R.id.comment_num);
-        this.bZZ.setText("0");
-        this.bZY = (AgreeView) findViewById(R.id.agree_and_disagreeview);
-        this.bZY.setIsFromBigpic(true);
-        this.bZY.setAgreeAnimationResource(R.raw.agree_bigpic);
-        this.bZY.setDisagreeAnimationResource(R.raw.disagree_bigpic);
+        this.clO = findViewById(R.id.unfold_root);
+        this.clM = (TextView) findViewById(R.id.unfold_text);
+        this.clN = (TbImageView) findViewById(R.id.unfold_icon);
+        this.clO.setVisibility(8);
+        al.c(this.clN, (int) R.drawable.icon_picture_unfold_white_n);
+        this.clP = (TbImageView) findViewById(R.id.comment_icon);
+        al.c(this.clP, (int) R.drawable.icon_picture_comment_white_n);
+        this.caa = (TextView) findViewById(R.id.comment_num);
+        this.caa.setText("0");
+        this.bZZ = (AgreeView) findViewById(R.id.agree_and_disagreeview);
+        this.bZZ.setIsFromBigpic(true);
+        this.bZZ.setAgreeAnimationResource(R.raw.agree_bigpic);
+        this.bZZ.setDisagreeAnimationResource(R.raw.disagree_bigpic);
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.bEy = 13;
-        dVar.bED = 10;
-        this.bZY.setStatisticData(dVar);
+        dVar.bEz = 13;
+        dVar.bEE = 10;
+        this.bZZ.setStatisticData(dVar);
     }
 
     public void setExpandButtonListener(a aVar) {
-        this.clI = aVar;
+        this.clJ = aVar;
     }
 
     public void setUserId(String str) {
@@ -86,23 +86,23 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     }
 
     public void b(ImageUrlData imageUrlData) {
-        this.cke = imageUrlData;
+        this.ckf = imageUrlData;
         if (imageUrlData != null && imageUrlData.agreeData != null) {
             setVisibility(0);
             if (imageUrlData.commentNum != null) {
-                this.bZZ.setText(imageUrlData.commentNum);
+                this.caa.setText(imageUrlData.commentNum);
             }
             if (imageUrlData.agreeData != null) {
-                this.bZY.setData(imageUrlData.agreeData);
+                this.bZZ.setData(imageUrlData.agreeData);
             }
-            if (!this.clP) {
-                this.clN.setVisibility(4);
+            if (!this.clQ) {
+                this.clO.setVisibility(4);
                 return;
             } else if (TextUtils.isEmpty(imageUrlData.richTextArray) || "[]".equals(imageUrlData.richTextArray)) {
-                this.clN.setVisibility(4);
+                this.clO.setVisibility(4);
                 return;
             } else {
-                this.clN.setVisibility(0);
+                this.clO.setVisibility(0);
                 return;
             }
         }
@@ -110,54 +110,54 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
     }
 
     private void initListener() {
+        this.clP.setOnClickListener(this);
+        this.caa.setOnClickListener(this);
         this.clO.setOnClickListener(this);
-        this.bZZ.setOnClickListener(this);
-        this.clN.setOnClickListener(this);
         setOnTouchListener(this);
     }
 
     public void eP(boolean z) {
         if (z) {
-            this.clL.setText(getContext().getString(R.string.expand));
-            al.c(this.clM, (int) R.drawable.icon_picture_packup_white_n);
+            this.clM.setText(getContext().getString(R.string.expand));
+            al.c(this.clN, (int) R.drawable.icon_picture_packup_white_n);
             return;
         }
-        this.clL.setText(getContext().getString(R.string.fold));
-        al.c(this.clM, (int) R.drawable.icon_picture_unfold_white_n);
+        this.clM.setText(getContext().getString(R.string.fold));
+        al.c(this.clN, (int) R.drawable.icon_picture_unfold_white_n);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.clO || view == this.bZZ) {
+        if (view == this.clP || view == this.caa) {
             TiebaStatic.log(new am("c12942").bT("obj_type", "2").bT("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
             aoV();
-        } else if (view == this.clN) {
-            if (this.clL.getText().toString().equals(getContext().getString(R.string.expand))) {
-                this.clL.setText(getContext().getString(R.string.fold));
-                al.c(this.clM, (int) R.drawable.icon_picture_unfold_white_n);
-                if (this.clI != null) {
-                    this.clI.a(this, true);
+        } else if (view == this.clO) {
+            if (this.clM.getText().toString().equals(getContext().getString(R.string.expand))) {
+                this.clM.setText(getContext().getString(R.string.fold));
+                al.c(this.clN, (int) R.drawable.icon_picture_unfold_white_n);
+                if (this.clJ != null) {
+                    this.clJ.a(this, true);
                     return;
                 }
                 return;
             }
-            this.clL.setText(getContext().getString(R.string.expand));
-            al.c(this.clM, (int) R.drawable.icon_picture_packup_white_n);
-            if (this.clI != null) {
-                this.clI.a(this, false);
+            this.clM.setText(getContext().getString(R.string.expand));
+            al.c(this.clN, (int) R.drawable.icon_picture_packup_white_n);
+            if (this.clJ != null) {
+                this.clJ.a(this, false);
             }
         }
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        TiebaStatic.log(new am("c13339").bT("uid", this.mUserId).l("post_id", this.cke.threadId));
+        TiebaStatic.log(new am("c13339").bT("uid", this.mUserId).l("post_id", this.ckf.threadId));
         return true;
     }
 
     private void aoV() {
-        if (this.cke != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cke.threadId), String.valueOf(this.cke.postId), this.cke.mIsSeeHost, this.cke.mIsReserver, null);
+        if (this.ckf != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.ckf.threadId), String.valueOf(this.ckf.postId), this.ckf.mIsSeeHost, this.ckf.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createHistoryCfg));
         }

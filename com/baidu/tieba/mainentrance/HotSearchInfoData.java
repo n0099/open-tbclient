@@ -16,7 +16,7 @@ public class HotSearchInfoData extends OrmObject {
         return this.eRl;
     }
 
-    public long bJg() {
+    public long bJh() {
         return this.eRm;
     }
 
@@ -37,7 +37,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void zz(String str) {
+    public void zB(String str) {
         this.eRl = str;
     }
 

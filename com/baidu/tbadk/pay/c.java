@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c {
-    private static c cyg = null;
+    private static c cyh = null;
 
     private c() {
     }
@@ -21,10 +21,10 @@ public class c {
     public static synchronized c atX() {
         c cVar;
         synchronized (c.class) {
-            if (cyg == null) {
-                cyg = new c();
+            if (cyh == null) {
+                cyh = new c();
             }
-            cVar = cyg;
+            cVar = cyh;
         }
         return cVar;
     }

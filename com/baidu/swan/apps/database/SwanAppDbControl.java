@@ -279,7 +279,7 @@ public class SwanAppDbControl {
                                 int columnIndex = cursor.getColumnIndex(SubPackageTable.Table.aps_package_name.name());
                                 do {
                                     String string = cursor.getString(columnIndex);
-                                    dX(string);
+                                    dW(string);
                                     if (SwanAppDbControl.DEBUG) {
                                         Log.i("SwanAppDbControl", "清除APS中小程序分包信息：" + string);
                                     }
@@ -315,7 +315,7 @@ public class SwanAppDbControl {
             sQLiteDatabase.execSQL("DROP TRIGGER IF EXISTS delete_old_swan_history");
         }
 
-        private void dX(String str) {
+        private void dW(String str) {
             com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
             com.baidu.b.a.c.a.N("51", str);
         }
@@ -552,12 +552,12 @@ public class SwanAppDbControl {
         return true;
     }
 
-    public com.baidu.swan.apps.database.a dV(String str) {
+    public com.baidu.swan.apps.database.a dU(String str) {
         com.baidu.swan.apps.database.a aVar = new com.baidu.swan.apps.database.a();
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = dW(str);
+                cursor = dV(str);
                 if (cursor != null && cursor.moveToFirst()) {
                     a(cursor, aVar);
                 }
@@ -690,7 +690,7 @@ public class SwanAppDbControl {
         }
     }
 
-    private Cursor dW(String str) {
+    private Cursor dV(String str) {
         try {
             return auj.getReadableDatabase().rawQuery("select * from ai_apps_aps_data where " + SwanAppTable.app_id.name() + " = ? ", new String[]{str});
         } catch (SQLException e) {
@@ -860,7 +860,7 @@ public class SwanAppDbControl {
 
     /* loaded from: classes2.dex */
     public abstract class a {
-        private boolean wW = false;
+        private boolean wV = false;
 
         protected abstract boolean j(SQLiteDatabase sQLiteDatabase);
 
@@ -868,13 +868,13 @@ public class SwanAppDbControl {
         }
 
         public void k(SQLiteDatabase sQLiteDatabase) {
-            this.wW = false;
+            this.wV = false;
             try {
                 try {
                     sQLiteDatabase.beginTransaction();
                     if (j(sQLiteDatabase)) {
                         sQLiteDatabase.setTransactionSuccessful();
-                        this.wW = true;
+                        this.wV = true;
                     }
                     try {
                         sQLiteDatabase.endTransaction();
@@ -908,7 +908,7 @@ public class SwanAppDbControl {
         }
 
         protected boolean BK() {
-            return this.wW;
+            return this.wV;
         }
     }
 }

@@ -3,39 +3,39 @@ package com.baidu.tbadk.p;
 import android.os.Build;
 /* loaded from: classes.dex */
 public class b extends g {
-    private a cyk;
-    private boolean cyl;
+    private a cyl;
     private boolean cym;
+    private boolean cyn;
 
     public void aua() {
-        if (!this.cyl && m.auk().aul()) {
-            this.cyl = true;
+        if (!this.cym && m.auk().aul()) {
+            this.cym = true;
             if (Build.VERSION.SDK_INT >= 16) {
-                if (this.cyk == null) {
-                    this.cyk = new a();
+                if (this.cyl == null) {
+                    this.cyl = new a();
                 }
-                this.cyk.start();
+                this.cyl.start();
             }
         }
     }
 
     public void aub() {
-        if (Build.VERSION.SDK_INT >= 16 && this.cyk != null) {
-            this.cyk.stop();
+        if (Build.VERSION.SDK_INT >= 16 && this.cyl != null) {
+            this.cyl.stop();
         }
     }
 
     public void auc() {
         o oVar;
-        if (!this.cym && this.cyk != null && this.cyk.getFps() >= 0 && (oVar = (o) m.auk().kN(this.mSubType)) != null) {
+        if (!this.cyn && this.cyl != null && this.cyl.getFps() >= 0 && (oVar = (o) m.auk().kN(this.mSubType)) != null) {
             oVar.a(this);
-            this.cym = true;
+            this.cyn = true;
         }
     }
 
     public int getFps() {
-        if (this.cyk != null) {
-            return this.cyk.getFps();
+        if (this.cyl != null) {
+            return this.cyl.getFps();
         }
         return -1;
     }

@@ -27,7 +27,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mCallback = cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        this.mCallback = cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             c.i("ChooseAddress", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -50,7 +50,7 @@ public class a extends z {
         return true;
     }
 
-    private JSONObject cZ(String str) {
+    private JSONObject cY(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }

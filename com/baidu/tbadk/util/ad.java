@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ad {
-    private static boolean cCa = false;
+    private static boolean cCb = false;
 
     public static boolean a(WeakReference<Context> weakReference, boolean z) {
         if (weakReference == null || weakReference.get() == null) {
@@ -21,12 +21,12 @@ public class ad {
 
     public static void c(WeakReference<Context> weakReference) {
         if (weakReference != null && weakReference.get() != null) {
-            cCa = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+            cCb = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
         }
     }
 
     public static boolean avx() {
-        return cCa;
+        return cCb;
     }
 
     public static boolean kS(int i) {

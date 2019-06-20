@@ -77,7 +77,7 @@ public class as {
         return null;
     }
 
-    public static String nT(String str) {
+    public static String nS(String str) {
         return com.baidu.adp.lib.util.s.bm(str);
     }
 }

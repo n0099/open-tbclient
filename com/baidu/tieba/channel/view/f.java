@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.channel.data.ChannelInfo;
 /* loaded from: classes6.dex */
 public class f {
-    private ImageView cbW;
+    private ImageView cbX;
     private TextView eEJ;
     private HeadImageView eEK;
     private TextView eEL;
@@ -75,7 +75,7 @@ public class f {
         });
         this.eEL = (TextView) this.mRootView.findViewById(R.id.channel_home_header_channel_name);
         this.eEO = (LinearLayout) this.mRootView.findViewById(R.id.channel_home_channel_name_layout);
-        this.cbW = (ImageView) this.mRootView.findViewById(R.id.channel_home_channel_icon);
+        this.cbX = (ImageView) this.mRootView.findViewById(R.id.channel_home_channel_icon);
         this.eEN = (ChannelHomeDescView) this.mRootView.findViewById(R.id.channel_home_header_channel_desc);
         this.eEM = (ChannelHomeSubOrAddVideoView) this.mRootView.findViewById(R.id.channel_home_header_botton_btn);
         this.eEP = (TextView) this.mRootView.findViewById(R.id.channel_home_header_video_count);
@@ -125,7 +125,7 @@ public class f {
     public void onChangeSkinType(int i) {
         this.eEM.onChangeSkinType(i);
         this.eEK.setBorderColor(al.getColor(R.color.cp_bg_line_a_alpha80));
-        al.k(this.cbW, R.drawable.icon_weiba);
+        al.k(this.cbX, R.drawable.icon_weiba);
     }
 
     public int aYQ() {

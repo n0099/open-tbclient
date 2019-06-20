@@ -16,7 +16,7 @@ public class i {
         }
 
         @Override // com.baidu.tieba.frs.aggregation.VideoAggregationModel.a
-        public void wy(String str) {
+        public void wx(String str) {
             if (i.this.fvr != null) {
                 i.this.fvr.hideLoadingView();
                 i.this.fvr.showMsg(str);
@@ -53,10 +53,10 @@ public class i {
         }
     }
 
-    public void wx(String str) {
+    public void ww(String str) {
         this.st_type = str;
         if (this.fvs != null) {
-            this.fvs.wx(str);
+            this.fvs.ww(str);
         }
     }
 

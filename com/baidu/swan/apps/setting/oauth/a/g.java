@@ -43,7 +43,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
                     if (body == null) {
                         g.this.l(new OAuthException("empty response body", 10002));
                     } else {
-                        g.this.hh(body.string());
+                        g.this.hg(body.string());
                     }
                 }
             });
@@ -73,7 +73,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         this.aUE = true;
     }
 
-    protected void hh(String str) {
+    protected void hg(String str) {
         this.aUC = str;
         try {
             this.aUD = new JSONObject(this.aUC);
@@ -89,7 +89,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         }
         if (this.aUE && this.aUD.optInt("errno") == 402) {
             this.aUE = false;
-            hi(str);
+            hh(str);
             return;
         }
         J(z(this.aUD));
@@ -97,7 +97,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
         finish();
     }
 
-    private void hi(final String str) {
+    private void hh(final String str) {
         LG().Lv().a(com.baidu.swan.apps.w.e.FV().FH(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.apps.setting.oauth.a.g.2
             @Override // com.baidu.swan.apps.a.a
             public void onResult(int i) {
@@ -106,7 +106,7 @@ public abstract class g<ResultDataT> extends com.baidu.swan.apps.setting.oauth.b
                     g.this.MA();
                     return;
                 }
-                g.this.hh(str);
+                g.this.hg(str);
             }
         });
     }

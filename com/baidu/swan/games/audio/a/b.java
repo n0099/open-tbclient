@@ -16,17 +16,17 @@ public class b implements a {
         this.bem = str;
     }
 
-    private boolean iK(String str) {
+    private boolean iJ(String str) {
         return this.bel.containsKey(str);
     }
 
     public void a(String str, a aVar) {
         synchronized (this.beo) {
-            if (!iK(str)) {
+            if (!iJ(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
                 }
-                iL(str);
+                iK(str);
             } else if (DEBUG) {
                 Log.e("AudioDownloadManager", "re load url = " + str);
             }
@@ -34,7 +34,7 @@ public class b implements a {
         }
     }
 
-    public void iL(String str) {
+    public void iK(String str) {
         c cVar = new c(this.ben, this.bem, str, this);
         this.bel.put(str, cVar);
         cVar.load();
@@ -54,7 +54,7 @@ public class b implements a {
     public void aQ(String str, String str2) {
         ArrayList<a> arrayList;
         synchronized (this.beo) {
-            if (iK(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (iJ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).aQ(str, str2);
@@ -71,7 +71,7 @@ public class b implements a {
     public void t(int i, String str) {
         ArrayList<a> arrayList;
         synchronized (this.beo) {
-            if (iK(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (iJ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).t(i, str);

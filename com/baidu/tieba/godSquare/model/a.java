@@ -12,11 +12,11 @@ public class a {
 
     private void Wx() {
         if (this.dqB == null) {
-            this.dqB = com.baidu.tbadk.core.c.a.afD().mA("tb.god_square");
+            this.dqB = com.baidu.tbadk.core.c.a.afD().mz("tb.god_square");
         }
     }
 
-    public byte[] we(String str) {
+    public byte[] wd(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
             Wx();

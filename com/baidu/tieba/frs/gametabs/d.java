@@ -93,7 +93,7 @@ public class d {
                 this.fqO.pH(R.color.select_topbar_icon_color_tint);
                 this.fqO.onChangeSkinType(i);
             }
-            al.a(this.dAa, (int) R.drawable.btn_more_selector_s, (int) R.drawable.btn_more_selector);
+            al.a(this.dAa, (int) R.drawable.selector_web_topbar_other_black, (int) R.drawable.selector_web_topbar_other_white);
             al.a(this.fFA, (int) R.drawable.icon_nav_share_selector, (int) R.drawable.icon_nav_share_selector);
         }
     }

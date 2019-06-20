@@ -3,16 +3,16 @@ package rx.internal.producers;
 import rx.f;
 /* loaded from: classes2.dex */
 public final class a implements f {
-    static final f kqZ = new f() { // from class: rx.internal.producers.a.1
+    static final f krc = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    f kqV;
-    long kqW;
-    long kqX;
     f kqY;
+    long kqZ;
+    long kra;
+    f krb;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.kqW += j;
+                    this.kqZ += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,11 +33,11 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.kqV;
+                        f fVar = this.kqY;
                         if (fVar != null) {
                             fVar.request(j);
                         }
-                        cLI();
+                        cLH();
                     } catch (Throwable th) {
                         synchronized (this) {
                             this.emitting = false;
@@ -56,7 +56,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.kqX += j;
+                this.kra += j;
                 return;
             }
             this.emitting = true;
@@ -69,7 +69,7 @@ public final class a implements f {
                     }
                     this.requested = j3;
                 }
-                cLI();
+                cLH();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -84,18 +84,18 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = kqZ;
+                    fVar = krc;
                 }
-                this.kqY = fVar;
+                this.krb = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.kqV = fVar;
+                this.kqY = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
-                cLI();
+                cLH();
             } catch (Throwable th) {
                 synchronized (this) {
                     this.emitting = false;
@@ -105,19 +105,19 @@ public final class a implements f {
         }
     }
 
-    public void cLI() {
+    public void cLH() {
         while (true) {
             synchronized (this) {
-                long j = this.kqW;
-                long j2 = this.kqX;
-                f fVar = this.kqY;
+                long j = this.kqZ;
+                long j2 = this.kra;
+                f fVar = this.krb;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.kqW = 0L;
-                this.kqX = 0L;
-                this.kqY = null;
+                this.kqZ = 0L;
+                this.kra = 0L;
+                this.krb = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == kqZ) {
-                        this.kqV = null;
+                    if (fVar == krc) {
+                        this.kqY = null;
                     } else {
-                        this.kqV = fVar;
+                        this.kqY = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.kqV;
+                    f fVar2 = this.kqY;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

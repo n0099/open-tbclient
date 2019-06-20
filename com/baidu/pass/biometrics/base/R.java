@@ -4,13 +4,13 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int pass_bio_toast_bg = 0x7f020f9f;
+        public static final int pass_bio_toast_bg = 0x7f020fc7;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int rim_base_toast_icon = 0x7f0f12a1;
-        public static final int rim_base_toast_message = 0x7f0f12a2;
+        public static final int rim_base_toast_icon = 0x7f0f12a2;
+        public static final int rim_base_toast_message = 0x7f0f12a3;
     }
 
     /* loaded from: classes.dex */

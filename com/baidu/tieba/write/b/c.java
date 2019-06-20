@@ -11,37 +11,37 @@ import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private b jIb;
-    private a jIc;
-    private int joT;
+    private b jIe;
+    private a jIf;
+    private int joX;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a jId = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a jIg = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
         public void mu(int i) {
-            c.this.joT = i;
+            c.this.joX = i;
             c.this.bdR();
-            if (c.this.jIc != null) {
-                c.this.jIc.Ct(c.this.joT);
+            if (c.this.jIf != null) {
+                c.this.jIf.Ct(c.this.joX);
             }
         }
     };
-    private View.OnClickListener bYE = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
+    private View.OnClickListener bYF = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.jIb == null) {
-                    c.this.jIb = new b(c.this.mContext);
-                    c.this.jIb.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.jIb.a(c.this.jId);
-                    c.this.jIb.qp(c.this.mStatusBarHeight);
+                if (c.this.jIe == null) {
+                    c.this.jIe = new b(c.this.mContext);
+                    c.this.jIe.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.jIe.a(c.this.jIg);
+                    c.this.jIe.qp(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(R.string.write_zone_text_all), 0));
-                c.this.jIb.setData(arrayList, c.this.joT);
-                c.this.jIb.bm(c.this.mTitle);
+                c.this.jIe.setData(arrayList, c.this.joX);
+                c.this.jIe.bm(c.this.mTitle);
                 c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_retract), (Drawable) null);
             }
         }
@@ -65,13 +65,13 @@ public class c {
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.joT = i;
+        this.joX = i;
         this.mStatusBarHeight = i2;
     }
 
     public void bdR() {
-        if (cxJ()) {
-            switch (this.joT) {
+        if (cxI()) {
+            switch (this.joX) {
                 case 0:
                     this.mTitle.setText(R.string.write_zone_all);
                     break;
@@ -79,20 +79,20 @@ public class c {
                     this.mTitle.setText(R.string.write_zone_profession);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bYE);
+            this.mTitle.setOnClickListener(this.bYF);
         }
     }
 
-    public boolean cxJ() {
-        return this.joT == 0 || this.joT == 1;
+    public boolean cxI() {
+        return this.joX == 0 || this.joX == 1;
     }
 
     public void a(a aVar) {
-        this.jIc = aVar;
+        this.jIf = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cxJ()) {
+        if (cxI()) {
             al.f(this.mTitle, R.color.cp_cont_b, i);
             if (this.mTitle != null) {
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_album_spread), (Drawable) null);

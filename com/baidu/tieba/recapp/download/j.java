@@ -9,21 +9,21 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class j {
-    private final RemoteViews iAl = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
+    private final RemoteViews iAm = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
 
     public j(DownloadData downloadData, int i) {
         yT(i);
-        this.iAl.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.iAl.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        this.iAl.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
-        this.iAl.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
+        this.iAm.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+        this.iAm.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        this.iAm.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
+        this.iAm.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
         com.baidu.adp.lib.f.c.iv().a(downloadData.getApp_icon(), 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.download.j.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i2) {
-                if (j.this.iAl != null && aVar != null && aVar.ns() != null) {
-                    j.this.iAl.setImageViewBitmap(R.id.app_icon, aVar.ns());
+                if (j.this.iAm != null && aVar != null && aVar.ns() != null) {
+                    j.this.iAm.setImageViewBitmap(R.id.app_icon, aVar.ns());
                 }
             }
         }, BdUniqueId.gen());
@@ -31,26 +31,26 @@ public class j {
         intent.setAction("action_pause_download");
         intent.putExtra("download_data", downloadData);
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.iAl.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
+        this.iAm.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
         Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), RecAppDownloadReceiver.class);
         intent2.setAction("action_cancel_download");
         intent2.putExtra("download_data", downloadData);
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.iAl.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
+        this.iAm.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public RemoteViews ceV() {
-        return this.iAl;
-    }
-
-    public void ceW() {
-        this.iAl.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.iAl.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+    public RemoteViews ceW() {
+        return this.iAm;
     }
 
     public void ceX() {
-        this.iAl.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
-        this.iAl.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
+        this.iAm.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+        this.iAm.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+    }
+
+    public void ceY() {
+        this.iAm.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
+        this.iAm.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
     }
 
     public void yT(int i) {
@@ -60,7 +60,7 @@ public class j {
         } else {
             str = "0%";
         }
-        this.iAl.setProgressBar(R.id.download_progress, 100, i, false);
-        this.iAl.setTextViewText(R.id.download_progress_text, str);
+        this.iAm.setProgressBar(R.id.download_progress, 100, i, false);
+        this.iAm.setTextViewText(R.id.download_progress_text, str);
     }
 }

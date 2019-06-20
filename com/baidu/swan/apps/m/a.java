@@ -25,7 +25,7 @@ public final class a {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
                 n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.avG);
             }
-            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.er(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
+            final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.eq(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
             e.am("postMessage", "dispatchJSEvent buildEvent");
             if (DEBUG) {
                 Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format2);

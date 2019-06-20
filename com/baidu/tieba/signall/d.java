@@ -12,14 +12,14 @@ public class d implements ae {
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int iQh;
-    private int iQi;
-    private int iQj;
-    private boolean iQk;
-    private boolean iQl;
-    private boolean iQm;
-    private boolean iQn;
-    private int iQo;
+    private int iQl;
+    private int iQm;
+    private int iQn;
+    private boolean iQo;
+    private boolean iQp;
+    private boolean iQq;
+    private boolean iQr;
+    private int iQs;
 
     public int getForumId() {
         return this.forumId;
@@ -33,28 +33,28 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int ckb() {
-        return this.iQh;
-    }
-
     public int ckc() {
-        return this.drH;
+        return this.iQl;
     }
 
     public int ckd() {
-        return this.eJG;
+        return this.drH;
     }
 
     public int cke() {
-        return this.iQi;
+        return this.eJG;
     }
 
     public int ckf() {
-        return this.iQj;
+        return this.iQm;
+    }
+
+    public int ckg() {
+        return this.iQn;
     }
 
     public void Ae(int i) {
-        this.iQh = i;
+        this.iQl = i;
     }
 
     public void Af(int i) {
@@ -66,49 +66,49 @@ public class d implements ae {
     }
 
     public boolean aIw() {
-        return this.iQk;
-    }
-
-    public void qy(boolean z) {
-        this.iQk = z;
-        this.iQh = 1;
-    }
-
-    public boolean ckg() {
-        return this.iQm;
-    }
-
-    public void qz(boolean z) {
-        this.iQm = z;
-        this.iQh = 0;
-    }
-
-    public boolean ckh() {
-        return this.iQn;
-    }
-
-    public void qA(boolean z) {
-        this.iQn = z;
-    }
-
-    public int cki() {
         return this.iQo;
     }
 
+    public void qz(boolean z) {
+        this.iQo = z;
+        this.iQl = 1;
+    }
+
+    public boolean ckh() {
+        return this.iQq;
+    }
+
+    public void qA(boolean z) {
+        this.iQq = z;
+        this.iQl = 0;
+    }
+
+    public boolean cki() {
+        return this.iQr;
+    }
+
+    public void qB(boolean z) {
+        this.iQr = z;
+    }
+
+    public int ckj() {
+        return this.iQs;
+    }
+
     public void Ah(int i) {
-        this.iQo = i;
+        this.iQs = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean ckj() {
-        return this.iQl;
+    public boolean ckk() {
+        return this.iQp;
     }
 
-    public void qB(boolean z) {
-        this.iQl = z;
+    public void qC(boolean z) {
+        this.iQp = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.iQh = jSONObject.optInt("is_sign_in");
+            this.iQl = jSONObject.optInt("is_sign_in");
             this.drH = jSONObject.optInt("cont_sign_num");
             this.eJG = jSONObject.optInt("user_level");
-            this.iQi = jSONObject.optInt("user_exp");
-            this.iQj = jSONObject.optInt("need_exp");
-            if (this.iQh != 0) {
-                this.iQk = true;
-                this.iQm = false;
+            this.iQm = jSONObject.optInt("user_exp");
+            this.iQn = jSONObject.optInt("need_exp");
+            if (this.iQl != 0) {
+                this.iQo = true;
+                this.iQq = false;
             }
         }
     }

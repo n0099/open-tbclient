@@ -11,28 +11,28 @@ import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class m implements a.InterfaceC0440a {
-    private static n jPS;
-    private static long jPT;
-    private static long jPl = f.cAw();
-    private Runnable jPV;
+    private static n jPV;
+    private static long jPW;
+    private static long jPo = f.cAv();
+    private Runnable jPY;
     private boolean foreground = false;
-    private boolean jPU = true;
+    private boolean jPX = true;
     private Handler handler = new Handler();
-    private a jPW = new a() { // from class: com.baidu.ubs.analytics.c.m.1
+    private a jPZ = new a() { // from class: com.baidu.ubs.analytics.c.m.1
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void aq() {
             long currentTimeMillis = System.currentTimeMillis();
-            com.baidu.ubs.analytics.d.b.Gr("app   went foreground ");
-            if (currentTimeMillis - m.jPT > m.jPl) {
+            com.baidu.ubs.analytics.d.b.Gt("app   went foreground ");
+            if (currentTimeMillis - m.jPW > m.jPo) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.cAn().i()) {
+            if (com.baidu.ubs.analytics.d.cAm().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
-                        com.baidu.ubs.analytics.d.b.Gr("记录一次app启动事件");
+                        com.baidu.ubs.analytics.d.b.Gt("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.cAn().a(false);
+                        com.baidu.ubs.analytics.d.cAm().a(false);
                     }
                 });
             }
@@ -41,14 +41,14 @@ public final class m implements a.InterfaceC0440a {
         @Override // com.baidu.ubs.analytics.c.m.a
         public final void ar() {
             d dVar;
-            dVar = d.a.jPD;
-            if (dVar.cAs().size() == 0) {
-                com.baidu.ubs.analytics.d.b.Gr("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.cAn().a(true);
-                long unused = m.jPT = 0L;
+            dVar = d.a.jPG;
+            if (dVar.cAr().size() == 0) {
+                com.baidu.ubs.analytics.d.b.Gt("后台应用退出了 了               ");
+                com.baidu.ubs.analytics.d.cAm().a(true);
+                long unused = m.jPW = 0L;
                 return;
             }
-            com.baidu.ubs.analytics.d.b.Gr("进入后台但没退出                  ");
+            com.baidu.ubs.analytics.d.b.Gt("进入后台但没退出                  ");
         }
     };
 
@@ -62,55 +62,55 @@ public final class m implements a.InterfaceC0440a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m() {
         long currentTimeMillis = System.currentTimeMillis();
-        jPT = currentTimeMillis;
+        jPW = currentTimeMillis;
         d(currentTimeMillis);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n cAD() {
-        return jPS;
+    public static n cAC() {
+        return jPV;
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0440a
     public final void T() {
-        this.jPU = false;
+        this.jPX = false;
         boolean z = this.foreground ? false : true;
         this.foreground = true;
-        if (this.jPV != null) {
-            this.handler.removeCallbacks(this.jPV);
+        if (this.jPY != null) {
+            this.handler.removeCallbacks(this.jPY);
         }
         if (z) {
             try {
-                this.jPW.aq();
+                this.jPZ.aq();
             } catch (Exception e) {
-                com.baidu.ubs.analytics.d.j.Gr("Listener threw exception!:" + e.toString());
+                com.baidu.ubs.analytics.d.j.Gt("Listener threw exception!:" + e.toString());
             }
         }
     }
 
     @Override // com.baidu.ubs.analytics.c.a.InterfaceC0440a
     public final void U() {
-        this.jPU = true;
-        if (this.jPV != null) {
-            this.handler.removeCallbacks(this.jPV);
-            this.jPV = null;
+        this.jPX = true;
+        if (this.jPY != null) {
+            this.handler.removeCallbacks(this.jPY);
+            this.jPY = null;
         }
-        jPT = System.currentTimeMillis();
+        jPW = System.currentTimeMillis();
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.3
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
                 long currentTimeMillis = System.currentTimeMillis();
-                m.jPS.z(String.valueOf(currentTimeMillis));
+                m.jPV.z(String.valueOf(currentTimeMillis));
                 try {
-                    m.jPS.A(String.valueOf(currentTimeMillis - Long.parseLong(m.jPS.N())));
+                    m.jPV.A(String.valueOf(currentTimeMillis - Long.parseLong(m.jPV.N())));
                 } catch (NumberFormatException e) {
-                    com.baidu.ubs.analytics.d.b.Gr(e.getLocalizedMessage());
+                    com.baidu.ubs.analytics.d.b.Gt(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.Gm(m.jPS.I())) {
-                    pVar.b(m.jPS);
+                if (pVar.Go(m.jPV.I())) {
+                    pVar.b(m.jPV);
                 } else {
-                    pVar.c(m.jPS);
+                    pVar.c(m.jPV);
                 }
             }
         });
@@ -118,17 +118,17 @@ public final class m implements a.InterfaceC0440a {
         Runnable runnable = new Runnable() { // from class: com.baidu.ubs.analytics.c.m.2
             @Override // java.lang.Runnable
             public final void run() {
-                if (m.this.foreground && m.this.jPU) {
+                if (m.this.foreground && m.this.jPX) {
                     m.this.foreground = false;
                     try {
-                        m.this.jPW.ar();
+                        m.this.jPZ.ar();
                     } catch (Exception e) {
-                        com.baidu.ubs.analytics.d.j.Gr("Listener threw exception!:" + e.toString());
+                        com.baidu.ubs.analytics.d.j.Gt("Listener threw exception!:" + e.toString());
                     }
                 }
             }
         };
-        this.jPV = runnable;
+        this.jPY = runnable;
         handler.postDelayed(runnable, 1000L);
     }
 
@@ -143,14 +143,14 @@ public final class m implements a.InterfaceC0440a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j) {
         n nVar = new n();
-        jPS = nVar;
+        jPV = nVar;
         nVar.setStartTime(String.valueOf(j));
-        jPS.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
+        jPV.x(UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, ""));
         com.baidu.ubs.analytics.d.c.execute(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.4
             @Override // com.baidu.ubs.analytics.d.d
             protected final void a() {
-                com.baidu.ubs.analytics.d.b.Gr("超时了……………… 一个新的session");
-                new p().c(m.jPS);
+                com.baidu.ubs.analytics.d.b.Gt("超时了……………… 一个新的session");
+                new p().c(m.jPV);
             }
         });
     }

@@ -7,32 +7,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String cze = "tb_perfor_samllflow_time";
-    private static volatile m czh;
-    private long czg;
-    private boolean czc = false;
-    private long czf = 86400;
-    private long czd = com.baidu.tbadk.core.sharedPref.b.agM().getLong(cze, 0);
+    private static String czf = "tb_perfor_samllflow_time";
+    private static volatile m czi;
+    private long czh;
+    private boolean czd = false;
+    private long czg = 86400;
+    private long cze = com.baidu.tbadk.core.sharedPref.b.agM().getLong(czf, 0);
 
     public static m auk() {
-        if (czh == null) {
+        if (czi == null) {
             synchronized (m.class) {
-                if (czh == null) {
-                    czh = new m();
+                if (czi == null) {
+                    czi = new m();
                 }
             }
         }
-        return czh;
+        return czi;
     }
 
     private m() {
-        this.czg = 0L;
-        this.czg = this.czf;
+        this.czh = 0L;
+        this.czh = this.czg;
     }
 
     public boolean aul() {
-        if (!this.czc || (System.currentTimeMillis() - this.czd) / 1000 <= this.czg) {
-            return this.czc;
+        if (!this.czd || (System.currentTimeMillis() - this.cze) / 1000 <= this.czh) {
+            return this.czd;
         }
         return false;
     }
@@ -40,15 +40,15 @@ public class m {
     public void fB(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.czd || currentTimeMillis - this.czd >= this.czg) {
-                this.czd = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.agM().putLong(cze, this.czd);
+            if (0 == this.cze || currentTimeMillis - this.cze >= this.czh) {
+                this.cze = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.agM().putLong(czf, this.cze);
             }
         } else {
-            this.czd = 0L;
-            com.baidu.tbadk.core.sharedPref.b.agM().putLong(cze, this.czd);
+            this.cze = 0L;
+            com.baidu.tbadk.core.sharedPref.b.agM().putLong(czf, this.cze);
         }
-        this.czc = z;
+        this.czd = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             n.auq().aur();
         }
@@ -129,7 +129,7 @@ public class m {
 
     public void bj(long j) {
         if (j > 0) {
-            this.czg = j;
+            this.czh = j;
         }
     }
 

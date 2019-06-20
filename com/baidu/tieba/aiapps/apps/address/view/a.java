@@ -20,16 +20,16 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
     private g aRd;
-    private e.a dbj;
-    private BdMultiPicker.b dbk;
-    private InterfaceC0281a dbl;
+    private e.a dbk;
+    private BdMultiPicker.b dbl;
+    private InterfaceC0281a dbm;
     private JSONArray aHI = new JSONArray();
     private JSONArray aHJ = new JSONArray();
-    private List<d> daI = new ArrayList();
-    private List<d> dbh = new ArrayList();
+    private List<d> daJ = new ArrayList();
     private List<d> dbi = new ArrayList();
-    private Map<d, List<d>> daJ = new HashMap();
+    private List<d> dbj = new ArrayList();
     private Map<d, List<d>> daK = new HashMap();
+    private Map<d, List<d>> daL = new HashMap();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -42,13 +42,13 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.daI = c.aDC().aDE();
-        this.daJ = c.aDC().aDF();
-        this.daK = c.aDC().aDG();
+        this.daJ = c.aDC().aDE();
+        this.daK = c.aDC().aDF();
+        this.daL = c.aDC().aDG();
         aDM();
         aDN();
-        this.dbj = new e.a(context);
-        this.dbk = new BdMultiPicker.b() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
+        this.dbk = new e.a(context);
+        this.dbl = new BdMultiPicker.b() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
             public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 if (jSONObject != null) {
@@ -69,8 +69,8 @@ public class a {
     }
 
     private void aDN() {
-        if (this.daI.size() > 0) {
-            this.aHI.put(aK(this.daI));
+        if (this.daJ.size() > 0) {
+            this.aHI.put(aK(this.daJ));
         }
         aB(0, this.aHJ.optInt(0));
         aB(1, this.aHJ.optInt(1));
@@ -87,17 +87,17 @@ public class a {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         if (i == 0) {
-            this.dbh = this.daJ.get(this.daI.get(i2));
-            if (this.dbh.size() <= 0) {
+            this.dbi = this.daK.get(this.daJ.get(i2));
+            if (this.dbi.size() <= 0) {
                 jSONArray = null;
             } else {
-                jSONArray = aK(this.dbh);
+                jSONArray = aK(this.dbi);
             }
             jSONArray2 = jSONArray;
         } else if (i == 1) {
-            this.dbi = this.daK.get(this.dbh.get(i2));
-            if (this.dbi.size() > 0) {
-                jSONArray2 = aK(this.dbi);
+            this.dbj = this.daL.get(this.dbi.get(i2));
+            if (this.dbj.size() > 0) {
+                jSONArray2 = aK(this.dbj);
             }
         }
         if (jSONArray2 != null) {
@@ -124,13 +124,13 @@ public class a {
 
     public void aDO() {
         if (this.aRd == null) {
-            this.aRd = this.dbj.h(this.aHI).i(this.aHJ).a(this.dbk).d("城市选择").b(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
+            this.aRd = this.dbk.h(this.aHI).i(this.aHJ).a(this.dbl).d("城市选择").b(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                     List<d> F = a.this.F(((e) dialogInterface).getCurrentIndex());
-                    if (a.this.dbl != null) {
-                        a.this.dbl.aG(F);
+                    if (a.this.dbm != null) {
+                        a.this.dbm.aG(F);
                     }
                 }
             }).c(R.string.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.2
@@ -145,9 +145,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public List<d> F(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList(3);
-        arrayList.add(this.daI.get(jSONArray.optInt(0)));
-        arrayList.add(this.dbh.get(jSONArray.optInt(1)));
-        arrayList.add(this.dbi.get(jSONArray.optInt(2)));
+        arrayList.add(this.daJ.get(jSONArray.optInt(0)));
+        arrayList.add(this.dbi.get(jSONArray.optInt(1)));
+        arrayList.add(this.dbj.get(jSONArray.optInt(2)));
         return arrayList;
     }
 
@@ -168,6 +168,6 @@ public class a {
     }
 
     public void a(InterfaceC0281a interfaceC0281a) {
-        this.dbl = interfaceC0281a;
+        this.dbm = interfaceC0281a;
     }
 }

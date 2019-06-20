@@ -24,17 +24,17 @@ public class UserItemData implements Parcelable {
     public String fans_num;
     public String intro;
     public String is_follow;
-    public String jnC;
-    public String jnD;
-    public String jnE;
-    public String jnF;
+    public String jnG;
+    public String jnH;
+    public String jnI;
+    public String jnJ;
     public String name_show;
     public String portrait;
     public String user_id;
     public String user_name;
     public String video_num;
 
-    public String cqO() {
+    public String cqP() {
         return !TextUtils.isEmpty(this.name_show) ? this.name_show : this.user_name;
     }
 
@@ -49,14 +49,14 @@ public class UserItemData implements Parcelable {
         parcel.writeString(this.user_name);
         parcel.writeString(this.name_show);
         parcel.writeString(this.portrait);
-        parcel.writeString(this.jnC);
-        parcel.writeString(this.jnD);
+        parcel.writeString(this.jnG);
+        parcel.writeString(this.jnH);
         parcel.writeString(this.fans_num);
         parcel.writeString(this.video_num);
         parcel.writeString(this.agree_num);
         parcel.writeString(this.intro);
-        parcel.writeString(this.jnE);
-        parcel.writeString(this.jnF);
+        parcel.writeString(this.jnI);
+        parcel.writeString(this.jnJ);
         parcel.writeString(this.is_follow);
     }
 
@@ -68,14 +68,14 @@ public class UserItemData implements Parcelable {
         this.user_name = parcel.readString();
         this.name_show = parcel.readString();
         this.portrait = parcel.readString();
-        this.jnC = parcel.readString();
-        this.jnD = parcel.readString();
+        this.jnG = parcel.readString();
+        this.jnH = parcel.readString();
         this.fans_num = parcel.readString();
         this.video_num = parcel.readString();
         this.agree_num = parcel.readString();
         this.intro = parcel.readString();
-        this.jnE = parcel.readString();
-        this.jnF = parcel.readString();
+        this.jnI = parcel.readString();
+        this.jnJ = parcel.readString();
         this.is_follow = parcel.readString();
     }
 }

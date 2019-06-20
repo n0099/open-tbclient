@@ -18,38 +18,38 @@ import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 /* loaded from: classes6.dex */
 public class c implements com.baidu.tieba.personPolymeric.mode.a {
-    private BdUniqueId iiR;
+    private BdUniqueId iiS;
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
-    private int iiP = -1;
-    private String iiQ = "";
-    private com.baidu.tbadk.core.view.e hEK = new com.baidu.tbadk.core.view.e();
+    private int iiQ = -1;
+    private String iiR = "";
+    private com.baidu.tbadk.core.view.e hEL = new com.baidu.tbadk.core.view.e();
 
     public BdUniqueId getUniqueId() {
-        return this.iiR;
+        return this.iiS;
     }
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.hEK.bXF = 1000L;
-        this.iiR = bdUniqueId;
+        this.hEL.bXG = 1000L;
+        this.iiS = bdUniqueId;
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
-        userMuteAddAndDelCustomMessage.mId = this.iiR;
+        userMuteAddAndDelCustomMessage.mId = this.iiS;
         userMuteAddAndDelCustomMessage.from = 0;
-        userMuteAddAndDelCustomMessage.setTag(this.iiR);
+        userMuteAddAndDelCustomMessage.setTag(this.iiS);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001432);
-        userMuteCheckCustomMessage.mId = this.iiR;
-        userMuteCheckCustomMessage.setTag(this.iiR);
+        userMuteCheckCustomMessage.mId = this.iiS;
+        userMuteCheckCustomMessage.setTag(this.iiS);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public int bZM() {
-        return this.iiP;
+    public int bZN() {
+        return this.iiQ;
     }
 
-    public String bZN() {
-        return this.iiQ;
+    public String bZO() {
+        return this.iiR;
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.a
@@ -57,21 +57,21 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         if (this.mWaitingDialog != null) {
             this.mWaitingDialog.ef(false);
         }
-        this.iiP = i2;
-        this.iiQ = str;
+        this.iiQ = i2;
+        this.iiR = str;
         if (i3 == 0) {
             if (i == 1) {
-                this.hEK.i(this.mPageContext.getString(R.string.mute_success));
+                this.hEL.i(this.mPageContext.getString(R.string.mute_success));
             } else if (i == 2) {
-                this.hEK.i(this.mPageContext.getResources().getString(R.string.un_mute_success));
+                this.hEL.i(this.mPageContext.getResources().getString(R.string.un_mute_success));
             }
         } else if (i3 == 220017) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = this.mPageContext.getString(R.string.mute_error_beyond_limit);
             }
-            qf(str2);
+            qe(str2);
         } else if (i3 == 1990043) {
-            bRQ();
+            bRR();
         } else {
             if (ap.isEmpty(str2)) {
                 if (i == 1) {
@@ -80,7 +80,7 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
                     str2 = this.mPageContext.getResources().getString(R.string.un_mute_fail);
                 }
             }
-            this.hEK.j(str2);
+            this.hEL.j(str2);
         }
     }
 
@@ -90,19 +90,19 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
             this.mWaitingDialog.e(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.personPolymeric.b.c.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    MessageManager.getInstance().removeMessage(c.this.iiR);
+                    MessageManager.getInstance().removeMessage(c.this.iiS);
                 }
             });
         }
         this.mWaitingDialog.ef(true);
     }
 
-    public void qf(String str) {
+    public void qe(String str) {
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.mE(str);
+        aVar.mD(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -112,9 +112,9 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         aVar.b(this.mPageContext).afG();
     }
 
-    public void bRQ() {
+    public void bRR() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.mE(this.mPageContext.getString(R.string.mute_is_super_member_function));
+        aVar.mD(this.mPageContext.getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -150,9 +150,9 @@ public class c implements com.baidu.tieba.personPolymeric.mode.a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         if (ap.isEmpty(str)) {
-            aVar.mE(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
+            aVar.mD(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
         } else {
-            aVar.mE(str);
+            aVar.mD(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.c.5
             @Override // com.baidu.tbadk.core.dialog.a.b

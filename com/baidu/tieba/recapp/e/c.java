@@ -11,11 +11,11 @@ import com.baidu.tieba.recapp.s;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class c extends e {
-    private TextView cbV;
-    private HeadImageView fTK;
-    private TextView iFn;
-    private CountDownTextView iFr;
-    private boolean iFs;
+    private TextView cbW;
+    private HeadImageView fTM;
+    private TextView iFo;
+    private CountDownTextView iFs;
+    private boolean iFt;
 
     public c(View view, String str) {
         super(view, str);
@@ -23,64 +23,64 @@ public class c extends e {
     }
 
     private void init() {
-        this.fTK = (HeadImageView) zg(R.id.user_portrait);
-        this.fTK.setDefaultResource(R.drawable.icon_default_avatar100);
-        this.fTK.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        this.fTK.setDefaultBgResource(R.color.cp_bg_line_e);
-        this.fTK.setIsRound(true);
-        this.cbV = (TextView) zg(R.id.user_name);
-        this.iFr = (CountDownTextView) zg(R.id.count_down_text);
-        this.iFn = (TextView) zg(R.id.action);
+        this.fTM = (HeadImageView) zg(R.id.user_portrait);
+        this.fTM.setDefaultResource(R.drawable.icon_default_avatar100);
+        this.fTM.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        this.fTM.setDefaultBgResource(R.color.cp_bg_line_e);
+        this.fTM.setIsRound(true);
+        this.cbW = (TextView) zg(R.id.user_name);
+        this.iFs = (CountDownTextView) zg(R.id.count_down_text);
+        this.iFo = (TextView) zg(R.id.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.fTK.startLoad(fVar.iAK, 10, false);
-        this.cbV.setText(fVar.userName);
-        this.iFn.setText(fVar.buttonText);
+        this.fTM.startLoad(fVar.iAL, 10, false);
+        this.cbW.setText(fVar.userName);
+        this.iFo.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.aG(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.iFv != null) {
-                    c.this.iFv.yZ(302);
-                    com.baidu.tieba.recapp.report.c.cfG().a(c.this.iFv);
+                if (c.this.iFw != null) {
+                    c.this.iFw.yZ(302);
+                    com.baidu.tieba.recapp.report.c.cfH().a(c.this.iFw);
                 }
-                if (c.this.iFx != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.iFx);
+                if (c.this.iFy != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.iFy);
                 }
-                c.this.qd(false);
+                c.this.qe(false);
             }
         });
-        this.iFr.update(fVar.count);
+        this.iFs.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void cfK() {
-        super.cfK();
-        this.iFr.startCountDown();
+    public void cfL() {
+        super.cfL();
+        this.iFs.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.iFr.setTimeoutListener(bVar);
+        this.iFs.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void onChangeSkinType() {
-        al.f(this.cbV, R.color.cp_btn_a, 1);
-        al.f(this.iFn, R.color.cp_btn_a, 1);
-        al.g(this.iFn, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
+        al.f(this.cbW, R.color.cp_btn_a, 1);
+        al.f(this.iFo, R.color.cp_btn_a, 1);
+        al.g(this.iFo, R.drawable.tail_frame_action_btn_bg, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void qd(boolean z) {
-        this.iFs = z;
-        if (this.iFr != null) {
-            this.iFr.setEnableTimeoutListener(this.iFs);
+    public void qe(boolean z) {
+        this.iFt = z;
+        if (this.iFs != null) {
+            this.iFs.setEnableTimeoutListener(this.iFt);
         }
     }
 }

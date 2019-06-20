@@ -210,7 +210,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     }
 
     public void setHasExts(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.st(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_23, this, this, org.aspectj.a.a.a.su(z)));
         this.avcDecoderConfigurationRecord.hasExts = z;
     }
 

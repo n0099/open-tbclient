@@ -23,12 +23,12 @@ public class a implements h {
             d.bl("").b(Schedulers.io()).d(new f<String, Object>() { // from class: com.baidu.tieba.aiapps.apps.s.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: sU */
+                /* renamed from: sT */
                 public Object call(String str) {
                     com.baidu.swan.c.a.f(new File(string), new File(string2));
                     return null;
                 }
-            }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.s.a.1
+            }).a(rx.a.b.a.cLq()).c(new rx.functions.b<Object>() { // from class: com.baidu.tieba.aiapps.apps.s.a.1
                 @Override // rx.functions.b
                 public void call(Object obj) {
                     bundle2.putString("path", string2);

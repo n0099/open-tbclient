@@ -51,10 +51,10 @@ public class a implements i {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
             d dVar = new d();
             dVar.bh(currentTimeMillis);
-            dVar.qD(getCurrentPageKey());
+            dVar.qC(getCurrentPageKey());
             dVar.setTid(j);
-            dVar.cxU = string;
-            dVar.cxV = string2;
+            dVar.cxV = string;
+            dVar.cxW = string2;
             dVar.ao(getCurrentPageSourceKeyList());
             e.atQ().fy(true);
             e.atQ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());

@@ -44,7 +44,7 @@ public final class au {
                 createFromThreadCfg.setVideo_source("index");
             }
             createFromThreadCfg.setJumpGodReply(z);
-            com.baidu.tieba.card.n.uS(abv.getTid());
+            com.baidu.tieba.card.n.uR(abv.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }

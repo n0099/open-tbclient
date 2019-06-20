@@ -106,12 +106,12 @@ public class d implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
                 sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.m("master_dispatch_start", "naStart"));
                 sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + m);
                 int optInt = hybridUbcFlow.HA().optInt("type", -1);
-                String fS = hybridUbcFlow.fS("preload_scene");
-                if (TextUtils.isEmpty(fS)) {
-                    fS = LivenessStat.TYPE_STRING_DEFAULT;
+                String fR = hybridUbcFlow.fR("preload_scene");
+                if (TextUtils.isEmpty(fR)) {
+                    fR = LivenessStat.TYPE_STRING_DEFAULT;
                 }
                 sb3.append("\n\n小程序启动总时长：========> " + j);
-                sb3.append(!hybridUbcFlow.aFt.contains("package_start_unzip") ? "(热启动)" : "(冷启动)").append("  relaunchType:" + optInt).append("  preloadType:" + fS);
+                sb3.append(!hybridUbcFlow.aFt.contains("package_start_unzip") ? "(热启动)" : "(冷启动)").append("  relaunchType:" + optInt).append("  preloadType:" + fR);
                 Log.i("StartupReporter", "Report ： " + sb3.toString());
             }
         }

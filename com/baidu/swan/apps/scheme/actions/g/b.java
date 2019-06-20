@@ -36,7 +36,7 @@ public class b extends z {
             String optString2 = optParamsAsJo.optString("backgroundColor");
             JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
             com.baidu.swan.apps.core.d.b zK = vi.zK();
-            if (!zK.dH(optString)) {
+            if (!zK.dG(optString)) {
                 com.baidu.swan.apps.console.c.e("navigationColor", "set title color fail");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;

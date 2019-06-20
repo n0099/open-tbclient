@@ -54,7 +54,7 @@ public class i extends z {
         if (DEBUG) {
             Log.d("redirectTo", "webview id: " + wU);
         }
-        final String optString = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("redirect", "cb is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -64,7 +64,7 @@ public class i extends z {
         FV.showLoadingView();
         g.Mj().a(bVar, aq.ayL, wU, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.i.i.1
             @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-            public void fb(String str2) {
+            public void fa(String str2) {
                 com.baidu.swan.apps.console.c.i("redirect", "check pages success");
                 FV.vl();
                 a.a(unitedSchemeEntity, callbackHandler, bVar, wU, aq.ayL, optString);
@@ -108,6 +108,6 @@ public class i extends z {
     }
 
     public static void c(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar) {
-        eVar.dO("redirectTo").y(0, 0).a("normal", bVar).cg(eVar.zN() - 2).zW();
+        eVar.dN("redirectTo").y(0, 0).a("normal", bVar).cg(eVar.zN() - 2).zW();
     }
 }

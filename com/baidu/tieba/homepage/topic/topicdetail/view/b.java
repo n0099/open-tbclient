@@ -20,7 +20,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tbadk.editortools.c {
-    private boolean csV = false;
+    private boolean csW = false;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.d cK(Context context) {
@@ -47,8 +47,8 @@ public class b extends com.baidu.tbadk.editortools.c {
                         switch (aVar2.code) {
                             case 4:
                             case 6:
-                                aVar.qb((String) aVar2.data);
-                                b.this.csV = false;
+                                aVar.qa((String) aVar2.data);
+                                b.this.csW = false;
                                 return;
                             case 5:
                             case 9:
@@ -60,12 +60,12 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 7:
                                 aVar.alf().showToast((int) R.string.over_limit_tip);
-                                b.this.csV = true;
+                                b.this.csW = true;
                                 return;
                             case 8:
                                 if (b.this.a(aVar.alf(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
                                     aVar.arL();
-                                    TiebaStatic.log(new am("c13363").bT("topic_id", String.valueOf(aVar.buL())));
+                                    TiebaStatic.log(new am("c13363").bT("topic_id", String.valueOf(aVar.buM())));
                                     return;
                                 }
                                 return;
@@ -116,11 +116,11 @@ public class b extends com.baidu.tbadk.editortools.c {
         k kj = aqS.kj(5);
         if (kj != null) {
             kj.fg(false);
-            kj.crv = 1;
-            kj.crt = R.drawable.new_pbeditor_face_button;
+            kj.crw = 1;
+            kj.cru = R.drawable.new_pbeditor_face_button;
         }
         com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(aqS.getContext(), 3);
-        dVar2.crt = R.drawable.new_pbeditor_image_button;
+        dVar2.cru = R.drawable.new_pbeditor_image_button;
         aqS.b(dVar2);
         c cVar = new c(aqS.getContext());
         if (cVar.getInputView() != null) {

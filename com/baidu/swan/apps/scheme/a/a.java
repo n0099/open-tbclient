@@ -57,9 +57,9 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         if (TextUtils.isEmpty(g)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(1L).Z(1L).hZ("appId is empty");
-            e.Ok().b(hZ);
-            com.baidu.swan.apps.statistic.e.b(new d().hp(com.baidu.swan.apps.statistic.e.dM(0)).a(hZ).aC("scheme", uri.toString()));
+            com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(1L).Z(1L).hY("appId is empty");
+            e.Ok().b(hY);
+            com.baidu.swan.apps.statistic.e.b(new d().ho(com.baidu.swan.apps.statistic.e.dM(0)).a(hY).aC("scheme", uri.toString()));
             return true;
         }
         String b = b(g, uri);

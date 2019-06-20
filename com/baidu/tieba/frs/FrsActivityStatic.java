@@ -74,7 +74,7 @@ public class FrsActivityStatic {
         bjo();
         bjp();
         bjq();
-        LocationModel.cng();
+        LocationModel.cnh();
         bju();
         bjs();
         bjv();
@@ -220,11 +220,11 @@ public class FrsActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001012) {
-                    if (com.baidu.tieba.recapp.r.ceL().ceF() != null) {
-                        com.baidu.tieba.recapp.r.ceL().ceF().cew();
+                    if (com.baidu.tieba.recapp.r.ceM().ceG() != null) {
+                        com.baidu.tieba.recapp.r.ceM().ceG().cex();
                     }
-                    if (com.baidu.tieba.recapp.r.ceL().ceG() != null) {
-                        com.baidu.tieba.recapp.r.ceL().ceG().cex();
+                    if (com.baidu.tieba.recapp.r.ceM().ceH() != null) {
+                        com.baidu.tieba.recapp.r.ceM().ceH().cey();
                     }
                 }
             }

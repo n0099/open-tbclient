@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends a {
-    private bg VK;
+    private bg VJ;
     private com.baidu.tbadk.core.view.userLike.c ewY;
     public TextView fyL;
     public EntelechyUserLikeButton fyM;
@@ -43,8 +43,8 @@ public class b extends a {
         this.fyO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.VK != null && b.this.VK.adv() != null && !StringUtils.isNull(b.this.VK.adv().getName_show()) && !StringUtils.isNull(b.this.VK.adv().getUserId()) && b.this.VK.adA() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.VK.adv().getUserId(), b.this.VK.adv().getName_show(), b.this.VK.adA(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (b.this.VJ != null && b.this.VJ.adv() != null && !StringUtils.isNull(b.this.VJ.adv().getName_show()) && !StringUtils.isNull(b.this.VJ.adv().getUserId()) && b.this.VJ.adA() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.VJ.adv().getUserId(), b.this.VJ.adv().getName_show(), b.this.VJ.adA(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
@@ -77,17 +77,17 @@ public class b extends a {
     public void a(bg bgVar) {
         super.a(bgVar);
         if (bgVar != null) {
-            this.VK = bgVar;
+            this.VJ = bgVar;
             if (bgVar.adv() != null) {
                 this.ewY.a(bgVar.adv());
                 rH(bgVar.adv().getFansNum());
-                if (!this.VK.ady()) {
+                if (!this.VJ.ady()) {
                     this.fyM.setVisibility(8);
-                } else if (this.VK.adv().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.VK.adv().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                } else if (this.VJ.adv().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.VJ.adv().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     this.fyM.setVisibility(8);
                     return;
-                } else if (this.VK.adv().getGodUserData() != null && this.VK.adv().getGodUserData().getIsLike()) {
-                    if (this.VK.adv().getGodUserData().getIsFromNetWork()) {
+                } else if (this.VJ.adv().getGodUserData() != null && this.VJ.adv().getGodUserData().getIsLike()) {
+                    if (this.VJ.adv().getGodUserData().getIsFromNetWork()) {
                         this.fyM.setVisibility(8);
                     } else {
                         this.fyM.setVisibility(0);
@@ -126,8 +126,8 @@ public class b extends a {
     public void rH(int i) {
         if (this.fyL != null) {
             String string = this.mPageContext.getResources().getString(R.string.fans_default_name_god_user);
-            if (this.VK != null && !StringUtils.isNull(this.VK.adA()) && this.VK.adA().equals(this.mForumName)) {
-                if (this.VK.ady()) {
+            if (this.VJ != null && !StringUtils.isNull(this.VJ.adA()) && this.VJ.adA().equals(this.mForumName)) {
+                if (this.VJ.ady()) {
                     String format = String.format(string, ap.aG(i));
                     this.fyL.setVisibility(0);
                     this.fyL.setText(format);

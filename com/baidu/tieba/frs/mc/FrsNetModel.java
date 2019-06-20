@@ -46,7 +46,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, com.baidu.tieba
     }
 
     public void a(FrsRequestData frsRequestData) {
-        this.cxe = frsRequestData;
+        this.cxf = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

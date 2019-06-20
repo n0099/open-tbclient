@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private static f cYp;
+    private static f cYq;
 
     private f() {
     }
 
     public static f aCr() {
         synchronized (f.class) {
-            if (cYp == null) {
-                cYp = new f();
+            if (cYq == null) {
+                cYq = new f();
             }
         }
-        return cYp;
+        return cYq;
     }
 
     private ContentValues b(com.baidu.tbadk.coreExtra.relationship.a aVar) {
@@ -117,21 +117,21 @@ public class f {
         if (aCv != null && !TextUtils.isEmpty(currentAccount)) {
             aCv.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cjg) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cjh) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar.pk(str);
+                    aVar.pj(str);
                     arrayList2.add(aVar);
                     cursor = aCv.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter=?", new String[]{str});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar2.pk(str);
+                            aVar2.pj(str);
                             aVar2.setUserName(cursor.getString(cursor.getColumnIndex("name")));
-                            aVar2.pl(cursor.getString(cursor.getColumnIndex("name_show")));
+                            aVar2.pk(cursor.getString(cursor.getColumnIndex("name_show")));
                             aVar2.setUserId(cursor.getLong(cursor.getColumnIndex("id")));
                             aVar2.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
-                            aVar2.pj(cursor.getString(cursor.getColumnIndex(IntentConfig.PORTRAIT)));
+                            aVar2.pi(cursor.getString(cursor.getColumnIndex(IntentConfig.PORTRAIT)));
                             aVar2.setQuanpin(cursor.getString(cursor.getColumnIndex("quanpin")));
                             aVar2.setLbsInfo(new com.baidu.tbadk.coreExtra.relationship.b(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
                             arrayList2.add(aVar2);
@@ -165,21 +165,21 @@ public class f {
         if (aCv != null && !TextUtils.isEmpty(currentAccount)) {
             aCv.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cjg) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.cjh) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
-                    aVar.pk(str);
+                    aVar.pj(str);
                     arrayList2.add(aVar);
                     cursor = aCv.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", new String[]{str, "1"});
                     if (cursor != null) {
                         while (cursor.moveToNext()) {
                             com.baidu.tbadk.coreExtra.relationship.a aVar2 = new com.baidu.tbadk.coreExtra.relationship.a();
-                            aVar2.pk(str);
+                            aVar2.pj(str);
                             aVar2.setUserName(cursor.getString(cursor.getColumnIndex("name")));
-                            aVar2.pl(cursor.getString(cursor.getColumnIndex("name_show")));
+                            aVar2.pk(cursor.getString(cursor.getColumnIndex("name_show")));
                             aVar2.setUserId(cursor.getLong(cursor.getColumnIndex("id")));
                             aVar2.setUserType(cursor.getInt(cursor.getColumnIndex("user_type")));
-                            aVar2.pj(cursor.getString(cursor.getColumnIndex(IntentConfig.PORTRAIT)));
+                            aVar2.pi(cursor.getString(cursor.getColumnIndex(IntentConfig.PORTRAIT)));
                             aVar2.setQuanpin(cursor.getString(cursor.getColumnIndex("quanpin")));
                             aVar2.setLbsInfo(new com.baidu.tbadk.coreExtra.relationship.b(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
                             arrayList2.add(aVar2);

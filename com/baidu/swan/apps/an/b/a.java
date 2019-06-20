@@ -26,7 +26,7 @@ public class a {
     private long mTimeout = -1;
     private TimeUnit aZN = TimeUnit.NANOSECONDS;
 
-    private void it(String str) {
+    private void is(String str) {
         if (this.axN != null) {
             this.axN.D(str);
         }
@@ -65,13 +65,13 @@ public class a {
     public synchronized void c(ReadableByteChannel readableByteChannel) {
         boolean z = false;
         synchronized (this) {
-            it(IntentConfig.START);
+            is(IntentConfig.START);
             long currentTimeMillis = System.currentTimeMillis();
             List<RunnableC0118a> OY = OY();
             CountDownLatch countDownLatch = new CountDownLatch(OY.size());
             ExecutorService a = a(OY, countDownLatch);
             a(readableByteChannel, OY);
-            it("pump_finish");
+            is("pump_finish");
             log("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
             try {
                 log("main await for timeout: " + this.aZN.toMillis(this.mTimeout));
@@ -88,7 +88,7 @@ public class a {
                 log("all done: " + (System.currentTimeMillis() - currentTimeMillis));
                 a(a);
             }
-            it("finish");
+            is("finish");
         }
     }
 

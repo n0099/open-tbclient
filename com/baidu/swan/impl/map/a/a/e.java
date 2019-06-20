@@ -22,17 +22,17 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
 
     private boolean d(final Context context, com.baidu.swan.apps.x.a.c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
         com.baidu.swan.apps.console.c.i("map", "MoveToLocationAction start");
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(cVar.aDm);
-        if (!(dU instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(cVar.aDm);
+        if (!(dT instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        final com.baidu.swan.impl.map.b h = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dU);
-        final com.baidu.swan.impl.map.item.b kc = h.kc(cVar.id);
-        if (kc == null) {
+        final com.baidu.swan.impl.map.b h = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dT);
+        final com.baidu.swan.impl.map.item.b kb = h.kb(cVar.id);
+        if (kb == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + cVar.id);
             return false;
-        } else if (!kc.isShowLocation) {
+        } else if (!kb.isShowLocation) {
             com.baidu.swan.apps.console.c.w("map", "can not move to location because showLocation is not set");
             return false;
         } else {
@@ -42,7 +42,7 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
                     @Override // com.baidu.swan.impl.map.a.b.d.a
                     public void onSuccess() {
                         com.baidu.swan.apps.console.c.w("map", "location permission success");
-                        e.this.a(context, kc, h);
+                        e.this.a(context, kb, h);
                     }
 
                     @Override // com.baidu.swan.impl.map.a.b.d.a
@@ -52,10 +52,10 @@ public class e extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.c> {
                 });
                 return true;
             }
-            kc.bns.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(TD.getLatitude(), TD.getLongitude())));
-            kc.bns.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
-            kc.bns.getMap().setMyLocationEnabled(true);
-            kc.bns.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(TD.getRadius()).latitude(TD.getLatitude()).longitude(TD.getLongitude()).build());
+            kb.bns.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(TD.getLatitude(), TD.getLongitude())));
+            kb.bns.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+            kb.bns.getMap().setMyLocationEnabled(true);
+            kb.bns.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(TD.getRadius()).latitude(TD.getLatitude()).longitude(TD.getLongitude()).build());
             com.baidu.swan.apps.console.c.i("map", "MoveToLocationAction end");
             return true;
         }

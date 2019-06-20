@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class l extends b<com.baidu.tbadk.core.data.a> {
-    private ThreadLinkView VD;
-    private TextView VE;
-    private com.baidu.tbadk.core.data.a Vq;
+    private ThreadLinkView VC;
+    private TextView VD;
+    private com.baidu.tbadk.core.data.a Vp;
     private View mRootView;
 
     public l(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        this.VD = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
-        this.VE = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
+        this.VC = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
+        this.VD = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,23 +38,23 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
             getView().setVisibility(8);
             return;
         }
-        this.Vq = aVar;
+        this.Vp = aVar;
         bg abv = aVar.abv();
-        com.baidu.tieba.card.n.a(abv, this.VE);
-        this.VD.setData(abv);
+        com.baidu.tieba.card.n.a(abv, this.VD);
+        this.VC.setData(abv);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.VD.onChangeSkinType();
-        if (this.Vq != null && this.Vq.abv() != null) {
-            com.baidu.tieba.card.n.a(this.VE, this.Vq.abv().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.VC.onChangeSkinType();
+        if (this.Vp != null && this.Vp.abv() != null) {
+            com.baidu.tieba.card.n.a(this.VD, this.Vp.abv().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.VD.setTag(bdUniqueId);
+        this.VC.setTag(bdUniqueId);
     }
 }

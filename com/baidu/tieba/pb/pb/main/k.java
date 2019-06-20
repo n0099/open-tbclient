@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
 /* loaded from: classes4.dex */
 public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    private SparseArray<SoftReference<Drawable>> hCI;
-    private SparseIntArray hCJ;
-    protected PbActivity hGp;
-    protected com.baidu.adp.widget.ListView.o hHO;
+    private SparseArray<SoftReference<Drawable>> hCJ;
+    private SparseIntArray hCK;
+    protected PbActivity hGq;
+    protected com.baidu.adp.widget.ListView.o hHP;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -24,14 +24,14 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.hCI = new SparseArray<>();
-        this.hCJ = new SparseIntArray();
+        this.hCJ = new SparseArray<>();
+        this.hCK = new SparseIntArray();
         au(pbActivity);
     }
 
     public void au(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.hGp = pbActivity;
+            this.hGq = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -40,7 +40,7 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.hHO = (com.baidu.adp.widget.ListView.o) viewGroup;
+        this.hHP = (com.baidu.adp.widget.ListView.o) viewGroup;
         return null;
     }
 
@@ -50,10 +50,10 @@ public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.hCJ.get(i, -1);
+        int i2 = this.hCK.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.hCJ.put(i, dimensionPixelSize);
+            this.hCK.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

@@ -14,7 +14,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class FrsH5ItemView extends FrameLayout {
     private boolean aDR;
-    private final LinearLayout fGl;
+    private final LinearLayout fGn;
     private boolean hasLoaded;
     private boolean isLoading;
     private final View mNoDataView;
@@ -44,7 +44,7 @@ public class FrsH5ItemView extends FrameLayout {
             public void onPageFinished(WebView webView, String str) {
                 FrsH5ItemView.this.isLoading = false;
                 if (!FrsH5ItemView.this.aDR) {
-                    FrsH5ItemView.this.boL();
+                    FrsH5ItemView.this.boN();
                     ViewGroup.LayoutParams layoutParams = FrsH5ItemView.this.getLayoutParams();
                     layoutParams.height = -2;
                     FrsH5ItemView.this.setLayoutParams(layoutParams);
@@ -55,7 +55,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.mOnReceivedErrorListener = new BaseWebView.f() { // from class: com.baidu.tieba.frs.h5.FrsH5ItemView.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FrsH5ItemView.this.boM();
+                FrsH5ItemView.this.boO();
                 FrsH5ItemView.this.aDR = true;
             }
         };
@@ -69,33 +69,33 @@ public class FrsH5ItemView extends FrameLayout {
         this.mNoDataView = LayoutInflater.from(context).inflate(R.layout.frs_no_list_item_view, (ViewGroup) this, false);
         this.mNoDataView.setVisibility(8);
         addView(this.mNoDataView);
-        this.fGl = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
+        this.fGn = (LinearLayout) inflate(getContext(), R.layout.custom_loading_toast, null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds220), -2);
         layoutParams.gravity = 1;
         layoutParams.topMargin = context.getResources().getDimensionPixelSize(R.dimen.ds140);
-        addView(this.fGl, layoutParams);
+        addView(this.fGn, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoading() {
         this.mNoDataView.setVisibility(8);
-        this.fGl.setVisibility(0);
+        this.fGn.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boL() {
+    public void boN() {
         this.mWebView.setVisibility(0);
-        this.fGl.setVisibility(8);
+        this.fGn.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void boM() {
+    public void boO() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = (l.ah(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds90);
         setLayoutParams(layoutParams);
         this.mWebView.setVisibility(8);
-        this.fGl.setVisibility(8);
+        this.fGn.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 

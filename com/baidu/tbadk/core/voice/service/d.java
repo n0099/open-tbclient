@@ -7,5 +7,5 @@ public interface d {
 
     boolean akv();
 
-    boolean oI(String str);
+    boolean oH(String str);
 }

@@ -22,7 +22,7 @@ import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes2.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     private static final PorterDuffXfermode aJh = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
-    protected Bitmap Yy;
+    protected Bitmap Yx;
     private Paint aJi;
     private Paint aJj;
     private a aJk;
@@ -515,9 +515,9 @@ public class ShimmerFrameLayout extends FrameLayout {
     }
 
     private void Jw() {
-        if (this.Yy != null) {
-            this.Yy.recycle();
-            this.Yy = null;
+        if (this.Yx != null) {
+            this.Yx.recycle();
+            this.Yx = null;
         }
     }
 
@@ -538,13 +538,13 @@ public class ShimmerFrameLayout extends FrameLayout {
         int i2;
         int i3;
         int i4;
-        if (this.Yy != null) {
-            return this.Yy;
+        if (this.Yx != null) {
+            return this.Yx;
         }
         int cT = this.aJk.cT(getWidth());
         int cU = this.aJk.cU(getHeight());
-        this.Yy = B(cT, cU);
-        Canvas canvas = new Canvas(this.Yy);
+        this.Yx = B(cT, cU);
+        Canvas canvas = new Canvas(this.Yx);
         switch (this.aJk.aJE) {
             case RADIAL:
                 radialGradient = new RadialGradient(cT / 2, cU / 2, (float) (Math.max(cT, cU) / Math.sqrt(2.0d)), this.aJk.Jy(), this.aJk.Jz(), Shader.TileMode.REPEAT);
@@ -584,7 +584,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         paint.setShader(radialGradient);
         int sqrt = ((int) (Math.sqrt(2.0d) * Math.max(cT, cU))) / 2;
         canvas.drawRect(-sqrt, -sqrt, cT + sqrt, sqrt + cU, paint);
-        return this.Yy;
+        return this.Yx;
     }
 
     private Animator getShimmerAnimation() {

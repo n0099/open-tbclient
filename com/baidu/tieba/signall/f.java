@@ -4,14 +4,14 @@ import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
-    public String bDU;
-    public String iQx;
+    public String bDV;
+    public String iQB;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iQx = jSONObject.optString("banner_pic");
-                this.bDU = jSONObject.optString("banner_url");
+                this.iQB = jSONObject.optString("banner_pic");
+                this.bDV = jSONObject.optString("banner_url");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

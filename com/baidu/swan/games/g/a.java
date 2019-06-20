@@ -96,7 +96,7 @@ public class a extends d implements e.a {
         DuMixGameSurfaceView ca = com.baidu.swan.games.glsurface.a.Rq().ca(this.aww);
         ca.setRenderMode(1);
         com.baidu.swan.games.glsurface.a.Rq().f(ca);
-        this.bgP = com.baidu.swan.games.e.f.a(new g.a().eS(2).iV("master").QW(), new b(cVar.bhU, cVar.bhW == null ? null : cVar.bhW.bjs), new C0201a(ca));
+        this.bgP = com.baidu.swan.games.e.f.a(new g.a().eS(2).iU("master").QW(), new b(cVar.bhU, cVar.bhW == null ? null : cVar.bhW.bjs), new C0201a(ca));
         this.bgP.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
         this.bgP.setContext(this.aww);
         ca.setV8Engine(this.bgP);
@@ -282,22 +282,22 @@ public class a extends d implements e.a {
                     }
                 }
             });
-            f.fO("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_swan_game_js_start"));
+            f.fN("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_swan_game_js_start"));
         }
 
         @Override // com.baidu.swan.games.e.d.a, com.baidu.swan.games.e.d.b
         public void b(final com.baidu.swan.games.e.a aVar) {
-            f.fO("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_swan_game_js_end"));
-            f.fO("startup").f(new UbcFlowEvent("na_load_swan_game_js_end"));
+            f.fN("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_swan_game_js_end"));
+            f.fN("startup").f(new UbcFlowEvent("na_load_swan_game_js_end"));
             if (com.baidu.swan.apps.u.a.DE().vS()) {
                 aVar.setCodeCacheSetting(com.baidu.swan.apps.core.b.a.Y("gamejs", this.mBasePath));
             }
             final Runnable runnable = new Runnable() { // from class: com.baidu.swan.games.g.a.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.fO("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_index_js_start"));
+                    f.fN("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).f(new UbcFlowEvent("na_load_index_js_start"));
                     aVar.aV(b.this.Au(), b.this.Rk());
-                    f.fO("startup").f(new UbcFlowEvent("na_load_index_js_end"));
+                    f.fN("startup").f(new UbcFlowEvent("na_load_index_js_end"));
                     aVar.onLoad();
                 }
             };
@@ -416,10 +416,10 @@ public class a extends d implements e.a {
                 if (Lq != null) {
                     Lq.Lz().release();
                 }
-                jt("back");
+                js("back");
                 return;
             }
-            this.awx.dO("navigateBack").y(e.aqV, e.aqU).zS().commit();
+            this.awx.dN("navigateBack").y(e.aqV, e.aqU).zS().commit();
         }
     }
 
@@ -457,7 +457,7 @@ public class a extends d implements e.a {
                         }
                         a.this.bgR = System.currentTimeMillis();
                         a.this.Ri();
-                        f.fO("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).ar("codecache", String.valueOf(com.baidu.swan.apps.core.b.a.e(a.this.asf, a.this.bgQ))).f(new UbcFlowEvent("na_first_paint")).HB();
+                        f.fN("startup").a(HybridUbcFlow.SubmitStrategy.NA_ONLY).ar("codecache", String.valueOf(com.baidu.swan.apps.core.b.a.e(a.this.asf, a.this.bgQ))).f(new UbcFlowEvent("na_first_paint")).HB();
                         a.this.Re();
                     }
                 });
@@ -484,7 +484,7 @@ public class a extends d implements e.a {
         }
     }
 
-    protected void jt(String str) {
+    protected void js(String str) {
         Bundle Fa;
         if (this.ajM != null && !Rg() && (Fa = this.ajM.Fa()) != null && Fa.getLong("page_display_flag_for_statistic") > 0) {
             long j = Fa.getLong("ext_launch_time", 0L);

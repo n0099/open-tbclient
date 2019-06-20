@@ -4,36 +4,20 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 /* loaded from: classes5.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId gAp = BdUniqueId.gen();
-    private Object Xp;
-    private NoDataViewFactory.ImgType gAq;
-    private String gAr;
-    private String gAs;
+    public static final BdUniqueId gAr = BdUniqueId.gen();
+    private Object Xo;
+    private NoDataViewFactory.ImgType gAs;
     private String gAt;
-    private int gAu;
+    private String gAu;
+    private String gAv;
+    private int gAw;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gAp;
-    }
-
-    public String bAD() {
-        return this.gAr;
-    }
-
-    public void yo(String str) {
-        this.gAr = str;
+        return gAr;
     }
 
     public String bAE() {
-        return this.gAs;
-    }
-
-    public void yp(String str) {
-        this.gAs = str;
-    }
-
-    public String bAF() {
         return this.gAt;
     }
 
@@ -41,27 +25,43 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.gAt = str;
     }
 
-    public int bAG() {
+    public String bAF() {
         return this.gAu;
     }
 
+    public void yr(String str) {
+        this.gAu = str;
+    }
+
+    public String bAG() {
+        return this.gAv;
+    }
+
+    public void ys(String str) {
+        this.gAv = str;
+    }
+
+    public int bAH() {
+        return this.gAw;
+    }
+
     public void uT(int i) {
-        this.gAu = i;
+        this.gAw = i;
     }
 
     public Object qy() {
-        return this.Xp;
+        return this.Xo;
     }
 
     public void setExtraData(Object obj) {
-        this.Xp = obj;
+        this.Xo = obj;
     }
 
-    public NoDataViewFactory.ImgType bAH() {
-        return this.gAq;
+    public NoDataViewFactory.ImgType bAI() {
+        return this.gAs;
     }
 
     public void c(NoDataViewFactory.ImgType imgType) {
-        this.gAq = imgType;
+        this.gAs = imgType;
     }
 }

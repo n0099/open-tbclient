@@ -42,7 +42,7 @@ public class a extends BaseAdapter {
     private boolean eQs = true;
     private f.a eQv = new f.a() { // from class: com.baidu.tieba.enterForum.a.a.8
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void vs(String str) {
+        public void vr(String str) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
@@ -50,7 +50,7 @@ public class a extends BaseAdapter {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void vt(String str) {
+        public void vs(String str) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
@@ -137,9 +137,9 @@ public class a extends BaseAdapter {
                     dVar2 = new d();
                     dVar2.mTitle = (TextView) view.findViewById(R.id.title);
                     dVar2.eQE = (TextView) view.findViewById(R.id.sort_tab_menu_button);
-                    dVar2.cUG = (RelativeLayout) view.findViewById(R.id.container);
+                    dVar2.cUH = (RelativeLayout) view.findViewById(R.id.container);
                     view.setTag(dVar2);
-                    dVar2.cUG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.4
+                    dVar2.cUH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.4
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
                             if (!a.this.eQp.beY() || !a.this.eQp.isShow()) {
@@ -160,18 +160,18 @@ public class a extends BaseAdapter {
                             if (this.eQp.isShow()) {
                                 if (this.eQp.beY()) {
                                     al.j(dVar2.mTitle, R.color.cp_cont_b);
-                                    al.l(dVar2.cUG, R.color.cp_bg_line_f);
+                                    al.l(dVar2.cUH, R.color.cp_bg_line_f);
                                 } else {
                                     al.j(dVar2.mTitle, R.color.cp_btn_a);
-                                    dVar2.cUG.setBackgroundColor(0);
+                                    dVar2.cUH.setBackgroundColor(0);
                                 }
                             } else {
                                 al.j(dVar2.mTitle, R.color.cp_btn_a);
-                                dVar2.cUG.setBackgroundColor(0);
+                                dVar2.cUH.setBackgroundColor(0);
                             }
                         } else {
                             al.j(dVar2.mTitle, R.color.cp_cont_b);
-                            al.l(dVar2.cUG, R.color.cp_bg_line_f);
+                            al.l(dVar2.cUH, R.color.cp_bg_line_f);
                         }
                         if (dVar2.eQE != null) {
                             if (eVar.eRg) {
@@ -444,7 +444,7 @@ public class a extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     private class d {
-        RelativeLayout cUG;
+        RelativeLayout cUH;
         TextView eQE;
         TextView mTitle;
 

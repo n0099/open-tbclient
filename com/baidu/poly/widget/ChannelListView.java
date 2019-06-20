@@ -18,7 +18,7 @@ import java.util.Arrays;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class ChannelListView extends FrameLayout implements View.OnClickListener {
-    private View Rt;
+    private View Rs;
     private View ahP;
     private TipView ahQ;
     private ViewGroup ahR;
@@ -105,7 +105,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(b.e.view_channel_list, this);
-        this.Rt = findViewById(b.d.bg_view);
+        this.Rs = findViewById(b.d.bg_view);
         this.ahP = findViewById(b.d.popup_view);
         this.ahQ = (TipView) findViewById(b.d.tip_view);
         this.ahR = (ViewGroup) findViewById(b.d.channel_list_view);
@@ -117,10 +117,10 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     /* JADX INFO: Access modifiers changed from: private */
     public void uw() {
         this.ahQ.setVisibility(8);
-        this.Rt.setVisibility(0);
+        this.Rs.setVisibility(0);
         this.ahP.setVisibility(0);
-        this.Rt.setAlpha(0.0f);
-        this.Rt.animate().alpha(0.65f).setDuration(240L).start();
+        this.Rs.setAlpha(0.0f);
+        this.Rs.animate().alpha(0.65f).setDuration(240L).start();
         this.ahP.setAlpha(0.0f);
         this.ahP.setScaleX(0.75f);
         this.ahP.setScaleY(0.75f);
@@ -190,7 +190,7 @@ public class ChannelListView extends FrameLayout implements View.OnClickListener
     }
 
     public void detach() {
-        this.Rt.animate().alpha(0.0f).setDuration(240L).start();
+        this.Rs.animate().alpha(0.0f).setDuration(240L).start();
         this.ahP.animate().alpha(0.0f).setDuration(240L).start();
         postDelayed(new Runnable() { // from class: com.baidu.poly.widget.ChannelListView.2
             @Override // java.lang.Runnable

@@ -5,10 +5,10 @@ import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class x {
-    private VcodeExtra cfx;
+    private VcodeExtra cfy;
     private String vcode_md5 = null;
     private String vcode_pic_url = null;
-    private String cfw = null;
+    private String cfx = null;
 
     public String getVcode_md5() {
         return this.vcode_md5;
@@ -19,11 +19,11 @@ public class x {
     }
 
     public String alz() {
-        return this.cfw;
+        return this.cfx;
     }
 
     public VcodeExtra alA() {
-        return this.cfx;
+        return this.cfy;
     }
 
     public void parserJson(String str) {
@@ -44,14 +44,14 @@ public class x {
             try {
                 this.vcode_md5 = jSONObject.optString("vcode_md5");
                 this.vcode_pic_url = jSONObject.optString("vcode_pic_url");
-                this.cfw = jSONObject.optString("vcode_type");
+                this.cfx = jSONObject.optString("vcode_type");
                 JSONObject jSONObject2 = jSONObject.getJSONObject("vcode_extra");
-                this.cfx = new VcodeExtra();
-                this.cfx.textImg = jSONObject2.optString("textimg");
-                this.cfx.slideImg = jSONObject2.optString("slideimg");
-                this.cfx.endPoint = jSONObject2.optString("endpoint");
-                this.cfx.successImg = jSONObject2.optString("successimg");
-                this.cfx.slideEndPoint = jSONObject2.optString("slideendpoint");
+                this.cfy = new VcodeExtra();
+                this.cfy.textImg = jSONObject2.optString("textimg");
+                this.cfy.slideImg = jSONObject2.optString("slideimg");
+                this.cfy.endPoint = jSONObject2.optString("endpoint");
+                this.cfy.successImg = jSONObject2.optString("successimg");
+                this.cfy.slideEndPoint = jSONObject2.optString("slideendpoint");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

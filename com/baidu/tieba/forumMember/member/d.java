@@ -14,11 +14,11 @@ public class d {
 
     public void Wx() {
         if (this.dqB == null) {
-            this.dqB = com.baidu.tbadk.core.c.a.afD().mA("tb.forum_member_info");
+            this.dqB = com.baidu.tbadk.core.c.a.afD().mz("tb.forum_member_info");
         }
     }
 
-    public byte[] we(String str) {
+    public byte[] wd(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }

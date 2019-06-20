@@ -10,21 +10,21 @@ public class b {
         this.bik = bVar;
     }
 
-    public void jB(String str) {
+    public void jA(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
         be(str, "keyboardinput");
     }
 
-    public void jC(String str) {
+    public void jB(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
         be(str, "keyboardconfirm");
     }
 
-    public void jD(String str) {
+    public void jC(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }

@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
     private final Animation aLT;
-    private final Animation cJM;
+    private final Animation cJN;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
         super(context, mode, orientation, typedArray);
@@ -24,10 +24,10 @@ public class FlipLoadingLayout extends LoadingLayout {
         this.aLT.setInterpolator(aLS);
         this.aLT.setDuration(150L);
         this.aLT.setFillAfter(true);
-        this.cJM = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.cJM.setInterpolator(aLS);
-        this.cJM.setDuration(150L);
-        this.cJM.setFillAfter(true);
+        this.cJN = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.cJN.setInterpolator(aLS);
+        this.cJN.setDuration(150L);
+        this.cJN.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -55,7 +55,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void pullToRefreshImpl() {
         if (this.aLT == this.mHeaderImage.getAnimation()) {
-            this.mHeaderImage.startAnimation(this.cJM);
+            this.mHeaderImage.startAnimation(this.cJN);
         }
     }
 
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.cJr) {
+        switch (this.cJs) {
             case PULL_FROM_END:
-                if (this.cJR == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.cJS == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.cJR != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.cJS != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

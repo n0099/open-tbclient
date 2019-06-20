@@ -23,7 +23,7 @@ import com.baidu.tieba.R;
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
     private TextView eeg;
     private LinearLayout eyI;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.e ggE;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.e ggG;
     private int mHeight;
     private int mSkinType;
     private TextView mTitleView;
@@ -71,8 +71,8 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             return;
         }
         setVisibility(0);
-        this.ggE = eVar;
-        this.eeg.setText(eVar.gfA);
+        this.ggG = eVar;
+        this.eeg.setText(eVar.gfC);
         this.mTitleView.setText(eVar.title);
         if (StringUtils.isNull(eVar.bcs)) {
             if (eVar.index == 0) {
@@ -103,9 +103,9 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ggE != null) {
-            TiebaStatic.log(new am("c13353").l("tid", this.ggE.tid).l("topic_id", this.ggE.topicId).P("obj_locate", this.ggE.index + 1));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.ggE.tid), "", "")));
+        if (this.ggG != null) {
+            TiebaStatic.log(new am("c13353").l("tid", this.ggG.tid).l("topic_id", this.ggG.topicId).P("obj_locate", this.ggG.index + 1));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.ggG.tid), "", "")));
         }
     }
 

@@ -7,7 +7,7 @@ public class h {
     private String appId = "";
     private String appName = "";
     private String packageName = "";
-    private boolean ceK = false;
+    private boolean ceL = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {

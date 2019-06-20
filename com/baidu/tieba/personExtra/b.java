@@ -10,48 +10,44 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class b {
     private int eDJ;
-    private int igg = 0;
     private int igh = 0;
-    private ArrayList<ForumData> ifZ = new ArrayList<>();
+    private int igi = 0;
     private ArrayList<ForumData> iga = new ArrayList<>();
     private ArrayList<ForumData> igb = new ArrayList<>();
     private ArrayList<ForumData> igc = new ArrayList<>();
-    private ArrayList<ForumData> ige = new ArrayList<>();
     private ArrayList<ForumData> igd = new ArrayList<>();
+    private ArrayList<ForumData> igf = new ArrayList<>();
+    private ArrayList<ForumData> ige = new ArrayList<>();
     private an page = new an();
-    private Date igf = null;
-    private boolean Hi = true;
+    private Date igg = null;
+    private boolean Hh = true;
 
     public b() {
         setHasMore(false);
-    }
-
-    public int bYV() {
-        return this.igg;
-    }
-
-    public void yb(int i) {
-        this.igg = i;
-    }
-
-    public void yc(int i) {
-        this.igg += i;
     }
 
     public int bYW() {
         return this.igh;
     }
 
-    public void yd(int i) {
+    public void yb(int i) {
         this.igh = i;
     }
 
-    public void ye(int i) {
+    public void yc(int i) {
         this.igh += i;
     }
 
-    public ArrayList<ForumData> bYX() {
-        return this.iga;
+    public int bYX() {
+        return this.igi;
+    }
+
+    public void yd(int i) {
+        this.igi = i;
+    }
+
+    public void ye(int i) {
+        this.igi += i;
     }
 
     public ArrayList<ForumData> bYY() {
@@ -59,7 +55,7 @@ public class b {
     }
 
     public ArrayList<ForumData> bYZ() {
-        return this.igd;
+        return this.igc;
     }
 
     public ArrayList<ForumData> bZa() {
@@ -67,97 +63,101 @@ public class b {
     }
 
     public ArrayList<ForumData> bZb() {
-        return this.ifZ;
+        return this.igf;
+    }
+
+    public ArrayList<ForumData> bZc() {
+        return this.iga;
     }
 
     public void b(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.ifZ == null) {
-            this.ifZ = new ArrayList<>();
+        if (this.iga == null) {
+            this.iga = new ArrayList<>();
         }
-        if (this.iga != null && arrayList != null) {
-            this.iga.clear();
-            this.iga.addAll(arrayList);
-        }
-        if (this.igb != null && arrayList2 != null) {
+        if (this.igb != null && arrayList != null) {
             this.igb.clear();
-            this.igb.addAll(arrayList2);
+            this.igb.addAll(arrayList);
         }
-        if (this.iga != null || this.igb != null) {
-            this.ifZ.clear();
-            if (this.iga != null) {
-                this.ifZ.addAll(this.iga);
-            }
+        if (this.igc != null && arrayList2 != null) {
+            this.igc.clear();
+            this.igc.addAll(arrayList2);
+        }
+        if (this.igb != null || this.igc != null) {
+            this.iga.clear();
             if (this.igb != null) {
-                this.ifZ.addAll(this.igb);
+                this.iga.addAll(this.igb);
+            }
+            if (this.igc != null) {
+                this.iga.addAll(this.igc);
             }
         }
     }
 
     public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.ifZ == null) {
-            this.ifZ = new ArrayList<>();
+        if (this.iga == null) {
+            this.iga = new ArrayList<>();
         }
-        if (this.iga != null && arrayList != null) {
-            this.iga.addAll(arrayList);
+        if (this.igb != null && arrayList != null) {
+            this.igb.addAll(arrayList);
         }
-        if (this.igb != null && arrayList2 != null) {
-            this.igb.addAll(arrayList2);
+        if (this.igc != null && arrayList2 != null) {
+            this.igc.addAll(arrayList2);
         }
-        if (this.iga != null || this.igb != null) {
-            this.ifZ.clear();
-            if (this.iga != null) {
-                this.ifZ.addAll(this.iga);
-            }
+        if (this.igb != null || this.igc != null) {
+            this.iga.clear();
             if (this.igb != null) {
-                this.ifZ.addAll(this.igb);
+                this.iga.addAll(this.igb);
+            }
+            if (this.igc != null) {
+                this.iga.addAll(this.igc);
             }
         }
     }
 
-    public ArrayList<ForumData> bZc() {
-        return this.igc;
+    public ArrayList<ForumData> bZd() {
+        return this.igd;
     }
 
     public void d(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.igc == null) {
-            this.igc = new ArrayList<>();
+        if (this.igd == null) {
+            this.igd = new ArrayList<>();
         }
-        if (this.igd != null && arrayList != null) {
-            this.igd.addAll(arrayList);
+        if (this.ige != null && arrayList != null) {
+            this.ige.addAll(arrayList);
         }
-        if (this.ige != null && arrayList2 != null) {
-            this.ige.addAll(arrayList2);
+        if (this.igf != null && arrayList2 != null) {
+            this.igf.addAll(arrayList2);
         }
-        if (this.igd != null || this.ige != null) {
-            this.igc.clear();
-            if (this.igd != null) {
-                this.igc.addAll(this.igd);
-            }
+        if (this.ige != null || this.igf != null) {
+            this.igd.clear();
             if (this.ige != null) {
-                this.igc.addAll(this.ige);
+                this.igd.addAll(this.ige);
+            }
+            if (this.igf != null) {
+                this.igd.addAll(this.igf);
             }
         }
     }
 
     public void e(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        if (this.igc == null) {
-            this.igc = new ArrayList<>();
+        if (this.igd == null) {
+            this.igd = new ArrayList<>();
         }
-        if (this.igd != null && arrayList != null) {
-            this.igd.clear();
-            this.igd.addAll(arrayList);
-        }
-        if (this.ige != null && arrayList2 != null) {
+        if (this.ige != null && arrayList != null) {
             this.ige.clear();
-            this.ige.addAll(arrayList2);
+            this.ige.addAll(arrayList);
         }
-        if (this.igd != null || this.ige != null) {
-            this.igc.clear();
-            if (this.igd != null) {
-                this.igc.addAll(this.igd);
-            }
+        if (this.igf != null && arrayList2 != null) {
+            this.igf.clear();
+            this.igf.addAll(arrayList2);
+        }
+        if (this.ige != null || this.igf != null) {
+            this.igd.clear();
             if (this.ige != null) {
-                this.igc.addAll(this.ige);
+                this.igd.addAll(this.ige);
+            }
+            if (this.igf != null) {
+                this.igd.addAll(this.igf);
             }
         }
     }
@@ -167,7 +167,7 @@ public class b {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e) {
-                this.Hi = false;
+                this.Hh = false;
                 BdLog.e(e.getMessage());
             }
         }
@@ -179,19 +179,19 @@ public class b {
             this.eDJ = jSONObject.optInt("has_more", 1);
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.igf = new Date(optLong);
+                this.igg = new Date(optLong);
             } else {
-                this.igf = new Date();
+                this.igg = new Date();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
             if (optJSONObject != null) {
                 JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
                 if (optJSONArray != null) {
-                    this.igg = optJSONArray.length();
+                    this.igh = optJSONArray.length();
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         ForumData forumData = new ForumData();
                         forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.iga.add(forumData);
+                        this.igb.add(forumData);
                     }
                 }
                 JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
@@ -199,18 +199,18 @@ public class b {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                         ForumData forumData2 = new ForumData();
                         forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.igb.add(forumData2);
+                        this.igc.add(forumData2);
                     }
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
                 if (optJSONObject2 != null) {
                     JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
                     if (optJSONArray3 != null) {
-                        this.igh = optJSONArray3.length();
+                        this.igi = optJSONArray3.length();
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             ForumData forumData3 = new ForumData();
                             forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.igd.add(forumData3);
+                            this.ige.add(forumData3);
                         }
                     }
                     JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
@@ -218,13 +218,13 @@ public class b {
                         for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
                             ForumData forumData4 = new ForumData();
                             forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                            this.ige.add(forumData4);
+                            this.igf.add(forumData4);
                         }
                     }
                 }
             }
         } catch (Exception e) {
-            this.Hi = false;
+            this.Hh = false;
             BdLog.e(e.getMessage());
         }
     }

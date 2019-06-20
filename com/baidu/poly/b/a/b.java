@@ -14,18 +14,18 @@ public class b {
         }
     };
 
-    public Bitmap cN(String str) {
-        return cO(com.baidu.poly.b.b.b.cR(str));
+    public Bitmap cM(String str) {
+        return cN(com.baidu.poly.b.b.b.cQ(str));
     }
 
     public void b(String str, Bitmap bitmap) {
-        String cR = com.baidu.poly.b.b.b.cR(str);
-        if (cO(cR) == null) {
-            this.aha.put(cR, bitmap);
+        String cQ = com.baidu.poly.b.b.b.cQ(str);
+        if (cN(cQ) == null) {
+            this.aha.put(cQ, bitmap);
         }
     }
 
-    private Bitmap cO(String str) {
+    private Bitmap cN(String str) {
         return this.aha.get(str);
     }
 }

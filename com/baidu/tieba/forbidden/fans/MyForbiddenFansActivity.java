@@ -29,7 +29,7 @@ import com.baidu.tieba.view.NavigationBarCoverTip;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class MyForbiddenFansActivity extends BaseActivity {
-    private LinearLayout bMZ;
+    private LinearLayout bNa;
     private PbListView dlY;
     private BdRecyclerView eqd;
     private NavigationBarCoverTip fjR;
@@ -98,7 +98,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.forbidden_fans_list_layout);
-        this.bMZ = (LinearLayout) findViewById(R.id.container_forbidden_fans);
+        this.bNa = (LinearLayout) findViewById(R.id.container_forbidden_fans);
         this.fjU = new c();
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navi_forbidden_fans);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.forbidden_fans));
@@ -240,7 +240,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.bMZ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(getActivity(), R.dimen.ds120)), null, null);
+            this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.bNa, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(getActivity(), R.dimen.ds120)), null, null);
             this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.no_forbidden_fans));
             this.mNoDataView.setSubTitleTextColor(R.color.cp_cont_f);
             this.mNoDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());

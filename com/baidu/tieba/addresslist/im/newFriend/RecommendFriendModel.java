@@ -14,16 +14,16 @@ import com.baidu.tbadk.util.z;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
-    private static final String cXS = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
-    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, cXS);
-    private a cXR;
-    private final HttpMessageListener cXT;
+    private static final String cXT = TbConfig.SERVER_ADDRESS + "c/r/friend/getRecommendList";
+    private static TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.RECOMMOEND_FRIEND_CMD, cXT);
+    private a cXS;
+    private final HttpMessageListener cXU;
 
     /* loaded from: classes3.dex */
     public interface a {
         void onLoadFailed(String str);
 
-        void sm(String str);
+        void sl(String str);
     }
 
     static {
@@ -33,15 +33,15 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
     public RecommendFriendModel(NewFriendsActivity newFriendsActivity, a aVar) {
         super(newFriendsActivity.getPageContext());
-        this.cXR = null;
-        this.cXT = new HttpMessageListener(CmdConfigHttp.RECOMMOEND_FRIEND_CMD) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
+        this.cXS = null;
+        this.cXU = new HttpMessageListener(CmdConfigHttp.RECOMMOEND_FRIEND_CMD) { // from class: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001900) {
                     if (httpResponsedMessage.getStatusCode() != 200 || !(httpResponsedMessage instanceof RecommendFriendResponseMessage)) {
-                        if (RecommendFriendModel.this.cXR != null) {
-                            RecommendFriendModel.this.cXR.onLoadFailed(null);
+                        if (RecommendFriendModel.this.cXS != null) {
+                            RecommendFriendModel.this.cXS.onLoadFailed(null);
                             return;
                         }
                         return;
@@ -49,8 +49,8 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     RecommendFriendResponseMessage recommendFriendResponseMessage = (RecommendFriendResponseMessage) httpResponsedMessage;
                     final String errMsg = recommendFriendResponseMessage.getErrMsg();
                     if (recommendFriendResponseMessage.getError() != 0) {
-                        if (RecommendFriendModel.this.cXR != null) {
-                            RecommendFriendModel.this.cXR.onLoadFailed(errMsg);
+                        if (RecommendFriendModel.this.cXS != null) {
+                            RecommendFriendModel.this.cXS.onLoadFailed(errMsg);
                             return;
                         }
                         return;
@@ -72,17 +72,17 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                         @Override // com.baidu.tbadk.util.k
                         /* renamed from: b */
                         public void onReturnDataInUI(Void r3) {
-                            RecommendFriendModel.this.cXR.sm(errMsg);
+                            RecommendFriendModel.this.cXS.sl(errMsg);
                         }
                     });
                 }
             }
         };
-        this.cXR = aVar;
+        this.cXS = aVar;
     }
 
     public void registerListener() {
-        registerListener(this.cXT);
+        registerListener(this.cXU);
     }
 
     public void aCl() {

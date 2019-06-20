@@ -21,7 +21,7 @@ public class e {
     }
 
     public static String f(String str, Map<String, String> map) {
-        return g(km(str), map);
+        return g(kl(str), map);
     }
 
     public static String g(String str, Map<String, String> map) {
@@ -35,7 +35,7 @@ public class e {
         return str;
     }
 
-    private static String km(String str) {
+    private static String kl(String str) {
         String B = B(B(B(B(B(B(B(B(B(str, "cuid", com.baidu.swan.pms.e.Vg().Ek()), "ua", VC()), "host_app", com.baidu.swan.pms.e.Vg().El()), "host_app_ver", com.baidu.swan.pms.e.Vg().Em()), "host_os", com.baidu.swan.pms.e.a.getOS()), "host_os_ver", com.baidu.swan.pms.e.a.getOsVersion()), "network", com.baidu.swan.pms.e.a.getNetworkInfo()), "sdk_ver", com.baidu.swan.pms.e.Vg().En()), "cfrom", com.baidu.swan.c.c.XF());
         String Vf = com.baidu.swan.pms.e.Vh().Vf();
         if (!TextUtils.isEmpty(Vf)) {

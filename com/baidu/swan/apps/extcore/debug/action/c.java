@@ -57,7 +57,7 @@ public class c extends z {
                 com.baidu.swan.apps.ac.a.a.bH(com.baidu.swan.apps.extcore.debug.a.cu(optJSONObject.optInt("emitWss")));
             }
             if (optJSONObject.has("debugEnvData")) {
-                com.baidu.swan.apps.ac.a.a.gb(optJSONObject.optString("debugEnvData"));
+                com.baidu.swan.apps.ac.a.a.ga(optJSONObject.optString("debugEnvData"));
             }
         } else {
             com.baidu.swan.apps.console.c.e(avY, "frame type error");

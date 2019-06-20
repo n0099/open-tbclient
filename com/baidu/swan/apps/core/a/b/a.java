@@ -25,7 +25,7 @@ public final class a {
             interfaceC0130a.yE();
         } else if (com.baidu.swan.apps.core.pms.a.co(0)) {
             com.baidu.swan.pms.b.d.b bVar = new com.baidu.swan.pms.b.d.b(str, 0);
-            bVar.kv("1");
+            bVar.ku("1");
             c.a(bVar, new com.baidu.swan.apps.core.pms.a.a(str, interfaceC0130a) { // from class: com.baidu.swan.apps.core.a.b.a.1
                 @Override // com.baidu.swan.apps.core.pms.d, com.baidu.swan.pms.a.f
                 public void yD() {

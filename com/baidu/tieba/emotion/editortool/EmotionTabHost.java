@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionTabContentView.b, EmotionTabWidgetView.a {
-    private EditorTools TB;
-    private int TC;
-    private CustomMessageListener bCA;
+    private EditorTools TA;
+    private int TB;
+    private CustomMessageListener bCB;
     private int boZ;
-    private int ccI;
+    private int ccJ;
     private EmotionTabContentView ePI;
     private EmotionTabWidgetView ePJ;
     private View ePK;
@@ -44,12 +44,12 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
         this.ePM = new ArrayList<>();
         this.boZ = -1;
         this.ePN = null;
-        this.ccI = -1;
+        this.ccJ = -1;
         this.ePO = true;
         this.ePP = true;
         this.ePQ = 0;
-        this.TC = 0;
-        this.bCA = new CustomMessageListener(2001117) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
+        this.TB = 0;
+        this.bCB = new CustomMessageListener(2001117) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -94,12 +94,12 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
         this.ePM = new ArrayList<>();
         this.boZ = -1;
         this.ePN = null;
-        this.ccI = -1;
+        this.ccJ = -1;
         this.ePO = true;
         this.ePP = true;
         this.ePQ = 0;
-        this.TC = 0;
-        this.bCA = new CustomMessageListener(2001117) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
+        this.TB = 0;
+        this.bCB = new CustomMessageListener(2001117) { // from class: com.baidu.tieba.emotion.editortool.EmotionTabHost.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -147,8 +147,8 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
         this.ePJ.setOnTabSelectedListener(this);
         this.ePI.setOnEmotionSwitchedListener(this);
         setOrientation(1);
-        this.ccI = TbadkCoreApplication.getInst().getSkinType();
-        onChangeSkinType(this.ccI);
+        this.ccJ = TbadkCoreApplication.getInst().getSkinType();
+        onChangeSkinType(this.ccJ);
     }
 
     @Override // android.view.ViewGroup
@@ -226,14 +226,14 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        MessageManager.getInstance().registerListener(this.bCA);
+        MessageManager.getInstance().registerListener(this.bCB);
         MessageManager.getInstance().registerListener(this.ePR);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        MessageManager.getInstance().unRegisterListener(this.bCA);
+        MessageManager.getInstance().unRegisterListener(this.bCB);
         MessageManager.getInstance().unRegisterListener(this.ePR);
     }
 
@@ -241,9 +241,9 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
     public void setVisibility(int i) {
         super.setVisibility(i);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (skinType != this.ccI) {
-            this.ccI = skinType;
-            onChangeSkinType(this.ccI);
+        if (skinType != this.ccJ) {
+            this.ccJ = skinType;
+            onChangeSkinType(this.ccJ);
         }
     }
 
@@ -331,26 +331,26 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.TB = editorTools;
+        this.TA = editorTools;
         this.ePI.setOnDataSelected(editorTools);
         this.ePJ.setOnDataSelected(editorTools);
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.TB != null) {
-            this.TB.b(aVar);
+        if (this.TA != null) {
+            this.TA.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.TC = i;
+        this.TB = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.TC;
+        return this.TB;
     }
 
     @Override // com.baidu.tbadk.editortools.l

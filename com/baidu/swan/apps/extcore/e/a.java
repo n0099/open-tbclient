@@ -58,7 +58,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         if (DEBUG) {
             Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + o);
         }
-        ev(aVar.awp);
+        eu(aVar.awp);
         return o.isOk();
     }
 
@@ -67,20 +67,20 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
             Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
-        long ex = com.baidu.swan.apps.extcore.f.a.ex(str);
-        if (ex == 0) {
-            return C0147a.ew("invalid version code : " + str);
+        long ew = com.baidu.swan.apps.extcore.f.a.ew(str);
+        if (ew == 0) {
+            return C0147a.ev("invalid version code : " + str);
         }
         if (!w.b(new File(str2), str3)) {
-            return C0147a.ew("sign failed.");
+            return C0147a.ev("sign failed.");
         }
-        if (!com.baidu.swan.c.a.bs(str2, C(ex).getPath())) {
-            return C0147a.ew("unzip bundle failed.");
+        if (!com.baidu.swan.c.a.bs(str2, C(ew).getPath())) {
+            return C0147a.ev("unzip bundle failed.");
         }
-        com.baidu.swan.apps.extcore.f.a.a(Cm(), d(Cy(), ex));
-        D(ex);
+        com.baidu.swan.apps.extcore.f.a.a(Cm(), d(Cy(), ew));
+        D(ew);
         if (DEBUG) {
-            Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + ex);
+            Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + ew);
         }
         return C0147a.CB();
     }
@@ -106,7 +106,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
         return arrayList;
     }
 
-    private void ev(String str) {
+    private void eu(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.swan.c.a.deleteFile(str);
         }
@@ -126,7 +126,7 @@ public class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends com.baid
             return m(0, "");
         }
 
-        public static C0147a ew(String str) {
+        public static C0147a ev(String str) {
             return m(1, str);
         }
 

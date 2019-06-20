@@ -7,12 +7,12 @@ import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public abstract class c implements BdSwipeRefreshLayout.b {
-    protected a MK;
+    protected a MJ;
     private Context mContext;
     private View mView = null;
-    private boolean MH = true;
+    private boolean MG = true;
+    private int MH = 0;
     private int MI = 0;
-    private int MJ = 0;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -53,8 +53,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             A(this.mView);
-            this.MI = this.mView.getMeasuredHeight();
-            this.MJ = this.mView.getMeasuredWidth();
+            this.MH = this.mView.getMeasuredHeight();
+            this.MI = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -62,18 +62,18 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     public void setPadding(int i, int i2, int i3, int i4) {
         if (this.mView != null) {
             this.mView.setPadding(i, i2, i3, i4);
-            if (this.MK != null) {
-                this.MK.a(this, i, i3, i2 + nI(), i4);
+            if (this.MJ != null) {
+                this.MJ.a(this, i, i3, i2 + nI(), i4);
             }
         }
     }
 
     public boolean isEnable() {
-        return this.MH;
+        return this.MG;
     }
 
     public void setEnable(boolean z) {
-        this.MH = z;
+        this.MG = z;
     }
 
     private void A(View view) {
@@ -93,7 +93,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public int nI() {
-        return this.MI;
+        return this.MH;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -132,6 +132,6 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     public void a(a aVar) {
-        this.MK = aVar;
+        this.MJ = aVar;
     }
 }

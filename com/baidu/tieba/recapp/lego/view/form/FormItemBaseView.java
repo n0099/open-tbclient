@@ -14,10 +14,9 @@ import com.baidu.tieba.recapp.lego.view.form.FormCardView;
 /* loaded from: classes3.dex */
 public abstract class FormItemBaseView extends RelativeLayout implements FormCardView.a {
     protected float amc;
-    protected float iDH;
-    protected Drawable iDK;
+    protected float iDI;
     protected Drawable iDL;
-    protected int iDM;
+    protected Drawable iDM;
     protected int iDN;
     protected int iDO;
     protected int iDP;
@@ -25,13 +24,14 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     protected int iDR;
     protected int iDS;
     protected int iDT;
-    protected float iDU;
+    protected int iDU;
     protected float iDV;
-    protected int iDW;
+    protected float iDW;
     protected int iDX;
     protected int iDY;
     protected int iDZ;
-    protected View iEa;
+    protected int iEa;
+    protected View iEb;
     protected Activity mActivity;
     protected Context mContext;
     protected Resources mResources;
@@ -48,9 +48,8 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context);
         this.mContext = null;
         this.mResources = null;
-        this.iDK = null;
         this.iDL = null;
-        this.iDM = 0;
+        this.iDM = null;
         this.iDN = 0;
         this.iDO = 0;
         this.iDP = 0;
@@ -58,17 +57,18 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.iDR = 0;
         this.iDS = 0;
         this.iDT = 0;
+        this.iDU = 0;
         this.amc = 0.0f;
-        this.iDU = 0.0f;
         this.iDV = 0.0f;
-        this.iDW = 0;
+        this.iDW = 0.0f;
         this.iDX = 0;
         this.iDY = 0;
         this.iDZ = 0;
-        this.iEa = null;
+        this.iEa = 0;
+        this.iEb = null;
         this.mTag = "";
         this.mActivity = null;
-        this.iDH = 1.0f;
+        this.iDI = 1.0f;
         init(context);
     }
 
@@ -76,9 +76,8 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet);
         this.mContext = null;
         this.mResources = null;
-        this.iDK = null;
         this.iDL = null;
-        this.iDM = 0;
+        this.iDM = null;
         this.iDN = 0;
         this.iDO = 0;
         this.iDP = 0;
@@ -86,17 +85,18 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.iDR = 0;
         this.iDS = 0;
         this.iDT = 0;
+        this.iDU = 0;
         this.amc = 0.0f;
-        this.iDU = 0.0f;
         this.iDV = 0.0f;
-        this.iDW = 0;
+        this.iDW = 0.0f;
         this.iDX = 0;
         this.iDY = 0;
         this.iDZ = 0;
-        this.iEa = null;
+        this.iEa = 0;
+        this.iEb = null;
         this.mTag = "";
         this.mActivity = null;
-        this.iDH = 1.0f;
+        this.iDI = 1.0f;
         init(context);
     }
 
@@ -104,9 +104,8 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         super(context, attributeSet, i);
         this.mContext = null;
         this.mResources = null;
-        this.iDK = null;
         this.iDL = null;
-        this.iDM = 0;
+        this.iDM = null;
         this.iDN = 0;
         this.iDO = 0;
         this.iDP = 0;
@@ -114,17 +113,18 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.iDR = 0;
         this.iDS = 0;
         this.iDT = 0;
+        this.iDU = 0;
         this.amc = 0.0f;
-        this.iDU = 0.0f;
         this.iDV = 0.0f;
-        this.iDW = 0;
+        this.iDW = 0.0f;
         this.iDX = 0;
         this.iDY = 0;
         this.iDZ = 0;
-        this.iEa = null;
+        this.iEa = 0;
+        this.iEb = null;
         this.mTag = "";
         this.mActivity = null;
-        this.iDH = 1.0f;
+        this.iDI = 1.0f;
         init(context);
     }
 
@@ -132,35 +132,35 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
         this.mContext = context;
         this.mActivity = (Activity) this.mContext;
         this.mResources = context.getApplicationContext().getResources();
-        this.iDT = this.mResources.getColor(R.color.form_font_color);
-        this.iDW = this.mResources.getColor(R.color.form_button_font_color);
-        this.iDY = this.mResources.getColor(R.color.form_button_grey_bg_color);
-        this.iDX = -1;
-        this.iDZ = -1;
-        this.iDS = -1;
-        this.iDK = this.mResources.getDrawable(R.drawable.form_frame_white);
-        this.iDL = this.mResources.getDrawable(R.drawable.form_frame_red);
+        this.iDU = this.mResources.getColor(R.color.form_font_color);
+        this.iDX = this.mResources.getColor(R.color.form_button_font_color);
+        this.iDZ = this.mResources.getColor(R.color.form_button_grey_bg_color);
+        this.iDY = -1;
+        this.iEa = -1;
+        this.iDT = -1;
+        this.iDL = this.mResources.getDrawable(R.drawable.form_frame_white);
+        this.iDM = this.mResources.getDrawable(R.drawable.form_frame_red);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(View view, DrawableType drawableType) {
-        this.iEa = view;
+        this.iEb = view;
         switch (drawableType) {
             case ERROR_FRAME:
-                this.iEa.setBackgroundResource(R.drawable.form_frame_red);
+                this.iEb.setBackgroundResource(R.drawable.form_frame_red);
                 return;
             case ORDINARY_FRAME:
-                this.iEa.setBackgroundResource(R.drawable.form_frame_white);
+                this.iEb.setBackgroundResource(R.drawable.form_frame_white);
                 return;
             default:
-                this.iEa.setBackgroundDrawable(null);
+                this.iEb.setBackgroundDrawable(null);
                 return;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public View getFrameView() {
-        return this.iEa;
+        return this.iEb;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -179,7 +179,7 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public int cfv() {
+    public int cfw() {
         return -2;
     }
 
@@ -195,18 +195,18 @@ public abstract class FormItemBaseView extends RelativeLayout implements FormCar
     }
 
     public void aP(float f) {
-        this.iDH = f;
+        this.iDI = f;
         float dimension = this.mResources.getDimension(R.dimen.form_font_size28);
         float dimension2 = this.mResources.getDimension(R.dimen.form_font_size20);
         float dimension3 = this.mResources.getDimension(R.dimen.form_font_size36);
-        this.iDM = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.iDH);
-        this.iDN = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.iDH);
-        this.iDO = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.iDH);
-        this.iDP = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.iDH);
-        this.iDQ = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.iDH);
-        this.iDR = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.iDH);
-        this.amc = (int) (this.iDH * dimension);
-        this.iDU = (int) (this.iDH * dimension2);
-        this.iDV = (int) (this.iDH * dimension3);
+        this.iDN = (int) (((int) this.mResources.getDimension(R.dimen.form_size20)) * this.iDI);
+        this.iDO = (int) (((int) this.mResources.getDimension(R.dimen.form_size40)) * this.iDI);
+        this.iDP = (int) (((int) this.mResources.getDimension(R.dimen.form_size50)) * this.iDI);
+        this.iDQ = (int) (((int) this.mResources.getDimension(R.dimen.form_size80)) * this.iDI);
+        this.iDR = (int) (((int) this.mResources.getDimension(R.dimen.form_size90)) * this.iDI);
+        this.iDS = (int) (((int) this.mResources.getDimension(R.dimen.form_size240)) * this.iDI);
+        this.amc = (int) (this.iDI * dimension);
+        this.iDV = (int) (this.iDI * dimension2);
+        this.iDW = (int) (this.iDI * dimension3);
     }
 }

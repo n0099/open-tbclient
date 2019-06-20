@@ -59,13 +59,13 @@ class c {
                     inputStream = response.body().byteStream();
                     try {
                         try {
-                            String iI = f.iI(c.this.mSrc);
-                            String str = c.this.bem + iI.substring(0, iI.lastIndexOf("/"));
+                            String iH = f.iH(c.this.mSrc);
+                            String str = c.this.bem + iH.substring(0, iH.lastIndexOf("/"));
                             File file2 = new File(str);
                             if (!file2.exists() || !file2.isDirectory()) {
                                 file2.mkdirs();
                             }
-                            String substring = iI.substring(iI.lastIndexOf("/") + 1);
+                            String substring = iH.substring(iH.lastIndexOf("/") + 1);
                             File file3 = new File(str, substring + ".bddownload");
                             try {
                                 fileOutputStream = new FileOutputStream(file3);

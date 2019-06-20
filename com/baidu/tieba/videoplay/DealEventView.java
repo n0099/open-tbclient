@@ -8,12 +8,12 @@ import android.view.View;
 import android.widget.FrameLayout;
 /* loaded from: classes6.dex */
 public class DealEventView extends FrameLayout {
+    private float NR;
     private float NT;
-    private float NU;
-    private boolean cPt;
-    private long jye;
-    private a jyf;
-    private boolean jyg;
+    private boolean cPu;
+    private long jyh;
+    private a jyi;
+    private boolean jyj;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -21,7 +21,7 @@ public class DealEventView extends FrameLayout {
 
         void azc();
 
-        void cuu();
+        void cut();
     }
 
     public DealEventView(Context context) {
@@ -44,37 +44,37 @@ public class DealEventView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.NT = motionEvent.getX();
-                this.NU = motionEvent.getY();
+                this.NR = motionEvent.getX();
+                this.NT = motionEvent.getY();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.jye < 300) {
-                    this.cPt = true;
-                    if (this.jyf != null) {
-                        this.jyf.cuu();
+                if (currentTimeMillis - this.jyh < 300) {
+                    this.cPu = true;
+                    if (this.jyi != null) {
+                        this.jyi.cut();
                     }
                 } else {
-                    this.cPt = false;
+                    this.cPu = false;
                 }
-                this.jye = currentTimeMillis;
+                this.jyh = currentTimeMillis;
                 break;
             case 1:
-                if (this.NT - motionEvent.getX() < 10.0f && this.NU - motionEvent.getY() < 10.0f) {
-                    this.jyg = true;
+                if (this.NR - motionEvent.getX() < 10.0f && this.NT - motionEvent.getY() < 10.0f) {
+                    this.jyj = true;
                 } else {
-                    this.jyg = false;
+                    this.jyj = false;
                 }
                 postDelayed(new Runnable() { // from class: com.baidu.tieba.videoplay.DealEventView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!DealEventView.this.cPt && DealEventView.this.jyg && DealEventView.this.jyf != null) {
-                            DealEventView.this.jyf.azb();
+                        if (!DealEventView.this.cPu && DealEventView.this.jyj && DealEventView.this.jyi != null) {
+                            DealEventView.this.jyi.azb();
                         }
                     }
                 }, 300L);
                 break;
             case 2:
-                if (this.NT - motionEvent.getX() > 60.0f && (this.NT - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.NU) && !this.cPt && this.jyf != null) {
-                    this.jyf.azc();
+                if (this.NR - motionEvent.getX() > 60.0f && (this.NR - motionEvent.getX()) - 10.0f > Math.abs(motionEvent.getY() - this.NT) && !this.cPu && this.jyi != null) {
+                    this.jyi.azc();
                     break;
                 }
                 break;
@@ -101,6 +101,6 @@ public class DealEventView extends FrameLayout {
     }
 
     public void setOnViewClickListener(a aVar) {
-        this.jyf = aVar;
+        this.jyi = aVar;
     }
 }

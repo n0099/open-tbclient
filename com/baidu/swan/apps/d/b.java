@@ -26,7 +26,7 @@ public class b extends g {
             }
 
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
-            public void da(final String str) {
+            public void cZ(final String str) {
                 b.this.aP(b.this.arl.canGoBack());
                 b.this.aqh.post(new Runnable() { // from class: com.baidu.swan.apps.d.b.1.1
                     @Override // java.lang.Runnable

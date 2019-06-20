@@ -3,9 +3,9 @@ package com.baidu.tbadk.p;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class h extends g {
-    public String LQ;
-    public long LR;
-    public boolean cyv;
+    public String LP;
+    public long LQ;
+    public boolean cyw;
     public boolean isSuccess;
 
     public void auf() {

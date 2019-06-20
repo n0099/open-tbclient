@@ -129,7 +129,7 @@ public class s implements SensorEventListener {
         return true;
     }
 
-    public void ll(String str) {
+    public void lk(String str) {
         if (this.bzd == null) {
             this.bzd = new MediaPlayer();
         }

@@ -14,9 +14,9 @@ import com.baidu.tieba.frs.k;
 public class a {
     private aq dqp;
     private TextView fBm;
-    private final FrsFragment fHa;
-    private boolean fJc;
-    private int fJd = -1;
+    private final FrsFragment fHd;
+    private boolean fJe;
+    private int fJf = -1;
     private int faG;
 
     public a(FrsFragment frsFragment) {
@@ -24,37 +24,37 @@ public class a {
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.fHa = frsFragment;
+        this.fHd = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             this.faG = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void bpy() {
-        if (this.fJc && this.fJd >= 0) {
-            sk(this.fJd);
+    public void bpA() {
+        if (this.fJe && this.fJf >= 0) {
+            sk(this.fJf);
         }
-        this.fJc = false;
+        this.fJe = false;
     }
 
     public void sj(int i) {
         if (i >= 0) {
-            kA(true);
+            kB(true);
             sl(i);
             return;
         }
-        kA(false);
+        kB(false);
         sl(i);
     }
 
     private void sk(int i) {
         FrameLayout frameLayout;
         String string;
-        k bjP = this.fHa.bjP();
+        k bjP = this.fHd.bjP();
         if (bjP != null && bjP.getListView() != null && (frameLayout = (FrameLayout) bjP.ble()) != null) {
-            if (this.fBm == null && this.fHa.getPageContext() != null) {
-                this.fBm = new TextView(this.fHa.getPageContext().getPageActivity());
-                this.fBm.setTextSize(0, this.fHa.getResources().getDimensionPixelSize(R.dimen.fontsize28));
+            if (this.fBm == null && this.fHd.getPageContext() != null) {
+                this.fBm = new TextView(this.fHd.getPageContext().getPageActivity());
+                this.fBm.setTextSize(0, this.fHd.getResources().getDimensionPixelSize(R.dimen.fontsize28));
                 this.fBm.setGravity(17);
             }
             if (this.fBm != null) {
@@ -72,16 +72,16 @@ public class a {
                 this.dqp = new aq();
             }
             this.dqp.a(this.fBm, frameLayout, layoutParams, 2000);
-            this.fJd = -1;
+            this.fJf = -1;
         }
     }
 
-    public void kA(boolean z) {
-        this.fJc = z;
+    public void kB(boolean z) {
+        this.fJe = z;
     }
 
     public void sl(int i) {
-        this.fJd = i;
+        this.fJf = i;
     }
 
     public void onDestroy() {

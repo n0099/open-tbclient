@@ -5,7 +5,7 @@ public interface j {
 
     int au(String str, boolean z);
 
-    void cew();
+    void cex();
 
     void g(String str, int i, boolean z);
 }

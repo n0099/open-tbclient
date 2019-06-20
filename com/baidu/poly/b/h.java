@@ -58,10 +58,10 @@ public class h implements Runnable {
             a.ui().b(str, j);
             return j;
         }
-        a.aB(this.context).cM(str);
+        a.aB(this.context).cL(str);
         bitmap = a.aB(this.context).j(str, i, i2);
         if (bitmap != null) {
-            return d.cL(str);
+            return d.cK(str);
         }
         return bitmap;
     }

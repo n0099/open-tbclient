@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private BdListView MS;
-    private TextView bNl;
-    private View cwu;
+    private BdListView MR;
+    private TextView bNm;
+    private View cwv;
     private ViewEventCenter eQo;
     private View eTH;
     private TextView eTI;
@@ -40,7 +40,7 @@ public class a {
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.cwu) {
+            if (view != a.this.cwv) {
                 if (view != a.this.eTI) {
                     if (view == a.this.eTK) {
                         ArrayList<Long> arrayList = new ArrayList<>();
@@ -106,17 +106,17 @@ public class a {
     }
 
     private void createView() {
-        this.cwu = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.layout_recommend_forums_by_tag, (ViewGroup) null);
-        this.eTH = this.cwu.findViewById(R.id.rec_forum_list_container);
-        this.eTI = (TextView) this.cwu.findViewById(R.id.view_skip);
-        this.bNl = (TextView) this.cwu.findViewById(R.id.view_recommend_tip);
-        this.eTJ = this.cwu.findViewById(R.id.view_top_divider);
-        this.MS = (BdListView) this.cwu.findViewById(R.id.listview_forums);
-        this.eTK = (TextView) this.cwu.findViewById(R.id.view_forums_concern);
+        this.cwv = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.layout_recommend_forums_by_tag, (ViewGroup) null);
+        this.eTH = this.cwv.findViewById(R.id.rec_forum_list_container);
+        this.eTI = (TextView) this.cwv.findViewById(R.id.view_skip);
+        this.bNm = (TextView) this.cwv.findViewById(R.id.view_recommend_tip);
+        this.eTJ = this.cwv.findViewById(R.id.view_top_divider);
+        this.MR = (BdListView) this.cwv.findViewById(R.id.listview_forums);
+        this.eTK = (TextView) this.cwv.findViewById(R.id.view_forums_concern);
         this.eTK.setClickable(true);
         this.eTL = new c(this.mContext.getPageActivity());
-        this.MS.setAdapter((ListAdapter) this.eTL);
-        this.MS.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
+        this.MR.setAdapter((ListAdapter) this.eTL);
+        this.MR.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (v.c(a.this.forumList, i) != null) {
@@ -128,7 +128,7 @@ public class a {
         });
         this.eTI.setOnClickListener(this.mClickListener);
         this.eTK.setOnClickListener(this.mClickListener);
-        this.cwu.setOnClickListener(this.mClickListener);
+        this.cwv.setOnClickListener(this.mClickListener);
         onChangeSkinType();
     }
 
@@ -139,20 +139,20 @@ public class a {
                 aGN();
                 return;
             }
-            if (this.cwu == null) {
+            if (this.cwv == null) {
                 createView();
             }
             this.eTK.setClickable(true);
             this.isShowing = true;
-            if (this.cwu.getParent() == null) {
-                e.be(this.mRootView).a(this.mRootView, this.cwu, false);
+            if (this.cwv.getParent() == null) {
+                e.be(this.mRootView).a(this.mRootView, this.cwv, false);
             }
             com.baidu.adp.lib.g.e.iB().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.multiConcern.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     Animation loadAnimation = AnimationUtils.loadAnimation(a.this.mContext.getPageActivity(), R.anim.anim_recommend_forums_window);
                     loadAnimation.setFillAfter(true);
-                    a.this.cwu.setVisibility(0);
+                    a.this.cwv.setVisibility(0);
                     a.this.eTH.startAnimation(loadAnimation);
                 }
             }, 100L);
@@ -165,10 +165,10 @@ public class a {
     public void aGN() {
         if (this.isShowing) {
             this.isShowing = false;
-            if (this.cwu != null && this.mRootView != null) {
-                this.cwu.setVisibility(8);
-                if (this.cwu.getParent() == this.mRootView) {
-                    this.mRootView.removeView(this.cwu);
+            if (this.cwv != null && this.mRootView != null) {
+                this.cwv.setVisibility(8);
+                if (this.cwv.getParent() == this.mRootView) {
+                    this.mRootView.removeView(this.cwv);
                 }
             }
         }
@@ -183,17 +183,17 @@ public class a {
 
     public void onChangeSkinType() {
         al.j(this.eTI, R.color.cp_cont_d);
-        al.j(this.bNl, R.color.cp_cont_d);
+        al.j(this.bNm, R.color.cp_cont_d);
         al.l(this.eTJ, R.color.cp_bg_line_c);
         al.j(this.eTK, R.color.common_color_10310);
         al.k(this.eTK, R.drawable.bule_bg_commen_label_button);
-        al.k(this.cwu, R.color.black_alpha50);
+        al.k(this.cwv, R.color.black_alpha50);
         al.k(this.eTH, R.drawable.bg_recommend_forum_by_tag);
         this.eTL.notifyDataSetChanged();
     }
 
     public View beq() {
-        return this.cwu;
+        return this.cwv;
     }
 
     public boolean isShowing() {

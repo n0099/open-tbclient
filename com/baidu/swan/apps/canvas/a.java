@@ -37,7 +37,7 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
             return false;
         }
         g gVar = new g(context, str, aVar);
-        com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) e.FV().dU(aVar.aDm);
+        com.baidu.swan.apps.b.c.c cVar = (com.baidu.swan.apps.b.c.c) e.FV().dT(aVar.aDm);
         if (cVar != null) {
             cVar.a(gVar);
         }
@@ -65,7 +65,7 @@ public class a extends com.baidu.swan.apps.canvas.b.a {
         if (a2 != null && a2.Pr()) {
             z = true;
         }
-        if (z && (cVar = (com.baidu.swan.apps.b.c.c) e.FV().dU(aVar.aDm)) != null) {
+        if (z && (cVar = (com.baidu.swan.apps.b.c.c) e.FV().dT(aVar.aDm)) != null) {
             cVar.b(a);
         }
         return true;

@@ -11,8 +11,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class d {
-    private static BlockPopInfo jmM;
-    private static BlockPopInfo jmN;
+    private static BlockPopInfo jmQ;
+    private static BlockPopInfo jmR;
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.d.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -55,18 +55,18 @@ public class d {
         }
     }
 
-    public boolean cqs() {
-        return a(jmM);
+    public boolean cqt() {
+        return a(jmQ);
     }
 
-    public boolean cqt() {
-        return a(jmN);
+    public boolean cqu() {
+        return a(jmR);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-            aVar.mE(blockPopInfo.block_info);
+            aVar.mD(blockPopInfo.block_info);
             aVar.b(blockPopInfo.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.d.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -91,10 +91,10 @@ public class d {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        jmM = blockPopInfo;
+        jmQ = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        jmN = blockPopInfo;
+        jmR = blockPopInfo;
     }
 }

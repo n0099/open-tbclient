@@ -9,7 +9,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
     private r eTY;
-    private a ggJ;
+    private a ggL;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
@@ -22,8 +22,8 @@ public class b {
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.ggJ = new a(this.mPageContext);
-        this.mAdapters.add(this.ggJ);
+        this.ggL = new a(this.mPageContext);
+        this.mAdapters.add(this.ggL);
     }
 
     public void notifyDataSetChanged() {

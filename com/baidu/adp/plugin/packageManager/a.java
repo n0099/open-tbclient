@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a IF;
-    private c IG;
-    private ArrayList<b> IH = new ArrayList<>();
-    private C0021a II;
+    private static a IE;
+    private c IF;
+    private ArrayList<b> IG = new ArrayList<>();
+    private C0021a IH;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -22,25 +22,25 @@ public class a {
     }
 
     public static a lV() {
-        if (IF == null) {
+        if (IE == null) {
             synchronized (a.class) {
-                if (IF == null) {
-                    IF = new a();
+                if (IE == null) {
+                    IE = new a();
                 }
             }
         }
-        return IF;
+        return IE;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.IG = cVar;
+            this.IF = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.IH.iterator();
+                    Iterator<b> it2 = this.IG.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,7 +51,7 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.IH.add(next);
+                        this.IG.add(next);
                     }
                 }
             }
@@ -61,9 +61,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void lW() {
-        if (this.IH.size() != 0 && this.II == null) {
-            this.II = new C0021a(this.IH.get(0));
-            this.II.execute(new String[0]);
+        if (this.IG.size() != 0 && this.IH == null) {
+            this.IH = new C0021a(this.IG.get(0));
+            this.IH.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0021a extends BdAsyncTask<String, Integer, Boolean> {
-        private b IJ;
+        private b II;
 
         public C0021a(b bVar) {
-            this.IJ = bVar;
+            this.II = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.IJ != null) {
-                return Boolean.valueOf(bB(this.IJ.apkPath));
+            if (this.II != null) {
+                return Boolean.valueOf(bB(this.II.apkPath));
             }
             return false;
         }
@@ -92,22 +92,22 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0021a) bool);
-            a.this.II = null;
-            if (a.this.IH.size() > 0) {
-                Iterator it = a.this.IH.iterator();
+            a.this.IH = null;
+            if (a.this.IG.size() > 0) {
+                Iterator it = a.this.IG.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.IJ, bVar)) {
-                        a.this.IH.remove(bVar);
+                    if (a.this.a(this.II, bVar)) {
+                        a.this.IG.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.IG != null) {
-                a.this.IG.D(this.IJ.packageName, this.IJ.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.IF != null) {
+                a.this.IF.D(this.II.packageName, this.II.apkPath);
             }
             a.this.lW();
         }

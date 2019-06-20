@@ -105,7 +105,7 @@ public class a {
         }
     }
 
-    private void hN(String str) {
+    private void hM(String str) {
         this.aXy.setBackgroundColor(c.parseColor(str));
     }
 
@@ -119,7 +119,7 @@ public class a {
             m = e.d.ae(vk.getAppId(), vk.getVersion()).getPath();
         }
         String str = m + File.separator + gVar.aQI;
-        if (com.baidu.swan.c.a.kY(str)) {
+        if (com.baidu.swan.c.a.kX(str)) {
             swanAppBottomTabIconView.setmIsSelect(false);
             swanAppBottomTabIconView.setIconView(BitmapFactory.decodeFile(str));
             if (this.aXD == null) {
@@ -142,7 +142,7 @@ public class a {
             m = e.d.ae(vk.getAppId(), vk.getVersion()).getPath();
         }
         String str = m + File.separator + gVar.aQJ;
-        if (com.baidu.swan.c.a.kY(str)) {
+        if (com.baidu.swan.c.a.kX(str)) {
             swanAppBottomTabIconView.setmIsSelect(true);
             swanAppBottomTabIconView.setIconView(BitmapFactory.decodeFile(str));
             if (this.aXE == null) {
@@ -226,7 +226,7 @@ public class a {
             this.aXA.pause();
             this.aXA.c(com.baidu.swan.apps.model.b.aq(this.aXC.get(i).aQH, com.baidu.swan.apps.w.e.FV().FE()));
             d dVar = this.aXA;
-            d.dI("switchTab");
+            d.dH("switchTab");
             this.aXA.resume();
         }
     }
@@ -234,11 +234,11 @@ public class a {
     private void es(int i) {
         HashMap hashMap = new HashMap();
         c.g gVar = this.aXC.get(i);
-        String dK = this.aXA.dK(com.baidu.swan.apps.model.b.aq(gVar.aQH, com.baidu.swan.apps.w.e.FV().FE()).ayL);
+        String dJ = this.aXA.dJ(com.baidu.swan.apps.model.b.aq(gVar.aQH, com.baidu.swan.apps.w.e.FV().FE()).ayL);
         hashMap.put("index", String.valueOf(i));
         hashMap.put("pagePath", gVar.aQH);
         hashMap.put("text", gVar.ama);
-        hashMap.put("wvID", dK);
+        hashMap.put("wvID", dJ);
         com.baidu.swan.apps.w.e.FV().a(new com.baidu.swan.apps.m.a.b("onTabItemTap", hashMap));
     }
 
@@ -247,7 +247,7 @@ public class a {
         b(this.aXB.get(i), this.aXC.get(i));
     }
 
-    public void hO(String str) {
+    public void hN(String str) {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -270,9 +270,9 @@ public class a {
             return false;
         }
         eq(c.parseColor(str4));
-        hN(str3);
-        hP(str);
-        hQ(str2);
+        hM(str3);
+        hO(str);
+        hP(str2);
         Iterator<SwanAppBottomTabIconView> it = this.aXB.iterator();
         while (it.hasNext()) {
             SwanAppBottomTabIconView next = it.next();
@@ -285,11 +285,11 @@ public class a {
         return true;
     }
 
-    private void hP(String str) {
+    private void hO(String str) {
         this.aXD = str;
     }
 
-    private void hQ(String str) {
+    private void hP(String str) {
         this.aXE = str;
     }
 
@@ -345,7 +345,7 @@ public class a {
         return this.aXB != null && i < this.aXB.size() && i >= 0;
     }
 
-    public int hR(String str) {
+    public int hQ(String str) {
         if (TextUtils.isEmpty(str) || this.aXC == null || this.aXC.size() == 0) {
             return -1;
         }

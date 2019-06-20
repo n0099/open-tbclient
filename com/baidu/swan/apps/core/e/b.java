@@ -41,7 +41,7 @@ public class b {
     /* renamed from: com.baidu.swan.apps.core.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0136b {
-        void dr(String str);
+        void dq(String str);
 
         void onCancel();
 
@@ -100,7 +100,7 @@ public class b {
                     this.apX[this.apX.length - 1] = SystemClock.uptimeMillis();
                     if (this.apX[0] >= SystemClock.uptimeMillis() - 3000) {
                         this.apX = null;
-                        b.this.dP(sslError.toString());
+                        b.this.dO(sslError.toString());
                     }
                 }
             }).a(new b.a(this.mContext.getText(a.h.aiapps_ssl_continue), a.c.aiapps_ssl_dialog_go_on_text_color, new b.c() { // from class: com.baidu.swan.apps.core.e.b.14
@@ -189,7 +189,7 @@ public class b {
         return new d.a(this.mContext).cm(a.h.aiapps_ssl_certificate).V(b);
     }
 
-    public void dP(String str) {
+    public void dO(String str) {
         ((ClipboardManager) this.mContext.getSystemService("clipboard")).setText(str);
         com.baidu.swan.apps.res.widget.b.d.k(this.mContext, a.h.aiapps_ssl_copy_error).Ld();
     }
@@ -260,11 +260,11 @@ public class b {
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).cm(a.h.aiapps_dialog_webcall_common_title).gx(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
+        g.a a2 = new g.a(this.mContext).cm(a.h.aiapps_dialog_webcall_common_title).gw(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0136b != null) {
-                    interfaceC0136b.dr("");
+                    interfaceC0136b.dq("");
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.e.b.2
@@ -294,11 +294,11 @@ public class b {
             }
             return false;
         }
-        g.a a2 = new g.a(this.mContext).cm(a.h.aiapps_dialog_webcall_common_title).gx(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
+        g.a a2 = new g.a(this.mContext).cm(a.h.aiapps_dialog_webcall_common_title).gw(str2).b(a.h.aiapps_dialog_positive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.6
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0136b != null) {
-                    interfaceC0136b.dr("");
+                    interfaceC0136b.dq("");
                 }
             }
         }).c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.5
@@ -339,7 +339,7 @@ public class b {
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (interfaceC0136b != null) {
-                    interfaceC0136b.dr(editText.getText().toString());
+                    interfaceC0136b.dq(editText.getText().toString());
                 }
             }
         }).c(a.h.aiapps_dialog_nagtive_button_text, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.b.8

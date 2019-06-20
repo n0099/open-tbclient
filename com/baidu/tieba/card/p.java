@@ -87,9 +87,9 @@ public class p extends a<com.baidu.tieba.card.data.n> {
     public void onClick(View view) {
         int f = com.baidu.adp.lib.g.b.f((String) view.getTag(), -1);
         if (this.eyk != null && com.baidu.tbadk.core.util.v.c(this.eyk.eBx, f) != null) {
-            TiebaStatic.log(new am(this.eyn).bT("obj_locate", String.valueOf(this.eyk.locate)).bT("obj_name", this.eyk.eBx.get(f).bHC));
+            TiebaStatic.log(new am(this.eyn).bT("obj_locate", String.valueOf(this.eyk.locate)).bT("obj_name", this.eyk.eBx.get(f).bHD));
             if (f >= 0 && !com.baidu.tbadk.plugins.b.f(getTbPageContext())) {
-                getTbPageContext().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.eyk.eBx.get(f).topicId), this.eyk.eBx.get(f).bHC, "")));
+                getTbPageContext().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getTbPageContext().getPageActivity()).createNormalConfig(String.valueOf(this.eyk.eBx.get(f).topicId), this.eyk.eBx.get(f).bHD, "")));
             }
         }
     }
@@ -147,8 +147,8 @@ public class p extends a<com.baidu.tieba.card.data.n> {
 
     private void i(TextView textView, int i) {
         com.baidu.tieba.card.data.m mVar = this.eyk.eBx.get(i);
-        if (!StringUtils.isNull(mVar.bHC)) {
-            textView.setText(mVar.bHC.trim());
+        if (!StringUtils.isNull(mVar.bHD)) {
+            textView.setText(mVar.bHD.trim());
         }
     }
 

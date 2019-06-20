@@ -45,17 +45,17 @@ public abstract class d<T> extends ResponseCallback<String> {
             a(aVar, str);
             return;
         }
-        c kl = c.kl(str);
-        if (kl == null) {
-            com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.e.d.cZ(str).toString());
+        c kk = c.kk(str);
+        if (kk == null) {
+            com.baidu.swan.pms.model.a aVar2 = new com.baidu.swan.pms.model.a(2103, "metadata : parse response error - ,errmsg:" + com.baidu.swan.pms.e.d.cY(str).toString());
             this.bsl.a(aVar2);
             a(aVar2, str);
-        } else if (kl.getErrorCode() != 0) {
-            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(kl.getErrorCode(), d.a.fC(kl.getErrorCode()));
+        } else if (kk.getErrorCode() != 0) {
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(kk.getErrorCode(), d.a.fC(kk.getErrorCode()));
             this.bsl.a(aVar3);
             a(aVar3, str);
         } else {
-            T aD = aD(kl.Vw());
+            T aD = aD(kk.Vw());
             if (aD == null) {
                 com.baidu.swan.pms.model.a aVar4 = new com.baidu.swan.pms.model.a(2102, "response data empty");
                 this.bsl.a(aVar4);

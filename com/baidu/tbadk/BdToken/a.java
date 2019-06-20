@@ -95,10 +95,10 @@ public class a {
         b bVar = new b();
         bVar.setActivityId(cursor.getInt(cursor.getColumnIndex("activityid")));
         bVar.gc(cursor.getInt(cursor.getColumnIndex("missionid")));
-        bVar.le(cursor.getString(cursor.getColumnIndex("activitysource")));
+        bVar.ld(cursor.getString(cursor.getColumnIndex("activitysource")));
         bVar.gd(cursor.getInt(cursor.getColumnIndex("calltype")));
         bVar.ge(cursor.getInt(cursor.getColumnIndex("tasktype")));
-        bVar.lf(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+        bVar.le(cursor.getString(cursor.getColumnIndex("browsetimepage")));
         bVar.aj(cursor.getLong(cursor.getColumnIndex("browsetime")));
         bVar.setThreadNum(cursor.getInt(cursor.getColumnIndex("threadnum")));
         bVar.gf(cursor.getInt(cursor.getColumnIndex("forumnum")));
@@ -107,8 +107,8 @@ public class a {
         bVar.al(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
         bVar.setTid(cursor.getLong(cursor.getColumnIndex("tid")));
         bVar.setFid(cursor.getLong(cursor.getColumnIndex("fid")));
-        bVar.lg(cursor.getString(cursor.getColumnIndex("threadtext")));
-        bVar.lh(cursor.getString(cursor.getColumnIndex("threadimg")));
+        bVar.lf(cursor.getString(cursor.getColumnIndex("threadtext")));
+        bVar.lg(cursor.getString(cursor.getColumnIndex("threadimg")));
         bVar.am(cursor.getInt(cursor.getColumnIndex("threadforum")));
         bVar.gh(cursor.getInt(cursor.getColumnIndex("totalLimit")));
         bVar.gi(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));

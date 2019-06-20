@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class a {
-    private ViewGroup Rr;
+    private ViewGroup Rq;
     private InterfaceC0037a acB;
     private com.baidu.c.a.c.a criusData;
     private Map<String, View> acz = new HashMap();
@@ -41,17 +41,17 @@ public class a {
         } else {
             this.acC = a(aVar, this.criusData);
         }
-        if (this.Rr == null || !this.acC) {
-            this.Rr = new RelativeLayout(context);
-            this.Rr.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+        if (this.Rq == null || !this.acC) {
+            this.Rq = new RelativeLayout(context);
+            this.Rq.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
         }
         this.criusData = aVar;
         try {
-            a(context, aVar, this.Rr, z);
+            a(context, aVar, this.Rq, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return this.Rr;
+        return this.Rq;
     }
 
     private boolean a(com.baidu.c.a.c.a aVar, com.baidu.c.a.c.a aVar2) {
@@ -81,7 +81,7 @@ public class a {
     public void g(Context context, boolean z) {
         try {
             this.acC = true;
-            a(context, this.criusData, this.Rr, z);
+            a(context, this.criusData, this.Rq, z);
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -233,18 +233,19 @@ public class a {
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.text = aVar.text;
             aVar2.src = aVar.src;
-            aVar2.aaH = (float) aVar.borderRadius;
-            aVar2.aaI = (float) aVar.abZ;
-            aVar2.aaJ = (float) aVar.aca;
-            aVar2.aaK = (float) aVar.acb;
-            aVar2.aaL = (float) aVar.acd;
+            aVar2.aaG = (float) aVar.borderRadius;
+            aVar2.aaH = (float) aVar.abZ;
+            aVar2.aaI = (float) aVar.aca;
+            aVar2.aaJ = (float) aVar.acb;
+            aVar2.aaK = (float) aVar.acd;
             if (!TextUtils.isEmpty(aVar.color)) {
                 aVar2.color = com.baidu.c.a.e.a.parseColor(aVar.color);
             }
             if (!TextUtils.isEmpty(aVar.acr)) {
-                aVar2.aaM = com.baidu.c.a.e.a.parseColor(aVar.acr);
+                aVar2.aaL = com.baidu.c.a.e.a.parseColor(aVar.acr);
             }
-            aVar2.aaN = (float) aVar.fontSize;
+            aVar2.aaM = (float) aVar.fontSize;
+            aVar2.aaN = aVar.aaN;
             com.baidu.c.a.b.a.rc().a(str, view, aVar2, z);
         }
     }
@@ -267,7 +268,7 @@ public class a {
             view.setMinimumHeight((int) aVar.aaT.getLayoutHeight());
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.src = aVar.src;
-            aVar2.aaG = aVar.aaG;
+            aVar2.aaF = aVar.aaF;
             aVar2.videoDuration = aVar.videoDuration;
             aVar2.width = (int) aVar.aaT.getLayoutWidth();
             aVar2.height = (int) aVar.aaT.getLayoutHeight();
@@ -281,11 +282,11 @@ public class a {
             view.setMinimumHeight((int) aVar.aaT.getLayoutHeight());
             com.baidu.c.a.a.a aVar2 = new com.baidu.c.a.a.a();
             aVar2.src = aVar.src;
-            aVar2.aaH = (float) aVar.borderRadius;
-            aVar2.aaI = (float) aVar.abZ;
-            aVar2.aaJ = (float) aVar.aca;
-            aVar2.aaK = (float) aVar.acb;
-            aVar2.aaL = (float) aVar.acd;
+            aVar2.aaG = (float) aVar.borderRadius;
+            aVar2.aaH = (float) aVar.abZ;
+            aVar2.aaI = (float) aVar.aca;
+            aVar2.aaJ = (float) aVar.acb;
+            aVar2.aaK = (float) aVar.acd;
             d.rd().a("image", view, aVar2);
         }
     }
@@ -435,11 +436,11 @@ public class a {
         }
     }
 
-    public View cA(String str) {
+    public View cz(String str) {
         return this.acz.get(str);
     }
 
-    public View cB(String str) {
+    public View cA(String str) {
         return this.acA.get(str);
     }
 

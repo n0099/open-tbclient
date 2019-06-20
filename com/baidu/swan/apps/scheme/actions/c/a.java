@@ -106,7 +106,7 @@ public class a {
         this.aSu = floatButton;
     }
 
-    public void gZ(String str) {
+    public void gY(String str) {
         this.aSw = str;
     }
 

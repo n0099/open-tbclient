@@ -7,5 +7,5 @@ public interface l {
 
     m aGo();
 
-    boolean fK(String str);
+    boolean fJ(String str);
 }

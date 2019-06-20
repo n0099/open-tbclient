@@ -16,7 +16,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
     private String mForumId;
     private String mForumName;
     private TbPageContext<?> mPageContext;
-    private ab sF;
+    private ab sE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(TbPageContext tbPageContext, String str, String str2) {
@@ -63,14 +63,14 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.a, com.
         createFromThreadCfg.setForumId(String.valueOf(aVar.abv().getFid()));
         createFromThreadCfg.setForumName(aVar.abv().adA());
         createFromThreadCfg.setStartFrom(0);
-        n.uS(aVar.abv().getTid());
+        n.uR(aVar.abv().getTid());
         this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
-        if (this.sF != null) {
-            this.sF.a(view, aVar);
+        if (this.sE != null) {
+            this.sE.a(view, aVar);
         }
     }
 
     public void e(ab abVar) {
-        this.sF = abVar;
+        this.sE = abVar;
     }
 }

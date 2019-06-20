@@ -14,7 +14,7 @@ public class a extends b {
 
     public a(String str, String str2) {
         this.fBK = FrsGameRecommendFragment.cX(str, str2);
-        asK().cwn = this.fBK;
+        asK().cwo = this.fBK;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -26,15 +26,15 @@ public class a extends b {
     public c asJ() {
         c cVar = new c();
         cVar.type = 11;
-        cVar.bVV = R.string.frs_game_recommend_tab_title;
-        cVar.cwt = c.cwq;
+        cVar.bVW = R.string.frs_game_recommend_tab_title;
+        cVar.cwu = c.cwr;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cO(Context context) {
-        this.cvZ = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-        this.cvZ.setTextSize(2.0f);
-        return this.cvZ;
+        this.cwa = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+        this.cwa.setTextSize(2.0f);
+        return this.cwa;
     }
 }

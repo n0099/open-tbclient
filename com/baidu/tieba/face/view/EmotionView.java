@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 /* loaded from: classes.dex */
 public class EmotionView extends TbImageView {
-    private float cPp;
+    private float cPq;
     private EmotionImageData eXM;
     private EmotionPreview eXN;
     private FrameLayout eXO;
@@ -127,9 +127,9 @@ public class EmotionView extends TbImageView {
                     case 0:
                         EmotionView.this.eXQ = true;
                         EmotionView.this.mDownX = motionEvent.getRawX();
-                        EmotionView.this.cPp = motionEvent.getRawY();
+                        EmotionView.this.cPq = motionEvent.getRawY();
                         EmotionView.this.mCurrentX = EmotionView.this.mDownX;
-                        EmotionView.this.mCurrentY = EmotionView.this.cPp;
+                        EmotionView.this.mCurrentY = EmotionView.this.cPq;
                         EmotionView.this.eXP = System.currentTimeMillis();
                         if (EmotionView.this.bfg()) {
                             EmotionView.this.postDelayed(new b(EmotionView.this.eXP), 500L);
@@ -188,7 +188,7 @@ public class EmotionView extends TbImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bfh() {
-        return Math.abs(this.mCurrentX - this.mDownX) < this.eXS && Math.abs(this.mCurrentY - this.cPp) < this.eXS;
+        return Math.abs(this.mCurrentX - this.mDownX) < this.eXS && Math.abs(this.mCurrentY - this.cPq) < this.eXS;
     }
 
     public boolean getIsGif() {

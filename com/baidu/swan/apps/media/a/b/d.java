@@ -160,7 +160,7 @@ public class d {
     }
 
     private static File b(@NonNull com.baidu.swan.apps.ae.b bVar) {
-        File file = new File(com.baidu.swan.apps.storage.b.hy(bVar.id) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
+        File file = new File(com.baidu.swan.apps.storage.b.hx(bVar.id) + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + ".mp4");
         com.baidu.swan.c.a.w(file);
         return file;
     }

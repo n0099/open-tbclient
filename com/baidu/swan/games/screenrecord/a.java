@@ -50,8 +50,8 @@ public class a extends c {
                 this.adv = 120;
             }
             String RX = RX();
-            jK(RX);
-            this.bjy = g.jk(RX);
+            jJ(RX);
+            this.bjy = g.jj(RX);
             if (this.bjy == null) {
                 if (DEBUG) {
                     Log.e("GameRecorderApi", "recordPath == null.");
@@ -121,8 +121,8 @@ public class a extends c {
     public void recordClip(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
         if (!a(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
-            double[] iQ = i.iQ("timeRange");
-            double[] dArr = !b(iQ) ? new double[]{3.0d, 3.0d} : iQ;
+            double[] iP = i.iP("timeRange");
+            double[] dArr = !b(iP) ? new double[]{3.0d, 3.0d} : iP;
             com.baidu.swan.games.screenrecord.a.b a = com.baidu.swan.games.screenrecord.a.b.a(d.Sa().Sb().getCurrentRecordProcess(), dArr[0], dArr[1]);
             if (DEBUG) {
                 Log.d("GameRecorderApi", "recordClip:" + a.toString());
@@ -149,7 +149,7 @@ public class a extends c {
         } else if (this.bjB.isEmpty()) {
             b(i, "range is illegal");
         } else {
-            new com.baidu.swan.games.screenrecord.a.e(this.bjB, g.iZ(optString)).a(new com.baidu.swan.games.screenrecord.a.c() { // from class: com.baidu.swan.games.screenrecord.a.2
+            new com.baidu.swan.games.screenrecord.a.e(this.bjB, g.iY(optString)).a(new com.baidu.swan.games.screenrecord.a.c() { // from class: com.baidu.swan.games.screenrecord.a.2
                 @Override // com.baidu.swan.games.screenrecord.a.c
                 public void a(com.baidu.swan.games.screenrecord.a.d dVar, String str) {
                     a.this.b(i, str);

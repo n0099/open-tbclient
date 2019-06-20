@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c cvA = new c();
-    private final HashMap<String, Class<? extends b>> cvB = new HashMap<>();
+    private static c cvB = new c();
+    private final HashMap<String, Class<? extends b>> cvC = new HashMap<>();
 
     public static c asA() {
-        return cvA;
+        return cvB;
     }
 
     private c() {
@@ -83,7 +83,7 @@ public class c {
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.qw(imageFileInfo.getFilePath());
+                return a.qv(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,32 +103,32 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap qw = dVar != null ? dVar.qw(str) : null;
+        Bitmap qv = dVar != null ? dVar.qv(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = qw;
+                bitmap = qv;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    qw = bitmap;
+                    qv = bitmap;
                 } else if (bitmap == null) {
-                    qw = a2.qw(str);
+                    qv = a2.qv(str);
                 } else {
-                    qw = a2.b(bitmap, true);
+                    qv = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = qw;
+            bitmap = qv;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
         b p;
-        Class<? extends b> cls = this.cvB.get(imageOperation.actionName);
+        Class<? extends b> cls = this.cvC.get(imageOperation.actionName);
         if (cls != null && (p = p(cls)) != null) {
             p.setParams(imageOperation.actionParam);
             return p;
@@ -139,7 +139,7 @@ public class c {
     private void o(Class<? extends b> cls) {
         b p = p(cls);
         if (p != null) {
-            this.cvB.put(p.getActionName(), cls);
+            this.cvC.put(p.getActionName(), cls);
         }
     }
 

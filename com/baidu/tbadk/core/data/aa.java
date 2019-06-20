@@ -2,15 +2,15 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes3.dex */
 public class aa {
     public int accountType;
-    public long bGi;
     public long bGj;
-    public int bGk;
-    public String bGl;
-    public long bGm;
+    public long bGk;
+    public int bGl;
+    public String bGm;
     public long bGn;
-    public int bGo;
+    public long bGo;
     public int bGp;
     public int bGq;
+    public int bGr;
     public long beginTime;
     public String desc;
     public long endTime;

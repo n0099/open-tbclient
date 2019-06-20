@@ -7,10 +7,10 @@ import com.baidu.tieba.R;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    public static final String iWL = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
-    private int hBM;
-    private String iWM;
-    private int iWN;
+    public static final String iWP = TbadkCoreApplication.getInst().getString(R.string.default_bar_manager_select_title);
+    private int hBN;
+    private String iWQ;
+    private int iWR;
     private String icon;
     private String obj_id;
     private int time;
@@ -19,20 +19,20 @@ public class h implements com.baidu.adp.widget.ListView.m {
     private String url;
     private int weight;
 
-    public int clz() {
-        return this.iWN;
+    public int clA() {
+        return this.iWR;
     }
 
     public void Am(int i) {
-        this.iWN = i;
+        this.iWR = i;
     }
 
-    public int clA() {
-        return this.hBM;
+    public int clB() {
+        return this.hBN;
     }
 
     public void An(int i) {
-        this.hBM = i;
+        this.hBN = i;
     }
 
     public void setIcon(String str) {
@@ -51,7 +51,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.title = str;
     }
 
-    public int clB() {
+    public int clC() {
         return this.type;
     }
 
@@ -71,12 +71,12 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.time = i;
     }
 
-    public String clC() {
+    public String clD() {
         return this.obj_id;
     }
 
-    public String clD() {
-        return this.iWM;
+    public String clE() {
+        return this.iWQ;
     }
 
     public void a(StarEnter starEnter) {
@@ -88,11 +88,11 @@ public class h implements com.baidu.adp.widget.ListView.m {
         Ao(starEnter.weight.intValue());
         An(starEnter.rank_num.intValue());
         Am(starEnter.bazhu_mark.intValue());
-        if (StringUtils.isNull(this.title) && this.iWN == 1) {
-            this.title = iWL;
+        if (StringUtils.isNull(this.title) && this.iWR == 1) {
+            this.title = iWP;
         }
         this.obj_id = starEnter.obj_id;
-        this.iWM = starEnter.text;
+        this.iWQ = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

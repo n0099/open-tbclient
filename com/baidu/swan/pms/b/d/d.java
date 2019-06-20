@@ -14,12 +14,12 @@ public class d extends e {
         this.bsU = i;
     }
 
-    public d kt(String str) {
+    public d ks(String str) {
         this.bsV = str;
         return this;
     }
 
-    public void ku(String str) {
+    public void kt(String str) {
         this.bsX = str;
     }
 

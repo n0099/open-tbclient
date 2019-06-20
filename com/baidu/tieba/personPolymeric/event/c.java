@@ -47,17 +47,17 @@ import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class c extends a {
-    private e ijL;
-    private com.baidu.tieba.personPolymeric.b.a ijl;
+    private e ijM;
+    private com.baidu.tieba.personPolymeric.b.a ijm;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
     }
 
     public void a(e eVar) {
-        this.ijL = eVar;
-        if (this.ijL != null) {
-            this.ijl = this.ijL.bZQ();
+        this.ijM = eVar;
+        if (this.ijM != null) {
+            this.ijm = this.ijM.bZR();
         }
     }
 
@@ -85,15 +85,15 @@ public class c extends a {
                     if (userData != null) {
                         m mVar = new m();
                         if (!StringUtils.isNull(userData.getPortrait()) && userData.getPortrait().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                            mVar.pG(userData.getPortrait());
+                            mVar.pF(userData.getPortrait());
                         } else {
-                            mVar.pG(userData.getPortraitH());
+                            mVar.pF(userData.getPortraitH());
                         }
-                        mVar.pH(userData.getPortrait());
+                        mVar.pG(userData.getPortrait());
                         mVar.eW(true);
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(mVar);
-                        this.ijL.bZR().a((com.baidu.adp.widget.ListView.m) mVar, (List<com.baidu.adp.widget.ListView.m>) arrayList, 0);
+                        this.ijM.bZS().a((com.baidu.adp.widget.ListView.m) mVar, (List<com.baidu.adp.widget.ListView.m>) arrayList, 0);
                         return;
                     }
                     return;
@@ -117,9 +117,9 @@ public class c extends a {
                     this.mPageContext.getPageActivity().finish();
                     return;
                 case 9:
-                    if (this.ijl != null && this.ijl.bZK() != null) {
+                    if (this.ijm != null && this.ijm.bZL() != null) {
                         TiebaStatic.log("c12207");
-                        this.ijl.bZK().bZX();
+                        this.ijm.bZL().bZY();
                         return;
                     }
                     return;
@@ -132,7 +132,7 @@ public class c extends a {
                         str = userData.getUserId();
                         String bg_pic = userData.getBg_pic();
                         try {
-                            i = com.baidu.adp.lib.g.b.f(Cb(bg_pic).get("props_id"), -1);
+                            i = com.baidu.adp.lib.g.b.f(Cd(bg_pic).get("props_id"), -1);
                             str2 = bg_pic;
                         } catch (URISyntaxException e) {
                             str2 = bg_pic;
@@ -207,7 +207,7 @@ public class c extends a {
                     return;
                 case 16:
                     yl(7);
-                    com.baidu.tieba.o.a.cfZ().d(7, false, this.isHost);
+                    com.baidu.tieba.o.a.cga().d(7, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MembercenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 17:
@@ -216,7 +216,7 @@ public class c extends a {
                     return;
                 case 20:
                     yl(2);
-                    com.baidu.tieba.o.a.cfZ().d(3, false, this.isHost);
+                    com.baidu.tieba.o.a.cga().d(3, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001259));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -234,7 +234,7 @@ public class c extends a {
                     return;
                 case 24:
                     yl(3);
-                    com.baidu.tieba.o.a.cfZ().d(4, false, this.isHost);
+                    com.baidu.tieba.o.a.cga().d(4, false, this.isHost);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001185));
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddressListActivityConfig(this.mPageContext.getPageActivity())));
                     return;
@@ -266,7 +266,7 @@ public class c extends a {
                     return;
                 case 32:
                     yl(1);
-                    com.baidu.tieba.o.a.cfZ().d(8, false, this.isHost);
+                    com.baidu.tieba.o.a.cga().d(8, false, this.isHost);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(this.mPageContext.getPageActivity())));
                     return;
                 case 33:
@@ -276,7 +276,7 @@ public class c extends a {
                 case 34:
                     if (bc.cE(this.mPageContext.getPageActivity())) {
                         yl(4);
-                        com.baidu.tieba.o.a.cfZ().d(1, false, this.isHost);
+                        com.baidu.tieba.o.a.cga().d(1, false, this.isHost);
                         if (userData != null && TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getUserName(), userData.getName_show(), userData.getSex(), "iowner_gift")));
                             return;
@@ -326,7 +326,7 @@ public class c extends a {
         TiebaStatic.log(new am("c12044").P("obj_locate", i));
     }
 
-    private Map<String, String> Cb(final String str) throws URISyntaxException {
+    private Map<String, String> Cd(final String str) throws URISyntaxException {
         return new HashMap<String, String>() { // from class: com.baidu.tieba.personPolymeric.event.PersonPolymericEventController$1
             /* JADX INFO: Access modifiers changed from: package-private */
             {

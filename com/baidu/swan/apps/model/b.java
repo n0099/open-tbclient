@@ -10,8 +10,8 @@ public final class b {
 
     public static b aq(String str, String str2) {
         b bVar = new b();
-        bVar.ayL = aa.ik(str);
-        bVar.mParams = aa.il(str);
+        bVar.ayL = aa.ij(str);
+        bVar.mParams = aa.ik(str);
         bVar.mBaseUrl = str2;
         return bVar;
     }

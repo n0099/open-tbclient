@@ -40,14 +40,14 @@ public class b {
         return TbadkCoreApplication.getInst().getSharedPreferences(Zf(), 0);
     }
 
-    public synchronized a lo(String str) {
+    public synchronized a ln(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String by(String str, String str2) {
-        a lo = lo(str);
-        if (lo != null && !TextUtils.isEmpty(lo.bzH)) {
-            return lo.bzH;
+        a ln = ln(str);
+        if (ln != null && !TextUtils.isEmpty(ln.bzH)) {
+            return ln.bzH;
         }
         return str2;
     }
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean lp(String str) {
+    public static boolean lo(String str) {
         return Config.APP_VERSION_CODE.equalsIgnoreCase(Ze().by(str, ""));
     }
 }

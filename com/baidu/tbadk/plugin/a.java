@@ -10,21 +10,21 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Runnable cxl = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
+    private static Runnable cxm = new Runnable() { // from class: com.baidu.tbadk.plugin.a.1
         @Override // java.lang.Runnable
         public void run() {
             a.auv();
         }
     };
-    private static boolean czX = false;
+    private static boolean czY = false;
 
     /* JADX INFO: Access modifiers changed from: private */
     public static final void auu() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.iB().removeCallbacks(cxl);
-            e.iB().postDelayed(cxl, 120000L);
-            if (!czX) {
-                czX = true;
+            e.iB().removeCallbacks(cxm);
+            e.iB().postDelayed(cxm, 120000L);
+            if (!czY) {
+                czY = true;
                 String string = TbadkCoreApplication.getInst().getResources().getString(R.string.plugin_tip_installing);
                 NotificationHelper.showNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000, null, string, string, null, false);
             }
@@ -34,8 +34,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public static final void auv() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            czX = false;
-            e.iB().removeCallbacks(cxl);
+            czY = false;
+            e.iB().removeCallbacks(cxm);
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApplicationContext(), 1000);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
         }
@@ -43,7 +43,7 @@ public class a {
 
     public static void init() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            e.iB().post(cxl);
+            e.iB().post(cxm);
             MessageManager.getInstance().registerListener(new CustomMessageListener(2000993) { // from class: com.baidu.tbadk.plugin.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener

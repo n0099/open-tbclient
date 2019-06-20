@@ -20,7 +20,7 @@ public class d {
 
     public String bi(String str, String str2) {
         if (isSuccess()) {
-            return a.jS(str);
+            return a.jR(str);
         }
         return a.z(str, str2, Su());
     }
@@ -69,7 +69,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d jT(@NonNull String str) {
+    public static d jS(@NonNull String str) {
         return new d(str, null);
     }
 

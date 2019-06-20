@@ -17,9 +17,9 @@ import com.baidu.tieba.c;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
     private TextView aif;
-    private LinearLayout cmN;
-    protected TextView cmO;
-    private BdSwitchView cmP;
+    private LinearLayout cmO;
+    protected TextView cmP;
+    private BdSwitchView cmQ;
     private final Context mContext;
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
@@ -46,35 +46,35 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public View getView() {
-        return this.cmN;
+        return this.cmO;
     }
 
     public void jT(int i) {
-        this.cmP.setBackgroundRes(al.id(R.drawable.bg_switch_open), al.id(R.drawable.bg_switch_close), al.id(R.drawable.btn_handle));
+        this.cmQ.setBackgroundRes(al.id(R.drawable.bg_switch_open), al.id(R.drawable.bg_switch_close), al.id(R.drawable.btn_handle));
         al.f(this.aif, R.color.cp_cont_b, 1);
-        if (this.cmO != null) {
-            al.f(this.cmO, R.color.cp_cont_d, 1);
+        if (this.cmP != null) {
+            al.f(this.cmP, R.color.cp_cont_d, 1);
         }
     }
 
     public void mW() {
-        this.cmP.mW();
-        this.cmP.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
+        this.cmQ.mW();
+        this.cmQ.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
     }
 
     public void mV() {
-        this.cmP.mV();
-        this.cmP.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
+        this.cmQ.mV();
+        this.cmQ.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
     }
 
     public void al(boolean z) {
-        this.cmP.al(z);
-        this.cmP.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
+        this.cmQ.al(z);
+        this.cmQ.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_close));
     }
 
     public void ak(boolean z) {
-        this.cmP.ak(z);
-        this.cmP.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
+        this.cmQ.ak(z);
+        this.cmQ.setContentDescription(this.mContext.getString(R.string.talk_message_tip) + this.mContext.getString(R.string.talk_open));
     }
 
     public void setText(String str) {
@@ -82,22 +82,22 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        this.cmP.setOnSwitchStateChangeListener(aVar);
+        this.cmQ.setOnSwitchStateChangeListener(aVar);
     }
 
     private void apq() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
-        this.cmN = (LinearLayout) findViewById(R.id.container);
+        this.cmO = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.cmP = (BdSwitchView) findViewById(R.id.button);
-        this.cmP.setFocusable(true);
-        this.cmO = (TextView) findViewById(R.id.tip);
-        if (this.cmO != null) {
-            this.cmO.setVisibility(8);
+        this.cmQ = (BdSwitchView) findViewById(R.id.button);
+        this.cmQ.setFocusable(true);
+        this.cmP = (TextView) findViewById(R.id.tip);
+        if (this.cmP != null) {
+            this.cmP.setVisibility(8);
         }
-        setTag(this.cmP);
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
+        setTag(this.cmQ);
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -107,11 +107,11 @@ public class SettingTextSwitchView extends FrameLayout {
         float dimension = obtainStyledAttributes.getDimension(0, -1.0f);
         String string2 = obtainStyledAttributes.getString(1);
         int color2 = obtainStyledAttributes.getColor(4, -1);
-        if (this.cmO != null && string2 != null) {
-            this.cmO.setVisibility(0);
-            this.cmO.setText(string2);
+        if (this.cmP != null && string2 != null) {
+            this.cmP.setVisibility(0);
+            this.cmP.setText(string2);
             if (color2 > -1) {
-                this.cmO.setTextColor(color2);
+                this.cmP.setTextColor(color2);
             }
         }
         if (string != null) {
@@ -123,34 +123,34 @@ public class SettingTextSwitchView extends FrameLayout {
         if (dimension > -1.0f) {
             this.aif.setTextSize(0, dimension);
         }
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
         obtainStyledAttributes.recycle();
     }
 
     public void setTip(String str) {
-        if (str != null && this.cmO != null) {
+        if (str != null && this.cmP != null) {
             displayTip();
-            this.cmO.setText(str);
+            this.cmP.setText(str);
         }
     }
 
     public void setTip(int i) {
-        if (i != -1 && this.cmO != null) {
+        if (i != -1 && this.cmP != null) {
             displayTip();
-            this.cmO.setText(i);
+            this.cmP.setText(i);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.cmO != null) {
-            this.cmO.setTextColor(i);
+        if (this.cmP != null) {
+            this.cmP.setTextColor(i);
         }
     }
 
     public void displayTip() {
-        if (this.cmO != null) {
-            this.cmO.setVisibility(8);
+        if (this.cmP != null) {
+            this.cmP.setVisibility(8);
         }
     }
 
@@ -163,10 +163,10 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public BdSwitchView getSwitchView() {
-        return this.cmP;
+        return this.cmQ;
     }
 
     public void setSwitchView(BdSwitchView bdSwitchView) {
-        this.cmP = bdSwitchView;
+        this.cmQ = bdSwitchView;
     }
 }

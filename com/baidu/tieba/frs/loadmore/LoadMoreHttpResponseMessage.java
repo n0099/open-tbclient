@@ -65,10 +65,10 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                             bgVar.a(list2.get(i3));
                             bgVar.setCurrentPage(3);
                             bgVar.ael();
-                            bgVar.bLa = isBrandForum;
+                            bgVar.bLb = isBrandForum;
                             if (!TextUtils.isEmpty(bgVar.aex())) {
                                 ad adVar = new ad();
-                                adVar.mg(bgVar.aex());
+                                adVar.mf(bgVar.aex());
                                 this.threadList.add(adVar);
                             } else {
                                 this.threadList.add(bgVar);
@@ -77,9 +77,12 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                     }
                 }
                 this.bannerListData = null;
-                if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage) && ((LoadMoreRequestMessage) orginalMessage.getExtra()).getPageType() == 1) {
-                    this.bannerListData = new BannerListData();
-                    this.bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
+                if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {
+                    LoadMoreRequestMessage loadMoreRequestMessage = (LoadMoreRequestMessage) orginalMessage.getExtra();
+                    if (loadMoreRequestMessage.getPageType() == 1 || loadMoreRequestMessage.getPageType() == 2 || loadMoreRequestMessage.getPageType() == 3) {
+                        this.bannerListData = new BannerListData();
+                        this.bannerListData.parserProtobuf(threadListResIdl.data.banner_list);
+                    }
                 }
             }
         }

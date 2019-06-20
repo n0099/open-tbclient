@@ -36,11 +36,11 @@ public class t extends c<s> {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.cHM().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.cHL().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void cHF() {
+            public void cHE() {
                 if (submit.cancel(false)) {
-                    aVar.cBA();
+                    aVar.cBz();
                 }
             }
         });

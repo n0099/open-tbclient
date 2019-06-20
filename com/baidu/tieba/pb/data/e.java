@@ -19,11 +19,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class e {
     public static PostData a(d dVar, boolean z, int i) {
         if (z) {
-            if (dVar == null || dVar.bPN() == null || dVar.bPN().size() <= 0) {
+            if (dVar == null || dVar.bPO() == null || dVar.bPO().size() <= 0) {
                 return null;
             }
-            PostData postData = dVar.bPN().get(0);
-            if (postData.cmw() != 1) {
+            PostData postData = dVar.bPO().get(0);
+            if (postData.cmx() != 1) {
                 return a(dVar);
             }
             return postData;
@@ -33,20 +33,20 @@ public class e {
 
     public static PostData a(d dVar) {
         MetaData metaData;
-        if (dVar == null || dVar.bPL() == null || dVar.bPL().adv() == null) {
+        if (dVar == null || dVar.bPM() == null || dVar.bPM().adv() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData adv = dVar.bPL().adv();
+        MetaData adv = dVar.bPM().adv();
         String userId = adv.getUserId();
-        HashMap<String, MetaData> userMap = dVar.bPL().getUserMap();
+        HashMap<String, MetaData> userMap = dVar.bPM().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
             metaData = adv;
         }
         postData.Ay(1);
-        postData.setId(dVar.bPL().adL());
-        postData.setTitle(dVar.bPL().getTitle());
-        postData.setTime(dVar.bPL().getCreateTime());
+        postData.setId(dVar.bPM().adL());
+        postData.setTitle(dVar.bPM().getTitle());
+        postData.setTime(dVar.bPM().getCreateTime());
         postData.a(metaData);
         return postData;
     }
@@ -83,24 +83,24 @@ public class e {
     }
 
     public static void a(PostData postData, PbActivity.c cVar) {
-        if (postData != null && postData.cmy() != null && postData.cmy().axz() != null && cVar != null && cVar.hGj != null && cVar.hGk != null && postData.cmy().axz().size() != 0) {
-            String str = (String) v.c(cVar.hGj, cVar.index);
+        if (postData != null && postData.cmz() != null && postData.cmz().axz() != null && cVar != null && cVar.hGk != null && cVar.hGl != null && postData.cmz().axz().size() != 0) {
+            String str = (String) v.c(cVar.hGk, cVar.index);
             if (!StringUtils.isNull(str)) {
-                cVar.hGj = new ArrayList<>();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.hGk;
-                cVar.hGk = new ConcurrentHashMap<>();
-                Iterator<TbRichTextData> it = postData.cmy().axz().iterator();
+                cVar.hGk = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.hGl;
+                cVar.hGl = new ConcurrentHashMap<>();
+                Iterator<TbRichTextData> it = postData.cmz().axz().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String b = b(next);
                         if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
-                            cVar.hGj.add(b);
-                            cVar.hGk.put(b, concurrentHashMap.get(b));
+                            cVar.hGk.add(b);
+                            cVar.hGl.put(b, concurrentHashMap.get(b));
                         }
                     }
                 }
-                cVar.index = v.a(cVar.hGj, str);
+                cVar.index = v.a(cVar.hGk, str);
             }
         }
     }

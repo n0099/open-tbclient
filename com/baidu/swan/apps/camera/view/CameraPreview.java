@@ -148,7 +148,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         });
     }
 
-    public boolean di(String str) {
+    public boolean dh(String str) {
         setSaveMediaPath(str);
         if (xk()) {
             this.ala.start();
@@ -311,7 +311,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         this.alc = str;
     }
 
-    public String dj(String str) {
+    public String di(String str) {
         return str + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg";
     }
 

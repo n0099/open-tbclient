@@ -7,10 +7,10 @@ import android.graphics.RectF;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public abstract class j extends b {
-    private a Hc;
-    protected Path Ha = new Path();
-    protected Paint Hb = null;
-    protected boolean Hd = false;
+    private a Hb;
+    protected Path GZ = new Path();
+    protected Paint Ha = null;
+    protected boolean Hc = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -23,15 +23,15 @@ public abstract class j extends b {
     public void a(c cVar, ImageView imageView, ImageView.ScaleType scaleType) {
         Path a2;
         super.a(cVar, imageView, scaleType);
-        if (this.Hc != null && (a2 = this.Hc.a(lf())) != null) {
-            this.Ha.set(a2);
-            if (this.Hb == null) {
-                this.Hb = new Paint();
-                this.Hb.setStyle(Paint.Style.STROKE);
-                this.Hb.setAntiAlias(true);
-                this.Hb.setColor(637534208);
-                this.Hb.setDither(true);
-                this.Hb.setStrokeWidth(2.0f);
+        if (this.Hb != null && (a2 = this.Hb.a(lf())) != null) {
+            this.GZ.set(a2);
+            if (this.Ha == null) {
+                this.Ha = new Paint();
+                this.Ha.setStyle(Paint.Style.STROKE);
+                this.Ha.setAntiAlias(true);
+                this.Ha.setColor(637534208);
+                this.Ha.setDither(true);
+                this.Ha.setStrokeWidth(2.0f);
             }
             lk();
         }
@@ -40,10 +40,10 @@ public abstract class j extends b {
     @Override // com.baidu.adp.newwidget.ImageView.a
     public void a(Canvas canvas, c cVar, ImageView imageView) {
         super.a(canvas, cVar, imageView);
-        if (this.Hd) {
-            canvas.drawPath(this.Ha, this.Hb);
-            if (this.Hc != null) {
-                this.Hc.e(canvas);
+        if (this.Hc) {
+            canvas.drawPath(this.GZ, this.Ha);
+            if (this.Hb != null) {
+                this.Hb.e(canvas);
             }
         }
     }
@@ -55,10 +55,10 @@ public abstract class j extends b {
     }
 
     public void a(a aVar) {
-        this.Hc = aVar;
+        this.Hb = aVar;
     }
 
     public void af(boolean z) {
-        this.Hd = z;
+        this.Hc = z;
     }
 }

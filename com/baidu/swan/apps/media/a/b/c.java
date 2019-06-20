@@ -172,7 +172,7 @@ public class c extends AsyncTask<d.a, String, C0150c> {
                 }
                 return ap;
             }
-        }).b(Schedulers.io()).a(rx.a.b.a.cLr()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
+        }).b(Schedulers.io()).a(rx.a.b.a.cLq()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {

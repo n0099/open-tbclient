@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int ilg = 0;
-    private static int ilh = 1;
-    private static String ili = "";
+    private static int ilh = 0;
+    private static int ili = 1;
+    private static String ilj = "";
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        ilh = 1;
+        ili = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(ili)) {
-                ilg = 1;
-                ili = str;
+            if (z || !str.equals(ilj)) {
+                ilh = 1;
+                ilj = str;
             } else {
-                ilg++;
+                ilh++;
             }
         } else {
-            if (z || !str.equals(ili)) {
+            if (z || !str.equals(ilj)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    ilh = 1;
+                    ili = 1;
                 } else {
-                    ilh = 0;
+                    ili = 0;
                 }
-                ili = str;
+                ilj = str;
             }
-            ilh++;
+            ili++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(ili);
+        userPostPageRequestMessage.setUid(ilj);
         if (z3) {
-            userPostPageRequestMessage.setPn(ilg);
-        } else {
             userPostPageRequestMessage.setPn(ilh);
+        } else {
+            userPostPageRequestMessage.setPn(ili);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);

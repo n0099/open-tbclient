@@ -30,7 +30,7 @@ public class b extends n {
             g gVar = new g();
             gVar.setActivityId(optInt);
             gVar.ka(optInt2);
-            gVar.pF(optString);
+            gVar.pE(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
         }
     }

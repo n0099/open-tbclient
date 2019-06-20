@@ -51,7 +51,7 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
         }
     }
 
-    public static Interpolator iy(@NonNull String str) {
+    public static Interpolator ix(@NonNull String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -1965120668:

@@ -14,7 +14,7 @@ public final class d {
         this.avH = str2;
     }
 
-    public static d es(String str) {
+    public static d er(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return new d(jSONObject.optString("webviewid"), jSONObject.optString("message"));

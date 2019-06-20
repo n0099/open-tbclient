@@ -20,7 +20,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.textarea.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public interface InterfaceC0185a {
-        void ez(String str);
+        void ey(String str);
 
         void y(String str, int i);
 
@@ -44,7 +44,7 @@ public class a {
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     if (a.aXT != null) {
-                        a.aXT.ez(a.this.aXS);
+                        a.aXT.ey(a.this.aXS);
                     }
                     Rect rect = new Rect();
                     view.getWindowVisibleDisplayFrame(rect);

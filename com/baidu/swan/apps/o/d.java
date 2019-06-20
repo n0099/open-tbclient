@@ -70,9 +70,9 @@ public abstract class d {
         CI();
         com.baidu.swan.apps.ae.b.n(this.ajM);
         if (!com.baidu.swan.apps.ae.b.isDataValid()) {
-            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(5L).Z(11L).hZ("aiapp data is invalid");
-            com.baidu.swan.apps.ak.e.Ok().b(hZ);
-            com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hp(com.baidu.swan.apps.statistic.e.dM(vc())).a(hZ).s(this.ajM));
+            com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(5L).Z(11L).hY("aiapp data is invalid");
+            com.baidu.swan.apps.ak.e.Ok().b(hY);
+            com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().ho(com.baidu.swan.apps.statistic.e.dM(vc())).a(hY).s(this.ajM));
             com.baidu.swan.apps.an.b.L(this.aww);
             return;
         }
@@ -151,7 +151,7 @@ public abstract class d {
             fVar.mType = "launch";
             fVar.mValue = "success";
             fVar.k("status", "0");
-            fVar.ak(com.baidu.swan.apps.statistic.e.hn(this.ajM.EX()));
+            fVar.ak(com.baidu.swan.apps.statistic.e.hm(this.ajM.EX()));
             com.baidu.swan.apps.statistic.e.onEvent(fVar);
             Fa.remove("launch_flag_for_statistic");
         }
@@ -233,7 +233,7 @@ public abstract class d {
     public void onResume() {
         this.awF.onActivityResumed();
         com.baidu.swan.apps.console.c.d("SwanApp", "onResume: " + this);
-        this.awE = com.baidu.swan.apps.statistic.e.hl("607");
+        this.awE = com.baidu.swan.apps.statistic.e.hk("607");
         CS();
         com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
         if (Lq != null) {
@@ -251,8 +251,8 @@ public abstract class d {
                 }
             }
         }, "saveSwanAppHistory");
-        com.baidu.swan.apps.performance.f.fO("startup").f(new UbcFlowEvent("na_page_show").a(UbcFlowEvent.RecordType.UPDATE_RECENT));
-        com.baidu.swan.apps.y.f.GN().fz("na_page_show");
+        com.baidu.swan.apps.performance.f.fN("startup").f(new UbcFlowEvent("na_page_show").a(UbcFlowEvent.RecordType.UPDATE_RECENT));
+        com.baidu.swan.apps.y.f.GN().fy("na_page_show");
     }
 
     public void onStart() {
@@ -267,7 +267,7 @@ public abstract class d {
             aVar.mFrom = com.baidu.swan.apps.statistic.e.dM(vc());
             aVar.mAppId = this.ajM.getAppId();
             aVar.mSource = this.ajM.EW();
-            aVar.ak(com.baidu.swan.apps.statistic.e.hn(this.ajM.EX()));
+            aVar.ak(com.baidu.swan.apps.statistic.e.hm(this.ajM.EX()));
             com.baidu.swan.apps.statistic.e.a(this.awE, aVar);
             this.awE = null;
         }
@@ -350,7 +350,7 @@ public abstract class d {
             fVar.mFrom = com.baidu.swan.apps.statistic.e.dM(vc());
             fVar.mAppId = this.ajM.getAppId();
             fVar.mSource = this.ajM.EW();
-            fVar.ak(com.baidu.swan.apps.statistic.e.hn(this.ajM.EX()));
+            fVar.ak(com.baidu.swan.apps.statistic.e.hm(this.ajM.EX()));
             if (TextUtils.isEmpty(fVar.mType)) {
                 fVar.mType = "click";
             }

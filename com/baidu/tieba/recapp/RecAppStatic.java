@@ -21,7 +21,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.izs.set(new t());
+        r.izt.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         com.baidu.tieba.ad.a.aBK().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
@@ -74,7 +74,7 @@ public class RecAppStatic {
         });
         com.baidu.tieba.InjectPlugin.a.e.azp().a(1, new f());
         com.baidu.tieba.InjectPlugin.a.e.azp().a(2, new d());
-        bg.bII.set(true);
+        bg.bIJ.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -87,8 +87,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.cev().cey();
-        b.cev().cew();
+        b.cew().cez();
+        b.cew().cex();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());

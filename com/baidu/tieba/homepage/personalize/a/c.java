@@ -6,7 +6,7 @@ import com.baidu.tieba.card.m;
 public class c<T extends com.baidu.tieba.card.m> extends com.baidu.tieba.card.a.a<T> implements com.baidu.tieba.play.f {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: bum */
+    /* renamed from: bun */
     public T aYs() {
         return (T) this.eCd;
     }

@@ -1,31 +1,32 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
+    private int FP;
     private int FQ;
-    private int FR;
+    private boolean FR;
     private boolean FT;
-    private boolean FU;
+    private int FU;
     private int FV;
-    private int FW;
+    private boolean FW;
     private boolean FX;
-    private boolean FY;
-    private String Fe;
+    private String Fd;
 
     public l() {
-        this.Fe = null;
-        this.FQ = 32768;
-        this.FR = 131072;
-        this.FT = false;
-        this.FU = true;
+        this.Fd = null;
+        this.FP = 32768;
+        this.FQ = 131072;
+        this.FR = false;
+        this.FT = true;
+        this.FU = 30000;
         this.FV = 30000;
-        this.FW = 30000;
+        this.FW = true;
         this.FX = true;
-        this.FY = true;
-        this.Fe = null;
+        this.Fd = null;
     }
 
     public l(l lVar) {
-        this.Fe = null;
+        this.Fd = null;
+        this.FP = lVar.FP;
         this.FQ = lVar.FQ;
         this.FR = lVar.FR;
         this.FT = lVar.FT;
@@ -33,47 +34,46 @@ public class l {
         this.FV = lVar.FV;
         this.FW = lVar.FW;
         this.FX = lVar.FX;
-        this.FY = lVar.FY;
-        this.Fe = lVar.Fe;
+        this.Fd = lVar.Fd;
     }
 
     public boolean kR() {
-        return this.FT;
-    }
-
-    public int kS() {
-        return this.FQ;
-    }
-
-    public int kT() {
         return this.FR;
     }
 
+    public int kS() {
+        return this.FP;
+    }
+
+    public int kT() {
+        return this.FQ;
+    }
+
     public boolean getTcpNoDelay() {
-        return this.FU;
+        return this.FT;
     }
 
     public int kU() {
-        return this.FV;
+        return this.FU;
     }
 
     public int kV() {
-        return this.FW;
+        return this.FV;
     }
 
     public boolean kW() {
-        return this.FX;
+        return this.FW;
     }
 
     public boolean kX() {
-        return this.FY;
+        return this.FX;
     }
 
     public String kY() {
-        return this.Fe;
+        return this.Fd;
     }
 
     public void bp(String str) {
-        this.Fe = str;
+        this.Fd = str;
     }
 }

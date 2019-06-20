@@ -1,8 +1,7 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String bBT;
-    private int bBU;
+    private String bBU;
     private int bBV;
     private int bBW;
     private int bBX;
@@ -22,63 +21,64 @@ public class b {
     private int bCl;
     private int bCm;
     private int bCn;
-    private StringBuffer bCo = new StringBuffer();
+    private int bCo;
+    private StringBuffer bCp = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.bCo.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.bCp.toString() + "]";
     }
 
-    public void lX(String str) {
-        this.bCo.append(str).append(" || ");
+    public void lW(String str) {
+        this.bCp.append(str).append(" || ");
     }
 
     public int aaF() {
-        return this.bCi;
-    }
-
-    public void gp(int i) {
-        this.bCi = i;
-    }
-
-    public int aaG() {
         return this.bCj;
     }
 
-    public void gq(int i) {
+    public void gp(int i) {
         this.bCj = i;
     }
 
+    public int aaG() {
+        return this.bCk;
+    }
+
+    public void gq(int i) {
+        this.bCk = i;
+    }
+
     public int aaH() {
-        return this.bCg;
-    }
-
-    public void gr(int i) {
-        this.bCg = i;
-    }
-
-    public int aaI() {
         return this.bCh;
     }
 
-    public void gs(int i) {
+    public void gr(int i) {
         this.bCh = i;
     }
 
+    public int aaI() {
+        return this.bCi;
+    }
+
+    public void gs(int i) {
+        this.bCi = i;
+    }
+
     public int aaJ() {
-        return this.bCe;
-    }
-
-    public void gt(int i) {
-        this.bCe = i;
-    }
-
-    public int aaK() {
         return this.bCf;
     }
 
-    public void gu(int i) {
+    public void gt(int i) {
         this.bCf = i;
+    }
+
+    public int aaK() {
+        return this.bCg;
+    }
+
+    public void gu(int i) {
+        this.bCg = i;
     }
 
     public String getId() {
@@ -86,122 +86,122 @@ public class b {
     }
 
     public int aaL() {
-        return this.bCk;
-    }
-
-    public void gv(int i) {
-        this.bCk = i;
-    }
-
-    public int aaM() {
         return this.bCl;
     }
 
-    public void gw(int i) {
+    public void gv(int i) {
         this.bCl = i;
+    }
+
+    public int aaM() {
+        return this.bCm;
+    }
+
+    public void gw(int i) {
+        this.bCm = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void lY(String str) {
-        this.bBT = str;
+    public void lX(String str) {
+        this.bBU = str;
     }
 
     public int aaN() {
-        return this.bBU;
-    }
-
-    public void gx(int i) {
-        this.bBU = i;
-    }
-
-    public int aaO() {
         return this.bBV;
     }
 
-    public void gy(int i) {
+    public void gx(int i) {
         this.bBV = i;
     }
 
-    public int aaP() {
-        return this.bBY;
-    }
-
-    public void gz(int i) {
-        this.bBY = i;
-    }
-
-    public int aaQ() {
-        return this.bBZ;
-    }
-
-    public void gA(int i) {
-        this.bBZ = i;
-    }
-
-    public int aaR() {
+    public int aaO() {
         return this.bBW;
     }
 
-    public void gB(int i) {
+    public void gy(int i) {
         this.bBW = i;
     }
 
-    public int aaS() {
-        return this.bBX;
+    public int aaP() {
+        return this.bBZ;
     }
 
-    public void gC(int i) {
-        this.bBX = i;
+    public void gz(int i) {
+        this.bBZ = i;
     }
 
-    public int aaT() {
-        return this.bCb;
-    }
-
-    public int aaU() {
+    public int aaQ() {
         return this.bCa;
     }
 
-    public void gD(int i) {
+    public void gA(int i) {
         this.bCa = i;
     }
 
-    public void gE(int i) {
-        this.bCb = i;
+    public int aaR() {
+        return this.bBX;
     }
 
-    public int aaV() {
-        return this.bCd;
+    public void gB(int i) {
+        this.bBX = i;
     }
 
-    public void gF(int i) {
-        this.bCd = i;
+    public int aaS() {
+        return this.bBY;
     }
 
-    public int aaW() {
+    public void gC(int i) {
+        this.bBY = i;
+    }
+
+    public int aaT() {
         return this.bCc;
     }
 
-    public void gG(int i) {
+    public int aaU() {
+        return this.bCb;
+    }
+
+    public void gD(int i) {
+        this.bCb = i;
+    }
+
+    public void gE(int i) {
         this.bCc = i;
     }
 
+    public int aaV() {
+        return this.bCe;
+    }
+
+    public void gF(int i) {
+        this.bCe = i;
+    }
+
+    public int aaW() {
+        return this.bCd;
+    }
+
+    public void gG(int i) {
+        this.bCd = i;
+    }
+
     public int aaX() {
-        return this.bCm;
-    }
-
-    public void gH(int i) {
-        this.bCm = i;
-    }
-
-    public int aaY() {
         return this.bCn;
     }
 
-    public void gI(int i) {
+    public void gH(int i) {
         this.bCn = i;
+    }
+
+    public int aaY() {
+        return this.bCo;
+    }
+
+    public void gI(int i) {
+        this.bCo = i;
     }
 }

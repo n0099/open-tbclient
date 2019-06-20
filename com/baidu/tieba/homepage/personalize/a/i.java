@@ -17,7 +17,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<com.baidu.tieba.card.w>> {
-    private ab Vj;
+    private ab Vi;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> ftY;
     private com.baidu.adp.lib.e.b<TbImageView> ftZ;
     private TbPageContext mPageContext;
@@ -25,7 +25,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Vj = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.i.1
+        this.Vi = new ab() { // from class: com.baidu.tieba.homepage.personalize.a.i.1
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if ((bVar instanceof bg) && (obj instanceof com.baidu.tieba.card.u)) {
@@ -110,7 +110,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         com.baidu.tieba.card.a.a<com.baidu.tieba.card.w> aVar = new com.baidu.tieba.card.a.a<>(wVar);
         wVar.setConstrainImagePool(this.ftZ);
         wVar.setConstrainLayoutPool(this.ftY);
-        wVar.d(this.Vj);
+        wVar.d(this.Vi);
         return aVar;
     }
 
@@ -130,7 +130,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             uVar.ezv = kVar.aYa();
             com.baidu.tieba.card.t.aXP().b(a("c13023", kVar.abv(), uVar));
             aVar.aYs().a(uVar);
-            aVar.aYs().d(this.Vj);
+            aVar.aYs().d(this.Vi);
             aVar.aYs().a(kVar.abv());
         }
         return aVar.getView();

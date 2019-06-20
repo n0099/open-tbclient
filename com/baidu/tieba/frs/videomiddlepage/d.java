@@ -6,22 +6,22 @@ import com.baidu.tieba.frs.aggregation.g;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 /* loaded from: classes4.dex */
 public class d {
-    private h fNX;
-    private com.baidu.tieba.frs.aggregation.g fNY;
-    private ValueAnimator fNZ;
+    private h fNZ;
+    private com.baidu.tieba.frs.aggregation.g fOa;
+    private ValueAnimator fOb;
     private com.baidu.tieba.play.c fut;
     private View rootView;
 
     public void a(h hVar) {
-        this.fNX = hVar;
+        this.fNZ = hVar;
     }
 
-    public com.baidu.tieba.frs.aggregation.g bri() {
-        if (this.fNY == null) {
-            this.fNY = new com.baidu.tieba.frs.aggregation.g();
+    public com.baidu.tieba.frs.aggregation.g brk() {
+        if (this.fOa == null) {
+            this.fOa = new com.baidu.tieba.frs.aggregation.g();
         }
-        a(this.fNY, this.fNX.bro());
-        return this.fNY;
+        a(this.fOa, this.fNZ.brq());
+        return this.fOa;
     }
 
     private void a(com.baidu.tieba.frs.aggregation.g gVar, VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
@@ -84,9 +84,9 @@ public class d {
     }
 
     public void onDestroy() {
-        if (this.fNZ != null) {
-            this.fNZ.cancel();
-            this.fNZ = null;
+        if (this.fOb != null) {
+            this.fOb.cancel();
+            this.fOb = null;
         }
         if (this.rootView != null) {
             this.rootView.clearAnimation();

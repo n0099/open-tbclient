@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class e extends BaseAdapter implements n {
-    private boolean MP;
+    private boolean MO;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -36,7 +36,7 @@ public class e extends BaseAdapter implements n {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.MP = false;
+        this.MO = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
@@ -44,7 +44,7 @@ public class e extends BaseAdapter implements n {
         if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
             z = true;
         }
-        this.MP = z;
+        this.MO = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.e.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -149,7 +149,7 @@ public class e extends BaseAdapter implements n {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.MP = z;
+                this.MO = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -168,7 +168,7 @@ public class e extends BaseAdapter implements n {
                 if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.MP = z;
+                this.MO = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -263,7 +263,7 @@ public class e extends BaseAdapter implements n {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.MP && this.mAdapter.areAllItemsEnabled();
+            return this.MO && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }

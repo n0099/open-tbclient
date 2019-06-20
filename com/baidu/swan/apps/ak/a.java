@@ -54,7 +54,7 @@ public final class a {
         return this.aYH;
     }
 
-    public a hY(String str) {
+    public a hX(String str) {
         if (str == null) {
             str = "";
         }
@@ -66,7 +66,7 @@ public final class a {
         return this.aYJ;
     }
 
-    public a hZ(String str) {
+    public a hY(String str) {
         this.aYK.append(str).append("\n");
         return this;
     }
@@ -98,7 +98,7 @@ public final class a {
     private long a(long j, long j2, String str) {
         boolean z = j < 0 || j > j2;
         if (z) {
-            hZ("illegalFallback " + str + "::" + String.valueOf(j));
+            hY("illegalFallback " + str + "::" + String.valueOf(j));
         }
         return z ? j2 : j;
     }

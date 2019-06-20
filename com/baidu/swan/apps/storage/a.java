@@ -3,14 +3,14 @@ package com.baidu.swan.apps.storage;
 public class a {
     private long aVH;
     private long aVI;
-    private String wV;
+    private String wU;
 
     public String getPath() {
-        return this.wV;
+        return this.wU;
     }
 
     public void setPath(String str) {
-        this.wV = str;
+        this.wU = str;
     }
 
     public long getSize() {

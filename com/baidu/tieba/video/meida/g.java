@@ -13,33 +13,33 @@ import java.nio.ByteOrder;
 import tv.danmaku.ijk.media.player.IMediaFormat;
 /* loaded from: classes5.dex */
 public class g {
-    public static boolean jta = false;
+    public static boolean jtd = false;
 
     /* loaded from: classes5.dex */
     public static class a {
         public int aBP = 48000;
         public int channelCount = 1;
-        public int jsX = 16;
-        public int jtb = 0;
+        public int jta = 16;
+        public int jte = 0;
+
+        public boolean csI() {
+            return this.jte == 1 || this.jte == 4 || this.jte == 6 || this.jte == 9;
+        }
 
         public boolean csJ() {
-            return this.jtb == 1 || this.jtb == 4 || this.jtb == 6 || this.jtb == 9;
+            return this.jte == 3 || this.jte == 4 || this.jte == 8 || this.jte == 9;
         }
 
         public boolean csK() {
-            return this.jtb == 3 || this.jtb == 4 || this.jtb == 8 || this.jtb == 9;
-        }
-
-        public boolean csL() {
-            return this.jtb == 5 || this.jtb == 6 || this.jtb == 8 || this.jtb == 9;
+            return this.jte == 5 || this.jte == 6 || this.jte == 8 || this.jte == 9;
         }
     }
 
-    public static void csI() {
+    public static void csH() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            jta = true;
+            jtd = true;
         } else {
-            jta = false;
+            jtd = false;
         }
     }
 
@@ -51,15 +51,15 @@ public class g {
         boolean z = true;
         for (int i = 1; i < aVarArr.length; i++) {
             if (aVar.aBP != aVarArr[i].aBP) {
-                aVarArr[i].jtb++;
+                aVarArr[i].jte++;
                 z = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].jtb += 3;
+                aVarArr[i].jte += 3;
                 z = false;
             }
-            if (aVar.jsX != aVarArr[i].jsX) {
-                aVarArr[i].jtb += 5;
+            if (aVar.jta != aVarArr[i].jta) {
+                aVarArr[i].jte += 5;
                 z = false;
             }
         }
@@ -67,7 +67,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a Fk(String str) {
+    public static a Fm(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -93,7 +93,7 @@ public class g {
             a aVar = new a();
             aVar.aBP = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : 48000;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.jsX = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.jta = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -175,7 +175,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], jta);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], jtd);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -205,7 +205,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * 256), jta);
+                                byte[] a2 = a((short) (bArr[i3] * 256), jtd);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -219,7 +219,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], jta) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], jtd) / 256);
                             }
                             return bArr3;
                         default:

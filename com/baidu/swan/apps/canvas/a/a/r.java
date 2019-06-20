@@ -8,7 +8,7 @@ public class r extends a {
     private float amg;
     private float mX;
     private float mY;
-    private boolean tW = false;
+    private boolean tV = false;
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void e(JSONArray jSONArray) {
@@ -17,13 +17,13 @@ public class r extends a {
             this.amg = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(1));
             this.mX = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(2));
             this.mY = com.baidu.swan.apps.an.z.ad((float) jSONArray.optDouble(3));
-            this.tW = true;
+            this.tV = true;
         }
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (this.tW) {
+        if (this.tV) {
             bVar.mPath.quadTo(this.amf, this.amg, this.mX, this.mY);
         }
     }

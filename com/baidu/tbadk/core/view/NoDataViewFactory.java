@@ -26,29 +26,29 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a bYF;
         final a bYG;
-        final int bYH;
+        final a bYH;
+        final int bYI;
 
         private b(a aVar) {
-            this.bYF = aVar.bYF;
             this.bYG = aVar.bYG;
             this.bYH = aVar.bYH;
+            this.bYI = aVar.bYI;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a bYF = null;
             private a bYG = null;
-            private int bYH = -1;
+            private a bYH = null;
+            private int bYI = -1;
 
             public a b(a aVar) {
-                this.bYF = aVar;
+                this.bYG = aVar;
                 return this;
             }
 
             public a iC(int i) {
-                this.bYH = i;
+                this.bYI = i;
                 return this;
             }
 
@@ -74,40 +74,40 @@ public class NoDataViewFactory {
     /* loaded from: classes.dex */
     public static class a {
         String ama;
-        View.OnClickListener bYE;
+        View.OnClickListener bYF;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.ama = str;
-            this.bYE = onClickListener;
+            this.bYF = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
         final int aOC;
-        final int bYC;
-        final ImgType bYI;
+        final int bYD;
+        final ImgType bYJ;
         final int mHeight;
         final int mWidth;
 
         private c(a aVar) {
-            this.bYI = aVar.bYI;
+            this.bYJ = aVar.bYJ;
             this.aOC = aVar.aOC;
-            this.bYC = aVar.bYC;
+            this.bYD = aVar.bYD;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType bYI = ImgType.NONE;
+            private ImgType bYJ = ImgType.NONE;
             private int aOC = -1;
-            private int bYC = -1;
+            private int bYD = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.bYI = imgType;
+                this.bYJ = imgType;
                 return this;
             }
 
@@ -117,7 +117,7 @@ public class NoDataViewFactory {
             }
 
             public a iE(int i) {
-                this.bYC = i;
+                this.bYD = i;
                 return this;
             }
 
@@ -162,40 +162,40 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class d {
-        final String bFz;
-        final String bYJ;
-        final int bYK;
+        final String bFA;
+        final String bYK;
         final int bYL;
+        final int bYM;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.bFz = aVar.bFz;
-            this.bYJ = aVar.bYJ;
-            this.bYK = aVar.bYM;
-            this.bYL = aVar.bYL;
+            this.bFA = aVar.bFA;
+            this.bYK = aVar.bYK;
+            this.bYL = aVar.bYN;
+            this.bYM = aVar.bYM;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String bFz = null;
-            private String bYJ = null;
-            private int bYM = -1;
-            private int bYL = 0;
+            private String bFA = null;
+            private String bYK = null;
+            private int bYN = -1;
+            private int bYM = 0;
 
-            public a oA(String str) {
+            public a oz(String str) {
                 this.mTitle = str;
                 return this;
             }
 
-            public a oB(String str) {
-                this.bFz = str;
+            public a oA(String str) {
+                this.bFA = str;
                 return this;
             }
 
             public a iI(int i) {
-                this.bYM = i;
+                this.bYN = i;
                 return this;
             }
 
@@ -206,29 +206,29 @@ public class NoDataViewFactory {
 
         public static d ac(int i, int i2) {
             a aVar = new a();
-            aVar.oB(TbadkCoreApplication.getInst().getResources().getString(i));
+            aVar.oA(TbadkCoreApplication.getInst().getResources().getString(i));
             aVar.iI(i2);
             return aVar.ajs();
         }
 
         public static d iH(int i) {
-            return oz(TbadkCoreApplication.getInst().getResources().getString(i));
+            return oy(TbadkCoreApplication.getInst().getResources().getString(i));
         }
 
         public static d ad(int i, int i2) {
             return bW(TbadkCoreApplication.getInst().getResources().getString(i), TbadkCoreApplication.getInst().getResources().getString(i2));
         }
 
-        public static d oz(String str) {
+        public static d oy(String str) {
             a aVar = new a();
-            aVar.oB(str);
+            aVar.oA(str);
             return aVar.ajs();
         }
 
         public static d bW(String str, String str2) {
             a aVar = new a();
-            aVar.oB(str);
-            aVar.oA(str2);
+            aVar.oA(str);
+            aVar.oz(str2);
             return aVar.ajs();
         }
     }

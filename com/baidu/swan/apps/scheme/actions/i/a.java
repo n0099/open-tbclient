@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public final class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject hb(String str) {
+    public static JSONObject ha(String str) {
         return ay(str, "");
     }
 
@@ -52,7 +52,7 @@ public final class a {
 
     public static void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar, String str, String str2, String str3) {
         if (bVar != null && !TextUtils.isEmpty(str3)) {
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(s(str, bVar.gD(aa.ik(str2)), str2), 0).toString(), str3);
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(s(str, bVar.gC(aa.ij(str2)), str2), 0).toString(), str3);
         }
     }
 
@@ -85,19 +85,19 @@ public final class a {
     public static void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar) {
         com.baidu.swan.apps.performance.e.am("route", "createAndLoadPage start.");
         String x = ac.x(bVar.mBaseUrl, bVar.ayL, bVar.mParams);
-        com.baidu.swan.apps.ae.a.d eZ = com.baidu.swan.apps.w.e.FV().eZ(bVar.ayL);
+        com.baidu.swan.apps.ae.a.d eY = com.baidu.swan.apps.w.e.FV().eY(bVar.ayL);
         com.baidu.swan.apps.core.j.b bVar2 = new com.baidu.swan.apps.core.j.b();
         bVar2.atz = bVar.mBaseUrl;
         bVar2.atG = com.baidu.swan.apps.model.b.f(bVar);
-        bVar2.atH = eZ.aQP;
+        bVar2.atH = eY.aQP;
         bVar2.atD = String.valueOf(com.baidu.swan.apps.console.a.xz());
         if (com.baidu.swan.apps.ae.b.Lq() != null) {
-            String gF = com.baidu.swan.apps.ae.b.Lq().gF(bVar.ayL);
-            if (!TextUtils.isEmpty(gF)) {
+            String gE = com.baidu.swan.apps.ae.b.Lq().gE(bVar.ayL);
+            if (!TextUtils.isEmpty(gE)) {
                 if (DEBUG) {
-                    Log.d("ActionUtils", "add initData: " + gF);
+                    Log.d("ActionUtils", "add initData: " + gE);
                 }
-                bVar2.atI = gF;
+                bVar2.atI = gE;
             }
         }
         bVar2.atF = DEBUG || com.baidu.swan.apps.w.e.FV().FC();

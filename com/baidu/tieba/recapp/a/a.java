@@ -42,14 +42,14 @@ public class a extends com.baidu.tbadk.b.a {
     private class C0394a extends BdAsyncTask<Object, Integer, h> {
         private String bzP;
         private d eku;
-        private HashMap<String, String> gWF;
+        private HashMap<String, String> gWG;
         private volatile x mNetwork = null;
         private String postUrl;
 
         public C0394a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.bzP = str;
             this.postUrl = str2;
-            this.gWF = hashMap;
+            this.gWG = hashMap;
             this.eku = dVar;
         }
 
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.gWF.keySet();
+                Set<String> keySet = this.gWG.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.o(str, this.gWF.get(str));
+                            this.mNetwork.o(str, this.gWG.get(str));
                         }
                     }
                 }

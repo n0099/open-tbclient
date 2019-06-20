@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 import com.vivo.push.util.NotifyAdapterUtil;
 /* loaded from: classes3.dex */
 public class a {
-    private static a ctS = new a();
-    private GameInfoData ctT;
-    private final c ctU = new c(303009) { // from class: com.baidu.tbadk.game.a.2
+    private static a ctT = new a();
+    private GameInfoData ctU;
+    private final c ctV = new c(303009) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.ctT = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.ctU = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -30,7 +30,7 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.ctU);
+        MessageManager.getInstance().registerListener(this.ctV);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -45,7 +45,7 @@ public class a {
     }
 
     public static a asc() {
-        return ctS;
+        return ctT;
     }
 
     private GameInfoData asd() {
@@ -59,7 +59,7 @@ public class a {
     }
 
     public GameInfoData ase() {
-        return this.ctT == null ? asd() : this.ctT;
+        return this.ctU == null ? asd() : this.ctU;
     }
 
     public ShareFromGameCenterMsgData asf() {

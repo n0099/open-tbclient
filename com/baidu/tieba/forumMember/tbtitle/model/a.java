@@ -13,7 +13,7 @@ import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsed
 import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes5.dex */
 public class a<T> {
-    private BaseActivity<T> cVp;
+    private BaseActivity<T> cVq;
     private com.baidu.adp.framework.listener.a eTF = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005) { // from class: com.baidu.tieba.forumMember.tbtitle.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -46,24 +46,24 @@ public class a<T> {
 
     public a(InterfaceC0305a interfaceC0305a, BaseActivity<T> baseActivity) {
         this.fmx = interfaceC0305a;
-        this.cVp = baseActivity;
+        this.cVq = baseActivity;
         biD();
     }
 
     public void qQ(int i) {
         GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
         getLevelInfoRequestMessage.setForumId(i);
-        this.cVp.sendMessage(getLevelInfoRequestMessage);
+        this.cVq.sendMessage(getLevelInfoRequestMessage);
     }
 
     public void qR(int i) {
         GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
         getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
-        this.cVp.sendMessage(getLevelInfoReadCacheRequestMessage);
+        this.cVq.sendMessage(getLevelInfoReadCacheRequestMessage);
     }
 
     private void biD() {
-        this.cVp.registerListener(this.fkK);
-        this.cVp.registerListener(this.eTF);
+        this.cVq.registerListener(this.fkK);
+        this.cVq.registerListener(this.eTF);
     }
 }

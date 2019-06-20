@@ -50,16 +50,16 @@ public final class ac {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4);
         }
         if (TextUtils.isEmpty(str3)) {
-            return aa.im(str4);
+            return aa.il(str4);
         }
-        Uri in = aa.in(str4);
-        if (in == null) {
-            return aa.im(str4);
+        Uri im = aa.im(str4);
+        if (im == null) {
+            return aa.il(str4);
         }
         if (DEBUG) {
             Log.d("SwanAppUtils", "buildPageUrl pageUrl: " + str4 + str3);
         }
-        return in.buildUpon().query(str3).build().toString();
+        return im.buildUpon().query(str3).build().toString();
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar, boolean z) {
@@ -72,16 +72,16 @@ public final class ac {
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
         if (z) {
-            return cVar.gI(bVar.ayL) || cVar.gJ(bVar.ayL);
+            return cVar.gH(bVar.ayL) || cVar.gI(bVar.ayL);
         }
-        if (!cVar.gI(bVar.ayL) || cVar.gJ(bVar.ayL)) {
+        if (!cVar.gH(bVar.ayL) || cVar.gI(bVar.ayL)) {
             z2 = false;
         }
         return z2;
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar) {
-        return cVar != null && cVar.LL() && cVar.gJ(bVar.ayL);
+        return cVar != null && cVar.LL() && cVar.gI(bVar.ayL);
     }
 
     public static void i(Runnable runnable) {
@@ -173,7 +173,7 @@ public final class ac {
         return !a.Os() || AppRuntime.getAppContext().checkSelfPermission("android.permission.ACCESS_FINE_LOCATION") == 0;
     }
 
-    public static Uri iq(String str) {
+    public static Uri ip(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -186,19 +186,19 @@ public final class ac {
         return null;
     }
 
-    public static AbsoluteLayout fa(String str) {
+    public static AbsoluteLayout eZ(String str) {
         com.baidu.swan.apps.b.c.d wS;
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(str);
-        if (dU == null || (wS = dU.wS()) == null) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(str);
+        if (dT == null || (wS = dT.wS()) == null) {
             return null;
         }
         return wS.getCurrentWebView();
     }
 
-    public static com.baidu.swan.apps.view.container.a ir(String str) {
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(str);
-        if (dU instanceof com.baidu.swan.apps.b.c.c) {
-            return ((com.baidu.swan.apps.b.c.c) dU).wQ();
+    public static com.baidu.swan.apps.view.container.a iq(String str) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(str);
+        if (dT instanceof com.baidu.swan.apps.b.c.c) {
+            return ((com.baidu.swan.apps.b.c.c) dT).wQ();
         }
         return null;
     }
@@ -225,7 +225,7 @@ public final class ac {
     }
 
     @Nullable
-    public static String is(@Nullable String str) {
+    public static String ir(@Nullable String str) {
         if (!TextUtils.isEmpty(str)) {
             StringBuffer stringBuffer = new StringBuffer();
             int length = str.length();
@@ -298,13 +298,13 @@ public final class ac {
     }
 
     public static Bitmap a(final String str, String str2, boolean z, final m.a aVar) {
-        Uri iq = iq(str);
-        if (m.i(iq)) {
-            return m.b(iq, AppRuntime.getAppContext());
+        Uri ip = ip(str);
+        if (m.i(ip)) {
+            return m.b(ip, AppRuntime.getAppContext());
         }
-        if (iq != null) {
+        if (ip != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.cCw().e(ImageRequestBuilder.U(iq).cIz(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.ac.1
+                com.facebook.drawee.a.a.c.cCv().e(ImageRequestBuilder.U(ip).cIy(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.ac.1
                     @Override // com.facebook.imagepipeline.e.b
                     protected void f(Bitmap bitmap) {
                         Bitmap copy;
@@ -335,9 +335,9 @@ public final class ac {
                         super.b(bVar);
                         m.a.this.d(str, null);
                     }
-                }, com.facebook.common.b.f.cBB());
+                }, com.facebook.common.b.f.cBA());
             } else {
-                m.a(iq, str2);
+                m.a(ip, str2);
             }
         }
         return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), z ? a.e.aiapps_default_icon : a.e.aiapps_default_grey_icon);

@@ -12,21 +12,21 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class c {
     private String ald;
-    private String jzK;
+    private String jzN;
     private boolean isLoading = false;
-    private b.a jzJ = new b.a() { // from class: com.baidu.tieba.u.c.1
+    private b.a jzM = new b.a() { // from class: com.baidu.tieba.u.c.1
         @Override // com.baidu.tieba.u.b.a
         public void b(boolean z, String str, String str2) {
             c.this.isLoading = false;
             if (z) {
                 c.this.ald = str;
                 com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", c.this.ald);
-                c.this.jzK = str2;
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", c.this.jzK);
+                c.this.jzN = str2;
+                com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", c.this.jzN);
             }
         }
     };
-    private CustomMessageListener bCA = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
+    private CustomMessageListener bCB = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -45,32 +45,32 @@ public class c {
 
     private void init() {
         this.isLoading = false;
-        this.jzK = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_url", null);
+        this.jzN = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_url", null);
         this.ald = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_path", null);
-        MessageManager.getInstance().registerListener(this.bCA);
+        MessageManager.getInstance().registerListener(this.bCB);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setVideoUrl(String str) {
-        if ((com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_splash_switch", 0) == 1) && !this.isLoading && FA(str)) {
-            Fz(str);
+        if ((com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_splash_switch", 0) == 1) && !this.isLoading && FC(str)) {
+            FB(str);
         }
     }
 
-    private void Fz(String str) {
+    private void FB(String str) {
         this.isLoading = true;
-        new b(getPath(), str, this.jzJ).execute(new Void[0]);
+        new b(getPath(), str, this.jzM).execute(new Void[0]);
     }
 
-    public boolean cuW() {
+    public boolean cuV() {
         if (this.isLoading || ap.isEmpty(getVideoPath())) {
             return false;
         }
         if (!new File(getVideoPath()).exists()) {
             this.ald = null;
             com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", this.ald);
-            this.jzK = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzK);
+            this.jzN = null;
+            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzN);
             return false;
         }
         return true;
@@ -80,18 +80,18 @@ public class c {
         return this.ald;
     }
 
-    public void cuX() {
+    public void cuW() {
         if (!ap.isEmpty(getPath())) {
             m.A(new File(getPath()));
             this.ald = null;
             com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", this.ald);
-            this.jzK = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzK);
+            this.jzN = null;
+            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzN);
         }
     }
 
-    private boolean FA(String str) {
-        return (ap.isEmpty(str) || str.equals(this.jzK)) ? false : true;
+    private boolean FC(String str) {
+        return (ap.isEmpty(str) || str.equals(this.jzN)) ? false : true;
     }
 
     private String getPath() {

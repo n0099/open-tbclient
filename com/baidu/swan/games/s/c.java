@@ -15,10 +15,10 @@ public class c {
     }
 
     @NonNull
-    public d jQ(String str) {
+    public d jP(String str) {
         Object obj = null;
         if (str == null) {
-            return d.jT("parameter error: the key cannot be null.");
+            return d.jS("parameter error: the key cannot be null.");
         }
         String string = this.bky.getString(str, null);
         if (string != null) {
@@ -33,7 +33,7 @@ public class c {
     @NonNull
     public d a(String str, JsSerializeValue jsSerializeValue) {
         if (str == null) {
-            return d.jT("parameter error: the key cannot be null.");
+            return d.jS("parameter error: the key cannot be null.");
         }
         if (jsSerializeValue == null) {
             return d.Q(null);
@@ -41,23 +41,23 @@ public class c {
         byte[] a = this.beh.a(jsSerializeValue, true);
         jsSerializeValue.release();
         if (a == null) {
-            return d.jT("parameter error: the data parse failed.");
+            return d.jS("parameter error: the data parse failed.");
         }
         String encodeToString = Base64.encodeToString(a, 2);
         String string = this.bky.getString(str, null);
         int length = str.getBytes().length;
         if (this.bky.Nf() - this.bky.Ne() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
-            return d.jT("storage error: the storage space insufficient.");
+            return d.jS("storage error: the storage space insufficient.");
         }
         boolean bh = this.bky.bh(str, encodeToString);
         e.aYT.update();
-        return bh ? d.Q(null) : d.jT("storage error: the storage is invalid.");
+        return bh ? d.Q(null) : d.jS("storage error: the storage is invalid.");
     }
 
     @NonNull
-    public d jR(String str) {
+    public d jQ(String str) {
         if (str == null) {
-            return d.jT("parameter error: the key cannot be null.");
+            return d.jS("parameter error: the key cannot be null.");
         }
         this.bky.remove(str);
         e.aYT.update();
@@ -78,7 +78,7 @@ public class c {
         cVar.keys = Sq;
         cVar.currentSize = this.bky.Ne() / 1024;
         cVar.limitSize = this.bky.Nf() / 1024;
-        cVar.errMsg = com.baidu.swan.games.s.a.a.jS("getStorageInfoSync");
+        cVar.errMsg = com.baidu.swan.games.s.a.a.jR("getStorageInfoSync");
         return cVar;
     }
 }

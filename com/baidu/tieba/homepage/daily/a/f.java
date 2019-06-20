@@ -13,7 +13,7 @@ import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
     private ab<bg> dAV;
-    private com.baidu.tieba.homepage.daily.view.c fYK;
+    private com.baidu.tieba.homepage.daily.view.c fYM;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -24,13 +24,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
             @Override // com.baidu.tieba.card.ab
             public void a(View view, bg bgVar) {
                 int i = 2;
-                if (view != null && bgVar != null && f.this.fYK != null && f.this.fYK.getView() != null) {
+                if (view != null && bgVar != null && f.this.fYM != null && f.this.fYM.getView() != null) {
                     am amVar = new am("c13175");
                     amVar.P("obj_type", 2);
                     amVar.bT("tid", bgVar.getTid());
                     amVar.l("fid", bgVar.getFid());
-                    if (view.getId() != f.this.fYK.btj() && view.getId() != f.this.fYK.btk()) {
-                        if (view.getId() == f.this.fYK.btl()) {
+                    if (view.getId() != f.this.fYM.btk() && view.getId() != f.this.fYM.btl()) {
+                        if (view.getId() == f.this.fYM.btm()) {
                             i = 3;
                         }
                     } else {
@@ -49,13 +49,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: ao */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.fYK = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.fYK.setTag(this.mPageId);
-        this.fYK.setShareReportFrom(7);
-        this.fYK.tn(11);
-        this.fYK.setStType(n.adi());
-        this.fYK.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.fYK);
+        this.fYM = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.fYM.setTag(this.mPageId);
+        this.fYM.setShareReportFrom(7);
+        this.fYM.tn(11);
+        this.fYM.setStType(n.adi());
+        this.fYM.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.fYM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

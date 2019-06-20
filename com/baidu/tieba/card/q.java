@@ -111,8 +111,8 @@ public class q {
                     if (q.this.eyt != null && !ap.isEmpty(q.this.eyt.threadId)) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016557, q.this.eyt.threadId));
                     }
-                } else if (!ap.isEmpty(bVar.jbj)) {
-                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, bVar.jbj);
+                } else if (!ap.isEmpty(bVar.jbn)) {
+                    com.baidu.adp.lib.util.l.showToast(q.this.mContext, bVar.jbn);
                 } else {
                     com.baidu.adp.lib.util.l.showToast(q.this.mContext, (int) R.string.delete_fail);
                 }

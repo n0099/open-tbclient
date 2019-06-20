@@ -11,7 +11,7 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 /* loaded from: classes6.dex */
 public class ChannelMoreView extends LinearLayout {
     private TextView bpQ;
-    private View.OnClickListener ckH;
+    private View.OnClickListener ckI;
     private com.baidu.tieba.channel.data.d eCC;
     private TextView eFq;
     private TextView eFr;
@@ -20,7 +20,7 @@ public class ChannelMoreView extends LinearLayout {
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
         super(context);
-        this.ckH = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
+        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ChannelMoreView.this.mClickListener.onClick(view);

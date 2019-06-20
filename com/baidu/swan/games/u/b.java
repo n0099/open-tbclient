@@ -12,15 +12,15 @@ public class b {
             return null;
         }
         b bVar = new b();
-        bVar.bkS = cVar.iR("onCheckForUpdate");
+        bVar.bkS = cVar.iQ("onCheckForUpdate");
         if (bVar.bkS != null) {
             bVar.bkS.setReleaseMode(false);
         }
-        bVar.bkT = cVar.iR("onUpdateReady");
+        bVar.bkT = cVar.iQ("onUpdateReady");
         if (bVar.bkT != null) {
             bVar.bkT.setReleaseMode(false);
         }
-        bVar.bkU = cVar.iR("onUpdateFailed");
+        bVar.bkU = cVar.iQ("onUpdateFailed");
         if (bVar.bkU != null) {
             bVar.bkU.setReleaseMode(false);
             return bVar;

@@ -18,14 +18,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.frs.as;
 /* loaded from: classes4.dex */
 public class e {
-    private MorePopupWindow bBr;
+    private MorePopupWindow bBt;
     private LinearLayout eYE;
-    private b fKf;
-    private a fKg;
-    private as fKr;
-    private View fKs;
-    private SparseArray<com.baidu.tieba.frs.tab.a> fKt = new SparseArray<>();
-    private com.baidu.tieba.frs.tab.a fKu;
+    private b fKh;
+    private a fKi;
+    private as fKt;
+    private View fKu;
+    private SparseArray<com.baidu.tieba.frs.tab.a> fKv = new SparseArray<>();
+    private com.baidu.tieba.frs.tab.a fKw;
     private Context mContext;
 
     /* loaded from: classes4.dex */
@@ -41,61 +41,61 @@ public class e {
     /* loaded from: classes4.dex */
     public static class c {
         public TextView bmf;
-        public ImageView fKx;
-        public View fKy;
-        public View fKz;
+        public View fKA;
+        public View fKB;
+        public ImageView fKz;
     }
 
     public e(Context context, b bVar, a aVar) {
         this.mContext = context;
-        this.fKf = bVar;
-        this.fKg = aVar;
+        this.fKh = bVar;
+        this.fKi = aVar;
         this.eYE = new LinearLayout(context);
         this.eYE.setOrientation(1);
         this.eYE.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.fKs = new View(context);
-        this.fKs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
+        this.fKu = new View(context);
+        this.fKu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.tab.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.baidu.adp.lib.g.g.a(e.this.bBr);
+                com.baidu.adp.lib.g.g.a(e.this.bBt);
             }
         });
     }
 
     private void a(Activity activity, View view, final TabItemView tabItemView) {
-        if (this.bBr == null) {
-            this.bBr = new MorePopupWindow(activity, this.eYE, view, al.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
+        if (this.bBt == null) {
+            this.bBt = new MorePopupWindow(activity, this.eYE, view, al.getDrawable(R.drawable.transparent_bg), new KeyEventDealContainerView.a() { // from class: com.baidu.tieba.frs.tab.e.2
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
                 public void aaA() {
                 }
 
                 @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
                 public void aaB() {
-                    if (e.this.bBr != null) {
-                        com.baidu.adp.lib.g.g.a(e.this.bBr);
+                    if (e.this.bBt != null) {
+                        com.baidu.adp.lib.g.g.a(e.this.bBt);
                     }
                 }
             });
         }
-        this.bBr.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
+        this.bBt.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.tab.e.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                if (e.this.fKg != null) {
-                    e.this.fKg.a(tabItemView);
+                if (e.this.fKi != null) {
+                    e.this.fKi.a(tabItemView);
                 }
             }
         });
     }
 
     public void a(Activity activity, View view, TabItemView tabItemView, as asVar) {
-        this.fKr = asVar;
-        this.fKu = this.fKt.get(this.fKr.fsF);
-        if (this.fKu == null) {
-            this.fKu = h.sw(this.fKr.fsF);
-            this.fKu.a(this.mContext, this);
-            this.fKt.put(this.fKr.fsF, this.fKu);
+        this.fKt = asVar;
+        this.fKw = this.fKv.get(this.fKt.fsF);
+        if (this.fKw == null) {
+            this.fKw = h.sw(this.fKt.fsF);
+            this.fKw.a(this.mContext, this);
+            this.fKv.put(this.fKt.fsF, this.fKw);
         }
-        this.fKu.setData(asVar.fsG);
+        this.fKw.setData(asVar.fsG);
         if (view instanceof HorizontalTabView) {
             HorizontalTabView horizontalTabView = (HorizontalTabView) view;
             if (horizontalTabView.getmShowMenuCallBack() != null) {
@@ -103,38 +103,38 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.ag(horizontalTabView.getContext());
                 int ah = l.ah(horizontalTabView.getContext());
-                int bpF = this.fKu.bpF();
+                int bpH = this.fKw.bpH();
                 int measuredHeight = (ah - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < bpF) {
-                    horizontalTabView.getmShowMenuCallBack().st(bpF - measuredHeight);
+                if (measuredHeight < bpH) {
+                    horizontalTabView.getmShowMenuCallBack().st(bpH - measuredHeight);
                 }
             }
         }
         this.eYE.removeAllViews();
-        this.eYE.addView(this.fKu.getView());
+        this.eYE.addView(this.fKw.getView());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-        al.k(this.fKs, R.color.common_color_10050);
-        this.eYE.addView(this.fKs, layoutParams);
+        al.k(this.fKu, R.color.common_color_10050);
+        this.eYE.addView(this.fKu, layoutParams);
         a(activity, view, tabItemView);
-        if (this.bBr != null) {
-            this.bBr.refresh();
-            this.bBr.setWidthAsWidthOfDeviceScreen(activity);
-            this.bBr.setHeight(-1);
-            this.bBr.showWindowInCustomPosition(0, 0);
+        if (this.bBt != null) {
+            this.bBt.refresh();
+            this.bBt.setWidthAsWidthOfDeviceScreen(activity);
+            this.bBt.setHeight(-1);
+            this.bBt.showWindowInCustomPosition(0, 0);
         }
     }
 
-    public void bpH() {
-        if (this.bBr != null) {
+    public void bpJ() {
+        if (this.bBt != null) {
             try {
-                this.bBr.dismiss();
+                this.bBt.dismiss();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
     }
 
-    public b bpI() {
-        return this.fKf;
+    public b bpK() {
+        return this.fKh;
     }
 }

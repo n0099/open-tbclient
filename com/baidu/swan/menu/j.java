@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class j {
-    public boolean MH;
+    public boolean MG;
     public int bqV;
     private int bqW = 0;
     public e bqX;
@@ -14,11 +14,11 @@ public class j {
     public j(int i, int i2, int i3, boolean z) {
         this.bqV = -1;
         this.mIconResId = -1;
-        this.MH = true;
+        this.MG = true;
         this.mId = i;
         this.bqV = i2;
         this.mIconResId = i3;
-        this.MH = z;
+        this.MG = z;
     }
 
     public int getItemId() {
@@ -42,7 +42,7 @@ public class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isEnable() {
-        return this.MH;
+        return this.MG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class j {
         if (jVar == null) {
             return null;
         }
-        return new j(jVar.mId, jVar.bqV, jVar.mIconResId, jVar.MH);
+        return new j(jVar.mId, jVar.bqV, jVar.mIconResId, jVar.MG);
     }
 }

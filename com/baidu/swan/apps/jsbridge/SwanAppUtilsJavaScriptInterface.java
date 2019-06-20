@@ -93,14 +93,14 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject cZ = o.cZ(str2);
+        JSONObject cY = o.cY(str2);
         try {
-            cZ.put(KEY_SHARE_SNAPSHOT, z);
-            cZ.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            cY.put(KEY_SHARE_SNAPSHOT, z);
+            cY.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.DC().a(context, cZ, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.u.a.DC().a(context, cY, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.u.b.u.a
             public void EA() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));

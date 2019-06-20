@@ -36,7 +36,7 @@ public abstract class b extends z {
             }
             return false;
         }
-        this.mCallback = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        this.mCallback = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             com.baidu.swan.apps.console.c.e("favorite", "none cb");
             if (DEBUG) {

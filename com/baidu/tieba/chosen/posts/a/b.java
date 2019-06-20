@@ -17,7 +17,7 @@ import tbclient.HotThread.tinfo;
 /* loaded from: classes5.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     private TextView bBh;
-    private TextView cvI;
+    private TextView cvJ;
     private TextView eFO;
     private TextView eFP;
     private TextView eFT;
@@ -29,7 +29,7 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
         this.eFO = (TextView) view.findViewById(R.id.chosen_no_picture_praise);
         this.eFP = (TextView) view.findViewById(R.id.chosen_no_picture_comment);
         this.eFT = (TextView) view.findViewById(R.id.chosen_no_picture_head);
-        this.cvI = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
+        this.cvJ = (TextView) view.findViewById(R.id.chosen_no_picture_sub);
         this.eFU = (LinearLayout) view.findViewById(R.id.chosen_no_picture_comment_line);
     }
 
@@ -82,10 +82,10 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.cvI.setVisibility(8);
+            this.cvJ.setVisibility(8);
             return;
         }
-        this.cvI.setVisibility(0);
-        this.cvI.setText(tinfoVar._abstract);
+        this.cvJ.setVisibility(0);
+        this.cvJ.setText(tinfoVar._abstract);
     }
 }

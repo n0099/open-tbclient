@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean jbq = true;
-    private static Boolean jbr = true;
+    private static Boolean jbu = true;
+    private static Boolean jbv = true;
 
-    public static void Eb(String str) {
+    public static void Ed(String str) {
         aH(13, str);
     }
 
-    public static void cnk() {
+    public static void cnl() {
         AF(2);
     }
 
@@ -32,11 +32,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().f("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> cnl() {
+    public static ArrayList<String> cnm() {
         return AG(0);
     }
 
-    public static ArrayList<String> cnm() {
+    public static ArrayList<String> cnn() {
         return AG(1);
     }
 
@@ -67,11 +67,11 @@ public class a {
         return arrayList;
     }
 
-    public static void Ec(String str) {
+    public static void Ee(String str) {
         aI(0, str);
     }
 
-    public static void Ed(String str) {
+    public static void Ef(String str) {
         aI(1, str);
     }
 
@@ -93,7 +93,7 @@ public class a {
         }
     }
 
-    public static void Ee(String str) {
+    public static void Eg(String str) {
         aJ(0, str);
     }
 
@@ -113,11 +113,11 @@ public class a {
         }
     }
 
-    public static void cnn() {
+    public static void cno() {
         AH(0);
     }
 
-    public static void cno() {
+    public static void cnp() {
         AH(1);
     }
 
@@ -135,7 +135,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> cnp() {
+    public static ArrayList<MarkData> cnq() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -192,7 +192,7 @@ public class a {
     }
 
     public static void j(Boolean bool) {
-        jbq = bool;
+        jbu = bool;
     }
 
     public static void ang() {
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static void cnq() {
+    public static void cnr() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {
@@ -254,15 +254,15 @@ public class a {
                         }
                         String string = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_start_time"));
                         if (TextUtils.isEmpty(string)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oV(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(string);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oV(string);
                         }
                         String string2 = rawQuery.getString(rawQuery.getColumnIndex("nodisturb_end_time"));
                         if (TextUtils.isEmpty(string2)) {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oX(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                         } else {
-                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oX(string2);
+                            com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(string2);
                         }
                         if (rawQuery.getInt(rawQuery.getColumnIndex("remind_light")) == 0) {
                             com.baidu.tbadk.coreExtra.messageCenter.d.anf().eD(false);
@@ -286,8 +286,8 @@ public class a {
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().eA(false);
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().ex(true);
                         com.baidu.tbadk.coreExtra.messageCenter.d.anf().eB(false);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
-                        com.baidu.tbadk.coreExtra.messageCenter.d.anf().oX(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.anf().oV(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        com.baidu.tbadk.coreExtra.messageCenter.d.anf().oW(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
                     }
                     com.baidu.adp.lib.g.a.e(rawQuery);
                 } catch (Exception e) {

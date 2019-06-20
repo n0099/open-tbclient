@@ -15,16 +15,16 @@ import java.util.HashMap;
 import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.play.operableVideoView.b {
-    private bg VK;
+    private bg VJ;
     private com.baidu.afd.videopaster.d exj;
     private CustomMessageListener exz;
-    private boolean geV;
-    protected boolean geW;
-    private Runnable geX;
+    private boolean geX;
+    protected boolean geY;
+    private Runnable geZ;
 
     public c(Context context, View view) {
         super(context, view);
-        this.geV = false;
+        this.geX = false;
         this.exz = new CustomMessageListener(2921395) { // from class: com.baidu.tieba.homepage.personalize.view.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -32,27 +32,27 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
                 com.baidu.afd.videopaster.data.b bVar;
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.afd.videopaster.data.b) && (bVar = (com.baidu.afd.videopaster.data.b) customResponsedMessage.getData()) != null) {
                     String videoId = bVar.getVideoId();
-                    if (!StringUtils.isNull(videoId) && c.this.VK != null && videoId.equals(c.this.VK.getId())) {
-                        c.this.exj.a(c.this.a(c.this.VK, bVar));
+                    if (!StringUtils.isNull(videoId) && c.this.VJ != null && videoId.equals(c.this.VJ.getId())) {
+                        c.this.exj.a(c.this.a(c.this.VJ, bVar));
                     }
                 }
             }
         };
-        this.geX = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.c.4
+        this.geZ = new Runnable() { // from class: com.baidu.tieba.homepage.personalize.view.c.4
             @Override // java.lang.Runnable
             public void run() {
                 if (c.this.exj != null) {
-                    c.this.geW = false;
+                    c.this.geY = false;
                     c.this.exj.stop();
                 }
             }
         };
-        pS(true);
-        buB();
+        pT(true);
+        buC();
     }
 
-    protected void buB() {
-        this.exj = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) caY());
+    protected void buC() {
+        this.exj = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) caZ());
         this.exj.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.1
             @Override // com.baidu.afd.videopaster.d.a
             public void pn() {
@@ -75,17 +75,17 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
         a(new c.a() { // from class: com.baidu.tieba.homepage.personalize.view.c.2
             @Override // com.baidu.tieba.play.operableVideoView.c.a
             public void bE(int i, int i2) {
-                if (!c.this.ccn()) {
+                if (!c.this.cco()) {
                     if (i2 >= i) {
                         if (c.this.exj.a(false, false, "NEWINDEX")) {
                         }
-                    } else if (i != 0 && !c.this.isk && (i2 * 100) / i >= 80 && i > 15000) {
-                        c.this.aq(c.this.VK);
+                    } else if (i != 0 && !c.this.isl && (i2 * 100) / i >= 80 && i > 15000) {
+                        c.this.aq(c.this.VJ);
                     }
                 }
             }
         });
-        this.exz.setTag(this.Xk);
+        this.exz.setTag(this.Xj);
         MessageManager.getInstance().registerListener(this.exz);
     }
 
@@ -93,11 +93,11 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
     public void setData(bg bgVar) {
         if (bgVar != null) {
             super.setData(bgVar);
-            boolean z = this.VK == bgVar;
-            this.VK = bgVar;
+            boolean z = this.VJ == bgVar;
+            this.VJ = bgVar;
             if (this.exj != null) {
-                if (this.geV && z) {
-                    this.geV = false;
+                if (this.geX && z) {
+                    this.geX = false;
                 } else {
                     this.exj.reset();
                 }
@@ -166,25 +166,25 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c, com.baidu.tieba.play.operableVideoView.a
-    public boolean lh(boolean z) {
+    public boolean li(boolean z) {
         if (this.exj != null) {
             if (z) {
                 if (this.exj.oW()) {
-                    this.geW = false;
+                    this.geY = false;
                     this.exj.stop();
                 }
             } else if (this.exj.oW()) {
-                this.geV = true;
+                this.geX = true;
                 this.exj.au(true);
             }
         }
-        return super.lh(z);
+        return super.li(z);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c, com.baidu.tieba.play.operableVideoView.a
     public void startPlay() {
         if (this.exj != null && this.exj.oW()) {
-            this.geW = true;
+            this.geY = true;
             this.exj.resume();
             return;
         }
@@ -195,13 +195,13 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
     public void stopPlay() {
         super.stopPlay();
         if (this.exj != null && this.exj.oW()) {
-            com.baidu.adp.lib.g.e.iB().removeCallbacks(this.geX);
-            com.baidu.adp.lib.g.e.iB().post(this.geX);
+            com.baidu.adp.lib.g.e.iB().removeCallbacks(this.geZ);
+            com.baidu.adp.lib.g.e.iB().post(this.geZ);
         }
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c
-    protected int buC() {
+    protected int buD() {
         return 1;
     }
 
@@ -210,6 +210,6 @@ public class c extends com.baidu.tieba.play.operableVideoView.b {
         if (this.exj == null || !this.exj.oW()) {
             return super.isPlaying();
         }
-        return this.geW || this.exj.pg();
+        return this.geY || this.exj.pg();
     }
 }

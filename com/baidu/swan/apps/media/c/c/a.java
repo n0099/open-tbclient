@@ -57,7 +57,7 @@ public class a {
             return;
         }
         this.aCj = aVar;
-        fl(str);
+        fk(str);
         this.aCk = bVar;
         this.aCe = AudioRecord.getMinBufferSize(aVar.aBP, aVar.aBO, 2);
         if (this.aCe <= 0) {
@@ -79,7 +79,7 @@ public class a {
         this.mAppId = str2;
     }
 
-    private void fl(String str) {
+    private void fk(String str) {
         String str2;
         if (TextUtils.equals(this.aCj.aBN, "mp3")) {
             str2 = ".mp3";
@@ -143,16 +143,16 @@ public class a {
                     });
                 }
                 if (this.aCk != null) {
-                    this.aCk.fk(com.baidu.swan.apps.media.c.b.aBS);
+                    this.aCk.fj(com.baidu.swan.apps.media.c.b.aBS);
                 }
                 d.bl("").b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.f
-                    /* renamed from: fm */
+                    /* renamed from: fl */
                     public Boolean call(String str) {
                         return Boolean.valueOf(a.this.Gz());
                     }
-                }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
+                }).a(rx.a.b.a.cLq()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: c */
@@ -204,7 +204,7 @@ public class a {
             this.aCf = 2;
             FR();
             if (this.aCk != null) {
-                this.aCk.fk(com.baidu.swan.apps.media.c.b.aBT);
+                this.aCk.fj(com.baidu.swan.apps.media.c.b.aBT);
             }
         } catch (IllegalStateException e) {
             e.printStackTrace();

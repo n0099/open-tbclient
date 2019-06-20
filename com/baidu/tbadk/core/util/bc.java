@@ -16,10 +16,10 @@ import com.baidu.tieba.R;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class bc {
-    private static int bTu = -1;
     private static int bTv = -1;
-    private static boolean bTw = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> bTx = new com.baidu.adp.lib.e.a<>(500);
+    private static int bTw = -1;
+    private static boolean bTx = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> bTy = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class bc {
 
     public static void cB(Context context) {
         mAppContext = context;
-        bTw = true;
+        bTx = true;
     }
 
     private static void aiA() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            bTv = mAppContext.getResources().getColor(R.color.common_color_10097);
-            bTu = mAppContext.getResources().getColor(R.color.common_color_10004);
+            bTw = mAppContext.getResources().getColor(R.color.common_color_10097);
+            bTv = mAppContext.getResources().getColor(R.color.common_color_10004);
         }
     }
 
@@ -45,11 +45,11 @@ public class bc {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int eb(boolean z) {
-        if (bTw) {
-            bTw = false;
+        if (bTx) {
+            bTx = false;
             aiA();
         }
-        return z ? bTu : bTv;
+        return z ? bTv : bTw;
     }
 
     public static void aI(View view) {
@@ -60,16 +60,16 @@ public class bc {
 
     public static void aJ(View view) {
         if (view != null) {
-            bTx.remove(Integer.valueOf(System.identityHashCode(view)));
+            bTy.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void d(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = bTx.get(Integer.valueOf(identityHashCode));
+        Integer num = bTy.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             e(viewGroup, i);
-            bTx.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            bTy.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

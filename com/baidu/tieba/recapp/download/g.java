@@ -23,9 +23,9 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bDT;
-        if (StringUtils.isNull(str) && advertAppInfo.bEc != null) {
-            str = advertAppInfo.bEc.userName;
+        String str = advertAppInfo.bDU;
+        if (StringUtils.isNull(str) && advertAppInfo.bEd != null) {
+            str = advertAppInfo.bEd.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -38,11 +38,11 @@ public class g {
             return false;
         }
         com.baidu.tbadk.distribute.a.aqF().b(advertAppInfo);
-        String str2 = advertAppInfo.bDT;
+        String str2 = advertAppInfo.bDU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.ceY().a(advertAppInfo.bDW, advertAppInfo.bDV, str2, i, h.CR(advertAppInfo.bDW).intValue(), null, true, false, true, advertAppInfo.bEc.userPortrait, downloadStaticsData, advertAppInfo.bEc.userName);
+        h.ceZ().a(advertAppInfo.bDX, advertAppInfo.bDW, str2, i, h.CT(advertAppInfo.bDX).intValue(), null, true, false, true, advertAppInfo.bEd.userPortrait, downloadStaticsData, advertAppInfo.bEd.userName);
         return true;
     }
 
@@ -51,7 +51,7 @@ public class g {
         if (adAdSense != null && !adAdSense.ald()) {
             s.f(advertAppInfo);
         } else {
-            h.ceY().x(advertAppInfo.bDV, advertAppInfo.bDW, true);
+            h.ceZ().x(advertAppInfo.bDW, advertAppInfo.bDX, true);
         }
     }
 
@@ -60,11 +60,11 @@ public class g {
             l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File mZ = m.mZ(str.replace(".", "_") + ".apk");
-        if (mZ != null) {
+        File mY = m.mY(str.replace(".", "_") + ".apk");
+        if (mY != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(mZ, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(mY, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }

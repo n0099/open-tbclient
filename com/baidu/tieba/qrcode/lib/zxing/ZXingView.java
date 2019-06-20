@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes5.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader ixW;
+    private MultiFormatReader ixX;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -19,12 +19,12 @@ public class ZXingView extends QRCodeView {
 
     public ZXingView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        cem();
+        cen();
     }
 
-    private void cem() {
-        this.ixW = new MultiFormatReader();
-        this.ixW.setHints(a.ixV);
+    private void cen() {
+        this.ixX = new MultiFormatReader();
+        this.ixX.setHints(a.ixW);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect yO = this.iwQ.yO(i2);
+                Rect yO = this.iwR.yO(i2);
                 if (yO != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, yO.left, yO.top, yO.width(), yO.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.ixW.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.ixX.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.ixW.reset();
+                this.ixX.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.ixW.reset();
+            this.ixX.reset();
         }
     }
 }

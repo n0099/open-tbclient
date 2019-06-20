@@ -42,7 +42,7 @@ public abstract class a {
     /* renamed from: com.baidu.swan.apps.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0195a {
-        public static a fv(String str) {
+        public static a fu(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case -2129978548:

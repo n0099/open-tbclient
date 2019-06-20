@@ -22,15 +22,15 @@ public class c extends g.a {
 
     @Override // com.baidu.swan.apps.install.g.a
     protected boolean a(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        com.baidu.swan.apps.v.c.a eS = com.baidu.swan.apps.v.c.a.eS(bundle.getString("launch_id"));
-        eS.Fo().eV("DumpFileProcessor").cG(1);
+        com.baidu.swan.apps.v.c.a eR = com.baidu.swan.apps.v.c.a.eR(bundle.getString("launch_id"));
+        eR.Fo().eU("DumpFileProcessor").cG(1);
         try {
             try {
                 a((ReadableByteChannel) sourceChannel);
-                eS.ak("DumpFileProcessor", "done");
+                eR.ak("DumpFileProcessor", "done");
                 return true;
             } catch (IOException e) {
-                eS.ak("DumpFileProcessor", "done with exception: " + e.toString());
+                eR.ak("DumpFileProcessor", "done with exception: " + e.toString());
                 if (DEBUG) {
                     e.printStackTrace();
                 }

@@ -16,12 +16,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadLinkView extends RelativeLayout {
-    private TbImageView cbo;
-    private TextView cbp;
+    private TbImageView cbp;
     private TextView cbq;
     private TextView cbr;
-    private ViewGroup cbs;
-    private View cbt;
+    private TextView cbs;
+    private ViewGroup cbt;
+    private View cbu;
     private Context mContext;
     private BdUniqueId mTag;
 
@@ -43,18 +43,18 @@ public class ThreadLinkView extends RelativeLayout {
     private void init(Context context) {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.link_thread_item, (ViewGroup) this, true);
-        this.cbs = (ViewGroup) inflate.findViewById(R.id.root_layout);
-        this.cbo = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
-        this.cbo.setDefaultBgResource(R.drawable.icon_card_url_n);
-        this.cbo.setDefaultErrorResource(R.drawable.icon_card_url_n);
-        this.cbp = (TextView) inflate.findViewById(R.id.link_thread_title);
-        this.cbq = (TextView) inflate.findViewById(R.id.link_thread_abstract);
-        this.cbr = (TextView) inflate.findViewById(R.id.link_thread_url);
-        this.cbt = inflate.findViewById(R.id.link_thread_content);
-        this.cbo.setLongIconSupport(false);
-        this.cbo.setGifIconSupport(false);
-        this.cbo.setRadius(com.baidu.adp.lib.util.l.g(context, R.dimen.tbds20));
-        this.cbo.setConrers(5);
+        this.cbt = (ViewGroup) inflate.findViewById(R.id.root_layout);
+        this.cbp = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
+        this.cbp.setDefaultBgResource(R.drawable.icon_card_url_n);
+        this.cbp.setDefaultErrorResource(R.drawable.icon_card_url_n);
+        this.cbq = (TextView) inflate.findViewById(R.id.link_thread_title);
+        this.cbr = (TextView) inflate.findViewById(R.id.link_thread_abstract);
+        this.cbs = (TextView) inflate.findViewById(R.id.link_thread_url);
+        this.cbu = inflate.findViewById(R.id.link_thread_content);
+        this.cbp.setLongIconSupport(false);
+        this.cbp.setGifIconSupport(false);
+        this.cbp.setRadius(com.baidu.adp.lib.util.l.g(context, R.dimen.tbds20));
+        this.cbp.setConrers(5);
         aW(inflate);
     }
 
@@ -68,65 +68,65 @@ public class ThreadLinkView extends RelativeLayout {
             return;
         }
         af aeU = bgVar.aeU();
-        if (!aeU.acd() && aeU.acc() != af.bGw) {
+        if (!aeU.acd() && aeU.acc() != af.bGx) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.cbo.setPageId(this.mTag);
+        this.cbp.setPageId(this.mTag);
         if (aeU.acd()) {
-            this.cbr.setVisibility(0);
-            this.cbp.setVisibility(8);
+            this.cbs.setVisibility(0);
             this.cbq.setVisibility(8);
-            this.cbr.setText(aeU.getLinkUrl());
-            this.cbo.reset();
-        } else {
             this.cbr.setVisibility(8);
+            this.cbs.setText(aeU.getLinkUrl());
+            this.cbp.reset();
+        } else {
+            this.cbs.setVisibility(8);
             String abZ = aeU.abZ();
             String aca = aeU.aca();
             if (!ap.isEmpty(abZ)) {
-                this.cbp.setText(abZ);
-                this.cbp.setVisibility(0);
-                this.cbq.setVisibility(8);
+                this.cbq.setText(abZ);
+                this.cbq.setVisibility(0);
+                this.cbr.setVisibility(8);
             } else {
-                this.cbp.setVisibility(8);
+                this.cbq.setVisibility(8);
                 if (!ap.isEmpty(aca)) {
-                    this.cbq.setText(aca);
-                    this.cbq.setVisibility(0);
+                    this.cbr.setText(aca);
+                    this.cbr.setVisibility(0);
                 } else {
-                    this.cbq.setVisibility(4);
+                    this.cbr.setVisibility(4);
                 }
             }
             if (!ap.isEmpty(aeU.acb())) {
-                this.cbo.startLoad(aeU.acb(), 10, false);
+                this.cbp.startLoad(aeU.acb(), 10, false);
             } else {
-                this.cbo.reset();
+                this.cbp.reset();
             }
         }
-        oE(bgVar.getId());
+        oD(bgVar.getId());
     }
 
     public void onChangeSkinType() {
-        al.l(this.cbt, R.color.cp_bg_line_e);
-        al.k(this.cbo, R.drawable.shape_link_thread_head_bg);
+        al.l(this.cbu, R.color.cp_bg_line_e);
+        al.k(this.cbp, R.drawable.shape_link_thread_head_bg);
     }
 
-    public void oE(String str) {
-        com.baidu.tieba.card.n.a(this.cbp, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
-        com.baidu.tieba.card.n.a(this.cbr, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
+    public void oD(String str) {
         com.baidu.tieba.card.n.a(this.cbq, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
+        com.baidu.tieba.card.n.a(this.cbs, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
+        com.baidu.tieba.card.n.a(this.cbr, str, (int) R.color.cp_cont_j, (int) R.color.cp_cont_d);
     }
 
     private void aW(View view) {
-        if (this.cbs != null && this.cbo != null) {
+        if (this.cbt != null && this.cbp != null) {
             int af = (((com.baidu.adp.lib.util.l.af(this.mContext) - (com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds44) * 2)) - (com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds26) * 2)) - (com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds10) * 4)) / 5;
-            ViewGroup.LayoutParams layoutParams = this.cbs.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.cbt.getLayoutParams();
             layoutParams.height = af;
-            this.cbs.setLayoutParams(layoutParams);
-            ViewGroup.LayoutParams layoutParams2 = this.cbo.getLayoutParams();
+            this.cbt.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams2 = this.cbp.getLayoutParams();
             layoutParams2.width = af;
             layoutParams2.height = af;
-            this.cbo.setLayoutParams(layoutParams2);
+            this.cbp.setLayoutParams(layoutParams2);
         }
     }
 }

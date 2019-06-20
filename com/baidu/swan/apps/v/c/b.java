@@ -13,7 +13,7 @@ public final class b {
     private final List<a> azd = new ArrayList();
     private String aze = b.class.getPackage().getName();
 
-    public b eU(String str) {
+    public b eT(String str) {
         this.aza = str;
         return this;
     }
@@ -34,12 +34,12 @@ public final class b {
         return aVar;
     }
 
-    public synchronized a eT(String str) {
-        return Fo().eX(str);
+    public synchronized a eS(String str) {
+        return Fo().eW(str);
     }
 
     public synchronized a ak(String str, String str2) {
-        return eT(str2).eV(str);
+        return eS(str2).eU(str);
     }
 
     public b c(com.baidu.swan.apps.an.d.a<b> aVar) {
@@ -82,17 +82,17 @@ public final class b {
             }
         }
 
-        public a eV(String str) {
+        public a eU(String str) {
             this.tag = str;
             return this;
         }
 
-        public a eW(String str) {
+        public a eV(String str) {
             this.azb.add(str);
             return this;
         }
 
-        public synchronized a eX(String str) {
+        public synchronized a eW(String str) {
             List<String> list = this.msgs;
             if (TextUtils.isEmpty(str)) {
                 str = "";
@@ -106,7 +106,7 @@ public final class b {
                 int i2 = i >= 1 ? i : 1;
                 int size = i2 > this.azf.size() ? this.azf.size() : i2;
                 for (int i3 = 0; i3 < size; i3++) {
-                    this.azg.eT("[Trace]==> " + this.azf.get(i3).toString());
+                    this.azg.eS("[Trace]==> " + this.azf.get(i3).toString());
                 }
             }
             return this;

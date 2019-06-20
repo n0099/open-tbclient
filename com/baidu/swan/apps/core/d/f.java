@@ -67,7 +67,7 @@ public class f extends b implements AdapterView.OnItemClickListener {
         P(view);
         cb(-1);
         cc(ViewCompat.MEASURED_STATE_MASK);
-        dG(getString(a.h.common_menu_authority_management));
+        dF(getString(a.h.common_menu_authority_management));
         ba(true);
         setRightZoneVisibility(false);
     }

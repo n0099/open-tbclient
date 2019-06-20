@@ -8,7 +8,7 @@ import tbclient.PrivateForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
 public class f extends d implements com.baidu.tbadk.mvc.b.a {
-    private PrivateForumInfo bHo;
+    private PrivateForumInfo bHp;
     private int eDP;
     private int eRn;
     private String eRo;
@@ -103,11 +103,11 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
     }
 
     public boolean bdt() {
-        return this.eRq == 1 && this.eRr == 1 && this.bHo != null && this.bHo.private_forum_status.intValue() == 1;
+        return this.eRq == 1 && this.eRr == 1 && this.bHp != null && this.bHp.private_forum_status.intValue() == 1;
     }
 
     public boolean bdu() {
-        return this.eRq == 1 && this.eRr == 1 && this.bHo != null && this.bHo.private_forum_status.intValue() == 1 && this.bHo.private_forum_audit_status.intValue() == 2;
+        return this.eRq == 1 && this.eRr == 1 && this.bHp != null && this.bHp.private_forum_status.intValue() == 1 && this.bHp.private_forum_audit_status.intValue() == 2;
     }
 
     public void a(LikeForum likeForum, Context context) {
@@ -120,7 +120,7 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
                 this.eRo = likeForum.avatar;
                 this.eRq = likeForum.is_manager.intValue();
                 this.eRr = likeForum.is_private_forum.intValue();
-                this.bHo = likeForum.private_forum_info;
+                this.bHp = likeForum.private_forum_info;
                 this.eRp = likeForum.is_brand_forum.intValue();
                 this.mContent = likeForum.content;
                 this.eDP = likeForum.is_top.intValue();

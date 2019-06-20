@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class o extends com.baidu.tieba.frs.h<p, q> {
-    private com.baidu.tbadk.coreExtra.view.c cdV;
+    private com.baidu.tbadk.coreExtra.view.c cdW;
     private View.OnClickListener mClickListener;
 
     public o(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -85,17 +85,17 @@ public class o extends com.baidu.tieba.frs.h<p, q> {
         } else {
             activity = ((TbPageContext) ab).getPageActivity();
         }
-        if (this.cdV == null) {
-            this.cdV = new com.baidu.tbadk.coreExtra.view.c(activity);
+        if (this.cdW == null) {
+            this.cdW = new com.baidu.tbadk.coreExtra.view.c(activity);
         }
-        this.cdV.apm();
-        this.cdV.setAccountData(accountData);
-        this.cdV.jN(1);
+        this.cdW.apm();
+        this.cdW.setAccountData(accountData);
+        this.cdW.jN(1);
     }
 
     public void onDestroy() {
-        if (this.cdV != null) {
-            this.cdV.onDestroy();
+        if (this.cdW != null) {
+            this.cdW.onDestroy();
         }
     }
 }

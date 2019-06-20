@@ -25,18 +25,18 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, z<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private ab<com.baidu.tieba.card.data.k> Vj;
-    private String Wt;
-    private boolean XJ;
-    private NEGFeedBackView.a cRg;
-    public BdUniqueId cwh;
+    private ab<com.baidu.tieba.card.data.k> Vi;
+    private String Ws;
+    private boolean XI;
+    private NEGFeedBackView.a cRh;
+    public BdUniqueId cwi;
     private TbPageContext<?> mPageContext;
 
     public k(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cRg = null;
-        this.XJ = true;
-        this.Vj = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.k.1
+        this.cRh = null;
+        this.XI = true;
+        this.Vi = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.k.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -149,7 +149,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public z<com.baidu.tieba.card.data.k> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity());
         com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
-        dVar.setPageUniqueId(this.cwh);
+        dVar.setPageUniqueId(this.cwi);
         dVar.bm(128);
         dVar.bn(1024);
         dVar.a(new d.a() { // from class: com.baidu.tieba.homepage.concern.a.k.2
@@ -172,13 +172,13 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         abVar.bx(2);
         aVar.a((com.baidu.card.f) new com.baidu.card.g(this.mPageContext.getPageActivity()));
         com.baidu.card.h hVar = new com.baidu.card.h(this.mPageContext.getPageActivity());
-        hVar.setFromCDN(this.XJ);
+        hVar.setFromCDN(this.XI);
         hVar.setForm(ImageViewerConfig.FROM_CONCERN);
         aVar.a((com.baidu.card.f) hVar);
         aa aaVar = new aa(this.mPageContext.getPageActivity());
         com.baidu.tbadk.core.data.d dVar2 = new com.baidu.tbadk.core.data.d();
-        dVar2.bEy = 1;
-        dVar2.bED = 1;
+        dVar2.bEz = 1;
+        dVar2.bEE = 1;
         aaVar.setAgreeStatisticData(dVar2);
         aaVar.setFrom(9);
         aaVar.setShareReportFrom(3);
@@ -188,7 +188,7 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         x qr = aVar.qr();
         qr.bq(1);
         z<com.baidu.tieba.card.data.k> zVar = new z<>(qr);
-        zVar.setPageId(this.cwh);
+        zVar.setPageId(this.cwi);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.concern.a.k.3
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -196,8 +196,8 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     z zVar2 = (z) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) mVar;
                     kVar.objType = 1;
-                    if (k.this.Vj != null) {
-                        k.this.Vj.a(zVar2.getView(), kVar);
+                    if (k.this.Vi != null) {
+                        k.this.Vi.a(zVar2.getView(), kVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 1, false);
                     zVar2.qs().b(new a.C0038a(1));
@@ -216,16 +216,16 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ps(kVar.position + 1);
-        t.aXP().b(kVar.uZ("c12351"));
-        zVar.qs().setPage(this.Wt);
+        t.aXP().b(kVar.uY("c12351"));
+        zVar.qs().setPage(this.Ws);
         zVar.a(kVar);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qs().a(this.Vj);
+        zVar.qs().a(this.Vi);
         return zVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 }

@@ -13,15 +13,15 @@ import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class LocationInfoWithDelView extends LinearLayout implements View.OnClickListener {
     private ImageView eUF;
-    private LocationInfoView jHG;
-    private a jHH;
+    private LocationInfoView jHJ;
+    private a jHK;
     private int mSkinType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void cxB();
+        void cxA();
 
-        void cxC();
+        void cxB();
     }
 
     public LocationInfoWithDelView(Context context) {
@@ -40,10 +40,10 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
         setPadding(dimensionPixelSize, 0, 0, 0);
         setGravity(16);
         setOnClickListener(this);
-        this.jHG = new LocationInfoView(getContext());
-        this.jHG.setMaxEms(4);
-        this.jHG.setPadding(0, 0, 0, 0);
-        addView(this.jHG, new LinearLayout.LayoutParams(-2, -2));
+        this.jHJ = new LocationInfoView(getContext());
+        this.jHJ.setMaxEms(4);
+        this.jHJ.setPadding(0, 0, 0, 0);
+        addView(this.jHJ, new LinearLayout.LayoutParams(-2, -2));
         this.eUF = new ImageView(getContext());
         this.eUF.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.eUF.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
@@ -54,7 +54,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void onChangeSkinType(int i) {
-        this.jHG.onChangeSkinType(i);
+        this.jHJ.onChangeSkinType(i);
         if (this.mSkinType != i) {
             al.k(this, R.drawable.state_switch_bg);
             al.c(this.eUF, (int) R.drawable.icon_edit_close_n);
@@ -68,7 +68,7 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
                 int indexOf = str.indexOf("·");
                 str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
             }
-            this.jHG.setState(i, str);
+            this.jHJ.setState(i, str);
             setVisibility(0);
             return;
         }
@@ -80,16 +80,16 @@ public class LocationInfoWithDelView extends LinearLayout implements View.OnClic
     }
 
     public void setLocationClickListener(a aVar) {
-        this.jHH = aVar;
+        this.jHK = aVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.jHH != null) {
+        if (this.jHK != null) {
             if (view == this.eUF) {
-                this.jHH.cxC();
+                this.jHK.cxB();
             } else if (view == this) {
-                this.jHH.cxB();
+                this.jHK.cxA();
             }
         }
     }

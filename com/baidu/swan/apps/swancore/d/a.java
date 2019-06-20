@@ -56,12 +56,12 @@ public final class a {
             if (dY(i)) {
                 C0183a eb = eb(i);
                 long j = f.Ni().getLong(ed(i), 0L);
-                long hI = com.baidu.swan.apps.swancore.b.hI(eb.aWc);
+                long hH = com.baidu.swan.apps.swancore.b.hH(eb.aWc);
                 if (DEBUG) {
-                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + hI);
+                    Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + hH);
                 }
-                if (j < hI) {
-                    c(hI, i);
+                if (j < hH) {
+                    c(hH, i);
                     if (DEBUG) {
                         Log.d("PresetSwanCoreControl", "onPresetUpdate end.");
                     }

@@ -10,15 +10,15 @@ public class a {
     private List<C0410a> poi_info;
     private String sn;
 
-    public String cmZ() {
+    public String cna() {
         return this.formatted_address;
     }
 
-    public List<C0410a> cna() {
+    public List<C0410a> cnb() {
         return this.poi_info;
     }
 
-    public void DY(String str) {
+    public void Ea(String str) {
         this.formatted_address = str;
     }
 
@@ -26,7 +26,7 @@ public class a {
         return this.sn;
     }
 
-    public void DZ(String str) {
+    public void Eb(String str) {
         this.sn = str;
     }
 

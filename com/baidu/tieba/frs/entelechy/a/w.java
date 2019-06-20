@@ -89,7 +89,7 @@ public class w extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
             aVar.fya.setData(qVar.getUserInfo());
             aVar.fxZ.setMaxOverScrollDistance(aVar.fya.getChildItemWidth());
             aVar.fyb.setTextColor(al.getColor(skinType, R.color.cp_cont_f));
-            aVar.bMZ.setBackgroundColor(al.getColor(skinType, R.color.cp_bg_line_e));
+            aVar.bNa.setBackgroundColor(al.getColor(skinType, R.color.cp_bg_line_e));
             if (!qVar.blr()) {
                 for (MetaData metaData : qVar.getUserInfo()) {
                     if (metaData != null && !ap.isEmpty(metaData.getUserId())) {
@@ -104,7 +104,7 @@ public class w extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        LinearLayout bMZ;
+        LinearLayout bNa;
         private final String forumId;
         private boolean fxW;
         FlexibleHorizontalScrollView fxZ;
@@ -150,7 +150,7 @@ public class w extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
             this.fya.setAfterLikeBtnClickListener(this.fyc);
             this.fya.setAfterHeaderLickListener(this.fyd);
             this.fyb = (TextView) view.findViewById(R.id.user_recommend_document);
-            this.bMZ = (LinearLayout) view.findViewById(R.id.user_recommend_root);
+            this.bNa = (LinearLayout) view.findViewById(R.id.user_recommend_root);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

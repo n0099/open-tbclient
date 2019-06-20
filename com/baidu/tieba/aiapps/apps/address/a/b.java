@@ -22,13 +22,13 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter implements a.InterfaceC0281a {
-    private EditText das;
-    private a dav;
+    private EditText dau;
+    private a daw;
     private Context mContext;
     private List<com.baidu.tieba.aiapps.apps.address.c.a> mDataList;
-    private Map<String, Object> dau = new HashMap();
-    private Map<String, Boolean> daw = new HashMap(5);
-    private Map<String, Boolean> dax = new HashMap(4);
+    private Map<String, Object> dav = new HashMap();
+    private Map<String, Boolean> dax = new HashMap(5);
+    private Map<String, Boolean> daz = new HashMap(4);
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -57,11 +57,11 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
     }
 
     public void p(Map<String, Boolean> map) {
-        this.dax = map;
+        this.daz = map;
     }
 
     public void q(Map<String, Boolean> map) {
-        this.daw = map;
+        this.dax = map;
     }
 
     public void setData(List<com.baidu.tieba.aiapps.apps.address.c.a> list) {
@@ -76,7 +76,7 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
     }
 
     public void setDeliveryEditChangedListener(a aVar) {
-        this.dav = aVar;
+        this.daw = aVar;
     }
 
     public boolean aDm() {
@@ -96,14 +96,14 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
             cVar = (c) view.getTag();
         }
         a(cVar);
-        TextView textView = cVar.daB;
-        EditText editText = cVar.daC;
-        ImageView imageView = cVar.daD;
+        TextView textView = cVar.daC;
+        EditText editText = cVar.daD;
+        ImageView imageView = cVar.daE;
         textView.setText(item.label);
         editText.setText(item.content);
         editText.setHint(item.hint);
         editText.setTag(item.type);
-        if (item.daM) {
+        if (item.daN) {
             editText.setInputType(2);
         }
         editText.addTextChangedListener(new C0279b(editText));
@@ -118,7 +118,7 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
                     aVar.aDO();
                 }
             });
-            this.das = editText;
+            this.dau = editText;
         }
         return view;
     }
@@ -127,39 +127,39 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
         if (!com.baidu.tieba.aiapps.apps.q.a.Ev()) {
             return;
         }
-        cVar.dar.setBackgroundColor(Color.parseColor("#191919"));
-        cVar.daB.setTextColor(Color.parseColor("#4D4D4D"));
-        cVar.daC.setTextColor(Color.parseColor("#666666"));
-        cVar.daC.setHintTextColor(Color.parseColor("#333333"));
-        cVar.daE.setBackgroundColor(Color.parseColor("#222222"));
+        cVar.das.setBackgroundColor(Color.parseColor("#191919"));
+        cVar.daC.setTextColor(Color.parseColor("#4D4D4D"));
+        cVar.daD.setTextColor(Color.parseColor("#666666"));
+        cVar.daD.setHintTextColor(Color.parseColor("#333333"));
+        cVar.daF.setBackgroundColor(Color.parseColor("#222222"));
     }
 
     @Override // com.baidu.tieba.aiapps.apps.address.view.a.InterfaceC0281a
     public void aG(List<d> list) {
         if (list != null && list.size() == 3) {
-            this.das.setTag(R.id.region_province, list.get(0));
-            this.das.setTag(R.id.region_city, list.get(1));
-            this.das.setTag(R.id.region_county, list.get(2));
+            this.dau.setTag(R.id.region_province, list.get(0));
+            this.dau.setTag(R.id.region_city, list.get(1));
+            this.dau.setTag(R.id.region_county, list.get(2));
             String aI = d.aI(list);
-            if (this.das != null) {
-                this.das.setText(aI);
+            if (this.dau != null) {
+                this.dau.setText(aI);
             }
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.dau;
+        return this.dav;
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private class C0279b implements TextWatcher {
-        private String daA;
+        private String daB;
         private EditText mEditText;
 
         public C0279b(EditText editText) {
             this.mEditText = editText;
-            this.daA = this.mEditText.getText().toString();
+            this.daB = this.mEditText.getText().toString();
         }
 
         @Override // android.text.TextWatcher
@@ -174,35 +174,35 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
         public void afterTextChanged(Editable editable) {
             String valueOf = String.valueOf(this.mEditText.getTag());
             if (!TextUtils.isEmpty(valueOf)) {
-                if (TextUtils.equals(editable.toString(), this.daA)) {
-                    b.this.daw.put(valueOf, false);
+                if (TextUtils.equals(editable.toString(), this.daB)) {
+                    b.this.dax.put(valueOf, false);
                 } else {
-                    b.this.daw.put(valueOf, true);
+                    b.this.dax.put(valueOf, true);
                 }
                 if (editable != null && !TextUtils.isEmpty(editable.toString())) {
                     String obj = editable.toString();
-                    if (!TextUtils.equals(valueOf, "region") || b.this.das == null) {
-                        b.this.dau.put(valueOf, obj);
+                    if (!TextUtils.equals(valueOf, "region") || b.this.dau == null) {
+                        b.this.dav.put(valueOf, obj);
                     } else {
                         d my = b.this.my(R.id.region_province);
                         if (my != null) {
-                            b.this.dau.put("l1", my);
+                            b.this.dav.put("l1", my);
                         }
                         d my2 = b.this.my(R.id.region_city);
                         if (my2 != null) {
-                            b.this.dau.put("l2", my2);
+                            b.this.dav.put("l2", my2);
                         }
-                        b.this.dau.put("l3", b.this.my(R.id.region_county));
+                        b.this.dav.put("l3", b.this.my(R.id.region_county));
                     }
                     if (!TextUtils.equals(valueOf, "zipcode")) {
-                        b.this.dax.put(valueOf, true);
+                        b.this.daz.put(valueOf, true);
                     }
                     if (b.this.aDv() && b.this.aDw()) {
-                        b.this.dav.gk(false);
+                        b.this.daw.gk(false);
                     }
                 } else if (!TextUtils.equals(valueOf, "zipcode")) {
-                    b.this.dax.put(valueOf, false);
-                    b.this.dav.gk(true);
+                    b.this.daz.put(valueOf, false);
+                    b.this.daw.gk(true);
                 }
             }
         }
@@ -210,7 +210,7 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aDv() {
-        for (Boolean bool : this.dax.values()) {
+        for (Boolean bool : this.daz.values()) {
             if (!bool.booleanValue()) {
                 return false;
             }
@@ -220,7 +220,7 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean aDw() {
-        for (Boolean bool : this.daw.values()) {
+        for (Boolean bool : this.dax.values()) {
             if (bool.booleanValue()) {
                 return true;
             }
@@ -231,7 +231,7 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
     /* JADX INFO: Access modifiers changed from: private */
     public d my(int i) {
         Object tag;
-        if (this.das == null || (tag = this.das.getTag(i)) == null || !(tag instanceof d)) {
+        if (this.dau == null || (tag = this.dau.getTag(i)) == null || !(tag instanceof d)) {
             return null;
         }
         return (d) tag;
@@ -240,18 +240,18 @@ public class b extends BaseAdapter implements a.InterfaceC0281a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class c {
-        private TextView daB;
-        private EditText daC;
-        private ImageView daD;
-        private View daE;
-        private View dar;
+        private TextView daC;
+        private EditText daD;
+        private ImageView daE;
+        private View daF;
+        private View das;
 
         public c(View view) {
-            this.dar = view;
-            this.daB = (TextView) view.findViewById(R.id.delivery_label);
-            this.daC = (EditText) view.findViewById(R.id.delivery_content);
-            this.daD = (ImageView) view.findViewById(R.id.delivery_arrow);
-            this.daE = view.findViewById(R.id.delivery_highlight_line);
+            this.das = view;
+            this.daC = (TextView) view.findViewById(R.id.delivery_label);
+            this.daD = (EditText) view.findViewById(R.id.delivery_content);
+            this.daE = (ImageView) view.findViewById(R.id.delivery_arrow);
+            this.daF = view.findViewById(R.id.delivery_highlight_line);
         }
     }
 }

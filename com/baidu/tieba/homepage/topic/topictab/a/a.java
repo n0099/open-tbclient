@@ -10,7 +10,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.a.ggK);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.a.ggM);
         this.mPageContext = tbPageContext;
     }
 

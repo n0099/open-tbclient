@@ -38,26 +38,26 @@ public class k extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int hC = bVar.Lt().hC(aE);
+        int hB = bVar.Lt().hB(aE);
         if (DEBUG) {
-            Log.d("SaveFileAction", "——> handle: statusCode " + hC);
+            Log.d("SaveFileAction", "——> handle: statusCode " + hB);
         }
-        if (hC > 2000) {
-            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + hC);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hC, com.baidu.swan.apps.scheme.f.getErrMessage(hC)));
+        if (hB > 2000) {
+            com.baidu.swan.apps.console.c.e("saveFile", "file path status code : " + hB);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(hB, com.baidu.swan.apps.scheme.f.getErrMessage(hB)));
             return false;
         }
-        String hD = bVar.Lt().hD(aE);
-        if (TextUtils.isEmpty(hD)) {
+        String hC = bVar.Lt().hC(aE);
+        if (TextUtils.isEmpty(hC)) {
             com.baidu.swan.apps.console.c.e("saveFile", "save file path is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, com.baidu.swan.apps.scheme.f.getErrMessage(2003)));
             return false;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.aG(hD, com.baidu.swan.apps.ae.b.LB()));
+            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.aG(hC, com.baidu.swan.apps.ae.b.LB()));
             if (DEBUG) {
-                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + hD + " update saveFilePath " + jSONObject.get("savedFilePath"));
+                Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + hC + " update saveFilePath " + jSONObject.get("savedFilePath"));
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
             return true;

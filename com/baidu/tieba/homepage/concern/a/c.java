@@ -21,17 +21,17 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, z<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private ab<com.baidu.tieba.card.data.k> Vj;
-    private String Wt;
-    private boolean XJ;
-    private r YE;
-    public BdUniqueId cwh;
+    private ab<com.baidu.tieba.card.data.k> Vi;
+    private String Ws;
+    private boolean XI;
+    private r YD;
+    public BdUniqueId cwi;
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.XJ = true;
-        this.Vj = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
+        this.XI = true;
+        this.Vi = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
@@ -45,7 +45,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void b(r rVar) {
-        this.YE = rVar;
+        this.YD = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -65,13 +65,13 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
         q qVar = new q(this.mPageContext.getPageActivity());
         qVar.setFrom(ImageViewerConfig.FROM_CONCERN);
-        qVar.setFromCDN(this.XJ);
+        qVar.setFromCDN(this.XI);
         aVar.b(qVar);
         aVar.qq().setBackgroundResource(R.color.cp_bg_line_d);
-        x a = aVar.a(false, viewGroup, this.YE);
+        x a = aVar.a(false, viewGroup, this.YD);
         a.bq(1);
         z zVar = new z(a);
-        zVar.setPageId(this.cwh);
+        zVar.setPageId(this.cwi);
         setOnAdapterItemClickListener(new s() { // from class: com.baidu.tieba.homepage.concern.a.c.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -79,8 +79,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     z zVar2 = (z) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) mVar;
                     kVar.objType = 1;
-                    if (c.this.Vj != null) {
-                        c.this.Vj.a(zVar2.getView(), kVar);
+                    if (c.this.Vi != null) {
+                        c.this.Vi.a(zVar2.getView(), kVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 1, false);
                     zVar2.qs().b(new a.C0038a(1));
@@ -99,26 +99,26 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ps(kVar.position + 1);
-        t.aXP().b(kVar.uZ("c12351"));
+        t.aXP().b(kVar.uY("c12351"));
         zVar.qs().setPosition(i);
         if (zVar.qs() instanceof com.baidu.tieba.a.e) {
-            zVar.qs().setPage(this.Wt);
+            zVar.qs().setPage(this.Ws);
         }
         zVar.a(kVar);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qs().a(this.Vj);
+        zVar.qs().a(this.Vi);
         q qVar = (q) zVar.qs().ql();
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qVar.VV.Yo.getLayoutParams();
-        layoutParams.width = kVar.bIf;
-        layoutParams.height = kVar.bIg;
-        if (qVar.VV.Yo.getVisibility() != 8) {
-            qVar.VV.Yo.setLayoutParams(layoutParams);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) qVar.VU.Yn.getLayoutParams();
+        layoutParams.width = kVar.bIg;
+        layoutParams.height = kVar.bIh;
+        if (qVar.VU.Yn.getVisibility() != 8) {
+            qVar.VU.Yn.setLayoutParams(layoutParams);
         }
         return zVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 }

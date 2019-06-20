@@ -35,10 +35,10 @@ public class SwanAppNAViewContainer extends FrameLayout {
     }
 
     public boolean Pr() {
-        a ir;
+        a iq;
         boolean z = false;
-        if (this.bbt != null && (ir = ac.ir(this.bbt.aDm)) != null && (z = c.b(this, ir))) {
-            c.d(this, ir);
+        if (this.bbt != null && (iq = ac.iq(this.bbt.aDm)) != null && (z = c.b(this, iq))) {
+            c.d(this, iq);
             this.bbu = null;
         }
         return z;
@@ -104,10 +104,10 @@ public class SwanAppNAViewContainer extends FrameLayout {
     }
 
     public boolean Ps() {
-        a ir;
+        a iq;
         boolean z = false;
-        if (this.bbt != null && (ir = ac.ir(this.bbt.aDm)) != null && (z = c.a(this, ir))) {
-            c.c(this, ir);
+        if (this.bbt != null && (iq = ac.iq(this.bbt.aDm)) != null && (z = c.a(this, iq))) {
+            c.c(this, iq);
         }
         return z;
     }

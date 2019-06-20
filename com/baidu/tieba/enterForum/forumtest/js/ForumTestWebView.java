@@ -62,7 +62,7 @@ public class ForumTestWebView extends WebView {
 
     /* loaded from: classes4.dex */
     public interface g {
-        void da(String str);
+        void cZ(String str);
     }
 
     public ForumTestWebView(Context context) {
@@ -235,7 +235,7 @@ public class ForumTestWebView extends WebView {
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
             if (ForumTestWebView.this.eRJ != null) {
-                ForumTestWebView.this.eRJ.da(str);
+                ForumTestWebView.this.eRJ.cZ(str);
             }
         }
     }

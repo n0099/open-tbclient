@@ -15,12 +15,12 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> bYP;
-    private boolean caq;
-    private TextView gOj;
-    private ImageView gOk;
+    private ArrayList<a> bYQ;
+    private boolean car;
     private TextView gOl;
-    private TextView gOm;
+    private ImageView gOm;
+    private TextView gOn;
+    private TextView gOo;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -29,39 +29,39 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bYP = new ArrayList<>();
+        this.bYQ = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bYP = new ArrayList<>();
+        this.bYQ = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.bYP = new ArrayList<>();
+        this.bYQ = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(R.layout.shut_down_validate_tip, (ViewGroup) null));
-        this.gOk = (ImageView) findViewById(R.id.no_network_icon);
-        this.gOl = (TextView) findViewById(R.id.no_network_guide1);
-        this.gOm = (TextView) findViewById(R.id.no_network_guide2);
-        this.gOj = (TextView) findViewById(R.id.no_network_showmore);
+        this.gOm = (ImageView) findViewById(R.id.no_network_icon);
+        this.gOn = (TextView) findViewById(R.id.no_network_guide1);
+        this.gOo = (TextView) findViewById(R.id.no_network_guide2);
+        this.gOl = (TextView) findViewById(R.id.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.gOj != null) {
-            this.gOj.setOnClickListener(onClickListener);
+        if (this.gOl != null) {
+            this.gOl.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.caq) {
-            this.caq = z;
+        if (z != this.car) {
+            this.car = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -81,8 +81,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 });
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.bYP.size(); i++) {
-                    this.bYP.get(i).el(false);
+                for (int i = 0; i < this.bYQ.size(); i++) {
+                    this.bYQ.get(i).el(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -103,8 +103,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                     }
                 });
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.bYP.size(); i2++) {
-                    this.bYP.get(i2).el(true);
+                for (int i2 = 0; i2 < this.bYQ.size(); i2++) {
+                    this.bYQ.get(i2).el(true);
                 }
             }
         }
@@ -118,20 +118,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.bYP.clear();
+        this.bYQ.clear();
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.gOk, (int) R.drawable.icon_error);
+        al.c(this.gOm, (int) R.drawable.icon_error);
         al.k(findViewById(R.id.no_network_parent), R.drawable.bg_no_network);
         if (i == 1) {
+            this.gOn.setTextColor(-10523526);
+            this.gOo.setTextColor(-8682095);
             this.gOl.setTextColor(-10523526);
-            this.gOm.setTextColor(-8682095);
-            this.gOj.setTextColor(-10523526);
             return;
         }
+        this.gOn.setTextColor(-14277082);
+        this.gOo.setTextColor(-5065030);
         this.gOl.setTextColor(-14277082);
-        this.gOm.setTextColor(-5065030);
-        this.gOj.setTextColor(-14277082);
     }
 }

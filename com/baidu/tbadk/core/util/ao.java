@@ -7,20 +7,20 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class ao {
-    private static ao bSw;
+    private static ao bSx;
 
     public static synchronized ao aig() {
         ao aoVar;
         synchronized (ao.class) {
-            if (bSw == null) {
-                bSw = new ao();
+            if (bSx == null) {
+                bSx = new ao();
             }
-            aoVar = bSw;
+            aoVar = bSx;
         }
         return aoVar;
     }
 
-    public String nK(String str) {
+    public String nJ(String str) {
         if (str == null) {
             return null;
         }
@@ -31,35 +31,35 @@ public class ao {
         return FileUtils.IMAGE_FILE_START + (j % 20);
     }
 
-    public Bitmap no(String str) {
+    public Bitmap nn(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return m.bP(nK(str), str);
+        return m.bP(nJ(str), str);
     }
 
-    public boolean nL(String str) {
+    public boolean nK(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m.bO(nK(str), str);
+        return m.bO(nJ(str), str);
     }
 
-    public int nM(String str) {
+    public int nL(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
-        return (int) m.bN(nK(str), str);
+        return (int) m.bN(nJ(str), str);
     }
 
     public boolean bQ(String str, String str2) {
-        String str3 = m.Du + "/" + TbConfig.getTempDirName() + "/";
-        if (!m.mW(str3)) {
-            m.nt(str3);
+        String str3 = m.Dt + "/" + TbConfig.getTempDirName() + "/";
+        if (!m.mV(str3)) {
+            m.ns(str3);
         }
-        String str4 = str3 + nK(str2);
-        if (!m.mW(str4)) {
-            m.nt(str4);
+        String str4 = str3 + nJ(str2);
+        if (!m.mV(str4)) {
+            m.ns(str4);
         }
         String str5 = str4 + "/" + str2;
         if (str.equals(str5)) {
@@ -70,7 +70,7 @@ public class ao {
 
     public void h(String str, byte[] bArr) {
         if (!TextUtils.isEmpty(str)) {
-            m.c(nK(str), str, bArr);
+            m.c(nJ(str), str, bArr);
         }
     }
 
@@ -88,7 +88,7 @@ public class ao {
     }
 
     public void aih() {
-        F(new File(m.Du + "/" + TbConfig.getTempDirName() + "/" + m.hP(3)));
+        F(new File(m.Dt + "/" + TbConfig.getTempDirName() + "/" + m.hP(3)));
     }
 
     private void F(File file) {

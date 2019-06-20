@@ -198,10 +198,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     private Uri getUri() {
         String SZ;
         String str;
-        if (d.hA(this.blc) == PathType.NETWORK) {
+        if (d.hz(this.blc) == PathType.NETWORK) {
             return Uri.parse(this.blc);
         }
-        if (d.hA(this.blc) != PathType.RELATIVE || (SZ = d.SZ()) == null) {
+        if (d.hz(this.blc) != PathType.RELATIVE || (SZ = d.SZ()) == null) {
             return null;
         }
         if (this.blc.startsWith(".")) {
@@ -452,7 +452,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     @UiThread
     private void l(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> e = com.facebook.drawee.a.a.c.cCw().e(ImageRequestBuilder.U(uri).cIz(), getContext());
+        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> e = com.facebook.drawee.a.a.c.cCv().e(ImageRequestBuilder.U(uri).cIy(), getContext());
         e.a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
             @Override // com.facebook.imagepipeline.e.b
             public void f(@Nullable Bitmap bitmap) {
@@ -470,14 +470,14 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             @Override // com.facebook.datasource.a
             public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> bVar) {
                 if (com.baidu.swan.apps.ae.b.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.cCh().getMessage());
+                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.cCg().getMessage());
                 }
                 ApiButton.this.SS();
                 if (bVar != null) {
                     bVar.Ab();
                 }
             }
-        }, f.cBB());
+        }, f.cBA());
     }
 
     @Override // android.view.View.OnClickListener

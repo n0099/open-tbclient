@@ -14,9 +14,9 @@ import tbclient.AgreeList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
     private String fname;
-    private BdUniqueId gQB;
-    private boolean gQC;
-    private String gQD;
+    private BdUniqueId gQD;
+    private boolean gQE;
+    private String gQF;
     private boolean isNew;
     private long msgId;
     private OriginalThreadInfo originalThreadInfo;
@@ -30,15 +30,15 @@ public class a extends com.baidu.tieba.card.data.b {
     private String thread_id;
     private long time;
     private String title;
-    public static final BdUniqueId gQw = BdUniqueId.gen();
-    public static final BdUniqueId gQx = BdUniqueId.gen();
     public static final BdUniqueId gQy = BdUniqueId.gen();
     public static final BdUniqueId gQz = BdUniqueId.gen();
     public static final BdUniqueId gQA = BdUniqueId.gen();
+    public static final BdUniqueId gQB = BdUniqueId.gen();
+    public static final BdUniqueId gQC = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.gQB;
+        return this.gQD;
     }
 
     public void a(AgreeList agreeList) {
@@ -64,13 +64,13 @@ public class a extends com.baidu.tieba.card.data.b {
             this.fname = bgVar.adA();
             this.thread_id = bgVar.getId();
             this.threadType = bgVar.threadType;
-            this.gQD = "c12927";
+            this.gQF = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.gQB = gQw;
+                this.gQD = gQy;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_thread);
                 return;
             }
-            this.gQB = gQx;
+            this.gQD = gQz;
             this.title = TbadkCoreApplication.getInst().getResources().getString(R.string.agree_my_post);
         }
     }
@@ -86,7 +86,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.thread_id = feedData.getThread_id();
             this.threadType = feedData.getThread_Type();
             this.title = feedData.getContent();
-            this.gQC = feedData.getIsFloor();
+            this.gQE = feedData.getIsFloor();
             this.postFrom = feedData.getPostFrom();
             this.quote_pid = feedData.getQuote_pid();
             this.isNew = feedData.isNew();
@@ -95,7 +95,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.originalThreadInfo.threadId = this.thread_id;
             this.originalThreadInfo.threadType = this.threadType;
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
-            this.gQD = "c12928";
+            this.gQF = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
@@ -111,9 +111,9 @@ public class a extends com.baidu.tieba.card.data.b {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.gQB = gQy;
+                    this.gQD = gQA;
                 } else {
-                    this.gQB = gQz;
+                    this.gQD = gQB;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -122,7 +122,7 @@ public class a extends com.baidu.tieba.card.data.b {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.gQB = gQA;
+                this.gQD = gQC;
             }
             this.originalThreadInfo.setShowData();
         }
@@ -168,11 +168,11 @@ public class a extends com.baidu.tieba.card.data.b {
         return this.msgId;
     }
 
-    public boolean bFA() {
-        return this.gQC;
+    public boolean bFB() {
+        return this.gQE;
     }
 
-    public String bFB() {
+    public String bFC() {
         return this.quote_pid;
     }
 
@@ -180,12 +180,12 @@ public class a extends com.baidu.tieba.card.data.b {
         return this.isNew;
     }
 
-    public void mC(boolean z) {
+    public void mD(boolean z) {
         this.isNew = z;
     }
 
-    public String bFC() {
-        return this.gQD;
+    public String bFD() {
+        return this.gQF;
     }
 
     public MetaData getThreadAuthor() {

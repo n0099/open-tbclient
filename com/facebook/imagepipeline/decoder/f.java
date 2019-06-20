@@ -6,13 +6,13 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f implements d {
-    private final b kaS;
+    private final b kaV;
 
     /* loaded from: classes2.dex */
     public interface b {
-        int cGA();
+        List<Integer> cGy();
 
-        List<Integer> cGz();
+        int cGz();
     }
 
     /* loaded from: classes2.dex */
@@ -21,12 +21,12 @@ public class f implements d {
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public List<Integer> cGz() {
+        public List<Integer> cGy() {
             return Collections.EMPTY_LIST;
         }
 
         @Override // com.facebook.imagepipeline.decoder.f.b
-        public int cGA() {
+        public int cGz() {
             return 0;
         }
     }
@@ -36,23 +36,23 @@ public class f implements d {
     }
 
     public f(b bVar) {
-        this.kaS = (b) g.checkNotNull(bVar);
+        this.kaV = (b) g.checkNotNull(bVar);
     }
 
     @Override // com.facebook.imagepipeline.decoder.d
     public int Dh(int i) {
-        List<Integer> cGz = this.kaS.cGz();
-        if (cGz == null || cGz.isEmpty()) {
+        List<Integer> cGy = this.kaV.cGy();
+        if (cGy == null || cGy.isEmpty()) {
             return i + 1;
         }
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < cGz.size()) {
-                if (cGz.get(i3).intValue() <= i) {
+            if (i3 < cGy.size()) {
+                if (cGy.get(i3).intValue() <= i) {
                     i2 = i3 + 1;
                 } else {
-                    return cGz.get(i3).intValue();
+                    return cGy.get(i3).intValue();
                 }
             } else {
                 return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
@@ -62,6 +62,6 @@ public class f implements d {
 
     @Override // com.facebook.imagepipeline.decoder.d
     public com.facebook.imagepipeline.f.g Di(int i) {
-        return com.facebook.imagepipeline.f.f.f(i, i >= this.kaS.cGA(), false);
+        return com.facebook.imagepipeline.f.f.f(i, i >= this.kaV.cGz(), false);
     }
 }

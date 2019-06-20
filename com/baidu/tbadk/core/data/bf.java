@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class bf extends a implements com.baidu.adp.widget.ListView.m {
-    public boolean bHV = false;
     public boolean bHW = false;
     public boolean bHX = false;
     public boolean bHY = false;
@@ -13,8 +12,9 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
     public boolean bIc = false;
     public boolean bId = false;
     public boolean bIe = false;
-    public int bIf = 0;
+    public boolean bIf = false;
     public int bIg = 0;
+    public int bIh = 0;
     public bg threadData;
 
     @Override // com.baidu.adp.widget.ListView.m
@@ -24,55 +24,52 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
         }
         if (this.threadData.afj()) {
             if (this.threadData.adM() != null) {
-                return bg.bIw;
+                return bg.bIx;
             }
-            return bg.bIi;
+            return bg.bIj;
         }
         int adq = this.threadData.adq();
         if (this.threadData.adM() != null && this.threadData.afa()) {
-            return bg.bIL;
+            return bg.bIM;
         }
         if (this.threadData.threadType == 63) {
             bg bgVar = this.threadData;
-            return bg.bIE;
+            return bg.bIF;
         } else if (this.threadData.threadType == 64) {
             bg bgVar2 = this.threadData;
-            return bg.bIF;
+            return bg.bIG;
         } else if (this.threadData.adO() != null && this.threadData.threadType == 60) {
-            return bg.bIz;
+            return bg.bIA;
         } else {
             if (this.threadData.adO() != null && this.threadData.threadType == 49) {
-                return bg.bIx;
-            }
-            if (this.threadData.threadType == 51) {
                 return bg.bIy;
             }
+            if (this.threadData.threadType == 51) {
+                return bg.bIz;
+            }
             if (adq == 2 || adq == 1) {
-                return bg.bIh;
+                return bg.bIi;
             }
             if (this.threadData.adM() != null && this.threadData.aeB() && !this.threadData.aes()) {
-                return bg.bIK;
+                return bg.bIL;
             }
             if (this.threadData.isShareThread) {
-                return bg.bIA;
+                return bg.bIB;
             }
             if (this.threadData.aeu()) {
                 bg bgVar3 = this.threadData;
-                return bg.bIH.get() ? bg.bJU : bg.bIi;
+                return bg.bII.get() ? bg.bJV : bg.bIj;
             } else if (this.threadData.aeg() && this.threadData.aef() == 1) {
                 bg bgVar4 = this.threadData;
-                return bg.bIH.get() ? bg.bKc : bg.bIi;
+                return bg.bII.get() ? bg.bKd : bg.bIj;
             } else if (this.threadData.isLinkThread()) {
-                return bg.bIu;
+                return bg.bIv;
             } else {
                 if (this.threadData.aeZ()) {
-                    return this.threadData.ade() != null ? bg.bID : bg.bIC;
-                } else if (this.bHV) {
-                    return bg.bIm;
+                    return this.threadData.ade() != null ? bg.bIE : bg.bID;
+                } else if (this.bHW) {
+                    return bg.bIn;
                 } else {
-                    if (this.bHW) {
-                        return bg.bIn;
-                    }
                     if (this.bHX) {
                         return bg.bIo;
                     }
@@ -89,17 +86,20 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
                         return bg.bIs;
                     }
                     if (this.bIc) {
-                        return bg.bIw;
+                        return bg.bIt;
+                    }
+                    if (this.bId) {
+                        return bg.bIx;
                     }
                     if (this.threadData.ady()) {
-                        if (this.bId) {
-                            return bg.bIB;
+                        if (this.bIe) {
+                            return bg.bIC;
                         }
-                        return bg.bIv;
-                    } else if (this.bIe) {
-                        return bg.bIG;
+                        return bg.bIw;
+                    } else if (this.bIf) {
+                        return bg.bIH;
                     } else {
-                        return bg.bIi;
+                        return bg.bIj;
                     }
                 }
             }
@@ -113,18 +113,18 @@ public class bf extends a implements com.baidu.adp.widget.ListView.m {
 
     @Override // com.baidu.tbadk.core.data.a
     public aj abx() {
-        if (this.threadData.bGK == null || this.threadData.bGK.size() <= 0) {
+        if (this.threadData.bGL == null || this.threadData.bGL.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
         ajVar.setTid(abv().getTid());
         ajVar.setFid(abv().getFid());
-        ajVar.b(this.threadData.bGK);
+        ajVar.b(this.threadData.bGL);
         return ajVar;
     }
 
     @Override // com.baidu.tbadk.core.data.a
     public String abw() {
-        return this.threadData.bKt;
+        return this.threadData.bKu;
     }
 }

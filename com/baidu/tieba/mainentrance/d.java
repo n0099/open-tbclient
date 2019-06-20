@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class d extends BaseAdapter {
     private ArrayList<String> aHF;
     private final String foI;
-    private boolean hed = true;
+    private boolean hee = true;
     private final Context mContext;
 
     public d(Context context, ArrayList<String> arrayList) {
@@ -27,8 +27,8 @@ public class d extends BaseAdapter {
         this.aHF = arrayList;
     }
 
-    public void mU(boolean z) {
-        this.hed = z;
+    public void mV(boolean z) {
+        this.hee = z;
     }
 
     @Override // android.widget.Adapter
@@ -60,7 +60,7 @@ public class d extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.home_dialog_search_item, (ViewGroup) null);
             aVar = new a();
-            aVar.caT = (TextView) view.findViewById(R.id.home_lv_search_forum);
+            aVar.caU = (TextView) view.findViewById(R.id.home_lv_search_forum);
             aVar.dividerLine = view.findViewById(R.id.home_dialog_lv_search_forum_divider);
             view.setTag(aVar);
         } else {
@@ -69,12 +69,12 @@ public class d extends BaseAdapter {
         Object item = getItem(i);
         if (item != null) {
             String str = (String) item;
-            if (this.hed) {
-                aVar.caT.setText(str.concat(this.foI));
+            if (this.hee) {
+                aVar.caU.setText(str.concat(this.foI));
             } else {
-                aVar.caT.setText(str);
+                aVar.caU.setText(str);
             }
-            al.f(aVar.caT, R.color.cp_cont_b, 1);
+            al.f(aVar.caU, R.color.cp_cont_b, 1);
             al.l(aVar.dividerLine, R.color.cp_bg_line_b);
             al.k(view, R.drawable.addresslist_item_bg);
         }
@@ -83,7 +83,7 @@ public class d extends BaseAdapter {
 
     /* loaded from: classes6.dex */
     private class a {
-        TextView caT;
+        TextView caU;
         View dividerLine;
 
         private a() {

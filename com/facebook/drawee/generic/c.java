@@ -62,7 +62,7 @@ public class c {
                     } else if (index == a.C0449a.GenericDraweeHierarchy_overlayImage) {
                         bVar.r(a(context, obtainStyledAttributes, index));
                     } else if (index == a.C0449a.GenericDraweeHierarchy_roundAsCircle) {
-                        a(bVar).sj(obtainStyledAttributes.getBoolean(index, false));
+                        a(bVar).sk(obtainStyledAttributes.getBoolean(index, false));
                     } else if (index == a.C0449a.GenericDraweeHierarchy_roundedCornerRadius) {
                         i2 = obtainStyledAttributes.getDimensionPixelSize(index, i2);
                     } else if (index == a.C0449a.GenericDraweeHierarchy_roundTopLeft) {
@@ -92,8 +92,8 @@ public class c {
             z3 = true;
             i = 0;
         }
-        if (bVar.cDF() != null && i > 0) {
-            bVar.p(new com.facebook.drawee.drawable.b(bVar.cDF(), i));
+        if (bVar.cDE() != null && i > 0) {
+            bVar.p(new com.facebook.drawee.drawable.b(bVar.cDE(), i));
         }
         if (i2 > 0) {
             a(bVar).l(z3 ? i2 : 0.0f, z2 ? i2 : 0.0f, z4 ? i2 : 0.0f, z ? i2 : 0.0f);
@@ -103,10 +103,10 @@ public class c {
 
     @ReturnsOwnership
     private static RoundingParams a(b bVar) {
-        if (bVar.cDN() == null) {
+        if (bVar.cDM() == null) {
             bVar.b(new RoundingParams());
         }
-        return bVar.cDN();
+        return bVar.cDM();
     }
 
     @Nullable
@@ -124,21 +124,21 @@ public class c {
             case -1:
                 return null;
             case 0:
-                return n.b.jVV;
-            case 1:
-                return n.b.jVW;
-            case 2:
-                return n.b.jVX;
-            case 3:
                 return n.b.jVY;
-            case 4:
+            case 1:
                 return n.b.jVZ;
-            case 5:
+            case 2:
                 return n.b.jWa;
-            case 6:
+            case 3:
                 return n.b.jWb;
-            case 7:
+            case 4:
                 return n.b.jWc;
+            case 5:
+                return n.b.jWd;
+            case 6:
+                return n.b.jWe;
+            case 7:
+                return n.b.jWf;
             default:
                 throw new RuntimeException("XML attribute not specified!");
         }

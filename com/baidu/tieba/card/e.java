@@ -80,7 +80,7 @@ public class e extends a<com.baidu.tieba.e.b> {
             al.k(this.evs, R.color.cp_bg_line_c);
             al.f(this.evu, R.color.cp_btn_a, 1);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Ei(this.evy.abv().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Ek(this.evy.abv().getId())) {
                 al.j(this.evv, R.color.cp_cont_c);
             } else {
                 al.j(this.evv, R.color.cp_cont_b);
@@ -119,7 +119,7 @@ public class e extends a<com.baidu.tieba.e.b> {
             this.imgThumbnail.startLoad(str, 10, false);
             this.evv.setText(bVar.abv().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Ei(bVar.abv().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Ek(bVar.abv().getId())) {
                 al.j(this.evv, R.color.cp_cont_c);
             } else {
                 al.j(this.evv, R.color.cp_cont_b);
@@ -140,12 +140,12 @@ public class e extends a<com.baidu.tieba.e.b> {
         if (this.evw != null && bgVar != null) {
             this.evw.setVisibility(0);
             if (!StringUtils.isNull(bgVar.adv().getName_show())) {
-                this.evw.setText(oD(bgVar.adv().getName_show()));
+                this.evw.setText(oC(bgVar.adv().getName_show()));
             }
         }
     }
 
-    protected String oD(String str) {
+    protected String oC(String str) {
         return ap.j(str, 14, "...");
     }
 

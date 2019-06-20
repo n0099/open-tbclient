@@ -251,9 +251,9 @@ public class TiebaSyncService extends BdBaseService {
                 z anO = TiebaSyncService.this.mModel.anO();
                 if (anO != null) {
                     TbadkCoreApplication.getInst().setActivityPrizeData(anO.getActivityPrizeData());
-                    TbadkCoreApplication.getInst().getListItemRule().oP(anO.alO());
-                    TbadkCoreApplication.getInst().getListItemRule().oR(anO.alQ());
-                    TbadkCoreApplication.getInst().getListItemRule().oQ(anO.alP());
+                    TbadkCoreApplication.getInst().getListItemRule().oO(anO.alO());
+                    TbadkCoreApplication.getInst().getListItemRule().oQ(anO.alQ());
+                    TbadkCoreApplication.getInst().getListItemRule().oP(anO.alP());
                     TbadkCoreApplication.getInst().setUseNewResign(anO.amc());
                     TbadkCoreApplication.getInst().setUegVoiceWarning(anO.getUegVoiceWarning());
                     TbadkCoreApplication.getInst().setUrlText(anO.amk());
@@ -286,7 +286,7 @@ public class TiebaSyncService extends BdBaseService {
                     b.agM().putInt("home_page_max_thread_count", anO.amb());
                     b.agM().putBoolean("localvideo_open", anO.amh());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001365));
-                    b.agM().putInt("card_show_statistic_max_count", anO.cfW);
+                    b.agM().putInt("card_show_statistic_max_count", anO.cfX);
                     b.agM().putString("nick_name_activity_link", anO.amj());
                     String string = b.agM().getString("clean_smart_frs_cookie", "");
                     String amg = anO.amg();
@@ -304,16 +304,16 @@ public class TiebaSyncService extends BdBaseService {
                     b.agM().putInt("key_card_abstract_switch", anO.amo());
                     s amp = anO.amp();
                     if (amp != null) {
-                        b.agM().putBoolean("nani_key_is_show_download_nani_panel", amp.cfk);
-                        b.agM().putBoolean("nani_key_is_activate_app", amp.cfl);
-                        b.agM().putInt("nani_key_download_show_position", amp.cfm);
-                        b.agM().putInt("nani_key_download_show_rate", amp.cfn);
-                        b.agM().putString("nani_key_download_link_url", amp.cfo);
-                        b.agM().putString("nani_key_download_txt", amp.cfp);
-                        b.agM().putString("nani_key_show_tail_txt", amp.cfq);
-                        b.agM().putInt("nani_key_show_tail_video_type", amp.cfr);
-                        b.agM().putString("nani_key_show_tail_txt", amp.cfq);
-                        b.agM().putString("nani_key_pre_h5_link", amp.cfs);
+                        b.agM().putBoolean("nani_key_is_show_download_nani_panel", amp.cfl);
+                        b.agM().putBoolean("nani_key_is_activate_app", amp.cfm);
+                        b.agM().putInt("nani_key_download_show_position", amp.cfn);
+                        b.agM().putInt("nani_key_download_show_rate", amp.cfo);
+                        b.agM().putString("nani_key_download_link_url", amp.cfp);
+                        b.agM().putString("nani_key_download_txt", amp.cfq);
+                        b.agM().putString("nani_key_show_tail_txt", amp.cfr);
+                        b.agM().putInt("nani_key_show_tail_video_type", amp.cfs);
+                        b.agM().putString("nani_key_show_tail_txt", amp.cfr);
+                        b.agM().putString("nani_key_pre_h5_link", amp.cft);
                     }
                     b.agM().putLong("key_frs_cache_time", anO.amq() * 1000);
                     TbSingleton.getInstance().setPushDialogLoopTime(anO.amr());

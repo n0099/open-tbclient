@@ -28,7 +28,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static volatile a aWE;
-    private boolean Fv;
+    private boolean Fu;
     private BluetoothAdapter aWF;
     private BluetoothLeScanner aWG;
     private boolean aWH;
@@ -48,7 +48,7 @@ public class a {
 
     @SuppressLint({"MissingPermission"})
     private boolean NC() {
-        if (!this.Fv || this.aWF == null) {
+        if (!this.Fu || this.aWF == null) {
             return false;
         }
         return this.aWF.isEnabled();
@@ -232,7 +232,7 @@ public class a {
     @RequiresApi(api = 21)
     @SuppressLint({"MissingPermission"})
     public JSONObject ND() {
-        if (!this.Fv) {
+        if (!this.Fu) {
             c.w("bluetooth", "stop discovery -- is not open");
             return r(10000, "not init");
         } else if (!NC()) {
@@ -273,7 +273,7 @@ public class a {
     }
 
     private void NF() {
-        if (this.Fv && this.aWP != null) {
+        if (this.Fu && this.aWP != null) {
             JSONObject r = r(0, "ok");
             try {
                 r.put("available", NC());
@@ -325,7 +325,7 @@ public class a {
         this.aWM = null;
         this.aWN = null;
         this.aWO = null;
-        this.Fv = false;
+        this.Fu = false;
         this.aWI = false;
         aWE = null;
     }

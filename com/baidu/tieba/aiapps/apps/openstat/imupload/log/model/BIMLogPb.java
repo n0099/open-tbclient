@@ -49,20 +49,20 @@ public final class BIMLogPb {
                 return new LogRequest(codedInputStream, extensionRegistryLite);
             }
         };
-        private static final LogRequest dfD = new LogRequest(true);
+        private static final LogRequest dfE = new LogRequest(true);
 
         /* loaded from: classes4.dex */
         public interface a extends MessageLiteOrBuilder {
         }
 
         public static LogRequest getDefaultInstance() {
-            return dfD;
+            return dfE;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public LogRequest getDefaultInstanceForType() {
-            return dfD;
+            return dfE;
         }
 
         private LogRequest(GeneratedMessageLite.Builder builder) {
@@ -157,7 +157,7 @@ public final class BIMLogPb {
         }
 
         static {
-            dfD.aFE();
+            dfE.aFE();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -181,16 +181,16 @@ public final class BIMLogPb {
                     return new AuthInfo(codedInputStream, extensionRegistryLite);
                 }
             };
-            private static final AuthInfo dfE = new AuthInfo(true);
+            private static final AuthInfo dfF = new AuthInfo(true);
 
             public static AuthInfo getDefaultInstance() {
-                return dfE;
+                return dfF;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.MessageLiteOrBuilder
             public AuthInfo getDefaultInstanceForType() {
-                return dfE;
+                return dfF;
             }
 
             private AuthInfo(GeneratedMessageLite.Builder builder) {
@@ -243,7 +243,7 @@ public final class BIMLogPb {
             }
 
             static {
-                dfE.aFE();
+                dfF.aFE();
             }
 
             @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -493,7 +493,7 @@ public final class BIMLogPb {
                     return true;
                 }
 
-                public a sQ(String str) {
+                public a sP(String str) {
                     if (str == null) {
                         throw new NullPointerException();
                     }
@@ -900,7 +900,7 @@ public final class BIMLogPb {
                 return this;
             }
 
-            public b sR(String str) {
+            public b sQ(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -934,7 +934,7 @@ public final class BIMLogPb {
                 return this;
             }
 
-            public b sS(String str) {
+            public b sR(String str) {
                 if (str == null) {
                     throw new NullPointerException();
                 }
@@ -974,16 +974,16 @@ public final class BIMLogPb {
                 return new LogResponse(codedInputStream, extensionRegistryLite);
             }
         };
-        private static final LogResponse dfF = new LogResponse(true);
+        private static final LogResponse dfG = new LogResponse(true);
 
         public static LogResponse getDefaultInstance() {
-            return dfF;
+            return dfG;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public LogResponse getDefaultInstanceForType() {
-            return dfF;
+            return dfG;
         }
 
         private LogResponse(GeneratedMessageLite.Builder builder) {
@@ -1044,7 +1044,7 @@ public final class BIMLogPb {
         }
 
         static {
-            dfF.aFE();
+            dfG.aFE();
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite

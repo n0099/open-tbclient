@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class b extends BaseAdapter {
     private List<EmotionImageData> eXI;
-    private a hQs;
-    private EmotionView.a hQt;
+    private a hQt;
+    private EmotionView.a hQu;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -48,14 +48,14 @@ public class b extends BaseAdapter {
         if (view == null) {
             C0377b c0377b2 = new C0377b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0377b2.hvL = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0377b2.hvL.bff();
-            c0377b2.hvL.setController(this.hQt);
-            c0377b2.hvL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0377b2.hvM = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0377b2.hvM.bff();
+            c0377b2.hvM.setController(this.hQu);
+            c0377b2.hvM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.hQs != null && (view2 instanceof EmotionView)) {
-                        b.this.hQs.d(((EmotionView) view2).getData());
+                    if (b.this.hQt != null && (view2 instanceof EmotionView)) {
+                        b.this.hQt.d(((EmotionView) view2).getData());
                     }
                 }
             });
@@ -65,23 +65,23 @@ public class b extends BaseAdapter {
             c0377b = (C0377b) view.getTag();
         }
         if (this.eXI != null && i >= 0 && i < this.eXI.size()) {
-            c0377b.hvL.a(this.eXI.get(i));
+            c0377b.hvM.a(this.eXI.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.hQs = aVar;
+        this.hQt = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.hQt = aVar;
+        this.hQu = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     static class C0377b {
-        EmotionView hvL;
+        EmotionView hvM;
 
         C0377b() {
         }

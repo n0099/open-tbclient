@@ -6,8 +6,8 @@ import tbclient.FrsPage.HeadImgs;
 /* loaded from: classes.dex */
 public class s implements com.baidu.tbadk.core.flow.a.a {
     private String bFA;
-    private boolean bFB;
-    private String bFx;
+    private String bFB;
+    private boolean bFC;
     private String bFy;
     private String bFz;
     private String mTitle;
@@ -15,8 +15,8 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
     private float tagRatio;
 
     public s(String str, String str2, String str3) {
-        this.bFx = str;
-        this.bFy = str2;
+        this.bFy = str;
+        this.bFz = str2;
         this.mTitle = str3;
     }
 
@@ -25,28 +25,28 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String getPicUrl() {
-        return this.bFx;
+        return this.bFy;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String abN() {
-        return this.bFy;
+        return this.bFz;
     }
 
     public String getImageUrl() {
-        return this.bFx;
-    }
-
-    public void setImageUrl(String str) {
-        this.bFx = str;
-    }
-
-    public String getLinkUrl() {
         return this.bFy;
     }
 
-    public void setLinkUrl(String str) {
+    public void setImageUrl(String str) {
         this.bFy = str;
+    }
+
+    public String getLinkUrl() {
+        return this.bFz;
+    }
+
+    public void setLinkUrl(String str) {
+        this.bFz = str;
     }
 
     public String abO() {
@@ -61,11 +61,11 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
     /* renamed from: abQ */
     public s clone() {
         s sVar = new s();
-        sVar.bFx = this.bFx;
         sVar.bFy = this.bFy;
-        sVar.mTitle = this.mTitle;
         sVar.bFz = this.bFz;
+        sVar.mTitle = this.mTitle;
         sVar.bFA = this.bFA;
+        sVar.bFB = this.bFB;
         sVar.tagNameUrl = this.tagNameUrl;
         sVar.tagRatio = this.tagRatio;
         return sVar;
@@ -73,8 +73,8 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
 
     public void b(HeadImgs headImgs) {
         if (headImgs != null) {
-            this.bFx = headImgs.img_url;
-            this.bFy = headImgs.pc_url;
+            this.bFy = headImgs.img_url;
+            this.bFz = headImgs.pc_url;
             this.tagNameUrl = headImgs.tag_name_url;
             String str = headImgs.tag_name_wh;
             if (str != null) {
@@ -93,19 +93,19 @@ public class s implements com.baidu.tbadk.core.flow.a.a {
                 this.mTitle = headImgs.title.trim();
             }
             if (headImgs.subtitle != null) {
-                this.bFz = headImgs.subtitle.trim();
+                this.bFA = headImgs.subtitle.trim();
             }
             if (headImgs.btn_text != null) {
-                this.bFA = headImgs.btn_text.trim();
+                this.bFB = headImgs.btn_text.trim();
             }
         }
     }
 
     public boolean abR() {
-        return this.bFB;
+        return this.bFC;
     }
 
     public void dD(boolean z) {
-        this.bFB = z;
+        this.bFC = z;
     }
 }

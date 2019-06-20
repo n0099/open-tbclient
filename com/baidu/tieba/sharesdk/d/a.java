@@ -43,19 +43,19 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener {
     private int hideMode;
-    private final LinearLayout iOh;
-    private View.OnClickListener iOj;
-    private SparseArray<String> iOm;
-    private SparseArray<v> iOn;
+    private final LinearLayout iOl;
+    private View.OnClickListener iOn;
+    private SparseArray<String> iOq;
+    private SparseArray<v> iOr;
     private final Context mContext;
     private AlertDialog mDialog;
     private boolean mIsLandscape;
     private DialogInterface.OnDismissListener mOnDismissListener;
-    private final SparseArray<e> iOk = new SparseArray<>(8);
-    private boolean iOl = false;
-    private final List<View> iOi = new ArrayList();
+    private final SparseArray<e> iOo = new SparseArray<>(8);
+    private boolean iOp = false;
+    private final List<View> iOm = new ArrayList();
     private final View mRootView = LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.ala_share_dialog_content, (ViewGroup) null);
-    private final TextView iOg = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
+    private final TextView iOk = (TextView) this.mRootView.findViewById(R.id.btnShareCancel);
 
     public a(Context context, boolean z, int i) {
         this.mIsLandscape = false;
@@ -63,7 +63,7 @@ public class a implements View.OnClickListener {
         this.hideMode = i;
         this.mContext = context;
         this.mIsLandscape = z;
-        this.iOg.setOnClickListener(this);
+        this.iOk.setOnClickListener(this);
         if (!zS(i)) {
             cn(R.string.share_weixin_timeline, R.drawable.icon_live_pengyouquan);
         }
@@ -76,9 +76,9 @@ public class a implements View.OnClickListener {
         if (!zU(i)) {
             cn(R.string.share_sina_weibo, R.drawable.icon_live_weibo);
         }
-        this.iOh = (LinearLayout) this.mRootView.findViewById(R.id.share_content);
+        this.iOl = (LinearLayout) this.mRootView.findViewById(R.id.share_content);
         if (!f.aoU()) {
-            this.iOh.setVisibility(8);
+            this.iOl.setVisibility(8);
         }
     }
 
@@ -103,7 +103,7 @@ public class a implements View.OnClickListener {
         ((ImageView) inflate.findViewById(R.id.share_icon)).setImageResource(i2);
         inflate.setTag(Integer.valueOf(i2));
         inflate.setOnClickListener(this);
-        this.iOi.add(inflate);
+        this.iOm.add(inflate);
         return inflate;
     }
 
@@ -115,23 +115,23 @@ public class a implements View.OnClickListener {
         return inflate;
     }
 
-    public int cje() {
-        if (this.iOi == null) {
+    public int cjf() {
+        if (this.iOm == null) {
             return 0;
         }
-        return this.iOi.size();
+        return this.iOm.size();
     }
 
     public void b(View view, View.OnClickListener onClickListener) {
-        this.iOi.add(0, view);
+        this.iOm.add(0, view);
         if (onClickListener != null) {
             view.setOnClickListener(new View$OnClickListenerC0402a(onClickListener));
         }
     }
 
     public void a(View view, int i, View.OnClickListener onClickListener) {
-        if (i <= this.iOi.size() && i >= 0) {
-            this.iOi.add(i, view);
+        if (i <= this.iOm.size() && i >= 0) {
+            this.iOm.add(i, view);
             if (onClickListener != null) {
                 view.setOnClickListener(new View$OnClickListenerC0402a(onClickListener));
             }
@@ -141,17 +141,17 @@ public class a implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.sharesdk.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     class View$OnClickListenerC0402a implements View.OnClickListener {
-        private View.OnClickListener iOp;
+        private View.OnClickListener iOt;
 
         public View$OnClickListenerC0402a(View.OnClickListener onClickListener) {
-            this.iOp = onClickListener;
+            this.iOt = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a.this.dismiss();
-            if (this.iOp != null) {
-                this.iOp.onClick(view);
+            if (this.iOt != null) {
+                this.iOt.onClick(view);
             }
         }
     }
@@ -159,9 +159,9 @@ public class a implements View.OnClickListener {
     public void a(e eVar, boolean z) {
         Location aZI;
         if (z && (aZI = aZI()) != null) {
-            eVar.cjA = aZI;
+            eVar.cjB = aZI;
         }
-        this.iOk.put(1, eVar);
+        this.iOo.put(1, eVar);
     }
 
     private Location aZI() {
@@ -184,17 +184,17 @@ public class a implements View.OnClickListener {
 
     public void setCopyLinkListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.iOj = onClickListener;
+            this.iOn = onClickListener;
         }
     }
 
-    public void cjf() {
-        int size = this.iOi.size();
+    public void cjg() {
+        int size = this.iOm.size();
         for (int i = 0; i < size; i++) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
             layoutParams.weight = 1.0f;
             layoutParams.gravity = 16;
-            this.iOh.addView(this.iOi.get(i), layoutParams);
+            this.iOl.addView(this.iOm.get(i), layoutParams);
         }
     }
 
@@ -204,7 +204,7 @@ public class a implements View.OnClickListener {
         } else if (!f.aoU()) {
             l.showToast(TbadkCoreApplication.getInst().getContext(), (int) R.string.plugin_share_install_failure);
         } else {
-            cjf();
+            cjg();
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.DialogTheme).create();
             this.mDialog.setCanceledOnTouchOutside(true);
             this.mDialog.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.sharesdk.d.a.2
@@ -224,7 +224,7 @@ public class a implements View.OnClickListener {
             window.setGravity(80);
             window.setLayout(-1, -2);
             window.setContentView(this.mRootView);
-            cjg();
+            cjh();
             aJQ();
         }
     }
@@ -237,7 +237,7 @@ public class a implements View.OnClickListener {
 
     public void dismiss() {
         if (this.mDialog != null) {
-            this.iOl = false;
+            this.iOp = false;
             if (this.mContext instanceof Activity) {
                 g.b(this.mDialog, (Activity) this.mContext);
             }
@@ -252,9 +252,9 @@ public class a implements View.OnClickListener {
             i = ((Integer) view.getTag()).intValue();
         }
         dismiss();
-        if (this.iOk.size() != 0) {
-            if (view.getId() == R.id.btnShareCancel || !this.iOl) {
-                this.iOl = true;
+        if (this.iOo.size() != 0) {
+            if (view.getId() == R.id.btnShareCancel || !this.iOp) {
+                this.iOp = true;
                 f fVar = new f(this.mContext, null);
                 e zP = zP(1);
                 if (id == R.id.btnShareCancel) {
@@ -282,7 +282,7 @@ public class a implements View.OnClickListener {
                     e zP3 = zP(2);
                     a(zP3, 3);
                     if (zP3 != null) {
-                        if (zP3.cjl) {
+                        if (zP3.cjm) {
                             zP3.content = "【" + zP3.title + "】 " + zP3.content;
                         }
                         fVar.f(zP3);
@@ -311,7 +311,7 @@ public class a implements View.OnClickListener {
                     e zP5 = zP(5);
                     a(zP5, 6);
                     if (zP5 != null) {
-                        if (!zP5.cjk) {
+                        if (!zP5.cjl) {
                             zP5.content = p(zP5);
                         }
                         fVar.i(zP5);
@@ -326,7 +326,7 @@ public class a implements View.OnClickListener {
                     e zP6 = zP(6);
                     a(zP6, 7);
                     if (zP6 != null) {
-                        if (!zP6.cjk) {
+                        if (!zP6.cjl) {
                             zP6.content = p(zP6);
                         }
                         fVar.j(zP6);
@@ -341,7 +341,7 @@ public class a implements View.OnClickListener {
                     e zP7 = zP(7);
                     a(zP7, 8);
                     if (zP7 != null) {
-                        if (!zP7.cjk) {
+                        if (!zP7.cjl) {
                             zP7.content = p(zP7);
                         }
                         fVar.k(zP7);
@@ -362,15 +362,15 @@ public class a implements View.OnClickListener {
                     }
                 } else if (i == R.drawable.icon_copy_link) {
                     a(zP, 10);
-                    if (this.iOj != null) {
-                        this.iOj.onClick(view);
+                    if (this.iOn != null) {
+                        this.iOn.onClick(view);
                     } else {
                         com.baidu.adp.lib.util.a.aR(zP.linkUrl);
                         l.showToast(this.mContext.getApplicationContext(), this.mContext.getResources().getString(R.string.copy_pb_url_success));
                     }
                     q(zP);
-                    if (zP != null && zP.cjk) {
-                        aD(8, zP.cjB);
+                    if (zP != null && zP.cjl) {
+                        aD(8, zP.cjC);
                     }
                 }
             }
@@ -379,13 +379,13 @@ public class a implements View.OnClickListener {
 
     private void q(e eVar) {
         am P = new am("share_success").P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 7);
-        if (eVar.cjF != 0) {
-            P.P("obj_param1", eVar.cjF);
-            if (eVar.cjF == 2) {
+        if (eVar.cjG != 0) {
+            P.P("obj_param1", eVar.cjG);
+            if (eVar.cjG == 2) {
                 P.bT("fid", eVar.fid);
-            } else if (eVar.cjF == 3) {
-                if (eVar.cjJ != 0) {
-                    P.P("obj_type", eVar.cjJ);
+            } else if (eVar.cjG == 3) {
+                if (eVar.cjK != 0) {
+                    P.P("obj_type", eVar.cjK);
                 }
                 P.bT("tid", eVar.tid).bT("fid", eVar.fid);
             }
@@ -394,25 +394,25 @@ public class a implements View.OnClickListener {
     }
 
     private e zP(int i) {
-        e eVar = this.iOk.get(i);
+        e eVar = this.iOo.get(i);
         if (eVar == null) {
-            return this.iOk.get(1);
+            return this.iOo.get(1);
         }
         return eVar;
     }
 
     private void zQ(int i) {
         if (i <= 8 && i > 0) {
-            this.iOl = true;
-            if (this.iOn != null) {
-                v vVar = this.iOn.get(i);
+            this.iOp = true;
+            if (this.iOr != null) {
+                v vVar = this.iOr.get(i);
                 if (!StringUtils.isNull(vVar.alw()) && vVar.alx() != null && vVar.alx().size() > 0) {
                     k(vVar.alw(), vVar.alx());
                     return;
                 }
             }
-            if (this.iOm != null) {
-                String str = this.iOm.get(i);
+            if (this.iOq != null) {
+                String str = this.iOq.get(i);
                 if (!ap.isEmpty(str)) {
                     k(str, new Object[0]);
                 }
@@ -430,17 +430,17 @@ public class a implements View.OnClickListener {
 
     private void a(e eVar, int i) {
         if (eVar != null && eVar.extData != null) {
-            if (eVar.cjl) {
+            if (eVar.cjm) {
                 TiebaStatic.log(new am("c10125").bT("fid", eVar.extData).P("obj_type", i));
-            } else if (eVar.cjm || eVar.cjp) {
-                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjE).P("obj_param1", eVar.cjF).bT("fid", eVar.fid));
-            } else if (eVar.cjn) {
-                TiebaStatic.log(new am("c10427").bT("tid", eVar.extData).P("obj_type", i));
-            } else if (eVar.cjk) {
-                aD(i, eVar.cjB);
+            } else if (eVar.cjn || eVar.cjq) {
+                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjF).P("obj_param1", eVar.cjG).bT("fid", eVar.fid));
             } else if (eVar.cjo) {
+                TiebaStatic.log(new am("c10427").bT("tid", eVar.extData).P("obj_type", i));
+            } else if (eVar.cjl) {
+                aD(i, eVar.cjC);
+            } else if (eVar.cjp) {
                 TiebaStatic.log(new am("c10125").P("obj_param1", 7).P("obj_type", i).bT("fid", eVar.extData));
-            } else if (eVar.cjq) {
+            } else if (eVar.cjr) {
                 am P = new am("c10125").P("obj_type", i);
                 if (!ap.isEmpty(eVar.linkUrl) && eVar.linkUrl.contains("worldcup")) {
                     P.P("obj_param1", 9);
@@ -451,7 +451,7 @@ public class a implements View.OnClickListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cjg() {
+    private void cjh() {
     }
 
     private String p(e eVar) {

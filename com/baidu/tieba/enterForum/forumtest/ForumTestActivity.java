@@ -51,7 +51,7 @@ public class ForumTestActivity extends BaseActivity implements b {
     private k.b eRB = new k.b() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.4
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            ForumTestActivity.this.nE(ForumTestActivity.this.eRy.getHitTestResult().getExtra());
+            ForumTestActivity.this.nD(ForumTestActivity.this.eRy.getHitTestResult().getExtra());
             ForumTestActivity.this.aXK();
         }
     };
@@ -209,7 +209,7 @@ public class ForumTestActivity extends BaseActivity implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nE(String str) {
+    public void nD(String str) {
         Activity pageActivity = getPageContext().getPageActivity();
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new a();

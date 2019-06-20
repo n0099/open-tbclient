@@ -20,19 +20,19 @@ import tbclient.ExcPbPage.UserInfo;
 /* loaded from: classes5.dex */
 public class d {
     private TextView bmf;
-    private TextView hAA;
+    private BarImageView hAA;
     private TextView hAB;
-    private LinearLayout hAC;
-    private View hAw;
-    private b hAx;
-    private TextView hAy;
-    private BarImageView hAz;
-    private HeadImageView hbu;
+    private TextView hAC;
+    private LinearLayout hAD;
+    private View hAx;
+    private b hAy;
+    private TextView hAz;
+    private HeadImageView hbv;
     private TextView title;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void AR(String str);
+        void AT(String str);
 
         void aPi();
 
@@ -40,37 +40,37 @@ public class d {
     }
 
     public d(Context context) {
-        this.hAw = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
-        this.title = (TextView) this.hAw.findViewById(R.id.chosen_pb_title);
-        this.hbu = (HeadImageView) this.hAw.findViewById(R.id.chosen_pb_person_info_head);
-        this.bmf = (TextView) this.hAw.findViewById(R.id.chosen_pb_person_info_name);
-        this.hAy = (TextView) this.hAw.findViewById(R.id.chosen_pb_bar_forum_name);
-        this.hbu.setRadius(l.dip2px(context, 2.0f));
-        this.hAz = (BarImageView) this.hAw.findViewById(R.id.chosen_pb_bar_pic);
-        this.hAA = (TextView) this.hAw.findViewById(R.id.chosen_pb_bar_attention_number);
-        this.hAB = (TextView) this.hAw.findViewById(R.id.chosen_pb_bar_attention_button);
-        this.hAB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
+        this.hAx = LayoutInflater.from(context).inflate(R.layout.chosen_pb_person_info, (ViewGroup) null);
+        this.title = (TextView) this.hAx.findViewById(R.id.chosen_pb_title);
+        this.hbv = (HeadImageView) this.hAx.findViewById(R.id.chosen_pb_person_info_head);
+        this.bmf = (TextView) this.hAx.findViewById(R.id.chosen_pb_person_info_name);
+        this.hAz = (TextView) this.hAx.findViewById(R.id.chosen_pb_bar_forum_name);
+        this.hbv.setRadius(l.dip2px(context, 2.0f));
+        this.hAA = (BarImageView) this.hAx.findViewById(R.id.chosen_pb_bar_pic);
+        this.hAB = (TextView) this.hAx.findViewById(R.id.chosen_pb_bar_attention_number);
+        this.hAC = (TextView) this.hAx.findViewById(R.id.chosen_pb_bar_attention_button);
+        this.hAC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.hAx != null) {
-                    d.this.hAx.aPi();
+                if (d.this.hAy != null) {
+                    d.this.hAy.aPi();
                 }
             }
         });
-        this.hAC = (LinearLayout) this.hAw.findViewById(R.id.chosen_pb_bar_container);
+        this.hAD = (LinearLayout) this.hAx.findViewById(R.id.chosen_pb_bar_container);
     }
 
-    public View bPB() {
-        return this.hAw;
+    public View bPC() {
+        return this.hAx;
     }
 
     public void a(b bVar) {
-        this.hAx = bVar;
+        this.hAy = bVar;
     }
 
-    public void AT(String str) {
-        if (!StringUtils.isNull(str) && this.hbu != null) {
-            this.hbu.startLoad(str, 12, false);
+    public void AV(String str) {
+        if (!StringUtils.isNull(str) && this.hbv != null) {
+            this.hbv.startLoad(str, 12, false);
         }
     }
 
@@ -78,23 +78,23 @@ public class d {
         if (excellentPbThreadInfo != null && this.title != null) {
             this.title.setText(excellentPbThreadInfo.title);
             if (StringUtils.isNull(excellentPbThreadInfo.forum.forum_name) || excellentPbThreadInfo.forum.forum_id == null || excellentPbThreadInfo.excid.longValue() <= 0) {
-                this.hAC.setVisibility(8);
+                this.hAD.setVisibility(8);
                 return;
             }
-            i.abb().lZ(excellentPbThreadInfo.forum.forum_name);
-            this.hAC.setVisibility(0);
+            i.abb().lY(excellentPbThreadInfo.forum.forum_name);
+            this.hAD.setVisibility(0);
             aE(context, excellentPbThreadInfo.forum.forum_name);
-            if (this.hAz != null) {
-                this.hAz.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
-                this.hAz.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
+            if (this.hAA != null) {
+                this.hAA.startLoad(excellentPbThreadInfo.forum.avatar, 16, false);
+                this.hAA.setOnClickListener(new a(excellentPbThreadInfo.forum.forum_name));
             }
-            if (this.hAA != null && excellentPbThreadInfo.forum.member_count != null) {
-                this.hAA.setText(ap.aL(excellentPbThreadInfo.forum.member_count.intValue()));
+            if (this.hAB != null && excellentPbThreadInfo.forum.member_count != null) {
+                this.hAB.setText(ap.aL(excellentPbThreadInfo.forum.member_count.intValue()));
             }
             if (excellentPbThreadInfo.forum.is_like != null && excellentPbThreadInfo.forum.is_like.intValue() == 1) {
-                nL(true);
+                nM(true);
             } else {
-                nL(false);
+                nM(false);
             }
         }
     }
@@ -106,22 +106,22 @@ public class d {
     }
 
     private void aE(Context context, String str) {
-        if (this.hAy != null) {
+        if (this.hAz != null) {
             if (StringUtils.isNull(str)) {
-                this.hAy.setVisibility(4);
+                this.hAz.setVisibility(4);
                 return;
             }
-            this.hAy.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
-            this.hAy.setOnClickListener(new a(str));
-            this.hAy.setVisibility(0);
+            this.hAz.setText(context.getString(R.string.chosen_pb_original_bar, UtilHelper.getFixedText(str, 7, false)));
+            this.hAz.setOnClickListener(new a(str));
+            this.hAz.setVisibility(0);
         }
     }
 
     public void a(final UserInfo userInfo) {
         if (userInfo != null) {
             setName(userInfo.name);
-            AT(userInfo.portrait);
-            this.hbu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
+            AV(userInfo.portrait);
+            this.hbv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.d.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     d.this.p(userInfo.id.longValue(), userInfo.name);
@@ -138,21 +138,21 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void p(long j, String str) {
-        if (this.hAx != null) {
-            this.hAx.dK(String.valueOf(j), str);
+        if (this.hAy != null) {
+            this.hAy.dK(String.valueOf(j), str);
         }
     }
 
-    public void nL(boolean z) {
+    public void nM(boolean z) {
         if (z) {
-            this.hAB.setText(R.string.relate_forum_is_followed);
-            al.f(this.hAB, R.color.cp_cont_d, 1);
-            this.hAB.setEnabled(false);
+            this.hAC.setText(R.string.relate_forum_is_followed);
+            al.f(this.hAC, R.color.cp_cont_d, 1);
+            this.hAC.setEnabled(false);
             return;
         }
-        this.hAB.setText(R.string.attention);
-        this.hAB.setEnabled(true);
-        al.f(this.hAB, R.color.cp_cont_g, 1);
+        this.hAC.setText(R.string.attention);
+        this.hAC.setEnabled(true);
+        al.f(this.hAC, R.color.cp_cont_g, 1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -166,8 +166,8 @@ public class d {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (d.this.hAx != null) {
-                d.this.hAx.AR(this.forumName);
+            if (d.this.hAy != null) {
+                d.this.hAy.AT(this.forumName);
             }
         }
     }

@@ -12,9 +12,9 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class d extends g {
+    private int Km;
     private int Kn;
     private int Ko;
-    private int Kp;
     private String aHA;
     private boolean aHB;
     private Date aHr;
@@ -26,7 +26,7 @@ public class d extends g {
     }
 
     public void setYear(int i) {
-        this.Kn = i;
+        this.Km = i;
     }
 
     public int getYear() {
@@ -34,7 +34,7 @@ public class d extends g {
     }
 
     public void setMonth(int i) {
-        this.Ko = i;
+        this.Kn = i;
     }
 
     public int getMonth() {
@@ -42,26 +42,26 @@ public class d extends g {
     }
 
     public void setDay(int i) {
-        this.Kp = i;
+        this.Ko = i;
     }
 
     public int getDay() {
         return this.aNR.getDay();
     }
 
-    private boolean go(String str) {
-        return this.aNR.go(str);
+    private boolean gn(String str) {
+        return this.aNR.gn(str);
     }
 
     public String KC() {
         StringBuilder sb = new StringBuilder();
-        if (go("year")) {
+        if (gn("year")) {
             sb.append(String.format("%d-", Integer.valueOf(getYear())));
         }
-        if (go("month")) {
+        if (gn("month")) {
             sb.append(String.format("%02d-", Integer.valueOf(getMonth())));
         }
-        if (go(Config.TRACE_VISIT_RECENT_DAY)) {
+        if (gn(Config.TRACE_VISIT_RECENT_DAY)) {
             sb.append(String.format("%02d", Integer.valueOf(getDay())));
         }
         String sb2 = sb.toString();
@@ -79,9 +79,9 @@ public class d extends g {
         this.aNR.setScrollCycle(true);
         this.aNR.setStartDate(this.aHr);
         this.aNR.setEndDate(this.aHs);
-        this.aNR.setYear(this.Kn);
-        this.aNR.setMonth(this.Ko);
-        this.aNR.setDay(this.Kp);
+        this.aNR.setYear(this.Km);
+        this.aNR.setMonth(this.Kn);
+        this.aNR.setDay(this.Ko);
         this.aNR.Jb();
         this.aNR.setFields(this.aHA);
         this.aNR.setDisabled(this.aHB);
@@ -150,7 +150,7 @@ public class d extends g {
             return this;
         }
 
-        public a gw(String str) {
+        public a gv(String str) {
             this.aNV = str;
             return this;
         }

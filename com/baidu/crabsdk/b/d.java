@@ -11,15 +11,15 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> Zw = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static com.baidu.crabsdk.c.b<List> Zv = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float Zw = 0.0f;
     private static float Zx = 0.0f;
     private static float Zy = 0.0f;
     private static float Zz = 0.0f;
-    private static float ZA = 0.0f;
-    private static String ZB = "";
+    private static String ZA = "";
+    private static long ZB = 0;
     private static long ZC = 0;
-    private static long ZD = 0;
-    private static Rect ZE = null;
+    private static Rect ZD = null;
 
     private static List<View> J(View view) {
         ArrayList arrayList = new ArrayList();
@@ -28,19 +28,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) Zx;
-                    int i3 = (int) Zy;
-                    if (ZE == null) {
-                        ZE = new Rect();
+                    int i2 = (int) Zw;
+                    int i3 = (int) Zx;
+                    if (ZD == null) {
+                        ZD = new Rect();
                     }
-                    childAt.getDrawingRect(ZE);
+                    childAt.getDrawingRect(ZD);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    ZE.left = iArr[0];
-                    ZE.top = iArr[1];
-                    ZE.right += iArr[0];
-                    ZE.bottom = iArr[1] + ZE.bottom;
-                    if (ZE.contains(i2, i3)) {
+                    ZD.left = iArr[0];
+                    ZD.top = iArr[1];
+                    ZD.right += iArr[0];
+                    ZD.bottom = iArr[1] + ZD.bottom;
+                    if (ZD.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(J(childAt));
                     }
@@ -67,51 +67,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add("click");
-                arrayList.add("(" + Zx + ", " + Zy + ")");
+                arrayList.add("(" + Zw + ", " + Zx + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + Zx + ", " + Zy + ")");
+                arrayList.add("(" + Zw + ", " + Zx + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + Zx + ", " + Zy + ")");
+                arrayList.add("(" + Zw + ", " + Zx + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + Zx + ", " + Zy + ") to:(" + Zz + ", " + ZA + ")");
+                arrayList.add("from:(" + Zw + ", " + Zx + ") to:(" + Zy + ", " + Zz + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + Zx + ", " + Zy + ") to:(" + Zz + ", " + ZA + ")");
+                arrayList.add("from:(" + Zw + ", " + Zx + ") to:(" + Zy + ", " + Zz + ")");
                 break;
         }
-        arrayList.add(ZB);
-        Zw.add(arrayList);
+        arrayList.add(ZA);
+        Zv.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        ZB = activity.getClass().getName();
+        ZA = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                Zx = motionEvent.getX();
-                Zy = motionEvent.getY();
-                ZC = System.currentTimeMillis();
+                Zw = motionEvent.getX();
+                Zx = motionEvent.getY();
+                ZB = System.currentTimeMillis();
                 return;
             case 1:
-                Zz = motionEvent.getX();
-                ZA = motionEvent.getY();
-                ZD = System.currentTimeMillis();
-                if (Math.abs(ZA - Zy) > 30.0f) {
+                Zy = motionEvent.getX();
+                Zz = motionEvent.getY();
+                ZC = System.currentTimeMillis();
+                if (Math.abs(Zz - Zx) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(Zz - Zx) > 30.0f && Math.abs(ZA - Zy) < 30.0f) {
+                } else if (Math.abs(Zy - Zw) > 30.0f && Math.abs(Zz - Zx) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (ZD - ZC > 300) {
+                } else if (ZC - ZB > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -126,9 +126,9 @@ public final class d {
 
     public static String t() {
         StringBuilder sb = new StringBuilder();
-        int size = Zw.size();
+        int size = Zv.size();
         for (int i = 0; i < size; i++) {
-            List list = Zw.get(i);
+            List list = Zv.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }

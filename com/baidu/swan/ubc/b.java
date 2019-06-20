@@ -60,7 +60,7 @@ public class b {
             if (hVar.WS()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.WI().kM(hVar.getId()));
+            jSONObject.put("idtype", d.WI().kL(hVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
@@ -135,7 +135,7 @@ public class b {
                         }
                         JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                         if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                            vVar.kV("1");
+                            vVar.kU("1");
                         }
                         long j3 = jSONObject.getLong("timestamp");
                         if (j3 > 0) {
@@ -207,7 +207,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                vVar.kV("1");
+                                vVar.kU("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {

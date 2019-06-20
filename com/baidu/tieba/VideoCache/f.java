@@ -21,44 +21,44 @@ import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
-    private Socket EX;
-    private byte[] cTR;
-    private h cTS;
+    private Socket EW;
+    private byte[] cTS;
+    private h cTT;
     private Context mContext;
 
     public f(Context context) {
-        this.cTR = null;
+        this.cTS = null;
         this.mContext = context;
         try {
-            this.cTR = new byte[1048576];
+            this.cTS = new byte[1048576];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public void setSocket(Socket socket) {
-        this.EX = socket;
+        this.EW = socket;
     }
 
     public void a(h hVar) {
-        this.cTS = hVar;
+        this.cTT = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j.am(TAG, "test run in " + this);
-        if (this.cTS == null) {
+        if (this.cTT == null) {
             j.am(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.cTS);
-            if (this.cTS.aAQ().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.cTS, this.EX, true);
+            b(this.cTT);
+            if (this.cTT.aAQ().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.cTT, this.EW, true);
             } else {
-                a(this.cTS, this.EX, false);
+                a(this.cTT, this.EW, false);
             }
-            c(this.EX);
+            c(this.EW);
         } catch (Exception e) {
             j.am(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
         }
@@ -76,14 +76,14 @@ class f implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        hVar.rE(split[1]);
+                        hVar.rD(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    hVar.rF(URLDecoder.decode(str));
+                    hVar.rE(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
                     hVar.gf(true);
                     String[] split2 = readLine.split(":");
@@ -120,16 +120,16 @@ class f implements Runnable {
     }
 
     private boolean a(h hVar, PrintStream printStream) {
-        int rC = rC(hVar.aAR());
-        if (rC <= 0) {
+        int rB = rB(hVar.aAR());
+        if (rB <= 0) {
             return false;
         }
-        hVar.bd(rC);
+        hVar.bd(rB);
         if (hVar.aAT() < 0) {
             hVar.bK(0L);
         }
         if (hVar.aAU() < 0) {
-            hVar.bL(rC - 1);
+            hVar.bL(rB - 1);
         }
         long aAT = hVar.aAT();
         long aAU = hVar.aAU();
@@ -143,7 +143,7 @@ class f implements Runnable {
         printStream.println("Accept-Ranges: bytes");
         printStream.println("Content-Length: " + ((aAU - aAT) + 1));
         if (hVar.aAS()) {
-            printStream.println("Content-Range: bytes " + aAT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aAU + "/" + rC);
+            printStream.println("Content-Range: bytes " + aAT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aAU + "/" + rB);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -156,17 +156,17 @@ class f implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int rC(String str) {
+    private int rB(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String rJ = m.rJ(str);
-        if (rJ == null || rJ.isEmpty()) {
+        String rI = m.rI(str);
+        if (rI == null || rI.isEmpty()) {
             return 0;
         }
-        File file = new File(i.cUd + rJ);
+        File file = new File(i.cUe + rI);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -313,7 +313,7 @@ class f implements Runnable {
         if (hVar == null || socket == null) {
             return;
         }
-        File file = new File(i.ww);
+        File file = new File(i.wv);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -356,11 +356,11 @@ class f implements Runnable {
                         e.aAN().v(cVar);
                     }
                     cVar.i(hVar.aAT(), hVar.aAU());
-                    if (this.cTR != null) {
+                    if (this.cTS != null) {
                         while (cVar.canRead()) {
-                            int read = cVar.read(this.cTR, 1048576);
+                            int read = cVar.read(this.cTS, 1048576);
                             if (read > 0) {
-                                printStream.write(this.cTR, 0, read);
+                                printStream.write(this.cTS, 0, read);
                                 if (printStream.checkError()) {
                                     break;
                                 }

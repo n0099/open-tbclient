@@ -48,7 +48,7 @@ public class b {
         if (DEBUG) {
             Log.d("SwanAppHistoryHelper", "addHistory: " + bVar.BM() + " / " + bVar.getAppID());
         }
-        if (ei(bVar.getAppID())) {
+        if (eh(bVar.getAppID())) {
             if (DEBUG) {
                 Log.w("SwanAppHistoryHelper", "addHistory: isInIgnoreHisList");
                 return false;
@@ -101,22 +101,22 @@ public class b {
             }
             final com.baidu.swan.apps.database.b bVar2 = new com.baidu.swan.apps.database.b(vk.getAppId());
             bVar2.setAppID(vk.getAppId());
-            bVar2.ec(vk.getIconUrl());
-            bVar2.dZ(vk.BM());
-            bVar2.ea(vk.EW());
+            bVar2.eb(vk.getIconUrl());
+            bVar2.dY(vk.BM());
+            bVar2.dZ(vk.EW());
             bVar2.cr(vk.Fg());
             switch (vk.getType()) {
                 case 0:
-                    bVar2.eb("1");
+                    bVar2.ea("1");
                     break;
                 case 1:
-                    bVar2.eb("0");
+                    bVar2.ea("0");
                     break;
                 case 2:
-                    bVar2.eb("2");
+                    bVar2.ea("2");
                     break;
                 case 3:
-                    bVar2.eb("3");
+                    bVar2.ea("3");
                     break;
             }
             j.a(new Runnable() { // from class: com.baidu.swan.apps.database.a.b.1
@@ -204,14 +204,14 @@ public class b {
             rx.d.bl("").b(Schedulers.io()).d(new rx.functions.f<String, Cursor>() { // from class: com.baidu.swan.apps.database.a.b.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: ej */
+                /* renamed from: ei */
                 public Cursor call(String str) {
                     if (com.baidu.swan.apps.core.pms.a.Ax()) {
                         return b.v(str, 400);
                     }
                     return b.b(AppRuntime.getAppContext().getContentResolver(), str);
                 }
-            }).a(rx.a.b.a.cLr()).c(new rx.functions.b<Cursor>() { // from class: com.baidu.swan.apps.database.a.b.2
+            }).a(rx.a.b.a.cLq()).c(new rx.functions.b<Cursor>() { // from class: com.baidu.swan.apps.database.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: h */
@@ -257,8 +257,8 @@ public class b {
             Log.d("SwanAppHistoryHelper", "start deleteOtherDevHistory: ");
         }
         if (!TextUtils.isEmpty(str)) {
-            String dc = com.baidu.swan.apps.f.a.dc(str);
-            if (!TextUtils.isEmpty(dc)) {
+            String db = com.baidu.swan.apps.f.a.db(str);
+            if (!TextUtils.isEmpty(db)) {
                 List<String> d2 = d(contentResolver, str);
                 if (d2 == null || d2.size() == 0) {
                     if (DEBUG) {
@@ -277,7 +277,7 @@ public class b {
                 if (DEBUG) {
                     Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev history");
                 }
-                contentResolver.delete(com.baidu.swan.apps.database.a.a.BZ(), "app_id LIKE ? AND app_id != ?", new String[]{dc + "_dev%", str});
+                contentResolver.delete(com.baidu.swan.apps.database.a.a.BZ(), "app_id LIKE ? AND app_id != ?", new String[]{db + "_dev%", str});
             }
         }
     }
@@ -294,12 +294,12 @@ public class b {
                 return null;
             }
             try {
-                String dc = com.baidu.swan.apps.f.a.dc(str);
-                if (TextUtils.isEmpty(dc)) {
+                String db = com.baidu.swan.apps.f.a.db(str);
+                if (TextUtils.isEmpty(db)) {
                     com.baidu.swan.c.a.c(null);
                     return null;
                 }
-                cursor = contentResolver.query(com.baidu.swan.apps.database.a.a.BZ(), null, "app_id LIKE ? AND app_id != ?", new String[]{dc + "_dev%", str}, "visit_time desc  LIMIT 400");
+                cursor = contentResolver.query(com.baidu.swan.apps.database.a.a.BZ(), null, "app_id LIKE ? AND app_id != ?", new String[]{db + "_dev%", str}, "visit_time desc  LIMIT 400");
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -405,7 +405,7 @@ public class b {
         }
     }
 
-    private static boolean ei(String str) {
+    private static boolean eh(String str) {
         return TextUtils.isEmpty(str) || auU.contains(str);
     }
 

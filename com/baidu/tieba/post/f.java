@@ -11,7 +11,7 @@ public class f {
                 hVar = new com.baidu.tbadk.m.h(context, onClickListener);
             }
             hVar.kE(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            hVar.qx(str);
+            hVar.qw(str);
             hVar.attachView(view, z);
             hVar.asB();
             hVar.onChangeSkinType();

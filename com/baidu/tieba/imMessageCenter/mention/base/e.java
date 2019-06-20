@@ -10,34 +10,34 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private BdTypeRecyclerView NZ;
+    private BdTypeRecyclerView NY;
     private ArrayList<m> ePx;
-    private b gQN;
-    private b gQO;
     private b gQP;
     private b gQQ;
     private b gQR;
+    private b gQS;
+    private b gQT;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.NZ = bdTypeRecyclerView;
+            this.NY = bdTypeRecyclerView;
             p(tbPageContext);
         }
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.gQN = new b(tbPageContext, a.gQw);
-        this.gQO = new b(tbPageContext, a.gQx);
-        this.gQP = new b(tbPageContext, a.gQA);
+        this.gQP = new b(tbPageContext, a.gQy);
         this.gQQ = new b(tbPageContext, a.gQz);
-        this.gQR = new b(tbPageContext, a.gQy);
-        this.mAdapters.add(this.gQN);
-        this.mAdapters.add(this.gQO);
+        this.gQR = new b(tbPageContext, a.gQC);
+        this.gQS = new b(tbPageContext, a.gQB);
+        this.gQT = new b(tbPageContext, a.gQA);
         this.mAdapters.add(this.gQP);
         this.mAdapters.add(this.gQQ);
         this.mAdapters.add(this.gQR);
-        this.NZ.addAdapters(this.mAdapters);
+        this.mAdapters.add(this.gQS);
+        this.mAdapters.add(this.gQT);
+        this.NY.addAdapters(this.mAdapters);
     }
 
     public void onDestory() {
@@ -46,12 +46,12 @@ public class e {
     }
 
     public void setData(ArrayList<m> arrayList) {
-        this.NZ.setData(arrayList);
+        this.NY.setData(arrayList);
         this.ePx = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.NZ.getAdapter().notifyDataSetChanged();
+        this.NY.getAdapter().notifyDataSetChanged();
     }
 
     public void d(s sVar) {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
+        this.gQT.b(abVar);
+        this.gQS.b(abVar);
         this.gQR.b(abVar);
-        this.gQQ.b(abVar);
-        this.gQP.b(abVar);
     }
 }

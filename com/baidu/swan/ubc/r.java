@@ -128,7 +128,7 @@ public class r {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String kR(String str) {
+    public static String kQ(String str) {
         JSONObject jSONObject;
         if (s.Xr() != null) {
             try {

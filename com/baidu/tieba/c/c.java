@@ -17,7 +17,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.eGM != null && c.this.eGN != null) {
-                c.this.eGM.setData(c.this.eGN.cmL(), 100);
+                c.this.eGM.setData(c.this.eGN.cmM(), 100);
                 c.this.eGM.bo();
             }
         }
@@ -27,7 +27,7 @@ public class c {
         public void run() {
             if (c.this.eGM != null && c.this.eGN != null) {
                 c.this.eGM.stopAnimation();
-                c.this.eGM.setData(c.this.eGN.cmK());
+                c.this.eGM.setData(c.this.eGN.cmL());
             }
         }
     };
@@ -35,7 +35,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.eGM != null && c.this.eGN != null) {
-                c.this.eGM.rE(true);
+                c.this.eGM.rF(true);
                 com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_collection_tag_state", 0);
             }
         }
@@ -53,7 +53,7 @@ public class c {
                 if (c.this.eGN != null && !ap.isEmpty(c.this.eGN.aBE())) {
                     TiebaStatic.log(new am("c12913").P("obj_locate", 2).P("obj_type", c.this.mFrom));
                     if (c.this.eGN.getType() == 2) {
-                        c.this.eGM.rE(false);
+                        c.this.eGM.rF(false);
                         com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_collection_tag_state", 1);
                     }
                     ba.aiz().c(c.this.mPageContext, new String[]{c.this.eGN.aBE()});
@@ -88,7 +88,7 @@ public class c {
 
     private void aZu() {
         String lastId = getLastId();
-        if (this.eGN == null || lastId.equals(this.eGN.cmM()) || ap.isEmpty(this.eGN.aBE()) || ap.isEmpty(this.eGN.cmK())) {
+        if (this.eGN == null || lastId.equals(this.eGN.cmN()) || ap.isEmpty(this.eGN.aBE()) || ap.isEmpty(this.eGN.cmL())) {
             this.eGM.setVisibility(8);
             return;
         }
@@ -96,8 +96,8 @@ public class c {
             TiebaStatic.log(new am("c12912").P("obj_locate", this.mFrom));
         }
         this.eGM.setVisibility(0);
-        this.eGM.setData(this.eGN.cmK());
-        if (this.eGN.getStartTime() > 0 && this.eGN.getEndTime() > 0 && this.eGN.getEndTime() > this.eGN.getStartTime() && !v.aa(this.eGN.cmL())) {
+        this.eGM.setData(this.eGN.cmL());
+        if (this.eGN.getStartTime() > 0 && this.eGN.getEndTime() > 0 && this.eGN.getEndTime() > this.eGN.getStartTime() && !v.aa(this.eGN.cmM())) {
             com.baidu.adp.lib.g.e.iB().removeCallbacks(this.eGO);
             com.baidu.adp.lib.g.e.iB().removeCallbacks(this.eGP);
             com.baidu.adp.lib.g.e.iB().postDelayed(this.eGO, this.eGN.getStartTime() - System.currentTimeMillis());
@@ -107,26 +107,26 @@ public class c {
 
     private void aZv() {
         String lastId = getLastId();
-        if (this.eGN == null || lastId.equals(this.eGN.cmM()) || ap.isEmpty(this.eGN.aBE()) || ap.isEmpty(this.eGN.cmK())) {
+        if (this.eGN == null || lastId.equals(this.eGN.cmN()) || ap.isEmpty(this.eGN.aBE()) || ap.isEmpty(this.eGN.cmL())) {
             this.eGM.setVisibility(8);
             return;
         }
         this.eGM.setVisibility(0);
-        this.eGM.setData(this.eGN.cmK());
+        this.eGM.setData(this.eGN.cmL());
         com.baidu.adp.lib.g.e.iB().removeCallbacks(this.eGQ);
         com.baidu.adp.lib.g.e.iB().postDelayed(this.eGQ, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
 
     public void aFu() {
         if (this.eGM != null && this.eGN != null) {
-            if (getLastId().equals(this.eGN.cmM())) {
+            if (getLastId().equals(this.eGN.cmN())) {
                 this.eGM.setVisibility(8);
             }
             if (this.eGN.getType() == 2) {
                 if (com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_collection_tag_state", 0) == 1) {
-                    this.eGM.rE(false);
+                    this.eGM.rF(false);
                 } else {
-                    this.eGM.rE(true);
+                    this.eGM.rF(true);
                 }
             }
         }
@@ -156,7 +156,7 @@ public class c {
             } else {
                 str = "key_redpacket_float_frs_last_id_" + type;
             }
-            com.baidu.tbadk.core.sharedPref.b.agM().putString(str, this.eGN.cmM());
+            com.baidu.tbadk.core.sharedPref.b.agM().putString(str, this.eGN.cmN());
         }
     }
 

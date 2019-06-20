@@ -146,13 +146,13 @@ public class z {
     @UiThread
     public static Bitmap OK() {
         com.baidu.swan.apps.w.e FV = com.baidu.swan.apps.w.e.FV();
-        AbsoluteLayout fa = FV.fa(FV.zv());
-        if (fa == null || fa.getWidth() <= 0 || fa.getHeight() <= 0) {
+        AbsoluteLayout eZ = FV.eZ(FV.zv());
+        if (eZ == null || eZ.getWidth() <= 0 || eZ.getHeight() <= 0) {
             return null;
         }
-        Bitmap createBitmap = Bitmap.createBitmap(fa.getWidth(), fa.getHeight(), Bitmap.Config.ARGB_4444);
+        Bitmap createBitmap = Bitmap.createBitmap(eZ.getWidth(), eZ.getHeight(), Bitmap.Config.ARGB_4444);
         createBitmap.eraseColor(-1);
-        fa.draw(new Canvas(createBitmap));
+        eZ.draw(new Canvas(createBitmap));
         return createBitmap;
     }
 

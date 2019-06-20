@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 /* loaded from: classes3.dex */
 public class HistoryItemView extends LinearLayout {
-    LinearLayout bZi;
-    TbRichTextView gua;
-    TextView gub;
-    ChatImageWithTailView guc;
+    LinearLayout bZj;
+    TbRichTextView guc;
+    TextView gud;
+    ChatImageWithTailView gue;
     Context mContext;
 
     public HistoryItemView(Context context) {
@@ -36,31 +36,31 @@ public class HistoryItemView extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_history_item, (ViewGroup) this, true);
         setClickable(false);
         setFocusable(false);
-        this.bZi = (LinearLayout) findViewById(R.id.history_container);
-        this.gub = (TextView) findViewById(R.id.history_send_time);
-        this.gua = (TbRichTextView) findViewById(R.id.history_txt);
-        this.guc = (ChatImageWithTailView) findViewById(R.id.history_pic);
-        al.k(this.bZi, R.drawable.selector_history_multi_single_bg);
-        al.f(this.gub, R.color.common_color_10067, 1);
-        this.gua.setTextColor(al.getColor(R.color.cp_cont_c));
-        this.guc.setIsSupportNight(true);
+        this.bZj = (LinearLayout) findViewById(R.id.history_container);
+        this.gud = (TextView) findViewById(R.id.history_send_time);
+        this.guc = (TbRichTextView) findViewById(R.id.history_txt);
+        this.gue = (ChatImageWithTailView) findViewById(R.id.history_pic);
+        al.k(this.bZj, R.drawable.selector_history_multi_single_bg);
+        al.f(this.gud, R.color.common_color_10067, 1);
+        this.guc.setTextColor(al.getColor(R.color.cp_cont_c));
+        this.gue.setIsSupportNight(true);
     }
 
     public void setTime(String str) {
-        this.gub.setText(str);
+        this.gud.setText(str);
     }
 
     public TbRichTextView getRichTextView() {
-        return this.gua;
-    }
-
-    public ChatImageWithTailView getImageView() {
         return this.guc;
     }
 
+    public ChatImageWithTailView getImageView() {
+        return this.gue;
+    }
+
     public void cb(View view) {
-        this.bZi.setBackgroundDrawable(null);
-        this.bZi.removeAllViews();
-        this.bZi.addView(view);
+        this.bZj.setBackgroundDrawable(null);
+        this.bZj.removeAllViews();
+        this.bZj.addView(view);
     }
 }

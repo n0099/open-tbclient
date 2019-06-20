@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a jSr;
-    private int kaO = 0;
-    private int kaN = 0;
-    private int kaP = 0;
+    private final com.facebook.common.memory.a jSu;
     private int kaR = 0;
     private int kaQ = 0;
-    private int kaM = 0;
+    private int kaS = 0;
+    private int kaU = 0;
+    private int kaT = 0;
+    private int kaP = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.jSr = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.jSu = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.kaM != 6 && dVar.getSize() > this.kaO) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jSr.get(16384), this.jSr);
+        if (this.kaP != 6 && dVar.getSize() > this.kaR) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jSu.get(16384), this.jSu);
             try {
-                com.facebook.common.util.c.a(fVar, this.kaO);
+                com.facebook.common.util.c.a(fVar, this.kaR);
                 return v(fVar);
             } catch (IOException e) {
                 k.r(e);
@@ -36,72 +36,72 @@ public class e {
 
     private boolean v(InputStream inputStream) {
         int read;
-        int i = this.kaQ;
-        while (this.kaM != 6 && (read = inputStream.read()) != -1) {
+        int i = this.kaT;
+        while (this.kaP != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.kaO++;
-                switch (this.kaM) {
+                this.kaR++;
+                switch (this.kaP) {
                     case 0:
                         if (read == 255) {
-                            this.kaM = 1;
+                            this.kaP = 1;
                             break;
                         } else {
-                            this.kaM = 6;
+                            this.kaP = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.kaM = 2;
+                            this.kaP = 2;
                             break;
                         } else {
-                            this.kaM = 6;
+                            this.kaP = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.kaM = 3;
+                            this.kaP = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.kaM = 3;
+                            this.kaP = 3;
                             break;
                         } else if (read == 0) {
-                            this.kaM = 2;
+                            this.kaP = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                Dk(this.kaO - 2);
+                                Dk(this.kaR - 2);
                             }
                             if (Dj(read)) {
-                                this.kaM = 4;
+                                this.kaP = 4;
                                 break;
                             } else {
-                                this.kaM = 2;
+                                this.kaP = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.kaM = 5;
+                        this.kaP = 5;
                         break;
                     case 5:
-                        int i2 = ((this.kaN << 8) + read) - 2;
+                        int i2 = ((this.kaQ << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.kaO = i2 + this.kaO;
-                        this.kaM = 2;
+                        this.kaR = i2 + this.kaR;
+                        this.kaP = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.kaN = read;
+                this.kaQ = read;
             } catch (IOException e) {
                 k.r(e);
             }
         }
-        return (this.kaM == 6 || this.kaQ == i) ? false : true;
+        return (this.kaP == 6 || this.kaT == i) ? false : true;
     }
 
     private static boolean Dj(int i) {
@@ -119,19 +119,19 @@ public class e {
     }
 
     private void Dk(int i) {
-        if (this.kaP > 0) {
-            this.kaR = i;
+        if (this.kaS > 0) {
+            this.kaU = i;
         }
-        int i2 = this.kaP;
-        this.kaP = i2 + 1;
-        this.kaQ = i2;
+        int i2 = this.kaS;
+        this.kaS = i2 + 1;
+        this.kaT = i2;
+    }
+
+    public int cGw() {
+        return this.kaU;
     }
 
     public int cGx() {
-        return this.kaR;
-    }
-
-    public int cGy() {
-        return this.kaQ;
+        return this.kaT;
     }
 }

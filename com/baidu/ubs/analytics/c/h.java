@@ -8,17 +8,17 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a jPK;
+    private a jPN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.jPK = aVar;
+        this.jPN = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.jPK.cAr()) {
-            for (a.InterfaceC0440a interfaceC0440a : this.jPK.cAr()) {
+        synchronized (this.jPN.cAq()) {
+            for (a.InterfaceC0440a interfaceC0440a : this.jPN.cAq()) {
                 interfaceC0440a.T();
             }
         }
@@ -26,8 +26,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.jPK.cAr()) {
-            for (a.InterfaceC0440a interfaceC0440a : this.jPK.cAr()) {
+        synchronized (this.jPN.cAq()) {
+            for (a.InterfaceC0440a interfaceC0440a : this.jPN.cAq()) {
                 interfaceC0440a.U();
             }
         }
@@ -35,8 +35,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.jPK.cAr()) {
-            for (a.InterfaceC0440a interfaceC0440a : this.jPK.cAr()) {
+        synchronized (this.jPN.cAq()) {
+            for (a.InterfaceC0440a interfaceC0440a : this.jPN.cAq()) {
                 interfaceC0440a.a(activity);
             }
         }
@@ -44,8 +44,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.jPK.cAr()) {
-            Iterator<a.InterfaceC0440a> it = this.jPK.cAr().iterator();
+        synchronized (this.jPN.cAq()) {
+            Iterator<a.InterfaceC0440a> it = this.jPN.cAq().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.jPK.cAr()) {
-            Iterator<a.InterfaceC0440a> it = this.jPK.cAr().iterator();
+        synchronized (this.jPN.cAq()) {
+            Iterator<a.InterfaceC0440a> it = this.jPN.cAq().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.jPK.cAr()) {
-            Iterator<a.InterfaceC0440a> it = this.jPK.cAr().iterator();
+        synchronized (this.jPN.cAq()) {
+            Iterator<a.InterfaceC0440a> it = this.jPN.cAq().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,8 +74,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.jPK.cAr()) {
-            for (a.InterfaceC0440a interfaceC0440a : this.jPK.cAr()) {
+        synchronized (this.jPN.cAq()) {
+            for (a.InterfaceC0440a interfaceC0440a : this.jPN.cAq()) {
                 interfaceC0440a.onActivityDestroyed(activity);
             }
         }

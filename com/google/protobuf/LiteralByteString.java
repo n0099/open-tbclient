@@ -50,9 +50,8 @@ public class LiteralByteString extends ByteString {
         return new BoundedByteString(this.bytes, getOffsetIntoBytes() + i, i3);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public void copyToInternal(byte[] bArr, int i, int i2, int i3) {
+    protected void copyToInternal(byte[] bArr, int i, int i2, int i3) {
         System.arraycopy(this.bytes, i, bArr, i2, i3);
     }
 
@@ -89,9 +88,8 @@ public class LiteralByteString extends ByteString {
         return Utf8.isValidUtf8(this.bytes, offsetIntoBytes, size() + offsetIntoBytes);
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int partialIsValidUtf8(int i, int i2, int i3) {
+    protected int partialIsValidUtf8(int i, int i2, int i3) {
         int offsetIntoBytes = getOffsetIntoBytes() + i2;
         return Utf8.partialIsValidUtf8(i, this.bytes, offsetIntoBytes, offsetIntoBytes + i3);
     }
@@ -154,15 +152,13 @@ public class LiteralByteString extends ByteString {
         return i;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int peekCachedHashCode() {
+    protected int peekCachedHashCode() {
         return this.hash;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int partialHash(int i, int i2, int i3) {
+    protected int partialHash(int i, int i2, int i3) {
         byte[] bArr = this.bytes;
         int offsetIntoBytes = getOffsetIntoBytes() + i2;
         int i4 = offsetIntoBytes + i3;
@@ -232,15 +228,13 @@ public class LiteralByteString extends ByteString {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public int getTreeDepth() {
+    protected int getTreeDepth() {
         return 0;
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.google.protobuf.ByteString
-    public boolean isBalanced() {
+    protected boolean isBalanced() {
         return true;
     }
 

@@ -51,7 +51,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
 
     private void a(a aVar, final h hVar, final int i) {
         aVar.eDf.setText(hVar.getTitle());
-        aVar.Sn.startLoad(hVar.getThumbnailUrl(), 10, false);
+        aVar.Sm.startLoad(hVar.getThumbnailUrl(), 10, false);
         aVar.eDh.setText(this.mContext.getResources().getString(R.string.channel_home_play_count, ap.aG(hVar.aYI())));
         aVar.eDi.setText(com.baidu.tieba.channel.c.c.cB(hVar.getCreateTime()));
         aVar.eDj.setText(ap.ii(hVar.getVideoDuration() * 1000));
@@ -82,16 +82,16 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
             aVar.eDk.setVisibility(0);
         }
         if (hVar.aec()) {
-            aVar.cRy.setVisibility(0);
+            aVar.cRz.setVisibility(0);
             aVar.eDn.setVisibility(0);
             return;
         }
-        aVar.cRy.setVisibility(8);
+        aVar.cRz.setVisibility(8);
         aVar.eDn.setVisibility(8);
     }
 
     private void a(a aVar, h hVar) {
-        al.j(aVar.cRy, R.color.cp_cont_g);
+        al.j(aVar.cRz, R.color.cp_cont_g);
         al.j(aVar.eDf, R.color.cp_cont_g);
         al.j(aVar.eDf, R.color.cp_cont_g);
         al.c(aVar.eDn, (int) R.drawable.channel_home_dot);
@@ -106,8 +106,8 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
 
     /* loaded from: classes6.dex */
     public static class a extends v.a {
-        public TbImageView Sn;
-        public TextView cRy;
+        public TbImageView Sm;
+        public TextView cRz;
         public TextView eDf;
         public ImageView eDg;
         public TextView eDh;
@@ -141,7 +141,7 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
                         }
                     }
                 });
-                this.Sn = (TbImageView) view.findViewById(R.id.channel_home_video_cover);
+                this.Sm = (TbImageView) view.findViewById(R.id.channel_home_video_cover);
                 this.eDf = (TextView) view.findViewById(R.id.channel_home_video_title);
                 this.eDg = (ImageView) view.findViewById(R.id.channel_home_video_play);
                 this.eDh = (TextView) view.findViewById(R.id.channel_home_big_video_count);
@@ -150,11 +150,11 @@ public class d extends com.baidu.adp.widget.ListView.a<h, a> {
                 this.eDk = view.findViewById(R.id.channel_guest_big_video_gap);
                 this.eDl = view.findViewById(R.id.channel_host_big_video_more_layout);
                 this.eDm = (ImageView) view.findViewById(R.id.channel_host_big_video_more_btn);
-                this.cRy = (TextView) view.findViewById(R.id.channel_home_big_set_top_textview);
+                this.cRz = (TextView) view.findViewById(R.id.channel_home_big_set_top_textview);
                 this.eDn = (ImageView) view.findViewById(R.id.channel_home_big_set_top_dot);
-                this.Sn.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.Sn.setDefaultResource(R.drawable.pic_bg_video_frs);
-                this.Sn.setDefaultErrorResource(R.drawable.pic_bg_video_frs);
+                this.Sm.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.Sm.setDefaultResource(R.drawable.pic_bg_video_frs);
+                this.Sm.setDefaultErrorResource(R.drawable.pic_bg_video_frs);
             }
         }
     }

@@ -11,7 +11,7 @@ import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 /* loaded from: classes4.dex */
 public class a extends k<b, c> {
-    public View.OnClickListener cYj;
+    public View.OnClickListener cYk;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
@@ -32,11 +32,11 @@ public class a extends k<b, c> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, b bVar, c cVar) {
         super.onFillViewHolder(i, view, viewGroup, bVar, cVar);
         if (cVar != null && cVar.exX != null) {
-            if (this.cYj != null) {
-                cVar.exX.setOnClickListener(this.cYj);
+            if (this.cYk != null) {
+                cVar.exX.setOnClickListener(this.cYk);
             }
-            if (cVar.ccI != TbadkCoreApplication.getInst().getSkinType()) {
-                cVar.ccI = TbadkCoreApplication.getInst().getSkinType();
+            if (cVar.ccJ != TbadkCoreApplication.getInst().getSkinType()) {
+                cVar.ccJ = TbadkCoreApplication.getInst().getSkinType();
                 al.j(cVar.exX, R.color.cp_cont_f);
                 al.k(cVar.exX, R.drawable.more_all);
                 al.k(cVar.dividerLine, R.color.cp_bg_line_c);
@@ -46,6 +46,6 @@ public class a extends k<b, c> {
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.cYj = onClickListener;
+        this.cYk = onClickListener;
     }
 }

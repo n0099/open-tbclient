@@ -6,53 +6,53 @@ import com.baidu.adp.base.BdBaseApplication;
 import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class c {
-    public static String zd = "_crashtime";
-    public static String ze = "_crashtype";
+    public static String zc = "_crashtime";
+    public static String zd = "_crashtype";
+    private int ze;
     private int zf;
-    private int zg;
-    private b zh;
+    private b zg;
 
     public c(b bVar) {
+        this.ze = 0;
         this.zf = 0;
-        this.zg = 0;
-        this.zh = null;
+        this.zg = null;
         if (bVar == null) {
             throw new InvalidParameterException("SwitchHolder data is null");
         }
-        this.zh = bVar;
-        if (this.zh.hB() > 0 && this.zh.hF() != null) {
-            this.zf = hH();
-            if (this.zf == -1) {
+        this.zg = bVar;
+        if (this.zg.hB() > 0 && this.zg.hF() != null) {
+            this.ze = hH();
+            if (this.ze == -1) {
                 reset();
             }
         }
         if (!bVar.hE()) {
-            this.zg = hG();
+            this.zf = hG();
         }
-        this.zh.f(this.zg, true);
+        this.zg.f(this.zf, true);
     }
 
     public String getName() {
-        return this.zh.getName();
+        return this.zg.getName();
     }
 
     public int hz() {
-        return this.zh.hz();
+        return this.zg.hz();
     }
 
     public int getType() {
-        return this.zg;
+        return this.zf;
     }
 
     public boolean S(int i) {
-        if (this.zh.hB() >= 0 && this.zf >= this.zh.hB() + 2) {
-            i = this.zh.hA();
+        if (this.zg.hB() >= 0 && this.ze >= this.zg.hB() + 2) {
+            i = this.zg.hA();
         }
-        if (i == this.zg) {
+        if (i == this.zf) {
             return false;
         }
-        this.zg = i;
-        this.zh.f(this.zg, false);
+        this.zf = i;
+        this.zg.f(this.zf, false);
         T(i);
         return true;
     }
@@ -60,33 +60,33 @@ public class c {
     public boolean ax(String str) {
         String[] hC;
         String[] hF;
-        if (str == null || this.zh.hB() <= 0) {
+        if (str == null || this.zg.hB() <= 0) {
             return false;
         }
-        if (this.zh.hF() != null) {
-            for (String str2 : this.zh.hF()) {
+        if (this.zg.hF() != null) {
+            for (String str2 : this.zg.hF()) {
                 if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                    this.zf++;
-                    U(this.zf);
-                    if (this.zf >= this.zh.hB()) {
-                        T(this.zh.hA());
-                        this.zg = this.zh.hA();
-                        this.zh.f(this.zh.hA(), false);
+                    this.ze++;
+                    U(this.ze);
+                    if (this.ze >= this.zg.hB()) {
+                        T(this.zg.hA());
+                        this.zf = this.zg.hA();
+                        this.zg.f(this.zg.hA(), false);
                         return true;
                     }
                     return true;
                 }
             }
         }
-        if (this.zh.hC() != null) {
-            for (String str3 : this.zh.hC()) {
+        if (this.zg.hC() != null) {
+            for (String str3 : this.zg.hC()) {
                 if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                    this.zf++;
-                    U(this.zf);
-                    if (this.zf >= this.zh.hB()) {
-                        T(this.zh.hA());
-                        this.zg = this.zh.hA();
-                        this.zh.f(this.zh.hA(), false);
+                    this.ze++;
+                    U(this.ze);
+                    if (this.ze >= this.zg.hB()) {
+                        T(this.zg.hA());
+                        this.zf = this.zg.hA();
+                        this.zg.f(this.zg.hA(), false);
                         return true;
                     }
                     return true;
@@ -98,29 +98,29 @@ public class c {
 
     private void T(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.zh.getName() + ze, i);
+        edit.putInt(this.zg.getName() + zd, i);
         edit.commit();
     }
 
     private int hG() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zh.getName() + ze, this.zh.hz());
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zg.getName() + zd, this.zg.hz());
     }
 
     private int hH() {
-        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zh.getName() + zd, -1);
+        return BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).getInt(this.zg.getName() + zc, -1);
     }
 
     private void U(int i) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.zh.getName() + zd, i);
+        edit.putInt(this.zg.getName() + zc, i);
         edit.commit();
     }
 
     public void reset() {
-        this.zf = 0;
+        this.ze = 0;
     }
 
     public void V(int i) {
-        this.zf = i;
+        this.ze = i;
     }
 }

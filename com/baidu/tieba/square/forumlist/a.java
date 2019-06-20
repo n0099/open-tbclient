@@ -28,8 +28,8 @@ import java.util.Map;
 import tbclient.GetForumsFromForumClass.ForumSpaceForumInfo;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private LikeModel ccn;
-    private final Map<Long, Integer> iTO = new HashMap();
+    private LikeModel cco;
+    private final Map<Long, Integer> iTS = new HashMap();
     private View.OnClickListener mClickListener;
     private TbPageContext<SquareForumListActivity> mContext;
     private List<ForumSpaceForumInfo> mListData;
@@ -38,12 +38,12 @@ public class a extends BaseAdapter {
     public a(TbPageContext<SquareForumListActivity> tbPageContext, int i) {
         this.mContext = tbPageContext;
         this.mPageType = i;
-        this.ccn = new LikeModel(this.mContext);
-        this.ccn.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.forumlist.a.1
+        this.cco = new LikeModel(this.mContext);
+        this.cco.setLoadDataCallBack(new d() { // from class: com.baidu.tieba.square.forumlist.a.1
             @Override // com.baidu.adp.base.d
             public void m(Object obj) {
-                if (AntiHelper.aG(a.this.ccn.getErrorCode(), a.this.ccn.getErrorString())) {
-                    AntiHelper.aI(a.this.mContext.getPageActivity(), a.this.ccn.getErrorString());
+                if (AntiHelper.aG(a.this.cco.getErrorCode(), a.this.cco.getErrorString())) {
+                    AntiHelper.aI(a.this.mContext.getPageActivity(), a.this.cco.getErrorString());
                 }
             }
         });
@@ -56,7 +56,7 @@ public class a extends BaseAdapter {
                     } else if (bc.cE(a.this.mContext.getPageActivity())) {
                         String valueOf = view.getTag(R.id.forum_title) == null ? "" : String.valueOf(view.getTag(R.id.forum_title));
                         String valueOf2 = view.getTag(R.id.forum_desc) == null ? "" : String.valueOf(view.getTag(R.id.forum_desc));
-                        a.this.ccn.ek(valueOf, valueOf2);
+                        a.this.cco.ek(valueOf, valueOf2);
                         if (a.this.mPageType != 1) {
                             if (a.this.mPageType == 2) {
                                 TiebaStatic.log(new am("c10587").bT("fid", valueOf2));
@@ -90,16 +90,16 @@ public class a extends BaseAdapter {
 
     public void a(Long l, boolean z) {
         Integer valueOf;
-        if (this.iTO.containsKey(l)) {
-            Integer num = this.iTO.get(l);
+        if (this.iTS.containsKey(l)) {
+            Integer num = this.iTS.get(l);
             if (z) {
                 valueOf = Integer.valueOf(num.intValue() + 1);
             } else {
                 valueOf = Integer.valueOf(num.intValue() - 1);
             }
-            this.iTO.put(l, valueOf);
-        } else if (!this.iTO.containsKey(l)) {
-            this.iTO.put(l, z ? 1 : -1);
+            this.iTS.put(l, valueOf);
+        } else if (!this.iTS.containsKey(l)) {
+            this.iTS.put(l, z ? 1 : -1);
         }
         notifyDataSetChanged();
     }
@@ -140,55 +140,55 @@ public class a extends BaseAdapter {
             if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0405a)) {
                 view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.square_forum_list_item, (ViewGroup) null);
                 C0405a c0405a = new C0405a();
-                c0405a.iTQ = (TextView) view.findViewById(R.id.forum_rank);
-                c0405a.iTR = (BarImageView) view.findViewById(R.id.forum_image);
-                c0405a.iTU = (TextView) view.findViewById(R.id.forum_like);
+                c0405a.iTU = (TextView) view.findViewById(R.id.forum_rank);
+                c0405a.iTV = (BarImageView) view.findViewById(R.id.forum_image);
+                c0405a.iTY = (TextView) view.findViewById(R.id.forum_like);
                 c0405a.mTitle = (TextView) view.findViewById(R.id.forum_title);
-                c0405a.iTS = (TextView) view.findViewById(R.id.forum_desc);
-                c0405a.iTT = (TextView) view.findViewById(R.id.forum_value);
-                l.b(this.mContext.getPageActivity(), c0405a.iTU, 20, 20, 20, 20);
-                c0405a.iTU.setOnClickListener(this.mClickListener);
+                c0405a.iTW = (TextView) view.findViewById(R.id.forum_desc);
+                c0405a.iTX = (TextView) view.findViewById(R.id.forum_value);
+                l.b(this.mContext.getPageActivity(), c0405a.iTY, 20, 20, 20, 20);
+                c0405a.iTY.setOnClickListener(this.mClickListener);
                 view.setOnClickListener(this.mClickListener);
                 view.setTag(R.id.forum_rank, c0405a);
             }
             al.k(view, R.drawable.square_list_item_bg_selector);
             C0405a c0405a2 = (C0405a) view.getTag(R.id.forum_rank);
             if (i == 1) {
-                c0405a2.iTQ.setText("");
-                al.k(c0405a2.iTQ, R.drawable.icon_grade_shaitu1);
+                c0405a2.iTU.setText("");
+                al.k(c0405a2.iTU, R.drawable.icon_grade_shaitu1);
             } else if (i == 2) {
-                c0405a2.iTQ.setText("");
-                al.k(c0405a2.iTQ, R.drawable.icon_grade_shaitu2);
+                c0405a2.iTU.setText("");
+                al.k(c0405a2.iTU, R.drawable.icon_grade_shaitu2);
             } else if (i == 3) {
-                c0405a2.iTQ.setText("");
-                al.k(c0405a2.iTQ, R.drawable.icon_grade_shaitu3);
+                c0405a2.iTU.setText("");
+                al.k(c0405a2.iTU, R.drawable.icon_grade_shaitu3);
             } else if (i < 10) {
-                c0405a2.iTQ.setText("0" + i);
-                c0405a2.iTQ.setBackgroundResource(0);
+                c0405a2.iTU.setText("0" + i);
+                c0405a2.iTU.setBackgroundResource(0);
             } else {
-                c0405a2.iTQ.setText("" + i);
-                c0405a2.iTQ.setBackgroundResource(0);
+                c0405a2.iTU.setText("" + i);
+                c0405a2.iTU.setBackgroundResource(0);
             }
-            al.j(c0405a2.iTQ, R.color.cp_cont_c);
-            c0405a2.iTR.startLoad(item.avatar, 10, false);
+            al.j(c0405a2.iTU, R.color.cp_cont_c);
+            c0405a2.iTV.startLoad(item.avatar, 10, false);
             c0405a2.mTitle.setText(item.forum_name + this.mContext.getString(R.string.forum));
             al.j(c0405a2.mTitle, R.color.cp_cont_b);
-            Integer num = this.iTO.get(item.forum_id);
-            c0405a2.iTS.setText(this.mContext.getString(R.string.attention) + ":" + ap.aG((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + ap.aG(item.post_num.intValue()));
-            al.j(c0405a2.iTS, R.color.cp_cont_d);
-            c0405a2.iTT.setText(item._abstract);
-            al.j(c0405a2.iTT, R.color.cp_cont_d);
-            c0405a2.iTU.setTag(R.id.forum_title, item.forum_name);
-            c0405a2.iTU.setTag(R.id.forum_desc, item.forum_id);
-            int intValue = this.iTO.get(item.forum_id) == null ? 0 : this.iTO.get(item.forum_id).intValue();
+            Integer num = this.iTS.get(item.forum_id);
+            c0405a2.iTW.setText(this.mContext.getString(R.string.attention) + ":" + ap.aG((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + ap.aG(item.post_num.intValue()));
+            al.j(c0405a2.iTW, R.color.cp_cont_d);
+            c0405a2.iTX.setText(item._abstract);
+            al.j(c0405a2.iTX, R.color.cp_cont_d);
+            c0405a2.iTY.setTag(R.id.forum_title, item.forum_name);
+            c0405a2.iTY.setTag(R.id.forum_desc, item.forum_id);
+            int intValue = this.iTS.get(item.forum_id) == null ? 0 : this.iTS.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue > 0) || (item.is_like.intValue() == 1 && intValue >= 0)) {
-                c0405a2.iTU.setText(R.string.relate_forum_is_followed);
-                c0405a2.iTU.setBackgroundResource(0);
-                al.j(c0405a2.iTU, R.color.cp_cont_d);
+                c0405a2.iTY.setText(R.string.relate_forum_is_followed);
+                c0405a2.iTY.setBackgroundResource(0);
+                al.j(c0405a2.iTY, R.color.cp_cont_d);
             } else {
-                c0405a2.iTU.setText(R.string.attention);
-                c0405a2.iTU.setBackgroundResource(R.drawable.btn_blue_bg);
-                al.j(c0405a2.iTU, R.color.cp_btn_a);
+                c0405a2.iTY.setText(R.string.attention);
+                c0405a2.iTY.setBackgroundResource(R.drawable.btn_blue_bg);
+                al.j(c0405a2.iTY, R.color.cp_btn_a);
             }
             view.setTag(R.id.forum_title, item.forum_name);
             return view;
@@ -199,11 +199,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.square.forumlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     private class C0405a {
-        public TextView iTQ;
-        public BarImageView iTR;
-        public TextView iTS;
-        public TextView iTT;
         public TextView iTU;
+        public BarImageView iTV;
+        public TextView iTW;
+        public TextView iTX;
+        public TextView iTY;
         public TextView mTitle;
 
         private C0405a() {

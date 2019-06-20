@@ -18,10 +18,10 @@ import com.baidu.tieba.c;
 public class ImageProblemItemView extends FrameLayout {
     protected ImageView agT;
     protected TextView aif;
-    protected LinearLayout cmN;
-    protected TextView cmO;
-    protected LinearLayout gTN;
-    protected TextView gTO;
+    protected LinearLayout cmO;
+    protected TextView cmP;
+    protected LinearLayout gTP;
+    protected TextView gTQ;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -38,20 +38,20 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void displayTip() {
-        if (this.cmO != null) {
-            this.cmO.setVisibility(0);
+        if (this.cmP != null) {
+            this.cmP.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.cmO != null) {
-            this.cmO.setVisibility(8);
+        if (this.cmP != null) {
+            this.cmP.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.cmO != null) {
-            this.cmO.setTextColor(i);
+        if (this.cmP != null) {
+            this.cmP.setTextColor(i);
         }
     }
 
@@ -69,19 +69,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTN.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gTP.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(R.dimen.ds26);
-            this.gTN.setLayoutParams(layoutParams);
-            this.gTO.setText("");
-            this.gTO.setVisibility(8);
+            this.gTP.setLayoutParams(layoutParams);
+            this.gTQ.setText("");
+            this.gTQ.setVisibility(8);
             return;
         }
-        this.gTN.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gTN.getLayoutParams();
+        this.gTP.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gTP.getLayoutParams();
         layoutParams2.bottomMargin = (int) getResources().getDimension(R.dimen.ds10);
-        this.gTN.setLayoutParams(layoutParams2);
-        this.gTO.setText(str);
-        this.gTO.setVisibility(0);
+        this.gTP.setLayoutParams(layoutParams2);
+        this.gTQ.setText(str);
+        this.gTQ.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -104,25 +104,25 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.cmO.setText(str);
+        this.cmP.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.cmO.getText();
+        return this.cmP.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.cmO.setBackgroundDrawable(drawable);
+        this.cmP.setBackgroundDrawable(drawable);
     }
 
     protected void apr() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
-        this.cmN = (LinearLayout) findViewById(R.id.container);
+        this.cmO = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.cmO = (TextView) findViewById(R.id.tip);
+        this.cmP = (TextView) findViewById(R.id.tip);
         this.agT = (ImageView) findViewById(R.id.arrow2);
-        this.gTN = (LinearLayout) findViewById(R.id.ll_container);
-        this.gTO = (TextView) findViewById(R.id.tv_help);
+        this.gTP = (LinearLayout) findViewById(R.id.ll_container);
+        this.gTQ = (TextView) findViewById(R.id.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -138,14 +138,14 @@ public class ImageProblemItemView extends FrameLayout {
             this.aif.setTextColor(color);
         }
         if (string2 != null) {
-            this.cmO.setText(string2);
+            this.cmP.setText(string2);
         }
         if (color2 > -1) {
-            this.cmO.setTextColor(color2);
+            this.cmP.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
         this.agT.setVisibility(4);
     }
 }

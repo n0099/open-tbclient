@@ -55,11 +55,11 @@ public abstract class h extends g {
                 Log.i("UpdateCoreCallback", "onDownloadError:" + aVar);
             }
             h.this.asp.h(dVar);
-            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(13L).Z(aVar.errorNo).hY("Framework包下载失败").hZ(aVar.toString());
+            com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(13L).Z(aVar.errorNo).hX("Framework包下载失败").hY(aVar.toString());
             if (h.this.asn != null) {
-                h.this.asn.onError(new PkgDownloadError(dVar, hZ));
+                h.this.asn.onError(new PkgDownloadError(dVar, hY));
             }
-            b.Az().a(dVar, h.this.AD(), hZ);
+            b.Az().a(dVar, h.this.AD(), hY);
             com.baidu.swan.c.a.deleteFile(dVar.filePath);
         }
 
@@ -130,11 +130,11 @@ public abstract class h extends g {
                 Log.i("UpdateCoreCallback", "onDownloadError:" + aVar);
             }
             h.this.asp.h(bVar);
-            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(14L).Z(aVar.errorNo).hY("Extension下载失败").hZ(aVar.toString());
+            com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(14L).Z(aVar.errorNo).hX("Extension下载失败").hY(aVar.toString());
             if (h.this.aso != null) {
-                h.this.aso.onError(new PkgDownloadError(bVar, hZ));
+                h.this.aso.onError(new PkgDownloadError(bVar, hY));
             }
-            b.Az().a(bVar, h.this.AD(), hZ);
+            b.Az().a(bVar, h.this.AD(), hY);
             com.baidu.swan.c.a.deleteFile(bVar.filePath);
         }
 

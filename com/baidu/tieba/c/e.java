@@ -74,7 +74,7 @@ public class e implements a.InterfaceC0292a {
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !i.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.cjA = aZI();
+                shareDialogConfig.shareItem.cjB = aZI();
             }
             if (l.ki() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
                 aZF();

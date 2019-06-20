@@ -11,14 +11,14 @@ public class KeepJobServiceManager {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static final KeepJobServiceManager gVf = new KeepJobServiceManager();
+        private static final KeepJobServiceManager gVg = new KeepJobServiceManager();
     }
 
     private KeepJobServiceManager() {
     }
 
     public static final KeepJobServiceManager getInstance() {
-        return a.gVf;
+        return a.gVg;
     }
 
     @TargetApi(21)

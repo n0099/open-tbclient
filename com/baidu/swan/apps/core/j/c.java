@@ -193,7 +193,7 @@ public final class c implements g {
         d(bVar);
         e(bVar);
         f.HY().f(new UbcFlowEvent("na_pre_load_check"));
-        com.baidu.swan.apps.y.f.GN().fz("na_pre_load_check");
+        com.baidu.swan.apps.y.f.GN().fy("na_pre_load_check");
         a(new a() { // from class: com.baidu.swan.apps.core.j.c.2
             @Override // com.baidu.swan.apps.core.j.c.a
             public void onReady() {
@@ -201,8 +201,8 @@ public final class c implements g {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (!c.this.atS) {
-                            f.fO("startup").f(new UbcFlowEvent("na_pre_load_ok"));
-                            com.baidu.swan.apps.y.f.GN().fz("na_pre_load_ok");
+                            f.fN("startup").f(new UbcFlowEvent("na_pre_load_ok"));
+                            com.baidu.swan.apps.y.f.GN().fy("na_pre_load_ok");
                             f.at("preload", "startup");
                             if (c.this.atO != null && c.this.atQ != null) {
                                 com.baidu.swan.apps.scheme.actions.i.c.a(c.this.atO, c.this.atQ, bVar, gVar);
@@ -225,7 +225,7 @@ public final class c implements g {
             Bo();
             return;
         }
-        f.fO("preload").f(new UbcFlowEvent("na_pre_load_start"));
+        f.fN("preload").f(new UbcFlowEvent("na_pre_load_start"));
         Bz();
         if (Bx()) {
             Bw();
@@ -237,7 +237,7 @@ public final class c implements g {
                     if (c.DEBUG) {
                         Log.d("SwanAppCoreRuntime", "prepareRuntime addBlinkInitListener blink loaded.");
                     }
-                    f.fO("preload").f(new UbcFlowEvent("na_pre_load_blink_init_ok"));
+                    f.fN("preload").f(new UbcFlowEvent("na_pre_load_blink_init_ok"));
                     ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.core.j.c.3.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -293,7 +293,7 @@ public final class c implements g {
                 e.printStackTrace();
             }
         }
-        new a.C0181a(10001).hj(com.baidu.swan.apps.ae.b.Lq() == null ? "null appkey" : com.baidu.swan.apps.ae.b.Lq().getAppKey()).hk(jSONObject.toString()).Fr();
+        new a.C0181a(10001).hi(com.baidu.swan.apps.ae.b.Lq() == null ? "null appkey" : com.baidu.swan.apps.ae.b.Lq().getAppKey()).hj(jSONObject.toString()).Fr();
     }
 
     public boolean Bn() {
@@ -306,7 +306,7 @@ public final class c implements g {
 
     public void Bo() {
         if (!this.atN.isEmpty() && Bn()) {
-            f.fO("preload").f(new UbcFlowEvent("na_pre_load_end"));
+            f.fN("preload").f(new UbcFlowEvent("na_pre_load_end"));
             Iterator<a> it = this.atN.iterator();
             while (it.hasNext()) {
                 a next = it.next();
@@ -347,9 +347,9 @@ public final class c implements g {
         } else if (com.baidu.swan.apps.console.a.d.xG()) {
             return com.baidu.swan.apps.console.a.d.xH();
         } else {
-            com.baidu.swan.apps.core.a.dq(str);
+            com.baidu.swan.apps.core.a.dp(str);
         }
-        return aa.im(str);
+        return aa.il(str);
     }
 
     public String Bs() {
@@ -360,9 +360,9 @@ public final class c implements g {
         } else if (com.baidu.swan.apps.console.a.d.xG()) {
             return com.baidu.swan.apps.console.a.d.xI();
         } else {
-            com.baidu.swan.apps.core.a.dq(str);
+            com.baidu.swan.apps.core.a.dp(str);
         }
-        return aa.im(str);
+        return aa.il(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -395,17 +395,17 @@ public final class c implements g {
                 if (DEBUG) {
                     Log.d("SwanAppCoreRuntime", "prepareMaster start.");
                 }
-                f.fO("preload").f(new UbcFlowEvent("na_pre_load_master_start"));
+                f.fN("preload").f(new UbcFlowEvent("na_pre_load_master_start"));
                 this.atO = this.atZ.h(getContext(), Bx() ? 1 : 0);
-                f.fO("preload").f(new UbcFlowEvent("na_pre_load_master_created"));
+                f.fN("preload").f(new UbcFlowEvent("na_pre_load_master_created"));
                 this.atO.loadUrl(Br());
                 this.atO.a(new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.j.c.4
                     @Override // com.baidu.swan.apps.core.c
-                    public void ds(String str) {
+                    public void dr(String str) {
                         if (c.DEBUG) {
                             Log.d("SwanAppCoreRuntime", "prepareMaster finish. url: " + str);
                         }
-                        f.fO("preload").f(new UbcFlowEvent("na_pre_load_master_ok"));
+                        f.fN("preload").f(new UbcFlowEvent("na_pre_load_master_ok"));
                         synchronized (c.this.atV) {
                             c.this.atP = true;
                             c.this.Bt();
@@ -430,14 +430,14 @@ public final class c implements g {
             if (DEBUG) {
                 Log.d("SwanAppCoreRuntime", "prepareSlave start.");
             }
-            f.fO("preload").f(new UbcFlowEvent("na_pre_load_slave_start"));
+            f.fN("preload").f(new UbcFlowEvent("na_pre_load_slave_start"));
             this.atQ = a(getContext(), new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.j.c.5
                 @Override // com.baidu.swan.apps.core.c
-                public void ds(String str) {
+                public void dr(String str) {
                     if (c.DEBUG) {
                         Log.d("SwanAppCoreRuntime", "prepareSlave finish. url: " + str);
                     }
-                    f.fO("preload").f(new UbcFlowEvent("na_pre_load_slave_ok"));
+                    f.fN("preload").f(new UbcFlowEvent("na_pre_load_slave_ok"));
                     c.this.atR = true;
                     c.this.Bo();
                 }
@@ -448,7 +448,7 @@ public final class c implements g {
 
     public com.baidu.swan.apps.b.c.c a(Context context, com.baidu.swan.apps.core.c cVar) {
         com.baidu.swan.apps.b.c.c aG = this.atZ.aG(context);
-        f.fO("preload").f(new UbcFlowEvent("na_pre_load_slave_created"));
+        f.fN("preload").f(new UbcFlowEvent("na_pre_load_slave_created"));
         aG.loadUrl(Bs());
         aG.a(cVar);
         return aG;
@@ -558,7 +558,7 @@ public final class c implements g {
         com.baidu.swan.apps.res.widget.loadingview.a.KR();
     }
 
-    public com.baidu.swan.apps.b.c.e dU(String str) {
+    public com.baidu.swan.apps.b.c.e dT(String str) {
         if (this.atT.isEmpty() || TextUtils.isEmpty(str)) {
             return null;
         }

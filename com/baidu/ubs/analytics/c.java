@@ -6,11 +6,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes3.dex */
 public final class c {
     private long e;
-    private boolean jPg;
-    private long jPh;
-    private long jPi;
     private boolean jPj;
-    private int jPk;
+    private long jPk;
+    private long jPl;
+    private boolean jPm;
+    private int jPn;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -19,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.jPg = aVar.jPg;
-        this.e = aVar.jPl;
-        this.jPh = aVar.jPh;
         this.jPj = aVar.jPj;
-        this.jPi = aVar.jPi;
+        this.e = aVar.jPo;
         this.jPk = aVar.jPk;
+        this.jPm = aVar.jPm;
+        this.jPl = aVar.jPl;
+        this.jPn = aVar.jPn;
     }
 
     public final Context b() {
@@ -32,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.jPg;
+        return this.jPj;
     }
 
     public final long d() {
@@ -40,53 +40,33 @@ public final class c {
     }
 
     public final long e() {
-        return this.jPh;
+        return this.jPk;
     }
 
     public final long f() {
-        return this.jPi;
+        return this.jPl;
     }
 
     public final boolean g() {
-        return this.jPj;
+        return this.jPm;
     }
 
     public final int h() {
-        return this.jPk;
+        return this.jPn;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
         private Context mContext;
-        private boolean jPg = true;
-        private long jPl = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long jPh = 60000;
-        private long jPi = 10000;
-        private boolean jPj = false;
-        private int jPk = 1000;
+        private boolean jPj = true;
+        private long jPo = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long jPk = 60000;
+        private long jPl = 10000;
+        private boolean jPm = false;
+        private int jPn = 1000;
 
         public a ex(Context context) {
             this.mContext = context;
-            return this;
-        }
-
-        public a sc(boolean z) {
-            this.jPg = z;
-            return this;
-        }
-
-        public a ey(long j) {
-            this.jPl = 1000 * j;
-            return this;
-        }
-
-        public a CL(int i) {
-            this.jPh = i * 60 * 1000;
-            return this;
-        }
-
-        public a ez(long j) {
-            this.jPi = 1000 * j;
             return this;
         }
 
@@ -95,15 +75,35 @@ public final class c {
             return this;
         }
 
-        public a CM(int i) {
-            int i2 = i <= 0 ? 0 : i;
-            this.jPk = i2 < 1000 ? i2 : 1000;
+        public a ey(long j) {
+            this.jPo = 1000 * j;
             return this;
         }
 
-        public c cAl() {
+        public a CL(int i) {
+            this.jPk = i * 60 * 1000;
+            return this;
+        }
+
+        public a ez(long j) {
+            this.jPl = 1000 * j;
+            return this;
+        }
+
+        public a se(boolean z) {
+            this.jPm = z;
+            return this;
+        }
+
+        public a CM(int i) {
+            int i2 = i <= 0 ? 0 : i;
+            this.jPn = i2 < 1000 ? i2 : 1000;
+            return this;
+        }
+
+        public c cAk() {
             if (this.mContext == null) {
-                j.Gr("Context must be not empty!");
+                j.Gt("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

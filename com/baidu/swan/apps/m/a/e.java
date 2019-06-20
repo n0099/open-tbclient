@@ -14,7 +14,7 @@ public class e extends a {
     }
 
     @Override // com.baidu.swan.apps.m.a.a
-    public String er(String str) {
+    public String eq(String str) {
         String str2 = (com.baidu.swan.apps.m.a.n(str, "fromId", this.avI) + com.baidu.swan.apps.m.a.n(str, "toId", this.avJ)) + com.baidu.swan.apps.m.a.n(str, "toTabIndex", this.avL);
         if (!TextUtils.isEmpty(this.aqX)) {
             str2 = str2 + com.baidu.swan.apps.m.a.n(str, "routeType", this.aqX);

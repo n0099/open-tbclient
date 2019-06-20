@@ -54,63 +54,63 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int pass_bio_toast_bg = 0x7f020f9f;
-        public static final int pass_liveness_back = 0x7f020fa0;
-        public static final int pass_liveness_btn_disable_rounded_rect = 0x7f020fa1;
-        public static final int pass_liveness_btn_nor_rounded_rect = 0x7f020fa2;
-        public static final int pass_liveness_btn_press_rounded_rect = 0x7f020fa3;
-        public static final int pass_liveness_camera_flash_closed = 0x7f020fa4;
-        public static final int pass_liveness_cancel = 0x7f020fa5;
-        public static final int pass_liveness_dialog_background_opaque = 0x7f020fa6;
-        public static final int pass_liveness_dialog_background_transparent = 0x7f020fa7;
-        public static final int pass_liveness_dialog_bg = 0x7f020fa8;
-        public static final int pass_liveness_dialog_btn_selector = 0x7f020fa9;
-        public static final int pass_liveness_face_recognizing_waring = 0x7f020faa;
-        public static final int pass_liveness_icon_loading_spinner = 0x7f020fab;
-        public static final int pass_liveness_loading_circle2 = 0x7f020fac;
-        public static final int pass_liveness_loading_logo = 0x7f020fad;
-        public static final int pass_liveness_loading_spinner_animator = 0x7f020fae;
-        public static final int pass_liveness_recog_face_failed = 0x7f020faf;
-        public static final int pass_liveness_recog_face_mask = 0x7f020fb0;
-        public static final int pass_liveness_recog_face_successed = 0x7f020fb1;
-        public static final int pass_liveness_recognized_time_out_guide = 0x7f020fb2;
-        public static final int pass_liveness_toast_bg = 0x7f020fb3;
+        public static final int pass_bio_toast_bg = 0x7f020fc7;
+        public static final int pass_liveness_back = 0x7f020fc8;
+        public static final int pass_liveness_btn_disable_rounded_rect = 0x7f020fc9;
+        public static final int pass_liveness_btn_nor_rounded_rect = 0x7f020fca;
+        public static final int pass_liveness_btn_press_rounded_rect = 0x7f020fcb;
+        public static final int pass_liveness_camera_flash_closed = 0x7f020fcc;
+        public static final int pass_liveness_cancel = 0x7f020fcd;
+        public static final int pass_liveness_dialog_background_opaque = 0x7f020fce;
+        public static final int pass_liveness_dialog_background_transparent = 0x7f020fcf;
+        public static final int pass_liveness_dialog_bg = 0x7f020fd0;
+        public static final int pass_liveness_dialog_btn_selector = 0x7f020fd1;
+        public static final int pass_liveness_face_recognizing_waring = 0x7f020fd2;
+        public static final int pass_liveness_icon_loading_spinner = 0x7f020fd3;
+        public static final int pass_liveness_loading_circle2 = 0x7f020fd4;
+        public static final int pass_liveness_loading_logo = 0x7f020fd5;
+        public static final int pass_liveness_loading_spinner_animator = 0x7f020fd6;
+        public static final int pass_liveness_recog_face_failed = 0x7f020fd7;
+        public static final int pass_liveness_recog_face_mask = 0x7f020fd8;
+        public static final int pass_liveness_recog_face_successed = 0x7f020fd9;
+        public static final int pass_liveness_recognized_time_out_guide = 0x7f020fda;
+        public static final int pass_liveness_toast_bg = 0x7f020fdb;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int btn_cancel = 0x7f0f0f1b;
-        public static final int constrastLoadingView = 0x7f0f0f47;
-        public static final int dialog_msg = 0x7f0f0f33;
+        public static final int btn_cancel = 0x7f0f0f1c;
+        public static final int constrastLoadingView = 0x7f0f0f48;
+        public static final int dialog_msg = 0x7f0f0f34;
         public static final int dialog_title = 0x7f0f0349;
-        public static final int img_face_recognized_state = 0x7f0f0f40;
-        public static final int iv_pose_bg = 0x7f0f0f42;
-        public static final int iv_pose_warning_tip = 0x7f0f0f45;
-        public static final int iv_recog_circle = 0x7f0f0f3c;
-        public static final int iv_recog_logo = 0x7f0f0f3d;
-        public static final int layout_pose_tip = 0x7f0f0f41;
-        public static final int layout_pose_warning = 0x7f0f0f44;
-        public static final int msg_text = 0x7f0f0f35;
-        public static final int negative_btn = 0x7f0f0973;
-        public static final int neutral_btn = 0x7f0f0f3b;
-        public static final int positive_btn = 0x7f0f0974;
-        public static final int rim_base_toast_icon = 0x7f0f12a1;
-        public static final int rim_base_toast_message = 0x7f0f12a2;
-        public static final int sapi_bio_title_btn_left = 0x7f0f0f48;
-        public static final int sapi_bio_title_btn_right = 0x7f0f0f4a;
-        public static final int sapi_bio_title_text = 0x7f0f0f49;
-        public static final int sapi_point1 = 0x7f0f0f38;
-        public static final int sapi_point2 = 0x7f0f0f39;
-        public static final int sapi_title_layout = 0x7f0f0f3f;
-        public static final int sc_fingerprint_dialog_confirm_btn_splitter = 0x7f0f0f3e;
-        public static final int time_out_dialog_msg = 0x7f0f0f34;
+        public static final int img_face_recognized_state = 0x7f0f0f41;
+        public static final int iv_pose_bg = 0x7f0f0f43;
+        public static final int iv_pose_warning_tip = 0x7f0f0f46;
+        public static final int iv_recog_circle = 0x7f0f0f3d;
+        public static final int iv_recog_logo = 0x7f0f0f3e;
+        public static final int layout_pose_tip = 0x7f0f0f42;
+        public static final int layout_pose_warning = 0x7f0f0f45;
+        public static final int msg_text = 0x7f0f0f36;
+        public static final int negative_btn = 0x7f0f0974;
+        public static final int neutral_btn = 0x7f0f0f3c;
+        public static final int positive_btn = 0x7f0f0975;
+        public static final int rim_base_toast_icon = 0x7f0f12a2;
+        public static final int rim_base_toast_message = 0x7f0f12a3;
+        public static final int sapi_bio_title_btn_left = 0x7f0f0f49;
+        public static final int sapi_bio_title_btn_right = 0x7f0f0f4b;
+        public static final int sapi_bio_title_text = 0x7f0f0f4a;
+        public static final int sapi_point1 = 0x7f0f0f39;
+        public static final int sapi_point2 = 0x7f0f0f3a;
+        public static final int sapi_title_layout = 0x7f0f0f40;
+        public static final int sc_fingerprint_dialog_confirm_btn_splitter = 0x7f0f0f3f;
+        public static final int time_out_dialog_msg = 0x7f0f0f35;
         public static final int title_text = 0x7f0f026e;
-        public static final int tv_pose_tip = 0x7f0f0f43;
-        public static final int tv_pose_warning_tip = 0x7f0f0f46;
-        public static final int tv_recog_msg1 = 0x7f0f0f37;
-        public static final int unrecognized_dialog = 0x7f0f0f36;
-        public static final int view_switcher = 0x7f0f0f3a;
-        public static final int xfordview = 0x7f0f0f1a;
+        public static final int tv_pose_tip = 0x7f0f0f44;
+        public static final int tv_pose_warning_tip = 0x7f0f0f47;
+        public static final int tv_recog_msg1 = 0x7f0f0f38;
+        public static final int unrecognized_dialog = 0x7f0f0f37;
+        public static final int view_switcher = 0x7f0f0f3b;
+        public static final int xfordview = 0x7f0f0f1b;
     }
 
     /* loaded from: classes.dex */

@@ -33,7 +33,7 @@ import org.json.JSONArray;
 public class e {
     private static e eNI = null;
     private static final Random random = new Random();
-    private final String yQ = "c.tieba.baidu.com";
+    private final String yP = "c.tieba.baidu.com";
     private HashSet<String> eNJ = new HashSet<>();
     private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> eNK = new ConcurrentHashMap();
     private Map<String, List<DnsProxyResponseData.DnsProxyIpData>> eNL = new ConcurrentHashMap();
@@ -331,7 +331,7 @@ public class e {
                     });
                 }
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.vl(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.vk(dnsProxyIpData.getIp())) {
                         String ip2 = dnsProxyIpData.getIp();
                         if (random.nextFloat() < com.baidu.tieba.dnsproxy.a.d.bcv().cJ("c.tieba.baidu.com", ip2)) {
                             return ip2;
@@ -363,14 +363,14 @@ public class e {
             HashSet hashSet2 = new HashSet();
             if (list != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData : list) {
-                    if (dnsProxyIpData != null && h.vl(dnsProxyIpData.getIp())) {
+                    if (dnsProxyIpData != null && h.vk(dnsProxyIpData.getIp())) {
                         hashSet2.add(dnsProxyIpData.getIp());
                     }
                 }
             }
             if (list2 != null) {
                 for (DnsProxyResponseData.DnsProxyIpData dnsProxyIpData2 : list2) {
-                    if (dnsProxyIpData2 != null && h.vl(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
+                    if (dnsProxyIpData2 != null && h.vk(dnsProxyIpData2.getIp()) && hashSet2.contains(dnsProxyIpData2.getIp())) {
                         hashSet.add(dnsProxyIpData2.getIp());
                     }
                 }

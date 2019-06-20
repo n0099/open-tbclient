@@ -21,7 +21,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.apps.m.a.a
-    public String er(String str) {
+    public String eq(String str) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, String> entry : this.mParams.entrySet()) {
             sb.append(com.baidu.swan.apps.m.a.n(str, entry.getKey(), entry.getValue()));

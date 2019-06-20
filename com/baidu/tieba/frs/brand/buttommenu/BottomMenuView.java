@@ -24,7 +24,7 @@ import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
 /* loaded from: classes4.dex */
 public class BottomMenuView extends LinearLayout {
-    private View cSZ;
+    private View cTa;
     private a fvD;
     private LinearLayout fvE;
     private TbPageContext<?> mPageContext;
@@ -58,10 +58,10 @@ public class BottomMenuView extends LinearLayout {
         if (!v.aa(list)) {
             this.mPageContext = tbPageContext;
             removeAllViews();
-            this.cSZ = new View(getContext());
-            this.cSZ.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(getContext(), R.dimen.tbds16)));
-            this.cSZ.setBackgroundResource(R.drawable.bottom_view_shadow);
-            addView(this.cSZ);
+            this.cTa = new View(getContext());
+            this.cTa.setLayoutParams(new LinearLayout.LayoutParams(-1, l.g(getContext(), R.dimen.tbds16)));
+            this.cTa.setBackgroundResource(R.drawable.bottom_view_shadow);
+            addView(this.cTa);
             this.fvE = new LinearLayout(getContext());
             this.fvE.setOrientation(0);
             this.fvE.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
@@ -95,7 +95,7 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            al.l(this.cSZ, R.color.cp_bg_line_b);
+            al.l(this.cTa, R.color.cp_bg_line_b);
         }
     }
 

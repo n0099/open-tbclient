@@ -105,7 +105,7 @@ public class b {
                     boolean bs = com.baidu.swan.c.a.bs(Qy.getAbsolutePath(), Qx.getAbsolutePath());
                     if (bs) {
                         b.this.QC();
-                        b.this.iU(com.baidu.swan.apps.an.e.b(new Date(), "'debug'-HH:mm:ss"));
+                        b.this.iT(com.baidu.swan.apps.an.e.b(new Date(), "'debug'-HH:mm:ss"));
                     }
                     com.baidu.swan.c.a.deleteFile(Qy);
                     aVar.aX(bs);
@@ -121,7 +121,7 @@ public class b {
         }
     }
 
-    public void iU(String str) {
+    public void iT(String str) {
         File QA = QA();
         if (QA.exists()) {
             com.baidu.swan.c.a.deleteFile(QA);

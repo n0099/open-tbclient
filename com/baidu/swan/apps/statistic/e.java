@@ -15,8 +15,8 @@ public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static volatile boolean aUZ = false;
 
-    public static Flow hl(String str) {
-        return s.kS(str);
+    public static Flow hk(String str) {
+        return s.kR(str);
     }
 
     public static void a(final Flow flow, final com.baidu.swan.apps.statistic.a.e eVar) {
@@ -115,7 +115,7 @@ public final class e {
         }, "SwanAppUBCOnPay");
     }
 
-    public static void hm(String str) {
+    public static void hl(String str) {
         int i = 0;
         com.baidu.swan.apps.v.b.b vk = com.baidu.swan.apps.ae.b.Lq().vk();
         if (vk != null) {
@@ -187,7 +187,7 @@ public final class e {
         return Fn;
     }
 
-    public static JSONObject hn(String str) {
+    public static JSONObject hm(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

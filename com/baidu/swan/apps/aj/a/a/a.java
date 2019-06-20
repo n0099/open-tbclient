@@ -59,7 +59,7 @@ public class a extends z {
             }
             c.i("accelerometer", " init ");
             com.baidu.swan.apps.aj.a.a Ny = com.baidu.swan.apps.aj.a.a.Ny();
-            Ny.m(context, C0112a.hM(optParamsAsJo.optString("interval")));
+            Ny.m(context, C0112a.hL(optParamsAsJo.optString("interval")));
             Ny.a(new a.InterfaceC0111a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
                 @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0111a
                 public void a(double[] dArr) {
@@ -106,7 +106,7 @@ public class a extends z {
             aWA.put("normal", 200);
         }
 
-        public static int hM(String str) {
+        public static int hL(String str) {
             Integer num = aWA.get(str);
             if (num != null) {
                 return num.intValue();

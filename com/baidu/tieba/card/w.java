@@ -23,9 +23,9 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class w extends a<bg> implements com.baidu.tieba.a.e {
-    private bg VK;
-    private String Wt;
-    private final View cSZ;
+    private bg VJ;
+    private String Ws;
+    private final View cTa;
     private HeadImageView eqG;
     private ConstrainImageGroup exO;
     private TextView ezD;
@@ -46,7 +46,7 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
         this.ezF = (TextView) view.findViewById(R.id.card_thread_title);
         this.ezE = (TextView) view.findViewById(R.id.card_reply_time);
         this.exO = (ConstrainImageGroup) view.findViewById(R.id.card_img_layout);
-        this.cSZ = view.findViewById(R.id.card_divider_line);
+        this.cTa = view.findViewById(R.id.card_divider_line);
         this.exO.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
         com.baidu.tbadk.widget.layout.f fVar = new com.baidu.tbadk.widget.layout.f(3);
         fVar.h(1.0d);
@@ -61,7 +61,7 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
         al.j(this.ezD, R.color.cp_cont_b);
         al.j(this.ezE, R.color.cp_cont_d);
         al.k(getView(), R.drawable.addresslist_item_bg);
-        al.l(this.cSZ, R.color.cp_bg_line_e);
+        al.l(this.cTa, R.color.cp_bg_line_e);
         this.exO.onChangeSkinType();
         this.eqG.setDefaultBgResource(i);
     }
@@ -81,7 +81,7 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
             }
             return;
         }
-        this.VK = bgVar;
+        this.VJ = bgVar;
         if (getView() != null) {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
@@ -113,37 +113,37 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
         } else {
             this.exO.setVisibility(8);
         }
-        n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        n.a(this.ezF, this.VJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.VK != null) {
+        if (this.VJ != null) {
             if (aXr() != null) {
-                aXr().a(view, (View) this.VK, (Object) this.ezG);
+                aXr().a(view, (View) this.VJ, (Object) this.ezG);
             }
             if (view == getView()) {
-                n.uS(this.VK.getTid());
-                n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+                n.uR(this.VJ.getTid());
+                n.a(this.ezF, this.VJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
                 aXQ();
             }
         }
     }
 
     private void aXQ() {
-        if (this.VK != null && this.VK.adv() != null && this.VK.adv().getName_show() != null) {
-            long fid = this.VK.getFid();
-            if (this.VK.bKZ != null) {
-                fid = com.baidu.adp.lib.g.b.c(this.VK.bKZ.id, 0L);
+        if (this.VJ != null && this.VJ.adv() != null && this.VJ.adv().getName_show() != null) {
+            long fid = this.VJ.getFid();
+            if (this.VJ.bLa != null) {
+                fid = com.baidu.adp.lib.g.b.c(this.VJ.bLa.id, 0L);
             }
             if (com.baidu.tbadk.plugins.b.fE(true) && !com.baidu.tbadk.plugins.b.auB()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.VK.adv().getName_show() + "", "3");
-                createNormalConfig.setExtra(fid, this.VK.afb(), this.VK.afc(), com.baidu.adp.lib.g.b.c(this.VK.getTid(), 0L));
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.VJ.adv().getName_show() + "", "3");
+                createNormalConfig.setExtra(fid, this.VJ.afb(), this.VJ.afc(), com.baidu.adp.lib.g.b.c(this.VJ.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 return;
             }
-            ba.aiz().c(this.mPageContext, new String[]{this.VK.afd()});
+            ba.aiz().c(this.mPageContext, new String[]{this.VJ.afd()});
         }
     }
 
@@ -161,7 +161,7 @@ public class w extends a<bg> implements com.baidu.tieba.a.e {
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.Wt = str;
+        this.Ws = str;
     }
 
     public void a(u uVar) {

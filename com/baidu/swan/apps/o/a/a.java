@@ -46,7 +46,7 @@ public class a extends d implements e.a {
         }
         f.a(bundle != null, getIntent());
         f.c(System.currentTimeMillis(), false);
-        com.baidu.swan.apps.y.f.GN().fz("frame_create");
+        com.baidu.swan.apps.y.f.GN().fy("frame_create");
         super.onCreate(bundle);
         com.baidu.swan.apps.statistic.d.dL(bundle == null ? 0 : 1);
         if (bundle == null) {
@@ -69,7 +69,7 @@ public class a extends d implements e.a {
     public void onResume() {
         super.onResume();
         f.HY().f(new UbcFlowEvent("frame_start_end"));
-        com.baidu.swan.apps.y.f.GN().fz("frame_start_end");
+        com.baidu.swan.apps.y.f.GN().fy("frame_start_end");
     }
 
     @Override // com.baidu.swan.apps.o.d
@@ -110,15 +110,15 @@ public class a extends d implements e.a {
             }
             return false;
         } else {
-            com.baidu.swan.apps.ae.a.c dR = com.baidu.swan.apps.core.h.a.AW().dR(bVar.getAppId());
-            if (dR == null) {
+            com.baidu.swan.apps.ae.a.c dQ = com.baidu.swan.apps.core.h.a.AW().dQ(bVar.getAppId());
+            if (dQ == null) {
                 if (DEBUG) {
                     Log.i("SwanAppFrame", "checkSyncLegal error : none configData");
                     return false;
                 }
                 return false;
             } else if (e.d.ae(bVar.getAppId(), bVar.getVersion()).exists()) {
-                return !g.b(bVar, dR);
+                return !g.b(bVar, dQ);
             } else if (DEBUG) {
                 Log.i("SwanAppFrame", "checkSyncLegal error : unzip foldr is not exist");
                 return false;
@@ -151,9 +151,9 @@ public class a extends d implements e.a {
             h(this.ajM);
             CJ();
         } else {
-            HybridUbcFlow fO = f.fO("startup");
+            HybridUbcFlow fN = f.fN("startup");
             com.baidu.swan.apps.statistic.d.dL(2);
-            fO.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(currentTimeMillis));
+            fN.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(currentTimeMillis));
             this.ajM = com.baidu.swan.apps.v.b.b.a(this.ajM, F);
             this.ajM.H(currentTimeMillis);
             String CW = CW();
@@ -161,16 +161,16 @@ public class a extends d implements e.a {
                 Log.d("SwanAppFrame", "onNewIntent launchPage : " + CW);
             }
             if (!TextUtils.isEmpty(CW)) {
-                fO.a(HybridUbcFlow.SubmitStrategy.RELAUNCH).j("type", "2");
+                fN.a(HybridUbcFlow.SubmitStrategy.RELAUNCH).j("type", "2");
                 com.baidu.swan.apps.scheme.actions.i.a.t("backtohome", "relaunch", CW);
                 com.baidu.swan.apps.statistic.e.MQ();
             } else {
-                fO.a(HybridUbcFlow.SubmitStrategy.NA_ONLY).j("type", "3");
+                fN.a(HybridUbcFlow.SubmitStrategy.NA_ONLY).j("type", "3");
             }
-            fO.f(new UbcFlowEvent("na_page_show").a(UbcFlowEvent.RecordType.UPDATE_RECENT));
+            fN.f(new UbcFlowEvent("na_page_show").a(UbcFlowEvent.RecordType.UPDATE_RECENT));
             f.k(this.ajM);
             c.c(new com.baidu.swan.apps.statistic.b.a("narun"));
-            com.baidu.swan.apps.y.f.GN().fz("na_page_show");
+            com.baidu.swan.apps.y.f.GN().fy("na_page_show");
         }
         com.baidu.swan.apps.ae.b.n(this.ajM);
         bg(ad);
@@ -182,7 +182,7 @@ public class a extends d implements e.a {
             Lq.Lu().Mu();
             Lq.Lv().clear();
         }
-        com.baidu.swan.apps.y.f.GN().fz("frame_new_intent");
+        com.baidu.swan.apps.y.f.GN().fy("frame_new_intent");
     }
 
     private boolean ad(String str, String str2) {
@@ -247,7 +247,7 @@ public class a extends d implements e.a {
                 com.baidu.swan.apps.console.c.d("SwanAppFrame", "onBack");
                 return;
             }
-            this.awx.dO("navigateBack").y(com.baidu.swan.apps.core.d.e.aqV, com.baidu.swan.apps.core.d.e.aqU).zS().commit();
+            this.awx.dN("navigateBack").y(com.baidu.swan.apps.core.d.e.aqV, com.baidu.swan.apps.core.d.e.aqU).zS().commit();
         }
     }
 
@@ -364,8 +364,8 @@ public class a extends d implements e.a {
             return;
         }
         SwanCoreVersion BA = com.baidu.swan.apps.core.j.c.Bi().BA();
-        long hI = com.baidu.swan.apps.swancore.b.hI(this.ajM.EZ());
-        if (hI != 0 && BA != null && hI > BA.aVW) {
+        long hH = com.baidu.swan.apps.swancore.b.hH(this.ajM.EZ());
+        if (hH != 0 && BA != null && hH > BA.aVW) {
             com.baidu.swan.apps.core.j.c.release();
             return;
         }

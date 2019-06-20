@@ -62,39 +62,39 @@ public abstract class a {
                 if (DEBUG) {
                     Log.d("AbsDefaultPurger", "clear storage files: " + str);
                 }
-                String hu = com.baidu.swan.apps.storage.b.hu(str);
-                if (!TextUtils.isEmpty(hu)) {
-                    com.baidu.swan.c.a.deleteFile(hu);
+                String ht = com.baidu.swan.apps.storage.b.ht(str);
+                if (!TextUtils.isEmpty(ht)) {
+                    com.baidu.swan.c.a.deleteFile(ht);
                 }
-                String hy = com.baidu.swan.apps.storage.b.hy(str);
-                if (!TextUtils.isEmpty(hy)) {
-                    com.baidu.swan.c.a.deleteFile(hy);
+                String hx = com.baidu.swan.apps.storage.b.hx(str);
+                if (!TextUtils.isEmpty(hx)) {
+                    com.baidu.swan.c.a.deleteFile(hx);
                 }
             }
         }
     }
 
-    public void dX(String str) {
+    public void dW(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AbsDefaultPurger", "删除包的APS记录: " + str);
             }
+            el(str);
             em(str);
-            en(str);
         }
     }
 
-    public void el(String str) {
+    public void ek(String str) {
         SwanAppDbControl.aX(AppRuntime.getAppContext()).o(str, false);
-        com.baidu.swan.pms.database.a.Vl().kj(str);
+        com.baidu.swan.pms.database.a.Vl().ki(str);
         com.baidu.swan.pms.database.a.Vl().c(com.baidu.swan.pms.model.f.class, str);
     }
 
-    public void ek(String str) {
-        com.baidu.swan.apps.database.subpackage.a.Cb().ek(str);
+    public void ej(String str) {
+        com.baidu.swan.apps.database.subpackage.a.Cb().ej(str);
     }
 
-    private void em(String str) {
+    private void el(String str) {
         if (str != null) {
             com.baidu.b.a.c.a.N(Constants.VIA_REPORT_TYPE_QQFAVORITES, str);
             com.baidu.b.a.c.a.N("51", str);
@@ -139,21 +139,21 @@ public abstract class a {
         };
     }
 
-    private void en(String str) {
-        List<String> eo;
-        if (!TextUtils.isEmpty(str) && (eo = eo(str)) != null && eo.size() > 0) {
-            for (String str2 : eo) {
+    private void em(String str) {
+        List<String> en;
+        if (!TextUtils.isEmpty(str) && (en = en(str)) != null && en.size() > 0) {
+            for (String str2 : en) {
                 if (!TextUtils.isEmpty(str2)) {
                     if (DEBUG) {
                         Log.d("AbsDefaultPurger", "删除分包的APS记录: " + str + " : " + str2);
                     }
-                    em(str2);
+                    el(str2);
                 }
             }
         }
     }
 
-    private List<String> eo(String str) {
+    private List<String> en(String str) {
         Cursor cursor;
         Closeable closeable = null;
         ArrayList arrayList = new ArrayList();

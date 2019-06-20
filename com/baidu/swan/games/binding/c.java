@@ -201,7 +201,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public Object getStorageSync(String str) {
-        return com.baidu.swan.games.s.a.d.a(this.beh, "getStorageSync", str, Qp().jQ(str));
+        return com.baidu.swan.games.s.a.d.a(this.beh, "getStorageSync", str, Qp().jP(str));
     }
 
     @JavascriptInterface
@@ -226,7 +226,7 @@ public final class c extends EventTargetImpl {
 
     @JavascriptInterface
     public void removeStorageSync(String str) {
-        com.baidu.swan.games.s.a.d.a(this.beh, "removeStorageSync", str, Qp().jR(str));
+        com.baidu.swan.games.s.a.d.a(this.beh, "removeStorageSync", str, Qp().jQ(str));
     }
 
     @JavascriptInterface

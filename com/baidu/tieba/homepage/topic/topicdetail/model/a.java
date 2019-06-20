@@ -20,7 +20,7 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
-    private BdUniqueId cwh;
+    private BdUniqueId cwi;
     private final com.baidu.adp.framework.listener.a eHz = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -33,14 +33,14 @@ public class a {
             }
         }
     };
-    private TopicDetailView gfD;
+    private TopicDetailView gfF;
 
     public a(TopicDetailView topicDetailView) {
-        this.gfD = topicDetailView;
+        this.gfF = topicDetailView;
     }
 
     public void i(BdUniqueId bdUniqueId) {
-        this.cwh = bdUniqueId;
+        this.cwi = bdUniqueId;
         this.eHz.setTag(bdUniqueId);
         this.eHz.getHttpMessageListener().setSelfListener(true);
         this.eHz.getSocketMessageListener().setSelfListener(true);
@@ -72,7 +72,7 @@ public class a {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(a.this.cwh);
+            requestGetMyPostNetMessage.setTag(a.this.cwi);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, af, ah, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -91,7 +91,7 @@ public class a {
             bgVar.a(build);
             bgVar.ap(new Date().getTime());
             if (k.V(bgVar)) {
-                this.gfD.ar(bgVar);
+                this.gfF.ar(bgVar);
             }
         }
     }

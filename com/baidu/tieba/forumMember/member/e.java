@@ -25,7 +25,7 @@ import tbclient.PriManagerApplyInfo;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public class e implements af {
-    private BdUniqueId cwh;
+    private BdUniqueId cwi;
     private ai flp;
     private String forumId;
     private String forumName;
@@ -155,10 +155,10 @@ public class e implements af {
         }
     };
 
-    public void wh(String str) {
+    public void wg(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
-        if (this.cwh != null) {
-            forumMemberReadCacheRequestMessage.setTag(this.cwh);
+        if (this.cwi != null) {
+            forumMemberReadCacheRequestMessage.setTag(this.cwi);
         }
         forumMemberReadCacheRequestMessage.setForumName(str);
         MessageManager.getInstance().sendMessage(forumMemberReadCacheRequestMessage);
@@ -167,8 +167,8 @@ public class e implements af {
     public void d(long j, String str) {
         if (j > 0 && !StringUtils.isNull(str)) {
             ForumMemberRequestMessage forumMemberRequestMessage = new ForumMemberRequestMessage();
-            if (this.cwh != null) {
-                forumMemberRequestMessage.setTag(this.cwh);
+            if (this.cwi != null) {
+                forumMemberRequestMessage.setTag(this.cwi);
             }
             forumMemberRequestMessage.setForumId(j);
             forumMemberRequestMessage.setForumName(str);
@@ -227,7 +227,7 @@ public class e implements af {
                 s sVar = new s();
                 if (sVar != null) {
                     sVar.qO(priManagerApplyInfo.assist_left_num.intValue());
-                    sVar.wj(priManagerApplyInfo.assist_apply_url);
+                    sVar.wi(priManagerApplyInfo.assist_apply_url);
                     sVar.qP(priManagerApplyInfo.assist_apply_status.intValue());
                 }
                 arrayList.add(sVar);
@@ -236,9 +236,9 @@ public class e implements af {
             p pVar = new p();
             if (managerApplyInfo != null) {
                 pVar.qM(managerApplyInfo.manager_left_num.intValue());
-                pVar.wi(managerApplyInfo.manager_apply_url);
+                pVar.wh(managerApplyInfo.manager_apply_url);
                 pVar.qO(managerApplyInfo.assist_left_num.intValue());
-                pVar.wj(managerApplyInfo.assist_apply_url);
+                pVar.wi(managerApplyInfo.assist_apply_url);
                 pVar.qN(managerApplyInfo.manager_apply_status.intValue());
             }
             arrayList.add(pVar);
@@ -304,7 +304,7 @@ public class e implements af {
 
     public void setTag(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.cwh = bdUniqueId;
+            this.cwi = bdUniqueId;
         }
     }
 
@@ -314,7 +314,7 @@ public class e implements af {
             this.forumId = amVar.forumId;
             this.forumName = amVar.forumName;
             if (this.fex) {
-                wh(amVar.forumName);
+                wg(amVar.forumName);
             } else if (amVar.pn == -1) {
                 d(com.baidu.adp.lib.g.b.c(amVar.forumId, 0L), amVar.forumName);
             } else {
@@ -331,9 +331,9 @@ public class e implements af {
     @Override // com.baidu.tieba.frs.af
     public void init() {
         registerTask();
-        if (this.cwh != null) {
-            this.fkK.setTag(this.cwh);
-            this.eTF.setTag(this.cwh);
+        if (this.cwi != null) {
+            this.fkK.setTag(this.cwi);
+            this.eTF.setTag(this.cwi);
             this.fkK.setSelfListener(true);
             if (this.eTF.getHttpMessageListener() != null) {
                 this.eTF.getHttpMessageListener().setSelfListener(true);

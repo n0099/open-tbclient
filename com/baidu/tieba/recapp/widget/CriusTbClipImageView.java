@@ -15,11 +15,11 @@ import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class CriusTbClipImageView extends TbClipImageView {
-    protected a iHf;
-    private Path iHg;
-    private RectF iHh;
-    private float[] iHi;
-    private int iHj;
+    protected b iHi;
+    private Path iHj;
+    private RectF iHk;
+    private float[] iHl;
+    private int iHm;
 
     public CriusTbClipImageView(Context context) {
         this(context, null, 0);
@@ -27,9 +27,9 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.iHf = new a();
-        this.iHg = new Path();
-        this.iHj = getLayerType();
+        this.iHi = new b();
+        this.iHj = new Path();
+        this.iHm = getLayerType();
     }
 
     public CriusTbClipImageView(Context context, AttributeSet attributeSet) {
@@ -40,69 +40,69 @@ public class CriusTbClipImageView extends TbClipImageView {
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void init(AttributeSet attributeSet) {
         super.init(attributeSet);
-        this.iHf = new a();
+        this.iHi = new b();
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c.a.BDImageView);
-            this.iHf.iHb = obtainStyledAttributes.getDimensionPixelSize(1, l.dip2px(getContext(), 4.0f));
-            this.iHf.iHc = obtainStyledAttributes.getDimensionPixelSize(2, l.dip2px(getContext(), 4.0f));
-            this.iHf.iHd = obtainStyledAttributes.getDimensionPixelSize(3, l.dip2px(getContext(), 4.0f));
-            this.iHf.iHe = obtainStyledAttributes.getDimensionPixelSize(4, l.dip2px(getContext(), 4.0f));
-            this.iHf.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, l.dip2px(getContext(), 4.0f));
-            this.iHf.GK = obtainStyledAttributes.getBoolean(5, false);
-            this.iHf.GL = obtainStyledAttributes.getBoolean(6, false);
-            this.iHf.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(7, l.dip2px(getContext(), 1.0f));
-            this.iHf.mBorderColor = obtainStyledAttributes.getColor(8, 201326592);
-            this.iHf.GM = obtainStyledAttributes.getBoolean(9, false);
-            this.iHf.GO = obtainStyledAttributes.getBoolean(10, true);
-            this.iHf.GQ = obtainStyledAttributes.getColor(16, 0);
+            this.iHi.iHe = obtainStyledAttributes.getDimensionPixelSize(1, l.dip2px(getContext(), 4.0f));
+            this.iHi.iHf = obtainStyledAttributes.getDimensionPixelSize(2, l.dip2px(getContext(), 4.0f));
+            this.iHi.iHg = obtainStyledAttributes.getDimensionPixelSize(3, l.dip2px(getContext(), 4.0f));
+            this.iHi.iHh = obtainStyledAttributes.getDimensionPixelSize(4, l.dip2px(getContext(), 4.0f));
+            this.iHi.mRadius = obtainStyledAttributes.getDimensionPixelSize(0, l.dip2px(getContext(), 4.0f));
+            this.iHi.GJ = obtainStyledAttributes.getBoolean(5, false);
+            this.iHi.GK = obtainStyledAttributes.getBoolean(6, false);
+            this.iHi.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(7, l.dip2px(getContext(), 1.0f));
+            this.iHi.mBorderColor = obtainStyledAttributes.getColor(8, 201326592);
+            this.iHi.GL = obtainStyledAttributes.getBoolean(9, false);
+            this.iHi.GN = obtainStyledAttributes.getBoolean(10, true);
+            this.iHi.GP = obtainStyledAttributes.getColor(16, 0);
             this.mDrawerType = obtainStyledAttributes.getInt(12, 0);
             this.mMaxWidth = obtainStyledAttributes.getDimensionPixelSize(13, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mMaxHeight = obtainStyledAttributes.getDimensionPixelSize(14, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
             this.mAdjustViewBounds = obtainStyledAttributes.getBoolean(15, false);
             obtainStyledAttributes.recycle();
         } else {
-            this.iHf.iHb = l.dip2px(getContext(), 4.0f);
-            this.iHf.iHc = l.dip2px(getContext(), 4.0f);
-            this.iHf.iHd = l.dip2px(getContext(), 4.0f);
-            this.iHf.iHe = l.dip2px(getContext(), 4.0f);
-            this.iHf.mRadius = l.dip2px(getContext(), 4.0f);
-            this.iHf.mBorderWidth = l.dip2px(getContext(), 1.0f);
-            this.iHf.mBorderColor = 201326592;
+            this.iHi.iHe = l.dip2px(getContext(), 4.0f);
+            this.iHi.iHf = l.dip2px(getContext(), 4.0f);
+            this.iHi.iHg = l.dip2px(getContext(), 4.0f);
+            this.iHi.iHh = l.dip2px(getContext(), 4.0f);
+            this.iHi.mRadius = l.dip2px(getContext(), 4.0f);
+            this.iHi.mBorderWidth = l.dip2px(getContext(), 1.0f);
+            this.iHi.mBorderColor = 201326592;
         }
-        this.iHj = getLayerType();
-        if (Build.VERSION.SDK_INT < 18 && this.iHj != 1) {
+        this.iHm = getLayerType();
+        if (Build.VERSION.SDK_INT < 18 && this.iHm != 1) {
             setLayerType(1, null);
         }
-        if (!this.iHf.GK) {
-            this.iHf.mRadius = 0.0f;
+        if (!this.iHi.GJ) {
+            this.iHi.mRadius = 0.0f;
         }
-        this.mArgs = this.iHf;
+        this.mArgs = this.iHi;
         setConrers(0);
         this.mDrawer = e.lj().aA(this.mDrawerType);
-        this.mDrawer.a(this.iHf);
+        this.mDrawer.a(this.iHi);
     }
 
     public void setRadius(int i, int i2, int i3, int i4) {
         boolean z = false;
-        if (this.iHf.iHb != i) {
-            this.iHf.iHb = i;
+        if (this.iHi.iHe != i) {
+            this.iHi.iHe = i;
             z = true;
         }
-        if (this.iHf.iHc != i2) {
-            this.iHf.iHc = i2;
+        if (this.iHi.iHf != i2) {
+            this.iHi.iHf = i2;
             z = true;
         }
-        if (this.iHf.iHd != i3) {
-            this.iHf.iHd = i3;
+        if (this.iHi.iHg != i3) {
+            this.iHi.iHg = i3;
             z = true;
         }
-        if (this.iHf.iHe != i4) {
-            this.iHf.iHe = i4;
+        if (this.iHi.iHh != i4) {
+            this.iHi.iHh = i4;
             z = true;
         }
         if (z) {
-            this.iHj = getLayerType();
-            if (Build.VERSION.SDK_INT < 18 && this.iHj != 1) {
+            this.iHm = getLayerType();
+            if (Build.VERSION.SDK_INT < 18 && this.iHm != 1) {
                 setLayerType(1, null);
             }
             invalidate();
@@ -111,7 +111,7 @@ public class CriusTbClipImageView extends TbClipImageView {
 
     @Override // com.baidu.adp.newwidget.ImageView.BDImageView
     public void setRadius(int i) {
-        this.iHf.mRadius = i;
+        this.iHi.mRadius = i;
         setRadius(i, i, i, i);
     }
 
@@ -124,28 +124,28 @@ public class CriusTbClipImageView extends TbClipImageView {
     }
 
     private void Z(Canvas canvas) {
-        if (!this.iHf.GK) {
+        if (!this.iHi.GJ) {
             setDrawerType(1);
-            this.iHg.reset();
-            this.iHh = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.iHi = new float[]{this.iHf.iHb, this.iHf.iHb, this.iHf.iHd, this.iHf.iHd, this.iHf.iHe, this.iHf.iHe, this.iHf.iHc, this.iHf.iHc};
-            this.iHg.addRoundRect(this.iHh, this.iHi, Path.Direction.CW);
+            this.iHj.reset();
+            this.iHk = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iHl = new float[]{this.iHi.iHe, this.iHi.iHe, this.iHi.iHg, this.iHi.iHg, this.iHi.iHh, this.iHi.iHh, this.iHi.iHf, this.iHi.iHf};
+            this.iHj.addRoundRect(this.iHk, this.iHl, Path.Direction.CW);
             try {
-                canvas.clipPath(this.iHg);
+                canvas.clipPath(this.iHj);
             } catch (Error e) {
             }
         }
     }
 
     private void aa(Canvas canvas) {
-        if (!this.iHf.GK && this.iHf.GL) {
+        if (!this.iHi.GJ && this.iHi.GK) {
             setDrawerType(1);
-            this.iHg.reset();
-            this.iHh = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-            this.iHi = new float[]{this.iHf.iHb, this.iHf.iHb, this.iHf.iHd, this.iHf.iHd, this.iHf.iHe, this.iHf.iHe, this.iHf.iHc, this.iHf.iHc};
-            this.iHg.addRoundRect(this.iHh, this.iHi, Path.Direction.CW);
+            this.iHj.reset();
+            this.iHk = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+            this.iHl = new float[]{this.iHi.iHe, this.iHi.iHe, this.iHi.iHg, this.iHi.iHg, this.iHi.iHh, this.iHi.iHh, this.iHi.iHf, this.iHi.iHf};
+            this.iHj.addRoundRect(this.iHk, this.iHl, Path.Direction.CW);
             try {
-                canvas.drawPath(this.iHg, this.mDrawer.mBorderPaint);
+                canvas.drawPath(this.iHj, this.mDrawer.mBorderPaint);
             } catch (Error e) {
             }
         }
@@ -154,16 +154,16 @@ public class CriusTbClipImageView extends TbClipImageView {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView
     public void drawBackground(Canvas canvas, Drawable drawable) {
-        if (this.iHf.GK) {
+        if (this.iHi.GJ) {
             super.drawBackground(canvas, drawable);
             return;
         }
-        this.iHg.reset();
-        this.iHh = new RectF(0.0f, 0.0f, getWidth(), getHeight());
-        this.iHi = new float[]{this.iHf.iHb, this.iHf.iHb, this.iHf.iHd, this.iHf.iHd, this.iHf.iHe, this.iHf.iHe, this.iHf.iHc, this.iHf.iHc};
-        this.iHg.addRoundRect(this.iHh, this.iHi, Path.Direction.CW);
+        this.iHj.reset();
+        this.iHk = new RectF(0.0f, 0.0f, getWidth(), getHeight());
+        this.iHl = new float[]{this.iHi.iHe, this.iHi.iHe, this.iHi.iHg, this.iHi.iHg, this.iHi.iHh, this.iHi.iHh, this.iHi.iHf, this.iHi.iHf};
+        this.iHj.addRoundRect(this.iHk, this.iHl, Path.Direction.CW);
         try {
-            canvas.clipPath(this.iHg);
+            canvas.clipPath(this.iHj);
         } catch (Error e) {
         }
         drawable.draw(canvas);

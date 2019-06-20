@@ -14,9 +14,9 @@ import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> bMC;
-    private static HashMap<DefaultIcon, Integer> bMD = new HashMap<>(2);
-    private Toast Eg;
+    private static SoftReference<Toast> bMD;
+    private static HashMap<DefaultIcon, Integer> bME = new HashMap<>(2);
+    private Toast Ef;
     private final Context mContext;
     private final ImageView mIconView;
     private final ViewGroup mRootView;
@@ -25,8 +25,8 @@ public class BdToast {
     private int mIconResId = -1;
     private int mGravity = 16;
     private int mDuration = 0;
+    private int zK = 0;
     private int zL = 0;
-    private int zM = 0;
     private int paddingHorizontal = 0;
 
     /* loaded from: classes.dex */
@@ -37,9 +37,9 @@ public class BdToast {
     }
 
     static {
-        bMD.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.icon_unite_pass));
-        bMD.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.icon_unite_lose));
-        bMD.put(DefaultIcon.NOT, 0);
+        bME.put(DefaultIcon.SUCCESS, Integer.valueOf((int) R.drawable.icon_unite_pass));
+        bME.put(DefaultIcon.FAILURE, Integer.valueOf((int) R.drawable.icon_unite_lose));
+        bME.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
@@ -75,7 +75,7 @@ public class BdToast {
     }
 
     public void setOffsetY(int i) {
-        this.zM = i;
+        this.zL = i;
     }
 
     public void am(float f) {
@@ -83,7 +83,7 @@ public class BdToast {
     }
 
     public BdToast afM() {
-        this.Eg = new Toast(this.mContext);
+        this.Ef = new Toast(this.mContext);
         afN();
         if (this.mIconResId != -1) {
             al.c(this.mIconView, this.mIconResId);
@@ -93,15 +93,15 @@ public class BdToast {
         }
         al.f(this.mTextView, R.color.cp_btn_a, 1);
         this.mTextView.setText(this.mText);
-        this.Eg.setGravity(this.mGravity, this.zL, this.zM);
-        this.Eg.setDuration(this.mDuration);
+        this.Ef.setGravity(this.mGravity, this.zK, this.zL);
+        this.Ef.setDuration(this.mDuration);
         hD(this.paddingHorizontal);
-        this.Eg.setView(this.mRootView);
+        this.Ef.setView(this.mRootView);
         return this;
     }
 
     public BdToast hC(int i) {
-        this.Eg = new Toast(this.mContext);
+        this.Ef = new Toast(this.mContext);
         afN();
         if (this.mIconResId != -1) {
             al.c(this.mIconView, this.mIconResId);
@@ -111,18 +111,18 @@ public class BdToast {
         }
         al.c(this.mTextView, R.color.cp_btn_a, 1, i);
         this.mTextView.setText(this.mText);
-        this.Eg.setGravity(this.mGravity, this.zL, this.zM);
-        this.Eg.setDuration(this.mDuration);
+        this.Ef.setGravity(this.mGravity, this.zK, this.zL);
+        this.Ef.setDuration(this.mDuration);
         hD(this.paddingHorizontal);
-        this.Eg.setView(this.mRootView);
+        this.Ef.setView(this.mRootView);
         return this;
     }
 
     private void afN() {
-        if (bMC != null && bMC.get() != null) {
-            bMC.get().cancel();
+        if (bMD != null && bMD.get() != null) {
+            bMD.get().cancel();
         }
-        bMC = new SoftReference<>(this.Eg);
+        bMD = new SoftReference<>(this.Ef);
     }
 
     private void hD(int i) {
@@ -133,9 +133,9 @@ public class BdToast {
 
     public BdToast afO() {
         this.mTextView.setText(this.mText);
-        this.Eg.setGravity(this.mGravity, this.zL, this.zM);
-        this.Eg.setDuration(this.mDuration);
-        this.Eg.show();
+        this.Ef.setGravity(this.mGravity, this.zK, this.zL);
+        this.Ef.setDuration(this.mDuration);
+        this.Ef.show();
         return this;
     }
 
@@ -160,10 +160,10 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).h(charSequence).hz(bMD.get(defaultIcon).intValue()).afM();
+        return new BdToast(context).h(charSequence).hz(bME.get(defaultIcon).intValue()).afM();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).h(charSequence).hz(bMD.get(defaultIcon).intValue()).hB(i).afM();
+        return new BdToast(context).h(charSequence).hz(bME.get(defaultIcon).intValue()).hB(i).afM();
     }
 }

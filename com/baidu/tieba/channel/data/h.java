@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import tbclient.ChannelVideoInfo;
 /* loaded from: classes6.dex */
 public class h implements m {
-    private int cLq;
+    private int cLr;
     private long createTime;
     private int eDL;
     private long eDM;
@@ -58,11 +58,11 @@ public class h implements m {
     }
 
     public int aYI() {
-        return this.cLq;
+        return this.cLr;
     }
 
     public void pA(int i) {
-        this.cLq = i;
+        this.cLr = i;
     }
 
     public void setVideoUrl(String str) {
@@ -183,7 +183,7 @@ public class h implements m {
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
         this.eDQ = jSONObject.optString("play_time");
-        this.cLq = jSONObject.optInt("play_count");
+        this.cLr = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");

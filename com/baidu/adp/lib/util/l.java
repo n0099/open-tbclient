@@ -27,19 +27,19 @@ import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class l {
-    private static float Ed;
+    private static float Ec;
+    static int Ed;
     static int Ee;
-    static int Ef;
-    private static String Ei;
-    public static boolean Ec = false;
-    private static Toast Eg = null;
-    private static a Eh = null;
+    private static String Eh;
+    public static boolean Eb = false;
+    private static Toast Ef = null;
+    private static a Eg = null;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
     private static Runnable mRunnable = new Runnable() { // from class: com.baidu.adp.lib.util.l.1
         @Override // java.lang.Runnable
         public void run() {
-            if (l.Eg != null) {
-                l.Eg.cancel();
+            if (l.Ef != null) {
+                l.Ef.cancel();
             }
         }
     };
@@ -57,72 +57,72 @@ public class l {
         windowManager.getDefaultDisplay().getMetrics(displayMetrics);
         int orientation = windowManager.getDefaultDisplay().getOrientation();
         if (orientation == 1 || orientation == 3) {
-            Ee = displayMetrics.heightPixels;
-            Ef = displayMetrics.widthPixels;
-        } else {
+            Ed = displayMetrics.heightPixels;
             Ee = displayMetrics.widthPixels;
-            Ef = displayMetrics.heightPixels;
+        } else {
+            Ed = displayMetrics.widthPixels;
+            Ee = displayMetrics.heightPixels;
         }
-        Ed = displayMetrics.density;
-        Ec = true;
+        Ec = displayMetrics.density;
+        Eb = true;
     }
 
     public static int af(Context context) {
-        if (!Ec) {
-            ag(context);
-        }
-        return Ee;
-    }
-
-    public static int ah(Context context) {
-        if (!Ec) {
-            ag(context);
-        }
-        return Ef;
-    }
-
-    public static int dip2px(Context context, float f) {
-        if (!Ec) {
-            ag(context);
-        }
-        return (int) ((Ed * f) + 0.5f);
-    }
-
-    public static float ai(Context context) {
-        if (!Ec) {
+        if (!Eb) {
             ag(context);
         }
         return Ed;
     }
 
+    public static int ah(Context context) {
+        if (!Eb) {
+            ag(context);
+        }
+        return Ee;
+    }
+
+    public static int dip2px(Context context, float f) {
+        if (!Eb) {
+            ag(context);
+        }
+        return (int) ((Ec * f) + 0.5f);
+    }
+
+    public static float ai(Context context) {
+        if (!Eb) {
+            ag(context);
+        }
+        return Ec;
+    }
+
     public static void d(Context context, String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             mHandler.removeCallbacks(mRunnable);
-            if (Eg == null) {
-                if (Eh == null || Eh.ko() == null) {
+            if (Ef == null) {
+                if (Eg == null || Eg.ko() == null) {
                     if (i == 3500) {
-                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 1);
+                        Ef = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 1);
                     } else {
-                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                        Ef = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
                     }
-                    Eg.setText(str);
+                    Ef.setText(str);
                 } else {
-                    Eg = new Toast(BdBaseApplication.getInst().getApp());
+                    Ef = new Toast(BdBaseApplication.getInst().getApp());
                     if (i == 3500) {
-                        Eg.setDuration(1);
+                        Ef.setDuration(1);
                     } else {
-                        Eg.setDuration(0);
+                        Ef.setDuration(0);
                     }
-                    Eh.bl(str);
-                    Eg.setView(Eh.ko());
+                    Eg.bl(str);
+                    Ef.setView(Eg.ko());
                 }
-                Eg.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+                Ef.setGravity(17, 0, dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
             } else {
-                if (!str.equals(Ei)) {
-                    if (Eh == null || Eh.ko() == null) {
-                        Eg.setText(str);
+                if (!str.equals(Eh)) {
+                    if (Eg == null || Eg.ko() == null) {
+                        Ef.setText(str);
                     } else {
-                        Eh.bl(str);
+                        Eg.bl(str);
                     }
                 }
                 int dip2px = dip2px(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -130,15 +130,15 @@ public class l {
                     dip2px = 0;
                 }
                 if (i == 3500) {
-                    Eg.setDuration(1);
+                    Ef.setDuration(1);
                 } else {
-                    Eg.setDuration(0);
+                    Ef.setDuration(0);
                 }
-                Eg.setGravity(17, 0, dip2px);
+                Ef.setGravity(17, 0, dip2px);
             }
-            Ei = str;
+            Eh = str;
             mHandler.postDelayed(mRunnable, i);
-            Eg.show();
+            Ef.show();
         }
     }
 
@@ -491,10 +491,10 @@ public class l {
     }
 
     public static a km() {
-        return Eh;
+        return Eg;
     }
 
     public static void a(a aVar) {
-        Eh = aVar;
+        Eg = aVar;
     }
 }

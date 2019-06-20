@@ -23,7 +23,7 @@ import com.baidu.tieba.enterForum.recommend.b.f;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterForum.recommend.view.a {
-    private int NH;
+    private int NG;
     private List<f> eUU;
     private CellForumTestView eUV;
     private CellForumTestView eUW;
@@ -112,7 +112,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         dC(context);
         resetData();
         ViewConfiguration.get(context);
-        this.NH = ViewConfiguration.getMaximumFlingVelocity();
+        this.NG = ViewConfiguration.getMaximumFlingVelocity();
         this.eUV.setForumTestDelClickListener(this);
         this.eUW.setForumTestDelClickListener(this);
         this.eUX.setForumTestDelClickListener(this);
@@ -347,7 +347,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                     }
                     this.mLastMotionX = x;
                 } else if (i == 1 || i == 3) {
-                    velocityTracker.computeCurrentVelocity(1000, this.NH);
+                    velocityTracker.computeCurrentVelocity(1000, this.NG);
                     float xVelocity = velocityTracker.getXVelocity(this.eVu);
                     if (this.eVr || this.eVp != 0.0f) {
                         aE(xVelocity);
@@ -835,7 +835,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         f fVar;
         am a2;
         if (this.eUU != null && i >= 0 && i < this.eUU.size() && (fVar = this.eUU.get(i)) != null && (a2 = com.baidu.tieba.q.a.a(false, "a065", "common_exp", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-            com.baidu.tieba.q.c.clv().a(this.mPageId, "enterfourm_rec_" + fVar.testId, a2);
+            com.baidu.tieba.q.c.clw().a(this.mPageId, "enterfourm_rec_" + fVar.testId, a2);
         }
     }
 }

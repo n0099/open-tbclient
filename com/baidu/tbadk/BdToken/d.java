@@ -97,7 +97,7 @@ public class d {
                     } else if (YF != 4 && YF == 3 && !StringUtils.isNull(decryptData.getUrl())) {
                         Uri parse = Uri.parse(decryptData.getUrl());
                         if (parse == null || parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) == null || parse.getQueryParameter("obj_type") == null || !parse.getQueryParameter("obj_type").equals("wise")) {
-                            d.this.lj(decryptData.getUrl());
+                            d.this.li(decryptData.getUrl());
                         } else if (com.baidu.tbadk.core.sharedPref.b.agM().getInt("need_deal_diversion_jump", 0) == 1) {
                             com.baidu.tbadk.core.sharedPref.b.agM().putInt("need_deal_diversion_jump", 0);
                             if (MessageManager.getInstance().findTask(2921361) != null) {
@@ -157,7 +157,7 @@ public class d {
                         }
                         return;
                     }
-                    d.this.li(str);
+                    d.this.lh(str);
                 }
             }.execute(clipBoardContent);
         }
@@ -201,7 +201,7 @@ public class d {
     public void Yw() {
         String clipBoardContent = getClipBoardContent();
         if (!ap.isEmpty(clipBoardContent) && clipBoardContent.contains("^sZqulxTVsT$")) {
-            li(clipBoardContent);
+            lh(clipBoardContent);
         }
     }
 
@@ -212,7 +212,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void li(String str) {
+    public void lh(String str) {
         this.byf.load(str);
     }
 
@@ -239,7 +239,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lj(String str) {
+    public void li(String str) {
         Activity currentActivity;
         Uri parse;
         if (!ap.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {

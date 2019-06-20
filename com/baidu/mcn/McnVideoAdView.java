@@ -23,8 +23,8 @@ public class McnVideoAdView extends FrameLayout {
     private static final int afp = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds626);
     private static final int afq = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds156);
     private static final int afr = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112);
+    private float NR;
     private float NT;
-    private float NU;
     private TbImageView afh;
     private TextView afi;
     private TextView afj;
@@ -118,8 +118,8 @@ public class McnVideoAdView extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.NT = motionEvent.getX();
-                this.NU = motionEvent.getY();
+                this.NR = motionEvent.getX();
+                this.NT = motionEvent.getY();
                 this.afs = getParent();
                 if (this.afs != null) {
                     this.afs.requestDisallowInterceptTouchEvent(true);
@@ -128,13 +128,13 @@ public class McnVideoAdView extends FrameLayout {
                 break;
             case 1:
                 tL();
-                if (Math.abs(motionEvent.getX() - this.NT) < 5.0f && Math.abs(motionEvent.getY() - this.NU) < 5.0f) {
+                if (Math.abs(motionEvent.getX() - this.NR) < 5.0f && Math.abs(motionEvent.getY() - this.NT) < 5.0f) {
                     tM();
                     break;
                 }
                 break;
             case 2:
-                if (motionEvent.getX() - this.NT > 10.0f && this.isShowing) {
+                if (motionEvent.getX() - this.NR > 10.0f && this.isShowing) {
                     this.afm = true;
                     dismiss();
                     if (this.afo != null) {

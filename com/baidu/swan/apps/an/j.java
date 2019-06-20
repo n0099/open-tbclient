@@ -55,15 +55,15 @@ public final class j {
         if (aZj == null) {
             synchronized (j.class) {
                 if (aZj == null) {
-                    aZj = new b(PublishSubject.cMS());
-                    aZj.cLj().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.an.j.4
+                    aZj = new b(PublishSubject.cMR());
+                    aZj.cLi().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.an.j.4
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bm(pair).c(Schedulers.io()).e(j.aZm).cLm();
+                            return rx.h.bm(pair).c(Schedulers.io()).e(j.aZm).cLl();
                         }
-                    }).cLl().cKZ();
+                    }).cLk().cKY();
                 }
             }
         }
@@ -74,15 +74,15 @@ public final class j {
         if (aZk == null) {
             synchronized (j.class) {
                 if (aZk == null) {
-                    aZk = new b(PublishSubject.cMS());
-                    aZk.cLj().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.an.j.5
+                    aZk = new b(PublishSubject.cMR());
+                    aZk.cLi().c(new rx.functions.f<Pair<Runnable, String>, rx.d<?>>() { // from class: com.baidu.swan.apps.an.j.5
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         /* renamed from: b */
                         public rx.d<?> call(Pair<Runnable, String> pair) {
-                            return rx.h.bm(pair).c(Schedulers.computation()).e(j.aZm).cLm();
+                            return rx.h.bm(pair).c(Schedulers.computation()).e(j.aZm).cLl();
                         }
-                    }).cLl().cKZ();
+                    }).cLk().cKY();
                 }
             }
         }
@@ -93,8 +93,8 @@ public final class j {
         if (aZl == null) {
             synchronized (j.class) {
                 if (aZl == null) {
-                    aZl = new b(PublishSubject.cMS());
-                    aZl.cLj().a(Schedulers.io()).b(aZm).cLl().cKZ();
+                    aZl = new b(PublishSubject.cMR());
+                    aZl.cLi().a(Schedulers.io()).b(aZm).cLk().cKY();
                 }
             }
         }
@@ -113,7 +113,7 @@ public final class j {
         OB().d(runnable, str);
     }
 
-    public static String ie(String str) {
+    public static String ic(String str) {
         String str2 = null;
         if (str != null) {
             String str3 = TAG + "_";
@@ -142,7 +142,7 @@ public final class j {
 
         @Override // com.baidu.swan.apps.an.j.a
         public void d(@NonNull Runnable runnable, @NonNull String str) {
-            onNext(Pair.create(runnable, j.ie(str)));
+            onNext(Pair.create(runnable, j.ic(str)));
         }
     }
 
@@ -162,6 +162,6 @@ public final class j {
                     Log.wtf(j.TAG, "delay task fail", th);
                 }
             }
-        }).cKZ();
+        }).cKY();
     }
 }

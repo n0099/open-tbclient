@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes4.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.b cAW;
-    private SwanAppBdActionBar cZp;
+    private com.baidu.tbadk.core.view.b cAX;
+    private SwanAppBdActionBar cZq;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,7 +24,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.cZp = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.cZq = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -47,25 +47,25 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cAW = new com.baidu.tbadk.core.view.b(getPageContext());
-        this.cAW.ow("加载中...");
-        this.cAW.setCancelable(true);
+        this.cAX = new com.baidu.tbadk.core.view.b(getPageContext());
+        this.cAX.ov("加载中...");
+        this.cAX.setCancelable(true);
     }
 
     private void aDc() {
-        if (this.cZp != null) {
-            this.cZp.setLeftTitleInvalidate(true);
-            this.cZp.setRightTxtZone1Visibility(8);
-            this.cZp.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
+        if (this.cZq != null) {
+            this.cZq.setLeftTitleInvalidate(true);
+            this.cZq.setRightTxtZone1Visibility(8);
+            this.cZq.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.yX();
                 }
             });
-            this.cZp.setRightExitViewVisibility(false);
-            this.cZp.setRightMenuVisibility(false);
-            this.cZp.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
-            this.cZp.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
+            this.cZq.setRightExitViewVisibility(false);
+            this.cZq.setRightMenuVisibility(false);
+            this.cZq.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
+            this.cZq.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbSwanAppBaseActivity.this.yX();
@@ -80,16 +80,16 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public SwanAppBdActionBar aDd() {
-        return this.cZp;
+        return this.cZq;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showLoading() {
-        this.cAW.ef(true);
+        this.cAX.ef(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dismissLoading() {
-        this.cAW.ef(false);
+        this.cAX.ef(false);
     }
 }

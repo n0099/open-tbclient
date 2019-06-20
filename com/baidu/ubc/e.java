@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e jPc;
+    private static volatile e jPf;
     private HashSet<String> bvj = new HashSet<>();
     private HashSet<String> bvk = new HashSet<>();
     private HashSet<String> bvl = new HashSet<>();
@@ -26,25 +26,25 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e cAf() {
-        if (jPc == null) {
+    public static e cAe() {
+        if (jPf == null) {
             synchronized (e.class) {
-                if (jPc == null) {
-                    jPc = new e();
+                if (jPf == null) {
+                    jPf = new e();
                 }
             }
         }
-        return jPc;
+        return jPf;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.bvr = 360000;
-        r cAg = r.cAg();
-        this.bvs = cAg.getInt("ubc_data_expire_time", 259200000);
-        this.bvt = cAg.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
-        cVar.cAd().a(this.bvj, this.bvm, this.bvk, this.bvl, this.bvn, this.bvo, this.bvp, this.bvq);
+        r cAf = r.cAf();
+        this.bvs = cAf.getInt("ubc_data_expire_time", 259200000);
+        this.bvt = cAf.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
+        cVar.cAc().a(this.bvj, this.bvm, this.bvk, this.bvl, this.bvn, this.bvo, this.bvp, this.bvq);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -96,7 +96,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean kG(String str) {
+    public boolean kF(String str) {
         if (UBC.getUBCContext().Ht()) {
             return true;
         }
@@ -104,12 +104,12 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean kH(String str) {
+    public boolean kG(String str) {
         return this.bvl.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String kI(String str) {
+    public String kH(String str) {
         return this.bvo.containsKey(str) ? this.bvo.get(str) : "";
     }
 
@@ -134,7 +134,7 @@ public class e {
     public void fS(int i) {
         if (i >= this.bvs) {
             this.bvs = i;
-            r.cAg().putInt("ubc_data_expire_time", i);
+            r.cAf().putInt("ubc_data_expire_time", i);
         }
     }
 
@@ -147,32 +147,32 @@ public class e {
     public void fT(int i) {
         if (i >= this.bvt) {
             this.bvt = i;
-            r.cAg().putInt("ubc_database_limit", i);
+            r.cAf().putInt("ubc_database_limit", i);
         }
     }
 
-    public int kJ(String str) {
+    public int kI(String str) {
         if (TextUtils.isEmpty(str) || !this.bvn.containsKey(str)) {
             return 0;
         }
         return Integer.parseInt(this.bvn.get(str));
     }
 
-    public boolean kK(String str) {
+    public boolean kJ(String str) {
         if (this.bvp == null || !this.bvp.containsKey(str)) {
             return false;
         }
         return this.bvp.get(str).WS();
     }
 
-    public boolean kL(String str) {
+    public boolean kK(String str) {
         if (this.bvp == null || !this.bvp.containsKey(str)) {
             return false;
         }
         return this.bvp.get(str).WT();
     }
 
-    public String kM(String str) {
+    public String kL(String str) {
         return (TextUtils.isEmpty(str) || !this.bvq.contains(str)) ? "0" : "1";
     }
 }

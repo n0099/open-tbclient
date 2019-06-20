@@ -384,17 +384,17 @@ public final class a {
         }
 
         private void p(Message message) {
-            Uri iq;
+            Uri ip;
             Bundle bundle = (Bundle) message.obj;
             if (bundle != null) {
                 bundle.setClassLoader(getClass().getClassLoader());
                 SwanAppPreHandleInfo swanAppPreHandleInfo = (SwanAppPreHandleInfo) bundle.getParcelable("ai_apps_data");
                 if (swanAppPreHandleInfo != null) {
-                    if (!TextUtils.isEmpty(swanAppPreHandleInfo.iconUrl) && (iq = ac.iq(swanAppPreHandleInfo.iconUrl)) != null) {
+                    if (!TextUtils.isEmpty(swanAppPreHandleInfo.iconUrl) && (ip = ac.ip(swanAppPreHandleInfo.iconUrl)) != null) {
                         if (a.DEBUG) {
                             Log.i("SwanAppMessengerClient", "handle prefetch icon by fresco");
                         }
-                        m.a(iq, "SwanAppMessengerClient");
+                        m.a(ip, "SwanAppMessengerClient");
                     }
                     if (!TextUtils.isEmpty(swanAppPreHandleInfo.appId) && !TextUtils.isEmpty(swanAppPreHandleInfo.version) && swanAppPreHandleInfo.category == 0) {
                         if (a.DEBUG) {

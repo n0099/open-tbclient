@@ -19,7 +19,7 @@ public class f implements l {
     }
 
     @Override // com.baidu.ubc.l
-    public boolean fK(String str) {
+    public boolean fJ(String str) {
         return false;
     }
 

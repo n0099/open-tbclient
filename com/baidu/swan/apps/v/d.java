@@ -31,7 +31,7 @@ public class d {
         com.baidu.swan.apps.v.b.b a = a(cVar);
         if (a == null) {
             if (aVar == null) {
-                aVar = new com.baidu.swan.apps.ak.a().Y(10L).Z(2902L).hZ("no aiapps info in database");
+                aVar = new com.baidu.swan.apps.ak.a().Y(10L).Z(2902L).hY("no aiapps info in database");
                 e.Ok().b(aVar);
             }
             b(context, cVar, aVar);
@@ -47,11 +47,11 @@ public class d {
     }
 
     private static com.baidu.swan.apps.v.b.b a(com.baidu.swan.apps.v.b.c cVar) {
-        PMSAppInfo ki;
-        if (cVar == null || (ki = com.baidu.swan.pms.database.a.Vl().ki(cVar.mAppId)) == null || TextUtils.isEmpty(ki.appId)) {
+        PMSAppInfo kh;
+        if (cVar == null || (kh = com.baidu.swan.pms.database.a.Vl().kh(cVar.mAppId)) == null || TextUtils.isEmpty(kh.appId)) {
             return null;
         }
-        return a(ki, cVar);
+        return a(kh, cVar);
     }
 
     private static void c(Context context, com.baidu.swan.apps.v.b.b bVar, String str) {
@@ -72,7 +72,7 @@ public class d {
         if (c != null) {
             c.setComponent(new ComponentName(context, SwanAppErrorActivity.class));
             context.startActivity(c);
-            new com.baidu.swan.apps.ak.a().Y(2L).Z(35L).hZ("app has been offline");
+            new com.baidu.swan.apps.ak.a().Y(2L).Z(35L).hY("app has been offline");
             f fVar = new f();
             fVar.mFrom = com.baidu.swan.apps.statistic.e.dM(bVar.Fg());
             fVar.mType = "launch";
@@ -97,10 +97,10 @@ public class d {
         com.baidu.swan.apps.ak.a aVar = new com.baidu.swan.apps.ak.a();
         switch (i) {
             case 1:
-                aVar.Y(10L).Z(2902L).hZ("no aiapps info in database");
+                aVar.Y(10L).Z(2902L).hY("no aiapps info in database");
                 break;
             case 2:
-                aVar.Y(10L).Z(27L).hZ("category not match");
+                aVar.Y(10L).Z(27L).hY("category not match");
                 break;
         }
         return aVar;
@@ -126,10 +126,10 @@ public class d {
             fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
             fVar.k("errcode", String.valueOf(aVar.Og()));
             fVar.k("msg", aVar.Of().toString());
-            fVar.ak(com.baidu.swan.apps.statistic.e.hn(cVar.ayP));
+            fVar.ak(com.baidu.swan.apps.statistic.e.hm(cVar.ayP));
             com.baidu.swan.apps.statistic.e.onEvent(fVar);
             if (!aVar.Oh()) {
-                com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().hp(com.baidu.swan.apps.statistic.e.dM(cVar.ayS)).a(aVar).hq(cVar.mAppId).hr(cVar.mFrom));
+                com.baidu.swan.apps.statistic.e.b(new com.baidu.swan.apps.statistic.a.d().ho(com.baidu.swan.apps.statistic.e.dM(cVar.ayS)).a(aVar).hp(cVar.mAppId).hq(cVar.mFrom));
                 aVar.Oi();
             }
         }
@@ -141,15 +141,15 @@ public class d {
         }
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
         bVar.e(pMSAppInfo);
-        bVar.eI(cVar.mFrom);
+        bVar.eH(cVar.mFrom);
         bVar.setPage(cVar.ayL);
         bVar.setDebug(cVar.ayM);
         bVar.p(cVar.EK());
-        bVar.eJ(cVar.ayP);
-        bVar.eN(cVar.ayQ);
+        bVar.eI(cVar.ayP);
+        bVar.eM(cVar.ayQ);
         bVar.a(cVar.atK);
         bVar.a(cVar.atL);
-        bVar.eM(cVar.ayO);
+        bVar.eL(cVar.ayO);
         bVar.cE(cVar.ayF);
         if (pMSAppInfo.appCategory == 1) {
             bVar.cr(1);

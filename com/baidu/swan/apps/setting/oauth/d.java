@@ -4,14 +4,14 @@ import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public abstract class d {
-    private Exception FJ;
+    private Exception FI;
     private b aUd;
 
     protected abstract boolean Dh() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
-        return this.FJ;
+        return this.FI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -22,7 +22,7 @@ public abstract class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isOk() {
-        return this.FJ == null;
+        return this.FI == null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,7 +48,7 @@ public abstract class d {
     }
 
     public void m(@Nullable Exception exc) {
-        this.FJ = exc;
+        this.FI = exc;
         c.g(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.2
             @Override // java.lang.Runnable
             public void run() {

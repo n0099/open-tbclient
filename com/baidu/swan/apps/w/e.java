@@ -148,8 +148,8 @@ public final class e implements d.b {
     }
 
     @NonNull
-    public com.baidu.swan.apps.ae.a.d eZ(String str) {
-        return this.azB.eZ(str);
+    public com.baidu.swan.apps.ae.a.d eY(String str) {
+        return this.azB.eY(str);
     }
 
     public String FE() {
@@ -180,12 +180,12 @@ public final class e implements d.b {
         return this.azB.Aj();
     }
 
-    public com.baidu.swan.apps.b.c.e dU(String str) {
-        return this.azB.dU(str);
+    public com.baidu.swan.apps.b.c.e dT(String str) {
+        return this.azB.dT(str);
     }
 
-    public AbsoluteLayout fa(String str) {
-        return this.azB.fa(str);
+    public AbsoluteLayout eZ(String str) {
+        return this.azB.eZ(str);
     }
 
     public void a(com.baidu.swan.apps.m.a.d dVar, boolean z) {

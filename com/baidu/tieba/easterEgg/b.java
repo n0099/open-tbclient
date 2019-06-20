@@ -24,7 +24,7 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class b {
-    private Runnable cQA;
+    private Runnable cQB;
     private PopupWindow eOI;
     private com.baidu.tieba.tbadkCore.e.a eOJ;
     private ActivityLifeCycleListener eOK;
@@ -39,7 +39,7 @@ public class b {
                 return b.this.eOJ != null && b.this.eOJ.a(str, jsPromptResult);
             }
         };
-        this.cQA = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
+        this.cQB = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.handler.removeCallbacksAndMessages(null);
@@ -63,7 +63,7 @@ public class b {
         view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         this.eOI.setContentView(view);
         this.handler.removeCallbacksAndMessages(null);
-        this.handler.postDelayed(this.cQA, 5000L);
+        this.handler.postDelayed(this.cQB, 5000L);
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null) {
             fragmentManager.beginTransaction().add(this.eOK, "LIFE_CYCLE").commitAllowingStateLoss();
@@ -81,7 +81,7 @@ public class b {
         }
     }
 
-    public void vm(final String str) {
+    public void vl(final String str) {
         Activity eN;
         if (!ap.isEmpty(str) && (eN = com.baidu.adp.base.a.eM().eN()) != null && eN.getWindow() != null && eN.getWindow().getDecorView() != null) {
             if (ai(eN)) {
@@ -89,7 +89,7 @@ public class b {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            b.this.vm(str);
+                            b.this.vl(str);
                         } catch (Throwable th) {
                             b.this.bcA();
                         }

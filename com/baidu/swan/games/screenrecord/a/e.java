@@ -34,7 +34,7 @@ public class e {
                     d dVar = new d();
                     dVar.videoPath = e.this.ald;
                     dVar.bjS = Sg;
-                    dVar.bjT = g.jk(String.format(e.bjU, Long.valueOf(System.currentTimeMillis())));
+                    dVar.bjT = g.jj(String.format(e.bjU, Long.valueOf(System.currentTimeMillis())));
                     com.baidu.swan.games.j.a.RD().a(dVar, cVar);
                 }
             }, "clipVideo");

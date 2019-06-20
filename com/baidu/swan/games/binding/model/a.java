@@ -13,9 +13,9 @@ public final class a {
             return null;
         }
         a aVar = new a();
-        aVar.beQ = cVar.iR("success");
-        aVar.beR = cVar.iR(LivenessStat.TYPE_FACE_MATCH_FAIL);
-        aVar.beS = cVar.iR("complete");
+        aVar.beQ = cVar.iQ("success");
+        aVar.beR = cVar.iQ(LivenessStat.TYPE_FACE_MATCH_FAIL);
+        aVar.beS = cVar.iQ("complete");
         return aVar;
     }
 

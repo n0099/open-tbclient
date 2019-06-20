@@ -5,14 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static LinkedList<Integer> Ix;
+    private static LinkedList<Integer> Iw;
 
     public static int get() {
         return ap(null);
     }
 
     public static int ap(List<Integer> list) {
-        if (Ix == null) {
+        if (Iw == null) {
             auT();
         }
         Integer aq = aq(list);
@@ -20,30 +20,30 @@ public class e {
     }
 
     private static void auT() {
-        Ix = new LinkedList<>();
-        Ix.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        Ix.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        Ix.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        Ix.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        Ix.offer(Integer.valueOf((int) R.color.cp_atp_e));
+        Iw = new LinkedList<>();
+        Iw.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        Iw.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        Iw.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        Iw.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        Iw.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
     private static Integer aq(List<Integer> list) {
-        Integer peek = Ix.peek();
+        Integer peek = Iw.peek();
         if (list == null || list.size() == 0) {
-            Ix.offer(Ix.poll());
+            Iw.offer(Iw.poll());
             return peek;
         } else if (list.size() > 4) {
-            Ix.offer(Ix.poll());
+            Iw.offer(Iw.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= Ix.size()) {
+                if (i >= Iw.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = Ix.get(i);
+                Integer num = Iw.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -53,8 +53,8 @@ public class e {
                 }
                 i++;
             }
-            Integer remove = Ix.remove(i);
-            Ix.offer(remove);
+            Integer remove = Iw.remove(i);
+            Iw.offer(remove);
             return remove;
         }
     }

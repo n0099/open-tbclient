@@ -8,30 +8,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 /* loaded from: classes.dex */
 public class d {
-    private static d che = new d();
-    public int chf = 300;
-    public boolean chg = true;
-    public boolean chh = false;
-    public boolean chi = true;
+    private static d chf = new d();
+    public int chg = 300;
+    public boolean chh = true;
+    public boolean chi = false;
     public boolean chj = true;
     public boolean chk = true;
     public boolean chl = true;
-    public boolean chm = false;
-    public boolean chn = true;
+    public boolean chm = true;
+    public boolean chn = false;
     public boolean cho = true;
-    public boolean chp = false;
-    public String chq = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-    public String chr = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+    public boolean chp = true;
+    public boolean chq = false;
+    public String chr = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+    public String chs = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
 
     private d() {
     }
 
     public static d anf() {
-        return che;
+        return chf;
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.cnq();
+        com.baidu.tieba.tbadkCore.util.a.cnr();
     }
 
     public void ang() {
@@ -39,55 +39,55 @@ public class d {
     }
 
     public boolean anh() {
-        return this.chf > 0;
+        return this.chg > 0;
     }
 
     public int ani() {
-        return this.chf;
-    }
-
-    public boolean anj() {
-        return this.chh;
-    }
-
-    public boolean ank() {
-        return this.chi;
-    }
-
-    public boolean anl() {
-        return this.chl;
-    }
-
-    public boolean anm() {
-        return this.chj;
-    }
-
-    public boolean ann() {
         return this.chg;
     }
 
-    public boolean ano() {
-        return this.chn;
+    public boolean anj() {
+        return this.chi;
     }
 
-    public boolean anp() {
-        return this.cho;
+    public boolean ank() {
+        return this.chj;
     }
 
-    public boolean anq() {
-        return this.chp;
-    }
-
-    public boolean anr() {
+    public boolean anl() {
         return this.chm;
     }
 
-    public String ans() {
+    public boolean anm() {
+        return this.chk;
+    }
+
+    public boolean ann() {
+        return this.chh;
+    }
+
+    public boolean ano() {
+        return this.cho;
+    }
+
+    public boolean anp() {
+        return this.chp;
+    }
+
+    public boolean anq() {
         return this.chq;
     }
 
-    public String ant() {
+    public boolean anr() {
+        return this.chn;
+    }
+
+    public String ans() {
         return this.chr;
+    }
+
+    public String ant() {
+        return this.chs;
     }
 
     private void anu() {
@@ -95,18 +95,18 @@ public class d {
     }
 
     public void ex(boolean z) {
-        this.chg = z;
+        this.chh = z;
         anu();
     }
 
     public void jr(int i) {
         if (i == 0) {
-            this.chf = i;
+            this.chg = i;
             b.amy().setMsgBookmark(0);
             b.amy().setMsgGiftNum(0);
             b.amy().setMsgFans(0);
         } else {
-            this.chf = 300;
+            this.chg = 300;
         }
         anu();
     }
@@ -121,40 +121,40 @@ public class d {
     }
 
     public boolean anw() {
-        return this.chk;
+        return this.chl;
     }
 
     public void ez(boolean z) {
-        this.chk = z;
+        this.chl = z;
         anu();
     }
 
     public void eA(boolean z) {
-        this.chh = z;
+        this.chi = z;
     }
 
     public void eB(boolean z) {
-        this.chp = z;
+        this.chq = z;
     }
 
-    public void oW(String str) {
-        this.chq = str;
-    }
-
-    public void oX(String str) {
+    public void oV(String str) {
         this.chr = str;
     }
 
+    public void oW(String str) {
+        this.chs = str;
+    }
+
     public void eC(boolean z) {
-        this.chm = z;
+        this.chn = z;
     }
 
     public void eD(boolean z) {
-        this.cho = z;
+        this.chp = z;
     }
 
     public void eE(boolean z) {
-        this.chn = z;
+        this.cho = z;
     }
 
     public void eF(boolean z) {
@@ -166,17 +166,17 @@ public class d {
     }
 
     public void eG(boolean z) {
-        this.chj = z;
+        this.chk = z;
         anu();
     }
 
     public void eH(boolean z) {
-        this.chi = z;
+        this.chj = z;
         anu();
     }
 
     public void eI(boolean z) {
-        this.chl = z;
+        this.chm = z;
     }
 
     public boolean isSignAlertOn() {
@@ -220,11 +220,11 @@ public class d {
     }
 
     public int any() {
-        if (!this.chn && !this.chm) {
+        if (!this.cho && !this.chn) {
             return 0;
         }
-        if (!this.chn || this.chm) {
-            if (!this.chn && this.chm) {
+        if (!this.cho || this.chn) {
+            if (!this.cho && this.chn) {
                 return 2;
             }
             return 3;

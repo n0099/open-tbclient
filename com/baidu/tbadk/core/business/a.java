@@ -13,18 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private static a bDc;
-    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bDd = new ArrayList<>();
+    private static a bDd;
+    private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> bDe = new ArrayList<>();
 
     public static a abt() {
-        if (bDc == null) {
+        if (bDd == null) {
             synchronized (a.class) {
-                if (bDc == null) {
-                    bDc = new a();
+                if (bDd == null) {
+                    bDd = new a();
                 }
             }
         }
-        return bDc;
+        return bDd;
     }
 
     public void v(JSONArray jSONArray) {
@@ -37,7 +37,7 @@ public class a {
         JSONObject jSONObject;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (!StringUtils.isNull(currentAccount) && jSONArray != null) {
-            this.bDd.clear();
+            this.bDe.clear();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     jSONObject = jSONArray.getJSONObject(i);
@@ -76,7 +76,7 @@ public class a {
                         e3.printStackTrace();
                     }
                 }
-                this.bDd.add(aVar);
+                this.bDe.add(aVar);
             }
         }
     }
@@ -106,7 +106,7 @@ public class a {
     }
 
     private ArrayList<com.baidu.tbadk.BdToken.completeTask.a> abu() {
-        return this.bDd;
+        return this.bDe;
     }
 
     public void bB(String str, String str2) {

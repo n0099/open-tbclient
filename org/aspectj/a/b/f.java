@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    int kfM;
-    ClassLoader klb = null;
-    String klk;
-    Class kll;
-    a klm;
-    private String kln;
+    int kfP;
+    ClassLoader kle = null;
+    String kln;
+    Class klo;
+    a klp;
+    private String klq;
     String name;
     private static boolean eNG = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] klo = new Class[0];
+    static Class[] klr = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.kfM = -1;
-        this.kfM = i;
+        this.kfP = -1;
+        this.kfP = i;
         this.name = str;
-        this.kll = cls;
+        this.klo = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
         if (eNG) {
-            if (this.klm == null) {
+            if (this.klp == null) {
                 try {
-                    this.klm = new b();
+                    this.klp = new b();
                 } catch (Throwable th) {
                     eNG = false;
                 }
             } else {
-                str = this.klm.get(hVar.klz);
+                str = this.klp.get(hVar.klC);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
         if (eNG) {
-            this.klm.aP(hVar.klz, str);
+            this.klp.aP(hVar.klC, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.klB);
+        return a(h.klE);
     }
 
     public int getModifiers() {
-        if (this.kfM == -1) {
-            this.kfM = Eb(0);
+        if (this.kfP == -1) {
+            this.kfP = Eb(0);
         }
-        return this.kfM;
+        return this.kfP;
     }
 
     public String getName() {
@@ -74,43 +74,43 @@ abstract class f implements org.aspectj.lang.c {
         return this.name;
     }
 
-    public Class cKq() {
-        if (this.kll == null) {
-            this.kll = Ec(2);
+    public Class cKp() {
+        if (this.klo == null) {
+            this.klo = Ec(2);
         }
-        return this.kll;
+        return this.klo;
     }
 
-    public String cKr() {
-        if (this.klk == null) {
-            this.klk = cKq().getName();
+    public String cKq() {
+        if (this.kln == null) {
+            this.kln = cKp().getName();
         }
-        return this.klk;
+        return this.kln;
     }
 
-    private ClassLoader cKs() {
-        if (this.klb == null) {
-            this.klb = getClass().getClassLoader();
+    private ClassLoader cKr() {
+        if (this.kle == null) {
+            this.kle = getClass().getClassLoader();
         }
-        return this.klb;
+        return this.kle;
     }
 
     String Ea(int i) {
         int i2 = 0;
-        int indexOf = this.kln.indexOf(45);
+        int indexOf = this.klq.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.kln.indexOf(45, i2);
+            indexOf = this.klq.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.kln.length();
+            indexOf = this.klq.length();
         }
-        return this.kln.substring(i2, indexOf);
+        return this.klq.substring(i2, indexOf);
     }
 
     int Eb(int i) {
@@ -119,7 +119,7 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class Ec(int i) {
-        return org.aspectj.a.b.b.b(Ea(i), cKs());
+        return org.aspectj.a.b.b.b(Ea(i), cKr());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -128,7 +128,7 @@ abstract class f implements org.aspectj.lang.c {
         int countTokens = stringTokenizer.countTokens();
         Class[] clsArr = new Class[countTokens];
         for (int i2 = 0; i2 < countTokens; i2++) {
-            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cKs());
+            clsArr[i2] = org.aspectj.a.b.b.b(stringTokenizer.nextToken(), cKr());
         }
         return clsArr;
     }
@@ -136,37 +136,37 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference klp;
+        private SoftReference kls;
 
         public b() {
-            cKu();
+            cKt();
         }
 
         @Override // org.aspectj.a.b.f.a
         public String get(int i) {
-            String[] cKt = cKt();
-            if (cKt == null) {
+            String[] cKs = cKs();
+            if (cKs == null) {
                 return null;
             }
-            return cKt[i];
+            return cKs[i];
         }
 
         @Override // org.aspectj.a.b.f.a
         public void aP(int i, String str) {
-            String[] cKt = cKt();
-            if (cKt == null) {
-                cKt = cKu();
+            String[] cKs = cKs();
+            if (cKs == null) {
+                cKs = cKt();
             }
-            cKt[i] = str;
+            cKs[i] = str;
+        }
+
+        private String[] cKs() {
+            return (String[]) this.kls.get();
         }
 
         private String[] cKt() {
-            return (String[]) this.klp.get();
-        }
-
-        private String[] cKu() {
             String[] strArr = new String[3];
-            this.klp = new SoftReference(strArr);
+            this.kls = new SoftReference(strArr);
             return strArr;
         }
     }

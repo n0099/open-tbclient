@@ -18,16 +18,16 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public final class k {
-    private static SharedPreferences aaq = null;
-    private static ScheduledThreadPoolExecutor aar = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences aap = null;
+    private static ScheduledThreadPoolExecutor aaq = new ScheduledThreadPoolExecutor(1);
 
     private static long J(Context context, String str) {
         try {
-            if (aaq == null && context != null) {
-                aaq = context.getSharedPreferences("last_init_crab", 4);
+            if (aap == null && context != null) {
+                aap = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aaq != null) {
-                return aaq.getLong(str, 0L);
+            if (aap != null) {
+                return aap.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public final class k {
     }
 
     public static void a(Context context, Throwable th) {
-        aar.execute(new m(th, context));
+        aaq.execute(new m(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -47,13 +47,13 @@ public final class k {
                 long currentTimeMillis = System.currentTimeMillis() - J(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.v("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    aar.schedule(oVar, 10L, TimeUnit.SECONDS);
+                    aaq.schedule(oVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    aar.execute(oVar);
+                    aaq.execute(oVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                aar.execute(oVar);
+                aaq.execute(oVar);
             }
         }
     }
@@ -169,7 +169,7 @@ public final class k {
                         } else {
                             com.baidu.crabsdk.c.a.ch("not connected to server!");
                         }
-                        f.aal = true;
+                        f.aak = true;
                     } else {
                         i.deleteFile(str2);
                         h.j(str2);
@@ -180,7 +180,7 @@ public final class k {
     }
 
     public static void c(Context context, Throwable th) {
-        aar.execute(new n(context, th));
+        aaq.execute(new n(context, th));
     }
 
     private static String cu(String str) {
@@ -190,11 +190,11 @@ public final class k {
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (aaq == null && context != null) {
-                aaq = context.getSharedPreferences("last_init_crab", 4);
+            if (aap == null && context != null) {
+                aap = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (aaq != null) {
-                aaq.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (aap != null) {
+                aap.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -207,9 +207,9 @@ public final class k {
         long currentTimeMillis = System.currentTimeMillis() - J(context, "time_upload_native");
         com.baidu.crabsdk.c.a.v("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            aar.schedule(lVar, 10L, TimeUnit.SECONDS);
+            aaq.schedule(lVar, 10L, TimeUnit.SECONDS);
         } else {
-            aar.execute(lVar);
+            aaq.execute(lVar);
         }
         e(context, "time_upload_native");
     }
@@ -439,7 +439,7 @@ public final class k {
     }
 
     public static void n(Context context) {
-        aar.execute(new p(context));
+        aaq.execute(new p(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

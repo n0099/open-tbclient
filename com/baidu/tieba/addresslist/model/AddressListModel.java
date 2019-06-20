@@ -9,23 +9,23 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a cYl;
+    private a cYm;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.cYl = a.aBY();
+        this.cYm = a.aBY();
     }
 
     public void a(a.InterfaceC0271a interfaceC0271a) {
-        this.cYl.a(interfaceC0271a);
+        this.cYm.a(interfaceC0271a);
     }
 
     public void b(a.InterfaceC0271a interfaceC0271a) {
-        this.cYl.b(interfaceC0271a);
+        this.cYm.b(interfaceC0271a);
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> aCp() {
-        return this.cYl.aBZ();
+        return this.cYm.aBZ();
     }
 
     public void aCq() {
@@ -37,21 +37,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void aD(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.cYl.aA(list);
+        this.cYm.aA(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.cYl.a(aVar);
+        this.cYm.a(aVar);
     }
 
     public void bO(long j) {
-        this.cYl.bO(j);
+        this.cYm.bO(j);
     }
 
-    public int sq(String str) {
+    public int sp(String str) {
         int i;
-        if (c.pm(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> aBZ = this.cYl.aBZ();
+        if (c.pl(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> aBZ = this.cYm.aBZ();
             if (aBZ != null) {
                 for (com.baidu.tbadk.coreExtra.relationship.a aVar : aBZ) {
                     if (str.equals(aVar.aoN())) {

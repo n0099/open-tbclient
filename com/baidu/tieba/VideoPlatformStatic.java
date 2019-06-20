@@ -25,18 +25,18 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener cUw = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener cUx = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.s.e.cqA().cqv();
-            com.baidu.tieba.s.b.cqu().cqv();
+            com.baidu.tieba.s.e.cqB().cqw();
+            com.baidu.tieba.s.b.cqv().cqw();
         }
     };
 
     static {
         aBi();
-        MessageManager.getInstance().registerListener(cUw);
+        MessageManager.getInstance().registerListener(cUx);
         aBj();
     }
 
@@ -71,7 +71,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int rR(String str) {
+    public static int rQ(String str) {
         if (str.contains("127.0.0.1")) {
             return 1;
         }
@@ -166,7 +166,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String rS(String str) {
+    public static String rR(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }

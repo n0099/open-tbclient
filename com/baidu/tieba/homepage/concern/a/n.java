@@ -13,10 +13,10 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.l, a> implements com.baidu.tieba.a.f {
-    private String Wt;
-    public BdUniqueId cwh;
+    private String Ws;
+    public BdUniqueId cwi;
     private ab eUc;
-    private com.baidu.tieba.homepage.concern.view.b fXP;
+    private com.baidu.tieba.homepage.concern.view.b fXR;
     private TbPageContext<?> mPageContext;
 
     public n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -26,9 +26,9 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.l lVar) {
-                if (view != null && n.this.fXP != null && n.this.fXP.getView() != null && lVar != null && lVar.abv() != null && !StringUtils.isNull(lVar.abv().getTid())) {
+                if (view != null && n.this.fXR != null && n.this.fXR.getView() != null && lVar != null && lVar.abv() != null && !StringUtils.isNull(lVar.abv().getTid())) {
                     am amVar = new am("c12352");
-                    if ((n.this.fXP.getHeaderImg() != null && view.getId() == n.this.fXP.getHeaderImg().getId()) || (n.this.fXP.aXw() != null && view.getId() == n.this.fXP.aXw().getId())) {
+                    if ((n.this.fXR.getHeaderImg() != null && view.getId() == n.this.fXR.getHeaderImg().getId()) || (n.this.fXR.aXw() != null && view.getId() == n.this.fXR.aXw().getId())) {
                         amVar.P("obj_locate", 1);
                     } else {
                         amVar.P("obj_locate", 2);
@@ -51,8 +51,8 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* renamed from: bb */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         final com.baidu.tieba.homepage.concern.view.b bVar = new com.baidu.tieba.homepage.concern.view.b(this.mPageContext);
-        if (this.cwh != null) {
-            bVar.k(this.cwh);
+        if (this.cwi != null) {
+            bVar.k(this.cwi);
         }
         if (!isPreloadSizeReady(1)) {
             bVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.n.2
@@ -65,8 +65,8 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             });
         }
-        this.fXP = bVar;
-        return new a(this.fXP);
+        this.fXR = bVar;
+        return new a(this.fXR);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,31 +74,31 @@ public class n extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.l lVar, a aVar) {
-        if (lVar == null || aVar == null || aVar.fXS == null) {
+        if (lVar == null || aVar == null || aVar.fXU == null) {
             return null;
         }
         lVar.ps(i + 1);
-        t.aXP().b(lVar.uZ("c12351"));
-        if (aVar.fXS instanceof com.baidu.tieba.a.e) {
-            aVar.fXS.setPage(this.Wt);
+        t.aXP().b(lVar.uY("c12351"));
+        if (aVar.fXU instanceof com.baidu.tieba.a.e) {
+            aVar.fXU.setPage(this.Ws);
         }
-        aVar.fXS.a(lVar);
-        aVar.fXS.d(this.eUc);
+        aVar.fXU.a(lVar);
+        aVar.fXU.d(this.eUc);
         return aVar.getView();
     }
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public com.baidu.tieba.homepage.concern.view.b fXS;
+        public com.baidu.tieba.homepage.concern.view.b fXU;
 
         public a(com.baidu.tieba.homepage.concern.view.b bVar) {
             super(bVar.getView());
-            this.fXS = bVar;
+            this.fXU = bVar;
         }
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 }

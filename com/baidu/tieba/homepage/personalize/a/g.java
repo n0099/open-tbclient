@@ -16,38 +16,38 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, z<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private ab<com.baidu.tieba.card.data.k> Vj;
-    private String Wt;
-    private com.baidu.adp.widget.ListView.r YE;
-    public BdUniqueId cwh;
-    private com.baidu.tieba.homepage.personalize.model.e gcM;
+    private ab<com.baidu.tieba.card.data.k> Vi;
+    private String Ws;
+    private com.baidu.adp.widget.ListView.r YD;
+    public BdUniqueId cwi;
+    private com.baidu.tieba.homepage.personalize.model.e gcO;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.Vj = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
+        this.Vi = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 com.baidu.tieba.card.t.aXP().gM(true);
                 com.baidu.tieba.a.d.aBq().bJ("page_recommend", "show_");
-                if (view != null && g.this.gcM != null && kVar != null && kVar.abv() != null && !StringUtils.isNull(kVar.abv().getTid())) {
+                if (view != null && g.this.gcO != null && kVar != null && kVar.abv() != null && !StringUtils.isNull(kVar.abv().getTid())) {
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.dj(com.baidu.adp.lib.g.b.c(kVar.abv().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.di(com.baidu.adp.lib.g.b.c(kVar.abv().getTid(), 0L));
-                        g.this.gcM.a(com.baidu.adp.lib.g.b.c(kVar.abv().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.aXZ(), kVar.aYa(), com.baidu.adp.lib.g.b.f((String) view.getTag(), 1));
+                        g.this.gcO.a(com.baidu.adp.lib.g.b.c(kVar.abv().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.aXZ(), kVar.aYa(), com.baidu.adp.lib.g.b.f((String) view.getTag(), 1));
                     }
                     g.this.a(view, kVar);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        bun();
+        buo();
     }
 
     public void b(com.baidu.adp.widget.ListView.r rVar) {
-        this.YE = rVar;
+        this.YD = rVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -73,7 +73,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 i = 0;
             }
             if (i != 0) {
-                com.baidu.tieba.q.c.clv().b(this.cwh, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_click", i, kVar.aXZ(), false, (String) null, (String) null));
+                com.baidu.tieba.q.c.clw().b(this.cwi, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_click", i, kVar.aXZ(), false, (String) null, (String) null));
             }
         }
     }
@@ -86,10 +86,10 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
         aVar.a((com.baidu.card.f) new com.baidu.card.g(this.mPageContext.getPageActivity()));
         aVar.qq().setBackgroundResource(R.color.cp_bg_line_d);
-        x a = aVar.a(false, viewGroup, this.YE);
+        x a = aVar.a(false, viewGroup, this.YD);
         a.bq(2);
         z zVar = new z(a);
-        zVar.setPageId(this.cwh);
+        zVar.setPageId(this.cwi);
         setOnAdapterItemClickListener(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.personalize.a.g.2
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -97,8 +97,8 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     z zVar2 = (z) view.getTag();
                     com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) mVar;
                     kVar.objType = 1;
-                    if (g.this.Vj != null) {
-                        g.this.Vj.a(zVar2.getView(), kVar);
+                    if (g.this.Vi != null) {
+                        g.this.Vi.a(zVar2.getView(), kVar);
                     }
                     au.a((com.baidu.tbadk.core.data.a) kVar, view.getContext(), 2, false);
                     zVar2.qs().b(new a.C0038a(1));
@@ -118,17 +118,17 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         }
         kVar.ps(kVar.position + 1);
         zVar.qs().setPosition(i);
-        zVar.qs().setPage(this.Wt);
+        zVar.qs().setPage(this.Ws);
         zVar.a(kVar);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qs().a(this.Vj);
+        zVar.qs().a(this.Vi);
         com.baidu.tieba.card.t.aXP().b(kVar.aYk());
         com.baidu.tieba.a.d.aBq().b(kVar.aYk());
-        com.baidu.tieba.q.c.clv().a(this.cwh, kVar.threadData != null ? kVar.threadData.getId() : null, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_exp", kVar.aXZ(), false, null, null));
+        com.baidu.tieba.q.c.clw().a(this.cwi, kVar.threadData != null ? kVar.threadData.getId() : null, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_exp", kVar.aXZ(), false, null, null));
         return zVar.getView();
     }
 
-    private void bun() {
+    private void buo() {
         com.baidu.tieba.card.data.k.eAG = "c10705";
         com.baidu.tieba.card.data.k.eAH = "c10730";
         com.baidu.tieba.card.data.k.eAI = "c10731";
@@ -143,11 +143,11 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void a(com.baidu.tieba.homepage.personalize.model.e eVar) {
-        this.gcM = eVar;
+        this.gcO = eVar;
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 }

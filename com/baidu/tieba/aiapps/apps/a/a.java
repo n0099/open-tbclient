@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private b cZx;
+    private b cZy;
     private List<com.baidu.swan.apps.a.c> mListeners;
     public static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -22,11 +22,11 @@ public class a {
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public static class C0275a {
-        private static final a cZz = new a();
+        private static final a cZA = new a();
     }
 
     public static a aDg() {
-        return C0275a.cZz;
+        return C0275a.cZA;
     }
 
     public void init(Context context) {
@@ -36,13 +36,13 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dh(Context context) {
-        if (this.cZx == null) {
-            this.cZx = new b();
-            this.cZx.cZA = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_avatar_url", "");
-            this.cZx.bduss = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_bduss", "");
-            this.cZx.cZB = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_ptoken", "");
-            this.cZx.uid = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_uid", "");
-            this.cZx.displayName = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_display_name", "");
+        if (this.cZy == null) {
+            this.cZy = new b();
+            this.cZy.cZB = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_avatar_url", "");
+            this.cZy.bduss = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_bduss", "");
+            this.cZy.cZC = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_ptoken", "");
+            this.cZy.uid = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_uid", "");
+            this.cZy.displayName = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_display_name", "");
         }
     }
 

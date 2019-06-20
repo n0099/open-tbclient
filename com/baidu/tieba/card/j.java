@@ -17,7 +17,7 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j extends b<com.baidu.tieba.card.data.h> {
-    private View.OnClickListener bVi;
+    private View.OnClickListener bVj;
     private List<com.baidu.tieba.horizonalList.widget.c> bqT;
     private com.baidu.tieba.horizonalList.widget.b ewJ;
     private HListView ewS;
@@ -26,7 +26,7 @@ public class j extends b<com.baidu.tieba.card.data.h> {
 
     public j(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.bVi = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
+        this.bVj = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (j.this.aXr() != null) {
@@ -42,7 +42,7 @@ public class j extends b<com.baidu.tieba.card.data.h> {
         this.ewS.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
         this.ewT = new k(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
         this.ewJ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.card_homepage_rec_god_item, this.ewT);
-        this.ewJ.setOnClickListener(this.bVi);
+        this.ewJ.setOnClickListener(this.bVj);
         this.ewS.setAdapter((ListAdapter) this.ewJ);
         this.evd.addView(this.ewS);
         this.evc.setVisibility(8);
@@ -99,7 +99,7 @@ public class j extends b<com.baidu.tieba.card.data.h> {
                 if ((cVar instanceof com.baidu.tieba.card.data.i) && (cVar2 instanceof com.baidu.tieba.card.data.i)) {
                     com.baidu.tieba.card.data.i iVar = (com.baidu.tieba.card.data.i) cVar;
                     com.baidu.tieba.card.data.i iVar2 = (com.baidu.tieba.card.data.i) cVar2;
-                    if (iVar.bJa != null && !StringUtils.isNull(iVar.bJa.getUserId()) && iVar2.bJa != null && !StringUtils.isNull(iVar2.bJa.getUserId()) && !iVar.bJa.getUserId().equals(iVar2.bJa.getUserId())) {
+                    if (iVar.bJb != null && !StringUtils.isNull(iVar.bJb.getUserId()) && iVar2.bJb != null && !StringUtils.isNull(iVar2.bJb.getUserId()) && !iVar.bJb.getUserId().equals(iVar2.bJb.getUserId())) {
                         return true;
                     }
                 }

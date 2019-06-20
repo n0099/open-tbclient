@@ -11,7 +11,7 @@ import tbclient.ForumRecommend.DataRes;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class c {
-    private boolean Hi;
+    private boolean Hh;
     private List<com.baidu.tieba.enterForum.multiConcern.b> eRb;
     private HotSearchInfoData eRe;
     private int sortType;
@@ -22,8 +22,8 @@ public class c {
     private PrivateForumPopInfoData eRd = new PrivateForumPopInfoData();
 
     public c() {
-        this.Hi = true;
-        this.Hi = false;
+        this.Hh = true;
+        this.Hh = false;
     }
 
     public void setTime(int i) {
@@ -135,15 +135,15 @@ public class c {
     }
 
     public void dU(boolean z) {
-        this.Hi = z;
+        this.Hh = z;
     }
 
     public boolean isSuccess() {
-        return this.Hi;
+        return this.Hh;
     }
 
     public boolean Ym() {
-        return System.currentTimeMillis() / com.baidu.tbadk.data.d.cpd.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.cpd.longValue();
+        return System.currentTimeMillis() / com.baidu.tbadk.data.d.cpe.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.cpe.longValue();
     }
 
     public void a(HotSearchInfoData hotSearchInfoData) {

@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.address.c;
 /* loaded from: classes4.dex */
 public class a {
     public String content;
-    public boolean daM;
+    public boolean daN;
     public String hint;
     public String label;
     public String type;

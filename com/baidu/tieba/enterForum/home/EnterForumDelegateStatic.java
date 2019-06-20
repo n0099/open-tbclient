@@ -62,10 +62,10 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public com.baidu.tbadk.mainTab.c asJ() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
-        cVar.cwn = new EnterForumTabFragment();
+        cVar.cwo = new EnterForumTabFragment();
         cVar.type = 1;
-        cVar.bVV = R.string.enter_forum;
-        cVar.cwt = com.baidu.tbadk.mainTab.c.cwr;
+        cVar.bVW = R.string.enter_forum;
+        cVar.cwu = com.baidu.tbadk.mainTab.c.cws;
         cVar.kF = R.raw.enter_forum;
         return cVar;
     }
@@ -82,8 +82,8 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                         EnterForumDelegateStatic.eRP.loadAd();
                     }
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (asK = enterForumDelegateStatic.asK()) != null && !asK.cwn.isAdded()) {
-                        asK.cwn.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (asK = enterForumDelegateStatic.asK()) != null && !asK.cwo.isAdded()) {
+                        asK.cwo.setArguments(new Bundle());
                     }
                 }
             }
@@ -225,12 +225,12 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator cO(Context context) {
-        this.cvZ = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        return this.cvZ;
+        this.cwa = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
+        return this.cwa;
     }
 
     private static void bdA() {
-        com.baidu.tieba.tbadkCore.d.c.cmQ();
+        com.baidu.tieba.tbadkCore.d.c.cmR();
         if (eRO == null) {
             eRO = new EnterForumModel(null);
             eRO.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.EnterForumDelegateStatic.11

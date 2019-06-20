@@ -44,15 +44,15 @@ public class e {
         this.bgG = str;
     }
 
-    private String iZ(String str) {
+    private String iY(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
         if (str.startsWith(a.USER_DATA_PATH)) {
-            return g.jj(str);
+            return g.ji(str);
         }
         if (str.startsWith("bdfile://tmp")) {
-            return g.jk(str);
+            return g.jj(str);
         }
         if (str.startsWith("bdfile://code")) {
             this.bgG = this.bgG.endsWith(File.separator) ? this.bgG.substring(0, this.bgG.length() - 1) : this.bgG;
@@ -61,7 +61,7 @@ public class e {
         return "";
     }
 
-    private c ja(String str) {
+    private c iZ(String str) {
         c w = w(-1, "fail permission denied, open " + str);
         if (!TextUtils.isEmpty(str) && str.startsWith(a.USER_DATA_PATH)) {
             return null;
@@ -93,14 +93,14 @@ public class e {
             cVar.errMsg = "fail no such file or directory " + str;
             return cVar;
         }
-        String iZ = iZ(str);
+        String iY = iY(str);
         if (TextUtils.isEmpty(str)) {
             c cVar2 = new c();
             cVar2.errCode = -1;
             cVar2.errMsg = "fail no such file or directory " + str;
             return cVar2;
         }
-        File file = new File(iZ);
+        File file = new File(iY);
         if (!file.exists()) {
             c cVar3 = new c();
             cVar3.errCode = -1;
@@ -120,12 +120,12 @@ public class e {
         if (str.endsWith(File.separator)) {
             str = str.substring(0, str.length() - 1);
         }
-        String iZ = iZ(str);
-        if (TextUtils.isEmpty(iZ)) {
+        String iY = iY(str);
+        if (TextUtils.isEmpty(iY)) {
             return w(-1, "fail no such file or directory " + str);
         }
-        if (iZ.contains(File.separator)) {
-            File file = new File(iZ.substring(0, iZ.lastIndexOf(File.separator)));
+        if (iY.contains(File.separator)) {
+            File file = new File(iY.substring(0, iY.lastIndexOf(File.separator)));
             if (!z && (!file.exists() || (file.exists() && file.isFile()))) {
                 return w(-1, "fail no such file or directory " + str);
             }
@@ -139,15 +139,15 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z2 ? "dirPath must be a string" : "fail permission denied, open " + str, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
             if (y == null) {
-                c ja = ja(str);
-                if (ja == null) {
-                    if (!g.je(str)) {
+                c iZ = iZ(str);
+                if (iZ == null) {
+                    if (!g.jd(str)) {
                         return w(-4, "fail permission denied, open " + str);
                     }
-                    String iZ = iZ(str);
+                    String iY = iY(str);
                     c z3 = z(str, z);
                     if (z3 == null) {
-                        File file = new File(iZ);
+                        File file = new File(iY);
                         if (file.exists()) {
                             return w(-1, "fail file already exists " + str);
                         }
@@ -167,7 +167,7 @@ public class e {
                     }
                     return z3;
                 }
-                return ja;
+                return iZ;
             }
             return y;
         }
@@ -198,15 +198,15 @@ public class e {
         if (aX != null) {
             return aX;
         }
-        c ja = ja(str);
-        if (ja != null) {
-            return ja;
+        c iZ = iZ(str);
+        if (iZ != null) {
+            return iZ;
         }
         if (obj == null) {
             return w(-1, "The argument must be string or arrayBuffer");
         }
         int length = (a.USER_DATA_PATH + File.separator).length();
-        if (!g.je(str)) {
+        if (!g.jd(str)) {
             return w(-4, "fail permission denied, open " + str.substring(length));
         }
         boolean z2 = obj instanceof byte[];
@@ -225,8 +225,8 @@ public class e {
         if (z3 != null) {
             return z3;
         }
-        String iZ = iZ(str);
-        if (TextUtils.isEmpty(iZ)) {
+        String iY = iY(str);
+        if (TextUtils.isEmpty(iY)) {
             return w(-1, "fail no such file or directory " + str.substring(length));
         }
         long j = 0;
@@ -238,7 +238,7 @@ public class e {
         if (g.ad(j)) {
             return w(-1, "fail file size over 50M");
         }
-        File file = new File(iZ);
+        File file = new File(iY);
         if (file.exists() && file.isDirectory()) {
             return w(-1, " fail illegal operation on a directory, open " + str);
         }
@@ -246,7 +246,7 @@ public class e {
         try {
             if (z2) {
                 byte[] bArr = (byte[]) obj;
-                fileOutputStream = new FileOutputStream(iZ, z);
+                fileOutputStream = new FileOutputStream(iY, z);
                 try {
                     try {
                         fileOutputStream.write(bArr);
@@ -333,25 +333,25 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "filePath must be a string" : g.l("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.filePath should be String instead of Object;");
             if (y == null) {
-                if (!g.jf(str)) {
+                if (!g.je(str)) {
                     return w(-4, g.l("fail permission denied, open ", null, str, null));
                 }
                 c y2 = y(str, false);
                 if (y2 == null) {
-                    c ja = ja(str);
-                    if (ja == null) {
-                        String iZ = iZ(str);
-                        if (TextUtils.isEmpty(iZ)) {
+                    c iZ = iZ(str);
+                    if (iZ == null) {
+                        String iY = iY(str);
+                        if (TextUtils.isEmpty(iY)) {
                             return w(-1, g.l("fail no such file or directory ", null, str, null));
                         }
-                        File file = new File(iZ);
+                        File file = new File(iY);
                         if (file.isDirectory()) {
                             return w(-1, g.l("fail operation not permitted ", "unlink", str, null));
                         }
-                        long jn = g.jn(iZ);
+                        long jm = g.jm(iY);
                         try {
                             if (file.delete()) {
-                                g.ac(-jn);
+                                g.ac(-jm);
                                 w = w(0, "ok");
                             } else {
                                 w = w(-1, g.l(LivenessStat.TYPE_FACE_MATCH_FAIL, null, str, null));
@@ -361,7 +361,7 @@ public class e {
                             return w(-1, g.l(LivenessStat.TYPE_FACE_MATCH_FAIL, null, str, null));
                         }
                     }
-                    return ja;
+                    return iZ;
                 }
                 return y2;
             }
@@ -378,17 +378,17 @@ public class e {
                 if (!str2.startsWith(a.USER_DATA_PATH)) {
                     return w(-1, "fail permission denied, open " + str2);
                 }
-                String jo = g.jo(str);
-                if (!jo.startsWith(a.USER_DATA_PATH) && !jo.startsWith("bdfile://code")) {
+                String jn = g.jn(str);
+                if (!jn.startsWith(a.USER_DATA_PATH) && !jn.startsWith("bdfile://code")) {
                     return w(-1, "fail permission denied, open " + str);
                 }
-                if (!g.je(jo)) {
+                if (!g.jd(jn)) {
                     return w(-4, g.b("fail no such file or directory ", "unzip", str, str2, true));
                 }
-                if (!g.je(str2)) {
+                if (!g.jd(str2)) {
                     return w(-4, g.b("fail no such file or directory ", "unzip", str, str2, true));
                 }
-                if (jb(str2)) {
+                if (ja(str2)) {
                     return w(-1, g.b("fail permission denied, ", "unzip", str, str2, true));
                 }
                 c z = z(str2, false);
@@ -396,41 +396,41 @@ public class e {
                     z.errMsg = g.b("fail no such file or directory ", "unzip", str, str2, true);
                     return z;
                 }
-                String iZ = iZ(jo);
-                String iZ2 = iZ(str2);
-                if (TextUtils.isEmpty(iZ)) {
+                String iY = iY(jn);
+                String iY2 = iY(str2);
+                if (TextUtils.isEmpty(iY)) {
                     return w(-1, g.b("fail no such file or directory ", "unzip", str, str2, true));
                 }
-                if (TextUtils.isEmpty(iZ2)) {
+                if (TextUtils.isEmpty(iY2)) {
                     return w(-1, g.b("fail no such file or directory ", "unzip", str, str2, true));
                 }
-                File file = new File(iZ);
+                File file = new File(iY);
                 if (!file.exists()) {
                     return w(-1, g.b("fail no such file or directory ", "unzip", str, str2, true));
                 }
-                if (!iZ.endsWith(".zip")) {
+                if (!iY.endsWith(".zip")) {
                     return w(-1, "fail unzip failed");
                 }
                 if (!file.isFile()) {
                     return w(-1, g.b("fail permission denied, ", "unzip", str, str2, true));
                 }
-                File file2 = new File(iZ2);
+                File file2 = new File(iY2);
                 if (!file2.exists()) {
                     file2.mkdir();
                 } else if (file2.isFile()) {
                     return w(-1, "fail unzip failed");
                 }
-                List<String> E = g.E(iZ2, true);
-                if (!com.baidu.swan.c.a.bs(iZ, iZ2)) {
+                List<String> E = g.E(iY2, true);
+                if (!com.baidu.swan.c.a.bs(iY, iY2)) {
                     return w(-1, "fail unzip failed");
                 }
-                List<String> E2 = g.E(iZ2, true);
+                List<String> E2 = g.E(iY2, true);
                 ArrayList arrayList = new ArrayList(E2.size());
                 long j = 0;
                 for (String str3 : E2) {
                     if (!E.contains(str3)) {
                         arrayList.add(str3);
-                        j = g.jn(str3) + j;
+                        j = g.jm(str3) + j;
                     }
                 }
                 if (g.ad(j)) {
@@ -445,17 +445,17 @@ public class e {
         return y;
     }
 
-    private boolean jb(String str) {
+    private boolean ja(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         if (str.contains(File.separator)) {
-            return jc(str.substring(str.lastIndexOf(File.separator) + 1));
+            return jb(str.substring(str.lastIndexOf(File.separator) + 1));
         }
-        return jc(str);
+        return jb(str);
     }
 
-    private boolean jc(String str) {
+    private boolean jb(String str) {
         if (TextUtils.isEmpty(str) || !str.contains(".")) {
             return false;
         }
@@ -468,17 +468,17 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "tempFilePath must be a string" : "fail tempFilePath file not exist", z ? " The argument must be string" : "fail parameter error: parameter.tempFilePath should be String instead of Object;");
             if (y == null) {
-                String jo = g.jo(str2);
-                if (TextUtils.isEmpty(jo)) {
-                    jo = a.USER_DATA_PATH + File.separator + com.baidu.swan.c.a.kZ(str);
+                String jn = g.jn(str2);
+                if (TextUtils.isEmpty(jn)) {
+                    jn = a.USER_DATA_PATH + File.separator + com.baidu.swan.c.a.kY(str);
                 }
-                if (!jo.startsWith(a.USER_DATA_PATH)) {
+                if (!jn.startsWith(a.USER_DATA_PATH)) {
                     return w(-1, g.l("fail permission denied, open ", null, str2, null));
                 }
                 if (!(!TextUtils.isEmpty(str) && (str.startsWith(new StringBuilder().append("bdfile://tmp").append(File.separator).toString()) || "bdfile://tmp".equals(str)))) {
                     return w(-4, "fail it is not a tempFilePath");
                 }
-                c z2 = z(jo, false);
+                c z2 = z(jn, false);
                 if (z2 != null) {
                     return z2;
                 }
@@ -486,8 +486,8 @@ public class e {
                 if (z3 != null) {
                     return z3;
                 }
-                File file = new File(iZ(jo));
-                if (a.USER_DATA_PATH.equals(jo) || (file.exists() && file.isDirectory())) {
+                File file = new File(iY(jn));
+                if (a.USER_DATA_PATH.equals(jn) || (file.exists() && file.isDirectory())) {
                     return w(-1, g.l("fail Error: EISDIR: illegal operation on a directory, open ", null, str2, null));
                 }
                 c y2 = y(str, true);
@@ -495,34 +495,34 @@ public class e {
                     y2.errMsg = "fail no such file or directory ";
                     return y2;
                 }
-                String iZ = iZ(str);
-                long jn = g.jn(iZ);
-                if (g.ad(jn)) {
+                String iY = iY(str);
+                long jm = g.jm(iY);
+                if (g.ad(jm)) {
                     return w(-1, "fail file size over 50M");
                 }
-                if (!jo.startsWith(a.USER_DATA_PATH) || g.jg(jo)) {
+                if (!jn.startsWith(a.USER_DATA_PATH) || g.jf(jn)) {
                     return w(-1, g.l("fail permission denied, open ", null, str2, null));
                 }
-                c z4 = z(jo, false);
+                c z4 = z(jn, false);
                 if (z4 != null) {
                     return z4;
                 }
-                c ja = ja(jo);
-                if (ja != null) {
-                    return ja;
+                c iZ = iZ(jn);
+                if (iZ != null) {
+                    return iZ;
                 }
-                c aZ = aZ(str, jo);
+                c aZ = aZ(str, jn);
                 if (aZ != null && aZ.errCode == 0) {
-                    g.ac(jn);
+                    g.ac(jm);
                     if (TextUtils.isEmpty(str)) {
                         return w(-1, g.l("fail no such file or directory ", null, str, null));
                     }
-                    File file2 = new File(iZ);
+                    File file2 = new File(iY);
                     if (file2.exists()) {
                         file2.delete();
                     }
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(jo);
+                    arrayList.add(jn);
                     aZ.bfT = arrayList;
                     aZ.errMsg = "ok";
                 }
@@ -546,18 +546,18 @@ public class e {
         FileInputStream fileInputStream2;
         FileOutputStream fileOutputStream;
         FileInputStream fileInputStream3 = null;
-        String iZ = iZ(str);
-        String iZ2 = iZ(str2);
-        if (TextUtils.isEmpty(iZ)) {
+        String iY = iY(str);
+        String iY2 = iY(str2);
+        if (TextUtils.isEmpty(iY)) {
             return w(-1, g.l("fail no such file or directory ", null, str, null));
         }
-        if (TextUtils.isEmpty(iZ2)) {
+        if (TextUtils.isEmpty(iY2)) {
             return w(-1, g.l("fail no such file or directory ", null, str2, null));
         }
         c w = w(0, "ok");
         try {
-            File file = new File(iZ2);
-            fileInputStream = new FileInputStream(new File(iZ));
+            File file = new File(iY2);
+            fileInputStream = new FileInputStream(new File(iY));
             try {
                 fileOutputStream = new FileOutputStream(file);
             } catch (IOException e) {
@@ -645,15 +645,15 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "dirPath must be a string" : "fail permission denied, open " + str, z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
             if (y == null) {
-                String jo = g.jo(str);
-                if (!g.jf(jo)) {
+                String jn = g.jn(str);
+                if (!g.je(jn)) {
                     return w(-4, "fail permission denied, open " + str);
                 }
-                String iZ = iZ(jo);
-                if (TextUtils.isEmpty(iZ)) {
+                String iY = iY(jn);
+                if (TextUtils.isEmpty(iY)) {
                     return w(-1, "fail no such file or directory " + str);
                 }
-                File file = new File(iZ);
+                File file = new File(iY);
                 if (!file.exists()) {
                     return w(-1, "fail no such file or directory " + str);
                 }
@@ -664,7 +664,7 @@ public class e {
                 ArrayList arrayList = new ArrayList();
                 for (File file2 : listFiles) {
                     if (file2.exists()) {
-                        arrayList.add(com.baidu.swan.c.a.kZ(file2.getAbsolutePath()));
+                        arrayList.add(com.baidu.swan.c.a.kY(file2.getAbsolutePath()));
                     }
                 }
                 c w = w(0, "ok");
@@ -682,12 +682,12 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z2 ? "dirPath must be a string" : "fail permission denied, open " + str, z2 ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of Object;");
             if (y == null) {
-                c ja = ja(str);
-                if (ja == null) {
-                    if (!g.jf(str)) {
+                c iZ = iZ(str);
+                if (iZ == null) {
+                    if (!g.je(str)) {
                         return w(-4, "fail permission denied, open " + str);
                     }
-                    File file = new File(iZ(str));
+                    File file = new File(iY(str));
                     if (!file.exists() || file.isFile()) {
                         return w(-1, "fail no such file or directory " + str);
                     }
@@ -709,7 +709,7 @@ public class e {
                         return w(-1, LivenessStat.TYPE_FACE_MATCH_FAIL);
                     }
                 }
-                return ja;
+                return iZ;
             }
             return y;
         }
@@ -726,11 +726,11 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "filePath must be a string" : "fail file not found", z ? " The argument must be string" : "fail parameter error: parameter.dirPath should be String instead of NULL;");
             if (y == null) {
-                String jo = g.jo(str);
-                if (!g.je(jo)) {
+                String jn = g.jn(str);
+                if (!g.jd(jn)) {
                     return w(-1, "fail permission denied, open " + str);
                 }
-                c y2 = y(jo, true);
+                c y2 = y(jn, true);
                 if (y2 != null) {
                     y2.errMsg = g.l("fail no such file or directory ", "open", str, null);
                     return y2;
@@ -747,24 +747,24 @@ public class e {
                 if (!isEmpty && !bgF.contains(str3)) {
                     return w(-1, "fail Error: Unknown encoding: " + str3);
                 }
-                String iZ = iZ(jo);
-                if (TextUtils.isEmpty(iZ)) {
+                String iY = iY(jn);
+                if (TextUtils.isEmpty(iY)) {
                     return w(-1, "fail no such file or directory " + str);
                 }
-                File file = new File(iZ);
+                File file = new File(iY);
                 String str4 = "";
                 byte[] bArr = new byte[0];
                 c w = w(0, "ok");
                 try {
                     if (TextUtils.isEmpty(str3)) {
-                        bArr = g.jp(iZ);
+                        bArr = g.jo(iY);
                     } else {
                         String a = a(new FileInputStream(file), ("base64".equals(str3) || "hex".equals(str3)) ? "" : str3);
                         if (!TextUtils.isEmpty(a)) {
                             if ("base64".equals(str3)) {
                                 str4 = new String(Base64.encode(a.getBytes(), 2), "utf-8");
                             } else if ("hex".equals(str3)) {
-                                str4 = g.ji(iZ);
+                                str4 = g.jh(iY);
                             }
                         }
                         str4 = a;
@@ -839,36 +839,36 @@ public class e {
                 if (y == null) {
                     c y2 = g.y(str2, z ? "newPath must be a string" : g.l("fail no such file or directory ", "rename", str2, null), z ? " The argument must be string" : "fail parameter error: parameter.newPath should be String instead of Undefined;");
                     if (y2 == null) {
-                        String jo = g.jo(str);
-                        c ja = ja(jo);
-                        if (ja != null) {
-                            ja.errMsg = g.l("fail permission denied, ", "rename", str, str2);
-                            return ja;
+                        String jn = g.jn(str);
+                        c iZ = iZ(jn);
+                        if (iZ != null) {
+                            iZ.errMsg = g.l("fail permission denied, ", "rename", str, str2);
+                            return iZ;
                         }
-                        String jo2 = g.jo(str2);
-                        c ja2 = ja(jo2);
-                        if (ja2 != null) {
-                            ja2.errMsg = g.l("fail permission denied, ", "rename", str, str2);
-                            return ja2;
+                        String jn2 = g.jn(str2);
+                        c iZ2 = iZ(jn2);
+                        if (iZ2 != null) {
+                            iZ2.errMsg = g.l("fail permission denied, ", "rename", str, str2);
+                            return iZ2;
                         }
-                        c y3 = y(jo, false);
+                        c y3 = y(jn, false);
                         if (y3 != null) {
                             y3.errMsg = g.l("fail no such file or directory ", "rename", str, str2);
                             return y3;
-                        } else if (!g.je(jo) || !g.je(jo2)) {
+                        } else if (!g.jd(jn) || !g.jd(jn2)) {
                             return w(-4, g.l("fail permission denied, ", "rename", str, str2));
                         } else {
-                            c z2 = z(jo2, false);
+                            c z2 = z(jn2, false);
                             if (z2 != null) {
                                 z2.errMsg = g.l("fail no such file or directory ", "rename", str, str2);
                                 return z2;
                             }
-                            String iZ = iZ(jo);
-                            String iZ2 = iZ(jo2);
-                            File file = new File(iZ);
-                            File file2 = new File(iZ2);
+                            String iY = iY(jn);
+                            String iY2 = iY(jn2);
+                            File file = new File(iY);
+                            File file2 = new File(iY2);
                             boolean exists = file2.exists();
-                            if (!g.e(file, file2) || (file.isDirectory() && !exists && jb(iZ2))) {
+                            if (!g.e(file, file2) || (file.isDirectory() && !exists && ja(iY2))) {
                                 return w(-1, "fail rename failed");
                             }
                             try {
@@ -897,29 +897,29 @@ public class e {
             if (y == null) {
                 c y2 = g.y(str2, "destPath must be a string", " The argument must be string");
                 if (y2 == null) {
-                    String jo = g.jo(str);
-                    if (!g.je(jo)) {
+                    String jn = g.jn(str);
+                    if (!g.jd(jn)) {
                         return w(-4, g.l("fail no such file or directory ", "copyFile", str, null));
                     }
-                    String jo2 = g.jo(str2);
-                    if (!g.je(jo2)) {
+                    String jn2 = g.jn(str2);
+                    if (!g.jd(jn2)) {
                         return w(-4, g.l("fail permission denied, open ", "copyFile", str2, null));
                     }
-                    c ja = ja(jo2);
-                    if (ja == null) {
-                        String iZ = iZ(jo);
-                        File file = new File(iZ);
+                    c iZ = iZ(jn2);
+                    if (iZ == null) {
+                        String iY = iY(jn);
+                        File file = new File(iY);
                         if (!file.exists() || !file.isFile()) {
                             return w(-1, g.l("fail no such file or directory ", "copyFile", str, null));
                         }
-                        c z2 = z(jo2, false);
+                        c z2 = z(jn2, false);
                         if (z2 != null) {
                             z2.errMsg = g.l("fail no such file or directory ", "copyFile", str2, null);
                             return z2;
-                        } else if (jo2.endsWith(File.separator)) {
+                        } else if (jn2.endsWith(File.separator)) {
                             return w(-1, g.l("fail permission denied, ", "copyFile", str, str2));
                         } else {
-                            File file2 = new File(iZ(jo2));
+                            File file2 = new File(iY(jn2));
                             if (file2.exists() && file2.isDirectory()) {
                                 if (d(file2.listFiles())) {
                                     return w(-1, g.l("fail permission denied, ", "copyFile", str, str2));
@@ -930,20 +930,20 @@ public class e {
                                     return w(-1, LivenessStat.TYPE_FACE_MATCH_FAIL);
                                 }
                             }
-                            long jn = g.jn(iZ);
-                            boolean z3 = (jo.equals(jo2) || jo.startsWith(a.USER_DATA_PATH)) ? false : true;
-                            if (z3 && g.ad(jn)) {
+                            long jm = g.jm(iY);
+                            boolean z3 = (jn.equals(jn2) || jn.startsWith(a.USER_DATA_PATH)) ? false : true;
+                            if (z3 && g.ad(jm)) {
                                 return w(-1, "fail file size over 50M");
                             }
-                            c aZ = !jo.equals(jo2) ? aZ(jo, jo2) : w(0, "ok");
+                            c aZ = !jn.equals(jn2) ? aZ(jn, jn2) : w(0, "ok");
                             if (z3 && aZ != null && aZ.errCode == 0) {
-                                g.ac(jn);
+                                g.ac(jm);
                                 return aZ;
                             }
                             return aZ;
                         }
                     }
-                    return ja;
+                    return iZ;
                 }
                 return y2;
             }
@@ -957,25 +957,25 @@ public class e {
         if (y == null) {
             c aX = aX(str, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (aX == null) {
-                String jo = g.jo(str);
+                String jn = g.jn(str);
                 if (!"mounted".equals(Environment.getExternalStorageState())) {
                     return w(-1, "fail sdcard not mounted ");
                 }
-                c ja = ja(jo);
-                if (ja == null) {
+                c iZ = iZ(jn);
+                if (iZ == null) {
                     if (obj == null) {
                         return w(-1, "fail TypeError: data argument must be a string, Buffer, ArrayBuffer, Array, or array-like object");
                     }
-                    File file = new File(iZ(jo));
+                    File file = new File(iY(jn));
                     if (!file.exists()) {
                         return w(-1, g.l("fail no such file or directory ", "open", str, null));
                     }
                     if (file.isDirectory()) {
                         return w(-1, "fail illegal operation on a directory, open " + str);
                     }
-                    return a(jo, obj, str2, true);
+                    return a(jn, obj, str2, true);
                 }
-                return ja;
+                return iZ;
             }
             return aX;
         }
@@ -987,11 +987,11 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "path must be a string" : g.l("fail no such file or directory ", "access", str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Undefined;");
             if (y == null) {
-                String jo = g.jo(str);
-                if (!g.je(jo)) {
+                String jn = g.jn(str);
+                if (!g.jd(jn)) {
                     return w(-4, g.l("fail no such file or directory ", "access", str, null));
                 }
-                if (!new File(iZ(jo)).exists()) {
+                if (!new File(iY(jn)).exists()) {
                     return w(-1, g.l("fail no such file or directory ", "access", str, null));
                 }
                 return w(0, "ok");
@@ -1006,17 +1006,17 @@ public class e {
         if (aX == null) {
             c y = g.y(str, z ? "path must be a string" : g.l("fail no such file or directory ", null, str, null), z ? " The argument must be string" : "fail parameter error: parameter.path should be String instead of Object;");
             if (y == null) {
-                if (!g.jr(str) && !g.jf(str)) {
+                if (!g.jq(str) && !g.je(str)) {
                     return w(-1, "fail permission denied, open " + str);
                 }
                 c y2 = y(str, false);
                 if (y2 == null) {
                     f fVar = new f();
-                    String iZ = iZ(str);
-                    if (TextUtils.isEmpty(iZ)) {
+                    String iY = iY(str);
+                    if (TextUtils.isEmpty(iY)) {
                         return w(-1, g.l("fail no such file or directory ", null, str, null));
                     }
-                    File file = new File(iZ);
+                    File file = new File(iY);
                     fVar.cM(file.isDirectory());
                     fVar.cN(file.isFile());
                     return a(str, fVar);
@@ -1029,7 +1029,7 @@ public class e {
     }
 
     private c a(String str, f fVar) {
-        File file = new File(iZ(str));
+        File file = new File(iY(str));
         if (Build.VERSION.SDK_INT >= 21) {
             try {
                 fVar.lastAccessedTime = Os.lstat(file.getAbsolutePath()).st_atime;
@@ -1079,16 +1079,16 @@ public class e {
         return w;
     }
 
-    public c jd(String str) {
+    public c jc(String str) {
         c aX = aX(str, "android.permission.READ_EXTERNAL_STORAGE");
         if (aX == null) {
             c y = g.y(str, "fail file not exist", "fail parameter error: parameter.filePath should be String instead of Undefined;");
             if (y == null) {
-                String jo = g.jo(str);
-                if (!jo.startsWith("bdfile://tmp")) {
+                String jn = g.jn(str);
+                if (!jn.startsWith("bdfile://tmp")) {
                     return w(-4, "fail file not exist");
                 }
-                File file = new File(iZ(jo));
+                File file = new File(iY(jn));
                 if (!file.exists()) {
                     return w(-1, "fail file not exist");
                 }

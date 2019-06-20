@@ -63,7 +63,7 @@ public class p {
                         fVar.fW(jSONObject2.getInt("limitCnt"));
                     }
                     if (jSONObject2.has("idtype")) {
-                        fVar.kN(jSONObject2.getString("idtype"));
+                        fVar.kM(jSONObject2.getString("idtype"));
                     }
                     this.bvX.add(fVar);
                 }

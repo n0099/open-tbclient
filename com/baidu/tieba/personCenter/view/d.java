@@ -15,38 +15,38 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<j> {
-    private BdBaseViewPager ccQ;
-    private TbTabLayout fMH;
-    private List<com.baidu.tieba.personCenter.data.c> ieF;
-    private List<PersonCenterSmartAppPageView> ieG;
-    private View ieH;
-    private a ieI;
-    private PersonCenterSmartAppPageView ieJ;
+    private BdBaseViewPager ccR;
+    private TbTabLayout fMJ;
+    private List<com.baidu.tieba.personCenter.data.c> ieG;
+    private List<PersonCenterSmartAppPageView> ieH;
+    private View ieI;
+    private a ieJ;
+    private PersonCenterSmartAppPageView ieK;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         View view = getView();
-        this.ccQ = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
-        this.fMH = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
-        this.ieH = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
-        this.fMH.setTabMode(1);
-        this.ieG = new ArrayList();
-        this.ieI = new a(this.ieG);
-        this.ccQ.setAdapter(this.ieI);
-        this.fMH.setupWithViewPager(this.ccQ);
+        this.ccR = (BdBaseViewPager) view.findViewById(R.id.vp_person_center_smart_app_banner);
+        this.fMJ = (TbTabLayout) view.findViewById(R.id.tl_person_center_smart_app_banner);
+        this.ieI = view.findViewById(R.id.blank_view_below_person_center_smart_app_banner);
+        this.fMJ.setTabMode(1);
+        this.ieH = new ArrayList();
+        this.ieJ = new a(this.ieH);
+        this.ccR.setAdapter(this.ieJ);
+        this.fMJ.setupWithViewPager(this.ccR);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.ieG) {
+        for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.ieH) {
             if (personCenterSmartAppPageView != null) {
                 personCenterSmartAppPageView.onChangeSkinType();
             }
         }
-        this.fMH.setSelectedTabIndicatorColor(al.getColor(R.color.cp_cont_c));
-        al.k(this.fMH, R.drawable.frs_tab_layout_bg);
-        al.l(this.ieH, R.color.cp_bg_line_c);
+        this.fMJ.setSelectedTabIndicatorColor(al.getColor(R.color.cp_cont_c));
+        al.k(this.fMJ, R.drawable.frs_tab_layout_bg);
+        al.l(this.ieI, R.color.cp_bg_line_c);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -62,36 +62,36 @@ public class d extends com.baidu.tieba.card.a<j> {
             return;
         }
         setVisibility(0);
-        this.ieG.clear();
-        this.ieF = jVar.getData();
-        this.ieJ = new PersonCenterSmartAppPageView(getContext());
-        this.ieG.add(this.ieJ);
-        int min = Math.min(7, this.ieF.size());
+        this.ieH.clear();
+        this.ieG = jVar.getData();
+        this.ieK = new PersonCenterSmartAppPageView(getContext());
+        this.ieH.add(this.ieK);
+        int min = Math.min(7, this.ieG.size());
         for (int i = 0; i < min; i++) {
-            a((com.baidu.tieba.personCenter.data.c) v.c(this.ieF, i));
+            a((com.baidu.tieba.personCenter.data.c) v.c(this.ieG, i));
         }
-        if (this.ieF.isEmpty()) {
+        if (this.ieG.isEmpty()) {
             setVisibility(8);
         } else {
             a(new k());
         }
-        if (this.ieG.size() <= 1) {
-            this.fMH.setVisibility(8);
+        if (this.ieH.size() <= 1) {
+            this.fMJ.setVisibility(8);
         } else {
-            this.fMH.setVisibility(0);
+            this.fMJ.setVisibility(0);
         }
-        this.ieI.dP(this.ieG);
+        this.ieJ.dP(this.ieH);
         onChangeSkinType(getTbPageContext(), this.mSkinType);
     }
 
     private void a(com.baidu.tieba.personCenter.data.c cVar) {
-        if (this.ieJ.bYx()) {
-            this.ieJ.c(cVar);
+        if (this.ieK.bYy()) {
+            this.ieK.c(cVar);
             return;
         }
-        this.ieJ = new PersonCenterSmartAppPageView(getContext());
-        this.ieG.add(this.ieJ);
-        this.ieJ.c(cVar);
+        this.ieK = new PersonCenterSmartAppPageView(getContext());
+        this.ieH.add(this.ieK);
+        this.ieK.c(cVar);
     }
 
     @Override // android.view.View.OnClickListener

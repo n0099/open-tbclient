@@ -75,15 +75,15 @@ public class b {
         if (DEBUG) {
             Log.d("FunnelFlow", "ubc: begin flow");
         }
-        Flow kS = s.kS("820");
-        if (kS == null || this.aVw == null) {
+        Flow kR = s.kR("820");
+        if (kR == null || this.aVw == null) {
             if (DEBUG) {
                 Log.w("FunnelFlow", "UBC Flow create failed, or events is null");
             }
         } else {
             for (a aVar : this.aVw.values()) {
                 if (aVar.timestamp > 0) {
-                    kS.addEvent(aVar.id, aVar.value, aVar.timestamp);
+                    kR.addEvent(aVar.id, aVar.value, aVar.timestamp);
                     if (DEBUG) {
                         Log.d("FunnelFlow", "ubc: add event=" + aVar.toString());
                     }
@@ -110,8 +110,8 @@ public class b {
                     Log.w("FunnelFlow", Log.getStackTraceString(e));
                 }
             }
-            kS.setValueWithDuration(jSONObject.toString());
-            kS.end();
+            kR.setValueWithDuration(jSONObject.toString());
+            kR.end();
             if (DEBUG) {
                 Log.d("FunnelFlow", "ubc: end flow");
             }

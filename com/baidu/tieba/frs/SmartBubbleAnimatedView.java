@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SmartBubbleAnimatedView extends View {
-    private Paint bWt;
-    Rect bYb;
-    public String bZO;
+    private Paint bWu;
+    Rect bYc;
+    public String bZP;
     public long ftg;
     private float fth;
     private ValueAnimator fti;
@@ -45,9 +45,9 @@ public class SmartBubbleAnimatedView extends View {
         this.ftg = 4000L;
         this.fth = 0.0f;
         this.mPaint = new Paint();
-        this.bWt = new Paint();
+        this.bWu = new Paint();
         this.qc = new RectF();
-        this.bYb = new Rect();
+        this.bYc = new Rect();
         this.ftl = false;
         a((AttributeSet) null, 0);
     }
@@ -57,9 +57,9 @@ public class SmartBubbleAnimatedView extends View {
         this.ftg = 4000L;
         this.fth = 0.0f;
         this.mPaint = new Paint();
-        this.bWt = new Paint();
+        this.bWu = new Paint();
         this.qc = new RectF();
-        this.bYb = new Rect();
+        this.bYc = new Rect();
         this.ftl = false;
         a(attributeSet, 0);
     }
@@ -69,9 +69,9 @@ public class SmartBubbleAnimatedView extends View {
         this.ftg = 4000L;
         this.fth = 0.0f;
         this.mPaint = new Paint();
-        this.bWt = new Paint();
+        this.bWu = new Paint();
         this.qc = new RectF();
-        this.bYb = new Rect();
+        this.bYc = new Rect();
         this.ftl = false;
         a(attributeSet, i);
     }
@@ -163,15 +163,15 @@ public class SmartBubbleAnimatedView extends View {
 
     private void a(AttributeSet attributeSet, int i) {
         this.mPaint.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_link_tip_a));
-        this.bWt.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_cont_i));
-        this.bWt.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds40));
+        this.bWu.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_cont_i));
+        this.bWu.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds40));
         this.ftk = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds83);
     }
 
     public void onChangeSkinType(int i) {
         this.mPaint.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_link_tip_a));
-        this.bWt.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_cont_i));
-        this.bWt.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds40));
+        this.bWu.setColor(com.baidu.tbadk.core.util.al.getColor(R.color.cp_cont_i));
+        this.bWu.setTextSize(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.tbds40));
         invalidate();
     }
 
@@ -182,8 +182,8 @@ public class SmartBubbleAnimatedView extends View {
         float height2 = (getHeight() / 2) + ((this.fth * getHeight()) / 2.0f);
         this.qc.set(((1.0f - this.fth) * getWidth()) / 2.0f, height, width, height2);
         canvas.drawRoundRect(this.qc, (height2 - height) / 2.0f, (height2 - height) / 2.0f, this.mPaint);
-        this.bWt.getTextBounds(this.bZO, 0, this.bZO.length(), this.bYb);
-        canvas.drawText(this.bZO, 0, this.bZO.length(), (getWidth() - this.bYb.width()) / 2, getHeight() - ((getHeight() - this.bYb.height()) / 2), this.bWt);
+        this.bWu.getTextBounds(this.bZP, 0, this.bZP.length(), this.bYc);
+        canvas.drawText(this.bZP, 0, this.bZP.length(), (getWidth() - this.bYc.width()) / 2, getHeight() - ((getHeight() - this.bYc.height()) / 2), this.bWu);
     }
 
     public int getTipViewHeight() {

@@ -22,28 +22,28 @@ public class a {
         return aYt;
     }
 
-    private b hS(String str) {
+    private b hR(String str) {
         c.d("TextAreaBaseParser", "createTextAreaSecondaryParser slaveId:" + str);
         b bVar = new b();
         this.jk.put(str, bVar);
         return bVar;
     }
 
-    public b hT(String str) {
+    public b hS(String str) {
         c.d("TextAreaBaseParser", "getOrCreateSecondaryParser slaveId:" + str);
-        b hU = hU(str);
-        if (hU == null) {
-            return hS(str);
+        b hT = hT(str);
+        if (hT == null) {
+            return hR(str);
         }
-        return hU;
+        return hT;
     }
 
-    public b hU(String str) {
+    public b hT(String str) {
         c.d("TextAreaBaseParser", "getTextAreaSecondaryParser slaveId:" + str);
         return this.jk.get(str);
     }
 
-    public void hV(String str) {
+    public void hU(String str) {
         c.d("TextAreaBaseParser", "destroyTextAreaSecondaryParser slaveId:" + str);
         this.jk.remove(str);
     }

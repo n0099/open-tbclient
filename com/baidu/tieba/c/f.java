@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import tbclient.GetMyPost.GetMyPostResIdl;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    bg VK;
+    bg VJ;
     private NavigationBarCoverTip eHs;
     private View eHt;
     private TextView eHu;
@@ -152,52 +152,52 @@ public class f implements View.OnClickListener {
             this.mPageContext.showToast(R.string.neterror);
             return;
         }
-        this.VK = new bg();
-        this.VK.a(getMyPostResIdl.data.thread_info);
+        this.VJ = new bg();
+        this.VJ.a(getMyPostResIdl.data.thread_info);
         ajT();
     }
 
     private void ajT() {
-        if (this.VK != null && this.mActivity != null) {
-            String valueOf = String.valueOf(this.VK.getFid());
-            String adA = this.VK.adA();
-            String title = this.VK.getTitle();
+        if (this.VJ != null && this.mActivity != null) {
+            String valueOf = String.valueOf(this.VJ.getFid());
+            String adA = this.VJ.adA();
+            String title = this.VJ.getTitle();
             if (TextUtils.isEmpty(title)) {
-                title = this.VK.getAbstract();
+                title = this.VJ.getAbstract();
             }
-            String tid = this.VK.getTid();
+            String tid = this.VJ.getTid();
             String str = "http://tieba.baidu.com/p/" + tid + "?share=9105&fr=share";
-            String r = r(this.VK);
+            String r = r(this.VJ);
             Uri parse = r == null ? null : Uri.parse(r);
-            String str2 = this.VK.getAbstract();
+            String str2 = this.VJ.getAbstract();
             String format = MessageFormat.format(this.mActivity.getResources().getString(R.string.share_content_tpl), title, str2);
             com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e();
             eVar.title = title;
             eVar.content = format;
-            eVar.cjC = str2;
+            eVar.cjD = str2;
             eVar.linkUrl = str;
-            eVar.bLs = 5;
-            eVar.cjt = this.eHx;
+            eVar.bLt = 5;
+            eVar.cju = this.eHx;
             eVar.extData = tid;
-            eVar.cjF = 3;
+            eVar.cjG = 3;
             eVar.fid = valueOf;
-            eVar.cjw = adA;
+            eVar.cjx = adA;
             eVar.tid = tid;
-            eVar.cjp = true;
-            eVar.cjE = getShareObjSource();
-            eVar.cjJ = s(this.VK);
+            eVar.cjq = true;
+            eVar.cjF = getShareObjSource();
+            eVar.cjK = s(this.VJ);
             if (parse != null) {
                 eVar.imageUri = parse;
             }
-            eVar.originalThreadInfo = OriginalThreadInfo.parseFromThreadData(this.VK);
+            eVar.originalThreadInfo = OriginalThreadInfo.parseFromThreadData(this.VJ);
             TbadkCoreApplication.getInst().setShareItem(eVar);
-            eVar.cjT = this.VK.getShareImageUrl();
+            eVar.cjU = this.VJ.getShareImageUrl();
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", eVar.cjF);
-            bundle.putInt("obj_type", eVar.cjJ);
+            bundle.putInt("obj_param1", eVar.cjG);
+            bundle.putInt("obj_type", eVar.cjK);
             bundle.putString("fid", eVar.fid);
             bundle.putString("tid", eVar.tid);
-            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.bLs);
+            bundle.putInt(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.bLt);
             eVar.E(bundle);
             e.aZC().a(new ShareDialogConfig((Context) this.mActivity, eVar, true, true));
         }

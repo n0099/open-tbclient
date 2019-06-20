@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes3.dex */
 public class PraiseView extends BasePraiseView<bg> {
-    private View.OnClickListener bZt;
+    private View.OnClickListener bZu;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -41,8 +41,8 @@ public class PraiseView extends BasePraiseView<bg> {
             this.mData = bgVar;
             this.mThreadId = bgVar.getTid();
             this.mForumId = String.valueOf(bgVar.getFid());
-            this.bKD = ((bg) this.mData).aeO();
-            this.bKE = ((bg) this.mData).aeP();
+            this.bKE = ((bg) this.mData).aeO();
+            this.bKF = ((bg) this.mData).aeP();
             Jf();
         }
     }
@@ -51,19 +51,19 @@ public class PraiseView extends BasePraiseView<bg> {
     public void Jf() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.bVV);
+        String string = context.getString(this.bVW);
         if (num > 0) {
             string = ap.aN(num);
         }
-        this.bWa.setText(string);
-        this.bWa.setContentDescription(context.getString(this.bVV) + num);
+        this.bWb.setText(string);
+        this.bWb.setContentDescription(context.getString(this.bVW) + num);
         if (this.mData != 0 && ((bg) this.mData).aeQ() != 0 && ajf()) {
-            this.bWb.setImageDrawable(W(this.bVX, this.bVW));
-            this.bWa.setTextColor(createColorStateList(this.bVZ, this.bVY));
+            this.bWc.setImageDrawable(W(this.bVY, this.bVX));
+            this.bWb.setTextColor(createColorStateList(this.bWa, this.bVZ));
             return;
         }
-        this.bWb.setImageDrawable(W(this.bVW, this.bVX));
-        this.bWa.setTextColor(createColorStateList(this.bVY, this.bVZ));
+        this.bWc.setImageDrawable(W(this.bVX, this.bVY));
+        this.bWb.setTextColor(createColorStateList(this.bVZ, this.bWa));
     }
 
     public int aje() {
@@ -84,7 +84,7 @@ public class PraiseView extends BasePraiseView<bg> {
             ((bg) this.mData).hj(1);
             ((bg) this.mData).ar(((bg) this.mData).aeO() + 1);
             ((bg) this.mData).hl(2);
-            com.baidu.tieba.n.a.cet().x(getTbPageContext());
+            com.baidu.tieba.n.a.ceu().x(getTbPageContext());
             i = 0;
         }
         return i;
@@ -98,12 +98,12 @@ public class PraiseView extends BasePraiseView<bg> {
         Jf();
         ir(aje);
         iq(aje);
-        if (this.bVi != null) {
-            this.bVi.onClick(view);
+        if (this.bVj != null) {
+            this.bVj.onClick(view);
         }
         a(aje, (bg) this.mData);
-        if (this.bZt != null && ((bg) this.mData).adz()) {
-            this.bZt.onClick(view);
+        if (this.bZu != null && ((bg) this.mData).adz()) {
+            this.bZu.onClick(view);
         }
         return aje;
     }
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bg> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.bZt = onClickListener;
+        this.bZu = onClickListener;
     }
 }

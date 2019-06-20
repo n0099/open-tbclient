@@ -98,7 +98,7 @@ public class c {
                                     Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + valueOf);
                                     Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + valueOf2);
                                 }
-                                if (a.hf(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
+                                if (a.he(string) && a.f(valueOf2.longValue(), valueOf.longValue())) {
                                     aTo = true;
                                     final b bVar = new b(string, valueOf);
                                     aTp = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
@@ -108,8 +108,8 @@ public class c {
                                             if (c.DEBUG) {
                                                 Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                             }
-                                            if (c.hd(string) || c.mCount > 10) {
-                                                if (c.hd(string) && c.T(2000L) && !c.hc(string)) {
+                                            if (c.hc(string) || c.mCount > 10) {
+                                                if (c.hc(string) && c.T(2000L) && !c.hb(string)) {
                                                     for (com.baidu.swan.apps.ag.a aVar : c.mCallbacks) {
                                                         if (aVar != null) {
                                                             aVar.a(bVar);
@@ -163,7 +163,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean hc(String str) {
+    public static boolean hb(String str) {
         Point point = new Point();
         ((WindowManager) AppRuntime.getAppContext().getSystemService("window")).getDefaultDisplay().getSize(point);
         int navigationBarHeight = (int) ((point.y + getNavigationBarHeight()) * 1.2d);
@@ -184,7 +184,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static boolean hd(String str) {
+    public static boolean hc(String str) {
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
@@ -229,7 +229,7 @@ public class c {
             aBo = new String[]{"_display_name", "_data", "date_added"};
         }
 
-        public static boolean hf(String str) {
+        public static boolean he(String str) {
             if (str == null) {
                 return false;
             }

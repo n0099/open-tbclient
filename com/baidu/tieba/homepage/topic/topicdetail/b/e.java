@@ -5,7 +5,7 @@ import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes4.dex */
 public class e {
     public String bcs;
-    public String gfA;
+    public String gfC;
     public int index;
     public long tid;
     public String title;
@@ -15,7 +15,7 @@ public class e {
         if (timeLineInfo != null) {
             this.tid = timeLineInfo.tid.longValue();
             this.title = timeLineInfo.title;
-            this.gfA = ap.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+            this.gfC = ap.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
             this.bcs = timeLineInfo.bg_color;
         }
     }

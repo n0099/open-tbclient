@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class v extends a {
-    private boolean XJ;
+    private boolean XI;
     private int procType;
 
     public v(boolean z, int i) {
-        this.XJ = true;
+        this.XI = true;
         this.procType = 0;
-        this.XJ = z;
+        this.XI = z;
         this.procType = i;
     }
 
@@ -35,7 +35,7 @@ public class v extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.XJ;
+        return this.XI;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -56,22 +56,22 @@ public class v extends a {
         com.baidu.adp.lib.stats.a iw = com.baidu.tbadk.core.util.s.iw();
         iw.iF();
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c ok = ok(as.nT(str2));
-        if (ok == null) {
+        com.baidu.adp.lib.Disk.ops.c oj = oj(as.nS(str2));
+        if (oj == null) {
             return null;
         }
-        ok.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        ok.J(true);
-        ok.K(false);
-        ok.q(bArr);
-        ok.L(false);
+        oj.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        oj.J(true);
+        oj.K(false);
+        oj.q(bArr);
+        oj.L(false);
         if (aVar != null) {
             e eVar = new e();
-            eVar.f(ok);
-            aVar.Bf = eVar;
+            eVar.f(oj);
+            aVar.Be = eVar;
         }
         boolean jT = com.baidu.adp.lib.util.j.jT();
-        if (!com.baidu.adp.lib.Disk.d.gt().c(ok)) {
+        if (!com.baidu.adp.lib.Disk.d.gt().c(oj)) {
             com.baidu.tbadk.core.util.s.a(iw, str2, false, iw.iG(), jT);
             return null;
         }
@@ -85,10 +85,10 @@ public class v extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (!ok.isSuccess()) {
+        if (!oj.isSuccess()) {
             aVar2 = null;
         } else {
-            aVar2 = a(ok, str2, i, i2);
+            aVar2 = a(oj, str2, i, i2);
         }
         if (aVar2 != null) {
             com.baidu.tbadk.core.util.s.a(iw, str2, true, iw.iG(), jT);
@@ -102,7 +102,7 @@ public class v extends a {
     protected com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (m(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.nT(str2), DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.nS(str2), DiskFileOperate.Action.WRITE);
             cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             cVar.J(true);
             cVar.setData(bArr);
@@ -112,7 +112,7 @@ public class v extends a {
             if (aVar != null) {
                 e eVar = new e();
                 eVar.f(cVar);
-                aVar.Bf = eVar;
+                aVar.Be = eVar;
             }
         }
         return aVar2;

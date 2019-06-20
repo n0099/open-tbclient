@@ -6,24 +6,24 @@ import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class AccountSafeModel extends BdBaseModel {
-    private boolean cAl;
-    private com.baidu.tieba.setting.im.more.a cVl;
-    private String cVm;
+    private boolean cAm;
+    private com.baidu.tieba.setting.im.more.a cVm;
     private String cVn;
     private String cVo;
+    private String cVp;
     private boolean mFinished;
 
     public com.baidu.tieba.setting.im.more.a aBD() {
-        return this.cVl;
+        return this.cVm;
     }
 
     public String aBE() {
-        return this.cVm;
+        return this.cVn;
     }
 
     public AccountSafeModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.cAl = false;
+        this.cAm = false;
         this.mFinished = false;
     }
 
@@ -34,7 +34,7 @@ public class AccountSafeModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        this.cAl = false;
+        this.cAm = false;
         this.mFinished = false;
         return false;
     }
@@ -44,42 +44,42 @@ public class AccountSafeModel extends BdBaseModel {
     }
 
     public boolean aBG() {
-        if (this.cAl) {
+        if (this.cAm) {
             return false;
         }
-        this.cAl = true;
+        this.cAm = true;
         this.mFinished = false;
         sendMessage(aBF());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
-        this.cVl = aVar;
+        this.cVm = aVar;
         aBH();
     }
 
     private void aBH() {
         SimpleUser aBI = aBI();
         if (aBI != null) {
-            this.cVn = aBI.secureemail;
-            this.cVo = aBI.securemobil;
-            this.cVm = aBI.ahead_url;
+            this.cVo = aBI.secureemail;
+            this.cVp = aBI.securemobil;
+            this.cVn = aBI.ahead_url;
             this.mFinished = true;
         }
     }
 
     private SimpleUser aBI() {
-        if (this.cVl == null || this.cVl.aBI() == null) {
+        if (this.cVm == null || this.cVm.aBI() == null) {
             return null;
         }
-        return this.cVl.aBI();
+        return this.cVm.aBI();
     }
 
     public boolean pu() {
-        return this.cAl;
+        return this.cAm;
     }
 
     public void setLoading(boolean z) {
-        this.cAl = z;
+        this.cAm = z;
     }
 }

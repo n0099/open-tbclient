@@ -12,7 +12,7 @@ public class b {
         ahq = z;
     }
 
-    private static String cS(String str) {
+    private static String cR(String str) {
         return Thread.currentThread().getName() + "[" + ahn + ":" + aho + ":" + ahp + "]" + str;
     }
 
@@ -29,7 +29,7 @@ public class b {
                 sb.append(obj.toString());
             }
         }
-        return cS(sb.toString());
+        return cR(sb.toString());
     }
 
     public static void f(String str, Throwable th) {

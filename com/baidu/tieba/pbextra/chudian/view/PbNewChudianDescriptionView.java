@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.ap;
 import com.baidu.tieba.pb.a;
 /* loaded from: classes4.dex */
 public class PbNewChudianDescriptionView extends LinearLayout implements View.OnClickListener {
-    private a.InterfaceC0366a hZr;
-    private String hZt;
-    private int hZu;
+    private a.InterfaceC0366a hZs;
+    private String hZu;
+    private int hZv;
     private Context mContext;
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!ap.isEmpty(this.hZt)) {
-            com.baidu.tbadk.browser.a.af(this.mContext, this.hZt);
-            if (this.hZr != null) {
-                switch (this.hZu) {
+        if (!ap.isEmpty(this.hZu)) {
+            com.baidu.tbadk.browser.a.af(this.mContext, this.hZu);
+            if (this.hZs != null) {
+                switch (this.hZv) {
                     case 0:
-                        this.hZr.g(this.hZt, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.hZs.g(this.hZu, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 1:
-                        this.hZr.g(this.hZt, "IMAGE1", "LINK_IMAGE", null, null);
+                        this.hZs.g(this.hZu, "IMAGE1", "LINK_IMAGE", null, null);
                         return;
                     case 2:
-                        this.hZr.g(this.hZt, "IMAGE2", "LINK_IMAGE", null, null);
+                        this.hZs.g(this.hZu, "IMAGE2", "LINK_IMAGE", null, null);
                         return;
                     case 3:
-                        this.hZr.g(this.hZt, "IMAGE3", "LINK_IMAGE", null, null);
+                        this.hZs.g(this.hZu, "IMAGE3", "LINK_IMAGE", null, null);
                         return;
                     default:
                         return;
@@ -38,7 +38,7 @@ public class PbNewChudianDescriptionView extends LinearLayout implements View.On
     }
 
     public void setClickUrl(String str, int i) {
-        this.hZt = str;
-        this.hZu = i;
+        this.hZu = str;
+        this.hZv = i;
     }
 }

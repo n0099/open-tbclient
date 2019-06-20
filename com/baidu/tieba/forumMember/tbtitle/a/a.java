@@ -101,10 +101,10 @@ public class a extends c<TbTitleActivity> {
     /* renamed from: com.baidu.tieba.forumMember.tbtitle.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public class C0304a extends ClickableSpan {
-        private View.OnClickListener bYE;
+        private View.OnClickListener bYF;
 
         public C0304a(View.OnClickListener onClickListener) {
-            this.bYE = onClickListener;
+            this.bYF = onClickListener;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -115,7 +115,7 @@ public class a extends c<TbTitleActivity> {
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            this.bYE.onClick(view);
+            this.bYF.onClick(view);
         }
     }
 
@@ -192,7 +192,7 @@ public class a extends c<TbTitleActivity> {
         this.fmz.getLayoutMode().onModeChanged(this.mRootView);
     }
 
-    public void wl(String str) {
+    public void wk(String str) {
         this.bbv.setVisibility(8);
         this.fmz.showNetRefreshView(this.mRootView, str, true);
         this.fmz.setNetRefreshViewTopMargin(400);

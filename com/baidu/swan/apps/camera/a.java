@@ -89,7 +89,7 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         }
     }
 
-    public CameraPreview de(String str) {
+    public CameraPreview dd(String str) {
         if (TextUtils.isEmpty(str) || akV.isEmpty()) {
             return null;
         }
@@ -105,7 +105,7 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         akV.add(cameraPreview);
     }
 
-    public void df(String str) {
+    public void de(String str) {
         CameraPreview cameraPreview;
         if (!TextUtils.isEmpty(str) && !akV.isEmpty()) {
             Iterator<CameraPreview> it = akV.iterator();
@@ -161,7 +161,7 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void c(String str, String str2, boolean z) {
-        if (y.ii("1.13.0")) {
+        if (y.ih("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);

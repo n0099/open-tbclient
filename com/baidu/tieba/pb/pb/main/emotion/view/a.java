@@ -22,10 +22,10 @@ import java.util.Set;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private List<EmotionImageData> eXI;
-    private EmotionView.a hQt;
-    private int hRw;
-    private PbEmotionBar.a hRx;
-    private Set<String> hvD = new HashSet();
+    private EmotionView.a hQu;
+    private int hRx;
+    private PbEmotionBar.a hRy;
+    private Set<String> hvE = new HashSet();
 
     @Override // android.widget.Adapter
     public int getCount() {
@@ -55,14 +55,14 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0379a = new C0379a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0379a.hvL = (EmotionView) view.findViewById(R.id.iv_emotion);
-            c0379a.hvL.bff();
-            c0379a.hvL.setController(this.hQt);
-            c0379a.hvL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0379a.hvM = (EmotionView) view.findViewById(R.id.iv_emotion);
+            c0379a.hvM.bff();
+            c0379a.hvM.setController(this.hQu);
+            c0379a.hvM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hRx != null && (view2 instanceof EmotionView)) {
-                        a.this.hRx.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.hRy != null && (view2 instanceof EmotionView)) {
+                        a.this.hRy.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
@@ -72,7 +72,7 @@ public class a extends BaseAdapter {
             c0379a.fzK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hRx != null) {
+                    if (a.this.hRy != null) {
                         ArrayList arrayList = new ArrayList();
                         if (!v.aa(a.this.eXI)) {
                             for (EmotionImageData emotionImageData : a.this.eXI) {
@@ -81,7 +81,7 @@ public class a extends BaseAdapter {
                                 }
                             }
                         }
-                        a.this.hRx.b(null, null, arrayList);
+                        a.this.hRy.b(null, null, arrayList);
                     }
                 }
             });
@@ -91,23 +91,23 @@ public class a extends BaseAdapter {
         }
         if (i >= 0) {
             if (i < this.eXI.size()) {
-                c0379a.hvL.getLayoutParams().width = this.hRw;
-                c0379a.hvL.getLayoutParams().height = this.hRw;
-                c0379a.hvL.reset();
-                c0379a.hvL.setTag(R.id.iv_emotion, null);
+                c0379a.hvM.getLayoutParams().width = this.hRx;
+                c0379a.hvM.getLayoutParams().height = this.hRx;
+                c0379a.hvM.reset();
+                c0379a.hvM.setTag(R.id.iv_emotion, null);
                 EmotionImageData emotionImageData = this.eXI.get(i);
                 if (emotionImageData != null) {
-                    c0379a.hvL.a(emotionImageData);
-                    if (this.hvD != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.hvD.add(emotionImageData.getThumbUrl() + c0379a.hvL.getLoadProcType());
+                    c0379a.hvM.a(emotionImageData);
+                    if (this.hvE != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.hvE.add(emotionImageData.getThumbUrl() + c0379a.hvM.getLoadProcType());
                     }
                 }
-                c0379a.hvL.setVisibility(0);
+                c0379a.hvM.setVisibility(0);
                 c0379a.fzK.setVisibility(8);
             } else if (i == this.eXI.size()) {
-                c0379a.fzK.getLayoutParams().width = this.hRw;
-                c0379a.fzK.getLayoutParams().height = this.hRw;
-                c0379a.hvL.setVisibility(8);
+                c0379a.fzK.getLayoutParams().width = this.hRx;
+                c0379a.fzK.getLayoutParams().height = this.hRx;
+                c0379a.hvM.setVisibility(8);
                 c0379a.fzK.setVisibility(0);
             }
         }
@@ -115,40 +115,40 @@ public class a extends BaseAdapter {
     }
 
     public void xF(int i) {
-        if (this.hRw != i) {
-            this.hRw = i;
+        if (this.hRx != i) {
+            this.hRx = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.hQt = aVar;
+        this.hQu = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.hRx = aVar;
+        this.hRy = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     static class C0379a {
         TextView fzK;
-        EmotionView hvL;
+        EmotionView hvM;
 
         C0379a() {
         }
     }
 
-    public void bNV() {
+    public void bNW() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.hvD != null) {
-                    for (String str : a.this.hvD) {
+                if (a.this.hvE != null) {
+                    for (String str : a.this.hvE) {
                         if (!TextUtils.isEmpty(str)) {
-                            c.asp().qp(str);
+                            c.asp().qo(str);
                         }
                     }
                     return true;

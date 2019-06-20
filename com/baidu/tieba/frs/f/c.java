@@ -25,7 +25,7 @@ public class c {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.ceS().x(arrayList);
+            com.baidu.tieba.recapp.download.d.ceT().x(arrayList);
         }
     }
 

@@ -107,7 +107,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a gx(String str) {
+        public a gw(String str) {
             if (this.aOf.aNl.getVisibility() != 0) {
                 this.aOf.aNl.setVisibility(0);
             }

@@ -24,9 +24,9 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dE(String str);
+        void dD(String str);
 
-        void dF(String str);
+        void dE(String str);
     }
 
     public SwanAppSelectPopView(Context context) {
@@ -50,10 +50,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     public void onClick(View view) {
         if (view.equals(this.mCopyView)) {
             if (this.mListener != null) {
-                this.mListener.dE(this.mSelection);
+                this.mListener.dD(this.mSelection);
             }
         } else if (view.equals(this.mSearchView) && this.mListener != null) {
-            this.mListener.dF(this.mSelection);
+            this.mListener.dE(this.mSelection);
         }
     }
 

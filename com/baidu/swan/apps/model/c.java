@@ -44,7 +44,7 @@ public final class c {
         return jSONObject.toString();
     }
 
-    public static c fr(String str) {
+    public static c fq(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -69,17 +69,17 @@ public final class c {
     public static class a {
         private c aqf = new c();
 
-        public a fs(String str) {
+        public a fr(String str) {
             this.aqf.ayL = str;
             return this;
         }
 
-        public a ft(String str) {
+        public a fs(String str) {
             this.aqf.mParams = str;
             return this;
         }
 
-        public a fu(String str) {
+        public a ft(String str) {
             this.aqf.mBaseUrl = str;
             return this;
         }

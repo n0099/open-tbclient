@@ -57,7 +57,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
             FrsGameRecommendFragment.this.fBL.aIp();
         }
     };
-    private h.c bZA = new h.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
+    private h.c bZB = new h.c() { // from class: com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment.3
         @Override // com.baidu.tbadk.core.view.h.c
         public void en(boolean z) {
             if (j.jS()) {
@@ -97,7 +97,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements ah {
             this.mForumId = arguments.getString("forum_id");
             this.mForumName = arguments.getString("forum_name");
             this.fBL = new com.baidu.tieba.frs.gamerecommend.c.a(getPageContext(), this.mForumId, this.mForumName);
-            this.fBL.setListPullRefreshListener(this.bZA);
+            this.fBL.setListPullRefreshListener(this.bZB);
             this.fBL.b(this.mOnScrollToBottomListener);
             MessageManager.getInstance().registerListener(2001446, this.drf);
             this.fBM = new AlaGameRecommendModel(this.mForumId, this.fBN);

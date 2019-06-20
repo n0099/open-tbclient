@@ -29,8 +29,8 @@ public class g extends com.baidu.swan.apps.core.c.d {
     private void Qt() {
         a(new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.games.c.g.1
             @Override // com.baidu.swan.apps.core.c
-            public void ds(String str) {
-                super.ds(str);
+            public void dr(String str) {
+                super.dr(str);
                 if (g.DEBUG) {
                     Log.e(g.TAG, "onPageFinished");
                 }

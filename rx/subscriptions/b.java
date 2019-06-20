@@ -7,23 +7,23 @@ import java.util.Set;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class b implements k {
-    private volatile boolean kng;
-    private Set<k> kuL;
+    private volatile boolean knj;
+    private Set<k> kuO;
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kng;
+        return this.knj;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.kng) {
+            if (!this.knj) {
                 synchronized (this) {
-                    if (!this.kng) {
-                        if (this.kuL == null) {
-                            this.kuL = new HashSet(4);
+                    if (!this.knj) {
+                        if (this.kuO == null) {
+                            this.kuO = new HashSet(4);
                         }
-                        this.kuL.add(kVar);
+                        this.kuO.add(kVar);
                         return;
                     }
                 }
@@ -33,10 +33,10 @@ public final class b implements k {
     }
 
     public void a(k kVar) {
-        if (!this.kng) {
+        if (!this.knj) {
             synchronized (this) {
-                if (!this.kng && this.kuL != null) {
-                    boolean remove = this.kuL.remove(kVar);
+                if (!this.knj && this.kuO != null) {
+                    boolean remove = this.kuO.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
                     }
@@ -47,12 +47,12 @@ public final class b implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.kng) {
+        if (!this.knj) {
             synchronized (this) {
-                if (!this.kng) {
-                    this.kng = true;
-                    Set<k> set = this.kuL;
-                    this.kuL = null;
+                if (!this.knj) {
+                    this.knj = true;
+                    Set<k> set = this.kuO;
+                    this.kuO = null;
                     n(set);
                 }
             }

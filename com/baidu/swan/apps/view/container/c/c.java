@@ -162,12 +162,12 @@ public class c {
     private static void a(@NonNull SwanAppNAViewContainer swanAppNAViewContainer, com.baidu.swan.apps.model.a.a.a aVar, com.baidu.swan.apps.model.a.a.a aVar2) {
         String parentId = swanAppNAViewContainer.getParentId();
         if (TextUtils.isEmpty(parentId)) {
-            com.baidu.swan.apps.view.container.a ix = ix(aVar.aDm);
-            if (ix == null) {
+            com.baidu.swan.apps.view.container.a iw = iw(aVar.aDm);
+            if (iw == null) {
                 com.baidu.swan.apps.console.c.e(TAG, "root view is null");
                 return;
             }
-            ix.b(swanAppNAViewContainer, aVar.aDo);
+            iw.b(swanAppNAViewContainer, aVar.aDo);
         } else {
             SwanAppNAViewContainer a = b.a(aVar.aDm, parentId, null);
             if (a == null) {
@@ -203,7 +203,7 @@ public class c {
     public static void c(SwanAppNAViewContainer swanAppNAViewContainer, @Nullable com.baidu.swan.apps.view.container.a aVar) {
         com.baidu.swan.apps.view.container.a.a Pq;
         if (aVar == null) {
-            aVar = ix(swanAppNAViewContainer.getSlaveId());
+            aVar = iw(swanAppNAViewContainer.getSlaveId());
         }
         if (aVar != null && (Pq = aVar.Pq()) != null) {
             Pq.an(swanAppNAViewContainer);
@@ -213,14 +213,14 @@ public class c {
     public static void d(SwanAppNAViewContainer swanAppNAViewContainer, com.baidu.swan.apps.view.container.a aVar) {
         com.baidu.swan.apps.view.container.a.a Pq;
         if (aVar == null) {
-            aVar = ix(swanAppNAViewContainer.getSlaveId());
+            aVar = iw(swanAppNAViewContainer.getSlaveId());
         }
         if (aVar != null && (Pq = aVar.Pq()) != null) {
             Pq.ao(swanAppNAViewContainer);
         }
     }
 
-    public static com.baidu.swan.apps.view.container.a ix(String str) {
-        return ac.ir(str);
+    public static com.baidu.swan.apps.view.container.a iw(String str) {
+        return ac.iq(str);
     }
 }

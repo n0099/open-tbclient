@@ -8,26 +8,26 @@ import com.baidu.tbadk.core.util.ba;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class av {
-    private static av hQk = null;
+    private static av hQl = null;
 
-    public static av bVw() {
-        if (hQk == null) {
+    public static av bVx() {
+        if (hQl == null) {
             synchronized (av.class) {
-                if (hQk == null) {
-                    hQk = new av();
+                if (hQl == null) {
+                    hQl = new av();
                 }
             }
         }
-        return hQk;
+        return hQl;
     }
 
     public void c(TbPageContext tbPageContext, String str) {
         if (tbPageContext != null && !TextUtils.isEmpty(str)) {
             if (str.contains("is_native_app=1")) {
             }
-            if (Br(str)) {
+            if (Bt(str)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-            } else if (Bs(str)) {
+            } else if (Bu(str)) {
                 ba.aiz().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
             } else {
                 ba.aiz().c(tbPageContext, new String[]{str});
@@ -35,24 +35,24 @@ public class av {
         }
     }
 
-    public static boolean Bq(String str) {
+    public static boolean Bs(String str) {
         return str != null && str.contains("bookcover:");
     }
 
-    private boolean Br(String str) {
-        Map<String, String> nW;
-        if (!TextUtils.isEmpty(str) && (nW = ba.nW(ba.nX(str))) != null) {
-            String str2 = nW.get("url");
+    private boolean Bt(String str) {
+        Map<String, String> nV;
+        if (!TextUtils.isEmpty(str) && (nV = ba.nV(ba.nW(str))) != null) {
+            String str2 = nV.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                return Br(com.baidu.adp.lib.util.k.bi(str2));
+                return Bt(com.baidu.adp.lib.util.k.bi(str2));
             }
-            String str3 = nW.get("tbgametype");
+            String str3 = nV.get("tbgametype");
             return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
         return false;
     }
 
-    private boolean Bs(String str) {
+    private boolean Bu(String str) {
         return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

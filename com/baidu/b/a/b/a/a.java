@@ -3,26 +3,26 @@ package com.baidu.b.a.b.a;
 import java.util.Random;
 /* loaded from: classes2.dex */
 public class a {
-    public String aax;
+    public String aaw;
     public String channelId;
     public String md5;
     public String name;
     public String packageName;
     public long version = -1;
-    public long aaw = 0;
+    public long aav = 0;
     public int rollback = 0;
-    public int IA = -1;
+    public int Iz = -1;
     public int type = 0;
     public String filePath = "";
     public byte[] fileData = null;
-    public int aay = 0;
-    public long aaz = 0;
+    public int aax = 0;
+    public long aay = 0;
     public long currentSize = 0;
     public long createTime = 0;
     public long updateTime = 0;
-    public long aaA = 0;
-    public int aaB = 0;
-    public String aaC = rb();
+    public long aaz = 0;
+    public int aaA = 0;
+    public String aaB = rb();
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof a)) {

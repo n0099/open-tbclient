@@ -32,14 +32,14 @@ public abstract class a extends z {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         boolean e;
-        String gW = gW("insert");
-        String gW2 = gW("update");
-        String gW3 = gW("remove");
-        if (TextUtils.equals(gW, str)) {
+        String gV = gV("insert");
+        String gV2 = gV("update");
+        String gV3 = gV("remove");
+        if (TextUtils.equals(gV, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gW2, str)) {
+        } else if (TextUtils.equals(gV2, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gW3, str)) {
+        } else if (TextUtils.equals(gV3, str)) {
             e = d(context, unitedSchemeEntity, callbackHandler, str, bVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, bVar);
@@ -72,7 +72,7 @@ public abstract class a extends z {
         return jSONObject;
     }
 
-    private String gW(String str) {
+    private String gV(String str) {
         return Mb() + "/" + str;
     }
 }

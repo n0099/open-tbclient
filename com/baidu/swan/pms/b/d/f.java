@@ -8,12 +8,12 @@ public class f extends e {
         super(i);
     }
 
-    public f kw(String str) {
+    public f kv(String str) {
         this.bsV = str;
         return this;
     }
 
-    public f kx(String str) {
+    public f kw(String str) {
         this.bsX = str;
         return this;
     }

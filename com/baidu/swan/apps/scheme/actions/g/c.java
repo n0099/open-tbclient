@@ -42,7 +42,7 @@ public class c extends z {
             return false;
         } else {
             com.baidu.swan.apps.core.d.b zK = vi.zK();
-            if (!(zK != null ? zK.dG(optString) : false)) {
+            if (!(zK != null ? zK.dF(optString) : false)) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 com.baidu.swan.apps.console.c.e("navigationTitle", "set title fail");
                 return false;

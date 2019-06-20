@@ -355,10 +355,10 @@ public class g extends UnitedSchemeBaseDispatcher {
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     String string = jSONArray.getString(i);
-                    PathType hA = com.baidu.swan.apps.storage.b.hA(string);
-                    if (hA == PathType.BD_FILE) {
+                    PathType hz = com.baidu.swan.apps.storage.b.hz(string);
+                    if (hz == PathType.BD_FILE) {
                         string = com.baidu.swan.apps.storage.b.aE(string, Lq.id);
-                    } else if (hA == PathType.RELATIVE) {
+                    } else if (hz == PathType.RELATIVE) {
                         string = com.baidu.swan.apps.storage.b.a(string, Lq, Lq.getVersion());
                     }
                     if (!TextUtils.isEmpty(string)) {
@@ -493,7 +493,7 @@ public class g extends UnitedSchemeBaseDispatcher {
 
     private void Z(@NonNull JSONObject jSONObject) throws JSONException {
         com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
-        if (Lq != null && Lq.Lu().hg("mapp_location")) {
+        if (Lq != null && Lq.Lu().hf("mapp_location")) {
             n DU = com.baidu.swan.apps.u.a.DU();
             com.baidu.swan.apps.scheme.actions.e.b Ex = DU == null ? null : DU.Ex();
             if (Ex != null) {
@@ -616,18 +616,18 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(optString2)) {
             optString2 = "23:59";
         }
-        Date gU = gU(optString);
-        Date gU2 = gU(optString2);
-        Date gU3 = gU(optString3);
-        if (gU == null || gU2 == null || gU2.before(gU) || gU3 == null || gU3.before(gU) || gU3.after(gU2)) {
+        Date gT = gT(optString);
+        Date gT2 = gT(optString2);
+        Date gT3 = gT(optString3);
+        if (gT == null || gT2 == null || gT2.before(gT) || gT3 == null || gT3.before(gT) || gT3.after(gT2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         h.a aVar = new h.a(context);
         if (!TextUtils.isEmpty(optString4)) {
-            aVar.gy(optString4);
+            aVar.gx(optString4);
         }
-        aVar.j(gU).k(gU2).l(gU3).ch(optBoolean).cm(a.h.aiapps_picker_time_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
+        aVar.j(gT).k(gT2).l(gT3).ch(optBoolean).cm(a.h.aiapps_picker_time_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -657,7 +657,7 @@ public class g extends UnitedSchemeBaseDispatcher {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0049 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:31:0x000c */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0001 */
-    private Date gU(String str) {
+    private Date gT(String str) {
         Date date;
         NumberFormatException e;
         String[] split;
@@ -731,7 +731,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         d.a aVar = new d.a(context);
         if (!TextUtils.isEmpty(optString4)) {
-            aVar.gw(optString4);
+            aVar.gv(optString4);
         }
         aVar.g(aM).h(aM2).i(date).bW(optBoolean).cm(a.h.aiapps_picker_date_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.10
             @Override // android.content.DialogInterface.OnClickListener
@@ -772,7 +772,7 @@ public class g extends UnitedSchemeBaseDispatcher {
             optString = context.getString(a.h.aiapps_ok);
         }
         g.a aVar = new g.a(context);
-        aVar.d(optParamsAsJo.optString("title")).gx(optParamsAsJo.optString("content")).a(new com.baidu.swan.apps.view.b.a()).cb(false);
+        aVar.d(optParamsAsJo.optString("title")).gw(optParamsAsJo.optString("content")).a(new com.baidu.swan.apps.view.b.a()).cb(false);
         if (optParamsAsJo.optBoolean("showCancel", true)) {
             aVar.D(optParamsAsJo.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
             String optString2 = optParamsAsJo.optString("cancelText");
@@ -832,7 +832,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 i = -1;
             } else {
                 if (optString.length() == 4 && optString.charAt(0) == '#') {
-                    optString = com.baidu.swan.apps.ae.a.c.gH(optString);
+                    optString = com.baidu.swan.apps.ae.a.c.gG(optString);
                 }
                 i = Color.parseColor(optString);
             }
@@ -952,9 +952,9 @@ public class g extends UnitedSchemeBaseDispatcher {
                 if (TextUtils.isEmpty(string)) {
                     string = "1";
                 }
-                final int gV = gV(optString);
-                if (gV <= 0) {
-                    gV = 2;
+                final int gU = gU(optString);
+                if (gU <= 0) {
+                    gU = 2;
                 }
                 ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.g.4
                     @Override // java.lang.Runnable
@@ -984,11 +984,11 @@ public class g extends UnitedSchemeBaseDispatcher {
                         }
                         switch (c) {
                             case 0:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).dG(gV).Ld();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).dG(gU).Ld();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 1:
-                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).d(null).dG(gV).Lg();
+                                com.baidu.swan.apps.res.widget.b.d.a(context, string2).d(null).dG(gU).Lg();
                                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                 return;
                             case 2:
@@ -1008,7 +1008,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                                     return;
                                 } else if (TextUtils.equals(optString6, "2") || TextUtils.equals(optString6, "3")) {
-                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(2).dE(i2).dG(gV).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.1
+                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(2).dE(i2).dG(gU).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.1
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
                                         public void Lk() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");
@@ -1017,7 +1017,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                                     return;
                                 } else {
-                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(1).dE(i2).dG(gV).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.2
+                                    com.baidu.swan.apps.res.widget.b.d.bw(context).f(uri).dF(i).e(optString4).f(string2).g(optString5).dD(1).dE(i2).dG(gU).b(new d.a() { // from class: com.baidu.swan.apps.scheme.g.4.2
                                         @Override // com.baidu.swan.apps.res.widget.b.d.a
                                         public void Lk() {
                                             callbackHandler.handleSchemeDispatchCallback(optString2, "");
@@ -1042,7 +1042,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
     }
 
-    private int gV(String str) {
+    private int gU(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }

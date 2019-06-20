@@ -10,13 +10,13 @@ import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class RoundedCornersDrawable extends g implements j {
     private final float[] bbo;
-    private final Path ddk;
-    private float jVK;
-    Type jVP;
-    private int jVQ;
-    private final RectF jVR;
-    private boolean jVw;
-    final float[] jVz;
+    private final Path ddl;
+    final float[] jVC;
+    private float jVN;
+    Type jVS;
+    private int jVT;
+    private final RectF jVU;
+    private boolean jVz;
     private int mBorderColor;
     private float mBorderWidth;
     final Paint mPaint;
@@ -30,31 +30,31 @@ public class RoundedCornersDrawable extends g implements j {
 
     public RoundedCornersDrawable(Drawable drawable) {
         super((Drawable) com.facebook.common.internal.g.checkNotNull(drawable));
-        this.jVP = Type.OVERLAY_COLOR;
+        this.jVS = Type.OVERLAY_COLOR;
         this.bbo = new float[8];
-        this.jVz = new float[8];
+        this.jVC = new float[8];
         this.mPaint = new Paint(1);
-        this.jVw = false;
+        this.jVz = false;
         this.mBorderWidth = 0.0f;
         this.mBorderColor = 0;
-        this.jVQ = 0;
-        this.jVK = 0.0f;
+        this.jVT = 0;
+        this.jVN = 0.0f;
         this.mPath = new Path();
-        this.ddk = new Path();
-        this.jVR = new RectF();
+        this.ddl = new Path();
+        this.jVU = new RectF();
     }
 
     @Override // com.facebook.drawee.drawable.j
-    public void sh(boolean z) {
-        this.jVw = z;
-        cDs();
+    public void si(boolean z) {
+        this.jVz = z;
+        cDr();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         Arrays.fill(this.bbo, f);
-        cDs();
+        cDr();
         invalidateSelf();
     }
 
@@ -66,12 +66,12 @@ public class RoundedCornersDrawable extends g implements j {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
             System.arraycopy(fArr, 0, this.bbo, 0, 8);
         }
-        cDs();
+        cDr();
         invalidateSelf();
     }
 
     public void setOverlayColor(int i) {
-        this.jVQ = i;
+        this.jVT = i;
         invalidateSelf();
     }
 
@@ -79,14 +79,14 @@ public class RoundedCornersDrawable extends g implements j {
     public void l(int i, float f) {
         this.mBorderColor = i;
         this.mBorderWidth = f;
-        cDs();
+        cDr();
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void aZ(float f) {
-        this.jVK = f;
-        cDs();
+        this.jVN = f;
+        cDr();
         invalidateSelf();
     }
 
@@ -94,36 +94,36 @@ public class RoundedCornersDrawable extends g implements j {
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        cDs();
+        cDr();
     }
 
-    private void cDs() {
+    private void cDr() {
         this.mPath.reset();
-        this.ddk.reset();
-        this.jVR.set(getBounds());
-        this.jVR.inset(this.jVK, this.jVK);
-        if (this.jVw) {
-            this.mPath.addCircle(this.jVR.centerX(), this.jVR.centerY(), Math.min(this.jVR.width(), this.jVR.height()) / 2.0f, Path.Direction.CW);
+        this.ddl.reset();
+        this.jVU.set(getBounds());
+        this.jVU.inset(this.jVN, this.jVN);
+        if (this.jVz) {
+            this.mPath.addCircle(this.jVU.centerX(), this.jVU.centerY(), Math.min(this.jVU.width(), this.jVU.height()) / 2.0f, Path.Direction.CW);
         } else {
-            this.mPath.addRoundRect(this.jVR, this.bbo, Path.Direction.CW);
+            this.mPath.addRoundRect(this.jVU, this.bbo, Path.Direction.CW);
         }
-        this.jVR.inset(-this.jVK, -this.jVK);
-        this.jVR.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-        if (this.jVw) {
-            this.ddk.addCircle(this.jVR.centerX(), this.jVR.centerY(), Math.min(this.jVR.width(), this.jVR.height()) / 2.0f, Path.Direction.CW);
+        this.jVU.inset(-this.jVN, -this.jVN);
+        this.jVU.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+        if (this.jVz) {
+            this.ddl.addCircle(this.jVU.centerX(), this.jVU.centerY(), Math.min(this.jVU.width(), this.jVU.height()) / 2.0f, Path.Direction.CW);
         } else {
-            for (int i = 0; i < this.jVz.length; i++) {
-                this.jVz[i] = (this.bbo[i] + this.jVK) - (this.mBorderWidth / 2.0f);
+            for (int i = 0; i < this.jVC.length; i++) {
+                this.jVC[i] = (this.bbo[i] + this.jVN) - (this.mBorderWidth / 2.0f);
             }
-            this.ddk.addRoundRect(this.jVR, this.jVz, Path.Direction.CW);
+            this.ddl.addRoundRect(this.jVU, this.jVC, Path.Direction.CW);
         }
-        this.jVR.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+        this.jVU.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         Rect bounds = getBounds();
-        switch (this.jVP) {
+        switch (this.jVS) {
             case CLIPPING:
                 int save = canvas.save();
                 this.mPath.setFillType(Path.FillType.EVEN_ODD);
@@ -133,11 +133,11 @@ public class RoundedCornersDrawable extends g implements j {
                 break;
             case OVERLAY_COLOR:
                 super.draw(canvas);
-                this.mPaint.setColor(this.jVQ);
+                this.mPaint.setColor(this.jVT);
                 this.mPaint.setStyle(Paint.Style.FILL);
                 this.mPath.setFillType(Path.FillType.INVERSE_EVEN_ODD);
                 canvas.drawPath(this.mPath, this.mPaint);
-                if (this.jVw) {
+                if (this.jVz) {
                     float width = ((bounds.width() - bounds.height()) + this.mBorderWidth) / 2.0f;
                     float height = ((bounds.height() - bounds.width()) + this.mBorderWidth) / 2.0f;
                     if (width > 0.0f) {
@@ -157,7 +157,7 @@ public class RoundedCornersDrawable extends g implements j {
             this.mPaint.setColor(this.mBorderColor);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
             this.mPath.setFillType(Path.FillType.EVEN_ODD);
-            canvas.drawPath(this.ddk, this.mPaint);
+            canvas.drawPath(this.ddl, this.mPaint);
         }
     }
 }

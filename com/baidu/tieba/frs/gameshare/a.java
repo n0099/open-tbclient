@@ -23,7 +23,7 @@ import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
 public class a {
     private FrameLayout bkY;
-    private TextView cbV;
+    private TextView cbW;
     private LinearLayout dBN;
     private LinearLayout ebC;
     private TbImageView ejv;
@@ -114,7 +114,7 @@ public class a {
         this.fDa = (TbImageView) this.bkY.findViewById(R.id.game_share_user_protrait);
         this.fDa.setDrawerType(1);
         this.fDa.setIsRound(true);
-        this.cbV = (TextView) this.bkY.findViewById(R.id.game_share_user_name);
+        this.cbW = (TextView) this.bkY.findViewById(R.id.game_share_user_name);
         this.fDb = (RadioButton) this.bkY.findViewById(R.id.game_share_user_score_grade_1);
         this.fDc = (RadioButton) this.bkY.findViewById(R.id.game_share_user_score_grade_2);
         this.fDd = (RadioButton) this.bkY.findViewById(R.id.game_share_user_score_grade_3);
@@ -184,11 +184,11 @@ public class a {
         c(gameShareData);
         StringBuilder sb = new StringBuilder();
         sb.append("“ ");
-        sb.append(gameShareData.bGf);
+        sb.append(gameShareData.bGg);
         sb.append(" ”");
         this.fCZ.setText(sb);
         if (this.fDp == null) {
-            c.iv().a(gameShareData.bGb, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.frs.gameshare.a.7
+            c.iv().a(gameShareData.bGc, 10, new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.frs.gameshare.a.7
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
@@ -207,25 +207,25 @@ public class a {
                 }
             }, null);
         }
-        this.ejv.startLoad(gameShareData.bGh, 10, false);
-        this.fDi.startLoad(gameShareData.bGg, 10, false);
+        this.ejv.startLoad(gameShareData.bGi, 10, false);
+        this.fDi.startLoad(gameShareData.bGh, 10, false);
     }
 
     private void b(GameShareData gameShareData) {
         if (gameShareData != null) {
-            this.fCP.startLoad(gameShareData.bGb, 10, false);
+            this.fCP.startLoad(gameShareData.bGc, 10, false);
             this.fCQ.setText(gameShareData.gameName);
-            this.fCR.setText(gameShareData.bGc);
-            this.fCS.setText(new DecimalFormat(".0").format(gameShareData.bGd));
-            a((int) gameShareData.bGd, this.fCY);
+            this.fCR.setText(gameShareData.bGd);
+            this.fCS.setText(new DecimalFormat(".0").format(gameShareData.bGe));
+            a((int) gameShareData.bGe, this.fCY);
         }
     }
 
     private void c(GameShareData gameShareData) {
         if (gameShareData != null) {
             this.fDa.startLoad(gameShareData.userPortrait, 12, false);
-            this.cbV.setText(gameShareData.userName);
-            a((int) gameShareData.bGe, this.fDg);
+            this.cbW.setText(gameShareData.userName);
+            a((int) gameShareData.bGf, this.fDg);
         }
     }
 

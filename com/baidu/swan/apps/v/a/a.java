@@ -50,7 +50,7 @@ public class a {
                     if (DEBUG) {
                         Log.w("LaunchError", "show network err toast: areNotificationsEnabled false");
                     }
-                    eE(format);
+                    eD(format);
                 }
             } else if (b.a(cVar)) {
                 if (DEBUG) {
@@ -64,7 +64,7 @@ public class a {
                     Log.w("LaunchError", "handleLaunchError: areNotificationsEnabled false");
                 }
                 if (!isShowing) {
-                    eE(format);
+                    eD(format);
                     return;
                 }
                 return;
@@ -101,7 +101,7 @@ public class a {
         return (cVar == null || TextUtils.isEmpty(cVar.mAppId) || SwanAppNetworkUtils.isNetworkConnected(context) || com.baidu.swan.apps.v.d.a.R(context, cVar.mAppId)) ? false : true;
     }
 
-    private static void eE(@NonNull String str) {
+    private static void eD(@NonNull String str) {
         if (!isShowing) {
             if (DEBUG) {
                 Log.d("LaunchError", "show normal err dialog");
@@ -111,7 +111,7 @@ public class a {
                 public void onDismiss(DialogInterface dialogInterface) {
                     boolean unused = a.isShowing = false;
                 }
-            }).gu(str).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            }).gt(str).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
             isShowing = true;
         }
     }

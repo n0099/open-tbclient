@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class h {
-    private static h cBt = new h();
-    private b cBu;
-    private a cBv;
+    private static h cBu = new h();
+    private b cBv;
+    private a cBw;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,27 +19,27 @@ public class h {
     }
 
     public static h auV() {
-        return cBt;
+        return cBu;
     }
 
     public void a(a aVar) {
-        this.cBv = aVar;
-        if (this.cBu != null) {
-            this.cBu.cancel();
+        this.cBw = aVar;
+        if (this.cBv != null) {
+            this.cBv.cancel();
         }
-        this.cBu = new b();
-        this.cBu.setPriority(4);
-        this.cBu.execute(new String[0]);
+        this.cBv = new b();
+        this.cBv.setPriority(4);
+        this.cBv.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean auW() {
         int i;
         long j = 0;
-        byte[] np = com.baidu.tbadk.core.util.m.np(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
+        byte[] no = com.baidu.tbadk.core.util.m.no(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
         String str = null;
-        if (np != null) {
-            str = new String(np);
+        if (no != null) {
+            str = new String(no);
         }
         long j2 = StringUtils.getyyyyMMddHHTimeForNow();
         if (TextUtils.isEmpty(str)) {
@@ -76,8 +76,8 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (h.this.cBv != null && bool != null) {
-                h.this.cBv.bB(bool.booleanValue());
+            if (h.this.cBw != null && bool != null) {
+                h.this.cBw.bB(bool.booleanValue());
             }
         }
     }

@@ -75,7 +75,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
-                d.cAe().a(this.mId, str, this.mHandle, str2, this.mOption);
+                d.cAd().a(this.mId, str, this.mHandle, str2, this.mOption);
                 return;
             }
             try {
@@ -89,7 +89,7 @@ public class Flow implements Parcelable {
     public final void addEvent(String str, String str2, long j) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
-                d.cAe().a(this.mId, str, this.mHandle, str2, j, this.mOption);
+                d.cAd().a(this.mId, str, this.mHandle, str2, j, this.mOption);
                 return;
             }
             try {
@@ -103,7 +103,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
-                d.cAe().c(this.mId, this.mHandle, str);
+                d.cAd().c(this.mId, this.mHandle, str);
                 return;
             }
             try {
@@ -140,7 +140,7 @@ public class Flow implements Parcelable {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.cAe().c(this.mId, this.mHandle, jSONObject.toString());
+                d.cAd().c(this.mId, this.mHandle, jSONObject.toString());
                 return;
             }
             try {
@@ -167,7 +167,7 @@ public class Flow implements Parcelable {
                         }
                     }
                 }
-                d.cAe().a(this.mId, this.mHandle, jSONArray);
+                d.cAd().a(this.mId, this.mHandle, jSONArray);
                 return;
             }
             try {
@@ -181,7 +181,7 @@ public class Flow implements Parcelable {
     public final void cancel() {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
-                d.cAe().t(this.mId, this.mHandle);
+                d.cAd().t(this.mId, this.mHandle);
                 return;
             }
             try {

@@ -17,7 +17,7 @@ public class c extends com.baidu.swan.apps.m.a.b {
     }
 
     @Override // com.baidu.swan.apps.m.a.b, com.baidu.swan.apps.m.a.a
-    public String er(String str) {
+    public String eq(String str) {
         String str2 = this.beX;
         char c = 65535;
         switch (str2.hashCode()) {

@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
-    private a ccK;
-    private b ccL;
+    private a ccL;
+    private b ccM;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -29,62 +29,62 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     }
 
     private void a(Context context, ViewGroup viewGroup, boolean z) {
-        this.ccK = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        a(this.ccK);
-        this.ccL = new b(context, this.ccK.ccQ, this.ccK.ccO, this.ccK.ccN, 4, false, true);
+        this.ccL = new a(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
+        a(this.ccL);
+        this.ccM = new b(context, this.ccL.ccR, this.ccL.ccP, this.ccL.ccO, 4, false, true);
     }
 
     private void a(a aVar) {
         if (aVar != null) {
             al.l(aVar.getView(), R.color.cp_bg_line_d);
             al.f(aVar.title, R.color.cp_cont_c, 1);
-            al.l(aVar.ccP, R.color.cp_bg_line_b);
-            al.f(aVar.ccN, R.color.cp_cont_d, 1);
-            al.l(aVar.ccN, R.color.cp_bg_line_d);
-            aVar.ccN.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            aVar.ccO.setSelector(al.getDrawable(R.drawable.icon_choose_dot_s));
-            aVar.ccO.setDrawable(al.getDrawable(R.drawable.icon_choose_dot_n));
+            al.l(aVar.ccQ, R.color.cp_bg_line_b);
+            al.f(aVar.ccO, R.color.cp_cont_d, 1);
+            al.l(aVar.ccO, R.color.cp_bg_line_d);
+            aVar.ccO.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            aVar.ccP.setSelector(al.getDrawable(R.drawable.icon_choose_dot_s));
+            aVar.ccP.setDrawable(al.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.ccK.getView();
+        return this.ccL.getView();
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.ccK.ccQ;
+        return this.ccL.ccR;
     }
 
     public IndicatorView getIndicatorView() {
-        return this.ccK.ccO;
+        return this.ccL.ccP;
     }
 
     public TextView getMoreView() {
-        return this.ccK.ccN;
+        return this.ccL.ccO;
     }
 
     public a getViewHolder() {
-        return this.ccK;
+        return this.ccL;
     }
 
     public void setMaxScrollCountLimit(int i) {
-        this.ccL.setMaxScrollCountLimit(i);
+        this.ccM.setMaxScrollCountLimit(i);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.ccL.setIsMaxScrollEnabled(z);
+        this.ccM.setIsMaxScrollEnabled(z);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.ccL.eu(z);
+        this.ccM.eu(z);
     }
 
     public void setDatas(List<m> list) {
-        this.ccL.setDatas(list);
+        this.ccM.setDatas(list);
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.ccL.setAutoScrollIntervalTime(j);
+        this.ccM.setAutoScrollIntervalTime(j);
     }
 }

@@ -37,8 +37,8 @@ public final class TbSingleton {
     private static int VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE = 2;
     private static int VIDEO_ENTER_TYPE_NO_JUMP_VIDEO_MIDDLE_PAGE = 1;
     public ArrayList<String> testUrls = new ArrayList<>();
-    private long pushDialogLoopTime = ap.bSz;
-    private long pushDialogShowTime = 5 * ap.bSy;
+    private long pushDialogLoopTime = ap.bSA;
+    private long pushDialogShowTime = 5 * ap.bSz;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;

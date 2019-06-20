@@ -128,7 +128,7 @@ public class c implements View.OnClickListener {
         } else if (view == this.eEu) {
             if (ChannelEditActivity.isChanged) {
                 this.eEC = new com.baidu.tbadk.core.dialog.a(this.eEs.getActivity());
-                this.eEC.mE(com.baidu.adp.lib.voice.h.getString(R.string.channel_save_info));
+                this.eEC.mD(com.baidu.adp.lib.voice.h.getString(R.string.channel_save_info));
                 this.eEC.a(this.mContext.getString(R.string.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {

@@ -62,7 +62,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UpdateAttentionMessage.a data;
-            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.fvi != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.Hi) {
+            if ((customResponsedMessage instanceof UpdateAttentionMessage) && VideoAggregationFragment.this.fvi != null && (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) != null && data.Hh) {
                 VideoAggregationFragment.this.fvi.ah(data.toUid, data.isAttention);
             }
         }
@@ -92,7 +92,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         this.fvj = new i(getPageContext(), this);
         this.fvj.setId(this.mId);
         this.fvj.setFrom(this.mFrom);
-        this.fvj.wx(this.st_type);
+        this.fvj.ww(this.st_type);
         this.fvj.setLocation(this.yuelaou_locate);
         this.fvj.bmq();
         registerListener(this.mNetworkChangedMessageListener);

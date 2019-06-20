@@ -13,11 +13,11 @@ import com.facebook.drawee.d.d;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class SimpleDraweeView extends GenericDraweeView {
-    private static i<? extends d> jWT;
-    private d jWU;
+    private static i<? extends d> jWW;
+    private d jWX;
 
     public static void b(i<? extends d> iVar) {
-        jWT = iVar;
+        jWW = iVar;
     }
 
     public SimpleDraweeView(Context context, com.facebook.drawee.generic.a aVar) {
@@ -49,8 +49,8 @@ public class SimpleDraweeView extends GenericDraweeView {
     private void init(Context context, @Nullable AttributeSet attributeSet) {
         int resourceId;
         if (!isInEditMode()) {
-            g.checkNotNull(jWT, "SimpleDraweeView was not initialized!");
-            this.jWU = jWT.get();
+            g.checkNotNull(jWW, "SimpleDraweeView was not initialized!");
+            this.jWX = jWW.get();
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0449a.SimpleDraweeView);
                 try {
@@ -67,7 +67,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     protected d getControllerBuilder() {
-        return this.jWU;
+        return this.jWX;
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView
@@ -80,7 +80,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.jWU.aQ(obj).I(uri).b(getController()).cDe());
+        setController(this.jWX.aQ(obj).I(uri).b(getController()).cDd());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {

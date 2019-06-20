@@ -40,7 +40,7 @@ public class a extends com.baidu.swan.apps.w.a {
             fVar.mAppId = this.azk.vk().getAppId();
             fVar.mSource = this.azk.vk().EW();
             fVar.mType = SmsLoginView.StatEvent.LOGIN_SHOW;
-            fVar.ak(e.hn(vk.EX()));
+            fVar.ak(e.hm(vk.EX()));
             e.onEvent(fVar);
         }
         com.baidu.swan.apps.media.b.bu(true);

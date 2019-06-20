@@ -10,7 +10,7 @@ public class c extends e {
         this.bsZ = str2;
     }
 
-    public c ks(String str) {
+    public c kr(String str) {
         this.bsZ = str;
         return this;
     }

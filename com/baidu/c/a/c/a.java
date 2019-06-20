@@ -30,7 +30,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -47,7 +46,8 @@ public class a {
     private static Field abe;
     private static Field abf;
     private static Field abg;
-    public String aaG;
+    public String aaF;
+    public String aaN;
     private CriusNode aaS;
     private double abA;
     private double abB;
@@ -245,7 +245,7 @@ public class a {
     /* renamed from: com.baidu.c.a.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0036a {
-        String cz(String str);
+        String cy(String str);
     }
 
     static {
@@ -284,23 +284,13 @@ public class a {
         }
     }
 
-    public static boolean cv(String str) {
-        return Pattern.compile("[^一-龥]").matcher(str).find();
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public float W(float f) {
-        if (Build.VERSION.SDK_INT == 19 || TbadkCoreApplication.getInst().isMIUIRom()) {
-            return (1.06f * f) + 0.5f;
-        }
         return f;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public float X(float f) {
-        if ((Build.VERSION.SDK_INT == 19 || TbadkCoreApplication.getInst().isMIUIRom()) && this.maxLines == 1 && cv(this.text)) {
-            return (1.09859f * f) + 0.5f;
-        }
         return f;
     }
 
@@ -313,11 +303,11 @@ public class a {
         }
         this.abi = b.g(jSONObject, "component");
         this.src = b.g(jSONObject, "src");
-        this.aaG = b.g(jSONObject, "poster");
+        this.aaF = b.g(jSONObject, "poster");
         this.abj = b.g(jSONObject, "href");
         this.text = b.g(jSONObject, "text");
         if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(this.abi) && this.businessConverter != null) {
-            this.text = this.businessConverter.cz(this.text);
+            this.text = this.businessConverter.cy(this.text);
         }
         this.maxLines = jSONObject.optInt("max-lines", 1);
         this.abt = b.h(jSONObject, "line-space");
@@ -445,6 +435,7 @@ public class a {
         this.ach = b.g(jSONObject, "text-align");
         this.aci = b.g(jSONObject, "vertical-align");
         this.gravity = rf();
+        this.aaN = b.g(jSONObject, "download-style");
     }
 
     public a(Context context, JSONObject jSONObject, InterfaceC0036a interfaceC0036a, boolean z) {
@@ -780,16 +771,16 @@ public class a {
         return "text".equals(this.type);
     }
 
-    public a cw(String str) {
+    public a cv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (!str.equalsIgnoreCase(this.id)) {
             if (this.acx != null && this.acx.size() > 0) {
                 for (a aVar : this.acx) {
-                    a cw = aVar.cw(str);
-                    if (cw != null) {
-                        return cw;
+                    a cv = aVar.cv(str);
+                    if (cv != null) {
+                        return cv;
                     }
                 }
             }
@@ -798,16 +789,16 @@ public class a {
         return this;
     }
 
-    public a cx(String str) {
+    public a cw(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (!str.equalsIgnoreCase(this.abi)) {
             if (this.acx != null && this.acx.size() > 0) {
                 for (a aVar : this.acx) {
-                    a cx = aVar.cx(str);
-                    if (cx != null) {
-                        return cx;
+                    a cw = aVar.cw(str);
+                    if (cw != null) {
+                        return cw;
                     }
                 }
             }
@@ -824,22 +815,22 @@ public class a {
         return d < 1.0d ? (float) (10.0d * d) : (float) (f * d);
     }
 
-    public boolean cy(String str) {
-        a cx;
-        if (this.aaS == null || (cx = cx(str)) == null || cx.aaT == null) {
+    public boolean cx(String str) {
+        a cw;
+        if (this.aaS == null || (cw = cw(str)) == null || cw.aaT == null) {
             return false;
         }
-        cx.aaT.setDisplay(CriusDisplay.NONE);
-        cx.aaT.dirty();
+        cw.aaT.setDisplay(CriusDisplay.NONE);
+        cw.aaT.dirty();
         this.aaS.calculateLayout(Float.NaN, Float.NaN);
         return true;
     }
 
     public void d(String str, float f) {
-        a cw;
-        if (this.aaS != null && (cw = cw(str)) != null && cw.aaT != null) {
-            cw.fontSize = f;
-            cw.aaT.dirty();
+        a cv;
+        if (this.aaS != null && (cv = cv(str)) != null && cv.aaT != null) {
+            cv.fontSize = f;
+            cv.aaT.dirty();
             this.aaS.calculateLayout(Float.NaN, Float.NaN);
         }
     }

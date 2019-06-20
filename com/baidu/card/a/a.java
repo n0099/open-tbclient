@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private SparseArray<List<b>> Xn = new SparseArray<>();
+    private SparseArray<List<b>> Xm = new SparseArray<>();
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -15,23 +15,23 @@ public class a {
     }
 
     public void c(int i, b bVar) {
-        if (this.Xn == null) {
-            this.Xn = new SparseArray<>();
+        if (this.Xm == null) {
+            this.Xm = new SparseArray<>();
         }
-        List<b> list = this.Xn.get(i);
+        List<b> list = this.Xm.get(i);
         if (list == null) {
             list = new ArrayList<>();
-            this.Xn.put(i, list);
+            this.Xm.put(i, list);
         }
         list.add(bVar);
     }
 
     public void d(int i, b bVar) {
         if (bVar == null) {
-            this.Xn.remove(i);
+            this.Xm.remove(i);
             return;
         }
-        List<b> list = this.Xn.get(i);
+        List<b> list = this.Xm.get(i);
         if (!v.aa(list)) {
             Iterator<b> it = list.iterator();
             while (it.hasNext()) {
@@ -43,7 +43,7 @@ public class a {
     }
 
     public boolean b(C0038a c0038a) {
-        List<b> list = this.Xn.get(c0038a.Xo);
+        List<b> list = this.Xm.get(c0038a.Xn);
         if (v.aa(list)) {
             return false;
         }
@@ -58,28 +58,28 @@ public class a {
     /* renamed from: com.baidu.card.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0038a {
-        private int Xo;
-        private Object Xp;
+        private int Xn;
+        private Object Xo;
 
         public C0038a(int i, Object obj) {
-            this.Xo = i;
-            this.Xp = obj;
+            this.Xn = i;
+            this.Xo = obj;
         }
 
         public C0038a(int i) {
-            this.Xo = i;
+            this.Xn = i;
         }
 
         public int getActionType() {
-            return this.Xo;
+            return this.Xn;
         }
 
         public void setExtraData(Object obj) {
-            this.Xp = obj;
+            this.Xo = obj;
         }
 
         public Object qy() {
-            return this.Xp;
+            return this.Xo;
         }
     }
 }

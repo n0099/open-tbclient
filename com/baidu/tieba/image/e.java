@@ -24,31 +24,31 @@ import java.util.LinkedList;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class e {
-    private String bVL;
-    private Map<String, ImageUrlData> cli;
-    private boolean dea;
+    private String bVM;
+    private Map<String, ImageUrlData> clj;
+    private boolean deb;
     private String foI;
-    private ArrayList<String> gRD;
-    private String gRF;
-    private String gRG;
-    private String gRO;
-    private String gRP;
+    private ArrayList<String> gRF;
+    private String gRH;
+    private String gRI;
     private String gRQ;
-    private boolean gRR;
+    private String gRR;
+    private String gRS;
+    private boolean gRT;
     private String mForumId;
     private String mFrom;
     private boolean mIsReset;
     private int mThreadType;
     private String mUserId;
-    private HashMap<String, String> gRE = new HashMap<>();
+    private HashMap<String, String> gRG = new HashMap<>();
     private boolean mIsReserver = true;
-    private a gRH = null;
-    private int gRI = 0;
-    private boolean gRJ = false;
-    private boolean gRK = false;
-    private b gRL = null;
-    private AdvertAppInfo gRM = null;
-    private boolean gRN = false;
+    private a gRJ = null;
+    private int gRK = 0;
+    private boolean gRL = false;
+    private boolean gRM = false;
+    private b gRN = null;
+    private AdvertAppInfo gRO = null;
+    private boolean gRP = false;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -58,104 +58,104 @@ public class e {
     }
 
     public e(ArrayList<String> arrayList, Map<String, ImageUrlData> map, String str, String str2, String str3, String str4, String str5, String str6, int i, boolean z) {
-        this.dea = false;
-        this.gRD = arrayList;
-        this.cli = map;
-        if (this.gRD == null) {
-            this.gRD = new ArrayList<>();
+        this.deb = false;
+        this.gRF = arrayList;
+        this.clj = map;
+        if (this.gRF == null) {
+            this.gRF = new ArrayList<>();
         }
-        Iterator<String> it = this.gRD.iterator();
+        Iterator<String> it = this.gRF.iterator();
         while (it.hasNext()) {
             String next = it.next();
-            this.gRE.put(d.yZ(next), next);
+            this.gRG.put(d.zb(next), next);
         }
-        this.bVL = str3;
+        this.bVM = str3;
         this.foI = str2;
         this.mForumId = str;
-        this.gRG = str4;
+        this.gRI = str4;
         this.mThreadType = i;
-        this.dea = this.gRG == null;
+        this.deb = this.gRI == null;
         this.mUserId = str5;
         this.mFrom = str6;
         this.mIsReset = z;
-        this.gRR = false;
+        this.gRT = false;
     }
 
     public void setSourceImageRectInScreen(String str) {
-        this.gRP = str;
+        this.gRR = str;
     }
 
-    public void zb(String str) {
-        this.gRQ = str;
-    }
-
-    public void mD(boolean z) {
-        this.gRR = z;
+    public void zd(String str) {
+        this.gRS = str;
     }
 
     public void mE(boolean z) {
+        this.gRT = z;
+    }
+
+    public void mF(boolean z) {
         this.mIsReserver = z;
     }
 
-    public void bFU() {
-        this.gRN = false;
-        if (!this.dea) {
-            e(this.bVL, this.gRG, 10, 0);
+    public void bFV() {
+        this.gRP = false;
+        if (!this.deb) {
+            e(this.bVM, this.gRI, 10, 0);
         }
     }
 
-    public void bFV() {
-        this.gRN = true;
-        String str = this.gRD.get(0);
-        if (StringUtils.isNull(this.gRF)) {
-            this.gRF = d.yZ(str);
+    public void bFW() {
+        this.gRP = true;
+        String str = this.gRF.get(0);
+        if (StringUtils.isNull(this.gRH)) {
+            this.gRH = d.zb(str);
         }
-        e(this.bVL, this.gRF, 0, 10);
+        e(this.bVM, this.gRH, 0, 10);
     }
 
     private void e(String str, String str2, int i, int i2) {
-        if (this.gRH != null) {
-            if (str2 == null || !str2.equals(this.gRH.getPicId())) {
-                this.gRH.cancel();
+        if (this.gRJ != null) {
+            if (str2 == null || !str2.equals(this.gRJ.getPicId())) {
+                this.gRJ.cancel();
             } else {
                 return;
             }
         }
-        this.gRH = new a(str, str2, i, i2);
-        this.gRH.setPriority(3);
-        this.gRH.execute(new Object[0]);
-    }
-
-    public void mF(boolean z) {
-        this.gRJ = z;
+        this.gRJ = new a(str, str2, i, i2);
+        this.gRJ.setPriority(3);
+        this.gRJ.execute(new Object[0]);
     }
 
     public void mG(boolean z) {
-        this.gRK = z;
+        this.gRL = z;
+    }
+
+    public void mH(boolean z) {
+        this.gRM = z;
     }
 
     public void a(b bVar) {
-        this.gRL = bVar;
+        this.gRN = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, Integer, h> {
-        private String bVL;
-        private int gRS;
-        private int gRT;
+        private String bVM;
+        private int gRU;
+        private int gRV;
         private x mNetWork = null;
         private String mPicId;
 
         public a(String str, String str2, int i, int i2) {
-            this.bVL = null;
+            this.bVM = null;
             this.mPicId = null;
-            this.gRS = 0;
-            this.gRT = 0;
+            this.gRU = 0;
+            this.gRV = 0;
             this.mPicId = str2;
-            this.bVL = str;
-            this.gRS = i;
-            this.gRT = i2;
+            this.bVM = str;
+            this.gRU = i;
+            this.gRV = i2;
         }
 
         public String getPicId() {
@@ -169,16 +169,16 @@ public class e {
         public h doInBackground(Object... objArr) {
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.IMAGE_PB_ADDRESS);
             this.mNetWork.o("kw", e.this.foI);
-            this.mNetWork.o("tid", this.bVL);
+            this.mNetWork.o("tid", this.bVM);
             if (this.mPicId != null) {
                 this.mNetWork.o(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY, this.mPicId);
             }
-            this.mNetWork.o("source", String.valueOf(e.this.gRK ? 1 : 2));
-            e.this.gRK = false;
-            this.mNetWork.o(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.gRS));
-            this.mNetWork.o("prev", String.valueOf(this.gRT));
-            this.mNetWork.o("not_see_lz", String.valueOf(e.this.gRJ ? 0 : 1));
-            this.mNetWork.o("is_top_agree", String.valueOf(e.this.gRR ? 1 : 2));
+            this.mNetWork.o("source", String.valueOf(e.this.gRM ? 1 : 2));
+            e.this.gRM = false;
+            this.mNetWork.o(UnitedSchemeConstants.UNITED_SCHEME_NEXT, String.valueOf(this.gRU));
+            this.mNetWork.o("prev", String.valueOf(this.gRV));
+            this.mNetWork.o("not_see_lz", String.valueOf(e.this.gRL ? 0 : 1));
+            this.mNetWork.o("is_top_agree", String.valueOf(e.this.gRT ? 1 : 2));
             if (!e.this.mIsReserver) {
                 this.mNetWork.o("r", String.valueOf(1));
             }
@@ -187,14 +187,14 @@ public class e {
             } else {
                 this.mNetWork.o("obj_type", ImageViewerConfig.FROM_OTHER);
             }
-            if (TextUtils.isEmpty(e.this.gRO)) {
+            if (TextUtils.isEmpty(e.this.gRQ)) {
                 if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.agM().getLong("applist_intalled_apk_ids_timestamp", 0L) < 86400000) {
-                    e.this.gRO = com.baidu.tbadk.core.sharedPref.b.agM().getString("applist_intalled_apk_ids", "");
+                    e.this.gRQ = com.baidu.tbadk.core.sharedPref.b.agM().getString("applist_intalled_apk_ids", "");
                 }
             }
-            this.mNetWork.o("applist", e.this.gRO);
-            bFW();
-            this.mNetWork.ahC().aiB().bTE = false;
+            this.mNetWork.o("applist", e.this.gRQ);
+            bFX();
+            this.mNetWork.ahC().aiB().bTF = false;
             String ahe = this.mNetWork.ahe();
             if (!this.mNetWork.ahC().aiC().isRequestSuccess()) {
                 return null;
@@ -204,7 +204,7 @@ public class e {
             return hVar;
         }
 
-        private void bFW() {
+        private void bFX() {
             this.mNetWork.o("forum_id", e.this.mForumId);
             this.mNetWork.o("user_id", e.this.mUserId == null ? "0" : e.this.mUserId);
             this.mNetWork.o("scr_w", String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
@@ -212,7 +212,7 @@ public class e {
             this.mNetWork.o("q_type", String.valueOf(ar.ail().ain() ? 2 : 1));
             this.mNetWork.o("_os_version", Build.VERSION.RELEASE);
             this.mNetWork.o("page_name", "PB");
-            this.mNetWork.o("pic_index", String.valueOf(e.this.gRD.size()));
+            this.mNetWork.o("pic_index", String.valueOf(e.this.gRF.size()));
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -220,7 +220,7 @@ public class e {
             if (this.mNetWork != null) {
                 this.mNetWork.ia();
             }
-            e.this.gRH = null;
+            e.this.gRJ = null;
             super.cancel(true);
         }
 
@@ -230,10 +230,10 @@ public class e {
         /* renamed from: a */
         public void onPostExecute(h hVar) {
             super.onPostExecute(hVar);
-            if (e.this.cli != null) {
-                e.this.gRH = null;
+            if (e.this.clj != null) {
+                e.this.gRJ = null;
                 if (hVar == null) {
-                    if (e.this.gRL != null) {
+                    if (e.this.gRN != null) {
                         String str = null;
                         int i = -1;
                         if (this.mNetWork != null) {
@@ -242,67 +242,67 @@ public class e {
                                 str = this.mNetWork.getErrorString();
                             }
                         }
-                        e.this.gRL.ar(i, str);
+                        e.this.gRN.ar(i, str);
                         return;
                     }
                     return;
                 }
-                boolean aa = v.aa(hVar.bGf());
+                boolean aa = v.aa(hVar.bGg());
                 if (e.this.mIsReset && !aa) {
-                    e.this.gRD.clear();
-                    e.this.cli.clear();
-                    e.this.gRE.clear();
+                    e.this.gRF.clear();
+                    e.this.clj.clear();
+                    e.this.gRG.clear();
                 }
                 if (hVar.getImageNum() != 0) {
-                    e.this.gRI = hVar.getImageNum();
+                    e.this.gRK = hVar.getImageNum();
                 }
-                e.this.gRM = hVar.bGg();
+                e.this.gRO = hVar.bGh();
                 if (this.mPicId == null) {
-                    e.this.gRD.clear();
-                    e.this.gRE.clear();
+                    e.this.gRF.clear();
+                    e.this.gRG.clear();
                 }
-                LinkedList<f> bGf = hVar.bGf();
-                int size = bGf.size();
+                LinkedList<f> bGg = hVar.bGg();
+                int size = bGg.size();
                 if (size <= 0) {
-                    e.this.dea = true;
+                    e.this.deb = true;
                 } else {
                     for (int i2 = 0; i2 < size; i2++) {
-                        f fVar = bGf.get(i2);
+                        f fVar = bGg.get(i2);
                         String a = e.this.a(fVar);
                         ImageUrlData imageUrlData = new ImageUrlData();
-                        imageUrlData.id = fVar.bFX();
-                        if (ap.equals(imageUrlData.id, e.this.gRQ)) {
-                            imageUrlData.setSourceImageRectInScreen(e.this.gRP);
+                        imageUrlData.id = fVar.bFY();
+                        if (ap.equals(imageUrlData.id, e.this.gRS)) {
+                            imageUrlData.setSourceImageRectInScreen(e.this.gRR);
                         }
                         imageUrlData.imageUrl = a;
-                        String str2 = a + "*" + fVar.bGb();
+                        String str2 = a + "*" + fVar.bGc();
                         imageUrlData.urlType = 10;
                         imageUrlData.originalUrl = fVar.axX();
                         imageUrlData.originalSize = fVar.getOriginalSize();
                         imageUrlData.forumId = e.this.mForumId;
-                        imageUrlData.threadId = com.baidu.adp.lib.g.b.c(this.bVL, -1L);
-                        imageUrlData.postId = com.baidu.adp.lib.g.b.c(fVar.bFY(), -1L);
+                        imageUrlData.threadId = com.baidu.adp.lib.g.b.c(this.bVM, -1L);
+                        imageUrlData.postId = com.baidu.adp.lib.g.b.c(fVar.bFZ(), -1L);
                         imageUrlData.mIsReserver = e.this.mIsReserver;
-                        imageUrlData.mIsSeeHost = e.this.gRJ;
-                        imageUrlData.overAllIndex = fVar.bGb();
+                        imageUrlData.mIsSeeHost = e.this.gRL;
+                        imageUrlData.overAllIndex = fVar.bGc();
                         imageUrlData.mThreadType = e.this.mThreadType;
                         imageUrlData.mPicType = fVar.getPicType();
                         imageUrlData.mTagName = fVar.getTagName();
-                        imageUrlData.mIsShowOrigonButton = fVar.bFZ();
+                        imageUrlData.mIsShowOrigonButton = fVar.bGa();
                         imageUrlData.isLongPic = fVar.isLongPic();
-                        imageUrlData.isBlockedPic = fVar.bGa();
-                        if (fVar.bGd() != null) {
-                            imageUrlData.richTextArray = fVar.bGd().toString();
+                        imageUrlData.isBlockedPic = fVar.bGb();
+                        if (fVar.bGe() != null) {
+                            imageUrlData.richTextArray = fVar.bGe().toString();
                         }
-                        imageUrlData.isFirstPost = fVar.bGe();
+                        imageUrlData.isFirstPost = fVar.bGf();
                         if (fVar.afl() != null) {
                             imageUrlData.agreeData = fVar.afl();
                             imageUrlData.agreeData.forumId = e.this.mForumId;
                             imageUrlData.agreeData.threadId = String.valueOf(imageUrlData.threadId);
                             imageUrlData.agreeData.postId = String.valueOf(imageUrlData.postId);
                             imageUrlData.agreeData.indexOfPic = imageUrlData.overAllIndex;
-                            imageUrlData.commentNum = fVar.bGc();
-                            if (fVar.bGe()) {
+                            imageUrlData.commentNum = fVar.bGd();
+                            if (fVar.bGf()) {
                                 imageUrlData.agreeData.objType = 3;
                                 imageUrlData.agreeData.isInThread = true;
                                 imageUrlData.agreeData.isInPost = false;
@@ -312,11 +312,11 @@ public class e {
                                 imageUrlData.agreeData.isInPost = true;
                             }
                         }
-                        if (e.this.gRE.containsKey(imageUrlData.id)) {
-                            String str3 = (String) e.this.gRE.get(imageUrlData.id);
-                            ImageUrlData imageUrlData2 = (ImageUrlData) e.this.cli.get(str3);
+                        if (e.this.gRG.containsKey(imageUrlData.id)) {
+                            String str3 = (String) e.this.gRG.get(imageUrlData.id);
+                            ImageUrlData imageUrlData2 = (ImageUrlData) e.this.clj.get(str3);
                             if (imageUrlData2 == null) {
-                                e.this.cli.put(str3, imageUrlData);
+                                e.this.clj.put(str3, imageUrlData);
                             } else {
                                 imageUrlData2.imageUrl = imageUrlData.imageUrl;
                                 imageUrlData2.overAllIndex = imageUrlData.overAllIndex;
@@ -326,36 +326,36 @@ public class e {
                                 imageUrlData2.commentNum = imageUrlData.commentNum;
                                 imageUrlData2.agreeData = imageUrlData.agreeData;
                                 imageUrlData2.isFirstPost = imageUrlData.isFirstPost;
-                                if (ap.equals(imageUrlData.id, e.this.gRQ)) {
-                                    imageUrlData2.setSourceImageRectInScreen(e.this.gRP);
+                                if (ap.equals(imageUrlData.id, e.this.gRS)) {
+                                    imageUrlData2.setSourceImageRectInScreen(e.this.gRR);
                                 }
                             }
                         } else {
-                            e.this.cli.put(str2, imageUrlData);
-                            if (e.this.gRN) {
-                                e.this.gRD.add(i2, str2);
+                            e.this.clj.put(str2, imageUrlData);
+                            if (e.this.gRP) {
+                                e.this.gRF.add(i2, str2);
                             } else {
-                                e.this.gRD.add(str2);
+                                e.this.gRF.add(str2);
                             }
-                            e.this.gRE.put(imageUrlData.id, str2);
+                            e.this.gRG.put(imageUrlData.id, str2);
                         }
                     }
-                    f fVar2 = (f) v.c(bGf, 0);
+                    f fVar2 = (f) v.c(bGg, 0);
                     if (fVar2 != null) {
-                        e.this.gRF = fVar2.bFX();
+                        e.this.gRH = fVar2.bFY();
                     }
-                    f fVar3 = (f) v.c(bGf, size - 1);
+                    f fVar3 = (f) v.c(bGg, size - 1);
                     if (fVar3 != null) {
-                        e.this.gRG = fVar3.bFX();
-                        e.this.dea = ((long) e.this.gRI) == fVar3.bGb();
+                        e.this.gRI = fVar3.bFY();
+                        e.this.deb = ((long) e.this.gRK) == fVar3.bGc();
                     }
                 }
                 ImageUrlData imageUrlData3 = null;
-                for (ImageUrlData imageUrlData4 : e.this.cli.values()) {
+                for (ImageUrlData imageUrlData4 : e.this.clj.values()) {
                     if (imageUrlData4.agreeData == null) {
                         long j = imageUrlData4.postId;
                         if (imageUrlData3 == null) {
-                            for (ImageUrlData imageUrlData5 : e.this.cli.values()) {
+                            for (ImageUrlData imageUrlData5 : e.this.clj.values()) {
                                 if (imageUrlData5.postId != j || imageUrlData5.agreeData == null) {
                                     imageUrlData5 = imageUrlData3;
                                 } else {
@@ -376,12 +376,12 @@ public class e {
                 int i3 = -1;
                 if (this.mPicId == null) {
                     i3 = 0;
-                    e.this.bVL = this.bVL;
+                    e.this.bVM = this.bVM;
                     z = true;
                 }
-                int a2 = e.this.gRN ? v.a(e.this.gRD, (String) e.this.gRE.get(this.mPicId)) - 1 : i3;
-                if (e.this.gRL != null) {
-                    e.this.gRL.a(e.this.gRD, a2, e.this.gRI, false, null, z, e.this.gRM, aa);
+                int a2 = e.this.gRP ? v.a(e.this.gRF, (String) e.this.gRG.get(this.mPicId)) - 1 : i3;
+                if (e.this.gRN != null) {
+                    e.this.gRN.a(e.this.gRF, a2, e.this.gRK, false, null, z, e.this.gRO, aa);
                 }
                 e.this.mIsReset = false;
             }

@@ -10,11 +10,11 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes3.dex */
 public final class f implements Thread.UncaughtExceptionHandler {
-    public static boolean aal = false;
-    private static final String aam = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.o.G() + File.separator + "oom" + File.separator;
-    private static f aan = new f();
-    private Thread.UncaughtExceptionHandler aao = null;
-    private Context aap = null;
+    public static boolean aak = false;
+    private static final String aal = Environment.getExternalStorageDirectory().getPath() + File.separator + com.baidu.crabsdk.b.o.G() + File.separator + "oom" + File.separator;
+    private static f aam = new f();
+    private Thread.UncaughtExceptionHandler aan = null;
+    private Context aao = null;
 
     private f() {
     }
@@ -30,16 +30,16 @@ public final class f implements Thread.UncaughtExceptionHandler {
     }
 
     public static f qV() {
-        return aan;
+        return aam;
     }
 
     public final void e(Context context) {
-        if (this.aao == null) {
-            this.aao = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.aan == null) {
+            this.aan = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.aap == null) {
-            this.aap = context.getApplicationContext();
+        if (this.aao == null) {
+            this.aao = context.getApplicationContext();
         }
     }
 
@@ -78,7 +78,7 @@ public final class f implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && h(th)) {
                 try {
-                    String str2 = aam;
+                    String str2 = aal;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -95,19 +95,19 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
             if (h.qX() && h.qZ() && h.i(th)) {
-                aal = false;
-                if (this.aap != null && thread != null && th != null) {
-                    i.c(this.aap, i.i(g.a(this.aap, th, false)));
+                aak = false;
+                if (this.aao != null && thread != null && th != null) {
+                    i.c(this.aao, i.i(g.a(this.aao, th, false)));
                     h.c(th);
                     h.j(th);
                     h.aa();
-                    k.a(false, this.aap);
+                    k.a(false, this.aao);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!aal) {
+                        if (!aak) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.v("T^T upload timeout!");
                                 break;
@@ -122,9 +122,9 @@ public final class f implements Thread.UncaughtExceptionHandler {
                 }
             }
         }
-        if (this.aao.equals(this)) {
+        if (this.aan.equals(this)) {
             return;
         }
-        this.aao.uncaughtException(thread, th);
+        this.aan.uncaughtException(thread, th);
     }
 }

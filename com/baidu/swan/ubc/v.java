@@ -30,7 +30,7 @@ class v {
         return this.bww;
     }
 
-    public final void kU(String str) {
+    public final void kT(String str) {
         if (!this.bww.contains(str)) {
             this.bww.add(str);
         }
@@ -63,7 +63,7 @@ class v {
         this.aHI = null;
     }
 
-    public void kV(String str) {
+    public void kU(String str) {
         this.bvx = str;
     }
 

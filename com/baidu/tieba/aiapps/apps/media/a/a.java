@@ -27,9 +27,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements l {
-    private static BroadcastReceiver ddy = null;
-    d.a ddw;
-    CustomMessageListener ddx = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
+    private static BroadcastReceiver ddz = null;
+    d.a ddx;
+    CustomMessageListener ddy = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -48,7 +48,7 @@ public class a implements l {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.ddw != null) {
+                        if (a.this.ddx != null) {
                             ArrayList<String> arrayList = new ArrayList<>();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -57,19 +57,19 @@ public class a implements l {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.ddw.i(arrayList);
+                                a.this.ddx.i(arrayList);
                             } else {
-                                a.this.ddw.gX("cancel");
+                                a.this.ddx.gW("cancel");
                             }
                         }
-                    } else if (a.this.ddw != null) {
-                        a.this.ddw.gX("error");
+                    } else if (a.this.ddx != null) {
+                        a.this.ddx.gW("error");
                     }
                     e.iB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.ddw = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.ddx);
+                            a.this.ddx = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.ddy);
                         }
                     });
                 }
@@ -80,8 +80,8 @@ public class a implements l {
             e.iB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.ddw = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.ddx);
+                    a.this.ddx = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.ddy);
                 }
             });
         }
@@ -133,7 +133,7 @@ public class a implements l {
     }
 
     public void b(Context context, int i, d.a aVar) {
-        this.ddw = aVar;
+        this.ddx = aVar;
         if (i < 1) {
             i = 1;
         }
@@ -148,8 +148,8 @@ public class a implements l {
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, AlbumActivityConfig.FROM_AIAPPS);
         albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        if (ddy == null) {
-            ddy = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
+        if (ddz == null) {
+            ddz = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context2, Intent intent) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921365, intent));
@@ -157,8 +157,8 @@ public class a implements l {
             };
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(AlbumActivityConfig.ACTION_SELECT_IMAGE_RESULT);
-            TbadkCoreApplication.getInst().registerReceiver(ddy, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(ddz, intentFilter);
         }
-        MessageManager.getInstance().registerListener(this.ddx);
+        MessageManager.getInstance().registerListener(this.ddy);
     }
 }

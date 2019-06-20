@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class RecordLayout extends RelativeLayout {
-    private a jvc;
+    private a jvf;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,7 +18,7 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void ctA();
+        void cty();
 
         void ctz();
     }
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.jvc != null) {
+                if (this.jvf != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.jvc.ctA();
+                            this.jvf.ctz();
                         } else {
-                            this.jvc.ctz();
+                            this.jvf.cty();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.af(getContext())) {
                         if (rawX > 0) {
-                            this.jvc.ctA();
+                            this.jvf.ctz();
                         } else {
-                            this.jvc.ctA();
+                            this.jvf.ctz();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.jvc = aVar;
+        this.jvf = aVar;
     }
 }

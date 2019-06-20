@@ -14,69 +14,69 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 /* loaded from: classes3.dex */
 public class WriteMultiImgsActivity extends BaseActivity {
-    private h jLg;
-    private i jNq;
+    private h jLj;
+    private i jNt;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.jLg = new h(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
+        this.jLj = new h(getPageContext(), new com.baidu.tieba.write.write.sticker.a.c() { // from class: com.baidu.tieba.write.write.WriteMultiImgsActivity.1
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void cyu() {
-                WriteMultiImgsActivity.this.jNq.czw();
-                WriteMultiImgsActivity.this.jNq.sa(true);
+            public void cyt() {
+                WriteMultiImgsActivity.this.jNt.czv();
+                WriteMultiImgsActivity.this.jNt.sb(true);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void cyv() {
-                WriteMultiImgsActivity.this.jNq.czB();
-                WriteMultiImgsActivity.this.jNq.sa(false);
+            public void cyu() {
+                WriteMultiImgsActivity.this.jNt.czA();
+                WriteMultiImgsActivity.this.jNt.sb(false);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
             public boolean P(Bitmap bitmap) {
-                return WriteMultiImgsActivity.this.jNq.R(bitmap);
+                return WriteMultiImgsActivity.this.jNt.R(bitmap);
             }
 
             @Override // com.baidu.tieba.write.write.sticker.a.c
-            public void cyw() {
-                WriteMultiImgsActivity.this.jNq.cyw();
+            public void cyv() {
+                WriteMultiImgsActivity.this.jNt.cyv();
             }
         });
-        setContentView(this.jLg.eYE);
-        this.jNq = new i(getPageContext(), this.jLg, bundle);
-        if (this.jNq.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
-            TbadkCoreApplication.getInst().setSkinType(this.jNq.mSkinType);
+        setContentView(this.jLj.eYE);
+        this.jNt = new i(getPageContext(), this.jLj, bundle);
+        if (this.jNt.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
+            TbadkCoreApplication.getInst().setSkinType(this.jNt.mSkinType);
         }
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
-        if (this.jNq != null && this.jNq.jNA != null) {
-            bundle.putInt("OutState_Current_Index", this.jNq.jNA.getCurrentIndex());
-            bundle.putInt("OutState_Write_Entrance", this.jNq.czz());
-            bundle.putSerializable("OutState_Write_Info_Data", this.jNq.bkp());
-            this.jNq.jNA.rV(true);
-            if (this.jNq.czC() != null) {
-                bundle.putString("OutState_Write_Img_Info", this.jNq.czC().toJsonString());
+        if (this.jNt != null && this.jNt.jND != null) {
+            bundle.putInt("OutState_Current_Index", this.jNt.jND.getCurrentIndex());
+            bundle.putInt("OutState_Write_Entrance", this.jNt.czy());
+            bundle.putSerializable("OutState_Write_Info_Data", this.jNt.bkp());
+            this.jNt.jND.rW(true);
+            if (this.jNt.czB() != null) {
+                bundle.putString("OutState_Write_Img_Info", this.jNt.czB().toJsonString());
             }
         }
         super.onSaveInstanceState(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void czw() {
-        if (this.jNq != null) {
-            this.jNq.czw();
+    public void czv() {
+        if (this.jNt != null) {
+            this.jNt.czv();
         }
     }
 
     public void a(boolean z, WriteImagesInfo writeImagesInfo) {
-        if (this.jNq != null) {
-            if (1 == this.jNq.czz()) {
-                ForumWriteData bkp = this.jNq.bkp();
+        if (this.jNt != null) {
+            if (1 == this.jNt.czy()) {
+                ForumWriteData bkp = this.jNt.bkp();
                 if (bkp != null) {
                     WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this, 10, bkp.forumId, bkp.forumName, null, null, 0, bkp.antiData, 13003, false, false, null, false, false, null, null, bkp.prefixData, 0);
                     writeActivityConfig.getIntent().putExtra("from", bkp.mFrom);
@@ -87,7 +87,7 @@ public class WriteMultiImgsActivity extends BaseActivity {
                     writeActivityConfig.setWriteImagesInfo(writeImagesInfo);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
                 }
-            } else if (2 == this.jNq.czz()) {
+            } else if (2 == this.jNt.czy()) {
                 Intent intent = new Intent(this, WriteActivity.class);
                 intent.putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
                 intent.setFlags(536870912);
@@ -125,20 +125,20 @@ public class WriteMultiImgsActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.jLg != null) {
-            this.jLg.CH(i);
+        if (this.jLj != null) {
+            this.jLj.CH(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.jNq != null) {
-            this.jNq.destroy();
+        if (this.jNt != null) {
+            this.jNt.destroy();
         }
         TbadkCoreApplication.getInst().delRemoteActivity(this);
-        if (this.jLg != null) {
-            this.jLg.onDestroy();
+        if (this.jLj != null) {
+            this.jLj.onDestroy();
         }
         super.onDestroy();
     }

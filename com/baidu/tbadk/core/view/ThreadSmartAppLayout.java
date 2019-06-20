@@ -17,10 +17,10 @@ import com.baidu.tieba.R;
 import tbclient.SmartApp;
 /* loaded from: classes3.dex */
 public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClickListener, com.baidu.card.i<com.baidu.tbadk.core.data.a> {
-    private View.OnClickListener bVi;
-    private HeadImageView bXk;
-    private TextView cbu;
-    private SmartApp cbv;
+    private View.OnClickListener bVj;
+    private HeadImageView bXl;
+    private TextView cbv;
+    private SmartApp cbw;
     private TextView mTitleView;
 
     public ThreadSmartAppLayout(Context context) {
@@ -34,10 +34,10 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public ThreadSmartAppLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         LayoutInflater.from(context).inflate(R.layout.thread_smart_app_layout, (ViewGroup) this, true);
-        this.bXk = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
-        this.bXk.setIsRound(true);
+        this.bXl = (HeadImageView) findViewById(R.id.iv_thread_smart_app_head);
+        this.bXl.setIsRound(true);
         this.mTitleView = (TextView) findViewById(R.id.tv_thread_smart_app_title);
-        this.cbu = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
+        this.cbv = (TextView) findViewById(R.id.tv_thread_smart_app_abstract);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -45,25 +45,25 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
     public void onChangeSkinType() {
         al.k(this, R.drawable.applets_cell_bg);
         al.j(this.mTitleView, R.color.cp_cont_b);
-        al.j(this.cbu, R.color.cp_cont_j);
+        al.j(this.cbv, R.color.cp_cont_j);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bVi = onClickListener;
+        this.bVj = onClickListener;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cbv != null) {
-            if (!com.baidu.tieba.aiapps.a.b(this.cbv.id, this.cbv.link, "1191003900000000", this.cbv.is_game)) {
-                if (!ap.isEmpty(this.cbv.h5_url)) {
-                    ba.aiz().c(cG(getContext()), new String[]{this.cbv.h5_url});
+        if (this.cbw != null) {
+            if (!com.baidu.tieba.aiapps.a.b(this.cbw.id, this.cbw.link, "1191003900000000", this.cbw.is_game)) {
+                if (!ap.isEmpty(this.cbw.h5_url)) {
+                    ba.aiz().c(cG(getContext()), new String[]{this.cbw.h5_url});
                 } else {
                     return;
                 }
             }
-            if (this.bVi != null) {
-                this.bVi.onClick(view);
+            if (this.bVj != null) {
+                this.bVj.onClick(view);
             }
         }
     }
@@ -86,19 +86,19 @@ public class ThreadSmartAppLayout extends RelativeLayout implements View.OnClick
             setVisibility(8);
             return;
         }
-        this.cbv = aVar.abv().aeh();
-        if (!ap.isEmpty(this.cbv.avatar)) {
-            this.bXk.startLoad(this.cbv.avatar, 10, false, false);
+        this.cbw = aVar.abv().aeh();
+        if (!ap.isEmpty(this.cbw.avatar)) {
+            this.bXl.startLoad(this.cbw.avatar, 10, false, false);
         }
-        if (!ap.isEmpty(this.cbv.name)) {
-            this.mTitleView.setText(this.cbv.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
+        if (!ap.isEmpty(this.cbw.name)) {
+            this.mTitleView.setText(this.cbw.name + " " + getContext().getResources().getString(R.string.smart_app_suffix));
         } else {
             this.mTitleView.setText(getContext().getResources().getString(R.string.intelligent_smart_app));
         }
-        if (!ap.isEmpty(this.cbv._abstract)) {
-            this.cbu.setText(this.cbv._abstract);
+        if (!ap.isEmpty(this.cbw._abstract)) {
+            this.cbv.setText(this.cbw._abstract);
         } else {
-            this.cbu.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
+            this.cbv.setText(getContext().getResources().getString(R.string.smart_app_default_abstract));
         }
         setVisibility(0);
     }

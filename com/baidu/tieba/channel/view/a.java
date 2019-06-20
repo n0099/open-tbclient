@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
-    private BdListView MS;
+    private BdListView MR;
     private NoNetworkView dlX;
     private ChannelAddVideoActivity eCO;
     private TextView eEi;
@@ -113,16 +113,16 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
         this.eEl = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.add_video), this.eEp);
         this.eEl.setTextColor(this.eCO.getResources().getColor(R.color.cp_cont_d));
         this.eEl.setEnabled(false);
-        this.MS = (BdListView) this.mRootView.findViewById(R.id.listview);
+        this.MR = (BdListView) this.mRootView.findViewById(R.id.listview);
         this.eEk = new com.baidu.tieba.channel.a.a(this.eCO);
-        this.MS.setOnItemClickListener(this.eEq);
-        this.MS.setAdapter((ListAdapter) this.eEk);
+        this.MR.setOnItemClickListener(this.eEq);
+        this.MR.setAdapter((ListAdapter) this.eEk);
         this.eEj = LayoutInflater.from(this.eCO.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_toast_layout, (ViewGroup) null, false);
-        this.MS.addHeaderView(this.eEj);
+        this.MR.addHeaderView(this.eEj);
         this.epZ = LayoutInflater.from(this.eCO.getPageContext().getPageActivity()).inflate(R.layout.channel_list_footer, (ViewGroup) null, false);
         this.mProgressBar = (ProgressBar) this.epZ.findViewById(R.id.list_more_progress);
         this.eEi = (TextView) this.epZ.findViewById(R.id.list_more_title);
-        this.MS.addFooterView(this.epZ);
+        this.MR.addFooterView(this.epZ);
     }
 
     public void onDestroy() {
@@ -138,7 +138,7 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
     public void a(com.baidu.tieba.channel.data.a aVar) {
         if (aVar == null || aVar.getItems() == null || aVar.getItems().size() <= 0) {
             this.eEk.setData(null);
-            this.MS.setVisibility(8);
+            this.MR.setVisibility(8);
             this.eEm.setVisibility(0);
             this.eEn = (TextView) this.mRootView.findViewById(R.id.no_data_tip);
             this.eEn.setText(this.eCO.getResources().getString(R.string.add_video_no_data));
@@ -148,7 +148,7 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
         iD(aVar.hasMore());
         this.eEk.setData(aVar.getItems());
         this.eEk.notifyDataSetChanged();
-        this.MS.setVisibility(0);
+        this.MR.setVisibility(0);
     }
 
     public void iD(boolean z) {
@@ -175,6 +175,6 @@ public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
     }
 
     public void b(BdListView.e eVar) {
-        this.MS.setOnSrollToBottomListener(eVar);
+        this.MR.setOnSrollToBottomListener(eVar);
     }
 }

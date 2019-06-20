@@ -6,29 +6,29 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
     private Fragment[] dpJ;
-    private String jFN;
-    private String jFO;
-    private AlbumActivity jFP;
-    private String[] jFQ;
-    private ImageListFragment jFR;
-    private AlbumImageBrowseFragment jFS;
+    private String jFQ;
+    private String jFR;
+    private AlbumActivity jFS;
+    private String[] jFT;
+    private ImageListFragment jFU;
+    private AlbumImageBrowseFragment jFV;
 
     public a(AlbumActivity albumActivity) {
         super(albumActivity.getPageContext());
-        this.jFN = "tag_image";
-        this.jFO = "tag_b_image";
-        this.jFP = albumActivity;
+        this.jFQ = "tag_image";
+        this.jFR = "tag_b_image";
+        this.jFS = albumActivity;
     }
 
-    public void brk() {
+    public void brm() {
         this.dpJ = new Fragment[2];
-        this.jFQ = new String[2];
-        this.jFR = new ImageListFragment();
-        this.dpJ[0] = this.jFR;
-        this.jFQ[0] = this.jFN;
-        this.jFS = new AlbumImageBrowseFragment();
-        this.dpJ[1] = this.jFS;
-        this.jFQ[1] = this.jFO;
+        this.jFT = new String[2];
+        this.jFU = new ImageListFragment();
+        this.dpJ[0] = this.jFU;
+        this.jFT[0] = this.jFQ;
+        this.jFV = new AlbumImageBrowseFragment();
+        this.dpJ[1] = this.jFV;
+        this.jFT[1] = this.jFR;
     }
 
     public Fragment Ck(int i) {
@@ -42,7 +42,7 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         if (i < 0 || i > 1) {
             return null;
         }
-        return this.jFQ[i];
+        return this.jFT[i];
     }
 
     public void onChangeSkinType(int i) {
@@ -60,89 +60,89 @@ public class a extends com.baidu.adp.base.c<BaseFragmentActivity> {
         }
     }
 
-    public TbCameraView cwS() {
-        if (this.jFR == null) {
+    public TbCameraView cwR() {
+        if (this.jFU == null) {
             return null;
         }
-        return this.jFR.cwS();
+        return this.jFU.cwR();
     }
 
     public void stopCamera() {
-        TbCameraView cwS = cwS();
-        if (cwS != null) {
-            cwS.stopCamera();
-            cwS.setVisibility(4);
+        TbCameraView cwR = cwR();
+        if (cwR != null) {
+            cwR.stopCamera();
+            cwR.setVisibility(4);
         }
     }
 
     public void aWY() {
-        TbCameraView cwS = cwS();
-        if (cwS != null) {
-            cwS.setVisibility(0);
-            cwS.rS(false);
+        TbCameraView cwR = cwR();
+        if (cwR != null) {
+            cwR.setVisibility(0);
+            cwR.rT(false);
         }
-        if (this.jFR != null && this.jFR.cxq() != null) {
-            this.jFR.cxq().cxu();
+        if (this.jFU != null && this.jFU.cxp() != null) {
+            this.jFU.cxp().cxt();
         }
+    }
+
+    public View cwS() {
+        if (this.jFU == null) {
+            return null;
+        }
+        return this.jFU.chX();
     }
 
     public View cwT() {
-        if (this.jFR == null) {
+        if (this.jFU == null) {
             return null;
         }
-        return this.jFR.chW();
+        return this.jFU.cxo();
     }
 
     public View cwU() {
-        if (this.jFR == null) {
+        if (this.jFV == null) {
             return null;
         }
-        return this.jFR.cxp();
+        return this.jFV.chX();
     }
 
     public View cwV() {
-        if (this.jFS == null) {
+        if (this.jFV == null) {
             return null;
         }
-        return this.jFS.chW();
+        return this.jFV.cxa();
     }
 
     public View cwW() {
-        if (this.jFS == null) {
+        if (this.jFV == null) {
             return null;
         }
-        return this.jFS.cxb();
+        return this.jFV.cwW();
     }
 
     public View cwX() {
-        if (this.jFS == null) {
+        if (this.jFU == null) {
             return null;
         }
-        return this.jFS.cwX();
-    }
-
-    public View cwY() {
-        if (this.jFR == null) {
-            return null;
-        }
-        return this.jFR.cwX();
+        return this.jFU.cwW();
     }
 
     public void onDestroy() {
     }
 
-    public void rO(boolean z) {
-        if (this.jFS != null) {
-            this.jFS.rO(z);
+    public void rP(boolean z) {
+        if (this.jFV != null) {
+            this.jFV.rP(z);
         }
-        if (this.jFR != null) {
-            this.jFR.rO(z);
+        if (this.jFU != null) {
+            this.jFU.rP(z);
         }
     }
 
     public void a(i iVar) {
-        if (this.jFR != null) {
-            this.jFR.a(iVar);
+        if (this.jFU != null) {
+            this.jFU.a(iVar);
         }
     }
 }

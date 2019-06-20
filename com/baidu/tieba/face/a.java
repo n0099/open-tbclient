@@ -11,8 +11,8 @@ public class a {
     public static final Pattern eXx = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
     public static final Pattern eXy = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String vw(String str) {
-        String replaceAll = str.replaceAll(d.cuS, "meme,");
+    public static String vv(String str) {
+        String replaceAll = str.replaceAll(d.cuT, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -39,7 +39,7 @@ public class a {
         return sb.toString();
     }
 
-    public static int vx(String str) {
+    public static int vw(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;

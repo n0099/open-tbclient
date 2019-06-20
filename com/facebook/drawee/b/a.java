@@ -11,20 +11,20 @@ import com.facebook.drawee.drawable.n;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a extends Drawable {
-    private String jUK;
-    private int jUL;
-    private int jUM;
-    private int jUN;
-    private String jUO;
-    private n.b jUP;
+    private String jUN;
+    private int jUO;
+    private int jUP;
     private int jUQ;
-    private int jUR;
-    private int jUS;
+    private String jUR;
+    private n.b jUS;
     private int jUT;
     private int jUU;
     private int jUV;
+    private int jUW;
+    private int jUX;
+    private int jUY;
     private int mFrameCount;
-    private int bMS = 80;
+    private int bMT = 80;
     private final Paint mPaint = new Paint(1);
     private final Matrix mMatrix = new Matrix();
     private final Rect mRect = new Rect();
@@ -35,36 +35,36 @@ public class a extends Drawable {
     }
 
     public void reset() {
-        this.jUL = -1;
-        this.jUM = -1;
-        this.jUN = -1;
-        this.mFrameCount = -1;
+        this.jUO = -1;
+        this.jUP = -1;
         this.jUQ = -1;
-        this.jUO = null;
-        GR(null);
+        this.mFrameCount = -1;
+        this.jUT = -1;
+        this.jUR = null;
+        GT(null);
         invalidateSelf();
     }
 
-    public void GR(@Nullable String str) {
+    public void GT(@Nullable String str) {
         if (str == null) {
             str = "none";
         }
-        this.jUK = str;
+        this.jUN = str;
         invalidateSelf();
     }
 
     public void setDimensions(int i, int i2) {
-        this.jUL = i;
-        this.jUM = i2;
+        this.jUO = i;
+        this.jUP = i2;
         invalidateSelf();
     }
 
     public void CU(int i) {
-        this.jUN = i;
+        this.jUQ = i;
     }
 
     public void a(n.b bVar) {
-        this.jUP = bVar;
+        this.jUS = bVar;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -81,25 +81,25 @@ public class a extends Drawable {
         this.mPaint.setColor(-26624);
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(a(this.jUL, this.jUM, this.jUP));
+        this.mPaint.setColor(a(this.jUO, this.jUP, this.jUS));
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setStrokeWidth(0.0f);
         this.mPaint.setColor(-1);
-        this.jUU = this.jUR;
-        this.jUV = this.jUS;
-        a(canvas, "ID: %s", this.jUK);
+        this.jUX = this.jUU;
+        this.jUY = this.jUV;
+        a(canvas, "ID: %s", this.jUN);
         a(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-        a(canvas, "I: %dx%d", Integer.valueOf(this.jUL), Integer.valueOf(this.jUM));
-        a(canvas, "I: %d KiB", Integer.valueOf(this.jUN / 1024));
-        if (this.jUO != null) {
-            a(canvas, "i format: %s", this.jUO);
+        a(canvas, "I: %dx%d", Integer.valueOf(this.jUO), Integer.valueOf(this.jUP));
+        a(canvas, "I: %d KiB", Integer.valueOf(this.jUQ / 1024));
+        if (this.jUR != null) {
+            a(canvas, "i format: %s", this.jUR);
         }
         if (this.mFrameCount > 0) {
-            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.jUQ));
+            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.jUT));
         }
-        if (this.jUP != null) {
-            a(canvas, "scale: %s", this.jUP);
+        if (this.jUS != null) {
+            a(canvas, "scale: %s", this.jUS);
         }
     }
 
@@ -119,21 +119,21 @@ public class a extends Drawable {
     private void a(Rect rect, int i, int i2) {
         int min = Math.min(40, Math.max(12, Math.min(rect.width() / i2, rect.height() / i)));
         this.mPaint.setTextSize(min);
-        this.jUT = min + 8;
-        if (this.bMS == 80) {
-            this.jUT *= -1;
+        this.jUW = min + 8;
+        if (this.bMT == 80) {
+            this.jUW *= -1;
         }
-        this.jUR = rect.left + 10;
-        this.jUS = this.bMS == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
+        this.jUU = rect.left + 10;
+        this.jUV = this.bMT == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
     }
 
     private void a(Canvas canvas, String str, @Nullable Object... objArr) {
         if (objArr == null) {
-            canvas.drawText(str, this.jUU, this.jUV, this.mPaint);
+            canvas.drawText(str, this.jUX, this.jUY, this.mPaint);
         } else {
-            canvas.drawText(String.format(str, objArr), this.jUU, this.jUV, this.mPaint);
+            canvas.drawText(String.format(str, objArr), this.jUX, this.jUY, this.mPaint);
         }
-        this.jUV += this.jUT;
+        this.jUY += this.jUW;
     }
 
     int a(int i, int i2, @Nullable n.b bVar) {

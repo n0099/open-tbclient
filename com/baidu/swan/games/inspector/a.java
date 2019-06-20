@@ -77,7 +77,7 @@ public class a {
     }
 
     private boolean Rt() {
-        return com.baidu.swan.apps.f.a.db(com.baidu.swan.apps.ae.b.LB());
+        return com.baidu.swan.apps.f.a.da(com.baidu.swan.apps.ae.b.LB());
     }
 
     public boolean Ru() {

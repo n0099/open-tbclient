@@ -58,8 +58,8 @@ public class a {
         PMSAppInfo pMSAppInfo = new PMSAppInfo();
         pMSAppInfo.appId = aVar.appId;
         pMSAppInfo.appKey = aVar.appKey;
-        pMSAppInfo.brS = dY(aVar.sign);
-        pMSAppInfo.versionCode = (int) dY(aVar.version);
+        pMSAppInfo.brS = dX(aVar.sign);
+        pMSAppInfo.versionCode = (int) dX(aVar.version);
         pMSAppInfo.versionName = aVar.auB;
         pMSAppInfo.description = aVar.description;
         pMSAppInfo.appStatus = aVar.errorCode;
@@ -80,7 +80,7 @@ public class a {
         return pMSAppInfo;
     }
 
-    private static long dY(String str) {
+    private static long dX(String str) {
         try {
             return Long.parseLong(str);
         } catch (NumberFormatException e) {

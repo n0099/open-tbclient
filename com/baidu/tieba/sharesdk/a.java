@@ -38,7 +38,7 @@ public class a {
                 return;
             }
             if (z && (aZI = aZI()) != null) {
-                eVar.cjA = aZI;
+                eVar.cjB = aZI;
             }
             f fVar = new f(this.mContext, null);
             if (i == 3) {
@@ -56,7 +56,7 @@ public class a {
                     return;
                 }
                 a(eVar, 3);
-                if (eVar.cjl) {
+                if (eVar.cjm) {
                     eVar.content = p(eVar);
                 }
                 fVar.f(eVar);
@@ -69,19 +69,19 @@ public class a {
                 BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).afO();
             } else if (i == 5) {
                 a(eVar, 6);
-                if (!eVar.cjk) {
+                if (!eVar.cjl) {
                     eVar.content = p(eVar);
                 }
                 fVar.i(eVar);
             } else if (i == 6) {
                 a(eVar, 7);
-                if (!eVar.cjk) {
+                if (!eVar.cjl) {
                     eVar.content = p(eVar);
                 }
                 fVar.j(eVar);
             } else if (i == 7) {
                 a(eVar, 8);
-                if (!eVar.cjk) {
+                if (!eVar.cjl) {
                     eVar.content = p(eVar);
                 }
                 fVar.k(eVar);
@@ -98,24 +98,24 @@ public class a {
 
     private void a(e eVar, int i) {
         if (eVar != null && eVar.extData != null) {
-            if (eVar.cjl) {
+            if (eVar.cjm) {
                 TiebaStatic.log(new am("c10125").bT("fid", eVar.extData).P("obj_type", i));
-            } else if (eVar.cjm || eVar.cjp) {
-                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjE).P("obj_param1", eVar.cjF).bT("fid", eVar.fid));
-            } else if (eVar.cjn) {
-                TiebaStatic.log(new am("c10427").bT("tid", eVar.extData).P("obj_type", i));
-            } else if (eVar.cjk) {
-                aD(i, eVar.cjB);
+            } else if (eVar.cjn || eVar.cjq) {
+                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjF).P("obj_param1", eVar.cjG).bT("fid", eVar.fid));
             } else if (eVar.cjo) {
+                TiebaStatic.log(new am("c10427").bT("tid", eVar.extData).P("obj_type", i));
+            } else if (eVar.cjl) {
+                aD(i, eVar.cjC);
+            } else if (eVar.cjp) {
                 TiebaStatic.log(new am("c10125").P("obj_param1", 7).P("obj_type", i).bT("fid", eVar.extData));
-            } else if (eVar.cjq) {
+            } else if (eVar.cjr) {
                 am P = new am("c10125").P("obj_type", i);
                 if (!ap.isEmpty(eVar.linkUrl) && eVar.linkUrl.contains("worldcup")) {
                     P.P("obj_param1", 9);
                 }
                 TiebaStatic.log(P);
-            } else if (eVar.cjr) {
-                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).bT("fid", eVar.fid).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjE).P("obj_param1", eVar.cjF).P("obj_param2", eVar.cjG).P("obj_param3", eVar.cjH).P("obj_locate", eVar.cjI));
+            } else if (eVar.cjs) {
+                TiebaStatic.log(new am("c10125").bT("tid", eVar.extData).bT("fid", eVar.fid).P("obj_type", i).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, eVar.cjF).P("obj_param1", eVar.cjG).P("obj_param2", eVar.cjH).P("obj_param3", eVar.cjI).P("obj_locate", eVar.cjJ));
             }
         }
     }

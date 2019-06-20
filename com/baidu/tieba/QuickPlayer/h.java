@@ -10,9 +10,9 @@ import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.lang.reflect.Field;
 /* loaded from: classes3.dex */
 public class h extends MediaPlayer {
-    private b cSp;
-    private Handler cSr;
-    private Handler.Callback cSs;
+    private b cSq;
+    private Handler cSs;
+    private Handler.Callback cSt;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -26,12 +26,12 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.cSr = (Handler) obj;
+                    this.cSs = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.cSs = (Handler.Callback) obj2;
+                        this.cSt = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
@@ -50,8 +50,8 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.cSs == null || !h.this.cSs.handleMessage(message)) && h.this.cSr != null) {
-                    h.this.cSr.handleMessage(message);
+                if ((h.this.cSt == null || !h.this.cSt.handleMessage(message)) && h.this.cSs != null) {
+                    h.this.cSs.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -65,8 +65,8 @@ public class h extends MediaPlayer {
     public void m(Throwable th) {
         if (th != null) {
             String p = com.baidu.tieba.j.a.p(th);
-            if (this.cSp != null) {
-                this.cSp.handleOppoError(p);
+            if (this.cSq != null) {
+                this.cSq.handleOppoError(p);
             }
         }
     }
@@ -79,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.cSp = bVar;
+        this.cSq = bVar;
     }
 }

@@ -59,7 +59,7 @@ public class PopupWindow {
     private int mWidth;
     private int mWidthMode;
     private WindowManager mWindowManager;
-    private boolean zj;
+    private boolean zi;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -82,7 +82,7 @@ public class PopupWindow {
         this.bqc = 0;
         this.bqd = 1;
         this.bqe = true;
-        this.zj = false;
+        this.zi = false;
         this.bqf = true;
         this.bqg = -1;
         this.bqj = true;
@@ -130,7 +130,7 @@ public class PopupWindow {
         this.bqc = 0;
         this.bqd = 1;
         this.bqe = true;
-        this.zj = false;
+        this.zi = false;
         this.bqf = true;
         this.bqg = -1;
         this.bqj = true;
@@ -200,7 +200,7 @@ public class PopupWindow {
     }
 
     public void setOutsideTouchable(boolean z) {
-        this.zj = z;
+        this.zi = z;
     }
 
     public void setClippingEnabled(boolean z) {
@@ -368,7 +368,7 @@ public class PopupWindow {
         if (!this.bqe) {
             i2 |= 16;
         }
-        if (this.zj) {
+        if (this.zi) {
             i2 |= 262144;
         }
         if (!this.bqf) {

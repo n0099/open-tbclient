@@ -3,5 +3,5 @@ package com.baidu.swan.apps.m.a;
 public abstract class a {
     public String avG;
 
-    public abstract String er(String str);
+    public abstract String eq(String str);
 }

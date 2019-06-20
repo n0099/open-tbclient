@@ -52,13 +52,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
-    private static boolean Ik = false;
-    private static Map<String, Boolean> Il = new HashMap();
+    private static boolean Ij = false;
+    private static Map<String, Boolean> Ik = new HashMap();
+    private static boolean Il = false;
     private static boolean Im = false;
     private static boolean In = false;
     private static boolean Io = false;
-    private static boolean Ip = false;
-    private static Signature[] Iq = null;
+    private static Signature[] Ip = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting = null;
@@ -71,7 +71,7 @@ public class d {
             com.baidu.adp.plugin.b.a.lM().g("plugin_install", "intent_action_null", null);
             return;
         }
-        Ik = intent.getBooleanExtra("is_debug_plugin", false);
+        Ij = intent.getBooleanExtra("is_debug_plugin", false);
         if (action.equals(PluginInstallerService.ACTION_INSTALL)) {
             String stringExtra = intent.getStringExtra("install_src_file");
             String stringExtra2 = intent.getStringExtra(Constants.PACKAGE_NAME);
@@ -80,7 +80,7 @@ public class d {
             } catch (Throwable th) {
             }
             String str = stringExtra2 + stringExtra;
-            if (Il.containsKey(str) && Il.get(str).booleanValue()) {
+            if (Ik.containsKey(str) && Ik.get(str).booleanValue()) {
                 com.baidu.adp.plugin.b.a.lM().f("plugin_install", "plugin_has_installed", stringExtra2, "pkgName_" + stringExtra2 + "-srcFile_" + stringExtra);
                 return;
             } else {
@@ -143,7 +143,7 @@ public class d {
         String substring = str.substring(SkiaImageDecoder.FILE_PREFIX.length());
         File file = new File(substring);
         String str3 = str2 + str;
-        if (Il.containsKey(str3) && !file.exists() && Il.get(str3).booleanValue()) {
+        if (Ik.containsKey(str3) && !file.exists() && Ik.get(str3).booleanValue()) {
             com.baidu.adp.plugin.b.a.lM().f("plugin_install", "plugin_has_installed", str2, "pkgName_" + str2 + "-srcFile_" + str);
             Intent intent = new Intent("com.baidu.adp.plugin.installrepeat");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -421,7 +421,7 @@ public class d {
             str5 = packageArchiveInfo.versionName;
             i = packageArchiveInfo.versionCode;
         }
-        if (!BdBaseApplication.getInst().isDebugMode() && !Ik && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
+        if (!BdBaseApplication.getInst().isDebugMode() && !Ij && (d = d(str6, file.getAbsolutePath(), pluginSetting)) != null) {
             try {
                 file.delete();
             } catch (Exception e10) {
@@ -602,7 +602,7 @@ public class d {
             long currentTimeMillis3 = System.currentTimeMillis();
             a(file3.getAbsolutePath(), str6, file4);
             com.baidu.adp.plugin.b.a.lM().a("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
-            Il.put(str2 + str, true);
+            Ik.put(str2 + str, true);
             Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
             intent3.setPackage(BdBaseApplication.getInst().getPackageName());
             intent3.putExtra(Constants.PACKAGE_NAME, str6);
@@ -1010,10 +1010,10 @@ public class d {
 
     public static boolean lK() {
         String str;
-        if (In) {
-            return Im;
+        if (Im) {
+            return Il;
         }
-        In = true;
+        Im = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -1028,11 +1028,11 @@ public class d {
             }
         }
         if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || str.contains(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || lL()) {
-            Im = true;
+            Il = true;
         } else if (lowerCase.contains(PassBiometricUtil.CPU_TYPE_ARMEABI) || str.contains(PassBiometricUtil.CPU_TYPE_ARMEABI)) {
-            Im = true;
+            Il = true;
         }
-        return Im;
+        return Il;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1121=4] */
@@ -1042,10 +1042,10 @@ public class d {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (Ip) {
-            return Io;
+        if (Io) {
+            return In;
         }
-        Ip = true;
+        Io = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1088,7 +1088,7 @@ public class d {
                                 }
                             }
                         }
-                        Io = ((Integer) objArr[1]).intValue() == 7;
+                        In = ((Integer) objArr[1]).intValue() == 7;
                         n.b((Reader) bufferedReader);
                         n.b((Reader) inputStreamReader);
                         n.g(fileInputStream);
@@ -1101,7 +1101,7 @@ public class d {
                             n.b((Reader) bufferedReader);
                             n.b((Reader) inputStreamReader2);
                             n.g(fileInputStream2);
-                            return Io;
+                            return In;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1146,7 +1146,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return Io;
+        return In;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1184,9 +1184,9 @@ public class d {
         Signature[] signatureArr;
         Signature[] bZ;
         File file;
-        if (Iq == null) {
+        if (Ip == null) {
             try {
-                Iq = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                Ip = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.lM().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1213,11 +1213,11 @@ public class d {
         if (bZ == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = Iq;
+        Signature[] signatureArr2 = Ip;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
                 signatureArr2 = e.bZ(file.getAbsolutePath());
-                Iq = signatureArr2;
+                Ip = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {

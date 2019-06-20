@@ -65,7 +65,7 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
     public void TS() {
         com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
         if (vi != null) {
-            vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).c(this).zW();
+            vi.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).c(this).zW();
         }
     }
 
@@ -159,19 +159,19 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
     private void Ur() {
         if (!TextUtils.isEmpty(this.bpb)) {
             this.boZ = 0;
-            kf(this.bpb);
+            ke(this.bpb);
             d(this.boT, false);
         }
     }
 
-    private void kf(String str) {
+    private void ke(String str) {
         this.boX.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.bpd).keyword(str).pageCapacity(13).pageNum(this.boZ));
     }
 
     public void Us() {
         if (!this.mIsLoading) {
             if (this.boZ < this.bpa) {
-                kf(this.bpb);
+                ke(this.bpb);
                 this.mIsLoading = true;
                 return;
             }
@@ -268,7 +268,7 @@ public class a extends b implements TextWatcher, View.OnClickListener, View.OnFo
         this.boZ = 0;
         this.bpa = 0;
         this.bpb = editable.toString();
-        kf(this.bpb);
+        ke(this.bpb);
     }
 
     @Override // android.view.View.OnTouchListener

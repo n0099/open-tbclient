@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public abstract class a {
     private int errorCode;
     private String errorMsg;
-    private Date iRV;
+    private Date iRZ;
 
     protected abstract void bQ(JSONObject jSONObject) throws Exception;
 
@@ -53,7 +53,7 @@ public abstract class a {
             }
             long optLong = jSONObject.optLong("ctime", 0L);
             if (optLong > 0) {
-                this.iRV = new Date(optLong * 1000);
+                this.iRZ = new Date(optLong * 1000);
             }
             bQ(jSONObject);
         } catch (Exception e) {

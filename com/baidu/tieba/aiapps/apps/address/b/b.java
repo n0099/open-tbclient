@@ -15,5 +15,5 @@ public interface b {
 
     void onFailure();
 
-    void sA(String str);
+    void sz(String str);
 }

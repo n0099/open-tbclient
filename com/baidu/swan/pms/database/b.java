@@ -67,7 +67,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public boolean kj(String str) {
+    public boolean ki(String str) {
         try {
             if (AppRuntime.getAppContext().getContentResolver().delete(this.brI.m(PMSAppInfo.class), "app_id =? ", new String[]{str}) > 0) {
                 return true;
@@ -99,8 +99,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public PMSAppInfo ki(String str) {
-        return kk(str);
+    public PMSAppInfo kh(String str) {
+        return kj(str);
     }
 
     @Override // com.baidu.swan.pms.database.a
@@ -187,7 +187,7 @@ public class b extends a {
         return false;
     }
 
-    public PMSAppInfo kk(String str) {
+    public PMSAppInfo kj(String str) {
         try {
             com.baidu.swan.pms.database.a.b l = this.brI.l(PMSAppInfo.class);
             Cursor query = AppRuntime.getAppContext().getContentResolver().query(this.brI.m(PMSAppInfo.class), null, "app_id =? ", new String[]{str}, "version_code DESC");

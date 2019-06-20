@@ -23,29 +23,29 @@ import com.baidu.tieba.tbadkCore.data.e;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class b {
-    private static b cwM = null;
-    private a cwN;
+    private static b cwN = null;
+    private a cwO;
 
     public static b asU() {
-        if (cwM == null) {
+        if (cwN == null) {
             synchronized (b.class) {
-                if (cwM == null) {
-                    cwM = new b();
+                if (cwN == null) {
+                    cwN = new b();
                 }
             }
         }
-        return cwM;
+        return cwN;
     }
 
     public void c(Application application) {
         if (application != null) {
             try {
-                if (this.cwN == null) {
-                    this.cwN = new a();
+                if (this.cwO == null) {
+                    this.cwO = new a();
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.setPriority(1000);
                     intentFilter.addAction("com.baidu.tieba.action.mutiProcess");
-                    application.registerReceiver(this.cwN, intentFilter);
+                    application.registerReceiver(this.cwO, intentFilter);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -61,7 +61,7 @@ public class b {
         asU().b(str, serializable);
     }
 
-    public Intent qB(String str) {
+    public Intent qA(String str) {
         Intent intent = new Intent();
         intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
         intent.setAction("com.baidu.tieba.action.mutiProcess");
@@ -71,11 +71,11 @@ public class b {
 
     private void a(String str, Parcelable parcelable, String str2) {
         try {
-            Intent qB = qB(str);
-            qB.putExtra("broadcast_data", parcelable);
-            qB.putExtra("process_id", Process.myPid());
-            qB.putExtra("broadcast_extra_data", str2);
-            TbadkCoreApplication.getInst().sendBroadcast(qB);
+            Intent qA = qA(str);
+            qA.putExtra("broadcast_data", parcelable);
+            qA.putExtra("process_id", Process.myPid());
+            qA.putExtra("broadcast_extra_data", str2);
+            TbadkCoreApplication.getInst().sendBroadcast(qA);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -83,9 +83,9 @@ public class b {
 
     private void b(String str, Serializable serializable) {
         try {
-            Intent qB = qB(str);
-            qB.putExtra("broadcast_data", serializable);
-            TbadkCoreApplication.getInst().sendBroadcast(qB);
+            Intent qA = qA(str);
+            qA.putExtra("broadcast_data", serializable);
+            TbadkCoreApplication.getInst().sendBroadcast(qA);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,7 +121,7 @@ public class b {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.uS((String) serializableExtra);
+                n.uR((String) serializableExtra);
             }
         }
     }

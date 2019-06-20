@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class i implements k {
-    private volatile boolean kng;
-    private List<k> ksR;
+    private volatile boolean knj;
+    private List<k> ksU;
 
     public i() {
     }
 
     public i(k... kVarArr) {
-        this.ksR = new LinkedList(Arrays.asList(kVarArr));
+        this.ksU = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public i(k kVar) {
-        this.ksR = new LinkedList();
-        this.ksR.add(kVar);
+        this.ksU = new LinkedList();
+        this.ksU.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.kng;
+        return this.knj;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.kng) {
+            if (!this.knj) {
                 synchronized (this) {
-                    if (!this.kng) {
-                        List list = this.ksR;
+                    if (!this.knj) {
+                        List list = this.ksU;
                         if (list == null) {
                             list = new LinkedList();
-                            this.ksR = list;
+                            this.ksU = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class i implements k {
     }
 
     public void a(k kVar) {
-        if (!this.kng) {
+        if (!this.knj) {
             synchronized (this) {
-                List<k> list = this.ksR;
-                if (!this.kng && list != null) {
+                List<k> list = this.ksU;
+                if (!this.knj && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class i implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.kng) {
+        if (!this.knj) {
             synchronized (this) {
-                if (!this.kng) {
-                    this.kng = true;
-                    List<k> list = this.ksR;
-                    this.ksR = null;
+                if (!this.knj) {
+                    this.knj = true;
+                    List<k> list = this.ksU;
+                    this.ksU = null;
                     n(list);
                 }
             }

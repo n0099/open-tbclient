@@ -34,7 +34,7 @@ public class c extends com.baidu.swan.apps.view.c {
             try {
                 jSONObject.put("url", str);
                 jSONObject.put("userAgent", str2);
-                jSONObject.put("contentDisposition", aa.io(str3));
+                jSONObject.put("contentDisposition", aa.in(str3));
                 jSONObject.put("mimeType", str4);
                 jSONObject.put("contentLength", j);
             } catch (JSONException e) {

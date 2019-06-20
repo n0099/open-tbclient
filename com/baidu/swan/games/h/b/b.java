@@ -32,7 +32,7 @@ public class b extends h {
     @Override // com.baidu.swan.apps.core.pms.h
     protected com.baidu.swan.apps.ak.a f(d dVar) {
         if (dVar == null) {
-            return new com.baidu.swan.apps.ak.a().Y(13L).aa(2907L).hY("小游戏GameCore包 Framework null");
+            return new com.baidu.swan.apps.ak.a().Y(13L).aa(2907L).hX("小游戏GameCore包 Framework null");
         }
         a.C0184a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, 1);
         com.baidu.swan.c.a.deleteFile(dVar.filePath);
@@ -42,7 +42,7 @@ public class b extends h {
             }
             return null;
         }
-        return new com.baidu.swan.apps.ak.a().Y(13L).aa(2907L).hY("小游戏GameCore包更新失败");
+        return new com.baidu.swan.apps.ak.a().Y(13L).aa(2907L).hX("小游戏GameCore包更新失败");
     }
 
     @Override // com.baidu.swan.apps.core.pms.h
@@ -50,6 +50,6 @@ public class b extends h {
         if (DEBUG) {
             Log.e("SwanGameUpdateCoreCallback", "Error !!!!,小游戏无Extension包");
         }
-        return new com.baidu.swan.apps.ak.a().Y(13L).aa(2908L).hY("小游戏无Extension包");
+        return new com.baidu.swan.apps.ak.a().Y(13L).aa(2908L).hX("小游戏无Extension包");
     }
 }

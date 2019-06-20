@@ -58,7 +58,7 @@ public class a {
         }
     }
 
-    public static void dq(String str) {
+    public static void dp(String str) {
         b(str, null, null, true);
     }
 

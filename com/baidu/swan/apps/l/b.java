@@ -20,13 +20,13 @@ public class b implements h {
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static String AR;
+        private static String AQ;
 
         static String Cd() {
-            if (TextUtils.isEmpty(AR)) {
-                AR = new b.a().aJ("swangame", "1.0").aK(SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName()).aL("Baidu", com.baidu.swan.apps.al.b.getOSVersion()).On();
+            if (TextUtils.isEmpty(AQ)) {
+                AQ = new b.a().aJ("swangame", "1.0").aK(SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName()).aL("Baidu", com.baidu.swan.apps.al.b.getOSVersion()).On();
             }
-            return AR;
+            return AQ;
         }
     }
 }

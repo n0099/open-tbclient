@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a jYL = cEH().cEP();
-    public final int jYM;
-    public final boolean jYN;
-    public final boolean jYO;
-    public final boolean jYP;
+    private static final a jYO = cEG().cEO();
+    public final int jYP;
     public final boolean jYQ;
-    public final Bitmap.Config jYR;
+    public final boolean jYR;
+    public final boolean jYS;
+    public final boolean jYT;
+    public final Bitmap.Config jYU;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b jYS;
+    public final com.facebook.imagepipeline.decoder.b jYV;
 
     public a(b bVar) {
-        this.jYM = bVar.cEI();
-        this.jYN = bVar.cEJ();
-        this.jYO = bVar.cEK();
-        this.jYP = bVar.cEL();
-        this.jYQ = bVar.cEN();
-        this.jYR = bVar.cEO();
-        this.jYS = bVar.cEM();
+        this.jYP = bVar.cEH();
+        this.jYQ = bVar.cEI();
+        this.jYR = bVar.cEJ();
+        this.jYS = bVar.cEK();
+        this.jYT = bVar.cEM();
+        this.jYU = bVar.cEN();
+        this.jYV = bVar.cEL();
     }
 
-    public static a cEG() {
-        return jYL;
+    public static a cEF() {
+        return jYO;
     }
 
-    public static b cEH() {
+    public static b cEG() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.jYN == aVar.jYN && this.jYO == aVar.jYO && this.jYP == aVar.jYP && this.jYQ == aVar.jYQ && this.jYR == aVar.jYR && this.jYS == aVar.jYS;
+        return this.jYQ == aVar.jYQ && this.jYR == aVar.jYR && this.jYS == aVar.jYS && this.jYT == aVar.jYT && this.jYU == aVar.jYU && this.jYV == aVar.jYV;
     }
 
     public int hashCode() {
-        return (((((((this.jYP ? 1 : 0) + (((this.jYO ? 1 : 0) + (((this.jYN ? 1 : 0) + (this.jYM * 31)) * 31)) * 31)) * 31) + (this.jYQ ? 1 : 0)) * 31) + this.jYR.ordinal()) * 31) + (this.jYS != null ? this.jYS.hashCode() : 0);
+        return (((((((this.jYS ? 1 : 0) + (((this.jYR ? 1 : 0) + (((this.jYQ ? 1 : 0) + (this.jYP * 31)) * 31)) * 31)) * 31) + (this.jYT ? 1 : 0)) * 31) + this.jYU.ordinal()) * 31) + (this.jYV != null ? this.jYV.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.jYM), Boolean.valueOf(this.jYN), Boolean.valueOf(this.jYO), Boolean.valueOf(this.jYP), Boolean.valueOf(this.jYQ), this.jYR.name(), this.jYS);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.jYP), Boolean.valueOf(this.jYQ), Boolean.valueOf(this.jYR), Boolean.valueOf(this.jYS), Boolean.valueOf(this.jYT), this.jYU.name(), this.jYV);
     }
 }

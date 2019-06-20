@@ -16,7 +16,7 @@ public class g {
     public interface a {
         void cI(int i);
 
-        void fb(String str);
+        void fa(String str);
     }
 
     private g() {
@@ -38,24 +38,24 @@ public class g {
         if (aVar != null) {
             if (bVar == null || TextUtils.isEmpty(str)) {
                 aVar.cI(2110);
-            } else if (bVar.gz(str)) {
-                aVar.fb(str2);
+            } else if (bVar.gy(str)) {
+                aVar.fa(str2);
             } else {
-                String gD = bVar.gD(str);
-                if (TextUtils.isEmpty(gD)) {
+                String gC = bVar.gC(str);
+                if (TextUtils.isEmpty(gC)) {
                     aVar.cI(2111);
-                } else if (bVar.gA(gD)) {
-                    aVar.fb(str2);
+                } else if (bVar.gz(gC)) {
+                    aVar.fa(str2);
                 } else {
-                    if (!bVar.gB(gD)) {
+                    if (!bVar.gA(gC)) {
                         z = false;
-                    } else if (bVar.gC(gD)) {
-                        aVar.fb(str2);
-                        bVar.s(gD, true);
+                    } else if (bVar.gB(gC)) {
+                        aVar.fa(str2);
+                        bVar.s(gC, true);
                         return;
                     }
-                    String gE = bVar.gE(gD);
-                    if (TextUtils.isEmpty(gE)) {
+                    String gD = bVar.gD(gC);
+                    if (TextUtils.isEmpty(gD)) {
                         aVar.cI(2112);
                         return;
                     }
@@ -65,9 +65,9 @@ public class g {
                         String a2 = a(aVar);
                         subPackageAPSInfo.mAppId = bVar.id;
                         subPackageAPSInfo.mAppVersion = bVar.getVersion();
-                        subPackageAPSInfo.mKey = gE;
+                        subPackageAPSInfo.mKey = gD;
                         subPackageAPSInfo.aye = com.baidu.swan.apps.w.e.FV().FE();
-                        subPackageAPSInfo.ayf = gD;
+                        subPackageAPSInfo.ayf = gC;
                         subPackageAPSInfo.atc = str2;
                         subPackageAPSInfo.ayh = a2;
                         subPackageAPSInfo.ayi = z;
@@ -111,7 +111,7 @@ public class g {
                 if (Lq != null) {
                     Lq.s(subPackageAPSInfo.ayf, true);
                 }
-                aVar.fb(subPackageAPSInfo.atc);
+                aVar.fa(subPackageAPSInfo.atc);
                 this.aTb.remove(subPackageAPSInfo.ayh);
             }
         }
@@ -140,17 +140,17 @@ public class g {
         if (bVar == null || TextUtils.isEmpty(bVar.getPage())) {
             return false;
         }
-        String ik = aa.ik(bVar.getPage());
-        if (!TextUtils.isEmpty(ik) && ik.startsWith(File.separator)) {
-            ik = ik.substring(1);
+        String ij = aa.ij(bVar.getPage());
+        if (!TextUtils.isEmpty(ij) && ij.startsWith(File.separator)) {
+            ij = ij.substring(1);
         }
         if (cVar == null || cVar.aQn == null) {
             return false;
         }
-        if (cVar.aQn.gK(ik)) {
+        if (cVar.aQn.gJ(ij)) {
             return false;
         }
-        String str = cVar.aQo.aQC.get(ik);
+        String str = cVar.aQo.aQC.get(ij);
         return (TextUtils.isEmpty(str) || com.baidu.swan.apps.database.subpackage.a.Cb().m(bVar.getAppId(), bVar.getVersion(), str)) ? false : true;
     }
 

@@ -22,53 +22,53 @@ import tbclient.FrsPage.RecmForumInfo;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tbadk.m.a {
     private View aMY;
-    protected TbImageView cvH;
-    protected TextView cvI;
-    private BdListView fOX;
-    private C0318a fOY;
-    private TextView fOZ;
+    protected TbImageView cvI;
+    protected TextView cvJ;
+    private BdListView fOZ;
+    private C0318a fPa;
+    private TextView fPb;
     private com.baidu.adp.base.e mPageContext;
     private TextView mTitleView;
 
     /* loaded from: classes4.dex */
     public static class b {
         public View divider;
-        public TextView fPd;
-        public TextView fPe;
         public TextView fPf;
-        public ImageView fPg;
-        public TbImageView fPh;
-        public TextView fPi;
-        public TextView fPj;
-        public ImageView fPk;
+        public TextView fPg;
+        public TextView fPh;
+        public ImageView fPi;
+        public TbImageView fPj;
+        public TextView fPk;
+        public TextView fPl;
+        public ImageView fPm;
         public View rootView;
     }
 
     public a(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(eVar.getContext()).inflate(R.layout.forbid_detail_view_layout, (ViewGroup) null));
         this.mPageContext = eVar;
-        this.cvH = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.cvI = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.cvI = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.cvJ = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
         this.aMY = this.attachedView.findViewById(R.id.divider);
-        this.fOX = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
+        this.fOZ = (BdListView) this.attachedView.findViewById(R.id.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
         this.mTitleView = (TextView) this.attachedView.findViewById(R.id.content_title);
-        this.fOZ = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
+        this.fPb = (TextView) this.attachedView.findViewById(R.id.local_tip_tv);
     }
 
-    public void qx(String str) {
+    public void qw(String str) {
         if (str == null) {
-            this.cvI.setVisibility(8);
+            this.cvJ.setVisibility(8);
             return;
         }
-        this.cvI.setVisibility(0);
-        this.cvI.setText(str);
+        this.cvJ.setVisibility(0);
+        this.cvJ.setText(str);
     }
 
     public void co(List<RecmForumInfo> list) {
         if (list != null) {
-            this.fOY = new C0318a(list);
-            this.fOX.setAdapter((ListAdapter) this.fOY);
+            this.fPa = new C0318a(list);
+            this.fOZ.setAdapter((ListAdapter) this.fPa);
         }
     }
 
@@ -83,20 +83,20 @@ public class a extends com.baidu.tbadk.m.a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cvH.setImageResource(0);
+        this.cvI.setImageResource(0);
     }
 
     public void onChangeSkinType() {
         if (isViewAttached()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            al.c(this.cvH, (int) R.drawable.new_pic_emotion_01);
-            al.c(this.cvI, R.color.cp_cont_d, 1, skinType);
+            al.c(this.cvI, (int) R.drawable.new_pic_emotion_01);
+            al.c(this.cvJ, R.color.cp_cont_d, 1, skinType);
             al.l(this.attachedView, R.color.cp_bg_line_d);
             al.l(this.aMY, R.color.cp_bg_line_c);
             al.c(this.mTitleView, R.color.cp_cont_d, 1, skinType);
-            al.c(this.fOZ, R.color.cp_cont_f, 1, skinType);
-            if (this.fOY != null) {
-                this.fOY.notifyDataSetChanged();
+            al.c(this.fPb, R.color.cp_cont_f, 1, skinType);
+            if (this.fPa != null) {
+                this.fPa.notifyDataSetChanged();
             }
         }
     }
@@ -104,22 +104,22 @@ public class a extends com.baidu.tbadk.m.a {
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0318a extends BaseAdapter {
-        private List<RecmForumInfo> fPa;
+        private List<RecmForumInfo> fPc;
 
         public C0318a(List<RecmForumInfo> list) {
-            this.fPa = list;
+            this.fPc = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.fPa.size();
+            return this.fPc.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: sU */
         public RecmForumInfo getItem(int i) {
-            return this.fPa.get(i);
+            return this.fPc.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -134,25 +134,25 @@ public class a extends com.baidu.tbadk.m.a {
                 view = LayoutInflater.from(a.this.mPageContext.getPageActivity()).inflate(R.layout.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
                 bVar2.rootView = view.findViewById(R.id.root_view);
-                bVar2.fPd = (TextView) view.findViewById(R.id.forum_name);
-                bVar2.fPf = (TextView) view.findViewById(R.id.follow_tv);
-                bVar2.fPe = (TextView) view.findViewById(R.id.thread_tv);
-                bVar2.fPg = (ImageView) view.findViewById(R.id.arrow_item_img);
-                bVar2.fPh = (TbImageView) view.findViewById(R.id.headview);
-                bVar2.fPi = (TextView) view.findViewById(R.id.follow_title);
-                bVar2.fPj = (TextView) view.findViewById(R.id.thread_title);
+                bVar2.fPf = (TextView) view.findViewById(R.id.forum_name);
+                bVar2.fPh = (TextView) view.findViewById(R.id.follow_tv);
+                bVar2.fPg = (TextView) view.findViewById(R.id.thread_tv);
+                bVar2.fPi = (ImageView) view.findViewById(R.id.arrow_item_img);
+                bVar2.fPj = (TbImageView) view.findViewById(R.id.headview);
+                bVar2.fPk = (TextView) view.findViewById(R.id.follow_title);
+                bVar2.fPl = (TextView) view.findViewById(R.id.thread_title);
                 bVar2.divider = view.findViewById(R.id.divider_line);
-                bVar2.fPk = (ImageView) view.findViewById(R.id.content_img);
+                bVar2.fPm = (ImageView) view.findViewById(R.id.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.fPd.setText(ap.j(getItem(i).forum_name, 14, "..."));
-                bVar.fPh.startLoad(getItem(i).avatar, 10, false);
-                bVar.fPf.setText(ap.aG(getItem(i).member_count.intValue()));
-                bVar.fPe.setText(ap.aG(getItem(i).post_num.intValue()));
+                bVar.fPf.setText(ap.j(getItem(i).forum_name, 14, "..."));
+                bVar.fPj.startLoad(getItem(i).avatar, 10, false);
+                bVar.fPh.setText(ap.aG(getItem(i).member_count.intValue()));
+                bVar.fPg.setText(ap.aG(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -161,15 +161,15 @@ public class a extends com.baidu.tbadk.m.a {
                         }
                     }
                 });
-                al.j(bVar.fPd, R.color.cp_cont_b);
-                al.j(bVar.fPf, R.color.cp_cont_d);
-                al.j(bVar.fPe, R.color.cp_cont_d);
-                al.j(bVar.fPj, R.color.cp_cont_d);
-                al.j(bVar.fPi, R.color.cp_cont_d);
+                al.j(bVar.fPf, R.color.cp_cont_b);
+                al.j(bVar.fPh, R.color.cp_cont_d);
+                al.j(bVar.fPg, R.color.cp_cont_d);
+                al.j(bVar.fPl, R.color.cp_cont_d);
+                al.j(bVar.fPk, R.color.cp_cont_d);
                 al.k(bVar.divider, R.color.cp_bg_line_c);
-                al.c(bVar.fPg, (int) R.drawable.icon_arrow_gray_right_n);
+                al.c(bVar.fPi, (int) R.drawable.icon_arrow_gray_right_n);
                 al.k(view, R.drawable.addresslist_item_bg);
-                al.k(bVar.fPk, R.drawable.picture_content_frame);
+                al.k(bVar.fPm, R.drawable.picture_content_frame);
             }
             return view;
         }

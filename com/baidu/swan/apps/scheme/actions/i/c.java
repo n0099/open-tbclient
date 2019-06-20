@@ -42,19 +42,19 @@ public class c {
             }
         }
         com.baidu.swan.apps.performance.f.HY().f(new UbcFlowEvent("master_dispatch_start"));
-        com.baidu.swan.apps.y.f.GN().fz("master_dispatch_start");
+        com.baidu.swan.apps.y.f.GN().fy("master_dispatch_start");
         aVar.a(aVar2);
         FV.a(com.baidu.swan.apps.core.j.a.b(aVar2));
-        com.baidu.swan.apps.ae.a.d eZ = FV.eZ(aa.ik(a));
+        com.baidu.swan.apps.ae.a.d eY = FV.eY(aa.ij(a));
         cVar.v(FH);
         com.baidu.swan.apps.core.j.b bVar2 = new com.baidu.swan.apps.core.j.b();
         bVar2.atz = gVar.axI;
         bVar2.atG = a;
-        bVar2.atH = eZ.aQP;
+        bVar2.atH = eY.aQP;
         bVar2.atD = String.valueOf(com.baidu.swan.apps.console.a.xz());
         bVar2.atF = z;
         com.baidu.swan.apps.performance.f.HY().f(new UbcFlowEvent("slave_dispatch_start"));
-        com.baidu.swan.apps.y.f.GN().fz("slave_dispatch_start");
+        com.baidu.swan.apps.y.f.GN().fy("slave_dispatch_start");
         cVar.a(bVar2);
         FV.a(cVar.wU(), com.baidu.swan.apps.core.j.b.b(bVar2));
         if (DEBUG) {
@@ -75,7 +75,7 @@ public class c {
     }
 
     public static void a(SwanAppActivity swanAppActivity, String str) {
-        swanAppActivity.vi().dO("init").y(com.baidu.swan.apps.core.d.e.aqV, com.baidu.swan.apps.core.d.e.aqV).zU().a("normal", com.baidu.swan.apps.model.b.aq(str, com.baidu.swan.apps.w.e.FV().FE()), true).commit();
+        swanAppActivity.vi().dN("init").y(com.baidu.swan.apps.core.d.e.aqV, com.baidu.swan.apps.core.d.e.aqV).zU().a("normal", com.baidu.swan.apps.model.b.aq(str, com.baidu.swan.apps.w.e.FV().FE()), true).commit();
     }
 
     public static String a(com.baidu.swan.apps.w.e eVar) {

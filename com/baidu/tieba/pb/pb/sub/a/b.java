@@ -21,35 +21,35 @@ import com.baidu.tieba.pb.pb.main.j;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes4.dex */
 public class b extends a<PostData, j> {
-    protected bg VK;
-    private TbRichTextView.h cIM;
-    private com.baidu.tieba.pb.a.c ckg;
-    private View.OnLongClickListener clk;
+    protected bg VJ;
+    private TbRichTextView.h cIN;
+    private com.baidu.tieba.pb.a.c ckh;
+    private View.OnLongClickListener cll;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> ftY;
     private com.baidu.adp.lib.e.b<TbImageView> ftZ;
-    private boolean hGF;
-    private TbRichTextView.c hHf;
-    private String hVn;
-    private View.OnClickListener hVo;
+    private boolean hGG;
+    private TbRichTextView.c hHg;
+    private String hVo;
+    private View.OnClickListener hVp;
     private View.OnClickListener mCommonClickListener;
     private String mHostId;
 
     public b(com.baidu.tieba.pb.pb.a aVar, BdUniqueId bdUniqueId) {
         super(aVar, bdUniqueId);
-        this.VK = null;
-        this.hHf = null;
-        this.hGF = i.abb().abf();
+        this.VJ = null;
+        this.hHg = null;
+        this.hGG = i.abb().abf();
         this.mHostId = null;
         this.mCommonClickListener = null;
-        this.cIM = null;
-        this.ckg = null;
-        this.clk = null;
+        this.cIN = null;
+        this.ckh = null;
+        this.cll = null;
         this.ftY = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.pb.pb.sub.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: bmb */
             public ConstrainImageLayout makeObject() {
-                return new ConstrainImageLayout(b.this.hVm.getPageContext().getPageActivity());
+                return new ConstrainImageLayout(b.this.hVn.getPageContext().getPageActivity());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public class b extends a<PostData, j> {
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: ajX */
             public TbImageView makeObject() {
-                TbImageView tbImageView = new TbImageView(b.this.hVm.getPageContext().getPageActivity());
+                TbImageView tbImageView = new TbImageView(b.this.hVn.getPageContext().getPageActivity());
                 tbImageView.setDrawBorder(true);
                 tbImageView.setBorderColor(al.getColor(R.color.common_color_10043));
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds1));
@@ -109,7 +109,7 @@ public class b extends a<PostData, j> {
                 return tbImageView;
             }
         }, 12, 0);
-        this.hVo = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.4
+        this.hVp = new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view instanceof PostDisPraiseView) {
@@ -128,10 +128,10 @@ public class b extends a<PostData, j> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bw */
     public j onCreateViewHolder(ViewGroup viewGroup) {
-        j jVar = new j(this.hVm.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false));
-        jVar.oi(true);
-        jVar.hHv.setConstrainLayoutPool(this.ftY);
-        jVar.hHv.setImageViewPool(this.ftZ);
+        j jVar = new j(this.hVn.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_floor_item_layout, viewGroup, false));
+        jVar.oj(true);
+        jVar.hHw.setConstrainLayoutPool(this.ftY);
+        jVar.hHw.setImageViewPool(this.ftZ);
         d(jVar);
         com.baidu.tieba.pb.pb.b.a(jVar, (com.baidu.tieba.pb.data.d) null);
         return jVar;
@@ -158,15 +158,15 @@ public class b extends a<PostData, j> {
         layoutParams2.leftMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds31);
         layoutParams2.rightMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds1);
         columnLayout.setLayoutParams(layoutParams2);
-        if (jVar.hHK.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            layoutParams3 = (RelativeLayout.LayoutParams) jVar.hHK.getLayoutParams();
+        if (jVar.hHL.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            layoutParams3 = (RelativeLayout.LayoutParams) jVar.hHL.getLayoutParams();
         } else {
             layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
         }
         layoutParams3.leftMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds2);
         layoutParams3.rightMargin = com.baidu.tieba.pb.pb.b.getDimensionPixelSize(R.dimen.tbds2);
-        jVar.hHK.setLayoutParams(layoutParams3);
-        jVar.hHu.setCommonTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.3
+        jVar.hHL.setLayoutParams(layoutParams3);
+        jVar.hHv.setCommonTextViewOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.mCommonClickListener.onClick(jVar.getView());
@@ -193,29 +193,29 @@ public class b extends a<PostData, j> {
     }
 
     private void b(j jVar, PostData postData) {
-        if (jVar != null && ap.equals(this.hVn, postData.getId())) {
-            al.l(jVar.hHl, R.color.cp_other_g);
+        if (jVar != null && ap.equals(this.hVo, postData.getId())) {
+            al.l(jVar.hHm, R.color.cp_other_g);
         } else {
-            jVar.hHl.setBackgroundDrawable(null);
+            jVar.hHm.setBackgroundDrawable(null);
         }
     }
 
     private void a(j jVar, PostData postData, View view, int i) {
         if (jVar != null && postData != null) {
             jVar.mPosition = i;
-            com.baidu.tieba.pb.pb.b.a(jVar, postData, view, i, this.hVm, this.VK);
-            com.baidu.tieba.pb.pb.b.a(jVar, postData, this.VK, i);
-            com.baidu.tieba.pb.pb.b.a(this.hVm, jVar, postData, view, this.hGF, this.mIsFromCDN, i != 0, this.hHf);
-            com.baidu.tieba.pb.pb.b.a(this.hVm, jVar, postData);
+            com.baidu.tieba.pb.pb.b.a(jVar, postData, view, i, this.hVn, this.VJ);
+            com.baidu.tieba.pb.pb.b.a(jVar, postData, this.VJ, i);
+            com.baidu.tieba.pb.pb.b.a(this.hVn, jVar, postData, view, this.hGG, this.mIsFromCDN, i != 0, this.hHg);
+            com.baidu.tieba.pb.pb.b.a(this.hVn, jVar, postData);
             com.baidu.tieba.pb.pb.b.a(jVar, postData);
-            com.baidu.tieba.pb.pb.b.a(jVar, postData, this.hGF);
+            com.baidu.tieba.pb.pb.b.a(jVar, postData, this.hGG);
             i(jVar, postData);
         }
     }
 
     private void i(j jVar, PostData postData) {
         if (jVar != null && postData != null) {
-            jVar.hHN.setVisibility(postData.iZv ? 0 : 8);
+            jVar.hHO.setVisibility(postData.iZz ? 0 : 8);
         }
     }
 
@@ -223,27 +223,27 @@ public class b extends a<PostData, j> {
     }
 
     private void c(j jVar) {
-        jVar.hHu.setTextViewOnTouchListener(this.ckg);
-        jVar.hHu.setTextViewCheckSelection(false);
+        jVar.hHv.setTextViewOnTouchListener(this.ckh);
+        jVar.hHv.setTextViewCheckSelection(false);
     }
 
     private void b(j jVar) {
-        jVar.hHl.setOnLongClickListener(this.clk);
-        if (this.hVm != null && this.hVm.getPageContext().getOrignalPage() != null) {
-            com.baidu.tieba.pb.pb.main.b.a bQG = this.hVm.bQG();
-            if (bQG != null) {
-                jVar.ejs.setOnClickListener(bQG.fQV);
-                jVar.hHt.setOnClickListener(bQG.fQV);
-                jVar.hHB.setOnClickListener(bQG.fQV);
-                jVar.hHB.getHeadView().setOnClickListener(bQG.fQV);
-                jVar.hHu.setOnEmotionClickListener(bQG.hRH);
+        jVar.hHm.setOnLongClickListener(this.cll);
+        if (this.hVn != null && this.hVn.getPageContext().getOrignalPage() != null) {
+            com.baidu.tieba.pb.pb.main.b.a bQH = this.hVn.bQH();
+            if (bQH != null) {
+                jVar.ejs.setOnClickListener(bQH.fQX);
+                jVar.hHu.setOnClickListener(bQH.fQX);
+                jVar.hHC.setOnClickListener(bQH.fQX);
+                jVar.hHC.getHeadView().setOnClickListener(bQH.fQX);
+                jVar.hHv.setOnEmotionClickListener(bQH.hRI);
             }
-            jVar.hHu.setOnLongClickListener(this.clk);
-            jVar.hHu.setOnImageClickListener(this.cIM);
-            jVar.hHu.setOnClickListener(this.mCommonClickListener);
+            jVar.hHv.setOnLongClickListener(this.cll);
+            jVar.hHv.setOnImageClickListener(this.cIN);
+            jVar.hHv.setOnClickListener(this.mCommonClickListener);
             jVar.getView().setOnClickListener(this.mCommonClickListener);
-            jVar.hHE.setOnClickListener(this.mCommonClickListener);
             jVar.hHF.setOnClickListener(this.mCommonClickListener);
+            jVar.hHG.setOnClickListener(this.mCommonClickListener);
         }
     }
 
@@ -252,18 +252,18 @@ public class b extends a<PostData, j> {
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.cIM = hVar;
+        this.cIN = hVar;
     }
 
     public void setOnLongClickListener(View.OnLongClickListener onLongClickListener) {
-        this.clk = onLongClickListener;
+        this.cll = onLongClickListener;
     }
 
     public void ai(bg bgVar) {
-        this.VK = bgVar;
+        this.VJ = bgVar;
     }
 
-    public void BE(String str) {
-        this.hVn = str;
+    public void BG(String str) {
+        this.hVo = str;
     }
 }

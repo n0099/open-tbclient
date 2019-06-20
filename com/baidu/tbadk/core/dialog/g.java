@@ -9,12 +9,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class g implements j {
     private String ama;
-    private k bMP;
-    private View bMQ;
-    private int bMR;
+    private k bMQ;
+    private View bMR;
     private int bMS;
-    private k.b bMT;
-    private boolean bMU;
+    private int bMT;
+    private k.b bMU;
+    private boolean bMV;
     private int mId;
     private final View.OnClickListener mOnClickListener;
     private int mTextColor;
@@ -31,22 +31,22 @@ public class g implements j {
 
     public g(String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.bMR = R.color.cp_bg_line_d;
-        this.bMS = 17;
-        this.bMU = false;
+        this.bMS = R.color.cp_bg_line_d;
+        this.bMT = 17;
+        this.bMV = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.bMT != null) {
-                    g.this.bMT.onClick();
+                if (g.this.bMU != null) {
+                    g.this.bMU.onClick();
                 }
-                if (g.this.bMP != null && g.this.bMP.afY() != null) {
-                    g.this.bMP.afY().a(g.this.bMP, g.this.mId, g.this.mTextView);
+                if (g.this.bMQ != null && g.this.bMQ.afY() != null) {
+                    g.this.bMQ.afY().a(g.this.bMQ, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.ama = str;
-        this.bMP = kVar;
+        this.bMQ = kVar;
         this.mId = hashCode();
         initView();
         initListener();
@@ -54,23 +54,23 @@ public class g implements j {
 
     public g(int i, String str, k kVar) {
         this.mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        this.bMR = R.color.cp_bg_line_d;
-        this.bMS = 17;
-        this.bMU = false;
+        this.bMS = R.color.cp_bg_line_d;
+        this.bMT = 17;
+        this.bMV = false;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (g.this.bMT != null) {
-                    g.this.bMT.onClick();
+                if (g.this.bMU != null) {
+                    g.this.bMU.onClick();
                 }
-                if (g.this.bMP != null && g.this.bMP.afY() != null) {
-                    g.this.bMP.afY().a(g.this.bMP, g.this.mId, g.this.mTextView);
+                if (g.this.bMQ != null && g.this.bMQ.afY() != null) {
+                    g.this.bMQ.afY().a(g.this.bMQ, g.this.mId, g.this.mTextView);
                 }
             }
         };
         this.mId = i;
         this.ama = str;
-        this.bMP = kVar;
+        this.bMQ = kVar;
         initView();
         initListener();
     }
@@ -86,7 +86,7 @@ public class g implements j {
     }
 
     public void a(k.b bVar) {
-        this.bMT = bVar;
+        this.bMU = bVar;
         initListener();
     }
 
@@ -97,22 +97,22 @@ public class g implements j {
 
     @Override // com.baidu.tbadk.core.dialog.j
     public void onChangeSkinType() {
-        al.k(this.mTextView, this.bMR);
+        al.k(this.mTextView, this.bMS);
         al.j(this.mTextView, this.mTextColor);
-        al.l(this.bMQ, R.color.cp_bg_line_c);
+        al.l(this.bMR, R.color.cp_bg_line_c);
     }
 
     private void initView() {
-        if (this.bMP != null && this.bMP.getContext() != null) {
-            this.mView = LayoutInflater.from(this.bMP.getContext()).inflate(R.layout.popup_dialog_view_item, this.bMP.afX(), false);
+        if (this.bMQ != null && this.bMQ.getContext() != null) {
+            this.mView = LayoutInflater.from(this.bMQ.getContext()).inflate(R.layout.popup_dialog_view_item, this.bMQ.afX(), false);
             this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
             this.mTextView.setText(this.ama);
-            this.mTextView.setGravity(this.bMS);
-            this.bMQ = this.mView.findViewById(R.id.divider_line);
-            if (this.bMU) {
-                this.bMQ.setVisibility(0);
+            this.mTextView.setGravity(this.bMT);
+            this.bMR = this.mView.findViewById(R.id.divider_line);
+            if (this.bMV) {
+                this.bMR.setVisibility(0);
             } else {
-                this.bMQ.setVisibility(8);
+                this.bMR.setVisibility(8);
             }
             onChangeSkinType();
         }

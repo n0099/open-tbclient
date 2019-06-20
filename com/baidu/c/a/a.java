@@ -7,12 +7,12 @@ import com.baidu.c.a.b.c;
 import com.baidu.c.a.b.d;
 /* loaded from: classes3.dex */
 public class a {
+    private static boolean aaD;
     private static boolean aaE;
-    private static boolean aaF;
 
     public static void init(Context context) {
-        aaE = h.jE().h("criusbase", 2);
-        aaF = h.jE().h("crius", 2);
+        aaD = h.jE().h("criusbase", 2);
+        aaE = h.jE().h("crius", 2);
     }
 
     public static void a(b bVar) {

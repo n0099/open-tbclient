@@ -18,7 +18,7 @@ public class b {
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean cBR = false;
+    private boolean cBS = false;
     private a.InterfaceC0302a dWk = new a.InterfaceC0302a() { // from class: com.baidu.tieba.frs.gametab.b.1
         final int egj = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds98);
 
@@ -90,9 +90,9 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kb(boolean z) {
-        this.cBR = z;
+        this.cBS = z;
         if (this.fEF) {
-            t(!this.cBR, true);
+            t(!this.cBS, true);
         }
     }
 

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a cee = null;
-    private boolean ced;
-    private int cef;
+    private static volatile a cef = null;
+    private boolean cee;
+    private int ceg;
 
     private a() {
-        this.ced = false;
-        this.cef = 0;
+        this.cee = false;
+        this.ceg = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.L(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.gu()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.cef = Integer.parseInt(content);
+                    this.ceg = Integer.parseInt(content);
                 }
-                if (this.cef == 1 || this.cef == 2) {
-                    this.ced = true;
+                if (this.ceg == 1 || this.ceg == 2) {
+                    this.cee = true;
                 }
             }
         } catch (Throwable th) {
@@ -32,25 +32,25 @@ public class a {
     }
 
     public static a akF() {
-        if (cee == null) {
+        if (cef == null) {
             synchronized (a.class) {
-                if (cee == null) {
-                    cee = new a();
+                if (cef == null) {
+                    cef = new a();
                 }
             }
         }
-        return cee;
+        return cef;
     }
 
     public boolean akG() {
-        return this.ced;
+        return this.cee;
     }
 
     public int akH() {
-        return this.cef;
+        return this.ceg;
     }
 
     public String akI() {
-        return this.ced ? "pub_env=" + this.cef + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+        return this.cee ? "pub_env=" + this.ceg + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

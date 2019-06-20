@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        oY(str2);
+                        oX(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        oY(str2);
+                        oX(str2);
                     }
                 }
             }
@@ -79,7 +79,7 @@ public class b {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void oY(String str) {
+    public void oX(String str) {
         String anD = anD();
         if (!TextUtils.equals(anD, str) || !isFileExist(anD)) {
             bY(str, anD);
@@ -87,28 +87,28 @@ public class b {
     }
 
     private boolean isFileExist(String str) {
-        File mZ = m.mZ(as.nT(str));
-        return mZ != null && mZ.exists() && mZ.isFile();
+        File mY = m.mY(as.nS(str));
+        return mY != null && mY.exists() && mY.isFile();
     }
 
     private void bY(String str, String str2) {
         if (j.jT()) {
-            new a(str, as.nT(str), str2).execute(new String[0]);
+            new a(str, as.nS(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String bPn;
-        private final String chJ;
+        private final String bPo;
         private final String chK;
+        private final String chL;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.chJ = str;
-            this.bPn = str2;
-            this.chK = str3;
+            this.chK = str;
+            this.bPo = str2;
+            this.chL = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.chJ);
-                bool = Boolean.valueOf(this.mNetWork.a(this.bPn + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.mNetWork = new x(this.chK);
+                bool = Boolean.valueOf(this.mNetWork.a(this.bPo + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.m(null, this.bPn + ".tmp", null, this.bPn)) && !TextUtils.isEmpty(this.chJ) && !this.chJ.equals(this.chK)) {
-                        m.ns(as.nT(this.chK));
+                    if (!StringUtils.isNull(m.m(null, this.bPo + ".tmp", null, this.bPo)) && !TextUtils.isEmpty(this.chK) && !this.chK.equals(this.chL)) {
+                        m.nr(as.nS(this.chL));
                     }
                 } else {
-                    m.ns(this.bPn + ".tmp");
+                    m.nr(this.bPo + ".tmp");
                 }
             } catch (Exception e) {
             }

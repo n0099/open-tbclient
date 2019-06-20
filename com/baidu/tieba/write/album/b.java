@@ -20,14 +20,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String fcT;
     private int fcU;
-    private AlbumActivity jFP;
+    private AlbumActivity jFS;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jFP = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jFP.getPageContext().getPageActivity());
-        this.fcU = l.af(this.jFP.getPageContext().getPageActivity()) / 2;
+        this.jFS = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jFS.getPageContext().getPageActivity());
+        this.fcU = l.af(this.jFS.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jGa = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.jGd = (TbImageView) view.findViewById(R.id.item_head);
             aVar.fcX = (TextView) view.findViewById(R.id.item_name);
             aVar.fcY = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.jGa.setGifIconSupport(false);
-            aVar.jGa.setLongIconSupport(false);
+            aVar.jGd.setGifIconSupport(false);
+            aVar.jGd.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,9 +86,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo Zp = item.Zp();
             if (Zp instanceof VideoFileInfo) {
-                aVar.jGa.startLoad(((VideoFileInfo) Zp).videoPath, 37, false);
+                aVar.jGd.startLoad(((VideoFileInfo) Zp).videoPath, 37, false);
             } else if (Zp instanceof ImageFileInfo) {
-                aVar.jGa.startLoad(((ImageFileInfo) Zp).getFilePath(), 35, false);
+                aVar.jGd.startLoad(((ImageFileInfo) Zp).getFilePath(), 35, false);
             }
             al.j(aVar.fcX, R.color.cp_cont_b);
             al.k(view, R.drawable.addresslist_item_bg);
@@ -100,7 +100,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView fcX;
         ImageView fcY;
-        TbImageView jGa;
+        TbImageView jGd;
 
         private a() {
         }

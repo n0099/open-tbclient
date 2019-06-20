@@ -49,7 +49,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         super.onCreate(bundle);
         setContentView(a.g.aiapps_alert_dialog);
         getWindow().setLayout(-1, -1);
-        this.aNu = a.gv(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
+        this.aNu = a.gu(getIntent().getStringExtra("BOX_ACTIVITY_DIALOG_FOR_BUILDER"));
         if (this.aNu == null) {
             if (DEBUG) {
                 Log.e("BaseActivityDialog", "The builder for dialog activity can NOT be null.");
@@ -151,8 +151,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             setView(aVar.contentView);
             bT(aVar.aNE);
             dn(aVar.aNF);
-            gq(aVar.aNC);
-            gr(aVar.aND);
+            gp(aVar.aNC);
+            gq(aVar.aND);
             bU(aVar.aNM);
         }
     }
@@ -242,7 +242,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.aNm.setTextColor(i);
     }
 
-    protected void gq(String str) {
+    protected void gp(String str) {
         this.aNm.setText(str);
         this.aNm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.3
             @Override // android.view.View.OnClickListener
@@ -266,7 +266,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    protected void gr(String str) {
+    protected void gq(String str) {
         this.aNn.setText(str);
         this.aNn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.4
             @Override // android.view.View.OnClickListener
@@ -345,15 +345,15 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
         /* renamed from: do  reason: not valid java name */
         public a m16do(int i) {
-            return gt(this.mContext.getString(i));
+            return gr(this.mContext.getString(i));
         }
 
-        public a gt(String str) {
+        public a gr(String str) {
             this.title = str;
             return this;
         }
 
-        public a gu(String str) {
+        public a gt(String str) {
             this.message = str;
             return this;
         }
@@ -412,7 +412,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             });
         }
 
-        static a gv(String str) {
+        static a gu(String str) {
             a remove;
             if (!TextUtils.isEmpty(str)) {
                 synchronized (aNA) {

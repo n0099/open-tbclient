@@ -23,12 +23,12 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public String km(int i) {
         int i2;
-        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.crA.size()) {
+        if (i < 0 || i >= com.baidu.tbadk.editortools.emotiontool.b.crB.size()) {
             i2 = 0;
         } else {
-            i2 = com.baidu.tbadk.editortools.emotiontool.b.crA.get(i).intValue();
+            i2 = com.baidu.tbadk.editortools.emotiontool.b.crB.get(i).intValue();
         }
-        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.crB.entrySet()) {
+        for (Map.Entry<String, Integer> entry : com.baidu.tbadk.editortools.emotiontool.b.crC.entrySet()) {
             if (entry.getValue().intValue() == i2) {
                 return entry.getKey();
             }
@@ -37,14 +37,14 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public boolean pS(String str) {
-        return com.baidu.tbadk.editortools.emotiontool.b.crB.get(str) != null;
+    public boolean pR(String str) {
+        return com.baidu.tbadk.editortools.emotiontool.b.crC.get(str) != null;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a pT(String str) {
+    public com.baidu.adp.widget.ImageView.a pS(String str) {
         Bitmap resBitmap;
-        Integer num = com.baidu.tbadk.editortools.emotiontool.b.crB.get(str);
+        Integer num = com.baidu.tbadk.editortools.emotiontool.b.crC.get(str);
         if (num != null && (resBitmap = com.baidu.adp.lib.util.d.jA().getResBitmap(TbadkCoreApplication.getInst().getApp(), num.intValue())) != null) {
             return new com.baidu.adp.widget.ImageView.a(resBitmap, false, str);
         }
@@ -53,12 +53,12 @@ public class c extends com.baidu.tbadk.editortools.emotiontool.c {
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
     public int getEmotionsCount() {
-        return com.baidu.tbadk.editortools.emotiontool.b.crA.size();
+        return com.baidu.tbadk.editortools.emotiontool.b.crB.size();
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c
-    public com.baidu.adp.widget.ImageView.a pU(String str) {
-        return pT(str);
+    public com.baidu.adp.widget.ImageView.a pT(String str) {
+        return pS(str);
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.c

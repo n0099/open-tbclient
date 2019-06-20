@@ -126,12 +126,12 @@ public class a extends c {
         }
     }
 
-    public boolean hg(String str) {
+    public boolean hf(String str) {
         if (DEBUG && com.baidu.swan.apps.ac.a.a.Is()) {
             return true;
         }
-        com.baidu.swan.apps.setting.oauth.e fJ = com.baidu.swan.apps.network.c.b.a.fJ(str);
-        return (fJ == null || fJ.forbidden || !fJ.MF()) ? false : true;
+        com.baidu.swan.apps.setting.oauth.e fI = com.baidu.swan.apps.network.c.b.a.fI(str);
+        return (fI == null || fI.forbidden || !fI.MF()) ? false : true;
     }
 
     public void b(Activity activity, String str, com.baidu.swan.apps.an.d.a<g<b.d>> aVar) {
@@ -201,7 +201,7 @@ public class a extends c {
             d.k(AppRuntime.getAppContext(), a.h.aiapps_open_fragment_failed_toast).Ld();
             return false;
         }
-        vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("setting", null).commit();
+        vi.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("setting", null).commit();
         return true;
     }
 

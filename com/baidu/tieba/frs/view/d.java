@@ -18,15 +18,15 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.b<s> {
-    private View.OnClickListener bVi;
+    private View.OnClickListener bVj;
     private List<com.baidu.tieba.horizonalList.widget.c> bqT;
     private com.baidu.tieba.horizonalList.widget.b ewJ;
     private HListView ewS;
-    public t fQH;
+    public t fQJ;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.bVi = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
+        this.bVj = new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (d.this.aXr() != null) {
@@ -38,9 +38,9 @@ public class d extends com.baidu.tieba.card.b<s> {
         this.ewS.setHeaderDividersEnabled(false);
         this.ewS.setFooterDividersEnabled(false);
         this.ewS.setSelector(R.drawable.list_selector_transparent);
-        this.fQH = new t(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
-        this.ewJ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.fQH);
-        this.ewJ.setOnClickListener(this.bVi);
+        this.fQJ = new t(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.frs_school_recommend_user, (ViewGroup) null), tbPageContext, bdUniqueId);
+        this.ewJ = new com.baidu.tieba.horizonalList.widget.b(getContext(), R.layout.frs_school_recommend_user, this.fQJ);
+        this.ewJ.setOnClickListener(this.bVj);
         this.ewS.setAdapter((ListAdapter) this.ewJ);
         this.evd.addView(this.ewS);
         this.evc.setVisibility(8);

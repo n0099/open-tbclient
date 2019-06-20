@@ -3,33 +3,33 @@ package com.baidu.tieba.recapp.report;
 import android.support.v4.util.ArrayMap;
 /* loaded from: classes.dex */
 public class e {
-    public static final ArrayMap<Integer, String> iFe = new ArrayMap<>();
+    public static final ArrayMap<Integer, String> iFf = new ArrayMap<>();
 
     static {
-        iFe.put(0, "未被抛弃");
-        iFe.put(1, "间隔楼层不足");
-        iFe.put(2, "当页楼层不足， 不足以插入广告");
-        iFe.put(3, "app 下载安装过， 被抛弃");
-        iFe.put(10, "内容校验错误");
-        iFe.put(11, "非lego广告， 8.6开始被抛弃");
-        iFe.put(12, "card_type=12广告， 8.6开始被抛弃");
-        iFe.put(21, "给Android返回IOS广告或者不识别的类型");
-        iFe.put(22, "给IOS返回了Android广告或者不识别的类型");
-        iFe.put(23, "数据格式错误_adposition为空");
-        iFe.put(24, "数据格式错误_广告id为空");
-        iFe.put(25, "数据格式错误_goodsInfo为空");
-        iFe.put(26, "返回APP广告数据有问题");
-        iFe.put(27, "返回URL广告数据有问题");
-        iFe.put(28, "lego的开关没打开");
-        iFe.put(29, "广告数据位置重复被丢弃");
-        iFe.put(30, "广告ID重复被丢弃");
-        iFe.put(31, "广告插件未加载成功被丢弃");
-        iFe.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
-        iFe.put(33, "客户端最后计算出的positon不合法");
-        iFe.put(34, "无图模式下需要丢弃有图广告");
-        iFe.put(35, "返回lego广告type有问题,客户端不识别");
-        iFe.put(36, "拉回了广告却没有拉回帖子");
-        iFe.put(37, "返回lego广告数据在该版本不支持");
-        iFe.put(100, "其他原因");
+        iFf.put(0, "未被抛弃");
+        iFf.put(1, "间隔楼层不足");
+        iFf.put(2, "当页楼层不足， 不足以插入广告");
+        iFf.put(3, "app 下载安装过， 被抛弃");
+        iFf.put(10, "内容校验错误");
+        iFf.put(11, "非lego广告， 8.6开始被抛弃");
+        iFf.put(12, "card_type=12广告， 8.6开始被抛弃");
+        iFf.put(21, "给Android返回IOS广告或者不识别的类型");
+        iFf.put(22, "给IOS返回了Android广告或者不识别的类型");
+        iFf.put(23, "数据格式错误_adposition为空");
+        iFf.put(24, "数据格式错误_广告id为空");
+        iFf.put(25, "数据格式错误_goodsInfo为空");
+        iFf.put(26, "返回APP广告数据有问题");
+        iFf.put(27, "返回URL广告数据有问题");
+        iFf.put(28, "lego的开关没打开");
+        iFf.put(29, "广告数据位置重复被丢弃");
+        iFf.put(30, "广告ID重复被丢弃");
+        iFf.put(31, "广告插件未加载成功被丢弃");
+        iFf.put(32, "lego数据异常：包括json格式不合法、cardtype不识别、各种子类型数据不合法比如视频类型没有视频url等");
+        iFf.put(33, "客户端最后计算出的positon不合法");
+        iFf.put(34, "无图模式下需要丢弃有图广告");
+        iFf.put(35, "返回lego广告type有问题,客户端不识别");
+        iFf.put(36, "拉回了广告却没有拉回帖子");
+        iFf.put(37, "返回lego广告数据在该版本不支持");
+        iFf.put(100, "其他原因");
     }
 }

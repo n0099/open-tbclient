@@ -31,7 +31,7 @@ import com.baidu.tieba.enterForum.recommend.view.ForumTestView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class RecommendView extends FrameLayout implements ForumTestView.a {
-    private BdTypeRecyclerView NZ;
+    private BdTypeRecyclerView NY;
     private g dhY;
     private BdSwipeRefreshLayout doj;
     private NoNetworkView.a eCl;
@@ -113,7 +113,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             @Override // com.baidu.tieba.enterForum.home.c.a
             public void bea() {
                 if (RecommendView.this.eWd != null) {
-                    if (RecommendView.this.a(RecommendView.this.NZ)) {
+                    if (RecommendView.this.a(RecommendView.this.NY)) {
                         RecommendView.this.eWd.aHV();
                     } else {
                         RecommendView.this.eWd.aHU();
@@ -134,12 +134,12 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         this.doj = (BdSwipeRefreshLayout) findViewById(R.id.enter_recommend_refresh_layout);
         this.mPullView = new i(this.mPageContext);
         this.doj.setProgressView(this.mPullView);
-        this.NZ = (BdTypeRecyclerView) findViewById(R.id.enter_recommend_list_view);
-        this.NZ.setLayoutManager(new LinearLayoutManager(context));
-        this.NZ.setFadingEdgeLength(0);
-        this.NZ.setOverScrollMode(2);
-        this.NZ.addOnScrollListener(this.mOnScrollListener);
-        this.eWb = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.NZ);
+        this.NY = (BdTypeRecyclerView) findViewById(R.id.enter_recommend_list_view);
+        this.NY.setLayoutManager(new LinearLayoutManager(context));
+        this.NY.setFadingEdgeLength(0);
+        this.NY.setOverScrollMode(2);
+        this.NY.addOnScrollListener(this.mOnScrollListener);
+        this.eWb = new com.baidu.tieba.enterForum.recommend.a.a(this.mPageContext, this.NY);
         this.eWa = new RecommendForumHeaderView(this.mPageContext);
         this.eWa.setOnSecectedListener(this);
     }
@@ -186,8 +186,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     private void bH(List<f> list) {
-        if (this.NZ.getHeaderViewsCount() == 0) {
-            this.NZ.addHeaderView(this.eWa);
+        if (this.NY.getHeaderViewsCount() == 0) {
+            this.NY.addHeaderView(this.eWa);
         }
         this.eWa.setData(list);
         this.eWa.setSearchHint(TbSingleton.getInstance().getHotSearch());
@@ -210,8 +210,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void aUH() {
-        if (this.NZ != null) {
-            this.NZ.setVisibility(0);
+        if (this.NY != null) {
+            this.NY.setVisibility(0);
         }
     }
 
@@ -255,7 +255,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
             this.mRefreshView.kC(R.drawable.new_pic_emotion_09);
             this.mRefreshView.attachView(this, z);
             this.mRefreshView.asB();
-            this.NZ.setVisibility(8);
+            this.NY.setVisibility(8);
         }
     }
 
@@ -274,7 +274,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         this.mRefreshView.setTitle(this.mPageContext.getString(R.string.no_data_text));
         this.mRefreshView.attachView(this, false);
         this.mRefreshView.asB();
-        this.NZ.setVisibility(8);
+        this.NY.setVisibility(8);
     }
 
     public void aHK() {
@@ -312,7 +312,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
                 this.eWa.onChangeSkinType();
             }
             al.l(this.doj, R.color.cp_bg_line_e);
-            al.l(this.NZ, R.color.cp_bg_line_c);
+            al.l(this.NY, R.color.cp_bg_line_c);
         }
     }
 
@@ -331,8 +331,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void onDestroy() {
-        if (this.NZ != null) {
-            this.NZ.removeOnScrollListener(this.mOnScrollListener);
+        if (this.NY != null) {
+            this.NY.removeOnScrollListener(this.mOnScrollListener);
         }
         if (this.eWd != null) {
             this.eWd.b(this.eWh);

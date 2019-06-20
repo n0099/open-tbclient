@@ -25,16 +25,16 @@ public class i extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = com.baidu.swan.apps.an.o.cZ(unitedSchemeEntity.getParam("params")).optString("src");
+        String optString = com.baidu.swan.apps.an.o.cY(unitedSchemeEntity.getParam("params")).optString("src");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("getImageInfo", "path null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         JSONObject jSONObject = null;
-        if (com.baidu.swan.apps.storage.b.hA(optString) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.hz(optString) == PathType.BD_FILE) {
             jSONObject = aw(com.baidu.swan.apps.storage.b.aE(optString, bVar.id), optString);
-        } else if (com.baidu.swan.apps.storage.b.hA(optString) == PathType.RELATIVE) {
+        } else if (com.baidu.swan.apps.storage.b.hz(optString) == PathType.RELATIVE) {
             jSONObject = aw(com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion()), optString);
         }
         if (jSONObject != null) {
@@ -64,11 +64,11 @@ public class i extends z {
             str4 = split[split.length - 1];
         }
         if (!TextUtils.equals("png", str4)) {
-            ExifInterface gY = gY(str);
-            if (gY == null) {
+            ExifInterface gX = gX(str);
+            if (gX == null) {
                 return null;
             }
-            i = gY.getAttributeInt("Orientation", 1);
+            i = gX.getAttributeInt("Orientation", 1);
         }
         JSONObject jSONObject = new JSONObject();
         try {
@@ -111,7 +111,7 @@ public class i extends z {
         }
     }
 
-    private ExifInterface gY(String str) {
+    private ExifInterface gX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

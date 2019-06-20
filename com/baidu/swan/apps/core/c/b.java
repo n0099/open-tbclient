@@ -7,18 +7,18 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void yH() {
-        e dU = com.baidu.swan.apps.w.e.FV().dU(com.baidu.swan.apps.w.e.FV().zv());
-        if (dU != null) {
+        e dT = com.baidu.swan.apps.w.e.FV().dT(com.baidu.swan.apps.w.e.FV().zv());
+        if (dT != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
-            dU.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            dT.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
         }
     }
 
-    public static void dC(String str) {
+    public static void dB(String str) {
         Z("sanFullData2Console", str);
     }
 
-    public static void dD(String str) {
+    public static void dC(String str) {
         Z("sanIncData2Console", str);
     }
 

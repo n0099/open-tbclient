@@ -48,21 +48,21 @@ public class b {
                 b.this.fyq.dismiss();
             } else {
                 b.this.fyt = true;
-                b.this.wB(vVar.name);
+                b.this.wA(vVar.name);
                 if (b.this.fqJ.bjK() != null) {
                     b.this.fqJ.bjK().sh(b.this.fys);
                     b.this.fys = vVar.fsC;
                     b.this.fyq.dismiss();
                     if (b.this.fys != 7) {
                         y.avq();
-                        e.cnu();
+                        e.cnv();
                     } else {
-                        e.cnt();
+                        e.cnu();
                     }
                     if (b.this.fqJ.bjK() != null && b.this.fqJ.bjP() != null) {
                         b.this.fqJ.bjK().sg(vVar.fsC);
                         b.this.fqJ.bjP().startPullRefresh();
-                        b.this.fqJ.bjK().ky(true);
+                        b.this.fqJ.bjK().kz(true);
                         b.this.bni();
                     }
                 }
@@ -103,21 +103,21 @@ public class b {
             if (vVar != null) {
                 if (b.this.fys != vVar.fsC) {
                     b.this.fyt = true;
-                    b.this.wB(vVar.name);
+                    b.this.wA(vVar.name);
                     if (b.this.fqJ.bjK() != null) {
                         b.this.fqJ.bjK().sh(b.this.fys);
                         b.this.fys = vVar.fsC;
                         bVar.dismiss();
                         if (b.this.fys != 7) {
                             y.avq();
-                            e.cnu();
+                            e.cnv();
                         } else {
-                            e.cnt();
+                            e.cnu();
                         }
                         if (b.this.fqJ.bjK() != null && b.this.fqJ.bjP() != null) {
                             b.this.fqJ.bjK().sg(vVar.fsC);
                             b.this.fqJ.bjP().startPullRefresh();
-                            b.this.fqJ.bjK().ky(true);
+                            b.this.fqJ.bjK().kz(true);
                             b.this.bni();
                             return;
                         }
@@ -141,7 +141,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wB(String str) {
+    public void wA(String str) {
         this.eQE.setText(str);
     }
 
@@ -194,7 +194,7 @@ public class b {
     public void setData(List<FrsTabInfo> list, int i) {
         if (com.baidu.tbadk.core.util.v.aa(list)) {
             bnk();
-        } else if (this.fqJ != null && this.fqJ.bjK() != null && this.fqJ.bjK().bpf()) {
+        } else if (this.fqJ != null && this.fqJ.bjK() != null && this.fqJ.bjK().bph()) {
             bnj();
             ArrayList arrayList = new ArrayList(list);
             if (!cb(arrayList)) {
@@ -229,7 +229,7 @@ public class b {
             v vVar3 = this.fyr.get(0);
             if (vVar3 != null) {
                 rF(vVar3.fsC);
-                wB(vVar3.name);
+                wA(vVar3.name);
                 if (this.fqJ != null && this.fqJ.bjK() != null) {
                     this.fqJ.bjK().sg(vVar3.fsC);
                     return;
@@ -258,20 +258,20 @@ public class b {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                wB(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
+                wA(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
                 return;
             }
             v vVar4 = this.fyr.get(0);
             if (vVar4 != null) {
                 rF(vVar4.fsC);
-                wB(vVar4.name);
+                wA(vVar4.name);
                 if (this.fqJ != null && this.fqJ.bjK() != null) {
                     this.fqJ.bjK().sg(vVar4.fsC);
                 }
             }
         } else if (vVar != null) {
             rF(vVar.fsC);
-            wB(vVar.name);
+            wA(vVar.name);
             if (this.fqJ != null && this.fqJ.bjK() != null) {
                 this.fqJ.bjK().sg(vVar.fsC);
             }

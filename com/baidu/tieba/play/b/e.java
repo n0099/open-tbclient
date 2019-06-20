@@ -42,7 +42,7 @@ public class e {
         TiebaStatic.log(new am("c12029").P("obj_type", i2).P("obj_param1", j.jT() ? 0 : 1).P("obj_param2", i3));
     }
 
-    public static void Cp(String str) {
+    public static void Cr(String str) {
         TiebaStatic.log(new am("c12026").bT("tid", str));
     }
 

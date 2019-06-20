@@ -41,8 +41,8 @@ public class n extends a {
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
         String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? "_1" : "");
-        com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(str3);
-        if (qr == null) {
+        com.baidu.adp.widget.ImageView.a qq = com.baidu.tbadk.imageManager.c.asp().qq(str3);
+        if (qq == null) {
             Bitmap id = al.id(com.baidu.adp.lib.g.b.f(str2, 0));
             if (id == null) {
                 return null;
@@ -51,7 +51,7 @@ public class n extends a {
             com.baidu.tbadk.imageManager.c.asp().c(str3, aVar);
             return aVar;
         }
-        return qr;
+        return qq;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

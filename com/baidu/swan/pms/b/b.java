@@ -16,7 +16,7 @@ public class b {
         hashMap.put("bundle_id", bVar.getBundleId());
         hashMap.put("category", String.valueOf(bVar.AP()));
         if (bVar.VR() == -1) {
-            pMSAppInfo = com.baidu.swan.pms.database.a.Vl().ki(bVar.getBundleId());
+            pMSAppInfo = com.baidu.swan.pms.database.a.Vl().kh(bVar.getBundleId());
             if (pMSAppInfo != null) {
                 bVar.fH(pMSAppInfo.versionCode);
             } else {
@@ -26,7 +26,7 @@ public class b {
         hashMap.put("pkg_ver", String.valueOf(bVar.VR()));
         if (bVar.VS() == -1) {
             if (pMSAppInfo == null) {
-                pMSAppInfo = com.baidu.swan.pms.database.a.Vl().ki(bVar.getBundleId());
+                pMSAppInfo = com.baidu.swan.pms.database.a.Vl().kh(bVar.getBundleId());
             }
             if (pMSAppInfo != null) {
                 bVar.ag(pMSAppInfo.brS);
@@ -36,13 +36,13 @@ public class b {
         }
         hashMap.put("app_sign", String.valueOf(bVar.VS()));
         if (TextUtils.isEmpty(bVar.VT())) {
-            bVar.kp(fE(bVar.AP()));
+            bVar.ko(fE(bVar.AP()));
         }
         if (!TextUtils.isEmpty(bVar.VT())) {
             hashMap.put("framework_ver", bVar.VT());
         }
         if (TextUtils.isEmpty(bVar.VU())) {
-            bVar.kq(fF(bVar.AP()));
+            bVar.kp(fF(bVar.AP()));
         }
         if (!TextUtils.isEmpty(bVar.VU())) {
             hashMap.put("extension_ver", bVar.VU());
@@ -66,13 +66,13 @@ public class b {
         hashMap.put("pkg_ver", String.valueOf(dVar.VR()));
         hashMap.put("sub_id", dVar.VX());
         if (TextUtils.isEmpty(dVar.VT())) {
-            dVar.kt(fE(dVar.AP()));
+            dVar.ks(fE(dVar.AP()));
         }
         if (!TextUtils.isEmpty(dVar.VT())) {
             hashMap.put("framework_ver", dVar.VT());
         }
         if (TextUtils.isEmpty(dVar.VU())) {
-            dVar.ku(fF(dVar.AP()));
+            dVar.kt(fF(dVar.AP()));
         }
         if (!TextUtils.isEmpty(dVar.VU())) {
             hashMap.put("extension_ver", dVar.VU());
@@ -89,7 +89,7 @@ public class b {
         hashMap.put("bundle_id", cVar.VV());
         hashMap.put("category", String.valueOf(cVar.AP()));
         if (TextUtils.isEmpty(cVar.VW())) {
-            cVar.ks(String.valueOf(-1));
+            cVar.kr(String.valueOf(-1));
         }
         hashMap.put("plugin_ver", cVar.VW());
         return hashMap;
@@ -102,13 +102,13 @@ public class b {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("category", String.valueOf(fVar.AP()));
         if (TextUtils.isEmpty(fVar.VT())) {
-            fVar.kw(fE(fVar.AP()));
+            fVar.kv(fE(fVar.AP()));
         }
         if (!TextUtils.isEmpty(fVar.VT())) {
             hashMap.put("framework_ver", fVar.VT());
         }
         if (TextUtils.isEmpty(fVar.VU())) {
-            fVar.kx(fF(fVar.AP()));
+            fVar.kw(fF(fVar.AP()));
         }
         if (!TextUtils.isEmpty(fVar.VU())) {
             hashMap.put("extension_ver", fVar.VU());

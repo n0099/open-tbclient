@@ -85,7 +85,7 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
                 fVar.mValue = "cancel";
                 fVar.aVp = valueOf;
                 fVar.d(this.ajQ);
-                fVar.ak(e.hn(this.ajQ.ayP));
+                fVar.ak(e.hm(this.ajQ.ayP));
                 e.onEvent(fVar);
                 f fVar2 = new f();
                 fVar2.mFrom = e.dM(this.ajQ.ayS);
@@ -93,7 +93,7 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
                 fVar2.mValue = "realcancel";
                 fVar2.aVp = valueOf;
                 fVar2.d(this.ajQ);
-                fVar2.ak(e.hn(this.ajQ.ayP));
+                fVar2.ak(e.hm(this.ajQ.ayP));
                 fVar2.k("reason", "cancel");
                 if (this.ajQ.ayS == 1) {
                     fVar2.k("errorList", com.baidu.swan.games.r.b.Sm().Sn());
@@ -109,12 +109,12 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
 
     public static void a(Context context, final com.baidu.swan.apps.v.b.b bVar, final String str) {
         if (!aC(context)) {
-            long hI = com.baidu.swan.apps.swancore.b.hI(bVar.Ff());
+            long hH = com.baidu.swan.apps.swancore.b.hH(bVar.Ff());
             long j = bVar.BA() != null ? bVar.BA().aVW : 0L;
             if (DEBUG) {
-                Log.d("SwanAppLauncherActivity", "SwanCoreVersion target string version: " + bVar.Ff() + " target version: " + hI + " ,targetSwanVersion: " + j);
+                Log.d("SwanAppLauncherActivity", "SwanCoreVersion target string version: " + bVar.Ff() + " target version: " + hH + " ,targetSwanVersion: " + j);
             }
-            if (hI > j) {
+            if (hH > j) {
                 com.baidu.swan.apps.swancore.b.dR(bVar.Fg());
             }
             String bc = com.baidu.swan.apps.u.a.DG().bc(context);
@@ -153,15 +153,15 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, Intent intent, com.baidu.swan.apps.v.b.b bVar, String str) {
-        a.b gi = com.baidu.swan.apps.process.messaging.service.a.IK().gi(bVar.getAppId());
-        gi.gm(bVar.getAppId());
+        a.b gh = com.baidu.swan.apps.process.messaging.service.a.IK().gh(bVar.getAppId());
+        gh.gl(bVar.getAppId());
         if (DEBUG) {
-            Log.d("SwanAppLauncherActivity", "onReady processId: " + gi.aGX + " ,client:" + gi.toString());
+            Log.d("SwanAppLauncherActivity", "onReady processId: " + gh.aGX + " ,client:" + gh.toString());
         }
-        a(context, intent, gi.aGX, str);
+        a(context, intent, gh.aGX, str);
         com.baidu.swan.apps.env.b Ci = d.Cg().Ci();
         if (Ci != null && Ci.Cf()) {
-            Ci.ep(bVar.getAppId());
+            Ci.eo(bVar.getAppId());
         }
         com.baidu.swan.apps.v.b.ED().EE();
     }
@@ -185,7 +185,7 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
             bundle.putAll(bundleExtra);
         }
         if (!HX) {
-            bundle.putAll(com.baidu.swan.apps.performance.b.HP().HQ().fU(str));
+            bundle.putAll(com.baidu.swan.apps.performance.b.HP().HQ().fT(str));
         }
         bundle.putBoolean("aiapp_launch_ext_ab", HX);
         bundle.putLong("aiapp_launch_activity_timestamp", currentTimeMillis);
@@ -195,7 +195,7 @@ public class SwanAppLauncherActivity extends Activity implements b.a {
         if (DEBUG) {
             Log.i("SwanAppLauncherActivity", "xpass -> startTargetSwanApp: intent.bundle.size=" + (intent2.getExtras() == null ? 0 : intent2.getExtras().size()));
         }
-        com.baidu.swan.apps.v.c.a.eS(str).Fp();
+        com.baidu.swan.apps.v.c.a.eR(str).Fp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

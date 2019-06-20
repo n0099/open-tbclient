@@ -16,7 +16,7 @@ import tbclient.DailyPage.DataRes;
 /* loaded from: classes4.dex */
 public class DailyNetModel extends BdBaseModel {
     private com.baidu.adp.framework.listener.a byk;
-    private a fZe;
+    private a fZg;
     private int mCurrentPage;
     private boolean mIsLoading;
     private final int mPageSize;
@@ -37,8 +37,8 @@ public class DailyNetModel extends BdBaseModel {
                 DailyNetModel.this.mIsLoading = false;
                 int i = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof DailyPageRequetMessage)) ? 0 : ((DailyPageRequetMessage) responsedMessage.getOrginalMessage().getExtra()).pn;
                 if (responsedMessage.getError() != 0) {
-                    if (DailyNetModel.this.fZe != null) {
-                        DailyNetModel.this.fZe.M(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (DailyNetModel.this.fZg != null) {
+                        DailyNetModel.this.fZg.M(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -50,8 +50,8 @@ public class DailyNetModel extends BdBaseModel {
                     dataRes = ((DailyPageSocketResMessage) responsedMessage).getData();
                 }
                 DailyNetModel.this.mCurrentPage = i;
-                if (DailyNetModel.this.fZe != null) {
-                    DailyNetModel.this.fZe.a(dataRes, i == 1);
+                if (DailyNetModel.this.fZg != null) {
+                    DailyNetModel.this.fZg.a(dataRes, i == 1);
                 }
             }
         };
@@ -114,7 +114,7 @@ public class DailyNetModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fZe = aVar;
+        this.fZg = aVar;
     }
 
     public void onDestroy() {

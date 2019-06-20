@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ba {
-    private static ba bTm = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
+    private static ba bTn = new ba() { // from class: com.baidu.tbadk.core.util.ba.1
     };
-    private static final Pattern bTp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> bTn;
-    private c bTo;
+    private static final Pattern bTq = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> bTo;
+    private c bTp;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class ba {
 
     private ba() {
         this.mListeners = new LinkedList();
-        this.bTn = new ConcurrentHashMap<>();
-        this.bTo = null;
+        this.bTo = new ConcurrentHashMap<>();
+        this.bTp = null;
     }
 
     public static SpannableString aj(Context context, String str) {
         int start;
-        Matcher matcher = bTp.matcher(str);
+        Matcher matcher = bTq.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -64,7 +64,7 @@ public class ba {
     }
 
     public static ba aiz() {
-        return bTm;
+        return bTn;
     }
 
     public void a(final a aVar) {
@@ -88,7 +88,7 @@ public class ba {
     }
 
     public void a(c cVar) {
-        this.bTo = cVar;
+        this.bTp = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,9 +101,9 @@ public class ba {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.bTn.get(oa(str));
+        b bVar = this.bTo.get(nZ(str));
         if (bVar != null) {
-            bVar.a(tbPageContext, nZ(nY(str)));
+            bVar.a(tbPageContext, nY(nX(str)));
             return 0;
         }
         for (a aVar : this.mListeners) {
@@ -121,9 +121,9 @@ public class ba {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.bTn.get(oa(str2));
+        b bVar = this.bTo.get(nZ(str2));
         if (bVar != null) {
-            bVar.a(tbPageContext, nZ(nY(str2)));
+            bVar.a(tbPageContext, nY(nX(str2)));
             return true;
         }
         Iterator<a> it = this.mListeners.iterator();
@@ -138,7 +138,7 @@ public class ba {
                 break;
             }
         }
-        if (!z3 && this.bTo != null) {
+        if (!z3 && this.bTp != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -149,7 +149,7 @@ public class ba {
         return z4;
     }
 
-    public static Map<String, String> nW(String str) {
+    public static Map<String, String> nV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -167,7 +167,7 @@ public class ba {
         return null;
     }
 
-    public static String nX(String str) {
+    public static String nW(String str) {
         String[] split;
         if (StringUtils.isNull(str) || (split = str.split("[?]")) == null || split.length <= 1) {
             return null;
@@ -175,7 +175,7 @@ public class ba {
         return split[1];
     }
 
-    public static String nY(String str) {
+    public static String nX(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -193,7 +193,7 @@ public class ba {
         }
     }
 
-    private Map<String, String> nZ(String str) {
+    private Map<String, String> nY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -217,7 +217,7 @@ public class ba {
         return hashMap;
     }
 
-    private String oa(String str) {
+    private String nZ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -243,21 +243,21 @@ public class ba {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (bTp.matcher(str2).find()) {
-            this.bTo.a(tbPageContext, str, str2, z, dVar, z2);
+        if (bTq.matcher(str2).find()) {
+            this.bTp.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str) && bVar != null) {
-            String oa = oa(str);
-            if (!StringUtils.isNull(oa)) {
-                this.bTn.put(oa, bVar);
+            String nZ = nZ(str);
+            if (!StringUtils.isNull(nZ)) {
+                this.bTo.put(nZ, bVar);
             }
         }
     }
 
-    public boolean ob(String str) {
-        return bTp.matcher(str).find();
+    public boolean oa(String str) {
+        return bTq.matcher(str).find();
     }
 }

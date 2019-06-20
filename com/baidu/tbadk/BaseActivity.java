@@ -183,7 +183,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        ay.nU(getClass().getName());
+        ay.nT(getClass().getName());
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
         enterExitAnimation();
@@ -431,7 +431,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         p.a(motionEvent, getPageId(), getMissionTid());
-        com.baidu.tieba.r.a.cpn().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.r.a.cpo().behaviorRecordEvent(motionEvent, this);
         try {
             if (this.mProgressBar != null && this.mProgressBar.isShown()) {
                 return true;
@@ -486,7 +486,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
                 str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
             }
             this.mWaitingDialog = new b((TbPageContext<?>) getPageContext());
-            this.mWaitingDialog.ow(str);
+            this.mWaitingDialog.ov(str);
             this.mWaitingDialog.e(onCancelListener);
             this.mWaitingDialog.eg(false);
             this.mWaitingDialog.setCancelable(z);
@@ -602,7 +602,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
 
     protected com.baidu.tbadk.core.dialog.b newListMenu(String[] strArr, b.a aVar) {
         this.mListMenu = new com.baidu.tbadk.core.dialog.b(getPageContext().getPageActivity());
-        this.mListMenu.mF(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
+        this.mListMenu.mE(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
         this.mListMenu.a(strArr, aVar);
         this.mListMenu.d(getPageContext());
         return this.mListMenu;
@@ -635,7 +635,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.r.a.cpn().onPause(this);
+        com.baidu.tieba.r.a.cpo().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
@@ -704,7 +704,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new d();
             this.pageStayDurationItem.ao(getCurrentPageSourceKeyList());
-            this.pageStayDurationItem.qD(getCurrentPageKey());
+            this.pageStayDurationItem.qC(getCurrentPageKey());
         }
         return this.pageStayDurationItem;
     }
@@ -714,12 +714,12 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        com.baidu.tieba.r.a.cpn().onResume(this);
+        com.baidu.tieba.r.a.cpo().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         this.customToast.onResume();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        ay.nU(getClass().getName());
+        ay.nT(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -1065,7 +1065,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
             this.mRefreshView = new h(getPageContext().getContext(), onClickListener);
         }
         this.mRefreshView.setTitle(str);
-        this.mRefreshView.qx(str2);
+        this.mRefreshView.qw(str2);
         this.mRefreshView.setButtonText(str3);
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.asB();
@@ -1100,7 +1100,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
         }
-        this.mRefreshView.qx(str);
+        this.mRefreshView.qw(str);
         this.mRefreshView.attachView(view, z);
         this.mRefreshView.asH();
     }
@@ -1356,7 +1356,7 @@ public class BaseActivity<T> extends BdBaseActivity<T> implements o, TbPageConte
                 if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                     this.mLastScreenWidth = configuration.screenWidthDp;
                     this.mLastScreenHeight = configuration.screenHeightDp;
-                    l.Ec = false;
+                    l.Eb = false;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
                     return;
                 }

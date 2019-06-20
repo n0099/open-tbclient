@@ -169,7 +169,7 @@ public class b {
         this.aYv.remove(str2);
         this.aYw.remove(str2);
         if (this.aYv.size() == 0) {
-            com.baidu.swan.apps.textarea.c.a.NZ().hV(str);
+            com.baidu.swan.apps.textarea.c.a.NZ().hU(str);
             this.aYv = null;
         }
         return true;
@@ -183,10 +183,10 @@ public class b {
         return true;
     }
 
-    public void hW(String str) {
-        b hU = com.baidu.swan.apps.textarea.c.a.NZ().hU(str);
-        if (hU != null) {
-            for (EditText editText : hU.aYv.values()) {
+    public void hV(String str) {
+        b hT = com.baidu.swan.apps.textarea.c.a.NZ().hT(str);
+        if (hT != null) {
+            for (EditText editText : hT.aYv.values()) {
                 if (editText != null) {
                     String obj = editText.getTag().toString();
                     com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a("", "textArea");
@@ -198,8 +198,8 @@ public class b {
                     }
                 }
             }
-            com.baidu.swan.apps.textarea.c.a.NZ().hV(str);
-            hU.aYv = null;
+            com.baidu.swan.apps.textarea.c.a.NZ().hU(str);
+            hT.aYv = null;
         }
     }
 
@@ -484,7 +484,7 @@ public class b {
             }
 
             @Override // com.baidu.swan.apps.textarea.a.InterfaceC0185a
-            public void ez(String str) {
+            public void ey(String str) {
                 if (b.this.aYw.get(str) != null && ((com.baidu.swan.apps.textarea.b.a) b.this.aYw.get(str)).aYs != editText.getLineCount()) {
                     c.d("TextAreaSecondaryParser", "send line change callback");
                     b.this.a(editText, "linechange", aVar, b.this.axc);
@@ -570,7 +570,7 @@ public class b {
         return height;
     }
 
-    public void hX(String str) {
+    public void hW(String str) {
         com.baidu.swan.apps.textarea.b.a aVar = this.aYw.get(str);
         EditText editText = this.aYv.get(aVar.id);
         a(editText, "linechange", aVar, this.axc);

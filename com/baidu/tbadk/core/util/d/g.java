@@ -4,35 +4,35 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends a {
-    private boolean XJ;
-    private boolean bUD;
+    private boolean XI;
     private boolean bUE;
-    private int bUI;
+    private boolean bUF;
+    private int bUJ;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
-        this.XJ = true;
-        this.bUD = false;
+        this.XI = true;
         this.bUE = false;
+        this.bUF = false;
         this.procType = 0;
-        this.bUI = 0;
-        this.XJ = z;
-        this.bUD = z2;
-        this.bUE = z3;
+        this.bUJ = 0;
+        this.XI = z;
+        this.bUE = z2;
+        this.bUF = z3;
         this.procType = i;
         int af = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst());
-        this.bUI = af <= 0 ? 200 : af;
-        if (this.bUI > 480) {
-            this.bUI = 480;
+        this.bUJ = af <= 0 ? 200 : af;
+        if (this.bUJ > 480) {
+            this.bUJ = 480;
         }
-        if (this.bUI > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.bUI = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.bUJ > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.bUJ = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
-        return this.bUI;
+        return this.bUJ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -42,22 +42,22 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
-        return this.bUI;
+        return this.bUJ;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.XJ;
+        return this.XI;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean aiO() {
-        return this.bUE;
+        return this.bUF;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean aiP() {
-        return this.bUD;
+        return this.bUE;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

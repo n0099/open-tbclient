@@ -23,12 +23,12 @@ public class e {
             boolean optBoolean = c.optBoolean("enableDebug");
             com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
             if (Lq == null) {
-                a(c, false, iT("internal error"));
+                a(c, false, iS("internal error"));
                 return;
             }
             Activity activity = Lq.getActivity();
             if (activity == null) {
-                a(c, false, iT("internal error"));
+                a(c, false, iS("internal error"));
             } else if (optBoolean == com.baidu.swan.apps.console.a.xz()) {
                 a(c, true, "setEnableDebug:ok");
             } else {
@@ -51,7 +51,7 @@ public class e {
                     return;
                 }
                 com.baidu.swan.apps.core.c.c.S(context, str);
-                e.this.a(cVar, false, e.this.iT(str));
+                e.this.a(cVar, false, e.this.iS(str));
             }
         });
     }
@@ -73,7 +73,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String iT(String str) {
+    public String iS(String str) {
         return String.format("setEnableDebug:fail %s", str);
     }
 

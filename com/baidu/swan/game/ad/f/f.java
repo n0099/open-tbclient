@@ -130,7 +130,7 @@ public class f implements a.InterfaceC0197a {
                     }
                 } else if (f.this.bdx != null) {
                     String f = f.this.bdx.f();
-                    vi.dO("adLanding").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("adLanding", com.baidu.swan.apps.model.b.aq(f, f)).zW();
+                    vi.dN("adLanding").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("adLanding", com.baidu.swan.apps.model.b.aq(f, f)).zW();
                     com.baidu.swan.game.ad.d.a.b(f.this.bdx, f.this.bdw);
                 }
             }
@@ -154,7 +154,7 @@ public class f implements a.InterfaceC0197a {
         if (Lq != null) {
             str = Lq.getAppKey();
         }
-        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.c, new b.a().iB(this.d).iC(this.a).iD(str).eP(this.bdv.width).eQ(this.bdv.height).PS());
+        com.baidu.swan.game.ad.c.c cVar = new com.baidu.swan.game.ad.c.c(this.c, new b.a().iA(this.d).iB(this.a).iC(str).eP(this.bdv.width).eQ(this.bdv.height).PS());
         com.baidu.swan.game.ad.c.a aVar = new com.baidu.swan.game.ad.c.a(this.c);
         aVar.a(this);
         com.baidu.swan.games.view.a.b.bk("banner", null);

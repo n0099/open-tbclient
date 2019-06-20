@@ -17,11 +17,11 @@ public class f {
     private f() {
     }
 
-    public boolean vj(String str) {
+    public boolean vi(String str) {
         return true;
     }
 
-    public boolean vk(String str) {
+    public boolean vj(String str) {
         return false;
     }
 }

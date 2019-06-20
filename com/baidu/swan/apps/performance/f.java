@@ -60,33 +60,33 @@ public final class f {
 
     @Deprecated
     public static synchronized HybridUbcFlow HY() {
-        HybridUbcFlow fO;
+        HybridUbcFlow fN;
         synchronized (f.class) {
-            fO = fO("startup");
+            fN = fN("startup");
         }
-        return fO;
+        return fN;
     }
 
-    public static synchronized HybridUbcFlow fO(String str) {
-        HybridUbcFlow fO;
+    public static synchronized HybridUbcFlow fN(String str) {
+        HybridUbcFlow fN;
         synchronized (f.class) {
-            fO = HW().fO(str);
+            fN = HW().fN(str);
         }
-        return fO;
+        return fN;
     }
 
-    public static synchronized void fW(String str) {
+    public static synchronized void fV(String str) {
         synchronized (f.class) {
-            HW().fP(str);
+            HW().fO(str);
         }
     }
 
     public static synchronized void at(String str, String str2) {
         synchronized (f.class) {
-            HybridUbcFlow fQ = HW().fQ(str);
-            if (fQ != null) {
-                HW().fO(str2).b(fQ);
-                fW(str);
+            HybridUbcFlow fP = HW().fP(str);
+            if (fP != null) {
+                HW().fN(str2).b(fP);
+                fV(str);
             }
         }
     }
@@ -96,7 +96,7 @@ public final class f {
             Log.i("SwanAppPerformanceUBC", "recordFromLaunchExtForStartup: msg=" + message);
         }
         if (message == null || !(message.obj instanceof Bundle)) {
-            fO("startup").HC();
+            fN("startup").HC();
             return;
         }
         final Bundle bundle = (Bundle) message.obj;
@@ -111,7 +111,7 @@ public final class f {
                 if (z) {
                     f.q(bundle);
                 }
-                f.fO("startup").HC();
+                f.fN("startup").HC();
             }
         }, "recordFromLaunchInfo");
     }
@@ -130,37 +130,37 @@ public final class f {
             j.b(new Runnable() { // from class: com.baidu.swan.apps.performance.f.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    HybridUbcFlow fO = f.fO("startup");
+                    HybridUbcFlow fN = f.fN("startup");
                     if (!f.aFY) {
                         f.r(Fa);
-                        f.a(fO, Fa, "aiapp_launch_activity_timestamp", "na_launch_activity");
+                        f.a(fN, Fa, "aiapp_launch_activity_timestamp", "na_launch_activity");
                     }
                     if (!z) {
                         f.q(Fa);
                     }
                     String EW = TextUtils.isEmpty(bVar.EW()) ? "NA" : bVar.EW();
                     if (bVar.Fg() == 1) {
-                        fO.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
+                        fN.a(HybridUbcFlow.SubmitStrategy.NA_ONLY);
                     }
-                    fO.j("from", "swan");
-                    fO.j("source", EW);
-                    fO.ar("appid", bVar.getAppId());
-                    fO.ar("swan", com.baidu.swan.apps.swancore.b.a(bVar.BA(), bVar.Fg()));
-                    fO.ar("mobile", g.Ox());
-                    fO.ar("net", SwanAppNetworkUtils.Hg().type);
-                    fO.ar("appversion", bVar.getVersion());
-                    fO.ar("thirdversion", bVar.getVersionCode());
-                    fO.j("from", bVar.Fg() == 1 ? "swangame" : "swan");
-                    String ik = aa.ik(page);
-                    if (!TextUtils.isEmpty(ik) && ik.startsWith(File.separator)) {
-                        ik = ik.substring(1);
+                    fN.j("from", "swan");
+                    fN.j("source", EW);
+                    fN.ar("appid", bVar.getAppId());
+                    fN.ar("swan", com.baidu.swan.apps.swancore.b.a(bVar.BA(), bVar.Fg()));
+                    fN.ar("mobile", g.Ox());
+                    fN.ar("net", SwanAppNetworkUtils.Hg().type);
+                    fN.ar("appversion", bVar.getVersion());
+                    fN.ar("thirdversion", bVar.getVersionCode());
+                    fN.j("from", bVar.Fg() == 1 ? "swangame" : "swan");
+                    String ij = aa.ij(page);
+                    if (!TextUtils.isEmpty(ij) && ij.startsWith(File.separator)) {
+                        ij = ij.substring(1);
                     }
-                    if (TextUtils.isEmpty(ik)) {
-                        ik = "";
+                    if (TextUtils.isEmpty(ij)) {
+                        ij = "";
                     }
-                    fO.ar("path", ik);
+                    fN.ar("path", ij);
                     if (bVar.Fg() == 0) {
-                        fO.HB();
+                        fN.HB();
                     }
                 }
             }, "recordFromLaunchInfo");
@@ -171,29 +171,29 @@ public final class f {
     public static void q(Bundle bundle) {
         boolean a2;
         if (bundle != null && !bundle.isEmpty()) {
-            HybridUbcFlow fO = fO("startup");
+            HybridUbcFlow fN = fN("startup");
             if (aFY) {
                 a2 = false;
             } else {
-                a(fO, bundle, "aiapp_aps_check_start_timestamp", "aps_start_req");
-                a(fO, bundle, "aiapp_aps_check_end_timestamp", "aps_end_req");
-                a(fO, bundle, "aiapp_download_start_timestamp", "aps_start_download");
-                a(fO, bundle, "aiapp_aps_unzip_start_timestamp", "package_start_unzip");
-                a(fO, bundle, "aiapp_aps_unzip_end_timestamp", "package_end_unzip");
-                a(fO, bundle, "aiapp_aps_decrypt_start_timestamp", "package_start_decrypt");
-                a(fO, bundle, "aiapp_aps_decrypt_end_timestamp", "package_end_decrypt");
-                a(fO, bundle, "aiapp_query_db_timestamp", "na_query_db");
-                a(fO, bundle, "aiapp_stream_bump_end_timestamp", "na_stream_bump_end");
-                a2 = a(fO, bundle, "aiapp_download_end_timestamp", "aps_end_download");
+                a(fN, bundle, "aiapp_aps_check_start_timestamp", "aps_start_req");
+                a(fN, bundle, "aiapp_aps_check_end_timestamp", "aps_end_req");
+                a(fN, bundle, "aiapp_download_start_timestamp", "aps_start_download");
+                a(fN, bundle, "aiapp_aps_unzip_start_timestamp", "package_start_unzip");
+                a(fN, bundle, "aiapp_aps_unzip_end_timestamp", "package_end_unzip");
+                a(fN, bundle, "aiapp_aps_decrypt_start_timestamp", "package_start_decrypt");
+                a(fN, bundle, "aiapp_aps_decrypt_end_timestamp", "package_end_decrypt");
+                a(fN, bundle, "aiapp_query_db_timestamp", "na_query_db");
+                a(fN, bundle, "aiapp_stream_bump_end_timestamp", "na_stream_bump_end");
+                a2 = a(fN, bundle, "aiapp_download_end_timestamp", "aps_end_download");
             }
-            if (!fO.HA().has("type")) {
-                fO.j("type", a2 ? "0" : "1");
+            if (!fN.HA().has("type")) {
+                fN.j("type", a2 ? "0" : "1");
             }
-            fO.ar(ImageViewerConfig.ABTEST, bundle.getString("aiapp_abtest_info", ""));
-            fO.ar("is_updating", String.valueOf(bundle.getBoolean("is_sileng_updating_when_start")));
-            fO.ar("check_result", String.valueOf(bundle.getInt("aiapp_check_result", 0)));
-            fO.ar("launch_state", String.valueOf(bundle.getInt("aiapp_launch_state", -1)));
-            fO.ar("launch_type", String.valueOf(bundle.getInt("swan_launch_type", -1)));
+            fN.ar(ImageViewerConfig.ABTEST, bundle.getString("aiapp_abtest_info", ""));
+            fN.ar("is_updating", String.valueOf(bundle.getBoolean("is_sileng_updating_when_start")));
+            fN.ar("check_result", String.valueOf(bundle.getInt("aiapp_check_result", 0)));
+            fN.ar("launch_state", String.valueOf(bundle.getInt("aiapp_launch_state", -1)));
+            fN.ar("launch_type", String.valueOf(bundle.getInt("swan_launch_type", -1)));
         }
     }
 
@@ -204,8 +204,8 @@ public final class f {
             Log.i("SwanAppPerformanceUBC", "recordStartFromExtraForStartup:" + j);
         }
         if (j > 0) {
-            fO("startup").f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
-            fO("startup").f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
+            fN("startup").f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
+            fN("startup").f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
         }
     }
 
@@ -223,13 +223,13 @@ public final class f {
         if (DEBUG) {
             Log.i("SwanAppPerformanceUBC", "initSessionForStartup:" + j);
         }
-        fW("startup");
-        HybridUbcFlow fO = fO("startup");
+        fV("startup");
+        HybridUbcFlow fN = fN("startup");
         if (aFY) {
-            fO.f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
-            fO.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
+            fN.f(new UbcFlowEvent("naStart").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
+            fN.f(new UbcFlowEvent("na_last_start").a(UbcFlowEvent.RecordType.UPDATE_RECENT).M(j));
         }
-        fO.f(new UbcFlowEvent("frame_start_create").M(j)).ar("process", String.valueOf(SwanAppProcessInfo.current())).ar("reuse", z ? "1" : "0");
+        fN.f(new UbcFlowEvent("frame_start_create").M(j)).ar("process", String.valueOf(SwanAppProcessInfo.current())).ar("reuse", z ? "1" : "0");
     }
 
     public static void a(boolean z, Intent intent) {
@@ -265,17 +265,17 @@ public final class f {
             this.eventId = str;
         }
 
-        public a fX(String str) {
+        public a fW(String str) {
             this.mFrom = str;
             return this;
         }
 
-        public a fY(String str) {
+        public a fX(String str) {
             this.mType = str;
             return this;
         }
 
-        public a fZ(String str) {
+        public a fY(String str) {
             this.mSource = str;
             return this;
         }

@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] kuo = new Object[0];
-    private final SubjectSubscriptionManager<T> kup;
+    private static final Object[] kur = new Object[0];
+    private final SubjectSubscriptionManager<T> kus;
 
-    public static <T> a<T> cMR() {
+    public static <T> a<T> cMQ() {
         return g(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.kup = subjectSubscriptionManager;
+        this.kus = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.kup.getLatest() == null || this.kup.active) {
-            Object cLz = NotificationLite.cLz();
-            for (SubjectSubscriptionManager.b<T> bVar : this.kup.terminate(cLz)) {
-                bVar.bD(cLz);
+        if (this.kus.getLatest() == null || this.kus.active) {
+            Object cLy = NotificationLite.cLy();
+            for (SubjectSubscriptionManager.b<T> bVar : this.kus.terminate(cLy)) {
+                bVar.bD(cLy);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.kup.getLatest() == null || this.kup.active) {
+        if (this.kus.getLatest() == null || this.kus.active) {
             Object N = NotificationLite.N(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.kup.terminate(N)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kus.terminate(N)) {
                 try {
                     bVar.bD(N);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.kup.getLatest() == null || this.kup.active) {
+        if (this.kus.getLatest() == null || this.kus.active) {
             Object bo = NotificationLite.bo(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.kup.next(bo)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kus.next(bo)) {
                 bVar.bD(bo);
             }
         }

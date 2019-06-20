@@ -56,7 +56,7 @@ public class b {
     private h.c dpv = new h.c() { // from class: com.baidu.tieba.enterForum.view.b.1
         @Override // com.baidu.tbadk.core.view.h.c
         public void en(boolean z) {
-            com.baidu.tieba.q.c.clv().x(b.this.eWw.getUniqueId());
+            com.baidu.tieba.q.c.clw().x(b.this.eWw.getUniqueId());
             if (b.this.eWG != null) {
                 b.this.eWG.en(z);
             }
@@ -264,7 +264,7 @@ public class b {
                 }
             });
         }
-        this.refreshView.qx(this.eWw.getString(R.string.neterror));
+        this.refreshView.qw(this.eWw.getString(R.string.neterror));
         this.mRootView = view;
         int dimensionPixelSize = this.eWw.getResources().getDimensionPixelSize(R.dimen.ds88);
         if (UtilHelper.canUseStyleImmersiveSticky()) {

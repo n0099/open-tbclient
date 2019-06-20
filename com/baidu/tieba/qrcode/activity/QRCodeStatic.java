@@ -14,11 +14,11 @@ import com.baidu.tieba.tbadkCore.data.n;
 public class QRCodeStatic {
     static {
         TbadkCoreApplication.getInst().RegisterOrUpdateIntent(QRCodeScanActivityConfig.class, QRCodeScanActivity.class);
-        cdU();
         cdV();
+        cdW();
     }
 
-    private static void cdU() {
+    private static void cdV() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921388, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<Bitmap> run(CustomMessage<String> customMessage) {
@@ -29,7 +29,7 @@ public class QRCodeStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void cdV() {
+    private static void cdW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921403, new CustomMessageTask.CustomRunnable<n>() { // from class: com.baidu.tieba.qrcode.activity.QRCodeStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<n> customMessage) {
@@ -39,14 +39,14 @@ public class QRCodeStatic {
                 }
                 n data = customMessage.getData();
                 if (data.type == 0) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.E(data.iZI);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.E(data.iZM);
                 } else if (data.type == 1) {
-                    str = com.baidu.tieba.qrcode.lib.zxing.a.CH(data.iZJ);
+                    str = com.baidu.tieba.qrcode.lib.zxing.a.CJ(data.iZN);
                 }
                 if (TextUtils.isEmpty(str)) {
-                    data.iZK = "qr_none";
+                    data.iZO = "qr_none";
                 } else {
-                    data.iZK = str;
+                    data.iZO = str;
                 }
                 return new CustomResponsedMessage<>(2921403, data);
             }

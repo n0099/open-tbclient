@@ -8,11 +8,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class e<T> implements i<b<T>> {
-    private final List<i<b<T>>> jTt;
+    private final List<i<b<T>>> jTw;
 
     private e(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.jTt = list;
+        this.jTw = list;
     }
 
     public static <T> e<T> eB(List<i<b<T>>> list) {
@@ -21,13 +21,13 @@ public class e<T> implements i<b<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cCl */
+    /* renamed from: cCk */
     public b<T> get() {
         return new a();
     }
 
     public int hashCode() {
-        return this.jTt.hashCode();
+        return this.jTw.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -37,11 +37,11 @@ public class e<T> implements i<b<T>> {
         if (!(obj instanceof e)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.jTt, ((e) obj).jTt);
+        return com.facebook.common.internal.f.equal(this.jTw, ((e) obj).jTw);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.aC(this).t(IntentConfig.LIST, this.jTt).toString();
+        return com.facebook.common.internal.f.aC(this).t(IntentConfig.LIST, this.jTw).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -49,11 +49,11 @@ public class e<T> implements i<b<T>> {
     /* loaded from: classes2.dex */
     public class a extends AbstractDataSource<T> {
         private int mIndex = 0;
-        private b<T> jTu = null;
-        private b<T> jTv = null;
+        private b<T> jTx = null;
+        private b<T> jTy = null;
 
         public a() {
-            if (!cCm()) {
+            if (!cCl()) {
                 t(new RuntimeException("No data source supplier or supplier returned null."));
             }
         }
@@ -61,17 +61,17 @@ public class e<T> implements i<b<T>> {
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
         @Nullable
         public synchronized T getResult() {
-            b<T> cCo;
-            cCo = cCo();
-            return cCo != null ? cCo.getResult() : null;
+            b<T> cCn;
+            cCn = cCn();
+            return cCn != null ? cCn.getResult() : null;
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
-        public synchronized boolean cCf() {
+        public synchronized boolean cCe() {
             boolean z;
-            b<T> cCo = cCo();
-            if (cCo != null) {
-                z = cCo.cCf();
+            b<T> cCn = cCn();
+            if (cCn != null) {
+                z = cCn.cCe();
             }
             return z;
         }
@@ -82,21 +82,21 @@ public class e<T> implements i<b<T>> {
                 if (!super.Ab()) {
                     return false;
                 }
-                b<T> bVar = this.jTu;
-                this.jTu = null;
-                b<T> bVar2 = this.jTv;
-                this.jTv = null;
+                b<T> bVar = this.jTx;
+                this.jTx = null;
+                b<T> bVar2 = this.jTy;
+                this.jTy = null;
                 l(bVar2);
                 l(bVar);
                 return true;
             }
         }
 
-        private boolean cCm() {
-            i<b<T>> cCn = cCn();
-            b<T> bVar = cCn != null ? cCn.get() : null;
+        private boolean cCl() {
+            i<b<T>> cCm = cCm();
+            b<T> bVar = cCm != null ? cCm.get() : null;
             if (h(bVar) && bVar != null) {
-                bVar.a(new C0447a(), com.facebook.common.b.a.cBy());
+                bVar.a(new C0447a(), com.facebook.common.b.a.cBx());
                 return true;
             }
             l(bVar);
@@ -104,12 +104,12 @@ public class e<T> implements i<b<T>> {
         }
 
         @Nullable
-        private synchronized i<b<T>> cCn() {
+        private synchronized i<b<T>> cCm() {
             i<b<T>> iVar;
-            if (isClosed() || this.mIndex >= e.this.jTt.size()) {
+            if (isClosed() || this.mIndex >= e.this.jTw.size()) {
                 iVar = null;
             } else {
-                List list = e.this.jTt;
+                List list = e.this.jTw;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
                 iVar = (i) list.get(i);
@@ -122,7 +122,7 @@ public class e<T> implements i<b<T>> {
             if (isClosed()) {
                 z = false;
             } else {
-                this.jTu = bVar;
+                this.jTx = bVar;
                 z = true;
             }
             return z;
@@ -130,27 +130,27 @@ public class e<T> implements i<b<T>> {
 
         private synchronized boolean i(b<T> bVar) {
             boolean z;
-            if (isClosed() || bVar != this.jTu) {
+            if (isClosed() || bVar != this.jTx) {
                 z = false;
             } else {
-                this.jTu = null;
+                this.jTx = null;
                 z = true;
             }
             return z;
         }
 
         @Nullable
-        private synchronized b<T> cCo() {
-            return this.jTv;
+        private synchronized b<T> cCn() {
+            return this.jTy;
         }
 
         private void a(b<T> bVar, boolean z) {
             b<T> bVar2 = null;
             synchronized (this) {
-                if (bVar == this.jTu && bVar != this.jTv) {
-                    if (this.jTv == null || z) {
-                        bVar2 = this.jTv;
-                        this.jTv = bVar;
+                if (bVar == this.jTx && bVar != this.jTy) {
+                    if (this.jTy == null || z) {
+                        bVar2 = this.jTy;
+                        this.jTy = bVar;
                     }
                     l(bVar2);
                 }
@@ -160,11 +160,11 @@ public class e<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void j(b<T> bVar) {
             if (i(bVar)) {
-                if (bVar != cCo()) {
+                if (bVar != cCn()) {
                     l(bVar);
                 }
-                if (!cCm()) {
-                    t(bVar.cCh());
+                if (!cCl()) {
+                    t(bVar.cCg());
                 }
             }
         }
@@ -172,7 +172,7 @@ public class e<T> implements i<b<T>> {
         /* JADX INFO: Access modifiers changed from: private */
         public void k(b<T> bVar) {
             a((b) bVar, bVar.isFinished());
-            if (bVar == cCo()) {
+            if (bVar == cCn()) {
                 a((a) null, bVar.isFinished());
             }
         }
@@ -201,7 +201,7 @@ public class e<T> implements i<b<T>> {
 
             @Override // com.facebook.datasource.d
             public void d(b<T> bVar) {
-                if (bVar.cCf()) {
+                if (bVar.cCe()) {
                     a.this.k(bVar);
                 } else if (bVar.isFinished()) {
                     a.this.j(bVar);

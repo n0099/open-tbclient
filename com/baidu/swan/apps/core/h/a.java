@@ -34,19 +34,19 @@ public class a {
                 if (DEBUG && !TextUtils.isEmpty(v)) {
                     Log.i("SwanAppPreHandleHelper", "pre handle configData : " + v);
                 }
-                c gG = c.gG(v);
+                c gF = c.gF(v);
                 if (this.asT == null) {
                     this.asT = new HashMap();
                 }
-                if (gG != null) {
-                    this.asT.put(str, gG);
+                if (gF != null) {
+                    this.asT.put(str, gF);
                 }
             }
         }
     }
 
     @Nullable
-    public c dR(String str) {
+    public c dQ(String str) {
         if (this.asT == null || TextUtils.isEmpty(str)) {
             return null;
         }

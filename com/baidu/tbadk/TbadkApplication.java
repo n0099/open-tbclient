@@ -75,7 +75,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (message != null) {
             super.handleInitMessage(message);
             switch (message.what) {
-                case 7:
+                case 6:
                     boolean avf = q.avf();
                     boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
                     boolean z2 = avf && isXiaomiPushSdkShouldOpen;
@@ -104,9 +104,9 @@ public class TbadkApplication extends TbadkCoreApplication {
                             n.auq().bp(System.currentTimeMillis() - currentTimeMillis);
                         }
                     }
-                    this.mAppInitHandler.sendEmptyMessage(8);
+                    this.mAppInitHandler.sendEmptyMessage(7);
                     return;
-                case 8:
+                case 7:
                     initSettings();
                     setActivityStackMaxSize(20);
                     if (isMainProcess(false)) {
@@ -114,9 +114,9 @@ public class TbadkApplication extends TbadkCoreApplication {
                         initLikeForum();
                         initSignedForum();
                     }
-                    this.mAppInitHandler.sendEmptyMessage(9);
+                    this.mAppInitHandler.sendEmptyMessage(8);
                     return;
-                case 9:
+                case 8:
                     MessageManager.getInstance().registerListener(this.mMemListener);
                     if (isMainProcess(true)) {
                         long currentTimeMillis2 = System.currentTimeMillis();
@@ -128,9 +128,9 @@ public class TbadkApplication extends TbadkCoreApplication {
                         });
                         n.auq().by(System.currentTimeMillis() - currentTimeMillis2);
                     }
-                    this.mAppInitHandler.sendEmptyMessage(10);
+                    this.mAppInitHandler.sendEmptyMessage(9);
                     return;
-                case 10:
+                case 9:
                     j.agY();
                     if (this.isRemoteProcess) {
                         n.auq().bG(System.currentTimeMillis() - this.processCreateTime);

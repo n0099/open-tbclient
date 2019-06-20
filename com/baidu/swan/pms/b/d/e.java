@@ -15,7 +15,7 @@ public abstract class e {
         return this.btb;
     }
 
-    public e kv(String str) {
+    public e ku(String str) {
         this.mFrom = str;
         return this;
     }

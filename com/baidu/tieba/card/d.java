@@ -97,7 +97,7 @@ public class d extends a<com.baidu.tieba.e.a> {
             al.k(getView(), R.color.cp_bg_line_d);
             al.k(this.evs, R.color.cp_bg_line_c);
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Ei(this.evt.abv().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Ek(this.evt.abv().getId())) {
                 al.f(this.evi, R.color.cp_cont_c, 1);
             } else {
                 al.f(this.evi, R.color.cp_cont_b, 1);
@@ -138,7 +138,7 @@ public class d extends a<com.baidu.tieba.e.a> {
             this.evk.startLoad(str, 10, false);
             this.evi.setText(aVar.abv().getTitle());
             com.baidu.tieba.tbadkCore.util.d readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-            if (readThreadHistory != null && readThreadHistory.Ei(aVar.abv().getId())) {
+            if (readThreadHistory != null && readThreadHistory.Ek(aVar.abv().getId())) {
                 al.j(this.evi, R.color.cp_cont_c);
             } else {
                 al.j(this.evi, R.color.cp_cont_b);
@@ -166,11 +166,11 @@ public class d extends a<com.baidu.tieba.e.a> {
 
     private void f(bg bgVar) {
         if (this.evp != null && bgVar != null && !StringUtils.isNull(bgVar.adv().getName_show())) {
-            this.evp.setText(oD(bgVar.adv().getName_show()));
+            this.evp.setText(oC(bgVar.adv().getName_show()));
         }
     }
 
-    protected String oD(String str) {
+    protected String oC(String str) {
         return ap.j(str, 14, "...");
     }
 }

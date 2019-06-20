@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class BlueCheckRadioButton extends RelativeLayout {
-    private TextView bWf;
-    private RadioButton bWg;
+    private TextView bWg;
+    private RadioButton bWh;
     private Context mContext;
 
     public BlueCheckRadioButton(Context context) {
@@ -31,51 +31,51 @@ public class BlueCheckRadioButton extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(this.mContext).inflate(R.layout.custom_blue_check_radio_button_layout, (ViewGroup) this, true);
-        this.bWf = (TextView) findViewById(R.id.custom_check_radio_button_tv);
-        this.bWg = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
+        this.bWg = (TextView) findViewById(R.id.custom_check_radio_button_tv);
+        this.bWh = (RadioButton) findViewById(R.id.custom_check_radio_button_rb);
         ajd();
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.BlueCheckRadioButton.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (BlueCheckRadioButton.this.bWg != null) {
-                    BlueCheckRadioButton.this.bWg.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
-                    BlueCheckRadioButton.this.bWg.toggle();
+                if (BlueCheckRadioButton.this.bWh != null) {
+                    BlueCheckRadioButton.this.bWh.setButtonDrawable(R.drawable.chx_tips_list_ok_selector);
+                    BlueCheckRadioButton.this.bWh.toggle();
                 }
             }
         });
     }
 
     public void ajd() {
-        if (this.bWf != null) {
-            al.e(this.bWf, "cp_link_tip_a");
+        if (this.bWg != null) {
+            al.e(this.bWg, "cp_link_tip_a");
         }
     }
 
     public void setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
-        if (this.bWg != null) {
-            this.bWg.setOnCheckedChangeListener(onCheckedChangeListener);
+        if (this.bWh != null) {
+            this.bWh.setOnCheckedChangeListener(onCheckedChangeListener);
         }
     }
 
     public void setText(String str) {
-        if (this.bWf != null) {
-            this.bWf.setText(str);
+        if (this.bWg != null) {
+            this.bWg.setText(str);
         }
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
-        if (this.bWg != null) {
-            this.bWg.setTag(obj);
+        if (this.bWh != null) {
+            this.bWh.setTag(obj);
         }
     }
 
     @Override // android.view.View
     public Object getTag() {
-        return this.bWg.getTag();
+        return this.bWh.getTag();
     }
 
     public void setChecked(boolean z) {
-        this.bWg.setChecked(z);
+        this.bWh.setChecked(z);
     }
 }

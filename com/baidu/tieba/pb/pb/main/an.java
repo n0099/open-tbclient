@@ -6,11 +6,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class an {
-    private PbActivity hGp;
-    private com.baidu.tieba.c.d hMU;
+    private PbActivity hGq;
+    private com.baidu.tieba.c.d hMV;
 
     public an(PbActivity pbActivity) {
-        this.hGp = pbActivity;
+        this.hGq = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -18,8 +18,8 @@ public class an {
     }
 
     public void destroy() {
-        if (this.hMU != null) {
-            this.hMU.aZA();
+        if (this.hMV != null) {
+            this.hMV.aZA();
         }
     }
 }

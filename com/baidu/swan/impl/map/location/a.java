@@ -90,7 +90,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
     public void TS() {
         com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
         if (vi != null) {
-            vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).c(this).zW();
+            vi.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).c(this).zW();
         }
     }
 

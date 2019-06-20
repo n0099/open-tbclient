@@ -55,12 +55,12 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
             Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
             return false;
         }
-        long ex = com.baidu.swan.apps.extcore.f.a.ex(aVar.versionName);
-        if (com.baidu.swan.c.a.bu(aVar.awp, C(ex).getPath())) {
+        long ew = com.baidu.swan.apps.extcore.f.a.ew(aVar.versionName);
+        if (com.baidu.swan.c.a.bu(aVar.awp, C(ew).getPath())) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(Long.valueOf(ex));
+            arrayList.add(Long.valueOf(ew));
             com.baidu.swan.apps.extcore.f.a.a(Cm(), arrayList);
-            D(ex);
+            D(ew);
             com.baidu.swan.apps.extcore.f.a.bf(false);
             return true;
         } else if (DEBUG) {
@@ -79,13 +79,13 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
             }
             return false;
         }
-        b et = b.et(this.avQ.Cx());
+        b es = b.es(this.avQ.Cx());
         long Cy = Cy();
-        long ex = com.baidu.swan.apps.extcore.f.a.ex(et.awn);
+        long ew = com.baidu.swan.apps.extcore.f.a.ew(es.awn);
         if (DEBUG) {
-            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + Cy + " newVer: " + ex);
+            Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + Cy + " newVer: " + ew);
         }
-        return Cy < ex;
+        return Cy < ew;
     }
 
     public void b(@Nullable com.baidu.swan.apps.extcore.c.a aVar) {
@@ -104,9 +104,9 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
                     if (a.DEBUG) {
                         Log.d("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
                     }
-                    b et = b.et(a.this.avQ.Cx());
+                    b es = b.es(a.this.avQ.Cx());
                     com.baidu.swan.apps.extcore.model.a aVar2 = new com.baidu.swan.apps.extcore.model.a();
-                    aVar2.versionName = et.awn;
+                    aVar2.versionName = es.awn;
                     aVar2.awp = a.this.avQ.Cw();
                     a.this.b(aVar2);
                     a.this.CA();
@@ -120,9 +120,9 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> extends
 
     public void Cn() {
         if (isNeedUpdate()) {
-            b et = b.et(this.avQ.Cx());
+            b es = b.es(this.avQ.Cx());
             com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
-            aVar.versionName = et.awn;
+            aVar.versionName = es.awn;
             aVar.awp = this.avQ.Cw();
             b(aVar);
             CA();

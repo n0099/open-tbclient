@@ -13,21 +13,21 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d extends com.facebook.drawee.controller.a<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.imagepipeline.f.e> {
-    private static final Class<?> jQS = d.class;
-    private com.facebook.cache.common.b jRN;
-    private final com.facebook.imagepipeline.a.a.a jTH;
+    private static final Class<?> jQV = d.class;
+    private com.facebook.cache.common.b jRQ;
+    private final com.facebook.imagepipeline.a.a.a jTK;
     @Nullable
-    private final ImmutableList<a> jTI;
+    private final ImmutableList<a> jTL;
     @Nullable
-    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jTJ;
-    private i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> jTK;
-    private boolean jTL;
-    private final a jTM;
+    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jTM;
+    private i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> jTN;
+    private boolean jTO;
+    private final a jTP;
     private final Resources mResources;
 
     public d(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.a.a.a aVar2, Executor executor, t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar, String str, com.facebook.cache.common.b bVar, Object obj, @Nullable ImmutableList<a> immutableList) {
         super(aVar, executor, str, obj);
-        this.jTM = new a() { // from class: com.facebook.drawee.a.a.d.1
+        this.jTP = new a() { // from class: com.facebook.drawee.a.a.d.1
             @Override // com.facebook.drawee.a.a.a
             public boolean a(com.facebook.imagepipeline.f.b bVar2) {
                 return true;
@@ -36,45 +36,45 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
             @Override // com.facebook.drawee.a.a.a
             public Drawable b(com.facebook.imagepipeline.f.b bVar2) {
                 if (!(bVar2 instanceof com.facebook.imagepipeline.f.c)) {
-                    if (d.this.jTH != null) {
-                        return d.this.jTH.d(bVar2);
+                    if (d.this.jTK != null) {
+                        return d.this.jTK.d(bVar2);
                     }
                     return null;
                 }
                 com.facebook.imagepipeline.f.c cVar = (com.facebook.imagepipeline.f.c) bVar2;
-                BitmapDrawable bitmapDrawable = new BitmapDrawable(d.this.mResources, cVar.cGB());
-                return (cVar.cGE() == 0 || cVar.cGE() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, cVar.cGE());
+                BitmapDrawable bitmapDrawable = new BitmapDrawable(d.this.mResources, cVar.cGA());
+                return (cVar.cGD() == 0 || cVar.cGD() == -1) ? bitmapDrawable : new com.facebook.drawee.drawable.i(bitmapDrawable, cVar.cGD());
             }
         };
         this.mResources = resources;
-        this.jTH = aVar2;
-        this.jTJ = tVar;
-        this.jRN = bVar;
-        this.jTI = immutableList;
+        this.jTK = aVar2;
+        this.jTM = tVar;
+        this.jRQ = bVar;
+        this.jTL = immutableList;
         a(iVar);
     }
 
     public void a(i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar, String str, com.facebook.cache.common.b bVar, Object obj) {
         super.v(str, obj);
         a(iVar);
-        this.jRN = bVar;
+        this.jRQ = bVar;
     }
 
-    public void se(boolean z) {
-        this.jTL = z;
+    public void sf(boolean z) {
+        this.jTO = z;
     }
 
     private void a(i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar) {
-        this.jTK = iVar;
+        this.jTN = iVar;
         c(null);
     }
 
     @Override // com.facebook.drawee.controller.a
-    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cCx() {
+    protected com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cCw() {
         if (com.facebook.common.c.a.isLoggable(2)) {
-            com.facebook.common.c.a.a(jQS, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
+            com.facebook.common.c.a.a(jQV, "controller %x: getDataSource", Integer.valueOf(System.identityHashCode(this)));
         }
-        return this.jTK.get();
+        return this.jTN.get();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -86,8 +86,8 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
         com.facebook.common.internal.g.checkState(com.facebook.common.references.a.a(aVar));
         com.facebook.imagepipeline.f.b bVar = aVar.get();
         c(bVar);
-        if (this.jTI != null) {
-            Iterator<a> it = this.jTI.iterator();
+        if (this.jTL != null) {
+            Iterator<a> it = this.jTL.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next.a(bVar) && (b = next.b(bVar)) != null) {
@@ -95,7 +95,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
                 }
             }
         }
-        Drawable b2 = this.jTM.b(bVar);
+        Drawable b2 = this.jTP.b(bVar);
         if (b2 != null) {
             return b2;
         }
@@ -111,18 +111,18 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     private void c(@Nullable com.facebook.imagepipeline.f.b bVar) {
         m l;
         n.b bVar2 = null;
-        if (this.jTL) {
-            Drawable cCP = cCP();
-            if (cCP == null) {
-                cCP = new com.facebook.drawee.b.a();
-                g(cCP);
+        if (this.jTO) {
+            Drawable cCO = cCO();
+            if (cCO == null) {
+                cCO = new com.facebook.drawee.b.a();
+                g(cCO);
             }
-            if (cCP instanceof com.facebook.drawee.b.a) {
-                com.facebook.drawee.b.a aVar = (com.facebook.drawee.b.a) cCP;
-                aVar.GR(getId());
+            if (cCO instanceof com.facebook.drawee.b.a) {
+                com.facebook.drawee.b.a aVar = (com.facebook.drawee.b.a) cCO;
+                aVar.GT(getId());
                 com.facebook.drawee.d.b hierarchy = getHierarchy();
                 if (hierarchy != null && (l = n.l(hierarchy.getTopLevelDrawable())) != null) {
-                    bVar2 = l.cDt();
+                    bVar2 = l.cDs();
                 }
                 aVar.a(bVar2);
                 if (bVar != null) {
@@ -150,7 +150,7 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     /* renamed from: f */
     public int aJ(@Nullable com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar) {
         if (aVar != null) {
-            return aVar.cBP();
+            return aVar.cBO();
         }
         return 0;
     }
@@ -166,20 +166,20 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
     @Override // com.facebook.drawee.controller.a
     protected void f(@Nullable Drawable drawable) {
         if (drawable instanceof com.facebook.b.a.a) {
-            ((com.facebook.b.a.a) drawable).cCq();
+            ((com.facebook.b.a.a) drawable).cCp();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.a
-    /* renamed from: cCy */
-    public com.facebook.common.references.a<com.facebook.imagepipeline.f.b> cCz() {
-        if (this.jTJ == null || this.jRN == null) {
+    /* renamed from: cCx */
+    public com.facebook.common.references.a<com.facebook.imagepipeline.f.b> cCy() {
+        if (this.jTM == null || this.jRQ == null) {
             return null;
         }
-        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aV = this.jTJ.aV(this.jRN);
-        if (aV == null || aV.get().cGC().cGN()) {
+        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aV = this.jTM.aV(this.jRQ);
+        if (aV == null || aV.get().cGB().cGM()) {
             return aV;
         }
         aV.close();
@@ -188,6 +188,6 @@ public class d extends com.facebook.drawee.controller.a<com.facebook.common.refe
 
     @Override // com.facebook.drawee.controller.a
     public String toString() {
-        return com.facebook.common.internal.f.aC(this).t("super", super.toString()).t("dataSourceSupplier", this.jTK).toString();
+        return com.facebook.common.internal.f.aC(this).t("super", super.toString()).t("dataSourceSupplier", this.jTN).toString();
     }
 }

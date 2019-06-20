@@ -14,16 +14,16 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n {
-    public static void uS(String str) {
+    public static void uR(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.Ej(str)) {
-            readThreadHistory.Eh(str);
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.El(str)) {
+            readThreadHistory.Ej(str);
         }
     }
 
-    public static boolean uT(String str) {
+    public static boolean uS(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.Ei(str)) ? false : true;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.Ek(str)) ? false : true;
     }
 
     public static String aXH() {
@@ -36,7 +36,7 @@ public class n {
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (uT(str)) {
+            if (uS(str)) {
                 al.j(textView, i2);
             } else {
                 al.j(textView, i);
@@ -46,7 +46,7 @@ public class n {
 
     /* loaded from: classes.dex */
     public static class a {
-        public int Ub;
+        public int Ua;
         public int exI;
         public String exJ;
         public int exK;
@@ -55,18 +55,18 @@ public class n {
         public a(int i, int i2, int i3) {
             this.exI = -1;
             this.exJ = "";
-            this.Ub = R.color.cp_link_tip_c;
+            this.Ua = R.color.cp_link_tip_c;
             this.exK = R.drawable.pic_dot_title;
             this.exL = 0;
             this.exI = i;
-            this.Ub = i2;
+            this.Ua = i2;
             this.exK = i3;
         }
 
         public a(int i) {
             this.exI = -1;
             this.exJ = "";
-            this.Ub = R.color.cp_link_tip_c;
+            this.Ua = R.color.cp_link_tip_c;
             this.exK = R.drawable.pic_dot_title;
             this.exL = 0;
             this.exI = i;
@@ -75,7 +75,7 @@ public class n {
         public a(String str) {
             this.exI = -1;
             this.exJ = "";
-            this.Ub = R.color.cp_link_tip_c;
+            this.Ua = R.color.cp_link_tip_c;
             this.exK = R.drawable.pic_dot_title;
             this.exL = 0;
             this.exJ = str;
@@ -84,7 +84,7 @@ public class n {
         public a(String str, int i) {
             this.exI = -1;
             this.exJ = "";
-            this.Ub = R.color.cp_link_tip_c;
+            this.Ua = R.color.cp_link_tip_c;
             this.exK = R.drawable.pic_dot_title;
             this.exL = 0;
             this.exJ = str;
@@ -110,7 +110,7 @@ public class n {
                 if (!com.baidu.adp.lib.util.k.isEmpty(aVar.exJ)) {
                     int length = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) aVar.exJ);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(aVar.Ub)), length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(aVar.Ua)), length, spannableStringBuilder.length(), 17);
                     if (i == arrayList.size() - 1 && !z2) {
                         break;
                     }
@@ -149,7 +149,7 @@ public class n {
             return;
         }
         textView.setVisibility(0);
-        bgVar.bIO = 0;
+        bgVar.bIP = 0;
         bgVar.k(false, true);
         SpannableStringBuilder aeb = bgVar.aeb();
         textView.setOnTouchListener(new com.baidu.tieba.view.k(aeb));

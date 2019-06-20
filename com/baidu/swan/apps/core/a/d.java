@@ -14,7 +14,7 @@ public final class d {
 
     /* loaded from: classes2.dex */
     public interface b {
-        void dw(String str);
+        void dv(String str);
     }
 
     private d() {
@@ -31,7 +31,7 @@ public final class d {
         return aoW;
     }
 
-    public synchronized void dv(String str) {
+    public synchronized void du(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.i("SwanAppAPSStatusSync", "swanAppPreDownloadFinish:" + str);
@@ -45,7 +45,7 @@ public final class d {
                 if (set != null) {
                     for (b bVar : set) {
                         if (bVar != null) {
-                            bVar.dw(str);
+                            bVar.dv(str);
                         }
                     }
                 }
@@ -55,7 +55,7 @@ public final class d {
     }
 
     public synchronized void a(SubPackageAPSInfo subPackageAPSInfo) {
-        dv(b(subPackageAPSInfo));
+        du(b(subPackageAPSInfo));
     }
 
     private String b(SubPackageAPSInfo subPackageAPSInfo) {

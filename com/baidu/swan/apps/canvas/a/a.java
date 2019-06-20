@@ -19,12 +19,12 @@ abstract class a extends z {
     }
 
     public AbsoluteLayout a(UnitedSchemeEntity unitedSchemeEntity, String str) {
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(str);
-        if (dU == null) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(str);
+        if (dT == null) {
             unitedSchemeEntity.result = bP(1001);
             return null;
         }
-        com.baidu.swan.apps.b.c.d wS = dU.wS();
+        com.baidu.swan.apps.b.c.d wS = dT.wS();
         if (wS == null) {
             unitedSchemeEntity.result = bP(1001);
             return null;

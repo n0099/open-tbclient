@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> kug = new AtomicReference<>();
-    private final g kud;
-    private final g kue;
-    private final g kuf;
+    private static final AtomicReference<Schedulers> kuj = new AtomicReference<>();
+    private final g kug;
+    private final g kuh;
+    private final g kui;
 
-    private static Schedulers cMO() {
+    private static Schedulers cMN() {
         Schedulers schedulers;
         while (true) {
-            schedulers = kug.get();
+            schedulers = kuj.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (kug.compareAndSet(null, schedulers)) {
+                if (kuj.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cMQ();
+                schedulers.cMP();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g cMF = f.cMA().cMF();
-        g cMJ = cMF.cMJ();
+        rx.c.g cME = f.cMz().cME();
+        g cMI = cME.cMI();
+        if (cMI != null) {
+            this.kug = cMI;
+        } else {
+            this.kug = rx.c.g.cMF();
+        }
+        g cMJ = cME.cMJ();
         if (cMJ != null) {
-            this.kud = cMJ;
+            this.kuh = cMJ;
         } else {
-            this.kud = rx.c.g.cMG();
+            this.kuh = rx.c.g.cMG();
         }
-        g cMK = cMF.cMK();
+        g cMK = cME.cMK();
         if (cMK != null) {
-            this.kue = cMK;
+            this.kui = cMK;
         } else {
-            this.kue = rx.c.g.cMH();
-        }
-        g cML = cMF.cML();
-        if (cML != null) {
-            this.kuf = cML;
-        } else {
-            this.kuf = rx.c.g.cMI();
+            this.kui = rx.c.g.cMH();
         }
     }
 
     public static g immediate() {
-        return e.krN;
+        return e.krQ;
     }
 
     public static g trampoline() {
-        return j.ksn;
+        return j.ksq;
     }
 
     public static g newThread() {
-        return c.i(cMO().kuf);
+        return c.i(cMN().kui);
     }
 
     public static g computation() {
-        return c.g(cMO().kud);
+        return c.g(cMN().kug);
     }
 
     public static g io() {
-        return c.h(cMO().kue);
+        return c.h(cMN().kuh);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = kug.getAndSet(null);
+        Schedulers andSet = kuj.getAndSet(null);
         if (andSet != null) {
-            andSet.cMQ();
+            andSet.cMP();
         }
     }
 
     public static void start() {
-        Schedulers cMO = cMO();
-        cMO.cMP();
-        synchronized (cMO) {
-            d.krK.start();
+        Schedulers cMN = cMN();
+        cMN.cMO();
+        synchronized (cMN) {
+            d.krN.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cMO = cMO();
-        cMO.cMQ();
-        synchronized (cMO) {
-            d.krK.shutdown();
+        Schedulers cMN = cMN();
+        cMN.cMP();
+        synchronized (cMN) {
+            d.krN.shutdown();
+        }
+    }
+
+    synchronized void cMO() {
+        if (this.kug instanceof h) {
+            ((h) this.kug).start();
+        }
+        if (this.kuh instanceof h) {
+            ((h) this.kuh).start();
+        }
+        if (this.kui instanceof h) {
+            ((h) this.kui).start();
         }
     }
 
     synchronized void cMP() {
-        if (this.kud instanceof h) {
-            ((h) this.kud).start();
+        if (this.kug instanceof h) {
+            ((h) this.kug).shutdown();
         }
-        if (this.kue instanceof h) {
-            ((h) this.kue).start();
+        if (this.kuh instanceof h) {
+            ((h) this.kuh).shutdown();
         }
-        if (this.kuf instanceof h) {
-            ((h) this.kuf).start();
-        }
-    }
-
-    synchronized void cMQ() {
-        if (this.kud instanceof h) {
-            ((h) this.kud).shutdown();
-        }
-        if (this.kue instanceof h) {
-            ((h) this.kue).shutdown();
-        }
-        if (this.kuf instanceof h) {
-            ((h) this.kuf).shutdown();
+        if (this.kui instanceof h) {
+            ((h) this.kui).shutdown();
         }
     }
 }

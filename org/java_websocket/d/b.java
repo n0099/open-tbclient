@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String kmw;
+    private final String kmz;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.kmw = str;
+        this.kmz = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Hs(String str) {
+    public boolean Hu(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.kmw.equals(str2)) {
+            if (this.kmz.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String cKV() {
-        return this.kmw;
+    public String cKU() {
+        return this.kmz;
     }
 
     @Override // org.java_websocket.d.a
-    public a cKW() {
-        return new b(cKV());
+    public a cKV() {
+        return new b(cKU());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return cKV();
+        return cKU();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.kmw.equals(((b) obj).kmw);
+        return this.kmz.equals(((b) obj).kmz);
     }
 
     public int hashCode() {
-        return this.kmw.hashCode();
+        return this.kmz.hashCode();
     }
 }

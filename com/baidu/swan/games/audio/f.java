@@ -49,7 +49,7 @@ public class f {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String iI(String str) throws MalformedURLException {
+    public static String iH(String str) throws MalformedURLException {
         return "/" + com.baidu.swan.apps.ae.b.LB() + "/" + String.valueOf(str.hashCode());
     }
 

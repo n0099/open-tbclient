@@ -9,9 +9,9 @@ import android.view.View;
 /* loaded from: classes3.dex */
 public class CircleProgressBar extends View {
     private float aAe;
-    private Paint ckK;
     private Paint ckL;
-    private RectF ckM;
+    private Paint ckM;
+    private RectF ckN;
     private int currentProgress;
 
     public CircleProgressBar(Context context) {
@@ -27,47 +27,47 @@ public class CircleProgressBar extends View {
     }
 
     private void apb() {
-        this.ckM = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
-        this.ckK = new Paint();
-        this.ckK.setAntiAlias(true);
-        this.ckK.setDither(true);
-        this.ckK.setStyle(Paint.Style.STROKE);
-        this.ckK.setStrokeCap(Paint.Cap.ROUND);
-        this.ckK.setStrokeWidth(this.aAe);
+        this.ckN = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
         this.ckL = new Paint();
         this.ckL.setAntiAlias(true);
         this.ckL.setDither(true);
         this.ckL.setStyle(Paint.Style.STROKE);
         this.ckL.setStrokeCap(Paint.Cap.ROUND);
         this.ckL.setStrokeWidth(this.aAe);
+        this.ckM = new Paint();
+        this.ckM.setAntiAlias(true);
+        this.ckM.setDither(true);
+        this.ckM.setStyle(Paint.Style.STROKE);
+        this.ckM.setStrokeCap(Paint.Cap.ROUND);
+        this.ckM.setStrokeWidth(this.aAe);
     }
 
     public void setCircleBackgroundColor(int i) {
-        this.ckL.setColor(i);
+        this.ckM.setColor(i);
         postInvalidate();
     }
 
     public void setCircleForegroundColor(int i) {
-        this.ckK.setColor(i);
+        this.ckL.setColor(i);
         postInvalidate();
     }
 
     public void setWidth(int i) {
         this.aAe = i;
+        this.ckM.setStrokeWidth(i);
         this.ckL.setStrokeWidth(i);
-        this.ckK.setStrokeWidth(i);
         postInvalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         if (this.currentProgress >= 0) {
-            this.ckM.left = this.aAe;
-            this.ckM.top = this.aAe;
-            this.ckM.right = getWidth() - this.aAe;
-            this.ckM.bottom = getHeight() - this.aAe;
-            canvas.drawArc(this.ckM, 0.0f, 360.0f, false, this.ckL);
-            canvas.drawArc(this.ckM, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ckK);
+            this.ckN.left = this.aAe;
+            this.ckN.top = this.aAe;
+            this.ckN.right = getWidth() - this.aAe;
+            this.ckN.bottom = getHeight() - this.aAe;
+            canvas.drawArc(this.ckN, 0.0f, 360.0f, false, this.ckM);
+            canvas.drawArc(this.ckN, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ckL);
         }
     }
 

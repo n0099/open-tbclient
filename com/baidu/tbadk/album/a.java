@@ -17,7 +17,7 @@ public class a {
         return this.albumId;
     }
 
-    public void lq(String str) {
+    public void lp(String str) {
         this.albumId = str;
     }
 
@@ -33,7 +33,7 @@ public class a {
         return this.count;
     }
 
-    public void lr(String str) {
+    public void lq(String str) {
         this.count = com.baidu.adp.lib.g.b.f(str, 0);
     }
 

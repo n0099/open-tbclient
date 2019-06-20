@@ -27,18 +27,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class b {
-    private BdTypeRecyclerView NZ;
+    private BdTypeRecyclerView NY;
     private PbListView dlY;
     private BdSwipeRefreshLayout dni;
     private BdListView.e dvS = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (b.this.NZ != null) {
-                b.this.NZ.stopScroll();
+            if (b.this.NY != null) {
+                b.this.NY.stopScroll();
             }
             if (b.this.dlY != null && b.this.fvZ != null) {
                 if (j.jS()) {
-                    b.this.NZ.setNextPage(b.this.dlY);
+                    b.this.NY.setNextPage(b.this.dlY);
                     b.this.dlY.iQ(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
                     b.this.dlY.setOnClickListener(null);
                     if (b.this.hasMore) {
@@ -50,7 +50,7 @@ public class b {
                     b.this.dlY.ajz();
                     return;
                 }
-                b.this.NZ.setNextPage(null);
+                b.this.NY.setNextPage(null);
             }
         }
     };
@@ -61,7 +61,7 @@ public class b {
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if (i == 0) {
                 if (b.this.frm != null) {
-                    b.this.frm.c(b.this.NZ.getFirstVisiblePosition(), b.this.NZ.getLastVisiblePosition(), this.fwu, true);
+                    b.this.frm.c(b.this.NY.getFirstVisiblePosition(), b.this.NY.getLastVisiblePosition(), this.fwu, true);
                 }
                 t.aXP().iv(true);
             }
@@ -87,15 +87,15 @@ public class b {
     public b(FrsCommonTabFragment frsCommonTabFragment, View view, FrsViewData frsViewData) {
         if (frsCommonTabFragment != null && view != null) {
             this.fvZ = frsCommonTabFragment;
-            this.NZ = (BdTypeRecyclerView) view.findViewById(R.id.frs_common_tab_recycler_view);
-            this.NZ.setLayoutManager(new LinearLayoutManager(this.fvZ.getContext()));
-            this.NZ.setFadingEdgeLength(0);
-            this.NZ.setOverScrollMode(2);
-            this.NZ.setOnSrollToBottomListener(this.dvS);
-            this.NZ.addOnScrollListener(this.eqr);
+            this.NY = (BdTypeRecyclerView) view.findViewById(R.id.frs_common_tab_recycler_view);
+            this.NY.setLayoutManager(new LinearLayoutManager(this.fvZ.getContext()));
+            this.NY.setFadingEdgeLength(0);
+            this.NY.setOverScrollMode(2);
+            this.NY.setOnSrollToBottomListener(this.dvS);
+            this.NY.addOnScrollListener(this.eqr);
             this.mPullView = new i(this.fvZ.getPageContext());
             this.mPullView.setListPullRefreshListener(this.fvZ);
-            this.NZ.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.3
+            this.NY.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.3
                 @Override // android.support.v7.widget.RecyclerView.RecyclerListener
                 public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                     View view2 = viewHolder.itemView;
@@ -131,10 +131,10 @@ public class b {
                 this.dni.setProgressView(this.mPullView);
                 al.l(this.dni, R.color.cp_bg_line_e);
             }
-            this.fwr = new a(this.fvZ, this.NZ, frsViewData);
+            this.fwr = new a(this.fvZ, this.NY, frsViewData);
             fY(false);
             if (this.frm == null) {
-                this.frm = new m(this.fvZ.getPageContext(), this.NZ);
+                this.frm = new m(this.fvZ.getPageContext(), this.NY);
             }
             this.frm.setUniqueId(this.fvZ.getUniqueId());
         }
@@ -171,7 +171,7 @@ public class b {
             }
             this.fws = dVar;
             this.dlY.iQ(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.NZ.setNextPage(this.dlY);
+            this.NY.setNextPage(this.dlY);
             if (this.hasMore) {
                 this.dlY.ajB();
             } else {
@@ -181,14 +181,14 @@ public class b {
             this.fwr.setData(dVar.threadList);
             this.fwr.notifyDataSetChanged();
             if (this.frm != null) {
-                this.frm.c(this.NZ.getFirstVisiblePosition(), this.NZ.getLastVisiblePosition(), false, true);
+                this.frm.c(this.NY.getFirstVisiblePosition(), this.NY.getLastVisiblePosition(), false, true);
             }
         }
     }
 
     public void setSelection(int i) {
-        if (this.NZ != null) {
-            this.NZ.setSelection(i);
+        if (this.NY != null) {
+            this.NY.setSelection(i);
         }
     }
 
@@ -203,13 +203,13 @@ public class b {
 
     public void resume() {
         if (this.frm != null) {
-            this.frm.bIF();
+            this.frm.bIG();
         }
     }
 
     public void pause() {
         if (this.frm != null) {
-            this.frm.bIE();
+            this.frm.bIF();
         }
     }
 
@@ -219,7 +219,7 @@ public class b {
         }
     }
 
-    public void wA(String str) {
+    public void wz(String str) {
         bg bgVar;
         if (!StringUtils.isNull(str) && this.fws != null && !v.aa(this.fws.threadList)) {
             Iterator<com.baidu.adp.widget.ListView.m> it = this.fws.threadList.iterator();
@@ -246,7 +246,7 @@ public class b {
     }
 
     public void bjy() {
-        this.NZ.scrollToPosition(0);
+        this.NY.scrollToPosition(0);
     }
 
     public void refreshView() {
@@ -264,7 +264,7 @@ public class b {
     }
 
     public BdTypeRecyclerView bmA() {
-        return this.NZ;
+        return this.NY;
     }
 
     public m bkH() {

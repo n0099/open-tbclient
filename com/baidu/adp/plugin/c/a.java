@@ -14,22 +14,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a IC = null;
-    private HashMap<String, ArrayList<Message<?>>> IB = null;
+    private static volatile a IB = null;
+    private HashMap<String, ArrayList<Message<?>>> IA = null;
 
     public static a lS() {
-        if (IC == null) {
+        if (IB == null) {
             synchronized (a.class) {
-                if (IC == null) {
-                    IC = new a();
+                if (IB == null) {
+                    IB = new a();
                 }
             }
         }
-        return IC;
+        return IB;
     }
 
     public void init() {
-        this.IB = new HashMap<>();
+        this.IA = new HashMap<>();
         lU();
         lT();
     }
@@ -43,13 +43,13 @@ public class a {
                 ArrayList arrayList;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000997 && (data = customResponsedMessage.getData()) != null && (data instanceof PluginLoadedMessage.a)) {
                     PluginLoadedMessage.a aVar = (PluginLoadedMessage.a) data;
-                    if (aVar.IA == 0 && a.this.IB.size() > 0 && (arrayList = (ArrayList) a.this.IB.get(aVar.Iz)) != null && arrayList.size() > 0) {
+                    if (aVar.Iz == 0 && a.this.IA.size() > 0 && (arrayList = (ArrayList) a.this.IA.get(aVar.Iy)) != null && arrayList.size() > 0) {
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             MessageManager.getInstance().sendMessage((Message) it.next());
                         }
                     }
-                    a.this.IB.remove(aVar.Iz);
+                    a.this.IA.remove(aVar.Iy);
                 }
             }
         });
@@ -68,7 +68,7 @@ public class a {
                 }
                 if (!PluginCenter.getInstance().hasInstance(aC)) {
                     a.this.a(aC, message);
-                    return PluginCenter.getInstance().launch(aC).Hi;
+                    return PluginCenter.getInstance().launch(aC).Hh;
                 } else if (PluginCenter.getInstance().isLoaded(aC)) {
                     return false;
                 } else {
@@ -82,10 +82,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, Message<?> message) {
         if (!TextUtils.isEmpty(str) && message != null) {
-            ArrayList<Message<?>> arrayList = this.IB.get(str);
+            ArrayList<Message<?>> arrayList = this.IA.get(str);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.IB.put(str, arrayList);
+                this.IA.put(str, arrayList);
             }
             arrayList.add(message);
         }

@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f ktU = new f();
-    static final b ktZ = new b() { // from class: rx.c.f.1
+    private static final f ktX = new f();
+    static final b kuc = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> ktV = new AtomicReference<>();
-    private final AtomicReference<d> ktW = new AtomicReference<>();
-    private final AtomicReference<h> ktX = new AtomicReference<>();
-    private final AtomicReference<a> ktY = new AtomicReference<>();
-    private final AtomicReference<g> knb = new AtomicReference<>();
+    private final AtomicReference<b> ktY = new AtomicReference<>();
+    private final AtomicReference<d> ktZ = new AtomicReference<>();
+    private final AtomicReference<h> kua = new AtomicReference<>();
+    private final AtomicReference<a> kub = new AtomicReference<>();
+    private final AtomicReference<g> kne = new AtomicReference<>();
 
     @Deprecated
-    public static f cMA() {
-        return ktU;
+    public static f cMz() {
+        return ktX;
     }
 
     f() {
     }
 
-    public b cMB() {
-        if (this.ktV.get() == null) {
+    public b cMA() {
+        if (this.ktY.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.ktV.compareAndSet(null, ktZ);
+                this.ktY.compareAndSet(null, kuc);
             } else {
-                this.ktV.compareAndSet(null, (b) a);
-            }
-        }
-        return this.ktV.get();
-    }
-
-    public d cMC() {
-        if (this.ktW.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.ktW.compareAndSet(null, e.cMz());
-            } else {
-                this.ktW.compareAndSet(null, (d) a);
-            }
-        }
-        return this.ktW.get();
-    }
-
-    public h cMD() {
-        if (this.ktX.get() == null) {
-            Object a = a(h.class, System.getProperties());
-            if (a == null) {
-                this.ktX.compareAndSet(null, i.cMN());
-            } else {
-                this.ktX.compareAndSet(null, (h) a);
-            }
-        }
-        return this.ktX.get();
-    }
-
-    public a cME() {
-        if (this.ktY.get() == null) {
-            Object a = a(a.class, System.getProperties());
-            if (a == null) {
-                this.ktY.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
-            } else {
-                this.ktY.compareAndSet(null, (a) a);
+                this.ktY.compareAndSet(null, (b) a);
             }
         }
         return this.ktY.get();
+    }
+
+    public d cMB() {
+        if (this.ktZ.get() == null) {
+            Object a = a(d.class, System.getProperties());
+            if (a == null) {
+                this.ktZ.compareAndSet(null, e.cMy());
+            } else {
+                this.ktZ.compareAndSet(null, (d) a);
+            }
+        }
+        return this.ktZ.get();
+    }
+
+    public h cMC() {
+        if (this.kua.get() == null) {
+            Object a = a(h.class, System.getProperties());
+            if (a == null) {
+                this.kua.compareAndSet(null, i.cMM());
+            } else {
+                this.kua.compareAndSet(null, (h) a);
+            }
+        }
+        return this.kua.get();
+    }
+
+    public a cMD() {
+        if (this.kub.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.kub.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.kub.compareAndSet(null, (a) a);
+            }
+        }
+        return this.kub.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g cMF() {
-        if (this.knb.get() == null) {
+    public g cME() {
+        if (this.kne.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.knb.compareAndSet(null, g.cMM());
+                this.kne.compareAndSet(null, g.cML());
             } else {
-                this.knb.compareAndSet(null, (g) a);
+                this.kne.compareAndSet(null, (g) a);
             }
         }
-        return this.knb.get();
+        return this.kne.get();
     }
 }

@@ -5,6 +5,6 @@ import android.os.Bundle;
 public class n {
     public Bundle ayy;
     public int iconId;
-    public com.baidu.tieba.personCenter.c.a ikP;
+    public com.baidu.tieba.personCenter.c.a ikQ;
     public String title;
 }

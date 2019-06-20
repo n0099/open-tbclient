@@ -29,31 +29,31 @@ public class b extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
-        SwanAppAudioPlayer fi;
+        SwanAppAudioPlayer fh;
         boolean z;
         if (DEBUG) {
             Log.d("AudioPlayerAction", "handleSubAction subAction: " + str);
         }
-        JSONObject fh = fh(unitedSchemeEntity.getParam("params"));
-        if (fh == null) {
+        JSONObject fg = fg(unitedSchemeEntity.getParam("params"));
+        if (fg == null) {
             c.e("audio", "object is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else if (TextUtils.equals(str, "/swan/audio/setInnerAudioOption")) {
-            return a(fh, bVar, unitedSchemeEntity, callbackHandler);
+            return a(fg, bVar, unitedSchemeEntity, callbackHandler);
         } else {
-            String optString = fh.optString("audioId");
+            String optString = fg.optString("audioId");
             if (TextUtils.equals(str, "/swan/audio/open")) {
-                fi = new SwanAppAudioPlayer(optString);
+                fh = new SwanAppAudioPlayer(optString);
             } else {
-                fi = fi(optString);
+                fh = fh(optString);
             }
-            if (fi == null) {
+            if (fh == null) {
                 c.e("audio", "player is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(fh, fi.Gn());
+            com.baidu.swan.apps.media.audio.b a = com.baidu.swan.apps.media.audio.b.a(fg, fh.Gn());
             if (!a.isValid()) {
                 c.e("audio", "params is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -110,37 +110,37 @@ public class b extends z {
             switch (c) {
                 case 0:
                     c.i("audio", "open, audio id:" + a.aAu);
-                    fi.a(a, callbackHandler);
+                    fh.a(a, callbackHandler);
                     z = true;
                     break;
                 case 1:
                     c.i("audio", "update, audio id:" + a.aAu);
-                    fi.a(a);
+                    fh.a(a);
                     z = true;
                     break;
                 case 2:
                     c.i("audio", "play, audio id:" + a.aAu);
-                    fi.play();
+                    fh.play();
                     z = true;
                     break;
                 case 3:
                     c.i("audio", "pause, audio id:" + a.aAu);
-                    fi.pause();
+                    fh.pause();
                     z = true;
                     break;
                 case 4:
                     c.i("audio", "seek, audio id:" + a.aAu);
-                    fi.seekTo(a.mPos);
+                    fh.seekTo(a.mPos);
                     z = true;
                     break;
                 case 5:
                     c.i("audio", "stop, audio id:" + a.aAu);
-                    fi.stop();
+                    fh.stop();
                     z = true;
                     break;
                 case 6:
                     c.i("audio", "release, audio id:" + a.aAu);
-                    fi.release();
+                    fh.release();
                     z = true;
                     break;
                 default:
@@ -155,18 +155,18 @@ public class b extends z {
         }
     }
 
-    private SwanAppAudioPlayer fi(String str) {
+    private SwanAppAudioPlayer fh(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        com.baidu.swan.apps.media.a fc = com.baidu.swan.apps.media.b.fc(str);
-        if (!(fc instanceof SwanAppAudioPlayer)) {
+        com.baidu.swan.apps.media.a fb = com.baidu.swan.apps.media.b.fb(str);
+        if (!(fb instanceof SwanAppAudioPlayer)) {
             return null;
         }
-        return (SwanAppAudioPlayer) fc.Ge();
+        return (SwanAppAudioPlayer) fb.Ge();
     }
 
-    private JSONObject fh(String str) {
+    private JSONObject fg(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 return new JSONObject(str);
