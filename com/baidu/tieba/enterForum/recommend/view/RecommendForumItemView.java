@@ -71,7 +71,7 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.eVR) {
-            if (!this.eVV.bHO) {
+            if (!this.eVV.bHP) {
                 this.eVU.d(this.eVV);
                 return;
             }
@@ -110,7 +110,7 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
             } else {
                 this.eVQ.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_forum_default_introduce));
             }
-            jj(bVar.bHO);
+            jj(bVar.bHP);
             g(bVar);
         }
     }
@@ -123,7 +123,7 @@ public class RecommendForumItemView extends LinearLayout implements View.OnClick
             this.eVR.setVisibility(0);
             this.eVT.setVisibility(8);
         }
-        this.eVV.bHO = z;
+        this.eVV.bHP = z;
     }
 
     private void g(com.baidu.tieba.enterForum.recommend.b.b bVar) {

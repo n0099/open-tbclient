@@ -60,7 +60,7 @@ public class e implements a {
                 @Override // com.baidu.swan.apps.core.g.d.b
                 public void c(com.baidu.swan.games.e.a aVar) {
                     if (cVar != null) {
-                        cVar.ds(e.this.asd);
+                        cVar.dr(e.this.asd);
                     }
                 }
             });

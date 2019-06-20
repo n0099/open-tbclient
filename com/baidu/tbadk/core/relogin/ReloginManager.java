@@ -23,15 +23,15 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ReloginManager {
-    private static ReloginManager bOP = new ReloginManager();
-    private boolean bOO;
-    private final ArrayList<HttpMessage> bOQ = new ArrayList<>();
-    private final HttpMessageListener bOR = new HttpMessageListener(CmdConfigHttp.BG_LOGIN_HTTP_CMD) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
+    private static ReloginManager bOQ = new ReloginManager();
+    private boolean bOP;
+    private final ArrayList<HttpMessage> bOR = new ArrayList<>();
+    private final HttpMessageListener bOS = new HttpMessageListener(CmdConfigHttp.BG_LOGIN_HTTP_CMD) { // from class: com.baidu.tbadk.core.relogin.ReloginManager.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof BgLoginHttpResponsedMessage)) {
-                ReloginManager.this.bOO = false;
+                ReloginManager.this.bOP = false;
                 BgLoginHttpResponsedMessage bgLoginHttpResponsedMessage = (BgLoginHttpResponsedMessage) httpResponsedMessage;
                 int statusCode = bgLoginHttpResponsedMessage.getStatusCode();
                 int error = bgLoginHttpResponsedMessage.getError();
@@ -44,7 +44,7 @@ public class ReloginManager {
                 if (bgLoginHttpResponsedMessage.getErrorString() != null) {
                     l.showToast(TbadkCoreApplication.getInst().getContext(), bgLoginHttpResponsedMessage.getErrorString());
                 }
-                ReloginManager.this.bOQ.clear();
+                ReloginManager.this.bOR.clear();
             }
         }
     };
@@ -54,7 +54,7 @@ public class ReloginManager {
 
     public void registerTask() {
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.registerListener(this.bOR);
+        messageManager.registerListener(this.bOS);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.BG_LOGIN_HTTP_CMD, TbConfig.LOGIN_FULL_ADDRESS);
         tbHttpMessageTask.setNeedGzip(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -65,13 +65,13 @@ public class ReloginManager {
     }
 
     public static ReloginManager agF() {
-        return bOP;
+        return bOQ;
     }
 
     public void a(HttpMessage httpMessage) {
         a.a("account", -1L, 0, "login_auto_start", 0, "", new Object[0]);
         b(httpMessage);
-        if (!this.bOO) {
+        if (!this.bOP) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
                 currentAccountObj = b.abk();
@@ -80,7 +80,7 @@ public class ReloginManager {
                 e(currentAccountObj);
                 return;
             }
-            this.bOO = true;
+            this.bOP = true;
             if (!agI()) {
                 d(currentAccountObj);
             }
@@ -107,8 +107,8 @@ public class ReloginManager {
     }
 
     private void b(HttpMessage httpMessage) {
-        if (!this.bOQ.contains(httpMessage)) {
-            this.bOQ.add(httpMessage);
+        if (!this.bOR.contains(httpMessage)) {
+            this.bOR.add(httpMessage);
         }
     }
 
@@ -117,7 +117,7 @@ public class ReloginManager {
     }
 
     public void d(int i, BdUniqueId bdUniqueId) {
-        Iterator<HttpMessage> it = this.bOQ.iterator();
+        Iterator<HttpMessage> it = this.bOR.iterator();
         while (it.hasNext()) {
             HttpMessage next = it.next();
             BdUniqueId tag = next.getTag();
@@ -131,19 +131,19 @@ public class ReloginManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void agG() {
         MessageManager messageManager = MessageManager.getInstance();
-        Iterator<HttpMessage> it = this.bOQ.iterator();
+        Iterator<HttpMessage> it = this.bOR.iterator();
         while (it.hasNext()) {
             messageManager.sendMessage(it.next());
         }
-        this.bOQ.clear();
+        this.bOR.clear();
     }
 
     public boolean agH() {
-        return this.bOO;
+        return this.bOP;
     }
 
     public void dV(boolean z) {
-        this.bOO = z;
+        this.bOP = z;
     }
 
     /* loaded from: classes.dex */

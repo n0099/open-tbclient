@@ -18,12 +18,12 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends ImageView {
-    private long cQU;
-    c cQV;
-    private RotateAnimation cQW;
+    private long cQV;
+    c cQW;
     private RotateAnimation cQX;
-    private View.OnClickListener cQY;
-    private int cty;
+    private RotateAnimation cQY;
+    private View.OnClickListener cQZ;
+    private int ctA;
     private int ctz;
     private Context mContext;
     private int mPaddingTop;
@@ -40,16 +40,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.cQU = 0L;
-        this.cQY = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.cQV = 0L;
+        this.cQZ = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 NEGFeedBackView.this.azZ();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.cQU > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.cQV > 500) {
                     NEGFeedBackView.this.bm(view);
                 }
-                NEGFeedBackView.this.cQU = currentTimeMillis;
+                NEGFeedBackView.this.cQV = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -57,15 +57,15 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.cQV = new c(tbPageContext, this);
-        setOnClickListener(this.cQY);
+        this.cQW = new c(tbPageContext, this);
+        setOnClickListener(this.cQZ);
         al.c(this, (int) R.drawable.icon_home_card_delete);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         aAa();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.cQV.setUniqueId(bdUniqueId);
+        this.cQW.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -73,63 +73,63 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setLeftPadding(int i) {
-        this.cty = i;
-        setPadding(i, this.mPaddingTop, this.ctz, 0);
+        this.ctz = i;
+        setPadding(i, this.mPaddingTop, this.ctA, 0);
     }
 
     public void setTopPadding(int i) {
         this.mPaddingTop = i;
-        setPadding(this.cty, i, this.ctz, 0);
+        setPadding(this.ctz, i, this.ctA, 0);
     }
 
     public void setRightPadding(int i) {
-        this.ctz = i;
-        setPadding(this.cty, this.mPaddingTop, i, 0);
+        this.ctA = i;
+        setPadding(this.ctz, this.mPaddingTop, i, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bm(View view) {
-        this.cQV.bm(view);
+        this.cQW.bm(view);
     }
 
     public void azZ() {
-        this.cQV.azZ();
+        this.cQW.azZ();
     }
 
     private void aAa() {
-        this.cQW = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
+        this.cQX = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
         OvershootInterpolator overshootInterpolator = new OvershootInterpolator();
-        this.cQW.setInterpolator(overshootInterpolator);
-        this.cQW.setDuration(250L);
-        this.cQW.setFillAfter(true);
-        this.cQX = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
         this.cQX.setInterpolator(overshootInterpolator);
         this.cQX.setDuration(250L);
         this.cQX.setFillAfter(true);
+        this.cQY = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.cQY.setInterpolator(overshootInterpolator);
+        this.cQY.setDuration(250L);
+        this.cQY.setFillAfter(true);
     }
 
     public void setCWRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cQW);
+        startAnimation(this.cQX);
     }
 
     public void setACRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cQX);
+        startAnimation(this.cQY);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.cQV.onDetachedFromWindow();
+        this.cQW.onDetachedFromWindow();
     }
 
     public void setData(aj ajVar) {
-        this.cQV.setData(ajVar);
+        this.cQW.setData(ajVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.cQV.setFirstRowSingleColumn(z);
+        this.cQW.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -137,11 +137,11 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.cQV.setEventCallback(aVar);
+        this.cQW.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.cQV.setDefaultReasonArray(strArr);
+        this.cQW.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

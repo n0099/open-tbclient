@@ -407,8 +407,8 @@ public class a {
                 return true;
             }
         }.k(this.buG.getWritableDatabase());
-        kz("flow");
-        kz(NotificationCompat.CATEGORY_EVENT);
+        ky("flow");
+        ky(NotificationCompat.CATEGORY_EVENT);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0068  */
@@ -416,7 +416,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void kz(final String str) {
+    private void ky(final String str) {
         Cursor cursor;
         RuntimeException runtimeException;
         Cursor cursor2 = null;
@@ -698,12 +698,12 @@ public class a {
                                                     j3 = jVar.Xb();
                                                 }
                                                 jVar.setContent(cursor2.getString(columnIndex6));
-                                                jVar.kP(cursor2.getString(columnIndex8));
+                                                jVar.kO(cursor2.getString(columnIndex8));
                                                 if (!TextUtils.isEmpty(cursor2.getString(columnIndex9))) {
                                                     jVar.setCategory(cursor2.getString(columnIndex9));
                                                 }
                                                 if (columnIndex10 >= 0 && !TextUtils.isEmpty(cursor2.getString(columnIndex10))) {
-                                                    jVar.kQ(cursor2.getString(columnIndex10));
+                                                    jVar.kP(cursor2.getString(columnIndex10));
                                                 }
                                                 if (!TextUtils.isEmpty(cursor2.getString(columnIndex11))) {
                                                     try {
@@ -807,7 +807,7 @@ public class a {
                     }
                     if (!TextUtils.isEmpty(next.WW())) {
                         jSONObject2.put(ImageViewerConfig.ABTEST, next.WW());
-                        vVar.kV("1");
+                        vVar.kU("1");
                     }
                     if (!TextUtils.isEmpty(next.getCategory())) {
                         jSONObject2.put("c", next.getCategory());
@@ -818,7 +818,7 @@ public class a {
                     if (next.WS()) {
                         jSONObject2.put("of", "1");
                     }
-                    jSONObject2.put("idtype", d.WI().kM(next.getId()));
+                    jSONObject2.put("idtype", d.WI().kL(next.getId()));
                     JSONArray jSONArray = new JSONArray();
                     StringBuilder sb = new StringBuilder(256);
                     sb.append("SELECT ").append("eventid").append(" , ").append("begintime").append(" , ").append("content").append(" FROM ").append(NotificationCompat.CATEGORY_EVENT).append(" WHERE ").append("flowhandle").append(" = ").append(next.WV());
@@ -903,7 +903,7 @@ public class a {
                                 }
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex4))) {
                                     jSONObject.put(ImageViewerConfig.ABTEST, rawQuery.getString(columnIndex4));
-                                    vVar.kV("1");
+                                    vVar.kU("1");
                                 }
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex5))) {
                                     jSONObject.put("c", rawQuery.getString(columnIndex5));
@@ -911,10 +911,10 @@ public class a {
                                 if (!TextUtils.isEmpty(rawQuery.getString(columnIndex6)) && new JSONObject(rawQuery.getString(columnIndex6)).has("ctr")) {
                                     jSONObject.put("of", "1");
                                 }
-                                jSONObject.put("idtype", d.WI().kM(string));
+                                jSONObject.put("idtype", d.WI().kL(string));
                                 r.aS(jSONObject);
                                 vVar.aU(jSONObject);
-                                vVar.kU(rawQuery.getString(columnIndex));
+                                vVar.kT(rawQuery.getString(columnIndex));
                             } while (rawQuery.moveToNext());
                             i = 1;
                         }
@@ -1045,14 +1045,14 @@ public class a {
                     String k = a.this.k(arrayList2);
                     StringBuilder sb = new StringBuilder();
                     sb.append("flowhandle").append(" in (").append(k).append(")");
-                    t.kT("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
-                    t.kT("delete flow table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb.toString(), null));
+                    t.kS("delete flow table flow count:" + sQLiteDatabase.delete("flow", sb.toString(), null));
+                    t.kS("delete flow table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb.toString(), null));
                 }
                 if (arrayList != null && arrayList.size() > 0) {
                     String k2 = a.this.k(arrayList);
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("eventid").append(" in (").append(k2).append(")").append(" AND ").append("flowhandle").append(" = ").append(-1);
-                    t.kT("delete event table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb2.toString(), null));
+                    t.kS("delete event table event count:" + sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, sb2.toString(), null));
                 }
                 if ((sparseArray != null && sparseArray.size() > 0) || (arrayList != null && arrayList.size() > 0)) {
                     ContentValues contentValues = new ContentValues();
@@ -1061,7 +1061,7 @@ public class a {
                     contentValues.put("reserve1", z ? "1" : "0");
                     sQLiteDatabase.insert("file", null, contentValues);
                 }
-                t.kT("delete total time:" + (System.currentTimeMillis() - this.beginTime));
+                t.kS("delete total time:" + (System.currentTimeMillis() - this.beginTime));
                 return true;
             }
         };
@@ -1070,7 +1070,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public i kA(String str) {
+    public i kz(String str) {
         Cursor cursor;
         String str2;
         i iVar;
@@ -1148,7 +1148,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kB(final String str) {
+    public void kA(final String str) {
         new b() { // from class: com.baidu.swan.ubc.a.4
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -1177,7 +1177,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kC(final String str) {
+    public void kB(final String str) {
         new b() { // from class: com.baidu.swan.ubc.a.6
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {

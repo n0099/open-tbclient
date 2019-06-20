@@ -4,23 +4,23 @@ import java.util.List;
 import tbclient.UnreadTip.DataRes;
 /* loaded from: classes4.dex */
 public class e {
-    public int gel;
-    public List<String> gem;
-    public long gen;
-    public String gep;
-    public int geq;
+    public int gen;
+    public List<String> gep;
+    public long geq;
+    public String ger;
+    public int ges;
 
-    public boolean buw() {
-        return this.gel > 0;
+    public boolean bux() {
+        return this.gen > 0;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gel = dataRes.user_count.intValue();
-            this.gem = dataRes.portrait_list;
-            this.gen = dataRes.hide_unix.longValue() * 1000;
-            this.gep = dataRes.show_tip;
-            this.geq = dataRes.thread_count.intValue();
+            this.gen = dataRes.user_count.intValue();
+            this.gep = dataRes.portrait_list;
+            this.geq = dataRes.hide_unix.longValue() * 1000;
+            this.ger = dataRes.show_tip;
+            this.ges = dataRes.thread_count.intValue();
         }
     }
 }

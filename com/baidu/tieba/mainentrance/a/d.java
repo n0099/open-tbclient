@@ -32,14 +32,14 @@ public class d {
     private ImageView eqA;
     private TextView eqB;
     private EditText eqz;
-    private FrameLayout heG;
-    private BdListView heO;
-    private com.baidu.tieba.mainentrance.searchSuggestList.b heQ;
-    private LinearLayoutDetectsSoftKeyboard hfH;
-    private QuickWebView hfI;
+    private FrameLayout heH;
+    private BdListView heP;
+    private com.baidu.tieba.mainentrance.searchSuggestList.b heR;
+    private LinearLayoutDetectsSoftKeyboard hfI;
     private QuickWebView hfJ;
-    private com.baidu.tieba.mainentrance.searchSuggestList.a hfK;
-    View hfL;
+    private QuickWebView hfK;
+    private com.baidu.tieba.mainentrance.searchSuggestList.a hfL;
+    View hfM;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
@@ -53,13 +53,13 @@ public class d {
 
     private void initView() {
         aHR();
-        this.hfH = (LinearLayoutDetectsSoftKeyboard) this.mRootView.findViewById(R.id.search_container);
-        this.hfH.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.mainentrance.a.d.1
+        this.hfI = (LinearLayoutDetectsSoftKeyboard) this.mRootView.findViewById(R.id.search_container);
+        this.hfI.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.mainentrance.a.d.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    d.this.hfH.setFocusable(true);
-                    d.this.hfH.setFocusableInTouchMode(true);
+                    d.this.hfI.setFocusable(true);
+                    d.this.hfI.setFocusableInTouchMode(true);
                     if (d.this.eqz.hasFocus()) {
                         l.b(d.this.mContext, d.this.eqz);
                         return false;
@@ -69,23 +69,23 @@ public class d {
                 return false;
             }
         });
-        this.heG = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
+        this.heH = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(R.dimen.ds200)), null, null);
-        this.heG.addView(this.mNoDataView, 0);
-        bJK();
-        bJn();
+        this.heH.addView(this.mNoDataView, 0);
         bJL();
+        bJo();
         bJM();
+        bJN();
     }
 
     private void aHR() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.showBottomLine();
-        this.hfL = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.square_search_navigation_view, (View.OnClickListener) null);
-        this.dAy = (ImageView) this.hfL.findViewById(R.id.search_bar_icon);
-        this.eqz = (EditText) this.hfL.findViewById(R.id.home_et_search);
-        this.eqA = (ImageView) this.hfL.findViewById(R.id.home_bt_search_del);
-        this.eqB = (TextView) this.hfL.findViewById(R.id.home_bt_search_cancel_s);
+        this.hfM = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.square_search_navigation_view, (View.OnClickListener) null);
+        this.dAy = (ImageView) this.hfM.findViewById(R.id.search_bar_icon);
+        this.eqz = (EditText) this.hfM.findViewById(R.id.home_et_search);
+        this.eqA = (ImageView) this.hfM.findViewById(R.id.home_bt_search_del);
+        this.eqB = (TextView) this.hfM.findViewById(R.id.home_bt_search_cancel_s);
         this.eqA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.a.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -98,9 +98,9 @@ public class d {
 
     public void onResume() {
         if (!StringUtils.isNull(this.eqz.getText().toString())) {
-            this.hfL.setFocusable(true);
-            this.hfL.setFocusableInTouchMode(true);
-            this.hfL.requestFocus();
+            this.hfM.setFocusable(true);
+            this.hfM.setFocusableInTouchMode(true);
+            this.hfM.requestFocus();
         }
     }
 
@@ -108,7 +108,7 @@ public class d {
         if (this.mNoDataView != null) {
             this.mNoDataView.onChangeSkinType(eVar, i);
         }
-        al.g(this.hfH, i);
+        al.g(this.hfI, i);
         if (i == 2) {
             this.eqz.setHintTextColor(al.getColor(R.color.s_navbar_title_color));
         } else {
@@ -118,57 +118,57 @@ public class d {
         al.c(this.eqA, (int) R.drawable.del_search_btn);
         al.e(this.eqz, R.color.cp_cont_b, R.color.s_navbar_title_color);
         al.c(this.dAy, (int) R.drawable.icon_search);
-        al.k(this.heG, R.color.cp_bg_line_d);
+        al.k(this.heH, R.color.cp_bg_line_d);
         al.f(this.eqB, R.color.cp_link_tip_a, 1);
     }
 
-    private void bJK() {
-        this.hfJ = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
-        this.hfJ.pY(true);
-    }
-
-    private void bJn() {
-        this.heO = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
-        this.heQ = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
-        this.hfK = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
-    }
-
     private void bJL() {
-        this.hfI = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
-        this.hfI.pY(true);
+        this.hfK = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
+        this.hfK.pZ(true);
+    }
+
+    private void bJo() {
+        this.heP = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
+        this.heR = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
+        this.hfL = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
     }
 
     private void bJM() {
+        this.hfJ = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
+        this.hfJ.pZ(true);
+    }
+
+    private void bJN() {
         this.eqz.setText("");
         this.eqz.requestFocus();
         this.eqB.setText(this.mContext.getString(R.string.cancel));
     }
 
-    public void bJN() {
-        this.hfJ.setVisibility(0);
-        this.heO.setVisibility(8);
-        this.hfI.setVisibility(8);
+    public void bJO() {
+        this.hfK.setVisibility(0);
+        this.heP.setVisibility(8);
+        this.hfJ.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void bJx() {
-        this.heO.setVisibility(8);
+    public void bJy() {
+        this.heP.setVisibility(8);
+        this.hfK.setVisibility(8);
         this.hfJ.setVisibility(8);
-        this.hfI.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void bJv() {
-        this.heO.setVisibility(0);
+    public void bJw() {
+        this.heP.setVisibility(0);
+        this.hfK.setVisibility(8);
         this.hfJ.setVisibility(8);
-        this.hfI.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void bJO() {
-        this.heO.setVisibility(8);
-        this.hfJ.setVisibility(8);
-        this.hfI.setVisibility(0);
+    public void bJP() {
+        this.heP.setVisibility(8);
+        this.hfK.setVisibility(8);
+        this.hfJ.setVisibility(0);
         this.mNoDataView.setVisibility(8);
     }
 
@@ -176,13 +176,13 @@ public class d {
         this.eqA.setVisibility(z ? 0 : 8);
     }
 
-    public void zF(String str) {
+    public void zH(String str) {
         if (!StringUtils.isNull(str)) {
             this.eqz.setHint(str);
         }
     }
 
-    public void zG(String str) {
+    public void zI(String str) {
         if (!StringUtils.isNull(str)) {
             this.eqz.setText(str);
             this.eqz.setSelection(str.length());
@@ -191,19 +191,19 @@ public class d {
 
     public void k(List<String> list, String str) {
         if (!v.aa(list)) {
-            bJv();
-            this.heQ.zx(str);
-            this.heQ.setData(list);
-            this.heO.setAdapter((ListAdapter) this.heQ);
+            bJw();
+            this.heR.zz(str);
+            this.heR.setData(list);
+            this.heP.setAdapter((ListAdapter) this.heR);
         }
     }
 
     public void l(List<ForumInfo> list, String str) {
         if (!v.aa(list) && !TextUtils.isEmpty(str)) {
-            bJv();
-            this.hfK.zx(str);
-            this.hfK.dq(list);
-            this.heO.setAdapter((ListAdapter) this.hfK);
+            bJw();
+            this.hfL.zz(str);
+            this.hfL.dq(list);
+            this.heP.setAdapter((ListAdapter) this.hfL);
         }
     }
 
@@ -212,11 +212,11 @@ public class d {
     }
 
     public void c(AdapterView.OnItemClickListener onItemClickListener) {
-        this.heO.setOnItemClickListener(onItemClickListener);
+        this.heP.setOnItemClickListener(onItemClickListener);
     }
 
     public void a(AbsListView.OnScrollListener onScrollListener) {
-        this.heO.setOnScrollListener(onScrollListener);
+        this.heP.setOnScrollListener(onScrollListener);
     }
 
     public void a(View.OnFocusChangeListener onFocusChangeListener) {
@@ -237,52 +237,52 @@ public class d {
     }
 
     public void a(BaseWebView.c cVar) {
-        this.hfI.setOnPageFinishedListener(cVar);
+        this.hfJ.setOnPageFinishedListener(cVar);
     }
 
     public void a(BaseWebView.f fVar) {
-        this.hfI.setOnReceivedErrorListener(fVar);
+        this.hfJ.setOnReceivedErrorListener(fVar);
     }
 
     public void a(BaseWebView.b bVar) {
-        this.hfI.setOnLoadUrlListener(bVar);
+        this.hfJ.setOnLoadUrlListener(bVar);
     }
 
-    public EditText bJP() {
+    public EditText bJQ() {
         return this.eqz;
     }
 
-    public TextView bJQ() {
+    public TextView bJR() {
         return this.eqB;
-    }
-
-    public QuickWebView bJR() {
-        return this.hfI;
     }
 
     public QuickWebView bJS() {
         return this.hfJ;
     }
 
-    public boolean bJT() {
-        return this.heO.getVisibility() == 0;
+    public QuickWebView bJT() {
+        return this.hfK;
+    }
+
+    public boolean bJU() {
+        return this.heP.getVisibility() == 0;
     }
 
     public void onDestroy() {
         try {
-            if (this.heG != null) {
-                this.heG.removeView(this.hfJ);
-                this.heG.removeView(this.hfI);
+            if (this.heH != null) {
+                this.heH.removeView(this.hfK);
+                this.heH.removeView(this.hfJ);
             }
+            this.hfK.removeAllViews();
             this.hfJ.removeAllViews();
-            this.hfI.removeAllViews();
+            if (this.hfK != null) {
+                this.hfK.destroy();
+                this.hfK = null;
+            }
             if (this.hfJ != null) {
                 this.hfJ.destroy();
                 this.hfJ = null;
-            }
-            if (this.hfI != null) {
-                this.hfI.destroy();
-                this.hfI = null;
             }
         } catch (Exception e) {
         }

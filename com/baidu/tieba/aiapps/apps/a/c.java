@@ -61,8 +61,8 @@ public final class c {
 
     /* loaded from: classes4.dex */
     public static class b {
-        public String cZF;
-        public Map<String, String> cZG;
+        public String cZG;
+        public Map<String, String> cZH;
         public int mErrCode;
         public String mErrMsg;
     }
@@ -235,7 +235,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(final Activity activity, String str, String str2) {
-        new g.a(activity).d(str).gx(str2).a(new com.baidu.swan.apps.view.b.a()).cb(true).c(activity.getString(R.string.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.c.5
+        new g.a(activity).d(str).gw(str2).a(new com.baidu.swan.apps.view.b.a()).cb(true).c(activity.getString(R.string.aiapps_login_immediately), new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.a.c.5
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 c.a(activity, true, null, null);
@@ -352,11 +352,11 @@ public final class c {
         a(new a() { // from class: com.baidu.tieba.aiapps.apps.a.c.7
             @Override // com.baidu.tieba.aiapps.apps.a.c.a
             public void a(b bVar) {
-                if (bVar.mErrCode != 0 || bVar.cZG == null) {
+                if (bVar.mErrCode != 0 || bVar.cZH == null) {
                     com.baidu.swan.apps.an.d.a.this.D(null);
                 }
                 Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : bVar.cZG.entrySet()) {
+                for (Map.Entry<String, String> entry : bVar.cZH.entrySet()) {
                     String key = entry.getKey();
                     if (!TextUtils.isEmpty(key)) {
                         bundle.putString(key, entry.getValue());
@@ -389,11 +389,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.cZG = getTplStokenResult.tplStokenMap;
+                            bVar.cZH = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.cZF = getTplStokenResult.failureType.name();
+                                bVar.cZG = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.a(bVar);
@@ -406,11 +406,11 @@ public final class c {
                     if (a.this != null) {
                         b bVar = new b();
                         if (getTplStokenResult != null) {
-                            bVar.cZG = getTplStokenResult.tplStokenMap;
+                            bVar.cZH = getTplStokenResult.tplStokenMap;
                             bVar.mErrCode = getTplStokenResult.getResultCode();
                             bVar.mErrMsg = getTplStokenResult.getResultMsg();
                             if (getTplStokenResult.failureType != null) {
-                                bVar.cZF = getTplStokenResult.failureType.name();
+                                bVar.cZG = getTplStokenResult.failureType.name();
                             }
                         }
                         a.this.b(bVar);

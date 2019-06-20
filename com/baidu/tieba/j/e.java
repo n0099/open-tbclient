@@ -4,7 +4,7 @@ public interface e {
 
     /* loaded from: classes.dex */
     public interface a {
-        void nh(boolean z);
+        void ni(boolean z);
 
         void onChange(boolean z);
 
@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void bLO();
-
     void bLP();
 
     void bLQ();
+
+    void bLR();
 }

@@ -21,8 +21,8 @@ public class a extends d {
     @Override // com.baidu.adp.framework.a.f
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String vn = vn(httpMessageTask.getUrl());
-        if (vn != null && this.eOU != null) {
+        String vm = vm(httpMessageTask.getUrl());
+        if (vm != null && this.eOU != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
@@ -33,12 +33,12 @@ public class a extends d {
             } else {
                 json = this.eOW.toJson(httpMessage.getParams());
             }
-            this.eOU.S(httpMessageTask.getUrl(), this.eOW.toJson(vn), this.eOW.toJson(json));
+            this.eOU.S(httpMessageTask.getUrl(), this.eOW.toJson(vm), this.eOW.toJson(json));
         }
         return httpMessage;
     }
 
-    public String vn(String str) {
+    public String vm(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }

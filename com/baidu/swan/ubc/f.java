@@ -78,7 +78,7 @@ class f {
         return this.bvz;
     }
 
-    public void kN(String str) {
+    public void kM(String str) {
         this.bvA = str;
     }
 

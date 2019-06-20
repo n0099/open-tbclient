@@ -73,7 +73,7 @@ public class h implements a.InterfaceC0197a, a.b, a.c {
                 } else {
                     this.bdH = c;
                     this.g = 257;
-                    com.baidu.swan.game.ad.c.e eVar = new com.baidu.swan.game.ad.c.e(this.c, new b.a().iB(this.l).iC(this.b).iD(str).PS());
+                    com.baidu.swan.game.ad.c.e eVar = new com.baidu.swan.game.ad.c.e(this.c, new b.a().iA(this.l).iB(this.b).iC(str).PS());
                     com.baidu.swan.game.ad.c.a aVar = new com.baidu.swan.game.ad.c.a(this.c);
                     aVar.a(this);
                     com.baidu.swan.games.view.a.b.bk("video", null);
@@ -189,7 +189,7 @@ public class h implements a.InterfaceC0197a, a.b, a.c {
         }
         if (this.bdF != null) {
             String f = this.bdF.f();
-            vi.dO("adLanding").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("adLanding", com.baidu.swan.apps.model.b.aq(f, f)).zW();
+            vi.dN("adLanding").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("adLanding", com.baidu.swan.apps.model.b.aq(f, f)).zW();
         }
         com.baidu.swan.game.ad.d.a.b(this.bdF, this.bdL);
     }

@@ -3,17 +3,17 @@ package com.baidu.adp.framework.client.socket.coder;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
 public class a {
-    public static byte vf = 4;
-    private static byte vg = Byte.MIN_VALUE;
-    private static byte vh = 64;
-    private static byte vi = 8;
-    private static byte vj = 4;
+    public static byte ve = 4;
+    private static byte vf = Byte.MIN_VALUE;
+    private static byte vg = 64;
+    private static byte vh = 8;
+    private static byte vi = 4;
     private int command;
-    private int vn;
+    private int vm;
+    private boolean vj = false;
     private boolean vk = false;
     private boolean vl = false;
-    private boolean vm = false;
-    private boolean vo = false;
+    private boolean vn = false;
 
     public static int fO() {
         return 9;
@@ -21,13 +21,13 @@ public class a {
 
     public static byte[] a(boolean z, boolean z2, int i, int i2, byte[] bArr, boolean z3) {
         ByteBuffer allocate = ByteBuffer.allocate((bArr != null ? bArr.length : 0) + fO());
-        byte b = z ? (byte) (vg | 0) : (byte) 0;
+        byte b = z ? (byte) (vf | 0) : (byte) 0;
         if (z2) {
-            b = (byte) (b | vh);
+            b = (byte) (b | vg);
         }
-        byte b2 = (byte) (b | vi);
+        byte b2 = (byte) (b | vh);
         if (z3) {
-            b2 = (byte) (b2 | vj);
+            b2 = (byte) (b2 | vi);
         }
         allocate.put(b2);
         allocate.putInt(i);
@@ -43,25 +43,25 @@ public class a {
         ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, fO());
         a aVar = new a();
         byte b = wrap.get();
+        if ((vf & b) != 0) {
+            aVar.vj = true;
+        }
         if ((vg & b) != 0) {
             aVar.vk = true;
         }
         if ((vh & b) != 0) {
             aVar.vl = true;
         }
-        if ((vi & b) != 0) {
-            aVar.vm = true;
-        }
-        if ((b & vj) != 0) {
-            aVar.vo = true;
+        if ((b & vi) != 0) {
+            aVar.vn = true;
         }
         aVar.command = wrap.getInt();
-        aVar.vn = wrap.getInt();
+        aVar.vm = wrap.getInt();
         return aVar;
     }
 
     public boolean fP() {
-        return this.vl;
+        return this.vk;
     }
 
     public int getCommand() {
@@ -69,18 +69,18 @@ public class a {
     }
 
     public boolean fQ() {
-        return this.vk;
+        return this.vj;
     }
 
     public int fR() {
-        return this.vn;
-    }
-
-    public boolean fS() {
         return this.vm;
     }
 
+    public boolean fS() {
+        return this.vl;
+    }
+
     public boolean fT() {
-        return this.vo;
+        return this.vn;
     }
 }

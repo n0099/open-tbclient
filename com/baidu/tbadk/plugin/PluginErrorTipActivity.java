@@ -22,14 +22,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View cdX;
-    private ImageView czL;
-    private TextView czM;
-    private View czN;
-    private TextView czO;
+    private View cdY;
+    private ImageView czM;
+    private TextView czN;
+    private View czO;
     private TextView czP;
-    private PluginStatus czQ;
-    private ShadowLayout czR;
+    private TextView czQ;
+    private PluginStatus czR;
+    private ShadowLayout czS;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.czQ = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.czR = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.czQ = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.czR = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.czQ == null) {
+        if (this.czR == null) {
             finish();
             return;
         }
@@ -65,29 +65,29 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.cdX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.cdX.setOnClickListener(this);
+        this.cdY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.cdY.setOnClickListener(this);
         this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.czL = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.czM = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.czO = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.czN = findViewById(R.id.plugin_error_parent);
-        this.czR = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.czP = (TextView) findViewById(R.id.plugin_error_btn);
-        this.czP.setOnClickListener(this);
-        this.czO.setText(getString(R.string.plugin_error_tips, new Object[]{this.czQ.getErrorMsg(), this.czQ.mM()}));
-        if (this.czQ.getErrorCode() == 5 || this.czQ.getErrorCode() == 1 || this.czQ.getErrorCode() == 100) {
-            this.czP.setText(R.string.pluginstatus_btn_restartapp);
-            this.czP.setVisibility(0);
+        this.czM = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.czN = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.czP = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.czO = findViewById(R.id.plugin_error_parent);
+        this.czS = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        this.czQ = (TextView) findViewById(R.id.plugin_error_btn);
+        this.czQ.setOnClickListener(this);
+        this.czP.setText(getString(R.string.plugin_error_tips, new Object[]{this.czR.getErrorMsg(), this.czR.mM()}));
+        if (this.czR.getErrorCode() == 5 || this.czR.getErrorCode() == 1 || this.czR.getErrorCode() == 100) {
+            this.czQ.setText(R.string.pluginstatus_btn_restartapp);
+            this.czQ.setVisibility(0);
             return;
         }
-        this.czP.setVisibility(8);
+        this.czQ.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.czQ);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.czR);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -95,10 +95,10 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cdX) {
+        if (view == this.cdY) {
             finish();
-        } else if (view == this.czP) {
-            if (this.czQ != null && this.czQ.getErrorCode() == 100) {
+        } else if (view == this.czQ) {
+            if (this.czR != null && this.czR.getErrorCode() == 100) {
                 com.baidu.adp.plugin.b.a.lM().ah(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.c(this.czL, (int) R.drawable.new_pic_emotion_05);
-        al.j(this.czM, R.color.cp_cont_c);
-        al.l(this.czN, R.color.cp_bg_line_d);
-        al.j(this.czO, R.color.cp_cont_b);
-        al.j(this.czP, R.color.cp_cont_g);
-        al.k(this.czP, R.drawable.selector_blue_gradient_button);
-        this.czR.setShadowColor(R.color.plugin_button_shadow_blue);
+        al.c(this.czM, (int) R.drawable.new_pic_emotion_05);
+        al.j(this.czN, R.color.cp_cont_c);
+        al.l(this.czO, R.color.cp_bg_line_d);
+        al.j(this.czP, R.color.cp_cont_b);
+        al.j(this.czQ, R.color.cp_cont_g);
+        al.k(this.czQ, R.drawable.selector_blue_gradient_button);
+        this.czS.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

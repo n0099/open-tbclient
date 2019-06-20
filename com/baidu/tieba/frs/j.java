@@ -11,7 +11,7 @@ public class j {
     }
 
     public void b(com.baidu.tieba.InjectPlugin.b bVar) {
-        if (this.fqH != null && this.fqH.bjK() != null && this.fqH.bjK().boI() != null && this.fqH.bjP() != null && bVar != null && this.fqH.bjP().getListView() != null && this.fqH.bjM() != null) {
+        if (this.fqH != null && this.fqH.bjK() != null && this.fqH.bjK().boJ() != null && this.fqH.bjP() != null && bVar != null && this.fqH.bjP().getListView() != null && this.fqH.bjM() != null) {
             BdTypeRecyclerView listView = this.fqH.bjP().getListView();
             switch (bVar.what) {
                 case 2:

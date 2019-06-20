@@ -44,19 +44,19 @@ public class a {
                 a.this.fyq.dismiss();
             } else {
                 a.this.fyt = true;
-                a.this.wB(vVar.name);
-                if (a.this.fyo.bpp() != null) {
+                a.this.wA(vVar.name);
+                if (a.this.fyo.bpr() != null) {
                     a.this.fys = vVar.fsC;
                     a.this.fyq.dismiss();
                     if (a.this.fys != 7) {
                         y.avq();
-                        e.cnu();
+                        e.cnv();
                     } else {
-                        e.cnt();
+                        e.cnu();
                     }
-                    if (a.this.fyo.bpp() != null && a.this.fyo.bpq() != null) {
-                        a.this.fyo.bpp().sg(vVar.fsC);
-                        a.this.fyo.bpq().startPullRefresh();
+                    if (a.this.fyo.bpr() != null && a.this.fyo.bps() != null) {
+                        a.this.fyo.bpr().sg(vVar.fsC);
+                        a.this.fyo.bps().startPullRefresh();
                         a.this.bni();
                     }
                 }
@@ -91,7 +91,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wB(String str) {
+    public void wA(String str) {
         this.eQE.setText(str);
     }
 
@@ -143,7 +143,7 @@ public class a {
     public void setData(List<FrsTabInfo> list, int i) {
         if (com.baidu.tbadk.core.util.v.aa(list)) {
             bnk();
-        } else if (this.fyo != null && this.fyo.bpp() != null) {
+        } else if (this.fyo != null && this.fyo.bpr() != null) {
             bnj();
             ArrayList arrayList = new ArrayList(list);
             if (!cb(arrayList)) {
@@ -178,9 +178,9 @@ public class a {
             v vVar3 = this.fyr.get(0);
             if (vVar3 != null) {
                 rF(vVar3.fsC);
-                wB(vVar3.name);
-                if (this.fyo != null && this.fyo.bpp() != null) {
-                    this.fyo.bpp().sg(vVar3.fsC);
+                wA(vVar3.name);
+                if (this.fyo != null && this.fyo.bpr() != null) {
+                    this.fyo.bpr().sg(vVar3.fsC);
                     return;
                 }
                 return;
@@ -207,22 +207,22 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                wB(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
+                wA(TbadkCoreApplication.getInst().getResources().getString(R.string.attention_users_thread));
                 return;
             }
             v vVar4 = this.fyr.get(0);
             if (vVar4 != null) {
                 rF(vVar4.fsC);
-                wB(vVar4.name);
-                if (this.fyo != null && this.fyo.bpp() != null) {
-                    this.fyo.bpp().sg(vVar4.fsC);
+                wA(vVar4.name);
+                if (this.fyo != null && this.fyo.bpr() != null) {
+                    this.fyo.bpr().sg(vVar4.fsC);
                 }
             }
         } else if (vVar != null) {
             rF(vVar.fsC);
-            wB(vVar.name);
-            if (this.fyo != null && this.fyo.bpp() != null) {
-                this.fyo.bpp().sg(vVar.fsC);
+            wA(vVar.name);
+            if (this.fyo != null && this.fyo.bpr() != null) {
+                this.fyo.bpr().sg(vVar.fsC);
             }
         }
     }

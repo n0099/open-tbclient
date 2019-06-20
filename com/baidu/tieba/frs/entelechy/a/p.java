@@ -19,7 +19,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class p extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implements com.baidu.adp.widget.ListView.s, com.baidu.tieba.a.f, com.baidu.tieba.card.aa, com.baidu.tieba.card.z, com.baidu.tieba.frs.d.d {
-    private String Wt;
+    private String Ws;
     private ab<bg> dAQ;
     private int fxk;
     private String mFrom;
@@ -42,14 +42,14 @@ public class p extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
                         p.this.ae(bgVar);
                     }
                     if ((view instanceof ThreadSmartAppLayout) || view.getId() == R.id.iv_thread_smart_app_head || view.getId() == R.id.tv_thread_smart_app_title || view.getId() == R.id.tv_thread_smart_app_abstract) {
-                        com.baidu.tieba.card.n.uS(bgVar.getTid());
+                        com.baidu.tieba.card.n.uR(bgVar.getTid());
                         if (bgVar.aeh() != null) {
                             TiebaStatic.log(new am("c13274").l("uid", TbadkCoreApplication.getCurrentAccountId()).l("fid", bgVar.getFid()).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "frs_card").l(VideoPlayActivityConfig.OBJ_ID, bgVar.aeh().swan_app_id.longValue()).bT("obj_name", bgVar.aeh().name).bT("tid", bgVar.getTid()).P("obj_param1", bgVar.aeh().is_game.intValue()));
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.frs.d.c.bpC().a(com.baidu.tieba.frs.d.d.fxl, bgVar, 1);
+                    com.baidu.tieba.frs.d.c.bpE().a(com.baidu.tieba.frs.d.d.fxl, bgVar, 1);
                     com.baidu.tieba.frs.d.a.a(bgVar, 1, p.this.mPageId, com.baidu.tieba.frs.d.d.fxl);
                 }
             }
@@ -83,7 +83,7 @@ public class p extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
         if (bfVar == null || zVar == null || zVar.getView() == null) {
             return null;
         }
-        zVar.qs().setPage(this.Wt);
+        zVar.qs().setPage(this.Ws);
         zVar.qs().setPosition(i);
         zVar.a(bfVar.threadData);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -93,8 +93,8 @@ public class p extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 
     @Override // com.baidu.tieba.card.z

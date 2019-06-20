@@ -4,11 +4,11 @@ import tbclient.SmartApp;
 /* loaded from: classes4.dex */
 public class l implements c {
     private String eRo;
-    private String goE;
-    private Long iec;
-    private String ied;
+    private String goG;
+    private Long ied;
     private String iee;
-    private Integer ief;
+    private String ief;
+    private Integer ieg;
     private String mAppKey;
     private String mLink;
     private String mName;
@@ -17,18 +17,18 @@ public class l implements c {
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.iec = smartApp.swan_app_id;
+            this.ied = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
             this.eRo = smartApp.avatar;
             this.mName = smartApp.name;
-            this.goE = smartApp._abstract;
-            this.ied = smartApp.pic;
-            this.iee = smartApp.h5_url;
+            this.goG = smartApp._abstract;
+            this.iee = smartApp.pic;
+            this.ief = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.ief = smartApp.is_game;
+            this.ieg = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long bYu() {
-        return this.iec;
+    public Long bYv() {
+        return this.ied;
     }
 
     public String getAppKey() {
@@ -54,14 +54,14 @@ public class l implements c {
     }
 
     public String akO() {
-        return this.iee;
+        return this.ief;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer bYv() {
-        return this.ief;
+    public Integer bYw() {
+        return this.ieg;
     }
 }

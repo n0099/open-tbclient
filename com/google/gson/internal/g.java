@@ -9,7 +9,7 @@ import java.lang.reflect.Modifier;
 public abstract class g {
     public abstract <T> T newInstance(Class<T> cls) throws Exception;
 
-    public static g cJl() {
+    public static g cJk() {
         try {
             Class<?> cls = Class.forName("sun.misc.Unsafe");
             Field declaredField = cls.getDeclaredField("theUnsafe");

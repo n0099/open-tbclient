@@ -24,7 +24,7 @@ public final class b {
         return this.auE;
     }
 
-    public void dZ(String str) {
+    public void dY(String str) {
         this.auE = str;
     }
 
@@ -32,15 +32,15 @@ public final class b {
         return this.auG;
     }
 
-    public void ea(String str) {
+    public void dZ(String str) {
         this.auG = str;
     }
 
-    public void eb(String str) {
+    public void ea(String str) {
         this.auH = str;
     }
 
-    public void ec(String str) {
+    public void eb(String str) {
         this.auF = str;
     }
 

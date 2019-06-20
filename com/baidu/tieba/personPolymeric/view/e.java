@@ -17,8 +17,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.g> {
     private View bpR;
-    private HTypeListView cWn;
-    private com.baidu.tieba.personPolymeric.a.o ilJ;
+    private HTypeListView cWo;
+    private com.baidu.tieba.personPolymeric.a.o ilK;
     private TbPageContext mPageContext;
     private View mRootView;
     private TextView mTitle;
@@ -29,8 +29,8 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.bpR = this.mRootView.findViewById(R.id.divider_view);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.gift_title);
-        this.cWn = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
-        this.ilJ = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.cWn);
+        this.cWo = (HTypeListView) this.mRootView.findViewById(R.id.gift_horizontal_list);
+        this.ilK = new com.baidu.tieba.personPolymeric.a.o(this.mPageContext, this.cWo);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -58,13 +58,13 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 e.this.b(gVar);
             }
         };
-        this.ilJ.U(onClickListener);
+        this.ilK.U(onClickListener);
         this.mRootView.setOnClickListener(onClickListener);
-        this.ilJ.V(onClickListener);
-        this.cWn.setData(dT(gVar.ikI));
+        this.ilK.V(onClickListener);
+        this.cWo.setData(dT(gVar.ikJ));
         if (gVar.mIsHost) {
             this.mTitle.setText(R.string.gift_received_by_me);
-        } else if (gVar.ikG) {
+        } else if (gVar.ikH) {
             this.mTitle.setText(R.string.gift_received_by_him);
         } else {
             this.mTitle.setText(R.string.gift_received_by_her);
@@ -77,7 +77,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (!TbadkCoreApplication.getInst().appResponseToIntentClass(MyGiftListActivityConfig.class)) {
             this.mPageContext.showToast(R.string.gift_load_fail);
         } else if (bc.cE(this.mPageContext.getPageActivity())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.BS, gVar.ikH, gVar.mSex)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyGiftListActivityConfig(this.mPageContext.getPageActivity(), gVar.mUid, gVar.BR, gVar.ikI, gVar.mSex)));
         }
     }
 

@@ -25,7 +25,7 @@ public class g {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iE(String str);
+        void iD(String str);
     }
 
     public g(@NonNull JsObject jsObject) {
@@ -87,7 +87,7 @@ public class g {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
         if (this.bdC != null) {
-            this.bdC.iE(str);
+            this.bdC.iD(str);
         }
     }
 

@@ -11,7 +11,7 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     private com.baidu.tieba.card.f fCb;
     private String mForumId;
     private TbPageContext<?> mPageContext;
-    private ab sF;
+    private ab sE;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public e(TbPageContext tbPageContext, String str) {
@@ -42,8 +42,8 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
         aVar.aYs().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.a.e.1
             @Override // com.baidu.tieba.card.f.a
             public void b(View view2, com.baidu.tieba.card.data.b bVar) {
-                if (e.this.sF != null) {
-                    e.this.sF.a(view2, bVar);
+                if (e.this.sE != null) {
+                    e.this.sE.a(view2, bVar);
                 }
             }
         });
@@ -51,6 +51,6 @@ public class e extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, com.
     }
 
     public void e(ab abVar) {
-        this.sF = abVar;
+        this.sE = abVar;
     }
 }

@@ -52,9 +52,9 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         if (TextUtils.isEmpty(g)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(1L).Z(1L).hZ("appId is empty");
-            e.Ok().b(hZ);
-            com.baidu.swan.apps.statistic.e.b(new d().hp(com.baidu.swan.apps.statistic.e.dM(1)).a(hZ).aC("scheme", uri.toString()));
+            com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(1L).Z(1L).hY("appId is empty");
+            e.Ok().b(hY);
+            com.baidu.swan.apps.statistic.e.b(new d().ho(com.baidu.swan.apps.statistic.e.dM(1)).a(hY).aC("scheme", uri.toString()));
             return true;
         }
         String b = b(g, uri);
@@ -170,11 +170,11 @@ public class a extends UnitedSchemeBaseInterceptor {
                     if (a.DEBUG) {
                         Log.d("SwanGameLaunchAction", "onFailed");
                     }
-                    com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(7L).Z(9L).hZ("debug download pkg fail");
-                    com.baidu.swan.apps.ak.e.Ok().b(hZ);
+                    com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(7L).Z(9L).hY("debug download pkg fail");
+                    com.baidu.swan.apps.ak.e.Ok().b(hY);
                     com.baidu.swan.apps.v.a.c cVar3 = new com.baidu.swan.apps.v.a.c();
                     cVar3.mAppId = cVar.mAppId;
-                    com.baidu.swan.apps.v.a.a.a(applicationContext, hZ, 1, cVar3);
+                    com.baidu.swan.apps.v.a.a.a(applicationContext, hY, 1, cVar3);
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 }
             });
@@ -188,16 +188,16 @@ public class a extends UnitedSchemeBaseInterceptor {
         }
         com.baidu.swan.apps.v.b.b EI = com.baidu.swan.apps.v.b.b.EI();
         EI.setAppId(cVar.mAppId);
-        EI.eI(cVar.mFrom);
+        EI.eH(cVar.mFrom);
         EI.setPage(cVar.ayL);
         EI.setDebug(cVar.ayM);
-        EI.eM(cVar.ayO);
+        EI.eL(cVar.ayO);
         EI.p(cVar.EK());
-        EI.eJ(cVar.ayP);
-        EI.eN(cVar.ayQ);
+        EI.eI(cVar.ayP);
+        EI.eM(cVar.ayQ);
         EI.a(cVar.atK);
         EI.a(cVar.atL);
-        EI.eQ(cVar.ayR);
+        EI.eP(cVar.ayR);
         EI.setVersion("0");
         EI.cr(cVar.ayS);
         return EI;

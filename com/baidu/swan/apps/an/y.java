@@ -3,8 +3,8 @@ package com.baidu.swan.apps.an;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 /* loaded from: classes2.dex */
 public class y {
-    public static boolean ii(String str) {
-        return ab(com.baidu.swan.apps.swancore.b.hI(str));
+    public static boolean ih(String str) {
+        return ab(com.baidu.swan.apps.swancore.b.hH(str));
     }
 
     public static boolean ab(long j) {

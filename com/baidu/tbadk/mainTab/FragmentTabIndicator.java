@@ -26,19 +26,19 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class FragmentTabIndicator extends TbFragmentTabIndicator {
-    private boolean OP;
-    private int cwa;
-    public int cwb;
-    private int cwc;
+    private boolean OO;
+    private int cwb;
+    public int cwc;
     private int cwd;
-    private boolean cwe;
-    private int cwf;
-    private String cwg;
-    private BdUniqueId cwh;
-    private TextView cwi;
-    private int cwj;
+    private int cwe;
+    private boolean cwf;
+    private int cwg;
+    private String cwh;
+    private BdUniqueId cwi;
+    private TextView cwj;
     private int cwk;
-    private HashMap<String, TbFragmentTabIndicator.a> cwl;
+    private int cwl;
+    private HashMap<String, TbFragmentTabIndicator.a> cwm;
     private String iconUrl;
     private int kF;
     private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> mCallback;
@@ -46,11 +46,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public FragmentTabIndicator(Context context) {
         super(context);
-        this.cwa = 0;
+        this.cwb = 0;
         this.kF = 0;
-        this.cwe = true;
-        this.OP = true;
-        this.cwl = new HashMap<>();
+        this.cwf = true;
+        this.OO = true;
+        this.cwm = new HashMap<>();
         this.mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -71,11 +71,11 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     public FragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwa = 0;
+        this.cwb = 0;
         this.kF = 0;
-        this.cwe = true;
-        this.OP = true;
-        this.cwl = new HashMap<>();
+        this.cwf = true;
+        this.OO = true;
+        this.cwm = new HashMap<>();
         this.mCallback = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -95,28 +95,28 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     private void init() {
-        this.cwj = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.cwk = getResources().getDimensionPixelSize(R.dimen.ds12);
+        this.cwk = getResources().getDimensionPixelSize(R.dimen.ds2);
+        this.cwl = getResources().getDimensionPixelSize(R.dimen.ds12);
         View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fragment_bottom_indicator_item, this);
         this.mIconView = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
-        this.cwi = (TextView) inflate.findViewById(R.id.view_bottom_text);
-        this.cwi.setDuplicateParentStateEnabled(true);
+        this.cwj = (TextView) inflate.findViewById(R.id.view_bottom_text);
+        this.cwj.setDuplicateParentStateEnabled(true);
         asN();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setContentTvTopMargin(int i) {
-        if (this.cwi.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cwi.getLayoutParams();
+        if (this.cwj.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.cwj.getLayoutParams();
             layoutParams.topMargin = i;
-            this.cwi.setLayoutParams(layoutParams);
+            this.cwj.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setContentDefaultTextColor(int i) {
         super.setContentDefaultTextColor(i);
-        this.cwi.setTextColor(i);
+        this.cwj.setTextColor(i);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -124,7 +124,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.cwl.entrySet()) {
+        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.cwm.entrySet()) {
             TbFragmentTabIndicator.a value = entry.getValue();
             ViewGroup.LayoutParams layoutParams = value.view.getLayoutParams();
             if (layoutParams.width == -2) {
@@ -141,20 +141,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         int i5;
         int measuredHeight;
         super.onLayout(z, i, i2, i3, i4);
-        Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.cwl.entrySet().iterator();
-        while (it.hasNext() && this.cwi.getText() != null) {
+        Iterator<Map.Entry<String, TbFragmentTabIndicator.a>> it = this.cwm.entrySet().iterator();
+        while (it.hasNext() && this.cwj.getText() != null) {
             TbFragmentTabIndicator.a value = it.next().getValue();
             int measuredWidth2 = value.view.getMeasuredWidth();
             int measuredHeight2 = value.view.getMeasuredHeight();
-            int measureText = (int) this.cwi.getPaint().measureText(this.cwi.getText().toString());
-            if (value.cwH) {
-                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.zL;
+            int measureText = (int) this.cwj.getPaint().measureText(this.cwj.getText().toString());
+            if (value.cwI) {
+                measuredWidth = (measureText / 2) + (getMeasuredWidth() / 2) + value.zK;
             } else {
-                measuredWidth = ((getMeasuredWidth() / 2) - value.zL) - (measureText / 2);
+                measuredWidth = ((getMeasuredWidth() / 2) - value.zK) - (measureText / 2);
             }
-            if (this.cwa == 1) {
-                i5 = measuredWidth - this.cwk;
-                measuredHeight = this.cwj;
+            if (this.cwb == 1) {
+                i5 = measuredWidth - this.cwl;
+                measuredHeight = this.cwk;
             } else {
                 i5 = measuredWidth;
                 measuredHeight = (getMeasuredHeight() / 2) - (value.view.getMeasuredHeight() / 2);
@@ -164,90 +164,90 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     public void setTipTopMargin(int i) {
-        this.cwj = i;
+        this.cwk = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTipPosType(int i) {
-        this.cwa = i;
+        this.cwb = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar.view != null) {
             addView(aVar.view);
-            this.cwl.put(str, aVar);
+            this.cwm.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a qz(String str) {
-        return this.cwl.get(str);
+    public TbFragmentTabIndicator.a qy(String str) {
+        return this.cwm.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(int i) {
-        this.cwi.setText(i);
+        this.cwj.setText(i);
     }
 
     public void setWidth(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i, -2);
         layoutParams.addRule(13, -1);
-        this.cwi.setLayoutParams(layoutParams);
+        this.cwj.setLayoutParams(layoutParams);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setText(String str) {
-        this.cwi.setText(str);
-        this.cwi.setContentDescription(str);
+        this.cwj.setText(str);
+        this.cwj.setContentDescription(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCheckDescriptionText(boolean z) {
-        String charSequence = this.cwi.getText().toString();
+        String charSequence = this.cwj.getText().toString();
         if (z) {
             charSequence = getContext().getString(R.string.talk_checked_tip) + charSequence;
         }
-        this.cwi.setContentDescription(charSequence);
+        this.cwj.setContentDescription(charSequence);
     }
 
     public void setTextSpan(SpannableString spannableString) {
-        this.cwi.setText(spannableString);
+        this.cwj.setText(spannableString);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconResourceId(int i) {
-        this.cwf = i;
+        this.cwg = i;
         asN();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCompoundDrawablesTopResId(int i) {
-        this.cwc = i;
+        this.cwd = i;
     }
 
     public void setCompoundDrawablesRightResId(int i) {
-        this.cwd = i;
+        this.cwe = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setCompoundDrawablePadding(int i) {
-        this.cwi.setCompoundDrawablePadding(i);
+        this.cwj.setCompoundDrawablePadding(i);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextSize(float f) {
-        this.cwi.setTextSize(f);
+        this.cwj.setTextSize(f);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextSize(int i, float f) {
-        this.cwi.setTextSize(i, f);
+        this.cwj.setTextSize(i, f);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextColorResId(int i) {
-        this.cwb = i;
+        this.cwc = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -257,7 +257,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIsContentSelectBold(boolean z) {
-        this.cwC = z;
+        this.cwD = z;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -268,16 +268,16 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void iW(int i) {
-        if (this.OP) {
-            al.f(this.cwi, this.cwb, 1);
+        if (this.OO) {
+            al.f(this.cwj, this.cwc, 1);
         } else {
-            al.c(this.cwi, this.cwb, 1, 0);
+            al.c(this.cwj, this.cwc, 1, 0);
         }
-        if (this.cwi != null) {
-            this.cwi.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.d((Resources) null, this.cwc), al.d((Resources) null, this.cwd), (Drawable) null);
+        if (this.cwj != null) {
+            this.cwj.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, al.d((Resources) null, this.cwd), al.d((Resources) null, this.cwe), (Drawable) null);
         }
         asM();
-        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.cwl.entrySet()) {
+        for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.cwm.entrySet()) {
             entry.getValue().iW(i);
         }
     }
@@ -289,46 +289,46 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void asL() {
-        if (this.kF > 0 && this.cwe) {
+        if (this.kF > 0 && this.cwf) {
             try {
-                this.cwe = false;
+                this.cwf = false;
                 Animation loadAnimation = AnimationUtils.loadAnimation(this.mIconView.getContext(), this.kF);
                 loadAnimation.setAnimationListener(new com.baidu.adp.lib.g.d() { // from class: com.baidu.tbadk.mainTab.FragmentTabIndicator.1
                     @Override // com.baidu.adp.lib.g.d
                     public void b(Animation animation) {
-                        FragmentTabIndicator.this.cwe = true;
+                        FragmentTabIndicator.this.cwf = true;
                     }
                 });
                 this.mIconView.startAnimation(loadAnimation);
             } catch (Exception e) {
-                this.cwe = true;
+                this.cwf = true;
             }
         }
     }
 
     public void setContentWidthWrapContent() {
-        ViewGroup.LayoutParams layoutParams = this.cwi.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.cwj.getLayoutParams();
         layoutParams.width = -2;
-        this.cwi.setLayoutParams(layoutParams);
+        this.cwj.setLayoutParams(layoutParams);
     }
 
     public void setIsSupportNight(boolean z) {
         if (!z) {
-            al.c(this.cwi, this.cwb, 1, 0);
+            al.c(this.cwj, this.cwc, 1, 0);
         }
-        this.OP = z;
+        this.OO = z;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public View getContentTv() {
-        return this.cwi;
+        return this.cwj;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconViewWithoutText(int i, int i2) {
         setClipToPadding(false);
         setClipChildren(false);
-        this.cwi.setVisibility(8);
+        this.cwj.setVisibility(8);
         this.mIconView.setVisibility(0);
         if (i > 0) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -344,12 +344,12 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconViewWithText(int i, int i2) {
-        this.cwi.setVisibility(0);
+        this.cwj.setVisibility(0);
         this.mIconView.setVisibility(0);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12, -1);
         layoutParams.addRule(14, -1);
-        this.cwi.setLayoutParams(layoutParams);
+        this.cwj.setLayoutParams(layoutParams);
         if (i > 0) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.width = i;
@@ -365,25 +365,25 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // android.view.View
     public void setSelected(boolean z) {
         super.setSelected(z);
-        if (this.cwC) {
-            this.cwi.getPaint().setFakeBoldText(z);
+        if (this.cwD) {
+            this.cwj.getPaint().setFakeBoldText(z);
         }
-        if (z && this.cwD != 0.0f) {
-            this.cwi.setTextSize(0, this.cwD);
-        } else if (!z && this.cwE != 0.0f) {
-            this.cwi.setTextSize(0, this.cwE);
+        if (z && this.cwE != 0.0f) {
+            this.cwj.setTextSize(0, this.cwE);
+        } else if (!z && this.cwF != 0.0f) {
+            this.cwj.setTextSize(0, this.cwF);
         }
-        if (z && this.cwF != 0) {
-            al.j(this.cwi, this.cwF);
-        } else if (!z && this.cwG != 0) {
-            al.j(this.cwi, this.cwG);
+        if (z && this.cwG != 0) {
+            al.j(this.cwj, this.cwG);
+        } else if (!z && this.cwH != 0) {
+            al.j(this.cwj, this.cwH);
         }
     }
 
     private void asM() {
-        if (this.cwc <= 0 && this.cwd <= 0) {
-            if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.cwg)) {
-                com.baidu.adp.lib.f.c.iv().a(this.cwg, 10, this.mCallback, getBdUniqueId());
+        if (this.cwd <= 0 && this.cwe <= 0) {
+            if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.cwh)) {
+                com.baidu.adp.lib.f.c.iv().a(this.cwh, 10, this.mCallback, getBdUniqueId());
             } else if (!TextUtils.isEmpty(this.iconUrl)) {
                 com.baidu.adp.lib.f.c.iv().a(this.iconUrl, 10, this.mCallback, getBdUniqueId());
             } else {
@@ -394,19 +394,19 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void asN() {
-        if (this.cwf > 0) {
-            al.c(this.mIconView, this.cwf);
+        if (this.cwg > 0) {
+            al.c(this.mIconView, this.cwg);
         }
     }
 
     private BdUniqueId getBdUniqueId() {
-        if (this.cwh != null) {
-            return this.cwh;
+        if (this.cwi != null) {
+            return this.cwi;
         }
         e<?> ab = i.ab(getContext());
         if (ab != null) {
-            this.cwh = ab.getUniqueId();
+            this.cwi = ab.getUniqueId();
         }
-        return this.cwh;
+        return this.cwi;
     }
 }

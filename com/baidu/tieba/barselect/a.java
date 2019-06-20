@@ -37,7 +37,7 @@ import com.baidu.tieba.barselect.view.VoteCountDownCard;
 import com.baidu.tieba.barselect.view.VoteStatusCard;
 /* loaded from: classes3.dex */
 public class a {
-    private View.OnClickListener bBp;
+    private View.OnClickListener bBr;
     private LinearLayoutManager boW;
     private NoNetworkView dlX;
     private PbListView dlY;
@@ -70,7 +70,7 @@ public class a {
     private NoDataView mNoDataView;
     private int mScrollState;
     private f mVoteData;
-    private int ccI = 3;
+    private int ccJ = 3;
     private int status = -1;
     private int epU = 0;
     private float epV = 0.0f;
@@ -105,9 +105,9 @@ public class a {
                 a.this.eqb.setAlpha(a.this.epV);
                 if (a.this.epV > 0.5d) {
                     if (a.this.epU == 0) {
-                        al.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg_s, a.this.ccI);
-                        al.c(a.this.eqc, R.color.cp_cont_b, 1, a.this.ccI);
-                        al.c(a.this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, a.this.ccI);
+                        al.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg_s, a.this.ccJ);
+                        al.c(a.this.eqc, R.color.cp_cont_b, 1, a.this.ccJ);
+                        al.c(a.this.mNavigationBar.mCenterText, R.color.cp_cont_b, 1, a.this.ccJ);
                         a.this.epU = 1;
                     }
                     a.this.mNavigationBar.getBackImageView().setAlpha((a.this.epV * 2.0f) - 1.0f);
@@ -115,9 +115,9 @@ public class a {
                     a.this.mNavigationBar.mCenterText.setAlpha((a.this.epV * 2.0f) - 1.0f);
                 } else if (a.this.epV <= 0.5d) {
                     if (a.this.epU == 1) {
-                        al.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg, a.this.ccI);
-                        al.c(a.this.eqc, R.color.cp_btn_a, 1, a.this.ccI);
-                        al.c(a.this.mNavigationBar.mCenterText, R.color.cp_btn_a, 1, a.this.ccI);
+                        al.b(a.this.mNavigationBar.getBackImageView(), (int) R.drawable.icon_return_bg, a.this.ccJ);
+                        al.c(a.this.eqc, R.color.cp_btn_a, 1, a.this.ccJ);
+                        al.c(a.this.mNavigationBar.mCenterText, R.color.cp_btn_a, 1, a.this.ccJ);
                         a.this.epU = 0;
                     }
                     a.this.mNavigationBar.getBackImageView().setAlpha(1.0f - (a.this.epV * 2.0f));
@@ -282,8 +282,8 @@ public class a {
     }
 
     public void z(int i, boolean z) {
-        if (z || this.ccI != i) {
-            this.ccI = i;
+        if (z || this.ccJ != i) {
+            this.ccJ = i;
             if (this.dmO != null) {
                 this.dmO.onChangeSkinType();
             }
@@ -355,7 +355,7 @@ public class a {
     }
 
     public void d(View.OnClickListener onClickListener) {
-        this.bBp = onClickListener;
+        this.bBr = onClickListener;
     }
 
     public void hideNoDataView() {
@@ -364,17 +364,17 @@ public class a {
         }
     }
 
-    public void uL(String str) {
+    public void uK(String str) {
         if (this.dmO != null) {
             this.dmO.dettachView(this.mListContainer);
             this.dmO = null;
         }
         this.epN.hideLoadingView(getRootView());
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.epN, this.eqp, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.oz(str), null);
-            this.mNoDataView.setOnClickListener(this.bBp);
+            this.mNoDataView = NoDataViewFactory.a(this.epN, this.eqp, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.oy(str), null);
+            this.mNoDataView.setOnClickListener(this.bBr);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.oz(str));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.oy(str));
         this.mNoDataView.onChangeSkinType(this.epN.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
@@ -391,7 +391,7 @@ public class a {
             this.dmO = new h(this.epN, this.eqq);
         }
         this.dmO.kE(l.g(TbadkCoreApplication.getInst(), R.dimen.tbds340));
-        this.dmO.qx(TbadkCoreApplication.getInst().getString(R.string.neterror));
+        this.dmO.qw(TbadkCoreApplication.getInst().getString(R.string.neterror));
         this.dmO.attachView(this.mListContainer, true);
         this.dmO.asB();
         this.dmO.onChangeSkinType();

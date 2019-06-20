@@ -6,7 +6,7 @@ import com.baidu.swan.apps.c;
 public final class a {
     private static String aYZ;
 
-    public static String ia(String str) {
+    public static String hZ(String str) {
         return String.format("%s %s", str, Om());
     }
 

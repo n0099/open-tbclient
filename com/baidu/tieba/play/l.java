@@ -12,11 +12,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        cbl();
         cbm();
+        cbn();
     }
 
-    private static void cbl() {
+    private static void cbm() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -24,7 +24,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void cbm() {
+    private static void cbn() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -48,7 +48,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (zVar != null) {
-            httpMessage.addParam("video_md5", zVar.irl);
+            httpMessage.addParam("video_md5", zVar.irm);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -58,19 +58,19 @@ public class l {
 
     private static void a(HttpMessage httpMessage, z zVar) {
         if (httpMessage != null && zVar != null) {
-            httpMessage.addParam("tid", zVar.bVL);
+            httpMessage.addParam("tid", zVar.bVM);
             httpMessage.addParam("fid", zVar.eAC);
-            httpMessage.addParam("obj_to", zVar.irh);
-            httpMessage.addParam(VideoPlayActivityConfig.OBJ_ID, zVar.bFP);
-            httpMessage.addParam("obj_param3", zVar.iri);
+            httpMessage.addParam("obj_to", zVar.iri);
+            httpMessage.addParam(VideoPlayActivityConfig.OBJ_ID, zVar.bFQ);
+            httpMessage.addParam("obj_param3", zVar.irj);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, zVar.mSource);
             httpMessage.addParam("obj_locate", zVar.mLocate);
-            httpMessage.addParam("obj_param1", zVar.irj);
-            if (!StringUtils.isNull(zVar.irm)) {
-                httpMessage.addParam("topic_type", zVar.irm);
-            }
+            httpMessage.addParam("obj_param1", zVar.irk);
             if (!StringUtils.isNull(zVar.irn)) {
-                httpMessage.addParam("is_vertical", zVar.irn);
+                httpMessage.addParam("topic_type", zVar.irn);
+            }
+            if (!StringUtils.isNull(zVar.iro)) {
+                httpMessage.addParam("is_vertical", zVar.iro);
             }
         }
     }

@@ -35,7 +35,7 @@ public class c extends h<i, d> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, d dVar) {
         super.onFillViewHolder(i, view, viewGroup, iVar, dVar);
         if (iVar != null) {
-            this.fzW.f(iVar.getForumId(), iVar.clE());
+            this.fzW.f(iVar.getForumId(), iVar.clF());
         }
         return view;
     }

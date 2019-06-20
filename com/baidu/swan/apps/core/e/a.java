@@ -11,7 +11,7 @@ import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
 public class a {
-    private final String FC;
+    private final String FB;
     private final String arB;
     private g arC;
     private TextView arD;
@@ -33,7 +33,7 @@ public class a {
 
     public a(Context context, String str, String str2) {
         this.mContext = context;
-        this.FC = str;
+        this.FB = str;
         this.arB = str2;
         Am();
     }
@@ -76,7 +76,7 @@ public class a {
                 return false;
             }
         });
-        this.arC = new g.a(this.mContext).d(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.FC).replace("%s2", this.arB)).dr(17301543).ad(inflate).b(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
+        this.arC = new g.a(this.mContext).d(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.FB).replace("%s2", this.arB)).dr(17301543).ad(inflate).b(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.e.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.this.An();
@@ -102,7 +102,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void An() {
         if (this.arF != null) {
-            this.arF.i(this.FC, this.arB, getUsername(), getPassword());
+            this.arF.i(this.FB, this.arB, getUsername(), getPassword());
         }
     }
 }

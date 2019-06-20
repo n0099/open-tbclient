@@ -21,7 +21,7 @@ public class b {
         e.a("916", fVar);
     }
 
-    public static void jW(String str) {
+    public static void jV(String str) {
         f fVar = new f();
         fVar.mType = str;
         fVar.mValue = SmsLoginView.StatEvent.LOGIN_SHOW;

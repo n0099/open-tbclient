@@ -2,7 +2,7 @@ package com.baidu.tieba.pbextra.praise;
 /* loaded from: classes4.dex */
 public class a {
     private String dLJ;
-    private long ibm;
+    private long ibn;
     private String mPortrait;
     private String mUserId;
     private String mUserName;
@@ -12,12 +12,12 @@ public class a {
         this.mUserName = null;
         this.mPortrait = null;
         this.dLJ = null;
-        this.ibm = 0L;
+        this.ibn = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
         this.dLJ = str4;
-        this.ibm = j;
+        this.ibn = j;
     }
 
     public String getUserId() {
@@ -36,7 +36,7 @@ public class a {
         return this.dLJ;
     }
 
-    public long bXU() {
-        return this.ibm;
+    public long bXV() {
+        return this.ibn;
     }
 }

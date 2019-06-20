@@ -91,7 +91,7 @@ public final class e {
         return new b("");
     }
 
-    public b dO(String str) {
+    public b dN(String str) {
         return new b(str);
     }
 
@@ -123,7 +123,7 @@ public final class e {
             } else if ("wxPay".equals(str) || "adLanding".equals(str)) {
                 a = g.a(bVar, str);
             } else {
-                a = "normal".equals(str) ? d.a(new c.a().fs(bVar.ayL).ft(bVar.mParams).fu(bVar.mBaseUrl).bx(z).GH()) : null;
+                a = "normal".equals(str) ? d.a(new c.a().fr(bVar.ayL).fs(bVar.mParams).ft(bVar.mBaseUrl).bx(z).GH()) : null;
             }
             if (a == null) {
                 return null;
@@ -276,7 +276,7 @@ public final class e {
 
         public void commit() {
             if (!TextUtils.isEmpty(this.aqX)) {
-                d.dI(this.aqX);
+                d.dH(this.aqX);
             }
             while (!e.this.aqR.isEmpty()) {
                 if (e.this.aqR.peek() != null) {

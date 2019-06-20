@@ -5,10 +5,10 @@ import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class o {
     private long aGl;
-    private String cVm;
-    private String hxK;
-    private String iZL;
-    private List<String> iZM;
+    private String cVn;
+    private String hxL;
+    private String iZP;
+    private List<String> iZQ;
     private long mStartTime;
     private int mType;
 
@@ -16,10 +16,10 @@ public class o {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.aGl = redpacketRain.end_time.longValue() * 1000;
-            this.cVm = redpacketRain.jump_url;
-            this.iZL = redpacketRain.float_url;
-            this.iZM = redpacketRain.dynamic_img;
-            this.hxK = redpacketRain.activity_id;
+            this.cVn = redpacketRain.jump_url;
+            this.iZP = redpacketRain.float_url;
+            this.iZQ = redpacketRain.dynamic_img;
+            this.hxL = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -33,19 +33,19 @@ public class o {
     }
 
     public String aBE() {
-        return this.cVm;
+        return this.cVn;
     }
 
-    public String cmK() {
-        return this.iZL;
+    public String cmL() {
+        return this.iZP;
     }
 
-    public List<String> cmL() {
-        return this.iZM;
+    public List<String> cmM() {
+        return this.iZQ;
     }
 
-    public String cmM() {
-        return this.hxK;
+    public String cmN() {
+        return this.hxL;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class o {
         this.aGl = j;
     }
 
-    public void DV(String str) {
-        this.cVm = str;
+    public void DX(String str) {
+        this.cVn = str;
     }
 
-    public void DW(String str) {
-        this.iZL = str;
+    public void DY(String str) {
+        this.iZP = str;
     }
 
     public void ec(List<String> list) {
-        this.iZM = list;
+        this.iZQ = list;
     }
 
-    public void DX(String str) {
-        this.hxK = str;
+    public void DZ(String str) {
+        this.hxL = str;
     }
 
     public int getType() {

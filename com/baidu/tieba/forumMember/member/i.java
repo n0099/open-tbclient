@@ -27,7 +27,7 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes5.dex */
 public class i extends com.baidu.tieba.frs.h<j, k> {
-    private LikeModel ccn;
+    private LikeModel cco;
     private int dYJ;
     private int flw;
     private View.OnClickListener mClickListener;
@@ -51,7 +51,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                                     return;
                                 }
                                 String forumId = jVar.getForumId();
-                                i.this.ccn.ek(jVar.getForumName(), forumId);
+                                i.this.cco.ek(jVar.getForumName(), forumId);
                             }
                         } else if (view.getId() == R.id.user_level_name) {
                             String forumId2 = jVar.getForumId();
@@ -68,7 +68,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: az */
     public k onCreateViewHolder(ViewGroup viewGroup) {
-        if (this.ccn == null) {
+        if (this.cco == null) {
             aIu();
         }
         return new k(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_head_user_view, (ViewGroup) null), this.mClickListener);
@@ -89,7 +89,7 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
                     kVar.flA.setVisibility(8);
                     kVar.flB.setVisibility(0);
                     kVar.flB.setText(R.string.mydegree);
-                    al.c(kVar.fkA, BitmapHelper.getSmallGradeResourceIdNew(biy.ckd()));
+                    al.c(kVar.fkA, BitmapHelper.getSmallGradeResourceIdNew(biy.cke()));
                     if (StringUtils.isNull(biy.getLevelName())) {
                         kVar.fkB.setVisibility(8);
                     } else {
@@ -138,8 +138,8 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
             al.f(kVar.flG, R.color.cp_cont_b, 1);
             al.k(kVar.flH, R.drawable.forum_member_exp_progress);
             al.l(kVar.flI, R.color.cp_bg_line_b);
-            if (this.dYJ != biy.ckd() || this.flw != biy.getCurScore()) {
-                this.dYJ = biy.ckd();
+            if (this.dYJ != biy.cke() || this.flw != biy.getCurScore()) {
+                this.dYJ = biy.cke();
                 this.flw = biy.getCurScore();
                 kVar.flH.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, qL(this.dYJ)));
                 float f = 0.0f;
@@ -164,16 +164,16 @@ public class i extends com.baidu.tieba.frs.h<j, k> {
 
     private void aIu() {
         if (this.mPageContext != null) {
-            this.ccn = new LikeModel(this.mPageContext);
-            this.ccn.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
+            this.cco = new LikeModel(this.mPageContext);
+            this.cco.setLoadDataCallBack(new com.baidu.adp.base.d() { // from class: com.baidu.tieba.forumMember.member.i.2
                 @Override // com.baidu.adp.base.d
                 public void m(Object obj) {
-                    if (!(obj instanceof com.baidu.tieba.tbadkCore.r) || i.this.ccn.getErrorCode() != 0) {
-                        if (AntiHelper.aG(i.this.ccn.getErrorCode(), i.this.ccn.getErrorString())) {
-                            AntiHelper.aI(i.this.mPageContext.getPageActivity(), i.this.ccn.getErrorString());
+                    if (!(obj instanceof com.baidu.tieba.tbadkCore.r) || i.this.cco.getErrorCode() != 0) {
+                        if (AntiHelper.aG(i.this.cco.getErrorCode(), i.this.cco.getErrorString())) {
+                            AntiHelper.aI(i.this.mPageContext.getPageActivity(), i.this.cco.getErrorString());
                             return;
                         } else {
-                            i.this.mPageContext.showToast(i.this.ccn.getErrorString());
+                            i.this.mPageContext.showToast(i.this.cco.getErrorString());
                             return;
                         }
                     }

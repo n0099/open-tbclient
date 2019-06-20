@@ -21,14 +21,14 @@ import java.util.LinkedList;
 public class f {
     private int bigHeight;
     private int bigWidth;
-    private a cvw;
-    private Object cvx;
-    private e cvy;
+    private a cvx;
+    private Object cvy;
+    private e cvz;
     private String from;
     private boolean isCancelled;
     private int smallHeight;
     private int smallWidth;
-    private int cvv = 512000;
+    private int cvw = 512000;
     private String groupId = "1";
     private x mNetwork = null;
 
@@ -49,10 +49,10 @@ public class f {
     }
 
     public void a(a aVar, Object obj) {
-        this.cvw = aVar;
-        this.cvx = obj;
+        this.cvx = aVar;
+        this.cvy = obj;
         if (aVar != null) {
-            this.cvv = 10240;
+            this.cvw = 10240;
         }
     }
 
@@ -122,10 +122,10 @@ public class f {
         if (imageFileInfo == null) {
             return null;
         }
-        if (this.cvy == null) {
-            this.cvy = new e();
+        if (this.cvz == null) {
+            this.cvz = new e();
         }
-        return f(this.cvy.c(imageFileInfo, z), z, z2);
+        return f(this.cvz.c(imageFileInfo, z), z, z2);
     }
 
     public ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z) {
@@ -279,8 +279,8 @@ public class f {
                         imageUploadResult2 = imageUploadResult5;
                         randomAccessFile2 = null;
                     } else {
-                        String str2 = h + this.cvv;
-                        long j2 = length % ((long) this.cvv) == 0 ? length / this.cvv : (length / this.cvv) + 1;
+                        String str2 = h + this.cvw;
+                        long j2 = length % ((long) this.cvw) == 0 ? length / this.cvw : (length / this.cvw) + 1;
                         sb.append("|chunkNo=");
                         sb.append(j2);
                         randomAccessFile2 = new RandomAccessFile(str, "r");
@@ -314,14 +314,14 @@ public class f {
                                                 bArr = null;
                                             } else {
                                                 if (i3 < j2) {
-                                                    i4 = this.cvv;
+                                                    i4 = this.cvw;
                                                 } else if (i3 == j2) {
-                                                    i4 = (int) (length - (this.cvv * (j2 - 1)));
+                                                    i4 = (int) (length - (this.cvw * (j2 - 1)));
                                                 }
                                                 if (bArr2 == null || bArr2.length != i4) {
                                                     bArr2 = new byte[i4];
                                                 }
-                                                randomAccessFile2.seek(this.cvv * (i3 - 1));
+                                                randomAccessFile2.seek(this.cvw * (i3 - 1));
                                                 randomAccessFile2.read(bArr2, 0, i4);
                                                 bArr = bArr2;
                                             }
@@ -377,9 +377,9 @@ public class f {
                                                 if (imageUploadResult3.error_code != ImageUploadResult.CHUNK_ERROR) {
                                                     int i5 = i3 + 1;
                                                     long j4 = j3 + i4;
-                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cvv) : j4;
-                                                    if (this.cvw != null) {
-                                                        this.cvw.a(str, this.cvx, j5, length);
+                                                    long j5 = i5 > 1 ? j4 + ((i5 - 1) * this.cvw) : j4;
+                                                    if (this.cvx != null) {
+                                                        this.cvx.a(str, this.cvy, j5, length);
                                                     }
                                                     i = i5;
                                                     j = j4;

@@ -17,12 +17,12 @@ import com.baidu.tieba.R;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends n {
-    private l bOL;
+    private l bOM;
     private String eAC;
 
     public a(l lVar, String str) {
         super(lVar);
-        this.bOL = lVar;
+        this.bOM = lVar;
         this.eAC = str;
     }
 
@@ -44,22 +44,22 @@ public class a extends n {
                     return;
                 }
                 if (StringUtils.isNull(optString2)) {
-                    wI(optString);
+                    wH(optString);
                 } else {
-                    com.baidu.tieba.recapp.download.d.ceS().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.CR(optString).intValue(), null, true, false, true, optString3, null, null);
+                    com.baidu.tieba.recapp.download.d.ceT().a(optString, optString2, optString, 0, com.baidu.tieba.recapp.download.d.CT(optString).intValue(), null, true, false, true, optString3, null, null);
                 }
                 TiebaStatic.log(new am("c12775").bT("fid", StringUtils.isNull(this.eAC) ? "" : this.eAC));
             }
         }
     }
 
-    private void wI(String str) {
+    private void wH(String str) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + str));
         try {
-            if (!(this.bOL.getContext() instanceof Activity)) {
+            if (!(this.bOM.getContext() instanceof Activity)) {
                 intent.addFlags(268435456);
             }
-            this.bOL.getContext().startActivity(intent);
+            this.bOM.getContext().startActivity(intent);
         } catch (ActivityNotFoundException e) {
             BdLog.e(e.getMessage());
         }

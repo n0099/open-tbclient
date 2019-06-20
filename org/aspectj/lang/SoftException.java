@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 /* loaded from: classes5.dex */
 public class SoftException extends RuntimeException {
-    private static final boolean kkW;
+    private static final boolean kkZ;
     Throwable inner;
 
     static {
@@ -14,7 +14,7 @@ public class SoftException extends RuntimeException {
             z = true;
         } catch (Throwable th) {
         }
-        kkW = z;
+        kkZ = z;
     }
 
     public SoftException(Throwable th) {
@@ -39,7 +39,7 @@ public class SoftException extends RuntimeException {
     public void printStackTrace(PrintStream printStream) {
         super.printStackTrace(printStream);
         Throwable th = this.inner;
-        if (!kkW && th != null) {
+        if (!kkZ && th != null) {
             printStream.print("Caused by: ");
             th.printStackTrace(printStream);
         }
@@ -49,7 +49,7 @@ public class SoftException extends RuntimeException {
     public void printStackTrace(PrintWriter printWriter) {
         super.printStackTrace(printWriter);
         Throwable th = this.inner;
-        if (!kkW && th != null) {
+        if (!kkZ && th != null) {
             printWriter.print("Caused by: ");
             th.printStackTrace(printWriter);
         }

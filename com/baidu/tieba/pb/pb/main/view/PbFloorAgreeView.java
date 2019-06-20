@@ -13,56 +13,56 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbFloorAgreeView extends FrameLayout {
-    private ImageView bWb;
+    private ImageView bWc;
     private ScaleAnimation fuB;
-    private TextView hSv;
     private TextView hSw;
-    private boolean hSx;
+    private TextView hSx;
+    private boolean hSy;
 
     public PbFloorAgreeView(Context context) {
         super(context);
-        this.hSx = false;
+        this.hSy = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hSx = false;
+        this.hSy = false;
         init();
     }
 
     public PbFloorAgreeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hSx = false;
+        this.hSy = false;
         init();
     }
 
     public void init() {
         Context context = getContext();
         LinearLayout linearLayout = new LinearLayout(getContext());
-        this.hSv = new TextView(getContext());
+        this.hSw = new TextView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, l.g(context, R.dimen.tbds48));
         layoutParams.leftMargin = l.g(context, R.dimen.tbds9);
         layoutParams.topMargin = l.g(context, R.dimen.tbds18);
-        this.hSv.setLayoutParams(layoutParams);
-        this.hSv.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
-        this.hSv.setGravity(17);
-        al.j(this.hSv, R.color.cp_cont_j);
-        this.bWb = new ImageView(context);
-        al.c(this.bWb, (int) R.drawable.icon_floor_like_n);
+        this.hSw.setLayoutParams(layoutParams);
+        this.hSw.setTextSize(0, l.g(context, R.dimen.tbfontsize30));
+        this.hSw.setGravity(17);
+        al.j(this.hSw, R.color.cp_cont_j);
+        this.bWc = new ImageView(context);
+        al.c(this.bWc, (int) R.drawable.icon_floor_like_n);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.g(context, R.dimen.tbds48), l.g(context, R.dimen.tbds48));
         layoutParams2.leftMargin = l.g(context, R.dimen.tbds9);
         layoutParams2.topMargin = l.g(context, R.dimen.tbds18);
-        this.bWb.setLayoutParams(layoutParams2);
-        linearLayout.addView(this.bWb);
-        linearLayout.addView(this.hSv);
+        this.bWc.setLayoutParams(layoutParams2);
+        linearLayout.addView(this.bWc);
+        linearLayout.addView(this.hSw);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 5;
         addView(linearLayout, layoutParams3);
-        this.hSw = new TextView(getContext());
-        this.hSw.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
-        addView(this.hSw);
-        this.hSw.setVisibility(8);
+        this.hSx = new TextView(getContext());
+        this.hSx.setTextSize(0, l.g(getContext(), R.dimen.fontsize24));
+        addView(this.hSx);
+        this.hSx.setVisibility(8);
     }
 
     private Animation getScaleAnimation() {

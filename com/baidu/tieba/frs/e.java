@@ -6,8 +6,8 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes.dex */
 public class e {
-    private String bIQ;
     private String bIR;
+    private String bIS;
     private List<FrsTabInfo> fog;
     private final List<com.baidu.tbadk.mainTab.b> foh = new LinkedList();
     private String forumGameLabel;
@@ -51,11 +51,11 @@ public class e {
         this.forumGameLabel = str;
     }
 
-    public void mx(String str) {
-        this.bIQ = str;
+    public void mw(String str) {
+        this.bIR = str;
     }
 
-    public void my(String str) {
-        this.bIR = str;
+    public void mx(String str) {
+        this.bIS = str;
     }
 }

@@ -37,7 +37,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 ForumMemberActivity.this.flm = arrayList;
                 ForumMemberActivity.this.fln.bU(ForumMemberActivity.this.flm);
             } else if (v.aa(ForumMemberActivity.this.flm) && apVar != null) {
-                ForumMemberActivity.this.fln.wk(apVar.errMsg);
+                ForumMemberActivity.this.fln.wj(apVar.errMsg);
             }
         }
     };

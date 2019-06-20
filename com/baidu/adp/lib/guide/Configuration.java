@@ -13,11 +13,11 @@ public class Configuration implements Parcelable {
         public Configuration createFromParcel(Parcel parcel) {
             Configuration configuration = new Configuration();
             configuration.mAlpha = parcel.readInt();
+            configuration.zj = parcel.readInt();
             configuration.zk = parcel.readInt();
             configuration.zl = parcel.readInt();
-            configuration.zm = parcel.readInt();
+            configuration.zm = parcel.readByte() == 1;
             configuration.zn = parcel.readByte() == 1;
-            configuration.zo = parcel.readByte() == 1;
             return configuration;
         }
 
@@ -28,17 +28,17 @@ public class Configuration implements Parcelable {
             return new Configuration[i];
         }
     };
-    boolean zj;
+    boolean zi;
     View mTargetView = null;
     int mAlpha = 255;
+    int zj = -1;
     int zk = -1;
-    int zl = -1;
-    int zm = 17170444;
-    boolean zn = true;
+    int zl = 17170444;
+    boolean zm = true;
+    boolean zn = false;
     boolean zo = false;
-    boolean zp = false;
+    int zp = -1;
     int zq = -1;
-    int zr = -1;
 
     @Override // android.os.Parcelable
     public int describeContents() {
@@ -48,10 +48,10 @@ public class Configuration implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.mAlpha);
+        parcel.writeInt(this.zj);
         parcel.writeInt(this.zk);
         parcel.writeInt(this.zl);
-        parcel.writeInt(this.zm);
+        parcel.writeByte((byte) (this.zm ? 1 : 0));
         parcel.writeByte((byte) (this.zn ? 1 : 0));
-        parcel.writeByte((byte) (this.zo ? 1 : 0));
     }
 }

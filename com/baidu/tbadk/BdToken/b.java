@@ -256,10 +256,10 @@ public class b {
         this.mTag = 0;
         this.bxE = false;
         this.bxF = new ArrayList<>();
-        lc(str);
+        lb(str);
     }
 
-    public boolean lc(String str) {
+    public boolean lb(String str) {
         if (ap.isEmpty(str)) {
             return false;
         }
@@ -274,7 +274,7 @@ public class b {
                 this.bxz = jSONObject.optInt(bwJ);
                 this.mTaskType = jSONObject.optInt(bwK);
                 this.bxn = jSONObject.optString(bwL);
-                this.bxx = ld(this.bxn);
+                this.bxx = lc(this.bxn);
                 this.bxm = jSONObject.optLong(bwM);
                 this.mThreadNum = jSONObject.optInt(bwN);
                 this.bxo = jSONObject.optInt(bwO);
@@ -316,7 +316,7 @@ public class b {
             this.bxw = missionInfo.cleartime.intValue();
             this.bxy = XS();
             this.bxn = missionInfo.browsetimepage;
-            this.bxx = ld(this.bxn);
+            this.bxx = lc(this.bxn);
             if (missionInfo.threadnum.intValue() > 0) {
                 this.mThreadNum = missionInfo.threadnum.intValue();
             }
@@ -354,7 +354,7 @@ public class b {
         return i;
     }
 
-    private int[] ld(String str) {
+    private int[] lc(String str) {
         if (this.mTaskType == 8) {
             return new int[]{bwV};
         }
@@ -480,7 +480,7 @@ public class b {
         return this.bxq;
     }
 
-    public void le(String str) {
+    public void ld(String str) {
         this.bxq = str;
     }
 
@@ -512,9 +512,9 @@ public class b {
         return this.bxn;
     }
 
-    public void lf(String str) {
+    public void le(String str) {
         this.bxn = str;
-        this.bxx = ld(str);
+        this.bxx = lc(str);
     }
 
     public int[] XZ() {
@@ -589,7 +589,7 @@ public class b {
         return this.bxs;
     }
 
-    public void lg(String str) {
+    public void lf(String str) {
         this.bxs = str;
     }
 
@@ -597,7 +597,7 @@ public class b {
         return this.bxt;
     }
 
-    public void lh(String str) {
+    public void lg(String str) {
         this.bxt = str;
     }
 

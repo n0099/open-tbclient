@@ -36,18 +36,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private TextView hVr;
+        private TextView hVs;
         private int mSkinType;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.hVr = (TextView) view.findViewById(R.id.no_reply_list_view);
+            this.hVs = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                al.j(this.hVr, R.color.cp_cont_d);
+                al.j(this.hVs, R.color.cp_cont_d);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

@@ -32,7 +32,7 @@ public final class a {
     public String a(com.baidu.swan.apps.ae.b bVar, String str) {
         String str2 = null;
         if (bVar != null) {
-            str2 = bVar.gD(aa.ik(str));
+            str2 = bVar.gC(aa.ij(str));
         }
         return str2 == null ? "" : str2;
     }

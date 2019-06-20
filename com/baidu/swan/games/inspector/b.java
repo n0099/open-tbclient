@@ -42,7 +42,7 @@ public class b {
         com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
         if (Lq != null && Lq.vk() != null) {
             Resources resources = activity.getResources();
-            new g.a(activity).d(resources.getString(a.h.aiapps_swan_inspector_info_title)).gx(SwanInspectorEndpoint.Rz().b(resources).toString()).a(new com.baidu.swan.apps.view.b.a()).cb(false).b(a.h.aiapps_ok, null).KK();
+            new g.a(activity).d(resources.getString(a.h.aiapps_swan_inspector_info_title)).gw(SwanInspectorEndpoint.Rz().b(resources).toString()).a(new com.baidu.swan.apps.view.b.a()).cb(false).b(a.h.aiapps_ok, null).KK();
         }
     }
 }

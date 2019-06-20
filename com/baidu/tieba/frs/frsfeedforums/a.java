@@ -34,7 +34,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private LikeModel ccn;
+    private LikeModel cco;
     private boolean fwT;
     private View fwY;
     private View fzF;
@@ -59,7 +59,7 @@ public class a {
             String str2;
             if (view.getId() == R.id.frs_feed_forum_attention) {
                 if (bc.cE(a.this.mTbPageContext.getPageActivity()) && (feedForumData = (FeedForumData) view.getTag()) != null) {
-                    a.this.ccn.ek(feedForumData.getForumName(), feedForumData.getForumId());
+                    a.this.cco.ek(feedForumData.getForumName(), feedForumData.getForumId());
                     if (a.this.mType == 1) {
                         str2 = "c10028";
                     } else {
@@ -96,11 +96,11 @@ public class a {
     private com.baidu.adp.base.d eSt = new com.baidu.adp.base.d() { // from class: com.baidu.tieba.frs.frsfeedforums.a.4
         @Override // com.baidu.adp.base.d
         public void m(Object obj) {
-            if (AntiHelper.aG(a.this.ccn.getErrorCode(), a.this.ccn.getErrorString())) {
-                AntiHelper.aI(a.this.mTbPageContext.getPageActivity(), a.this.ccn.getErrorString());
+            if (AntiHelper.aG(a.this.cco.getErrorCode(), a.this.cco.getErrorString())) {
+                AntiHelper.aI(a.this.mTbPageContext.getPageActivity(), a.this.cco.getErrorString());
             } else if (obj == null) {
-                if (!StringUtils.isNull(a.this.ccn.getErrorString())) {
-                    l.showToast(TbadkCoreApplication.getInst(), a.this.ccn.getErrorString());
+                if (!StringUtils.isNull(a.this.cco.getErrorString())) {
+                    l.showToast(TbadkCoreApplication.getInst(), a.this.cco.getErrorString());
                 }
             } else {
                 final r rVar = (r) obj;
@@ -164,9 +164,9 @@ public class a {
         this.fzK = (TextView) this.fzH.findViewById(R.id.feed_forums_more);
         this.fwY = view.findViewById(R.id.feed_forum_bottom_line);
         this.fzK.setOnClickListener(this.mOnClickListener);
-        this.ccn = new LikeModel(tbPageContext);
-        this.ccn.setUniqueId(bdUniqueId);
-        this.ccn.setLoadDataCallBack(this.eSt);
+        this.cco = new LikeModel(tbPageContext);
+        this.cco.setUniqueId(bdUniqueId);
+        this.cco.setLoadDataCallBack(this.eSt);
         this.mType = i;
         this.fwT = z;
     }
@@ -205,7 +205,7 @@ public class a {
         } else if (size2 < 0) {
             for (int i3 = 0; i3 < (-size2); i3++) {
                 int size3 = this.fzM.size() - 1;
-                this.fzH.removeView(this.fzM.get(size3).cWI);
+                this.fzH.removeView(this.fzM.get(size3).cWJ);
                 this.fzM.remove(size3);
             }
         }
@@ -213,8 +213,8 @@ public class a {
             FeedForumData feedForumData = this.fzN.get(i4);
             b bVar = this.fzM.get(i4);
             if (feedForumData != null && bVar != null) {
-                bVar.cWI.setTag(feedForumData);
-                bVar.cWI.setOnClickListener(this.mOnClickListener);
+                bVar.cWJ.setTag(feedForumData);
+                bVar.cWJ.setOnClickListener(this.mOnClickListener);
                 bVar.fzS.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
                 bVar.fzS.startLoad(feedForumData.getAvatar(), 15, false);
                 bVar.mTitle.setText(feedForumData.getForumName());
@@ -266,7 +266,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void showDialog() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-        aVar.mE(this.mTbPageContext.getPageActivity().getString(R.string.not_intrested));
+        aVar.mD(this.mTbPageContext.getPageActivity().getString(R.string.not_intrested));
         aVar.a(R.string.alert_yes_button, new a.b() { // from class: com.baidu.tieba.frs.frsfeedforums.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -294,7 +294,7 @@ public class a {
         al.c(this.fzJ, (int) R.drawable.icon_frs_recommend_arrow_down);
         al.f(this.fzK, R.color.cp_cont_e, 1);
         for (b bVar : this.fzM) {
-            al.k(bVar.cWI, R.drawable.frs_like_feed_forum_item_bg);
+            al.k(bVar.cWJ, R.drawable.frs_like_feed_forum_item_bg);
             al.f(bVar.mTitle, R.color.cp_cont_b, 1);
             al.f(bVar.fzT, R.color.cp_cont_c, 1);
             al.f(bVar.fzU, R.color.cp_link_tip_d, 1);

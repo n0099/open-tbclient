@@ -34,7 +34,7 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
         if (this.eTW.getParent() instanceof ViewGroup) {
             ((ViewGroup) this.eTW.getParent()).removeView(this.eTW);
         }
-        com.baidu.tieba.q.c.clv().u(getUniqueId());
+        com.baidu.tieba.q.c.clw().u(getUniqueId());
         return this.eTW;
     }
 
@@ -62,7 +62,7 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
         if (this.eTV != null) {
             this.eTV.bey();
         }
-        com.baidu.tieba.q.c.clv().x(getUniqueId());
+        com.baidu.tieba.q.c.clw().x(getUniqueId());
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
@@ -99,7 +99,7 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
         this.eRU = null;
         this.eTW.onDestroy();
         this.eTV.onDestroy();
-        com.baidu.tieba.q.c.clv().v(getUniqueId());
+        com.baidu.tieba.q.c.clw().v(getUniqueId());
         super.onDestroyView();
     }
 
@@ -116,7 +116,7 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-        com.baidu.tieba.q.c.clv().b(getUniqueId(), false);
+        com.baidu.tieba.q.c.clw().b(getUniqueId(), false);
     }
 
     public void setTabViewController(c cVar) {

@@ -112,7 +112,7 @@ public final class b {
         aVar.asZ = false;
         aVar.asY = com.baidu.swan.apps.core.j.c.Bi().a(activity, new com.baidu.swan.apps.core.c() { // from class: com.baidu.swan.apps.core.i.b.3
             @Override // com.baidu.swan.apps.core.c
-            public void ds(String str) {
+            public void dr(String str) {
                 if (b.DEBUG) {
                     Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + a.this.asY.wU() + " url: " + str);
                 }
@@ -136,7 +136,7 @@ public final class b {
         asW.put(str, cVar);
     }
 
-    public static com.baidu.swan.apps.b.c.c dT(String str) {
+    public static com.baidu.swan.apps.b.c.c dS(String str) {
         com.baidu.swan.apps.b.c.c cVar = asW.get(str);
         if (cVar != null) {
             asW.remove(str);

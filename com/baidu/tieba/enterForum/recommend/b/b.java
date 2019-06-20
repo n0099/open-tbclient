@@ -5,7 +5,7 @@ import tbclient.RecommendForumInfo;
 public class b {
     public String authen;
     public String avatar;
-    public boolean bHO;
+    public boolean bHP;
     public int eUk;
     public String eUl;
     public boolean eUm;
@@ -24,7 +24,7 @@ public class b {
         this.avatar = recommendForumInfo.avatar;
         this.forumId = recommendForumInfo.forum_id.longValue();
         this.forumName = recommendForumInfo.forum_name;
-        this.bHO = recommendForumInfo.is_like.intValue() == 1;
+        this.bHP = recommendForumInfo.is_like.intValue() == 1;
         this.memberCount = recommendForumInfo.member_count.intValue();
         this.threadCount = recommendForumInfo.thread_count.intValue();
         this.slogan = recommendForumInfo.slogan;

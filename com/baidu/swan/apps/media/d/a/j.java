@@ -20,7 +20,7 @@ public class j extends g {
     }
 
     private void a(com.baidu.swan.apps.media.d.a aVar, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        aVar.eC(str);
+        aVar.eB(str);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 }

@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.d;
 /* loaded from: classes4.dex */
 public class PbThreadPostView extends LinearLayout {
-    private d hJK;
-    public View hSU;
-    public TextView hSV;
+    private d hJL;
+    public View hSV;
     public TextView hSW;
+    public TextView hSX;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void qA() {
-        this.hSU = findViewById(R.id.pb_thread_post_container);
-        this.hSV = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.hSW = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.hSV = findViewById(R.id.pb_thread_post_container);
+        this.hSW = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.hSX = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(d dVar) {
-        this.hJK = dVar;
+        this.hJL = dVar;
         nq(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.hSW.setOnClickListener(this.mOnClickListener);
+            this.hSX.setOnClickListener(this.mOnClickListener);
         }
     }
 
     public void nq(int i) {
-        al.h(this.hSU, R.color.cp_bg_line_e, i);
-        al.j(this.hSV, R.color.cp_cont_j);
-        al.j(this.hSW, R.color.cp_link_tip_a);
+        al.h(this.hSV, R.color.cp_bg_line_e, i);
+        al.j(this.hSW, R.color.cp_cont_j);
+        al.j(this.hSX, R.color.cp_link_tip_a);
     }
 }

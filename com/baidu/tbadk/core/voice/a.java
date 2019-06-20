@@ -14,7 +14,7 @@ public class a {
         return q.ks();
     }
 
-    public static String oF(String str) {
+    public static String oE(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -25,8 +25,8 @@ public class a {
         return m.O(str, 1);
     }
 
-    public static String oG(String str) {
-        return f.aU(oF(str));
+    public static String oF(String str) {
+        return f.aU(oE(str));
     }
 
     public static boolean aY(String str) {

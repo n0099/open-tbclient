@@ -17,17 +17,17 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.f> {
 
     private boolean a(Context context, com.baidu.swan.apps.x.a.f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction start");
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(fVar.aDm);
-        if (!(dU instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(fVar.aDm);
+        if (!(dT instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.b kc = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dU).kc(fVar.id);
-        if (kc == null) {
+        com.baidu.swan.impl.map.item.b kb = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dT).kb(fVar.id);
+        if (kb == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + fVar.id);
             return false;
         }
-        return a(fVar, kc, bVar);
+        return a(fVar, kb, bVar);
     }
 
     private boolean a(final com.baidu.swan.apps.x.a.f fVar, com.baidu.swan.impl.map.item.b bVar, final com.baidu.swan.apps.x.b bVar2) {
@@ -35,10 +35,10 @@ public class g extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.f> {
             return false;
         }
         LatLng latLng = new LatLng(fVar.azK.latitude, fVar.azK.longitude);
-        List<com.baidu.swan.impl.map.item.c> kd = bVar.kd(fVar.azY);
+        List<com.baidu.swan.impl.map.item.c> kc = bVar.kc(fVar.azY);
         com.baidu.swan.apps.console.c.i("map", "TranslateMarkerAction animation start");
-        if (kd != null) {
-            for (com.baidu.swan.impl.map.item.c cVar : kd) {
+        if (kc != null) {
+            for (com.baidu.swan.impl.map.item.c cVar : kc) {
                 cVar.a(bVar, latLng, fVar.duration, new c.a() { // from class: com.baidu.swan.impl.map.a.a.g.1
                     @Override // com.baidu.swan.impl.map.item.c.a
                     public void onAnimationEnd() {

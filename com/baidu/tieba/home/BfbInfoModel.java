@@ -9,7 +9,7 @@ import tbclient.UserBfbInfo;
 /* loaded from: classes6.dex */
 public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     com.baidu.adp.framework.listener.a eTF;
-    private a fVL;
+    private a fVN;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -25,8 +25,8 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                     if ((responsedMessage instanceof BfbInfoHttpResponseMessage) || (responsedMessage instanceof BfbInfoSocketResponseMessage)) {
                         UserBfbInfo userBfbInfo = null;
                         if (responsedMessage.getError() != 0) {
-                            if (BfbInfoModel.this.fVL != null) {
-                                BfbInfoModel.this.fVL.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (BfbInfoModel.this.fVN != null) {
+                                BfbInfoModel.this.fVN.a(responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
@@ -36,18 +36,18 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
                         } else if (responsedMessage instanceof BfbInfoSocketResponseMessage) {
                             userBfbInfo = ((BfbInfoSocketResponseMessage) responsedMessage).getBfbInfo();
                         }
-                        if (BfbInfoModel.this.fVL != null) {
-                            BfbInfoModel.this.fVL.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
+                        if (BfbInfoModel.this.fVN != null) {
+                            BfbInfoModel.this.fVN.a(responsedMessage.getError(), responsedMessage.getErrorString(), userBfbInfo);
                         }
                     }
                 }
             }
         };
-        bsB();
+        bsD();
         aWb();
     }
 
-    private void bsB() {
+    private void bsD() {
         com.baidu.tieba.tbadkCore.a.a.a(309366, BfbInfoSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
     }
@@ -68,10 +68,10 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
     }
 
     public void a(a aVar) {
-        this.fVL = aVar;
+        this.fVN = aVar;
     }
 
-    public void bsC() {
+    public void bsE() {
         MessageManager.getInstance().unRegisterListener(this.eTF);
         MessageManager.getInstance().unRegisterTask(309366);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_BFB_INFO);

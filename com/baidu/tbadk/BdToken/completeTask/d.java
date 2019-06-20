@@ -65,7 +65,7 @@ public class d implements Handler.Callback {
                         d.this.q(bVar);
                     } else if (completeTaskReqMsg.extra instanceof c) {
                         obj = (c) completeTaskReqMsg.extra;
-                        d.this.ln(((c) obj).data);
+                        d.this.lm(((c) obj).data);
                     } else {
                         if (completeTaskReqMsg.extra instanceof e) {
                             n.YJ().YK();
@@ -181,7 +181,7 @@ public class d implements Handler.Callback {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ln(String str) {
+    public void lm(String str) {
         JSONObject jSONObject;
         String[] split;
         if (str != null) {

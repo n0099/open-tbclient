@@ -35,11 +35,11 @@ public class f {
         return TextUtils.isEmpty(this.bjj) ? "" : this.bjj + File.separator + "index.js";
     }
 
-    public void jH(String str) {
+    public void jG(String str) {
         this.bji = str;
     }
 
-    public void jI(String str) {
+    public void jH(String str) {
         this.bjj = str;
     }
 }

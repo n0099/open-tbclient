@@ -4,11 +4,11 @@ import android.util.SparseArray;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class aj {
-    private long bGJ;
-    public SparseArray<String> bGK = null;
+    private long bGK;
     public SparseArray<String> bGL = null;
-    public int bGM;
-    public JSONArray bGN;
+    public SparseArray<String> bGM = null;
+    public int bGN;
+    public JSONArray bGO;
     public String extra;
     private String fid;
     public String source;
@@ -46,34 +46,34 @@ public class aj {
     }
 
     public SparseArray<String> ace() {
-        return this.bGK;
+        return this.bGL;
     }
 
     public void b(SparseArray<String> sparseArray) {
-        this.bGK = sparseArray;
+        this.bGL = sparseArray;
     }
 
     public void gR(int i) {
-        this.bGM = i;
+        this.bGN = i;
     }
 
     public int acf() {
-        return this.bGM;
-    }
-
-    public void x(JSONArray jSONArray) {
-        this.bGN = jSONArray;
-    }
-
-    public JSONArray acg() {
         return this.bGN;
     }
 
+    public void x(JSONArray jSONArray) {
+        this.bGO = jSONArray;
+    }
+
+    public JSONArray acg() {
+        return this.bGO;
+    }
+
     public long ach() {
-        return this.bGJ;
+        return this.bGK;
     }
 
     public void ao(long j) {
-        this.bGJ = j;
+        this.bGK = j;
     }
 }

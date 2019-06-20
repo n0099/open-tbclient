@@ -24,12 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String cAq = "#";
-    public static String cAr = "＃";
+    public static String cAr = "#";
+    public static String cAs = "＃";
     private static final Pattern byd = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean qE(String str) {
-        return cAq.equals(str);
+    public static boolean qD(String str) {
+        return cAr.equals(str);
     }
 
     public static boolean fE(boolean z) {
@@ -71,7 +71,7 @@ public class b {
         final Activity pageActivity;
         if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(pageActivity);
-            aVar.mE(str);
+            aVar.mD(str);
             if (TextUtils.isEmpty(str2)) {
                 aVar.b(R.string.know, new a.b() { // from class: com.baidu.tbadk.plugins.b.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -98,7 +98,7 @@ public class b {
         }
     }
 
-    public static SpannableString qF(String str) {
+    public static SpannableString qE(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
@@ -107,7 +107,7 @@ public class b {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!qH(str.substring(start, end))) {
+            if (!qG(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), start, end, 18);
             }
         }
@@ -123,7 +123,7 @@ public class b {
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!qH(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!qG(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), start, end, 18);
                     }
                 }
@@ -131,21 +131,21 @@ public class b {
         }
     }
 
-    public static String qG(String str) {
+    public static String qF(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(cAq).append(str).append(cAq);
+            sb.append(cAr).append(str).append(cAr);
             return sb.toString();
         }
         return str;
     }
 
-    public static boolean qH(String str) {
+    public static boolean qG(String str) {
         String substring;
-        return str != null && str.startsWith(cAq) && str.endsWith(cAq) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(cAr) && str.endsWith(cAr) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

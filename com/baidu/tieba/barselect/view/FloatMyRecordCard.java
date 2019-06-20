@@ -24,8 +24,8 @@ import com.baidu.tieba.barselect.data.f;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
 /* loaded from: classes3.dex */
 public class FloatMyRecordCard extends LinearLayout {
-    private TextView cbV;
-    private View.OnClickListener ckH;
+    private TextView cbW;
+    private View.OnClickListener ckI;
     private f epO;
     private TextView etA;
     private ImageView etB;
@@ -42,7 +42,7 @@ public class FloatMyRecordCard extends LinearLayout {
 
     public FloatMyRecordCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckH = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
+        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.view.FloatMyRecordCard.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FloatMyRecordCard.this.etE != null && FloatMyRecordCard.this.etE.getUid() != 0) {
@@ -71,7 +71,7 @@ public class FloatMyRecordCard extends LinearLayout {
         if (this.eub.getHeadView() != null) {
             this.eub.getHeadView().setIsRound(true);
         }
-        this.cbV = (TextView) findViewById(R.id.user_name);
+        this.cbW = (TextView) findViewById(R.id.user_name);
         this.etB = (ImageView) findViewById(R.id.grade);
         this.etA = (TextView) findViewById(R.id.vote_id);
         this.euc = (VotedAreaLayout) findViewById(R.id.my_vote_num_layout);
@@ -102,9 +102,9 @@ public class FloatMyRecordCard extends LinearLayout {
         } else if (rank == 3) {
             this.eua.setTextColor(getResources().getColor(R.color.common_color_10266));
         }
-        this.eub.oy(this.etE.getPortrait());
-        this.eub.setOnClickListener(this.ckH);
-        this.cbV.setText(ap.j(this.etE.aWI(), 14, "..."));
+        this.eub.ox(this.etE.getPortrait());
+        this.eub.setOnClickListener(this.ckI);
+        this.cbW.setText(ap.j(this.etE.aWI(), 14, "..."));
         setGrade(this.etE.aWF());
         if (this.etE.aWE() < 1000) {
             String str2 = "0000" + this.etE.aWE();
@@ -125,7 +125,7 @@ public class FloatMyRecordCard extends LinearLayout {
             if (this.etE.getRank() > 3) {
                 al.c(this.eua, R.color.cp_cont_b, 1, i);
             }
-            al.c(this.cbV, R.color.cp_cont_b, 1, i);
+            al.c(this.cbW, R.color.cp_cont_b, 1, i);
             setGrade(this.etE.aWF());
             al.c(this.etA, R.color.cp_cont_d, 1, i);
             this.euc.nq(i);

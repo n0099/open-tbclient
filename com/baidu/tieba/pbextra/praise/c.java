@@ -8,13 +8,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends BaseAdapter implements AbsListView.OnScrollListener {
-    private PraiseListActivity ibt;
+    private PraiseListActivity ibu;
     private volatile boolean isScrolling;
     private List<a> mZanItemDataList = null;
 
     public c(PraiseListActivity praiseListActivity) {
-        this.ibt = null;
-        this.ibt = praiseListActivity;
+        this.ibu = null;
+        this.ibu = praiseListActivity;
     }
 
     public void dL(List<a> list) {
@@ -64,10 +64,10 @@ public class c extends BaseAdapter implements AbsListView.OnScrollListener {
     }
 
     private View g(int i, View view, ViewGroup viewGroup) {
-        b d = b.d(this.ibt.getPageContext().getPageActivity(), view);
+        b d = b.d(this.ibu.getPageContext().getPageActivity(), view);
         a item = getItem(i);
-        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.bXU(), this.isScrolling);
-        this.ibt.changSkinType(d.getView());
+        d.a(StringUtils.isNull(item.getShowName()) ? item.getUserName() : item.getShowName(), item.getPortrait(), item.bXV(), this.isScrolling);
+        this.ibu.changSkinType(d.getView());
         return d.getView();
     }
 }

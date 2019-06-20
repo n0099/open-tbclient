@@ -48,9 +48,9 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
         if (c != null) {
             this.adUnitId = c.optString("adUnitId");
             this.bdm = c.optString("appSid");
-            JsObject iS = c.iS(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            if (iS != null) {
-                this.style = new g(iS);
+            JsObject iR = c.iR(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            if (iR != null) {
+                this.style = new g(iR);
             }
         }
         if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.bdm) || this.style == null) {
@@ -67,7 +67,7 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
     @Override // com.baidu.swan.games.a.b
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.jW("banner");
+        com.baidu.swan.games.view.a.b.jV("banner");
         if (this.bdn != null) {
             this.bdn.a(jsObject);
         }
@@ -95,7 +95,7 @@ public class a extends EventTargetImpl implements g.a, com.baidu.swan.games.a.b 
     }
 
     @Override // com.baidu.swan.game.ad.f.g.a
-    public void iE(String str) {
+    public void iD(String str) {
         if (!this.isDestroyed && !TextUtils.isEmpty(str) && !str.equals("height") && this.style != null && this.bdn != null) {
             this.bdn.b(str);
         }

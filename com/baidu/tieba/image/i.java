@@ -13,100 +13,100 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class i {
-    private String gSX;
-    private int gSY;
-    private int gSZ;
+    private String gSZ;
     private int gTa;
-    private long gSW = 0;
-    private HashMap<String, Boolean> gSV = new HashMap<>();
+    private int gTb;
+    private int gTc;
+    private long gSY = 0;
+    private HashMap<String, Boolean> gSX = new HashMap<>();
 
     public void vJ(int i) {
-        this.gSZ = i;
-    }
-
-    public int bGr() {
-        return this.gSZ;
-    }
-
-    public void vK(int i) {
-        this.gTa = i;
+        this.gTb = i;
     }
 
     public int bGs() {
-        return this.gTa;
+        return this.gTb;
+    }
+
+    public void vK(int i) {
+        this.gTc = i;
+    }
+
+    public int bGt() {
+        return this.gTc;
     }
 
     public void b(Bundle bundle, Intent intent) {
         if (bundle != null) {
-            this.gSX = bundle.getString(ImageViewerConfig.PV_TYPE);
+            this.gSZ = bundle.getString(ImageViewerConfig.PV_TYPE);
         } else if (intent != null) {
-            this.gSX = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
+            this.gSZ = intent.getStringExtra(ImageViewerConfig.PV_TYPE);
             int intExtra = intent.getIntExtra("index", -1);
-            this.gSY = intExtra;
-            this.gSZ = intExtra;
             this.gTa = intExtra;
+            this.gTb = intExtra;
+            this.gTc = intExtra;
         }
     }
 
     public void Z(Bundle bundle) {
         if (bundle != null) {
-            bundle.putString(ImageViewerConfig.PV_TYPE, this.gSX);
+            bundle.putString(ImageViewerConfig.PV_TYPE, this.gSZ);
         }
     }
 
     public void e(List<String> list, int i, int i2) {
-        synchronized (this.gSV) {
-            if (System.nanoTime() - this.gSW > 300000000 && list != null && i < list.size()) {
-                this.gSV.put(list.get(i), true);
+        synchronized (this.gSX) {
+            if (System.nanoTime() - this.gSY > 300000000 && list != null && i < list.size()) {
+                this.gSX.put(list.get(i), true);
             }
-            this.gSW = System.nanoTime();
-            if (list != null && i2 < list.size() && this.gSV.get(list.get(i2)) == null) {
-                this.gSV.put(list.get(i2), false);
+            this.gSY = System.nanoTime();
+            if (list != null && i2 < list.size() && this.gSX.get(list.get(i2)) == null) {
+                this.gSX.put(list.get(i2), false);
             }
         }
-        if (this.gSV.size() >= 100) {
-            bGt();
+        if (this.gSX.size() >= 100) {
+            bGu();
         }
     }
 
-    public void bGt() {
-        if (this.gSV != null) {
-            synchronized (this.gSV) {
-                if (this.gSV.size() > 0) {
+    public void bGu() {
+        if (this.gSX != null) {
+            synchronized (this.gSX) {
+                if (this.gSX.size() > 0) {
                     int i = 0;
-                    for (Map.Entry<String, Boolean> entry : this.gSV.entrySet()) {
+                    for (Map.Entry<String, Boolean> entry : this.gSX.entrySet()) {
                         if (entry.getValue().booleanValue()) {
                             i++;
                         }
                     }
-                    TbadkCoreApplication.getInst().sendImagePv(i, this.gSV.size(), this.gSX, this.gSY + 1, this.gSZ + 1);
-                    this.gSV.clear();
+                    TbadkCoreApplication.getInst().sendImagePv(i, this.gSX.size(), this.gSZ, this.gTa + 1, this.gTb + 1);
+                    this.gSX.clear();
                 }
             }
         }
     }
 
     public void as(int i, String str) {
-        if (i == 1 && System.nanoTime() - this.gSW > 300000000) {
-            this.gSV.put(str, true);
+        if (i == 1 && System.nanoTime() - this.gSY > 300000000) {
+            this.gSX.put(str, true);
         }
     }
 
     public void d(int i, String str, String str2, String str3) {
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();
-        if (this.gTa == this.gSZ) {
-            sb.append(this.gTa + 1);
-            if (this.gSZ == i - 1) {
+        if (this.gTc == this.gTb) {
+            sb.append(this.gTc + 1);
+            if (this.gTb == i - 1) {
                 sb2.append(1);
             } else {
                 sb2.append(0);
             }
         } else {
-            for (int i2 = this.gTa; i2 <= this.gSZ; i2++) {
-                if (i2 == this.gSZ) {
+            for (int i2 = this.gTc; i2 <= this.gTb; i2++) {
+                if (i2 == this.gTb) {
                     sb.append(i2 + 1);
-                    if (this.gSZ == i - 1) {
+                    if (this.gTb == i - 1) {
                         sb2.append(1);
                     } else {
                         sb2.append(0);
@@ -130,9 +130,9 @@ public class i {
         amVar.P("pic_count", i);
         amVar.bT("obj_floors", sb.toString());
         amVar.bT("obj_isads", sb2.toString());
-        int i3 = (this.gSZ - this.gTa) + 1;
+        int i3 = (this.gTb - this.gTc) + 1;
         if (i3 == 1) {
-            if (this.gSZ == i - 1) {
+            if (this.gTb == i - 1) {
                 amVar.bT(VideoPlayActivityConfig.OBJ_ID, str);
             } else {
                 amVar.bT(VideoPlayActivityConfig.OBJ_ID, "");
@@ -143,7 +143,7 @@ public class i {
             for (int i4 = 0; i4 < i3 - 1; i4++) {
                 sb3.append("|");
             }
-            if (this.gSZ == i - 1) {
+            if (this.gTb == i - 1) {
                 sb3.append(str);
             }
             amVar.bT("obj_ids", str);

@@ -62,7 +62,7 @@ public class e extends z {
         if (DEBUG) {
             Log.d("NavigateToAction", "slave webView id: " + wU);
         }
-        final String optString = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("navigateTo", "cb is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -72,7 +72,7 @@ public class e extends z {
         FV.showLoadingView();
         g.Mj().a(bVar, aq.ayL, wU, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.i.e.1
             @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-            public void fb(String str) {
+            public void fa(String str) {
                 com.baidu.swan.apps.console.c.i("navigateTo", "check pages success");
                 com.baidu.swan.apps.statistic.e.f(true, bVar.vk().EW());
                 FV.vl();
@@ -120,7 +120,7 @@ public class e extends z {
     public void a(com.baidu.swan.apps.b.c.c cVar, com.baidu.swan.apps.model.b bVar, com.baidu.swan.apps.core.d.e eVar) {
         a.a(cVar, bVar);
         if (eVar.zN() < aSP) {
-            eVar.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("normal", bVar).zW();
+            eVar.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("normal", bVar).zW();
         } else {
             i.c(eVar, bVar);
         }

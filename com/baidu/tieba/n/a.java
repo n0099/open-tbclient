@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a iyA;
-    private e iyB;
+    private static a iyB;
+    private e iyC;
     private int mScore = 0;
 
-    public static a cet() {
-        if (iyA == null) {
+    public static a ceu() {
+        if (iyB == null) {
             synchronized (a.class) {
-                if (iyA == null) {
-                    iyA = new a();
+                if (iyB == null) {
+                    iyB = new a();
                 }
             }
         }
-        return iyA;
+        return iyB;
     }
 
     public void init() {
@@ -81,22 +81,22 @@ public class a {
             jVar.setTitleSize(R.dimen.ds28);
             jVar.setTitlePadding(0, g, 0, g3);
             jVar.C(0, 0, 0, g2);
-            jVar.rG(true);
+            jVar.rH(true);
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
                 public void yR(int i) {
-                    if (a.this.iyB != null) {
-                        a.this.iyB.dismiss();
-                        a.this.iyB = null;
+                    if (a.this.iyC != null) {
+                        a.this.iyC.dismiss();
+                        a.this.iyC = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new am("c13072").P("obj_type", a.this.mScore));
                         a.this.z(tbPageContext);
                     }
                 }
             });
-            this.iyB = new e(tbPageContext.getContext(), jVar.afZ());
-            this.iyB.an(0.7f);
-            g.a(this.iyB, tbPageContext);
+            this.iyC = new e(tbPageContext.getContext(), jVar.afZ());
+            this.iyC.an(0.7f);
+            g.a(this.iyC, tbPageContext);
             TiebaStatic.log(new am("c13071"));
         }
     }
@@ -117,7 +117,7 @@ public class a {
             jVar.BT(this.mScore);
             jVar.BU(0);
             jVar.BV(0);
-            jVar.rG(false);
+            jVar.rH(false);
             l.g(tbPageContext.getContext(), R.dimen.ds42);
             int g = l.g(tbPageContext.getContext(), R.dimen.ds32);
             l.g(tbPageContext.getContext(), R.dimen.ds51);
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.iyB != null) {
-                        a.this.iyB.dismiss();
-                        a.this.iyB = null;
+                    if (a.this.iyC != null) {
+                        a.this.iyC.dismiss();
+                        a.this.iyC = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.B(tbPageContext);
                             TiebaStatic.log(new am("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.iyB != null) {
-                        a.this.iyB.dismiss();
-                        a.this.iyB = null;
+                    if (a.this.iyC != null) {
+                        a.this.iyC.dismiss();
+                        a.this.iyC = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new am("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.W(arrayList);
-            this.iyB = new e(tbPageContext.getContext(), jVar.afZ());
-            this.iyB.an(0.7f);
-            g.a(this.iyB, tbPageContext);
+            this.iyC = new e(tbPageContext.getContext(), jVar.afZ());
+            this.iyC.an(0.7f);
+            g.a(this.iyC, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new am("c13076"));
             } else {

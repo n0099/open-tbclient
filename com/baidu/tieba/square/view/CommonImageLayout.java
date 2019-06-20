@@ -15,17 +15,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class CommonImageLayout extends ViewGroup {
-    private static float[] iVJ = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static float[] iVK = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
-    private static int iVL = 2;
-    private static int iVM = 4;
-    private static int iVN = 0;
+    private static float[] iVN = {306.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static float[] iVO = {138.0f, 144.0f, 204.0f, 101.0f, 97.0f};
+    private static int iVP = 2;
+    private static int iVQ = 4;
+    private static int iVR = 0;
     public static float sRatio = -1.0f;
-    public TbImageView iVO;
-    public TbImageView iVP;
-    public TbImageView iVQ;
-    private MediaData[] iVR;
-    private boolean iVS;
+    public TbImageView iVS;
+    public TbImageView iVT;
+    public TbImageView iVU;
+    private MediaData[] iVV;
+    private boolean iVW;
     private final Context mContext;
     private boolean mIsFromCDN;
     private int mPadding;
@@ -37,83 +37,83 @@ public class CommonImageLayout extends ViewGroup {
     private void initData() {
         if (sRatio < 0.0f) {
             sRatio = l.af(this.mContext) / 320.0f;
-            for (int i = 0; i < iVJ.length; i++) {
-                float[] fArr = iVJ;
+            for (int i = 0; i < iVN.length; i++) {
+                float[] fArr = iVN;
                 fArr[i] = fArr[i] * sRatio;
-                float[] fArr2 = iVK;
+                float[] fArr2 = iVO;
                 fArr2[i] = fArr2[i] * sRatio;
             }
-            iVL = (int) (iVL * sRatio);
-            iVM = (int) (iVM * sRatio);
+            iVP = (int) (iVP * sRatio);
+            iVQ = (int) (iVQ * sRatio);
         }
     }
 
     public CommonImageLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mPadding = 7;
-        this.iVS = false;
+        this.iVW = false;
         this.mIsFromCDN = false;
         this.mContext = context;
         initData();
         TbadkCoreApplication.getInst().getSkinType();
         Drawable drawable = al.getDrawable(R.color.common_color_10220);
-        this.iVO = new TbImageView(context);
-        this.iVP = new TbImageView(context);
-        this.iVQ = new TbImageView(context);
-        this.iVO.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.iVP.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.iVQ.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.iVO.setDefaultBg(drawable);
-        this.iVP.setDefaultBg(drawable);
-        this.iVQ.setDefaultBg(drawable);
-        addView(this.iVO);
-        addView(this.iVP);
-        addView(this.iVQ);
+        this.iVS = new TbImageView(context);
+        this.iVT = new TbImageView(context);
+        this.iVU = new TbImageView(context);
+        this.iVS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.iVT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.iVU.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.iVS.setDefaultBg(drawable);
+        this.iVT.setDefaultBg(drawable);
+        this.iVU.setDefaultBg(drawable);
+        addView(this.iVS);
+        addView(this.iVT);
+        addView(this.iVU);
         this.mPadding = (int) (this.mPadding * sRatio);
     }
 
     public void setShowBig(boolean z) {
-        this.iVS = z;
+        this.iVW = z;
     }
 
     public void setData(MediaData[] mediaDataArr) {
-        this.iVR = mediaDataArr;
-        if (this.iVR == null || this.iVR.length <= 0) {
-            if (this.iVO != null) {
-                this.iVO.setTag(null);
+        this.iVV = mediaDataArr;
+        if (this.iVV == null || this.iVV.length <= 0) {
+            if (this.iVS != null) {
+                this.iVS.setTag(null);
             }
-            if (this.iVP != null) {
-                this.iVP.setTag(null);
+            if (this.iVT != null) {
+                this.iVT.setTag(null);
             }
-            if (this.iVQ != null) {
-                this.iVQ.setTag(null);
+            if (this.iVU != null) {
+                this.iVU.setTag(null);
             }
             requestLayout();
             invalidate();
             return;
         }
-        int length = this.iVR.length;
+        int length = this.iVV.length;
         if (length == 1) {
-            a(this.iVO, this.iVR[0]);
-            if (this.iVP != null) {
-                this.iVP.setTag(null);
-                this.iVP.setClickable(false);
+            a(this.iVS, this.iVV[0]);
+            if (this.iVT != null) {
+                this.iVT.setTag(null);
+                this.iVT.setClickable(false);
             }
-            if (this.iVQ != null) {
-                this.iVQ.setTag(null);
-                this.iVQ.setClickable(false);
+            if (this.iVU != null) {
+                this.iVU.setTag(null);
+                this.iVU.setClickable(false);
             }
         } else if (length == 2) {
-            a(this.iVO, this.iVR[0]);
-            a(this.iVP, this.iVR[1]);
-            if (this.iVQ != null) {
-                this.iVQ.setTag(null);
-                this.iVQ.setClickable(false);
+            a(this.iVS, this.iVV[0]);
+            a(this.iVT, this.iVV[1]);
+            if (this.iVU != null) {
+                this.iVU.setTag(null);
+                this.iVU.setClickable(false);
             }
         } else if (length == 3) {
-            a(this.iVO, this.iVR[0]);
-            a(this.iVP, this.iVR[1]);
-            a(this.iVQ, this.iVR[2]);
+            a(this.iVS, this.iVV[0]);
+            a(this.iVT, this.iVV[1]);
+            a(this.iVU, this.iVV[2]);
         }
         requestLayout();
         invalidate();
@@ -124,54 +124,54 @@ public class CommonImageLayout extends ViewGroup {
         int i3;
         int i4;
         int i5 = 1073741823 & i;
-        if (iVN == 0) {
-            iVN = i5;
+        if (iVR == 0) {
+            iVR = i5;
         }
-        if (this.iVR == null || this.iVR.length == 0) {
+        if (this.iVV == null || this.iVV.length == 0) {
             setMeasuredDimension(0, 0);
             return;
         }
-        if (this.iVS) {
-            setMeasuredDimension(iVN, (int) (iVK[this.iVR.length - 1] + 0.5f));
+        if (this.iVW) {
+            setMeasuredDimension(iVR, (int) (iVO[this.iVV.length - 1] + 0.5f));
         } else {
-            setMeasuredDimension(iVN, (int) (iVK[4] + 0.5f));
+            setMeasuredDimension(iVR, (int) (iVO[4] + 0.5f));
         }
-        switch (this.iVR.length) {
+        switch (this.iVV.length) {
             case 1:
-                if (this.iVS) {
-                    measureChild(this.iVO, iVN + 1073741824, ((int) (iVK[0] + 0.5f)) + 1073741824);
+                if (this.iVW) {
+                    measureChild(this.iVS, iVR + 1073741824, ((int) (iVO[0] + 0.5f)) + 1073741824);
                 } else {
-                    measureChild(this.iVO, ((int) (iVJ[4] + 0.5f)) + 1073741824, ((int) (iVK[4] + 0.5f)) + 1073741824);
+                    measureChild(this.iVS, ((int) (iVN[4] + 0.5f)) + 1073741824, ((int) (iVO[4] + 0.5f)) + 1073741824);
                 }
-                measureChild(this.iVP, 0, 0);
-                measureChild(this.iVQ, 0, 0);
+                measureChild(this.iVT, 0, 0);
+                measureChild(this.iVU, 0, 0);
                 return;
             case 2:
-                if (this.iVS) {
-                    i3 = ((int) (iVJ[1] + 0.5f)) + 1073741824;
-                    i4 = ((int) (iVK[1] + 0.5f)) + 1073741824;
+                if (this.iVW) {
+                    i3 = ((int) (iVN[1] + 0.5f)) + 1073741824;
+                    i4 = ((int) (iVO[1] + 0.5f)) + 1073741824;
                 } else {
-                    i3 = ((int) (iVJ[4] + 0.5f)) + 1073741824;
-                    i4 = ((int) (iVK[4] + 0.5f)) + 1073741824;
+                    i3 = ((int) (iVN[4] + 0.5f)) + 1073741824;
+                    i4 = ((int) (iVO[4] + 0.5f)) + 1073741824;
                 }
-                measureChild(this.iVO, i3, i4);
-                measureChild(this.iVP, i3, i4);
-                measureChild(this.iVQ, 0, 0);
+                measureChild(this.iVS, i3, i4);
+                measureChild(this.iVT, i3, i4);
+                measureChild(this.iVU, 0, 0);
                 return;
             case 3:
-                if (this.iVS) {
-                    int i6 = ((int) (iVJ[3] + 0.5f)) + 1073741824;
-                    int i7 = ((int) (iVK[3] + 0.5f)) + 1073741824;
-                    measureChild(this.iVO, ((int) (iVJ[2] + 0.5f)) + 1073741824, ((int) (iVK[2] + 0.5f)) + 1073741824);
-                    measureChild(this.iVP, i6, i7);
-                    measureChild(this.iVQ, i6, i7);
+                if (this.iVW) {
+                    int i6 = ((int) (iVN[3] + 0.5f)) + 1073741824;
+                    int i7 = ((int) (iVO[3] + 0.5f)) + 1073741824;
+                    measureChild(this.iVS, ((int) (iVN[2] + 0.5f)) + 1073741824, ((int) (iVO[2] + 0.5f)) + 1073741824);
+                    measureChild(this.iVT, i6, i7);
+                    measureChild(this.iVU, i6, i7);
                     return;
                 }
-                int i8 = ((int) (iVJ[4] + 0.5f)) + 1073741824;
-                int i9 = ((int) (iVK[4] + 0.5f)) + 1073741824;
-                measureChild(this.iVO, i8, i9);
-                measureChild(this.iVP, i8, i9);
-                measureChild(this.iVQ, i8, i9);
+                int i8 = ((int) (iVN[4] + 0.5f)) + 1073741824;
+                int i9 = ((int) (iVO[4] + 0.5f)) + 1073741824;
+                measureChild(this.iVS, i8, i9);
+                measureChild(this.iVT, i8, i9);
+                measureChild(this.iVU, i8, i9);
                 return;
             default:
                 return;
@@ -180,43 +180,43 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.iVR != null && this.iVR.length != 0) {
-            switch (this.iVR.length) {
+        if (this.iVV != null && this.iVV.length != 0) {
+            switch (this.iVV.length) {
                 case 1:
-                    if (this.iVS) {
-                        int i5 = (int) (iVJ[0] + 0.5f);
-                        this.iVO.layout(0, 0, i3, i4 - i2);
+                    if (this.iVW) {
+                        int i5 = (int) (iVN[0] + 0.5f);
+                        this.iVS.layout(0, 0, i3, i4 - i2);
                     } else {
-                        this.iVO.layout(this.mPadding, 0, ((int) (iVJ[4] + 0.5f)) + this.mPadding, i4 - i2);
+                        this.iVS.layout(this.mPadding, 0, ((int) (iVN[4] + 0.5f)) + this.mPadding, i4 - i2);
                     }
-                    this.iVP.layout(0, 0, 0, 0);
-                    this.iVQ.layout(0, 0, 0, 0);
+                    this.iVT.layout(0, 0, 0, 0);
+                    this.iVU.layout(0, 0, 0, 0);
                     return;
                 case 2:
-                    if (this.iVS) {
-                        int i6 = (int) (iVJ[1] + 0.5f);
-                        this.iVO.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
-                        this.iVP.layout(i6 + this.mPadding + iVM, 0, (i3 - this.mPadding) - i, i4 - i2);
+                    if (this.iVW) {
+                        int i6 = (int) (iVN[1] + 0.5f);
+                        this.iVS.layout(this.mPadding, 0, this.mPadding + i6, i4 - i2);
+                        this.iVT.layout(i6 + this.mPadding + iVQ, 0, (i3 - this.mPadding) - i, i4 - i2);
                     } else {
-                        int i7 = (int) (iVJ[4] + 0.5f);
-                        this.iVO.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
-                        this.iVP.layout(this.mPadding + i7 + iVL, 0, (i7 * 2) + this.mPadding + iVL, i4 - i2);
+                        int i7 = (int) (iVN[4] + 0.5f);
+                        this.iVS.layout(this.mPadding, 0, this.mPadding + i7, i4 - i2);
+                        this.iVT.layout(this.mPadding + i7 + iVP, 0, (i7 * 2) + this.mPadding + iVP, i4 - i2);
                     }
-                    this.iVQ.layout(0, 0, 0, 0);
+                    this.iVU.layout(0, 0, 0, 0);
                     return;
                 case 3:
-                    if (this.iVS) {
-                        int i8 = (int) (iVJ[2] + 0.5f);
-                        int i9 = (int) (iVJ[3] + 0.5f);
-                        this.iVO.layout(0, 0, i8, i4 - i2);
-                        this.iVP.layout(iVL + i8, 0, i3, i9);
-                        this.iVQ.layout(i8 + iVL, i9 + iVL, i3, i4 - i2);
+                    if (this.iVW) {
+                        int i8 = (int) (iVN[2] + 0.5f);
+                        int i9 = (int) (iVN[3] + 0.5f);
+                        this.iVS.layout(0, 0, i8, i4 - i2);
+                        this.iVT.layout(iVP + i8, 0, i3, i9);
+                        this.iVU.layout(i8 + iVP, i9 + iVP, i3, i4 - i2);
                         return;
                     }
-                    int i10 = (int) (iVJ[4] + 0.5f);
-                    this.iVO.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
-                    this.iVP.layout(this.mPadding + i10 + iVL, 0, (i10 * 2) + this.mPadding + iVL, i4 - i2);
-                    this.iVQ.layout((i10 * 2) + this.mPadding + (iVL * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
+                    int i10 = (int) (iVN[4] + 0.5f);
+                    this.iVS.layout(this.mPadding, 0, this.mPadding + i10, i4 - i2);
+                    this.iVT.layout(this.mPadding + i10 + iVP, 0, (i10 * 2) + this.mPadding + iVP, i4 - i2);
+                    this.iVU.layout((i10 * 2) + this.mPadding + (iVP * 2), 0, (i3 - this.mPadding) - i, i4 - i2);
                     return;
                 default:
                     return;
@@ -226,20 +226,20 @@ public class CommonImageLayout extends ViewGroup {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.iVR != null && this.iVR.length != 0) {
+        if (this.iVV != null && this.iVV.length != 0) {
             long drawingTime = getDrawingTime();
-            switch (this.iVR.length) {
+            switch (this.iVV.length) {
                 case 1:
-                    drawChild(canvas, this.iVO, drawingTime);
+                    drawChild(canvas, this.iVS, drawingTime);
                     return;
                 case 2:
-                    drawChild(canvas, this.iVO, drawingTime);
-                    drawChild(canvas, this.iVP, drawingTime);
+                    drawChild(canvas, this.iVS, drawingTime);
+                    drawChild(canvas, this.iVT, drawingTime);
                     return;
                 case 3:
-                    drawChild(canvas, this.iVO, drawingTime);
-                    drawChild(canvas, this.iVP, drawingTime);
-                    drawChild(canvas, this.iVQ, drawingTime);
+                    drawChild(canvas, this.iVS, drawingTime);
+                    drawChild(canvas, this.iVT, drawingTime);
+                    drawChild(canvas, this.iVU, drawingTime);
                     return;
                 default:
                     return;

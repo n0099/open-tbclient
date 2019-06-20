@@ -21,13 +21,13 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.asp().qr(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.asp().qq(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.ns() == null || checkIsValidPicMemoryCache.ns().isRecycled()) {
             return null;
         }
-        checkIsValidPicMemoryCache.LO.LQ = "memory";
-        checkIsValidPicMemoryCache.LO.LR = 0L;
-        checkIsValidPicMemoryCache.LO.LS = true;
+        checkIsValidPicMemoryCache.LN.LP = "memory";
+        checkIsValidPicMemoryCache.LN.LQ = 0L;
+        checkIsValidPicMemoryCache.LN.LR = true;
         return checkIsValidPicMemoryCache;
     }
 
@@ -35,7 +35,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, com.baidu.adp.lib.f.a aVar, Object... objArr) {
-        return a(as.nT(str2), aVar, str2, "ImageLoaderProc.getFromLocal", i, i2);
+        return a(as.nS(str2), aVar, str2, "ImageLoaderProc.getFromLocal", i, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -82,10 +82,10 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             return null;
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
-            String nT = as.nT(str2);
+            String nS = as.nS(str2);
             com.baidu.tbadk.imageManager.c.asp().kz(TbConfig.getPbImageSize() + bArr.length);
             boolean k = com.baidu.adp.lib.util.l.k(bArr);
-            if (!NSGif.wx || !k) {
+            if (!NSGif.ww || !k) {
                 nSGif = null;
             } else {
                 nSGif = NSGif.h(bArr, 0, bArr.length);
@@ -99,7 +99,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 }
                 aVar2 = new com.baidu.adp.widget.ImageView.a(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i, i2), false, str);
             }
-            com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(TbConfig.IMAGE_CACHE_DIR_NAME, nT, DiskFileOperate.Action.WRITE);
+            com.baidu.adp.lib.Disk.ops.a aVar3 = new com.baidu.adp.lib.Disk.ops.a(TbConfig.IMAGE_CACHE_DIR_NAME, nS, DiskFileOperate.Action.WRITE);
             aVar3.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             aVar3.J(true);
             aVar3.setData(bArr);
@@ -109,7 +109,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             if (aVar != null) {
                 e eVar = new e();
                 eVar.f(aVar3);
-                aVar.Bf = eVar;
+                aVar.Be = eVar;
             }
             if (k) {
                 c.a(str, bArr, false, aVar);
@@ -140,7 +140,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (aVar != null) {
             e eVar = new e();
             eVar.f(aVar2);
-            aVar.Bf = eVar;
+            aVar.Be = eVar;
         }
         if (!com.baidu.adp.lib.Disk.d.gt().c(aVar2)) {
             return null;

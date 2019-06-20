@@ -74,7 +74,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.ik().setUrl(str4);
             cVar.d(-1, -1, -1);
-            byte[] bArr = eVar.il().AO;
+            byte[] bArr = eVar.il().AN;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -132,17 +132,17 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb4 = sb2;
             } else if (eVar.in() != null) {
-                sb = eVar.in().Au;
+                sb = eVar.in().At;
             } else {
                 StringBuilder sb7 = new StringBuilder();
                 List<com.baidu.adp.lib.network.http.d> im = eVar.im();
                 if (im != null) {
                     for (com.baidu.adp.lib.network.http.d dVar : im) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.Au)) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.At)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             }
-                            sb7.append(dVar.Au);
+                            sb7.append(dVar.At);
                         }
                     }
                 }

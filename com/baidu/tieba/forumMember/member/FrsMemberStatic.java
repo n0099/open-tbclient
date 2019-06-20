@@ -35,7 +35,7 @@ public class FrsMemberStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof y)) {
                     y yVar = (y) customResponsedMessage.getData();
                     e eVar = new e();
-                    eVar.setTag(yVar.cwh);
+                    eVar.setTag(yVar.cwi);
                     yVar.a(3, eVar);
                 }
             }

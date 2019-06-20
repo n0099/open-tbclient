@@ -3,10 +3,10 @@ package com.baidu.tieba.tbadvert.a;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b {
-    public int bJA;
+    public int bJB;
     public long endTime;
     public int id;
-    public String jcJ;
+    public String jcN;
     public String linkUrl;
     public long showTime = 3000;
     public int showType;
@@ -20,13 +20,13 @@ public class b {
             this.startTime = jSONObject.optLong("start_time", 0L);
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt("show_type", 0);
-            this.bJA = jSONObject.optInt("show_status", 0);
-            this.jcJ = jSONObject.optString("resource_url");
+            this.bJB = jSONObject.optInt("show_status", 0);
+            this.jcN = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean cnR() {
+    public boolean cnS() {
         return this.showType == 1;
     }
 

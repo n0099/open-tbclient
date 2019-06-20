@@ -47,7 +47,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private boolean DB;
+    private boolean DA;
     private ShareFromPBMsgData dAp;
     private g dhY;
     private QuickWebView eNx;
@@ -103,7 +103,7 @@ public class a {
     }
 
     public void aJM() {
-        if (this.DB) {
+        if (this.DA) {
             this.eNx.loadUrl("javascript:window.reload_page()");
         } else {
             this.eNx.loadUrl(this.mUrl);
@@ -154,7 +154,7 @@ public class a {
             this.mRefreshView.onChangeSkinType();
         }
         this.eNx.setVisibility(8);
-        this.mRefreshView.qx(string);
+        this.mRefreshView.qw(string);
         this.mRefreshView.attachView(this.mRootView, false);
         this.mRefreshView.asB();
         this.mRefreshView.kE(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
@@ -172,11 +172,11 @@ public class a {
             this.eNx.setOnLoadUrlListener(new BaseWebView.b() { // from class: com.baidu.tieba.discover.a.3
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
                 public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                    a.this.tt(str);
+                    a.this.ts(str);
                     if (StringUtils.isNull(str) || str.contains("jump_webview_type=2")) {
                         return false;
                     }
-                    if (a.this.tu(str)) {
+                    if (a.this.tt(str)) {
                         return true;
                     }
                     ba.aiz().c(a.this.mPageContext, new String[]{str});
@@ -195,7 +195,7 @@ public class a {
                     a.this.hideLoadingView();
                     if (j.jS()) {
                         a.this.aJN();
-                        a.this.DB = true;
+                        a.this.DA = true;
                         a.this.bcc();
                     }
                 }
@@ -210,18 +210,18 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tt(String str) {
+    public void ts(String str) {
         if (!StringUtils.isNull(str) && str.contains("squaresearch:")) {
             TiebaStatic.log(new am("c10378").P("obj_type", 2));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean tu(String str) {
-        return tv(str) || tw(str) || tx(str) || ty(str) || tz(str) || tA(str) || tB(str) || tC(str);
+    public boolean tt(String str) {
+        return tu(str) || tv(str) || tw(str) || tx(str) || ty(str) || tz(str) || tA(str) || tB(str);
     }
 
-    private boolean tv(String str) {
+    private boolean tu(String str) {
         if (str.contains("tieba://lego?")) {
             if (!(MessageManager.getInstance().findTask(2016447) != null)) {
                 l.showToast(this.mPageContext.getPageActivity(), (int) R.string.plugin_install_fail);
@@ -233,7 +233,7 @@ public class a {
         return false;
     }
 
-    private boolean tw(String str) {
+    private boolean tv(String str) {
         if (str.contains("nohead:url") || str.contains("booktown")) {
             ba.aiz().a((TbPageContext<?>) this.mPageContext, new String[]{"http://dushu.m.baidu.com/?from=tieba&jump=open_full_screen_web_page&nonavigationbar=1"}, true);
             return true;
@@ -241,7 +241,7 @@ public class a {
         return false;
     }
 
-    private boolean tx(String str) {
+    private boolean tw(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("http://tieba.baidu.com/mo/q/newhotmessage?") || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?")) {
             String ce = ae.ce(str, "topic_id=");
             String ce2 = ae.ce(str, "topic_name=");
@@ -263,7 +263,7 @@ public class a {
         }
     }
 
-    private boolean ty(String str) {
+    private boolean tx(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("forumsquarelist")) {
             return false;
         }
@@ -275,7 +275,7 @@ public class a {
         return true;
     }
 
-    private boolean tz(String str) {
+    private boolean ty(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("membercenter:")) {
             return false;
         }
@@ -287,7 +287,7 @@ public class a {
         return true;
     }
 
-    private boolean tA(String str) {
+    private boolean tz(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("dressupcenter:")) {
             return false;
         }
@@ -299,7 +299,7 @@ public class a {
         return true;
     }
 
-    private boolean tB(String str) {
+    private boolean tA(String str) {
         if (str.contains("beautypic:") && str.contains("data=")) {
             String substring = str.substring("data=".length() + str.indexOf("data="));
             ArrayList<String> arrayList = new ArrayList<>();
@@ -323,7 +323,7 @@ public class a {
         return false;
     }
 
-    private boolean tC(String str) {
+    private boolean tB(String str) {
         if (str.contains("share:")) {
             String bi = k.bi(str);
             if (bi.contains("data=")) {

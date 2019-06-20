@@ -74,7 +74,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(h hVar) {
         boolean z = false;
-        if (TextUtils.equals(hVar.getId(), hVar.WU()) && this.bvh.kG(hVar.getId()) && (hVar.getOption() & 64) == 0) {
+        if (TextUtils.equals(hVar.getId(), hVar.WU()) && this.bvh.kF(hVar.getId()) && (hVar.getOption() & 64) == 0) {
             z = true;
         }
         if (z && !c(hVar)) {
@@ -98,7 +98,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(h hVar) {
-        this.buY.a(hVar, this.bvh.kG(hVar.getId()));
+        this.buY.a(hVar, this.bvh.kF(hVar.getId()));
     }
 
     private void Wy() {
@@ -122,7 +122,7 @@ public class c {
     public void a(String str, int i, long j, JSONArray jSONArray) {
         Wy();
         this.buX.a(str, i, j, jSONArray);
-        if (this.bvh.kG(str)) {
+        if (this.bvh.kF(str)) {
             Wz();
         }
         if (Math.abs(System.currentTimeMillis() - this.bvb) >= d.WI().WJ()) {
@@ -171,7 +171,7 @@ public class c {
                     jSONObject3.put("eventType", "0");
                     if (!TextUtils.isEmpty(hVar.WW())) {
                         jSONObject3.put(ImageViewerConfig.ABTEST, hVar.WW());
-                        vVar.kV("1");
+                        vVar.kU("1");
                     }
                     if (!TextUtils.isEmpty(hVar.getCategory())) {
                         jSONObject3.put("c", hVar.getCategory());
@@ -179,7 +179,7 @@ public class c {
                     if (hVar.WS()) {
                         jSONObject3.put("of", "1");
                     }
-                    jSONObject3.put("idtype", this.bvh.kM(hVar.getId()));
+                    jSONObject3.put("idtype", this.bvh.kL(hVar.getId()));
                     vVar.aU(jSONObject3);
                     vVar.g(hVar.getTime(), hVar.getTime());
                 } catch (JSONException e2) {
@@ -291,16 +291,16 @@ public class c {
             if (this.buX.a(vVar) != 0) {
                 v vVar2 = new v();
                 vVar2.g(vVar.Xy(), vVar.Xz());
-                vVar2.kV(vVar.Xx());
+                vVar2.kU(vVar.Xx());
                 vVar2.dn(true);
                 v vVar3 = new v();
                 vVar3.g(vVar.Xy(), vVar.Xz());
-                vVar3.kV(vVar.Xx());
+                vVar3.kU(vVar.Xx());
                 vVar3.dn(false);
                 SparseArray<Integer> Xu = vVar.Xu();
                 int size = Xu.size();
                 for (int i = 0; i < size; i++) {
-                    if (this.bvh.kG(String.valueOf(Xu.valueAt(i).intValue()))) {
+                    if (this.bvh.kF(String.valueOf(Xu.valueAt(i).intValue()))) {
                         vVar2.N(Xu.keyAt(i), Xu.valueAt(i).intValue());
                     } else {
                         vVar3.N(Xu.keyAt(i), Xu.valueAt(i).intValue());
@@ -310,10 +310,10 @@ public class c {
                 int size2 = Xv.size();
                 for (int i2 = 0; i2 < size2; i2++) {
                     String str = (String) Xv.get(i2);
-                    if (this.bvh.kG(str)) {
-                        vVar2.kU(str);
+                    if (this.bvh.kF(str)) {
+                        vVar2.kT(str);
                     } else {
-                        vVar3.kU(str);
+                        vVar3.kT(str);
                     }
                 }
                 JSONArray XA = vVar.XA();
@@ -328,7 +328,7 @@ public class c {
                             e.printStackTrace();
                         }
                         if (!TextUtils.isEmpty(str2)) {
-                            if (this.bvh.kG(str2)) {
+                            if (this.bvh.kF(str2)) {
                                 vVar2.aU(optJSONObject);
                             } else {
                                 vVar3.aU(optJSONObject);
@@ -362,7 +362,7 @@ public class c {
                 if (file.exists() && file.delete()) {
                     Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
                 }
-                this.buX.kB(md5);
+                this.buX.kA(md5);
                 return;
             }
             m.Xd().b(Xw, md5);
@@ -475,7 +475,7 @@ public class c {
             outputStream = new Base64OutputStream(fileOutputStream, 0);
             outputStream.write(str.getBytes());
             outputStream.flush();
-            t.kT("save to file suc");
+            t.kS("save to file suc");
             if (outputStream != null) {
                 try {
                     outputStream.close();
@@ -509,20 +509,20 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kD(String str) {
+    public void kC(String str) {
         File file = new File(this.mContext.getFilesDir() + File.separator + "statistics_data", str);
-        t.kT("delete file");
+        t.kS("delete file");
         if (file.exists() && file.delete()) {
             Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
-            t.kT("delete file suc");
+            t.kS("delete file suc");
         }
-        this.buX.kB(str);
+        this.buX.kA(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void kE(String str) {
-        t.kT("upload file fail");
-        this.buX.kC(str);
+    public void kD(String str) {
+        t.kS("upload file fail");
+        this.buX.kB(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -546,15 +546,15 @@ public class c {
                     this.buX.Wt();
                 }
                 for (int i = 0; i < listFiles.length; i++) {
-                    i kA = this.buX.kA(listFiles[i].getName());
-                    if (kA != null && TextUtils.equals("0", kA.Xa())) {
-                        t.kT("processFailedData file, no need to send");
-                    } else if (kA != null && TextUtils.equals("1", kA.Xa())) {
-                        t.kT("processFailedData file, send");
+                    i kz = this.buX.kz(listFiles[i].getName());
+                    if (kz != null && TextUtils.equals("0", kz.Xa())) {
+                        t.kS("processFailedData file, no need to send");
+                    } else if (kz != null && TextUtils.equals("1", kz.Xa())) {
+                        t.kS("processFailedData file, send");
                         this.buX.bo(listFiles[i].getName(), "0");
-                        kF(listFiles[i].getName());
+                        kE(listFiles[i].getName());
                     } else {
-                        t.kT("processFailedData file, data in db, delete file");
+                        t.kS("processFailedData file, data in db, delete file");
                         listFiles[i].delete();
                     }
                 }
@@ -563,7 +563,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1023=4] */
-    void kF(String str) {
+    void kE(String str) {
         InputStream inputStream;
         Throwable th;
         InputStream inputStream2 = null;

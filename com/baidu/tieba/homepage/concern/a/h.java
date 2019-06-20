@@ -17,11 +17,11 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.card.t;
 /* loaded from: classes4.dex */
 public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a>> implements com.baidu.tieba.a.f {
-    private String Wt;
-    public BdUniqueId cwh;
+    private String Ws;
+    public BdUniqueId cwi;
     private ab eUc;
-    private com.baidu.tieba.homepage.concern.view.a fXD;
-    private ab<com.baidu.tieba.card.data.k> fXE;
+    private com.baidu.tieba.homepage.concern.view.a fXF;
+    private ab<com.baidu.tieba.card.data.k> fXG;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> ftY;
     private com.baidu.adp.lib.e.b<TbImageView> ftZ;
     private TbPageContext<?> mPageContext;
@@ -98,9 +98,9 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                if (view != null && h.this.fXD != null && h.this.fXD.getView() != null && kVar != null && kVar.abv() != null && !StringUtils.isNull(kVar.abv().getTid())) {
+                if (view != null && h.this.fXF != null && h.this.fXF.getView() != null && kVar != null && kVar.abv() != null && !StringUtils.isNull(kVar.abv().getTid())) {
                     am amVar = new am("c12352");
-                    if ((h.this.fXD.getHeaderImg() != null && view.getId() == h.this.fXD.getHeaderImg().getId()) || (h.this.fXD.aXw() != null && view.getId() == h.this.fXD.aXw().getId())) {
+                    if ((h.this.fXF.getHeaderImg() != null && view.getId() == h.this.fXF.getHeaderImg().getId()) || (h.this.fXF.aXw() != null && view.getId() == h.this.fXF.aXw().getId())) {
                         amVar.P("obj_locate", 1);
                     } else {
                         amVar.P("obj_locate", 2);
@@ -114,13 +114,13 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.fXE = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.h.5
+        this.fXG = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.concern.a.h.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             /* renamed from: b */
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
                 if (kVar != null && kVar.abv() != null) {
-                    com.baidu.tieba.card.n.uS(kVar.abv().getTid());
+                    com.baidu.tieba.card.n.uR(kVar.abv().getTid());
                 }
             }
         };
@@ -136,9 +136,9 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         aVar.setSingleImageRatio(0.75d);
         aVar.setConstrainLayoutPool(this.ftY);
         aVar.setConstrainImagePool(this.ftZ);
-        aVar.d(this.fXE);
-        if (this.cwh != null) {
-            aVar.k(this.cwh);
+        aVar.d(this.fXG);
+        if (this.cwi != null) {
+            aVar.k(this.cwi);
         }
         if (!isPreloadSizeReady(1) || !isPreloadSizeReady(2)) {
             aVar.setPreloadSizeReadyCallback(new com.baidu.adp.widget.a.b() { // from class: com.baidu.tieba.homepage.concern.a.h.4
@@ -151,8 +151,8 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             });
         }
-        this.fXD = aVar;
-        return new com.baidu.tieba.card.a.a<>(this.fXD);
+        this.fXF = aVar;
+        return new com.baidu.tieba.card.a.a<>(this.fXF);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -164,9 +164,9 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ps(i + 1);
-        t.aXP().b(kVar.uZ("c12351"));
+        t.aXP().b(kVar.uY("c12351"));
         if (aVar.aYs() instanceof com.baidu.tieba.a.e) {
-            aVar.aYs().setPage(this.Wt);
+            aVar.aYs().setPage(this.Ws);
         }
         aVar.aYs().a(kVar);
         aVar.aYs().d(this.eUc);
@@ -174,7 +174,7 @@ public class h extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
-        this.Wt = str;
+    public void rU(String str) {
+        this.Ws = str;
     }
 }

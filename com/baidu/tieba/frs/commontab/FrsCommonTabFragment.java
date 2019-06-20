@@ -84,7 +84,7 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (!StringUtils.isNull(str)) {
-                    FrsCommonTabFragment.this.fwi.wA(str);
+                    FrsCommonTabFragment.this.fwi.wz(str);
                 }
             }
         }
@@ -97,8 +97,8 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
                 if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24) {
                     m bkH = FrsCommonTabFragment.this.fwi.bkH();
-                    if (bkH != null && bkH.cbn() != null && (bkH.cbn().getTag() instanceof z)) {
-                        FrsCommonTabFragment.this.fpg = (z) bkH.cbn().getTag();
+                    if (bkH != null && bkH.cbo() != null && (bkH.cbo().getTag() instanceof z)) {
+                        FrsCommonTabFragment.this.fpg = (z) bkH.cbo().getTag();
                     }
                     if (FrsCommonTabFragment.this.fpg != null && FrsCommonTabFragment.this.fpg.qs() != null) {
                         FrsCommonTabFragment.this.fpg.qs().b(new a.C0038a(3));
@@ -188,7 +188,7 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
                 this.ftP = new com.baidu.tbadk.m.c(getPageContext().getContext(), getNetRefreshListener());
             }
             this.ftP.setTitle(null);
-            this.ftP.qx(str);
+            this.ftP.qw(str);
             this.ftP.setButtonText(null);
             this.ftP.attachView(view, z);
             this.ftP.asB();
@@ -318,7 +318,7 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
                         com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("first_into_tab_profession", false);
                         bmx();
                     }
-                    new com.baidu.tieba.frs.profession.permission.c(getPageContext()).wT(this.forumId);
+                    new com.baidu.tieba.frs.profession.permission.c(getPageContext()).wV(this.forumId);
                     onLazyLoad();
                 }
                 if (this.tabId == 503) {
@@ -463,7 +463,7 @@ public class FrsCommonTabFragment extends BaseFragment implements h.c, VoiceMana
                     String stringExtra = intent.getStringExtra("tid");
                     int intExtra = intent.getIntExtra("type", -1);
                     if (!StringUtils.isNull(stringExtra) && intExtra == 0) {
-                        this.fwi.wA(stringExtra);
+                        this.fwi.wz(stringExtra);
                         return;
                     }
                     return;

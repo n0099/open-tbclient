@@ -100,10 +100,10 @@ public class a {
         } catch (Exception e) {
             j = 0;
         }
-        Interpolator iy = com.baidu.swan.apps.view.coverview.b.a.iy(aVar.bbV.optString("easing"));
+        Interpolator ix = com.baidu.swan.apps.view.coverview.b.a.ix(aVar.bbV.optString("easing"));
         aVar2.a(aVar);
         swanAppNAViewContainer.b(aVar);
-        AnimatorSet a3 = a(swanAppNAViewContainer, aVar, j, iy, a, a2, d);
+        AnimatorSet a3 = a(swanAppNAViewContainer, aVar, j, ix, a, a2, d);
         if (a3 != null) {
             a3.start();
         }

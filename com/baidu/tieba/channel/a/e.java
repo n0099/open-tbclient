@@ -46,7 +46,7 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
 
     private void a(a aVar, final h hVar, final int i) {
         aVar.eDf.setText(hVar.getTitle());
-        aVar.Sn.startLoad(hVar.getThumbnailUrl(), 10, false);
+        aVar.Sm.startLoad(hVar.getThumbnailUrl(), 10, false);
         aVar.eDh.setText(this.mContext.getResources().getString(R.string.channel_home_play_count, ap.aG(hVar.aYI())));
         aVar.eDi.setText(com.baidu.tieba.channel.c.c.cB(hVar.getCreateTime()));
         aVar.eDj.setText(ap.ii(hVar.getVideoDuration() * 1000));
@@ -90,7 +90,7 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
 
     /* loaded from: classes6.dex */
     public static class a extends v.a {
-        public TbImageView Sn;
+        public TbImageView Sm;
         public TextView eDf;
         public TextView eDh;
         public TextView eDi;
@@ -120,15 +120,15 @@ public class e extends com.baidu.adp.widget.ListView.a<h, a> {
                         }
                     }
                 });
-                this.Sn = (TbImageView) view.findViewById(R.id.channel_home_video_cover);
+                this.Sm = (TbImageView) view.findViewById(R.id.channel_home_video_cover);
                 this.eDf = (TextView) view.findViewById(R.id.channel_home_video_title);
                 this.eDh = (TextView) view.findViewById(R.id.channel_home_big_video_count);
                 this.eDi = (TextView) view.findViewById(R.id.channel_home_big_video_time);
                 this.eDj = (TextView) view.findViewById(R.id.channel_home_big_video_duration);
                 this.eDq = (ImageView) view.findViewById(R.id.channel_host_common_video_more_btn);
-                this.Sn.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-                this.Sn.setDefaultResource(R.drawable.pic_bg_video_frs);
-                this.Sn.setDefaultErrorResource(R.drawable.pic_bg_video_frs);
+                this.Sm.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+                this.Sm.setDefaultResource(R.drawable.pic_bg_video_frs);
+                this.Sm.setDefaultErrorResource(R.drawable.pic_bg_video_frs);
             }
         }
     }

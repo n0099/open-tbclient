@@ -5,7 +5,7 @@ public interface a {
 
     void du(boolean z);
 
-    void lt(String str);
+    void ls(String str);
 
     void tX();
 }

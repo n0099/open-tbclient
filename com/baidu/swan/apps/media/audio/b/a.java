@@ -18,7 +18,7 @@ public class a {
         this.aBj = jSONObject;
     }
 
-    public void fj(String str) {
+    public void fi(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio Callback is Null");
@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void fk(String str) {
+    public void fj(String str) {
         f(str, null);
     }
 

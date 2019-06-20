@@ -73,12 +73,12 @@ public class a {
             this.type = String.valueOf(i);
         }
 
-        public C0181a hj(String str) {
+        public C0181a hi(String str) {
             this.appId = str;
             return this;
         }
 
-        public C0181a hk(String str) {
+        public C0181a hj(String str) {
             this.aUV = str;
             return this;
         }

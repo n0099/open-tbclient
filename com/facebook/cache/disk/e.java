@@ -9,38 +9,38 @@ import java.util.Collection;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e implements c {
-    private static final Class<?> jQS = e.class;
-    private final CacheErrorLogger jQX;
-    volatile a jRH = new a(null, null);
-    private final String jRg;
-    private final com.facebook.common.internal.i<File> jRh;
-    private final int sY;
+    private static final Class<?> jQV = e.class;
+    volatile a jRK = new a(null, null);
+    private final CacheErrorLogger jRa;
+    private final String jRj;
+    private final com.facebook.common.internal.i<File> jRk;
+    private final int sX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static class a {
         @Nullable
-        public final c jRI;
+        public final c jRL;
         @Nullable
-        public final File jRJ;
+        public final File jRM;
 
         a(@Nullable File file, @Nullable c cVar) {
-            this.jRI = cVar;
-            this.jRJ = file;
+            this.jRL = cVar;
+            this.jRM = file;
         }
     }
 
     public e(int i, com.facebook.common.internal.i<File> iVar, String str, CacheErrorLogger cacheErrorLogger) {
-        this.sY = i;
-        this.jQX = cacheErrorLogger;
-        this.jRh = iVar;
-        this.jRg = str;
+        this.sX = i;
+        this.jRa = cacheErrorLogger;
+        this.jRk = iVar;
+        this.jRj = str;
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean isExternal() {
         try {
-            return cBs().isExternal();
+            return cBr().isExternal();
         } catch (IOException e) {
             return false;
         }
@@ -48,69 +48,69 @@ public class e implements c {
 
     @Override // com.facebook.cache.disk.c
     public com.facebook.a.a r(String str, Object obj) throws IOException {
-        return cBs().r(str, obj);
+        return cBr().r(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
     public boolean s(String str, Object obj) throws IOException {
-        return cBs().s(str, obj);
+        return cBr().s(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public void cAW() {
+    public void cAV() {
         try {
-            cBs().cAW();
+            cBr().cAV();
         } catch (IOException e) {
-            com.facebook.common.c.a.b(jQS, "purgeUnexpectedResources", (Throwable) e);
+            com.facebook.common.c.a.b(jQV, "purgeUnexpectedResources", (Throwable) e);
         }
     }
 
     @Override // com.facebook.cache.disk.c
     public c.b q(String str, Object obj) throws IOException {
-        return cBs().q(str, obj);
+        return cBr().q(str, obj);
     }
 
     @Override // com.facebook.cache.disk.c
-    public Collection<c.a> cAX() throws IOException {
-        return cBs().cAX();
+    public Collection<c.a> cAW() throws IOException {
+        return cBr().cAW();
     }
 
     @Override // com.facebook.cache.disk.c
     public long a(c.a aVar) throws IOException {
-        return cBs().a(aVar);
+        return cBr().a(aVar);
     }
 
-    synchronized c cBs() throws IOException {
-        if (cBt()) {
+    synchronized c cBr() throws IOException {
+        if (cBs()) {
+            cBt();
             cBu();
-            cBv();
         }
-        return (c) com.facebook.common.internal.g.checkNotNull(this.jRH.jRI);
+        return (c) com.facebook.common.internal.g.checkNotNull(this.jRK.jRL);
     }
 
-    private boolean cBt() {
-        a aVar = this.jRH;
-        return aVar.jRI == null || aVar.jRJ == null || !aVar.jRJ.exists();
+    private boolean cBs() {
+        a aVar = this.jRK;
+        return aVar.jRL == null || aVar.jRM == null || !aVar.jRM.exists();
     }
 
-    void cBu() {
-        if (this.jRH.jRI != null && this.jRH.jRJ != null) {
-            com.facebook.common.file.a.af(this.jRH.jRJ);
+    void cBt() {
+        if (this.jRK.jRL != null && this.jRK.jRM != null) {
+            com.facebook.common.file.a.af(this.jRK.jRM);
         }
     }
 
-    private void cBv() throws IOException {
-        File file = new File(this.jRh.get(), this.jRg);
+    private void cBu() throws IOException {
+        File file = new File(this.jRk.get(), this.jRj);
         ae(file);
-        this.jRH = new a(file, new DefaultDiskStorage(file, this.sY, this.jQX));
+        this.jRK = new a(file, new DefaultDiskStorage(file, this.sX, this.jRa));
     }
 
     void ae(File file) throws IOException {
         try {
             FileUtils.ag(file);
-            com.facebook.common.c.a.b(jQS, "Created cache directory %s", file.getAbsolutePath());
+            com.facebook.common.c.a.b(jQV, "Created cache directory %s", file.getAbsolutePath());
         } catch (FileUtils.CreateDirectoryException e) {
-            this.jQX.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, jQS, "createRootDirectoryIfNecessary", e);
+            this.jRa.a(CacheErrorLogger.CacheErrorCategory.WRITE_CREATE_DIR, jQV, "createRootDirectoryIfNecessary", e);
             throw e;
         }
     }

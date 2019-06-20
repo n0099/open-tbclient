@@ -5,5 +5,5 @@ public interface b {
 
     void onSuccess(String str);
 
-    void or(String str);
+    void oq(String str);
 }

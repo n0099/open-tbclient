@@ -8,10 +8,10 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    public static final String cYK = File.separator;
-    private a jzJ;
+    public static final String cYL = File.separator;
+    private a jzM;
     private String mUrl;
-    private String wV;
+    private String wU;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,20 +19,20 @@ public class b extends BdAsyncTask<Void, Void, String> {
     }
 
     public b(String str, String str2, a aVar) {
-        this.wV = str;
+        this.wU = str;
         this.mUrl = str2;
-        this.jzJ = aVar;
+        this.jzM = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (ap.isEmpty(this.wV) || ap.isEmpty(this.mUrl)) {
+        if (ap.isEmpty(this.wU) || ap.isEmpty(this.mUrl)) {
             return "";
         }
-        new File(this.wV).mkdirs();
-        String str = this.wV + cYK + "videosplash.temp";
+        new File(this.wU).mkdirs();
+        String str = this.wU + cYL + "videosplash.temp";
         File file = new File(str);
         if (file.exists()) {
             file.delete();
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.ik().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cuV();
+            return cuU();
         }
         return "";
     }
@@ -49,18 +49,18 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.jzJ != null) {
+        if (this.jzM != null) {
             if (!ap.isEmpty(str)) {
-                this.jzJ.b(true, str, this.mUrl);
+                this.jzM.b(true, str, this.mUrl);
             } else {
-                this.jzJ.b(false, null, null);
+                this.jzM.b(false, null, null);
             }
         }
     }
 
-    private String cuV() {
-        File file = new File(this.wV + cYK + "videosplash.temp");
-        File file2 = new File(this.wV + cYK + (s.bm(this.mUrl) + ".mp4"));
+    private String cuU() {
+        File file = new File(this.wU + cYL + "videosplash.temp");
+        File file2 = new File(this.wU + cYL + (s.bm(this.mUrl) + ".mp4"));
         if (file2.exists()) {
             file2.delete();
         }
@@ -73,8 +73,8 @@ public class b extends BdAsyncTask<Void, Void, String> {
 
     private void T(File file) {
         File[] listFiles;
-        if (!ap.isEmpty(this.wV)) {
-            File file2 = new File(this.wV);
+        if (!ap.isEmpty(this.wU)) {
+            File file2 = new File(this.wU);
             if (file2.exists() && (listFiles = file2.listFiles()) != null) {
                 for (File file3 : listFiles) {
                     if (file3 != null && !file3.equals(file)) {

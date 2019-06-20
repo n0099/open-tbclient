@@ -6,11 +6,11 @@ public class b implements Cloneable {
     private float[] adl;
     private boolean adm;
     private boolean adn;
+    private float[] mMVPMatrix = new float[16];
     private long mTimestamp;
-    private float[] qy = new float[16];
 
     public b() {
-        Matrix.setIdentityM(this.qy, 0);
+        Matrix.setIdentityM(this.mMVPMatrix, 0);
         this.adl = new float[16];
         Matrix.setIdentityM(this.adl, 0);
         this.adm = false;
@@ -18,11 +18,11 @@ public class b implements Cloneable {
     }
 
     public float[] ss() {
-        return this.qy;
+        return this.mMVPMatrix;
     }
 
     public void e(float[] fArr) {
-        this.qy = fArr;
+        this.mMVPMatrix = fArr;
     }
 
     public float[] st() {
@@ -55,7 +55,7 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.e((float[]) this.qy.clone());
+            bVar.e((float[]) this.mMVPMatrix.clone());
             bVar.f((float[]) this.adl.clone());
         }
         return bVar;

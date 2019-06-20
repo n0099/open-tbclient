@@ -73,8 +73,8 @@ public class b extends RecyclerView.Adapter<a> {
             aVar.eQL.setStrokeWith(3);
             aVar.eQL.setShowOval(true);
             c(visitedForumData, aVar);
-            al.c(aVar.ctP, (int) R.drawable.icon_ba_delete_n);
-            al.j(aVar.caT, R.color.cp_cont_b);
+            al.c(aVar.ctQ, (int) R.drawable.icon_ba_delete_n);
+            al.j(aVar.caU, R.color.cp_cont_b);
             al.j(aVar.eQK, R.color.cp_cont_d);
             al.k(aVar.eoX, R.drawable.recent_visit_bg);
         }
@@ -86,7 +86,7 @@ public class b extends RecyclerView.Adapter<a> {
             if (ap.isEmpty(forumName)) {
                 forumName = "";
             }
-            aVar.caT.setText(forumName);
+            aVar.caU.setText(forumName);
         }
     }
 
@@ -129,11 +129,11 @@ public class b extends RecyclerView.Adapter<a> {
     private void d(VisitedForumData visitedForumData, a aVar) {
         if (visitedForumData != null && aVar != null) {
             aVar.eQM.setVisibility(8);
-            aVar.ctP.setVisibility(8);
+            aVar.ctQ.setVisibility(8);
             aVar.eQO.setVisibility(8);
             if (this.eQG) {
-                aVar.ctP.setVisibility(0);
-                aVar.ctP.setTag(visitedForumData);
+                aVar.ctQ.setVisibility(0);
+                aVar.ctQ.setTag(visitedForumData);
             } else if (!visitedForumData.aqA()) {
                 if (visitedForumData.aqB() <= 0) {
                     aVar.eQM.setVisibility(8);
@@ -166,8 +166,8 @@ public class b extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes4.dex */
     public class a extends RecyclerView.ViewHolder {
-        public TextView caT;
-        public ImageView ctP;
+        public TextView caU;
+        public ImageView ctQ;
         public TextView eQK;
         public BarImageView eQL;
         public MessageRedDotView eQM;
@@ -199,7 +199,7 @@ public class b extends RecyclerView.Adapter<a> {
             this.eQL = (BarImageView) view.findViewById(R.id.forum_image);
             this.eQL.setDefaultResource(R.drawable.icon_default_ba_120);
             this.eQL.setDefaultErrorResource(R.drawable.icon_default_ba_120);
-            this.caT = (TextView) view.findViewById(R.id.forum_name);
+            this.caU = (TextView) view.findViewById(R.id.forum_name);
             this.eQM = (MessageRedDotView) view.findViewById(R.id.red_dot_view);
             this.eQK = (TextView) view.findViewById(R.id.forum_follow);
             this.eQN = (LinearGradientView) view.findViewById(R.id.forum_bg);
@@ -208,8 +208,8 @@ public class b extends RecyclerView.Adapter<a> {
             this.eQN.setRoundMode(3);
             this.eQN.setVisibility(8);
             this.eQM.setThreeDotMode(2);
-            this.ctP = (ImageView) view.findViewById(R.id.delete_image);
-            this.ctP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.a.3
+            this.ctQ = (ImageView) view.findViewById(R.id.delete_image);
+            this.ctQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.b.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (b.this.eQJ != null) {

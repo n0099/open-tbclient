@@ -13,9 +13,9 @@ public class b {
     public String awn;
 
     @NonNull
-    public static b et(@NonNull String str) {
+    public static b es(@NonNull String str) {
         if (aws == null) {
-            aws = v(eu(str));
+            aws = v(et(str));
         }
         return aws;
     }
@@ -29,7 +29,7 @@ public class b {
         return bVar;
     }
 
-    private static JSONObject eu(@NonNull String str) {
+    private static JSONObject et(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }

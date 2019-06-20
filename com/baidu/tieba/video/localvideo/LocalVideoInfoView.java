@@ -13,33 +13,33 @@ import java.text.SimpleDateFormat;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class LocalVideoInfoView extends RelativeLayout {
-    public static final Object jsq = new Object();
-    private static long jsr = 3600000;
+    public static final Object jst = new Object();
+    private static long jsu = 3600000;
     private ImageView agT;
     private TextView aif;
-    private TextView jsp;
-    private SimpleDateFormat jss;
-    private SimpleDateFormat jst;
-    private boolean jsu;
+    private TextView jss;
+    private SimpleDateFormat jsv;
+    private SimpleDateFormat jsw;
+    private boolean jsx;
     private Context mContext;
     private View mRootView;
     private String videoPath;
 
     public LocalVideoInfoView(Context context) {
         super(context);
-        this.jsu = false;
+        this.jsx = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jsu = false;
+        this.jsx = false;
         init(context);
     }
 
     public LocalVideoInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jsu = false;
+        this.jsx = false;
         init(context);
     }
 
@@ -49,17 +49,17 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.agT = (ImageView) this.mRootView.findViewById(R.id.local_video_selet_thumb);
         this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.aif = (TextView) this.mRootView.findViewById(R.id.local_video_select_duration);
-        this.jsp = (TextView) this.mRootView.findViewById(R.id.no_video_title);
+        this.jss = (TextView) this.mRootView.findViewById(R.id.no_video_title);
         addView(this.mRootView, -1, -1);
-        this.jst = new SimpleDateFormat("mm:ss");
-        this.jss = new SimpleDateFormat("HH:mm:ss");
+        this.jsw = new SimpleDateFormat("mm:ss");
+        this.jsv = new SimpleDateFormat("HH:mm:ss");
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jst.setTimeZone(timeZone);
-        this.jss.setTimeZone(timeZone);
+        this.jsw.setTimeZone(timeZone);
+        this.jsv.setTimeZone(timeZone);
     }
 
     public void setDataToView(d dVar) {
-        if (!this.jsu) {
+        if (!this.jsx) {
             if (dVar != null) {
                 if (dVar.getVideoPath().equals(this.videoPath)) {
                     this.agT.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -77,14 +77,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         }
     }
 
-    public void rs(boolean z) {
-        this.jsu = true;
+    public void rt(boolean z) {
+        this.jsx = true;
         if (z) {
             this.agT.setScaleType(ImageView.ScaleType.CENTER);
             this.agT.setImageBitmap(null);
             this.agT.setImageResource(0);
             this.agT.setBackgroundColor(getResources().getColor(R.color.cp_bg_line_d));
-            this.jsp.setVisibility(0);
+            this.jss.setVisibility(0);
             return;
         }
         this.agT.setScaleType(ImageView.ScaleType.CENTER);
@@ -92,14 +92,14 @@ public class LocalVideoInfoView extends RelativeLayout {
         this.agT.setImageBitmap(null);
         this.agT.setBackgroundColor(getResources().getColor(R.color.white_alpha50));
         this.aif.setText("");
-        this.jsp.setVisibility(8);
+        this.jss.setVisibility(8);
     }
 
     public void a(d dVar) {
-        this.jsu = false;
-        this.jsp.setVisibility(8);
+        this.jsx = false;
+        this.jss.setVisibility(8);
         this.videoPath = dVar.getVideoPath();
-        if (dVar != null && dVar.csG()) {
+        if (dVar != null && dVar.csF()) {
             setDataToView(dVar);
         } else {
             setDataToView(null);
@@ -107,6 +107,6 @@ public class LocalVideoInfoView extends RelativeLayout {
     }
 
     private String eu(long j) {
-        return j > jsr ? this.jss.format(Long.valueOf(j)) : this.jst.format(Long.valueOf(j));
+        return j > jsu ? this.jsv.format(Long.valueOf(j)) : this.jsw.format(Long.valueOf(j));
     }
 }

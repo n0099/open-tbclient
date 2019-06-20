@@ -10,7 +10,7 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class h extends g {
-    private int Kr;
+    private int Kq;
     private String aHA;
     private boolean aHB;
     private int aHS;
@@ -33,7 +33,7 @@ public class h extends g {
     }
 
     public void setMinute(int i) {
-        this.Kr = i;
+        this.Kq = i;
     }
 
     public int getMinute() {
@@ -49,7 +49,7 @@ public class h extends g {
         this.aOy.setStartDate(this.aHr);
         this.aOy.setmEndDate(this.aHs);
         this.aOy.setHour(this.aHS);
-        this.aOy.setMinute(this.Kr);
+        this.aOy.setMinute(this.Kq);
         this.aOy.Jb();
         this.aOy.setDisabled(this.aHB);
     }
@@ -73,8 +73,8 @@ public class h extends g {
             if (this.aHS != this.aOy.getHour()) {
                 this.aOy.setHour(this.aHS);
             }
-            if (this.Kr != this.aOy.getMinute()) {
-                this.aOy.setMinute(this.Kr);
+            if (this.Kq != this.aOy.getMinute()) {
+                this.aOy.setMinute(this.Kq);
             }
         }
         super.show();
@@ -128,7 +128,7 @@ public class h extends g {
             return this;
         }
 
-        public a gy(String str) {
+        public a gx(String str) {
             this.aNV = str;
             return this;
         }

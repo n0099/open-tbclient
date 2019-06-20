@@ -19,16 +19,16 @@ import com.baidu.tieba.c;
 public class TbSettingTextTipView extends FrameLayout {
     protected ImageView agT;
     protected TextView aif;
-    protected LinearLayout cmN;
-    protected TextView cmO;
-    private boolean cmQ;
+    protected LinearLayout cmO;
+    protected TextView cmP;
+    private boolean cmR;
     private View mBottomLine;
     protected Context mContext;
     private View mTopLine;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cmQ = true;
+        this.cmR = true;
         this.mContext = context;
         apr();
         c(attributeSet);
@@ -36,33 +36,33 @@ public class TbSettingTextTipView extends FrameLayout {
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.cmQ = true;
+        this.cmR = true;
         this.mContext = context;
         apr();
     }
 
     public void displayTip() {
-        if (this.cmO != null) {
-            this.cmO.setVisibility(0);
+        if (this.cmP != null) {
+            this.cmP.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.cmO != null) {
-            this.cmO.setTextColor(i);
+        if (this.cmP != null) {
+            this.cmP.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.cmO != null) {
+        if (this.cmP != null) {
         }
     }
 
     public void k(int i, int i2, int i3, int i4) {
-        if (this.cmO != null) {
+        if (this.cmP != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.cmO.setLayoutParams(layoutParams);
+            this.cmP.setLayoutParams(layoutParams);
         }
     }
 
@@ -82,22 +82,22 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.cmO.setText(str);
+        this.cmP.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.cmO.getText();
+        return this.cmP.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.cmO.setBackgroundDrawable(drawable);
+        this.cmP.setBackgroundDrawable(drawable);
     }
 
     protected void apr() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.cmN = (LinearLayout) findViewById(R.id.container);
+        this.cmO = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.cmO = (TextView) findViewById(R.id.tip);
+        this.cmP = (TextView) findViewById(R.id.tip);
         this.agT = (ImageView) findViewById(R.id.arrow2);
         this.mBottomLine = findViewById(R.id.bottom_line_ll);
         this.mTopLine = findViewById(R.id.top_line_ll);
@@ -112,14 +112,14 @@ public class TbSettingTextTipView extends FrameLayout {
                 this.aif.setText(string);
             }
             if (string2 != null) {
-                this.cmO.setText(string2);
+                this.cmP.setText(string2);
             }
-            this.cmQ = obtainStyledAttributes.getBoolean(2, true);
+            this.cmR = obtainStyledAttributes.getBoolean(2, true);
             obtainStyledAttributes.recycle();
         }
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
-        if (!this.cmQ) {
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
+        if (!this.cmR) {
             this.agT.setVisibility(4);
         }
     }
@@ -145,7 +145,7 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setTipTextSize(float f) {
-        this.cmO.setTextSize(0, f);
+        this.cmP.setTextSize(0, f);
     }
 
     public void aps() {
@@ -155,16 +155,16 @@ public class TbSettingTextTipView extends FrameLayout {
         setTipTextSize(g2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aif.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.cmO.getLayoutParams()).setMargins(0, 0, l.g(this.mContext, R.dimen.tbds18), 0);
-        this.cmN.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.cmP.getLayoutParams()).setMargins(0, 0, l.g(this.mContext, R.dimen.tbds18), 0);
+        this.cmO.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
         al.l(this.mTopLine, R.color.cp_bg_line_b);
-        al.k(this.cmN, R.drawable.setting_item_selector);
+        al.k(this.cmO, R.drawable.setting_item_selector);
         al.j(this.aif, R.color.cp_cont_b);
-        al.j(this.cmO, R.color.cp_cont_d);
+        al.j(this.cmP, R.color.cp_cont_d);
         al.c(this.agT, (int) R.drawable.icon_arrow_gray_right_n);
         al.l(this.mBottomLine, R.color.cp_bg_line_b);
     }

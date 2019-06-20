@@ -24,48 +24,48 @@ import com.baidu.tieba.video.i;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnClickListener {
-    private VerticalViewPager jzp;
-    private VideoPlayFragmentAdapter jzq;
-    public int jzs;
-    private a jzt;
-    private VideoPlayActivity jzu;
-    private TBLottieAnimationView jzv;
-    private boolean jzw;
-    private int jzx;
+    private int jzA;
+    private VerticalViewPager jzs;
+    private VideoPlayFragmentAdapter jzt;
+    public int jzv;
+    private a jzw;
+    private VideoPlayActivity jzx;
+    private TBLottieAnimationView jzy;
+    private boolean jzz;
     private List<VideoItemData> mDatas;
     private String mFrom;
     private View mRootView;
-    public int jzr = 0;
-    private boolean jzy = true;
-    private boolean jzz = false;
+    public int jzu = 0;
+    private boolean jzB = true;
+    private boolean jzC = false;
 
     /* loaded from: classes6.dex */
     public interface a {
-        void cuw();
+        void cuv();
     }
 
     public VideoPlayView(VideoPlayActivity videoPlayActivity, String str) {
-        this.jzu = videoPlayActivity;
+        this.jzx = videoPlayActivity;
         this.mFrom = str;
-        this.jzw = Fv(str);
+        this.jzz = Fx(str);
         g(videoPlayActivity);
         this.mRootView = videoPlayActivity.findViewById(R.id.root_layout);
-        this.jzp = (VerticalViewPager) videoPlayActivity.findViewById(R.id.video_play_viewpager);
-        this.jzq = new VideoPlayFragmentAdapter(videoPlayActivity.getSupportFragmentManager());
-        this.jzq.setVideoStatusListener(new QuickVideoView.c() { // from class: com.baidu.tieba.videoplay.VideoPlayView.1
+        this.jzs = (VerticalViewPager) videoPlayActivity.findViewById(R.id.video_play_viewpager);
+        this.jzt = new VideoPlayFragmentAdapter(videoPlayActivity.getSupportFragmentManager());
+        this.jzt.setVideoStatusListener(new QuickVideoView.c() { // from class: com.baidu.tieba.videoplay.VideoPlayView.1
             @Override // com.baidu.tieba.play.QuickVideoView.c
             public void onStart() {
-                VideoPlayView.this.cuL();
+                VideoPlayView.this.cuK();
             }
         });
-        cuK();
-        this.jzq.dvf = this.mFrom;
-        this.jzp.setAdapter(this.jzq);
-        this.jzp.setOffscreenPageLimit(1);
-        this.jzp.setEventListener(new a.InterfaceC0263a() { // from class: com.baidu.tieba.videoplay.VideoPlayView.2
+        cuJ();
+        this.jzt.dvf = this.mFrom;
+        this.jzs.setAdapter(this.jzt);
+        this.jzs.setOffscreenPageLimit(1);
+        this.jzs.setEventListener(new a.InterfaceC0263a() { // from class: com.baidu.tieba.videoplay.VideoPlayView.2
             @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0263a
             public void azb() {
-                VideoPlayFragment BP = VideoPlayView.this.jzq.BP(VideoPlayView.this.jzp.getCurrentItem());
+                VideoPlayFragment BP = VideoPlayView.this.jzt.BP(VideoPlayView.this.jzs.getCurrentItem());
                 if (BP != null) {
                     BP.azb();
                 }
@@ -73,7 +73,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
             @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0263a
             public void w(float f, float f2) {
-                VideoPlayFragment BP = VideoPlayView.this.jzq.BP(VideoPlayView.this.jzp.getCurrentItem());
+                VideoPlayFragment BP = VideoPlayView.this.jzt.BP(VideoPlayView.this.jzs.getCurrentItem());
                 if (BP != null) {
                     BP.w(f, f2);
                 }
@@ -81,19 +81,19 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
             @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0263a
             public void azc() {
-                VideoPlayFragment BP = VideoPlayView.this.jzq.BP(VideoPlayView.this.jzp.getCurrentItem());
+                VideoPlayFragment BP = VideoPlayView.this.jzt.BP(VideoPlayView.this.jzs.getCurrentItem());
                 if (BP != null) {
                     BP.azc();
                 }
             }
         });
-        this.jzp.setOnPageChangeListener(this);
-        this.jzp.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.3
+        this.jzs.setOnPageChangeListener(this);
+        this.jzs.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                VideoPlayFragment BP = VideoPlayView.this.jzq.BP(VideoPlayView.this.jzp.getCurrentItem());
+                VideoPlayFragment BP = VideoPlayView.this.jzt.BP(VideoPlayView.this.jzs.getCurrentItem());
                 if (BP != null) {
-                    return BP.cuI();
+                    return BP.cuH();
                 }
                 return false;
             }
@@ -101,22 +101,22 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     }
 
     private void g(VideoPlayActivity videoPlayActivity) {
-        this.jzv = (TBLottieAnimationView) videoPlayActivity.findViewById(R.id.guide_animation_view);
-        this.jzv.setAnimation(R.raw.lottie_video_guide);
-        this.jzv.setImageAssetsFolder("lottie_video_guide");
-        this.jzv.setOnClickListener(this);
-        this.jzv.a(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.4
+        this.jzy = (TBLottieAnimationView) videoPlayActivity.findViewById(R.id.guide_animation_view);
+        this.jzy.setAnimation(R.raw.lottie_video_guide);
+        this.jzy.setImageAssetsFolder("lottie_video_guide");
+        this.jzy.setOnClickListener(this);
+        this.jzy.a(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.4
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (VideoPlayView.this.jzv.isAnimating()) {
+                if (VideoPlayView.this.jzy.isAnimating()) {
                     VideoPlayView.this.aU(valueAnimator.getAnimatedFraction());
                 }
             }
         });
-        this.jzv.a(new Animator.AnimatorListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.5
+        this.jzy.a(new Animator.AnimatorListener() { // from class: com.baidu.tieba.videoplay.VideoPlayView.5
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                VideoPlayView.this.cuN();
+                VideoPlayView.this.cuM();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -132,7 +132,7 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.jzx = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds310);
+        this.jzA = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds310);
     }
 
     public void onPause() {
@@ -141,33 +141,33 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     public void a(List<VideoItemData> list, int i, Rect rect) {
         this.mDatas = list;
-        this.jzs = i;
-        this.jzq.a(this.mDatas, rect);
-        this.jzq.notifyDataSetChanged();
-        this.jzp.setCurrentItem(i);
+        this.jzv = i;
+        this.jzt.a(this.mDatas, rect);
+        this.jzt.notifyDataSetChanged();
+        this.jzs.setCurrentItem(i);
     }
 
     public void notifyDataSetChanged() {
-        if (this.jzq != null) {
-            this.jzq.notifyDataSetChanged();
+        if (this.jzt != null) {
+            this.jzt.notifyDataSetChanged();
         }
     }
 
     public void a(a aVar) {
-        this.jzt = aVar;
+        this.jzw = aVar;
     }
 
-    public void Fu(String str) {
-        if (this.jzq != null) {
-            this.jzq.mFrom = str;
+    public void Fw(String str) {
+        if (this.jzt != null) {
+            this.jzt.mFrom = str;
         }
     }
 
     public void onDestroy() {
         bed();
-        cuO();
-        if (this.jzq != null) {
-            this.jzq.cuJ();
+        cuN();
+        if (this.jzt != null) {
+            this.jzt.cuI();
         }
     }
 
@@ -177,36 +177,36 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageSelected(int i) {
-        this.jzr = i;
-        if (this.jzs != i && this.jzy) {
-            this.jzy = false;
+        this.jzu = i;
+        if (this.jzv != i && this.jzB) {
+            this.jzB = false;
         }
-        if (!v.aa(this.mDatas) && this.mDatas.size() - 1 > 0 && this.mDatas.size() - i <= 2 && this.jzt != null) {
-            this.jzt.cuw();
+        if (!v.aa(this.mDatas) && this.mDatas.size() - 1 > 0 && this.mDatas.size() - i <= 2 && this.jzw != null) {
+            this.jzw.cuv();
         }
     }
 
     @Override // android.support.v4.view.ViewPager.OnPageChangeListener
     public void onPageScrollStateChanged(int i) {
-        if (i == 0 && this.jzq != null && this.jzp != null) {
-            this.jzq.BQ(this.jzp.getCurrentItem());
+        if (i == 0 && this.jzt != null && this.jzs != null) {
+            this.jzt.BQ(this.jzs.getCurrentItem());
         }
     }
 
-    public boolean cuI() {
+    public boolean cuH() {
         VideoPlayFragment BP;
-        if (cuP()) {
+        if (cuO()) {
             return true;
         }
-        if (this.jzq == null || this.jzp == null || (BP = this.jzq.BP(this.jzp.getCurrentItem())) == null) {
+        if (this.jzt == null || this.jzs == null || (BP = this.jzt.BP(this.jzs.getCurrentItem())) == null) {
             return false;
         }
-        return BP.cuI();
+        return BP.cuH();
     }
 
     public void a(int i, int i2, Intent intent) {
         VideoPlayFragment BP;
-        if (this.jzq != null && this.jzp != null && (BP = this.jzq.BP(this.jzp.getCurrentItem())) != null) {
+        if (this.jzt != null && this.jzs != null && (BP = this.jzt.BP(this.jzs.getCurrentItem())) != null) {
             BP.a(i, i2, intent);
         }
     }
@@ -218,8 +218,8 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
         }
     }
 
-    private void cuK() {
-        this.jzq.a(new j.b() { // from class: com.baidu.tieba.videoplay.VideoPlayView.6
+    private void cuJ() {
+        this.jzt.a(new j.b() { // from class: com.baidu.tieba.videoplay.VideoPlayView.6
             @Override // com.baidu.tieba.play.j.b
             public void bc(int i, int i2) {
                 VideoPlayView.this.cE(i, i2);
@@ -231,51 +231,51 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
     public void aU(float f) {
         int i;
         if (f <= 0.17d) {
-            i = (int) (this.jzx * f * 6.0f);
+            i = (int) (this.jzA * f * 6.0f);
         } else if (f <= 0.25d) {
-            i = this.jzp.getScrollY();
+            i = this.jzs.getScrollY();
         } else if (f <= 0.42d) {
-            i = (int) (this.jzx * (0.42d - f) * 6.0d);
+            i = (int) (this.jzA * (0.42d - f) * 6.0d);
         } else if (f <= 0.5d) {
-            i = this.jzp.getScrollY();
+            i = this.jzs.getScrollY();
         } else if (f <= 0.67d) {
-            i = (int) (this.jzx * (f - 0.5d) * 6.0d);
+            i = (int) (this.jzA * (f - 0.5d) * 6.0d);
         } else if (f <= 0.75d) {
-            i = this.jzp.getScrollY();
+            i = this.jzs.getScrollY();
         } else {
-            i = ((double) f) <= 0.92d ? (int) (this.jzx * (0.92d - f) * 6.0d) : 0;
+            i = ((double) f) <= 0.92d ? (int) (this.jzA * (0.92d - f) * 6.0d) : 0;
         }
-        this.jzp.scrollTo(0, i);
+        this.jzs.scrollTo(0, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuL() {
-        if (this.jzr == this.jzs && this.jzy) {
-            rD(false);
+    public void cuK() {
+        if (this.jzu == this.jzv && this.jzB) {
+            rE(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cE(int i, int i2) {
         int i3;
-        if (!this.jzz && VideoPlayActivityConfig.FROM_DEFAULT.equals(Fw(this.mFrom)) && (i3 = i - i2) > 2500 && i3 < 3500 && this.jzy && i.cqW()) {
-            rD(true);
-            this.jzz = true;
-            i.cqX();
+        if (!this.jzC && VideoPlayActivityConfig.FROM_DEFAULT.equals(Fy(this.mFrom)) && (i3 = i - i2) > 2500 && i3 < 3500 && this.jzB && i.cqX()) {
+            rE(true);
+            this.jzC = true;
+            i.cqY();
         }
     }
 
-    private void cuM() {
-        this.jzp.scrollTo(0, 0);
+    private void cuL() {
+        this.jzs.scrollTo(0, 0);
     }
 
-    private boolean rD(boolean z) {
-        if (this.jzv == null) {
+    private boolean rE(boolean z) {
+        if (this.jzy == null) {
             return false;
         }
-        if (this.jzw || z) {
-            this.jzv.setVisibility(0);
-            this.jzv.bo();
+        if (this.jzz || z) {
+            this.jzy.setVisibility(0);
+            this.jzy.bo();
             return true;
         }
         return false;
@@ -283,54 +283,54 @@ public class VideoPlayView implements ViewPager.OnPageChangeListener, View.OnCli
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bed() {
-        if (this.jzv != null) {
-            if (this.jzv.isAnimating()) {
-                this.jzv.bq();
-                cuM();
+        if (this.jzy != null) {
+            if (this.jzy.isAnimating()) {
+                this.jzy.bq();
+                cuL();
             }
-            this.jzv.setVisibility(8);
+            this.jzy.setVisibility(8);
         }
     }
 
-    private boolean Fv(String str) {
-        return b.agM().getBoolean("video_play_vertical_first_in" + Fw(str), true);
+    private boolean Fx(String str) {
+        return b.agM().getBoolean("video_play_vertical_first_in" + Fy(str), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuN() {
-        if (this.jzw) {
-            b.agM().putBoolean("video_play_vertical_first_in" + Fw(this.mFrom), false);
-            this.jzw = false;
+    public void cuM() {
+        if (this.jzz) {
+            b.agM().putBoolean("video_play_vertical_first_in" + Fy(this.mFrom), false);
+            this.jzz = false;
         }
     }
 
-    private String Fw(String str) {
+    private String Fy(String str) {
         if (!VideoPlayActivityConfig.FROM_MAINTAB_VIDEO.equals(str)) {
             return VideoPlayActivityConfig.FROM_DEFAULT;
         }
         return VideoPlayActivityConfig.FROM_MAINTAB_VIDEO;
     }
 
-    public void Fx(String str) {
-        if (this.jzq != null) {
-            this.jzq.jzi = str;
+    public void Fz(String str) {
+        if (this.jzt != null) {
+            this.jzt.jzl = str;
         }
     }
 
-    private void cuO() {
-        if (this.jzz) {
-            i.cqZ();
-        } else if (VideoPlayActivityConfig.FROM_DEFAULT.equals(Fw(this.mFrom))) {
-            if (this.jzy) {
-                i.cqY();
-            } else {
+    private void cuN() {
+        if (this.jzC) {
+            i.cra();
+        } else if (VideoPlayActivityConfig.FROM_DEFAULT.equals(Fy(this.mFrom))) {
+            if (this.jzB) {
                 i.cqZ();
+            } else {
+                i.cra();
             }
         }
     }
 
-    private boolean cuP() {
-        if (this.jzv == null || !this.jzv.isAnimating()) {
+    private boolean cuO() {
+        if (this.jzy == null || !this.jzy.isAnimating()) {
             return false;
         }
         bed();

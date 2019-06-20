@@ -17,7 +17,7 @@ public interface c {
 
     int ku();
 
-    boolean oL(String str);
+    boolean oK(String str);
 
     void seek(int i);
 }

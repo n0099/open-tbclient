@@ -21,11 +21,11 @@ public class PostDisPraiseView extends PostPraiseView {
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void ajc() {
         this.agreeType = 5;
-        this.bVV = R.string.action_dislike;
-        this.bVY = R.color.cp_cont_j;
-        this.bVZ = R.color.cp_link_tip_a;
-        this.bVW = R.drawable.icon_card_dislike_n;
-        this.bVX = R.drawable.icon_card_dislike_s;
+        this.bVW = R.string.action_dislike;
+        this.bVZ = R.color.cp_cont_j;
+        this.bWa = R.color.cp_link_tip_a;
+        this.bVX = R.drawable.icon_card_dislike_n;
+        this.bVY = R.drawable.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -44,7 +44,7 @@ public class PostDisPraiseView extends PostPraiseView {
         }
         if (((PostData) this.mData).bmp() && ajf()) {
             ((PostData) this.mData).hl(5);
-            ((PostData) this.mData).qO(false);
+            ((PostData) this.mData).qP(false);
             ((PostData) this.mData).ar(((PostData) this.mData).aeO());
             ((PostData) this.mData).as(((PostData) this.mData).aeP() - 1);
             i = 1;
@@ -53,7 +53,7 @@ public class PostDisPraiseView extends PostPraiseView {
             if ((((PostData) this.mData).bmp() && aeR == 2) || aeR == 1) {
                 ((PostData) this.mData).ar(((PostData) this.mData).aeO() - 1);
             }
-            ((PostData) this.mData).qO(true);
+            ((PostData) this.mData).qP(true);
             ((PostData) this.mData).as(((PostData) this.mData).aeP() + 1);
             ((PostData) this.mData).hl(5);
             i = 0;

@@ -42,7 +42,7 @@ public class b implements i {
         return this.fkv;
     }
 
-    public void wd(String str) {
+    public void wc(String str) {
         this.fkv = str;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<c> {
     private View aMY;
-    private RelativeLayout cUG;
+    private RelativeLayout cUH;
     protected ConstrainImageGroup exO;
     private TbImageView ftG;
     private TextView ftH;
@@ -31,7 +31,7 @@ public class b extends com.baidu.tieba.card.a<c> {
         this.ftI = (TextView) view.findViewById(R.id.ad_desc);
         this.exO = (ConstrainImageGroup) view.findViewById(R.id.ad_img_layout);
         this.aMY = view.findViewById(R.id.item_divider);
-        this.cUG = (RelativeLayout) view.findViewById(R.id.frs_ad_list_item_view);
+        this.cUH = (RelativeLayout) view.findViewById(R.id.frs_ad_list_item_view);
         view.setOnClickListener(this);
     }
 
@@ -41,7 +41,7 @@ public class b extends com.baidu.tieba.card.a<c> {
             this.mSkinType = i;
             al.j(this.ftH, R.color.cp_cont_b);
             al.j(this.ftI, R.color.cp_cont_d);
-            al.k(this.cUG, R.drawable.ad_list_item_bg);
+            al.k(this.cUH, R.drawable.ad_list_item_bg);
             this.exO.onChangeSkinType();
         }
     }
@@ -86,7 +86,7 @@ public class b extends com.baidu.tieba.card.a<c> {
             this.ftI.setText(cVar.blY());
             al.j(this.ftH, R.color.cp_cont_b);
             al.j(this.ftI, R.color.cp_cont_d);
-            al.k(this.cUG, R.drawable.ad_list_item_bg);
+            al.k(this.cUH, R.drawable.ad_list_item_bg);
             if (v.Z(cVar.blZ()) > 0) {
                 f fVar = new f(3);
                 fVar.h(1.0d);

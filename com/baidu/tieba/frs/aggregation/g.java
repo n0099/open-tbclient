@@ -136,7 +136,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
 
     /* loaded from: classes.dex */
     public static class a {
-        public String RG;
+        public String RF;
         public long fuX;
         public long fuY;
         public String fuZ;
@@ -146,7 +146,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         public long fvd;
 
         public boolean isValid() {
-            return (StringUtils.isNull(this.fva) || StringUtils.isNull(this.RG)) ? false : true;
+            return (StringUtils.isNull(this.fva) || StringUtils.isNull(this.RF)) ? false : true;
         }
 
         public String toString() {
@@ -254,7 +254,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
                         aVar.fuX = optJSONObject.optLong("ad_start_time");
                         aVar.fuY = optJSONObject.optLong("ad_end_time");
                         aVar.fuZ = optJSONObject.optString("pic_url");
-                        aVar.RG = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
+                        aVar.RF = optJSONObject.optString(BigdayActivityConfig.JUMP_URL);
                         aVar.fva = optJSONObject.optString("card_title");
                         aVar.fvb = optJSONObject.optString("button_title");
                         aVar.fvc = optJSONObject.optLong("effect_time");

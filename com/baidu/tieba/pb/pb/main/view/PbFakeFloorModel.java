@@ -19,11 +19,11 @@ import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes4.dex */
 public class PbFakeFloorModel extends DataModel {
-    private k hSp;
-    private boolean hSq;
-    private SubPbRequestMessage hSr;
-    private a hSs;
-    private com.baidu.adp.framework.listener.a hSt;
+    private k hSq;
+    private boolean hSr;
+    private SubPbRequestMessage hSs;
+    private a hSt;
+    private com.baidu.adp.framework.listener.a hSu;
     private String mFromForumId;
     private TbPageContext mPageContext;
     private String mPostId;
@@ -34,22 +34,22 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     public void a(a aVar) {
-        this.hSs = aVar;
+        this.hSt = aVar;
     }
 
     public PbFakeFloorModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hSp = null;
-        this.hSq = false;
-        this.hSs = null;
-        this.hSt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.SubPb_HTTP_CMD, 302002) { // from class: com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.1
+        this.hSq = null;
+        this.hSr = false;
+        this.hSt = null;
+        this.hSu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.SubPb_HTTP_CMD, 302002) { // from class: com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 String userId;
                 String errorString;
                 boolean z = false;
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null && PbFakeFloorModel.this.unique_id == responsedMessage.getOrginalMessage().getTag()) {
-                    PbFakeFloorModel.this.hSq = false;
+                    PbFakeFloorModel.this.hSr = false;
                     if (responsedMessage.hasError()) {
                         if (StringUtils.isNull(responsedMessage.getErrorString())) {
                             errorString = PbFakeFloorModel.this.mPageContext.getPageActivity().getResources().getString(R.string.neterror);
@@ -65,29 +65,29 @@ public class PbFakeFloorModel extends DataModel {
                     } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
                         kVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
                     }
-                    if (kVar != null && kVar.bQy() != null) {
-                        PostData postData = (PostData) v.c(kVar.bQy(), kVar.bQy().size() - 1);
-                        if (postData != null && PbFakeFloorModel.this.hSp != null && PbFakeFloorModel.this.hSp.bQu() != null) {
-                            if (PbFakeFloorModel.this.hSp.abv() != null && PbFakeFloorModel.this.hSp.abv().adv() != null && postData.adv() != null && (userId = PbFakeFloorModel.this.hSp.abv().adv().getUserId()) != null && userId.equals(postData.adv().getUserId())) {
+                    if (kVar != null && kVar.bQz() != null) {
+                        PostData postData = (PostData) v.c(kVar.bQz(), kVar.bQz().size() - 1);
+                        if (postData != null && PbFakeFloorModel.this.hSq != null && PbFakeFloorModel.this.hSq.bQv() != null) {
+                            if (PbFakeFloorModel.this.hSq.abv() != null && PbFakeFloorModel.this.hSq.abv().adv() != null && postData.adv() != null && (userId = PbFakeFloorModel.this.hSq.abv().adv().getUserId()) != null && userId.equals(postData.adv().getUserId())) {
                                 z = true;
                             }
                             postData.a(PbFakeFloorModel.this.mPageContext, z);
                         }
-                        if (PbFakeFloorModel.this.hSs != null) {
-                            PbFakeFloorModel.this.hSs.n(postData);
+                        if (PbFakeFloorModel.this.hSt != null) {
+                            PbFakeFloorModel.this.hSt.n(postData);
                         }
                     }
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        registerListener(this.hSt);
+        registerListener(this.hSu);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void setUniqueId(BdUniqueId bdUniqueId) {
         super.setUniqueId(bdUniqueId);
-        registerListener(this.hSt);
+        registerListener(this.hSu);
     }
 
     public void setFromForumId(String str) {
@@ -99,66 +99,66 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
-    public WriteData pW(String str) {
-        if (this.hSp == null || this.hSp.bQA() == null || this.hSp.abv() == null || this.hSp.bQu() == null) {
+    public WriteData pV(String str) {
+        if (this.hSq == null || this.hSq.bQB() == null || this.hSq.abv() == null || this.hSq.bQv() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        boolean aeN = this.hSp.abv().aeN();
+        boolean aeN = this.hSq.abv().aeN();
         if (aeN) {
-            writeData.setVForumId(this.hSp.bQA().getId());
-            writeData.setVForumName(this.hSp.bQA().getName());
+            writeData.setVForumId(this.hSq.bQB().getId());
+            writeData.setVForumName(this.hSq.bQB().getName());
         } else {
-            writeData.setForumName(this.hSp.bQA().getName());
-            writeData.setForumId(this.hSp.bQA().getId());
+            writeData.setForumName(this.hSq.bQB().getName());
+            writeData.setForumId(this.hSq.bQB().getId());
         }
         writeData.setFromForumId(this.mFromForumId);
-        writeData.setFloor(this.hSp.bQu().getId());
+        writeData.setFloor(this.hSq.bQv().getId());
         writeData.setType(2);
         writeData.setCanNoForum(aeN);
-        writeData.setThreadId(this.hSp.abv().getId());
+        writeData.setThreadId(this.hSq.abv().getId());
         writeData.setFloorNum(0);
         return writeData;
     }
 
     public void d(k kVar) {
-        this.hSp = kVar;
+        this.hSq = kVar;
     }
 
-    public void bVJ() {
-        if (!this.hSq) {
+    public void bVK() {
+        if (!this.hSr) {
             cancelMessage();
-            this.hSr = bVK();
-            if (this.hSr != null) {
-                sendMessage(this.hSr);
+            this.hSs = bVL();
+            if (this.hSs != null) {
+                sendMessage(this.hSs);
             }
         }
     }
 
     public void o(PostData postData) {
         if (postData != null) {
-            this.hSp.bQu().r(postData);
-            this.hSp.bQu().s(postData);
-            this.hSp.bQu().qL(true);
+            this.hSq.bQv().r(postData);
+            this.hSq.bQv().s(postData);
+            this.hSq.bQv().qM(true);
         }
     }
 
-    private SubPbRequestMessage bVK() {
-        if (this.hSp == null || this.hSp.abv() == null || this.hSp.abv().getId() == null || this.hSp.bQu() == null || this.hSp.bQu().getId() == null) {
-            this.hSq = false;
+    private SubPbRequestMessage bVL() {
+        if (this.hSq == null || this.hSq.abv() == null || this.hSq.abv().getId() == null || this.hSq.bQv() == null || this.hSq.bQv().getId() == null) {
+            this.hSr = false;
             return null;
         }
-        this.hSq = true;
+        this.hSr = true;
         float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         int af = l.af(TbadkCoreApplication.getInst().getApp());
         int ah = l.ah(TbadkCoreApplication.getInst().getApp());
-        long c = com.baidu.adp.lib.g.b.c(this.hSp.bQu().getId(), 0L);
-        return new SubPbRequestMessage(this.mPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(this.hSp.abv().getId(), 0L), c, 0L, 1, af, ah, f, "", 1);
+        long c = com.baidu.adp.lib.g.b.c(this.hSq.bQv().getId(), 0L);
+        return new SubPbRequestMessage(this.mPageContext.getPageActivity(), com.baidu.adp.lib.g.b.c(this.hSq.abv().getId(), 0L), c, 0L, 1, af, ah, f, "", 1);
     }
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public boolean arn() {
-        bVJ();
+        bVK();
         return true;
     }
 

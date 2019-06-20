@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a hxT = null;
-    private final a.InterfaceC0237a hxU = new a.InterfaceC0237a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a hxU = null;
+    private final a.InterfaceC0237a hxV = new a.InterfaceC0237a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0237a
-        public void mb(String str) {
+        public void ma(String str) {
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0237a
@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: h */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.md(str);
+                    return com.baidu.tbadk.core.a.b.mc(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.mc(accountData.getID());
+                        com.baidu.tbadk.core.a.b.mb(accountData.getID());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a bON() {
-        if (hxT == null) {
-            hxT = new a();
+    public static a bOO() {
+        if (hxU == null) {
+            hxU = new a();
         }
-        return hxT;
+        return hxU;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b ma(String str) {
+    public a.b lZ(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -70,9 +70,9 @@ public class a extends com.baidu.tbadk.core.a.a {
                 if (split != null && split.length >= 1) {
                     bVar = new a.b();
                     try {
-                        bVar.BT = split[0];
+                        bVar.BS = split[0];
                         if (split.length >= 2) {
-                            bVar.bCK = split[1];
+                            bVar.bCL = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -93,9 +93,9 @@ public class a extends com.baidu.tbadk.core.a.a {
     @Override // com.baidu.tbadk.core.a.a
     public void abh() {
         AccountData currentAccountObj;
-        a.b ma;
-        if (j.jS() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ma = ma(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ma.BT, ma.bCK, currentAccountObj.getStoken(), this.hxU);
+        a.b lZ;
+        if (j.jS() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (lZ = lZ(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), lZ.BS, lZ.bCL, currentAccountObj.getStoken(), this.hxV);
         }
     }
 

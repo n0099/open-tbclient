@@ -6,8 +6,8 @@ import javax.annotation.concurrent.GuardedBy;
 public class a {
     @GuardedBy("this")
     private long aVH;
-    private final int gMP;
-    private final com.facebook.common.references.c<Bitmap> kbm;
+    private final int gMR;
+    private final com.facebook.common.references.c<Bitmap> kbp;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
@@ -15,9 +15,9 @@ public class a {
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.gMP = i;
+        this.gMR = i;
         this.mMaxSize = i2;
-        this.kbm = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.kbp = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: S */
@@ -34,7 +34,7 @@ public class a {
     public synchronized boolean V(Bitmap bitmap) {
         boolean z;
         int ac = com.facebook.d.a.ac(bitmap);
-        if (this.mCount < this.gMP) {
+        if (this.mCount < this.gMR) {
             if (this.aVH + ac <= this.mMaxSize) {
                 this.mCount++;
                 this.aVH = ac + this.aVH;
@@ -55,7 +55,7 @@ public class a {
         }
     }
 
-    public com.facebook.common.references.c<Bitmap> cGR() {
-        return this.kbm;
+    public com.facebook.common.references.c<Bitmap> cGQ() {
+        return this.kbp;
     }
 }

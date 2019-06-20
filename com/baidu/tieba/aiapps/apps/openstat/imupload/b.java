@@ -26,14 +26,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class b {
-    private static b dfz;
-    private OkHttpClient dfy = aFD();
+    private static b dfA;
+    private OkHttpClient dfz = aFD();
 
     public static b aFC() {
-        if (dfz == null) {
-            dfz = new b();
+        if (dfA == null) {
+            dfA = new b();
         }
-        return dfz;
+        return dfA;
     }
 
     private b() {
@@ -42,11 +42,11 @@ public class b {
     public void a(@NonNull Map<String, String> map, @NonNull byte[] bArr, String str, c cVar) {
         if (cVar != null) {
             Request a2 = a(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-            if (this.dfy == null) {
-                this.dfy = aFD();
+            if (this.dfz == null) {
+                this.dfz = aFD();
             }
             try {
-                Response execute = this.dfy.newCall(a2).execute();
+                Response execute = this.dfz.newCall(a2).execute();
                 try {
                     if (execute.body() != null) {
                         String[] I = I(execute.body().bytes());
@@ -92,18 +92,18 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        BIMLogPb.LogRequest.AuthInfo build = newBuilder.sQ(str).build();
+        BIMLogPb.LogRequest.AuthInfo build = newBuilder.sP(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return BIMLogPb.LogRequest.newBuilder().bZ(1L).sR("smart_app").b(build).ca(currentTimeMillis).sS(com.baidu.tieba.aiapps.apps.openstat.imupload.a.p("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return BIMLogPb.LogRequest.newBuilder().bZ(1L).sQ("smart_app").b(build).ca(currentTimeMillis).sR(com.baidu.tieba.aiapps.apps.openstat.imupload.a.p("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
     private String[] I(@NonNull byte[] bArr) {
         try {
             BIMLogPb.LogResponse parseFrom = BIMLogPb.LogResponse.parseFrom(bArr);
-            if (this.dfy.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.dfy.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.dfy = this.dfy.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.dfz.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.dfz.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.dfz = this.dfz.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {

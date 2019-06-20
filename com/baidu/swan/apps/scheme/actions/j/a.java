@@ -36,7 +36,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mName = o.cZ(unitedSchemeEntity.getParam("params")).optString("name");
+        this.mName = o.cY(unitedSchemeEntity.getParam("params")).optString("name");
         if (TextUtils.isEmpty(this.mName)) {
             c.e("Screenshot", "invalid params");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -88,9 +88,9 @@ public class a extends z {
     */
     public void a(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull b bVar) {
         FileOutputStream fileOutputStream;
-        String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
-        if (hy != null) {
-            String str = hy + File.separator + "screenshot";
+        String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
+        if (hx != null) {
+            String str = hx + File.separator + "screenshot";
             File file = new File(str);
             if (!file.exists() || !file.isDirectory()) {
                 file.delete();

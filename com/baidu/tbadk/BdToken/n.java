@@ -70,7 +70,7 @@ public class n {
                 }
             }
             if (aVar2 == null) {
-                lk("");
+                lj("");
                 return;
             }
             try {
@@ -84,11 +84,11 @@ public class n {
                 jSONObject.put("toast", aVar2.toast);
                 String jSONObject2 = jSONObject.toString();
                 if (TextUtils.isEmpty(jSONObject2)) {
-                    lk("");
+                    lj("");
                     return;
                 }
                 if (!jSONObject2.equals(com.baidu.tbadk.core.sharedPref.b.agM().getString("pref_key_strategy_json", null))) {
-                    lk(jSONObject2);
+                    lj(jSONObject2);
                 }
                 a(aVar2, true);
             } catch (JSONException e) {
@@ -123,7 +123,7 @@ public class n {
         }
     }
 
-    private void lk(String str) {
+    private void lj(String str) {
         com.baidu.tbadk.core.sharedPref.b.agM().putString("pref_key_strategy_json", str);
         com.baidu.tbadk.core.sharedPref.b.agM().putInt("pref_key_float_tip_num", 0);
     }

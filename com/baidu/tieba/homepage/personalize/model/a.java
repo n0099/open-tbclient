@@ -19,12 +19,12 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private int geu = 0;
-    private com.baidu.tieba.homepage.personalize.b.d gev = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c fYe = new c();
+    private int gew = 0;
+    private com.baidu.tieba.homepage.personalize.b.d gex = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c fYg = new c();
     private final int dqA = com.baidu.tbadk.core.sharedPref.b.agM().getInt("home_page_max_thread_count", 300);
 
-    public int buz() {
+    public int buA() {
         return this.dqA;
     }
 
@@ -46,10 +46,10 @@ public class a {
         List<p> b = d.b(builder);
         cF(b);
         List<m> l = l(builder.thread_list, b);
-        this.gev.cI(l);
+        this.gex.cI(l);
         b.a(builder, l);
-        this.fYe.cPV = l;
-        return this.fYe;
+        this.fYg.cPW = l;
+        return this.fYg;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -67,7 +67,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.geu);
+        d.a(z, builder, builder2, i, this.gew);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -83,7 +83,7 @@ public class a {
                 }
             }
             if (i == 1) {
-                this.gev.aF(list);
+                this.gex.aF(list);
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
                         if (!hashSet2.contains(threadInfo2.lego_card)) {
@@ -94,7 +94,7 @@ public class a {
                     }
                 }
             } else {
-                this.gev.a(z, list2.size() - 1, list, list2);
+                this.gex.a(z, list2.size() - 1, list, list2);
                 for (int Z2 = v.Z(list2) - 1; Z2 >= 0; Z2--) {
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, Z2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
@@ -107,8 +107,8 @@ public class a {
                 }
             }
             int Z3 = v.Z(list);
-            this.fYe.gex = Z3 - Z;
-            this.geu = Z3 - Z;
+            this.fYg.gez = Z3 - Z;
+            this.gew = Z3 - Z;
         }
     }
 
@@ -148,7 +148,7 @@ public class a {
                 bgVar.setCurrentPage(1);
                 if (!TextUtils.isEmpty(bgVar.aex())) {
                     ad adVar = new ad();
-                    adVar.mg(bgVar.aex());
+                    adVar.mf(bgVar.aex());
                     adVar.position = i5;
                     linkedList.add(adVar);
                 } else if (com.baidu.tieba.homepage.topic.topictab.b.a.V(bgVar)) {
@@ -178,8 +178,8 @@ public class a {
                         if (ao instanceof k) {
                             if (bgVar.aet() == 1) {
                                 d.b(ao);
-                                ao.bIf = afo[0];
-                                ao.bIg = afo[1];
+                                ao.bIg = afo[0];
+                                ao.bIh = afo[1];
                             } else if (bgVar.aet() >= 2) {
                                 d.c(ao);
                             } else {

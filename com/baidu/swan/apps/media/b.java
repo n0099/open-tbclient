@@ -37,7 +37,7 @@ public final class b {
         }
     }
 
-    public static a fc(String str) {
+    public static a fb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -79,7 +79,7 @@ public final class b {
         aAt.clear();
     }
 
-    public static boolean fd(String str) {
+    public static boolean fc(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -92,7 +92,7 @@ public final class b {
         return false;
     }
 
-    public static void fe(String str) {
+    public static void fd(String str) {
         if (!TextUtils.isEmpty(str)) {
             for (int size = aAt.size() - 1; size >= 0; size--) {
                 a aVar = aAt.get(size);

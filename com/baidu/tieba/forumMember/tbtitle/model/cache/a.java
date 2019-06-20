@@ -13,11 +13,11 @@ public class a {
 
     private void Wx() {
         if (this.dqB == null) {
-            this.dqB = com.baidu.tbadk.core.c.a.afD().mA("tb.tbtiel_level_info");
+            this.dqB = com.baidu.tbadk.core.c.a.afD().mz("tb.tbtiel_level_info");
         }
     }
 
-    public byte[] we(String str) {
+    public byte[] wd(String str) {
         l.b<byte[]> ap = (this.dqB == null || str == null) ? null : this.dqB.ap(str);
         if (ap == null || ap.value == null) {
             return null;

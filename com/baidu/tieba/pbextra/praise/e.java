@@ -20,24 +20,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.base.c<PraiseListActivity> {
-    private c ibC;
-    private PraiseListActivity ibD;
-    private View ibE;
-    private NavigationBar ibF;
-    private View ibG;
-    private NoDataView ibH;
-    private View ibI;
-    private TextView ibJ;
-    private BdListView ibK;
-    private View ibL;
-    private TextView ibM;
+    private c ibD;
+    private PraiseListActivity ibE;
+    private View ibF;
+    private NavigationBar ibG;
+    private View ibH;
+    private NoDataView ibI;
+    private View ibJ;
+    private TextView ibK;
+    private BdListView ibL;
+    private View ibM;
     private TextView ibN;
-    private ProgressBar ibO;
+    private TextView ibO;
     private ProgressBar ibP;
+    private ProgressBar ibQ;
 
     public e(PraiseListActivity praiseListActivity, String str) {
         super(praiseListActivity.getPageContext());
-        this.ibC = null;
         this.ibD = null;
         this.ibE = null;
         this.ibF = null;
@@ -51,151 +50,152 @@ public class e extends com.baidu.adp.base.c<PraiseListActivity> {
         this.ibN = null;
         this.ibO = null;
         this.ibP = null;
-        this.ibD = praiseListActivity;
+        this.ibQ = null;
+        this.ibE = praiseListActivity;
         praiseListActivity.setContentView(R.layout.zan_list_activity);
-        this.ibE = praiseListActivity.findViewById(R.id.zan_list_page_parent);
-        this.ibF = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
-        this.ibG = praiseListActivity.findViewById(R.id.zan_list_page_frame);
-        this.ibH = NoDataViewFactory.a(this.ibD.getPageContext().getContext(), this.ibE, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.ibD.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.iH(R.string.praise_list_no_data), null);
-        this.ibK = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
-        TextView textView = new TextView(this.ibD.getActivity());
+        this.ibF = praiseListActivity.findViewById(R.id.zan_list_page_parent);
+        this.ibG = (NavigationBar) praiseListActivity.findViewById(R.id.zan_list_page_navigationbar);
+        this.ibH = praiseListActivity.findViewById(R.id.zan_list_page_frame);
+        this.ibI = NoDataViewFactory.a(this.ibE.getPageContext().getContext(), this.ibF, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(this.ibE.getActivity(), R.dimen.ds320)), NoDataViewFactory.d.iH(R.string.praise_list_no_data), null);
+        this.ibL = (BdListView) praiseListActivity.findViewById(R.id.zan_list_page_list);
+        TextView textView = new TextView(this.ibE.getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
-        this.ibK.addHeaderView(textView, 0);
-        this.ibO = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
-        this.ibC = new c(praiseListActivity);
-        this.ibK.setAdapter((ListAdapter) this.ibC);
-        this.ibK.setOnScrollListener(this.ibC);
-        this.ibF.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.ibF.setTitleText("");
-        this.ibI = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
-        this.ibI.setOnClickListener(praiseListActivity);
-        this.ibJ = (TextView) this.ibI.findViewById(R.id.zan_list_head_text);
-        this.ibJ.setText(str);
-        this.ibI.setVisibility(8);
-        this.ibK.addHeaderView(this.ibI);
-        this.ibL = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
-        this.ibM = (TextView) this.ibL.findViewById(R.id.zan_list_foot_text_continue);
-        this.ibN = (TextView) this.ibL.findViewById(R.id.zan_list_foot_text_more);
-        this.ibP = (ProgressBar) this.ibL.findViewById(R.id.zan_list_foot_progress);
-        this.ibL.setVisibility(8);
-        this.ibM.setOnClickListener(praiseListActivity);
-        this.ibK.addFooterView(this.ibL);
-        this.ibK.setOnItemClickListener(praiseListActivity);
+        this.ibL.addHeaderView(textView, 0);
+        this.ibP = (ProgressBar) praiseListActivity.findViewById(R.id.zan_list_page_progress);
+        this.ibD = new c(praiseListActivity);
+        this.ibL.setAdapter((ListAdapter) this.ibD);
+        this.ibL.setOnScrollListener(this.ibD);
+        this.ibG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.ibG.setTitleText("");
+        this.ibJ = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_head, (ViewGroup) null);
+        this.ibJ.setOnClickListener(praiseListActivity);
+        this.ibK = (TextView) this.ibJ.findViewById(R.id.zan_list_head_text);
+        this.ibK.setText(str);
+        this.ibJ.setVisibility(8);
+        this.ibL.addHeaderView(this.ibJ);
+        this.ibM = LayoutInflater.from(praiseListActivity.getPageContext().getContext()).inflate(R.layout.zan_list_foot, (ViewGroup) null);
+        this.ibN = (TextView) this.ibM.findViewById(R.id.zan_list_foot_text_continue);
+        this.ibO = (TextView) this.ibM.findViewById(R.id.zan_list_foot_text_more);
+        this.ibQ = (ProgressBar) this.ibM.findViewById(R.id.zan_list_foot_progress);
+        this.ibM.setVisibility(8);
+        this.ibN.setOnClickListener(praiseListActivity);
+        this.ibL.addFooterView(this.ibM);
+        this.ibL.setOnItemClickListener(praiseListActivity);
     }
 
-    public void bBa() {
-        if (this.ibC != null) {
-            this.ibC.notifyDataSetChanged();
+    public void bBb() {
+        if (this.ibD != null) {
+            this.ibD.notifyDataSetChanged();
         }
     }
 
-    public void pj(boolean z) {
+    public void pk(boolean z) {
         if (z) {
-            this.ibP.setVisibility(0);
+            this.ibQ.setVisibility(0);
         } else {
-            this.ibO.setVisibility(0);
+            this.ibP.setVisibility(0);
         }
     }
 
-    public void bXY() {
-        this.ibO.setVisibility(8);
+    public void bXZ() {
         this.ibP.setVisibility(8);
+        this.ibQ.setVisibility(8);
     }
 
     public boolean pu() {
-        return this.ibO.getVisibility() == 0 || this.ibP.getVisibility() == 0;
+        return this.ibP.getVisibility() == 0 || this.ibQ.getVisibility() == 0;
     }
 
     public void b(int i, List<a> list, int i2, int i3) {
         String format;
         String format2;
-        this.ibO.setVisibility(8);
         this.ibP.setVisibility(8);
-        this.ibI.setVisibility(0);
+        this.ibQ.setVisibility(8);
+        this.ibJ.setVisibility(0);
         if (i > 0) {
-            switch (this.ibD.pageType) {
+            switch (this.ibE.pageType) {
                 case 1:
-                    format2 = String.format(this.ibD.getResources().getString(R.string.graffiti_list_title_count), ap.aN(i));
+                    format2 = String.format(this.ibE.getResources().getString(R.string.graffiti_list_title_count), ap.aN(i));
                     break;
                 default:
-                    format2 = String.format(this.ibD.getResources().getString(R.string.praise_list_title_count), ap.aN(i));
+                    format2 = String.format(this.ibE.getResources().getString(R.string.praise_list_title_count), ap.aN(i));
                     break;
             }
-            this.ibF.setTitleText(format2);
+            this.ibG.setTitleText(format2);
         } else {
-            this.ibF.setTitleText("");
+            this.ibG.setTitleText("");
         }
         if (list == null || list.size() < 1) {
-            be(null, this.ibD.pageType);
+            be(null, this.ibE.pageType);
             return;
         }
-        this.ibG.setVisibility(0);
-        this.ibH.setVisibility(8);
-        this.ibC.dL(list);
-        this.ibC.notifyDataSetChanged();
+        this.ibH.setVisibility(0);
+        this.ibI.setVisibility(8);
+        this.ibD.dL(list);
+        this.ibD.notifyDataSetChanged();
         switch (i2) {
             case 1001:
-                this.ibL.setVisibility(0);
                 this.ibM.setVisibility(0);
-                this.ibN.setVisibility(8);
+                this.ibN.setVisibility(0);
+                this.ibO.setVisibility(8);
                 return;
             case 1002:
-                this.ibL.setVisibility(8);
+                this.ibM.setVisibility(8);
                 return;
             case 1003:
-                this.ibL.setVisibility(0);
-                al.k(this.ibL, R.drawable.bg_pack);
-                this.ibM.setVisibility(8);
-                this.ibN.setVisibility(0);
-                switch (this.ibD.pageType) {
+                this.ibM.setVisibility(0);
+                al.k(this.ibM, R.drawable.bg_pack);
+                this.ibN.setVisibility(8);
+                this.ibO.setVisibility(0);
+                switch (this.ibE.pageType) {
                     case 1:
-                        format = String.format(this.ibD.getResources().getString(R.string.graffiti_list_title_count), ap.aN(i));
+                        format = String.format(this.ibE.getResources().getString(R.string.graffiti_list_title_count), ap.aN(i));
                         break;
                     default:
-                        format = String.format(this.ibD.getResources().getString(R.string.praise_item_more), ap.aN(i));
+                        format = String.format(this.ibE.getResources().getString(R.string.praise_item_more), ap.aN(i));
                         break;
                 }
-                this.ibN.setText(format);
+                this.ibO.setText(format);
                 return;
             default:
-                this.ibL.setVisibility(8);
+                this.ibM.setVisibility(8);
                 return;
         }
     }
 
     public void be(String str, int i) {
-        this.ibO.setVisibility(8);
         this.ibP.setVisibility(8);
-        this.ibG.setVisibility(8);
-        this.ibH.setVisibility(0);
+        this.ibQ.setVisibility(8);
+        this.ibH.setVisibility(8);
+        this.ibI.setVisibility(0);
         if (!StringUtils.isNull(str)) {
-            this.ibH.setTextOption(NoDataViewFactory.d.oz(str));
+            this.ibI.setTextOption(NoDataViewFactory.d.oy(str));
         } else if (1 == i) {
-            this.ibH.setTextOption(NoDataViewFactory.d.iH(R.string.graffiti_list_no_data));
+            this.ibI.setTextOption(NoDataViewFactory.d.iH(R.string.graffiti_list_no_data));
         } else {
-            this.ibH.setTextOption(NoDataViewFactory.d.iH(R.string.praise_list_no_data));
+            this.ibI.setTextOption(NoDataViewFactory.d.iH(R.string.praise_list_no_data));
         }
     }
 
     public void a(com.baidu.tbadk.core.c cVar, int i) {
         if (cVar != null) {
             cVar.setNightMode(i == 1);
-            cVar.onModeChanged(this.ibE);
-            cVar.onModeChanged(this.ibI);
-            cVar.onModeChanged(this.ibL);
-            this.ibF.onChangeSkinType(this.ibD.getPageContext(), i);
-            al.k(this.ibL, R.drawable.bg_pack);
-            if (this.ibH != null) {
-                this.ibH.onChangeSkinType(this.ibD.getPageContext(), i);
+            cVar.onModeChanged(this.ibF);
+            cVar.onModeChanged(this.ibJ);
+            cVar.onModeChanged(this.ibM);
+            this.ibG.onChangeSkinType(this.ibE.getPageContext(), i);
+            al.k(this.ibM, R.drawable.bg_pack);
+            if (this.ibI != null) {
+                this.ibI.onChangeSkinType(this.ibE.getPageContext(), i);
             }
         }
     }
 
-    public View bXZ() {
-        return this.ibI;
+    public View bYa() {
+        return this.ibJ;
     }
 
-    public View bYa() {
-        return this.ibM;
+    public View bYb() {
+        return this.ibN;
     }
 }

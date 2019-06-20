@@ -7,11 +7,11 @@ public interface a {
 
     int arg();
 
+    int pO(String str);
+
     int pP(String str);
 
-    int pQ(String str);
-
-    String pR(String str);
+    String pQ(String str);
 
     /* renamed from: com.baidu.tbadk.imageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */

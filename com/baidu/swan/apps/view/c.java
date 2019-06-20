@@ -39,7 +39,7 @@ public class c extends d {
 
         @Override // com.baidu.swan.apps.core.i.d.C0138d, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            return (c.this.ati != null && c.this.ati.dQ(str)) || e.P(webView.getContext(), str);
+            return (c.this.ati != null && c.this.ati.dP(str)) || e.P(webView.getContext(), str);
         }
     }
 
@@ -52,7 +52,7 @@ public class c extends d {
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
             if (c.this.ati != null) {
-                c.this.ati.da(str);
+                c.this.ati.cZ(str);
             }
         }
     }

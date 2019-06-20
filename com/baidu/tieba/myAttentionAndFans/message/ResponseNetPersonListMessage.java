@@ -64,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> mB = a.afD().mB("tb.my_pages");
-                    if (mB != null) {
-                        mB.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> mA = a.afD().mA("tb.my_pages");
+                    if (mA != null) {
+                        mA.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
                     }
                 }
             }

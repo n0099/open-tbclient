@@ -22,10 +22,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, z<com.baidu.tieba.card.data.k>> implements com.baidu.tieba.a.f {
-    private ab<com.baidu.tieba.card.data.k> Vj;
-    private boolean XJ;
-    private NEGFeedBackView.a cRg;
-    public BdUniqueId cwh;
+    private ab<com.baidu.tieba.card.data.k> Vi;
+    private boolean XI;
+    private NEGFeedBackView.a cRh;
+    public BdUniqueId cwi;
     private com.baidu.adp.lib.e.b<ConstrainImageLayout> ftY;
     private com.baidu.adp.lib.e.b<TbImageView> ftZ;
     private TbPageContext<?> mPageContext;
@@ -33,8 +33,8 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.XJ = true;
-        this.cRg = null;
+        this.XI = true;
+        this.cRh = null;
         this.ftY = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.m.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
@@ -100,7 +100,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return tbImageView;
             }
         }, 12, 0);
-        this.Vj = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.m.5
+        this.Vi = new ab<com.baidu.tieba.card.data.k>() { // from class: com.baidu.tieba.homepage.personalize.a.m.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public boolean a(View view, com.baidu.tieba.card.data.k kVar, String str) {
@@ -115,10 +115,10 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             }
         };
         this.mPageContext = tbPageContext;
-        bun();
+        buo();
     }
 
-    private void bun() {
+    private void buo() {
         com.baidu.tieba.card.data.k.eAR = "c13388";
         com.baidu.tieba.card.data.k.eAS = "c13389";
     }
@@ -130,7 +130,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public z<com.baidu.tieba.card.data.k> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity());
         com.baidu.card.d dVar = new com.baidu.card.d(this.mPageContext.getPageActivity());
-        dVar.setPageUniqueId(this.cwh);
+        dVar.setPageUniqueId(this.cwi);
         dVar.av(false);
         dVar.aw(false);
         dVar.ax(false);
@@ -154,12 +154,12 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         oVar.setFrom("index");
         oVar.setConstrainLayoutPool(this.ftY);
         oVar.setConstrainImagePool(this.ftZ);
-        oVar.setFromCDN(this.XJ);
+        oVar.setFromCDN(this.XI);
         aVar.b(oVar);
         aVar.a((com.baidu.card.f) new com.baidu.card.u(this.mPageContext.getPageActivity()));
         z<com.baidu.tieba.card.data.k> zVar = new z<>(aVar.qr());
         aVar.qq().setBackgroundResource(R.drawable.addresslist_item_bg);
-        zVar.setPageId(this.cwh);
+        zVar.setPageId(this.cwi);
         setOnAdapterItemClickListener(new com.baidu.adp.widget.ListView.s() { // from class: com.baidu.tieba.homepage.personalize.a.m.4
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, com.baidu.adp.widget.ListView.m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -184,10 +184,10 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             return null;
         }
         kVar.ps(kVar.position + 1);
-        zVar.qt().a(this.cRg);
+        zVar.qt().a(this.cRh);
         zVar.a(kVar);
         zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        zVar.qs().a(this.Vj);
+        zVar.qs().a(this.Vi);
         com.baidu.tieba.card.t.aXP().b(kVar.aYk());
         com.baidu.tieba.a.d.aBq().a("page_recommend", "show_", kVar.aYk());
         e(kVar.threadData, kVar.aXZ());
@@ -195,11 +195,11 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cRg = aVar;
+        this.cRh = aVar;
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rV(String str) {
+    public void rU(String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -223,7 +223,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         return;
                     }
                 }
-                com.baidu.tieba.card.n.uS(bgVar.getTid());
+                com.baidu.tieba.card.n.uR(bgVar.getTid());
                 TiebaStatic.log(new am("c13274").l("fid", fid).l("tid", parseLong).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT("obj_name", str4).l(VideoPlayActivityConfig.OBJ_ID, l.longValue()).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "index_card").P("obj_param1", bgVar.aeh().is_game.intValue()));
             }
         }
@@ -232,14 +232,14 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: private */
     public void d(bg bgVar, int i) {
         if (bgVar != null && bgVar.aeh() != null) {
-            com.baidu.tieba.q.c.clv().b(this.cwh, com.baidu.tieba.q.a.a(bgVar, "a002", "common_click", 1, i, bgVar.aeh().id));
+            com.baidu.tieba.q.c.clw().b(this.cwi, com.baidu.tieba.q.a.a(bgVar, "a002", "common_click", 1, i, bgVar.aeh().id));
         }
     }
 
     private void e(bg bgVar, int i) {
         if (bgVar != null && bgVar.aeh() != null) {
             String str = bgVar.aeh().id;
-            com.baidu.tieba.q.c.clv().a(this.cwh, str, com.baidu.tieba.q.a.a(bgVar, "a002", "common_exp", i, str));
+            com.baidu.tieba.q.c.clw().a(this.cwi, str, com.baidu.tieba.q.a.a(bgVar, "a002", "common_exp", i, str));
         }
     }
 }

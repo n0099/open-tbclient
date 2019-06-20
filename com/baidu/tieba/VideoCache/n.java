@@ -11,7 +11,7 @@ import java.net.Socket;
 /* loaded from: classes4.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket cUm;
+    private ServerSocket cUn;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
@@ -20,12 +20,12 @@ public class n {
             j.am(n.TAG, "run ...");
             n.this.aAZ();
             int i = 9000;
-            while (n.this.cUm == null && i < 10000) {
+            while (n.this.cUn == null && i < 10000) {
                 try {
-                    n.this.cUm = new ServerSocket(i);
+                    n.this.cUn = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.cUm = null;
+                    n.this.cUn = null;
                     i++;
                 }
             }
@@ -33,10 +33,10 @@ public class n {
             n.this.md(i);
             e.aAN();
             k.aAW();
-            while (!n.this.cUm.isClosed()) {
+            while (!n.this.cUn.isClosed()) {
                 try {
                     j.am(n.TAG, "accept start");
-                    Socket accept = n.this.cUm.accept();
+                    Socket accept = n.this.cUn.accept();
                     j.am(n.TAG, "accept end");
                     if (accept != null) {
                         j.am(n.TAG, "连接视频服务的client:" + accept);
@@ -53,8 +53,8 @@ public class n {
                         } else if (aAR != null && aAR.contains("?segment_postion=")) {
                             try {
                                 int indexOf = aAR.indexOf("?segment_postion=", 0);
-                                b.rF(aAR.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.c(aAR.substring(indexOf + i.cUf), 0L);
+                                b.rE(aAR.substring(0, indexOf));
+                                j = com.baidu.adp.lib.g.b.c(aAR.substring(indexOf + i.cUg), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
@@ -85,11 +85,11 @@ public class n {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aAZ() {
-        File file = new File(i.cTZ);
+        File file = new File(i.cUa);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.cUa);
+        File file2 = new File(i.cUb);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -101,11 +101,11 @@ public class n {
                 }
             }
         }
-        File file4 = new File(i.ww);
+        File file4 = new File(i.wv);
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.cUc);
+        File file5 = new File(i.cUd);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -128,7 +128,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void md(int i) {
-        BufferedWriter bufferedWriter = i.cUe;
+        BufferedWriter bufferedWriter = i.cUf;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -178,8 +178,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.cUm != null) {
-                this.cUm.close();
+            if (this.cUn != null) {
+                this.cUn.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -193,7 +193,7 @@ public class n {
         if (aAR != null) {
             aAR = aAR.replace("?stop_cache=1", "");
         }
-        e.aAN().rB(aAR);
+        e.aAN().rA(aAR);
         d(socket);
         j.am(TAG, "handleStopCache out");
     }
@@ -216,7 +216,7 @@ public class n {
         if (aAR != null) {
             aAR = aAR.replace("?file_access=1", "");
         }
-        k.aAW().rv(aAR);
+        k.aAW().ru(aAR);
         d(socket);
         j.am(TAG, "handleFileAccess out");
     }

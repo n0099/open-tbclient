@@ -4,7 +4,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public class c {
-    private static c cRD;
+    private static c cRE;
     private HandlerThread mHandlerThread = new HandlerThread("PlayerHandlerThread");
 
     private c() {
@@ -12,14 +12,14 @@ public class c {
     }
 
     public static c aAg() {
-        if (cRD == null) {
+        if (cRE == null) {
             synchronized (c.class) {
-                if (cRD == null) {
-                    cRD = new c();
+                if (cRE == null) {
+                    cRE = new c();
                 }
             }
         }
-        return cRD;
+        return cRE;
     }
 
     public Looper getLooper() {

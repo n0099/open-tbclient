@@ -17,16 +17,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class aq {
-    private b bSR;
+    private b bSS;
     private Resources mResources;
 
     /* loaded from: classes.dex */
     private static class a {
-        static aq bSS = new aq();
+        static aq bST = new aq();
     }
 
     private aq() {
-        this.bSR = new b();
+        this.bSS = new b();
         try {
             this.mResources = (Resources) Class.forName("android.support.v7.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class aq {
     public static synchronized aq aik() {
         aq aqVar;
         synchronized (aq.class) {
-            aqVar = a.bSS;
+            aqVar = a.bST;
         }
         return aqVar;
     }
@@ -64,19 +64,19 @@ public class aq {
             }
             switch (i2) {
                 case 1:
-                    VectorDrawableCompat in = this.bSR.in(b2);
+                    VectorDrawableCompat in = this.bSS.in(b2);
                     if (in == null) {
                         return al.c(skinType, this.mResources, al.h(this.mResources, i));
                     }
                     return in;
                 case 2:
-                    AnimatedVectorDrawableCompat io = this.bSR.io(b2);
+                    AnimatedVectorDrawableCompat io = this.bSS.io(b2);
                     if (io == null) {
                         return al.c(skinType, this.mResources, al.h(this.mResources, i));
                     }
                     return io;
                 case 3:
-                    StateListDrawable a2 = this.bSR.a(b2, this.mResources);
+                    StateListDrawable a2 = this.bSS.a(b2, this.mResources);
                     if (a2 == null) {
                         return al.c(skinType, this.mResources, al.h(this.mResources, i));
                     }
@@ -92,7 +92,7 @@ public class aq {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private LruCache<Integer, Drawable.ConstantState> bST = new LruCache<>(50);
+        private LruCache<Integer, Drawable.ConstantState> bSU = new LruCache<>(50);
 
         b() {
         }
@@ -108,7 +108,7 @@ public class aq {
             Throwable th;
             VectorDrawableCompat vectorDrawableCompat;
             Drawable.ConstantState constantState2;
-            Drawable.ConstantState constantState3 = this.bST.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState3 = this.bSU.get(Integer.valueOf(i));
             if (constantState3 == null) {
                 try {
                     VectorDrawableCompat create = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
@@ -130,7 +130,7 @@ public class aq {
                     }
                     if (constantState2 != null) {
                         try {
-                            this.bST.put(Integer.valueOf(i), constantState2);
+                            this.bSU.put(Integer.valueOf(i), constantState2);
                         } catch (Throwable th3) {
                             th = th3;
                             constantState = constantState2;
@@ -173,7 +173,7 @@ public class aq {
         public StateListDrawable a(int i, @NonNull Resources resources) {
             StateListDrawable stateListDrawable;
             StateListDrawable stateListDrawable2;
-            Drawable.ConstantState constantState = this.bST.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.bSU.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     stateListDrawable2 = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
@@ -189,7 +189,7 @@ public class aq {
                         }
                     }
                     if (constantState != null) {
-                        this.bST.put(Integer.valueOf(i), constantState);
+                        this.bSU.put(Integer.valueOf(i), constantState);
                         Drawable newDrawable = constantState.newDrawable();
                         if (newDrawable instanceof StateListDrawable) {
                             return (StateListDrawable) newDrawable;
@@ -217,7 +217,7 @@ public class aq {
         */
         public AnimatedVectorDrawableCompat io(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-            Drawable.ConstantState constantState = this.bST.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.bSU.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(TbadkCoreApplication.getInst(), i);
@@ -235,7 +235,7 @@ public class aq {
                         }
                     }
                     if (constantState != null) {
-                        this.bST.put(Integer.valueOf(i), constantState);
+                        this.bSU.put(Integer.valueOf(i), constantState);
                     }
                 } catch (Throwable th2) {
                     th = th2;

@@ -89,7 +89,7 @@ public class b {
     private void PC() {
         String LB = com.baidu.swan.apps.ae.b.LB();
         if (!TextUtils.isEmpty(LB)) {
-            boolean eg = com.baidu.swan.apps.database.favorite.a.eg(LB);
+            boolean ef = com.baidu.swan.apps.database.favorite.a.ef(LB);
             f fVar = new f();
             fVar.mSource = "menu";
             fVar.k("appid", LB);
@@ -97,9 +97,9 @@ public class b {
             if (Lq != null) {
                 fVar.k("appversion", Lq.getVersion());
             }
-            if (eg) {
+            if (ef) {
                 fVar.mValue = "deletemyswan";
-                if (com.baidu.swan.apps.database.favorite.a.ee(LB)) {
+                if (com.baidu.swan.apps.database.favorite.a.ed(LB)) {
                     d.k(this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).dG(2).Lg();
                 } else {
                     d.k(this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).dG(2).Ld();
@@ -107,7 +107,7 @@ public class b {
             } else {
                 ShowFavoriteGuideAction.aSh = null;
                 fVar.mValue = "addmyswan";
-                if (com.baidu.swan.apps.database.favorite.a.ed(LB)) {
+                if (com.baidu.swan.apps.database.favorite.a.ec(LB)) {
                     com.baidu.swan.apps.database.favorite.a.BS();
                     d.k(this.mContext.getApplicationContext(), a.h.aiapps_fav_success).dG(2).Lg();
                 } else {
@@ -123,10 +123,10 @@ public class b {
         if (TextUtils.isEmpty(LB)) {
             return false;
         }
-        if (com.baidu.swan.apps.database.favorite.a.eg(LB)) {
+        if (com.baidu.swan.apps.database.favorite.a.ef(LB)) {
             return true;
         }
-        if (com.baidu.swan.apps.database.favorite.a.ed(LB)) {
+        if (com.baidu.swan.apps.database.favorite.a.ec(LB)) {
             com.baidu.swan.apps.database.favorite.a.BS();
             d.k(activity.getApplicationContext(), a.h.aiapps_fav_success).dG(2).Lg();
             return true;
@@ -162,7 +162,7 @@ public class b {
             vk = ((SwanAppActivity) this.bci.Wi()).vk();
         }
         com.baidu.swan.apps.ah.a.d(this.bci.getContext(), vk);
-        iA("addshortcut");
+        iz("addshortcut");
     }
 
     protected void restart() {
@@ -184,7 +184,7 @@ public class b {
             hashMap.put("pagePath", dVar.zy());
             hashMap.put("slaveId", zA.wU());
             com.baidu.swan.apps.w.e.FV().a(new com.baidu.swan.apps.m.a.b("onForceReLaunch", hashMap));
-            iA(Headers.REFRESH);
+            iz(Headers.REFRESH);
         }
     }
 
@@ -200,8 +200,8 @@ public class b {
             }
             return;
         }
-        vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("about", null).commit();
-        iA("about");
+        vi.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("about", null).commit();
+        iz("about");
     }
 
     private void PG() {
@@ -213,8 +213,8 @@ public class b {
             d.k(this.mContext, a.h.aiapps_open_fragment_failed_toast).Ld();
             return;
         }
-        vi.dO("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("setting", null).commit();
-        iA("permission");
+        vi.dN("navigateTo").y(com.baidu.swan.apps.core.d.e.aqT, com.baidu.swan.apps.core.d.e.aqV).a("setting", null).commit();
+        iz("permission");
     }
 
     private void PH() {
@@ -242,7 +242,7 @@ public class b {
         });
     }
 
-    private void iA(String str) {
+    private void iz(String str) {
         if (!TextUtils.isEmpty(str)) {
             f fVar = new f();
             fVar.mValue = str;

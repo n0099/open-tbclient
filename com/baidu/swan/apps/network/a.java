@@ -32,7 +32,7 @@ public class a extends z {
         return false;
     }
 
-    public final long fB(String str) {
+    public final long fA(String str) {
         long j;
         if (TextUtils.isEmpty(str)) {
             return 0L;
@@ -45,14 +45,14 @@ public class a extends z {
         return j;
     }
 
-    public final void fC(String str) {
+    public final void fB(String str) {
         if (this.aDU != null && !TextUtils.isEmpty(str)) {
             this.aDU.remove(str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public static HttpUrl fD(String str) {
+    public static HttpUrl fC(String str) {
         HttpUrl parse = HttpUrl.parse(str);
         if ((com.baidu.swan.apps.ae.b.Lq() == null ? null : com.baidu.swan.apps.ae.b.Lq().getActivity()) == null) {
             if (a(parse)) {
@@ -108,12 +108,12 @@ public class a extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String fE(String str) {
+    public String fD(String str) {
         return str + "_" + System.currentTimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public JSONObject fF(String str) {
+    public JSONObject fE(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             if (!TextUtils.isEmpty(str)) {

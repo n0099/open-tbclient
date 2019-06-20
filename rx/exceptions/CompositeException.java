@@ -131,7 +131,7 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cLs()) {
+                synchronized (aVar.cLr()) {
                     aVar.println(sb.toString());
                 }
                 return;
@@ -153,7 +153,7 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object cLs();
+        abstract Object cLr();
 
         abstract void println(Object obj);
 
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream knh;
+        private final PrintStream knk;
 
         b(PrintStream printStream) {
-            this.knh = printStream;
+            this.knk = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cLs() {
-            return this.knh;
+        Object cLr() {
+            return this.knk;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.knh.println(obj);
+            this.knk.println(obj);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c extends a {
-        private final PrintWriter kni;
+        private final PrintWriter knl;
 
         c(PrintWriter printWriter) {
-            this.kni = printWriter;
+            this.knl = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cLs() {
-            return this.kni;
+        Object cLr() {
+            return this.knl;
         }
 
         @Override // rx.exceptions.CompositeException.a
         void println(Object obj) {
-            this.kni.println(obj);
+            this.knl.println(obj);
         }
     }
 

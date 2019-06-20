@@ -73,7 +73,7 @@ public class c extends z {
         }
         if (!TextUtils.isEmpty(optString)) {
             if (optString.length() == 4 && optString.charAt(0) == '#') {
-                optString = com.baidu.swan.apps.ae.a.c.gH(optString);
+                optString = com.baidu.swan.apps.ae.a.c.gG(optString);
             }
             i = Color.parseColor(optString);
             if (!arrayList.isEmpty()) {

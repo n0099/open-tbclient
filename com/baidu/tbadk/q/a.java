@@ -27,20 +27,20 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b {
-    private static a cAd = new a();
-    private static BdFileDownloadData cAe = null;
+    private static a cAe = new a();
+    private static BdFileDownloadData cAf = null;
     private static List<BdFileDownloadData> mTaskList = new LinkedList();
-    private C0257a cAf = null;
+    private C0257a cAg = null;
     @SuppressLint({"HandlerLeak"})
-    private Handler cqm = new Handler() { // from class: com.baidu.tbadk.q.a.1
+    private Handler cqn = new Handler() { // from class: com.baidu.tbadk.q.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (message.what == 900002 && message.arg2 > 0 && a.cAe != null) {
-                a.cAe.setLength(message.arg1);
-                a.cAe.setSize(message.arg2);
-                if (a.cAe.getCallback() != null) {
-                    a.cAe.getCallback().e(a.cAe);
+            if (message.what == 900002 && message.arg2 > 0 && a.cAf != null) {
+                a.cAf.setLength(message.arg1);
+                a.cAf.setSize(message.arg2);
+                if (a.cAf.getCallback() != null) {
+                    a.cAf.getCallback().e(a.cAf);
                 }
             }
         }
@@ -48,9 +48,9 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
         @Override // android.os.Handler
         public void dispatchMessage(Message message) {
             if (message != null && message.what == -1 && (message.obj instanceof String)) {
-                if (a.cAe != null) {
-                    a.cAe.setErrorCode(message.arg1);
-                    a.cAe.setStatusMsg((String) message.obj);
+                if (a.cAf != null) {
+                    a.cAf.setErrorCode(message.arg1);
+                    a.cAf.setStatusMsg((String) message.obj);
                     return;
                 }
                 return;
@@ -63,7 +63,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     }
 
     public static a auy() {
-        return cAd;
+        return cAe;
     }
 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
@@ -111,7 +111,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 if (bdFileDownloadData.getCallback() != null) {
                     bdFileDownloadData.getCallback().e(bdFileDownloadData);
                 }
-            } else if (cAe == null || !cAe.getUrl().equals(bdFileDownloadData.getUrl()) || !cAe.getId().equals(bdFileDownloadData.getId())) {
+            } else if (cAf == null || !cAf.getUrl().equals(bdFileDownloadData.getUrl()) || !cAf.getId().equals(bdFileDownloadData.getId())) {
                 for (int i2 = 0; i2 < mTaskList.size(); i2++) {
                     BdFileDownloadData bdFileDownloadData2 = mTaskList.get(i2);
                     if (bdFileDownloadData2 != null && bdFileDownloadData2.getUrl().equals(bdFileDownloadData.getUrl()) && bdFileDownloadData2.getId().equals(bdFileDownloadData.getId())) {
@@ -129,11 +129,11 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aqN() {
-        if (cAe == null && !mTaskList.isEmpty()) {
-            cAe = mTaskList.get(0);
-            if (cAe != null) {
-                this.cAf = new C0257a();
-                this.cAf.execute(cAe);
+        if (cAf == null && !mTaskList.isEmpty()) {
+            cAf = mTaskList.get(0);
+            if (cAf != null) {
+                this.cAg = new C0257a();
+                this.cAg.execute(cAf);
             }
         }
     }
@@ -141,8 +141,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     @Override // com.baidu.adp.plugin.packageManager.pluginFileDownload.b
     public void bN(String str) {
         if (!TextUtils.isEmpty(str)) {
-            if (cAe != null && cAe.getId().equals(str)) {
-                this.cAf.cancel(true);
+            if (cAf != null && cAf.getId().equals(str)) {
+                this.cAg.cancel(true);
                 return;
             }
             LinkedList<BdFileDownloadData> linkedList = new LinkedList();
@@ -177,10 +177,10 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     /* renamed from: com.baidu.tbadk.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0257a extends BdAsyncTask<BdFileDownloadData, BdFileDownloadData, Integer> {
-        private BdFileDownloadData cAj;
+        private BdFileDownloadData cAk;
         private x mNetWork = new x();
-        private long cAh = -1;
-        private String cAi = null;
+        private long cAi = -1;
+        private String cAj = null;
 
         C0257a() {
         }
@@ -190,15 +190,15 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
         public void onCancelled() {
             super.onCancelled();
             this.mNetWork.ia();
-            a.cAe.setStatus(4);
-            a.cAe.setStatusMsg(null);
-            if (a.cAe.getCallback() != null) {
-                a.cAe.getCallback().e(a.cAe);
+            a.cAf.setStatus(4);
+            a.cAf.setStatusMsg(null);
+            if (a.cAf.getCallback() != null) {
+                a.cAf.getCallback().e(a.cAf);
             }
             if (!a.mTaskList.isEmpty()) {
                 a.mTaskList.remove(0);
             }
-            BdFileDownloadData unused = a.cAe = null;
+            BdFileDownloadData unused = a.cAf = null;
             a.this.aqN();
         }
 
@@ -229,7 +229,7 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             if (bdFileDownloadDataArr[0] == null) {
                 return null;
             }
-            this.cAj = bdFileDownloadDataArr[0];
+            this.cAk = bdFileDownloadDataArr[0];
             if (bdFileDownloadDataArr[0].getCallback() == null || bdFileDownloadDataArr[0].getCallback().d(bdFileDownloadDataArr[0])) {
                 BdLog.i("pluginFileDownloader beging download " + bdFileDownloadDataArr[0].getId());
                 if (bdFileDownloadDataArr[0].getPath() == null) {
@@ -308,13 +308,13 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 }
                 if (!file.exists()) {
                     this.mNetWork.setUrl(bdFileDownloadDataArr[0].getUrl());
-                    Boolean valueOf = Boolean.valueOf(this.mNetWork.a(a.this.i(bdFileDownloadDataArr[0]), a.this.cqm, TbConfig.NET_MSG_GETLENTH, 3, 3000, true));
+                    Boolean valueOf = Boolean.valueOf(this.mNetWork.a(a.this.i(bdFileDownloadDataArr[0]), a.this.cqn, TbConfig.NET_MSG_GETLENTH, 3, 3000, true));
                     BdLog.i("pluginFileDownloader download complete " + bdFileDownloadDataArr[0].getId());
                     if (!valueOf.booleanValue()) {
                         if (!j.jS()) {
                             i = 3006;
-                        } else if (a.cAe != null) {
-                            switch (a.cAe.getErrorCode()) {
+                        } else if (a.cAf != null) {
+                            switch (a.cAf.getErrorCode()) {
                                 case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
                                     i = 3003;
                                     break;
@@ -369,8 +369,8 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                         String h = s.h(fileInputStream);
                         if (!h.equalsIgnoreCase(bdFileDownloadDataArr[0].getCheck())) {
                             File file3 = new File(bdFileDownloadDataArr[0].getPath());
-                            this.cAh = file3.length();
-                            this.cAi = h;
+                            this.cAi = file3.length();
+                            this.cAj = h;
                             f.j(file3);
                             if (fileInputStream != null) {
                                 try {
@@ -441,15 +441,15 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 num = -1;
             }
             if (num.intValue() == 0) {
-                if (a.cAe.getCallback() != null) {
-                    a.cAe.getCallback().g(a.cAe);
+                if (a.cAf.getCallback() != null) {
+                    a.cAf.getCallback().g(a.cAf);
                 }
-                a.cAe.setStatus(0);
-                if (a.cAe.getCallback() != null) {
-                    a.cAe.getCallback().e(a.cAe);
+                a.cAf.setStatus(0);
+                if (a.cAf.getCallback() != null) {
+                    a.cAf.getCallback().e(a.cAf);
                 }
             } else {
-                String statusMsg = a.cAe.getStatusMsg();
+                String statusMsg = a.cAf.getStatusMsg();
                 switch (num.intValue()) {
                     case 1:
                         string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
@@ -488,19 +488,19 @@ public class a extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     statusMsg = string;
                 }
                 if (num.intValue() == 4) {
-                    statusMsg = "downloadfilesize-" + this.cAh + " downloadfileMd5-" + this.cAi + " wishMd5-" + (this.cAj == null ? "" : this.cAj.getCheck()) + " " + statusMsg;
+                    statusMsg = "downloadfilesize-" + this.cAi + " downloadfileMd5-" + this.cAj + " wishMd5-" + (this.cAk == null ? "" : this.cAk.getCheck()) + " " + statusMsg;
                 }
-                a.cAe.setStatusMsg(string);
-                a.cAe.setErrorCode(num.intValue());
-                if (a.cAe.getCallback() != null) {
-                    a.cAe.getCallback().a(a.cAe, num.intValue(), string, statusMsg);
+                a.cAf.setStatusMsg(string);
+                a.cAf.setErrorCode(num.intValue());
+                if (a.cAf.getCallback() != null) {
+                    a.cAf.getCallback().a(a.cAf, num.intValue(), string, statusMsg);
                 }
-                a.cAe.setStatus(2);
-                if (a.cAe.getCallback() != null) {
-                    a.cAe.getCallback().e(a.cAe);
+                a.cAf.setStatus(2);
+                if (a.cAf.getCallback() != null) {
+                    a.cAf.getCallback().e(a.cAf);
                 }
             }
-            BdFileDownloadData unused = a.cAe = null;
+            BdFileDownloadData unused = a.cAf = null;
             if (!a.mTaskList.isEmpty()) {
                 a.mTaskList.remove(0);
                 a.this.aqN();

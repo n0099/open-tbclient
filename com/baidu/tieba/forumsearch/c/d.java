@@ -85,7 +85,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.b> {
     public void onClick(View view) {
         if (this.fnL != null) {
             TiebaStatic.log("c12261");
-            e.wn(this.fnL.biT());
+            e.wm(this.fnL.biT());
             view.setTag(this.fnL);
             if (this.fmT != null) {
                 this.fmT.onClick(view);

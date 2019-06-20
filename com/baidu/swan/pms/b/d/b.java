@@ -6,7 +6,7 @@ public class b extends e {
     private String bsV;
     private long bsW;
     private String bsX;
-    private String wV;
+    private String wU;
 
     public b(String str, int i) {
         super(i);
@@ -15,7 +15,7 @@ public class b extends e {
         this.bsT = str;
     }
 
-    public b kp(String str) {
+    public b ko(String str) {
         this.bsV = str;
         return this;
     }
@@ -30,13 +30,13 @@ public class b extends e {
         return this;
     }
 
-    public b kq(String str) {
+    public b kp(String str) {
         this.bsX = str;
         return this;
     }
 
-    public b kr(String str) {
-        this.wV = str;
+    public b kq(String str) {
+        this.wU = str;
         return this;
     }
 
@@ -61,6 +61,6 @@ public class b extends e {
     }
 
     public String getPath() {
-        return this.wV;
+        return this.wU;
     }
 }

@@ -53,10 +53,10 @@ public class h extends UnitedSchemeBaseDispatcher {
                 com.baidu.swan.apps.aa.a aVar = new com.baidu.swan.apps.aa.a(Lq, unitedSchemeEntity, callbackHandler, optString2, Lq.getAppKey());
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start PAYMENT");
-                    return aVar.fL(optString);
+                    return aVar.fK(optString);
                 } else if ("requestAliPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start ALI PAYMENT");
-                    return aVar.fM(optString);
+                    return aVar.fL(optString);
                 } else if ("requestPolymerPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.d(TAG, "start POLYMER PAYMENT");
                     return aVar.g(optString, optParamsAsJo);

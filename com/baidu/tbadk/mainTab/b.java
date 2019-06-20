@@ -3,8 +3,8 @@ package com.baidu.tbadk.mainTab;
 import android.content.Context;
 /* loaded from: classes.dex */
 public abstract class b {
-    protected c cvY = asJ();
-    protected TbFragmentTabIndicator cvZ;
+    protected c cvZ = asJ();
+    protected TbFragmentTabIndicator cwa;
 
     public abstract c asJ();
 
@@ -19,6 +19,6 @@ public abstract class b {
     }
 
     public c asK() {
-        return this.cvY;
+        return this.cvZ;
     }
 }

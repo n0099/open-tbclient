@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.ab;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a.a<c>> {
-    private ab Wu;
+    private ab Wt;
     private TbPageContext<?> mContext;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -17,7 +17,7 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     }
 
     public void b(ab abVar) {
-        this.Wu = abVar;
+        this.Wt = abVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,8 +26,8 @@ public class b extends com.baidu.adp.widget.ListView.a<a, com.baidu.tieba.card.a
     /* renamed from: ao */
     public com.baidu.tieba.card.a.a<c> onCreateViewHolder(ViewGroup viewGroup) {
         c cVar = new c(this.mContext, viewGroup);
-        if (this.Wu != null) {
-            cVar.d(this.Wu);
+        if (this.Wt != null) {
+            cVar.d(this.Wt);
         }
         return new com.baidu.tieba.card.a.a<>(cVar);
     }

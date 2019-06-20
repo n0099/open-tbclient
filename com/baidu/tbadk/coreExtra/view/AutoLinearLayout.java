@@ -8,47 +8,47 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class AutoLinearLayout extends LinearLayout {
-    private int cki;
     private int ckj;
     private int ckk;
     private int ckl;
     private int ckm;
     private int ckn;
     private int cko;
+    private int ckp;
     private Context mContext;
 
     public AutoLinearLayout(Context context) {
         super(context);
-        this.cki = 0;
         this.ckj = 0;
         this.ckk = 0;
-        this.ckm = 0;
+        this.ckl = 0;
         this.ckn = 0;
         this.cko = 0;
+        this.ckp = 0;
         this.mContext = context;
         setOrientation(0);
-        this.ckj = l.g(context, R.dimen.ds24);
-        this.ckk = l.g(context, R.dimen.ds20);
-        this.ckn = l.g(context, R.dimen.ds32);
-        this.ckl = l.af(this.mContext) - (this.ckn * 2);
-        this.cko = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.ckk = l.g(context, R.dimen.ds24);
+        this.ckl = l.g(context, R.dimen.ds20);
+        this.cko = l.g(context, R.dimen.ds32);
+        this.ckm = l.af(this.mContext) - (this.cko * 2);
+        this.ckp = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
     }
 
     public AutoLinearLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cki = 0;
         this.ckj = 0;
         this.ckk = 0;
-        this.ckm = 0;
+        this.ckl = 0;
         this.ckn = 0;
         this.cko = 0;
+        this.ckp = 0;
         this.mContext = context;
         setOrientation(0);
-        this.ckj = l.g(context, R.dimen.ds24);
-        this.ckk = l.g(context, R.dimen.ds20);
-        this.ckn = l.g(context, R.dimen.ds32);
-        this.ckl = l.af(this.mContext) - (this.ckn * 2);
-        this.cko = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
+        this.ckk = l.g(context, R.dimen.ds24);
+        this.ckl = l.g(context, R.dimen.ds20);
+        this.cko = l.g(context, R.dimen.ds32);
+        this.ckm = l.af(this.mContext) - (this.cko * 2);
+        this.ckp = (int) this.mContext.getResources().getDimension(R.dimen.ds60);
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
@@ -64,12 +64,12 @@ public class AutoLinearLayout extends LinearLayout {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if (i7 != 0 && i6 < measuredWidth) {
-                    dimension += this.ckj + measuredHeight;
+                    dimension += this.ckk + measuredHeight;
                     i7 = 0;
                 }
                 childAt.layout(i7, dimension, i7 + measuredWidth, measuredHeight + dimension);
-                i6 = (((i3 - i) - i7) - measuredWidth) - this.ckk;
-                i7 += this.ckk + measuredWidth;
+                i6 = (((i3 - i) - i7) - measuredWidth) - this.ckl;
+                i7 += this.ckl + measuredWidth;
             }
             i5++;
             i7 = i7;
@@ -80,20 +80,20 @@ public class AutoLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.cko, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.ckp, 1073741824);
         int childCount = getChildCount();
         int culumnsCount = getCulumnsCount();
-        if (this.cki != 0 && this.ckm != 0) {
+        if (this.ckj != 0 && this.ckn != 0) {
             jK(childCount);
         }
-        if (this.cki != 0) {
-            for (int i3 = 0; i3 < this.ckm; i3++) {
+        if (this.ckj != 0) {
+            for (int i3 = 0; i3 < this.ckn; i3++) {
                 View childAt = getChildAt(i3);
                 if (childAt != null) {
                     childAt.measure(makeMeasureSpec, makeMeasureSpec2);
                 }
             }
-            this.ckm = 0;
+            this.ckn = 0;
         } else {
             for (int i4 = 0; i4 < childCount; i4++) {
                 View childAt2 = getChildAt(i4);
@@ -102,16 +102,16 @@ public class AutoLinearLayout extends LinearLayout {
                 }
             }
         }
-        if (this.cki != 0) {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.cko * this.cki) + this.ckj, i2));
+        if (this.ckj != 0) {
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.ckp * this.ckj) + this.ckk, i2));
         } else {
-            setMeasuredDimension(resolveSize(0, i), resolveSize((this.cko * culumnsCount) + (this.ckj * culumnsCount), i2));
+            setMeasuredDimension(resolveSize(0, i), resolveSize((this.ckp * culumnsCount) + (this.ckk * culumnsCount), i2));
         }
     }
 
     private void jK(int i) {
-        if (this.ckm <= i) {
-            removeViews(this.ckm, i - this.ckm);
+        if (this.ckn <= i) {
+            removeViews(this.ckn, i - this.ckn);
         }
     }
 
@@ -120,9 +120,9 @@ public class AutoLinearLayout extends LinearLayout {
         int i2;
         int i3;
         int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.cko, 1073741824);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(this.ckp, 1073741824);
         int childCount = getChildCount();
-        int i4 = this.ckl;
+        int i4 = this.ckm;
         int i5 = 0;
         int i6 = 0;
         int i7 = 0;
@@ -138,15 +138,15 @@ public class AutoLinearLayout extends LinearLayout {
                 if (i4 < measuredWidth) {
                     i7++;
                     if (i7 == 1) {
-                        this.ckm = i5;
+                        this.ckn = i5;
                     }
-                    i = this.ckk + measuredWidth + 0;
+                    i = this.ckl + measuredWidth + 0;
                 } else {
-                    i = this.ckk + measuredWidth + i6;
+                    i = this.ckl + measuredWidth + i6;
                 }
                 i2 = i7;
                 i3 = i;
-                i4 = this.ckl - i;
+                i4 = this.ckm - i;
             }
             i5++;
             int i9 = i3;
@@ -157,18 +157,18 @@ public class AutoLinearLayout extends LinearLayout {
     }
 
     public void setShowColumns(int i) {
-        this.cki = i;
+        this.ckj = i;
     }
 
     public void setMarginRight(int i) {
-        this.ckk = i;
-    }
-
-    public void setParentWidth(int i) {
         this.ckl = i;
     }
 
+    public void setParentWidth(int i) {
+        this.ckm = i;
+    }
+
     public void setCellHeight(int i) {
-        this.cko = i;
+        this.ckp = i;
     }
 }

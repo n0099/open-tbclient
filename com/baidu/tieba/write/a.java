@@ -12,20 +12,20 @@ import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.c.a {
     private a.InterfaceC0292a eSY;
-    private com.baidu.tieba.write.transmit.model.a jDX;
-    private List<SimpleForum> jDY;
-    private boolean jDZ;
+    private com.baidu.tieba.write.transmit.model.a jEa;
+    private List<SimpleForum> jEb;
+    private boolean jEc;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> dMb = new ArrayList<>();
-    private a.InterfaceC0430a jEa = new a.InterfaceC0430a() { // from class: com.baidu.tieba.write.a.1
+    private a.InterfaceC0430a jEd = new a.InterfaceC0430a() { // from class: com.baidu.tieba.write.a.1
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0430a
         public void onError() {
-            a.this.cwd();
+            a.this.cwc();
         }
 
         @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0430a
         public void g(List<SimpleForum> list, int i) {
-            a.this.jDY = list;
+            a.this.jEb = list;
             a.this.mPrivateThread = i;
             a.this.aZG();
         }
@@ -33,16 +33,16 @@ public class a implements com.baidu.tieba.c.a {
 
     public a() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.jDX = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.jDX.a(this.jEa);
-        this.jDX.setRequestId(gen);
+        this.jEa = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.jEa.a(this.jEd);
+        this.jEa.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aZG() {
         this.dMb.clear();
-        if (v.Z(this.jDY) > 0) {
-            for (SimpleForum simpleForum : this.jDY) {
+        if (v.Z(this.jEb) > 0) {
+            for (SimpleForum simpleForum : this.jEb) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     this.dMb.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
@@ -54,22 +54,22 @@ public class a implements com.baidu.tieba.c.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwd() {
-        if (!this.jDZ) {
+    public void cwc() {
+        if (!this.jEc) {
             if (this.eSY != null) {
                 this.eSY.a(null, false, 2, 0);
             }
-            this.jDZ = true;
+            this.jEc = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void aZs() {
-        if (this.eSY != null && this.jDX != null) {
-            this.jDZ = false;
-            this.jDX.setThreadTitle(null);
-            this.jDX.setThreadContent(null);
-            this.jDX.loadData();
+        if (this.eSY != null && this.jEa != null) {
+            this.jEc = false;
+            this.jEa.setThreadTitle(null);
+            this.jEa.setThreadContent(null);
+            this.jEa.loadData();
         }
     }
 

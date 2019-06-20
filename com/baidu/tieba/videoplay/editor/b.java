@@ -31,7 +31,7 @@ public class b extends com.baidu.tbadk.editortools.c {
             k kj = aqS.kj(5);
             if (kj != null) {
                 kj.fg(false);
-                kj.crt = 0;
+                kj.cru = 0;
             }
             aqS.b(new c(aqS.getContext()));
             aqS.aqT();
@@ -51,7 +51,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                     if (aVar != null && aVar.aqS() != null && aVar2 != null) {
                         switch (aVar2.code) {
                             case 4:
-                                aVar.qb((String) aVar2.data);
+                                aVar.qa((String) aVar2.data);
                                 return;
                             case 5:
                             case 6:
@@ -61,7 +61,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 aVar.alf().showToast((int) R.string.over_limit_tip);
                                 return;
                             case 8:
-                                aVar.cuR();
+                                aVar.cuQ();
                                 if (b.this.a(aVar.alf(), SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
                                     aVar.arL();
                                     return;

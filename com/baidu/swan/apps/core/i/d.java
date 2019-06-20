@@ -77,7 +77,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
 
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        if (this.atm && !com.baidu.swan.apps.af.a.b.gN(str)) {
+        if (this.atm && !com.baidu.swan.apps.af.a.b.gM(str)) {
             Bd().Bf();
         } else {
             super.loadUrl(str);
@@ -124,7 +124,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
             this.atl.c(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.i.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (SwanAppNetworkUtils.isNetworkConnected(d.this.wS().getContext()) && com.baidu.swan.apps.af.a.b.gN(d.this.wS().getUrl())) {
+                    if (SwanAppNetworkUtils.isNetworkConnected(d.this.wS().getContext()) && com.baidu.swan.apps.af.a.b.gM(d.this.wS().getUrl())) {
                         d.this.wS().reload();
                         d.this.atl.Bg();
                     }
@@ -179,7 +179,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
             if (d.DEBUG) {
                 Log.d("SwanAppSysWebViewWidget", "shouldOverrideUrlLoading url: " + str);
             }
-            if (com.baidu.swan.apps.af.a.b.gN(str)) {
+            if (com.baidu.swan.apps.af.a.b.gM(str)) {
                 return e.P(webView.getContext(), str);
             }
             return true;
@@ -218,7 +218,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
             if (d.this.ati != null) {
-                d.this.ati.da(str);
+                d.this.ati.cZ(str);
             }
         }
 

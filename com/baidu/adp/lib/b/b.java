@@ -4,13 +4,13 @@ import java.security.InvalidParameterException;
 /* loaded from: classes.dex */
 public class b {
     private String mName;
-    private int yV;
-    private a yY;
-    private int yX = 0;
-    private String[] za = null;
+    private int yU;
+    private a yX;
     private int yW = 0;
-    private String[] zb = null;
-    private boolean zc = false;
+    private String[] yZ = null;
+    private int yV = 0;
+    private String[] za = null;
+    private boolean zb = false;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,36 +19,36 @@ public class b {
 
     public b(String str, int i, a aVar) {
         this.mName = null;
-        this.yY = null;
-        this.yV = 0;
+        this.yX = null;
+        this.yU = 0;
         if (str == null) {
             throw new InvalidParameterException("SwitchData name is null");
         }
         this.mName = str;
-        this.yY = aVar;
-        this.yV = i;
+        this.yX = aVar;
+        this.yU = i;
     }
 
     public void a(int i, String[] strArr, int i2) {
-        this.yX = i;
-        this.za = strArr;
-        this.yW = i2;
+        this.yW = i;
+        this.yZ = strArr;
+        this.yV = i2;
     }
 
     public void Q(boolean z) {
-        this.zc = z;
+        this.zb = z;
     }
 
     public boolean hE() {
-        return this.zc;
+        return this.zb;
     }
 
     public void g(String[] strArr) {
-        this.zb = strArr;
+        this.za = strArr;
     }
 
     public String[] hC() {
-        return this.zb;
+        return this.za;
     }
 
     public String getName() {
@@ -56,24 +56,24 @@ public class b {
     }
 
     public int hB() {
-        return this.yX;
-    }
-
-    public String[] hF() {
-        return this.za;
-    }
-
-    public int hA() {
         return this.yW;
     }
 
-    public int hz() {
+    public String[] hF() {
+        return this.yZ;
+    }
+
+    public int hA() {
         return this.yV;
     }
 
+    public int hz() {
+        return this.yU;
+    }
+
     public void f(int i, boolean z) {
-        if (this.yY != null) {
-            this.yY.a(this.mName, i, z);
+        if (this.yX != null) {
+            this.yX.a(this.mName, i, z);
         }
     }
 }

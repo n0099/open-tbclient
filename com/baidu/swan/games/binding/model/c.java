@@ -69,7 +69,7 @@ public class c {
         return this.beU;
     }
 
-    public int iN(String str) {
+    public int iM(String str) {
         Integer num = getTypeMap().get(str);
         if (num == null) {
             num = 12;
@@ -128,7 +128,7 @@ public class c {
         return M.beV.toStringArray(M.index);
     }
 
-    public String[] iO(String str) {
+    public String[] iN(String str) {
         return f(str, null);
     }
 
@@ -137,7 +137,7 @@ public class c {
         return M != null ? M.beV.toStringArray(M.index) : strArr;
     }
 
-    public JsObject[] iP(String str) throws JSTypeMismatchException {
+    public JsObject[] iO(String str) throws JSTypeMismatchException {
         d M = a.M(Qq().get(str));
         if (M == null) {
             throw a.a(this, str, 6);
@@ -145,7 +145,7 @@ public class c {
         return M.beV.toObjectArray(M.index);
     }
 
-    public double[] iQ(String str) {
+    public double[] iP(String str) {
         return a(str, (double[]) null);
     }
 
@@ -171,7 +171,7 @@ public class c {
         return aVar != null ? aVar : str2;
     }
 
-    public JsFunction iR(String str) {
+    public JsFunction iQ(String str) {
         return a(str, (JsFunction) null);
     }
 
@@ -180,7 +180,7 @@ public class c {
         return N != null ? N : jsFunction;
     }
 
-    public JsObject iS(String str) {
+    public JsObject iR(String str) {
         return a(str, (JsObject) null);
     }
 

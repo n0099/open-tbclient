@@ -18,7 +18,7 @@ public class a {
     private HttpMessageListener dhB;
     private BdUniqueId dhC = BdUniqueId.gen();
     private BdUniqueId dhD = BdUniqueId.gen();
-    private CustomMessageListener cQI = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
+    private CustomMessageListener cQJ = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.ala.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -50,7 +50,7 @@ public class a {
             };
         }
         MessageManager.getInstance().registerListener(this.dhB);
-        MessageManager.getInstance().registerListener(this.cQI);
+        MessageManager.getInstance().registerListener(this.cQJ);
         this.dhE.setTag(tbPageContext.getUniqueId());
         this.dhE.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.dhE);
@@ -58,7 +58,7 @@ public class a {
 
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.dhB);
-        MessageManager.getInstance().unRegisterListener(this.cQI);
+        MessageManager.getInstance().unRegisterListener(this.cQJ);
         MessageManager.getInstance().unRegisterListener(this.dhE);
         this.dhA = null;
     }

@@ -4,13 +4,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean cxQ = false;
-    private List<String> cxR;
-    private String cxS;
-    private long cxT;
-    public String cxU;
+    public boolean cxR = false;
+    private List<String> cxS;
+    private String cxT;
+    private long cxU;
     public String cxV;
     public String cxW;
+    public String cxX;
     private long fid;
     public String objParam1;
     private long pid;
@@ -18,19 +18,19 @@ public class d {
     private long tid;
 
     public List<String> atN() {
-        return this.cxR;
-    }
-
-    public void ao(List<String> list) {
-        this.cxR = list;
-    }
-
-    public String getCurrentPageKey() {
         return this.cxS;
     }
 
-    public void qD(String str) {
-        this.cxS = str;
+    public void ao(List<String> list) {
+        this.cxS = list;
+    }
+
+    public String getCurrentPageKey() {
+        return this.cxT;
+    }
+
+    public void qC(String str) {
+        this.cxT = str;
     }
 
     public long getFid() {
@@ -54,11 +54,11 @@ public class d {
     }
 
     public long atO() {
-        return this.cxT;
+        return this.cxU;
     }
 
     public void bh(long j) {
-        this.cxT = j;
+        this.cxU = j;
     }
 
     public void setTaskId(String str) {
@@ -70,6 +70,6 @@ public class d {
     }
 
     public boolean atP() {
-        return StringUtils.isNull(this.cxS);
+        return StringUtils.isNull(this.cxT);
     }
 }

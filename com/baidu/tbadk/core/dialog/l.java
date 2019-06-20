@@ -52,23 +52,23 @@ public class l extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.dialog_rich_bdlist_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.bNl = (TextView) view.findViewById(R.id.text_tip);
-            aVar2.bNm = (TextView) view.findViewById(R.id.text_desc);
-            aVar2.bNn = (CheckBox) view.findViewById(R.id.checked_icon);
+            aVar2.bNm = (TextView) view.findViewById(R.id.text_tip);
+            aVar2.bNn = (TextView) view.findViewById(R.id.text_desc);
+            aVar2.bNo = (CheckBox) view.findViewById(R.id.checked_icon);
             aVar2.divider = view.findViewById(R.id.line);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
-        aVar.bNl.setText(mVar.aga());
+        aVar.bNm.setText(mVar.aga());
         if (StringUtils.isNull(mVar.getDesc())) {
-            aVar.bNm.setVisibility(8);
+            aVar.bNn.setVisibility(8);
         } else {
-            aVar.bNm.setText(mVar.getDesc());
-            aVar.bNm.setVisibility(0);
+            aVar.bNn.setText(mVar.getDesc());
+            aVar.bNn.setVisibility(0);
         }
-        aVar.bNn.setChecked(mVar.isChecked());
-        aVar.bNn.setButtonDrawable(mVar.isChecked() ? al.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
+        aVar.bNo.setChecked(mVar.isChecked());
+        aVar.bNo.setButtonDrawable(mVar.isChecked() ? al.getDrawable(R.drawable.icon_set_list_ok_s) : new ColorDrawable(R.color.common_color_10022));
         if (hF(i)) {
             aVar.divider.setVisibility(8);
             al.k(view, R.drawable.dialog_single_button_bg_selector);
@@ -88,9 +88,9 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes.dex */
     private class a {
-        TextView bNl;
         TextView bNm;
-        CheckBox bNn;
+        TextView bNn;
+        CheckBox bNo;
         View divider;
 
         private a() {

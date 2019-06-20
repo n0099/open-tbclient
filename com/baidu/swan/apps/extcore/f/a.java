@@ -53,16 +53,16 @@ public class a {
         return false;
     }
 
-    public static long ex(@Nullable String str) {
-        String[] ey = ey(str);
-        if (ey == null) {
+    public static long ew(@Nullable String str) {
+        String[] ex = ex(str);
+        if (ex == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < ey.length ? Integer.valueOf(ey[i]).intValue() : 0L);
+                j = (j << 16) | (i < ex.length ? Integer.valueOf(ex[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -86,7 +86,7 @@ public class a {
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == ex(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == ew(sb.toString())));
         }
         return sb.toString();
     }
@@ -95,7 +95,7 @@ public class a {
         return DEBUG && com.baidu.swan.apps.ac.a.a.Im();
     }
 
-    private static String[] ey(@Nullable String str) {
+    private static String[] ex(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -122,11 +122,11 @@ public class e extends z {
     }
 
     private int ac(JSONObject jSONObject) {
-        int gV = gV(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
-        if (gV <= 0) {
+        int gU = gU(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
+        if (gU <= 0) {
             return 2;
         }
-        return gV;
+        return gU;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -182,7 +182,7 @@ public class e extends z {
         return stringBuffer.toString();
     }
 
-    private int gV(String str) {
+    private int gU(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -201,16 +201,16 @@ public class e extends z {
         if (DEBUG) {
             Log.e("ShowToastAction", "imagePath = " + str);
         }
-        ExifInterface gY = gY(str);
-        if (gY == null) {
+        ExifInterface gX = gX(str);
+        if (gX == null) {
             if (DEBUG) {
                 Log.e("ShowToastAction", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(gY.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(gY.getAttribute("ImageLength")).intValue();
+        int intValue = Integer.valueOf(gX.getAttribute("ImageWidth")).intValue();
+        int intValue2 = Integer.valueOf(gX.getAttribute("ImageLength")).intValue();
         if (DEBUG) {
             Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
         }
@@ -234,7 +234,7 @@ public class e extends z {
         return bitmapDrawable;
     }
 
-    private ExifInterface gY(String str) {
+    private ExifInterface gX(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

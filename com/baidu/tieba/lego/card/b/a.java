@@ -13,16 +13,16 @@ public interface a {
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0349a {
-        public String gXN;
-        public Rect gXO;
+        public String gXO;
+        public Rect gXP;
         public String picUrl;
         public Rect rect;
 
         public C0349a() {
             this.picUrl = "";
             this.rect = new Rect(0, 0, 0, 0);
-            this.gXN = "";
-            this.gXO = new Rect(0, 0, 0, 0);
+            this.gXO = "";
+            this.gXP = new Rect(0, 0, 0, 0);
         }
 
         private C0349a(JSONObject jSONObject) {
@@ -34,8 +34,8 @@ public interface a {
             return (TextUtils.isEmpty(this.picUrl) || this.rect.isEmpty()) ? false : true;
         }
 
-        public boolean bHw() {
-            return (TextUtils.isEmpty(this.gXN) || this.gXO.isEmpty()) ? false : true;
+        public boolean bHx() {
+            return (TextUtils.isEmpty(this.gXO) || this.gXP.isEmpty()) ? false : true;
         }
 
         public String toString() {
@@ -55,7 +55,7 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0349a zm(String str) {
+        public static C0349a zo(String str) {
             if (TextUtils.isEmpty(str)) {
                 return new C0349a();
             }
@@ -67,7 +67,7 @@ public interface a {
             }
         }
 
-        public void zn(String str) {
+        public void zp(String str) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(SocialConstants.PARAM_IMAGE);
@@ -75,8 +75,8 @@ public interface a {
                         try {
                             JSONObject jSONObject = (JSONObject) optJSONArray.get(1);
                             if (jSONObject != null) {
-                                this.gXN = jSONObject.optString("pic_url");
-                                this.gXO = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+                                this.gXO = jSONObject.optString("pic_url");
+                                this.gXP = new Rect(0, 0, jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH), jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

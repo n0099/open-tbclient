@@ -69,8 +69,8 @@ public class a extends BaseAdapter {
             C0319a c0319a2 = new C0319a();
             c0319a2.efe = (ClickableHeaderImageView) view.findViewById(R.id.photo);
             c0319a2.epe = (TextView) view.findViewById(R.id.user_name);
-            c0319a2.fUG = (TextView) view.findViewById(R.id.god_info);
-            c0319a2.fUH = (TextView) view.findViewById(R.id.fans_and_thread_count);
+            c0319a2.fUI = (TextView) view.findViewById(R.id.god_info);
+            c0319a2.fUJ = (TextView) view.findViewById(R.id.fans_and_thread_count);
             c0319a2.fjP = (TextView) view.findViewById(R.id.attention_btn);
             c0319a2.edE = view.findViewById(R.id.bottom_line);
             view.setTag(c0319a2);
@@ -91,16 +91,16 @@ public class a extends BaseAdapter {
             c0319a.epe.setText(item.getName_show());
             switch (item.getGodUserData().getType()) {
                 case 1:
-                    c0319a.fUG.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
+                    c0319a.fUI.setText(UtilHelper.getFixedBarText(item.getGodUserData().getIntro(), 10, true, true));
                     break;
                 case 2:
-                    c0319a.fUG.setText(UtilHelper.getFixedBarText(this.mContext.getString(R.string.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
+                    c0319a.fUI.setText(UtilHelper.getFixedBarText(this.mContext.getString(R.string.chosen_pb_original_god_bar, item.getGodUserData().getForumName()), 10, true, true));
                     break;
                 default:
-                    c0319a.fUG.setVisibility(8);
+                    c0319a.fUI.setVisibility(8);
                     break;
             }
-            c0319a.fUH.setText(ap.aN(item.getFansNum()) + this.mContext.getString(R.string.fans_default_name) + " " + ap.aN(item.getLikeNum()) + this.mContext.getString(R.string.zan));
+            c0319a.fUJ.setText(ap.aN(item.getFansNum()) + this.mContext.getString(R.string.fans_default_name) + " " + ap.aN(item.getLikeNum()) + this.mContext.getString(R.string.zan));
         }
         if (i == getCount() - 1) {
             c0319a.edE.setVisibility(8);
@@ -119,8 +119,8 @@ public class a extends BaseAdapter {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (c0319a.mSkinType != skinType) {
                 al.j(c0319a.epe, R.color.cp_cont_h);
-                al.j(c0319a.fUG, R.color.cp_cont_d);
-                al.j(c0319a.fUH, R.color.cp_cont_d);
+                al.j(c0319a.fUI, R.color.cp_cont_d);
+                al.j(c0319a.fUJ, R.color.cp_cont_d);
                 al.l(c0319a.edE, R.color.cp_bg_line_b);
             }
             c0319a.mSkinType = skinType;
@@ -152,8 +152,8 @@ public class a extends BaseAdapter {
         public View edE;
         public ClickableHeaderImageView efe;
         public TextView epe;
-        public TextView fUG;
-        public TextView fUH;
+        public TextView fUI;
+        public TextView fUJ;
         public TextView fjP;
         public int mSkinType;
 

@@ -84,9 +84,9 @@ public class b {
         if (str.endsWith(File.separator)) {
             str = str.substring(0, str.length() - 1);
         }
-        File dB = dB(str);
-        if (dB != null) {
-            return dB.getPath();
+        File dA = dA(str);
+        if (dA != null) {
+            return dA.getPath();
         }
         return null;
     }
@@ -99,9 +99,9 @@ public class b {
         if (swanGameSubPackageAPSInfo == null) {
             return false;
         }
-        String dA = dA(swanGameSubPackageAPSInfo.key);
+        String dz = dz(swanGameSubPackageAPSInfo.key);
         String e = e(swanGameSubPackageAPSInfo);
-        if (e == null || TextUtils.isEmpty(dA)) {
+        if (e == null || TextUtils.isEmpty(dz)) {
             if (DEBUG) {
                 Log.e("GetGamesSubHelper", "ZIP文件夹或名称为空");
                 return false;
@@ -111,9 +111,9 @@ public class b {
         if (DEBUG) {
             Log.e("GetGamesSubHelper", "准备重命名小游戏子包");
             Log.e("GetGamesSubHelper", "zipFolder:" + e);
-            Log.e("GetGamesSubHelper", "zipName:" + dA);
+            Log.e("GetGamesSubHelper", "zipName:" + dz);
         }
-        File file = new File(e, dA);
+        File file = new File(e, dz);
         File file2 = new File(str);
         if (file2.renameTo(file)) {
             if (DEBUG) {
@@ -129,11 +129,11 @@ public class b {
         return false;
     }
 
-    private static String dA(String str) {
+    private static String dz(String str) {
         return !TextUtils.isEmpty(str) ? Base64.encodeToString(str.getBytes(), 2) + ".aigames" : "";
     }
 
-    private static File dB(String str) {
+    private static File dA(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

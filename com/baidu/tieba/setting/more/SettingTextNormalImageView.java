@@ -18,8 +18,8 @@ import com.baidu.tieba.c;
 public class SettingTextNormalImageView extends FrameLayout {
     private ImageView agT;
     private TextView aif;
-    private LinearLayout cmN;
-    private TbImageView iMN;
+    private LinearLayout cmO;
+    private TbImageView iMR;
     private Context mContext;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
@@ -40,7 +40,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public void jT(int i) {
         al.f(this.aif, R.color.common_color_10039, 1);
         al.b(this.agT, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iMN.invalidate();
+        this.iMR.invalidate();
     }
 
     public void setText(String str) {
@@ -48,16 +48,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.iMN.clearCornerFlag();
-        this.iMN.setConrers(0);
-        this.iMN.setImageResource(i);
+        this.iMR.clearCornerFlag();
+        this.iMR.setConrers(0);
+        this.iMR.setImageResource(i);
     }
 
     private void apq() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-        this.cmN = (LinearLayout) findViewById(R.id.container);
+        this.cmO = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.iMN = (TbImageView) findViewById(R.id.icon);
+        this.iMR = (TbImageView) findViewById(R.id.icon);
         this.agT = (ImageView) findViewById(R.id.arrow);
     }
 
@@ -72,7 +72,7 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (color > -1) {
             this.aif.setTextColor(color);
         }
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
     }
 }

@@ -58,12 +58,12 @@ public class c extends com.baidu.swan.apps.ae.c {
         } else {
             Nc().edit().clear().apply();
         }
-        com.baidu.swan.c.a.deleteFile(b.hy(com.baidu.swan.apps.ae.b.LB()));
-        com.baidu.swan.c.a.deleteFile(b.hu(com.baidu.swan.apps.ae.b.LB()));
+        com.baidu.swan.c.a.deleteFile(b.hx(com.baidu.swan.apps.ae.b.LB()));
+        com.baidu.swan.c.a.deleteFile(b.ht(com.baidu.swan.apps.ae.b.LB()));
         com.baidu.swan.apps.ak.e.aYT.update();
     }
 
-    public int hC(@NonNull String str) {
+    public int hB(@NonNull String str) {
         File file = new File(str);
         if (!file.exists() || !file.isFile()) {
             return 2001;
@@ -97,7 +97,7 @@ public class c extends com.baidu.swan.apps.ae.c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String hD(String str) {
+    public String hC(String str) {
         FileInputStream fileInputStream;
         FileOutputStream fileOutputStream;
         FileOutputStream fileOutputStream2 = null;
@@ -105,13 +105,13 @@ public class c extends com.baidu.swan.apps.ae.c {
         FileInputStream fileInputStream2 = null;
         FileOutputStream fileOutputStream3 = null;
         fileOutputStream2 = null;
-        String hu = b.hu(com.baidu.swan.apps.ae.b.LB());
+        String ht = b.ht(com.baidu.swan.apps.ae.b.LB());
         try {
-            if (TextUtils.isEmpty(hu)) {
+            if (TextUtils.isEmpty(ht)) {
                 return "";
             }
             try {
-                File aH = aH(hu, getFileName(str));
+                File aH = aH(ht, getFileName(str));
                 fileInputStream = new FileInputStream(new File(str));
                 try {
                     fileOutputStream = new FileOutputStream(aH);
@@ -246,7 +246,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         return new File(str, str2);
     }
 
-    public a hE(@NonNull String str) {
+    public a hD(@NonNull String str) {
         File file = new File(str);
         if (file == null || !file.isFile()) {
             return null;
@@ -258,14 +258,14 @@ public class c extends com.baidu.swan.apps.ae.c {
     }
 
     public List<a> Nd() {
-        String hu = b.hu(com.baidu.swan.apps.ae.b.LB());
-        if (TextUtils.isEmpty(hu)) {
+        String ht = b.ht(com.baidu.swan.apps.ae.b.LB());
+        if (TextUtils.isEmpty(ht)) {
             return null;
         }
-        return hF(hu);
+        return hE(ht);
     }
 
-    public List<a> hF(@NonNull String str) {
+    public List<a> hE(@NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppStorage", "——> getSavedFileList:  dir " + str);
         }

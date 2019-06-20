@@ -23,8 +23,8 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.a {
-    private BdListView fIU = null;
-    private a iNb = null;
+    private BdListView fIW = null;
+    private a iNf = null;
     private ArrayList<OfficialAccountPushInfo> list;
     private NavigationBar mNavigationBar;
     private NoNetworkView mNetworkView;
@@ -43,17 +43,17 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
 
     private void aBr() {
         if (!j.jS() && v.aa(this.list)) {
-            ciO();
+            ciP();
         } else if (v.aa(this.list)) {
-            boM();
-        } else if (this.iNb == null) {
-            this.iNb = new a(getPageContext());
-            this.iNb.setData(this.list);
-            this.fIU.setAdapter((ListAdapter) this.iNb);
-            this.iNb.setSwitchStateChangeListener(this);
+            boO();
+        } else if (this.iNf == null) {
+            this.iNf = new a(getPageContext());
+            this.iNf.setData(this.list);
+            this.fIW.setAdapter((ListAdapter) this.iNf);
+            this.iNf.setSwitchStateChangeListener(this);
         } else {
-            this.iNb.setData(this.list);
-            this.iNb.notifyDataSetChanged();
+            this.iNf.setData(this.list);
+            this.iNf.notifyDataSetChanged();
         }
     }
 
@@ -62,7 +62,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setCenterTextTitle(getPageContext().getString(R.string.offical_account_push_msg));
-        this.fIU = (BdListView) findViewById(R.id.list);
+        this.fIW = (BdListView) findViewById(R.id.list);
         this.mNoDataView = NoDataViewFactory.a(this, this.mRootView, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds120)), NoDataViewFactory.d.iH(R.string.no_data_text), null);
         this.mNoDataView.setVisibility(0);
         this.mNetworkView = (NoNetworkView) this.mRootView.findViewById(R.id.no_network);
@@ -84,15 +84,15 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
     }
 
-    public void boM() {
-        this.fIU.setVisibility(8);
+    public void boO() {
+        this.fIW.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.no_data_text));
         al.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void ciO() {
-        this.fIU.setVisibility(8);
+    public void ciP() {
+        this.fIW.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.iH(R.string.refresh_view_title_text));
         al.l(this.mRootView, R.color.cp_bg_line_d);
@@ -122,21 +122,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void c(boolean z, long j) {
-        if (this.list != null && this.iNb != null) {
+        if (this.list != null && this.iNf != null) {
             if (!j.jS()) {
-                this.iNb.notifyDataSetChanged();
+                this.iNf.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
                 if (this.list.get(i).uid == j) {
                     if (z) {
-                        this.list.get(i).iNe = 1;
+                        this.list.get(i).iNi = 1;
                     } else {
-                        this.list.get(i).iNe = 0;
+                        this.list.get(i).iNi = 0;
                     }
                 }
             }
-            this.iNb.notifyDataSetChanged();
+            this.iNf.notifyDataSetChanged();
         }
     }
 

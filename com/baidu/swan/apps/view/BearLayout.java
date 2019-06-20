@@ -40,7 +40,7 @@ public class BearLayout extends LinearLayout {
     public interface a {
         void cC(boolean z);
 
-        void iw(String str);
+        void iv(String str);
     }
 
     public BearLayout(Context context) {
@@ -59,7 +59,7 @@ public class BearLayout extends LinearLayout {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.view.BearLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                BearLayout.this.iv(swanAppBearInfo.aDe);
+                BearLayout.this.iu(swanAppBearInfo.aDe);
             }
         });
         this.bac = (TextView) linearLayout.findViewById(a.f.bear_account_name);
@@ -78,14 +78,14 @@ public class BearLayout extends LinearLayout {
                     aVar.Pc();
                     return;
                 }
-                BearLayout.this.iv(swanAppBearInfo.aDe);
+                BearLayout.this.iu(swanAppBearInfo.aDe);
             }
         });
         this.bah = (BdBaseImageView) linearLayout.findViewById(a.f.bear_account_loading_progress);
         this.bah.setVisibility(8);
         this.baj = new a() { // from class: com.baidu.swan.apps.view.BearLayout.3
             @Override // com.baidu.swan.apps.view.BearLayout.a
-            public void iw(String str) {
+            public void iv(String str) {
                 if (BearLayout.DEBUG) {
                     Log.d("BearLayout", str);
                 }
@@ -180,7 +180,7 @@ public class BearLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void iv(String str) {
+    public void iu(String str) {
         String str2 = null;
         try {
             str2 = URLEncoder.encode(str, HTTP.UTF_8);

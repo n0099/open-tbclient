@@ -26,7 +26,7 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk.core.util.e.c, UserIconBox.b, VoiceManager.c, com.baidu.tieba.InjectPlugin.a.b, FrsCommonImageLayout.c {
     private WeakReference<Context> bAG;
-    private com.baidu.adp.lib.e.b<TbImageView> cbP;
+    private com.baidu.adp.lib.e.b<TbImageView> cbQ;
     private FrsTabController fnV;
     private com.baidu.tieba.frs.e.f fnW;
     private com.baidu.adp.lib.e.b<TbImageView> fnX;
@@ -46,7 +46,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             if (this.fnW == null) {
                 this.fnW = new com.baidu.tieba.frs.e.f(this, (ViewGroup) getWindow().getDecorView(), getIntent());
             }
-            this.fnW.bpT();
+            this.fnW.bpV();
         }
         this.bAG = new WeakReference<>(TbadkCoreApplication.getInst());
     }
@@ -215,10 +215,10 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
 
     @Override // com.baidu.tbadk.core.view.UserIconBox.b
     public com.baidu.adp.lib.e.b<TbImageView> ajZ() {
-        if (this.cbP == null) {
-            this.cbP = UserIconBox.q(getPageContext().getPageActivity(), 8);
+        if (this.cbQ == null) {
+            this.cbQ = UserIconBox.q(getPageContext().getPageActivity(), 8);
         }
-        return this.cbP;
+        return this.cbQ;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback

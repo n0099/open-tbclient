@@ -13,30 +13,30 @@ import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
     private boolean faV = false;
-    private com.baidu.tieba.location.data.a hdR;
-    private SearchLocationActivity hdS;
-    private NoDataView hdT;
+    private com.baidu.tieba.location.data.a hdS;
+    private SearchLocationActivity hdT;
+    private NoDataView hdU;
 
     public a(SearchLocationActivity searchLocationActivity) {
-        this.hdS = searchLocationActivity;
+        this.hdT = searchLocationActivity;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hdR == null || this.hdR.bIZ() == null || this.hdR.bIZ().isEmpty()) {
+        if (this.hdS == null || this.hdS.bJa() == null || this.hdS.bJa().isEmpty()) {
             this.faV = false;
             return 1;
         }
         this.faV = true;
-        return this.hdR.bIZ().size();
+        return this.hdS.bJa().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.hdR == null || this.hdR.bIZ() == null || this.hdR.bIZ().isEmpty()) {
+        if (this.hdS == null || this.hdS.bJa() == null || this.hdS.bJa().isEmpty()) {
             return null;
         }
-        return this.hdR.bIZ().get(i);
+        return this.hdS.bJa().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -54,23 +54,23 @@ public class a extends BaseAdapter {
             c0353a = (C0353a) view.getTag();
         }
         if (c0353a == null) {
-            view = LayoutInflater.from(this.hdS.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.hdT.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
             c0353a = ck(view);
             view.setTag(c0353a);
         }
         C0353a c0353a2 = c0353a;
-        c0353a2.hdU.setText(this.hdR.bIZ().get(i).getName());
+        c0353a2.hdV.setText(this.hdS.bJa().get(i).getName());
         al.l(c0353a2.eim, R.color.cp_bg_line_b);
-        al.f(c0353a2.hdU, R.color.cp_cont_b, 1);
+        al.f(c0353a2.hdV, R.color.cp_cont_b, 1);
         al.k(view, R.drawable.home_recommend_item_bg);
         return view;
     }
 
     public void a(com.baidu.tieba.location.data.a aVar) {
-        this.hdR = aVar;
+        this.hdS = aVar;
     }
 
-    public boolean bJd() {
+    public boolean bJe() {
         return this.faV;
     }
 
@@ -79,7 +79,7 @@ public class a extends BaseAdapter {
     /* loaded from: classes5.dex */
     public class C0353a {
         View eim;
-        TextView hdU;
+        TextView hdV;
 
         private C0353a() {
         }
@@ -87,16 +87,16 @@ public class a extends BaseAdapter {
 
     public C0353a ck(View view) {
         C0353a c0353a = new C0353a();
-        c0353a.hdU = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0353a.hdV = (TextView) view.findViewById(R.id.location_search_address_name);
         c0353a.eim = view.findViewById(R.id.location_search_line);
         return c0353a;
     }
 
     public View bu(ViewGroup viewGroup) {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        this.hdT = NoDataViewFactory.a(this.hdS.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.iH(R.string.text_try_to_chage_location), null);
-        this.hdT.onChangeSkinType(this.hdS.getPageContext(), skinType);
-        this.hdT.setVisibility(0);
-        return this.hdT;
+        this.hdU = NoDataViewFactory.a(this.hdT.getPageContext().getPageActivity(), viewGroup, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.d.iH(R.string.text_try_to_chage_location), null);
+        this.hdU.onChangeSkinType(this.hdT.getPageContext(), skinType);
+        this.hdU.setVisibility(0);
+        return this.hdU;
     }
 }

@@ -9,40 +9,40 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes.dex */
 public class a {
-    public static Domain cea = Domain.DOMAIN_ONLINE;
-    private static boolean ceb = true;
-    public static c cec = null;
+    public static Domain ceb = Domain.DOMAIN_ONLINE;
+    private static boolean cec = true;
+    public static c ced = null;
 
     public static void init() {
         CustomResponsedMessage runTask;
-        if (cec == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
-            cec = (c) runTask.getData();
+        if (ced == null && (runTask = MessageManager.getInstance().runTask(2001268, c.class)) != null && runTask.getData() != null) {
+            ced = (c) runTask.getData();
         }
     }
 
     public static c akD() {
-        return cec;
+        return ced;
     }
 
     public static void checkPassV6Switch() {
         if (TbConfig.USE_OLD_LOGIN) {
-            ceb = true;
+            cec = true;
             return;
         }
         if (Build.VERSION.SDK_INT < 9) {
             if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                ceb = false;
+                cec = false;
             } else {
-                ceb = true;
+                cec = true;
             }
         } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-            ceb = false;
+            cec = false;
         } else {
-            ceb = true;
+            cec = true;
         }
-        if (Build.VERSION.SDK_INT <= 10 && !ceb && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+        if (Build.VERSION.SDK_INT <= 10 && !cec && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
             TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            ceb = true;
+            cec = true;
         }
     }
 }

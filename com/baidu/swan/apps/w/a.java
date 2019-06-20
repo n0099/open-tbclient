@@ -276,7 +276,7 @@ public abstract class a implements c {
 
     @Override // com.baidu.swan.apps.w.c
     @NonNull
-    public com.baidu.swan.apps.ae.a.d eZ(String str) {
+    public com.baidu.swan.apps.ae.a.d eY(String str) {
         if (this.axJ == null) {
             if (DEBUG) {
                 Log.e("AiBaseController", "mConfigData is null." + Log.getStackTraceString(new Exception()));
@@ -338,15 +338,15 @@ public abstract class a implements c {
     }
 
     @Override // com.baidu.swan.apps.w.c
-    public com.baidu.swan.apps.b.c.e dU(String str) {
-        return com.baidu.swan.apps.core.j.c.Bi().dU(str);
+    public com.baidu.swan.apps.b.c.e dT(String str) {
+        return com.baidu.swan.apps.core.j.c.Bi().dT(str);
     }
 
     @Override // com.baidu.swan.apps.w.c
-    public AbsoluteLayout fa(String str) {
+    public AbsoluteLayout eZ(String str) {
         com.baidu.swan.apps.b.c.d wS;
-        com.baidu.swan.apps.b.c.e dU = dU(str);
-        if (dU == null || (wS = dU.wS()) == null) {
+        com.baidu.swan.apps.b.c.e dT = dT(str);
+        if (dT == null || (wS = dT.wS()) == null) {
             return null;
         }
         return wS.getCurrentWebView();
@@ -395,11 +395,11 @@ public abstract class a implements c {
 
     @Override // com.baidu.swan.apps.w.c
     public com.baidu.swan.apps.b.c.d FI() {
-        com.baidu.swan.apps.b.c.e dU = dU(zv());
-        if (dU == null) {
+        com.baidu.swan.apps.b.c.e dT = dT(zv());
+        if (dT == null) {
             return null;
         }
-        return dU.wS();
+        return dT.wS();
     }
 
     @Override // com.baidu.swan.apps.w.c

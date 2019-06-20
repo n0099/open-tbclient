@@ -1,19 +1,19 @@
 package com.baidu.tbadk.core.util.a;
 /* loaded from: classes.dex */
 public class a {
-    private b bTA = new b();
-    private c bTB = new c();
-    private d bTC = new d();
+    private b bTB = new b();
+    private c bTC = new c();
+    private d bTD = new d();
 
     public b aiB() {
-        return this.bTA;
-    }
-
-    public c aiC() {
         return this.bTB;
     }
 
-    public d aiD() {
+    public c aiC() {
         return this.bTC;
+    }
+
+    public d aiD() {
+        return this.bTD;
     }
 }

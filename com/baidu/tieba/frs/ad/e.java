@@ -20,7 +20,7 @@ import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes4.dex */
 public class e {
     private FrameLayout bnL;
-    private RelativeLayout cUG;
+    private RelativeLayout cUH;
     private PbListView dlY;
     private BdSwipeRefreshLayout dni;
     private BdTypeRecyclerView fqV;
@@ -38,7 +38,7 @@ public class e {
     }
 
     private void bK(View view) {
-        this.cUG = (RelativeLayout) view.findViewById(R.id.frs_ad_container);
+        this.cUH = (RelativeLayout) view.findViewById(R.id.frs_ad_container);
         this.fqV = (BdTypeRecyclerView) view.findViewById(R.id.frs_ad_listview);
         this.fqV.setLayoutManager(new LinearLayoutManager(this.fqV.getContext()));
         this.fqV.setFadingEdgeLength(0);
@@ -97,7 +97,7 @@ public class e {
     }
 
     public RelativeLayout bld() {
-        return this.cUG;
+        return this.cUH;
     }
 
     public View bmd() {
@@ -141,7 +141,7 @@ public class e {
             this.mPullView.iP(i);
         }
         this.ftC.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.ftC.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.cUG);
+        this.ftC.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.cUH);
         if (this.dlY != null) {
             this.dlY.setTextColor(al.getColor(R.color.cp_cont_j));
             this.dlY.iP(i);

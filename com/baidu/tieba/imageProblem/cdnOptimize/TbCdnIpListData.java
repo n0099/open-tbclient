@@ -6,13 +6,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> gTg;
-    public int gTe = 0;
+    public ArrayList<ArrayList<String>> gTi;
+    public int gTg = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String gTf = null;
-    boolean gTh = false;
-    public String gTi = null;
+    public String gTh = null;
+    boolean gTj = false;
+    public String gTk = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
@@ -20,19 +20,19 @@ public class TbCdnIpListData {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.gTe = optJSONObject.optInt("errorno");
+                    this.gTg = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.gTh = true;
+                    this.gTj = true;
                 } else {
-                    this.gTh = false;
+                    this.gTj = false;
                 }
-                this.gTi = jSONObject.optString("cdn_domain");
+                this.gTk = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.gTf = optJSONObject2.optString("img_md5");
+                    this.gTh = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -55,7 +55,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.gTg = arrayList;
+                        this.gTi = arrayList;
                     }
                 }
             } catch (Exception e) {

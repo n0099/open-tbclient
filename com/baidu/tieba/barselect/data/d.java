@@ -76,10 +76,10 @@ public class d {
         }
         d dVar = new d();
         dVar.pb(electionList.vote_num.intValue());
-        dVar.uN(electionList.name_show);
+        dVar.uM(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.oZ(electionList.forum_level.intValue());
-        dVar.uM(electionList.apply_declaration);
+        dVar.uL(electionList.apply_declaration);
         dVar.pa(electionList.rank.intValue());
         dVar.oY(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -97,10 +97,10 @@ public class d {
         }
         d dVar = new d();
         dVar.pb(myrecord.vote_num.intValue());
-        dVar.uN(myrecord.name_show);
+        dVar.uM(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.oZ(myrecord.forum_level.intValue());
-        dVar.uM(myrecord.apply_declaration);
+        dVar.uL(myrecord.apply_declaration);
         dVar.pa(myrecord.rank.intValue());
         dVar.oY(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -119,7 +119,7 @@ public class d {
         this.eqX = i;
     }
 
-    public void uM(String str) {
+    public void uL(String str) {
         this.apply_declaration = str;
     }
 
@@ -127,7 +127,7 @@ public class d {
         this.eqZ = i;
     }
 
-    public void uN(String str) {
+    public void uM(String str) {
         this.eqY = str;
     }
 

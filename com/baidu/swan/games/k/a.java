@@ -32,6 +32,13 @@ public class a {
         }
 
         @Override // com.baidu.swan.games.k.a.InterfaceC0204a
+        public void jx(String str) {
+            if (a.this.beJ != null) {
+                a.this.beJ.jA(str);
+            }
+        }
+
+        @Override // com.baidu.swan.games.k.a.InterfaceC0204a
         public void jy(String str) {
             if (a.this.beJ != null) {
                 a.this.beJ.jB(str);
@@ -42,13 +49,6 @@ public class a {
         public void jz(String str) {
             if (a.this.beJ != null) {
                 a.this.beJ.jC(str);
-            }
-        }
-
-        @Override // com.baidu.swan.games.k.a.InterfaceC0204a
-        public void jA(String str) {
-            if (a.this.beJ != null) {
-                a.this.beJ.jD(str);
             }
         }
     };
@@ -62,7 +62,7 @@ public class a {
 
         void eV(int i);
 
-        void jA(String str);
+        void jx(String str);
 
         void jy(String str);
 
@@ -151,7 +151,7 @@ public class a {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.k.a.5
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.bhX.jX(optString)) {
+                if (a.this.bhX.jW(optString)) {
                     a.this.bif.errMsg = "updateKeyboard:ok";
                     com.baidu.swan.games.utils.a.a(a.this.bia, true, a.this.bif);
                     return;

@@ -125,7 +125,7 @@ public class c implements NetModel.b {
                 if (next2 instanceof bg) {
                     String tid2 = ((bg) next2).getTid();
                     if (!this.fwA.contains(tid2)) {
-                        ((bg) next2).bLa = this.fvZ.isBrandForum;
+                        ((bg) next2).bLb = this.fvZ.isBrandForum;
                         this.fws.threadList.add(next2);
                         this.fwA.add(tid2);
                     }

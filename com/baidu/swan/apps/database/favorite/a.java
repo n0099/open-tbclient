@@ -30,7 +30,7 @@ public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String[] auJ = {"_id", SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "favorite_time"};
 
-    public static boolean ed(@NonNull String str) {
+    public static boolean ec(@NonNull String str) {
         Uri build = com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite").build();
         ContentValues contentValues = new ContentValues();
         contentValues.put(Constants.APP_ID, str);
@@ -46,7 +46,7 @@ public class a {
         return false;
     }
 
-    public static boolean ee(@NonNull String str) {
+    public static boolean ed(@NonNull String str) {
         int delete = AppRuntime.getAppContext().getContentResolver().delete(com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite").build(), "app_id = ?", new String[]{str});
         if (delete > 0) {
             if (DEBUG) {
@@ -68,7 +68,7 @@ public class a {
         return delete > 0;
     }
 
-    public static boolean ef(@NonNull String str) {
+    public static boolean ee(@NonNull String str) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("favorite_time", Long.valueOf(System.currentTimeMillis()));
         int update = AppRuntime.getAppContext().getContentResolver().update(com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite").build(), contentValues, "app_id = ?", new String[]{str});
@@ -118,7 +118,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean eg(@NonNull String str) {
+    public static boolean ef(@NonNull String str) {
         boolean z;
         Cursor query;
         try {
@@ -159,7 +159,7 @@ public class a {
         return com.baidu.swan.apps.database.favorite.b.CONTENT_URI.buildUpon().appendPath("favorite_and_aps").build();
     }
 
-    public static boolean eh(@NonNull String str) {
+    public static boolean eg(@NonNull String str) {
         return "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u".equals(str);
     }
 

@@ -18,8 +18,8 @@ import com.baidu.tieba.c;
 public class SettingTextImageView extends FrameLayout {
     private ImageView agT;
     private TextView aif;
-    private LinearLayout cmN;
-    private HeadImageView iMM;
+    private LinearLayout cmO;
+    private HeadImageView iMQ;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
@@ -40,18 +40,18 @@ public class SettingTextImageView extends FrameLayout {
     public void jT(int i) {
         al.f(this.aif, R.color.common_color_10039, 1);
         al.b(this.agT, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iMM.invalidate();
-    }
-
-    public void ciH() {
-        if (this.iMM != null) {
-            this.iMM.setVisibility(8);
-        }
+        this.iMQ.invalidate();
     }
 
     public void ciI() {
-        if (this.iMM != null) {
-            this.iMM.setVisibility(0);
+        if (this.iMQ != null) {
+            this.iMQ.setVisibility(8);
+        }
+    }
+
+    public void ciJ() {
+        if (this.iMQ != null) {
+            this.iMQ.setVisibility(0);
         }
     }
 
@@ -61,9 +61,9 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iMM.startLoad(str, 26, false);
+            this.iMQ.startLoad(str, 26, false);
         } else {
-            this.iMM.startLoad(str, 12, false);
+            this.iMQ.startLoad(str, 12, false);
         }
     }
 
@@ -72,9 +72,9 @@ public class SettingTextImageView extends FrameLayout {
 
     private void apq() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.cmN = (LinearLayout) findViewById(R.id.container);
+        this.cmO = (LinearLayout) findViewById(R.id.container);
         this.aif = (TextView) findViewById(R.id.text);
-        this.iMM = (HeadImageView) findViewById(R.id.icon);
+        this.iMQ = (HeadImageView) findViewById(R.id.icon);
         this.agT = (ImageView) findViewById(R.id.arrow);
     }
 
@@ -89,7 +89,7 @@ public class SettingTextImageView extends FrameLayout {
         if (color > -1) {
             this.aif.setTextColor(color);
         }
-        this.cmN.setClickable(false);
-        this.cmN.setFocusable(false);
+        this.cmO.setClickable(false);
+        this.cmO.setFocusable(false);
     }
 }

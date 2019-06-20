@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class k extends ac {
-    private static final int VA = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
-    private InterviewLiveLayout VB;
-    private TextView VC;
+    private static final int Vz = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2);
+    private InterviewLiveLayout VA;
+    private TextView VB;
     private int mSkinType;
 
     public k(Context context) {
@@ -29,11 +29,11 @@ public class k extends ac {
     private void initUI() {
         this.mRootView = LayoutInflater.from(this.mContext).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
         this.mTitle = (TextView) this.mRootView.findViewById(R.id.video_seg_title);
-        this.VC = (TextView) this.mRootView.findViewById(R.id.video_seg_abstract);
-        this.Xi = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
-        this.VB = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
-        this.Xj = qj();
-        this.Xj.caY().setBackgroundResource(R.color.transparent);
+        this.VB = (TextView) this.mRootView.findViewById(R.id.video_seg_abstract);
+        this.Xh = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
+        this.VA = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
+        this.Xi = qj();
+        this.Xi.caZ().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,47 +44,47 @@ public class k extends ac {
 
     @Override // com.baidu.card.b
     public void b(com.baidu.tieba.card.ab<com.baidu.tbadk.core.data.a> abVar) {
-        this.VB.setSubClickListener(abVar);
+        this.VA.setSubClickListener(abVar);
     }
 
     @Override // com.baidu.card.ac
     protected com.baidu.tieba.play.operableVideoView.a qj() {
-        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Xi);
+        return new com.baidu.tieba.play.operableVideoView.b(this.mContext, this.Xh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.ac, com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.Vq = aVar;
-        if (this.Vq != null && this.Vq.abv() != null) {
+        this.Vp = aVar;
+        if (this.Vp != null && this.Vp.abv() != null) {
             bg abv = aVar.abv();
             if (abv.adM() != null) {
+                this.VA.setVisibility(8);
+                this.Xh.setVisibility(0);
                 this.VB.setVisibility(8);
-                this.Xi.setVisibility(0);
-                this.VC.setVisibility(8);
                 super.C(aVar);
                 return;
             }
-            this.Xi.setVisibility(8);
+            this.Xh.setVisibility(8);
+            this.VA.setVisibility(0);
             this.VB.setVisibility(0);
-            this.VC.setVisibility(0);
-            this.VB.C(aVar);
+            this.VA.C(aVar);
             au.a(this.mTitle, abv);
-            au.a(this.VC, this.mTitle, abv, VA);
+            au.a(this.VB, this.mTitle, abv, Vz);
         }
     }
 
     @Override // com.baidu.card.ac, com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(this.VB, R.drawable.addresslist_item_bg);
-            this.VB.onChangeSkinType(tbPageContext, this.mSkinType);
+            al.k(this.VA, R.drawable.addresslist_item_bg);
+            this.VA.onChangeSkinType(tbPageContext, this.mSkinType);
         }
         this.mSkinType = i;
     }
 
     public void setFromCDN(boolean z) {
-        this.VB.setFromCDN(z);
+        this.VA.setFromCDN(z);
     }
 }

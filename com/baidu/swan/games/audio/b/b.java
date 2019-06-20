@@ -50,8 +50,8 @@ public class b {
         this.bex.a(str, aVar);
     }
 
-    public String iM(String str) throws MalformedURLException {
-        return this.bez + f.iI(str);
+    public String iL(String str) throws MalformedURLException {
+        return this.bez + f.iH(str);
     }
 
     public synchronized c x(String str, boolean z) {

@@ -91,20 +91,20 @@ public class b implements com.baidu.swan.apps.a.c {
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序相关（小程序包、小程序分包）的APS记录: " + str2);
                             }
-                            b.this.avm.dX(str2);
+                            b.this.avm.dW(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序文件: " + str2);
                             }
-                            b.this.avm.eq(str2);
-                            b.this.avn.eq(str2);
+                            b.this.avm.ep(str2);
+                            b.this.avn.ep(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str2);
                             }
-                            b.this.avm.el(str2);
+                            b.this.avm.ek(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str2);
                             }
-                            b.this.avm.ek(str2);
+                            b.this.avm.ej(str2);
                         }
                     }
                     if (b.this.avo.decrementAndGet() <= 0) {
@@ -151,7 +151,7 @@ public class b implements com.baidu.swan.apps.a.c {
         }
     }
 
-    public void ep(String str) {
+    public void eo(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.avp.add(str);
         }

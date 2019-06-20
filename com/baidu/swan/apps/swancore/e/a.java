@@ -20,15 +20,15 @@ public class a {
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate start.");
             Log.d("RemoteSwanCoreControl", "doRemoteUpdate version: " + str + " ,filePath: " + str2 + " ,sign:" + str3);
         }
-        long hI = com.baidu.swan.apps.swancore.b.hI(str);
-        if (hI == 0) {
-            return C0184a.hK("invalid version code : " + str);
+        long hH = com.baidu.swan.apps.swancore.b.hH(str);
+        if (hH == 0) {
+            return C0184a.hJ("invalid version code : " + str);
         }
         if (!w.b(new File(str2), str3)) {
-            return C0184a.hK("sign failed.");
+            return C0184a.hJ("sign failed.");
         }
-        if (!com.baidu.swan.c.a.bs(str2, f(hI, i).getPath())) {
-            return C0184a.hK("unzip bundle failed.");
+        if (!com.baidu.swan.c.a.bs(str2, f(hH, i).getPath())) {
+            return C0184a.hJ("unzip bundle failed.");
         }
         if (DEBUG) {
             String b = com.baidu.swan.c.b.b(new File(str2), false);
@@ -36,10 +36,10 @@ public class a {
                 f.Ni().putString(com.baidu.swan.apps.swancore.a.dN(i), b);
             }
         }
-        com.baidu.swan.apps.swancore.b.c(em(i), d(ek(i), hI));
-        e(hI, i);
+        com.baidu.swan.apps.swancore.b.c(em(i), d(ek(i), hH));
+        e(hH, i);
         if (DEBUG) {
-            Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + hI);
+            Log.d("RemoteSwanCoreControl", "doRemoteUpdate end. version = " + hH);
         }
         return C0184a.Nu();
     }
@@ -111,7 +111,7 @@ public class a {
             return q(0, "");
         }
 
-        public static C0184a hK(String str) {
+        public static C0184a hJ(String str) {
             return q(1, str);
         }
 

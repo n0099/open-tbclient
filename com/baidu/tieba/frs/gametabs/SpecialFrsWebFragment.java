@@ -493,7 +493,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
             this.fFq.onDestroy();
         }
         if (this.jsBridge != null) {
-            this.jsBridge.cmY();
+            this.jsBridge.cmZ();
         }
         if (this.dAn != null) {
             this.dAn.getSettings().setBuiltInZoomControls(true);
@@ -533,7 +533,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
                 }
                 String title = SpecialFrsWebFragment.this.dAn.getTitle();
                 if (!TextUtils.isEmpty(title)) {
-                    SpecialFrsWebFragment.this.lu(title);
+                    SpecialFrsWebFragment.this.lt(title);
                 }
                 SpecialFrsWebFragment.this.fFq.setNavBarVisibility(SpecialFrsWebFragment.this.isNeedShowNavigationBar());
                 SpecialFrsWebFragment.this.fFq.dw(SpecialFrsWebFragment.this.isNeedShowShareItem());
@@ -570,12 +570,12 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
             if (SpecialFrsWebFragment.this.dnK) {
                 SpecialFrsWebFragment.this.dnK = false;
                 return false;
-            } else if (!SpecialFrsWebFragment.this.wJ(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
-                if (!SpecialFrsWebFragment.this.tu(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.dAn.isShown()) {
+            } else if (!SpecialFrsWebFragment.this.wI(str) || TbadkCoreApplication.isLogin() || SpecialFrsWebFragment.this.getPageContext() == null) {
+                if (!SpecialFrsWebFragment.this.tt(str) && SpecialFrsWebFragment.this.getPageContext() != null && SpecialFrsWebFragment.this.dAn.isShown()) {
                     if (str.startsWith("tdoudiscount:")) {
                         SpecialFrsWebFragment.this.fFv = true;
                     }
-                    if (!SpecialFrsWebFragment.this.lv(str)) {
+                    if (!SpecialFrsWebFragment.this.lu(str)) {
                         if (SpecialFrsWebFragment.this.fFu) {
                             return ba.aiz().b(SpecialFrsWebFragment.this.getPageContext(), new String[]{str}) == 0;
                         }
@@ -594,7 +594,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean wJ(String str) {
+    public boolean wI(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -602,11 +602,11 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean tu(String str) {
-        return wK(str) || wM(str) || wN(str) || wL(str);
+    public boolean tt(String str) {
+        return wJ(str) || wL(str) || wM(str) || wK(str);
     }
 
-    private boolean wK(String str) {
+    private boolean wJ(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("tieba://gamedemo?")) {
             return false;
         }
@@ -619,7 +619,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
         return true;
     }
 
-    private boolean wL(String str) {
+    private boolean wK(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("tieba://frsdetail?")) {
             return false;
         }
@@ -627,7 +627,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
         return true;
     }
 
-    private boolean wM(String str) {
+    private boolean wL(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("tieba://gameinvoke?")) {
             return false;
         }
@@ -638,7 +638,7 @@ public class SpecialFrsWebFragment extends BaseWebViewFragment implements ah {
         return true;
     }
 
-    private boolean wN(String str) {
+    private boolean wM(String str) {
         if (StringUtils.isNull(str) || !str.startsWith("tieba://pb?")) {
             return false;
         }

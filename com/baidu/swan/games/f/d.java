@@ -613,17 +613,17 @@ public class d {
                 j.a(new Runnable() { // from class: com.baidu.swan.games.f.d.6
                     @Override // java.lang.Runnable
                     public void run() {
-                        final c jd = d.this.bfV.jd(g.e("filePath", a));
+                        final c jc = d.this.bfV.jc(g.e("filePath", a));
                         d.this.arY.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.f.d.6.1
                             @Override // java.lang.Runnable
                             public void run() {
                                 HashMap hashMap = new HashMap();
                                 hashMap.put(Integer.valueOf(b), "filePath");
-                                if (g.a(g.a(jd, "getFileInfo:", a), bVar, hashMap, d.this.arY)) {
+                                if (g.a(g.a(jc, "getFileInfo:", a), bVar, hashMap, d.this.arY)) {
                                     com.baidu.swan.games.f.a.c cVar = new com.baidu.swan.games.f.a.c();
-                                    cVar.errMsg = "getFileInfo:" + jd.errMsg;
-                                    cVar.digest = jd.digest;
-                                    cVar.size = (int) jd.size;
+                                    cVar.errMsg = "getFileInfo:" + jc.errMsg;
+                                    cVar.digest = jc.digest;
+                                    cVar.size = (int) jc.size;
                                     g.b(cVar, a);
                                 }
                             }

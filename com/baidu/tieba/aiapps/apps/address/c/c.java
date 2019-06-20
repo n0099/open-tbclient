@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> sG(String str) {
+    public static List<b> sF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

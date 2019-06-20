@@ -4,15 +4,15 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class l implements Runnable {
-    final /* synthetic */ Context aas;
+    final /* synthetic */ Context aar;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(Context context) {
-        this.aas = context;
+        this.aar = context;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        k.l(this.aas);
+        k.l(this.aar);
     }
 }

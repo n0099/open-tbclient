@@ -21,28 +21,28 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class f {
-    private b cjV;
-    private c cjW;
-    private a cjZ;
+    private b cjW;
+    private c cjX;
+    private a cka;
     private final Context mContext;
-    private String cjX = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-    private String cjY = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.cjX;
-    private a.InterfaceC0244a cka = new a.InterfaceC0244a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
+    private String cjY = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
+    private String cjZ = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail) + this.cjY;
+    private a.InterfaceC0244a ckb = new a.InterfaceC0244a() { // from class: com.baidu.tbadk.coreExtra.c.f.1
         @Override // com.baidu.tbadk.coreExtra.c.a.InterfaceC0244a
         public void d(e eVar) {
-            f.this.cjW.a(f.this.a(eVar, "weixin"), 3, false);
+            f.this.cjX.a(f.this.a(eVar, "weixin"), 3, false);
         }
     };
 
     public f(Context context, b bVar) {
         d dVar;
-        this.cjV = null;
         this.cjW = null;
+        this.cjX = null;
         this.mContext = context;
-        this.cjV = bVar;
+        this.cjW = bVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, d.class);
         if (runTask.getData() != null && (dVar = (d) runTask.getData()) != null) {
-            this.cjW = dVar.a(this.mContext, this.cjV);
+            this.cjX = dVar.a(this.mContext, this.cjW);
         }
     }
 
@@ -59,64 +59,64 @@ public class f {
     }
 
     public void e(e eVar) {
-        if (this.cjW != null && eVar != null) {
+        if (this.cjX != null && eVar != null) {
             if (StringUtils.isNull(eVar.tid)) {
-                eVar.content = b(eVar.content, 80, 20, eVar.cjQ ? this.cjX : "");
+                eVar.content = b(eVar.content, 80, 20, eVar.cjR ? this.cjY : "");
             }
-            if (!ap.isEmpty(eVar.cjT)) {
-                eVar.imageUri = Uri.parse(eVar.cjT);
-                this.cjW.a(a(eVar, "weixin"), 3, false);
-            } else if (ap.isEmpty(eVar.cjT) && !ap.isEmpty(eVar.tid) && !"0".equals(eVar.tid)) {
-                if (this.cjZ == null) {
-                    this.cjZ = new a();
-                    this.cjZ.a(this.cka);
+            if (!ap.isEmpty(eVar.cjU)) {
+                eVar.imageUri = Uri.parse(eVar.cjU);
+                this.cjX.a(a(eVar, "weixin"), 3, false);
+            } else if (ap.isEmpty(eVar.cjU) && !ap.isEmpty(eVar.tid) && !"0".equals(eVar.tid)) {
+                if (this.cka == null) {
+                    this.cka = new a();
+                    this.cka.a(this.ckb);
                 }
-                this.cjZ.b(eVar);
+                this.cka.b(eVar);
             } else {
-                this.cjW.a(a(eVar, "weixin"), 3, false);
+                this.cjX.a(a(eVar, "weixin"), 3, false);
             }
         }
     }
 
     public void f(e eVar) {
-        if (this.cjW != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 20, eVar.cjQ ? this.cjX : "");
-            this.cjW.a(a(eVar, "weixin_timeline"), 2, false);
+        if (this.cjX != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 20, eVar.cjR ? this.cjY : "");
+            this.cjX.a(a(eVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void g(e eVar) {
-        if (this.cjW != null && eVar != null) {
-            eVar.content = b(eVar.content, 80, 32, eVar.cjQ ? this.cjX : "");
-            this.cjW.a(a(eVar, "qqfriend"), 8, true);
+        if (this.cjX != null && eVar != null) {
+            eVar.content = b(eVar.content, 80, 32, eVar.cjR ? this.cjY : "");
+            this.cjX.a(a(eVar, "qqfriend"), 8, true);
         }
     }
 
     public void h(e eVar) {
-        if (this.cjW != null) {
-            eVar.content = b(eVar.content, 80, 32, eVar.cjQ ? this.cjX : "");
-            this.cjW.a(a(eVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.cjX != null) {
+            eVar.content = b(eVar.content, 80, 32, eVar.cjR ? this.cjY : "");
+            this.cjX.a(a(eVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void i(e eVar) {
-        if (this.cjW != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.cjQ ? this.cjX : "");
-            this.cjW.a(a(eVar, "tencent_weibo"), 5, true);
+        if (this.cjX != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cjR ? this.cjY : "");
+            this.cjX.a(a(eVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void j(e eVar) {
-        if (this.cjW != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.cjQ ? this.cjY : "");
-            this.cjW.a(a(eVar, "sina_weibo"), 6, true);
+        if (this.cjX != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cjR ? this.cjZ : "");
+            this.cjX.a(a(eVar, "sina_weibo"), 6, true);
         }
     }
 
     public void k(e eVar) {
-        if (this.cjW != null) {
-            eVar.content = b(eVar.content, 140, 20, eVar.cjQ ? this.cjX : "");
-            this.cjW.a(a(eVar, "renren"), 7, true);
+        if (this.cjX != null) {
+            eVar.content = b(eVar.content, 140, 20, eVar.cjR ? this.cjY : "");
+            this.cjX.a(a(eVar, "renren"), 7, true);
         }
     }
 
@@ -145,21 +145,21 @@ public class f {
         }
         if (eVar.imageUri != null && !eVar.imageUri.equals("")) {
             String uri = eVar.imageUri.toString();
-            if (!pn(uri) && !po(uri)) {
+            if (!pm(uri) && !pn(uri)) {
                 eVar.imageUri = Uri.parse("http://imgsrc.baidu.com/forum/w%3D580/sign=c2b802eddc62853592e0d229a0ee76f2/7fe6706134a85edfd459863c40540923dc547534.jpg");
             } else {
                 eVar.imageUri = Uri.parse(uri);
                 cb(uri, "sfc=" + str);
             }
         }
-        if (eVar.cjR) {
+        if (eVar.cjS) {
             eVar.linkUrl = G(eVar.linkUrl, str, eVar.tid);
             return eVar;
         }
         return eVar;
     }
 
-    protected boolean pn(String str) {
+    protected boolean pm(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
             try {
                 File file = new File(new URI(str));
@@ -197,9 +197,9 @@ public class f {
         return str + str3 + str2;
     }
 
-    private boolean po(String str) {
+    private boolean pn(String str) {
         String[] split = "jpg,jpeg,png,gif,bmp".split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP);
-        if (ba.aiz().ob(str)) {
+        if (ba.aiz().oa(str)) {
             if (split == null || split.length <= 0) {
                 return true;
             }

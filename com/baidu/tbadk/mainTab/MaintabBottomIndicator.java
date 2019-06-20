@@ -28,17 +28,17 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class MaintabBottomIndicator extends TbFragmentTabIndicator {
-    private int bVY;
+    private int bVZ;
     private int cwA;
-    private int cwa;
-    private HashMap<String, TbFragmentTabIndicator.a> cwl;
-    private int cwt;
-    private View cwu;
+    private int cwB;
+    private int cwb;
+    private HashMap<String, TbFragmentTabIndicator.a> cwm;
+    private int cwu;
     private View cwv;
-    private TBLottieAnimationView cww;
-    private OvalActionButton cwx;
-    private TBLottieAnimationView cwy;
-    private int cwz;
+    private View cww;
+    private TBLottieAnimationView cwx;
+    private OvalActionButton cwy;
+    private TBLottieAnimationView cwz;
     private int kF;
     private e kJ;
     private int mSkinType;
@@ -46,47 +46,47 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     public MaintabBottomIndicator(Context context) {
         super(context);
-        this.cwa = 0;
+        this.cwb = 0;
         this.mSkinType = 3;
-        this.cwl = new HashMap<>();
+        this.cwm = new HashMap<>();
         this.kJ = null;
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwa = 0;
+        this.cwb = 0;
         this.mSkinType = 3;
-        this.cwl = new HashMap<>();
+        this.cwm = new HashMap<>();
         this.kJ = null;
         init();
     }
 
     public MaintabBottomIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cwa = 0;
+        this.cwb = 0;
         this.mSkinType = 3;
-        this.cwl = new HashMap<>();
+        this.cwm = new HashMap<>();
         this.kJ = null;
         init();
     }
 
     private void init() {
-        this.cwu = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
+        this.cwv = LayoutInflater.from(getContext()).inflate(R.layout.maintab_bottom_indicator_item, (ViewGroup) null);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
-        this.cwu.setLayoutParams(layoutParams);
-        this.cwv = this.cwu.findViewById(R.id.container_common_item);
-        this.cww = (TBLottieAnimationView) this.cwu.findViewById(R.id.view_bottom_icon);
-        this.cww.setSpeed(1.2f);
-        this.cww.axm();
-        this.mTextView = (TextView) this.cwu.findViewById(R.id.view_bottom_text);
-        this.cwx = (OvalActionButton) this.cwu.findViewById(R.id.view_write_icon);
-        this.cwy = (TBLottieAnimationView) this.cwu.findViewById(R.id.animation_view);
-        this.cwy.setFirstLoadInternal(true);
-        addView(this.cwu);
-        this.cwz = l.g(getContext(), R.dimen.tbds18);
-        this.cwA = l.g(getContext(), R.dimen.tbds10);
+        this.cwv.setLayoutParams(layoutParams);
+        this.cww = this.cwv.findViewById(R.id.container_common_item);
+        this.cwx = (TBLottieAnimationView) this.cwv.findViewById(R.id.view_bottom_icon);
+        this.cwx.setSpeed(1.2f);
+        this.cwx.axm();
+        this.mTextView = (TextView) this.cwv.findViewById(R.id.view_bottom_text);
+        this.cwy = (OvalActionButton) this.cwv.findViewById(R.id.view_write_icon);
+        this.cwz = (TBLottieAnimationView) this.cwv.findViewById(R.id.animation_view);
+        this.cwz.setFirstLoadInternal(true);
+        addView(this.cwv);
+        this.cwA = l.g(getContext(), R.dimen.tbds18);
+        this.cwB = l.g(getContext(), R.dimen.tbds10);
     }
 
     @Override // android.widget.FrameLayout, android.view.View
@@ -94,7 +94,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.onMeasure(i, i2);
         int size = View.MeasureSpec.getSize(i);
         int size2 = View.MeasureSpec.getSize(i2);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwl.entrySet();
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwm.entrySet();
         if (entrySet != null && (r5 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
@@ -117,21 +117,21 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         int measuredHeight;
         int measuredHeight2;
         super.onLayout(z, i, i2, i3, i4);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwl.entrySet();
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwm.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
-            while (it.hasNext() && this.mTextView != null && this.cww != null) {
+            while (it.hasNext() && this.mTextView != null && this.cwx != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 if (value != null) {
                     int measuredWidth = value.view.getMeasuredWidth();
                     int measuredHeight3 = value.view.getMeasuredHeight();
-                    if (value.cwH) {
-                        left = this.mTextView.getRight() - this.cwz;
+                    if (value.cwI) {
+                        left = this.mTextView.getRight() - this.cwA;
                     } else {
                         left = (this.mTextView.getLeft() + ((int) (this.mTextView.getMeasuredWidth() * 0.14d))) - measuredWidth;
                     }
-                    if (this.cwa == 1) {
-                        measuredHeight = this.cww.getTop();
-                        measuredHeight2 = this.cwA;
+                    if (this.cwb == 1) {
+                        measuredHeight = this.cwx.getTop();
+                        measuredHeight2 = this.cwB;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
                         measuredHeight2 = value.view.getMeasuredHeight() / 2;
@@ -145,14 +145,14 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTipPosType(int i) {
-        this.cwa = i;
+        this.cwb = i;
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void a(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view);
-            this.cwl.put(str, aVar);
+            this.cwm.put(str, aVar);
         }
     }
 
@@ -160,13 +160,13 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void b(String str, TbFragmentTabIndicator.a aVar) {
         if (aVar != null && aVar.view != null) {
             addView(aVar.view, -2, -2);
-            this.cwl.put(str, aVar);
+            this.cwm.put(str, aVar);
         }
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a qz(String str) {
-        return this.cwl.get(str);
+    public TbFragmentTabIndicator.a qy(String str) {
+        return this.cwm.get(str);
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -176,29 +176,29 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setTextColorResId(int i) {
-        this.bVY = i;
+        this.bVZ = i;
     }
 
     public void setShowIconType(int i) {
-        this.cwt = i;
+        this.cwu = i;
     }
 
     public void setWriteIconView() {
-        this.cwv.setVisibility(8);
-        this.cwx.setVisibility(0);
+        this.cww.setVisibility(8);
+        this.cwy.setVisibility(0);
     }
 
     public TBLottieAnimationView getAnimationView() {
-        return this.cwy;
+        return this.cwz;
     }
 
     public void apg() {
-        if (this.cwy != null && this.cwy.getVisibility() == 0) {
+        if (this.cwz != null && this.cwz.getVisibility() == 0) {
             ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.5f, 1.0f, 0.5f, 1, 0.5f, 1, 0.5f);
             scaleAnimation.setDuration(300L);
-            this.cwy.startAnimation(scaleAnimation);
-            this.cwy.setVisibility(4);
-            this.cww.setVisibility(0);
+            this.cwz.startAnimation(scaleAnimation);
+            this.cwz.setVisibility(4);
+            this.cwx.setVisibility(0);
             com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_lottie_show_count", 4);
         }
     }
@@ -217,33 +217,33 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void asQ() {
         int i = com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_lottie_show_count", 0);
         com.baidu.tbadk.core.sharedPref.b.agM().putLong("key_lottie_show_expired_time", System.currentTimeMillis() + 86400000);
-        this.cwy.setFrame(this.cwy.getFrame());
+        this.cwz.setFrame(this.cwz.getFrame());
         if (i >= 3) {
             apg();
         }
     }
 
     public void onDestory() {
-        if (this.cwy != null) {
-            this.cwy.cancelAnimation();
+        if (this.cwz != null) {
+            this.cwz.cancelAnimation();
         }
     }
 
     public void setLottieView(boolean z) {
-        if (this.cwy != null) {
+        if (this.cwz != null) {
             String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("sync_send_maintab_my_tab_lottie_url", "");
             if (!ap.isEmpty(string) || !z) {
                 asO();
                 if (az.h(com.baidu.tbadk.core.sharedPref.b.agM().getLong("sync_send_maintab_my_tab_lottie_start_time", 0L), com.baidu.tbadk.core.sharedPref.b.agM().getLong("sync_send_maintab_my_tab_lottie_end_time", 0L)) && com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_lottie_show_count", 0) < 3) {
-                    this.cwy.bo();
-                    this.cwy.setAnimationUrl(string);
+                    this.cwz.bo();
+                    this.cwz.setAnimationUrl(string);
                     asP();
                     TiebaStatic.log(new am("c13248").bT("uid", TbadkCoreApplication.getCurrentAccount()));
-                    this.cwy.a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
+                    this.cwz.a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
-                            MaintabBottomIndicator.this.cww.setVisibility(8);
-                            MaintabBottomIndicator.this.cwy.setVisibility(0);
+                            MaintabBottomIndicator.this.cwx.setVisibility(8);
+                            MaintabBottomIndicator.this.cwz.setVisibility(0);
                         }
 
                         @Override // android.animation.Animator.AnimatorListener
@@ -267,50 +267,50 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setAnimationResId(int i) {
         this.kF = i;
-        al.a(this.cww, this.kF);
+        al.a(this.cwx, this.kF);
     }
 
     public void asR() {
-        al.a(this.cww, (int) R.raw.icon_refresh1);
+        al.a(this.cwx, (int) R.raw.icon_refresh1);
         setText(R.string.refresh);
-        this.cww.y(false);
+        this.cwx.y(false);
         bo();
     }
 
     public void asS() {
-        al.a(this.cww, (int) R.raw.icon_refresh2);
+        al.a(this.cwx, (int) R.raw.icon_refresh2);
         setText(R.string.refresh);
-        this.cww.y(true);
+        this.cwx.y(true);
         bo();
     }
 
     public void asT() {
-        al.a(this.cww, (int) R.raw.icon_refresh3);
+        al.a(this.cwx, (int) R.raw.icon_refresh3);
         setText(R.string.home_recommend);
-        this.cww.y(false);
+        this.cwx.y(false);
         bo();
     }
 
     public void bo() {
-        if (this.cww != null) {
-            this.cww.bo();
+        if (this.cwx != null) {
+            this.cwx.bo();
         }
     }
 
     public boolean isAnimating() {
-        return this.cww.isAnimating();
+        return this.cwx.isAnimating();
     }
 
     public void fq(boolean z) {
         setAnimationResId(this.kF);
-        this.cww.y(false);
+        this.cwx.y(false);
         setText(R.string.home_recommend);
         if (z) {
-            this.cww.bo();
+            this.cwx.bo();
             return;
         }
-        this.cww.cancelAnimation();
-        this.cww.setFrame(0);
+        this.cwx.cancelAnimation();
+        this.cwx.setFrame(0);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -322,7 +322,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void iW(int i) {
         super.iW(i);
-        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwl.entrySet();
+        Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cwm.entrySet();
         if (entrySet != null && (r1 = entrySet.iterator()) != null) {
             for (Map.Entry<String, TbFragmentTabIndicator.a> entry : entrySet) {
                 TbFragmentTabIndicator.a value = entry.getValue();
@@ -331,19 +331,19 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                 }
             }
         }
-        if (this.cwx != null) {
-            this.cwx.onChangeSkinType(i);
+        if (this.cwy != null) {
+            this.cwy.onChangeSkinType(i);
         }
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            if (this.bVY != 0) {
-                al.j(this.mTextView, this.bVY);
+            if (this.bVZ != 0) {
+                al.j(this.mTextView, this.bVZ);
             } else {
                 al.j(this.mTextView, R.color.cp_cont_f);
             }
             if (this.kF != 0) {
                 try {
-                    al.a(this.cww, this.kF);
+                    al.a(this.cwx, this.kF);
                 } catch (Resources.NotFoundException e) {
                 }
             }
@@ -355,11 +355,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.fp(z);
         if (this.kF != 0) {
             if (z) {
-                this.cww.bo();
+                this.cwx.bo();
                 return;
             }
-            this.cww.cancelAnimation();
-            this.cww.setFrame(0);
+            this.cwx.cancelAnimation();
+            this.cwx.setFrame(0);
         }
     }
 
@@ -367,7 +367,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            this.cww.setProgress(1.0f);
+            this.cwx.setProgress(1.0f);
         }
     }
 

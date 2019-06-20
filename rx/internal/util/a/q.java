@@ -10,7 +10,7 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.kjX;
+        E[] eArr = this.kka;
         long j = this.producerIndex;
         long eQ = eQ(j);
         if (b(eArr, eQ) != null) {
@@ -25,7 +25,7 @@ public final class q<E> extends v<E> {
     public E poll() {
         long j = this.consumerIndex;
         long eQ = eQ(j);
-        E[] eArr = this.kjX;
+        E[] eArr = this.kka;
         E b = b(eArr, eQ);
         if (b == null) {
             return null;
@@ -42,35 +42,35 @@ public final class q<E> extends v<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cMm = cMm();
+        long cMl = cMl();
         while (true) {
-            long cMn = cMn();
-            long cMm2 = cMm();
-            if (cMm == cMm2) {
-                return (int) (cMn - cMm2);
+            long cMm = cMm();
+            long cMl2 = cMl();
+            if (cMl == cMl2) {
+                return (int) (cMm - cMl2);
             }
-            cMm = cMm2;
+            cMl = cMl2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cMn() == cMm();
+        return cMm() == cMl();
     }
 
     private void eO(long j) {
-        ae.kts.putOrderedLong(this, ktm, j);
+        ae.ktv.putOrderedLong(this, ktp, j);
     }
 
     private void eP(long j) {
-        ae.kts.putOrderedLong(this, ktl, j);
-    }
-
-    private long cMn() {
-        return ae.kts.getLongVolatile(this, ktm);
+        ae.ktv.putOrderedLong(this, kto, j);
     }
 
     private long cMm() {
-        return ae.kts.getLongVolatile(this, ktl);
+        return ae.ktv.getLongVolatile(this, ktp);
+    }
+
+    private long cMl() {
+        return ae.ktv.getLongVolatile(this, kto);
     }
 }

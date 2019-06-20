@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
-    private BdBaseViewPager ccQ;
+    private BdBaseViewPager ccR;
     private NoNetworkView dlX;
     private AlphaAnimation dnm;
     private AlphaAnimation dnn;
@@ -155,7 +155,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     private void L(Bundle bundle) {
-        this.ccQ = (BdBaseViewPager) this.mRootView.findViewById(R.id.enter_forum_viewpager);
+        this.ccR = (BdBaseViewPager) this.mRootView.findViewById(R.id.enter_forum_viewpager);
         EnterForumTabPagerAdapter.a aVar = new EnterForumTabPagerAdapter.a();
         aVar.fragment = new EnterForumFragment();
         aVar.title = this.eSM.getResources().getString(R.string.attention);
@@ -168,8 +168,8 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         this.eSP.add(aVar);
         this.eSP.add(aVar2);
         this.eSO = new EnterForumTabPagerAdapter(this.eSM.getActivity().getSupportFragmentManager(), this.eSP);
-        this.ccQ.setAdapter(this.eSO);
-        this.ccQ.setOffscreenPageLimit(this.eSP.size());
+        this.ccR.setAdapter(this.eSO);
+        this.ccR.setOffscreenPageLimit(this.eSP.size());
     }
 
     public void CE() {
@@ -178,7 +178,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     private void M(Bundle bundle) {
         this.eSN = (PagerSlidingTabBaseStrip) LayoutInflater.from(this.eSM.getContext()).inflate(R.layout.enter_forum_tab_layout, (ViewGroup) null);
         this.eSN.d(l.g(this.eSM.getContext(), R.dimen.tbds44), l.g(this.eSM.getContext(), R.dimen.tbds68), l.g(this.eSM.getContext(), R.dimen.tbds30), true);
-        this.eSN.setViewPager(this.ccQ);
+        this.eSN.setViewPager(this.ccR);
         this.eSN.setOnPageChangeListener(this.mOnPageChangeListener);
     }
 
@@ -222,7 +222,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         this.eSS.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.c.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (c.this.ccQ.getCurrentItem() == 0) {
+                if (c.this.ccR.getCurrentItem() == 0) {
                     EnterForumAdView.a(c.this.eSM.getPageContext().getUniqueId(), c.this.eSM.getPageContext().getPageActivity());
                 }
             }
@@ -237,7 +237,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     public void qf(int i) {
         if (i <= 2 && i >= 1) {
-            this.ccQ.setCurrentItem(i - 1, true);
+            this.ccR.setCurrentItem(i - 1, true);
         }
     }
 
@@ -247,7 +247,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        qh(this.ccQ.getCurrentItem());
+        qh(this.ccR.getCurrentItem());
         if (this.dlX != null) {
             this.dlX.onChangeSkinType(getPageContext(), i);
         }
@@ -269,7 +269,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public void bdW() {
-        qh(this.ccQ.getCurrentItem());
+        qh(this.ccR.getCurrentItem());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -354,7 +354,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     public void bdX() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
             an.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), false);
-        } else if (this.ccQ.getCurrentItem() == 0 && this.eSM.isPrimary()) {
+        } else if (this.ccR.getCurrentItem() == 0 && this.eSM.isPrimary()) {
             if (this.eSV != null && this.eSV.getRefreshView() != null && this.eSV.getRefreshView().isViewAttached()) {
                 an.setStatusBarDarkIcon(getPageContext().getPageActivity().getWindow(), true);
             } else if (this.eQt != null && this.eQt.eQV) {
@@ -372,8 +372,8 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.eSP != null && this.eSP.size() > 0 && this.ccQ != null) {
-            EnterForumTabPagerAdapter.a aVar = this.eSP.get(this.ccQ.getCurrentItem());
+        if (this.eSP != null && this.eSP.size() > 0 && this.ccR != null) {
+            EnterForumTabPagerAdapter.a aVar = this.eSP.get(this.ccR.getCurrentItem());
             if (aVar != null && aVar.fragment != null) {
                 aVar.fragment.onActivityResult(i, i2, intent);
             }
@@ -381,12 +381,12 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public void bdY() {
-        if (this.eSM != null && this.eSP != null && this.ccQ != null && this.eSO != null) {
+        if (this.eSM != null && this.eSP != null && this.ccR != null && this.eSO != null) {
             FragmentManager supportFragmentManager = this.eSM.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {
                 FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
                 for (int i = 0; i < this.eSP.size(); i++) {
-                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(makeFragmentName(this.ccQ.getId(), this.eSO.getItemId(i)));
+                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(makeFragmentName(this.ccR.getId(), this.eSO.getItemId(i)));
                     if (findFragmentByTag != null) {
                         beginTransaction.remove(findFragmentByTag);
                     }
@@ -410,8 +410,8 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         if (this.eSO != null) {
             this.eSO.setPrimary(z);
         }
-        if (this.eSP != null && this.eSP.size() > 0 && this.ccQ != null) {
-            EnterForumTabPagerAdapter.a aVar = this.eSP.get(this.ccQ.getCurrentItem());
+        if (this.eSP != null && this.eSP.size() > 0 && this.ccR != null) {
+            EnterForumTabPagerAdapter.a aVar = this.eSP.get(this.ccR.getCurrentItem());
             if (aVar != null && aVar.fragment != null && (aVar.fragment instanceof BaseFragment)) {
                 ((BaseFragment) aVar.fragment).setPrimary(z);
             }
@@ -434,7 +434,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 i = i2 + 1;
             }
         }
-        qh(this.ccQ.getCurrentItem());
+        qh(this.ccR.getCurrentItem());
     }
 
     public void aHU() {
@@ -497,7 +497,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     public void setAdState(com.baidu.tieba.enterForum.data.b bVar) {
         this.eSQ = this.eQt;
         this.eQt = bVar;
-        qh(this.ccQ.getCurrentItem());
+        qh(this.ccR.getCurrentItem());
     }
 
     /* loaded from: classes4.dex */

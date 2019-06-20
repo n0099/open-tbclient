@@ -54,7 +54,7 @@ public class b extends z {
                 return false;
             }
             this.aSy = com.baidu.swan.apps.scheme.actions.c.a.Mf();
-            this.aSy.gZ(this.mPackageName);
+            this.aSy.gY(this.mPackageName);
             if (this.aSy.Mh() != null) {
                 this.aSx = f(context, c);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
@@ -154,7 +154,7 @@ public class b extends z {
             String string = activity.getString(a.h.aiapps_ok);
             String string2 = activity.getString(a.h.aiapps_cancel);
             g.a aVar = new g.a(activity);
-            aVar.bZ(true).gx(str2).a(new com.baidu.swan.apps.view.b.a()).cb(false);
+            aVar.bZ(true).gw(str2).a(new com.baidu.swan.apps.view.b.a()).cb(false);
             aVar.c(string, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.c.a.b.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {

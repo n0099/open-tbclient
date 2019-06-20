@@ -4,7 +4,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class j {
-    private String SW;
+    private String SV;
     private String aFq;
     private int bvC;
     private JSONObject bvD;
@@ -19,7 +19,7 @@ public class j {
     public j(String str, String str2, int i) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str;
         this.aFq = str;
         this.bvC = -1;
@@ -33,7 +33,7 @@ public class j {
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str;
         this.aFq = str;
         this.bvC = -1;
@@ -47,7 +47,7 @@ public class j {
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str2;
         this.aFq = str;
         this.bvC = i;
@@ -61,7 +61,7 @@ public class j {
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str2;
         this.aFq = str;
         this.bvC = i;
@@ -117,11 +117,11 @@ public class j {
     }
 
     public String getFileName() {
-        return this.SW;
+        return this.SV;
     }
 
-    public void rx(String str) {
-        this.SW = str;
+    public void rw(String str) {
+        this.SV = str;
     }
 
     public boolean WS() {
@@ -133,7 +133,7 @@ public class j {
     }
 
     public void WZ() {
-        if (this.mId != null && this.mId.equals(this.aFq) && e.cAf().kH(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.aFq) && e.cAe().kG(this.mId)) {
             this.bvE = UBC.getUBCContext().Hs();
         }
     }

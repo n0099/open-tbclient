@@ -13,10 +13,10 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class VoteCountDownView extends LinearLayout {
     private a euB;
-    private View jBI;
-    private View jBJ;
-    private TextView jBK;
-    private TextView jBL;
+    private View jBL;
+    private View jBM;
+    private TextView jBN;
+    private TextView jBO;
     private Context mContext;
     private CountDownTimer timer;
 
@@ -56,7 +56,7 @@ public class VoteCountDownView extends LinearLayout {
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
                     VoteCountDownView.this.setContent(0L, 0L);
-                    VoteCountDownView.this.cvj();
+                    VoteCountDownView.this.cvi();
                 }
             };
             this.timer.start();
@@ -64,29 +64,29 @@ public class VoteCountDownView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvj() {
+    public void cvi() {
         if (this.euB != null) {
             this.euB.onFinished();
         }
     }
 
     private void qA() {
-        this.jBI = findViewById(R.id.hour_num_container);
-        this.jBJ = findViewById(R.id.minute_num_container);
-        this.jBK = (TextView) findViewById(R.id.hour_num_count_down_view);
-        this.jBL = (TextView) findViewById(R.id.minute_num_count_down_view);
+        this.jBL = findViewById(R.id.hour_num_container);
+        this.jBM = findViewById(R.id.minute_num_container);
+        this.jBN = (TextView) findViewById(R.id.hour_num_count_down_view);
+        this.jBO = (TextView) findViewById(R.id.minute_num_count_down_view);
     }
 
     public void setContent(long j, long j2) {
-        this.jBL.setText(String.valueOf(j2));
-        this.jBK.setText(String.valueOf(j));
+        this.jBO.setText(String.valueOf(j2));
+        this.jBN.setText(String.valueOf(j));
     }
 
     public void nq(int i) {
-        al.g(this.jBI, R.drawable.bg_gradient_round, i);
-        al.g(this.jBJ, R.drawable.bg_gradient_round, i);
-        al.c(this.jBK, R.color.cp_btn_a, 1, i);
-        al.c(this.jBK, R.color.cp_btn_a, 1, i);
+        al.g(this.jBL, R.drawable.bg_gradient_round, i);
+        al.g(this.jBM, R.drawable.bg_gradient_round, i);
+        al.c(this.jBN, R.color.cp_btn_a, 1, i);
+        al.c(this.jBN, R.color.cp_btn_a, 1, i);
     }
 
     public void setData(long j) {

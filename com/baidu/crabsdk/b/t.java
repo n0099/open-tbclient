@@ -13,9 +13,9 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> ZT = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String ZU = "";
-    private static String ZB = "";
+    private static com.baidu.crabsdk.c.b<List> ZS = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String ZT = "";
+    private static String ZA = "";
     private static int widthPixels = 0;
     private static int heightPixels = 0;
 
@@ -42,7 +42,7 @@ public final class t {
     }
 
     public static String P() {
-        return ZT.size() > 0 ? new JSONArray((Collection) ZT).toString() : "";
+        return ZS.size() > 0 ? new JSONArray((Collection) ZS).toString() : "";
     }
 
     public static boolean qQ() {
@@ -68,10 +68,10 @@ public final class t {
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(ZB)) {
+                if (!name.equals(ZA)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    ZB = name;
-                    ZT.clear();
+                    ZA = name;
+                    ZS.clear();
                 }
                 if (activity != null) {
                     try {
@@ -80,17 +80,17 @@ public final class t {
                             K = K(decorView);
                             if (K == null) {
                                 String url = K.getUrl();
-                                if (url.equals(ZU)) {
+                                if (url.equals(ZT)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                ZU = url;
+                                ZT = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 arrayList.add(K.getTitle());
-                                arrayList.add(ZU);
-                                com.baidu.crabsdk.c.a.v("title:" + K.getTitle() + "; url:" + ZU);
-                                ZT.add(arrayList);
+                                arrayList.add(ZT);
+                                com.baidu.crabsdk.c.a.v("title:" + K.getTitle() + "; url:" + ZT);
+                                ZS.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + P());
                                 return;
                             }

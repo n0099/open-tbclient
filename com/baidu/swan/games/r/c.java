@@ -5,13 +5,13 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.games.r.a.d;
 /* loaded from: classes2.dex */
 public class c {
-    public static void jM(String str) {
+    public static void jL(String str) {
         d dVar = new d();
         dVar.errMsg = str;
         b.Sm().a(new a(10000, dVar));
     }
 
-    public static void jN(String str) {
+    public static void jM(String str) {
         d dVar = new d();
         dVar.errMsg = str;
         b.Sm().a(new a(20000, dVar));

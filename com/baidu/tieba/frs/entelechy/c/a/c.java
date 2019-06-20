@@ -22,7 +22,7 @@ import com.baidu.tieba.frs.v;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c extends PopupWindow {
-    private View.OnClickListener cYj;
+    private View.OnClickListener cYk;
     private LinearLayout dtY;
     private ViewGroup eWq;
     private List<v> fyA;
@@ -38,7 +38,7 @@ public class c extends PopupWindow {
 
     public c(Context context) {
         super(context);
-        this.cYj = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
+        this.cYk = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (c.this.fyA != null) {
@@ -117,7 +117,7 @@ public class c extends PopupWindow {
         } else {
             al.j(textView, R.color.cp_cont_j);
         }
-        textView.setOnClickListener(this.cYj);
+        textView.setOnClickListener(this.cYk);
         return textView;
     }
 

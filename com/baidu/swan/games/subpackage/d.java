@@ -33,7 +33,7 @@ public class d extends EventTargetImpl {
         c.Sx().a(this.ayf, new c.a() { // from class: com.baidu.swan.games.subpackage.d.1
             @Override // com.baidu.swan.games.subpackage.c.a
             public void Sy() {
-                d.this.cR(d.this.jV(d.this.ayf));
+                d.this.cR(d.this.jU(d.this.ayf));
             }
 
             @Override // com.baidu.swan.games.subpackage.c.a
@@ -112,7 +112,7 @@ public class d extends EventTargetImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean jV(String str) {
+    public boolean jU(String str) {
         if (this.beh == null) {
             return false;
         }

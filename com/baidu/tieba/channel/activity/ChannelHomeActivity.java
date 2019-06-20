@@ -186,8 +186,8 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
                 com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
-                if (aVar.bDl != null) {
-                    if (aVar.bDk == ChannelHomeActivity.this.getUniqueId()) {
+                if (aVar.bDm != null) {
+                    if (aVar.bDl == ChannelHomeActivity.this.getUniqueId()) {
                         ChannelHomeActivity.this.closeLoadingDialog();
                     }
                     if (aVar instanceof a.C0238a) {
@@ -375,7 +375,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                     boolean isPushOpen = this.eCC.aYC().isPushOpen();
                     boolean booleanValue = (obj == null || !(obj instanceof Boolean)) ? false : ((Boolean) obj).booleanValue();
                     a.b a = a.b.a(channelId, isPushOpen ? false : true, getUniqueId());
-                    a.bDm = booleanValue;
+                    a.bDn = booleanValue;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a));
                     pu(isPushOpen ? 7 : 6);
                     return;
@@ -383,14 +383,14 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 return;
             case 19:
                 if (this.eCC != null && this.eCC.aYC() != null) {
-                    vd(this.eCC.aYC().getChannelCover());
+                    vc(this.eCC.aYC().getChannelCover());
                     pu(1);
                     return;
                 }
                 return;
             case 20:
                 if (this.eCC != null && this.eCC.aYC() != null) {
-                    vd(this.eCC.aYC().getChannelAvatar());
+                    vc(this.eCC.aYC().getChannelAvatar());
                     pu(2);
                     return;
                 }
@@ -408,7 +408,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
         }
     }
 
-    private void vd(String str) {
+    private void vc(String str) {
         if (!TextUtils.isEmpty(str)) {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
@@ -427,14 +427,14 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a.b bVar) {
-        HttpResponsedMessage httpResponsedMessage = bVar.bDl;
+        HttpResponsedMessage httpResponsedMessage = bVar.bDm;
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUpdatePushHttpResponseMessage)) {
             if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                 showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
             } else if (this.eCC != null && this.eCC.aYC() != null) {
                 boolean z = bVar.isOpen;
                 if (z) {
-                    if (bVar.bDm) {
+                    if (bVar.bDn) {
                         Toast.makeText(getPageContext().getPageActivity(), getPageContext().getResources().getString(R.string.channel_need_push), 1).show();
                     } else {
                         showToast(R.string.success_open_channel_push);
@@ -449,7 +449,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tbadk.core.b.a aVar) {
-        HttpResponsedMessage httpResponsedMessage = aVar.bDl;
+        HttpResponsedMessage httpResponsedMessage = aVar.bDm;
         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
         } else if (this.eCC != null && this.eCC.aYC() != null) {
@@ -462,14 +462,14 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tbadk.core.b.a aVar) {
-        HttpResponsedMessage httpResponsedMessage = aVar.bDl;
+        HttpResponsedMessage httpResponsedMessage = aVar.bDm;
         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(R.string.neterror) : httpResponsedMessage.getErrorString());
         } else if (this.eCC != null && this.eCC.aYC() != null) {
             this.eCC.aYC().setFansCount(this.eCC.aYC().getFansCount() + 1);
             this.eCC.aYC().setIsSubscribe(1);
             this.eCw.e(this.eCC);
-            if (aVar.bDk == getUniqueId()) {
+            if (aVar.bDl == getUniqueId()) {
                 com.baidu.tieba.channel.c.b.a((BaseActivity) this, this.eCC.aYC().isPushOpen(), true, (b) this);
             }
         }

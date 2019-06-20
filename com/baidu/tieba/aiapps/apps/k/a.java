@@ -7,8 +7,8 @@ import java.util.zip.CRC32;
 /* loaded from: classes4.dex */
 public class a {
     public final long delta;
-    public final String dfu;
-    public final Map<String, String> dfv = new HashMap();
+    public final String dfv;
+    public final Map<String, String> dfw = new HashMap();
     public final long serverTime;
 
     public static a aFz() {
@@ -18,13 +18,13 @@ public class a {
     private a(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.dfu = Long.toHexString(sP(this.serverTime + "#" + this.delta));
-        this.dfv.put("timestamp", Long.toString(this.serverTime));
-        this.dfv.put("delta", Long.toString(this.delta));
-        this.dfv.put("rasign", this.dfu);
+        this.dfv = Long.toHexString(sO(this.serverTime + "#" + this.delta));
+        this.dfw.put("timestamp", Long.toString(this.serverTime));
+        this.dfw.put("delta", Long.toString(this.delta));
+        this.dfw.put("rasign", this.dfv);
     }
 
-    private long sP(String str) {
+    private long sO(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,6 +32,6 @@ public class a {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dfu;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dfv;
     }
 }

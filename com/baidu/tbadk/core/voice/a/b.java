@@ -5,16 +5,16 @@ import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a oH(String str) {
+    public static a oG(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.jh(aVar.error_code);
-        } else if (!m.mW(m.ahb() + "voice")) {
+        } else if (!m.mV(m.ahb() + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.jh(aVar.error_code);
         } else {
-            String h = s.h(m.nr(str));
+            String h = s.h(m.nq(str));
             if (h == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.jh(aVar.error_code);

@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a bOM = null;
+    private static a bON = null;
 
     public static void o(Context context, int i) {
-        if (bOM != null) {
-            bOM.o(context, i);
+        if (bON != null) {
+            bON.o(context, i);
         }
     }
 
     public static void b(Context context, int i, boolean z) {
-        if (bOM != null) {
-            bOM.b(context, i, z);
+        if (bON != null) {
+            bON.b(context, i, z);
         }
     }
 
     public static void cr(Context context) {
-        if (bOM != null) {
-            bOM.cr(context);
+        if (bON != null) {
+            bON.cr(context);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (bOM != null) {
-            bOM.c(context, i, z);
+        if (bON != null) {
+            bON.c(context, i, z);
         }
     }
 
     public static Class<?> agD() {
-        if (bOM == null) {
+        if (bON == null) {
             return null;
         }
-        return bOM.agD();
+        return bON.agD();
     }
 
     public static String agE() {
-        if (bOM == null) {
+        if (bON == null) {
             return null;
         }
-        return bOM.agE();
+        return bON.agE();
     }
 
     public static void a(a aVar) {
-        bOM = aVar;
+        bON = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (bOM == null) {
+        if (bON == null) {
             return -1;
         }
-        return bOM.getCurrentTabType();
+        return bON.getCurrentTabType();
     }
 }

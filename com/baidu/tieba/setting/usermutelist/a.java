@@ -15,10 +15,10 @@ import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
     private ArrayList<MuteUser> aHF;
-    private BaseActivity cVp;
-    private SimpleDateFormat iNB = new SimpleDateFormat("yyyy.MM.dd");
-    private b iNy;
-    private InterfaceC0401a iNz;
+    private BaseActivity cVq;
+    private b iNC;
+    private InterfaceC0401a iND;
+    private SimpleDateFormat iNF = new SimpleDateFormat("yyyy.MM.dd");
 
     /* renamed from: com.baidu.tieba.setting.usermutelist.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
@@ -32,9 +32,9 @@ public class a extends BaseAdapter {
     }
 
     public a(BaseActivity baseActivity, b bVar, InterfaceC0401a interfaceC0401a) {
-        this.cVp = baseActivity;
-        this.iNy = bVar;
-        this.iNz = interfaceC0401a;
+        this.cVq = baseActivity;
+        this.iNC = bVar;
+        this.iND = interfaceC0401a;
     }
 
     public void setData(ArrayList<MuteUser> arrayList) {
@@ -82,46 +82,46 @@ public class a extends BaseAdapter {
         c cVar;
         if (obj == null) {
             cVar = new c();
-            cVar.rootView = LayoutInflater.from(this.cVp.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
+            cVar.rootView = LayoutInflater.from(this.cVq.getPageContext().getContext()).inflate(R.layout.user_mute_list_item, (ViewGroup) null);
             cVar.epe = (TextView) cVar.rootView.findViewById(R.id.item_user_name);
-            cVar.iNF = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
-            cVar.iNG = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
-            cVar.iNE = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
+            cVar.iNJ = (TextView) cVar.rootView.findViewById(R.id.item_mute_terminate_time);
+            cVar.iNK = (TextView) cVar.rootView.findViewById(R.id.item_remove_button);
+            cVar.iNI = (HeadImageView) cVar.rootView.findViewById(R.id.item_header_view);
             cVar.rootView.setTag(cVar);
-            cVar.iNG.setTag(Integer.valueOf(i));
-            cVar.iNE.setTag(Integer.valueOf(i));
+            cVar.iNK.setTag(Integer.valueOf(i));
+            cVar.iNI.setTag(Integer.valueOf(i));
             cVar.epe.setTag(Integer.valueOf(i));
         } else {
             cVar = (c) obj;
         }
-        cVar.iNG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
+        cVar.iNK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iNy != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.iNy.q(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.iNC != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.iNC.q(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
-        cVar.iNE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
+        cVar.iNI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iNz != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.iNz.r(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.iND != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.iND.r(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         cVar.epe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.usermutelist.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iNz != null && muteUser.user_id != null && muteUser.user_name != null) {
-                    a.this.iNz.r(muteUser.user_id.longValue(), muteUser.user_name);
+                if (a.this.iND != null && muteUser.user_id != null && muteUser.user_name != null) {
+                    a.this.iND.r(muteUser.user_id.longValue(), muteUser.user_name);
                 }
             }
         });
         String str = muteUser.portrait;
         if (str != null) {
-            cVar.iNE.setTag(str);
-            cVar.iNE.startLoad(str, 12, false);
+            cVar.iNI.setTag(str);
+            cVar.iNI.startLoad(str, 12, false);
         }
         if (muteUser.name_show != null) {
             cVar.epe.setText(muteUser.name_show);
@@ -129,12 +129,12 @@ public class a extends BaseAdapter {
             cVar.epe.setText(muteUser.user_name);
         }
         if (muteUser.mute_time != null) {
-            cVar.iNF.setText(this.cVp.getResources().getString(R.string.auto_terminate_mute_time, this.iNB.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
+            cVar.iNJ.setText(this.cVq.getResources().getString(R.string.auto_terminate_mute_time, this.iNF.format((Date) new java.sql.Date(muteUser.mute_time.intValue() * 1000))));
         }
         if (muteUser.user_id != null) {
-            cVar.iNG.setTag(muteUser.user_id);
+            cVar.iNK.setTag(muteUser.user_id);
         }
-        this.cVp.getLayoutMode().onModeChanged(cVar.rootView);
+        this.cVq.getLayoutMode().onModeChanged(cVar.rootView);
         return cVar;
     }
 
@@ -142,9 +142,9 @@ public class a extends BaseAdapter {
     /* loaded from: classes3.dex */
     public class c {
         TextView epe;
-        HeadImageView iNE;
-        TextView iNF;
-        TextView iNG;
+        HeadImageView iNI;
+        TextView iNJ;
+        TextView iNK;
         View rootView;
 
         private c() {

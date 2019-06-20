@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder hVB;
-    private int hVC;
+    private SpannableStringBuilder hVC;
+    private int hVD;
     private int textSize;
 
     public g() {
-        this.hVC = 0;
+        this.hVD = 0;
         this.textSize = -1;
-        this.hVB = new SpannableStringBuilder();
+        this.hVC = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.hVC = 0;
+        this.hVD = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.hVB = new SpannableStringBuilder();
+            this.hVC = new SpannableStringBuilder();
             if (excContent != null) {
-                this.hVB.append((CharSequence) excContent.text);
+                this.hVC.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.hVC = excContent.align.intValue();
+                this.hVD = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void k(CharSequence charSequence) {
         if (charSequence != null) {
-            this.hVB.append(charSequence);
+            this.hVC.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence bWN() {
-        return this.hVB;
-    }
-
-    public int bWP() {
+    public CharSequence bWO() {
         return this.hVC;
     }
 
-    public String bWQ() {
+    public int bWQ() {
+        return this.hVD;
+    }
+
+    public String bWR() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean bWO() {
-        return (this.hVC > 0 && this.hVC < 3) || !StringUtils.isNull(this.color);
+    public boolean bWP() {
+        return (this.hVD > 0 && this.hVD < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

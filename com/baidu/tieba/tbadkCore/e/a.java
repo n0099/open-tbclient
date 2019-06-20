@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void cmY() {
+    public void cmZ() {
         this.eRN.clear();
     }
 

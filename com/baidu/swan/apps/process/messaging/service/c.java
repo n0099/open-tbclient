@@ -105,9 +105,9 @@ public final class c {
                     e2.printStackTrace();
                 }
             }
-            f.a fZ = new f.a("812").fX("swan").fY("launch").fZ(str);
-            fZ.aj(jSONObject);
-            f.onEvent(fZ);
+            f.a fY = new f.a("812").fW("swan").fX("launch").fY(str);
+            fY.aj(jSONObject);
+            f.onEvent(fY);
         }
         long currentTimeMillis2 = System.currentTimeMillis();
         if (vH) {
@@ -121,9 +121,9 @@ public final class c {
                     e3.printStackTrace();
                 }
             }
-            f.a fZ2 = new f.a("812").fX("swan").fY("swan_updated").fZ(str);
-            fZ2.aj(jSONObject2);
-            f.onEvent(fZ2);
+            f.a fY2 = new f.a("812").fW("swan").fX("swan_updated").fY(str);
+            fY2.aj(jSONObject2);
+            f.onEvent(fY2);
         }
         Intent intent = new Intent(context, bVar.aGX.service);
         intent.addCategory("android.intent.category.DEFAULT");

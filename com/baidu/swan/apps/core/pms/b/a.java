@@ -48,7 +48,7 @@ public class a extends g {
                 Log.e("SwanAppSubPkgDownloadCallback", "onDownloadError:" + aVar.toString());
             }
             com.baidu.swan.apps.core.a.d.a.b(a.this.asM, 2103);
-            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(aVar.errorNo).hY("分包下载失败").hZ(aVar.toString()));
+            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(aVar.errorNo).hX("分包下载失败").hY(aVar.toString()));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -91,7 +91,7 @@ public class a extends g {
                 Log.e("SwanAppSubPkgDownloadCallback", "onDownloadFinish: 签名校验失败");
             }
             com.baidu.swan.apps.core.a.d.a.b(this.asM, 2104);
-            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(2300L).hY("分包签名校验"));
+            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(2300L).hX("分包签名校验"));
         } else if (com.baidu.swan.apps.core.a.d.a.a(this.asM, hVar.filePath) && com.baidu.swan.apps.core.a.d.a.f(this.asM)) {
             if (DEBUG) {
                 Log.i("SwanAppSubPkgDownloadCallback", "onDownloadFinish: 解压成功");
@@ -106,7 +106,7 @@ public class a extends g {
                 Log.e("SwanAppSubPkgDownloadCallback", "onDownloadFinish: 解压失败");
             }
             com.baidu.swan.apps.core.a.d.a.b(this.asM, 2105);
-            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(2320L).hY("分包解压失败"));
+            com.baidu.swan.apps.core.pms.b.Az().a(hVar, PMSDownloadType.ALONE_SUB, new com.baidu.swan.apps.ak.a().Y(12L).Z(2320L).hX("分包解压失败"));
         }
     }
 

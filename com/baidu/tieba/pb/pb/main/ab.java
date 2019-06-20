@@ -1,13 +1,12 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes4.dex */
 public class ab {
-    public String hLA;
-    public boolean hLB;
+    public String hLB;
     public boolean hLC;
-    public boolean hLn = false;
+    public boolean hLD;
     public boolean hLo = false;
-    public boolean ox = false;
     public boolean hLp = false;
+    public boolean ox = false;
     public boolean hLq = false;
     public boolean hLr = false;
     public boolean hLs = false;
@@ -18,5 +17,6 @@ public class ab {
     public boolean hLx = false;
     public boolean hLy = false;
     public boolean hLz = false;
+    public boolean hLA = false;
     public boolean isHostOnly = false;
 }

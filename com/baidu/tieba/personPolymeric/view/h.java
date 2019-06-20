@@ -9,9 +9,9 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.j> implements View.OnClickListener {
     private View djv;
-    private com.baidu.tieba.personPolymeric.b.b iiy;
-    private TextView ilO;
-    private ImageView ilP;
+    private com.baidu.tieba.personPolymeric.b.b iiz;
+    private TextView ilP;
+    private ImageView ilQ;
     private TextView mHint;
     private View mRootView;
 
@@ -23,10 +23,10 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_privacy_setting_rootview);
         this.djv = view.findViewById(R.id.top_divider_line);
-        this.ilP = (ImageView) view.findViewById(R.id.lock_img);
-        this.ilO = (TextView) view.findViewById(R.id.one_public_tv);
+        this.ilQ = (ImageView) view.findViewById(R.id.lock_img);
+        this.ilP = (TextView) view.findViewById(R.id.one_public_tv);
         this.mHint = (TextView) view.findViewById(R.id.card_hint_txt);
-        this.ilO.setOnClickListener(this);
+        this.ilP.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -35,8 +35,8 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             al.k(this.mRootView, R.color.cp_bg_line_d);
             al.k(this.djv, R.color.cp_bg_line_e);
             al.f(this.mHint, R.color.cp_cont_d, 1);
-            al.c(this.ilP, (int) R.drawable.pic_pop_key);
-            al.f(this.ilO, R.color.cp_link_tip_c, 1);
+            al.c(this.ilQ, (int) R.drawable.pic_pop_key);
+            al.f(this.ilP, R.color.cp_link_tip_c, 1);
         }
         this.mSkinType = i;
     }
@@ -66,13 +66,13 @@ public class h extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     }
 
     public void b(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.iiy = bVar;
+        this.iiz = bVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.iiy != null && view == this.ilO) {
-            this.iiy.bZG();
+        if (view != null && this.iiz != null && view == this.ilP) {
+            this.iiz.bZH();
         }
     }
 }

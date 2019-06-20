@@ -54,11 +54,11 @@ public final class b {
         bVar.e((PMSAppInfo) n.d(intent, "swan_pms_db_info"));
         bVar.F(n.a(intent, "aiapps_navigatebar_color", (long) IjkMediaMeta.AV_CH_WIDE_LEFT));
         if (d.H(intent)) {
-            bVar.eI("1250000000000000");
+            bVar.eH("1250000000000000");
         } else {
-            bVar.eI(n.b(intent, "aiapps_launch_from"));
+            bVar.eH(n.b(intent, "aiapps_launch_from"));
         }
-        bVar.eJ(n.b(intent, "aiapps_launch_scheme"));
+        bVar.eI(n.b(intent, "aiapps_launch_scheme"));
         if (bVar.EX() != null) {
             String queryParameter = Uri.parse(bVar.EX()).getQueryParameter("_baiduboxapp");
             if (!TextUtils.isEmpty(queryParameter)) {
@@ -73,21 +73,21 @@ public final class b {
         }
         bVar.setPage(n.b(intent, "aiapps_page"));
         bVar.setDebug(n.a(intent, "aiapps_is_debug", true));
-        bVar.eK(n.b(intent, "aiapps_max_swan_version"));
-        bVar.eL(n.b(intent, "aiapps_min_swan_version"));
+        bVar.eJ(n.b(intent, "aiapps_max_swan_version"));
+        bVar.eK(n.b(intent, "aiapps_min_swan_version"));
         bVar.p(n.c(intent, "aiapps_extra_data"));
-        bVar.eM(n.b(intent, "aiapps_add_click_id"));
-        bVar.eN(n.b(intent, "aiapps_not_in_history"));
-        bVar.eO(n.b(intent, "aiapps_app_open_url"));
-        bVar.eP(n.b(intent, "aiapps_app_download_url"));
-        bVar.eQ(n.b(intent, "aiapps_app_cur_swan_version"));
+        bVar.eL(n.b(intent, "aiapps_add_click_id"));
+        bVar.eM(n.b(intent, "aiapps_not_in_history"));
+        bVar.eN(n.b(intent, "aiapps_app_open_url"));
+        bVar.eO(n.b(intent, "aiapps_app_download_url"));
+        bVar.eP(n.b(intent, "aiapps_app_cur_swan_version"));
         bVar.a((SwanCoreVersion) n.d(intent, "aiapps_swan_core_version"));
         bVar.a((ExtensionCore) n.d(intent, "aiapps_extension_core"));
         bVar.cr(n.a(intent, "aiapps_app_frame_type", 0));
         bVar.aT(n.a(intent, "aiapps_app_console_switch", false));
         bVar.cE(n.a(intent, "aiapps_app_launch_flags", 0));
         bVar.setOrientation(n.a(intent, "ai_launch_app_orientation", 0));
-        bVar.eR(n.b(intent, "remoteDebugUrl"));
+        bVar.eQ(n.b(intent, "remoteDebugUrl"));
         return bVar;
     }
 
@@ -136,7 +136,7 @@ public final class b {
         if (bVar.Ff() != null) {
             intent.putExtra("aiapps_app_cur_swan_version", bVar.Ff());
         }
-        intent.putExtra("aiapps_app_console_switch", com.baidu.swan.apps.console.b.dl(bVar.getAppKey()));
+        intent.putExtra("aiapps_app_console_switch", com.baidu.swan.apps.console.b.dk(bVar.getAppKey()));
         intent.putExtra("remoteDebugUrl", bVar.Fl());
         intent.putExtra("aiapps_app_launch_flags", bVar.Fi());
         return intent;
@@ -153,13 +153,13 @@ public final class b {
 
     public static b EI() {
         b bVar = new b();
-        bVar.dZ("小程序测试");
+        bVar.dY("小程序测试");
         bVar.setAppId("wSfMyKIbrbNg7ogTFTcBuk1P8mgGTlB1");
         bVar.F(Color.parseColor("#FF308EF0"));
-        bVar.eI("1230000000000000");
-        bVar.eF("小程序简介");
-        bVar.eG("测试服务类目");
-        bVar.eH("测试主体信息");
+        bVar.eH("1230000000000000");
+        bVar.eE("小程序简介");
+        bVar.eF("测试服务类目");
+        bVar.eG("测试主体信息");
         bVar.setAppKey("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
         bVar.setVersion("1.0");
         bVar.setIconUrl("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");
@@ -179,7 +179,7 @@ public final class b {
         if (TextUtils.isEmpty(str) || cVar == null) {
             return null;
         }
-        if (cVar.gI(aa.ik(str))) {
+        if (cVar.gH(aa.ij(str))) {
             return str;
         }
         return null;
@@ -231,7 +231,7 @@ public final class b {
         return this.ayJ == null ? "" : this.ayJ.appName;
     }
 
-    public void dZ(String str) {
+    public void dY(String str) {
         if (this.ayJ != null) {
             this.ayJ.appName = str;
         }
@@ -271,7 +271,7 @@ public final class b {
         return this.ayJ == null ? "" : this.ayJ.description;
     }
 
-    public void eF(String str) {
+    public void eE(String str) {
         if (this.ayJ != null) {
             this.ayJ.description = str;
         }
@@ -300,7 +300,7 @@ public final class b {
         return this.ayJ == null ? "" : this.ayJ.aus;
     }
 
-    public void eG(String str) {
+    public void eF(String str) {
         if (this.ayJ != null) {
             this.ayJ.aus = str;
         }
@@ -310,7 +310,7 @@ public final class b {
         return this.ayJ == null ? "" : this.ayJ.aut;
     }
 
-    public void eH(String str) {
+    public void eG(String str) {
         if (this.ayJ != null) {
             this.ayJ.aut = str;
         }
@@ -386,7 +386,7 @@ public final class b {
         return this.ayw;
     }
 
-    public void eI(String str) {
+    public void eH(String str) {
         this.ayw = str;
     }
 
@@ -394,7 +394,7 @@ public final class b {
         return this.ayx;
     }
 
-    public void eJ(String str) {
+    public void eI(String str) {
         this.ayx = str;
     }
 
@@ -410,7 +410,7 @@ public final class b {
         return this.auq;
     }
 
-    public void eK(String str) {
+    public void eJ(String str) {
         this.auq = str;
     }
 
@@ -418,7 +418,7 @@ public final class b {
         return this.aur;
     }
 
-    public void eL(String str) {
+    public void eK(String str) {
         this.aur = str;
     }
 
@@ -434,7 +434,7 @@ public final class b {
         return this.ayz;
     }
 
-    public void eM(String str) {
+    public void eL(String str) {
         this.ayz = str;
     }
 
@@ -450,7 +450,7 @@ public final class b {
         return this.ayB;
     }
 
-    public void eN(String str) {
+    public void eM(String str) {
         this.ayB = str;
     }
 
@@ -458,7 +458,7 @@ public final class b {
         return this.auw;
     }
 
-    public void eO(String str) {
+    public void eN(String str) {
         this.auw = str;
     }
 
@@ -466,7 +466,7 @@ public final class b {
         return this.aux;
     }
 
-    public void eP(String str) {
+    public void eO(String str) {
         this.aux = str;
     }
 
@@ -474,7 +474,7 @@ public final class b {
         return this.auy;
     }
 
-    public void eQ(String str) {
+    public void eP(String str) {
         this.auy = str;
     }
 
@@ -538,7 +538,7 @@ public final class b {
         return this.ayI;
     }
 
-    public void eR(String str) {
+    public void eQ(String str) {
         this.ayI = str;
     }
 

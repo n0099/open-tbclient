@@ -1,10 +1,10 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class z extends k {
-    private static final z cAE = new z();
+    private static final z cAF = new z();
 
     public static boolean auI() {
-        return cAE.iE();
+        return cAF.iE();
     }
 
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a

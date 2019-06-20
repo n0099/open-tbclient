@@ -55,26 +55,26 @@ public class a extends BaseAdapter implements BdSwitchView.a {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.official_account_push_item, viewGroup, false);
             c0400a = new C0400a();
-            c0400a.iNc = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
+            c0400a.iNg = (MsgSettingItemView) view.findViewById(R.id.item_official_account_push);
             view.setTag(c0400a);
         } else {
             c0400a = (C0400a) view.getTag();
         }
         OfficialAccountPushInfo officialAccountPushInfo = (OfficialAccountPushInfo) getItem(i);
         if (ap.isEmpty(officialAccountPushInfo.name)) {
-            c0400a.iNc.setVisibility(8);
+            c0400a.iNg.setVisibility(8);
         } else {
-            c0400a.iNc.setVisibility(0);
-            c0400a.iNc.setText(officialAccountPushInfo.name);
-            if (officialAccountPushInfo.iNe == 1) {
-                c0400a.iNc.getSwitchView().mT();
+            c0400a.iNg.setVisibility(0);
+            c0400a.iNg.setText(officialAccountPushInfo.name);
+            if (officialAccountPushInfo.iNi == 1) {
+                c0400a.iNg.getSwitchView().mT();
             } else {
-                c0400a.iNc.getSwitchView().mU();
+                c0400a.iNg.getSwitchView().mU();
             }
-            c0400a.iNc.setLineVisibility(true);
-            c0400a.iNc.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-            c0400a.iNc.getSwitchView().setOnSwitchStateChangeListener(this);
-            c0400a.iNc.getSwitchView().setTag(officialAccountPushInfo);
+            c0400a.iNg.setLineVisibility(true);
+            c0400a.iNg.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            c0400a.iNg.getSwitchView().setOnSwitchStateChangeListener(this);
+            c0400a.iNg.getSwitchView().setTag(officialAccountPushInfo);
         }
         return view;
     }
@@ -93,7 +93,7 @@ public class a extends BaseAdapter implements BdSwitchView.a {
     /* renamed from: com.baidu.tieba.setting.officialAccountPush.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0400a {
-        MsgSettingItemView iNc;
+        MsgSettingItemView iNg;
 
         public C0400a() {
         }

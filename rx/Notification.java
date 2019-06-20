@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> kmN = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind kmL;
-    private final Throwable kmM;
+    private static final Notification<Void> kmQ = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind kmO;
+    private final Throwable kmP;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cLa() {
-        return (Notification<T>) kmN;
+    public static <T> Notification<T> cKZ() {
+        return (Notification<T>) kmQ;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.kmM = th;
-        this.kmL = kind;
+        this.kmP = th;
+        this.kmO = kind;
     }
 
-    public Throwable cLb() {
-        return this.kmM;
+    public Throwable cLa() {
+        return this.kmP;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cLg() && this.value != null;
+        return cLf() && this.value != null;
     }
 
-    public boolean cLc() {
-        return cLe() && this.kmM != null;
+    public boolean cLb() {
+        return cLd() && this.kmP != null;
     }
 
-    public Kind cLd() {
-        return this.kmL;
+    public Kind cLc() {
+        return this.kmO;
+    }
+
+    public boolean cLd() {
+        return cLc() == Kind.OnError;
     }
 
     public boolean cLe() {
-        return cLd() == Kind.OnError;
+        return cLc() == Kind.OnCompleted;
     }
 
     public boolean cLf() {
-        return cLd() == Kind.OnCompleted;
-    }
-
-    public boolean cLg() {
-        return cLd() == Kind.OnNext;
+        return cLc() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cLd());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cLc());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cLc()) {
-            append.append(' ').append(cLb().getMessage());
+        if (cLb()) {
+            append.append(' ').append(cLa().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cLd().hashCode();
+        int hashCode = cLc().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cLc()) {
-            return (hashCode * 31) + cLb().hashCode();
+        if (cLb()) {
+            return (hashCode * 31) + cLa().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cLd() != cLd() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kmM != notification.kmM && (this.kmM == null || !this.kmM.equals(notification.kmM))))) {
+            if (notification.cLc() != cLc() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.kmP != notification.kmP && (this.kmP == null || !this.kmP.equals(notification.kmP))))) {
                 z = false;
             }
             return z;

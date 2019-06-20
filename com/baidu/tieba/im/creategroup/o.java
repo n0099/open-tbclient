@@ -5,15 +5,15 @@ import android.view.View;
 public interface o {
     void byA();
 
-    String byC();
+    void byB();
 
-    boolean byD();
+    String byD();
 
     boolean byE();
 
-    int byt();
+    boolean byF();
 
-    void byz();
+    int byu();
 
     String getErrMsg();
 

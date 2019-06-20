@@ -32,7 +32,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         this.fmc = i;
     }
 
-    public void wi(String str) {
+    public void wh(String str) {
         this.fmd = str;
     }
 
@@ -40,7 +40,7 @@ public class p implements com.baidu.adp.widget.ListView.m {
         return this.fme;
     }
 
-    public void wj(String str) {
+    public void wi(String str) {
         this.fme = str;
     }
 

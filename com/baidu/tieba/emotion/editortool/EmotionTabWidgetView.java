@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class EmotionTabWidgetView extends LinearLayout {
-    private EditorTools TB;
+    private EditorTools TA;
     private EmotionTabHorizonScrollView ePT;
     private ImageView ePU;
     private ImageView ePV;
@@ -47,8 +47,8 @@ public class EmotionTabWidgetView extends LinearLayout {
         this.ePU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.emotion.editortool.EmotionTabWidgetView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (EmotionTabWidgetView.this.TB != null) {
-                    EmotionTabWidgetView.this.TB.b(new com.baidu.tbadk.editortools.a(3, -1, null));
+                if (EmotionTabWidgetView.this.TA != null) {
+                    EmotionTabWidgetView.this.TA.b(new com.baidu.tbadk.editortools.a(3, -1, null));
                 }
             }
         });
@@ -114,7 +114,7 @@ public class EmotionTabWidgetView extends LinearLayout {
     }
 
     public void setOnDataSelected(EditorTools editorTools) {
-        this.TB = editorTools;
-        this.ePT.setEditorTools(this.TB);
+        this.TA = editorTools;
+        this.ePT.setEditorTools(this.TA);
     }
 }

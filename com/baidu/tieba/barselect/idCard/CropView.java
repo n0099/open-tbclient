@@ -18,7 +18,7 @@ import java.io.IOException;
 /* loaded from: classes3.dex */
 public class CropView extends View {
     private Bitmap bitmap;
-    private GestureDetector cOs;
+    private GestureDetector cOt;
     private float esC;
     private float esD;
     private float[] esE;
@@ -192,7 +192,7 @@ public class CropView extends View {
 
     private void init() {
         this.esF = new ScaleGestureDetector(getContext(), this.esG);
-        this.cOs = new GestureDetector(getContext(), new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.2
+        this.cOt = new GestureDetector(getContext(), new GestureDetector.OnGestureListener() { // from class: com.baidu.tieba.barselect.idCard.CropView.2
             @Override // android.view.GestureDetector.OnGestureListener
             public boolean onDown(MotionEvent motionEvent) {
                 return true;
@@ -312,7 +312,7 @@ public class CropView extends View {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return (this.cOs.onTouchEvent(motionEvent) || this.esF.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
+        return (this.cOt.onTouchEvent(motionEvent) || this.esF.onTouchEvent(motionEvent)) || super.onTouchEvent(motionEvent);
     }
 
     private Rect getRestrictedBound() {

@@ -27,8 +27,8 @@ public class a {
     private boolean adw = false;
     private boolean adA = false;
     private boolean mIsLandscape = false;
+    private int TV = 0;
     private int TW = 0;
-    private int TX = 0;
     private c adB = c.sN();
     private d adC = new d() { // from class: com.baidu.mario.b.a.1
         @Override // com.baidu.mario.b.d
@@ -86,8 +86,8 @@ public class a {
             if (z) {
                 this.acX.sA().a(MirrorType.VERTICALLY);
             }
-            this.TW = i;
-            this.TX = i2;
+            this.TV = i;
+            this.TW = i2;
             this.adD.setVideoWidth(i);
             this.adD.setVideoHeight(i2);
         }
@@ -163,8 +163,8 @@ public class a {
             this.adD.setOutputFile(str);
             this.adD.aM(z);
             this.adD.z(i * 1000);
-            this.adD.setVideoWidth(this.TW);
-            this.adD.setVideoHeight(this.TX);
+            this.adD.setVideoWidth(this.TV);
+            this.adD.setVideoHeight(this.TW);
             if (i > 0 && i < 120) {
                 this.adv = i * 1000;
             } else {

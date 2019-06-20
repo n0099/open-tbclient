@@ -115,7 +115,7 @@ public class TiebaPrepareImageService extends BdBaseService {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<Object, Integer, Boolean> {
-        String bOU = null;
+        String bOV = null;
         String mFileName;
         int mRequestCode;
         Uri mUri;
@@ -154,16 +154,16 @@ public class TiebaPrepareImageService extends BdBaseService {
                     }
                     Bitmap resizeBitmap = BitmapHelper.resizeBitmap(a, i);
                     if (resizeBitmap == null || m.a((String) null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                        this.bOU = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                        this.bOV = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     }
                 } else {
-                    this.bOU = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
+                    this.bOV = TiebaPrepareImageService.this.getString(R.string.error_sd_error);
                     z = false;
                 }
                 TiebaPrepareImageService.IS_DECODING = false;
                 return Boolean.valueOf(z);
             }
-            this.bOU = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
+            this.bOV = TiebaPrepareImageService.this.getString(R.string.pic_parser_error);
             z = false;
             TiebaPrepareImageService.IS_DECODING = false;
             return Boolean.valueOf(z);
@@ -182,8 +182,8 @@ public class TiebaPrepareImageService extends BdBaseService {
             super.onPostExecute((a) bool);
             Intent intent = new Intent(TbConfig.getBroadcastActionImageResized());
             intent.putExtra("result", bool);
-            if (this.bOU != null) {
-                intent.putExtra("error", this.bOU);
+            if (this.bOV != null) {
+                intent.putExtra("error", this.bOV);
             }
             TiebaPrepareImageService.this.sendBroadcast(intent);
         }

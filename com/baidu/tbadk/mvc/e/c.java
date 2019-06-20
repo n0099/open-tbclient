@@ -49,7 +49,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (readCacheMessage.getRequestData() == null) {
                         try {
                             if (dVar3 instanceof com.baidu.tbadk.mvc.b.b) {
-                                List<l.b<byte[]>> c = r.c(com.baidu.tbadk.core.c.a.afD().bD(this.yf, str));
+                                List<l.b<byte[]>> c = r.c(com.baidu.tbadk.core.c.a.afD().bD(this.ye, str));
                                 if (c != null) {
                                     ArrayList arrayList5 = new ArrayList(c.size());
                                     for (l.b<byte[]> bVar : c) {
@@ -63,11 +63,11 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                     arrayList3 = null;
                                 }
                                 arrayList4 = arrayList3;
-                            } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.afD().bE(this.yf, str))) != null) {
+                            } else if ((dVar3 instanceof f) && (b = r.b(com.baidu.tbadk.core.c.a.afD().bE(this.ye, str))) != null) {
                                 ArrayList arrayList6 = new ArrayList(b.size());
                                 for (l.b<String> bVar2 : b) {
                                     if (bVar2 != null && (str3 = bVar2.value) != null && (dVar = (com.baidu.tbadk.mvc.b.d) atF()) != null) {
-                                        ((f) dVar).qC(str3);
+                                        ((f) dVar).qB(str3);
                                         arrayList6.add(dVar);
                                     }
                                 }
@@ -100,7 +100,7 @@ public class c<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                                 }
                             }
                         } else if ((dVar3 instanceof f) && (str2 = com.baidu.tbadk.core.c.a.afD().bE(asV, str).get(cacheKey)) != null) {
-                            ((f) dVar3).qC(str2);
+                            ((f) dVar3).qB(str2);
                             ArrayList arrayList8 = new ArrayList();
                             try {
                                 arrayList8.add(dVar3);

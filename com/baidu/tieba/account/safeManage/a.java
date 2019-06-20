@@ -14,25 +14,25 @@ import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private final BaseActivity cVp;
-    private b cVq;
-    private AccountSafeModel cVr;
-    private com.baidu.adp.framework.listener.a cVs = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
+    private final BaseActivity cVq;
+    private b cVr;
+    private AccountSafeModel cVs;
+    private com.baidu.adp.framework.listener.a cVt = new com.baidu.adp.framework.listener.a(CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016) { // from class: com.baidu.tieba.account.safeManage.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String errorString;
-            if (a.this.cVr != null) {
-                a.this.cVr.setLoading(false);
+            if (a.this.cVs != null) {
+                a.this.cVs.setLoading(false);
             }
-            a.this.cVp.closeLoadingDialog();
+            a.this.cVq.closeLoadingDialog();
             if (responsedMessage != null) {
                 if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                        errorString = a.this.cVp.getString(R.string.neterror);
+                        errorString = a.this.cVq.getString(R.string.neterror);
                     } else {
                         errorString = responsedMessage.getErrorString();
                     }
-                    a.this.cVp.showToast(errorString);
+                    a.this.cVq.showToast(errorString);
                     return;
                 }
                 com.baidu.tieba.setting.im.more.a aVar = null;
@@ -42,51 +42,51 @@ public class a implements View.OnClickListener {
                 if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                     aVar = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                 }
-                if (a.this.cVr != null) {
-                    a.this.cVr.a(aVar);
+                if (a.this.cVs != null) {
+                    a.this.cVs.a(aVar);
                 }
-                if (a.this.cVq != null && a.this.cVr != null && a.this.cVr.aBD() != null) {
-                    a.this.cVq.a(a.this.cVr.aBD().aBI());
+                if (a.this.cVr != null && a.this.cVs != null && a.this.cVs.aBD() != null) {
+                    a.this.cVr.a(a.this.cVs.aBD().aBI());
                 }
             }
         }
     };
 
     public a(BaseActivity baseActivity) {
-        this.cVp = baseActivity;
-        this.cVp.registerListener(this.cVs);
-        this.cVq = new b(this.cVp, this);
-        this.cVr = new AccountSafeModel(this.cVp);
+        this.cVq = baseActivity;
+        this.cVq.registerListener(this.cVt);
+        this.cVr = new b(this.cVq, this);
+        this.cVs = new AccountSafeModel(this.cVq);
         if (j.jS()) {
             aBJ();
         } else {
-            this.cVp.showToast(R.string.neterror);
+            this.cVq.showToast(R.string.neterror);
         }
     }
 
     public View getRootView() {
-        return this.cVq.getView();
+        return this.cVr.getView();
     }
 
     private void aBJ() {
-        if (this.cVr != null && !this.cVr.pu()) {
-            this.cVr.aBG();
+        if (this.cVs != null && !this.cVs.pu()) {
+            this.cVs.aBG();
         }
     }
 
     public void onDestroy() {
-        this.cVp.closeLoadingDialog();
-        if (this.cVr != null) {
-            this.cVr.cancelLoadData();
+        this.cVq.closeLoadingDialog();
+        if (this.cVs != null) {
+            this.cVs.cancelLoadData();
         }
-        if (this.cVq != null) {
-            this.cVq.release();
+        if (this.cVr != null) {
+            this.cVr.release();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.cVq != null) {
-            this.cVq.jT(i);
+        if (this.cVr != null) {
+            this.cVr.jT(i);
         }
     }
 
@@ -95,12 +95,12 @@ public class a implements View.OnClickListener {
         if (view.getId() == R.id.bar_record) {
             TiebaStatic.log("c10013");
             if (!j.jS()) {
-                this.cVp.showToast(R.string.neterror);
+                this.cVq.showToast(R.string.neterror);
             } else {
-                ba.aiz().c(this.cVp.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
+                ba.aiz().c(this.cVq.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == R.id.account_status) {
-            AntiHelper.aJ(this.cVp, this.cVr != null ? this.cVr.aBE() : "");
+            AntiHelper.aJ(this.cVq, this.cVs != null ? this.cVs.aBE() : "");
         }
     }
 }

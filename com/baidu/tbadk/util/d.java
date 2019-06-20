@@ -14,9 +14,9 @@ public class d {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a qM = a.qM(str);
-                if (qM != null && !StringUtils.isNull(qM.forumName)) {
-                    arrayList.add(qM.forumName);
+                a qL = a.qL(str);
+                if (qL != null && !StringUtils.isNull(qL.forumName)) {
+                    arrayList.add(qL.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -44,7 +44,7 @@ public class d {
             return this.forumName + "#" + this.level;
         }
 
-        public static a qM(String str) {
+        public static a qL(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

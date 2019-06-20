@@ -309,7 +309,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         if (1 == this.dgK) {
             this.dgI.setText(str);
             if (this.dho) {
-                sV(str);
+                sU(str);
             } else {
                 this.dgH.setText((CharSequence) null);
             }
@@ -557,7 +557,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     public void setLeftSecondViewVisibility(int i) {
         if (this.dhm.getVisibility() != i) {
             this.dhm.setVisibility(i);
-            sV(this.dgA);
+            sU(this.dgA);
         }
     }
 
@@ -613,7 +613,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.dgH.setText(str);
     }
 
-    private void sV(String str) {
+    private void sU(String str) {
     }
 
     public void setRightMenuImageSrc(int i) {

@@ -67,7 +67,7 @@ public class DiscoverFragment extends BaseFragment implements ae {
         super.onPrimary();
         if (this.dnK || StringUtils.isNull(this.eNt.getWebView().getUrl())) {
             if (TbadkApplication.getInst().getSkinType() == 1) {
-                this.eNt.loadUrl(ts(this.mUrl));
+                this.eNt.loadUrl(tr(this.mUrl));
             } else {
                 this.eNt.loadUrl(this.mUrl);
             }
@@ -75,7 +75,7 @@ public class DiscoverFragment extends BaseFragment implements ae {
         }
     }
 
-    private String ts(String str) {
+    private String tr(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -124,7 +124,7 @@ public class DiscoverFragment extends BaseFragment implements ae {
         super.onChangeSkinType(i);
         if (!this.dnK) {
             if (i == 1) {
-                this.eNt.loadUrl(ts(this.mUrl));
+                this.eNt.loadUrl(tr(this.mUrl));
             } else {
                 this.eNt.loadUrl(this.mUrl);
             }

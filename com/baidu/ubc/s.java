@@ -31,7 +31,7 @@ class s {
         return this.bww;
     }
 
-    public final void kU(String str) {
+    public final void kT(String str) {
         if (!this.bww.contains(str)) {
             this.bww.add(str);
         }
@@ -54,7 +54,7 @@ class s {
         return this.aHI.length() == 0;
     }
 
-    public JSONObject cAi() {
+    public JSONObject cAh() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -81,7 +81,7 @@ class s {
         this.aHI = null;
     }
 
-    public void kV(String str) {
+    public void kU(String str) {
         this.bvx = str;
     }
 

@@ -157,16 +157,16 @@ public class b {
                             File file = new File(substring);
                             if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
                                 for (File file2 : listFiles) {
-                                    String ls = ls(file2.getAbsolutePath());
-                                    if (ls != null && (matcher = compile.matcher(ls)) != null && matcher.matches()) {
+                                    String lr = lr(file2.getAbsolutePath());
+                                    if (lr != null && (matcher = compile.matcher(lr)) != null && matcher.matches()) {
                                         i++;
                                     }
                                 }
                             }
                             if (i != 0) {
                                 com.baidu.tbadk.album.a aVar = new com.baidu.tbadk.album.a();
-                                aVar.lq(string);
-                                aVar.lr(i + "");
+                                aVar.lp(string);
+                                aVar.lq(i + "");
                                 ImageFileInfo imageFileInfo = new ImageFileInfo();
                                 File file3 = new File(string3);
                                 if (file3.exists() && file3.isFile()) {
@@ -209,7 +209,7 @@ public class b {
         }
     }
 
-    public String ls(String str) {
+    public String lr(String str) {
         String fileExtensionFromUrl = getFileExtensionFromUrl(str);
         if (fileExtensionFromUrl == null) {
             return null;
@@ -362,11 +362,11 @@ public class b {
                                     if (file.exists() && file.isFile() && file.length() > 0) {
                                         boolean z = false;
                                         boolean z2 = false;
-                                        if (string.toLowerCase().endsWith(".gif") && m.nj(string)) {
+                                        if (string.toLowerCase().endsWith(".gif") && m.ni(string)) {
                                             if (com.baidu.adp.lib.util.f.i(file) <= 3145728) {
                                                 z = true;
                                             }
-                                        } else if (m.nk(string)) {
+                                        } else if (m.nj(string)) {
                                             z2 = true;
                                         }
                                         imageFileInfo.setIsGif(z);

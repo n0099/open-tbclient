@@ -24,26 +24,26 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String cZV;
-    private List<com.baidu.tieba.aiapps.apps.address.c.b> cZZ = new ArrayList();
-    private Bundle dab;
+    private String cZW;
+    private List<com.baidu.tieba.aiapps.apps.address.c.b> daa = new ArrayList();
+    private Bundle dac;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class c {
-        private static final a daH = new a();
+        private static final a daI = new a();
     }
 
     public static a aDx() {
-        return c.daH;
+        return c.daI;
     }
 
     public void H(Bundle bundle) {
-        this.dab = bundle;
-        if (this.dab != null) {
-            String string = this.dab.getString("openSource");
+        this.dac = bundle;
+        if (this.dac != null) {
+            String string = this.dac.getString("openSource");
             if (!TextUtils.isEmpty(string)) {
-                this.cZV = string;
+                this.cZW = string;
             }
         }
     }
@@ -51,12 +51,12 @@ public class a {
     public void a(com.baidu.tieba.aiapps.apps.address.b.b bVar) {
         new b(bVar, IntentConfig.LIST);
         LinkedHashMap linkedHashMap = new LinkedHashMap();
-        if (TextUtils.equals(this.cZV, "aiapp")) {
-            linkedHashMap.put("ma_id", this.dab.getString("appId"));
-            linkedHashMap.put("app_key", this.dab.getString("appKey"));
-            linkedHashMap.put("host_pkgname", this.dab.getString(PushClientConstants.TAG_PKG_NAME));
-            linkedHashMap.put("host_key_hash", this.dab.getString("keyHash"));
-            linkedHashMap.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.dab.getString(ISapiAccount.SAPI_ACCOUNT_STOKEN));
+        if (TextUtils.equals(this.cZW, "aiapp")) {
+            linkedHashMap.put("ma_id", this.dac.getString("appId"));
+            linkedHashMap.put("app_key", this.dac.getString("appKey"));
+            linkedHashMap.put("host_pkgname", this.dac.getString(PushClientConstants.TAG_PKG_NAME));
+            linkedHashMap.put("host_key_hash", this.dac.getString("keyHash"));
+            linkedHashMap.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.dac.getString(ISapiAccount.SAPI_ACCOUNT_STOKEN));
             linkedHashMap.put("host_api_key", com.baidu.swan.apps.u.a.DN().wr());
         }
         a(null, bVar, linkedHashMap, IntentConfig.LIST);
@@ -66,30 +66,30 @@ public class a {
         String ad = com.baidu.swan.c.a.ad(AppRuntime.getAppContext(), "delivery_data.json");
         if (!TextUtils.isEmpty(ad)) {
             try {
-                this.cZZ = com.baidu.tieba.aiapps.apps.address.c.c.E(new JSONArray(ad));
+                this.daa = com.baidu.tieba.aiapps.apps.address.c.c.E(new JSONArray(ad));
             } catch (JSONException e) {
                 if (DEBUG) {
                     e.printStackTrace();
                 }
             }
         }
-        return this.cZZ;
+        return this.daa;
     }
 
     public void aDz() {
         j.a(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.c.a.c(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.tieba.aiapps.apps.address.c.c.aH(a.this.cZZ).toString(), 0);
+                com.baidu.swan.c.a.c(AppRuntime.getAppContext(), "delivery_data.json", com.baidu.tieba.aiapps.apps.address.c.c.aH(a.this.daa).toString(), 0);
             }
         }, "saveCacheToLocal");
     }
 
     public List<com.baidu.tieba.aiapps.apps.address.c.b> aDA() {
-        if (this.cZZ == null) {
-            this.cZZ = new ArrayList();
+        if (this.daa == null) {
+            this.daa = new ArrayList();
         }
-        return this.cZZ;
+        return this.daa;
     }
 
     public void a(com.baidu.tieba.aiapps.apps.address.c.b bVar, com.baidu.tieba.aiapps.apps.address.b.b bVar2) {
@@ -157,8 +157,8 @@ public class a {
                 }
             }
         }
-        String sC = sC(str);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(sC)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.DY().Ew())).build().executeAsyncOnUIBack(bVar3);
+        String sB = sB(str);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(sB)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.DY().Ew())).build().executeAsyncOnUIBack(bVar3);
     }
 
     private Map<String, String> a(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
@@ -170,23 +170,23 @@ public class a {
             if (!TextUtils.isEmpty(bVar.userName)) {
                 hashMap.put("name", bVar.userName);
             }
-            if (!TextUtils.isEmpty(bVar.daN)) {
-                hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.daN);
-            }
-            if (bVar.daP != null && !TextUtils.isEmpty(bVar.daP.code)) {
-                hashMap.put("l1", bVar.daP.code);
+            if (!TextUtils.isEmpty(bVar.daO)) {
+                hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.daO);
             }
             if (bVar.daQ != null && !TextUtils.isEmpty(bVar.daQ.code)) {
-                hashMap.put("l2", bVar.daQ.code);
+                hashMap.put("l1", bVar.daQ.code);
             }
             if (bVar.daR != null && !TextUtils.isEmpty(bVar.daR.code)) {
-                hashMap.put("l3", bVar.daR.code);
+                hashMap.put("l2", bVar.daR.code);
             }
-            if (!TextUtils.isEmpty(bVar.daS)) {
-                hashMap.put("street", bVar.daS);
+            if (bVar.daS != null && !TextUtils.isEmpty(bVar.daS.code)) {
+                hashMap.put("l3", bVar.daS.code);
             }
             if (!TextUtils.isEmpty(bVar.daT)) {
-                hashMap.put("zipcode", bVar.daT);
+                hashMap.put("street", bVar.daT);
+            }
+            if (!TextUtils.isEmpty(bVar.daU)) {
+                hashMap.put("zipcode", bVar.daU);
             }
         }
         return hashMap;
@@ -195,11 +195,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class b extends StringResponseCallback {
-        private com.baidu.tieba.aiapps.apps.address.b.b daG;
+        private com.baidu.tieba.aiapps.apps.address.b.b daH;
         private String mType;
 
         public b(com.baidu.tieba.aiapps.apps.address.b.b bVar, String str) {
-            this.daG = bVar;
+            this.daH = bVar;
             this.mType = str;
         }
 
@@ -207,13 +207,13 @@ public class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: x */
         public void onSuccess(String str, int i) {
-            if (this.daG != null) {
-                this.daG.aDt();
+            if (this.daH != null) {
+                this.daH.aDt();
                 if (!TextUtils.isEmpty(str) && i == 200) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                            this.daG.sA(jSONObject.optString("tipmsg"));
+                            this.daH.sz(jSONObject.optString("tipmsg"));
                             return;
                         }
                         String str2 = this.mType;
@@ -252,22 +252,22 @@ public class a {
                         }
                         switch (c) {
                             case 0:
-                                List<com.baidu.tieba.aiapps.apps.address.c.b> sG = com.baidu.tieba.aiapps.apps.address.c.c.sG(str);
-                                a.this.cZZ = sG;
-                                this.daG.g(sG, i);
+                                List<com.baidu.tieba.aiapps.apps.address.c.b> sF = com.baidu.tieba.aiapps.apps.address.c.c.sF(str);
+                                a.this.daa = sF;
+                                this.daH.g(sF, i);
                                 a.this.aDz();
                                 return;
                             case 1:
-                                this.daG.ai(str, i);
+                                this.daH.ai(str, i);
                                 return;
                             case 2:
-                                this.daG.aj(str, i);
+                                this.daH.aj(str, i);
                                 return;
                             case 3:
-                                this.daG.aj(str, i);
+                                this.daH.aj(str, i);
                                 return;
                             case 4:
-                                this.daG.ak(str, i);
+                                this.daH.ak(str, i);
                                 return;
                             default:
                                 return;
@@ -276,24 +276,24 @@ public class a {
                         if (a.DEBUG) {
                             e.printStackTrace();
                         }
-                        this.daG.onFailure();
+                        this.daH.onFailure();
                         return;
                     }
                 }
-                this.daG.onFailure();
+                this.daH.onFailure();
             }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
-            if (this.daG != null) {
-                this.daG.aDt();
-                this.daG.onFailure();
+            if (this.daH != null) {
+                this.daH.aDt();
+                this.daH.onFailure();
             }
         }
     }
 
-    private String sC(String str) {
+    private String sB(String str) {
         String str2 = "";
         char c2 = 65535;
         switch (str.hashCode()) {
@@ -330,7 +330,7 @@ public class a {
         }
         switch (c2) {
             case 0:
-                if (TextUtils.equals(this.cZV, "aiapp")) {
+                if (TextUtils.equals(this.cZW, "aiapp")) {
                     str2 = "/oa_list";
                     break;
                 } else {
@@ -351,7 +351,7 @@ public class a {
                 break;
         }
         if (!TextUtils.isEmpty(str2)) {
-            return d.sH(d.aEc() + str2);
+            return d.sG(d.aEc() + str2);
         }
         return str2;
     }
@@ -384,7 +384,7 @@ public class a {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void sA(String str) {
+        public void sz(String str) {
         }
     }
 }

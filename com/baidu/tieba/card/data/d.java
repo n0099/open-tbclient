@@ -12,28 +12,28 @@ public class d extends b implements p {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (this.eAB != null && this.eAB.getType() == AdvertAppInfo.bDB) {
-            return AdvertAppInfo.bDH;
+        if (this.eAB != null && this.eAB.getType() == AdvertAppInfo.bDC) {
+            return AdvertAppInfo.bDI;
         }
         if (this.eAB != null && this.eAB.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.bDK;
+            BdUniqueId bdUniqueId = AdvertAppInfo.bDL;
             switch (this.eAB.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.bDL;
+                    return AdvertAppInfo.bDM;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.bDM;
-                case 7:
                     return AdvertAppInfo.bDN;
-                case 9:
-                    return AdvertAppInfo.bDP;
-                case 10:
+                case 7:
                     return AdvertAppInfo.bDO;
+                case 9:
+                    return AdvertAppInfo.bDQ;
+                case 10:
+                    return AdvertAppInfo.bDP;
             }
         }
         return null;

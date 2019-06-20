@@ -48,7 +48,7 @@ public class x extends z {
                 file = file2;
             } else {
                 if (com.baidu.swan.apps.ac.a.a.l(bVar.vk())) {
-                    a = com.baidu.swan.apps.storage.b.hz(optString);
+                    a = com.baidu.swan.apps.storage.b.hy(optString);
                 } else {
                     a = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
                 }

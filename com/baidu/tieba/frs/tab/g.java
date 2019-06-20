@@ -12,16 +12,16 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class g implements a {
-    private e fKA;
-    private e.b fKC;
-    private TabMenuPopView fKD;
+    private e fKC;
+    private e.b fKE;
+    private TabMenuPopView fKF;
     private TabMenuPopView.a ftv = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, ar arVar) {
-            if (g.this.fKA != null) {
-                g.this.fKA.bpH();
+            if (g.this.fKC != null) {
+                g.this.fKC.bpJ();
             }
-            g.this.fKC.ss(arVar.fsC);
+            g.this.fKE.ss(arVar.fsC);
         }
     };
     private List<ar> fvQ;
@@ -33,12 +33,12 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.fKA = eVar;
-            this.fKC = eVar.bpI();
+            this.fKC = eVar;
+            this.fKE = eVar.bpK();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(R.layout.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(R.id.top_line);
-            this.fKD = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
-            this.fKD.setOnItemClickCallBack(this.ftv);
+            this.fKF = (TabMenuPopView) this.mContentView.findViewById(R.id.categorycontainer);
+            this.fKF.setOnItemClickCallBack(this.ftv);
         }
     }
 
@@ -52,7 +52,7 @@ public class g implements a {
             arVar.isSelected = false;
             al.l(this.mContentView, R.color.cp_bg_line_d);
             al.l(this.mTopLine, R.color.cp_bg_line_b);
-            this.fKD.setData(this.fvQ, arVar);
+            this.fKF.setData(this.fvQ, arVar);
         }
     }
 
@@ -62,7 +62,7 @@ public class g implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int bpF() {
+    public int bpH() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cPJ = new SparseArray<>();
-    private Object cPK;
-    private int cPL;
+    private static SparseArray<BdUniqueId> cPK = new SparseArray<>();
+    private Object cPL;
+    private int cPM;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cPJ.get(this.cPL);
+        return cPK.get(this.cPM);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
     public Object azj() {
-        return this.cPK;
-    }
-
-    public void aj(Object obj) {
-        this.cPK = obj;
-    }
-
-    public int azk() {
         return this.cPL;
     }
 
+    public void aj(Object obj) {
+        this.cPL = obj;
+    }
+
+    public int azk() {
+        return this.cPM;
+    }
+
     public void lW(int i) {
-        this.cPL = i;
+        this.cPM = i;
     }
 
     public static void ar(List<Integer> list) {
-        if (cPJ.size() <= 0 && list != null) {
+        if (cPK.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cPJ.put(num.intValue(), BdUniqueId.gen());
+                cPK.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
     public static List<BdUniqueId> azl() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cPJ.size(); i++) {
-            arrayList.add(cPJ.valueAt(i));
+        for (int i = 0; i < cPK.size(); i++) {
+            arrayList.add(cPK.valueAt(i));
         }
         return arrayList;
     }
 
     public static int j(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cPJ.size() == 0 || (indexOfValue = cPJ.indexOfValue(bdUniqueId)) == -1 || cPJ.size() <= indexOfValue) {
+        if (cPK.size() == 0 || (indexOfValue = cPK.indexOfValue(bdUniqueId)) == -1 || cPK.size() <= indexOfValue) {
             return -1;
         }
-        return cPJ.keyAt(indexOfValue);
+        return cPK.keyAt(indexOfValue);
     }
 }

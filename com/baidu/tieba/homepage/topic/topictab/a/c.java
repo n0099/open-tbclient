@@ -9,7 +9,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     private TbPageContext<?> mPageContext;
 
     public c(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.ggY);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.homepage.topic.topictab.b.c.gha);
         this.mPageContext = tbPageContext;
     }
 

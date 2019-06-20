@@ -8,8 +8,8 @@ import javax.annotation.concurrent.NotThreadSafe;
 /* loaded from: classes2.dex */
 class d<V> {
     public final int aYf;
-    final Queue kbq;
-    private int kbr;
+    final Queue kbt;
+    private int kbu;
     public final int mItemSize;
 
     public d(int i, int i2, int i3) {
@@ -18,49 +18,49 @@ class d<V> {
         com.facebook.common.internal.g.checkState(i3 >= 0);
         this.mItemSize = i;
         this.aYf = i2;
-        this.kbq = new LinkedList();
-        this.kbr = i3;
+        this.kbt = new LinkedList();
+        this.kbu = i3;
     }
 
-    public boolean cGU() {
-        return this.kbr + cGV() > this.aYf;
+    public boolean cGT() {
+        return this.kbu + cGU() > this.aYf;
     }
 
-    int cGV() {
-        return this.kbq.size();
+    int cGU() {
+        return this.kbt.size();
     }
 
     @Nullable
     public V get() {
         V pop = pop();
         if (pop != null) {
-            this.kbr++;
+            this.kbu++;
         }
         return pop;
     }
 
     @Nullable
     public V pop() {
-        return (V) this.kbq.poll();
+        return (V) this.kbt.poll();
     }
 
-    public void cGW() {
-        this.kbr++;
+    public void cGV() {
+        this.kbu++;
     }
 
     public void release(V v) {
         com.facebook.common.internal.g.checkNotNull(v);
-        com.facebook.common.internal.g.checkState(this.kbr > 0);
-        this.kbr--;
+        com.facebook.common.internal.g.checkState(this.kbu > 0);
+        this.kbu--;
         aZ(v);
     }
 
     void aZ(V v) {
-        this.kbq.add(v);
+        this.kbt.add(v);
     }
 
-    public void cGX() {
-        com.facebook.common.internal.g.checkState(this.kbr > 0);
-        this.kbr--;
+    public void cGW() {
+        com.facebook.common.internal.g.checkState(this.kbu > 0);
+        this.kbu--;
     }
 }

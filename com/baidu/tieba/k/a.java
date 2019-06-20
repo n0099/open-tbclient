@@ -13,24 +13,24 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class a {
-    private static final int hpZ = Q(new byte[]{102, 114, 101, 101});
-    private static final int hqa = Q(new byte[]{106, 117, 110, 107});
-    private static final int hqb = Q(new byte[]{109, 100, 97, 116});
-    private static final int hqc = Q(new byte[]{109, 111, 111, 118});
-    private static final int hqd = Q(new byte[]{112, 110, 111, 116});
-    private static final int hqe = Q(new byte[]{115, 107, 105, 112});
-    private static final int hqf = Q(new byte[]{119, 105, 100, 101});
-    private static final int hqg = Q(new byte[]{80, 73, 67, 84});
-    private static final int hqh = Q(new byte[]{102, 116, 121, 112});
-    private static final int hqi = Q(new byte[]{117, 117, 105, 100});
-    private static final int hqj = Q(new byte[]{99, 109, 111, 118});
-    private static final int hqk = Q(new byte[]{115, 116, 99, 111});
-    private static final int hql = Q(new byte[]{99, 111, 54, 52});
+    private static final int hqa = Q(new byte[]{102, 114, 101, 101});
+    private static final int hqb = Q(new byte[]{106, 117, 110, 107});
+    private static final int hqc = Q(new byte[]{109, 100, 97, 116});
+    private static final int hqd = Q(new byte[]{109, 111, 111, 118});
+    private static final int hqe = Q(new byte[]{112, 110, 111, 116});
+    private static final int hqf = Q(new byte[]{115, 107, 105, 112});
+    private static final int hqg = Q(new byte[]{119, 105, 100, 101});
+    private static final int hqh = Q(new byte[]{80, 73, 67, 84});
+    private static final int hqi = Q(new byte[]{102, 116, 121, 112});
+    private static final int hqj = Q(new byte[]{117, 117, 105, 100});
+    private static final int hqk = Q(new byte[]{99, 109, 111, 118});
+    private static final int hql = Q(new byte[]{115, 116, 99, 111});
+    private static final int hqm = Q(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     public interface InterfaceC0347a {
-        void nj(boolean z);
+        void nk(boolean z);
     }
 
     /* loaded from: classes5.dex */
@@ -88,7 +88,7 @@ public class a {
                     if (strArr == null || strArr.length != 1) {
                         return 2;
                     }
-                    return Integer.valueOf(a.Av(strArr[0]));
+                    return Integer.valueOf(a.Ax(strArr[0]));
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public static int Av(String str) {
+    public static int Ax(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -140,14 +140,14 @@ public class a {
             }
             long wK = wK(order.getInt());
             i = order.getInt();
-            if (i == hqh) {
+            if (i == hqi) {
                 int dS = dS(wK);
                 ByteBuffer order2 = ByteBuffer.allocate(dS).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= dS - 8) {
                     order2.flip();
-                    if ((i == hpZ && i != hqa && i != hqb && i != hqc && i != hqd && i != hqe && i != hqf && i != hqg && i != hqi && i != hqh) || wK < 8) {
+                    if ((i == hqa && i != hqb && i != hqc && i != hqd && i != hqe && i != hqf && i != hqg && i != hqh && i != hqj && i != hqi) || wK < 8) {
                         break;
                     }
                     i2 = i;
@@ -165,18 +165,18 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + wK) - 8);
                 }
-                if (i == hpZ) {
+                if (i == hqa) {
                 }
                 i2 = i;
             }
         }
-        return i != hqc ? 0 : 1;
+        return i != hqd ? 0 : 1;
     }
 
     public static void a(String str, String str2, final InterfaceC0347a interfaceC0347a) {
         if (interfaceC0347a != null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !new File(str).exists()) {
-                interfaceC0347a.nj(false);
+                interfaceC0347a.nk(false);
             } else {
                 new BdAsyncTask<String, Void, Boolean>() { // from class: com.baidu.tieba.k.a.2
                     /* JADX DEBUG: Method merged with bridge method */
@@ -195,7 +195,7 @@ public class a {
                     public void onPostExecute(Boolean bool) {
                         super.onPostExecute((AnonymousClass2) bool);
                         if (InterfaceC0347a.this != null) {
-                            InterfaceC0347a.this.nj(bool.booleanValue());
+                            InterfaceC0347a.this.nk(bool.booleanValue());
                         }
                     }
                 }.execute(str, str2);
@@ -267,7 +267,7 @@ public class a {
             }
             j2 = wK(order.getInt());
             i2 = order.getInt();
-            if (i2 == hqh) {
+            if (i2 == hqi) {
                 int dS = dS(j2);
                 byteBuffer2 = ByteBuffer.allocate(dS).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -281,7 +281,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == hpZ && i2 != hqa && i2 != hqb && i2 != hqc && i2 != hqd && i2 != hqe && i2 != hqf && i2 != hqg && i2 != hqi && i2 != hqh) {
+                if (i2 == hqa && i2 != hqb && i2 != hqc && i2 != hqd && i2 != hqe && i2 != hqf && i2 != hqg && i2 != hqh && i2 != hqj && i2 != hqi) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -309,13 +309,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == hpZ) {
+                if (i2 == hqa) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != hqc) {
+        if (i != hqd) {
             return false;
         }
         int dS2 = dS(j2);
@@ -324,13 +324,13 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == hqj) {
+        if (order2.getInt(12) == hqk) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != hqk && i3 != hql) {
+            if (i3 != hql && i3 != hqm) {
                 order2.position(order2.position() + 1);
             } else if (wK(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -340,7 +340,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int dS3 = dS(order2.getInt());
-                if (i3 == hqk) {
+                if (i3 == hql) {
                     if (order2.remaining() < dS3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -353,7 +353,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != hql) {
+                } else if (i3 != hqm) {
                     continue;
                 } else if (order2.remaining() < dS3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

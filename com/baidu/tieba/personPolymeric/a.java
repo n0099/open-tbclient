@@ -18,8 +18,8 @@ import com.baidu.tieba.view.f;
 import com.baidu.tieba.view.g;
 /* loaded from: classes6.dex */
 public class a implements f {
-    private ImageView iil;
     private ImageView iim;
+    private ImageView iin;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
 
@@ -27,34 +27,34 @@ public class a implements f {
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+        this.iin = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+        if (this.iin.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iin.getLayoutParams();
+            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.iin.setLayoutParams(layoutParams);
+        }
         this.iim = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.view_topbar_icon, (View.OnClickListener) null);
         if (this.iim.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iim.getLayoutParams();
-            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.iim.setLayoutParams(layoutParams);
-        }
-        this.iil = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.view_topbar_icon, (View.OnClickListener) null);
-        if (this.iil.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iil.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.iim.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-            this.iil.setLayoutParams(layoutParams2);
+            this.iim.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.iil.setVisibility(0);
+            this.iim.setVisibility(0);
             return;
         }
-        this.iil.setVisibility(8);
-        if (this.iim.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.iim.getLayoutParams();
+        this.iim.setVisibility(8);
+        if (this.iin.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.iin.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(R.dimen.ds14);
-            this.iim.setLayoutParams(layoutParams3);
+            this.iin.setLayoutParams(layoutParams3);
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void setOnViewResponseListener(final g gVar) {
-        if (this.iil != null) {
-            this.iil.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+        if (this.iim != null) {
+            this.iim.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.jS()) {
@@ -66,8 +66,8 @@ public class a implements f {
                 }
             });
         }
-        if (this.iim != null) {
-            this.iim.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.iin != null) {
+            this.iin.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new am("c12503").bT("obj_locate", "1"));
@@ -82,7 +82,7 @@ public class a implements f {
     }
 
     @Override // com.baidu.tieba.view.f
-    public void bZI() {
+    public void bZJ() {
     }
 
     @Override // com.baidu.tieba.view.f
@@ -92,13 +92,13 @@ public class a implements f {
     @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
-        if (this.iil != null) {
+        if (this.iim != null) {
             if (z) {
-                al.c(this.iil, (int) R.drawable.selector_topbar_more_black);
-                al.c(this.iim, (int) R.drawable.selector_topbar_chat_black);
+                al.c(this.iim, (int) R.drawable.selector_topbar_more_black);
+                al.c(this.iin, (int) R.drawable.selector_topbar_chat_black);
             } else {
-                al.c(this.iil, (int) R.drawable.selector_topbar_more_white);
-                al.c(this.iim, (int) R.drawable.selector_topbar_chat_white);
+                al.c(this.iim, (int) R.drawable.selector_topbar_more_white);
+                al.c(this.iin, (int) R.drawable.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -106,22 +106,22 @@ public class a implements f {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.iil.setAlpha(f2);
                 this.iim.setAlpha(f2);
+                this.iin.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.iil != null) {
+        if (this.iim != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.c(this.iil, (int) R.drawable.selector_topbar_more_white);
-                al.c(this.iim, (int) R.drawable.selector_topbar_chat_white);
+                al.c(this.iim, (int) R.drawable.selector_topbar_more_white);
+                al.c(this.iin, (int) R.drawable.selector_topbar_chat_white);
                 return;
             }
-            al.c(this.iil, (int) R.drawable.selector_topbar_more_black);
-            al.c(this.iim, (int) R.drawable.selector_topbar_chat_black);
+            al.c(this.iim, (int) R.drawable.selector_topbar_more_black);
+            al.c(this.iin, (int) R.drawable.selector_topbar_chat_black);
         }
     }
 

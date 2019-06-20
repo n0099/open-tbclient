@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h klA = new h();
-    static h klB;
-    static h klC;
-    boolean klr = true;
-    boolean kls = true;
-    boolean klt = false;
-    boolean klu = false;
-    boolean klv = false;
-    boolean klw = true;
-    boolean klx = true;
-    boolean kly = true;
-    int klz;
+    static h klD = new h();
+    static h klE;
+    static h klF;
+    int klC;
+    boolean klu = true;
+    boolean klv = true;
+    boolean klw = false;
+    boolean klx = false;
+    boolean kly = false;
+    boolean klz = true;
+    boolean klA = true;
+    boolean klB = true;
 
     h() {
     }
 
     static {
-        klA.klr = true;
-        klA.kls = false;
-        klA.klt = false;
-        klA.klu = false;
-        klA.klv = true;
-        klA.klw = false;
-        klA.klx = false;
-        klA.klz = 0;
-        klB = new h();
-        klB.klr = true;
-        klB.kls = true;
-        klB.klt = false;
-        klB.klu = false;
-        klB.klv = false;
-        klA.klz = 1;
-        klC = new h();
-        klC.klr = false;
-        klC.kls = true;
-        klC.klt = false;
-        klC.klu = true;
-        klC.klv = false;
-        klC.kly = false;
-        klC.klz = 2;
+        klD.klu = true;
+        klD.klv = false;
+        klD.klw = false;
+        klD.klx = false;
+        klD.kly = true;
+        klD.klz = false;
+        klD.klA = false;
+        klD.klC = 0;
+        klE = new h();
+        klE.klu = true;
+        klE.klv = true;
+        klE.klw = false;
+        klE.klx = false;
+        klE.kly = false;
+        klD.klC = 1;
+        klF = new h();
+        klF.klu = false;
+        klF.klv = true;
+        klF.klw = false;
+        klF.klx = true;
+        klF.kly = false;
+        klF.klB = false;
+        klF.klC = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Hj(String str) {
+    public String Hl(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String Ee(int i) {
-        if (this.klu) {
+        if (this.klx) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String Hk(String str) {
+    String Hm(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Hk(str).replace('$', '.');
+            return Hm(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String E(Class cls) {
-        return b(cls, cls.getName(), this.klr);
+        return b(cls, cls.getName(), this.klu);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.klv);
+        return b(cls, str, this.kly);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.kls) {
+            if (!this.klv) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.klt && clsArr != null && clsArr.length != 0) {
+        if (this.klw && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

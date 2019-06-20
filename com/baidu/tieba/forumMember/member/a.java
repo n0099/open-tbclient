@@ -57,7 +57,7 @@ public class a extends com.baidu.adp.widget.ListView.a<b, c> {
         if (cVar.mSkinType != this.mSkinType) {
             cVar.mSkinType = this.mSkinType;
             al.k(cVar.epW, R.drawable.frs_member_manito_bg);
-            al.l(cVar.bMo, R.color.cp_bg_line_b);
+            al.l(cVar.bMp, R.color.cp_bg_line_b);
             al.f(cVar.mTitleView, R.color.cp_cont_b, 1);
             al.c(cVar.ekD, (int) R.drawable.icon_arrow12_gray66_right);
         }

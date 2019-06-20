@@ -75,7 +75,7 @@ public class ShowFavoriteGuideAction extends z {
                 ShowFavoriteGuideAction.this.ayh = c.optString("cb");
                 String str = bVar.id;
                 String str2 = "favorite_guide_count_" + str;
-                if (com.baidu.swan.apps.database.favorite.a.eg(str)) {
+                if (com.baidu.swan.apps.database.favorite.a.ef(str)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite already");
                     com.baidu.swan.apps.storage.b.f.Ni().putString(str2, LivenessStat.TYPE_STRING_DEFAULT);
                     return;
@@ -210,7 +210,7 @@ public class ShowFavoriteGuideAction extends z {
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     ShowFavoriteGuideAction.this.Me();
-                    ShowFavoriteGuideAction.this.cs(com.baidu.swan.apps.database.favorite.a.eg(bVar.id));
+                    ShowFavoriteGuideAction.this.cs(com.baidu.swan.apps.database.favorite.a.ef(bVar.id));
                     if (ShowFavoriteGuideAction.this.aRZ != null) {
                         ShowFavoriteGuideAction.this.aRZ.cancel();
                     }
@@ -228,7 +228,7 @@ public class ShowFavoriteGuideAction extends z {
                 com.baidu.swan.apps.an.j.OB().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (com.baidu.swan.apps.database.favorite.a.eg(bVar.id)) {
+                        if (com.baidu.swan.apps.database.favorite.a.ef(bVar.id)) {
                             ShowFavoriteGuideAction.this.Me();
                         }
                     }

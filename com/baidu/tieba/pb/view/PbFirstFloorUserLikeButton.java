@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation hXh;
+    private AlphaAnimation hXi;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -34,16 +34,16 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void er(boolean z) {
-        this.cck = z;
+        this.ccl = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.cci);
+            setText(this.ccj);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.ccj);
+            setText(this.cck);
             setPadding(getResources().getDimensionPixelSize(R.dimen.tbds34), 0, getResources().getDimensionPixelSize(R.dimen.tbds34), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -57,14 +57,14 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i, boolean z2) {
         if (z2) {
-            this.cck = z;
+            this.ccl = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.hXh == null) {
-                        this.hXh = new AlphaAnimation(1.0f, 0.0f);
-                        this.hXh.setDuration(500L);
-                        this.hXh.setFillAfter(true);
-                        this.hXh.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.hXi == null) {
+                        this.hXi = new AlphaAnimation(1.0f, 0.0f);
+                        this.hXi.setDuration(500L);
+                        this.hXi.setFillAfter(true);
+                        this.hXi.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -80,10 +80,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.hXh.cancel();
+                        this.hXi.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.hXh);
+                        startAnimation(this.hXi);
                         return;
                     } else {
                         setVisibility(8);
@@ -92,7 +92,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.ccj);
+                setText(this.cck);
                 setPadding(getResources().getDimensionPixelSize(R.dimen.tbds18), 0, getResources().getDimensionPixelSize(R.dimen.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -105,7 +105,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
         al.f(this, R.color.cp_btn_a, 1);
-        if (this.cck) {
+        if (this.ccl) {
             setBackgroundDrawable(null);
         } else {
             setBackgroundDrawable(al.getDrawable(R.drawable.pb_frist_floor_selector_like_button_bg));

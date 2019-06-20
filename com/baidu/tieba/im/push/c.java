@@ -13,10 +13,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c gIv = null;
-    private long gsV = 0;
-    private List<Long> gIw = new ArrayList();
-    private final CustomMessageListener gHx = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
+    private static c gIx = null;
+    private long gsX = 0;
+    private List<Long> gIy = new ArrayList();
+    private final CustomMessageListener gHz = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.im.push.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,31 +27,31 @@ public class c {
     };
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gHx);
+        MessageManager.getInstance().registerListener(this.gHz);
     }
 
-    public static c bDk() {
-        if (gIv == null) {
+    public static c bDl() {
+        if (gIx == null) {
             synchronized (c.class) {
-                if (gIv == null) {
-                    gIv = new c();
+                if (gIx == null) {
+                    gIx = new c();
                 }
             }
         }
-        return gIv;
+        return gIx;
     }
 
     public synchronized void dl(String str, String str2) {
         clear();
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             try {
-                this.gsV = com.baidu.adp.lib.g.b.c(str, 0L);
+                this.gsX = com.baidu.adp.lib.g.b.c(str, 0L);
                 try {
                     String[] split = str2.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     if (split != null && split.length > 0) {
                         for (int i = 0; i < split.length; i++) {
                             if (!TextUtils.isEmpty(split[i])) {
-                                this.gIw.add(Long.valueOf(Long.parseLong(split[i])));
+                                this.gIy.add(Long.valueOf(Long.parseLong(split[i])));
                             }
                         }
                     }
@@ -65,22 +65,22 @@ public class c {
     }
 
     public synchronized void clear() {
-        this.gsV = 0L;
-        this.gIw.clear();
+        this.gsX = 0L;
+        this.gIy.clear();
     }
 
     public long getGid() {
-        return this.gsV;
+        return this.gsX;
     }
 
-    public Long bDl() {
-        return com.baidu.tieba.im.memorycache.b.bCr().bCC().get(this.gsV);
+    public Long bDm() {
+        return com.baidu.tieba.im.memorycache.b.bCs().bCD().get(this.gsX);
     }
 
-    public synchronized List<Long> bDm() {
+    public synchronized List<Long> bDn() {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (Long l : this.gIw) {
+        for (Long l : this.gIy) {
             if (l != null) {
                 arrayList.add(Long.valueOf(com.baidu.tieba.im.util.d.dK(l.longValue())));
             }
@@ -88,23 +88,23 @@ public class c {
         return arrayList;
     }
 
-    public synchronized void bDn() {
-        this.gIw.clear();
+    public synchronized void bDo() {
+        this.gIy.clear();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0061, code lost:
-        r9.gIw.add(java.lang.Long.valueOf(r12));
+        r9.gIy.add(java.lang.Long.valueOf(r12));
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void q(long j, long j2) {
-        if (this.gsV != 0 && this.gsV != j) {
-            this.gIw.clear();
-            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.gsV);
+        if (this.gsX != 0 && this.gsX != j) {
+            this.gIy.clear();
+            i.a("PushIdsCacheManager", (Message<?>) null, 0, "addPushId", -1, "not equal original gid:" + j + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.gsX);
         }
-        this.gsV = j;
-        Iterator<Long> it = this.gIw.iterator();
+        this.gsX = j;
+        Iterator<Long> it = this.gIy.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -116,17 +116,17 @@ public class c {
         }
     }
 
-    public synchronized boolean bDo() {
+    public synchronized boolean bDp() {
         boolean z;
-        if (this.gsV > 0) {
-            z = this.gIw.size() > 0;
+        if (this.gsX > 0) {
+            z = this.gIy.size() > 0;
         }
         return z;
     }
 
     public synchronized boolean dE(long j) {
         boolean z;
-        Iterator<Long> it = this.gIw.iterator();
+        Iterator<Long> it = this.gIy.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -141,10 +141,10 @@ public class c {
         return z;
     }
 
-    public synchronized String bDp() {
+    public synchronized String bDq() {
         String str;
         str = "";
-        for (Long l : this.gIw) {
+        for (Long l : this.gIy) {
             str = (l == null || l.longValue() == 0) ? str : (str + l.longValue()) + Constants.ACCEPT_TIME_SEPARATOR_SP;
         }
         return str;

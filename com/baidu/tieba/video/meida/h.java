@@ -29,21 +29,21 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class h {
-    private static volatile h jtd;
+    private static volatile h jtg;
 
     private h() {
-        g.csI();
+        g.csH();
     }
 
-    public static h csO() {
-        if (jtd == null) {
+    public static h csN() {
+        if (jtg == null) {
             synchronized (h.class) {
-                if (jtd == null) {
-                    jtd = new h();
+                if (jtg == null) {
+                    jtg = new h();
                 }
             }
         }
-        return jtd;
+        return jtg;
     }
 
     public i a(List<String> list, String str, boolean z) {
@@ -104,7 +104,7 @@ public class h {
         try {
             e d = d(str, linkedList, null);
             if (d.length == -1) {
-                return new i(d.jsZ == 1 ? 218 : d.jsZ == 2 ? 219 : 220, d.errorMsg);
+                return new i(d.jtc == 1 ? 218 : d.jtc == 2 ? 219 : 220, d.errorMsg);
             }
             BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
             c(str2, linkedList, null);
@@ -123,7 +123,7 @@ public class h {
             return new i(209, TbadkCoreApplication.getInst().getString(R.string.illegal_argument));
         }
         long currentTimeMillis = System.currentTimeMillis();
-        String str4 = com.baidu.tieba.video.c.jno + (as.nT(str + str2 + str3) + "/");
+        String str4 = com.baidu.tieba.video.c.jns + (as.nS(str + str2 + str3) + "/");
         new File(str4).mkdirs();
         File file = new File(str3);
         file.mkdirs();
@@ -138,11 +138,11 @@ public class h {
             e d = d(str, linkedList, linkedList2);
             long j = d.length;
             if (j == -1) {
-                return new i(d.jsZ == 1 ? 210 : d.jsZ == 2 ? 211 : 212, d.errorMsg);
+                return new i(d.jtc == 1 ? 210 : d.jtc == 2 ? 211 : 212, d.errorMsg);
             }
             long r = r(str2, linkedList3);
             if (r == -1) {
-                return new i(d.jsZ == 1 ? 213 : d.jsZ == 2 ? 214 : 215, d.errorMsg);
+                return new i(d.jtc == 1 ? 213 : d.jtc == 2 ? 214 : 215, d.errorMsg);
             }
             a(j, r, linkedList3, linkedList4);
             if (z && linkedList2.size() > 0 && Build.VERSION.SDK_INT >= 16) {
@@ -186,8 +186,8 @@ public class h {
         final String str4 = str2 + "temp_" + System.currentTimeMillis();
         File[] fileArr = new File[strArr.length];
         try {
-            g.a Fk = g.Fk(strArr[0]);
-            if (Fk == null) {
+            g.a Fm = g.Fm(strArr[0]);
+            if (Fm == null) {
                 return false;
             }
             g.a aVar2 = new g.a();
@@ -195,22 +195,22 @@ public class h {
             boolean z2 = true;
             while (i < strArr.length) {
                 if (i != 0) {
-                    g.a Fk2 = g.Fk(strArr[i]);
-                    if (Fk2 == null) {
+                    g.a Fm2 = g.Fm(strArr[i]);
+                    if (Fm2 == null) {
                         return false;
                     }
-                    z = g.a(Fk, Fk2);
-                    aVar = Fk2;
+                    z = g.a(Fm, Fm2);
+                    aVar = Fm2;
                 } else {
                     z = z2;
                     aVar = aVar2;
                 }
                 String str5 = str2 + "temp_" + i + "_" + System.currentTimeMillis();
-                if (new b(strArr[i]).a(str5, z, Fk, aVar) != null) {
-                    if (!z && i != 0 && aVar.csJ()) {
+                if (new b(strArr[i]).a(str5, z, Fm, aVar) != null) {
+                    if (!z && i != 0 && aVar.csI()) {
                         str3 = str2 + "resample_" + System.currentTimeMillis();
                         long currentTimeMillis = System.currentTimeMillis();
-                        boolean f = g.f(str5, str3, aVar.aBP, Fk.aBP);
+                        boolean f = g.f(str5, str3, aVar.aBP, Fm.aBP);
                         BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
                     }
                     str3 = str5;
@@ -220,26 +220,26 @@ public class h {
                 aVar2 = aVar;
                 z2 = z;
             }
-            MultiAudioMixer csM = MultiAudioMixer.csM();
-            csM.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
-                FileOutputStream jte;
+            MultiAudioMixer csL = MultiAudioMixer.csL();
+            csL.a(new MultiAudioMixer.b() { // from class: com.baidu.tieba.video.meida.h.1
+                FileOutputStream jth;
 
                 {
-                    this.jte = new FileOutputStream(str4);
+                    this.jth = new FileOutputStream(str4);
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void R(byte[] bArr) throws IOException {
-                    if (this.jte != null) {
-                        this.jte.write(bArr);
+                    if (this.jth != null) {
+                        this.jth.write(bArr);
                     }
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
                 public void BD(int i2) {
                     try {
-                        if (this.jte != null) {
-                            this.jte.close();
+                        if (this.jth != null) {
+                            this.jth.close();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -247,21 +247,21 @@ public class h {
                 }
 
                 @Override // com.baidu.tieba.video.meida.MultiAudioMixer.b
-                public void csN() {
+                public void csM() {
                     try {
-                        if (this.jte != null) {
-                            this.jte.close();
+                        if (this.jth != null) {
+                            this.jth.close();
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             });
-            csM.e(fileArr);
-            d Fj = d.Fj(str4);
-            Fj.setSampleRate(Fk.aBP);
-            Fj.setChannelCount(Fk.channelCount);
-            Fj.Fi(str);
+            csL.e(fileArr);
+            d Fl = d.Fl(str4);
+            Fl.setSampleRate(Fm.aBP);
+            Fl.setChannelCount(Fm.channelCount);
+            Fl.Fk(str);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

@@ -126,16 +126,16 @@ public class a {
             return arrayList;
         }
         for (String str : stringSet) {
-            b hH = hH(str);
-            if (hH != null) {
-                arrayList.add(hH);
+            b hG = hG(str);
+            if (hG != null) {
+                arrayList.add(hG);
             }
         }
         D(arrayList);
         return arrayList;
     }
 
-    private b hH(String str) {
+    private b hG(String str) {
         b bVar;
         if (TextUtils.isEmpty(str)) {
             return null;

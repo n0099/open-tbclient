@@ -5,24 +5,24 @@ import com.baidu.tieba.aiapps.apps.invoice.model.c;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d<DATA extends c> implements c {
-    public String dbT;
     public String dbU;
-    public DATA dbV;
+    public String dbV;
+    public DATA dbW;
 
     public d() {
     }
 
     public d(DATA data) {
-        this.dbV = data;
+        this.dbW = data;
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.model.c
     public void bh(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.dbT = jSONObject.optString("errno");
-            this.dbU = jSONObject.optString("tipmsg");
-            if (this.dbV != null) {
-                this.dbV.bh(o.cZ(jSONObject.optString("data")));
+            this.dbU = jSONObject.optString("errno");
+            this.dbV = jSONObject.optString("tipmsg");
+            if (this.dbW != null) {
+                this.dbW.bh(o.cY(jSONObject.optString("data")));
             }
         }
     }

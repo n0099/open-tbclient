@@ -22,15 +22,15 @@ public class b {
     public static void aS(boolean z) {
         com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
         if (Lq != null) {
-            putBoolean(dm(Lq.getAppKey()), z);
+            putBoolean(dl(Lq.getAppKey()), z);
         }
     }
 
-    public static boolean dl(String str) {
-        return !TextUtils.isEmpty(str) && a.xA().getBoolean(dm(str), false);
+    public static boolean dk(String str) {
+        return !TextUtils.isEmpty(str) && a.xA().getBoolean(dl(str), false);
     }
 
-    private static String dm(String str) {
+    private static String dl(String str) {
         String bc = com.baidu.swan.apps.u.a.DG().bc(com.baidu.swan.apps.u.a.DB());
         return "consoleSwitch" + str + (TextUtils.isEmpty(bc) ? "" : v.b(bc.getBytes(), false));
     }

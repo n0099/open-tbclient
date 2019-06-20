@@ -45,7 +45,7 @@ public class DnsProxyStatic {
                         dVar = im.get(0);
                     }
                     if (dVar != null) {
-                        if (!TextUtils.isEmpty(dVar.Ay)) {
+                        if (!TextUtils.isEmpty(dVar.Ax)) {
                             DnsProxyStatic.a(eVar, dVar);
                         } else {
                             DnsProxyStatic.b(eVar, dVar);
@@ -56,9 +56,9 @@ public class DnsProxyStatic {
 
             @Override // com.baidu.adp.lib.network.http.a
             public String az(String str) {
-                if (f.bcp().vj(str)) {
+                if (f.bcp().vi(str)) {
                     try {
-                        return e.bci().ac(new URL(str).getHost(), f.bcp().vk(str));
+                        return e.bci().ac(new URL(str).getHost(), f.bcp().vj(str));
                     } catch (MalformedURLException e) {
                         e.printStackTrace();
                         return null;
@@ -82,14 +82,14 @@ public class DnsProxyStatic {
             if (eVar.il().responseCode < 200) {
                 z = true;
             }
-            byte[] bArr = eVar.il().AO;
+            byte[] bArr = eVar.il().AN;
             if (bArr == null) {
                 z = true;
             }
             if (bArr != null && bArr.length == 0) {
                 z = true;
             }
-            com.baidu.tieba.dnsproxy.a.d.bcv().ad(dVar.Ay, z ? false : true);
+            com.baidu.tieba.dnsproxy.a.d.bcv().ad(dVar.Ax, z ? false : true);
             if (z) {
                 try {
                     URL url = new URL(eVar.ik().getUrl());
@@ -98,8 +98,8 @@ public class DnsProxyStatic {
                     statsItem.c("sucnum", Integer.valueOf(eNV));
                     statsItem.c("failnum", 1);
                     statsItem.append("host", url.getHost());
-                    statsItem.append("ip", dVar.Ay);
-                    statsItem.append("reason", dVar.Au);
+                    statsItem.append("ip", dVar.Ax);
+                    statsItem.append("reason", dVar.At);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                     eNV = 0;
                     return;
@@ -137,7 +137,7 @@ public class DnsProxyStatic {
             if (eVar.il().responseCode < 200) {
                 z2 = true;
             }
-            byte[] bArr = eVar.il().AO;
+            byte[] bArr = eVar.il().AN;
             if (bArr == null) {
                 z2 = true;
             }
@@ -152,7 +152,7 @@ public class DnsProxyStatic {
                     statsItem.c("sucnum", Integer.valueOf(eNW));
                     statsItem.c("failnum", 1);
                     statsItem.append("host", url.getHost());
-                    statsItem.append("reason", dVar.Au);
+                    statsItem.append("reason", dVar.At);
                     BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                     eNW = 0;
                     return;

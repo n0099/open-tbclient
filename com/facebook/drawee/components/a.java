@@ -7,18 +7,18 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a jTT = null;
-    private final Runnable jTV = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a jTW = null;
+    private final Runnable jTY = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.cCH();
-            for (InterfaceC0451a interfaceC0451a : a.this.jTU) {
+            a.cCG();
+            for (InterfaceC0451a interfaceC0451a : a.this.jTX) {
                 interfaceC0451a.release();
             }
-            a.this.jTU.clear();
+            a.this.jTX.clear();
         }
     };
-    private final Set<InterfaceC0451a> jTU = new HashSet();
+    private final Set<InterfaceC0451a> jTX = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
@@ -27,31 +27,31 @@ public class a {
         void release();
     }
 
-    public static synchronized a cCG() {
+    public static synchronized a cCF() {
         a aVar;
         synchronized (a.class) {
-            if (jTT == null) {
-                jTT = new a();
+            if (jTW == null) {
+                jTW = new a();
             }
-            aVar = jTT;
+            aVar = jTW;
         }
         return aVar;
     }
 
     public void a(InterfaceC0451a interfaceC0451a) {
-        cCH();
-        if (this.jTU.add(interfaceC0451a) && this.jTU.size() == 1) {
-            this.mUiHandler.post(this.jTV);
+        cCG();
+        if (this.jTX.add(interfaceC0451a) && this.jTX.size() == 1) {
+            this.mUiHandler.post(this.jTY);
         }
     }
 
     public void b(InterfaceC0451a interfaceC0451a) {
-        cCH();
-        this.jTU.remove(interfaceC0451a);
+        cCG();
+        this.jTX.remove(interfaceC0451a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cCH() {
+    public static void cCG() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

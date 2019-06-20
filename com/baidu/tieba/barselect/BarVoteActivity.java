@@ -32,10 +32,10 @@ public class BarVoteActivity extends BaseActivity {
                                 BarVoteActivity.this.epK.getListView().setVisibility(8);
                             }
                             if (fVar == null || fVar.aWT() == null) {
-                                BarVoteActivity.this.epK.uL(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
+                                BarVoteActivity.this.epK.uK(TbadkCoreApplication.getInst().getString(R.string.no_data_text));
                                 return;
                             } else if (fVar.aWT().getStatus() < 1 || fVar.aWT().getStatus() > 2) {
-                                BarVoteActivity.this.epK.uL(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                                BarVoteActivity.this.epK.uK(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             } else {
                                 return;
@@ -58,13 +58,13 @@ public class BarVoteActivity extends BaseActivity {
                         if (BarVoteActivity.this.epK.getListView() != null) {
                             BarVoteActivity.this.epK.getListView().setVisibility(8);
                         }
-                        BarVoteActivity.this.epK.uL(str);
+                        BarVoteActivity.this.epK.uK(str);
                     }
                 } else if (BarVoteActivity.this.epJ != null && BarVoteActivity.this.epJ.mPn == 0) {
                     if (BarVoteActivity.this.epK.getListView() != null) {
                         BarVoteActivity.this.epK.getListView().setVisibility(8);
                     }
-                    BarVoteActivity.this.epK.uL(TbadkCoreApplication.getInst().getString(R.string.error_status));
+                    BarVoteActivity.this.epK.uK(TbadkCoreApplication.getInst().getString(R.string.error_status));
                 }
             }
         }

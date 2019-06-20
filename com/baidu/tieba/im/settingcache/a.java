@@ -12,20 +12,20 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> gJH = new HashMap<>();
+    protected HashMap<String, ChatSetting> gJJ = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, k<Void> kVar);
 
-    protected abstract l<String> bDH();
+    protected abstract l<String> bDI();
 
     public abstract ChatSetting dn(String str, String str2);
 
     public void r(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.gJH) {
-            this.gJH.clear();
+        synchronized (this.gJJ) {
+            this.gJJ.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.gJH) {
-                l<String> bDH = bDH();
-                List<l.b<String>> b = r.b(bDH);
+            synchronized (this.gJJ) {
+                l<String> bDI = bDI();
+                List<l.b<String>> b = r.b(bDI);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = bDH.get(str4)) != null) {
-                            this.gJH.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = bDI.get(str4)) != null) {
+                            this.gJJ.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -65,7 +65,7 @@ public abstract class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public boolean m23do(String str, String str2) {
+    public boolean m22do(String str, String str2) {
         ChatSetting dn = dn(str, str2);
         if (dn == null) {
             return false;

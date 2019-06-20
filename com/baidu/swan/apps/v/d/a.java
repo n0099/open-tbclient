@@ -27,15 +27,15 @@ public class a {
                 break;
         }
         builder.scheme(SchemeConfig.getSchemeHead()).authority(str4).path(str);
-        String eY = eY(str2);
-        if (TextUtils.isEmpty(eY)) {
+        String eX = eX(str2);
+        if (TextUtils.isEmpty(eX)) {
             builder.appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
-        } else if (!eY.contains("?")) {
-            builder.appendEncodedPath(eY).appendQueryParameter("_baiduboxapp", str3);
+        } else if (!eX.contains("?")) {
+            builder.appendEncodedPath(eX).appendQueryParameter("_baiduboxapp", str3);
             build = builder.build();
         } else {
-            builder.appendEncodedPath(eY);
+            builder.appendEncodedPath(eX);
             Uri.Builder buildUpon = Uri.parse(builder.toString()).buildUpon();
             buildUpon.appendQueryParameter("_baiduboxapp", str3);
             build = buildUpon.build();
@@ -46,7 +46,7 @@ public class a {
         return build;
     }
 
-    public static String eY(String str) {
+    public static String eX(String str) {
         if (!TextUtils.isEmpty(str)) {
             String replaceAll = str.replaceAll("^//*|/*/$", "");
             if (DEBUG && !TextUtils.equals(str, replaceAll)) {
@@ -62,7 +62,7 @@ public class a {
             return false;
         }
         if (com.baidu.swan.apps.core.pms.a.Ax()) {
-            return c.eD(str);
+            return c.eC(str);
         }
         return com.baidu.swan.apps.core.a.c.R(context, str);
     }

@@ -14,7 +14,7 @@ import com.baidu.tieba.f.a;
 import com.baidu.tieba.frs.gamesubpb.view.BlankView;
 /* loaded from: classes4.dex */
 public class c {
-    private BaseActivity cVp;
+    private BaseActivity cVq;
     private com.baidu.tieba.f.b dWj;
     private BlankView fDC;
     private a fDE;
@@ -34,8 +34,8 @@ public class c {
     }
 
     public c(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.cVp = baseActivity;
-        this.dWj = new com.baidu.tieba.f.b(this.cVp.getPageContext().getPageActivity());
+        this.cVq = baseActivity;
+        this.dWj = new com.baidu.tieba.f.b(this.cVq.getPageContext().getPageActivity());
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.setStatusBarVisibility(8);
         this.fDG = new View.OnTouchListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.1
@@ -59,7 +59,7 @@ public class c {
                     if (c.this.fDC != null) {
                         c.this.fDC.setBackgroundResource(R.color.transparent);
                     }
-                    c.this.cVp.finish();
+                    c.this.cVq.finish();
                 }
             }
 
@@ -77,7 +77,7 @@ public class c {
     public void bnW() {
         if (this.fDF && this.mNavigationBar != null && this.fDC != null && this.fDC.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
-            this.cVp.setExcludeHeight(0);
+            this.cVq.setExcludeHeight(0);
             if (this.fDE != null) {
                 this.fDE.bnT();
             }
@@ -87,15 +87,15 @@ public class c {
 
     public void bnX() {
         ViewGroup viewGroup;
-        if (!this.fDF && (viewGroup = (ViewGroup) this.cVp.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.fDC = new BlankView(this.cVp.getPageContext().getPageActivity());
+        if (!this.fDF && (viewGroup = (ViewGroup) this.cVq.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.fDC = new BlankView(this.cVq.getPageContext().getPageActivity());
             this.fDC.setBackgroundResource(R.color.transparent);
             ((LinearLayout) viewGroup.getParent()).addView(this.fDC, 0, new LinearLayout.LayoutParams(-1, fDD));
             this.fDC.setVisibility(0);
             this.fDC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.c.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    c.this.cVp.finish();
+                    c.this.cVq.finish();
                 }
             });
             this.fDC.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.frs.gamesubpb.c.5
@@ -110,7 +110,7 @@ public class c {
                     }
                 }
             });
-            this.cVp.setExcludeHeight(fDD);
+            this.cVq.setExcludeHeight(fDD);
             this.fDF = true;
         }
     }

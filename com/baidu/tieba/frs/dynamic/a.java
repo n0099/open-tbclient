@@ -62,7 +62,7 @@ public class a implements c {
                         bgVar.a(threadInfo);
                         bgVar.setCurrentPage(3);
                         bgVar.ael();
-                        if (bgVar.getType() == bg.bIi || bgVar.getType() == bg.bIv || bgVar.getType() == bg.bIA || bgVar.getType() == bg.bIw || bgVar.getType() == bg.bIB || bgVar.getType() == bg.bIC) {
+                        if (bgVar.getType() == bg.bIj || bgVar.getType() == bg.bIw || bgVar.getType() == bg.bIB || bgVar.getType() == bg.bIx || bgVar.getType() == bg.bIC || bgVar.getType() == bg.bID) {
                             this.threadList.add(bgVar);
                         }
                     }

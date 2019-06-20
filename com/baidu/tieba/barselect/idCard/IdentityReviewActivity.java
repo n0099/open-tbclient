@@ -43,7 +43,7 @@ public class IdentityReviewActivity extends BaseActivity {
     private boolean needRetry = false;
     private int eti = 0;
     private int etj = 0;
-    private View.OnClickListener ckH = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.1
+    private View.OnClickListener ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.identity_card_positive) {
@@ -61,7 +61,7 @@ public class IdentityReviewActivity extends BaseActivity {
             }
         }
     };
-    com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cuu = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.2
+    com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cuv = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
@@ -77,7 +77,7 @@ public class IdentityReviewActivity extends BaseActivity {
                 }
             }
             if (str != null) {
-                com.baidu.tbadk.imageManager.c.asp().qp(str + 32);
+                com.baidu.tbadk.imageManager.c.asp().qo(str + 32);
             }
         }
     };
@@ -179,9 +179,9 @@ public class IdentityReviewActivity extends BaseActivity {
         this.etg = (TextView) findViewById(R.id.identity_card_negative_logo);
         MessageManager.getInstance().registerListener(this.byk);
         MessageManager.getInstance().registerListener(this.mHttpMessageListener);
-        this.etd.setOnClickListener(this.ckH);
-        this.ete.setOnClickListener(this.ckH);
-        this.esY.setOnClickListener(this.ckH);
+        this.etd.setOnClickListener(this.ckI);
+        this.ete.setOnClickListener(this.ckI);
+        this.esY.setOnClickListener(this.ckI);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -216,10 +216,10 @@ public class IdentityReviewActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 101) {
-                com.baidu.adp.lib.f.c.iv().a(this.esV, 32, this.cuu, getUniqueId());
+                com.baidu.adp.lib.f.c.iv().a(this.esV, 32, this.cuv, getUniqueId());
                 this.eti = 1;
             } else if (i == 102) {
-                com.baidu.adp.lib.f.c.iv().a(this.esW, 32, this.cuu, getUniqueId());
+                com.baidu.adp.lib.f.c.iv().a(this.esW, 32, this.cuv, getUniqueId());
                 this.etj = 1;
             }
             if (this.esY != null) {

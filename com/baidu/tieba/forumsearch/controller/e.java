@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 /* loaded from: classes6.dex */
 public class e {
-    public static void wn(String str) {
+    public static void wm(String str) {
         int i;
         if (!StringUtils.isNull(str)) {
             String string = com.baidu.tbadk.core.sharedPref.b.agM().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
@@ -74,7 +74,7 @@ public class e {
         }
     }
 
-    public static void wo(String str) {
+    public static void wn(String str) {
         if (!StringUtils.isNull(str)) {
             String string = com.baidu.tbadk.core.sharedPref.b.agM().getString(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("search_forum_history"), "");
             if (!StringUtils.isNull(string)) {

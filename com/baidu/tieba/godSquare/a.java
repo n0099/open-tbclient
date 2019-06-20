@@ -15,58 +15,58 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private BaseActivity cVp;
+    private BaseActivity cVq;
     private PbListView dlY;
     private NoNetworkView eRV;
-    private com.baidu.tieba.godSquare.a.a fVf;
+    private com.baidu.tieba.godSquare.a.a fVh;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private i mPullView;
     private View mRootView;
 
     public a(BaseActivity baseActivity) {
-        this.cVp = baseActivity;
-        this.cVp.setContentView(R.layout.god_square_activity);
-        this.mRootView = this.cVp.findViewById(R.id.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.cVp.findViewById(R.id.view_navigation_bar);
+        this.cVq = baseActivity;
+        this.cVq.setContentView(R.layout.god_square_activity);
+        this.mRootView = this.cVq.findViewById(R.id.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.cVq.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.setTitleText(R.string.god_square);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eRV = (NoNetworkView) this.cVp.findViewById(R.id.view_no_network);
-        this.dlY = new PbListView(this.cVp.getPageContext().getPageActivity());
+        this.eRV = (NoNetworkView) this.cVq.findViewById(R.id.view_no_network);
+        this.dlY = new PbListView(this.cVq.getPageContext().getPageActivity());
         this.dlY.nG();
         this.dlY.ajy();
-        this.mListView = (BdTypeListView) this.cVp.findViewById(R.id.god_square_list_view);
-        this.mPullView = new i(this.cVp.getPageContext());
-        if (this.cVp instanceof h.c) {
-            this.mPullView.setListPullRefreshListener((h.c) this.cVp);
+        this.mListView = (BdTypeListView) this.cVq.findViewById(R.id.god_square_list_view);
+        this.mPullView = new i(this.cVq.getPageContext());
+        if (this.cVq instanceof h.c) {
+            this.mPullView.setListPullRefreshListener((h.c) this.cVq);
         }
-        if (this.cVp instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVp);
+        if (this.cVq instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVq);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.fVf = new com.baidu.tieba.godSquare.a.a(this.cVp.getPageContext(), this.mListView);
-        this.mListView.addAdapters(this.fVf.aHP());
+        this.fVh = new com.baidu.tieba.godSquare.a.a(this.cVq.getPageContext(), this.mListView);
+        this.mListView.addAdapters(this.fVh.aHP());
         this.mListView.setNextPage(this.dlY);
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.cVp.showLoadingView(this.mRootView, true);
+        this.cVq.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.cVp.hideLoadingView(this.mRootView);
+        this.cVq.hideLoadingView(this.mRootView);
     }
 
-    public void wk(String str) {
+    public void wj(String str) {
         this.mListView.setVisibility(8);
-        this.cVp.showNetRefreshView(this.mRootView, str, true);
+        this.cVq.showNetRefreshView(this.mRootView, str, true);
     }
 
     public void aHK() {
         this.mListView.setVisibility(0);
-        this.cVp.hideNetRefreshView(this.mRootView);
+        this.cVq.hideNetRefreshView(this.mRootView);
     }
 
     public void cx(List<m> list) {
@@ -80,29 +80,29 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.fVf.notifyDataSetChanged();
-    }
-
-    public void bsp() {
-        this.dlY.ajy();
-    }
-
-    public void bsq() {
-        this.dlY.setText(this.cVp.getResources().getString(R.string.network_ungeilivable));
-        this.dlY.ajz();
+        this.fVh.notifyDataSetChanged();
     }
 
     public void bsr() {
-        this.dlY.setText(this.cVp.getResources().getString(R.string.list_no_more));
+        this.dlY.ajy();
+    }
+
+    public void bss() {
+        this.dlY.setText(this.cVq.getResources().getString(R.string.network_ungeilivable));
+        this.dlY.ajz();
+    }
+
+    public void bst() {
+        this.dlY.setText(this.cVq.getResources().getString(R.string.list_no_more));
         this.dlY.ajz();
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.cVp.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.cVq.getPageContext(), i);
         this.dlY.iO(R.color.cp_bg_line_c);
         this.dlY.setTextColor(al.getColor(R.color.cp_cont_d));
         this.dlY.iP(i);
-        this.eRV.onChangeSkinType(this.cVp.getPageContext(), i);
+        this.eRV.onChangeSkinType(this.cVq.getPageContext(), i);
     }
 
     public void startPullRefresh() {

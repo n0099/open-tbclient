@@ -60,7 +60,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class k {
-    private AppBarLayout PR;
+    private AppBarLayout PQ;
     private PbListView dlY;
     private BdSwipeRefreshLayout dni;
     private ImageView eGI;
@@ -315,7 +315,7 @@ public class k {
     }
 
     private boolean bkD() {
-        return this.frz != null && this.frz.bqr();
+        return this.frz != null && this.frz.bqt();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v24, resolved type: com.baidu.tieba.frs.FrsFragment */
@@ -448,7 +448,7 @@ public class k {
         this.fqV.setFadingEdgeLength(0);
         this.fqV.setOverScrollMode(2);
         this.fqK.setBottomOrderView(this.fqV);
-        this.fqV.setOnTouchListener(this.fqJ.clb);
+        this.fqV.setOnTouchListener(this.fqJ.clc);
         this.fqV.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.k.10
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
@@ -484,9 +484,9 @@ public class k {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 k.this.fqJ.bki();
-                if (k.this.fqJ != null && k.this.PR != null) {
+                if (k.this.fqJ != null && k.this.PQ != null) {
                     k.this.fqJ.bkq();
-                    k.this.PR.setExpanded(true);
+                    k.this.PQ.setExpanded(true);
                     if (k.this.frm != null) {
                         k.this.frm.c(k.this.fqA, k.this.dkD, false, true);
                     }
@@ -534,12 +534,12 @@ public class k {
         if (this.fri == null) {
             this.fri = new com.baidu.tieba.frs.vc.j(this.fqJ, this.frB);
         }
-        if (this.PR == null) {
-            this.PR = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
-            this.PR.addOnOffsetChangedListener(this.frF);
+        if (this.PQ == null) {
+            this.PQ = (AppBarLayout) rootView.findViewById(R.id.frs_app_bar_layout);
+            this.PQ.addOnOffsetChangedListener(this.frF);
             this.frw = true;
             this.frx = -1;
-            CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) this.PR.getLayoutParams();
+            CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) this.PQ.getLayoutParams();
             if (layoutParams.getBehavior() instanceof AppBarLayoutStickyBehavior) {
                 this.frt = (AppBarLayoutStickyBehavior) layoutParams.getBehavior();
             }
@@ -602,23 +602,23 @@ public class k {
     /* JADX INFO: Access modifiers changed from: private */
     public void jJ(boolean z) {
         if (z && this.fqJ != null && this.fqJ.bjM() != null) {
-            this.fqJ.bjM().bqw();
+            this.fqJ.bjM().bqy();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public int bkG() {
         int i;
-        if (this.PR == null) {
+        if (this.PQ == null) {
             return this.frx;
         }
         if (this.frx != -1) {
             return this.frx;
         }
-        int childCount = this.PR.getChildCount() - 1;
+        int childCount = this.PQ.getChildCount() - 1;
         int i2 = 0;
         while (childCount >= 0) {
-            View childAt = this.PR.getChildAt(childCount);
+            View childAt = this.PQ.getChildAt(childCount);
             if (childAt == null) {
                 i = i2;
             } else {
@@ -635,13 +635,13 @@ public class k {
             childCount--;
             i2 = i;
         }
-        this.frx = Math.max(0, this.PR.getTotalScrollRange() - Math.abs(i2));
+        this.frx = Math.max(0, this.PQ.getTotalScrollRange() - Math.abs(i2));
         return this.frx;
     }
 
-    public void wr(String str) {
+    public void wq(String str) {
         if (this.fri != null) {
-            this.fri.wr(str);
+            this.fri.wq(str);
         }
     }
 
@@ -807,7 +807,7 @@ public class k {
         }
         this.frl.clear();
         if (this.frg != null) {
-            this.frg.bqi();
+            this.frg.bqk();
         }
         if (this.frr != null) {
             this.frr.bmr();
@@ -824,13 +824,13 @@ public class k {
     }
 
     public boolean bkP() {
-        if (this.PR == null || this.frt == null || !this.frt.isSticky()) {
+        if (this.PQ == null || this.frt == null || !this.frt.isSticky()) {
             return this.frg != null && this.frg.bkP();
         }
         if (this.fqV != null) {
             this.fqV.setSelection(0);
         }
-        this.frt.expandedAppBarLayout(this.PR);
+        this.frt.expandedAppBarLayout(this.PQ);
         return true;
     }
 
@@ -856,7 +856,7 @@ public class k {
                 str2 = UtilHelper.getFixedBarText(str, 6, true, false) + "吧";
             }
             this.mNavigationBar.setCenterTextTitle(str2);
-            com.baidu.tbadk.core.i.abb().lZ(str);
+            com.baidu.tbadk.core.i.abb().lY(str);
         }
     }
 
@@ -876,7 +876,7 @@ public class k {
         if (this.fqZ == null && this.fqJ.getPageContext() != null) {
             String[] strArr = {this.fqJ.getPageContext().getPageActivity().getString(R.string.take_photo), this.fqJ.getPageContext().getPageActivity().getString(R.string.album)};
             this.fqZ = new com.baidu.tbadk.core.dialog.b(this.fqJ.getPageContext().getPageActivity());
-            this.fqZ.mF(this.fqJ.getPageContext().getPageActivity().getString(R.string.operation));
+            this.fqZ.mE(this.fqJ.getPageContext().getPageActivity().getString(R.string.operation));
             this.fqZ.a(strArr, new b.a() { // from class: com.baidu.tieba.frs.k.12
                 @Override // com.baidu.tbadk.core.dialog.b.a
                 public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
@@ -906,8 +906,8 @@ public class k {
             m mVar = new m();
             ArrayList<com.baidu.adp.widget.ListView.m> arrayList3 = new ArrayList<>();
             arrayList3.add(mVar);
-            if (this.fqJ != null && this.fqJ.bjK() != null && this.fqJ.bjK().bpc() == 0) {
-                mVar.rl(this.fqJ.bjK().bpj());
+            if (this.fqJ != null && this.fqJ.bjK() != null && this.fqJ.bjK().bpe() == 0) {
+                mVar.rl(this.fqJ.bjK().bpl());
             }
             arrayList2 = arrayList3;
         } else {
@@ -957,7 +957,7 @@ public class k {
 
     public void onPause() {
         if (this.frg != null) {
-            this.frg.bqj();
+            this.frg.bql();
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
     }
@@ -965,7 +965,7 @@ public class k {
     public void onResume() {
         rd(TbadkCoreApplication.getInst().getSkinType());
         if (this.frg != null) {
-            this.frg.bqk();
+            this.frg.bqm();
         }
     }
 
@@ -1127,8 +1127,8 @@ public class k {
         if (this.fqV != null) {
             this.fqV.setSelection(0);
         }
-        if (this.PR != null) {
-            this.PR.setExpanded(true);
+        if (this.PQ != null) {
+            this.PQ.setExpanded(true);
         }
         if (this.dni != null && this.dni.isEnabled()) {
             this.dni.setRefreshing(true);
@@ -1243,7 +1243,7 @@ public class k {
                     if (oVar.frV != null) {
                         com.baidu.tbadk.p.h perfLog = oVar.frV.getPerfLog();
                         perfLog.kK(1000);
-                        perfLog.cyv = true;
+                        perfLog.cyw = true;
                         if (lastVisiblePosition == i) {
                             int[] iArr = new int[2];
                             oVar.frV.getLocationOnScreen(iArr);
@@ -1260,7 +1260,7 @@ public class k {
                                 TbImageView tbImageView = (TbImageView) childAt2;
                                 com.baidu.tbadk.p.h perfLog2 = tbImageView.getPerfLog();
                                 perfLog2.kK(1000);
-                                perfLog2.cyv = true;
+                                perfLog2.cyw = true;
                                 if (lastVisiblePosition == i) {
                                     int[] iArr2 = new int[2];
                                     childAt2.getLocationOnScreen(iArr2);
@@ -1360,13 +1360,13 @@ public class k {
     public void jS(boolean z) {
         this.mIsBackground = z;
         if (this.frm != null) {
-            boolean z2 = (this.fqJ == null || this.fqJ.bjN() == null || this.fqJ.bjN().bqN() == null) ? true : this.fqJ.bjN().bqN().fragment instanceof FrsAllThreadFragment;
+            boolean z2 = (this.fqJ == null || this.fqJ.bjN() == null || this.fqJ.bjN().bqP() == null) ? true : this.fqJ.bjN().bqP().fragment instanceof FrsAllThreadFragment;
             if (z || !z2) {
-                this.frm.mS(false);
-                this.frm.bIE();
+                this.frm.mT(false);
+                this.frm.bIF();
                 return;
             }
-            this.frm.mS(true);
+            this.frm.mT(true);
             this.frm.c(this.fqA, this.dkD, this.frf, true);
         }
     }
@@ -1511,16 +1511,16 @@ public class k {
     }
 
     public void setExpanded(boolean z) {
-        if (this.PR != null) {
-            this.PR.setExpanded(z);
+        if (this.PQ != null) {
+            this.PQ.setExpanded(z);
         }
     }
 
     public void bll() {
-        if (this.PR != null && this.fqV != null) {
+        if (this.PQ != null && this.fqV != null) {
             int count = this.fqV.getCount();
             if (this.fqV.getFirstCompletelyVisiblePosition() == 0 && count <= 2) {
-                this.PR.setExpanded(true, true);
+                this.PQ.setExpanded(true, true);
             }
         }
     }
@@ -1539,10 +1539,10 @@ public class k {
                 for (com.baidu.adp.widget.ListView.m mVar : datas) {
                     if (mVar instanceof bf) {
                         bf bfVar = (bf) mVar;
-                        if (bfVar.bIf != 0 && bfVar.threadData != null && this.fqJ.bjK() != null && this.fqJ.bjK().boI() != null) {
-                            int[] imageWidthAndHeight = this.fqJ.bjK().boI().imageWidthAndHeight(bfVar.threadData);
-                            bfVar.bIf = imageWidthAndHeight[0];
-                            bfVar.bIg = imageWidthAndHeight[1];
+                        if (bfVar.bIg != 0 && bfVar.threadData != null && this.fqJ.bjK() != null && this.fqJ.bjK().boJ() != null) {
+                            int[] imageWidthAndHeight = this.fqJ.bjK().boJ().imageWidthAndHeight(bfVar.threadData);
+                            bfVar.bIg = imageWidthAndHeight[0];
+                            bfVar.bIh = imageWidthAndHeight[1];
                         }
                     }
                 }

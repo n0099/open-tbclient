@@ -1,15 +1,15 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface i {
-    void An(String str);
+    void Ap(String str);
 
-    void Ao(String str);
+    void Aq(String str);
 
-    String Ap(String str);
+    String Ar(String str);
 
-    boolean Aq(String str);
+    boolean As(String str);
 
-    void Ar(String str);
+    void At(String str);
 
     void Fr();
 
@@ -21,8 +21,6 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bLV();
-
     void bLW();
 
     void bLX();
@@ -33,13 +31,15 @@ public interface i {
 
     void bMa();
 
-    String bMb();
+    void bMb();
 
     String bMc();
 
+    String bMd();
+
     void i(int i, int i2, String str);
 
-    void ni(boolean z);
+    void nj(boolean z);
 
     void wI(int i);
 

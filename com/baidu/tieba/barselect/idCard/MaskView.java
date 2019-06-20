@@ -16,8 +16,8 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class MaskView extends View {
-    private int bZk;
-    private int cPU;
+    private int bZl;
+    private int cPV;
     private Paint esO;
     private Paint etl;
     private Rect etm;
@@ -26,11 +26,11 @@ public class MaskView extends View {
     private int maskType;
 
     public void setLineColor(int i) {
-        this.bZk = i;
+        this.bZl = i;
     }
 
     public void setMaskColor(int i) {
-        this.cPU = i;
+        this.cPV = i;
     }
 
     public Rect getFrameRect() {
@@ -70,9 +70,9 @@ public class MaskView extends View {
 
     public MaskView(Context context) {
         super(context);
-        this.bZk = -1;
+        this.bZl = -1;
         this.maskType = 1;
-        this.cPU = Color.argb(100, 0, 0, 0);
+        this.cPV = Color.argb(100, 0, 0, 0);
         this.esO = new Paint(1);
         this.etl = new Paint(1);
         this.etm = new Rect();
@@ -87,9 +87,9 @@ public class MaskView extends View {
 
     public MaskView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bZk = -1;
+        this.bZl = -1;
         this.maskType = 1;
-        this.cPU = Color.argb(100, 0, 0, 0);
+        this.cPV = Color.argb(100, 0, 0, 0);
         this.esO = new Paint(1);
         this.etl = new Paint(1);
         this.etm = new Rect();
@@ -104,9 +104,9 @@ public class MaskView extends View {
 
     public MaskView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bZk = -1;
+        this.bZl = -1;
         this.maskType = 1;
-        this.cPU = Color.argb(100, 0, 0, 0);
+        this.cPV = Color.argb(100, 0, 0, 0);
         this.esO = new Paint(1);
         this.etl = new Paint(1);
         this.etm = new Rect();
@@ -149,7 +149,7 @@ public class MaskView extends View {
         int i2 = rect.top;
         int i3 = rect.right;
         int i4 = rect.bottom;
-        canvas.drawColor(this.cPU);
+        canvas.drawColor(this.cPV);
         a(i, i2, i3, i4, 30.0f, 30.0f, false);
         canvas.drawPath(this.lS, this.etl);
         canvas.drawPath(this.lS, this.esO);

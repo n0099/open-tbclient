@@ -144,11 +144,11 @@ public class j<T> {
                 this.bsD.bsC.currentSize = j;
                 this.bsM.VK();
                 long currentTimeMillis = System.currentTimeMillis();
-                boolean ko = ko(this.bsD.bsC.filePath);
+                boolean kn = kn(this.bsD.bsC.filePath);
                 if (com.baidu.swan.pms.e.DEBUG) {
                     Log.i("PMSTaskProcessor", "performDownload checkMD5Cost=" + (System.currentTimeMillis() - currentTimeMillis));
                 }
-                if (ko) {
+                if (kn) {
                     this.bsD.bsB = new com.baidu.swan.pms.model.a(PushConstants.EXPIRE_NOTIFICATION, "download : package download success");
                     return true;
                 }
@@ -164,7 +164,7 @@ public class j<T> {
         }
     }
 
-    private boolean kn(String str) {
+    private boolean km(String str) {
         File file = new File(str);
         if (!file.exists()) {
             this.bsD.bsB = new com.baidu.swan.pms.model.a(2208, String.format("download file not found:%s", com.baidu.swan.pms.e.c.n("local file save failed:", str)));
@@ -177,9 +177,9 @@ public class j<T> {
         }
     }
 
-    private boolean ko(String str) {
+    private boolean kn(String str) {
         new File(str);
-        if (kn(str)) {
+        if (km(str)) {
             String str2 = this.bsD.bsC.md5 != null ? this.bsD.bsC.md5 : null;
             String b = str != null ? com.baidu.swan.pms.e.b.b(new File(str), true) : null;
             if (str2 == null || b == null) {

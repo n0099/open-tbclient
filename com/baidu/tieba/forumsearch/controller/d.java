@@ -52,7 +52,7 @@ public class d {
         this.fni = aVar;
     }
 
-    public void wm(String str) {
+    public void wl(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.ki()) {
                 this.mPageContext.showToast(R.string.neterror);

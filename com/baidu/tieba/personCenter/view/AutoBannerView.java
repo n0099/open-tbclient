@@ -16,7 +16,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.h.c cks;
+    private com.baidu.tbadk.h.c ckt;
     private CoverFlowView<com.baidu.tieba.personCenter.data.a> fdq;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
@@ -84,7 +84,7 @@ public class AutoBannerView extends RelativeLayout {
         return i > 0 && i <= v.Z(this.mData);
     }
 
-    public void xv(String str) {
+    public void xx(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ba.aiz().c((TbPageContext) i.ab(getContext()), new String[]{str});
@@ -112,7 +112,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.c cVar) {
-        this.cks = cVar;
+        this.ckt = cVar;
     }
 
     public void onChangeSkinType(int i) {
@@ -130,8 +130,8 @@ public class AutoBannerView extends RelativeLayout {
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.cks != null) {
-            this.cks.a(this, i == 0, null);
+        if (this.ckt != null) {
+            this.ckt.a(this, i == 0, null);
         }
     }
 }

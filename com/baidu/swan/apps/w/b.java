@@ -39,7 +39,7 @@ public class b extends a {
                 fVar.mAppId = this.azk.vk().getAppId();
                 fVar.mSource = this.azk.vk().EW();
                 fVar.mType = SmsLoginView.StatEvent.LOGIN_SHOW;
-                fVar.ak(com.baidu.swan.apps.statistic.e.hn(vk.EX()));
+                fVar.ak(com.baidu.swan.apps.statistic.e.hm(vk.EX()));
                 com.baidu.swan.apps.statistic.e.onEvent(fVar);
             }
             com.baidu.swan.apps.u.a.Ed().wG();
@@ -117,15 +117,15 @@ public class b extends a {
                         }
                         com.baidu.swan.apps.console.c.d("SwanApp", "subpackage is invalid");
                     } else {
-                        String ik = aa.ik(bVar.getPage());
-                        if (!TextUtils.isEmpty(ik) && ik.startsWith(File.separator)) {
-                            ik = ik.substring(1);
+                        String ij = aa.ij(bVar.getPage());
+                        if (!TextUtils.isEmpty(ij) && ij.startsWith(File.separator)) {
+                            ij = ij.substring(1);
                         }
-                        String str = gVar.axJ.aQo.aQC.get(ik);
+                        String str = gVar.axJ.aQo.aQC.get(ij);
                         String str2 = gVar.axI;
                         com.baidu.swan.apps.scheme.actions.i.g.Mj().a(Lq.CR(), bVar.getAppId(), bVar.getVersion(), str, gVar.axJ.aQp.aQD.get(str), str2, b.this.zv(), new g.a() { // from class: com.baidu.swan.apps.w.b.1.1
                             @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-                            public void fb(String str3) {
+                            public void fa(String str3) {
                                 if (b.DEBUG) {
                                     Log.e("AppsControllerImpl", "下载分包成功");
                                 }
@@ -161,8 +161,8 @@ public class b extends a {
         }
         com.baidu.swan.apps.core.j.c.Bi().d(bVar);
         com.baidu.swan.apps.core.j.c.Bi().a((c.a) null);
-        com.baidu.swan.apps.ae.a.c dR = com.baidu.swan.apps.core.h.a.AW().dR(bVar.getAppId());
-        if (dR != null) {
+        com.baidu.swan.apps.ae.a.c dQ = com.baidu.swan.apps.core.h.a.AW().dQ(bVar.getAppId());
+        if (dQ != null) {
             e.g gVar = new e.g();
             j.a(new Runnable() { // from class: com.baidu.swan.apps.w.b.2
                 @Override // java.lang.Runnable
@@ -170,10 +170,10 @@ public class b extends a {
                     e.d.af(bVar.getAppId(), bVar.getVersion());
                 }
             }, "deleteLowerVersionFolder");
-            gVar.axJ = dR;
+            gVar.axJ = dQ;
             gVar.axI = e.d.ae(bVar.getAppId(), bVar.getVersion()).getPath() + File.separator;
             com.baidu.swan.apps.performance.f.HY().f(new UbcFlowEvent("na_post_to_main_start"));
-            com.baidu.swan.apps.y.f.GN().fz("na_post_to_main_start");
+            com.baidu.swan.apps.y.f.GN().fy("na_post_to_main_start");
             b(bVar, gVar);
             com.baidu.swan.apps.core.h.a.release();
         }
@@ -202,7 +202,7 @@ public class b extends a {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.swan.apps.v.b.b bVar, e.g gVar) {
         com.baidu.swan.apps.performance.f.HY().f(new UbcFlowEvent("na_post_to_main_end"));
-        com.baidu.swan.apps.y.f.GN().fz("na_post_to_main_end");
+        com.baidu.swan.apps.y.f.GN().fy("na_post_to_main_end");
         if (DEBUG) {
             Log.d("AppsControllerImpl", "onLoaded loadedInfo: " + gVar);
         }

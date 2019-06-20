@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int bUW;
-    protected volatile HashMap<Long, Integer> jbt = new HashMap<>();
+    protected volatile int bUX;
+    protected volatile HashMap<Long, Integer> jbx = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.bUW = i;
+        this.bUX = i;
     }
 
-    public void Eh(String str) {
+    public void Ej(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.jbt.size() >= this.bUW) {
-                    cns();
+                if (this.jbx.size() >= this.bUX) {
+                    cnt();
                 }
                 this.mWeight++;
-                this.jbt.put(valueOf, Integer.valueOf(this.mWeight));
+                this.jbx.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void cns() {
+    public void cnt() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.jbt.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.jbx.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.jbt.remove(l2);
+                this.jbx.remove(l2);
             } else {
-                this.jbt.clear();
+                this.jbx.clear();
             }
         }
     }
 
-    public boolean Ei(String str) {
+    public boolean Ek(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.jbt.get(valueOf) != null;
+                z = this.jbx.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean Ej(String str) {
+    public boolean El(String str) {
         try {
-            return this.jbt.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.jbx.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void cnr() {
+    public void cns() {
         synchronized (this) {
-            this.jbt.clear();
+            this.jbx.clear();
         }
     }
 }

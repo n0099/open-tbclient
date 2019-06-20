@@ -77,7 +77,7 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                a.this.dp(jSONObject.toString());
+                a.this.m15do(jSONObject.toString());
                 com.baidu.swan.apps.console.c.d("PropertyLogcat", jSONObject.toString());
                 if (a.this.anp != null) {
                     a.this.anp.sendEmptyMessageDelayed(100, a.this.ano);
@@ -87,7 +87,8 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dp(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public void m15do(String str) {
         if (this.anq != null) {
             try {
                 this.anq.write(str);

@@ -156,7 +156,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized String eB(String str) {
+    public static synchronized String eA(String str) {
         FileLock fileLock;
         BufferedReader bufferedReader;
         Throwable th;

@@ -76,7 +76,7 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2, boolean z6) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
-        intent.putExtra(ABTEST, b.lp("picpage_content_clear"));
+        intent.putExtra(ABTEST, b.lo("picpage_content_clear"));
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);

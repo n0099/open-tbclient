@@ -11,21 +11,21 @@ import com.baidu.tieba.recapp.l;
 import com.baidu.tieba.recapp.r;
 /* loaded from: classes.dex */
 public class b {
-    private static volatile b cPB;
-    private long cPy;
-    private final int cPw = 2;
-    private final int cPx = 3;
+    private static volatile b cPC;
+    private long cPz;
+    private final int cPx = 2;
+    private final int cPy = 3;
     private int interval = -1;
-    private CustomMessageListener cPC = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
+    private CustomMessageListener cPD = new CustomMessageListener(2016522) { // from class: com.baidu.tieba.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.ceL().ceG() != null) {
-                r.ceL().ceG().cey();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.ceM().ceH() != null) {
+                r.ceM().ceH().cez();
             }
         }
     };
-    private CustomMessageListener cPD = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
+    private CustomMessageListener cPE = new CustomMessageListener(2016521) { // from class: com.baidu.tieba.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,11 +34,11 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cPE = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
+    private CustomMessageListener cPF = new CustomMessageListener(2016520) { // from class: com.baidu.tieba.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cPy != 0) {
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cPz != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
                     if (!data.getClass().getSimpleName().equals("LoginActivity") && b.this.azg()) {
@@ -58,7 +58,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener cPF = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
+    private CustomMessageListener cPG = new CustomMessageListener(2016523) { // from class: com.baidu.tieba.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -67,56 +67,56 @@ public class b {
                 if (data instanceof Boolean) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (((Boolean) data).booleanValue()) {
-                        b.this.cPz = currentTimeMillis - b.this.cPy <= 1;
+                        b.this.cPA = currentTimeMillis - b.this.cPz <= 1;
                     }
                 }
             }
         }
     };
-    private boolean cPz = false;
     private boolean cPA = false;
+    private boolean cPB = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b aze() {
-        if (cPB == null) {
+        if (cPC == null) {
             synchronized (b.class) {
-                if (cPB == null) {
-                    cPB = new b();
+                if (cPC == null) {
+                    cPC = new b();
                 }
             }
         }
-        return cPB;
+        return cPC;
     }
 
     private b() {
-        MessageManager.getInstance().registerListener(this.cPD);
         MessageManager.getInstance().registerListener(this.cPE);
-        MessageManager.getInstance().registerListener(this.cPC);
         MessageManager.getInstance().registerListener(this.cPF);
-        if (r.ceL().ceG() != null) {
-            r.ceL().ceG().cex();
+        MessageManager.getInstance().registerListener(this.cPD);
+        MessageManager.getInstance().registerListener(this.cPG);
+        if (r.ceM().ceH() != null) {
+            r.ceM().ceH().cey();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void azf() {
-        this.cPA = true;
-        this.cPy = System.currentTimeMillis() / 1000;
+        this.cPB = true;
+        this.cPz = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean azg() {
         azh();
-        this.cPA = false;
+        this.cPB = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
-        if (this.cPz) {
-            this.cPz = false;
+        if (this.cPA) {
+            this.cPA = false;
             return false;
-        } else if (currentTimeMillis - this.cPy <= 2 || currentTimeMillis - this.cPy <= this.interval) {
+        } else if (currentTimeMillis - this.cPz <= 2 || currentTimeMillis - this.cPz <= this.interval) {
             return false;
         } else {
-            l ceG = r.ceL().ceG();
-            return (ceG != null ? ceG.cez() : 3) < 3;
+            l ceH = r.ceM().ceH();
+            return (ceH != null ? ceH.ceA() : 3) < 3;
         }
     }
 

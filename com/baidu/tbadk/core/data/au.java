@@ -3,12 +3,12 @@ package com.baidu.tbadk.core.data;
 import tbclient.FrsPage.RealTime;
 /* loaded from: classes.dex */
 public class au {
-    private Long bHu;
+    private Long bHv;
     private String mIcon;
     private String mUrl;
 
     public void a(RealTime realTime) {
-        this.bHu = realTime.task_id;
+        this.bHv = realTime.task_id;
         this.mIcon = realTime.icon;
         this.mUrl = realTime.url;
     }

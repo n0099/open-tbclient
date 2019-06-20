@@ -44,7 +44,11 @@ public class d implements u {
             Bundle bundle = new Bundle();
             try {
                 String string = jSONObject.getString("linkUrl");
-                jSONObject.put("linkUrl", "https://tieba.baidu.com/mo/q/smallapp/sharePage?from=singlemessage&isappinstalled=0#/?" + string.substring(string.indexOf("appid")));
+                if (string.indexOf("appid") > 0) {
+                    jSONObject.put("linkUrl", "https://tieba.baidu.com/mo/q/smallapp/sharePage?from=singlemessage&isappinstalled=0#/?" + string.substring(string.indexOf("appid")));
+                } else {
+                    jSONObject.put("linkUrl", string);
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

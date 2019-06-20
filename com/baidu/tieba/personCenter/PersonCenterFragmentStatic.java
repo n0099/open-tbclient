@@ -10,7 +10,7 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 public class PersonCenterFragmentStatic {
     static {
         aHr();
-        a.cfZ();
+        a.cga();
     }
 
     private static void aHr() {

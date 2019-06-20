@@ -27,7 +27,7 @@ public final class a {
     private final Set<com.baidu.swan.apps.an.d.a<a>> aTv = new HashSet();
     private TaskState aUI = TaskState.INIT;
     private boolean mIsLogin = false;
-    public final com.baidu.swan.apps.ak.a aUK = new com.baidu.swan.apps.ak.a().Y(8).hZ("OpenData");
+    public final com.baidu.swan.apps.ak.a aUK = new com.baidu.swan.apps.ak.a().Y(8).hY("OpenData");
     private boolean aUL = false;
     private final com.baidu.swan.apps.an.c.a aUM = new com.baidu.swan.apps.an.c.a() { // from class: com.baidu.swan.apps.setting.b.a.1
         @Override // java.lang.Runnable
@@ -85,7 +85,7 @@ public final class a {
         h(aVar);
         this.aFa = com.baidu.swan.apps.ae.b.Lq();
         if (this.aFa == null) {
-            this.aUK.aa(11L).hZ("SwanApp is null");
+            this.aUK.aa(11L).hY("SwanApp is null");
             finish();
             return;
         }
@@ -106,33 +106,33 @@ public final class a {
             /* renamed from: a */
             public void D(g<JSONObject> gVar) {
                 if (gVar == null || !gVar.isOk() || gVar.mData == null) {
-                    a.this.aUK.aa(10002L).hZ("bad MaOpenData response");
+                    a.this.aUK.aa(10002L).hY("bad MaOpenData response");
                     a.this.finish();
                     return;
                 }
                 c.i("OpenData", gVar.mData.toString());
                 a.this.aUK.aa(gVar.mData.optInt("errno", SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE));
-                a.this.aUK.hZ(gVar.mData.optString("errmsg", ""));
+                a.this.aUK.hY(gVar.mData.optString("errmsg", ""));
                 if (0 != a.this.aUK.Od()) {
-                    a.this.aUK.hZ("by errno");
+                    a.this.aUK.hY("by errno");
                     a.this.finish();
                     return;
                 }
                 JSONObject optJSONObject = gVar.mData.optJSONObject("data");
                 if (optJSONObject == null) {
-                    a.this.aUK.aa(14L).hZ("by data parse");
+                    a.this.aUK.aa(14L).hY("by data parse");
                     a.this.finish();
                     return;
                 }
                 com.baidu.swan.apps.setting.oauth.e ag = com.baidu.swan.apps.setting.oauth.e.ag(optJSONObject.optJSONObject("scope"));
                 if (ag == null) {
-                    a.this.aUK.aa(14L).hZ("illegal scope");
+                    a.this.aUK.aa(14L).hY("illegal scope");
                     a.this.finish();
                     return;
                 }
                 a.this.aUJ = optJSONObject.optJSONObject("opendata");
                 if (ag.aUi < 0) {
-                    a.this.aUK.aa(10005L).hZ("by tipStatus");
+                    a.this.aUK.aa(10005L).hY("by tipStatus");
                     a.this.finish();
                 } else if (ag.aUi <= 0) {
                     if (a.this.mIsLogin || !ag.MH()) {
@@ -140,7 +140,7 @@ public final class a {
                             @Override // com.baidu.swan.apps.setting.oauth.a
                             public void bB(boolean z) {
                                 if (!z) {
-                                    a.this.aUK.aa(10003L).hZ("by dialog cancel");
+                                    a.this.aUK.aa(10003L).hY("by dialog cancel");
                                 }
                                 a.this.ct(z);
                             }
@@ -165,13 +165,13 @@ public final class a {
                 switch (i) {
                     case -2:
                         com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_UESR_REFUSE", (Boolean) true);
-                        a.this.aUK.aa(10004L).hZ("login cancel by user");
+                        a.this.aUK.aa(10004L).hY("login cancel by user");
                         a.this.finish();
                         return;
                     case -1:
                     default:
                         com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_LOGIN", (Boolean) true);
-                        a.this.aUK.aa(10004L).hZ("system login error");
+                        a.this.aUK.aa(10004L).hY("system login error");
                         a.this.finish();
                         return;
                     case 0:
@@ -194,7 +194,7 @@ public final class a {
                 if (!z && !a.this.aUL) {
                     a.this.finish();
                 } else if (gVar == null || !gVar.isOk() || gVar.mData == null || gVar.mData.aUn == null) {
-                    a.this.aUK.aa(10002L).hZ("bad Accredit response");
+                    a.this.aUK.aa(10002L).hY("bad Accredit response");
                     a.this.finish();
                 } else {
                     a.this.aUJ = gVar.mData.aUn;

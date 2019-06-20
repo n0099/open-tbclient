@@ -5,16 +5,16 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class aa implements l {
-    private final e jYE;
-    private final e jYF;
-    private final f jYG;
-    private final int jYH;
+    private final e jYH;
+    private final e jYI;
+    private final f jYJ;
+    private final int jYK;
 
     public aa(e eVar, e eVar2, f fVar, int i) {
-        this.jYE = eVar;
-        this.jYF = eVar2;
-        this.jYG = fVar;
-        this.jYH = i;
+        this.jYH = eVar;
+        this.jYI = eVar2;
+        this.jYJ = fVar;
+        this.jYK = i;
     }
 
     /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: bolts.g<TContinuationResult>, bolts.g<com.facebook.imagepipeline.f.d> */
@@ -23,15 +23,15 @@ public class aa implements l {
     public bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, final AtomicBoolean atomicBoolean) {
         e eVar;
         final e eVar2;
-        final com.facebook.cache.common.b c = this.jYG.c(imageRequest, obj);
-        boolean i = this.jYF.i(c);
-        boolean i2 = this.jYE.i(c);
+        final com.facebook.cache.common.b c = this.jYJ.c(imageRequest, obj);
+        boolean i = this.jYI.i(c);
+        boolean i2 = this.jYH.i(c);
         if (i || !i2) {
-            eVar = this.jYF;
-            eVar2 = this.jYE;
+            eVar = this.jYI;
+            eVar2 = this.jYH;
         } else {
-            eVar = this.jYE;
-            eVar2 = this.jYF;
+            eVar = this.jYH;
+            eVar2 = this.jYI;
         }
         return eVar.a(c, atomicBoolean).b(new bolts.f<com.facebook.imagepipeline.f.d, bolts.g<com.facebook.imagepipeline.f.d>>() { // from class: com.facebook.imagepipeline.c.aa.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -48,13 +48,13 @@ public class aa implements l {
 
     @Override // com.facebook.imagepipeline.c.l
     public void a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, Object obj) {
-        com.facebook.cache.common.b c = this.jYG.c(imageRequest, obj);
+        com.facebook.cache.common.b c = this.jYJ.c(imageRequest, obj);
         switch (a(imageRequest, dVar)) {
             case DEFAULT:
-                this.jYE.a(c, dVar);
+                this.jYH.a(c, dVar);
                 return;
             case SMALL:
-                this.jYF.a(c, dVar);
+                this.jYI.a(c, dVar);
                 return;
             default:
                 return;
@@ -64,7 +64,7 @@ public class aa implements l {
     @Override // com.facebook.imagepipeline.c.l
     public ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         int size = dVar.getSize();
-        return (size < 0 || size >= this.jYH) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
+        return (size < 0 || size >= this.jYK) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

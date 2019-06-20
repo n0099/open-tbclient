@@ -10,38 +10,38 @@ import com.baidu.tieba.R;
 import tbclient.SimpleUser;
 /* loaded from: classes4.dex */
 public class b {
-    private BaseActivity cVp;
-    private LinearLayout cVu;
-    private TbSettingTextTipView cVv;
+    private BaseActivity cVq;
+    private LinearLayout cVv;
     private TbSettingTextTipView cVw;
+    private TbSettingTextTipView cVx;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.cVp = baseActivity;
+        this.cVq = baseActivity;
         this.mOnClickListener = onClickListener;
         apq();
     }
 
     private void apq() {
-        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.cVp).inflate(R.layout.account_safe_activity, (ViewGroup) null);
-        this.cVu = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
-        this.cVv = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
-        this.cVw = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
-        this.cVv.aps();
+        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.cVq).inflate(R.layout.account_safe_activity, (ViewGroup) null);
+        this.cVv = (LinearLayout) this.mRootLayout.findViewById(R.id.content_container);
+        this.cVw = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.bar_record);
+        this.cVx = (TbSettingTextTipView) this.mRootLayout.findViewById(R.id.account_status);
         this.cVw.aps();
-        this.cVv.setOnClickListener(this.mOnClickListener);
+        this.cVx.aps();
         this.cVw.setOnClickListener(this.mOnClickListener);
+        this.cVx.setOnClickListener(this.mOnClickListener);
     }
 
     public void jT(int i) {
-        this.cVp.getLayoutMode().setNightMode(i == 1);
-        this.cVp.getLayoutMode().onModeChanged(this.mRootLayout);
+        this.cVq.getLayoutMode().setNightMode(i == 1);
+        this.cVq.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.cVw.setTip(simpleUser.block_msg);
+            this.cVx.setTip(simpleUser.block_msg);
         }
     }
 
@@ -51,6 +51,6 @@ public class b {
 
     public void release() {
         this.mRootLayout.removeAllViews();
-        this.cVp = null;
+        this.cVq = null;
     }
 }

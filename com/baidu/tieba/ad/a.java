@@ -15,17 +15,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern bTp = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a cVx = new a();
+    private static final Pattern bTq = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a cVy = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> bTn = new ConcurrentHashMap<>();
-    private h.c cVy = null;
+    private final ConcurrentHashMap<String, h.b> bTo = new ConcurrentHashMap<>();
+    private h.c cVz = null;
 
     private a() {
     }
 
     public static a aBK() {
-        return cVx;
+        return cVy;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.cVy = cVar;
+        this.cVz = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,9 +76,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.bTn.get(oa(str2));
+        h.b bVar = this.bTo.get(nZ(str2));
         if (bVar != null) {
-            bVar.k(context, nZ(rY(str2)));
+            bVar.k(context, nY(rX(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.cVy != null) {
+        if (!z3 && this.cVz != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,7 +104,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String rY(String str) {
+    private String rX(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -112,7 +112,7 @@ public final class a implements h {
         return null;
     }
 
-    private Map<String, String> nZ(String str) {
+    private Map<String, String> nY(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -131,7 +131,7 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String oa(String str) {
+    private String nZ(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -152,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (bTp.matcher(str2).find()) {
-            this.cVy.b(context, str, str2, z, dVar, z2);
+        if (bTq.matcher(str2).find()) {
+            this.cVz.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean rZ(String str) {
-        return bTp.matcher(str).find();
+    public boolean rY(String str) {
+        return bTq.matcher(str).find();
     }
 }

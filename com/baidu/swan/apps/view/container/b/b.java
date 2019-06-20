@@ -41,11 +41,11 @@ public class b implements View.OnTouchListener {
     public static boolean Px() {
         SwanCoreVersion BA = c.Bi().BA();
         long j = BA != null ? BA.aVW : 0L;
-        long hI = com.baidu.swan.apps.swancore.b.hI("1.12.0");
+        long hH = com.baidu.swan.apps.swancore.b.hH("1.12.0");
         if (DEBUG) {
-            Log.d("SwanAppTouchListener", "targetSwanVersion =" + hI + ";curSwanVersion: " + j);
+            Log.d("SwanAppTouchListener", "targetSwanVersion =" + hH + ";curSwanVersion: " + j);
         }
-        if (j < hI) {
+        if (j < hH) {
             return false;
         }
         return true;
@@ -56,9 +56,9 @@ public class b implements View.OnTouchListener {
     }
 
     private void Pz() {
-        AbsoluteLayout fa = ac.fa(this.aAv);
-        if (fa != null) {
-            fa.getLocationOnScreen(this.bbJ);
+        AbsoluteLayout eZ = ac.eZ(this.aAv);
+        if (eZ != null) {
+            eZ.getLocationOnScreen(this.bbJ);
         }
     }
 

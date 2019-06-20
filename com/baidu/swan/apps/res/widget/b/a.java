@@ -206,7 +206,7 @@ public final class a {
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
-                simpleDraweeView.getHierarchy().a(new RoundingParams().sj(false));
+                simpleDraweeView.getHierarchy().a(new RoundingParams().sk(false));
             }
         } else {
             simpleDraweeView.setVisibility(8);

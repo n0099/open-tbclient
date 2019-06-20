@@ -16,35 +16,35 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class MsgActivityView extends g {
     private HeadImageView frV;
-    private com.baidu.adp.lib.c.b gsA;
-    private TextView gsw;
-    private TextView gsx;
+    private TextView gsA;
+    private com.baidu.adp.lib.c.a gsB;
+    private com.baidu.adp.lib.c.b gsC;
     private TextView gsy;
-    private com.baidu.adp.lib.c.a gsz;
+    private TextView gsz;
     private int mPosition;
 
     public MsgActivityView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, R.layout.msg_msgactivity_view);
         this.faX = (TextView) findViewById(R.id.tex_msgitem_time);
-        this.gsw = (TextView) findViewById(R.id.msg_msgactivity_title);
-        this.gsx = (TextView) findViewById(R.id.msg_msgactivity_time);
-        this.gsy = (TextView) findViewById(R.id.msg_msgactivity_address);
+        this.gsy = (TextView) findViewById(R.id.msg_msgactivity_title);
+        this.gsz = (TextView) findViewById(R.id.msg_msgactivity_time);
+        this.gsA = (TextView) findViewById(R.id.msg_msgactivity_address);
         this.frV = (HeadImageView) findViewById(R.id.img_msgactivity_photo);
         this.frV.setIsRound(false);
         this.frV.setClickable(true);
         eR().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgActivityView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (MsgActivityView.this.gsz != null) {
-                    MsgActivityView.this.gsz.a(view, 8, MsgActivityView.this.mPosition, 0L);
+                if (MsgActivityView.this.gsB != null) {
+                    MsgActivityView.this.gsB.a(view, 8, MsgActivityView.this.mPosition, 0L);
                 }
             }
         });
         eR().setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.chat.MsgActivityView.2
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                if (MsgActivityView.this.gsA != null) {
-                    MsgActivityView.this.gsA.b(view, 8, MsgActivityView.this.mPosition, 0L);
+                if (MsgActivityView.this.gsC != null) {
+                    MsgActivityView.this.gsC.b(view, 8, MsgActivityView.this.mPosition, 0L);
                     return true;
                 }
                 return true;
@@ -66,7 +66,7 @@ public class MsgActivityView extends g {
                     String optString4 = optJSONObject.optString("activityImage");
                     final String optString5 = optJSONObject.optString("activityUserId");
                     final String optString6 = optJSONObject.optString("activityUserName");
-                    this.gsw.setText(optString);
+                    this.gsy.setText(optString);
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(com.baidu.adp.lib.g.b.c(optString2, 0L) * 1000);
                     int i = calendar.get(11);
@@ -107,12 +107,12 @@ public class MsgActivityView extends g {
                     } else {
                         string2 = this.mContext.getResources().getString(R.string.am);
                     }
-                    this.gsx.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
+                    this.gsz.setText(String.format("%d-%d-%d %s %s %d:%d", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), string, string2, Integer.valueOf(i), Integer.valueOf(i2)));
                     if (TextUtils.isEmpty(optString3)) {
-                        this.gsy.setVisibility(4);
+                        this.gsA.setVisibility(4);
                     } else {
-                        this.gsy.setVisibility(0);
-                        this.gsy.setText(optString3);
+                        this.gsA.setVisibility(0);
+                        this.gsA.setText(optString3);
                     }
                     this.frV.setTag(optString4);
                     this.frV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.MsgActivityView.3
@@ -131,12 +131,12 @@ public class MsgActivityView extends g {
 
     @Override // com.baidu.tieba.im.chat.g
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.gsz = aVar;
+        this.gsB = aVar;
     }
 
     @Override // com.baidu.tieba.im.chat.g
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.gsA = bVar;
+        this.gsC = bVar;
     }
 
     @Override // com.baidu.tieba.im.chat.g

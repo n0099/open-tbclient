@@ -6,17 +6,17 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast Eg;
+    private static Toast Ef;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.Eg != null) {
-                e.Eg.cancel();
+            if (e.Ef != null) {
+                e.Ef.cancel();
             }
         }
     };
-    private boolean bQj;
+    private boolean bQk;
 
     public static e agU() {
         return new e();
@@ -26,26 +26,26 @@ public class e {
     }
 
     public void l(String str, int i, int i2) {
-        if (!this.bQj && str != null) {
+        if (!this.bQk && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (Eg != null && Eg.getView() != null) {
+                if (Ef != null && Ef.getView() != null) {
                     try {
-                        Eg.setText(trim);
+                        Ef.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
-                        Eg.setText(trim);
-                        Eg.setGravity(17, 0, i2);
+                        Ef = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                        Ef.setText(trim);
+                        Ef.setGravity(17, 0, i2);
                     }
                 } else {
-                    Eg = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
-                    Eg.setText(trim);
-                    Eg.setGravity(17, 0, i2);
+                    Ef = Toast.makeText(BdBaseApplication.getInst().getApp(), (CharSequence) null, 0);
+                    Ef.setText(trim);
+                    Ef.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                Eg.show();
+                Ef.show();
             }
         }
     }
@@ -71,19 +71,19 @@ public class e {
     }
 
     public void onPause() {
-        this.bQj = true;
+        this.bQk = true;
         cancel();
     }
 
     public void onResume() {
-        this.bQj = false;
+        this.bQk = false;
     }
 
     public static void cancel() {
-        if (Eg != null) {
+        if (Ef != null) {
             mHandler.removeCallbacks(r);
-            Eg.cancel();
-            Eg = null;
+            Ef.cancel();
+            Ef = null;
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.tieba.enterForum.data.i;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.d, com.baidu.tieba.enterForum.data.b> {
     private View aKg;
-    private View bMQ;
+    private View bMR;
     private ViewEventCenter eQo;
     private TextView eWP;
     private TextView eWQ;
@@ -50,7 +50,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.d
         this.eWT = (ImageView) this.aKg.findViewById(R.id.sign);
         this.etB = (ImageView) this.aKg.findViewById(R.id.grade);
         this.eWU = (TextView) this.aKg.findViewById(R.id.owner_flag);
-        this.bMQ = this.aKg.findViewById(R.id.enterforum_item_divider);
+        this.bMR = this.aKg.findViewById(R.id.enterforum_item_divider);
         this.mFollowBtn = (TextView) this.aKg.findViewById(R.id.tv_add_love);
         this.eWV = (BarImageView) this.aKg.findViewById(R.id.forum_avatar);
         this.mTopView = this.aKg.findViewById(R.id.forum_top_divider);
@@ -78,7 +78,7 @@ public class c extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.enterForum.data.d
         super.af(dVar);
         if (dVar != null) {
             b(dVar);
-            al.l(this.bMQ, R.color.cp_bg_line_c);
+            al.l(this.bMR, R.color.cp_bg_line_c);
             al.k(this.eWT, R.drawable.icon_ba_sign_20_n);
             al.j(this.mName, R.color.cp_cont_b);
         }

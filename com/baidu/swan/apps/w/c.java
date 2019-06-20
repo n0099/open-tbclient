@@ -70,18 +70,18 @@ public interface c extends d.b {
 
     void bi(Context context);
 
-    com.baidu.swan.apps.b.c.e dU(String str);
+    com.baidu.swan.apps.b.c.e dT(String str);
 
     void doRelease();
 
     @NonNull
-    com.baidu.swan.apps.ae.a.d eZ(String str);
+    com.baidu.swan.apps.ae.a.d eY(String str);
+
+    AbsoluteLayout eZ(String str);
 
     void exit();
 
     void f(SwanAppActivity swanAppActivity);
-
-    AbsoluteLayout fa(String str);
 
     void showLoadingView();
 

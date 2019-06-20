@@ -5,21 +5,21 @@ import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class e {
     private ArrayList<m> aHF;
-    private boolean icB = true;
+    private boolean icC = true;
 
     public void ay(ArrayList<m> arrayList) {
         this.aHF = arrayList;
     }
 
-    public boolean bYh() {
-        return this.icB;
+    public boolean bYi() {
+        return this.icC;
     }
 
-    public void pk(boolean z) {
-        this.icB = z;
+    public void pl(boolean z) {
+        this.icC = z;
     }
 
-    public ArrayList<m> bYi() {
+    public ArrayList<m> bYj() {
         return this.aHF;
     }
 }

@@ -60,13 +60,13 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout fa = ac.fa(ao.aDm);
-        if (fa == null) {
+        AbsoluteLayout eZ = ac.eZ(ao.aDm);
+        if (eZ == null) {
             c.e("CoverView", "can not find webView by #" + ao.aDm);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(str, context, ao, fa, unitedSchemeEntity, callbackHandler);
+        return a(str, context, ao, eZ, unitedSchemeEntity, callbackHandler);
     }
 
     protected com.baidu.swan.apps.view.coverview.b.a ao(JSONObject jSONObject) {

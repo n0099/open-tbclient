@@ -16,9 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private static String htc = "native_crash_log.log";
-    private static List<String> htd = new ArrayList();
-    private static BroadcastReceiver HO = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
+    private static String htd = "native_crash_log.log";
+    private static List<String> hte = new ArrayList();
+    private static BroadcastReceiver HN = new BroadcastReceiver() { // from class: com.baidu.tieba.nativecrash.a.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if (intent != null) {
@@ -29,24 +29,24 @@ public class a {
             }
         }
     };
-    private static BdNativeCrash.a hte = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
+    private static BdNativeCrash.a htf = new BdNativeCrash.a() { // from class: com.baidu.tieba.nativecrash.a.2
     };
 
-    public static void bNo() {
-        if (BdNativeCrash.htb) {
-            BdNativeCrash.bNn().dH(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.bNn().a(hte);
-            bNp();
+    public static void bNp() {
+        if (BdNativeCrash.htc) {
+            BdNativeCrash.bNo().dH(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
+            BdNativeCrash.bNo().a(htf);
+            bNq();
         }
     }
 
-    private static void bNp() {
+    private static void bNq() {
         try {
             Context applicationContext = BdBaseApplication.getInst().getApplicationContext();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("com.baidu.adp.plugin.installed");
             intentFilter.setPriority(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED);
-            applicationContext.registerReceiver(HO, intentFilter);
+            applicationContext.registerReceiver(HN, intentFilter);
         } catch (Exception e) {
             BdLog.e(e);
         }

@@ -10,7 +10,7 @@ import com.baidu.tieba.play.j;
 import com.baidu.tieba.play.n;
 /* loaded from: classes3.dex */
 public class a implements f {
-    private bg cbg;
+    private bg cbh;
     private AlaVideoContainer dBh;
     private j dlN;
     private n dlO;
@@ -42,19 +42,19 @@ public class a implements f {
         this.eAs = str2;
         this.mForumName = str;
         if (bgVar != null) {
-            this.cbg = bgVar;
-            if (this.dBh != null && this.cbg.adO() != null) {
-                this.eAr = this.cbg.adO();
+            this.cbh = bgVar;
+            if (this.dBh != null && this.cbh.adO() != null) {
+                this.eAr = this.cbh.adO();
                 this.dBh.setVideoThumbnail(this.eAr.cover);
-                if (this.dlO != null && this.dlO.cbz() != null) {
-                    this.dlO.cbz().b(this.eAr);
+                if (this.dlO != null && this.dlO.cbA() != null) {
+                    this.dlO.cbA().b(this.eAr);
                 }
                 if (z) {
-                    this.dBh.setTitle(this.cbg.getTitle());
+                    this.dBh.setTitle(this.cbh.getTitle());
                 } else {
                     this.dBh.setTitle("");
                 }
-                this.dBh.setPlayCount(String.format(this.dBh.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), ap.aN(this.cbg.adO().audience_count)));
+                this.dBh.setPlayCount(String.format(this.dBh.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), ap.aN(this.cbh.adO().audience_count)));
             }
         }
     }
@@ -100,10 +100,10 @@ public class a implements f {
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.cbg == null || this.cbg.adM() == null) {
+        if (this.cbh == null || this.cbh.adM() == null) {
             return null;
         }
-        return this.cbg.adM().video_url;
+        return this.cbh.adM().video_url;
     }
 
     @Override // com.baidu.tieba.play.f
@@ -116,7 +116,7 @@ public class a implements f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aXy() {
-        if (this.cbg == null || this.cbg.adM() == null) {
+        if (this.cbh == null || this.cbh.adM() == null) {
         }
     }
 

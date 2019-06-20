@@ -65,7 +65,7 @@ public class b extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @Override // com.baidu.swan.games.a.c
     @JavascriptInterface
     public synchronized void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.jW("video");
+        com.baidu.swan.games.view.a.b.jV("video");
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (this.bdq != null) {
             this.bdq.b(c);

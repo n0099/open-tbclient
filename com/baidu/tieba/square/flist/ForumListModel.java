@@ -74,7 +74,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
         int i;
-        l<String> mB;
+        l<String> mA;
         if (requestParams.menu_id == 0) {
             i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
         } else {
@@ -90,8 +90,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         String ahe = xVar.ahe();
         eTC = xVar.ahF();
         ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(ahe, ForumListModel.class);
-        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (mB = com.baidu.tbadk.core.c.a.afD().mB("tb.my_posts")) != null)) {
-            mB.a(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + "_list", ahe, 86400000L);
+        if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null && (mA = com.baidu.tbadk.core.c.a.afD().mA("tb.my_posts")) != null)) {
+            mA.a(TbadkCoreApplication.getCurrentAccount() + "_" + menu_name + "_list", ahe, 86400000L);
         }
         return forumListModel;
     }

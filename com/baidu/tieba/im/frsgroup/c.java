@@ -12,7 +12,7 @@ public class c {
 
     public void Wx() {
         if (this.dqB == null) {
-            this.dqB = com.baidu.tbadk.core.c.a.afD().mA("tb.im_frsgroup");
+            this.dqB = com.baidu.tbadk.core.c.a.afD().mz("tb.im_frsgroup");
         }
     }
 

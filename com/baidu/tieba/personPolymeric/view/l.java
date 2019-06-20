@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView imx;
-    private TextView imy;
+    private TbImageView imy;
+    private TextView imz;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.imx = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.imy = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.imy = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.imz = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         al.l(this.mRootView, R.color.cp_bg_line_d);
-        al.k(this.imx, R.drawable.item_gift_selector);
-        al.l(this.imy, R.color.common_color_10294);
-        al.j(this.imy, R.color.cp_link_tip_a);
+        al.k(this.imy, R.drawable.item_gift_selector);
+        al.l(this.imz, R.color.common_color_10294);
+        al.j(this.imz, R.color.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.imx.startLoad(oVar.picUrl, 10, false);
+        this.imy.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.imy.setVisibility(0);
+            this.imz.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.imy.setText("99");
+                this.imz.setText("99");
                 return;
             } else {
-                this.imy.setText(String.valueOf(oVar.giftNum));
+                this.imz.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.imy.setVisibility(8);
+        this.imz.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

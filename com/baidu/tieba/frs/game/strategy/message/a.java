@@ -53,7 +53,7 @@ public class a {
             bgVar.ael();
             if (!TextUtils.isEmpty(bgVar.aex())) {
                 ad adVar = new ad();
-                adVar.mg(bgVar.aex());
+                adVar.mf(bgVar.aex());
                 linkedList.add(adVar);
             } else {
                 linkedList.add(bVar);

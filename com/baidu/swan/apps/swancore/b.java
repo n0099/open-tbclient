@@ -24,7 +24,7 @@ public final class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void dR(int i) {
-        a(c.a.Nv().cx(true).hL("openSwanApp").Nw(), i);
+        a(c.a.Nv().cx(true).hK("openSwanApp").Nw(), i);
     }
 
     public static void a(c cVar, int i) {
@@ -125,21 +125,21 @@ public final class b {
             }
         }
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "version: " + j + " ,version string: " + ((Object) sb) + " equals: " + (j == hI(sb.toString())));
+            Log.d("SwanAppSwanCoreManager", "version: " + j + " ,version string: " + ((Object) sb) + " equals: " + (j == hH(sb.toString())));
         }
         return sb.toString();
     }
 
-    public static long hI(String str) {
-        String[] ey = ey(str);
-        if (ey == null) {
+    public static long hH(String str) {
+        String[] ex = ex(str);
+        if (ex == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < ey.length ? Integer.valueOf(ey[i]).intValue() : 0L);
+                j = (j << 16) | (i < ex.length ? Integer.valueOf(ex[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -154,7 +154,7 @@ public final class b {
         return j;
     }
 
-    private static String[] ey(String str) {
+    private static String[] ex(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -76,7 +76,7 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
         this.bpA = new OpenLocationMenuItem(this.mContext, string, OpenLocationMenuItem.MenuItemType.OPENLOCATION_PATH);
         this.bpA.a(this);
         addView(this.bpA.Ua());
-        this.bpM = kh("com.baidu.BaiduMap");
+        this.bpM = kg("com.baidu.BaiduMap");
         if (!this.bpM) {
         }
         OpenLocationMenuItem openLocationMenuItem = new OpenLocationMenuItem(this.mContext, this.mContext.getString(R.string.openlocation_bottommenu_baidumap), OpenLocationMenuItem.MenuItemType.OPENLOCATION_BAIDU_MAP);
@@ -86,7 +86,7 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
             this.bpJ = true;
         }
         addView(openLocationMenuItem.Ua());
-        if (kh("com.autonavi.minimap")) {
+        if (kg("com.autonavi.minimap")) {
             OpenLocationMenuItem openLocationMenuItem2 = new OpenLocationMenuItem(this.mContext, this.mContext.getString(R.string.openlocation_bottommenu_gaodemap), OpenLocationMenuItem.MenuItemType.OPENLOCATION_GAODE_MAP);
             openLocationMenuItem2.a(this);
             if (!this.bpJ) {
@@ -264,7 +264,7 @@ public class OpenLocationBottomMenu extends LinearLayout implements OpenLocation
         }
     }
 
-    private boolean kh(String str) {
+    private boolean kg(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

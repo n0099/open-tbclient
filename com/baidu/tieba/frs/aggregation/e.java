@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<b>> {
-    private List<b> Rm;
+    private List<b> Rl;
     private b fuG;
     private boolean fuH;
     private a fuI;
@@ -25,7 +25,7 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
 
     public e(TbPageContext<?> tbPageContext, a aVar, boolean z) {
         super(tbPageContext.getPageActivity().getBaseContext(), g.fuP);
-        this.Rm = new ArrayList();
+        this.Rl = new ArrayList();
         this.mHandler = new Handler();
         this.fuK = new ab<g>() { // from class: com.baidu.tieba.frs.aggregation.e.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -116,7 +116,7 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     public com.baidu.tieba.card.a.a<b> onCreateViewHolder(ViewGroup viewGroup) {
         b bVar = new b(this.mPageContext, this.fuJ);
         bVar.d(this.fuK);
-        this.Rm.add(bVar);
+        this.Rl.add(bVar);
         return new com.baidu.tieba.card.a.a<>(bVar);
     }
 
@@ -155,7 +155,7 @@ public class e extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     }
 
     public void onDestroy() {
-        for (b bVar : this.Rm) {
+        for (b bVar : this.Rl) {
             if (bVar != null) {
                 bVar.onDestroy();
             }

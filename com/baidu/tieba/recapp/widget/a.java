@@ -1,10 +1,19 @@
 package com.baidu.tieba.recapp.widget;
-
-import com.baidu.adp.newwidget.ImageView.d;
 /* loaded from: classes3.dex */
-public class a extends d {
-    public float iHb;
-    public float iHc;
-    public float iHd;
-    public float iHe;
+public interface a {
+    void bFE();
+
+    void onChangeSkinType();
+
+    void setButtonText(String str);
+
+    void setButtonText(String str, int i);
+
+    void setButtonTextColor(int i);
+
+    void setButtonTextNightColor(int i);
+
+    void setButtonTextSize(int i);
+
+    void setProgress(int i);
 }

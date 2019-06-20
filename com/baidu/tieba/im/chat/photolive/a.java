@@ -11,8 +11,8 @@ public class a {
     /* renamed from: com.baidu.tieba.im.chat.photolive.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0329a {
-        public long gvQ;
-        public String gvR;
+        public long gvS;
+        public String gvT;
         public String portrait = null;
         public String userId = null;
         public String userName = null;
@@ -21,10 +21,10 @@ public class a {
         public String forumName = null;
         public long postId = 0;
         public int msgType = 0;
-        public int gvS = 0;
+        public int gvU = 0;
     }
 
-    public static C0329a xJ(String str) {
+    public static C0329a xL(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -36,14 +36,14 @@ public class a {
                 c0329a.portrait = optJSONObject.optString("head_url");
                 c0329a.userId = optJSONObject.optString("user_id");
                 c0329a.userName = optJSONObject.optString("nick_name");
-                c0329a.gvQ = optJSONObject.optLong("caller_time");
-                c0329a.gvR = optJSONObject.optString("caller_content");
+                c0329a.gvS = optJSONObject.optLong("caller_time");
+                c0329a.gvT = optJSONObject.optString("caller_content");
                 c0329a.threadId = optJSONObject.optLong("thread_id");
                 c0329a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
                 c0329a.forumName = optJSONObject.optString("forum_name");
                 c0329a.postId = optJSONObject.optLong("post_id");
                 c0329a.msgType = optJSONObject.optInt("msg_type");
-                c0329a.gvS = optJSONObject.optInt("remind_count");
+                c0329a.gvU = optJSONObject.optInt("remind_count");
             }
             return c0329a;
         } catch (JSONException e) {

@@ -13,26 +13,26 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    public static final n.b jWj = n.b.jWa;
-    public static final n.b jWk = n.b.jWb;
-    private Drawable jWA;
-    private RoundingParams jWf;
-    private int jWl;
-    private float jWm;
-    private Drawable jWn;
+    public static final n.b jWm = n.b.jWd;
+    public static final n.b jWn = n.b.jWe;
+    private PointF jWA;
+    private ColorFilter jWB;
+    private List<Drawable> jWC;
+    private Drawable jWD;
+    private RoundingParams jWi;
+    private int jWo;
+    private float jWp;
+    private Drawable jWq;
     @Nullable
-    private n.b jWo;
-    private Drawable jWp;
-    private n.b jWq;
-    private Drawable jWr;
-    private n.b jWs;
-    private Drawable jWt;
-    private n.b jWu;
+    private n.b jWr;
+    private Drawable jWs;
+    private n.b jWt;
+    private Drawable jWu;
     private n.b jWv;
-    private Matrix jWw;
-    private PointF jWx;
-    private ColorFilter jWy;
-    private List<Drawable> jWz;
+    private Drawable jWw;
+    private n.b jWx;
+    private n.b jWy;
+    private Matrix jWz;
     private Drawable mBackground;
     private Resources mResources;
 
@@ -42,24 +42,24 @@ public class b {
     }
 
     private void init() {
-        this.jWl = 300;
-        this.jWm = 0.0f;
-        this.jWn = null;
-        this.jWo = jWj;
-        this.jWp = null;
-        this.jWq = jWj;
-        this.jWr = null;
-        this.jWs = jWj;
-        this.jWt = null;
-        this.jWu = jWj;
-        this.jWv = jWk;
+        this.jWo = 300;
+        this.jWp = 0.0f;
+        this.jWq = null;
+        this.jWr = jWm;
+        this.jWs = null;
+        this.jWt = jWm;
+        this.jWu = null;
+        this.jWv = jWm;
         this.jWw = null;
-        this.jWx = null;
-        this.jWy = null;
-        this.mBackground = null;
+        this.jWx = jWm;
+        this.jWy = jWn;
         this.jWz = null;
         this.jWA = null;
-        this.jWf = null;
+        this.jWB = null;
+        this.mBackground = null;
+        this.jWC = null;
+        this.jWD = null;
+        this.jWi = null;
     }
 
     public Resources getResources() {
@@ -67,127 +67,127 @@ public class b {
     }
 
     public b Dd(int i) {
-        this.jWl = i;
+        this.jWo = i;
         return this;
     }
 
-    public int cDx() {
-        return this.jWl;
-    }
-
-    public b ba(float f) {
-        this.jWm = f;
-        return this;
-    }
-
-    public float cDy() {
-        return this.jWm;
-    }
-
-    public b m(@Nullable Drawable drawable) {
-        this.jWn = drawable;
-        return this;
-    }
-
-    @Nullable
-    public Drawable cDz() {
-        return this.jWn;
-    }
-
-    public b c(@Nullable n.b bVar) {
-        this.jWo = bVar;
-        return this;
-    }
-
-    @Nullable
-    public n.b cDA() {
+    public int cDw() {
         return this.jWo;
     }
 
-    public b n(@Nullable Drawable drawable) {
-        this.jWp = drawable;
+    public b ba(float f) {
+        this.jWp = f;
         return this;
     }
 
-    @Nullable
-    public Drawable cDB() {
+    public float cDx() {
         return this.jWp;
     }
 
-    public b d(@Nullable n.b bVar) {
-        this.jWq = bVar;
+    public b m(@Nullable Drawable drawable) {
+        this.jWq = drawable;
         return this;
     }
 
     @Nullable
-    public n.b cDC() {
+    public Drawable cDy() {
         return this.jWq;
     }
 
-    public b o(@Nullable Drawable drawable) {
-        this.jWr = drawable;
+    public b c(@Nullable n.b bVar) {
+        this.jWr = bVar;
         return this;
     }
 
     @Nullable
-    public Drawable cDD() {
+    public n.b cDz() {
         return this.jWr;
     }
 
-    public b e(@Nullable n.b bVar) {
-        this.jWs = bVar;
+    public b n(@Nullable Drawable drawable) {
+        this.jWs = drawable;
         return this;
     }
 
     @Nullable
-    public n.b cDE() {
+    public Drawable cDA() {
         return this.jWs;
     }
 
-    public b p(@Nullable Drawable drawable) {
-        this.jWt = drawable;
+    public b d(@Nullable n.b bVar) {
+        this.jWt = bVar;
         return this;
     }
 
     @Nullable
-    public Drawable cDF() {
+    public n.b cDB() {
         return this.jWt;
     }
 
+    public b o(@Nullable Drawable drawable) {
+        this.jWu = drawable;
+        return this;
+    }
+
+    @Nullable
+    public Drawable cDC() {
+        return this.jWu;
+    }
+
+    public b e(@Nullable n.b bVar) {
+        this.jWv = bVar;
+        return this;
+    }
+
+    @Nullable
+    public n.b cDD() {
+        return this.jWv;
+    }
+
+    public b p(@Nullable Drawable drawable) {
+        this.jWw = drawable;
+        return this;
+    }
+
+    @Nullable
+    public Drawable cDE() {
+        return this.jWw;
+    }
+
     public b f(@Nullable n.b bVar) {
-        this.jWu = bVar;
+        this.jWx = bVar;
+        return this;
+    }
+
+    @Nullable
+    public n.b cDF() {
+        return this.jWx;
+    }
+
+    public b g(@Nullable n.b bVar) {
+        this.jWy = bVar;
+        this.jWz = null;
         return this;
     }
 
     @Nullable
     public n.b cDG() {
-        return this.jWu;
-    }
-
-    public b g(@Nullable n.b bVar) {
-        this.jWv = bVar;
-        this.jWw = null;
-        return this;
-    }
-
-    @Nullable
-    public n.b cDH() {
-        return this.jWv;
-    }
-
-    @Nullable
-    public Matrix cDI() {
-        return this.jWw;
-    }
-
-    @Nullable
-    public PointF cDJ() {
-        return this.jWx;
-    }
-
-    @Nullable
-    public ColorFilter cDK() {
         return this.jWy;
+    }
+
+    @Nullable
+    public Matrix cDH() {
+        return this.jWz;
+    }
+
+    @Nullable
+    public PointF cDI() {
+        return this.jWA;
+    }
+
+    @Nullable
+    public ColorFilter cDJ() {
+        return this.jWB;
     }
 
     public b q(@Nullable Drawable drawable) {
@@ -202,53 +202,53 @@ public class b {
 
     public b r(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.jWz = null;
+            this.jWC = null;
         } else {
-            this.jWz = Arrays.asList(drawable);
+            this.jWC = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> cDL() {
-        return this.jWz;
+    public List<Drawable> cDK() {
+        return this.jWC;
     }
 
     public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.jWA = null;
+            this.jWD = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.jWA = stateListDrawable;
+            this.jWD = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable cDM() {
-        return this.jWA;
+    public Drawable cDL() {
+        return this.jWD;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.jWf = roundingParams;
+        this.jWi = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams cDN() {
-        return this.jWf;
+    public RoundingParams cDM() {
+        return this.jWi;
     }
 
     private void validate() {
-        if (this.jWz != null) {
-            for (Drawable drawable : this.jWz) {
+        if (this.jWC != null) {
+            for (Drawable drawable : this.jWC) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a cDO() {
+    public a cDN() {
         validate();
         return new a(this);
     }

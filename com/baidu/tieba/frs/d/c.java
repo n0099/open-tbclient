@@ -21,16 +21,16 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.HashSet;
 /* loaded from: classes4.dex */
 public class c {
-    public static int fJJ;
-    private static c fJM;
-    private a fJK;
-    private SparseArray<HashSet<String>> fJL;
-    private CustomMessageListener bCA = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.d.c.1
+    public static int fJL;
+    private static c fJO;
+    private a fJM;
+    private SparseArray<HashSet<String>> fJN;
+    private CustomMessageListener bCB = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.frs.d.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && c.this.fJL != null) {
-                c.this.fJL.clear();
+            if (customResponsedMessage != null && c.this.fJN != null) {
+                c.this.fJN.clear();
             }
         }
     };
@@ -41,7 +41,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.fJP = false;
+                        aVar.fJR = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -57,56 +57,56 @@ public class c {
     /* loaded from: classes4.dex */
     public class a {
         public int count;
-        public long fJO;
-        public boolean fJP;
+        public long fJQ;
+        public boolean fJR;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.fJP = false;
+            this.fJR = false;
         }
     }
 
     public c() {
-        fJJ = com.baidu.tbadk.core.sharedPref.b.agM().getInt("card_show_statistic_max_count", 200);
-        MessageManager.getInstance().registerListener(this.bCA);
+        fJL = com.baidu.tbadk.core.sharedPref.b.agM().getInt("card_show_statistic_max_count", 200);
+        MessageManager.getInstance().registerListener(this.bCB);
     }
 
-    public static c bpC() {
-        if (fJM == null) {
+    public static c bpE() {
+        if (fJO == null) {
             synchronized (t.class) {
-                if (fJM == null) {
-                    fJM = new c();
+                if (fJO == null) {
+                    fJO = new c();
                 }
             }
         }
-        return fJM;
+        return fJO;
     }
 
-    private boolean bpD() {
-        if (this.fJK == null) {
-            this.fJK = new a();
+    private boolean bpF() {
+        if (this.fJM == null) {
+            this.fJM = new a();
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.fJK.fJP) {
+        if (this.fJM.fJR) {
             return true;
         }
-        if (this.fJK.isRunning) {
-            this.fJK.count++;
-            if (currentTimeMillis - this.fJK.fJO < 120000) {
-                if (this.fJK.count >= fJJ) {
-                    this.fJK.fJP = true;
-                    a(this.fJK);
+        if (this.fJM.isRunning) {
+            this.fJM.count++;
+            if (currentTimeMillis - this.fJM.fJQ < 120000) {
+                if (this.fJM.count >= fJL) {
+                    this.fJM.fJR = true;
+                    a(this.fJM);
                     return true;
                 }
             } else {
-                this.fJK.isRunning = false;
-                this.fJK.count = 0;
+                this.fJM.isRunning = false;
+                this.fJM.count = 0;
             }
         } else {
-            this.fJK.isRunning = true;
-            this.fJK.fJO = currentTimeMillis;
+            this.fJM.isRunning = true;
+            this.fJM.fJQ = currentTimeMillis;
         }
         return false;
     }
@@ -143,7 +143,7 @@ public class c {
             amVar.l("fid", bgVar.getFid());
             amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bgVar.mRecomSource);
             amVar.bT("obj_param2", bgVar.mRecomWeight);
-            amVar.bT("obj_param1", bgVar.bKt);
+            amVar.bT("obj_param1", bgVar.bKu);
             amVar.P("obj_locate", 1);
             amVar.bT("tid", bgVar.getTid());
             t.aXP().b(amVar);
@@ -151,44 +151,44 @@ public class c {
     }
 
     public void a(b bVar, bg bgVar) {
-        if (bVar != null && bVar.fJD && bgVar != null && bgVar.getTid() != null) {
-            if (this.fJL == null) {
-                this.fJL = new SparseArray<>();
+        if (bVar != null && bVar.fJF && bgVar != null && bgVar.getTid() != null) {
+            if (this.fJN == null) {
+                this.fJN = new SparseArray<>();
             }
-            if (this.fJL.get(bVar.fJG) == null) {
-                this.fJL.put(bVar.fJG, new HashSet<>());
+            if (this.fJN.get(bVar.fJI) == null) {
+                this.fJN.put(bVar.fJI, new HashSet<>());
             }
-            HashSet<String> hashSet = this.fJL.get(bVar.fJG);
+            HashSet<String> hashSet = this.fJN.get(bVar.fJI);
             String tid = bgVar.getTid();
-            if (bVar.fJH >= 0) {
-                tid = tid + "_" + bVar.fJH;
+            if (bVar.fJJ >= 0) {
+                tid = tid + "_" + bVar.fJJ;
             }
-            if (!hashSet.contains(tid) && !bpD()) {
+            if (!hashSet.contains(tid) && !bpF()) {
                 hashSet.add(tid);
                 am amVar = new am("c11439");
-                amVar.bT("fid", bVar.fJF);
+                amVar.bT("fid", bVar.fJH);
                 amVar.P("obj_locate", a(bVar));
                 amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bgVar.mRecomSource);
                 amVar.bT("obj_param2", bgVar.mRecomWeight);
                 amVar.bT("obj_param1", bgVar.mRecomAbTag);
-                amVar.bT("obj_param3", bgVar.bKt);
+                amVar.bT("obj_param3", bgVar.bKu);
                 amVar.bT("tid", bgVar.getTid());
                 amVar.P(VideoPlayActivityConfig.OBJ_ID, U(bgVar));
                 amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
                 amVar.l("exposure_time", System.currentTimeMillis());
-                if (bVar.fJG >= 0) {
-                    amVar.P(MyBookrackActivityConfig.TAB_ID, bVar.fJG);
+                if (bVar.fJI >= 0) {
+                    amVar.P(MyBookrackActivityConfig.TAB_ID, bVar.fJI);
                 }
-                if (bgVar.bLm >= 0) {
-                    amVar.P("obj_floor", bgVar.bLm);
+                if (bgVar.bLn >= 0) {
+                    amVar.P("obj_floor", bgVar.bLn);
                 }
-                boolean z = (bgVar.aeT() == null || (bgVar.aeT().cmy() == null && bgVar.aeT().axI() == null)) ? false : true;
-                if (z && bgVar.aeT().cmy() != null && bgVar.aeT().cmy().axz() != null && bgVar.aeT().cmy().axz().size() > 0) {
-                    amVar.P("obj_name", bgVar.aeT().iZj ? 3 : 2);
+                boolean z = (bgVar.aeT() == null || (bgVar.aeT().cmz() == null && bgVar.aeT().axI() == null)) ? false : true;
+                if (z && bgVar.aeT().cmz() != null && bgVar.aeT().cmz().axz() != null && bgVar.aeT().cmz().axz().size() > 0) {
+                    amVar.P("obj_name", bgVar.aeT().iZn ? 3 : 2);
                 } else {
                     amVar.P("obj_name", z ? 1 : 0);
                 }
-                boolean z2 = bgVar.getType() == bg.bIC;
+                boolean z2 = bgVar.getType() == bg.bID;
                 amVar.P("thread_type", z2 ? 2 : 1);
                 if (z2 && bgVar.adv() != null && !StringUtils.isNull(bgVar.adv().getName_show())) {
                     amVar.bT("obj_name", bgVar.adv().getName_show());
@@ -196,12 +196,12 @@ public class c {
                 t.aXP().b(amVar);
                 if (bgVar.aep()) {
                     am amVar2 = new am("c12099");
-                    amVar2.bT("fid", bVar.fJF);
+                    amVar2.bT("fid", bVar.fJH);
                     amVar2.P("obj_locate", a(bVar));
                     amVar2.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bgVar.mRecomSource);
                     amVar2.bT("obj_param2", bgVar.mRecomWeight);
                     amVar2.bT("obj_param1", bgVar.mRecomAbTag);
-                    amVar2.bT("obj_param3", bgVar.bKt);
+                    amVar2.bT("obj_param3", bgVar.bKu);
                     amVar2.bT("tid", bgVar.getTid());
                     amVar2.P(VideoPlayActivityConfig.OBJ_ID, U(bgVar));
                     amVar2.bT("uid", TbadkCoreApplication.getCurrentAccount());
@@ -209,14 +209,14 @@ public class c {
                 }
                 if (bgVar.adz()) {
                     am amVar3 = new am("c13169");
-                    amVar3.bT("fid", bVar.fJF);
+                    amVar3.bT("fid", bVar.fJH);
                     amVar3.bT("tid", bgVar.getTid());
                     amVar3.bT("uid", TbadkCoreApplication.getCurrentAccount());
                     t.aXP().b(amVar3);
                 }
-                if (bVar.fJG == 501) {
+                if (bVar.fJI == 501) {
                     am amVar4 = new am("c13259");
-                    amVar4.bT("fid", bVar.fJF);
+                    amVar4.bT("fid", bVar.fJH);
                     amVar4.bT("tid", bgVar.getTid());
                     t.aXP().b(amVar4);
                 }
@@ -225,44 +225,44 @@ public class c {
     }
 
     public void a(b bVar, bg bgVar, int i) {
-        if (bVar != null && bVar.fJD && bgVar != null && bgVar.getTid() != null) {
+        if (bVar != null && bVar.fJF && bgVar != null && bgVar.getTid() != null) {
             t.aXP().iv(true);
             am amVar = new am("c11438");
-            amVar.bT("fid", bVar.fJF);
+            amVar.bT("fid", bVar.fJH);
             amVar.P("obj_locate", a(bVar));
             amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bgVar.mRecomSource);
             amVar.bT("obj_param2", bgVar.mRecomWeight);
             amVar.bT("obj_param1", bgVar.mRecomAbTag);
-            amVar.bT("obj_param3", bgVar.bKt);
+            amVar.bT("obj_param3", bgVar.bKu);
             amVar.bT("tid", bgVar.getTid());
             amVar.P("obj_type", i);
             amVar.P(VideoPlayActivityConfig.OBJ_ID, U(bgVar));
             amVar.bT("obj_to", al(bgVar));
-            if (bVar.fJG >= 0) {
-                amVar.P(MyBookrackActivityConfig.TAB_ID, bVar.fJG);
+            if (bVar.fJI >= 0) {
+                amVar.P(MyBookrackActivityConfig.TAB_ID, bVar.fJI);
             }
-            if (bgVar.bLm >= 0) {
-                amVar.P("obj_floor", bgVar.bLm);
+            if (bgVar.bLn >= 0) {
+                amVar.P("obj_floor", bgVar.bLn);
             }
-            amVar.P("thread_type", bgVar.getType() == bg.bIC ? 2 : 1);
+            amVar.P("thread_type", bgVar.getType() == bg.bID ? 2 : 1);
             TiebaStatic.log(amVar);
             if (bgVar.aep()) {
                 am amVar2 = new am("c12098");
-                amVar2.bT("fid", bVar.fJF);
+                amVar2.bT("fid", bVar.fJH);
                 amVar2.P("obj_locate", a(bVar));
                 amVar2.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bgVar.mRecomSource);
                 amVar2.bT("obj_param2", bgVar.mRecomWeight);
                 amVar2.bT("obj_param1", bgVar.mRecomAbTag);
-                amVar2.bT("obj_param3", bgVar.bKt);
+                amVar2.bT("obj_param3", bgVar.bKu);
                 amVar2.bT("tid", bgVar.getTid());
                 amVar2.P("obj_type", i);
                 amVar2.P(VideoPlayActivityConfig.OBJ_ID, U(bgVar));
                 amVar2.bT("obj_to", al(bgVar));
                 TiebaStatic.log(amVar2);
             }
-            if (bVar.fJG == 501) {
+            if (bVar.fJI == 501) {
                 am amVar3 = new am("c13260");
-                amVar3.bT("fid", bVar.fJF);
+                amVar3.bT("fid", bVar.fJH);
                 amVar3.bT("tid", bgVar.getTid());
                 t.aXP().b(amVar3);
             }
@@ -273,10 +273,10 @@ public class c {
         if (bVar == null) {
             return 5;
         }
-        if (bVar.fJI > 0) {
-            return bVar.fJI;
+        if (bVar.fJK > 0) {
+            return bVar.fJK;
         }
-        int i = bVar.fJE;
+        int i = bVar.fJG;
         if (i == 8) {
             return 9;
         }
@@ -284,9 +284,9 @@ public class c {
     }
 
     public void b(b bVar, bg bgVar, int i) {
-        if (bVar != null && bVar.fJD && bgVar != null && bgVar.getTid() != null && bgVar.adz()) {
+        if (bVar != null && bVar.fJF && bgVar != null && bgVar.getTid() != null && bgVar.adz()) {
             am amVar = new am("c13170");
-            amVar.bT("fid", bVar.fJF);
+            amVar.bT("fid", bVar.fJH);
             amVar.P("obj_locate", i);
             amVar.bT("tid", bgVar.getTid());
             TiebaStatic.log(amVar);
@@ -307,6 +307,6 @@ public class c {
     }
 
     private String al(bg bgVar) {
-        return bgVar.bKu ? String.valueOf(bgVar.aeC()) : String.valueOf(4);
+        return bgVar.bKv ? String.valueOf(bgVar.aeC()) : String.valueOf(4);
     }
 }

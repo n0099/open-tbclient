@@ -13,9 +13,9 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> AH = new HashMap();
-    protected LinkedList<BasicNameValuePair> AI = new LinkedList<>();
-    protected HashMap<String, byte[]> AJ = new HashMap<>();
+    protected Map<String, String> AG = new HashMap();
+    protected LinkedList<BasicNameValuePair> AH = new LinkedList<>();
+    protected HashMap<String, byte[]> AI = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -30,13 +30,13 @@ public class h {
     }
 
     public boolean ip() {
-        return this.AJ != null && this.AJ.size() > 0;
+        return this.AI != null && this.AI.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.AI.size() == 0) {
+        if (this.AH.size() == 0) {
             if (eVar != null) {
-                eVar.Ao = this.url.length();
+                eVar.An = this.url.length();
             }
             return this.url;
         }
@@ -50,26 +50,26 @@ public class h {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.AI.size()) {
+            if (i2 >= this.AH.size()) {
                 break;
             }
             if (i2 != 0) {
                 sb.append("&");
             }
-            sb.append(this.AI.get(i2).getName());
+            sb.append(this.AH.get(i2).getName());
             sb.append("=");
-            sb.append(k.bh(this.AI.get(i2).getValue()));
+            sb.append(k.bh(this.AH.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.Ao = sb.length();
+            eVar.An = sb.length();
         }
         return sb.toString();
     }
 
     public void d(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.AH != null) {
-            for (Map.Entry<String, String> entry : this.AH.entrySet()) {
+        if (httpURLConnection != null && this.AG != null) {
+            for (Map.Entry<String, String> entry : this.AG.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -82,8 +82,8 @@ public class h {
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.AI != null) {
-                    Iterator<BasicNameValuePair> it = this.AI.iterator();
+                if (this.AH != null) {
+                    Iterator<BasicNameValuePair> it = this.AH.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
@@ -100,8 +100,8 @@ public class h {
                         }
                     }
                 }
-                if (this.AJ != null) {
-                    for (Map.Entry<String, byte[]> entry : this.AJ.entrySet()) {
+                if (this.AI != null) {
+                    for (Map.Entry<String, byte[]> entry : this.AI.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
@@ -121,7 +121,7 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.Ao = i;
+            eVar.An = i;
         }
     }
 
@@ -141,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.Ao = i;
+            eVar.An = i;
         }
     }
 
     private StringBuilder iq() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.AI != null) {
-            Iterator<BasicNameValuePair> it = this.AI.iterator();
+        if (this.AH != null) {
+            Iterator<BasicNameValuePair> it = this.AH.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -171,19 +171,19 @@ public class h {
     }
 
     public String aA(String str) {
-        if (this.AH != null) {
-            return this.AH.get(str);
+        if (this.AG != null) {
+            return this.AG.get(str);
         }
         return null;
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.AI.add(basicNameValuePair);
+        this.AH.add(basicNameValuePair);
     }
 
     public void q(String str, String str2) {
-        if (this.AH != null) {
-            this.AH.put(str, str2);
+        if (this.AG != null) {
+            this.AG.put(str, str2);
         }
     }
 }

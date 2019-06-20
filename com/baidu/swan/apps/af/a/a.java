@@ -12,7 +12,7 @@ public class a {
     private c.a aQV;
     private HashMap<String, c.a> aQW = new HashMap<>();
 
-    public void gM(String str) {
+    public void gL(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 throw new RuntimeException("appId can not be empty");

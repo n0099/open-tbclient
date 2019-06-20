@@ -38,8 +38,8 @@ import org.json.JSONArray;
 import tbclient.DeleteThreadInfo;
 /* loaded from: classes3.dex */
 public class ac extends com.baidu.tbadk.core.dialog.i {
-    private boolean caI;
-    private bg cbg;
+    private boolean caJ;
+    private bg cbh;
     private final com.baidu.adp.base.d eyC;
     private com.baidu.tbadk.core.dialog.a eyr;
     private ForumManageModel eyy;
@@ -59,7 +59,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
         super(tbPageContext);
         this.ezT = "0";
         this.ezU = this.ezT;
-        this.caI = false;
+        this.caJ = false;
         this.ezW = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.tieba.card.ac.6
             @Override // android.widget.CompoundButton.OnCheckedChangeListener
             public void onCheckedChanged(CompoundButton compoundButton, boolean z2) {
@@ -86,16 +86,16 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                             if (bVar == null || bVar.eVt != 0) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.delete_fail, new Object[0]));
                                 return;
-                            } else if (bVar.FN) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, ac.this.cbg.getId()));
+                            } else if (bVar.FM) {
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, ac.this.cbh.getId()));
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, (int) R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.jbj) ? bVar.jbj : ac.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.jbn) ? bVar.jbn : ac.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ac.this.ezQ == null) {
                                         ac.this.ezQ = new com.baidu.tbadk.core.dialog.a(ac.this.mPageContext.getPageActivity());
-                                        ac.this.ezQ.mE(string);
+                                        ac.this.ezQ.mD(string);
                                         ac.this.ezQ.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.card.ac.7.1
                                             @Override // com.baidu.tbadk.core.dialog.a.b
                                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -118,11 +118,11 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                             if (dVar == null) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
-                            } else if (dVar.FN) {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jbj) ? dVar.jbj : ac.this.getString(R.string.mute_success, new Object[0]));
+                            } else if (dVar.FM) {
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jbn) ? dVar.jbn : ac.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jbj) ? dVar.jbj : ac.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.jbn) ? dVar.jbn : ac.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -133,11 +133,11 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                             return;
                         case 6:
                             ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                            if (gVar == null || !gVar.FN) {
+                            if (gVar == null || !gVar.FM) {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ac.this.M(gVar.jbm);
+                                ac.this.M(gVar.jbq);
                                 return;
                             }
                         default:
@@ -155,8 +155,8 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
                     return;
                 }
                 if (i == 1) {
-                    if (ac.this.cbg != null && ac.this.cbg.adv() != null) {
-                        if (UtilHelper.isCurrentAccount(ac.this.cbg.adv().getUserId())) {
+                    if (ac.this.cbh != null && ac.this.cbh.adv() != null) {
+                        if (UtilHelper.isCurrentAccount(ac.this.cbh.adv().getUserId())) {
                             ac.this.aXU();
                         } else {
                             ac.this.pq(1);
@@ -182,7 +182,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
         this.ezP.a(this.ezX);
         this.eyy = new ForumManageModel(this.mPageContext);
         this.eyy.setLoadDataCallBack(this.eyC);
-        this.caI = z;
+        this.caJ = z;
         setContentView(this.ezP.afZ());
     }
 
@@ -199,23 +199,23 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     }
 
     private void createView() {
-        if (this.cbg != null && this.ezS != null && this.ezP != null) {
+        if (this.cbh != null && this.ezS != null && this.ezP != null) {
             this.ezS.clear();
             if (!com.baidu.tieba.frs.g.bjD()) {
                 this.ezS.add(new com.baidu.tbadk.core.dialog.g(1, getString(R.string.delete_page, new Object[0]), this.ezP));
                 String str = "";
-                if (this.cbg.adv() != null) {
-                    str = this.cbg.adv().getUserId();
+                if (this.cbh.adv() != null) {
+                    str = this.cbh.adv().getUserId();
                 }
                 if (!UtilHelper.isCurrentAccount(str)) {
                     this.ezS.add(new com.baidu.tbadk.core.dialog.g(2, getString(R.string.thread_forbid, new Object[0]), this.ezP));
                 }
             }
             if (com.baidu.tieba.frs.g.bjC() || com.baidu.tieba.frs.g.bjD()) {
-                this.ezS.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.cbg.adq() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.ezP));
-                this.ezS.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.cbg.adr() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.ezP));
+                this.ezS.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.cbh.adq() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.ezP));
+                this.ezS.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.cbh.adr() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.ezP));
             }
-            if (!com.baidu.tieba.frs.g.bjD() && com.baidu.tieba.frs.a.biW().bjb() && this.caI && !com.baidu.tieba.frs.a.biW().bja()) {
+            if (!com.baidu.tieba.frs.g.bjD() && com.baidu.tieba.frs.a.biW().bjb() && this.caJ && !com.baidu.tieba.frs.a.biW().bja()) {
                 this.ezS.add(new com.baidu.tbadk.core.dialog.g(5, getString(R.string.multi_delete, new Object[0]), this.ezP));
             }
             this.ezP.W(this.ezS);
@@ -231,7 +231,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     }
 
     public void setData(bg bgVar) {
-        this.cbg = bgVar;
+        this.cbh = bgVar;
         createView();
     }
 
@@ -306,7 +306,7 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
             ajVar.setFid(com.baidu.tieba.frs.a.biW().getForumId());
             eVar.setData(ajVar);
             eVar.setDefaultReasonArray(new String[]{getContext().getString(R.string.delete_thread_reason_1), getContext().getString(R.string.delete_thread_reason_2), getContext().getString(R.string.delete_thread_reason_3), getContext().getString(R.string.delete_thread_reason_4), getContext().getString(R.string.delete_thread_reason_5)});
-            eVar.rs("1");
+            eVar.rr("1");
             eVar.a(new e.b() { // from class: com.baidu.tieba.card.ac.3
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void C(JSONArray jSONArray2) {
@@ -401,26 +401,26 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ForumManageModel.g gVar) {
         String string;
-        if (this.cbg != null && gVar != null && gVar.FN) {
+        if (this.cbh != null && gVar != null && gVar.FM) {
             String str = "";
             if (i == 2) {
-                this.cbg.hf(1);
-                str = aq(gVar.jbj, R.string.operation_success);
+                this.cbh.hf(1);
+                str = aq(gVar.jbn, R.string.operation_success);
             } else if (i == 3) {
-                this.cbg.hf(0);
-                str = aq(gVar.jbj, R.string.operation_success);
+                this.cbh.hf(0);
+                str = aq(gVar.jbn, R.string.operation_success);
             } else if (i == 4) {
-                this.cbg.he(1);
-                str = aq(gVar.jbj, R.string.top_success);
+                this.cbh.he(1);
+                str = aq(gVar.jbn, R.string.top_success);
             } else if (i == 5) {
-                this.cbg.he(0);
-                str = aq(gVar.jbj, R.string.operation_success);
+                this.cbh.he(0);
+                str = aq(gVar.jbn, R.string.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
-            eVar.threadId = this.cbg.getId();
-            eVar.forumName = this.cbg.adA();
-            eVar.forumId = String.valueOf(this.cbg.getFid());
-            eVar.jbk = i;
+            eVar.threadId = this.cbh.getId();
+            eVar.forumName = this.cbh.adA();
+            eVar.forumId = String.valueOf(this.cbh.getFid());
+            eVar.jbo = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -428,8 +428,8 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
             com.baidu.adp.lib.util.l.showToast(this.mContext, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.jbj)) {
-            string = gVar.jbj;
+        if (gVar != null && !TextUtils.isEmpty(gVar.jbn)) {
+            string = gVar.jbn;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }
@@ -460,26 +460,26 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aXV() {
-        if (this.mContext != null && this.cbg != null && this.cbg.adv() != null) {
-            String userId = this.cbg.adv().getUserId();
-            String userName = this.cbg.adv().getUserName();
-            String name_show = this.cbg.adv().getName_show();
-            String id = this.cbg.getId();
-            String adA = this.cbg.adA();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.mContext, String.valueOf(this.cbg.getFid()), adA, id, userId, userName, name_show, null, this.cbg.adv().getPortrait())));
+        if (this.mContext != null && this.cbh != null && this.cbh.adv() != null) {
+            String userId = this.cbh.adv().getUserId();
+            String userName = this.cbh.adv().getUserName();
+            String name_show = this.cbh.adv().getName_show();
+            String id = this.cbh.getId();
+            String adA = this.cbh.adA();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.mContext, String.valueOf(this.cbh.getFid()), adA, id, userId, userName, name_show, null, this.cbh.adv().getPortrait())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G(JSONArray jSONArray) {
-        if (this.eyy != null && this.cbg != null && this.cbg.adv() != null) {
-            String userId = this.cbg.adv().getUserId();
-            String id = this.cbg.getId();
-            String adA = this.cbg.adA();
-            String valueOf = String.valueOf(this.cbg.getFid());
+        if (this.eyy != null && this.cbh != null && this.cbh.adv() != null) {
+            String userId = this.cbh.adv().getUserId();
+            String id = this.cbh.getId();
+            String adA = this.cbh.adA();
+            String valueOf = String.valueOf(this.cbh.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.eyy.Ea(ap.y(jSONArray));
+                this.eyy.Ec(ap.y(jSONArray));
             }
             this.eyy.a(valueOf, adA, id, null, 0, 1, isCurrentAccount);
         }
@@ -488,32 +488,32 @@ public class ac extends com.baidu.tbadk.core.dialog.i {
     /* JADX INFO: Access modifiers changed from: private */
     public void Y(String str, boolean z) {
         int i;
-        if (this.cbg != null && this.eyy != null) {
-            if (this.cbg.adr() == 1) {
+        if (this.cbh != null && this.eyy != null) {
+            if (this.cbh.adr() == 1) {
                 i = 3;
             } else if (z) {
                 i = 6;
             } else {
                 i = 2;
             }
-            String id = this.cbg.getId();
-            String adA = this.cbg.adA();
-            this.eyy.a(String.valueOf(this.cbg.getFid()), adA, id, i, str);
+            String id = this.cbh.getId();
+            String adA = this.cbh.adA();
+            this.eyy.a(String.valueOf(this.cbh.getFid()), adA, id, i, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aXW() {
         int i;
-        if (this.cbg != null && this.eyy != null) {
-            if (this.cbg.adq() == 1) {
+        if (this.cbh != null && this.eyy != null) {
+            if (this.cbh.adq() == 1) {
                 i = 5;
             } else {
                 i = 4;
             }
-            String id = this.cbg.getId();
-            String adA = this.cbg.adA();
-            this.eyy.a(String.valueOf(this.cbg.getFid()), adA, id, i, null);
+            String id = this.cbh.getId();
+            String adA = this.cbh.adA();
+            this.eyy.a(String.valueOf(this.cbh.getFid()), adA, id, i, null);
         }
     }
 

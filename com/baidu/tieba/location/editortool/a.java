@@ -9,23 +9,23 @@ import com.baidu.tieba.R;
 public class a extends k {
     public a(Context context) {
         super(context, (String) null, 8);
-        this.crx = false;
-        this.crw = 3;
-        this.cqE = new PbLocationInfoContainer(context);
-        this.cry = new int[]{20, 19};
+        this.cry = false;
+        this.crx = 3;
+        this.cqF = new PbLocationInfoContainer(context);
+        this.crz = new int[]{20, 19};
     }
 
     public a(Context context, boolean z) {
         super(context, (String) null, 8);
-        this.crx = false;
-        this.crw = 3;
-        this.cqE = new PbLocationInfoContainer(context);
+        this.cry = false;
+        this.crx = 3;
+        this.cqF = new PbLocationInfoContainer(context);
         RawLayout.a aVar = new RawLayout.a(-2, l.g(getContext(), R.dimen.ds48));
         aVar.leftMargin = l.g(getContext(), R.dimen.ds32);
         aVar.rightMargin = l.g(getContext(), R.dimen.ds32);
         aVar.bottomMargin = l.g(getContext(), R.dimen.ds21);
         aVar.topMargin = l.g(getContext(), R.dimen.ds21);
-        ((PbLocationInfoContainer) this.cqE).setLayoutParams(aVar);
-        this.cry = new int[]{20, 19};
+        ((PbLocationInfoContainer) this.cqF).setLayoutParams(aVar);
+        this.crz = new int[]{20, 19};
     }
 }

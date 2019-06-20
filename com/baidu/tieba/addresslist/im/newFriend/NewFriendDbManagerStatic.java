@@ -25,7 +25,7 @@ import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic cXf = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic cXg = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001216) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.1
@@ -168,7 +168,7 @@ public class NewFriendDbManagerStatic {
                             public Void doInBackground() {
                                 if (0 != friendId) {
                                     b.aCf().bQ(friendId);
-                                    m.bAl().ya(String.valueOf(friendId));
+                                    m.bAm().yc(String.valueOf(friendId));
                                 }
                                 return null;
                             }
@@ -275,17 +275,17 @@ public class NewFriendDbManagerStatic {
                         String content = p.getContent();
                         if (!TextUtils.isEmpty(content)) {
                             if (cmd.equals("apply_new_friend")) {
-                                NewFriendDbManagerStatic.aCa().sg(content);
+                                NewFriendDbManagerStatic.aCa().sf(content);
                             } else if (cmd.equals("passed_new_friend")) {
-                                NewFriendDbManagerStatic.aCa().sh(content);
+                                NewFriendDbManagerStatic.aCa().sg(content);
                             } else if (cmd.equals("delete_new_friend")) {
-                                NewFriendDbManagerStatic.aCa().si(content);
+                                NewFriendDbManagerStatic.aCa().sh(content);
                             } else if (cmd.equals("apply_reply_message")) {
-                                NewFriendDbManagerStatic.aCa().sj(content);
+                                NewFriendDbManagerStatic.aCa().si(content);
                             } else if (cmd.equals("apply_add_friend")) {
-                                NewFriendDbManagerStatic.aCa().sk(content);
+                                NewFriendDbManagerStatic.aCa().sj(content);
                             } else if (cmd.equals("apply_pass_friend")) {
-                                NewFriendDbManagerStatic.aCa().sl(content);
+                                NewFriendDbManagerStatic.aCa().sk(content);
                             }
                         }
                     }
@@ -315,7 +315,7 @@ public class NewFriendDbManagerStatic {
     }
 
     public static NewFriendDbManagerStatic aCa() {
-        return cXf;
+        return cXg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -353,7 +353,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void sg(String str) {
+    public void sf(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -387,7 +387,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void sh(String str) {
+    public void sg(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -423,7 +423,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void si(String str) {
+    public void sh(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -449,7 +449,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void sj(String str) {
+    public void si(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -491,7 +491,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void sk(String str) {
+    public void sj(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {
@@ -528,7 +528,7 @@ public class NewFriendDbManagerStatic {
         }
     }
 
-    public void sl(String str) {
+    public void sk(String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("eventParam");
             if (optJSONObject != null) {

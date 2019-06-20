@@ -101,20 +101,20 @@ public class b {
             return 1;
         }
         try {
-            int gd = gd("/sys/devices/system/cpu/possible");
-            if (gd == -1) {
-                gd = gd("/sys/devices/system/cpu/present");
+            int gc = gc("/sys/devices/system/cpu/possible");
+            if (gc == -1) {
+                gc = gc("/sys/devices/system/cpu/present");
             }
-            if (gd == -1) {
+            if (gc == -1) {
                 return Ix();
             }
-            return gd;
+            return gc;
         } catch (NullPointerException | SecurityException e) {
             return -1;
         }
     }
 
-    private static int gd(String str) {
+    private static int gc(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -129,9 +129,9 @@ public class b {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             String readLine = bufferedReader.readLine();
             bufferedReader.close();
-            int ge = ge(readLine);
+            int gd = gd(readLine);
             com.baidu.swan.c.a.c(fileInputStream);
-            return ge;
+            return gd;
         } catch (IOException e2) {
             com.baidu.swan.c.a.c(fileInputStream);
             return -1;
@@ -142,7 +142,7 @@ public class b {
         }
     }
 
-    private static int ge(String str) {
+    private static int gd(String str) {
         if (str == null || !str.matches("0-[\\d]+$")) {
             return -1;
         }

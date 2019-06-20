@@ -17,7 +17,7 @@ import com.baidu.tieba.channel.view.ChannelMoreView;
 import com.baidu.tieba.channel.view.k;
 /* loaded from: classes6.dex */
 public class a {
-    private View.OnClickListener ckH = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
+    private View.OnClickListener ckI = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != a.this.eDA.getCancelView()) {
@@ -44,7 +44,7 @@ public class a {
             }
         }
     };
-    private Runnable cvS;
+    private Runnable cvT;
     private d eCC;
     private ChannelMoreView eDA;
     private ChannelHomeActivity eDB;
@@ -57,7 +57,7 @@ public class a {
     public void showPopWindow() {
         if (this.eCC != null) {
             if (this.eDz == null) {
-                this.eDA = new ChannelMoreView(this.eDB.getApplicationContext(), this.eCC, this.ckH);
+                this.eDA = new ChannelMoreView(this.eDB.getApplicationContext(), this.eCC, this.ckI);
                 this.eDA.setBackGround();
                 this.eDz = new k(this.eDB.getActivity(), this.eDA);
             }
@@ -66,8 +66,8 @@ public class a {
     }
 
     public void TU() {
-        if (this.cvS == null) {
-            this.cvS = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
+        if (this.cvT == null) {
+            this.cvT = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.eDz != null) {
@@ -77,7 +77,7 @@ public class a {
                 }
             };
         }
-        e.iB().postDelayed(this.cvS, 100L);
+        e.iB().postDelayed(this.cvT, 100L);
     }
 
     public void b(d dVar) {

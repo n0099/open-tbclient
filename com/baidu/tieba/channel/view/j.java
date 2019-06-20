@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.channel.activity.ChannelListActivity;
 /* loaded from: classes6.dex */
 public class j extends com.baidu.adp.base.c<ChannelListActivity> {
-    private BdListView MS;
+    private BdListView MR;
     private NoNetworkView dlX;
     private ChannelListActivity eDs;
     private TextView eEi;
@@ -71,16 +71,16 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
         this.mNavigationBar.setCenterTextTitle(this.eDs.getResources().getString(R.string.subcribe_channel_list_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.eEm = (ViewStub) this.mRootView.findViewById(R.id.no_data_viewstub);
-        this.MS = (BdListView) this.mRootView.findViewById(R.id.channel_list_listview);
+        this.MR = (BdListView) this.mRootView.findViewById(R.id.channel_list_listview);
         this.eFo = new com.baidu.tieba.channel.a.f(this.eDs);
         this.mPullView = new com.baidu.tbadk.core.view.i(this.eDs.getPageContext());
-        this.MS.setPullRefresh(this.mPullView);
-        this.MS.setOnItemClickListener(this.eEq);
-        this.MS.setAdapter((ListAdapter) this.eFo);
+        this.MR.setPullRefresh(this.mPullView);
+        this.MR.setOnItemClickListener(this.eEq);
+        this.MR.setAdapter((ListAdapter) this.eFo);
         this.epZ = LayoutInflater.from(this.eDs.getPageContext().getPageActivity()).inflate(R.layout.channel_list_footer, (ViewGroup) null, false);
         this.mProgressBar = (ProgressBar) this.epZ.findViewById(R.id.list_more_progress);
         this.eEi = (TextView) this.epZ.findViewById(R.id.list_more_title);
-        this.MS.addFooterView(this.epZ);
+        this.MR.addFooterView(this.epZ);
     }
 
     public void onDestroy() {
@@ -90,12 +90,12 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     }
 
     public void aYO() {
-        this.MS.completePullRefreshPostDelayed(0L);
+        this.MR.completePullRefreshPostDelayed(0L);
     }
 
     public void startPullRefresh() {
-        this.MS.setVisibility(0);
-        this.MS.startPullRefresh();
+        this.MR.setVisibility(0);
+        this.MR.startPullRefresh();
     }
 
     public void c(NoNetworkView.a aVar) {
@@ -105,7 +105,7 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     public void a(com.baidu.tieba.channel.data.e eVar) {
         if (eVar == null || eVar.getItems() == null || eVar.getItems().size() <= 0) {
             this.eFo.setData(null);
-            this.MS.setVisibility(8);
+            this.MR.setVisibility(8);
             this.eEm.setVisibility(0);
             this.eEn = (TextView) this.mRootView.findViewById(R.id.no_data_tip);
             this.eEn.setText(this.eDs.getResources().getString(R.string.no_channel));
@@ -144,6 +144,6 @@ public class j extends com.baidu.adp.base.c<ChannelListActivity> {
     }
 
     public void b(BdListView.e eVar) {
-        this.MS.setOnSrollToBottomListener(eVar);
+        this.MR.setOnSrollToBottomListener(eVar);
     }
 }

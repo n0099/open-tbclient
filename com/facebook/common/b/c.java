@@ -116,7 +116,7 @@ public class c extends AbstractExecutorService implements b {
         throw new UnsupportedOperationException();
     }
 
-    public boolean cBz() {
+    public boolean cBy() {
         return Thread.currentThread() == this.mHandler.getLooper().getThread();
     }
 }

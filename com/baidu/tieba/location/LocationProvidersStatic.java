@@ -21,13 +21,13 @@ import com.baidu.tbadk.editortools.k;
 /* loaded from: classes5.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.d.a.hO().a(b.bIY());
+        com.baidu.adp.lib.d.a.hO().a(b.bIZ());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.d.a.hO().a(a.bIX());
+            com.baidu.adp.lib.d.a.hO().a(a.bIY());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(2010044) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */

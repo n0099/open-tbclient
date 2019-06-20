@@ -81,7 +81,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(e.bcV().pS(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(e.bcV().pR(customMessage.getData())));
             }
         });
         CustomMessageTask customMessageTask4 = new CustomMessageTask(2004609, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic.7
@@ -90,7 +90,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.bcV().vo(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(e.bcV().vn(customMessage.getData())));
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

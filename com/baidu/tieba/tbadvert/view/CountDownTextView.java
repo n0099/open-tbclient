@@ -9,8 +9,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private String ama;
     private int aqt;
-    private final Runnable cZe;
-    private b jcP;
+    private final Runnable cZf;
+    private b jcT;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -20,15 +20,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> cYy;
+        private final WeakReference<CountDownTextView> cYz;
 
         private a(CountDownTextView countDownTextView) {
-            this.cYy = new WeakReference<>(countDownTextView);
+            this.cYz = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.cYy.get();
+            CountDownTextView countDownTextView = this.cYz.get();
             if (countDownTextView != null) {
                 countDownTextView.ms(1);
             }
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.aqt = 0;
         this.ama = "";
-        this.jcP = null;
+        this.jcT = null;
         this.mHandler = new Handler();
-        this.cZe = new a();
+        this.cZf = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.jcP = bVar;
+        this.jcT = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void ms(int i) {
         this.aqt -= i;
         if (this.aqt == 0) {
-            if (this.jcP != null) {
-                this.jcP.bn(this);
+            if (this.jcT != null) {
+                this.jcT.bn(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
@@ -94,7 +94,7 @@ public class CountDownTextView extends TextView {
         if (this.aqt > 0) {
             setText(String.format("%s %s", this.ama, Integer.valueOf(this.aqt)));
         }
-        this.mHandler.removeCallbacks(this.cZe);
-        this.mHandler.postDelayed(this.cZe, 1000L);
+        this.mHandler.removeCallbacks(this.cZf);
+        this.mHandler.postDelayed(this.cZf, 1000L);
     }
 }

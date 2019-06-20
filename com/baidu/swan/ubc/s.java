@@ -69,7 +69,7 @@ public class s {
         }
     }
 
-    public static final Flow kS(String str) {
+    public static final Flow kR(String str) {
         return g(str, "", 0);
     }
 

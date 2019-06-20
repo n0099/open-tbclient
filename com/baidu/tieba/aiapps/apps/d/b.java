@@ -7,7 +7,7 @@ import okhttp3.Request;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.swan.apps.u.b.a {
     private String aDU() {
-        return d.dbw;
+        return d.dbx;
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -27,12 +27,12 @@ public class b extends com.baidu.swan.apps.u.b.a {
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wm() {
-        return d.sH(String.format("%s/ma/reset", aDU()));
+        return d.sG(String.format("%s/ma/reset", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wn() {
-        return d.sH(String.format("%s/ma/update", aDU()));
+        return d.sG(String.format("%s/ma/update", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -46,12 +46,12 @@ public class b extends com.baidu.swan.apps.u.b.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.k.a.aFz().dfv.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.k.a.aFz().dfw.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         Request.Builder builder = new Request.Builder();
-        builder.url(d.sH(build.toString()));
+        builder.url(d.sG(build.toString()));
         builder.post(com.baidu.swan.apps.setting.oauth.c.n(map));
         return builder.build();
     }
@@ -93,56 +93,56 @@ public class b extends com.baidu.swan.apps.u.b.a {
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wv() {
-        return d.sH(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aDU()));
+        return d.sG(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String ww() {
-        return d.sH(String.format("%s/ma/game/od/get_user_info", aDU()));
+        return d.sG(String.format("%s/ma/game/od/get_user_info", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wx() {
-        return d.sH(String.format("%s/ma/game/od/remove_user_cloud_storage", aDU()));
+        return d.sG(String.format("%s/ma/game/od/remove_user_cloud_storage", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wy() {
-        return d.sH(String.format("%s/ma/game/od/get_user_cloud_storage", aDU()));
+        return d.sG(String.format("%s/ma/game/od/get_user_cloud_storage", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wz() {
-        return d.sH(String.format("%s/ma/game/od/set_user_cloud_storage", aDU()));
+        return d.sG(String.format("%s/ma/game/od/set_user_cloud_storage", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wA() {
-        return d.sH(String.format("%s/ma/game/od/get_friend_cloud_storage", aDU()));
+        return d.sG(String.format("%s/ma/game/od/get_friend_cloud_storage", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wB() {
-        return d.sH(String.format("%s/ma/game/od/get_follow_cloud_storage", aDU()));
+        return d.sG(String.format("%s/ma/game/od/get_follow_cloud_storage", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wC() {
-        return d.sH(String.format("%s/api/exchange/list", a.aDT()));
+        return d.sG(String.format("%s/api/exchange/list", a.aDT()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wD() {
-        return d.sH(String.format("%s/api/exchange/transfer_report", a.aDT()));
+        return d.sG(String.format("%s/api/exchange/transfer_report", a.aDT()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wE() {
-        return d.sH(String.format("%s/api/subscribe/v1/relation/get", aDU()));
+        return d.sG(String.format("%s/api/subscribe/v1/relation/get", aDU()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String wF() {
-        return d.sH(String.format("%s/api/subscribe/v1/relation/receive", aDU()));
+        return d.sG(String.format("%s/api/subscribe/v1/relation/receive", aDU()));
     }
 }

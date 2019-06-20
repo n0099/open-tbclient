@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class c {
-    private SQLiteDatabase jPp = f.cAp().getDatabase();
+    private SQLiteDatabase jPs = f.cAo().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(a aVar) {
-        this.jPp.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        this.jPs.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<a> cAo() {
-        Cursor rawQuery = this.jPp.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+    public final List<a> cAn() {
+        Cursor rawQuery = this.jPs.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             a aVar = new a();
@@ -34,6 +34,6 @@ final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.jPp.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        this.jPs.execSQL("delete from tb_ab_click_log where _id <= " + i);
     }
 }

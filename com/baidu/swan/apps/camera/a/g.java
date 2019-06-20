@@ -99,9 +99,9 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "cameraId = " + str + " ; position = " + (bVar == null));
             return false;
         }
-        CameraPreview de = com.baidu.swan.apps.camera.a.xe().de(aVar.aDm);
-        if (de != null) {
-            de.b(aVar);
+        CameraPreview dd = com.baidu.swan.apps.camera.a.xe().dd(aVar.aDm);
+        if (dd != null) {
+            dd.b(aVar);
         }
         com.baidu.swan.apps.console.c.i("SwanAppCamera", "handle update camera instruction end");
         SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(aVar, null);

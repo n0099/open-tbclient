@@ -3,12 +3,12 @@ package com.baidu.tieba.video.editvideo.scale;
 import android.graphics.Matrix;
 /* loaded from: classes5.dex */
 public class a {
-    private b jqk;
-    private b jql;
+    private b jqn;
+    private b jqo;
 
     public a(b bVar, b bVar2) {
-        this.jqk = bVar;
-        this.jql = bVar2;
+        this.jqn = bVar;
+        this.jqo = bVar2;
     }
 
     public Matrix a(ScalableType scalableType) {
@@ -81,33 +81,33 @@ public class a {
             case LEFT_TOP:
                 return i(f, f2, 0.0f, 0.0f);
             case LEFT_CENTER:
-                return i(f, f2, 0.0f, this.jqk.getHeight() / 2.0f);
+                return i(f, f2, 0.0f, this.jqn.getHeight() / 2.0f);
             case LEFT_BOTTOM:
-                return i(f, f2, 0.0f, this.jqk.getHeight());
+                return i(f, f2, 0.0f, this.jqn.getHeight());
             case CENTER_TOP:
-                return i(f, f2, this.jqk.getWidth() / 2.0f, 0.0f);
+                return i(f, f2, this.jqn.getWidth() / 2.0f, 0.0f);
             case CENTER:
-                return i(f, f2, this.jqk.getWidth() / 2.0f, this.jqk.getHeight() / 2.0f);
+                return i(f, f2, this.jqn.getWidth() / 2.0f, this.jqn.getHeight() / 2.0f);
             case CENTER_BOTTOM:
-                return i(f, f2, this.jqk.getWidth() / 2.0f, this.jqk.getHeight());
+                return i(f, f2, this.jqn.getWidth() / 2.0f, this.jqn.getHeight());
             case RIGHT_TOP:
-                return i(f, f2, this.jqk.getWidth(), 0.0f);
+                return i(f, f2, this.jqn.getWidth(), 0.0f);
             case RIGHT_CENTER:
-                return i(f, f2, this.jqk.getWidth(), this.jqk.getHeight() / 2.0f);
+                return i(f, f2, this.jqn.getWidth(), this.jqn.getHeight() / 2.0f);
             case RIGHT_BOTTOM:
-                return i(f, f2, this.jqk.getWidth(), this.jqk.getHeight());
+                return i(f, f2, this.jqn.getWidth(), this.jqn.getHeight());
             default:
                 return null;
         }
     }
 
     private Matrix aCW() {
-        return a(this.jql.getWidth() / this.jqk.getWidth(), this.jql.getHeight() / this.jqk.getHeight(), PivotPoint.LEFT_TOP);
+        return a(this.jqo.getWidth() / this.jqn.getWidth(), this.jqo.getHeight() / this.jqn.getHeight(), PivotPoint.LEFT_TOP);
     }
 
     private Matrix a(PivotPoint pivotPoint) {
-        float width = this.jqk.getWidth() / this.jql.getWidth();
-        float height = this.jqk.getHeight() / this.jql.getHeight();
+        float width = this.jqn.getWidth() / this.jqo.getWidth();
+        float height = this.jqn.getHeight() / this.jqo.getHeight();
         float min = Math.min(width, height);
         return a(min / width, min / height, pivotPoint);
     }
@@ -129,25 +129,25 @@ public class a {
     }
 
     private Matrix b(PivotPoint pivotPoint) {
-        return a(this.jql.getWidth() / this.jqk.getWidth(), this.jql.getHeight() / this.jqk.getHeight(), pivotPoint);
+        return a(this.jqo.getWidth() / this.jqn.getWidth(), this.jqo.getHeight() / this.jqn.getHeight(), pivotPoint);
     }
 
     private Matrix c(PivotPoint pivotPoint) {
-        float width = this.jqk.getWidth() / this.jql.getWidth();
-        float height = this.jqk.getHeight() / this.jql.getHeight();
+        float width = this.jqn.getWidth() / this.jqo.getWidth();
+        float height = this.jqn.getHeight() / this.jqo.getHeight();
         float max = Math.max(width, height);
         return a(max / width, max / height, pivotPoint);
     }
 
     private Matrix aCT() {
-        return (this.jql.getHeight() > this.jqk.getWidth() || this.jql.getHeight() > this.jqk.getHeight()) ? aCQ() : b(PivotPoint.LEFT_TOP);
+        return (this.jqo.getHeight() > this.jqn.getWidth() || this.jqo.getHeight() > this.jqn.getHeight()) ? aCQ() : b(PivotPoint.LEFT_TOP);
     }
 
     private Matrix aCU() {
-        return (this.jql.getHeight() > this.jqk.getWidth() || this.jql.getHeight() > this.jqk.getHeight()) ? aCR() : b(PivotPoint.CENTER);
+        return (this.jqo.getHeight() > this.jqn.getWidth() || this.jqo.getHeight() > this.jqn.getHeight()) ? aCR() : b(PivotPoint.CENTER);
     }
 
     private Matrix aCV() {
-        return (this.jql.getHeight() > this.jqk.getWidth() || this.jql.getHeight() > this.jqk.getHeight()) ? aCS() : b(PivotPoint.RIGHT_BOTTOM);
+        return (this.jqo.getHeight() > this.jqn.getWidth() || this.jqo.getHeight() > this.jqn.getHeight()) ? aCS() : b(PivotPoint.RIGHT_BOTTOM);
     }
 }

@@ -24,7 +24,7 @@ public final class a {
     public String bjr;
     public com.baidu.swan.games.inspector.a bjs;
 
-    public static a jJ(String str) {
+    public static a jI(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

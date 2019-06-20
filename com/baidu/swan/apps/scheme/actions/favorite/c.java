@@ -17,7 +17,7 @@ public class c extends b {
     protected void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.eg(this.aRU) ? 1 : 0);
+            jSONObject.put("isFavor", com.baidu.swan.apps.database.favorite.a.ef(this.aRU) ? 1 : 0);
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -37,7 +37,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface a {
         void d(List<g> list, boolean z, boolean z2);
 
-        void wy(String str);
+        void wx(String str);
     }
 
     static /* synthetic */ int b(VideoAggregationModel videoAggregationModel) {
@@ -53,7 +53,7 @@ public class VideoAggregationModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003360 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.fvl.wy("error");
+                    VideoAggregationModel.this.fvl.wx("error");
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
@@ -66,7 +66,7 @@ public class VideoAggregationModel extends BdBaseModel {
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.fvl.wy(errorString);
+                VideoAggregationModel.this.fvl.wx(errorString);
             }
         };
         this.fvn = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.aggregation.VideoAggregationModel.2
@@ -74,7 +74,7 @@ public class VideoAggregationModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoAggregationResponseMessage)) {
-                    VideoAggregationModel.this.fvl.wy("error");
+                    VideoAggregationModel.this.fvl.wx("error");
                     return;
                 }
                 VideoAggregationModel.this.mIsLoading = false;
@@ -87,7 +87,7 @@ public class VideoAggregationModel extends BdBaseModel {
                 if (TextUtils.isEmpty(errorString)) {
                     errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                 }
-                VideoAggregationModel.this.fvl.wy(errorString);
+                VideoAggregationModel.this.fvl.wx(errorString);
             }
         };
         this.mPageContext = tbPageContext;
@@ -109,7 +109,7 @@ public class VideoAggregationModel extends BdBaseModel {
         this.mFrom = str;
     }
 
-    public void wx(String str) {
+    public void ww(String str) {
         this.st_type = str;
     }
 

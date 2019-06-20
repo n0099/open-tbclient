@@ -52,13 +52,13 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout fa = ac.fa(s.aDm);
-        if (fa == null) {
+        AbsoluteLayout eZ = ac.eZ(s.aDm);
+        if (eZ == null) {
             c.e("SwanAppNativeButton", "can not find webView by #" + s.aDm);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(str, context, s, fa, unitedSchemeEntity, callbackHandler);
+        return a(str, context, s, eZ, unitedSchemeEntity, callbackHandler);
     }
 
     private boolean a(String str, Context context, @NonNull com.baidu.swan.apps.button.b.a.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {

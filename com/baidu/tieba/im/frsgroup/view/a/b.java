@@ -22,7 +22,7 @@ import java.util.List;
 public class b {
     private g dhY;
     private PbListView dlY;
-    private h gBR;
+    private h gBT;
     private TbPageContext<?> mContext;
     private View mHeaderView;
     private BdTypeListView mListView;
@@ -47,7 +47,7 @@ public class b {
         this.mRootView.addView(this.mListView);
     }
 
-    public void lX(boolean z) {
+    public void lY(boolean z) {
         if (this.mHeaderView != null && this.mListView != null) {
             BdListViewHelper.a(this.mHeaderView, BdListViewHelper.HeadType.HASTAB, z);
         }
@@ -69,19 +69,19 @@ public class b {
         this.mListView.completePullRefreshPostDelayed(0L);
     }
 
-    public void bsp() {
-        bBg();
+    public void bsr() {
+        bBh();
         this.dlY.ajy();
     }
 
-    public void bsq() {
-        bBg();
+    public void bss() {
+        bBh();
         this.dlY.setText(this.mContext.getResources().getString(R.string.network_ungeilivable));
         this.dlY.ajz();
     }
 
-    public void bsr() {
-        bBg();
+    public void bst() {
+        bBh();
         this.dlY.setText(this.mContext.getResources().getString(R.string.list_no_more));
         this.dlY.ajz();
     }
@@ -100,22 +100,22 @@ public class b {
             this.dlY.setTextColor(al.getColor(R.color.cp_cont_d));
             this.dlY.iP(i);
         }
-        if (this.gBR != null) {
-            this.gBR.onChangeSkinType();
+        if (this.gBT != null) {
+            this.gBT.onChangeSkinType();
         }
         if (this.dhY != null) {
             this.dhY.onChangeSkinType();
         }
     }
 
-    public void bBf() {
+    public void bBg() {
         if (this.mListView != null) {
             this.mListView.setNextPage(null);
             this.dlY = null;
         }
     }
 
-    private void bBg() {
+    private void bBh() {
         if (this.mListView != null && this.dlY == null) {
             this.dlY = new PbListView(this.mContext.getPageActivity());
             this.dlY.nG();
@@ -125,7 +125,7 @@ public class b {
 
     public void showLoadingView() {
         if (this.dhY == null) {
-            this.dhY = new g(this.mContext.getPageActivity(), BdListViewHelper.cBh);
+            this.dhY = new g(this.mContext.getPageActivity(), BdListViewHelper.cBi);
             this.dhY.onChangeSkinType();
         }
         if (!this.dhY.isViewAttached()) {
@@ -142,26 +142,26 @@ public class b {
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
-        if (this.gBR == null) {
-            this.gBR = new h(this.mContext.getPageActivity(), onClickListener);
-            this.gBR.kE(BdListViewHelper.cBh);
-            this.gBR.onChangeSkinType();
+        if (this.gBT == null) {
+            this.gBT = new h(this.mContext.getPageActivity(), onClickListener);
+            this.gBT.kE(BdListViewHelper.cBi);
+            this.gBT.onChangeSkinType();
         }
-        if (!this.gBR.isViewAttached()) {
+        if (!this.gBT.isViewAttached()) {
             this.mListView.setVisibility(8);
             if (StringUtils.isNull(str)) {
                 str = this.mContext.getString(R.string.invite_friend_no_data_now);
             }
-            this.gBR.setTitle(str);
-            this.gBR.attachView(this.mRootView, true);
-            this.gBR.asB();
+            this.gBT.setTitle(str);
+            this.gBT.attachView(this.mRootView, true);
+            this.gBT.asB();
         }
     }
 
     public void aHK() {
-        if (this.gBR != null && this.gBR.isViewAttached()) {
+        if (this.gBT != null && this.gBT.isViewAttached()) {
             this.mListView.setVisibility(0);
-            this.gBR.dettachView(this.mRootView);
+            this.gBT.dettachView(this.mRootView);
         }
     }
 }

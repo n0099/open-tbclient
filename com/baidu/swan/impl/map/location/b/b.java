@@ -18,7 +18,7 @@ public class b {
 
         void Up();
 
-        void ke(String str);
+        void kd(String str);
     }
 
     public static void a(Activity activity, LatLng latLng, LatLng latLng2, a aVar) {
@@ -35,7 +35,7 @@ public class b {
                 c.e("map", "initNaviEngine fail");
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.ke(e.getMessage());
+                    aVar.kd(e.getMessage());
                     return;
                 }
                 return;
@@ -51,7 +51,7 @@ public class b {
             public void engineInitFail() {
                 walkNavigateHelper.quit();
                 if (aVar != null) {
-                    aVar.ke("engineInitFail");
+                    aVar.kd("engineInitFail");
                 }
             }
         });
@@ -89,7 +89,7 @@ public class b {
                 public void onRoutePlanFail(WalkRoutePlanError walkRoutePlanError) {
                     walkNavigateHelper.quit();
                     if (a.this != null) {
-                        a.this.ke(walkRoutePlanError.toString());
+                        a.this.kd(walkRoutePlanError.toString());
                     }
                 }
             });
@@ -97,7 +97,7 @@ public class b {
             c.e("map", "routePlanWithParams fail");
             walkNavigateHelper.quit();
             if (aVar != null) {
-                aVar.ke(e.getMessage());
+                aVar.kd(e.getMessage());
             }
         }
     }

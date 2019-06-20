@@ -35,7 +35,7 @@ public class h {
                         for (m mVar2 : singletonList) {
                             if (mVar == mVar2 && (mVar2 instanceof bg)) {
                                 a.b bVar = new a.b();
-                                bVar.bVL = ((bg) mVar2).getTid();
+                                bVar.bVM = ((bg) mVar2).getTid();
                                 bVar.eAv = i2;
                                 arrayList.add(bVar);
                             }
@@ -48,10 +48,10 @@ public class h {
                         if (mVar3 instanceof bg) {
                             bg bgVar2 = (bg) mVar3;
                             i3++;
-                            if (bgVar2.bJA == 1 && !TextUtils.isEmpty(bgVar2.getTid())) {
-                                bgVar2.bJA = 2;
+                            if (bgVar2.bJB == 1 && !TextUtils.isEmpty(bgVar2.getTid())) {
+                                bgVar2.bJB = 2;
                                 a.b bVar2 = new a.b();
-                                bVar2.bVL = bgVar2.getTid();
+                                bVar2.bVM = bgVar2.getTid();
                                 bVar2.eAv = i3;
                                 arrayList.add(bVar2);
                             }
@@ -83,14 +83,14 @@ public class h {
                 }
                 if (frsViewData != null && frsViewData.getForum() != null) {
                     com.baidu.tieba.frs.d.b bVar = new com.baidu.tieba.frs.d.b();
-                    bVar.fJD = frsViewData.needLog == 1;
-                    bVar.fJF = frsViewData.getForum().getId();
-                    bVar.fJE = bjK.bpj();
+                    bVar.fJF = frsViewData.needLog == 1;
+                    bVar.fJH = frsViewData.getForum().getId();
+                    bVar.fJG = bjK.bpl();
                     if (com.baidu.tieba.frs.d.d.fxl != null) {
-                        bVar.fJG = com.baidu.tieba.frs.d.d.fxl.fJG;
-                        bVar.fJH = com.baidu.tieba.frs.d.d.fxl.fJH;
+                        bVar.fJI = com.baidu.tieba.frs.d.d.fxl.fJI;
+                        bVar.fJJ = com.baidu.tieba.frs.d.d.fxl.fJJ;
                     }
-                    com.baidu.tieba.frs.d.c.bpC().a(bVar, bgVar, 1);
+                    com.baidu.tieba.frs.d.c.bpE().a(bVar, bgVar, 1);
                     com.baidu.tieba.frs.d.a.a(bgVar, 1, frsFragment.getUniqueId(), bVar);
                 }
                 a(bjP, frsViewData, frsFragment.getForumId(), true, bgVar);
@@ -109,9 +109,9 @@ public class h {
     }
 
     public static void a(com.baidu.tieba.frs.d.b bVar, String str) {
-        if (!TextUtils.isEmpty(str) && bVar != null && !TextUtils.isEmpty(bVar.fJF)) {
+        if (!TextUtils.isEmpty(str) && bVar != null && !TextUtils.isEmpty(bVar.fJH)) {
             am amVar = new am("c11942");
-            amVar.bT("fid", bVar.fJF);
+            amVar.bT("fid", bVar.fJH);
             amVar.bT("obj_name", str);
             TiebaStatic.log(amVar);
         }

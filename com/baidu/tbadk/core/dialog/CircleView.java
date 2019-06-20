@@ -9,13 +9,13 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int bME = 360;
-    private static int bMF = 100;
+    private static int bMF = 360;
+    private static int bMG = 100;
     private int amp;
-    private int bMG;
-    private Paint bMH;
+    private int bMH;
     private Paint bMI;
-    private RectF bMJ;
+    private Paint bMJ;
+    private RectF bMK;
     private int mValue;
     private int mWidth;
 
@@ -45,23 +45,23 @@ public class CircleView extends View {
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.ds100);
         this.amp = getResources().getDimensionPixelSize(R.dimen.ds4);
-        this.bMG = getResources().getDimensionPixelSize(R.dimen.ds2);
-        this.bMH = new Paint();
-        this.bMH.setStrokeWidth(this.amp);
-        this.bMH.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.bMH.setStyle(Paint.Style.STROKE);
-        this.bMH.setAntiAlias(true);
+        this.bMH = getResources().getDimensionPixelSize(R.dimen.ds2);
         this.bMI = new Paint();
-        this.bMI.setStrokeWidth(this.bMG);
-        this.bMI.setColor(getResources().getColor(R.color.common_color_10042));
+        this.bMI.setStrokeWidth(this.amp);
+        this.bMI.setColor(getResources().getColor(R.color.cp_cont_g));
         this.bMI.setStyle(Paint.Style.STROKE);
         this.bMI.setAntiAlias(true);
-        this.bMJ = new RectF(this.amp, this.amp, this.mWidth + this.amp, this.mWidth + this.amp);
+        this.bMJ = new Paint();
+        this.bMJ.setStrokeWidth(this.bMH);
+        this.bMJ.setColor(getResources().getColor(R.color.common_color_10042));
+        this.bMJ.setStyle(Paint.Style.STROKE);
+        this.bMJ.setAntiAlias(true);
+        this.bMK = new RectF(this.amp, this.amp, this.mWidth + this.amp, this.mWidth + this.amp);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.bMJ, 0.0f, bME, false, this.bMI);
-        canvas.drawArc(this.bMJ, 270.0f, (bME * this.mValue) / bMF, false, this.bMH);
+        canvas.drawArc(this.bMK, 0.0f, bMF, false, this.bMJ);
+        canvas.drawArc(this.bMK, 270.0f, (bMF * this.mValue) / bMG, false, this.bMI);
     }
 }

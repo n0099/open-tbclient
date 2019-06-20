@@ -32,33 +32,33 @@ import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class MessageCenterFragment extends BaseFragment implements VoiceManager.c {
     private VoiceManager foP;
-    private g gOY;
-    private int gOZ = 0;
-    private int gPa = 0;
+    private g gPa;
     private int gPb = 0;
-    private int cgW = 0;
-    private boolean cgX = false;
-    private int cgY = 0;
-    private boolean cgZ = false;
-    private int cha = 0;
-    private boolean chb = false;
-    private TbTabLayout.b gPc = new TbTabLayout.b() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.1
+    private int gPc = 0;
+    private int gPd = 0;
+    private int cgX = 0;
+    private boolean cgY = false;
+    private int cgZ = 0;
+    private boolean cha = false;
+    private int chb = 0;
+    private boolean chc = false;
+    private TbTabLayout.b gPe = new TbTabLayout.b() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.1
         @Override // com.baidu.adp.widget.design.TbTabLayout.b
         public void h(TbTabLayout.e eVar) {
             if (eVar != null) {
                 if (eVar.getId() == 1) {
-                    if (MessageCenterFragment.this.cgX && MessageCenterFragment.this.gPb > 0) {
+                    if (MessageCenterFragment.this.cgY && MessageCenterFragment.this.gPd > 0) {
                         com.baidu.tbadk.coreExtra.messageCenter.b.amy().setMsgReplyme(0);
                     }
-                    MessageCenterFragment.this.gOY.j(eVar.getId(), MessageCenterFragment.this.cgW, MessageCenterFragment.this.cgX);
+                    MessageCenterFragment.this.gPa.j(eVar.getId(), MessageCenterFragment.this.cgX, MessageCenterFragment.this.cgY);
                 } else if (eVar.getId() == 3) {
-                    if (MessageCenterFragment.this.chb) {
-                        MessageCenterFragment.this.bFk();
+                    if (MessageCenterFragment.this.chc) {
+                        MessageCenterFragment.this.bFl();
                     }
                     com.baidu.tbadk.coreExtra.messageCenter.b.amy().amF();
-                    MessageCenterFragment.this.gOY.j(eVar.getId(), MessageCenterFragment.this.cha, MessageCenterFragment.this.chb);
+                    MessageCenterFragment.this.gPa.j(eVar.getId(), MessageCenterFragment.this.chb, MessageCenterFragment.this.chc);
                 } else if (eVar.getId() == 2) {
-                    MessageCenterFragment.this.gOY.j(eVar.getId(), MessageCenterFragment.this.cgY, MessageCenterFragment.this.cgZ);
+                    MessageCenterFragment.this.gPa.j(eVar.getId(), MessageCenterFragment.this.cgZ, MessageCenterFragment.this.cha);
                 }
                 MessageCenterFragment.this.vB(eVar.getId());
             }
@@ -66,33 +66,33 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
         @Override // com.baidu.adp.widget.design.TbTabLayout.b
         public void i(TbTabLayout.e eVar) {
-            if (eVar != null && MessageCenterFragment.this.gOY != null && eVar.getId() == 1) {
+            if (eVar != null && MessageCenterFragment.this.gPa != null && eVar.getId() == 1) {
                 MessageManager.getInstance().runTask(2016322, (Class) null);
-                com.baidu.adp.lib.util.l.b(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.gOY.bFl());
+                com.baidu.adp.lib.util.l.b(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.gPa.bFm());
             }
         }
 
         @Override // com.baidu.adp.widget.design.TbTabLayout.b
         public void j(TbTabLayout.e eVar) {
-            if (eVar != null && MessageCenterFragment.this.gOY != null) {
+            if (eVar != null && MessageCenterFragment.this.gPa != null) {
                 if (eVar.getId() == 1) {
                     MessageManager.getInstance().runTask(2016322, (Class) null);
-                    com.baidu.adp.lib.util.l.b(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.gOY.bFl());
+                    com.baidu.adp.lib.util.l.b(MessageCenterFragment.this.getContext(), MessageCenterFragment.this.gPa.bFm());
                 }
                 MessageCenterFragment.this.vB(eVar.getId());
             }
         }
     };
-    private CustomMessageListener gPd = new CustomMessageListener(2001384) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.2
-        private boolean gPg = true;
+    private CustomMessageListener gPf = new CustomMessageListener(2001384) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.2
+        private boolean gPi = true;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3) {
-                if (!TbadkCoreApplication.getInst().checkInterrupt() || !this.gPg) {
-                    if (MessageCenterFragment.this.bFh()) {
-                        if (!MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.gPb <= 0) {
+                if (!TbadkCoreApplication.getInst().checkInterrupt() || !this.gPi) {
+                    if (MessageCenterFragment.this.bFi()) {
+                        if (!MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.gPd <= 0) {
                             return;
                         }
                     } else {
@@ -100,13 +100,13 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                     }
                 }
                 if (MessageCenterFragment.this.getPageContext() != null) {
-                    this.gPg = false;
+                    this.gPi = false;
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001628, MessageCenterFragment.this.getPageContext().getUniqueId()));
                 }
             }
         }
     };
-    private final CustomMessageListener gPe = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.3
+    private final CustomMessageListener gPg = new CustomMessageListener(2001626) { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -117,26 +117,26 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bFh() {
-        return this.gOY != null && this.gOY.qg(1);
+    public boolean bFi() {
+        return this.gPa != null && this.gPa.qg(1);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        registerListener(this.gPd);
+        registerListener(this.gPf);
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(R.layout.message_center_activity, viewGroup, false);
-        this.gOY = new g(this);
-        this.gOY.a(inflate, bundle);
-        this.gOY.qf(2);
-        this.gOY.a(this.gPc);
-        this.gPe.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-        registerListener(this.gPe);
+        this.gPa = new g(this);
+        this.gPa.a(inflate, bundle);
+        this.gPa.qf(2);
+        this.gPa.a(this.gPe);
+        this.gPg.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        registerListener(this.gPg);
         a(getActivity().getIntent(), bundle);
         this.foP = getVoiceManager();
         this.foP.onCreate(getPageContext());
@@ -146,7 +146,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
-        com.baidu.tieba.im.db.e.bzV().bzW();
+        com.baidu.tieba.im.db.e.bzW().bzX();
         if (this.foP == null) {
             this.foP = getVoiceManager();
             this.foP.onCreate(getPageContext());
@@ -159,22 +159,22 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // android.support.v4.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gOY != null) {
-            this.gOY.onActivityResult(i, i2, intent);
+        if (this.gPa != null) {
+            this.gPa.onActivityResult(i, i2, intent);
         }
     }
 
     @Override // android.support.v4.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        TbTabLayout.e bFm;
-        if (this.gOY != null && (bFm = this.gOY.bFm()) != null) {
-            bundle.putInt("Selected_Tab", bFm.getId());
+        TbTabLayout.e bFn;
+        if (this.gPa != null && (bFn = this.gPa.bFn()) != null) {
+            bundle.putInt("Selected_Tab", bFn.getId());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void changeSkinType(int i) {
-        if (this.gOY != null) {
+        if (this.gPa != null) {
             super.changeSkinType(i);
         }
     }
@@ -182,16 +182,16 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gOY != null) {
-            this.gOY.onChangeSkinType(this.mSkinType);
+        if (this.gPa != null) {
+            this.gPa.onChangeSkinType(this.mSkinType);
         }
     }
 
-    public void bFi() {
+    public void bFj() {
         getActivity().finish();
     }
 
-    public void bFj() {
+    public void bFk() {
         AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
         atListActivityConfig.setIsForChat(true);
         sendMessage(new CustomMessage(2002001, atListActivityConfig));
@@ -201,11 +201,11 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     private void a(Intent intent, Bundle bundle) {
         int i = (intent == null || intent.getExtras() == null) ? -1 : intent.getExtras().getInt(MessageCenterActivityConfig.SELECTED_TAB_ID, -1);
         if (i == -1) {
-            if (this.cgX) {
+            if (this.cgY) {
                 i = 1;
-            } else if (this.cgZ) {
+            } else if (this.cha) {
                 i = 2;
-            } else if (this.chb) {
+            } else if (this.chc) {
                 i = 3;
             }
         }
@@ -213,8 +213,8 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
             i = bundle.getInt("Selected_Tab", -1);
         }
         int i2 = i != -1 ? i : 1;
-        if (this.gOY != null) {
-            this.gOY.qf(i2);
+        if (this.gPa != null) {
+            this.gPa.qf(i2);
         }
     }
 
@@ -225,37 +225,37 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
                 BdLog.e("transform error");
                 return;
             }
-            int i = this.gPb;
+            int i = this.gPd;
             NewsRemindMessage newsRemindMessage = (NewsRemindMessage) responsedMessage;
-            this.gOZ = newsRemindMessage.getMsgAgreeCount();
-            this.gPa = newsRemindMessage.getMsgAtCount();
-            this.gPb = newsRemindMessage.getMsgReplyCount();
-            this.cgW = newsRemindMessage.getMsgCount();
-            this.cgX = newsRemindMessage.hasMsgRemind();
-            this.cgY = newsRemindMessage.getChatCount();
-            this.cgZ = newsRemindMessage.hasChatRemind();
-            this.cha = newsRemindMessage.getNotificationCount();
-            this.chb = newsRemindMessage.hasNotificationRemind();
-            if (this.gOY != null) {
-                if (i > 0 && this.gPb == 0 && getPageContext() != null) {
+            this.gPb = newsRemindMessage.getMsgAgreeCount();
+            this.gPc = newsRemindMessage.getMsgAtCount();
+            this.gPd = newsRemindMessage.getMsgReplyCount();
+            this.cgX = newsRemindMessage.getMsgCount();
+            this.cgY = newsRemindMessage.hasMsgRemind();
+            this.cgZ = newsRemindMessage.getChatCount();
+            this.cha = newsRemindMessage.hasChatRemind();
+            this.chb = newsRemindMessage.getNotificationCount();
+            this.chc = newsRemindMessage.hasNotificationRemind();
+            if (this.gPa != null) {
+                if (i > 0 && this.gPd == 0 && getPageContext() != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001628, getPageContext().getUniqueId()));
                 }
-                this.gOY.j(1, this.cgW, this.cgX);
-                this.gOY.j(2, this.cgY, this.cgZ);
-                if (this.gOY.qg(3)) {
+                this.gPa.j(1, this.cgX, this.cgY);
+                this.gPa.j(2, this.cgZ, this.cha);
+                if (this.gPa.qg(3)) {
                     com.baidu.tbadk.coreExtra.messageCenter.b.amy().amF();
-                    if (this.chb) {
-                        bFk();
+                    if (this.chc) {
+                        bFl();
                         return;
                     }
                 }
-                this.gOY.j(3, this.cha, this.chb);
+                this.gPa.j(3, this.chb, this.chc);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bFk() {
+    public void bFl() {
         HashSet hashSet;
         HashMap<Integer, HashSet> amW = com.baidu.tbadk.coreExtra.messageCenter.b.amy().amW();
         if (amW != null && amW.size() > 0 && (hashSet = amW.get(0)) != null && hashSet.size() > 0) {
@@ -283,11 +283,11 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.bzV().bzW();
-        MessageManager.getInstance().unRegisterListener(this.gPe);
-        if (this.gOY != null) {
-            this.gOY.bdY();
-            this.gOY.b(this.gPc);
+        com.baidu.tieba.im.db.e.bzW().bzX();
+        MessageManager.getInstance().unRegisterListener(this.gPg);
+        if (this.gPa != null) {
+            this.gPa.bdY();
+            this.gPa.b(this.gPe);
         }
         if (this.foP != null) {
             this.foP.onDestory(getPageContext());
@@ -342,8 +342,8 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        if (this.gOY != null) {
-            this.gOY.setPrimary(z);
+        if (this.gPa != null) {
+            this.gPa.setPrimary(z);
         }
     }
 }

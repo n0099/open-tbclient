@@ -39,9 +39,9 @@ public class a implements c {
 
     public void a(ImageView imageView, String str, int i, int i2) {
         imageView.setTag(str);
-        Bitmap cN = agQ.cN(str);
-        if (cN != null) {
-            imageView.setImageBitmap(cN);
+        Bitmap cM = agQ.cM(str);
+        if (cM != null) {
+            imageView.setImageBitmap(cM);
             return;
         }
         agO.execute(new h(this.context, agP, str, imageView, i, i2));

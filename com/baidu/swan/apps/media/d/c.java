@@ -52,8 +52,8 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
             cVar2.aCF = jSONObject.optBoolean("danmuBtn", cVar.aCF);
             cVar2.mLoop = jSONObject.optBoolean("loop", cVar.mLoop);
             cVar2.aCG = jSONObject.optBoolean("controls", cVar.aCG);
-            cVar2.mSrc = fo(jSONObject.optString("src", cVar.mSrc));
-            cVar2.aCP = !com.baidu.swan.apps.storage.b.ht(jSONObject.optString("src", cVar.mSrc));
+            cVar2.mSrc = fn(jSONObject.optString("src", cVar.mSrc));
+            cVar2.aCP = !com.baidu.swan.apps.storage.b.hs(jSONObject.optString("src", cVar.mSrc));
             cVar2.aCI = jSONObject.optBoolean("showPlayBtn", cVar.aCI);
             cVar2.aCJ = jSONObject.optBoolean("showMuteBtn", cVar.aCJ);
             cVar2.aCK = jSONObject.optBoolean("showCenterPlayBtn", cVar.aCK);
@@ -120,8 +120,8 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
         return jSONObject2.toString();
     }
 
-    private static String fo(String str) {
-        if (!com.baidu.swan.apps.storage.b.ht(str) || com.baidu.swan.apps.ae.b.Lq() == null) {
+    private static String fn(String str) {
+        if (!com.baidu.swan.apps.storage.b.hs(str) || com.baidu.swan.apps.ae.b.Lq() == null) {
             return str;
         }
         return com.baidu.swan.apps.storage.b.b(str, com.baidu.swan.apps.ae.b.Lq());

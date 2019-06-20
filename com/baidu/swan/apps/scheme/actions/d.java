@@ -37,7 +37,7 @@ public class d extends z {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void gX(String str);
+        void gW(String str);
 
         void i(ArrayList<String> arrayList);
     }
@@ -53,15 +53,15 @@ public class d extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        JSONObject cZ = com.baidu.swan.apps.an.o.cZ(unitedSchemeEntity.getParam("params"));
-        this.mCallback = cZ.optString("cb");
+        JSONObject cY = com.baidu.swan.apps.an.o.cY(unitedSchemeEntity.getParam("params"));
+        this.mCallback = cY.optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             com.baidu.swan.apps.console.c.e("chooseImage", "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         try {
-            this.mCount = Integer.parseInt(cZ.optString(Config.TRACE_VISIT_RECENT_COUNT));
+            this.mCount = Integer.parseInt(cY.optString(Config.TRACE_VISIT_RECENT_COUNT));
             if (this.mCount < 1 || this.mCount > 9) {
                 this.mCount = 9;
             }
@@ -69,8 +69,8 @@ public class d extends z {
             com.baidu.swan.apps.console.c.e("chooseImage", "count format error");
             this.mCount = 9;
         }
-        this.aRq = k(cZ.optJSONArray("sizeType"));
-        this.aRr = l(cZ.optJSONArray("sourceType"));
+        this.aRq = k(cY.optJSONArray("sizeType"));
+        this.aRr = l(cY.optJSONArray("sourceType"));
         com.baidu.swan.apps.console.c.i("chooseImage", "sizeType: " + this.aRq + ",sourceType: " + this.aRr);
         if (TextUtils.equals(this.aRr, "album")) {
             com.baidu.swan.apps.u.a.DQ().a(context, this.mCount, new a() { // from class: com.baidu.swan.apps.scheme.actions.d.1
@@ -89,7 +89,7 @@ public class d extends z {
                 }
 
                 @Override // com.baidu.swan.apps.scheme.actions.d.a
-                public void gX(String str) {
+                public void gW(String str) {
                     com.baidu.swan.apps.console.c.i("chooseImage", str);
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), d.this.mCallback);
                 }
@@ -197,7 +197,7 @@ public class d extends z {
     }
 
     private static File c(@NonNull com.baidu.swan.apps.ae.b bVar) {
-        File file = new File(com.baidu.swan.apps.storage.b.hy(bVar.id) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
+        File file = new File(com.baidu.swan.apps.storage.b.hx(bVar.id) + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
         com.baidu.swan.c.a.w(file);
         return file;
     }
@@ -312,9 +312,9 @@ public class d extends z {
             while (it.hasNext()) {
                 File next = it.next();
                 if (next != null) {
-                    String la = com.baidu.swan.c.a.la(next.getAbsolutePath());
+                    String kZ = com.baidu.swan.c.a.kZ(next.getAbsolutePath());
                     String aG = com.baidu.swan.apps.storage.b.aG(next.getAbsolutePath(), bVar.id);
-                    jSONArray.put(aG + "." + la);
+                    jSONArray.put(aG + "." + kZ);
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("path", aG);
                     jSONObject2.put("size", next.length());
@@ -336,10 +336,10 @@ public class d extends z {
     private File b(com.baidu.swan.apps.ae.b bVar, String str) {
         com.baidu.swan.apps.console.c.i("chooseImage", "获取temp路径");
         String str2 = "aiapp_choose_img_" + System.currentTimeMillis() + "_" + str;
-        String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
+        String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
         File file = null;
-        if (!TextUtils.isEmpty(hy)) {
-            File file2 = new File(hy);
+        if (!TextUtils.isEmpty(hx)) {
+            File file2 = new File(hx);
             if (file2.exists()) {
                 file = new File(file2, str2);
             } else if (file2.mkdirs()) {

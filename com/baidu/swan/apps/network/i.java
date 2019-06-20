@@ -62,8 +62,8 @@ public class i extends a implements f {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal cb");
             return false;
         }
-        final String fE = fE(bVar.id);
-        Request j = j(c, fE);
+        final String fD = fD(bVar.id);
+        Request j = j(c, fD);
         if (j == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal request");
             return false;
@@ -79,7 +79,7 @@ public class i extends a implements f {
                 if (i.DEBUG) {
                     Log.d("RequestAction", "onFailure: " + iOException.getMessage());
                 }
-                SwanAppNetworkUtils.a(bVar.Lw().Hc(), fE);
+                SwanAppNetworkUtils.a(bVar.Lw().Hc(), fD);
                 callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
                 if (SwanAppNetworkUtils.isNetworkConnected(null)) {
                     com.baidu.swan.apps.statistic.e.a(0, httpUrl, Fg, iOException.getMessage());
@@ -112,7 +112,7 @@ public class i extends a implements f {
                 com.baidu.swan.apps.statistic.e.a(code, httpUrl, Fg, message);
             }
         });
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fF(fE), 0));
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(fE(fD), 0));
         return true;
     }
 
@@ -179,8 +179,8 @@ public class i extends a implements f {
                 switch (z2) {
                     case false:
                         try {
-                            if (fH(str3)) {
-                                str3 = fG(str3) ? new JSONArray(str3) : new JSONObject(str3);
+                            if (fG(str3)) {
+                                str3 = fF(str3) ? new JSONArray(str3) : new JSONObject(str3);
                             }
                             break;
                         } catch (JSONException e) {
@@ -192,14 +192,14 @@ public class i extends a implements f {
         }
     }
 
-    private boolean fG(String str) {
+    private boolean fF(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         return str.trim().startsWith("[");
     }
 
-    private boolean fH(String str) {
+    private boolean fG(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -229,12 +229,12 @@ public class i extends a implements f {
 
     @Nullable
     private Request j(@Nullable JSONObject jSONObject, @Nullable String str) {
-        HttpUrl fD;
+        HttpUrl fC;
         RequestBody a;
-        if (jSONObject == null || TextUtils.isEmpty(str) || (fD = fD(jSONObject.optString("url"))) == null) {
+        if (jSONObject == null || TextUtils.isEmpty(str) || (fC = fC(jSONObject.optString("url"))) == null) {
             return null;
         }
-        fD.url().toString();
+        fC.url().toString();
         if (!jSONObject.optBoolean("ping", false)) {
         }
         String optString = jSONObject.optString("method");
@@ -248,7 +248,7 @@ public class i extends a implements f {
         Object opt = jSONObject.opt("data");
         boolean z = opt != null;
         if (z && !HttpMethod.permitsRequestBody(optString)) {
-            fD = a(fD, opt);
+            fC = a(fC, opt);
             a = null;
         } else {
             a = (z || HttpMethod.requiresRequestBody(optString)) ? a(opt, hashMap) : null;
@@ -256,7 +256,7 @@ public class i extends a implements f {
         if (HttpMethod.requiresRequestBody(optString) && a == null) {
             return null;
         }
-        return builder.url(fD).method(optString, a).tag(str).build();
+        return builder.url(fC).method(optString, a).tag(str).build();
     }
 
     private static void a(@NonNull Request.Builder builder, @Nullable JSONObject jSONObject, Map<String, String> map) {
@@ -265,14 +265,14 @@ public class i extends a implements f {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (!TextUtils.isEmpty(next) && !aDW.contains(next.toUpperCase())) {
-                    String is = ac.is(jSONObject.optString(next));
-                    if (TextUtils.isEmpty(is)) {
-                        is = "";
+                    String ir = ac.ir(jSONObject.optString(next));
+                    if (TextUtils.isEmpty(ir)) {
+                        ir = "";
                     }
                     if (map != null) {
-                        map.put(next.toLowerCase(), is);
+                        map.put(next.toLowerCase(), ir);
                     }
-                    builder.header(next, is);
+                    builder.header(next, ir);
                 }
             }
         }

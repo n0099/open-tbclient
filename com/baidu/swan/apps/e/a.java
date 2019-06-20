@@ -49,7 +49,7 @@ public class a {
         animatorSet.play(a(swanAppActivity)).before(b(swanAppActivity));
         animatorSet.start();
         f.HY().f(new UbcFlowEvent("first_anim_start"));
-        com.baidu.swan.apps.y.f.GN().fz("first_anim_start");
+        com.baidu.swan.apps.y.f.GN().fy("first_anim_start");
         this.akq.add(animatorSet);
     }
 
@@ -75,7 +75,7 @@ public class a {
         animatorSet.play(e(swanAppActivity));
         animatorSet.start();
         f.HY().f(new UbcFlowEvent("second_anim_start"));
-        com.baidu.swan.apps.y.f.GN().fz("second_anim_start");
+        com.baidu.swan.apps.y.f.GN().fy("second_anim_start");
         animatorSet.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.e.a.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
@@ -84,7 +84,7 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 f.HY().f(new UbcFlowEvent("second_anim_end")).HD();
-                com.baidu.swan.apps.y.f.GN().fz("second_anim_end");
+                com.baidu.swan.apps.y.f.GN().fy("second_anim_end");
                 if (!swanAppActivity.isFinishing()) {
                     swanAppActivity.vf().baZ.setVisibility(8);
                     swanAppActivity.ve().reset();

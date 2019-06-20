@@ -56,7 +56,7 @@ public class g {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean bqF() {
+    public boolean bqH() {
         return this.dBq != null && this.dBq.getVisibility() == 0;
     }
 

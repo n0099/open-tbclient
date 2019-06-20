@@ -28,7 +28,7 @@ public final class b {
 
     /* loaded from: classes3.dex */
     public interface a<T> {
-        void Go(String str);
+        void Gq(String str);
 
         void a(T t);
     }
@@ -61,7 +61,7 @@ public final class b {
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
-            httpURLConnection.setRequestProperty("token", d.cAn().k());
+            httpURLConnection.setRequestProperty("token", d.cAm().k());
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(httpURLConnection.getOutputStream(), "utf-8"));
             printWriter.write(str2);
             printWriter.flush();
@@ -108,7 +108,7 @@ public final class b {
                 httpURLConnection.setRequestProperty("Accept-Charset", "utf-8");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
                 httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
-                httpURLConnection.setRequestProperty("token", d.cAn().k());
+                httpURLConnection.setRequestProperty("token", d.cAm().k());
                 if (file != null) {
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     StringBuffer stringBuffer = new StringBuffer();
@@ -135,7 +135,7 @@ public final class b {
                         dataOutputStream.flush();
                         dataOutputStream.close();
                         if (httpURLConnection.getResponseCode() != 200) {
-                            com.baidu.ubs.analytics.d.b.Gr(file.getAbsolutePath() + "     上传文件失败…………");
+                            com.baidu.ubs.analytics.d.b.Gt(file.getAbsolutePath() + "     上传文件失败…………");
                             httpURLConnection.disconnect();
                             try {
                                 fileInputStream.close();
@@ -226,7 +226,7 @@ public final class b {
             httpURLConnection.setRequestProperty(HTTP.CONTENT_LEN, String.valueOf(str.toString().getBytes(HTTP.UTF_8).length));
             httpURLConnection.setReadTimeout(20000);
             httpURLConnection.setConnectTimeout(10000);
-            httpURLConnection.setRequestProperty("token", d.cAn().k());
+            httpURLConnection.setRequestProperty("token", d.cAm().k());
             httpURLConnection.connect();
             OutputStream outputStream = httpURLConnection.getOutputStream();
             outputStream.write(str.getBytes(HTTP.UTF_8));
@@ -248,12 +248,12 @@ public final class b {
                     }
                 }
             } else {
-                com.baidu.ubs.analytics.d.b.Gr("上传log失败    ");
+                com.baidu.ubs.analytics.d.b.Gt("上传log失败    ");
                 httpURLConnection.disconnect();
                 return null;
             }
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.b.Gr("上传log失败    " + e.getMessage());
+            com.baidu.ubs.analytics.d.b.Gt("上传log失败    " + e.getMessage());
             j.a(e);
             return null;
         }
@@ -266,7 +266,7 @@ public final class b {
         }
         if (str == null) {
             if (aVar != null) {
-                aVar.Go(LivenessStat.TYPE_STRING_DEFAULT);
+                aVar.Gq(LivenessStat.TYPE_STRING_DEFAULT);
                 return false;
             }
             return false;
@@ -284,18 +284,18 @@ public final class b {
             return true;
         } else if (jSONObject.getString("status").equals("1")) {
             if (aVar != null) {
-                aVar.Go(jSONObject.optString("status"));
+                aVar.Gq(jSONObject.optString("status"));
             }
-            com.baidu.ubs.analytics.d.b.Gr("net status  error ");
+            com.baidu.ubs.analytics.d.b.Gt("net status  error ");
             return false;
         } else {
             if (jSONObject.getString("status").equals("2")) {
-                g.d(d.cAn().getContext());
-                com.baidu.ubs.analytics.d.b.Gr("net  token error ");
+                g.d(d.cAm().getContext());
+                com.baidu.ubs.analytics.d.b.Gt("net  token error ");
                 return false;
             }
             if (aVar != null) {
-                aVar.Go(LivenessStat.TYPE_STRING_DEFAULT);
+                aVar.Gq(LivenessStat.TYPE_STRING_DEFAULT);
                 return false;
             }
             return false;

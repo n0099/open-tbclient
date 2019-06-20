@@ -190,13 +190,13 @@ public class a extends z {
     public void Q(Context context, String str) {
         String string = f.Ni().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, dn(str)).Ld();
+            com.baidu.swan.apps.res.widget.b.d.a(context, dm(str)).Ld();
         } else {
-            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + m15do(string + "?" + str));
+            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dn(string + "?" + str));
         }
     }
 
-    private String dn(String str) {
+    private String dm(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case 51509:
@@ -222,8 +222,7 @@ public class a extends z {
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    private String m15do(String str) {
+    private String dn(String str) {
         try {
             return URLEncoder.encode(str, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {

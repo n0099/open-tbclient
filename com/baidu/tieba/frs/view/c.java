@@ -25,7 +25,7 @@ public class c extends i {
     private final k ezP;
     private final List<g> ezS;
     private final k.c ezX;
-    private FrsViewData fMP;
+    private FrsViewData fMR;
     private Context mContext;
     private TbPageContext mPageContext;
 
@@ -38,10 +38,10 @@ public class c extends i {
                 if (!j.jS()) {
                     l.showToast(c.this.mContext, (int) R.string.network_not_available);
                 } else if (i == 1) {
-                    TiebaStatic.log(new am("c13384").bT("fid", c.this.fMP.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()));
-                    if (c.this.fMP != null && c.this.fMP.getForum() != null && !StringUtils.isNull(c.this.fMP.getForum().getId()) && !StringUtils.isNull(c.this.fMP.getForum().getName())) {
+                    TiebaStatic.log(new am("c13384").bT("fid", c.this.fMR.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()));
+                    if (c.this.fMR != null && c.this.fMR.getForum() != null && !StringUtils.isNull(c.this.fMR.getForum().getId()) && !StringUtils.isNull(c.this.fMR.getForum().getName())) {
                         FrsPrivateShareDialogView frsPrivateShareDialogView = new FrsPrivateShareDialogView(c.this.mPageContext.getPageActivity());
-                        if (frsPrivateShareDialogView.d(c.this.fMP, c.this.mPageContext)) {
+                        if (frsPrivateShareDialogView.d(c.this.fMR, c.this.mPageContext)) {
                             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.mPageContext.getPageActivity());
                             aVar.hr(2);
                             aVar.aF(frsPrivateShareDialogView);
@@ -49,9 +49,9 @@ public class c extends i {
                         }
                     }
                 } else if (i == 2) {
-                    TiebaStatic.log(new am("c12402").bT("fid", c.this.fMP.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.fMP.getForum().getName()));
-                    if (!StringUtils.isNull(c.this.fMP.getForum().getName())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fMP.getForum().getName(), c.this.fMP.getForum().getId())));
+                    TiebaStatic.log(new am("c12402").bT("fid", c.this.fMR.getForum().getId()).bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(ImageViewerConfig.FORUM_NAME, c.this.fMR.getForum().getName()));
+                    if (!StringUtils.isNull(c.this.fMR.getForum().getName())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PostSearchActivityConfig(c.this.mContext, c.this.fMR.getForum().getName(), c.this.fMR.getForum().getId())));
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class c extends i {
     }
 
     public void m(FrsViewData frsViewData) {
-        this.fMP = frsViewData;
+        this.fMR = frsViewData;
         createView();
     }
 }

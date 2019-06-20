@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 /* loaded from: classes.dex */
 public class DeskLinearLayout extends LinearLayout {
-    private View ctR;
+    private View ctS;
     private boolean visible;
 
     public DeskLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class DeskLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.ctR != null) {
-            this.ctR.measure(getChildMeasureSpec(i, 0, this.ctR.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.ctR.getLayoutParams().height));
+        if (this.ctS != null) {
+            this.ctS.measure(getChildMeasureSpec(i, 0, this.ctS.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.ctS.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class DeskLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.ctR != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.ctR.getMeasuredWidth();
-            this.ctR.layout(measuredWidth, 0, this.ctR.getMeasuredWidth() + measuredWidth, this.ctR.getMeasuredHeight());
+        if (this.ctS != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.ctS.getMeasuredWidth();
+            this.ctS.layout(measuredWidth, 0, this.ctS.getMeasuredWidth() + measuredWidth, this.ctS.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.ctR = view;
+        this.ctS = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class DeskLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.ctR.getLeft(), this.ctR.getTop());
-            this.ctR.draw(canvas);
+            canvas.translate(this.ctS.getLeft(), this.ctS.getTop());
+            this.ctS.draw(canvas);
             canvas.restore();
         }
     }

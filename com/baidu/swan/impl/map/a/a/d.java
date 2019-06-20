@@ -18,18 +18,18 @@ public class d extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.x.a.b> {
 
     private boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction start");
-        com.baidu.swan.apps.b.c.e dU = com.baidu.swan.apps.w.e.FV().dU(bVar.aDm);
-        if (!(dU instanceof com.baidu.swan.apps.b.c.c)) {
+        com.baidu.swan.apps.b.c.e dT = com.baidu.swan.apps.w.e.FV().dT(bVar.aDm);
+        if (!(dT instanceof com.baidu.swan.apps.b.c.c)) {
             com.baidu.swan.apps.console.c.e("map", "WebViewManager is null");
             return false;
         }
-        com.baidu.swan.impl.map.item.b kc = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dU).kc(bVar.id);
-        if (kc == null) {
+        com.baidu.swan.impl.map.item.b kb = com.baidu.swan.impl.map.c.TE().h((com.baidu.swan.apps.b.c.c) dT).kb(bVar.id);
+        if (kb == null) {
             com.baidu.swan.apps.console.c.e("map", "can not find map by id " + bVar.id);
             return false;
         }
         com.baidu.swan.apps.console.c.i("map", "IncludePointsAction end");
-        return a(bVar, kc);
+        return a(bVar, kb);
     }
 
     private boolean a(com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.impl.map.item.b bVar2) {

@@ -11,26 +11,26 @@ import com.baidu.tieba.play.QuickVideoView;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long hpU;
     private long hpV;
-    private boolean hpW;
-
-    public void bMl() {
-        this.hpW = true;
-        this.hpU = SystemClock.elapsedRealtime();
-    }
+    private long hpW;
+    private boolean hpX;
 
     public void bMm() {
+        this.hpX = true;
         this.hpV = SystemClock.elapsedRealtime();
     }
 
+    public void bMn() {
+        this.hpW = SystemClock.elapsedRealtime();
+    }
+
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.hpW) {
-            this.hpW = false;
+        if (this.hpX) {
+            this.hpX = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.hpV - this.hpU;
-            long j4 = elapsedRealtime - this.hpV;
-            long j5 = elapsedRealtime - this.hpU;
+            long j3 = this.hpW - this.hpV;
+            long j4 = elapsedRealtime - this.hpW;
+            long j5 = elapsedRealtime - this.hpV;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
@@ -42,17 +42,17 @@ public class k {
                 amVar.P("ptype", com.baidu.adp.lib.util.j.netType());
                 amVar.bT("tid", str);
                 amVar.bT("cuid", TbadkCoreApplication.getInst().getCuid());
-                amVar.P(VideoPlayActivityConfig.OBJ_ID, ad.kS(At(str2)) ? 1 : 0);
+                amVar.P(VideoPlayActivityConfig.OBJ_ID, ad.kS(Av(str2)) ? 1 : 0);
                 amVar.l("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(amVar);
                 if (quickVideoView != null) {
-                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kS(At(str2)) ? 1 : 0);
+                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.kS(Av(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int At(String str) {
+    private int Av(String str) {
         if ("frs".equals(str)) {
             return 2;
         }

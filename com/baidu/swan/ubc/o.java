@@ -44,7 +44,7 @@ public class o {
             return;
         }
         try {
-            Xi().ubcOnEvent(str, r.kR(str2), i);
+            Xi().ubcOnEvent(str, r.kQ(str2), i);
         } catch (RemoteException e) {
             e.printStackTrace();
         }
@@ -72,7 +72,7 @@ public class o {
             }
             return m.Xd().g(str, str2, i);
         }
-        return h(str, r.kR(str2), i);
+        return h(str, r.kQ(str2), i);
     }
 
     public void Xe() {

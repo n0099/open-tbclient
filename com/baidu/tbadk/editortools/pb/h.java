@@ -21,8 +21,8 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.c {
-    private boolean csV = false;
-    public String ctj;
+    private boolean csW = false;
+    public String ctk;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.d cK(Context context) {
@@ -51,9 +51,9 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 if (aVar.data instanceof i) {
                                     gVar.a((i) aVar.data);
                                 } else if (aVar.data instanceof String) {
-                                    gVar.qb((String) aVar.data);
+                                    gVar.qa((String) aVar.data);
                                 }
-                                h.this.csV = false;
+                                h.this.csW = false;
                                 return;
                             case 5:
                             case 6:
@@ -66,7 +66,7 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 7:
                                 gVar.alf().showToast((int) R.string.over_limit_tip);
-                                h.this.csV = true;
+                                h.this.csW = true;
                                 return;
                             case 8:
                                 if (h.this.a(gVar.alf(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
@@ -84,13 +84,13 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 11:
                                 gVar.setVoiceModel(null);
-                                if (aqS != null && (kj = aqS.kj(6)) != null && kj.cqE != null) {
-                                    kj.cqE.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+                                if (aqS != null && (kj = aqS.kj(6)) != null && kj.cqF != null) {
+                                    kj.cqF.a(new com.baidu.tbadk.editortools.a(52, 0, null));
                                     return;
                                 }
                                 return;
                             case 16:
-                                if (h.this.csV) {
+                                if (h.this.csW) {
                                     gVar.alf().showToast((int) R.string.over_limit_tip);
                                 }
                                 if (h.this.a(gVar.alf(), 11025)) {
@@ -122,23 +122,23 @@ public class h extends com.baidu.tbadk.editortools.c {
         k kj = aqS.kj(5);
         if (kj != null) {
             kj.fg(false);
-            kj.crv = 1;
-            kj.crt = R.drawable.new_pbeditor_face_button;
+            kj.crw = 1;
+            kj.cru = R.drawable.new_pbeditor_face_button;
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.cnG() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, aqS.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
-            kVar.crt = R.drawable.new_pbeditor_voice_button;
-            kVar.crv = 2;
+        if (com.baidu.tieba.tbadkCore.voice.c.cnH() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, aqS.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
+            kVar.cru = R.drawable.new_pbeditor_voice_button;
+            kVar.crw = 2;
             aqS.b(kVar);
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(aqS.getContext(), 4);
-        aVar.crt = R.drawable.new_pbeditor_at_button;
+        aVar.cru = R.drawable.new_pbeditor_at_button;
         aqS.b(aVar);
         e eVar = new e(aqS.getContext());
         if (eVar.getInputView() != null) {
             eVar.getInputView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(140)});
         }
-        if (!ap.isEmpty(this.ctj)) {
-            eVar.setHint(this.ctj);
+        if (!ap.isEmpty(this.ctk)) {
+            eVar.setHint(this.ctk);
         }
         aqS.b(eVar);
         aqS.aqT();
@@ -156,7 +156,7 @@ public class h extends com.baidu.tbadk.editortools.c {
         return true;
     }
 
-    public void qi(String str) {
-        this.ctj = str;
+    public void qh(String str) {
+        this.ctk = str;
     }
 }

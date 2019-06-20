@@ -9,19 +9,19 @@ public class ab {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static int OO() {
-        JSONObject ip = ip(getAppId());
-        if (ip != null) {
-            return ip.optInt("launch_count", 0);
+        JSONObject io = io(getAppId());
+        if (io != null) {
+            return io.optInt("launch_count", 0);
         }
         return 0;
     }
 
     public static long OP() {
         long currentTimeMillis = System.currentTimeMillis();
-        JSONObject ip = ip(getAppId());
-        long optLong = ip != null ? ip.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (ip != null) {
-            return ip.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        JSONObject io = io(getAppId());
+        long optLong = io != null ? io.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (io != null) {
+            return io.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
@@ -48,7 +48,7 @@ public class ab {
         return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
     }
 
-    public static JSONObject ip(String str) {
+    public static JSONObject io(String str) {
         JSONObject jSONObject;
         JSONException e;
         String string = com.baidu.swan.apps.storage.b.f.Ni().getString("dailyInfo", "");

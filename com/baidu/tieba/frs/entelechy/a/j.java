@@ -99,11 +99,11 @@ public class j extends com.baidu.tieba.frs.h<bf, a<com.baidu.tieba.frs.entelechy
         if (bgVar != null) {
             zVar = new com.baidu.tieba.play.z();
             zVar.mLocate = rE(bgVar.aeC());
-            zVar.eAC = this.fxl.fJF;
-            zVar.bVL = bgVar.getTid();
-            zVar.irk = bgVar.mRecomAbTag;
+            zVar.eAC = this.fxl.fJH;
+            zVar.bVM = bgVar.getTid();
+            zVar.irl = bgVar.mRecomAbTag;
             if (bgVar.adM() != null) {
-                zVar.irl = bgVar.adM().video_md5;
+                zVar.irm = bgVar.adM().video_md5;
             }
             bgVar.aez();
         }

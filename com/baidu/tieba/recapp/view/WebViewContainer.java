@@ -9,11 +9,11 @@ import android.widget.FrameLayout;
 import android.widget.OverScroller;
 /* loaded from: classes3.dex */
 public class WebViewContainer extends FrameLayout {
-    private float iGP;
     private float iGQ;
-    private VelocityTracker iGR;
-    private OnScrollChangedCallback iGS;
-    private int iGT;
+    private float iGR;
+    private VelocityTracker iGS;
+    private OnScrollChangedCallback iGT;
+    private int iGU;
     private GestureDetector mGestureDetector;
     private OverScroller mScroller;
     private int mStyle;
@@ -27,27 +27,27 @@ public class WebViewContainer extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class YScrollDetector extends GestureDetector.SimpleOnGestureListener {
-        private final WebViewContainer iGU;
+        private final WebViewContainer iGV;
 
         public YScrollDetector(WebViewContainer webViewContainer) {
-            this.iGU = webViewContainer;
+            this.iGV = webViewContainer;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            this.iGU.iGQ = motionEvent.getRawY();
+            this.iGV.iGR = motionEvent.getRawY();
             return false;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            if (Math.abs(f2) <= Math.abs(f) || this.iGU == null) {
+            if (Math.abs(f2) <= Math.abs(f) || this.iGV == null) {
                 return false;
             }
             if (f2 > 0.0f) {
-                return this.iGU.topMargin > 0;
-            } else if (this.iGU.topMargin < this.iGU.iGT) {
-                return this.iGU.topMargin > 0 || this.iGU.mStyle != 1;
+                return this.iGV.topMargin > 0;
+            } else if (this.iGV.topMargin < this.iGV.iGU) {
+                return this.iGV.topMargin > 0 || this.iGV.mStyle != 1;
             } else {
                 return false;
             }
@@ -57,7 +57,7 @@ public class WebViewContainer extends FrameLayout {
     public WebViewContainer(Context context) {
         super(context);
         this.topMargin = 0;
-        this.iGT = 0;
+        this.iGU = 0;
         this.mStyle = 1;
         init(context);
     }
@@ -65,7 +65,7 @@ public class WebViewContainer extends FrameLayout {
     public WebViewContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.topMargin = 0;
-        this.iGT = 0;
+        this.iGU = 0;
         this.mStyle = 1;
         init(context);
     }
@@ -73,7 +73,7 @@ public class WebViewContainer extends FrameLayout {
     public WebViewContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.topMargin = 0;
-        this.iGT = 0;
+        this.iGU = 0;
         this.mStyle = 1;
         init(context);
     }
@@ -104,10 +104,10 @@ public class WebViewContainer extends FrameLayout {
         }
         if (this.topMargin <= ((int) motionEvent.getY())) {
             super.onTouchEvent(motionEvent);
-            if (this.iGR == null) {
-                this.iGR = VelocityTracker.obtain();
+            if (this.iGS == null) {
+                this.iGS = VelocityTracker.obtain();
             }
-            this.iGR.addMovement(motionEvent);
+            this.iGS.addMovement(motionEvent);
             switch (motionEvent.getAction()) {
                 case 0:
                     if (!this.mScroller.isFinished()) {
@@ -116,19 +116,19 @@ public class WebViewContainer extends FrameLayout {
                     }
                     break;
                 case 1:
-                    this.iGR.computeCurrentVelocity(1000);
-                    int yVelocity = (int) this.iGR.getYVelocity();
-                    if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.topMargin < this.iGT) || (yVelocity < 0 && this.topMargin > 0))) {
+                    this.iGS.computeCurrentVelocity(1000);
+                    int yVelocity = (int) this.iGS.getYVelocity();
+                    if (Math.abs(yVelocity) > 2000 && ((yVelocity > 0 && this.topMargin < this.iGU) || (yVelocity < 0 && this.topMargin > 0))) {
                         zm(-yVelocity);
                     }
-                    this.iGR.recycle();
-                    this.iGR = null;
+                    this.iGS.recycle();
+                    this.iGS = null;
                     break;
                 case 2:
-                    this.iGP = motionEvent.getRawY();
-                    int zn = zn((int) (this.iGQ - this.iGP));
+                    this.iGQ = motionEvent.getRawY();
+                    int zn = zn((int) (this.iGR - this.iGQ));
                     scrollBy(0, zn);
-                    this.iGQ -= zn;
+                    this.iGR -= zn;
                     break;
             }
             return true;
@@ -138,7 +138,7 @@ public class WebViewContainer extends FrameLayout {
 
     private void zm(int i) {
         if (this.mScroller != null) {
-            this.mScroller.fling(0, (int) this.iGQ, 0, i, 0, 0, -500, 10000);
+            this.mScroller.fling(0, (int) this.iGR, 0, i, 0, 0, -500, 10000);
             invalidate();
         }
     }
@@ -149,9 +149,9 @@ public class WebViewContainer extends FrameLayout {
             int i3 = this.topMargin;
             this.topMargin = 0;
             return i3;
-        } else if (i2 > this.iGT) {
-            int i4 = this.topMargin - this.iGT;
-            this.topMargin = this.iGT;
+        } else if (i2 > this.iGU) {
+            int i4 = this.topMargin - this.iGU;
+            this.topMargin = this.iGU;
             return i4;
         } else {
             this.topMargin -= i;
@@ -164,7 +164,7 @@ public class WebViewContainer extends FrameLayout {
         if (this.mScroller.computeScrollOffset()) {
             int zn = zn(this.mScroller.getCurrY());
             scrollBy(0, zn);
-            this.iGQ -= zn;
+            this.iGR -= zn;
             invalidate();
         }
     }
@@ -172,13 +172,13 @@ public class WebViewContainer extends FrameLayout {
     @Override // android.view.View
     protected void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        if (this.iGS != null) {
-            this.iGS.onScroll(i - i3, i2 - i4);
+        if (this.iGT != null) {
+            this.iGT.onScroll(i - i3, i2 - i4);
         }
     }
 
     public void setOnScrollChangeListener(OnScrollChangedCallback onScrollChangedCallback) {
-        this.iGS = onScrollChangedCallback;
+        this.iGT = onScrollChangedCallback;
     }
 
     public void setTopMargin(int i) {
@@ -186,7 +186,7 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public void setTopLimit(int i) {
-        this.iGT = i;
+        this.iGU = i;
     }
 
     public void setStyle(int i) {

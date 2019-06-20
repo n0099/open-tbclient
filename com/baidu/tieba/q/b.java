@@ -15,36 +15,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> iWa;
+    private Map<BdUniqueId, ArrayList<am>> iWe;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.iWa == null) {
-            this.iWa = new LinkedHashMap();
+        if (this.iWe == null) {
+            this.iWe = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void u(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iWa.put(bdUniqueId, null);
+            this.iWe.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iWa.remove(bdUniqueId);
+            this.iWe.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iWa.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iWe.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.iWa.put(bdUniqueId, arrayList);
+                this.iWe.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
@@ -52,13 +52,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean w(BdUniqueId bdUniqueId) {
-        return this.iWa.containsKey(bdUniqueId);
+        return this.iWe.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void clu() {
-        if (this.iWa.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iWa.entrySet()) {
+    public void clv() {
+        if (this.iWe.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iWe.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -70,7 +70,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iWa.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iWe.get(bdUniqueId);
             if (v.Z(arrayList) != 0) {
                 aF(arrayList);
                 arrayList.clear();

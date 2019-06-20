@@ -25,7 +25,7 @@ public class b {
         this.afb = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public void cE(String str) {
+    public void cD(String str) {
         if (!StringUtils.isNull(str)) {
             this.afc = this.afb.getStringSet(afa, null);
             if (this.afc == null) {
@@ -36,7 +36,7 @@ public class b {
         }
     }
 
-    public boolean cF(String str) {
+    public boolean cE(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }

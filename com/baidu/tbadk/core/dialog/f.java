@@ -15,20 +15,20 @@ import com.baidu.tbadk.util.ab;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class f implements View.OnClickListener {
-    private int LZ;
-    private Drawable Mb;
-    private View bMK;
-    private TextView bML;
-    private int bMM;
-    private View.OnClickListener bMN;
+    private int LY;
+    private Drawable Ma;
+    private View bML;
+    private TextView bMM;
+    private int bMN;
+    private View.OnClickListener bMO;
     private ViewGroup mContainer;
     private Activity mContext;
     private int mHeight;
     private WindowManager.LayoutParams mLayoutParams;
     private View mRootView;
     private WindowManager mWindowManager;
+    private int zK;
     private int zL;
-    private int zM;
     private float alpha = 1.0f;
     private int duration = UIMsg.m_AppUI.MSG_APP_GPS;
     private final Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tbadk.core.dialog.f.1
@@ -42,24 +42,24 @@ public class f implements View.OnClickListener {
         if (activity != null) {
             this.mContext = activity;
             this.mHeight = com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.tbds114);
-            this.LZ = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds84);
-            this.bMM = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds44);
-            this.zM = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds222);
-            this.zL = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds29);
+            this.LY = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds84);
+            this.bMN = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds44);
+            this.zL = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds222);
+            this.zK = com.baidu.adp.lib.util.l.g(activity, R.dimen.tbds29);
             View inflate = LayoutInflater.from(activity).inflate(R.layout.text_toast_layout, (ViewGroup) null);
             this.mContainer = (ViewGroup) inflate.findViewById(R.id.layout_container);
-            this.bMK = inflate.findViewById(R.id.background);
-            this.bML = (TextView) inflate.findViewById(R.id.toast_tv);
+            this.bML = inflate.findViewById(R.id.background);
+            this.bMM = (TextView) inflate.findViewById(R.id.toast_tv);
             this.mRootView = inflate;
-            this.bMK.setBackgroundDrawable(afR());
-            this.bML.setMaxLines(1);
-            this.bML.setGravity(17);
-            this.bML.setTextSize(0, com.baidu.adp.lib.util.l.g(activity, R.dimen.tbfontsize40));
-            this.bML.setTextColor(this.mContext.getResources().getColor(R.color.cp_btn_a));
-            this.bML.setPadding(this.bMM, 0, this.bMM, 0);
+            this.bML.setBackgroundDrawable(afR());
+            this.bMM.setMaxLines(1);
+            this.bMM.setGravity(17);
+            this.bMM.setTextSize(0, com.baidu.adp.lib.util.l.g(activity, R.dimen.tbfontsize40));
+            this.bMM.setTextColor(this.mContext.getResources().getColor(R.color.cp_btn_a));
+            this.bMM.setPadding(this.bMN, 0, this.bMN, 0);
             this.mWindowManager = (WindowManager) this.mContext.getSystemService("window");
             this.mLayoutParams = new WindowManager.LayoutParams();
-            this.mLayoutParams.width = com.baidu.adp.lib.util.l.af(this.mContext) - (this.zL * 2);
+            this.mLayoutParams.width = com.baidu.adp.lib.util.l.af(this.mContext) - (this.zK * 2);
             this.mLayoutParams.height = this.mHeight;
             this.mLayoutParams.type = 1000;
             this.mLayoutParams.format = -3;
@@ -72,38 +72,38 @@ public class f implements View.OnClickListener {
     }
 
     private int afP() {
-        return this.zM + UtilHelper.getNavigationBarHeight(this.mContext);
+        return this.zL + UtilHelper.getNavigationBarHeight(this.mContext);
     }
 
     private GradientDrawable afQ() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TL_BR, new int[]{com.baidu.tieba.lego.card.d.a.parseColor("#FF722B"), com.baidu.tieba.lego.card.d.a.parseColor("#FF2b5D")});
-        gradientDrawable.setCornerRadius(this.LZ);
+        gradientDrawable.setCornerRadius(this.LY);
         return gradientDrawable;
     }
 
     private Drawable afR() {
-        if (this.Mb == null) {
-            this.Mb = afQ();
+        if (this.Ma == null) {
+            this.Ma = afQ();
         }
-        return this.Mb;
+        return this.Ma;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.bMN = onClickListener;
+        this.bMO = onClickListener;
     }
 
     public static f d(Activity activity, String str) {
-        return new f(activity).mH(str);
+        return new f(activity).mG(str);
     }
 
-    private f mH(String str) {
+    private f mG(String str) {
         if (this.mContext != null && !TextUtils.isEmpty(str)) {
             String ac = ab.ac(str, 34);
-            int c = com.baidu.adp.lib.util.l.c(this.bML.getPaint(), ac);
+            int c = com.baidu.adp.lib.util.l.c(this.bMM.getPaint(), ac);
             ViewGroup.LayoutParams layoutParams = this.mContainer.getLayoutParams();
-            layoutParams.width = c + (this.bMM * 2);
+            layoutParams.width = c + (this.bMN * 2);
             this.mContainer.setLayoutParams(layoutParams);
-            this.bML.setText(ac);
+            this.bMM.setText(ac);
         }
         return this;
     }
@@ -139,8 +139,8 @@ public class f implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.bMN != null) {
-            this.bMN.onClick(view);
+        if (this.bMO != null) {
+            this.bMO.onClick(view);
         }
         hide();
     }

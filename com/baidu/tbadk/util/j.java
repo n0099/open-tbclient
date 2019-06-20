@@ -6,31 +6,31 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class j {
-    private static LinkedHashMap<String, Integer> cBA;
-    private static int cBx;
-    private static final int[] cBy = {R.color.cp_atp_a, R.color.cp_atp_b, R.color.cp_atp_c, R.color.cp_atp_d, R.color.cp_atp_e};
-    private static int cBz;
+    private static int cBA;
+    private static LinkedHashMap<String, Integer> cBB;
+    private static int cBy;
+    private static final int[] cBz = {R.color.cp_atp_a, R.color.cp_atp_b, R.color.cp_atp_c, R.color.cp_atp_d, R.color.cp_atp_e};
 
-    public static int qN(String str) {
-        if (cBA == null) {
-            cBA = new LinkedHashMap<>(20);
+    public static int qM(String str) {
+        if (cBB == null) {
+            cBB = new LinkedHashMap<>(20);
         }
         if (StringUtils.isNull(str)) {
-            return cBy[0];
+            return cBz[0];
         }
-        if (cBA.containsKey(str)) {
-            return cBA.get(str).intValue();
+        if (cBB.containsKey(str)) {
+            return cBB.get(str).intValue();
         }
-        int nextInt = new Random().nextInt(cBy.length);
-        if (cBz != nextInt) {
-            cBz = nextInt;
+        int nextInt = new Random().nextInt(cBz.length);
+        if (cBA != nextInt) {
+            cBA = nextInt;
         } else {
-            cBz = (cBz + 1) % cBy.length;
+            cBA = (cBA + 1) % cBz.length;
         }
-        if (cBz < cBy.length) {
-            cBx = cBy[cBz];
+        if (cBA < cBz.length) {
+            cBy = cBz[cBA];
         }
-        cBA.put(str, Integer.valueOf(cBx));
-        return cBx;
+        cBB.put(str, Integer.valueOf(cBy));
+        return cBy;
     }
 }

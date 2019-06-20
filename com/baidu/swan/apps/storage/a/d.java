@@ -38,8 +38,8 @@ public class d extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        com.baidu.swan.apps.storage.a hE = bVar.Lt().hE(aE);
-        if (hE == null) {
+        com.baidu.swan.apps.storage.a hD = bVar.Lt().hD(aE);
+        if (hD == null) {
             com.baidu.swan.apps.console.c.e("getSavedFile", "file info is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, com.baidu.swan.apps.scheme.f.getErrMessage(2001)));
             if (DEBUG) {
@@ -50,8 +50,8 @@ public class d extends z {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("createTime", Math.round((float) (hE.Na() / 1000)));
-            jSONObject.put("size", hE.getSize());
+            jSONObject.put("createTime", Math.round((float) (hD.Na() / 1000)));
+            jSONObject.put("size", hD.getSize());
             if (DEBUG) {
                 Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get("createTime") + " , " + jSONObject.get("size") + ")");
             }

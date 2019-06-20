@@ -8,7 +8,7 @@ public interface c {
     public interface a {
         void bmr();
 
-        void crd();
+        void cre();
     }
 
     /* loaded from: classes5.dex */
@@ -17,8 +17,8 @@ public interface c {
 
         void a(CloudMusicData cloudMusicData);
 
-        void rn(boolean z);
-
         void ro(boolean z);
+
+        void rp(boolean z);
     }
 }

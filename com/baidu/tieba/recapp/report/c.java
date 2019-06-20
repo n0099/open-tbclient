@@ -14,43 +14,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static c iFa;
-    private CustomMessageListener iFc = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c iFb;
+    private CustomMessageListener iFd = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jS() && c.this.iFb != null) {
-                c.this.iFb.cfI();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.jS() && c.this.iFc != null) {
+                c.this.iFc.cfJ();
             }
         }
     };
-    private d iFb = new g();
+    private d iFc = new g();
 
-    public static c cfG() {
-        if (iFa == null) {
+    public static c cfH() {
+        if (iFb == null) {
             synchronized (c.class) {
-                if (iFa == null) {
-                    iFa = new c();
+                if (iFb == null) {
+                    iFb = new c();
                 }
             }
         }
-        return iFa;
+        return iFb;
     }
 
-    private boolean cfH() {
+    private boolean cfI() {
         return com.baidu.adp.lib.b.d.hI().ay("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.iFc);
+        MessageManager.getInstance().registerListener(this.iFd);
     }
 
     public void a(b bVar) {
-        if (cfH() && bVar != null && this.iFb != null) {
+        if (cfI() && bVar != null && this.iFc != null) {
             if (j.jS()) {
-                this.iFb.b(bVar);
+                this.iFc.b(bVar);
             } else {
-                this.iFb.c(bVar);
+                this.iFc.c(bVar);
             }
         }
     }

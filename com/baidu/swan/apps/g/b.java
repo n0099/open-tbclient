@@ -24,7 +24,7 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        this.mCallback = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        this.mCallback = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(this.mCallback)) {
             c.i("scanCode", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

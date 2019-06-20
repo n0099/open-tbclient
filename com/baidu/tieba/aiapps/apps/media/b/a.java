@@ -10,21 +10,21 @@ public final class a extends com.baidu.swan.apps.model.a.a.a {
     public String aAu;
     public String aCA;
     public boolean aCB;
-    public boolean ddB;
     public boolean ddC;
-    public int ddD;
+    public boolean ddD;
     public int ddE;
-    public String ddF;
+    public int ddF;
+    public String ddG;
     public int mDirection;
     public String mSrc;
 
     public a() {
         super("liveId", "livePlayer");
-        this.ddB = false;
         this.ddC = false;
-        this.ddD = 1;
-        this.ddE = 3;
-        this.ddF = "vertical";
+        this.ddD = false;
+        this.ddE = 1;
+        this.ddF = 3;
+        this.ddG = "vertical";
         this.aCA = "contain";
         this.aAD = false;
         this.aCB = false;
@@ -33,11 +33,11 @@ public final class a extends com.baidu.swan.apps.model.a.a.a {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aAu) && this.ddD <= this.ddE;
+        return !TextUtils.isEmpty(this.aAu) && this.ddE <= this.ddF;
     }
 
     public String toString() {
-        return "LivePlayerParams{mPlayerId='" + this.aAu + "', mSlaveId='" + this.aDm + "', mMuted=" + this.ddB + ", mBackgroundMuted=" + this.ddC + ", mMinCacheS=" + this.ddD + ", mMaxCacheS=" + this.ddE + ", mOrientation='" + this.ddF + "', mObjectFit='" + this.aCA + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.aAD + '}';
+        return "LivePlayerParams{mPlayerId='" + this.aAu + "', mSlaveId='" + this.aDm + "', mMuted=" + this.ddC + ", mBackgroundMuted=" + this.ddD + ", mMinCacheS=" + this.ddE + ", mMaxCacheS=" + this.ddF + ", mOrientation='" + this.ddG + "', mObjectFit='" + this.aCA + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.aAD + '}';
     }
 
     public static a a(JSONObject jSONObject, @NonNull a aVar) {
@@ -49,12 +49,12 @@ public final class a extends com.baidu.swan.apps.model.a.a.a {
         aVar2.aAu = jSONObject.optString("liveId");
         aVar2.mSrc = jSONObject.optString("src", aVar.mSrc);
         aVar2.aAD = jSONObject.optBoolean("autoplay", aVar.aAD);
-        aVar2.ddB = jSONObject.optBoolean("muted", aVar.ddB);
-        aVar2.ddC = jSONObject.optBoolean("backgroundMute", aVar.ddC);
-        aVar2.ddF = jSONObject.optString("orientation", aVar.ddF);
+        aVar2.ddC = jSONObject.optBoolean("muted", aVar.ddC);
+        aVar2.ddD = jSONObject.optBoolean("backgroundMute", aVar.ddD);
+        aVar2.ddG = jSONObject.optString("orientation", aVar.ddG);
         aVar2.aCA = jSONObject.optString("objectFit", aVar.aCA);
-        aVar2.ddD = jSONObject.optInt("minCache", aVar.ddD);
-        aVar2.ddE = jSONObject.optInt("maxCache", aVar.ddE);
+        aVar2.ddE = jSONObject.optInt("minCache", aVar.ddE);
+        aVar2.ddF = jSONObject.optInt("maxCache", aVar.ddF);
         aVar2.aCB = jSONObject.optBoolean("fullScreen", aVar.aCB);
         aVar2.mDirection = jSONObject.optInt("direction", aVar.mDirection);
         return aVar2;

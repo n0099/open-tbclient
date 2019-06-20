@@ -399,7 +399,7 @@ public final class b {
                 }
 
                 @Override // com.baidu.swan.apps.textarea.a.InterfaceC0185a
-                public void ez(String str) {
+                public void ey(String str) {
                 }
             });
         }

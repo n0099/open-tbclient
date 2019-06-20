@@ -8,37 +8,37 @@ public interface a {
     /* renamed from: com.baidu.adp.gif.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0013a implements a {
-        private static a wt;
-        private int wu;
-        private final d wv = new d();
+        private static a ws;
+        private int wt;
+        private final d wu = new d();
 
         public C0013a() {
-            this.wu = 0;
-            if (NSGif.wx) {
-                this.wu = 0;
+            this.wt = 0;
+            if (NSGif.ww) {
+                this.wt = 0;
             } else {
-                this.wu = 1;
+                this.wt = 1;
             }
         }
 
         public static synchronized a gp() {
             a aVar;
             synchronized (C0013a.class) {
-                if (wt == null) {
-                    wt = new C0013a();
+                if (ws == null) {
+                    ws = new C0013a();
                 }
-                aVar = wt;
+                aVar = ws;
             }
             return aVar;
         }
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a W(String str) {
-            if (this.wu != 0) {
+            if (this.wt != 0) {
                 return null;
             }
             try {
-                return this.wv.W(str);
+                return this.wu.W(str);
             } catch (Exception e) {
                 return null;
             }
@@ -46,11 +46,11 @@ public interface a {
 
         @Override // com.baidu.adp.gif.a
         public com.baidu.adp.widget.ImageView.a g(byte[] bArr, int i, int i2) {
-            if (this.wu != 0) {
+            if (this.wt != 0) {
                 return null;
             }
             try {
-                return this.wv.g(bArr, i, i2);
+                return this.wu.g(bArr, i, i2);
             } catch (Exception e) {
                 return null;
             }

@@ -27,7 +27,7 @@ public class a {
         this.bkA = aVar;
     }
 
-    public boolean jU(String str) {
+    public boolean jT(String str) {
         String G = G(str, 1);
         if (TextUtils.isEmpty(G)) {
             return false;
@@ -66,7 +66,7 @@ public class a {
         }
     }
 
-    public String gE(String str) {
+    public String gD(String str) {
         String G = G(str, 1);
         if (TextUtils.isEmpty(G) || this.bkA == null || this.bkA.bjq == null || this.bkA.bjq.bjx == null) {
             return null;

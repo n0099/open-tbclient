@@ -94,8 +94,8 @@ public class EnterForumAdView extends FrameLayout {
             setVisibility(0);
             am a = com.baidu.tieba.q.a.a(false, "a025", "common_exp", 0, 0, true, String.valueOf(bef.eQU), String.valueOf(bef.eQU), 5);
             if (a != null) {
-                com.baidu.tieba.q.c.clv().a(this.mTag, "enterfourm_att_" + bef.eQU, a);
-                com.baidu.tieba.q.c.clv().b(this.mTag, false);
+                com.baidu.tieba.q.c.clw().a(this.mTag, "enterfourm_att_" + bef.eQU, a);
+                com.baidu.tieba.q.c.clw().b(this.mTag, false);
                 return;
             }
             return;
@@ -159,13 +159,13 @@ public class EnterForumAdView extends FrameLayout {
         am a;
         com.baidu.tieba.enterForum.data.a bef = EnterForumDelegateStatic.eRP.bef();
         if (bef != null) {
-            String str = EnterForumDelegateStatic.eRP.bef().bCP;
+            String str = EnterForumDelegateStatic.eRP.bef().bCQ;
             if (!TextUtils.isEmpty(str)) {
                 if (context != null) {
                     com.baidu.tbadk.browser.a.af(context, str);
                 }
                 if (bdUniqueId != null && (a = com.baidu.tieba.q.a.a(true, "a025", "common_click", 0, 0, true, String.valueOf(bef.eQU), String.valueOf(bef.eQU), 5)) != null) {
-                    com.baidu.tieba.q.c.clv().b(bdUniqueId, a);
+                    com.baidu.tieba.q.c.clw().b(bdUniqueId, a);
                 }
             }
         }

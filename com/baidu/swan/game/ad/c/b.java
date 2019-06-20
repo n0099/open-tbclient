@@ -45,17 +45,17 @@ public class b {
         private int d;
         private int e;
 
-        public a iB(String str) {
+        public a iA(String str) {
             this.b = str;
             return this;
         }
 
-        public a iC(String str) {
+        public a iB(String str) {
             this.a = str;
             return this;
         }
 
-        public a iD(String str) {
+        public a iC(String str) {
             this.c = str;
             return this;
         }

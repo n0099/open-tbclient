@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int VA = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
-    private View.OnClickListener bVi;
-    public final int caK;
-    private TextView caL;
+    private static final int Vz = com.baidu.adp.lib.util.l.af(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds70) * 2);
+    private View.OnClickListener bVj;
+    public final int caL;
+    private TextView caM;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
@@ -30,7 +30,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.caK = 0;
+        this.caL = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -38,7 +38,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.caK = 0;
+        this.caL = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -47,8 +47,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     private void init(Context context) {
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.caL = (TextView) this.mView.findViewById(R.id.forum_name_text);
-        this.caL.setOnClickListener(this);
+        this.caM = (TextView) this.mView.findViewById(R.id.forum_name_text);
+        this.caM.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -61,23 +61,23 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.bVi != null) {
-                this.bVi.onClick(view);
+            if (this.bVj != null) {
+                this.bVj.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bVi = onClickListener;
+        this.bVj = onClickListener;
     }
 
     public void onChangeSkinType() {
         if (this.threadData != null) {
             if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
                 this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-                al.j(this.caL, R.color.cp_cont_b);
+                al.j(this.caM, R.color.cp_cont_b);
             }
-            al.l(this.caL, com.baidu.tbadk.util.j.qN(this.threadData.getId()));
+            al.l(this.caM, com.baidu.tbadk.util.j.qM(this.threadData.getId()));
         }
     }
 
@@ -90,7 +90,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             }
             setVisibility(0);
             this.threadData = bgVar;
-            this.caL.setText(((Object) TextUtils.ellipsize(adA, this.caL.getPaint(), VA - this.caL.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.caM.setText(((Object) TextUtils.ellipsize(adA, this.caM.getPaint(), Vz - this.caM.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             onChangeSkinType();
             return;
         }
@@ -98,15 +98,15 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void a(bg bgVar, int i) {
-        if (this.caL != null && bgVar != null && i > 0) {
+        if (this.caM != null && bgVar != null && i > 0) {
             this.threadData = bgVar;
-            float paddingLeft = (i - (this.caL.getPaddingLeft() * 2)) - this.caL.getPaint().measureText(getResources().getString(R.string.forum));
+            float paddingLeft = (i - (this.caM.getPaddingLeft() * 2)) - this.caM.getPaint().measureText(getResources().getString(R.string.forum));
             String adA = bgVar.adA();
             if (StringUtils.isNull(adA)) {
                 setVisibility(8);
                 return;
             }
-            this.caL.setText(((Object) TextUtils.ellipsize(adA, this.caL.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            this.caM.setText(((Object) TextUtils.ellipsize(adA, this.caM.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             setVisibility(0);
             onChangeSkinType();
             return;

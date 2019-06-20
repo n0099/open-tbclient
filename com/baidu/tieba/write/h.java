@@ -12,10 +12,10 @@ import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class h extends PopupWindow {
     private int boZ;
-    private LinearLayout cmN;
+    private LinearLayout cmO;
     private Context context;
     private int count;
-    private a jFn;
+    private a jFq;
     private int maxHeight;
 
     /* loaded from: classes.dex */
@@ -33,10 +33,10 @@ public class h extends PopupWindow {
     private void init(Context context) {
         ScrollView scrollView = new ScrollView(context);
         scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-        this.cmN = new LinearLayout(context);
-        this.cmN.setOrientation(1);
-        this.cmN.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        scrollView.addView(this.cmN);
+        this.cmO = new LinearLayout(context);
+        this.cmO.setOrientation(1);
+        this.cmO.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        scrollView.addView(this.cmO);
         scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         scrollView.setPadding(0, 0, l.dip2px(context, 1.0f), l.dip2px(context, 1.0f));
         scrollView.setFadingEdgeLength(0);
@@ -67,8 +67,8 @@ public class h extends PopupWindow {
     }
 
     public void addView(View view) {
-        view.setOnClickListener(new b(this.count, this.jFn));
-        this.cmN.addView(view);
+        view.setOnClickListener(new b(this.count, this.jFq));
+        this.cmO.addView(view);
         this.count++;
     }
 
@@ -78,30 +78,30 @@ public class h extends PopupWindow {
 
     public void setCurrentIndex(int i) {
         if (this.boZ != -1) {
-            this.cmN.getChildAt(this.boZ).setSelected(false);
+            this.cmO.getChildAt(this.boZ).setSelected(false);
         }
         this.boZ = i;
-        this.cmN.getChildAt(this.boZ).setSelected(true);
+        this.cmO.getChildAt(this.boZ).setSelected(true);
     }
 
     public void a(a aVar) {
-        this.jFn = aVar;
+        this.jFq = aVar;
     }
 
     /* loaded from: classes.dex */
     public static class b implements View.OnClickListener {
-        private a jFo;
+        private a jFr;
         private int position;
 
         public b(int i, a aVar) {
             this.position = i;
-            this.jFo = aVar;
+            this.jFr = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.jFo != null) {
-                this.jFo.Ad(this.position);
+            if (this.jFr != null) {
+                this.jFr.Ad(this.position);
             }
         }
     }

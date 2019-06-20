@@ -51,7 +51,7 @@ public class h extends z {
         if (DEBUG) {
             Log.d("ReLaunchAction", "webview idx: " + wU);
         }
-        final String optString = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("relaunch", "cb is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -61,7 +61,7 @@ public class h extends z {
         FV.showLoadingView();
         g.Mj().a(bVar, aq.ayL, wU, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.i.h.1
             @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-            public void fb(String str) {
+            public void fa(String str) {
                 com.baidu.swan.apps.console.c.i("relaunch", "check pages success");
                 FV.vl();
                 a.a(unitedSchemeEntity, callbackHandler, bVar, wU, aq.ayL, optString);
@@ -106,6 +106,6 @@ public class h extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar) {
-        eVar.dO("reLaunch").y(0, 0).zU().a("normal", bVar).zW();
+        eVar.dN("reLaunch").y(0, 0).zU().a("normal", bVar).zW();
     }
 }

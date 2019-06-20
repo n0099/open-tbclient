@@ -13,36 +13,36 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class aa extends b<com.baidu.tbadk.core.data.a> {
     private static final int TBDS6 = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+    private int WT;
     private int WU;
-    private int WV;
-    private NewThreadCommentAndPraiseInfoLayout WW;
-    private com.baidu.tbadk.core.data.a WX;
-    private a.C0038a WY;
-    private Runnable WZ;
+    private NewThreadCommentAndPraiseInfoLayout WV;
+    private com.baidu.tbadk.core.data.a WW;
+    private a.C0038a WX;
+    private Runnable WY;
 
     public aa(Context context) {
         super(context);
-        this.WU = 11;
-        this.WV = this.WU;
-        this.WY = new a.C0038a(5);
-        this.WZ = new Runnable() { // from class: com.baidu.card.aa.1
+        this.WT = 11;
+        this.WU = this.WT;
+        this.WX = new a.C0038a(5);
+        this.WY = new Runnable() { // from class: com.baidu.card.aa.1
             @Override // java.lang.Runnable
             public void run() {
-                aa.this.WY.setExtraData(Integer.valueOf(aa.this.WW.getCommentContainer().getRight() + aa.this.Vi.qq().WM));
-                aa.this.Vi.b(aa.this.WY);
+                aa.this.WX.setExtraData(Integer.valueOf(aa.this.WV.getCommentContainer().getRight() + aa.this.Vh.qq().WL));
+                aa.this.Vh.b(aa.this.WX);
             }
         };
-        this.WW = new NewThreadCommentAndPraiseInfoLayout(context);
-        this.WW.setReplyTimeVisible(false);
-        this.WW.setShowPraiseNum(true);
-        this.WW.setNeedAddPraiseIcon(true);
-        this.WW.setNeedAddReplyIcon(true);
-        this.WW.setShareVisible(true);
-        this.WW.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.aa.2
+        this.WV = new NewThreadCommentAndPraiseInfoLayout(context);
+        this.WV.setReplyTimeVisible(false);
+        this.WV.setShowPraiseNum(true);
+        this.WV.setNeedAddPraiseIcon(true);
+        this.WV.setNeedAddReplyIcon(true);
+        this.WV.setShareVisible(true);
+        this.WV.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.card.aa.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (aa.this.qf() != null) {
-                    aa.this.qf().a(view, aa.this.WX);
+                    aa.this.qf().a(view, aa.this.WW);
                 }
             }
         });
@@ -51,16 +51,16 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public void qe() {
-        this.Vi.a(4, new a.b() { // from class: com.baidu.card.aa.3
+        this.Vh.a(4, new a.b() { // from class: com.baidu.card.aa.3
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0038a c0038a) {
                 if (c0038a.qy() instanceof Boolean) {
                     if (((Boolean) c0038a.qy()).booleanValue()) {
-                        aa.this.WU = aa.this.WV;
+                        aa.this.WT = aa.this.WU;
                     } else {
-                        aa.this.WU &= -5;
+                        aa.this.WT &= -5;
                     }
-                    aa.this.WW.setShowFlag(aa.this.WU);
+                    aa.this.WV.setShowFlag(aa.this.WT);
                 }
                 return false;
             }
@@ -69,41 +69,41 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
 
     @Override // com.baidu.card.b
     public void bm(int i) {
-        this.WU |= i;
-        this.WW.setShowFlag(this.WU);
-        this.WV = this.WU;
+        this.WT |= i;
+        this.WV.setShowFlag(this.WT);
+        this.WU = this.WT;
     }
 
     @Override // com.baidu.card.b
     public void bn(int i) {
-        this.WU &= i ^ (-1);
-        this.WW.setShowFlag(this.WU);
-        this.WV = this.WU;
+        this.WT &= i ^ (-1);
+        this.WV.setShowFlag(this.WT);
+        this.WU = this.WT;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.b
     public View getView() {
-        return this.WW;
+        return this.WV;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        this.WX = aVar;
-        this.WW.setData(aVar.abv());
-        if ((this.WU & 4) > 0) {
-            this.WW.post(this.WZ);
+        this.WW = aVar;
+        this.WV.setData(aVar.abv());
+        if ((this.WT & 4) > 0) {
+            this.WV.post(this.WY);
         }
         qw();
     }
 
     private void qw() {
         boolean z;
-        b ql = this.Vi.ql();
+        b ql = this.Vh.ql();
         if (ql == null) {
-            setMarginsTop(this.WW, y.WF - TBDS6);
+            setMarginsTop(this.WV, y.WE - TBDS6);
             return;
         }
         boolean z2 = true;
@@ -121,7 +121,7 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
             i++;
         }
         if (z2) {
-            List<f> qn = this.Vi.qn();
+            List<f> qn = this.Vh.qn();
             if (!com.baidu.tbadk.core.util.v.aa(qn)) {
                 for (f fVar : qn) {
                     if (fVar != null && fVar.getView() != null && fVar.getView().getVisibility() == 0) {
@@ -133,30 +133,30 @@ public class aa extends b<com.baidu.tbadk.core.data.a> {
         }
         z = z2;
         if (z) {
-            setMarginsTop(this.WW, y.WF - TBDS6);
+            setMarginsTop(this.WV, y.WE - TBDS6);
         } else {
-            setMarginsTop(this.WW, y.WF);
+            setMarginsTop(this.WV, y.WE);
         }
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.WW.onChangeSkinType();
+        this.WV.onChangeSkinType();
     }
 
     public void bw(int i) {
-        this.WW.caC = i;
+        this.WV.caD = i;
     }
 
     public void setFrom(int i) {
-        this.WW.setFrom(i);
+        this.WV.setFrom(i);
     }
 
     public void setAgreeStatisticData(com.baidu.tbadk.core.data.d dVar) {
-        this.WW.setAgreeStatisticData(dVar);
+        this.WV.setAgreeStatisticData(dVar);
     }
 
     public void setShareReportFrom(int i) {
-        this.WW.setShareReportFrom(i);
+        this.WV.setShareReportFrom(i);
     }
 }

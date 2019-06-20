@@ -27,22 +27,22 @@ public class d extends f {
         return this;
     }
 
-    public d hp(String str) {
+    public d ho(String str) {
         this.mFrom = str;
         return this;
     }
 
-    public d hq(String str) {
+    public d hp(String str) {
         this.mAppId = str;
         return this;
     }
 
-    public d hr(String str) {
+    public d hq(String str) {
         this.mSource = str;
         return this;
     }
 
-    public d hs(String str) {
+    public d hr(String str) {
         this.ayL = str;
         return this;
     }

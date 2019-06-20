@@ -65,7 +65,7 @@ public class b {
                 if ((mVar instanceof com.baidu.tieba.card.data.c) && (abv = (cVar = (com.baidu.tieba.card.data.c) mVar).abv()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(abv.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.uU(threadPersonalized.abtest_tag);
+                    cVar.uT(threadPersonalized.abtest_tag);
                     abv.mRecomAbTag = threadPersonalized.abtest_tag;
                     abv.mRecomSource = threadPersonalized.source;
                     abv.mRecomWeight = threadPersonalized.weight;
@@ -78,8 +78,8 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason + "%" + dislikeReason.extra);
                         }
-                        cVar.bGK = sparseArray;
-                        cVar.uW(threadPersonalized.extra);
+                        cVar.bGL = sparseArray;
+                        cVar.uV(threadPersonalized.extra);
                     }
                 }
             }

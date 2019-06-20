@@ -8,7 +8,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String aro();
 
-    public abstract WriteData pW(String str);
+    public abstract WriteData pV(String str);
 
     /* JADX INFO: Access modifiers changed from: protected */
     public DataModel(com.baidu.adp.base.e<T> eVar) {

@@ -77,7 +77,7 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
         aw(inflate);
         TW();
         ax(inflate);
-        dG(AppRuntime.getAppContext().getResources().getString(R.string.aiapps_map_open_location_title));
+        dF(AppRuntime.getAppContext().getResources().getString(R.string.aiapps_map_open_location_title));
         if (zc()) {
             inflate = Q(inflate);
         }
@@ -119,7 +119,7 @@ public class a extends b implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMar
     public void TS() {
         e vi = com.baidu.swan.apps.w.e.FV().vi();
         if (vi != null) {
-            vi.dO("navigateTo").y(e.aqT, e.aqV).c(this).zW();
+            vi.dN("navigateTo").y(e.aqT, e.aqV).c(this).zW();
         }
     }
 

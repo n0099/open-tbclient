@@ -35,10 +35,10 @@ public class b {
             } else if (this.mData.showType == a.bzn) {
                 if (this.mData.bzr == a.bzp) {
                     if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.mData.schema) && !ap.isEmpty(this.mData.url)) {
-                        lm(this.mData.url + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                        ll(this.mData.url + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                     }
                 } else if (this.mData.bzr == a.bzq && !ap.isEmpty(this.mData.url)) {
-                    lm(this.mData.url + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+                    ll(this.mData.url + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
                 }
             } else if (this.mData.showType == a.bzo && !TextUtils.isEmpty(this.mData.message)) {
                 CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
@@ -54,7 +54,7 @@ public class b {
         }
     }
 
-    private void lm(String str) {
+    private void ll(String str) {
         Activity currentActivity;
         TbPageContext V;
         if (!ap.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (V = V(currentActivity)) != null && !StringUtils.isNull(str)) {

@@ -8,15 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ak extends k<com.baidu.tieba.pb.data.i, al> {
-    private BdUniqueId hMy;
+    private BdUniqueId hMA;
     private BdUniqueId hMz;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.hMy = BdUniqueId.gen();
         this.hMz = BdUniqueId.gen();
+        this.hMA = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,13 +24,13 @@ public class ak extends k<com.baidu.tieba.pb.data.i, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bC */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.hGp.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
-        alVar.PU = false;
+        al alVar = new al(this.hGq.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_title_layout, viewGroup, false));
+        alVar.PT = false;
         alVar.N(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.i.hBX) {
-            alVar.i(this.hMy);
-        } else if (getType() == com.baidu.tieba.pb.data.i.hBY) {
-            alVar.q(this.hMz);
+        if (getType() == com.baidu.tieba.pb.data.i.hBY) {
+            alVar.i(this.hMz);
+        } else if (getType() == com.baidu.tieba.pb.data.i.hBZ) {
+            alVar.q(this.hMA);
         }
         return alVar;
     }
@@ -48,8 +48,8 @@ public class ak extends k<com.baidu.tieba.pb.data.i, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.hMy);
         MessageManager.getInstance().unRegisterListener(this.hMz);
+        MessageManager.getInstance().unRegisterListener(this.hMA);
     }
 
     public void v(View.OnClickListener onClickListener) {

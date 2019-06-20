@@ -167,14 +167,14 @@ public class a {
             if (DEBUG) {
                 Log.d("SearchFlow", "ubc: begin flow");
             }
-            Flow kS = s.kS(this.aVz);
-            if (kS == null) {
+            Flow kR = s.kR(this.aVz);
+            if (kR == null) {
                 if (DEBUG) {
                     Log.w("SearchFlow", "UBC Flow create failed");
                 }
             } else {
                 for (SearchFlowEvent searchFlowEvent : this.aVA.values()) {
-                    kS.addEvent(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
+                    kR.addEvent(searchFlowEvent.id, searchFlowEvent.extData, searchFlowEvent.timestamp);
                 }
                 JSONObject jSONObject = new JSONObject();
                 try {
@@ -195,8 +195,8 @@ public class a {
                         Log.w("SearchFlow", Log.getStackTraceString(e));
                     }
                 }
-                kS.setValueWithDuration(jSONObject.toString());
-                kS.end();
+                kR.setValueWithDuration(jSONObject.toString());
+                kR.end();
                 if (DEBUG) {
                     Log.d("SearchFlow", "ubc: end flow");
                 }

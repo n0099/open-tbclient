@@ -51,7 +51,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.bVL);
+                        jSONObject.put("tid", bVar.bVM);
                         jSONObject.put("locate", bVar.eAv);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {

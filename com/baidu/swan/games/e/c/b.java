@@ -35,18 +35,18 @@ public class b implements a {
             return;
         }
         try {
-            String iM = iM(str);
-            File file = new File(iM(str));
+            String iL = iL(str);
+            File file = new File(iL(str));
             if (file.exists() && !file.isDirectory()) {
                 if (valueCallback != null) {
-                    valueCallback.onReceiveValue(iM);
+                    valueCallback.onReceiveValue(iL);
                     return;
                 }
                 return;
             }
             synchronized (this.beo) {
-                if (!iK(str)) {
-                    iL(str);
+                if (!iJ(str)) {
+                    iK(str);
                 }
                 b(str, valueCallback);
             }
@@ -57,11 +57,11 @@ public class b implements a {
         }
     }
 
-    private boolean iK(String str) {
+    private boolean iJ(String str) {
         return this.bel.containsKey(str);
     }
 
-    private void iL(String str) {
+    private void iK(String str) {
         c cVar = new c(this.ben, this.bem, str, this);
         this.bel.put(str, cVar);
         cVar.load();
@@ -81,7 +81,7 @@ public class b implements a {
     public void aQ(String str, String str2) {
         ArrayList<ValueCallback<String>> arrayList;
         synchronized (this.beo) {
-            if (iK(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+            if (iJ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).onReceiveValue(str2);
@@ -97,13 +97,13 @@ public class b implements a {
     @Override // com.baidu.swan.games.e.c.a
     public void t(int i, String str) {
         synchronized (this.beo) {
-            if (iK(str) && this.mCallbackMap.get(str) != null) {
+            if (iJ(str) && this.mCallbackMap.get(str) != null) {
                 this.bel.remove(str);
             }
         }
     }
 
-    private String iM(String str) throws MalformedURLException {
-        return this.bem + f.iI(str);
+    private String iL(String str) throws MalformedURLException {
+        return this.bem + f.iH(str);
     }
 }

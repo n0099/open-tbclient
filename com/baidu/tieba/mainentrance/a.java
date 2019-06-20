@@ -18,32 +18,32 @@ import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class a extends BaseAdapter {
     private String bol;
-    private final BaseActivity<?> cVp;
-    private final boolean hed = true;
-    private ArrayList<ForumSuggestModel.Forum> hee;
+    private final BaseActivity<?> cVq;
+    private final boolean hee = true;
+    private ArrayList<ForumSuggestModel.Forum> hef;
 
     public a(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.cVp = baseActivity;
-        this.hee = arrayList;
+        this.cVq = baseActivity;
+        this.hef = arrayList;
     }
 
     public void aj(ArrayList<ForumSuggestModel.Forum> arrayList) {
-        this.hee = arrayList;
-        if (this.hee != null) {
+        this.hef = arrayList;
+        if (this.hef != null) {
             notifyDataSetChanged();
         }
     }
 
-    public void zx(String str) {
+    public void zz(String str) {
         this.bol = str;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.hee == null) {
+        if (this.hef == null) {
             return 0;
         }
-        return this.hee.size();
+        return this.hef.size();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,7 +54,7 @@ public class a extends BaseAdapter {
         if (count <= 0 || i >= count) {
             return null;
         }
-        return this.hee.get(i);
+        return this.hef.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -67,15 +67,15 @@ public class a extends BaseAdapter {
         C0355a c0355a;
         String str;
         if (view == null) {
-            view = LayoutInflater.from(this.cVp.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
+            view = LayoutInflater.from(this.cVq.getPageContext().getPageActivity()).inflate(R.layout.square_dialog_search_item, (ViewGroup) null);
             C0355a c0355a2 = new C0355a();
-            c0355a2.heg = (BarImageView) view.findViewById(R.id.forum_avatar);
-            c0355a2.heg.setGifIconSupport(false);
-            c0355a2.caT = (TextView) view.findViewById(R.id.name);
-            c0355a2.heh = (TextView) view.findViewById(R.id.forum_member_count);
-            c0355a2.hei = (TextView) view.findViewById(R.id.forum_thread_count);
-            c0355a2.hej = (TextView) view.findViewById(R.id.slogan);
-            c0355a2.hef = view.findViewById(R.id.offical_icon);
+            c0355a2.heh = (BarImageView) view.findViewById(R.id.forum_avatar);
+            c0355a2.heh.setGifIconSupport(false);
+            c0355a2.caU = (TextView) view.findViewById(R.id.name);
+            c0355a2.hei = (TextView) view.findViewById(R.id.forum_member_count);
+            c0355a2.hej = (TextView) view.findViewById(R.id.forum_thread_count);
+            c0355a2.hek = (TextView) view.findViewById(R.id.slogan);
+            c0355a2.heg = view.findViewById(R.id.offical_icon);
             view.setTag(c0355a2);
             c0355a = c0355a2;
         } else {
@@ -85,39 +85,39 @@ public class a extends BaseAdapter {
         if (item != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             String str2 = item.avatar;
-            c0355a.heg.setTag(str2);
-            c0355a.heg.startLoad(str2, 10, false);
-            c0355a.heg.invalidate();
-            if (this.hed) {
-                str = this.cVp.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
+            c0355a.heh.setTag(str2);
+            c0355a.heh.startLoad(str2, 10, false);
+            c0355a.heh.invalidate();
+            if (this.hee) {
+                str = this.cVq.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
             } else {
                 str = item.forum_name;
             }
-            a(c0355a.caT, str);
-            c0355a.heg.setTag(item.avatar);
-            c0355a.heh.setText(this.cVp.getPageContext().getString(R.string.attention) + " " + wi(item.member_num));
-            c0355a.hei.setText(this.cVp.getPageContext().getString(R.string.text_post) + " " + wi(item.thread_num));
-            if (this.hed || !TextUtils.isEmpty(item.slogan)) {
-                c0355a.hej.setVisibility(0);
-                c0355a.hej.setText(item.slogan);
+            a(c0355a.caU, str);
+            c0355a.heh.setTag(item.avatar);
+            c0355a.hei.setText(this.cVq.getPageContext().getString(R.string.attention) + " " + wi(item.member_num));
+            c0355a.hej.setText(this.cVq.getPageContext().getString(R.string.text_post) + " " + wi(item.thread_num));
+            if (this.hee || !TextUtils.isEmpty(item.slogan)) {
+                c0355a.hek.setVisibility(0);
+                c0355a.hek.setText(item.slogan);
             } else {
-                c0355a.hej.setVisibility(8);
+                c0355a.hek.setVisibility(8);
             }
             if (item.is_offical == 1) {
-                c0355a.hef.setVisibility(0);
-                al.k(c0355a.hef, R.drawable.icon_search_official);
+                c0355a.heg.setVisibility(0);
+                al.k(c0355a.heg, R.drawable.icon_search_official);
             } else {
-                c0355a.hef.setVisibility(8);
+                c0355a.heg.setVisibility(8);
             }
-            this.cVp.getLayoutMode().setNightMode(skinType == 1);
-            this.cVp.getLayoutMode().onModeChanged(view);
+            this.cVq.getLayoutMode().setNightMode(skinType == 1);
+            this.cVq.getLayoutMode().onModeChanged(view);
         }
         return view;
     }
 
     public String wi(int i) {
         if (i >= 100000) {
-            return String.valueOf(i / 10000) + this.cVp.getPageContext().getString(R.string.member_count_unit);
+            return String.valueOf(i / 10000) + this.cVq.getPageContext().getString(R.string.member_count_unit);
         }
         return String.valueOf(i);
     }
@@ -141,12 +141,12 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.mainentrance.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     private class C0355a {
-        TextView caT;
-        View hef;
-        BarImageView heg;
-        TextView heh;
+        TextView caU;
+        View heg;
+        BarImageView heh;
         TextView hei;
         TextView hej;
+        TextView hek;
 
         private C0355a() {
         }

@@ -16,12 +16,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cUo;
+    private static a cUp;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cvS = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cvT = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -119,7 +119,7 @@ public class a {
                 if (!a.this.mNeedFinish) {
                     String aBb = a.this.aBb();
                     if (aBb != null && !aBb.isEmpty()) {
-                        File file = new File(c.cUd + b.rJ(aBb) + "/header_downloaded");
+                        File file = new File(c.cUe + b.rI(aBb) + "/header_downloaded");
                         if (file.exists()) {
                             d.am(a.TAG, "header exists " + aBb);
                         } else {
@@ -289,21 +289,21 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cvS);
+    private Thread mThread = new Thread(this.cvT);
 
     private a() {
         this.mThread.start();
     }
 
     public static a aBa() {
-        if (cUo == null) {
+        if (cUp == null) {
             synchronized (a.class) {
-                if (cUo == null) {
-                    cUo = new a();
+                if (cUp == null) {
+                    cUp = new a();
                 }
             }
         }
-        return cUo;
+        return cUp;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -311,7 +311,7 @@ public class a {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void rK(String str) {
+    public synchronized void rJ(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

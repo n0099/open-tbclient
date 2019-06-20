@@ -44,13 +44,13 @@ public class h extends a {
             unitedSchemeEntity.result = bP(201);
             return false;
         }
-        String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
-        if (TextUtils.isEmpty(hy)) {
+        String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
+        if (TextUtils.isEmpty(hx)) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
             unitedSchemeEntity.result = bP(201);
             return false;
         }
-        String str2 = hy + File.separator + Calendar.getInstance().getTimeInMillis();
+        String str2 = hx + File.separator + Calendar.getInstance().getTimeInMillis();
         if (c.xv()) {
             str = str2 + ".jpg";
         } else {

@@ -12,7 +12,7 @@ public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
     public static File Cr() {
-        return new File(x.OJ().get(0).wV, "baidu/aiapps_debug_swan_core/");
+        return new File(x.OJ().get(0).wU, "baidu/aiapps_debug_swan_core/");
     }
 
     public static void Cs() {
@@ -49,7 +49,7 @@ public final class a {
             if (jSONObject != null) {
                 String optString = jSONObject.optString("version_name");
                 if (!TextUtils.isEmpty(optString)) {
-                    f.Ni().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.hI(optString));
+                    f.Ni().putLong("aiapps_cur_debug_ver_key", com.baidu.swan.apps.swancore.b.hH(optString));
                 }
             }
         }

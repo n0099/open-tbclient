@@ -3,5 +3,5 @@ package com.baidu.tbadk.mvc.b;
 public interface f extends d {
     String asX();
 
-    boolean qC(String str);
+    boolean qB(String str);
 }

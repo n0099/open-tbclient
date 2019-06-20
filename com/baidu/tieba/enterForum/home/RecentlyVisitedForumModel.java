@@ -22,7 +22,7 @@ import java.util.LinkedList;
 public class RecentlyVisitedForumModel extends BdBaseModel {
     public static final String CACHE_KEY = "recently_visited_forum";
     public static final String LOCAL_ACCOUNT = "local";
-    private boolean cvg;
+    private boolean cvh;
     a eTc;
     private boolean eTd = false;
     private boolean isLoading = false;
@@ -35,7 +35,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
             }
         }
     };
-    CustomMessageListener cVh = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.2
+    CustomMessageListener cVi = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.enterForum.home.RecentlyVisitedForumModel.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -82,7 +82,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
         if (linkedList != null) {
             this.eTb.setForumData(linkedList);
             this.eTb.qe(20);
-            this.cvg = z;
+            this.cvh = z;
             if (this.eTc != null) {
                 this.eTc.b(this.eTb.getForumData(), z);
             }
@@ -91,7 +91,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
 
     public void refresh() {
         if (this.eTc != null) {
-            this.eTc.b(this.eTb.getForumData(), this.cvg);
+            this.eTc.b(this.eTb.getForumData(), this.cvh);
         }
     }
 
@@ -130,7 +130,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     public void onDestroy() {
         MessageManager.getInstance().unRegisterListener(this.eTf);
         MessageManager.getInstance().unRegisterListener(this.eTe);
-        MessageManager.getInstance().unRegisterListener(this.cVh);
+        MessageManager.getInstance().unRegisterListener(this.cVi);
     }
 
     private void e(VisitedForumData visitedForumData) {
@@ -176,7 +176,7 @@ public class RecentlyVisitedForumModel extends BdBaseModel {
     private void registerListener() {
         MessageManager.getInstance().registerListener(this.eTf);
         MessageManager.getInstance().registerListener(this.eTe);
-        MessageManager.getInstance().registerListener(this.cVh);
+        MessageManager.getInstance().registerListener(this.cVi);
     }
 
     private void registerTask() {

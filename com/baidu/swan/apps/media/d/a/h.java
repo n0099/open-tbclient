@@ -21,11 +21,11 @@ public class h extends g {
     }
 
     private void b(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.view.container.a ix = com.baidu.swan.apps.view.container.c.c.ix(cVar.aDm);
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar, ix);
-        if (ix != null && a != null) {
-            com.baidu.swan.apps.view.container.c.c.b(a, ix);
-            com.baidu.swan.apps.view.container.c.c.d(a, ix);
+        com.baidu.swan.apps.view.container.a iw = com.baidu.swan.apps.view.container.c.c.iw(cVar.aDm);
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar, iw);
+        if (iw != null && a != null) {
+            com.baidu.swan.apps.view.container.c.c.b(a, iw);
+            com.baidu.swan.apps.view.container.c.c.d(a, iw);
         }
         aVar.onDestroy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

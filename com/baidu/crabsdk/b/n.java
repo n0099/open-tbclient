@@ -8,18 +8,18 @@ import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes3.dex */
 public final class n {
-    private static TelephonyManager ZN;
-    private static ConnectivityManager ZO;
+    private static TelephonyManager ZM;
+    private static ConnectivityManager ZN;
     private static Context mContext;
 
     public static String D() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            if (ZO == null) {
-                ZO = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (ZN == null) {
+                ZN = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            activeNetworkInfo = ZO.getActiveNetworkInfo();
+            activeNetworkInfo = ZN.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             com.baidu.crabsdk.c.a.a("getNetworkInfo", e);
         }
@@ -30,10 +30,10 @@ public final class n {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (ZN == null) {
-                    ZN = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                if (ZM == null) {
+                    ZM = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
                 }
-                sb.append("isRoaming: ").append(ZN.isNetworkRoaming() ? "yes" : "no").append("\n");
+                sb.append("isRoaming: ").append(ZM.isNetworkRoaming() ? "yes" : "no").append("\n");
             }
         } else {
             sb.append("type: none\n");
@@ -43,10 +43,10 @@ public final class n {
 
     public static String E() {
         try {
-            if (ZO == null) {
-                ZO = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (ZN == null) {
+                ZN = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = ZO.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = ZN.getActiveNetworkInfo();
             return activeNetworkInfo == null ? "UNKNOWN" : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException e) {
             return "UNKNOWN";

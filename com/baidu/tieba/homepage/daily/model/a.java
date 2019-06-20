@@ -17,40 +17,40 @@ import tbclient.DailyPage.DataRes;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private InterfaceC0321a fYv;
-    private DailyNetModel fZb;
-    private boolean fZd;
+    private InterfaceC0321a fYx;
+    private DailyNetModel fZd;
+    private boolean fZf;
     private boolean mHasMore;
     private TbPageContext mPageContext;
-    private b fZc = new b();
-    private DailyNetModel.a fZe = new DailyNetModel.a() { // from class: com.baidu.tieba.homepage.daily.model.a.1
+    private b fZe = new b();
+    private DailyNetModel.a fZg = new DailyNetModel.a() { // from class: com.baidu.tieba.homepage.daily.model.a.1
         @Override // com.baidu.tieba.homepage.daily.model.DailyNetModel.a
         public void a(DataRes dataRes, boolean z) {
             String str;
             String str2 = null;
             if (dataRes != null) {
-                List<m> dataList = a.this.fZc.getDataList();
+                List<m> dataList = a.this.fZe.getDataList();
                 DailyInfo dailyInfo = dataRes.daily_info;
                 if (z) {
-                    a.this.fZc.cA(dataRes.banner);
+                    a.this.fZe.cA(dataRes.banner);
                     dataList.clear();
                     e cB = e.cB(dataRes.topic);
                     if (cB != null) {
                         dataList.add(cB);
                     }
-                    boolean z2 = (a.this.fZc.bta() == null && cB == null) ? false : true;
+                    boolean z2 = (a.this.fZe.btb() == null && cB == null) ? false : true;
                     if (dailyInfo != null) {
                         d dVar = new d();
-                        dVar.xu(dailyInfo.tab_name);
-                        dVar.xt(dailyInfo.update_time);
-                        dVar.kY(z2);
+                        dVar.xw(dailyInfo.tab_name);
+                        dVar.xv(dailyInfo.update_time);
+                        dVar.kZ(z2);
                         dataList.add(dVar);
                     }
-                    a.this.fZd = false;
+                    a.this.fZf = false;
                 }
                 List<ThreadInfo> list = dailyInfo != null ? dailyInfo.thread_list : null;
                 if (v.Z(list) > 0) {
-                    int Z = v.Z(a.this.fZc.getDataList());
+                    int Z = v.Z(a.this.fZe.getDataList());
                     if (Z <= 0 || !(dataList.get(Z - 1) instanceof bg)) {
                         str = null;
                     } else {
@@ -60,7 +60,7 @@ public class a {
                     String str3 = str;
                     for (ThreadInfo threadInfo : list) {
                         if (threadInfo != null) {
-                            a.this.fZd = true;
+                            a.this.fZf = true;
                             bg bgVar = new bg();
                             bgVar.a(threadInfo);
                             bgVar.dJ(true);
@@ -70,7 +70,7 @@ public class a {
                                     dataList.add(bgVar);
                                 } else {
                                     c cVar = new c();
-                                    cVar.xs(afh);
+                                    cVar.xu(afh);
                                     dataList.add(cVar);
                                     dataList.add(bgVar);
                                 }
@@ -80,14 +80,14 @@ public class a {
                     }
                 }
                 int size = dataList.size();
-                if (z && !a.this.fZd && size > 0 && (dataList.get(size - 1) instanceof d)) {
+                if (z && !a.this.fZf && size > 0 && (dataList.get(size - 1) instanceof d)) {
                     dataList.remove(size - 1);
                 }
                 if (dailyInfo != null) {
                     a.this.mHasMore = dailyInfo.has_more.intValue() == 1;
                 }
-                if (a.this.fYv != null) {
-                    a.this.fYv.a(a.this.fZc, z, a.this.mHasMore);
+                if (a.this.fYx != null) {
+                    a.this.fYx.a(a.this.fZe, z, a.this.mHasMore);
                     return;
                 }
                 return;
@@ -97,8 +97,8 @@ public class a {
 
         @Override // com.baidu.tieba.homepage.daily.model.DailyNetModel.a
         public void M(int i, String str) {
-            if (a.this.fYv != null) {
-                a.this.fYv.M(i, str);
+            if (a.this.fYx != null) {
+                a.this.fYx.M(i, str);
             }
         }
     };
@@ -113,12 +113,12 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.fZb = new DailyNetModel(tbPageContext);
-        this.fZb.a(this.fZe);
+        this.fZd = new DailyNetModel(tbPageContext);
+        this.fZd.a(this.fZg);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fZb.setUniqueId(bdUniqueId);
+        this.fZd.setUniqueId(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -143,34 +143,34 @@ public class a {
     }
 
     public void refresh() {
-        this.fZb.refresh();
+        this.fZd.refresh();
     }
 
     public void aHt() {
-        this.fZb.aHt();
+        this.fZd.aHt();
     }
 
     public void a(InterfaceC0321a interfaceC0321a) {
-        this.fYv = interfaceC0321a;
+        this.fYx = interfaceC0321a;
     }
 
     public boolean hasMore() {
         return this.mHasMore;
     }
 
-    public boolean bti() {
-        return this.fZd;
+    public boolean btj() {
+        return this.fZf;
     }
 
     public boolean pu() {
-        return this.fZb.pu();
+        return this.fZd.pu();
     }
 
     public boolean atJ() {
-        return this.fZc.atJ();
+        return this.fZe.atJ();
     }
 
     public void onDestroy() {
-        this.fZb.onDestroy();
+        this.fZd.onDestroy();
     }
 }

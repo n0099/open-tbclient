@@ -27,8 +27,8 @@ import com.baidu.tieba.enterForum.recommend.b.f;
 import com.baidu.tieba.enterForum.recommend.message.RequestTestCloseMessage;
 /* loaded from: classes4.dex */
 public class CellForumTestView extends RelativeLayout implements View.OnClickListener {
-    private TextView bMW;
-    private int cRe;
+    private TextView bMX;
+    private int cRf;
     private TbImageView eUD;
     private ImageView eUE;
     private ImageView eUF;
@@ -79,12 +79,12 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         this.eUE = (ImageView) findViewById(R.id.cell_forum_test_new);
         this.eUF = (ImageView) findViewById(R.id.cell_forum_test_del);
         this.eUG = (TextView) findViewById(R.id.cell_forum_test_des);
-        this.bMW = (TextView) findViewById(R.id.cell_forum_test_btn);
+        this.bMX = (TextView) findViewById(R.id.cell_forum_test_btn);
         this.eUD.setRadius(l.g(context, R.dimen.tbds22));
         this.eUD.setConrers(3);
         this.eUD.setDefaultBgResource(R.color.cp_atp_a);
         this.eUD.setDrawCorner(true);
-        this.cRe = l.g(context, R.dimen.tbds262);
+        this.cRf = l.g(context, R.dimen.tbds262);
         this.eUF.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
@@ -95,7 +95,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         this.mWidth = View.MeasureSpec.getSize(i);
         this.mHeight = View.MeasureSpec.getSize(i2);
         if (!this.eUS) {
-            this.eUD.getLayoutParams().height = this.mHeight - this.cRe;
+            this.eUD.getLayoutParams().height = this.mHeight - this.cRf;
         }
         super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.mWidth, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mHeight, 1073741824));
     }
@@ -227,9 +227,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 this.eUG.setText(fVar.title);
             }
             if (fVar.eUz) {
-                this.bMW.setText(R.string.cell_forum_retest_default);
+                this.bMX.setText(R.string.cell_forum_retest_default);
             } else {
-                this.bMW.setText(R.string.cell_forum_test_default);
+                this.bMX.setText(R.string.cell_forum_test_default);
             }
         }
     }
@@ -257,7 +257,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             int i = this.eUR;
             f fVar = this.eUH;
             if (this.eUH != null && i >= 0 && (a = com.baidu.tieba.q.a.a(true, "a065", "common_click", i + 1, i + 1, false, (String) null, String.valueOf(fVar.testId), 0)) != null) {
-                com.baidu.tieba.q.c.clv().b(this.mPageId, a);
+                com.baidu.tieba.q.c.clw().b(this.mPageId, a);
             }
             if (!this.eUI) {
                 String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("enter_forum_test_id_list", "");
@@ -291,8 +291,8 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             al.c(this.eUF, (int) R.drawable.icon_ba_close);
             al.j(this.eUG, R.color.cp_cont_b);
             al.k(this.eUG, R.drawable.forum_test_shade_bg);
-            al.j(this.bMW, R.color.cp_btn_a);
-            al.k(this.bMW, R.drawable.enter_forum_test_shade_bg);
+            al.j(this.bMX, R.color.cp_btn_a);
+            al.k(this.bMX, R.drawable.enter_forum_test_shade_bg);
         }
     }
 

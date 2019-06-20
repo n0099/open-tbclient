@@ -31,16 +31,16 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     private com.baidu.tieba.likedForum.a dMa;
     private a.InterfaceC0350a dMd;
-    private List<TransmitForumData> jDY;
-    private s jJe;
+    private List<TransmitForumData> jEb;
+    private s jJh;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean cF(long j) {
-        if (this.jDY == null) {
+        if (this.jEb == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.jDY) {
+        for (TransmitForumData transmitForumData : this.jEb) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -49,7 +49,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqr() {
+    public void cqs() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
@@ -65,7 +65,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.jJe = new s() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.jJh = new s() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.jS()) {
@@ -73,7 +73,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
                 TiebaStatic.log(new am("c12053"));
                 if (!v.aa(d.this.mForumList)) {
-                    d.this.cqr();
+                    d.this.cqs();
                     return;
                 }
                 d.this.dMa = new com.baidu.tieba.likedForum.a(d.this.mPageId);
@@ -101,13 +101,13 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     }
                     if (d.this.mForumList == null) {
                         d.this.mForumList = arrayList;
-                        d.this.cqr();
+                        d.this.cqs();
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.jJe);
-        this.jDY = list;
+        setOnAdapterItemClickListener(this.jJh);
+        this.jEb = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        al.j(aVar.jJg, R.color.cp_link_tip_a);
+        al.j(aVar.jJj, R.color.cp_link_tip_a);
         al.c(aVar.fen, (int) R.drawable.icon_post_add_ba_n);
         return view;
     }
@@ -131,11 +131,11 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* loaded from: classes3.dex */
     public static class a extends v.a {
         public ImageView fen;
-        public TextView jJg;
+        public TextView jJj;
 
         public a(View view) {
             super(view);
-            this.jJg = (TextView) view.findViewById(R.id.select_by_self);
+            this.jJj = (TextView) view.findViewById(R.id.select_by_self);
             this.fen = (ImageView) view.findViewById(R.id.add_icon);
         }
     }

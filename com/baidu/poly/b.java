@@ -20,34 +20,34 @@ public final class b {
         public static final int channel_checked = 2130838922;
         public static final int channel_close = 2130838923;
         public static final int channel_closenew = 2130838924;
-        public static final int loading = 2130841325;
-        public static final int pay_view_bg = 2130841524;
-        public static final int popup_view_bg = 2130841730;
-        public static final int tip_view_bg = 2130842156;
-        public static final int unchecked = 2130842221;
+        public static final int loading = 2130841365;
+        public static final int pay_view_bg = 2130841564;
+        public static final int popup_view_bg = 2130841770;
+        public static final int tip_view_bg = 2130842218;
+        public static final int unchecked = 2130842283;
     }
 
     /* loaded from: classes.dex */
     public static final class d {
-        public static final int bg_view = 2131695447;
-        public static final int channel_desc_view = 2131695457;
-        public static final int channel_icon_view = 2131695455;
-        public static final int channel_list_container = 2131695449;
-        public static final int channel_list_scroll_view = 2131695452;
-        public static final int channel_list_view = 2131695453;
-        public static final int channel_name_view = 2131695456;
-        public static final int channel_select_view = 2131695458;
-        public static final int close_button = 2131695451;
-        public static final int finish_payment = 2131695459;
-        public static final int pay_button = 2131695454;
-        public static final int pay_text = 2131695450;
-        public static final int popup_view = 2131695448;
-        public static final int progress_bar = 2131690876;
-        public static final int repayment = 2131695460;
-        public static final int text_view = 2131690875;
-        public static final int tip_loading_view = 2131695466;
-        public static final int tip_text_view = 2131695467;
-        public static final int tip_view = 2131691887;
+        public static final int bg_view = 2131695448;
+        public static final int channel_desc_view = 2131695458;
+        public static final int channel_icon_view = 2131695456;
+        public static final int channel_list_container = 2131695450;
+        public static final int channel_list_scroll_view = 2131695453;
+        public static final int channel_list_view = 2131695454;
+        public static final int channel_name_view = 2131695457;
+        public static final int channel_select_view = 2131695459;
+        public static final int close_button = 2131695452;
+        public static final int finish_payment = 2131695460;
+        public static final int pay_button = 2131695455;
+        public static final int pay_text = 2131695451;
+        public static final int popup_view = 2131695449;
+        public static final int progress_bar = 2131690877;
+        public static final int repayment = 2131695461;
+        public static final int text_view = 2131690876;
+        public static final int tip_loading_view = 2131695467;
+        public static final int tip_text_view = 2131695468;
+        public static final int tip_view = 2131691888;
     }
 
     /* loaded from: classes.dex */

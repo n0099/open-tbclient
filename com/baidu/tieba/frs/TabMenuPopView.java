@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class TabMenuPopView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.adp.lib.e.b<TextView> cLs;
+    private com.baidu.adp.lib.e.b<TextView> cLt;
     private int ftr;
     private int fts;
     private int ftt;
@@ -37,7 +37,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         setOrientation(1);
         this.mContext = context;
         this.fts = com.baidu.adp.lib.util.l.g(context, R.dimen.ds20);
-        this.cLs = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
+        this.cLt = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: ayt */
@@ -89,7 +89,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
             @Override // android.view.ViewGroup.OnHierarchyChangeListener
             public void onChildViewRemoved(View view, View view2) {
                 if (view2 instanceof TextView) {
-                    TabMenuPopView.this.cLs.t((TextView) view2);
+                    TabMenuPopView.this.cLt.t((TextView) view2);
                 }
             }
 
@@ -226,7 +226,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
 
     private void a(ar arVar, LinearLayout.LayoutParams layoutParams) {
         if (arVar != null && layoutParams != null) {
-            TextView iu = this.cLs.iu();
+            TextView iu = this.cLt.iu();
             iu.setText(arVar.name);
             iu.setSelected(arVar.isSelected);
             iu.setTag(arVar);

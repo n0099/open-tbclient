@@ -5,7 +5,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.f.a {
-    private ScaleGestureDetector cHh;
+    private ScaleGestureDetector cHi;
     private a eOD;
 
     /* loaded from: classes.dex */
@@ -14,7 +14,7 @@ public class b extends com.baidu.tieba.f.a {
     }
 
     public b(Context context) {
-        this.cHh = new ScaleGestureDetector(context, new C0303b());
+        this.cHi = new ScaleGestureDetector(context, new C0303b());
     }
 
     public void a(a aVar) {
@@ -60,7 +60,7 @@ public class b extends com.baidu.tieba.f.a {
     @Override // com.baidu.tieba.f.a
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
-            this.cHh.onTouchEvent(motionEvent);
+            this.cHi.onTouchEvent(motionEvent);
             return super.onTouchEvent(motionEvent);
         } catch (Exception e) {
             return false;

@@ -41,10 +41,10 @@ public class j extends z {
             return false;
         }
         com.baidu.swan.apps.core.d.d zM = vi.zM();
-        if (zM == null || TextUtils.isEmpty(zM.dK(aq.ayL))) {
+        if (zM == null || TextUtils.isEmpty(zM.dJ(aq.ayL))) {
             final b.a x = com.baidu.swan.apps.core.i.b.x(FV.FH());
             wU = x.asY.wU();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hb(wU), 0));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.ha(wU), 0));
             com.baidu.swan.apps.core.i.b.a(x, new b.InterfaceC0137b() { // from class: com.baidu.swan.apps.scheme.actions.i.j.1
                 @Override // com.baidu.swan.apps.core.i.b.InterfaceC0137b
                 public void onReady() {
@@ -53,8 +53,8 @@ public class j extends z {
                 }
             });
         } else {
-            wU = zM.dK(aq.ayL);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hb(wU), 0));
+            wU = zM.dJ(aq.ayL);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.ha(wU), 0));
             d(vi, aq);
         }
         if (DEBUG) {
@@ -66,6 +66,6 @@ public class j extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.swan.apps.core.d.e eVar, com.baidu.swan.apps.model.b bVar) {
-        eVar.dO("switchTab").y(0, 0).zT().d(bVar).zW();
+        eVar.dN("switchTab").y(0, 0).zT().d(bVar).zW();
     }
 }

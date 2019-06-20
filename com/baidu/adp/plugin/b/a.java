@@ -16,31 +16,31 @@ import java.util.Map;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a It = null;
-    private HashMap<String, Integer> Is = new HashMap<>();
+    private static volatile a Is = null;
+    private HashMap<String, Integer> Ir = new HashMap<>();
 
     public static synchronized a lM() {
         a aVar;
         synchronized (a.class) {
-            if (It == null) {
+            if (Is == null) {
                 synchronized (a.class) {
-                    if (It == null) {
-                        It = new a();
+                    if (Is == null) {
+                        Is = new a();
                     }
                 }
             }
-            aVar = It;
+            aVar = Is;
         }
         return aVar;
     }
 
     public void by(String str) {
         if (str != null) {
-            Integer num = this.Is.get(str);
+            Integer num = this.Ir.get(str);
             if (num == null) {
                 num = 0;
             }
-            this.Is.put(str, Integer.valueOf(num.intValue() + 1));
+            this.Ir.put(str, Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -137,7 +137,7 @@ public class a {
     }
 
     public void lN() {
-        if (this.Is.size() != 0) {
+        if (this.Ir.size() != 0) {
             com.baidu.adp.lib.stats.a iw = iw();
             c(iw);
             iw.append("appver", BdStatisticsManager.getInstance().getAppVersion());
@@ -177,10 +177,10 @@ public class a {
 
     private void c(com.baidu.adp.lib.stats.a aVar) {
         if (aVar != null) {
-            for (Map.Entry<String, Integer> entry : this.Is.entrySet()) {
+            for (Map.Entry<String, Integer> entry : this.Ir.entrySet()) {
                 aVar.append(entry.getKey() + "_count", String.valueOf(entry.getValue()));
             }
-            this.Is.clear();
+            this.Ir.clear();
         }
     }
 

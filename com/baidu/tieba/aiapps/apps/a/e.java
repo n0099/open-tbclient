@@ -17,9 +17,9 @@ public class e extends ProviderDelegation {
         if (hashMap2 == null || hashMap2.size() == 0) {
             return bundle2;
         }
-        bundle2.putSerializable(p.cZJ, hashMap2);
-        bundle2.putStringArrayList(p.cZL, (ArrayList) SapiUtils.getAuthorizedDomains(getAgent().getContext()));
-        bundle2.putStringArrayList(p.cZK, (ArrayList) SapiUtils.getAuthorizedDomainsForPtoken(getAgent().getContext()));
+        bundle2.putSerializable(p.cZK, hashMap2);
+        bundle2.putStringArrayList(p.cZM, (ArrayList) SapiUtils.getAuthorizedDomains(getAgent().getContext()));
+        bundle2.putStringArrayList(p.cZL, (ArrayList) SapiUtils.getAuthorizedDomainsForPtoken(getAgent().getContext()));
         return bundle2;
     }
 }

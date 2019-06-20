@@ -7,9 +7,9 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class w {
-    private View cBP;
-    private int cBQ;
-    private boolean cBR;
+    private View cBQ;
+    private int cBR;
+    private boolean cBS;
     private final Handler mHandler;
 
     public void avk() {
@@ -31,29 +31,29 @@ public class w {
     }
 
     public void fH(boolean z) {
-        if (this.cBP != null) {
-            if (z || this.cBP.getVisibility() != 8) {
+        if (this.cBQ != null) {
+            if (z || this.cBQ.getVisibility() != 8) {
                 avl();
             }
         }
     }
 
     public void fI(boolean z) {
-        if (this.cBP != null) {
-            if (z || this.cBP.getVisibility() != 0) {
+        if (this.cBQ != null) {
+            if (z || this.cBQ.getVisibility() != 0) {
                 avk();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.cBP != null) {
-            if (i != 0 && i2 > i && this.cBP.getVisibility() != 8) {
+        if (this.cBQ != null) {
+            if (i != 0 && i2 > i && this.cBQ.getVisibility() != 8) {
                 fH(false);
-            } else if ((i == 0 || i2 < i) && this.cBP.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.cBQ.getVisibility() != 0) {
                 fI(false);
             }
-            this.cBQ = i;
+            this.cBR = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class w {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.cBQ) {
+            if (firstVisiblePosition > this.cBR) {
                 fH(true);
-            } else if (firstVisiblePosition < this.cBQ) {
+            } else if (firstVisiblePosition < this.cBR) {
                 fI(true);
-            } else if (firstVisiblePosition == this.cBQ) {
-                if (firstVisiblePosition == 0 || !this.cBR) {
+            } else if (firstVisiblePosition == this.cBR) {
+                if (firstVisiblePosition == 0 || !this.cBS) {
                     fI(true);
                 } else {
                     fH(true);

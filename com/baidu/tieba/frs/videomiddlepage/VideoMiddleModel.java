@@ -30,8 +30,8 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private a fOa;
-    private String fOb;
+    private a fOc;
+    private String fOd;
     private final HttpMessageListener fvn;
     private String mFrom;
     private String mId;
@@ -45,7 +45,7 @@ public class VideoMiddleModel extends BdBaseModel {
     public interface a {
         void j(List<com.baidu.tieba.card.data.b> list, boolean z);
 
-        void wy(String str);
+        void wx(String str);
     }
 
     static /* synthetic */ int b(VideoMiddleModel videoMiddleModel) {
@@ -56,13 +56,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.fOb = "client_other";
+        this.fOd = "client_other";
         this.fvn = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.fOa.wy("error");
+                    VideoMiddleModel.this.fOc.wx("error");
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -72,15 +72,15 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.fOa.wy(errorString);
+                    VideoMiddleModel.this.fOc.wx(errorString);
                     return;
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                VideoMiddleModel.this.fOa.j(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                VideoMiddleModel.this.fOc.j(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.fOa = aVar;
+        this.fOc = aVar;
         registerTask();
         this.fvn.setTag(getUniqueId());
         this.fvn.setSelfListener(true);
@@ -91,7 +91,7 @@ public class VideoMiddleModel extends BdBaseModel {
         this.mId = str;
     }
 
-    public void wx(String str) {
+    public void ww(String str) {
         this.st_type = str;
     }
 
@@ -150,20 +150,20 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam(Config.PACKAGE_NAME, i);
-        httpMessage.addParam("user_view_data", brj());
+        httpMessage.addParam("user_view_data", brl());
         if ("frs".equals(this.mFrom)) {
-            this.fOb = "client_frs";
+            this.fOd = "client_frs";
         } else if ("index".equals(this.mFrom)) {
-            this.fOb = "client_index";
+            this.fOd = "client_index";
         } else {
-            this.fOb = "client_other";
+            this.fOd = "client_other";
         }
-        httpMessage.addParam(IntentConfig.CALL_FROM, this.fOb);
+        httpMessage.addParam(IntentConfig.CALL_FROM, this.fOd);
         sendMessage(httpMessage);
         return true;
     }
 
-    private String brj() {
+    private String brl() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

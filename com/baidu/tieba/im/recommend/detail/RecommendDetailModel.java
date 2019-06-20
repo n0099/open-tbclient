@@ -19,11 +19,11 @@ import com.baidu.tieba.R;
 import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes3.dex */
 public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
-    private a gII;
-    private boolean gIJ;
-    private com.baidu.adp.framework.listener.a gIK;
-    private CustomMessageListener gIL;
-    private boolean gyJ;
+    private a gIK;
+    private boolean gIL;
+    private com.baidu.adp.framework.listener.a gIM;
+    private CustomMessageListener gIN;
+    private boolean gyL;
     private TbPageContext<RecommendDetailActivity> mContext;
     private long mUserId;
 
@@ -32,70 +32,70 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     public interface a {
         void a(UserInfoBigVip userInfoBigVip, boolean z);
 
-        void mk(boolean z);
-
         void ml(boolean z);
 
-        void vY(String str);
+        void mm(boolean z);
+
+        void vX(String str);
     }
 
     public RecommendDetailModel(TbPageContext<RecommendDetailActivity> tbPageContext, a aVar) {
         super(tbPageContext);
-        this.gyJ = false;
-        this.gIJ = false;
-        this.gIK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
+        this.gyL = false;
+        this.gIL = false;
+        this.gIM = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_RECOMMEND_DETAIL, 303025) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                RecommendDetailModel.this.gIJ = true;
-                if (RecommendDetailModel.this.mContext != null && RecommendDetailModel.this.gII != null) {
+                RecommendDetailModel.this.gIL = true;
+                if (RecommendDetailModel.this.mContext != null && RecommendDetailModel.this.gIK != null) {
                     if (responsedMessage == null) {
-                        RecommendDetailModel.this.gII.vY(RecommendDetailModel.this.mContext.getString(R.string.neterror));
+                        RecommendDetailModel.this.gIK.vX(RecommendDetailModel.this.mContext.getString(R.string.neterror));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            RecommendDetailModel.this.gII.vY(RecommendDetailModel.this.mContext.getString(R.string.neterror));
+                            RecommendDetailModel.this.gIK.vX(RecommendDetailModel.this.mContext.getString(R.string.neterror));
                         } else {
-                            RecommendDetailModel.this.gII.vY(responsedMessage.getErrorString());
+                            RecommendDetailModel.this.gIK.vX(responsedMessage.getErrorString());
                         }
                     } else {
                         if (responsedMessage instanceof RecommendDetailHttpResponseMessage) {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.gyJ = true;
-                                RecommendDetailModel.this.gII.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.gyL = true;
+                                RecommendDetailModel.this.gIK.a(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
-                                RecommendDetailModel.this.gyJ = true;
-                                RecommendDetailModel.this.gII.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                RecommendDetailModel.this.gyL = true;
+                                RecommendDetailModel.this.gIK.a(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
                 }
             }
         };
-        this.gIL = new CustomMessageListener(2001306) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
+        this.gIN = new CustomMessageListener(2001306) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof UserInfoBigVip)) {
-                    RecommendDetailModel.this.bDv();
+                    RecommendDetailModel.this.bDw();
                     return;
                 }
                 UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
-                if (RecommendDetailModel.this.gII != null && userInfoBigVip != null) {
-                    RecommendDetailModel.this.gyJ = true;
-                    RecommendDetailModel.this.gII.a(userInfoBigVip, false);
+                if (RecommendDetailModel.this.gIK != null && userInfoBigVip != null) {
+                    RecommendDetailModel.this.gyL = true;
+                    RecommendDetailModel.this.gIK.a(userInfoBigVip, false);
                 }
-                RecommendDetailModel.this.bDv();
+                RecommendDetailModel.this.bDw();
             }
         };
         this.mContext = tbPageContext;
-        this.gII = aVar;
-        MessageManager.getInstance().registerListener(this.gIK);
-        MessageManager.getInstance().registerListener(this.gIL);
-        bAw();
+        this.gIK = aVar;
+        MessageManager.getInstance().registerListener(this.gIM);
+        MessageManager.getInstance().registerListener(this.gIN);
+        bAx();
     }
 
     public void dF(long j) {
@@ -103,7 +103,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(new CustomMessage(2001306, Long.valueOf(this.mUserId)));
     }
 
-    private void bAw() {
+    private void bAx() {
         registerListener(new c(104102) { // from class: com.baidu.tieba.im.recommend.detail.RecommendDetailModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -113,7 +113,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     Message<?> orginalMessage = responseUpdateMaskInfoMessage.getOrginalMessage();
                     if (orginalMessage instanceof RequestUpdateMaskInfoMessage) {
                         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = (RequestUpdateMaskInfoMessage) orginalMessage;
-                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.mContext != null && RecommendDetailModel.this.gII != null) {
+                        if (requestUpdateMaskInfoMessage.getMaskType() == 6 && RecommendDetailModel.this.mContext != null && RecommendDetailModel.this.gIK != null) {
                             if (responseUpdateMaskInfoMessage.getError() != 0) {
                                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
                                     RecommendDetailModel.this.mContext.showToast(R.string.neterror);
@@ -121,14 +121,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                                     RecommendDetailModel.this.mContext.showToast(responseUpdateMaskInfoMessage.getErrorString());
                                 }
                                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                    RecommendDetailModel.this.gII.mk(false);
+                                    RecommendDetailModel.this.gIK.ml(false);
                                 } else {
-                                    RecommendDetailModel.this.gII.ml(false);
+                                    RecommendDetailModel.this.gIK.mm(false);
                                 }
                             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                                RecommendDetailModel.this.gII.mk(true);
+                                RecommendDetailModel.this.gIK.ml(true);
                             } else {
-                                RecommendDetailModel.this.gII.ml(true);
+                                RecommendDetailModel.this.gIK.mm(true);
                             }
                         }
                     }
@@ -138,13 +138,13 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDv() {
+    public void bDw() {
         RecommendDetailRequestMessage recommendDetailRequestMessage = new RecommendDetailRequestMessage();
         recommendDetailRequestMessage.setUserId(this.mUserId);
         sendMessage(recommendDetailRequestMessage);
     }
 
-    public void mm(boolean z) {
+    public void mn(boolean z) {
         RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
         if (z) {
             requestUpdateMaskInfoMessage.setIsMask(0);
@@ -157,12 +157,12 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
         sendMessage(requestUpdateMaskInfoMessage);
     }
 
-    public boolean bDw() {
-        return this.gyJ;
+    public boolean bDx() {
+        return this.gyL;
     }
 
-    public boolean bDx() {
-        return this.gIJ;
+    public boolean bDy() {
+        return this.gIL;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -176,7 +176,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gIL);
-        MessageManager.getInstance().unRegisterListener(this.gIK);
+        MessageManager.getInstance().unRegisterListener(this.gIN);
+        MessageManager.getInstance().unRegisterListener(this.gIM);
     }
 }

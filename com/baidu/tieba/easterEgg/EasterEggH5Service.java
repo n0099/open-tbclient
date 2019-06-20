@@ -51,7 +51,7 @@ public class EasterEggH5Service extends Service {
             String str;
             if (customResponsedMessage.getData() instanceof String) {
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.vn("reindeer_search");
+                    str = EasterEggH5Service.this.mHttpRule.vm("reindeer_search");
                 } else {
                     str = null;
                 }
@@ -74,21 +74,21 @@ public class EasterEggH5Service extends Service {
             if (customResponsedMessage.getData() instanceof g) {
                 g gVar = (g) customResponsedMessage.getData();
                 if (EasterEggH5Service.this.mHttpRule != null) {
-                    str = EasterEggH5Service.this.mHttpRule.vn(gVar.mUrl);
+                    str = EasterEggH5Service.this.mHttpRule.vm(gVar.mUrl);
                 } else {
                     str = null;
                 }
                 if (str != null) {
                     HashMap hashMap = new HashMap();
-                    if (!v.aa(gVar.bUc)) {
+                    if (!v.aa(gVar.bUd)) {
                         int i = 0;
                         while (true) {
                             int i2 = i;
-                            if (i2 >= gVar.bUc.size()) {
+                            if (i2 >= gVar.bUd.size()) {
                                 break;
                             }
-                            if (gVar.bUc.get(i2) != null) {
-                                hashMap.put(gVar.bUc.get(i2).getName(), gVar.bUc.get(i2).getValue());
+                            if (gVar.bUd.get(i2) != null) {
+                                hashMap.put(gVar.bUd.get(i2).getName(), gVar.bUd.get(i2).getValue());
                             }
                             i = i2 + 1;
                         }

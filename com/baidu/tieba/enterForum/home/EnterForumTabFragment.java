@@ -135,7 +135,7 @@ public class EnterForumTabFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.bzV().bzW();
+        com.baidu.tieba.im.db.e.bzW().bzX();
         MessageManager.getInstance().unRegisterListener(this.eSI);
         MessageManager.getInstance().unRegisterListener(this.eSJ);
         if (this.eSG != null) {

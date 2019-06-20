@@ -226,15 +226,15 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     TbImageView.this.mEvent.O(str, aVar != null);
                 }
                 if (aVar != null) {
-                    if (aVar.LO != null) {
-                        TbImageView.this.mPerfLog.LQ = aVar.LO.LQ;
-                        TbImageView.this.mPerfLog.isSuccess = aVar.LO.LS;
-                        TbImageView.this.mPerfLog.LR = aVar.LO.LR;
+                    if (aVar.LN != null) {
+                        TbImageView.this.mPerfLog.LP = aVar.LN.LP;
+                        TbImageView.this.mPerfLog.isSuccess = aVar.LN.LR;
+                        TbImageView.this.mPerfLog.LQ = aVar.LN.LQ;
                     }
                 } else {
-                    TbImageView.this.mPerfLog.LQ = "net";
+                    TbImageView.this.mPerfLog.LP = "net";
                     TbImageView.this.mPerfLog.isSuccess = false;
-                    TbImageView.this.mPerfLog.LR = System.currentTimeMillis() - TbImageView.this.requestTime;
+                    TbImageView.this.mPerfLog.LQ = System.currentTimeMillis() - TbImageView.this.requestTime;
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -378,15 +378,15 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                     TbImageView.this.mEvent.O(str, aVar != null);
                 }
                 if (aVar != null) {
-                    if (aVar.LO != null) {
-                        TbImageView.this.mPerfLog.LQ = aVar.LO.LQ;
-                        TbImageView.this.mPerfLog.isSuccess = aVar.LO.LS;
-                        TbImageView.this.mPerfLog.LR = aVar.LO.LR;
+                    if (aVar.LN != null) {
+                        TbImageView.this.mPerfLog.LP = aVar.LN.LP;
+                        TbImageView.this.mPerfLog.isSuccess = aVar.LN.LR;
+                        TbImageView.this.mPerfLog.LQ = aVar.LN.LQ;
                     }
                 } else {
-                    TbImageView.this.mPerfLog.LQ = "net";
+                    TbImageView.this.mPerfLog.LP = "net";
                     TbImageView.this.mPerfLog.isSuccess = false;
-                    TbImageView.this.mPerfLog.LR = System.currentTimeMillis() - TbImageView.this.requestTime;
+                    TbImageView.this.mPerfLog.LQ = System.currentTimeMillis() - TbImageView.this.requestTime;
                 }
                 TbImageView.this.startLogPerf();
             }
@@ -493,8 +493,8 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
                 aVar = null;
             } else {
                 String str = (String) tag;
-                com.baidu.adp.widget.ImageView.a qr = com.baidu.tbadk.imageManager.c.asp().qr(str);
-                aVar = qr == null ? com.baidu.tbadk.imageManager.c.asp().qq(str) : qr;
+                com.baidu.adp.widget.ImageView.a qq = com.baidu.tbadk.imageManager.c.asp().qq(str);
+                aVar = qq == null ? com.baidu.tbadk.imageManager.c.asp().qp(str) : qq;
             }
         } else {
             aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.iv().b(this.mUrl, this.mType, new Object[0]);
@@ -597,9 +597,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
             this.mIsGif = false;
             requestLayout();
         } else if (getBdImage() != null) {
-            this.mPerfLog.LQ = "memory";
+            this.mPerfLog.LP = "memory";
             this.mPerfLog.isSuccess = true;
-            this.mPerfLog.LR = 0L;
+            this.mPerfLog.LQ = 0L;
             invalidate();
             if (this.mEvent != null) {
                 this.mEvent.O(str, true);
@@ -618,9 +618,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
         } else if (!com.baidu.adp.lib.f.c.iv().aj(this.mType) && this.mSupportNoImage) {
             invalidate();
         } else if (z3 && !j.jS()) {
-            this.mPerfLog.LQ = "memory";
+            this.mPerfLog.LP = "memory";
             this.mPerfLog.isSuccess = false;
-            this.mPerfLog.LR = 0L;
+            this.mPerfLog.LQ = 0L;
             invalidate();
             if (this.mEvent != null) {
                 this.mEvent.O(str, false);
@@ -742,9 +742,9 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public void drawContentTag(Canvas canvas, ImageView imageView) {
         super.drawContentTag(canvas, imageView);
         if (this.mTagDrawer != null && this.mArgs != null) {
-            if (this.mArgs.GO && isGif()) {
+            if (this.mArgs.GN && isGif()) {
                 this.mTagDrawer.c(canvas, getContext().getString(R.string.icon_tag_gif));
-            } else if (this.mArgs.GN && isLongPic()) {
+            } else if (this.mArgs.GM && isLongPic()) {
                 this.mTagDrawer.c(canvas, getContext().getString(R.string.icon_tag_long));
             } else if (this.mTagStr != null) {
                 this.mTagDrawer.c(canvas, this.mTagStr);
@@ -938,14 +938,14 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
 
     public int getGifIconWidth() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.rf(getContext().getString(R.string.icon_tag_gif));
+            return (int) this.mTagDrawer.re(getContext().getString(R.string.icon_tag_gif));
         }
         return -1;
     }
 
     public int getGifIconHeight() {
         if (this.mTagDrawer != null) {
-            return (int) this.mTagDrawer.re(getContext().getString(R.string.icon_tag_gif));
+            return (int) this.mTagDrawer.rd(getContext().getString(R.string.icon_tag_gif));
         }
         return -1;
     }
@@ -961,7 +961,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.cyv) {
+        } else if (this.mPerfLog != null && this.mPerfLog.cyw) {
             this.mPerfLog.aug();
         }
     }

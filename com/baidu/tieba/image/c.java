@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo gRh;
+    private AdvertAppInfo gRj;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -18,34 +18,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.gRh = advertAppInfo;
-    }
-
-    public void bFQ() {
-        yY("click");
-        com.baidu.tieba.recapp.report.c.cfG().a(com.baidu.tieba.recapp.report.f.c(this.gRh, 2, 0));
+        this.gRj = advertAppInfo;
     }
 
     public void bFR() {
-        yY("click");
-        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gRh, 2, 0);
-        c.Dn("title");
-        com.baidu.tieba.recapp.report.c.cfG().a(c);
+        za("click");
+        com.baidu.tieba.recapp.report.c.cfH().a(com.baidu.tieba.recapp.report.f.c(this.gRj, 2, 0));
     }
 
     public void bFS() {
-        yY(SmsLoginView.StatEvent.LOGIN_SHOW);
-        com.baidu.tieba.recapp.report.c.cfG().a(com.baidu.tieba.recapp.report.f.c(this.gRh, 3, 0));
+        za("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gRj, 2, 0);
+        c.Dp("title");
+        com.baidu.tieba.recapp.report.c.cfH().a(c);
     }
 
     public void bFT() {
+        za(SmsLoginView.StatEvent.LOGIN_SHOW);
+        com.baidu.tieba.recapp.report.c.cfH().a(com.baidu.tieba.recapp.report.f.c(this.gRj, 3, 0));
     }
 
-    public void yX(String str) {
+    public void bFU() {
+    }
+
+    public void yZ(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
     }
 
-    public void yY(String str) {
-        com.baidu.tbadk.distribute.a.aqF().a(this.gRh, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
+    public void za(String str) {
+        com.baidu.tbadk.distribute.a.aqF().a(this.gRj, this.mForumId, com.baidu.adp.lib.g.b.c(this.mPostId, 0L), "PB", str, 1);
     }
 }

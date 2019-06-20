@@ -5,23 +5,23 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class d {
     private String labelName = "";
-    private int cms = 0;
-    private boolean cmt = false;
+    private int cmt = 0;
+    private boolean cmu = false;
     private String labelId = "";
-    private int cmu = 0;
-    private boolean cmv = false;
-    private int cmw = al.getColor(R.color.cp_btn_a);
-    private int cmx = al.getColor(R.color.cp_link_tip_d);
+    private int cmv = 0;
+    private boolean cmw = false;
+    private int cmx = al.getColor(R.color.cp_btn_a);
+    private int cmy = al.getColor(R.color.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;
     }
 
     public void jO(int i) {
-        this.cms = i;
+        this.cmt = i;
     }
 
-    public void pt(String str) {
+    public void ps(String str) {
         this.labelId = str;
     }
 }

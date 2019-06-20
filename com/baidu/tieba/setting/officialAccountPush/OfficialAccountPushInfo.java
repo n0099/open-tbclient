@@ -20,14 +20,14 @@ public class OfficialAccountPushInfo implements Parcelable {
             return new OfficialAccountPushInfo[i];
         }
     };
-    public int iNe;
+    public int iNi;
     public String name;
     public long uid;
 
     public OfficialAccountPushInfo(Parcel parcel) {
         this.uid = parcel.readLong();
         this.name = parcel.readString();
-        this.iNe = parcel.readInt();
+        this.iNi = parcel.readInt();
     }
 
     public OfficialAccountPushInfo() {
@@ -37,7 +37,7 @@ public class OfficialAccountPushInfo implements Parcelable {
         if (officialList != null) {
             this.uid = officialList.uid.longValue();
             this.name = officialList.name;
-            this.iNe = officialList.is_on.intValue();
+            this.iNi = officialList.is_on.intValue();
         }
     }
 
@@ -50,6 +50,6 @@ public class OfficialAccountPushInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.uid);
         parcel.writeString(this.name);
-        parcel.writeInt(this.iNe);
+        parcel.writeInt(this.iNi);
     }
 }

@@ -11,7 +11,7 @@ import java.net.URLEncoder;
 import tbclient.PopInfo;
 /* loaded from: classes4.dex */
 public class c {
-    private a fLX;
+    private a fLZ;
     private final FrsFragment fqJ;
 
     public c(FrsFragment frsFragment) {
@@ -19,14 +19,14 @@ public class c {
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.isLogin() && this.fqJ != null && this.fqJ.bkm() != null && this.fqJ.bkm().getForum() != null && !StringUtils.isNull(this.fqJ.bkm().getForum().getName()) && this.fqJ.bkm().enterFrsDialogInfo != null && bqh() && this.fLX == null) {
-            this.fLX = new a();
-            this.fLX.execute(new Void[0]);
+        if (TbadkCoreApplication.isLogin() && this.fqJ != null && this.fqJ.bkm() != null && this.fqJ.bkm().getForum() != null && !StringUtils.isNull(this.fqJ.bkm().getForum().getName()) && this.fqJ.bkm().enterFrsDialogInfo != null && bqj() && this.fLZ == null) {
+            this.fLZ = new a();
+            this.fLZ.execute(new Void[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bqh() {
+    public boolean bqj() {
         PopInfo popInfo = this.fqJ.bkm().enterFrsDialogInfo;
         return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.fqJ.bkm().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
     }
@@ -41,10 +41,10 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(Void... voidArr) {
-            l<String> mB = com.baidu.tbadk.core.c.a.afD().mB("tb.enter_frs_dialog_list");
+            l<String> mA = com.baidu.tbadk.core.c.a.afD().mA("tb.enter_frs_dialog_list");
             String encode = URLEncoder.encode(c.this.fqJ.bkm().getForum().getName());
-            if (mB.get(encode) == null) {
-                mB.f(encode, "1");
+            if (mA.get(encode) == null) {
+                mA.f(encode, "1");
                 return true;
             }
             return false;
@@ -54,11 +54,11 @@ public class c {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (bool.booleanValue() && c.this.bqh() && c.this.fqJ.isAdded()) {
+            if (bool.booleanValue() && c.this.bqj() && c.this.fqJ.isAdded()) {
                 final PopInfo popInfo = c.this.fqJ.bkm().enterFrsDialogInfo;
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(c.this.fqJ.getActivity());
-                aVar.mD(popInfo.title);
-                aVar.mE(popInfo.v_title);
+                aVar.mC(popInfo.title);
+                aVar.mD(popInfo.v_title);
                 aVar.afE();
                 aVar.b(popInfo.ok_info, new a.b() { // from class: com.baidu.tieba.frs.vc.c.a.1
                     @Override // com.baidu.tbadk.core.dialog.a.b

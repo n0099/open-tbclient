@@ -17,11 +17,11 @@ public class ak {
     private com.baidu.tieba.frs.vc.f fsV;
     private Context mContext;
     private NavigationBar mNavigationBar;
-    private int cBQ = 0;
+    private int cBR = 0;
     private int fsW = 0;
     private boolean fsY = true;
     private boolean fsZ = true;
-    private boolean cBR = false;
+    private boolean cBS = false;
     private final Handler.Callback fta = new Handler.Callback() { // from class: com.baidu.tieba.frs.ak.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -83,7 +83,7 @@ public class ak {
     }
 
     public void kb(boolean z) {
-        this.cBR = z;
+        this.cBS = z;
     }
 
     public void kc(boolean z) {
@@ -155,7 +155,7 @@ public class ak {
     }
 
     public void hideFloatingView() {
-        if (this.fsY && this.fsZ && this.fsT != null && this.cBQ >= this.fsW) {
+        if (this.fsY && this.fsZ && this.fsT != null && this.cBR >= this.fsW) {
             avl();
         }
     }

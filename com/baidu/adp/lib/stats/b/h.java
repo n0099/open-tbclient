@@ -34,7 +34,7 @@ public class h {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().Cv + i);
+                    i2 = (int) (it.next().Cu + i);
                 }
                 int i3 = i - 31457280;
                 ArrayList arrayList = new ArrayList();
@@ -48,7 +48,7 @@ public class h {
                         }
                         com.baidu.adp.lib.stats.base.c next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.Cv);
+                        i3 = (int) (i4 - next.Cu);
                         if (i3 <= 0) {
                             break;
                         }
@@ -59,7 +59,7 @@ public class h {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.Cw;
+                        long j = next2.Cv;
                         if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }

@@ -29,7 +29,7 @@ public class c {
     public static class a {
         private c aDw = new c();
 
-        public a fw(String str) {
+        public a fv(String str) {
             this.aDw.mUrl = str;
             return this;
         }
@@ -44,7 +44,7 @@ public class c {
             return this;
         }
 
-        public a fx(String str) {
+        public a fw(String str) {
             this.aDw.mToken = str;
             return this;
         }

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e extends BaseAdapter {
-    private static final int ivo = TbadkCoreApplication.getInst().getListItemRule().alr();
+    private static final int ivp = TbadkCoreApplication.getInst().getListItemRule().alr();
     private TbPageContext<?> mContext;
     private int ecb = -1;
     private List<b.a> mData = new ArrayList();
@@ -39,11 +39,11 @@ public class e extends BaseAdapter {
             return 0;
         }
         int size = this.mData.size() + list.size();
-        if (size <= ivo) {
+        if (size <= ivp) {
             this.mData.addAll(list);
             return 0;
         }
-        int i = size - ivo;
+        int i = size - ivp;
         yG(i);
         this.mData.addAll(list);
         return i;
@@ -95,11 +95,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.ivr = (TextView) view.findViewById(R.id.title_text);
-            aVar.ivs = (TextView) view.findViewById(R.id.content_text);
-            aVar.ivt = (TextView) view.findViewById(R.id.label_text);
+            aVar.ivs = (TextView) view.findViewById(R.id.title_text);
+            aVar.ivt = (TextView) view.findViewById(R.id.content_text);
+            aVar.ivu = (TextView) view.findViewById(R.id.label_text);
             aVar.ecC = (TextView) view.findViewById(R.id.user_name);
-            aVar.ivu = (TextView) view.findViewById(R.id.time_text);
+            aVar.ivv = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -109,24 +109,24 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.ivr.setText(Html.fromHtml(ap.bU(aVar3.title, str)));
-            aVar2.ivs.setText(Html.fromHtml(ap.bU(aVar3.content, str)));
+            aVar2.ivs.setText(Html.fromHtml(ap.bU(aVar3.title, str)));
+            aVar2.ivt.setText(Html.fromHtml(ap.bU(aVar3.content, str)));
             aVar2.ecC.setText(aVar3.name_show);
-            aVar2.ivu.setText(ap.aC(aVar3.time));
-            aVar2.ivt.setVisibility(0);
-            if (aVar3.iuO == 1) {
-                aVar2.ivt.setText(R.string.floor_text);
-            } else if (aVar3.iuP == 1) {
-                aVar2.ivt.setText(R.string.reply_post);
+            aVar2.ivv.setText(ap.aC(aVar3.time));
+            aVar2.ivu.setVisibility(0);
+            if (aVar3.iuP == 1) {
+                aVar2.ivu.setText(R.string.floor_text);
+            } else if (aVar3.iuQ == 1) {
+                aVar2.ivu.setText(R.string.reply_post);
             } else {
-                aVar2.ivt.setVisibility(8);
+                aVar2.ivu.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (e.this.mContext != null) {
                         e.this.a(aVar3);
-                        if (aVar3.iuO == 1) {
+                        if (aVar3.iuP == 1) {
                             SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(e.this.mContext.getPageActivity()).createSubPbActivityConfig(aVar3.tid + "", aVar3.pid + "", "search_post", true);
                             createSubPbActivityConfig.setKeyPageStartFrom(8);
                             e.this.mContext.sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
@@ -156,7 +156,7 @@ public class e extends BaseAdapter {
             bT.P(MyBookrackActivityConfig.TAB_ID, this.ecb);
         }
         if (aVar != null) {
-            if (aVar.iuO == 1 || aVar.iuP == 1) {
+            if (aVar.iuP == 1 || aVar.iuQ == 1) {
                 bT.l(Info.kBaiduPIDKey, aVar.pid);
             } else {
                 bT.l("tid", aVar.tid);
@@ -168,10 +168,10 @@ public class e extends BaseAdapter {
     /* loaded from: classes6.dex */
     private static class a {
         TextView ecC;
-        TextView ivr;
         TextView ivs;
         TextView ivt;
         TextView ivu;
+        TextView ivv;
 
         private a() {
         }

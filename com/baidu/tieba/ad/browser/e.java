@@ -96,7 +96,7 @@ public class e {
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:33:0x001c). Please submit an issue!!! */
     public static void ck(Context context) {
         CookieManager cookieManager;
-        a.b ma = com.baidu.tbadk.core.a.a.abg().ma(TbadkCoreApplication.getCurrentBduss());
+        a.b lZ = com.baidu.tbadk.core.a.a.abg().lZ(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -105,7 +105,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (ma != null) {
+            if (lZ != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());

@@ -13,13 +13,13 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Hi;
-    protected ArrayList<FeedData> gPr = new ArrayList<>();
+    protected boolean Hh;
+    protected ArrayList<FeedData> gPt = new ArrayList<>();
     protected an page = new an();
-    protected h gPs = new h();
+    protected h gPu = new h();
 
-    public ArrayList<FeedData> bFu() {
-        return this.gPr;
+    public ArrayList<FeedData> bFv() {
+        return this.gPt;
     }
 
     public an getPage() {
@@ -35,17 +35,17 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gPr.add(feedData);
+                    this.gPt.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                        this.gPr.remove(feedData);
+                        this.gPt.remove(feedData);
                     }
                 }
             }
-            this.gPs.parserJson(jSONObject.optJSONObject("message"));
+            this.gPu.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
-            this.Hi = true;
+            this.Hh = true;
         } catch (Exception e) {
-            this.Hi = false;
+            this.Hh = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -60,16 +60,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gPr.add(feedData);
+                        this.gPt.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.Z(feedData.getPraiseList()) == 0) {
-                            this.gPr.remove(feedData);
+                            this.gPt.remove(feedData);
                         }
                     }
                 }
                 this.page.a(dataRes.page);
-                this.Hi = true;
+                this.Hh = true;
             } catch (Exception e) {
-                this.Hi = false;
+                this.Hh = false;
                 BdLog.e(e.getMessage());
             }
         }

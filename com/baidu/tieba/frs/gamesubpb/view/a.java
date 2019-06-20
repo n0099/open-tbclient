@@ -49,8 +49,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private View cdX;
-    private c ckg = new c(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.1
+    private View cdY;
+    private c ckh = new c(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.1
         @Override // com.baidu.tieba.pb.a.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             a.this.kr(false);
@@ -69,7 +69,7 @@ public class a {
             return true;
         }
     });
-    private LinearLayout csK;
+    private LinearLayout csL;
     private long dpV;
     private FrsGameSubPbActivity fDI;
     private com.baidu.tieba.frs.gamesubpb.c fDs;
@@ -100,7 +100,7 @@ public class a {
         this.fDw = str;
         this.mRootView = (RelativeLayout) LayoutInflater.from(frsGameSubPbActivity.getPageContext().getPageActivity()).inflate(R.layout.frs_game_sub_pb_activity, (ViewGroup) null);
         this.mListView = (BdTypeListView) this.mRootView.findViewById(R.id.new_sub_pb_list);
-        this.mListView.setOnTouchListener(this.ckg);
+        this.mListView.setOnTouchListener(this.ckh);
         this.mListView.setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.4
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -119,13 +119,13 @@ public class a {
         this.fEg.setOnClickListener(this.mCommonClickListener);
         this.fEh = (TextView) this.mRootView.findViewById(R.id.no_reply_list_view);
         this.fEd = (FrameLayout) this.mRootView.findViewById(R.id.bottom_view);
-        this.csK = (LinearLayout) this.mRootView.findViewById(R.id.subpb_editor_tool_comment_input_container);
+        this.csL = (LinearLayout) this.mRootView.findViewById(R.id.subpb_editor_tool_comment_input_container);
         this.fEe = (EditText) this.mRootView.findViewById(R.id.subpb_editor_tool_comment_input_edit);
         this.fEf = (TextView) this.mRootView.findViewById(R.id.subpb_editor_tool_comment_send_tv);
         this.fEf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.wE(a.this.fEe.getText().toString());
+                a.this.wD(a.this.fEe.getText().toString());
             }
         });
         this.mProgressBar = (ProgressBar) this.mRootView.findViewById(R.id.progressBar);
@@ -150,11 +150,11 @@ public class a {
                     a.this.fDs.bnW();
                 }
                 if (dVar == null) {
-                    a.this.wF(null);
+                    a.this.wE(null);
                     a.this.bog();
                     return;
                 }
-                a.this.wF(dVar.userName);
+                a.this.wE(dVar.userName);
                 a.this.fEl = dVar.userId;
             }
         });
@@ -167,21 +167,21 @@ public class a {
 
     private void boe() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
-        this.cdX = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cdY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         ImageView backImageView = this.mNavigationBar.getBackImageView();
         if (backImageView != null && (backImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cdX.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cdY.getLayoutParams();
             int g = l.g(this.fDI.getPageContext().getPageActivity(), R.dimen.ds30);
             layoutParams.height = g;
             layoutParams.width = g;
             backImageView.setLayoutParams(layoutParams);
         }
-        if (this.cdX != null && (this.cdX.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cdX.getLayoutParams();
+        if (this.cdY != null && (this.cdY.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.cdY.getLayoutParams();
             layoutParams2.width = -2;
             layoutParams2.height = -1;
-            this.cdX.setPadding(l.g(this.fDI.getPageContext().getPageActivity(), R.dimen.ds32), this.cdX.getPaddingTop(), this.cdX.getPaddingRight(), this.cdX.getPaddingBottom());
-            this.cdX.setLayoutParams(layoutParams2);
+            this.cdY.setPadding(l.g(this.fDI.getPageContext().getPageActivity(), R.dimen.ds32), this.cdY.getPaddingTop(), this.cdY.getPaddingRight(), this.cdY.getPaddingBottom());
+            this.cdY.setLayoutParams(layoutParams2);
         }
         this.mNavigationBar.setmBackImageViewBg(R.drawable.subpb_navigationbar_back, R.drawable.subpb_navigationbar_back);
     }
@@ -209,7 +209,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final d dVar) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.fDI.getPageContext().getPageActivity());
-        aVar.mD(null);
+        aVar.mC(null);
         aVar.ho(R.string.del_post_confirm);
         aVar.dN(true);
         aVar.a(R.string.dialog_ok, new a.b() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.8
@@ -238,7 +238,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wE(String str) {
+    public void wD(String str) {
         rV(0);
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_SUB_COMMENT);
         httpMessage.addParam("user_id", this.dpV);
@@ -272,7 +272,7 @@ public class a {
                 if (!TextUtils.isEmpty(charSequence)) {
                     a.this.fEf.setEnabled(true);
                     String charSequence2 = charSequence.toString();
-                    if (!StringUtils.isNull(charSequence2) && ab.qW(charSequence2) > i) {
+                    if (!StringUtils.isNull(charSequence2) && ab.qV(charSequence2) > i) {
                         String p = ab.p(charSequence2, 0, i - 1);
                         a.this.fEe.setText(p);
                         a.this.fEe.setSelection(a.this.fEe.getText().length());
@@ -315,7 +315,7 @@ public class a {
     public void onKeyboardVisibilityChanged(boolean z) {
         if (z) {
             Rect rect = new Rect();
-            this.csK.getWindowVisibleDisplayFrame(rect);
+            this.csL.getWindowVisibleDisplayFrame(rect);
             this.fEd.scrollTo(this.fEd.getScrollX(), (l.aj(this.fDI.getPageContext().getPageActivity())[1] - rect.bottom) - (MenuKeyUtils.hasSmartBar() ? l.dip2px(this.fDI.getPageContext().getPageActivity(), 48.0f) : 0));
             return;
         }
@@ -429,9 +429,9 @@ public class a {
         }
     }
 
-    public void wF(String str) {
+    public void wE(String str) {
         this.fEg.setVisibility(8);
-        this.csK.setVisibility(0);
+        this.csL.setVisibility(0);
         this.fEe.post(new Runnable() { // from class: com.baidu.tieba.frs.gamesubpb.view.a.3
             @Override // java.lang.Runnable
             public void run() {
@@ -488,7 +488,7 @@ public class a {
         this.fEg.setAlpha(0.95f);
         al.k(this.fEg, R.drawable.pb_ecomm_comment_bg);
         al.j(this.fEh, R.color.cp_cont_d);
-        al.k(this.csK, R.drawable.pb_ecomm_comment_bg);
+        al.k(this.csL, R.drawable.pb_ecomm_comment_bg);
         al.j(this.fEe, R.color.cp_cont_f);
         this.fEe.setHintTextColor(al.getColor(R.color.cp_cont_e));
         al.j(this.fEf, R.color.game_sub_pb_send_txt_color);

@@ -83,7 +83,7 @@ public final class a {
         return getBoolean("aiapps_load_cts_debug_key", false);
     }
 
-    public static void gb(String str) {
+    public static void ga(String str) {
         f.Ni().putString("aiapps_env_data", str);
     }
 
@@ -100,14 +100,14 @@ public final class a {
     }
 
     private static boolean b(c cVar) {
-        return (DEBUG && cVar.ayM) || gc(cVar.ayU);
+        return (DEBUG && cVar.ayM) || gb(cVar.ayU);
     }
 
     public static boolean l(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.isDebug()) || gc(bVar.Fl());
+        return (DEBUG && bVar.isDebug()) || gb(bVar.Fl());
     }
 
-    public static boolean gc(String str) {
+    public static boolean gb(String str) {
         return !TextUtils.isEmpty(str) || d.xG();
     }
 
@@ -123,7 +123,7 @@ public final class a {
         if (DEBUG && bVar.isDebug()) {
             return e.a.a(bVar, bVar2);
         }
-        if (gc(bVar.Fl())) {
+        if (gb(bVar.Fl())) {
             return e.C0149e.j(bVar);
         }
         return null;
@@ -134,17 +134,17 @@ public final class a {
             com.baidu.swan.apps.v.b.b EI = EI();
             cVar.EK().putLong("aiapp_start_timestamp", System.currentTimeMillis());
             EI.setAppId(cVar.mAppId);
-            EI.eI(cVar.mFrom);
+            EI.eH(cVar.mFrom);
             EI.setPage(cVar.ayL);
             EI.setDebug(cVar.ayM);
-            EI.eM(cVar.ayO);
+            EI.eL(cVar.ayO);
             EI.p(cVar.EK());
-            EI.eJ(cVar.ayP);
-            EI.eN(cVar.ayQ);
+            EI.eI(cVar.ayP);
+            EI.eM(cVar.ayQ);
             EI.a(cVar.atK);
             EI.a(cVar.atL);
-            EI.eQ(cVar.ayR);
-            EI.eR(cVar.ayU);
+            EI.eP(cVar.ayR);
+            EI.eQ(cVar.ayU);
             EI.setVersion("0");
             EI.cr(cVar.ayS);
             EI.setOrientation(cVar.ayT);
@@ -158,7 +158,7 @@ public final class a {
         if (DEBUG && bVar.isDebug()) {
             return e.a.Dr().getPath();
         }
-        if (gc(bVar.Fl())) {
+        if (gb(bVar.Fl())) {
             return e.C0149e.Ds().getPath();
         }
         return "";
@@ -167,13 +167,13 @@ public final class a {
     public static com.baidu.swan.apps.v.b.b EI() {
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
         bVar.e(new PMSAppInfo());
-        bVar.dZ("小程序测试");
+        bVar.dY("小程序测试");
         bVar.setAppId("10985873");
         bVar.F(Color.parseColor("#FF308EF0"));
-        bVar.eI("1230000000000000");
-        bVar.eF("小程序简介");
-        bVar.eG("测试服务类目");
-        bVar.eH("测试主体信息");
+        bVar.eH("1230000000000000");
+        bVar.eE("小程序简介");
+        bVar.eF("测试服务类目");
+        bVar.eG("测试主体信息");
         bVar.setAppKey("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
         bVar.setVersion("1.0");
         bVar.setIconUrl("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");

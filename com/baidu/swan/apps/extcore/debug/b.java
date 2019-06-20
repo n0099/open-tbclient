@@ -5,7 +5,7 @@ import java.io.File;
 /* loaded from: classes2.dex */
 public final class b {
     public static File Cr() {
-        return new File(x.OJ().get(0).wV, "baidu/aiapps_debug_extension_core/");
+        return new File(x.OJ().get(0).wU, "baidu/aiapps_debug_extension_core/");
     }
 
     public static void Cs() {

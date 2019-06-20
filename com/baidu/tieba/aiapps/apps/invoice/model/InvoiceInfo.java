@@ -21,11 +21,11 @@ public class InvoiceInfo implements Parcelable, c {
             return new InvoiceInfo[i];
         }
     };
-    public String dbO;
     public String dbP;
     public String dbQ;
     public String dbR;
     public String dbS;
+    public String dbT;
     public long mId;
     public int mIsDefault;
     public String mTitle;
@@ -37,28 +37,28 @@ public class InvoiceInfo implements Parcelable, c {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.dbO = str2;
-        this.dbP = str3;
-        this.dbQ = str4;
-        this.dbR = str5;
-        this.dbS = str6;
+        this.dbP = str2;
+        this.dbQ = str3;
+        this.dbR = str4;
+        this.dbS = str5;
+        this.dbT = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.dbQ = str2;
+        this.dbR = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.dbO = parcel.readString();
         this.dbP = parcel.readString();
         this.dbQ = parcel.readString();
         this.dbR = parcel.readString();
         this.dbS = parcel.readString();
+        this.dbT = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -72,11 +72,11 @@ public class InvoiceInfo implements Parcelable, c {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.dbO);
         parcel.writeString(this.dbP);
         parcel.writeString(this.dbQ);
         parcel.writeString(this.dbR);
         parcel.writeString(this.dbS);
+        parcel.writeString(this.dbT);
         parcel.writeInt(this.mIsDefault);
     }
 
@@ -98,11 +98,11 @@ public class InvoiceInfo implements Parcelable, c {
             jSONObject.put("id", this.mId);
             jSONObject.put("type", this.mType);
             jSONObject.put("title", this.mTitle);
-            jSONObject.put("tax_number", this.dbO);
-            jSONObject.put("company_address", this.dbP);
-            jSONObject.put("telephone", this.dbQ);
-            jSONObject.put("bank_name", this.dbR);
-            jSONObject.put("bank_account", this.dbS);
+            jSONObject.put("tax_number", this.dbP);
+            jSONObject.put("company_address", this.dbQ);
+            jSONObject.put("telephone", this.dbR);
+            jSONObject.put("bank_name", this.dbS);
+            jSONObject.put("bank_account", this.dbT);
             jSONObject.put("is_default", this.mIsDefault);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -116,11 +116,11 @@ public class InvoiceInfo implements Parcelable, c {
             this.mId = jSONObject.optLong("id");
             this.mType = jSONObject.optInt("type");
             this.mTitle = jSONObject.optString("title");
-            this.dbO = jSONObject.optString("tax_number");
-            this.dbP = jSONObject.optString("company_address");
-            this.dbQ = jSONObject.optString("telephone");
-            this.dbR = jSONObject.optString("bank_name");
-            this.dbS = jSONObject.optString("bank_account");
+            this.dbP = jSONObject.optString("tax_number");
+            this.dbQ = jSONObject.optString("company_address");
+            this.dbR = jSONObject.optString("telephone");
+            this.dbS = jSONObject.optString("bank_name");
+            this.dbT = jSONObject.optString("bank_account");
             this.mIsDefault = jSONObject.optInt("is_default");
         }
     }

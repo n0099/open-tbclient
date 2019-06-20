@@ -17,7 +17,7 @@ public class b {
         if (Lq != null) {
             String a = com.baidu.swan.apps.storage.b.a(str, Lq, Lq.getVersion());
             if (!TextUtils.isEmpty(a)) {
-                bitmap = kg(a);
+                bitmap = kf(a);
             }
         }
         if (bitmap == null && z) {
@@ -49,7 +49,7 @@ public class b {
         return bitmap2;
     }
 
-    private static Bitmap kg(String str) {
+    private static Bitmap kf(String str) {
         try {
             FileInputStream fileInputStream = new FileInputStream(new File(str));
             Bitmap decodeStream = BitmapFactory.decodeStream(fileInputStream, null, new BitmapFactory.Options());

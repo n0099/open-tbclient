@@ -57,7 +57,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void beforeDispatchInBackGround(int i, byte[] bArr) {
-        l<String> mB;
+        l<String> mA;
         if (isSuccess() && this.errCode == 0) {
             HttpMessage httpMessage = (HttpMessage) getOrginalMessage();
             String str = "";
@@ -67,8 +67,8 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             if (httpMessage.getExtra() == null) {
                 try {
                     String parseToString = parseToString(bArr);
-                    if (parseToString != null && (mB = com.baidu.tbadk.core.c.a.afD().mB("tb.my_pages")) != null) {
-                        mB.a("personal_myfollow_" + str, parseToString, 604800000L);
+                    if (parseToString != null && (mA = com.baidu.tbadk.core.c.a.afD().mA("tb.my_pages")) != null) {
+                        mA.a("personal_myfollow_" + str, parseToString, 604800000L);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

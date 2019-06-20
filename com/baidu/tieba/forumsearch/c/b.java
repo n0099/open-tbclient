@@ -131,7 +131,7 @@ public class b extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.mTextView.getText() != null) {
-                        e.wo(a.this.mTextView.getText().toString());
+                        e.wn(a.this.mTextView.getText().toString());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
                     }
                 }

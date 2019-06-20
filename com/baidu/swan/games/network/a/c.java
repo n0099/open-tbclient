@@ -202,12 +202,12 @@ public class c extends com.baidu.swan.games.network.a {
             e("", -1, "request:url is invalid");
             return null;
         }
-        HttpUrl fD = fD(optString);
-        if (fD == null) {
+        HttpUrl fC = fC(optString);
+        if (fC == null) {
             e(optString, -1, "request:url scheme is invalid");
             return null;
         }
-        String url = fD.url().toString();
+        String url = fC.url().toString();
         if (!com.baidu.swan.apps.af.a.b.av("request", url)) {
             e(url, -1, "request:host not in white list");
             return null;
@@ -223,7 +223,7 @@ public class c extends com.baidu.swan.games.network.a {
         }
         HashMap hashMap = new HashMap();
         Request.Builder builder = new Request.Builder();
-        a(builder, this.biL.iS(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
+        a(builder, this.biL.iR(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
         if (DEBUG) {
             Log.d("RequestTask", "lowerCaseHeaderMap =" + hashMap);
         }
@@ -231,13 +231,13 @@ public class c extends com.baidu.swan.games.network.a {
         JsArrayBuffer a = optString3 == null ? this.biL.a("data", (JsArrayBuffer) null) : optString3;
         boolean z = a != null;
         if (z && !HttpMethod.permitsRequestBody(upperCase)) {
-            return builder.url(fD).method(upperCase, null).tag(this.mTaskId).build();
+            return builder.url(fC).method(upperCase, null).tag(this.mTaskId).build();
         }
         RequestBody a2 = (z || HttpMethod.requiresRequestBody(upperCase)) ? a(a, hashMap) : null;
         if (HttpMethod.requiresRequestBody(upperCase) && a2 == null) {
             return null;
         }
-        return builder.url(fD).method(upperCase, a2).tag(this.mTaskId).build();
+        return builder.url(fC).method(upperCase, a2).tag(this.mTaskId).build();
     }
 
     private static void a(@NonNull Request.Builder builder, JsObject jsObject, Map<String, String> map) {
@@ -245,12 +245,12 @@ public class c extends com.baidu.swan.games.network.a {
             for (int i = 0; i < jsObject.length(); i++) {
                 String propertyName = jsObject.getPropertyName(i);
                 if (!TextUtils.isEmpty(propertyName) && !aDW.contains(propertyName.toUpperCase())) {
-                    String is = ac.is(jsObject.toString(i));
-                    if (!TextUtils.isEmpty(is)) {
+                    String ir = ac.ir(jsObject.toString(i));
+                    if (!TextUtils.isEmpty(ir)) {
                         if (map != null) {
-                            map.put(propertyName.toLowerCase(), is);
+                            map.put(propertyName.toLowerCase(), ir);
                         }
-                        builder.header(propertyName, is);
+                        builder.header(propertyName, ir);
                     }
                 }
             }

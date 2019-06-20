@@ -8,10 +8,10 @@ public interface b<T> {
 
     void a(d<T> dVar, Executor executor);
 
-    boolean cCf();
+    boolean cCe();
 
     @Nullable
-    Throwable cCh();
+    Throwable cCg();
 
     float getProgress();
 

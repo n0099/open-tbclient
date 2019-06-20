@@ -68,7 +68,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             this.aAV.sendEmptyMessage(0);
         }
         if (this.aAW != null) {
-            this.aAW.fk("onPlay");
+            this.aAW.fj("onPlay");
         }
         Go();
         if (this.aAU.aAy > 0) {
@@ -92,7 +92,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         if (Gm().isPlaying()) {
             Gm().pause();
             if (this.aAW != null) {
-                this.aAW.fk("onPause");
+                this.aAW.fj("onPause");
             }
             if (this.aAV != null) {
                 this.aAV.removeMessages(0);
@@ -107,7 +107,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             }
             Gm().seekTo((int) (i * 1000));
             if (this.aAW != null) {
-                this.aAW.fk("onSeeking");
+                this.aAW.fj("onSeeking");
             }
         }
     }
@@ -128,7 +128,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                 this.aAV.removeMessages(0);
             }
             if (this.aAW != null) {
-                this.aAW.fk("onStop");
+                this.aAW.fj("onStop");
             }
         }
     }
@@ -259,7 +259,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
             if (Lq != null) {
                 if (UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-                    str = g.jq(str);
+                    str = g.jp(str);
                 } else {
                     str = com.baidu.swan.apps.storage.b.b(str, Lq);
                 }
@@ -267,7 +267,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             Gm().setDataSource(str);
             this.aAX = PlayerStatus.IDLE;
             if (this.aAW != null) {
-                this.aAW.fk("onCanplay");
+                this.aAW.fj("onCanplay");
             }
         } catch (IOException e2) {
             if (DEBUG) {
@@ -280,7 +280,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                 } else {
                     jSONObject.optString("errorCode", "10003");
                 }
-                this.aAW.fk("onError");
+                this.aAW.fj("onError");
             }
         }
     }
@@ -298,7 +298,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                     this.aAV.sendEmptyMessage(0);
                 }
                 if (this.aAW != null) {
-                    this.aAW.fk("onPlay");
+                    this.aAW.fj("onPlay");
                 }
             } else if (this.aAX == PlayerStatus.IDLE) {
                 Gm().prepareAsync();
@@ -313,7 +313,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
         }
         this.aAU = bVar;
         if (this.aAW != null) {
-            this.aAW.fj(this.aAU.aAA);
+            this.aAW.fi(this.aAU.aAA);
         }
         Go();
     }
@@ -446,7 +446,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
             }
             SwanAppAudioPlayer.this.aAX = PlayerStatus.PREPARED;
             if (SwanAppAudioPlayer.this.aAW != null) {
-                SwanAppAudioPlayer.this.aAW.fk("onEnded");
+                SwanAppAudioPlayer.this.aAW.fj("onEnded");
             }
             SwanAppAudioPlayer.this.aAV.removeMessages(0);
         }
@@ -501,7 +501,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                 Log.d("SwanAppAudioPlayer", "--onSeekComplete");
             }
             if (SwanAppAudioPlayer.this.aAW != null) {
-                SwanAppAudioPlayer.this.aAW.fk("onSeeked");
+                SwanAppAudioPlayer.this.aAW.fj("onSeeked");
             }
         }
 
@@ -511,7 +511,7 @@ public class SwanAppAudioPlayer implements com.baidu.swan.apps.media.a {
                 Log.d("SwanAppAudioPlayer", "--onBufferUpdate -> " + i + "%");
             }
             if (SwanAppAudioPlayer.this.aAX == PlayerStatus.PREPARED && (SwanAppAudioPlayer.this.Gm().getDuration() * i) / 100 <= SwanAppAudioPlayer.this.Gm().getCurrentPosition() && SwanAppAudioPlayer.this.aAW != null) {
-                SwanAppAudioPlayer.this.aAW.fk("onWaiting");
+                SwanAppAudioPlayer.this.aAW.fj("onWaiting");
             }
         }
     }

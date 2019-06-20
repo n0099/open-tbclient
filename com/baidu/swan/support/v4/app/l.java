@@ -944,7 +944,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
         return null;
     }
 
-    public Fragment ky(String str) {
+    public Fragment kx(String str) {
         if (this.mAdded != null && str != null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
@@ -1699,7 +1699,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                 }
                 Fragment fO = resourceId != -1 ? fO(resourceId) : null;
                 if (fO == null && string2 != null) {
-                    fO = ky(string2);
+                    fO = kx(string2);
                 }
                 if (fO == null && id != -1) {
                     fO = fO(id);

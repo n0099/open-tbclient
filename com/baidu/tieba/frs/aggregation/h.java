@@ -15,10 +15,10 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class h {
-    private com.baidu.tbadk.coreExtra.model.a bSl;
+    private com.baidu.tbadk.coreExtra.model.a bSm;
     private c fvp;
     private TbPageContext mPageContext;
-    private BdUniqueId Xk = BdUniqueId.gen();
+    private BdUniqueId Xj = BdUniqueId.gen();
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tieba.frs.aggregation.h.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -26,7 +26,7 @@ public class h {
             UpdateAttentionMessage updateAttentionMessage;
             UpdateAttentionMessage.a data;
             if ((customResponsedMessage instanceof UpdateAttentionMessage) && h.this.fvp != null && (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) != null) {
-                if (!data.Hi) {
+                if (!data.Hh) {
                     h.this.fvp.showMsg(updateAttentionMessage.getData().errorString);
                 } else {
                     h.this.fvp.kg(data.isAttention);
@@ -38,17 +38,17 @@ public class h {
     public h(TbPageContext tbPageContext, c cVar) {
         this.mPageContext = tbPageContext;
         this.fvp = cVar;
-        this.bSl = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.bSm = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAttentionListener.setSelfListener(true);
-        this.mAttentionListener.setTag(this.Xk);
+        this.mAttentionListener.setTag(this.Xj);
         MessageManager.getInstance().registerListener(this.mAttentionListener);
     }
 
     public void f(g gVar) {
         if (!j.jS()) {
             this.mPageContext.showToast(R.string.no_network);
-        } else if (gVar != null && gVar.fuT != null && this.bSl != null && bc.cE(this.mPageContext.getPageActivity())) {
-            this.bSl.a(!gVar.fuT.hasFocus, gVar.fuT.portrait, gVar.fuT.userId, this.Xk);
+        } else if (gVar != null && gVar.fuT != null && this.bSm != null && bc.cE(this.mPageContext.getPageActivity())) {
+            this.bSm.a(!gVar.fuT.hasFocus, gVar.fuT.portrait, gVar.fuT.userId, this.Xj);
         }
     }
 
@@ -70,8 +70,8 @@ public class h {
     }
 
     public void bmr() {
-        if (this.bSl != null) {
-            this.bSl.cancel();
+        if (this.bSm != null) {
+            this.bSm.cancel();
         }
         MessageManager.getInstance().unRegisterListener(this.mAttentionListener);
     }

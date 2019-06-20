@@ -4,25 +4,25 @@ import android.support.v7.widget.ActivityChooserView;
 import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes4.dex */
 public class f {
-    private long bFE = 0;
-    private String bFF = "";
+    private long bFF = 0;
+    private String bFG = "";
     private String imgUrl = "";
-    private int hBM = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String hBN = "";
+    private int hBN = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String hBO = "";
     private String rankUrl = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         if (forumHeadlineImgInfo != null) {
-            this.bFE = forumHeadlineImgInfo.img_user_id.longValue();
-            this.bFF = forumHeadlineImgInfo.img_user_name;
+            this.bFF = forumHeadlineImgInfo.img_user_id.longValue();
+            this.bFG = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.hBM = forumHeadlineImgInfo.rank_num.intValue();
-            this.hBN = forumHeadlineImgInfo.rank_up_info;
+            this.hBN = forumHeadlineImgInfo.rank_num.intValue();
+            this.hBO = forumHeadlineImgInfo.rank_up_info;
             this.rankUrl = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public String bQl() {
+    public String bQm() {
         return this.rankUrl;
     }
 

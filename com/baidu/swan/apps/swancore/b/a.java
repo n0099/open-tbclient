@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean hJ(String str) {
+    public static boolean hI(String str) {
         if (TextUtils.isEmpty(str)) {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "error url!");

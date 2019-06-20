@@ -11,7 +11,7 @@ public class d {
         return TextUtils.equals(bwC, "1");
     }
 
-    public static boolean kX(String str) {
+    public static boolean kW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

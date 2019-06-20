@@ -13,21 +13,21 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile c daL;
+    private static volatile c daM;
     private boolean aJY;
-    private List<d> daI = new ArrayList();
-    private Map<d, List<d>> daJ = new HashMap();
+    private List<d> daJ = new ArrayList();
     private Map<d, List<d>> daK = new HashMap();
+    private Map<d, List<d>> daL = new HashMap();
 
     public static c aDC() {
-        if (daL == null) {
+        if (daM == null) {
             synchronized (c.class) {
-                if (daL == null) {
-                    daL = new c();
+                if (daM == null) {
+                    daM = new c();
                 }
             }
         }
-        return daL;
+        return daM;
     }
 
     public void initData() {
@@ -40,15 +40,15 @@ public class c {
     }
 
     public List<d> aDE() {
-        return this.daI;
-    }
-
-    public Map<d, List<d>> aDF() {
         return this.daJ;
     }
 
-    public Map<d, List<d>> aDG() {
+    public Map<d, List<d>> aDF() {
         return this.daK;
+    }
+
+    public Map<d, List<d>> aDG() {
+        return this.daL;
     }
 
     private void D(JSONArray jSONArray) {
@@ -60,12 +60,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (bg = d.bg(optJSONObject)) != null) {
-                        this.daI.add(bg);
+                        this.daJ.add(bg);
                         if (bg.aDL()) {
-                            this.daJ.put(bg, bg.acx);
+                            this.daK.put(bg, bg.acx);
                             for (d dVar : bg.acx) {
                                 if (dVar.aDL()) {
-                                    this.daK.put(dVar, dVar.acx);
+                                    this.daL.put(dVar, dVar.acx);
                                 }
                             }
                         }

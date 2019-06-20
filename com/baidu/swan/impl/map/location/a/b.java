@@ -53,7 +53,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
         if (DEBUG) {
             Log.e("WalkNavigationAction", "mGuideIconPath = " + this.boM);
         }
-        if (com.baidu.swan.apps.storage.b.hA(this.boM) == PathType.BD_FILE) {
+        if (com.baidu.swan.apps.storage.b.hz(this.boM) == PathType.BD_FILE) {
             this.boM = com.baidu.swan.apps.storage.b.aE(this.boM, com.baidu.swan.apps.ae.b.LB());
         }
         if (!SwanAppNetworkUtils.isNetworkConnected(context)) {
@@ -195,7 +195,7 @@ public class b extends com.baidu.swan.impl.map.a.a<g> {
             }
 
             @Override // com.baidu.swan.impl.map.location.b.b.a
-            public void ke(String str) {
+            public void kd(String str) {
                 c.i("map", "walk navigation onPrepareFailed ");
                 SDKInitializer.setCoordType(CoordType.GCJ02);
                 if (str.contains("the distance is less than 30 meters")) {

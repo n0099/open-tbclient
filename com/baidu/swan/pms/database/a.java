@@ -25,9 +25,9 @@ public abstract class a {
 
     public abstract boolean f(PMSAppInfo pMSAppInfo);
 
-    public abstract PMSAppInfo ki(String str);
+    public abstract PMSAppInfo kh(String str);
 
-    public abstract boolean kj(String str);
+    public abstract boolean ki(String str);
 
     public static a Vl() {
         if (brH == null) {

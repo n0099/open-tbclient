@@ -42,15 +42,15 @@ public class o extends z implements com.baidu.swan.apps.network.f {
             return false;
         }
         String optString2 = c.optString("fileType");
-        String la = com.baidu.swan.c.a.la(aE);
-        if (!TextUtils.isEmpty(la)) {
-            optString2 = la;
+        String kZ = com.baidu.swan.c.a.kZ(aE);
+        if (!TextUtils.isEmpty(kZ)) {
+            optString2 = kZ;
         } else if (TextUtils.isEmpty(optString2)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
             return false;
         }
-        String ic = com.baidu.swan.apps.an.h.ic(optString2);
-        if (TextUtils.isEmpty(ic)) {
+        String ib = com.baidu.swan.apps.an.h.ib(optString2);
+        if (TextUtils.isEmpty(ib)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
             return false;
         }
@@ -66,11 +66,11 @@ public class o extends z implements com.baidu.swan.apps.network.f {
         if (activity == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
             return false;
-        } else if (!com.baidu.swan.apps.an.h.ib(ic)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + ic);
+        } else if (!com.baidu.swan.apps.an.h.ia(ib)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + ib);
             return false;
-        } else if (!com.baidu.swan.apps.u.a.DT().a(activity, parse, ic)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + ic);
+        } else if (!com.baidu.swan.apps.u.a.DT().a(activity, parse, ib)) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + ib);
             return false;
         } else {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

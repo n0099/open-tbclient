@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    private int bPL;
+    private int bPM;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.bPL = 0;
+        this.bPM = 0;
         this.mTabHost = fragmentTabHost;
-        this.bPL = i;
+        this.bPM = i;
     }
 
     public void d(Pair<String, String> pair) {
@@ -56,16 +56,16 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                mR(str2);
+                mQ(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                mR(str);
+                mQ(str);
             } else {
                 agR();
             }
         }
     }
 
-    private void mR(String str) {
+    private void mQ(String str) {
         c.iv().a(str, 10, this.mCallback, getBdUniqueId());
     }
 
@@ -80,9 +80,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void agR() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bPL);
-            al.l(this.mTabHost.getFragmentTabWidget(), this.bPL);
-            al.l(this.mTabHost.getTabWrapper(), this.bPL);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bPM);
+            al.l(this.mTabHost.getFragmentTabWidget(), this.bPM);
+            al.l(this.mTabHost.getTabWrapper(), this.bPM);
         }
     }
 }

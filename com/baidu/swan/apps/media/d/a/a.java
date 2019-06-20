@@ -99,13 +99,13 @@ public class a extends z {
                 @Override // rx.functions.f
                 /* renamed from: t */
                 public File call(File file2) {
-                    String hy = com.baidu.swan.apps.storage.b.hy(com.baidu.swan.apps.ae.b.LB());
-                    if (!TextUtils.isEmpty(hy) && file2.getPath().startsWith(hy)) {
+                    String hx = com.baidu.swan.apps.storage.b.hx(com.baidu.swan.apps.ae.b.LB());
+                    if (!TextUtils.isEmpty(hx) && file2.getPath().startsWith(hx)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cLr()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cLq()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: s */
@@ -128,11 +128,11 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(Context context, String str, long j) {
-        if (fq(str)) {
+        if (fp(str)) {
             long J = J(j);
             ContentValues i = i(str, J);
             i.put("datetaken", Long.valueOf(J));
-            i.put("mime_type", fp(str));
+            i.put("mime_type", fo(str));
             context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, i);
         }
     }
@@ -150,7 +150,7 @@ public class a extends z {
         return contentValues;
     }
 
-    private String fp(String str) {
+    private String fo(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -165,7 +165,7 @@ public class a extends z {
         return j;
     }
 
-    private boolean fq(String str) {
+    private boolean fp(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

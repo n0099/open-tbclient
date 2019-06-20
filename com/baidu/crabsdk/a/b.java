@@ -4,12 +4,12 @@ import android.content.Context;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public final class b {
-    private static b YM;
-    private c YN;
+    private static b YL;
+    private c YM;
     private boolean af = false;
 
     private b(Context context) {
-        this.YN = c.as(context);
+        this.YM = c.as(context);
     }
 
     public static b aq(Context context) {
@@ -17,18 +17,18 @@ public final class b {
     }
 
     private static b ar(Context context) {
-        if (YM == null) {
+        if (YL == null) {
             synchronized (b.class) {
-                if (YM == null) {
-                    YM = new b(context);
+                if (YL == null) {
+                    YL = new b(context);
                 }
             }
         }
-        return YM;
+        return YL;
     }
 
     public static b qF() {
-        return YM;
+        return YL;
     }
 
     public final void start() {
@@ -38,7 +38,7 @@ public final class b {
         }
         this.af = true;
         try {
-            Looper.getMainLooper().setMessageLogging(this.YN.YO);
+            Looper.getMainLooper().setMessageLogging(this.YM.YN);
             com.baidu.crabsdk.c.a.cf("Start main-thread block monitoring!");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("setMessageLogging error!!", e);
@@ -52,7 +52,7 @@ public final class b {
         }
         this.af = false;
         Looper.getMainLooper().setMessageLogging(null);
-        this.YN.YP.stop();
+        this.YM.YO.stop();
         com.baidu.crabsdk.c.a.cf("Stop main-thread block monitoring!");
     }
 }

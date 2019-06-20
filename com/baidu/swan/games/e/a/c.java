@@ -20,17 +20,17 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
     public void onV8ExceptionCallBack(String str, String str2) {
         Log.e("V8Exception", this.arY.GU() + "msg: " + str + " ,stack: " + str2);
-        this.arY.QP().iW(str);
+        this.arY.QP().iV(str);
         if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.bfK.equals(str)) {
             this.bfK = str;
             aW(str, str2);
-            com.baidu.swan.games.r.c.jM(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+            com.baidu.swan.games.r.c.jL(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
         }
     }
 
     private void aW(String str, String str2) {
         if (this.arY.QN() != null) {
-            this.arY.QN().dispatchEvent(new a().iX(str + "\n" + str2).iY("").QX());
+            this.arY.QN().dispatchEvent(new a().iW(str + "\n" + str2).iX("").QX());
         }
     }
 
@@ -41,12 +41,12 @@ public class c implements V8Engine.JavaScriptExceptionDelegate {
         private JSEvent bfL = new JSEvent("error");
         private String bfM;
 
-        public a iX(String str) {
+        public a iW(String str) {
             this.bfK = str;
             return this;
         }
 
-        public a iY(String str) {
+        public a iX(String str) {
             this.bfM = str;
             return this;
         }

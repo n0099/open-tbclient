@@ -9,9 +9,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean BG;
-    private ArrayList<BasicNameValuePair> BH;
-    private StringBuilder BI;
+    boolean BF;
+    private ArrayList<BasicNameValuePair> BG;
+    private StringBuilder BH;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -20,11 +20,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BG = false;
+        this.BF = false;
         this.mType = null;
-        this.BI = new StringBuilder(100);
+        this.BH = new StringBuilder(100);
         this.mType = str;
-        this.BG = false;
+        this.BF = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BG = false;
+        this.BF = false;
         this.mType = null;
-        this.BI = new StringBuilder(100);
+        this.BH = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.BH == null) {
-                this.BH = new ArrayList<>();
+            if (this.BG == null) {
+                this.BG = new ArrayList<>();
             }
-            this.BH.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.BG.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.BI.length() > 0) {
-            sb.append((CharSequence) this.BI);
+        if (this.BH.length() > 0) {
+            sb.append((CharSequence) this.BH);
         }
-        if (this.BH != null) {
-            Iterator<BasicNameValuePair> it = this.BH.iterator();
+        if (this.BG != null) {
+            Iterator<BasicNameValuePair> it = this.BG.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -88,16 +88,16 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.BI.length() > 0) {
-                this.BI.append('&');
+            if (this.BH.length() > 0) {
+                this.BH.append('&');
             }
-            this.BI.append(str);
-            this.BI.append("=");
+            this.BH.append(str);
+            this.BH.append("=");
             try {
-                this.BI.append(URLEncoder.encode(aH(str2), "utf-8"));
+                this.BH.append(URLEncoder.encode(aH(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.BI.append(aH(str2));
+                this.BH.append(aH(str2));
             }
         }
     }

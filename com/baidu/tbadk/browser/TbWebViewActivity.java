@@ -270,7 +270,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.r.c.cpt().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.r.c.cpu().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -597,7 +597,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.cmY();
+            this.jsBridge.cmZ();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -637,7 +637,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     TbWebViewActivity.this.mUrlTitle = title;
                 }
                 if (!TbWebViewActivity.this.isShowFullScreen) {
-                    TbWebViewActivity.this.mView.lV(TbWebViewActivity.this.mUrlTitle);
+                    TbWebViewActivity.this.mView.lU(TbWebViewActivity.this.mUrlTitle);
                 }
                 if (TbWebViewActivity.this.isTranslucent()) {
                     TbWebViewActivity.this.mView.setNavBarVisibility(false);
@@ -871,7 +871,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                 this.mUrlTitle = str;
             }
             if (!this.isShowFullScreen && this.mView != null) {
-                this.mView.lV(this.mUrlTitle);
+                this.mView.lU(this.mUrlTitle);
             }
         }
     }
@@ -930,10 +930,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     String optString7 = jSONObject.optString("wbcontent");
                     TbWebViewActivity.this.mShareItem = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
                     TbWebViewActivity.this.mShareItem.topic = optString5;
-                    TbWebViewActivity.this.mShareItem.cjK = optString6;
-                    TbWebViewActivity.this.mShareItem.cjL = optString7;
+                    TbWebViewActivity.this.mShareItem.cjL = optString6;
+                    TbWebViewActivity.this.mShareItem.cjM = optString7;
                     TbWebViewActivity.this.mShareItem.shareType = jSONObject.optInt("shareimg");
-                    TbWebViewActivity.this.mShareItem.cjS = jSONObject.optInt("weixin_disable");
+                    TbWebViewActivity.this.mShareItem.cjT = jSONObject.optInt("weixin_disable");
                     String optString8 = jSONObject.optString("extdata");
                     if (!StringUtils.isNull(optString8)) {
                         try {
@@ -943,7 +943,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                TbWebViewActivity.this.mShareItem.cjM = jSONObject3.toString();
+                                TbWebViewActivity.this.mShareItem.cjN = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -968,7 +968,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         if (this.mOnDialogItemClickListener == null) {
             this.mOnDialogItemClickListener = new a();
         }
-        this.mOnDialogItemClickListener.lR(hitTestResult.getExtra());
+        this.mOnDialogItemClickListener.lQ(hitTestResult.getExtra());
         createListMenu(this.mOnDialogItemClickListener.aaq(), this.mOnDialogItemClickListener);
         showListMenu();
         return true;
@@ -993,7 +993,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         a() {
         }
 
-        public void lR(String str) {
+        public void lQ(String str) {
             this.bAZ = str;
         }
 

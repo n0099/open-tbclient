@@ -35,7 +35,7 @@ public class c {
         this.bsj = j;
     }
 
-    public static c kl(String str) {
+    public static c kk(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

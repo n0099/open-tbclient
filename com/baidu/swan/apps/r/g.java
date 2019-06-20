@@ -31,12 +31,12 @@ public class g extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
             return false;
         }
-        JSONObject cZ = o.cZ(unitedSchemeEntity.getParam("params"));
+        JSONObject cY = o.cY(unitedSchemeEntity.getParam("params"));
         Dm.removeTextChangedListener(c.Dl().Dp());
-        if (cZ.has("color")) {
+        if (cY.has("color")) {
             com.baidu.swan.apps.console.c.i("updateInput", "update color start");
             try {
-                Dm.setTextColor(Color.parseColor(cZ.optString("color")));
+                Dm.setTextColor(Color.parseColor(cY.optString("color")));
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -47,9 +47,9 @@ public class g extends z {
                 return false;
             }
         }
-        if (cZ.has(UBC.CONTENT_KEY_VALUE)) {
+        if (cY.has(UBC.CONTENT_KEY_VALUE)) {
             com.baidu.swan.apps.console.c.i("updateInput", "update text start");
-            String optString = cZ.optString(UBC.CONTENT_KEY_VALUE);
+            String optString = cY.optString(UBC.CONTENT_KEY_VALUE);
             if (!TextUtils.equals(optString, Dm.getText())) {
                 Dm.setText(optString);
                 try {
@@ -64,7 +64,7 @@ public class g extends z {
         }
         Dm.addTextChangedListener(c.Dl().Dp());
         b Do = c.Dl().Do();
-        boolean B = Do != null ? Do.B(cZ) : false;
+        boolean B = Do != null ? Do.B(cY) : false;
         com.baidu.swan.apps.console.c.i("updateInput", "update success");
         if (B) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, B ? 0 : 1001);

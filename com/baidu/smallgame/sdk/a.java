@@ -1031,7 +1031,7 @@ public final class a implements AREngineDelegate {
             this.ajd.mCurrentGLThreadID = Thread.currentThread().getId();
             if (this.mEglContext == null || this.mEglContext == EGL14.EGL_NO_CONTEXT) {
                 this.mEglContext = null;
-                cW("createContext");
+                cV("createContext");
             }
             this.ajf = null;
         }
@@ -1096,7 +1096,7 @@ public final class a implements AREngineDelegate {
             this.ajd.mCurrentGLThreadID = -1L;
         }
 
-        private void cW(String str) {
+        private void cV(String str) {
             q(str, EGL14.eglGetError());
         }
 

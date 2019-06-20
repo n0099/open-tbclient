@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
 /* loaded from: classes3.dex */
 public final class e {
-    private static final e jPE = new e();
-    private l jPF = new l();
+    private static final e jPH = new e();
+    private l jPI = new l();
 
-    public static e cAv() {
-        return jPE;
+    public static e cAu() {
+        return jPH;
     }
 
-    public final void Gh(String str) {
-        this.jPF.Gh(str);
+    public final void Gj(String str) {
+        this.jPI.Gj(str);
     }
 
-    public final void Gi(String str) {
-        this.jPF.Gi(str);
+    public final void Gk(String str) {
+        this.jPI.Gk(str);
     }
 }

@@ -69,9 +69,9 @@ public class a implements com.baidu.poly.d.a {
     }
 
     public void c(final Map<String, String> map, String str, final a.C0085a c0085a) {
-        d cT = cT(str);
-        if (cT != null) {
-            cT.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
+        d cS = cS(str);
+        if (cS != null) {
+            cS.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
                 @Override // com.baidu.poly.d.a.C0085a
                 public void onResult(int i, String str2) {
                     c0085a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
@@ -80,7 +80,7 @@ public class a implements com.baidu.poly.d.a {
         }
     }
 
-    public d cT(String str) {
+    public d cS(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
             return com.baidu.poly.d.a.a.us();
         }

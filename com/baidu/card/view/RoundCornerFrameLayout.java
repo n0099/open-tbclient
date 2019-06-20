@@ -21,32 +21,32 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
-    private ColorFilter YA;
-    private float Yv;
-    private Paint Yw;
-    private ImageView Yx;
-    private Bitmap Yy;
+    private float Yu;
+    private Paint Yv;
+    private ImageView Yw;
+    private Bitmap Yx;
+    private ColorFilter Yy;
     private ColorFilter Yz;
     private int mSkinType;
     private RectF qc;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.Yx = null;
+        this.Yw = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Yx = null;
+        this.Yw = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Yx = null;
+        this.Yw = null;
         this.mSkinType = 3;
         init();
     }
@@ -54,46 +54,46 @@ public class RoundCornerFrameLayout extends FrameLayout {
     private void init() {
         setWillNotDraw(false);
         this.qc = new RectF();
-        this.Yv = getResources().getDimension(R.dimen.tbds20);
-        this.Yw = new Paint();
-        this.Yw.setStrokeWidth(0.0f);
-        this.Yw.setStrokeCap(Paint.Cap.ROUND);
-        this.Yw.setAntiAlias(true);
-        this.Yw.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.Yx = new ImageView(getContext());
-        this.Yx.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.Yu = getResources().getDimension(R.dimen.tbds20);
+        this.Yv = new Paint();
+        this.Yv.setStrokeWidth(0.0f);
+        this.Yv.setStrokeCap(Paint.Cap.ROUND);
+        this.Yv.setAntiAlias(true);
+        this.Yv.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.Yw = new ImageView(getContext());
+        this.Yw.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        this.Yv = f;
-        if (this.Yy != null) {
-            this.Yy.recycle();
+        this.Yu = f;
+        if (this.Yx != null) {
+            this.Yx.recycle();
             qD();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.Yx != null && this.mSkinType != i) {
+        if (this.Yw != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.Yz = new k(al.getColor(R.color.cp_bg_line_d));
-            this.YA = new k(al.getColor(R.color.cp_bg_line_e));
-            this.Yx.setColorFilter(this.Yz);
+            this.Yy = new k(al.getColor(R.color.cp_bg_line_d));
+            this.Yz = new k(al.getColor(R.color.cp_bg_line_e));
+            this.Yw.setColorFilter(this.Yy);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         if ((i != i3 || i2 != i4) && i > 0 && i2 > 0) {
-            if (this.Yy != null && !this.Yy.isRecycled()) {
-                this.Yy.recycle();
+            if (this.Yx != null && !this.Yx.isRecycled()) {
+                this.Yx.recycle();
             }
             qD();
         }
     }
 
     public void aB(boolean z) {
-        if (this.Yx != null) {
-            this.Yx.setColorFilter(z ? this.YA : this.Yz);
+        if (this.Yw != null) {
+            this.Yw.setColorFilter(z ? this.Yz : this.Yy);
         }
     }
 
@@ -101,13 +101,13 @@ public class RoundCornerFrameLayout extends FrameLayout {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
             this.qc.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {
-                this.Yy = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.Yx = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError e) {
                 BdLog.e(e);
                 System.gc();
                 TbadkCoreApplication.getInst().onLowMemory();
                 try {
-                    this.Yy = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                    this.Yx = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
                 } catch (OutOfMemoryError e2) {
                     BdLog.e(e);
                     System.gc();
@@ -115,13 +115,13 @@ public class RoundCornerFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            Canvas canvas = new Canvas(this.Yy);
+            Canvas canvas = new Canvas(this.Yx);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.Yw.setColor(-1);
-            canvas.drawRoundRect(this.qc, this.Yv, this.Yv, this.Yw);
-            this.Yx.setImageBitmap(this.Yy);
-            if (this.Yx.getParent() == null) {
-                addView(this.Yx);
+            this.Yv.setColor(-1);
+            canvas.drawRoundRect(this.qc, this.Yu, this.Yu, this.Yv);
+            this.Yw.setImageBitmap(this.Yx);
+            if (this.Yw.getParent() == null) {
+                addView(this.Yw);
             }
         }
     }
@@ -129,22 +129,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.Yx != null && view != this.Yx) {
-            if (this.Yx.getParent() != null) {
-                ((ViewGroup) this.Yx.getParent()).removeView(this.Yx);
+        if (this.Yw != null && view != this.Yw) {
+            if (this.Yw.getParent() != null) {
+                ((ViewGroup) this.Yw.getParent()).removeView(this.Yw);
             }
-            super.addView(this.Yx);
+            super.addView(this.Yw);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.Yx != null) {
-            if (this.Yx.getParent() != null) {
-                ((ViewGroup) this.Yx.getParent()).removeView(this.Yx);
+        if (this.Yw != null) {
+            if (this.Yw.getParent() != null) {
+                ((ViewGroup) this.Yw.getParent()).removeView(this.Yw);
             }
-            super.addView(this.Yx);
+            super.addView(this.Yw);
         }
     }
 }

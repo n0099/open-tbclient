@@ -18,7 +18,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.swan.apps.core.f.c
-    public void da(String str) {
+    public void cZ(String str) {
     }
 
     @Override // com.baidu.swan.apps.core.f.c
@@ -26,7 +26,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.swan.apps.core.f.c
-    public boolean dQ(String str) {
+    public boolean dP(String str) {
         Uri parse;
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;

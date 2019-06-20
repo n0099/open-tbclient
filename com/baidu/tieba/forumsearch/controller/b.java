@@ -247,7 +247,7 @@ public class b implements View.OnClickListener {
         }
         this.fmW.eqA.setVisibility(0);
         this.fmZ = this.fmW.fnl.getText().toString();
-        this.fmX.wm(this.fmZ);
+        this.fmX.wl(this.fmZ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

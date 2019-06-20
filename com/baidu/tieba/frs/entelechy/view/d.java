@@ -54,8 +54,8 @@ public class d extends c {
             this.exO.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.frs.entelechy.view.d.1
                 @Override // com.baidu.tbadk.widget.layout.d
                 public void a(View view, int i, boolean z) {
-                    if (d.this.VK != null && d.this.aLl()) {
-                        ba.aiz().c(d.this.mTbPageContext, new String[]{d.this.VK.getActUrl()});
+                    if (d.this.VJ != null && d.this.aLl()) {
+                        ba.aiz().c(d.this.mTbPageContext, new String[]{d.this.VJ.getActUrl()});
                     }
                 }
             });
@@ -72,8 +72,8 @@ public class d extends c {
 
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void iq(boolean z) {
-        if (this.VK != null && aLl()) {
-            ba.aiz().c(this.mTbPageContext, new String[]{this.VK.getActUrl()});
+        if (this.VJ != null && aLl()) {
+            ba.aiz().c(this.mTbPageContext, new String[]{this.VJ.getActUrl()});
         }
     }
 

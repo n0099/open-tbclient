@@ -7,5 +7,5 @@ public interface b {
 
     void auM();
 
-    void qJ(String str);
+    void qI(String str);
 }

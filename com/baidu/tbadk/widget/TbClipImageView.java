@@ -8,13 +8,13 @@ import com.baidu.tieba.compatible.CompatibleUtile;
 import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class TbClipImageView extends TbImageView {
-    private static Method cDI;
-    private boolean cDJ;
+    private static Method cDJ;
+    private boolean cDK;
 
     static {
-        cDI = null;
+        cDJ = null;
         try {
-            cDI = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            cDJ = TbClipImageView.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException e) {
         }
     }
@@ -25,7 +25,7 @@ public class TbClipImageView extends TbImageView {
 
     public TbClipImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cDJ = false;
+        this.cDK = false;
         b(context, attributeSet, i);
     }
 
@@ -76,16 +76,16 @@ public class TbClipImageView extends TbImageView {
         if (Build.VERSION.SDK_INT >= 11) {
             CompatibleUtile.getInstance().closeViewGpu(this);
             try {
-                if (cDI != null) {
-                    cDI.invoke(this, 1, null);
+                if (cDJ != null) {
+                    cDJ.invoke(this, 1, null);
                 }
             } catch (Exception e) {
             }
         }
         if (z2 || z) {
-            this.cDJ = false;
+            this.cDK = false;
         } else {
-            this.cDJ = true;
+            this.cDK = true;
         }
     }
 
@@ -94,7 +94,7 @@ public class TbClipImageView extends TbImageView {
         if (i == 0) {
             super.setDrawerType(i);
         } else if (i == 1) {
-            super.setDrawerType(this.cDJ ? 4 : 5);
+            super.setDrawerType(this.cDK ? 4 : 5);
         } else {
             super.setDrawerType(i);
         }

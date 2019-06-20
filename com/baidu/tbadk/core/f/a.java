@@ -20,12 +20,12 @@ import org.json.JSONObject;
 import tbclient.MissionInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a bOV;
+    private static a bOW;
     private int activityId;
-    private int bOW;
     private int bOX;
     private int bOY;
-    private CustomMessageListener bOZ = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
+    private int bOZ;
+    private CustomMessageListener bPa = new CustomMessageListener(2921406) { // from class: com.baidu.tbadk.core.f.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,14 +37,14 @@ public class a {
     private int missionId;
 
     public static a agJ() {
-        if (bOV == null) {
+        if (bOW == null) {
             synchronized (a.class) {
-                if (bOV == null) {
-                    bOV = new a();
+                if (bOW == null) {
+                    bOW = new a();
                 }
             }
         }
-        return bOV;
+        return bOW;
     }
 
     public void c(com.baidu.tbadk.BdToken.activeConfig.a aVar) {
@@ -73,13 +73,13 @@ public class a {
         if (missionInfo != null && missionInfo.activityid.intValue() != 0 && missionInfo.missionid.intValue() != 0) {
             this.activityId = missionInfo.activityid.intValue();
             this.missionId = missionInfo.missionid.intValue();
-            this.bOW = missionInfo.total_limit.intValue();
-            this.bOY = missionInfo.cleartype.intValue();
-            this.bOX = missionInfo.cleartime.intValue();
+            this.bOX = missionInfo.total_limit.intValue();
+            this.bOZ = missionInfo.cleartype.intValue();
+            this.bOY = missionInfo.cleartime.intValue();
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
-            bVar.ak(this.bOX);
-            bVar.gg(this.bOY);
-            b.agM().putInt("task_share_thread_success_data_total_limit", this.bOW);
+            bVar.ak(this.bOY);
+            bVar.gg(this.bOZ);
+            b.agM().putInt("task_share_thread_success_data_total_limit", this.bOX);
             b.agM().putInt("task_share_thread_success_data_mission_id", this.missionId);
             b.agM().putInt("task_share_thread_success_data_action_id", this.activityId);
             b.agM().putLong("task_share_thread_success_data_specific_clear_time", bVar.XS());
@@ -125,6 +125,6 @@ public class a {
     }
 
     public void init() {
-        MessageManager.getInstance().registerListener(this.bOZ);
+        MessageManager.getInstance().registerListener(this.bPa);
     }
 }

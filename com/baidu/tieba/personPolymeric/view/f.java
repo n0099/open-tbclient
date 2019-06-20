@@ -9,22 +9,22 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.h> {
-    private TbImageView bVI;
-    private View ilM;
+    private TbImageView bVJ;
+    private View ilN;
     private View mRootView;
 
     public f(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.bVI = (TbImageView) this.mRootView.findViewById(R.id.center_image);
-        this.ilM = this.mRootView.findViewById(R.id.more_view_container);
+        this.bVJ = (TbImageView) this.mRootView.findViewById(R.id.center_image);
+        this.ilN = this.mRootView.findViewById(R.id.more_view_container);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.c(this.bVI, (int) R.drawable.icon_mine_more);
+            al.c(this.bVJ, (int) R.drawable.icon_mine_more);
             al.k(this.mRootView, R.drawable.btn_look_more_selector);
         }
     }
@@ -40,7 +40,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (hVar == null) {
             this.mRootView.setVisibility(8);
         }
-        ViewGroup.LayoutParams layoutParams = this.ilM.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.ilN.getLayoutParams();
         if (layoutParams != null) {
             if (layoutParams.width > 0) {
                 layoutParams.width = hVar.width;
@@ -49,7 +49,7 @@ public class f extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
                 layoutParams.height = hVar.height;
             }
         }
-        this.ilM.setLayoutParams(layoutParams);
+        this.ilN.setLayoutParams(layoutParams);
         this.mRootView.setVisibility(0);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

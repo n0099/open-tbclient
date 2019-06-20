@@ -26,10 +26,10 @@ public final class x {
         public final boolean aZx;
         public final boolean aZy;
         public final int aZz;
-        public final String wV;
+        public final String wU;
 
         a(String str, boolean z, boolean z2, int i) {
-            this.wV = str;
+            this.wU = str;
             this.aZx = z;
             this.aZy = z2;
             this.aZz = i;
@@ -99,7 +99,7 @@ public final class x {
                                             break;
                                         }
                                         str = (String) it.next();
-                                        if (TextUtils.equals(((a) hashMap.get(str)).wV, nextToken)) {
+                                        if (TextUtils.equals(((a) hashMap.get(str)).wU, nextToken)) {
                                             break;
                                         }
                                     }
@@ -115,7 +115,7 @@ public final class x {
                                 }
                             } else if (aN(nextToken, nextToken2)) {
                                 hashSet.add(nextToken2);
-                                if (ih(nextToken2)) {
+                                if (ig(nextToken2)) {
                                     arrayList.add(new a(nextToken2, false, contains, i2));
                                     i2++;
                                 }
@@ -123,7 +123,7 @@ public final class x {
                         }
                     }
                     for (a aVar : hashMap.values()) {
-                        if (ih(aVar.wV)) {
+                        if (ig(aVar.wU)) {
                             arrayList.add(aVar);
                         }
                     }
@@ -196,7 +196,7 @@ public final class x {
         return arrayList;
     }
 
-    private static boolean ih(String str) {
+    private static boolean ig(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -4,21 +4,21 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 /* loaded from: classes.dex */
 public class c {
-    private Type[] xJ;
-    private Type xK;
-    private Class<?> xL;
+    private Type[] xI;
+    private Type xJ;
+    private Class<?> xK;
 
     public c(Type type) {
+        this.xI = null;
         this.xJ = null;
         this.xK = null;
-        this.xL = null;
         if (type instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) type;
-            this.xJ = parameterizedType.getActualTypeArguments();
-            this.xK = parameterizedType.getRawType();
-            if (this.xJ != null && this.xJ.length > 0) {
+            this.xI = parameterizedType.getActualTypeArguments();
+            this.xJ = parameterizedType.getRawType();
+            if (this.xI != null && this.xI.length > 0) {
                 try {
-                    this.xL = (Class) this.xK;
+                    this.xK = (Class) this.xJ;
                     return;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -28,17 +28,17 @@ public class c {
             return;
         }
         try {
-            this.xL = (Class) type;
+            this.xK = (Class) type;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
     public Type[] gR() {
-        return this.xJ;
+        return this.xI;
     }
 
     public Class<?> gS() {
-        return this.xL;
+        return this.xK;
     }
 }

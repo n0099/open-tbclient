@@ -43,7 +43,7 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
         }
         al.l(view, R.color.cp_bg_line_d);
         if (this.fxl != null) {
-            TiebaStatic.log(new am("c12104").bT("fid", this.fxl.fJF));
+            TiebaStatic.log(new am("c12104").bT("fid", this.fxl.fJH));
         }
         if (bVar2.fBD != null) {
             bVar2.fBD.setData(bVar);
@@ -52,10 +52,10 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
                         if (a.this.fxl != null) {
-                            TiebaStatic.log(new am("c12105").bT("fid", a.this.fxl.fJF).P("obj_locate", i2 + 1));
+                            TiebaStatic.log(new am("c12105").bT("fid", a.this.fxl.fJH).P("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.brK())) {
-                            com.baidu.tbadk.browser.a.af(a.this.mPageContext.getPageActivity(), aVar.brK());
+                        if (!StringUtils.isNull(aVar.brM())) {
+                            com.baidu.tbadk.browser.a.af(a.this.mPageContext.getPageActivity(), aVar.brM());
                         }
                     }
                 }

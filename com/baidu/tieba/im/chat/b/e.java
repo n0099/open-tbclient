@@ -12,7 +12,7 @@ public class e {
     public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.e.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean xL(String str) {
+            public boolean xN(String str) {
                 return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
             }
         }, ChatStatusManager.getInst().getIsOpen(5), new a.InterfaceC0326a() { // from class: com.baidu.tieba.im.chat.b.e.2
@@ -46,7 +46,7 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.gJh.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.gJj.longValue()) {
                 return -1L;
             }
             return com.baidu.tieba.im.util.d.dJ(optJSONObject.optLong("readMsgId"));

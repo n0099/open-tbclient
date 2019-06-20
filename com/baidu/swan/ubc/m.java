@@ -70,7 +70,7 @@ public class m {
     public void a(String str, JSONObject jSONObject, int i) {
         if (!K(str, i)) {
             b bVar = new b(str, jSONObject, i);
-            if (this.bvh != null && this.bvh.kL(str)) {
+            if (this.bvh != null && this.bvh.kK(str)) {
                 bVar.dm(true);
             }
             this.aZL.execute(bVar);
@@ -81,7 +81,7 @@ public class m {
     public void f(String str, String str2, int i) {
         if (!K(str, i)) {
             b bVar = new b(str, str2, i);
-            if (this.bvh != null && this.bvh.kL(str)) {
+            if (this.bvh != null && this.bvh.kK(str)) {
                 bVar.dm(true);
             }
             this.aZL.execute(bVar);
@@ -108,7 +108,7 @@ public class m {
         L = L(str, i);
         if (L != null && L.getValid()) {
             d dVar = new d(L, str2);
-            if (this.bvh != null && this.bvh.kL(str)) {
+            if (this.bvh != null && this.bvh.kK(str)) {
                 dVar.dm(true);
             }
             this.aZL.execute(dVar);
@@ -120,15 +120,15 @@ public class m {
         Flow flow = new Flow(str, this.bvM, i);
         if (this.bvh != null && !this.bvh.J(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !s.Xr().fK(str)) {
+        } else if ((i & 16) != 0 && !s.Xr().fJ(str)) {
             flow.setValid(false);
         } else {
-            if (this.bvh != null && this.bvh.kJ(str) > 0) {
-                if (new Random().nextInt(100) >= this.bvh.kJ(str)) {
+            if (this.bvh != null && this.bvh.kI(str) > 0) {
+                if (new Random().nextInt(100) >= this.bvh.kI(str)) {
                     flow.setValid(false);
                 }
             }
-            if (this.bvh != null && this.bvh.kK(str)) {
+            if (this.bvh != null && this.bvh.kJ(str)) {
                 flow.setValid(false);
             }
         }
@@ -236,9 +236,9 @@ public class m {
             public void run() {
                 if (m.this.bvL != null) {
                     if (z) {
-                        m.this.bvL.kD(str);
+                        m.this.bvL.kC(str);
                     } else {
-                        m.this.bvL.kE(str);
+                        m.this.bvL.kD(str);
                     }
                 }
             }
@@ -291,8 +291,8 @@ public class m {
         public void run() {
             if (m.this.bvL != null) {
                 this.bvS.WZ();
-                if (!TextUtils.isEmpty(m.this.bvh.kI(this.bvS.getId()))) {
-                    this.bvS.setCategory(m.this.bvh.kI(this.bvS.getId()));
+                if (!TextUtils.isEmpty(m.this.bvh.kH(this.bvS.getId()))) {
+                    this.bvS.setCategory(m.this.bvh.kH(this.bvS.getId()));
                 }
                 if ((this.bvS.getOption() & 8) != 0) {
                     m.this.bvL.b(this.bvS);
@@ -310,7 +310,7 @@ public class m {
         d(Flow flow, String str) {
             this.bvT = new j(flow.getId(), flow.getHandle(), str, flow.getOption());
             this.bvT.ah(flow.getStartTime());
-            this.bvT.kO("1");
+            this.bvT.kN("1");
             m.d(m.this);
         }
 
@@ -324,8 +324,8 @@ public class m {
         public void run() {
             if (m.this.bvL != null) {
                 this.bvT.WZ();
-                if (!TextUtils.isEmpty(m.this.bvh.kI(this.bvT.getId()))) {
-                    this.bvT.setCategory(m.this.bvh.kI(this.bvT.getId()));
+                if (!TextUtils.isEmpty(m.this.bvh.kH(this.bvT.getId()))) {
+                    this.bvT.setCategory(m.this.bvh.kH(this.bvT.getId()));
                 }
                 m.this.bvL.b(this.bvT);
             }

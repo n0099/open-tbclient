@@ -103,8 +103,8 @@ public class BarVoteActivityStatic {
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof com.baidu.tieba.pb.d)) {
                     com.baidu.tieba.pb.d dVar = (com.baidu.tieba.pb.d) customMessage.getData();
-                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.bPw(), dVar.getForumId(), dVar.getThreadId(), dVar.getSource());
-                    commitVoteReqMsg.setTag(dVar.bPv());
+                    CommitVoteReqMsg commitVoteReqMsg = new CommitVoteReqMsg(dVar.bPx(), dVar.getForumId(), dVar.getThreadId(), dVar.getSource());
+                    commitVoteReqMsg.setTag(dVar.bPw());
                     MessageManager.getInstance().sendMessage(commitVoteReqMsg);
                 }
                 return null;

@@ -24,9 +24,9 @@ public class c extends g {
     protected com.baidu.swan.apps.core.f.c xb() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
-            public boolean dQ(String str) {
+            public boolean dP(String str) {
                 if (str == null || !str.startsWith("weixin://wap/pay")) {
-                    return super.dQ(str);
+                    return super.dP(str);
                 }
                 com.baidu.swan.apps.console.c.d("SwanAppWxPayFragment", " weixin  url:   " + str);
                 g.Ab();

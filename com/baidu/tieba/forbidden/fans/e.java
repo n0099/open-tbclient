@@ -9,7 +9,7 @@ import com.baidu.tieba.view.a;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class e {
-    private com.baidu.tieba.person.e bBz;
+    private com.baidu.tieba.person.e bBB;
     private ai fko;
     private d fkp;
     private com.baidu.tieba.view.a fkq;
@@ -54,7 +54,7 @@ public class e {
     }
 
     private void aax() {
-        if (this.bBz == null) {
+        if (this.bBB == null) {
             this.fkq = new com.baidu.tieba.view.a(this.mContext.getContext());
             this.fkq.setTitleText(this.mContext.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
@@ -62,7 +62,7 @@ public class e {
             c0426a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
-                    e.this.bBz.dismiss();
+                    e.this.bBB.dismiss();
                     if (e.this.fkr != null) {
                         e.this.fkr.bii();
                     }
@@ -73,16 +73,16 @@ public class e {
             this.fkq.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {
-                    if (e.this.bBz != null) {
-                        e.this.bBz.dismiss();
+                    if (e.this.bBB != null) {
+                        e.this.bBB.dismiss();
                     }
                 }
             });
             this.fkq.W(arrayList);
-            this.bBz = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.fkq.afZ());
-            this.bBz.an(0.7f);
+            this.bBB = new com.baidu.tieba.person.e(this.mContext.getPageActivity(), this.fkq.afZ());
+            this.bBB.an(0.7f);
         }
-        this.bBz.show();
+        this.bBB.show();
     }
 
     public void onChangeSkinType() {

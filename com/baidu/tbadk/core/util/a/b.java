@@ -12,18 +12,18 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes.dex */
 public class b {
-    public boolean bRf;
-    private final g bTD = new g();
+    public boolean bRg;
+    private final g bTE = new g();
     public boolean mIsNeedTbs = false;
-    public boolean bTE = true;
+    public boolean bTF = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean bTF = false;
+    public boolean bTG = false;
     public int mImageType = 0;
 
     public g aiE() {
-        return this.bTD;
+        return this.bTE;
     }
 
     public void a(q qVar) {
@@ -95,17 +95,17 @@ public class b {
     }
 
     public String aiF() {
-        if (this.bTD.mUrl == null) {
+        if (this.bTE.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.bTD.mUrl.startsWith(str)) {
-            int indexOf = this.bTD.mUrl.indexOf(63);
+        if (this.bTE.mUrl.startsWith(str)) {
+            int indexOf = this.bTE.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.bTD.mUrl.length();
+                indexOf = this.bTE.mUrl.length();
             }
-            return this.bTD.mUrl.substring(str.length(), indexOf);
+            return this.bTE.mUrl.substring(str.length(), indexOf);
         }
-        return this.bTD.mUrl;
+        return this.bTE.mUrl;
     }
 }

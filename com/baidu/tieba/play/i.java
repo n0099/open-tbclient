@@ -13,11 +13,11 @@ public interface i {
 
     void f(Context context, String str, int i);
 
+    String rK(String str);
+
     String rL(String str);
 
-    String rM(String str);
+    void rM(String str);
 
-    void rN(String str);
-
-    String rO(String str);
+    String rN(String str);
 }

@@ -217,7 +217,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public com.baidu.tbadk.o.d getPageStayDurationItem() {
         if (this.pageStayDurationItem == null) {
             this.pageStayDurationItem = new com.baidu.tbadk.o.d();
-            this.pageStayDurationItem.qD(getCurrentPageKey());
+            this.pageStayDurationItem.qC(getCurrentPageKey());
         }
         this.pageStayDurationItem.ao(getCurrentPageSourceKeyList());
         return this.pageStayDurationItem;
@@ -252,7 +252,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
             CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
         }
         TbadkCoreApplication.setIsAppRunning(true);
-        ay.nU(getClass().getName());
+        ay.nT(getClass().getName());
         this.mLayoutMode = new c();
         registerListener(this.nightResourcesChangeListener);
         registerListener(this.skinTypeChangeListener);
@@ -318,11 +318,11 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void onResume() {
         MenuKeyUtils.hideSoftMenuKey(getWindow());
         super.onResume();
-        com.baidu.tieba.r.a.cpn().onResume(this);
+        com.baidu.tieba.r.a.cpo().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TbadkCoreApplication.getInst().AddResumeNum();
-        ay.nU(getClass().getName());
+        ay.nT(getClass().getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
         boolean isLogin = TbadkCoreApplication.isLogin();
         if (this.mIsLogin != isLogin) {
@@ -435,7 +435,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        com.baidu.tieba.r.a.cpn().onPause(this);
+        com.baidu.tieba.r.a.cpo().onPause(this);
         super.onPause();
         if (this.lastResumeTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
@@ -499,7 +499,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
         if (!isFinishing() && com.baidu.adp.lib.g.g.a(getPageContext())) {
             this.mWaitingDialog = new com.baidu.tbadk.core.view.b(getPageContext());
             if (str != null) {
-                this.mWaitingDialog.ow(str);
+                this.mWaitingDialog.ov(str);
             } else {
                 this.mWaitingDialog.it(R.string.Waiting);
             }
@@ -517,7 +517,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
         this.mWaitingDialog = new com.baidu.tbadk.core.view.b(getPageContext());
         if (str != null) {
-            this.mWaitingDialog.ow(str);
+            this.mWaitingDialog.ov(str);
         } else {
             this.mWaitingDialog.it(R.string.Waiting);
         }
@@ -1022,7 +1022,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         p.a(motionEvent, getPageId(), getMissionTid());
-        com.baidu.tieba.r.a.cpn().behaviorRecordEvent(motionEvent, this);
+        com.baidu.tieba.r.a.cpo().behaviorRecordEvent(motionEvent, this);
         return super.dispatchTouchEvent(motionEvent);
     }
 
@@ -1096,7 +1096,7 @@ public abstract class BaseFragmentActivity extends BdBaseFragmentActivity<BaseFr
                 if (configuration.screenWidthDp != this.mLastScreenWidth || configuration.screenHeightDp != this.mLastScreenHeight) {
                     this.mLastScreenWidth = configuration.screenWidthDp;
                     this.mLastScreenHeight = configuration.screenHeightDp;
-                    l.Ec = false;
+                    l.Eb = false;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921414, getUniqueId()));
                     return;
                 }

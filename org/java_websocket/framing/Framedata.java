@@ -14,7 +14,9 @@ public interface Framedata {
         CLOSING
     }
 
-    ByteBuffer cKN();
+    ByteBuffer cKM();
+
+    boolean cKN();
 
     boolean cKO();
 
@@ -22,7 +24,5 @@ public interface Framedata {
 
     boolean cKQ();
 
-    boolean cKR();
-
-    Opcode cKS();
+    Opcode cKR();
 }

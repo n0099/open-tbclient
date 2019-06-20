@@ -24,10 +24,10 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
     public bg threadData;
     public String tid;
     public int objType = 1;
-    public SparseArray<String> bGK = null;
+    public SparseArray<String> bGL = null;
     private Integer eAz = 0;
-    public int bIf = 0;
     public int bIg = 0;
+    public int bIh = 0;
 
     public void setWeight(String str) {
         this.eAu = str;
@@ -41,7 +41,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.eAv = i;
     }
 
-    public void uU(String str) {
+    public void uT(String str) {
         this.eAw = str;
     }
 
@@ -70,7 +70,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.eAx;
     }
 
-    public void uV(String str) {
+    public void uU(String str) {
         this.eAx = str;
     }
 
@@ -83,7 +83,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return true;
     }
 
-    public void uW(String str) {
+    public void uV(String str) {
         this.eAy = str;
     }
 
@@ -99,7 +99,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.eAz = num;
     }
 
-    public am uX(String str) {
+    public am uW(String str) {
         return U(str, false);
     }
 
@@ -112,7 +112,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (!z) {
             bT.P("obj_type", aYd());
         } else {
-            if (abv.bKN > 0) {
+            if (abv.bKO > 0) {
                 bT.P("midpageflag", 1);
             } else {
                 bT.P("midpageflag", 0);
@@ -120,8 +120,8 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
             bT.bT("ab_tag", aYa());
             bT.P("is_vertical", aYc().intValue());
         }
-        if (abv.aeT() != null && abv.aeT().cmy() != null && abv.aeT().cmy().axz() != null && abv.aeT().cmy().axz().size() > 0) {
-            bT.P("obj_to", abv.aeT().iZj ? 2 : 1);
+        if (abv.aeT() != null && abv.aeT().cmz() != null && abv.aeT().cmz().axz() != null && abv.aeT().cmz().axz().size() > 0) {
+            bT.P("obj_to", abv.aeT().iZn ? 2 : 1);
         }
         return bT;
     }
@@ -194,13 +194,13 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
 
     @Override // com.baidu.tbadk.core.data.a
     public aj abx() {
-        if (abv() == null || this.bGK == null || this.bGK.size() <= 0) {
+        if (abv() == null || this.bGL == null || this.bGL.size() <= 0) {
             return null;
         }
         aj ajVar = new aj();
         ajVar.setTid(abv().getTid());
         ajVar.setFid(abv().getFid());
-        ajVar.b(this.bGK);
+        ajVar.b(this.bGL);
         ajVar.weight = this.eAu;
         ajVar.source = this.mSource;
         ajVar.extra = this.eAy;

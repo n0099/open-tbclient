@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private final int QN;
-    private int QS;
-    private HashMap QT;
+    private final int QM;
+    private int QR;
+    private HashMap QS;
     private final int height;
     private final String pid;
     private final int refreshCount;
     private final int width;
 
     private c(int i, int i2, String str, int i3, int i4, int i5) {
-        this.QN = i;
+        this.QM = i;
         this.refreshCount = i2;
         this.pid = str;
-        this.QS = i3;
+        this.QR = i3;
         this.width = i4;
         this.height = i5;
     }
@@ -42,21 +42,21 @@ public class c implements a {
 
     @Override // com.baidu.afd.videopaster.a
     public int oH() {
-        return this.QN;
+        return this.QM;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public int oJ() {
-        return this.QS;
+        return this.QR;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public Map<String, String> oK() {
-        return this.QT;
+        return this.QS;
     }
 
     @Override // com.baidu.afd.videopaster.a
     public void k(HashMap hashMap) {
-        this.QT = hashMap;
+        this.QS = hashMap;
     }
 }

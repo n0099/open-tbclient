@@ -32,7 +32,7 @@ public final class c {
         aQv.put("dark", Integer.valueOf((int) ViewCompat.MEASURED_STATE_MASK));
     }
 
-    public static c gG(String str) {
+    public static c gF(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -63,7 +63,7 @@ public final class c {
             return -1;
         }
         try {
-            str = gH(str);
+            str = gG(str);
             return Color.parseColor(str);
         } catch (Exception e2) {
             if (DEBUG) {
@@ -76,7 +76,7 @@ public final class c {
         }
     }
 
-    public static String gH(String str) {
+    public static String gG(String str) {
         if (!TextUtils.isEmpty(str) && str.length() == 4 && str.charAt(0) == '#') {
             StringBuilder sb = new StringBuilder();
             sb.append(str.charAt(0));
@@ -111,12 +111,12 @@ public final class c {
         return this.aQr != null && this.aQr.LS();
     }
 
-    public boolean gI(String str) {
-        return (LJ() && this.aQn.gK(str)) || (LK() && this.aQo.aQC.containsKey(str));
+    public boolean gH(String str) {
+        return (LJ() && this.aQn.gJ(str)) || (LK() && this.aQo.aQC.containsKey(str));
     }
 
-    public boolean gJ(String str) {
-        return this.aQr != null && this.aQr.gL(str);
+    public boolean gI(String str) {
+        return this.aQr != null && this.aQr.gK(str);
     }
 
     /* loaded from: classes2.dex */
@@ -140,7 +140,7 @@ public final class c {
             return aVar;
         }
 
-        public boolean gK(String str) {
+        public boolean gJ(String str) {
             return this.mPages != null && this.mPages.contains(str);
         }
 
@@ -195,7 +195,7 @@ public final class c {
             return this.aQG != null && this.aQG.size() >= 2;
         }
 
-        public boolean gL(String str) {
+        public boolean gK(String str) {
             if (this.aQG == null) {
                 return false;
             }

@@ -67,7 +67,7 @@ public final class HybridUbcFlow {
         this.name = str;
     }
 
-    public HybridUbcFlow fR(String str) {
+    public HybridUbcFlow fQ(String str) {
         this.aFq = str;
         return this;
     }
@@ -144,7 +144,7 @@ public final class HybridUbcFlow {
         return this;
     }
 
-    public String fS(String str) {
+    public String fR(String str) {
         return this.aFs.get(str);
     }
 
@@ -298,10 +298,10 @@ public final class HybridUbcFlow {
         HJ();
         a(ExtensionType.COMPONENT_REPORTER);
         if (!TextUtils.isEmpty(this.aFq)) {
-            Flow kS = s.kS(this.aFq);
+            Flow kR = s.kR(this.aFq);
             for (UbcFlowEvent ubcFlowEvent : this.aFv) {
                 if (!ubcFlowEvent.Ib()) {
-                    kS.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.HZ());
+                    kR.addEvent(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.HZ());
                 }
             }
             if (!isEmpty()) {
@@ -323,8 +323,8 @@ public final class HybridUbcFlow {
                         e.printStackTrace();
                     }
                 }
-                kS.setValueWithDuration(this.aFr.toString());
-                kS.end();
+                kR.setValueWithDuration(this.aFr.toString());
+                kR.end();
             }
         }
     }

@@ -7,29 +7,29 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class o {
-    private com.baidu.tieba.person.a.a ick;
-    private f iiL;
-    private l iiM;
-    private g iiN;
+    private com.baidu.tieba.person.a.a icl;
+    private f iiM;
+    private l iiN;
+    private g iiO;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public o(TbPageContext tbPageContext, HTypeListView hTypeListView) {
-        this.iiL = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.ikQ);
-        this.iiM = new l(tbPageContext);
-        this.iiN = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.ikJ);
-        this.ick = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.ibS);
-        this.mAdapters.add(this.iiL);
+        this.iiM = new f(tbPageContext, com.baidu.tieba.personPolymeric.c.o.ikR);
+        this.iiN = new l(tbPageContext);
+        this.iiO = new g(tbPageContext, com.baidu.tieba.personPolymeric.c.h.ikK);
+        this.icl = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.ibT);
         this.mAdapters.add(this.iiM);
         this.mAdapters.add(this.iiN);
-        this.mAdapters.add(this.ick);
+        this.mAdapters.add(this.iiO);
+        this.mAdapters.add(this.icl);
         hTypeListView.addAdapters(this.mAdapters);
     }
 
     public void U(View.OnClickListener onClickListener) {
-        this.iiL.setOnClickListener(onClickListener);
+        this.iiM.setOnClickListener(onClickListener);
     }
 
     public void V(View.OnClickListener onClickListener) {
-        this.iiN.setOnClickListener(onClickListener);
+        this.iiO.setOnClickListener(onClickListener);
     }
 }

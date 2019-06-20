@@ -27,14 +27,14 @@ public class d extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "parse json model is null");
             return false;
         }
-        final CameraPreview de = com.baidu.swan.apps.camera.a.xe().de(bVar2.aDm);
-        if (de == null) {
+        final CameraPreview dd = com.baidu.swan.apps.camera.a.xe().dd(bVar2.aDm);
+        if (dd == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera view is null");
             return false;
         }
-        final String hy = com.baidu.swan.apps.storage.b.hy(bVar.id);
-        if (TextUtils.isEmpty(hy)) {
+        final String hx = com.baidu.swan.apps.storage.b.hx(bVar.id);
+        if (TextUtils.isEmpty(hx)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             com.baidu.swan.apps.console.c.e("SwanAppCamera", "get camera start record cache path is empty");
             return false;
@@ -45,7 +45,7 @@ public class d extends a {
             /* renamed from: b */
             public void D(Boolean bool) {
                 if (bool.booleanValue()) {
-                    d.this.a(context, unitedSchemeEntity, callbackHandler, bVar, bVar2, de, hy);
+                    d.this.a(context, unitedSchemeEntity, callbackHandler, bVar, bVar2, dd, hx);
                     return;
                 }
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 200201);
@@ -106,7 +106,7 @@ public class d extends a {
         boolean z2 = false;
         final HashMap<String, String> hashMap = new HashMap<>();
         try {
-            z = cameraPreview.di(str);
+            z = cameraPreview.dh(str);
         } catch (Exception e) {
             e = e;
         }

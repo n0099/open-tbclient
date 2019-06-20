@@ -6,25 +6,25 @@ import android.os.Message;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 /* loaded from: classes.dex */
 public class f extends g {
-    public long Af;
-    public long LR;
-    public long cyn;
+    public long Ae;
+    public long LQ;
     public long cyo;
     public long cyp;
-    public int cyq;
+    public long cyq;
     public int cyr;
-    private a cys = null;
-    private final Handler cyt = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.p.f.1
+    public int cys;
+    private a cyt = null;
+    private final Handler cyu = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.p.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.cys = new a();
-            f.this.cys.setSelfExecute(true);
-            f.this.cys.execute(new String[0]);
+            f.this.cyt = new a();
+            f.this.cyt.setSelfExecute(true);
+            f.this.cyt.execute(new String[0]);
         }
     };
 
     public void aud() {
-        this.cyt.sendEmptyMessage(0);
+        this.cyu.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.cyr = m.auk().aun();
+            f.this.cys = m.auk().aun();
             f.this.aue();
             return Boolean.TRUE;
         }

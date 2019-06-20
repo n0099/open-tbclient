@@ -33,5 +33,5 @@ public interface c {
 
     void cn(String str, String str2);
 
-    void sI(String str);
+    void sH(String str);
 }

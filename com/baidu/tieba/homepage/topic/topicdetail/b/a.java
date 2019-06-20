@@ -12,11 +12,11 @@ import tbclient.NewHottopic.TopicThread;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    public String bHC;
-    public String gfl;
-    public b gfm;
-    private boolean gfn;
-    private boolean gfo = false;
+    public String bHD;
+    public String gfn;
+    public b gfo;
+    private boolean gfp;
+    private boolean gfq = false;
     public boolean hasMore;
     public List<m> mDataList;
     public String shareTitle;
@@ -24,38 +24,38 @@ public class a {
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gfn = false;
+            this.gfp = false;
             if (dataRes.topic_info != null) {
                 this.topicId = dataRes.topic_info.topic_id.longValue();
-                this.bHC = dataRes.topic_info.topic_name;
+                this.bHD = dataRes.topic_info.topic_name;
                 this.shareTitle = dataRes.topic_info.share_title;
-                this.gfl = dataRes.topic_info.share_pic;
-                this.gfm = new b();
-                this.gfm.a(dataRes.topic_info);
+                this.gfn = dataRes.topic_info.share_pic;
+                this.gfo = new b();
+                this.gfo.a(dataRes.topic_info);
                 if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                    this.gfn = true;
+                    this.gfp = true;
                 }
             }
             if (dataRes.pk_module != null) {
-                this.gfo = true;
-                this.gfn = true;
-                if (this.gfm == null) {
-                    this.gfm = new b();
+                this.gfq = true;
+                this.gfp = true;
+                if (this.gfo == null) {
+                    this.gfo = new b();
                 }
-                this.gfm.a(dataRes.pk_module);
+                this.gfo.a(dataRes.pk_module);
             } else {
-                this.gfo = false;
+                this.gfq = false;
             }
             if (dataRes.time_line != null) {
-                this.gfn = true;
-                if (this.gfm == null) {
-                    this.gfm = new b();
+                this.gfp = true;
+                if (this.gfo == null) {
+                    this.gfo = new b();
                 }
-                this.gfm.a(dataRes.time_line);
+                this.gfo.a(dataRes.time_line);
             }
             this.mDataList = new ArrayList();
             if (!v.aa(dataRes.special_topic)) {
-                this.gfn = true;
+                this.gfp = true;
                 int i = 1;
                 for (SpecialTopic specialTopic : dataRes.special_topic) {
                     if (specialTopic != null && !v.aa(specialTopic.thread_list)) {
@@ -65,8 +65,8 @@ public class a {
                             if (threadInfo != null) {
                                 d dVar = new d();
                                 if (!z) {
-                                    dVar.gfy = true;
-                                    dVar.gfz = specialTopic.title;
+                                    dVar.gfA = true;
+                                    dVar.gfB = specialTopic.title;
                                     z = true;
                                 }
                                 dVar.index = i2;
@@ -80,10 +80,10 @@ public class a {
                     }
                 }
             }
-            if (this.gfn) {
+            if (this.gfp) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
                 cVar.eUy = R.dimen.tbds78;
-                cVar.ggZ = R.color.cp_bg_line_d;
+                cVar.ghb = R.color.cp_bg_line_d;
                 this.mDataList.add(cVar);
             }
             if (dataRes.relate_thread != null && !v.aa(dataRes.relate_thread.thread_list)) {
@@ -96,7 +96,7 @@ public class a {
                         c cVar3 = new c();
                         cVar3.a(topicThread);
                         cVar3.topicId = this.topicId;
-                        cVar3.gfw = this.gfo;
+                        cVar3.gfy = this.gfq;
                         this.mDataList.add(cVar3);
                     }
                 }
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean buI() {
-        return this.gfo;
+    public boolean buJ() {
+        return this.gfq;
     }
 }

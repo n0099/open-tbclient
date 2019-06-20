@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long rH(String str) {
+    public static long rG(String str) {
         long j;
         long j2 = 0;
-        long rI = rI(str);
+        long rH = rH(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.cUd + str);
+            File file = new File(i.cUe + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + rI;
+        return j + j2 + rH;
     }
 
-    public static long rI(String str) {
+    public static long rH(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.cUd + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.cUe + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -79,7 +79,7 @@ public class m {
         }
     }
 
-    public static String rJ(String str) {
+    public static String rI(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

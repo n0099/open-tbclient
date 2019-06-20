@@ -6,7 +6,7 @@ import com.baidu.tieba.R;
 public class j extends k {
     public j(Context context) {
         super((String) null, 23, 0);
-        this.crt = R.drawable.selector_more_tool_btn;
-        this.cry = new int[]{32};
+        this.cru = R.drawable.selector_more_tool_btn;
+        this.crz = new int[]{32};
     }
 }

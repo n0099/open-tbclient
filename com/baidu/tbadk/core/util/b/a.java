@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> bUw = new ArrayList<>();
-    private b bUx;
-    private InterfaceC0241a bUy;
+    private ArrayList<String> bUx = new ArrayList<>();
+    private b bUy;
+    private InterfaceC0241a bUz;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -26,24 +26,24 @@ public class a {
 
     /* loaded from: classes.dex */
     public interface b {
-        void oi(String str);
+        void oh(String str);
 
-        void oj(String str);
+        void oi(String str);
     }
 
     public void a(b bVar) {
-        this.bUx = bVar;
+        this.bUy = bVar;
     }
 
     public void aiM() {
-        if (this.bUw != null) {
-            this.bUw.clear();
+        if (this.bUx != null) {
+            this.bUx.clear();
         }
     }
 
     public void e(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bUw.add(str);
+            this.bUx.add(str);
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
         if (!com.baidu.e.a.ud()) {
             aiN();
             return false;
-        } else if (v.aa(this.bUw)) {
+        } else if (v.aa(this.bUx)) {
             aiN();
             return false;
         } else {
@@ -79,7 +79,7 @@ public class a {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
         aVar.dN(false);
         aVar.hn(R.string.request_permission_default_title);
-        aVar.ho(oh(str));
+        aVar.ho(og(str));
         aVar.a(R.string.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,16 +89,16 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bUx != null) {
-                    a.this.bUx.oj(str);
+                if (a.this.bUy != null) {
+                    a.this.bUy.oi(str);
                 }
             }
         }).b(R.string.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bUx != null) {
-                    a.this.bUx.oi(str);
+                if (a.this.bUy != null) {
+                    a.this.bUy.oh(str);
                 }
             }
         }).b(i.ab(activity));
@@ -109,14 +109,14 @@ public class a {
     private void ab(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bUw.toArray(new String[this.bUw.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bUx.toArray(new String[this.bUx.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int oh(String str) {
+    private int og(String str) {
         if (TextUtils.isEmpty(str) || "android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
             return R.string.request_permission_default_text;
         }
@@ -139,12 +139,12 @@ public class a {
     }
 
     public void a(InterfaceC0241a interfaceC0241a) {
-        this.bUy = interfaceC0241a;
+        this.bUz = interfaceC0241a;
     }
 
     public void aiN() {
-        if (this.bUy != null) {
-            this.bUy.aiN();
+        if (this.bUz != null) {
+            this.bUz.aiN();
         }
     }
 }

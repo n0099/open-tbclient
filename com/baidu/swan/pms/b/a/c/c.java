@@ -301,7 +301,7 @@ public class c<T> implements com.baidu.swan.pms.a.a<T> {
             cVar2.currentSize = cVar.currentSize;
             cVar2.createTime = cVar.createTime;
             cVar2.updateTime = cVar.updateTime;
-            cVar2.aaB = i;
+            cVar2.aaA = i;
         }
     }
 }

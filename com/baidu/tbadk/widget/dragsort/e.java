@@ -10,9 +10,9 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap cGq;
-    private ImageView cGr;
-    private int cGs = ViewCompat.MEASURED_STATE_MASK;
+    private Bitmap cGr;
+    private ImageView cGs;
+    private int cGt = ViewCompat.MEASURED_STATE_MASK;
     private ListView mListView;
 
     public e(ListView listView) {
@@ -20,7 +20,7 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.cGs = i;
+        this.cGt = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -31,16 +31,16 @@ public class e implements a.h {
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.cGq = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.cGr = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.cGr == null) {
-            this.cGr = new ImageView(this.mListView.getContext());
+        if (this.cGs == null) {
+            this.cGs = new ImageView(this.mListView.getContext());
         }
-        this.cGr.setBackgroundColor(this.cGs);
-        this.cGr.setPadding(0, 0, 0, 0);
-        this.cGr.setImageBitmap(this.cGq);
-        this.cGr.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.cGr;
+        this.cGs.setBackgroundColor(this.cGt);
+        this.cGs.setPadding(0, 0, 0, 0);
+        this.cGs.setImageBitmap(this.cGr);
+        this.cGs.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.cGs;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -50,7 +50,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void bg(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.cGq.recycle();
-        this.cGq = null;
+        this.cGr.recycle();
+        this.cGr = null;
     }
 }

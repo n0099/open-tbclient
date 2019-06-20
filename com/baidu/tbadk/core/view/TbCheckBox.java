@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class TbCheckBox extends ImageView {
-    private int bZu;
     private int bZv;
-    private a bZw;
+    private int bZw;
+    private a bZx;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -31,21 +31,21 @@ public class TbCheckBox extends ImageView {
 
     public TbCheckBox(Context context) {
         super(context);
-        this.bZu = R.drawable.icon_set_list_ok_s;
-        this.bZv = R.drawable.icon_set_list_ok_n;
+        this.bZv = R.drawable.icon_set_list_ok_s;
+        this.bZw = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public TbCheckBox(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bZu = R.drawable.icon_set_list_ok_s;
-        this.bZv = R.drawable.icon_set_list_ok_n;
+        this.bZv = R.drawable.icon_set_list_ok_s;
+        this.bZw = R.drawable.icon_set_list_ok_n;
         initialize();
     }
 
     public void setBackgroundDrawableId(int i, int i2) {
-        this.bZu = i;
-        this.bZv = i2;
+        this.bZv = i;
+        this.bZw = i2;
     }
 
     private void initialize() {
@@ -59,16 +59,16 @@ public class TbCheckBox extends ImageView {
     }
 
     public void setStatedChangedListener(a aVar) {
-        this.bZw = aVar;
+        this.bZx = aVar;
     }
 
     public void ajG() {
         if (ajH()) {
-            al.c(this, this.bZu);
+            al.c(this, this.bZv);
             setContentDescription(getResources().getString(R.string.check_box_checked));
             return;
         }
-        al.c(this, this.bZv);
+        al.c(this, this.bZw);
         setContentDescription(getResources().getString(R.string.check_box_not_checked));
     }
 
@@ -91,8 +91,8 @@ public class TbCheckBox extends ImageView {
             ((b) tag).setChecked(z);
         }
         ajG();
-        if (this.bZw != null) {
-            this.bZw.a(this, z, getTag());
+        if (this.bZx != null) {
+            this.bZx.a(this, z, getTag());
         }
     }
 }

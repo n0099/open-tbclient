@@ -26,7 +26,7 @@ public class a {
             aVar2.aAu = jSONObject.optString("audioId", aVar.aAu);
             aVar2.aAv = jSONObject.optString("slaveId", aVar.aAv);
             aVar2.mUrl = jSONObject.optString("src", aVar.mUrl);
-            aVar2.aAB = com.baidu.swan.apps.ae.b.Lq() != null && com.baidu.swan.apps.storage.b.ht(aVar2.mUrl);
+            aVar2.aAB = com.baidu.swan.apps.ae.b.Lq() != null && com.baidu.swan.apps.storage.b.hs(aVar2.mUrl);
             aVar2.mTitle = jSONObject.optString("title", aVar.mTitle);
             aVar2.aAw = jSONObject.optString("epname", aVar.aAw);
             aVar2.aAx = jSONObject.optString("singer", aVar.aAx);
@@ -45,7 +45,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String ff(String str) {
+    public String fe(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("src", str);

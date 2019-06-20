@@ -11,15 +11,15 @@ public class i extends g {
     public long cyF;
     public long cyG;
     public long cyH;
-    public boolean cyI;
-    public long cyJ;
+    public long cyI;
+    public boolean cyJ;
     public long cyK;
-    public boolean cyL;
-    public long cyM;
+    public long cyL;
+    public boolean cyM;
     public long cyN;
     public long cyO;
     public long cyP;
-    public long cyw;
+    public long cyQ;
     public long cyx;
     public long cyy;
     public long cyz;
@@ -28,62 +28,62 @@ public class i extends g {
     public long sequenceID;
     public long socketCostTime;
     public int socketErrNo;
+    public long tZ;
     public long ub;
-    public long uc;
 
     public i() {
+        this.tZ = 0L;
         this.ub = 0L;
-        this.uc = 0L;
-        this.cyD = 0L;
-        this.cyF = 0L;
+        this.cyE = 0L;
         this.cyG = 0L;
         this.cyH = 0L;
-        this.cyJ = 0L;
+        this.cyI = 0L;
         this.cyK = 0L;
-        this.cyL = false;
+        this.cyL = 0L;
+        this.cyM = false;
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
+        this.tZ = 0L;
         this.ub = 0L;
-        this.uc = 0L;
-        this.cyD = 0L;
-        this.cyF = 0L;
+        this.cyE = 0L;
         this.cyG = 0L;
         this.cyH = 0L;
-        this.cyJ = 0L;
+        this.cyI = 0L;
         this.cyK = 0L;
-        this.cyL = false;
+        this.cyL = 0L;
+        this.cyM = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.cyI = z;
-            if (this.cyI) {
-                this.cyH = responsedMessage.getDownSize();
-                this.cyM = responsedMessage.getOrginalMessage().getClientLogID();
+            this.cyJ = z;
+            if (this.cyJ) {
+                this.cyI = responsedMessage.getDownSize();
+                this.cyN = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.cyJ = responsedMessage.performanceData.wf;
-                this.cyK = responsedMessage.performanceData.wg;
-                this.socketErrNo = responsedMessage.performanceData.wc;
-                this.socketCostTime = responsedMessage.performanceData.we;
+                this.cyK = responsedMessage.performanceData.we;
+                this.cyL = responsedMessage.performanceData.wf;
+                this.socketErrNo = responsedMessage.performanceData.wb;
+                this.socketCostTime = responsedMessage.performanceData.wc;
             } else {
-                this.cyG = responsedMessage.getDownSize();
+                this.cyH = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.cyw = j;
-            this.cyx = j2;
-            this.cyE = j3;
+            this.cyx = j;
+            this.cyy = j2;
+            this.cyF = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.cyy = responsedMessage.performanceData.vU;
-            this.cyz = responsedMessage.performanceData.vV;
-            this.cyA = responsedMessage.performanceData.vW;
+            this.cyz = responsedMessage.performanceData.vT;
+            this.cyA = responsedMessage.performanceData.vU;
+            this.cyB = responsedMessage.performanceData.vV;
+            this.tZ = responsedMessage.performanceData.vW;
             this.ub = responsedMessage.performanceData.vX;
-            this.uc = responsedMessage.performanceData.vY;
-            this.cyB = responsedMessage.performanceData.vZ;
-            this.cyC = responsedMessage.performanceData.wa;
-            this.cyD = responsedMessage.performanceData.wb;
-            this.cyD += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.cyC = responsedMessage.performanceData.vY;
+            this.cyD = responsedMessage.performanceData.vZ;
+            this.cyE = responsedMessage.performanceData.wa;
+            this.cyE += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.cyL = z2;
-            this.cyF = j4;
+            this.cyM = z2;
+            this.cyG = j4;
         }
     }
 

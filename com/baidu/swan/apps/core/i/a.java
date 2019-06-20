@@ -18,7 +18,7 @@ public class a implements g {
 
     @Override // com.baidu.swan.apps.b.c.g
     public boolean P(@NonNull Context context, String str) {
-        return !dS(str) && T(context, str);
+        return !dR(str) && T(context, str);
     }
 
     private static boolean T(Context context, String str) {
@@ -47,7 +47,7 @@ public class a implements g {
         }
     }
 
-    private static boolean dS(String str) {
+    private static boolean dR(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

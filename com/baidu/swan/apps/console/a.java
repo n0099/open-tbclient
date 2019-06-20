@@ -14,7 +14,7 @@ public class a {
         final com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
         if (Lq != null) {
             b.aS(z);
-            new g.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).gx(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.b.a()).cb(false).b(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
+            new g.a(context).d(context.getString(a.h.aiapps_debug_switch_title)).gw(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.b.a()).cb(false).b(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     Activity activity = com.baidu.swan.apps.ae.b.this.getActivity();

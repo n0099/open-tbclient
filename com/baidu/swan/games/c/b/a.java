@@ -79,7 +79,7 @@ public class a extends g {
             }
             boolean bs = com.baidu.swan.c.a.bs(iVar.filePath, Qx.getAbsolutePath());
             if (bs) {
-                com.baidu.swan.games.c.a.b.Qv().iU(iVar.versionName);
+                com.baidu.swan.games.c.a.b.Qv().iT(iVar.versionName);
             }
             com.baidu.swan.c.a.deleteFile(iVar.filePath);
             a.this.bfj.cK(bs);

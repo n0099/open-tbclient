@@ -17,19 +17,19 @@ import java.util.List;
 public class j {
     private List<a> aOH;
     private TextView bBh;
-    private Context bNd;
-    private LinearLayout bNf;
-    private View bNg;
-    private TextView bNh;
+    private Context bNe;
+    private LinearLayout bNg;
+    private View bNh;
+    private TextView bNi;
     private RadioButton fBp;
     private RadioButton fBq;
     private RadioButton fBr;
     private RadioButton fBs;
     private RadioButton fBt;
-    private d jBs;
-    private b jBt;
-    private e jBu;
-    private LinearLayout jBv;
+    private d jBv;
+    private b jBw;
+    private e jBx;
+    private LinearLayout jBy;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -64,8 +64,8 @@ public class j {
                 j.this.fBs.setChecked(true);
                 j.this.mScore = 5;
             }
-            if (j.this.jBu != null) {
-                j.this.jBu.yR(j.this.mScore);
+            if (j.this.jBx != null) {
+                j.this.jBx.yR(j.this.mScore);
             }
         }
     };
@@ -95,13 +95,13 @@ public class j {
 
     public j(Context context) {
         if (context != null) {
-            this.bNd = context;
+            this.bNe = context;
             this.view = LayoutInflater.from(context).inflate(R.layout.rate_list_dialog_view, (ViewGroup) null);
-            this.bNf = (LinearLayout) this.view.findViewById(R.id.content_view);
+            this.bNg = (LinearLayout) this.view.findViewById(R.id.content_view);
             this.bBh = (TextView) this.view.findViewById(R.id.title);
-            this.bNg = this.view.findViewById(R.id.title_divide_line);
+            this.bNh = this.view.findViewById(R.id.title_divide_line);
             this.aOH = new ArrayList();
-            this.bNh = (TextView) this.view.findViewById(R.id.dialog_bottom_cancel_button);
+            this.bNi = (TextView) this.view.findViewById(R.id.dialog_bottom_cancel_button);
             this.fBp = (RadioButton) this.view.findViewById(R.id.comment_grade_1);
             this.fBp.setOnClickListener(this.mOnClickListener);
             this.fBq = (RadioButton) this.view.findViewById(R.id.comment_grade_2);
@@ -112,23 +112,23 @@ public class j {
             this.fBs.setOnClickListener(this.mOnClickListener);
             this.fBt = (RadioButton) this.view.findViewById(R.id.comment_grade_5);
             this.fBt.setOnClickListener(this.mOnClickListener);
-            this.jBv = (LinearLayout) this.view.findViewById(R.id.comment_grade);
+            this.jBy = (LinearLayout) this.view.findViewById(R.id.comment_grade);
         }
     }
 
     public Context getContext() {
-        return this.bNd;
+        return this.bNe;
     }
 
     public ViewGroup afX() {
-        return this.bNf;
+        return this.bNg;
     }
 
     public void setTitleText(String str) {
         this.titleText = str;
     }
 
-    public void rG(boolean z) {
+    public void rH(boolean z) {
         this.fBp.setEnabled(z);
         this.fBq.setEnabled(z);
         this.fBr.setEnabled(z);
@@ -179,11 +179,11 @@ public class j {
     }
 
     public void BU(int i) {
-        this.jBv.setVisibility(i);
+        this.jBy.setVisibility(i);
     }
 
     public void C(int i, int i2, int i3, int i4) {
-        this.jBv.setPadding(i, i2, i3, i4);
+        this.jBy.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -191,24 +191,24 @@ public class j {
     }
 
     public void setTitleSize(int i) {
-        this.bBh.setTextSize(0, l.g(this.bNd, i));
+        this.bBh.setTextSize(0, l.g(this.bNe, i));
     }
 
-    public d cvf() {
-        return this.jBs;
+    public d cve() {
+        return this.jBv;
     }
 
     public void W(List<a> list) {
         if (list != null) {
             this.aOH = list;
-            this.bNf.removeAllViews();
+            this.bNg.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
                     a aVar = list.get(i2);
                     if (aVar != null) {
-                        this.bNf.addView(aVar.getView());
+                        this.bNg.addView(aVar.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -219,24 +219,24 @@ public class j {
     }
 
     public void a(b bVar) {
-        this.jBt = bVar;
+        this.jBw = bVar;
     }
 
     public void a(e eVar) {
-        this.jBu = eVar;
+        this.jBx = eVar;
     }
 
     public void BV(int i) {
-        this.bNh.setVisibility(i);
+        this.bNi.setVisibility(i);
     }
 
     public void onChangeSkinType() {
         al.l(this.bBh, R.color.cp_bg_line_d);
         al.j(this.bBh, R.color.cp_cont_j);
-        al.l(this.bNg, R.color.cp_bg_line_c);
-        al.k(this.bNh, R.drawable.bg_bottom_up_list_dialog_item);
-        al.j(this.bNh, R.color.cp_cont_f);
-        al.k(this.jBv, R.drawable.bg_bottom_up_list_dialog_item);
+        al.l(this.bNh, R.color.cp_bg_line_c);
+        al.k(this.bNi, R.drawable.bg_bottom_up_list_dialog_item);
+        al.j(this.bNi, R.color.cp_cont_f);
+        al.k(this.jBy, R.drawable.bg_bottom_up_list_dialog_item);
         if (this.aOH != null) {
             for (a aVar : this.aOH) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class j {
         } else {
             this.bBh.setVisibility(8);
         }
-        if (this.jBt != null) {
-            this.bNh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.j.2
+        if (this.jBw != null) {
+            this.bNi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.j.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    j.this.jBt.onClick();
+                    j.this.jBw.onClick();
                 }
             });
         }
@@ -265,23 +265,23 @@ public class j {
     /* loaded from: classes.dex */
     public static class a {
         private String ama;
-        private View bMQ;
-        private j jBx;
-        private c jBy;
+        private View bMR;
+        private j jBA;
+        private c jBB;
         private TextView mTextView;
         private View mView;
         private int mTextColor = R.drawable.person_more_pop_cancel_text_selector;
-        private int bMR = R.drawable.person_more_pop_item_bg_selector;
-        private int bMS = 17;
-        private boolean bMU = true;
+        private int bMS = R.drawable.person_more_pop_item_bg_selector;
+        private int bMT = 17;
+        private boolean bMV = true;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jBy != null) {
-                    a.this.jBy.onClick();
+                if (a.this.jBB != null) {
+                    a.this.jBB.onClick();
                 }
-                if (a.this.jBx != null && a.this.jBx.cvf() != null) {
-                    a.this.jBx.cvf().mu(a.this.mId);
+                if (a.this.jBA != null && a.this.jBA.cve() != null) {
+                    a.this.jBA.cve().mu(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class j {
 
         public a(String str, j jVar) {
             this.ama = str;
-            this.jBx = jVar;
+            this.jBA = jVar;
             initView();
             initListener();
         }
@@ -299,27 +299,27 @@ public class j {
         }
 
         public void a(c cVar) {
-            this.jBy = cVar;
+            this.jBB = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
             al.k(this.mTextView, R.drawable.bg_bottom_up_list_dialog_item);
             al.j(this.mTextView, R.color.cp_cont_f);
-            al.l(this.bMQ, R.color.cp_bg_line_c);
+            al.l(this.bMR, R.color.cp_bg_line_c);
         }
 
         private void initView() {
-            if (this.jBx != null && this.jBx.getContext() != null) {
-                this.mView = LayoutInflater.from(this.jBx.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.jBx.afX(), false);
+            if (this.jBA != null && this.jBA.getContext() != null) {
+                this.mView = LayoutInflater.from(this.jBA.getContext()).inflate(R.layout.bottom_up_list_dialog_item, this.jBA.afX(), false);
                 this.mTextView = (TextView) this.mView.findViewById(R.id.item_view);
                 this.mTextView.setText(this.ama);
-                this.mTextView.setGravity(this.bMS);
-                this.bMQ = this.mView.findViewById(R.id.divider_line);
-                if (this.bMU) {
-                    this.bMQ.setVisibility(0);
+                this.mTextView.setGravity(this.bMT);
+                this.bMR = this.mView.findViewById(R.id.divider_line);
+                if (this.bMV) {
+                    this.bMR.setVisibility(0);
                 } else {
-                    this.bMQ.setVisibility(8);
+                    this.bMR.setVisibility(8);
                 }
                 onChangeSkinType();
             }

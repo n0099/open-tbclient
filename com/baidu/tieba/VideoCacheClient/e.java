@@ -17,21 +17,21 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e cUr;
+    private static e cUs;
     private Context mContext;
     private Handler mHandler;
-    private long cUs = 0;
-    private boolean cRG = false;
+    private long cUt = 0;
+    private boolean cRH = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.rv((String) message.obj);
+                    e.this.ru((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.rB((String) message.obj);
+                    e.this.rA((String) message.obj);
                 }
             } else if (message.what == 3) {
                 d.am(e.TAG, "got MSG_CHECK");
@@ -49,27 +49,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.cRG = true;
-            com.baidu.adp.lib.g.e.iB().removeCallbacks(e.this.cRO);
+            e.this.cRH = true;
+            com.baidu.adp.lib.g.e.iB().removeCallbacks(e.this.cRP);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.cUe);
+            File file = new File(c.cUf);
             if (file.exists()) {
                 file.delete();
             }
             b.aBc().aBe();
-            e.this.cRG = false;
-            com.baidu.adp.lib.g.e.iB().postDelayed(e.this.cRO, 1000L);
+            e.this.cRH = false;
+            com.baidu.adp.lib.g.e.iB().postDelayed(e.this.cRP, 1000L);
         }
     };
-    private Runnable cRO = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable cRP = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.cRG) {
+            if (!e.this.cRH) {
                 e.this.aAi();
-                com.baidu.adp.lib.g.e.iB().postDelayed(e.this.cRO, 1000L);
+                com.baidu.adp.lib.g.e.iB().postDelayed(e.this.cRP, 1000L);
             }
         }
     };
@@ -85,14 +85,14 @@ public class e {
     }
 
     public static e cW(Context context) {
-        if (cUr == null) {
+        if (cUs == null) {
             synchronized (e.class) {
-                if (cUr == null) {
-                    cUr = new e(context);
+                if (cUs == null) {
+                    cUs = new e(context);
                 }
             }
         }
-        return cUr;
+        return cUs;
     }
 
     public void ae(String str, int i) {
@@ -102,13 +102,13 @@ public class e {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void rP(String str) {
+    public void rO(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void rQ(String str) {
+    public void rP(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -132,21 +132,21 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rv(String str) {
+    public void ru(String str) {
         cj(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void rB(String str) {
+    public void rA(String str) {
         cj(str, "?stop_cache=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aBf() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.cUs >= 86400000) {
+        if (currentTimeMillis - this.cUt >= 86400000) {
             cj("", "delete_expired_files");
-            this.cUs = currentTimeMillis;
+            this.cUt = currentTimeMillis;
         }
     }
 

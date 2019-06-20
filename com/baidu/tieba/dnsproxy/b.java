@@ -35,12 +35,12 @@ public class b {
     /* loaded from: classes2.dex */
     private static class a extends BdAsyncTask<String, Void, Boolean> {
         private static final BdUniqueId drx = BdUniqueId.gen();
-        Process cor;
+        Process cos;
         private long eNF;
         private String ip;
 
         private a(String str) {
-            this.cor = null;
+            this.cos = null;
             setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.TWO_PARALLEL, drx));
             this.ip = str;
         }
@@ -71,31 +71,31 @@ public class b {
             try {
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    this.cor = runtime.exec(apW() + this.ip);
-                    z = this.cor.waitFor() == 0;
+                    this.cos = runtime.exec(apW() + this.ip);
+                    z = this.cos.waitFor() == 0;
                     try {
                         this.eNF = System.currentTimeMillis() - currentTimeMillis;
                     } catch (IOException e3) {
                         e2 = e3;
                         BdLog.detailException(e2);
                         d.bch().cn("test_speed", e2.getMessage());
-                        this.cor.destroy();
+                        this.cos.destroy();
                         return Boolean.valueOf(z);
                     } catch (InterruptedException e4) {
                         e = e4;
                         BdLog.detailException(e);
                         d.bch().cn("test_speed", e.getMessage());
-                        this.cor.destroy();
+                        this.cos.destroy();
                         return Boolean.valueOf(z);
                     } catch (Throwable th2) {
                         th = th2;
                         BdLog.detailException(th);
                         d.bch().cn("test_speed", th.getMessage());
-                        this.cor.destroy();
+                        this.cos.destroy();
                         return Boolean.valueOf(z);
                     }
                 } finally {
-                    this.cor.destroy();
+                    this.cos.destroy();
                 }
             } catch (IOException e5) {
                 z = false;
@@ -114,9 +114,9 @@ public class b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.cor != null) {
+            if (this.cos != null) {
                 try {
-                    this.cor.destroy();
+                    this.cos.destroy();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }

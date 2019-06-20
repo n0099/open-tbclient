@@ -10,7 +10,7 @@ import rx.k;
 import rx.subjects.PublishSubject;
 /* loaded from: classes2.dex */
 public class SchedulerWhen extends rx.g implements k {
-    static final k ksb = new k() { // from class: rx.internal.schedulers.SchedulerWhen.3
+    static final k kse = new k() { // from class: rx.internal.schedulers.SchedulerWhen.3
         @Override // rx.k
         public void unsubscribe() {
         }
@@ -20,36 +20,36 @@ public class SchedulerWhen extends rx.g implements k {
             return false;
         }
     };
-    static final k ksc = rx.subscriptions.e.cNd();
-    private final rx.g krY;
-    private final rx.e<rx.d<rx.b>> krZ;
-    private final k ksa;
+    static final k ksf = rx.subscriptions.e.cNc();
+    private final rx.g ksb;
+    private final rx.e<rx.d<rx.b>> ksc;
+    private final k ksd;
 
     public SchedulerWhen(rx.functions.f<rx.d<rx.d<rx.b>>, rx.b> fVar, rx.g gVar) {
-        this.krY = gVar;
-        PublishSubject cMS = PublishSubject.cMS();
-        this.krZ = new rx.b.d(cMS);
-        this.ksa = fVar.call(cMS.cLj()).cKZ();
+        this.ksb = gVar;
+        PublishSubject cMR = PublishSubject.cMR();
+        this.ksc = new rx.b.d(cMR);
+        this.ksd = fVar.call(cMR.cLi()).cKY();
     }
 
     @Override // rx.k
     public void unsubscribe() {
-        this.ksa.unsubscribe();
+        this.ksd.unsubscribe();
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.ksa.isUnsubscribed();
+        return this.ksd.isUnsubscribed();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: rx.e<rx.d<rx.b>> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // rx.g
     public g.a createWorker() {
-        final g.a createWorker = this.krY.createWorker();
-        BufferUntilSubscriber cLw = BufferUntilSubscriber.cLw();
-        final rx.b.d dVar = new rx.b.d(cLw);
-        Object d = cLw.d(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
+        final g.a createWorker = this.ksb.createWorker();
+        BufferUntilSubscriber cLv = BufferUntilSubscriber.cLv();
+        final rx.b.d dVar = new rx.b.d(cLv);
+        Object d = cLv.d(new rx.functions.f<ScheduledAction, rx.b>() { // from class: rx.internal.schedulers.SchedulerWhen.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: a */
@@ -66,11 +66,11 @@ public class SchedulerWhen extends rx.g implements k {
             }
         });
         g.a aVar = new g.a() { // from class: rx.internal.schedulers.SchedulerWhen.2
-            private final AtomicBoolean ksh = new AtomicBoolean();
+            private final AtomicBoolean ksk = new AtomicBoolean();
 
             @Override // rx.k
             public void unsubscribe() {
-                if (this.ksh.compareAndSet(false, true)) {
+                if (this.ksk.compareAndSet(false, true)) {
                     createWorker.unsubscribe();
                     dVar.onCompleted();
                 }
@@ -78,7 +78,7 @@ public class SchedulerWhen extends rx.g implements k {
 
             @Override // rx.k
             public boolean isUnsubscribed() {
-                return this.ksh.get();
+                return this.ksk.get();
             }
 
             @Override // rx.g.a
@@ -95,7 +95,7 @@ public class SchedulerWhen extends rx.g implements k {
                 return immediateAction;
             }
         };
-        this.krZ.onNext(d);
+        this.ksc.onNext(d);
         return aVar;
     }
 
@@ -105,15 +105,15 @@ public class SchedulerWhen extends rx.g implements k {
         protected abstract k callActual(g.a aVar, rx.c cVar);
 
         public ScheduledAction() {
-            super(SchedulerWhen.ksb);
+            super(SchedulerWhen.kse);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(g.a aVar, rx.c cVar) {
             k kVar = get();
-            if (kVar != SchedulerWhen.ksc && kVar == SchedulerWhen.ksb) {
+            if (kVar != SchedulerWhen.ksf && kVar == SchedulerWhen.kse) {
                 k callActual = callActual(aVar, cVar);
-                if (!compareAndSet(SchedulerWhen.ksb, callActual)) {
+                if (!compareAndSet(SchedulerWhen.kse, callActual)) {
                     callActual.unsubscribe();
                 }
             }
@@ -127,14 +127,14 @@ public class SchedulerWhen extends rx.g implements k {
         @Override // rx.k
         public void unsubscribe() {
             k kVar;
-            k kVar2 = SchedulerWhen.ksc;
+            k kVar2 = SchedulerWhen.ksf;
             do {
                 kVar = get();
-                if (kVar == SchedulerWhen.ksc) {
+                if (kVar == SchedulerWhen.ksf) {
                     return;
                 }
             } while (!compareAndSet(kVar, kVar2));
-            if (kVar != SchedulerWhen.ksb) {
+            if (kVar != SchedulerWhen.kse) {
                 kVar.unsubscribe();
             }
         }
@@ -175,11 +175,11 @@ public class SchedulerWhen extends rx.g implements k {
     /* loaded from: classes2.dex */
     static class a implements rx.functions.a {
         private rx.functions.a action;
-        private rx.c ksj;
+        private rx.c ksm;
 
         public a(rx.functions.a aVar, rx.c cVar) {
             this.action = aVar;
-            this.ksj = cVar;
+            this.ksm = cVar;
         }
 
         @Override // rx.functions.a
@@ -187,7 +187,7 @@ public class SchedulerWhen extends rx.g implements k {
             try {
                 this.action.call();
             } finally {
-                this.ksj.onCompleted();
+                this.ksm.onCompleted();
             }
         }
     }

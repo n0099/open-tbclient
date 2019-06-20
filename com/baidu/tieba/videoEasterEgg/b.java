@@ -3,9 +3,9 @@ package com.baidu.tieba.videoEasterEgg;
 public interface b {
     void Bf();
 
-    void Fr(String str);
+    void Ft(String str);
 
-    void Fs(String str);
+    void Fu(String str);
 
     void eu(String str, String str2);
 

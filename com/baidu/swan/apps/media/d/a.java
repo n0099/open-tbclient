@@ -190,9 +190,9 @@ public class a implements com.baidu.swan.apps.media.a {
         com.baidu.swan.apps.media.b.b(this);
     }
 
-    public void eC(String str) {
+    public void eB(String str) {
         if (this.aCr != null) {
-            this.aCr.eC(str);
+            this.aCr.eB(str);
         }
     }
 

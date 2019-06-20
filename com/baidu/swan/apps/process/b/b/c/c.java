@@ -14,7 +14,7 @@ public abstract class c implements a<com.baidu.swan.apps.process.b.b.a.b> {
         StringBuilder sb = new StringBuilder();
         sb.append(System.currentTimeMillis()).append("").append(hashCode());
         this.aGD = sb.toString();
-        if (DEBUG && com.baidu.swan.apps.process.b.b.d.a.gg(this.aGD)) {
+        if (DEBUG && com.baidu.swan.apps.process.b.b.d.a.gf(this.aGD)) {
             throw new RuntimeException("illegal observer id");
         }
         return this.aGD;

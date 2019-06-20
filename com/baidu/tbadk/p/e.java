@@ -10,20 +10,20 @@ public class e extends o {
             com.baidu.adp.lib.stats.a iw = iw();
             iw.append("action", "time_t");
             a(iw, iVar);
-            iw.append("ishttp", iVar.cyI ? "1" : "0");
+            iw.append("ishttp", iVar.cyJ ? "1" : "0");
             iw.append("issuccess", iVar.isSuccess ? "1" : "0");
             iw.append("nettype", m.auk().getNetType());
-            iw.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cyx));
-            iw.append("wt", String.valueOf(iVar.cyF));
-            iw.append("qt", String.valueOf(iVar.cyy));
-            iw.append("connt", String.valueOf(iVar.cyz));
-            iw.append("rwt", String.valueOf(iVar.cyA));
-            iw.append("dect", String.valueOf(iVar.cyB));
-            iw.append("parset", String.valueOf(iVar.cyC));
-            iw.append("rendert", String.valueOf(iVar.cyE));
-            iw.append("ss", String.valueOf(iVar.cyG));
-            iw.append("hs", String.valueOf(iVar.cyH));
-            if (iVar.cyI && iVar.socketErrNo != 0) {
+            iw.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cyy));
+            iw.append("wt", String.valueOf(iVar.cyG));
+            iw.append("qt", String.valueOf(iVar.cyz));
+            iw.append("connt", String.valueOf(iVar.cyA));
+            iw.append("rwt", String.valueOf(iVar.cyB));
+            iw.append("dect", String.valueOf(iVar.cyC));
+            iw.append("parset", String.valueOf(iVar.cyD));
+            iw.append("rendert", String.valueOf(iVar.cyF));
+            iw.append("ss", String.valueOf(iVar.cyH));
+            iw.append("hs", String.valueOf(iVar.cyI));
+            if (iVar.cyJ && iVar.socketErrNo != 0) {
                 iw.append("salno", String.valueOf(iVar.socketErrNo));
                 if (iVar.socketCostTime != 0) {
                     iw.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -32,8 +32,8 @@ public class e extends o {
             if (iVar.errCode != 0) {
                 iw.c("errcode", Integer.valueOf(iVar.errCode));
             }
-            if (iVar.cyI) {
-                iw.append("c_logid", String.valueOf(iVar.cyM));
+            if (iVar.cyJ) {
+                iw.append("c_logid", String.valueOf(iVar.cyN));
             } else {
                 iw.append("seq_id", String.valueOf(iVar.sequenceID & 4294967295L));
             }
@@ -48,9 +48,9 @@ public class e extends o {
             iw.append("action", "resource_t");
             iw.append("actype", str);
             iw.append("issuccess", hVar.isSuccess ? "1" : "0");
-            iw.append("isfs", hVar.cyv ? "1" : "0");
-            iw.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.LR));
-            iw.append("from", String.valueOf(hVar.LQ));
+            iw.append("isfs", hVar.cyw ? "1" : "0");
+            iw.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.LQ));
+            iw.append("from", String.valueOf(hVar.LP));
             BdStatisticsManager.getInstance().performance(this.subType, iw);
         }
     }
@@ -64,28 +64,28 @@ public class e extends o {
     @Override // com.baidu.tbadk.p.o
     public void a(i iVar, boolean z) {
         if (m.auk().aul()) {
-            if (!z || iVar.cyN > 0) {
-                if (z || iVar.cyO > 0) {
+            if (!z || iVar.cyO > 0) {
+                if (z || iVar.cyP > 0) {
                     com.baidu.adp.lib.stats.a iw = iw();
                     iw.append("action", "time_t");
                     a(iw, iVar);
                     if (z) {
-                        iw.append("put", String.valueOf(iVar.cyN));
+                        iw.append("put", String.valueOf(iVar.cyO));
                     } else {
-                        iw.append("pdt", String.valueOf(iVar.cyO));
+                        iw.append("pdt", String.valueOf(iVar.cyP));
                     }
-                    iw.append("ishttp", iVar.cyI ? "1" : "0");
+                    iw.append("ishttp", iVar.cyJ ? "1" : "0");
                     iw.append("issuccess", iVar.isSuccess ? "1" : "0");
                     iw.append("nettype", m.auk().getNetType());
-                    iw.append("qt", String.valueOf(iVar.cyy));
-                    iw.append("connt", String.valueOf(iVar.cyz));
-                    iw.append("rwt", String.valueOf(iVar.cyA));
-                    iw.append("dect", String.valueOf(iVar.cyB));
-                    iw.append("parset", String.valueOf(iVar.cyC));
-                    iw.append("rendert", String.valueOf(iVar.cyE));
-                    iw.append("ss", String.valueOf(iVar.cyG));
-                    iw.append("hs", String.valueOf(iVar.cyH));
-                    if (iVar.cyI && iVar.socketErrNo != 0) {
+                    iw.append("qt", String.valueOf(iVar.cyz));
+                    iw.append("connt", String.valueOf(iVar.cyA));
+                    iw.append("rwt", String.valueOf(iVar.cyB));
+                    iw.append("dect", String.valueOf(iVar.cyC));
+                    iw.append("parset", String.valueOf(iVar.cyD));
+                    iw.append("rendert", String.valueOf(iVar.cyF));
+                    iw.append("ss", String.valueOf(iVar.cyH));
+                    iw.append("hs", String.valueOf(iVar.cyI));
+                    if (iVar.cyJ && iVar.socketErrNo != 0) {
                         iw.append("salno", String.valueOf(iVar.socketErrNo));
                         if (iVar.socketCostTime != 0) {
                             iw.append("scosttime", String.valueOf(iVar.socketCostTime));
@@ -102,11 +102,11 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.p.o
     public void a(i iVar, int i) {
-        if (m.auk().aul() && iVar.cyP > 0) {
+        if (m.auk().aul() && iVar.cyQ > 0) {
             com.baidu.adp.lib.stats.a iw = iw();
             iw.append("action", "time_t");
             a(iw, iVar);
-            iw.append("pct", String.valueOf(iVar.cyP));
+            iw.append("pct", String.valueOf(iVar.cyQ));
             switch (i) {
                 case 0:
                     iw.append("pct_type", String.valueOf(100));

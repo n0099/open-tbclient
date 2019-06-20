@@ -11,7 +11,7 @@ public final class av {
         if (dVar == null) {
             return false;
         }
-        switch (dVar.cGE()) {
+        switch (dVar.cGD()) {
             case 90:
             case SubsamplingScaleImageView.ORIENTATION_270 /* 270 */:
                 return a(dVar.getHeight(), dVar.getWidth(), cVar);

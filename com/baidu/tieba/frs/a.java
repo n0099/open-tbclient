@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData ceN;
+    private AntiData ceO;
     private final ArrayList<bg> fnM;
     private boolean fnN;
     private b fnO;
@@ -103,11 +103,11 @@ public class a {
     }
 
     public AntiData biZ() {
-        return this.ceN;
+        return this.ceO;
     }
 
     public void b(AntiData antiData) {
-        this.ceN = antiData;
+        this.ceO = antiData;
     }
 
     public String getForumId() {
@@ -151,6 +151,6 @@ public class a {
     }
 
     public boolean bjb() {
-        return this.ceN != null && this.ceN.isMultiDeleteEnable();
+        return this.ceO != null && this.ceO.isMultiDeleteEnable();
     }
 }

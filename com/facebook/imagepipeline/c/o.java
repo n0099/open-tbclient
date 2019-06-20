@@ -7,7 +7,7 @@ public interface o {
 
     void cEA();
 
-    void cEB();
+    void cEt();
 
     void cEu();
 

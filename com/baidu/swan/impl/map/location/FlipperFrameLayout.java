@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.baidu.swan.impl.map.location.h;
 /* loaded from: classes5.dex */
 public class FlipperFrameLayout extends FrameLayout implements h.a {
-    private float NU;
+    private float NT;
     private h bnZ;
     private boolean boh;
 
@@ -35,19 +35,19 @@ public class FlipperFrameLayout extends FrameLayout implements h.a {
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         if (this.boh || this.bnZ == null) {
-            this.NU = motionEvent.getRawY();
+            this.NT = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
             case 0:
-                this.NU = motionEvent.getRawY();
+                this.NT = motionEvent.getRawY();
                 break;
             case 1:
             case 3:
-                this.NU = motionEvent.getRawY();
+                this.NT = motionEvent.getRawY();
                 break;
             case 2:
-                float rawY = motionEvent.getRawY() - this.NU;
+                float rawY = motionEvent.getRawY() - this.NT;
                 boolean z = rawY <= 0.0f;
                 if (z && !this.bnZ.Uk() && al(rawY)) {
                     this.bnZ.da(true);

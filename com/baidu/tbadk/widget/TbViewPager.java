@@ -11,8 +11,8 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private float cDX;
-    private boolean ccC;
+    private float cDY;
+    private boolean ccD;
     private int mDuration;
     private int mTouchSlop;
 
@@ -58,14 +58,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.ccC = false;
+        this.ccD = false;
         this.mDuration = 600;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ccC = false;
+        this.ccD = false;
         this.mDuration = 600;
         init();
     }
@@ -76,7 +76,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.ccC = z;
+        this.ccD = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -85,7 +85,7 @@ public class TbViewPager extends ViewPager {
         if (v(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.ccC) {
+        if (motionEvent.getPointerCount() > 1 && this.ccD) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -113,15 +113,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 et(true);
-                this.cDX = motionEvent.getX();
+                this.cDY = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 et(false);
-                this.cDX = 0.0f;
+                this.cDY = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.cDX;
+                float x = motionEvent.getX() - this.cDY;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         et(false);

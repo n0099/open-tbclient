@@ -7,9 +7,9 @@ import tbclient.ZoneRight.DataReq;
 import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes.dex */
 public class a implements h {
-    public int fIn;
-    public int fIo;
     public int fIp;
+    public int fIq;
+    public int fIr;
     public String forum_id;
     public long thread_id;
 
@@ -29,7 +29,7 @@ public class a implements h {
         s.bindCommonParamsToProtobufData(builder, true, false, true);
         builder.forum_id = Long.valueOf(com.baidu.adp.lib.g.b.c(this.forum_id, 0L));
         builder.thread_id = Long.valueOf(this.thread_id);
-        builder.req_type = Integer.valueOf(this.fIo == 1 ? 2 : 1);
+        builder.req_type = Integer.valueOf(this.fIq == 1 ? 2 : 1);
         ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -12,80 +12,80 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class a extends c<AddGroupActivity> {
-    private NavigationBar cXZ;
-    private View gIY;
-    private View gIZ;
-    private EditText gJa;
-    private ImageButton gJb;
-    private View gJc;
-    private View gJd;
-    private AddGroupActivity gJe;
+    private NavigationBar cYa;
+    private View gJa;
+    private View gJb;
+    private EditText gJc;
+    private ImageButton gJd;
+    private View gJe;
+    private View gJf;
+    private AddGroupActivity gJg;
     private ProgressBar progressBar;
 
     public a(AddGroupActivity addGroupActivity) {
         super(addGroupActivity.getPageContext());
-        this.gIY = null;
-        this.cXZ = null;
-        this.gIZ = null;
         this.gJa = null;
+        this.cYa = null;
         this.gJb = null;
-        this.progressBar = null;
         this.gJc = null;
+        this.gJd = null;
+        this.progressBar = null;
         this.gJe = null;
-        this.gJe = addGroupActivity;
+        this.gJg = null;
+        this.gJg = addGroupActivity;
         initUI();
     }
 
-    public View bze() {
-        return this.gJb;
-    }
-
-    public View bDB() {
-        return this.gJc;
-    }
-
-    public View bDC() {
-        return this.gIZ;
-    }
-
-    public View bDD() {
+    public View bzf() {
         return this.gJd;
     }
 
-    public void bDE() {
-        if (this.gJa != null) {
-            this.gJa.setText("");
+    public View bDC() {
+        return this.gJe;
+    }
+
+    public View bDD() {
+        return this.gJb;
+    }
+
+    public View bDE() {
+        return this.gJf;
+    }
+
+    public void bDF() {
+        if (this.gJc != null) {
+            this.gJc.setText("");
         }
     }
 
-    public void lU(boolean z) {
+    public void lV(boolean z) {
         this.progressBar.setVisibility(z ? 0 : 8);
     }
 
     public void changeSkinType(int i) {
-        this.gJe.getLayoutMode().setNightMode(i == 1);
-        this.gJe.getLayoutMode().onModeChanged(this.gIY);
-        this.cXZ.onChangeSkinType(this.gJe.getPageContext(), i);
+        this.gJg.getLayoutMode().setNightMode(i == 1);
+        this.gJg.getLayoutMode().onModeChanged(this.gJa);
+        this.cYa.onChangeSkinType(this.gJg.getPageContext(), i);
     }
 
     private void initUI() {
-        this.gJe.setContentView(R.layout.im_add_group_activity);
-        this.gIY = this.gJe.findViewById(R.id.addgroup_rootlayout);
-        this.cXZ = (NavigationBar) this.gJe.findViewById(R.id.addgroup_navigationbar);
-        this.gIZ = this.cXZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cXZ.setTitleText(this.gJe.getResources().getString(R.string.add_group_title_main));
-        this.gJa = (EditText) this.gJe.findViewById(R.id.addgroup_input);
-        this.gJa.setInputType(2);
-        this.gJb = (ImageButton) this.gJe.findViewById(R.id.addgroup_delbtn);
-        this.gJc = this.gJe.findViewById(R.id.addgroup_searchbutton);
-        this.gJd = this.gJe.findViewById(R.id.addgroup_vcode);
-        this.gJa.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
+        this.gJg.setContentView(R.layout.im_add_group_activity);
+        this.gJa = this.gJg.findViewById(R.id.addgroup_rootlayout);
+        this.cYa = (NavigationBar) this.gJg.findViewById(R.id.addgroup_navigationbar);
+        this.gJb = this.cYa.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.cYa.setTitleText(this.gJg.getResources().getString(R.string.add_group_title_main));
+        this.gJc = (EditText) this.gJg.findViewById(R.id.addgroup_input);
+        this.gJc.setInputType(2);
+        this.gJd = (ImageButton) this.gJg.findViewById(R.id.addgroup_delbtn);
+        this.gJe = this.gJg.findViewById(R.id.addgroup_searchbutton);
+        this.gJf = this.gJg.findViewById(R.id.addgroup_vcode);
+        this.gJc.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.gJa.length() > 0) {
-                    a.this.gJb.setVisibility(0);
+                if (a.this.gJc.length() > 0) {
+                    a.this.gJd.setVisibility(0);
                 } else {
-                    a.this.gJb.setVisibility(8);
+                    a.this.gJd.setVisibility(8);
                 }
             }
 
@@ -95,17 +95,17 @@ public class a extends c<AddGroupActivity> {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                a.this.gJc.setTag(editable.toString().trim());
+                a.this.gJe.setTag(editable.toString().trim());
             }
         });
-        this.gJc = this.gJe.findViewById(R.id.addgroup_searchbutton);
-        this.progressBar = (ProgressBar) this.gJe.findViewById(R.id.addgroup_progress);
-        this.gIZ.setOnClickListener(this.gJe);
-        this.gJb.setOnClickListener(this.gJe);
-        this.gJc.setOnClickListener(this.gJe);
-        this.gJd.setOnClickListener(this.gJe);
+        this.gJe = this.gJg.findViewById(R.id.addgroup_searchbutton);
+        this.progressBar = (ProgressBar) this.gJg.findViewById(R.id.addgroup_progress);
+        this.gJb.setOnClickListener(this.gJg);
+        this.gJd.setOnClickListener(this.gJg);
+        this.gJe.setOnClickListener(this.gJg);
+        this.gJf.setOnClickListener(this.gJg);
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2902030)) {
-            this.gJd.setVisibility(8);
+            this.gJf.setVisibility(8);
         }
     }
 }

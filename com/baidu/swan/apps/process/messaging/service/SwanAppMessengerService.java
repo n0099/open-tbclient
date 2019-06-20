@@ -287,7 +287,7 @@ public final class SwanAppMessengerService extends Service {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.apps.process.messaging.service.a.IK().gl("onAppForegroud => " + a.toString());
+                com.baidu.swan.apps.process.messaging.service.a.IK().gk("onAppForegroud => " + a.toString());
             }
         }
 
@@ -316,7 +316,7 @@ public final class SwanAppMessengerService extends Service {
                     a.aGY = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
                     String string = bundle.getString(Constants.APP_ID);
                     if (!TextUtils.isEmpty(string)) {
-                        a.gn(string);
+                        a.gm(string);
                         com.baidu.swan.apps.process.messaging.service.a.IK().a(string, a);
                     }
                     try {
@@ -326,7 +326,7 @@ public final class SwanAppMessengerService extends Service {
                             e.printStackTrace();
                         }
                     }
-                    com.baidu.swan.apps.process.messaging.service.a.IK().gl("onConnAck => " + a.toString());
+                    com.baidu.swan.apps.process.messaging.service.a.IK().gk("onConnAck => " + a.toString());
                 }
             }
         }
@@ -338,7 +338,7 @@ public final class SwanAppMessengerService extends Service {
                 SwanAppProcessInfo byId = SwanAppProcessInfo.getById(message.arg1);
                 if (byId.isSwanAppProcess() && (a = com.baidu.swan.apps.process.messaging.service.a.IK().a(byId)) != null) {
                     a.IU();
-                    com.baidu.swan.apps.process.messaging.service.a.IK().gl("onPreloaded => " + a.toString());
+                    com.baidu.swan.apps.process.messaging.service.a.IK().gk("onPreloaded => " + a.toString());
                 }
             }
         }
@@ -356,7 +356,7 @@ public final class SwanAppMessengerService extends Service {
                 Parcelable parcelable = bundle.getParcelable("app_core");
                 cP.aGY = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
                 String string = bundle.getString(Constants.APP_ID);
-                cP.gn(string);
+                cP.gm(string);
                 cP.IR();
                 com.baidu.swan.apps.process.messaging.service.a.IK().a(string, cP);
                 try {
@@ -366,7 +366,7 @@ public final class SwanAppMessengerService extends Service {
                         e.printStackTrace();
                     }
                 }
-                com.baidu.swan.apps.process.messaging.service.a.IK().gl("onLoaded => " + cP.toString());
+                com.baidu.swan.apps.process.messaging.service.a.IK().gk("onLoaded => " + cP.toString());
             }
         }
 
@@ -382,7 +382,7 @@ public final class SwanAppMessengerService extends Service {
                 if (cP != null) {
                     cP.IQ();
                     cP.IR();
-                    com.baidu.swan.apps.process.messaging.service.a.IK().gl("onUnloaded => " + cP.toString());
+                    com.baidu.swan.apps.process.messaging.service.a.IK().gk("onUnloaded => " + cP.toString());
                 }
             }
         }
@@ -394,7 +394,7 @@ public final class SwanAppMessengerService extends Service {
                 SwanAppProcessInfo byId = SwanAppProcessInfo.getById(message.arg1);
                 if (byId.isSwanAppProcess() && (a = com.baidu.swan.apps.process.messaging.service.a.IK().a(byId)) != null) {
                     a.IX();
-                    com.baidu.swan.apps.process.messaging.service.a.IK().gl("onRePreloaded => " + a.toString());
+                    com.baidu.swan.apps.process.messaging.service.a.IK().gk("onRePreloaded => " + a.toString());
                 }
             }
         }
@@ -433,7 +433,7 @@ public final class SwanAppMessengerService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onConnectionDown(a.b bVar) {
-        com.baidu.swan.apps.process.messaging.service.a.IK().gl("onConnDown => " + bVar);
+        com.baidu.swan.apps.process.messaging.service.a.IK().gk("onConnDown => " + bVar);
         if (DEBUG) {
             Log.d(TAG, "unregister client. arg1: " + bVar);
         }

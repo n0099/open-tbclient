@@ -13,41 +13,41 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> cAY;
-    private int cBa;
+    private ArrayList<b> cAZ;
     private int cBb;
+    private int cBc;
     private TbPageContext<?> mContext;
     private int padding;
-    private int cAR = -1;
+    private int cAS = -1;
     private int rowSize = 0;
-    private int bWI = al.getColor(R.color.common_color_10043);
-    private int cAZ = al.getColor(R.color.cp_link_tip_a);
+    private int bWJ = al.getColor(R.color.common_color_10043);
+    private int cBa = al.getColor(R.color.cp_link_tip_a);
 
     public a(TbPageContext<?> tbPageContext) {
-        this.cAY = null;
+        this.cAZ = null;
         this.mContext = null;
         this.padding = 0;
         this.mContext = tbPageContext;
-        this.cAY = new ArrayList<>();
-        this.cBa = l.g(tbPageContext.getPageActivity(), R.dimen.ds1);
-        this.cBb = l.g(this.mContext.getPageActivity(), R.dimen.ds4);
+        this.cAZ = new ArrayList<>();
+        this.cBb = l.g(tbPageContext.getPageActivity(), R.dimen.ds1);
+        this.cBc = l.g(this.mContext.getPageActivity(), R.dimen.ds4);
         this.padding = l.g(this.mContext.getPageActivity(), R.dimen.ds36);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.cAY != null) {
-            return this.cAY.size();
+        if (this.cAZ != null) {
+            return this.cAZ.size();
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.cAY == null || i >= this.cAY.size()) {
+        if (this.cAZ == null || i >= this.cAZ.size()) {
             return null;
         }
-        return this.cAY.get(i);
+        return this.cAZ.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -62,31 +62,31 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.recommend_system_photo_item, viewGroup, false);
             c0259a = new C0259a();
-            c0259a.cmN = (LinearLayout) view.findViewById(R.id.photo_container);
-            c0259a.cBc = (TbImageView) view.findViewById(R.id.photo);
+            c0259a.cmO = (LinearLayout) view.findViewById(R.id.photo_container);
+            c0259a.cBd = (TbImageView) view.findViewById(R.id.photo);
         } else {
             c0259a = (C0259a) view.getTag();
         }
         if (kP(i) == 1) {
-            c0259a.cmN.setPadding(0, this.padding, 0, 0);
+            c0259a.cmO.setPadding(0, this.padding, 0, 0);
         } else if (kP(i) == 2) {
-            c0259a.cmN.setPadding(0, 0, 0, this.padding);
+            c0259a.cmO.setPadding(0, 0, 0, this.padding);
         } else {
-            c0259a.cmN.setPadding(0, 0, 0, 0);
+            c0259a.cmO.setPadding(0, 0, 0, 0);
         }
-        c0259a.cBc.setDrawerType(0);
-        c0259a.cBc.setBorderSurroundContent(true);
-        c0259a.cBc.setDrawBorder(true);
+        c0259a.cBd.setDrawerType(0);
+        c0259a.cBd.setBorderSurroundContent(true);
+        c0259a.cBd.setDrawBorder(true);
         if (itemViewType == 0) {
-            c0259a.cBc.setBorderColor(this.bWI);
-            c0259a.cBc.setBorderWidth(this.cBa);
+            c0259a.cBd.setBorderColor(this.bWJ);
+            c0259a.cBd.setBorderWidth(this.cBb);
         } else {
-            c0259a.cBc.setBorderColor(this.cAZ);
-            c0259a.cBc.setBorderWidth(this.cBb);
+            c0259a.cBd.setBorderColor(this.cBa);
+            c0259a.cBd.setBorderWidth(this.cBc);
         }
-        c0259a.cBc.setDefaultResource(R.drawable.transparent_bg);
-        c0259a.cBc.setDefaultErrorResource(R.drawable.icon_default_avatar100);
-        c0259a.cBc.startLoad(this.cAY.get(i).getUrl(), 10, false);
+        c0259a.cBd.setDefaultResource(R.drawable.transparent_bg);
+        c0259a.cBd.setDefaultErrorResource(R.drawable.icon_default_avatar100);
+        c0259a.cBd.startLoad(this.cAZ.get(i).getUrl(), 10, false);
         view.setTag(c0259a);
         return view;
     }
@@ -103,7 +103,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        return i == this.cAR ? 1 : 0;
+        return i == this.cAS ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -112,7 +112,7 @@ public class a extends BaseAdapter {
     }
 
     public void A(ArrayList<b> arrayList) {
-        this.cAY = arrayList;
+        this.cAZ = arrayList;
         if (arrayList != null) {
             if (arrayList.size() % 4 == 0) {
                 this.rowSize = arrayList.size() / 4;
@@ -123,14 +123,14 @@ public class a extends BaseAdapter {
     }
 
     public void kQ(int i) {
-        this.cAR = i;
+        this.cAS = i;
     }
 
     /* renamed from: com.baidu.tbadk.system.portrait.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private class C0259a {
-        TbImageView cBc;
-        LinearLayout cmN;
+        TbImageView cBd;
+        LinearLayout cmO;
 
         private C0259a() {
         }

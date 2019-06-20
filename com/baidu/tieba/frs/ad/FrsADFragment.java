@@ -45,7 +45,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     private boolean mHasMore;
     protected e ftK = null;
     private int offset = 0;
-    public int QN = 0;
+    public int QM = 0;
     private ArrayList<m> ePx = new ArrayList<>();
     private CustomMessageListener frS = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.ad.FrsADFragment.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -222,14 +222,14 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     public void aHL() {
         if (this.ftK != null) {
             hideLoadingView();
-            if (this.QN == 0) {
+            if (this.QM == 0) {
                 if (!v.aa(this.ftO)) {
                     G(true, false);
                     this.ftK.aII();
                     return;
                 }
                 showEmptyView();
-            } else if (this.QN == 2) {
+            } else if (this.QM == 2) {
                 this.ftK.fY(false);
                 if (!v.aa(this.ftO)) {
                     G(true, false);
@@ -237,7 +237,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
                     return;
                 }
                 showEmptyView();
-            } else if (this.QN == 1) {
+            } else if (this.QM == 1) {
                 if (!v.aa(this.ftO)) {
                     G(false, true);
                 } else {
@@ -309,7 +309,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
     public void rx(int i) {
         if (this.ftM != null) {
             aHK();
-            this.QN = i;
+            this.QM = i;
             if (i == 0 || i == 2) {
                 this.ftM.b(this.forumId, 0, 20);
             } else if (i == 1) {
@@ -384,7 +384,7 @@ public class FrsADFragment extends BaseFragment implements BdListView.e, ag {
         if (this.ftP == null) {
             this.ftP = new com.baidu.tbadk.m.c(getPageContext().getContext(), getNetRefreshListener());
             this.ftP.setTitle(null);
-            this.ftP.qx(null);
+            this.ftP.qw(null);
             this.ftP.setButtonText(null);
             this.ftP.asB();
             this.ftP.asC().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));

@@ -74,7 +74,7 @@ public class SpannableTextView extends TextView {
         String str3 = dVar.fEa ? dVar.userName + "  楼主: " : dVar.userName + ": ";
         String str4 = dVar.content;
         int length4 = str4 != null ? str4.length() : 0;
-        if ((wG(new StringBuilder().append(str3).append(str4).toString()) % this.fEz) + wG(new StringBuilder().append("|").append(dVar.fDS).toString()) >= this.fEz) {
+        if ((wF(new StringBuilder().append(str3).append(str4).toString()) % this.fEz) + wF(new StringBuilder().append("|").append(dVar.fDS).toString()) >= this.fEz) {
             str = "\n" + dVar.fDS;
         } else {
             str = " " + dVar.fDS;
@@ -83,7 +83,7 @@ public class SpannableTextView extends TextView {
         boolean equals = String.valueOf(this.dpV).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
-            if (wG("|  删除") + (wG(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.fEz) >= this.fEz) {
+            if (wF("|  删除") + (wF(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.fEz) >= this.fEz) {
                 str5 = "\n删除";
             } else {
                 str5 = "  删除";
@@ -115,7 +115,7 @@ public class SpannableTextView extends TextView {
         return spannableString;
     }
 
-    private int wG(String str) {
+    private int wF(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }

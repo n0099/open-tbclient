@@ -31,7 +31,7 @@ public class e implements m {
         return this.flf;
     }
 
-    public void wg(String str) {
+    public void wf(String str) {
         this.flf = str;
     }
 
@@ -70,7 +70,7 @@ public class e implements m {
     public void a(User user, int i) {
         if (user != null && user.god_data != null) {
             setUserId(user.id + "");
-            wg(user.portrait);
+            wf(user.portrait);
             setName(user.name);
             setNameShow(user.name_show);
             setIntro(user.god_data.intro);

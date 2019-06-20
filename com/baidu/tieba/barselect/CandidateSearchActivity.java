@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CandidateSearchActivity extends BaseActivity {
-    private List<com.baidu.tieba.barselect.data.a> bGv;
+    private List<com.baidu.tieba.barselect.data.a> bGw;
     private ImageView dAy;
     private ImageView eqA;
     private TextView eqB;
@@ -81,13 +81,13 @@ public class CandidateSearchActivity extends BaseActivity {
                 if (CandidateSearchActivity.this.eqz.getText() != null) {
                     aVar.eqV = CandidateSearchActivity.this.eqz.getText().toString();
                 }
-                if (CandidateSearchActivity.this.bGv != null) {
-                    CandidateSearchActivity.this.bGv.clear();
+                if (CandidateSearchActivity.this.bGw != null) {
+                    CandidateSearchActivity.this.bGw.clear();
                 } else {
-                    CandidateSearchActivity.this.bGv = new ArrayList();
+                    CandidateSearchActivity.this.bGw = new ArrayList();
                 }
-                CandidateSearchActivity.this.bGv.add(aVar);
-                CandidateSearchActivity.this.eqw.setData(CandidateSearchActivity.this.bGv);
+                CandidateSearchActivity.this.bGw.add(aVar);
+                CandidateSearchActivity.this.eqw.setData(CandidateSearchActivity.this.bGw);
             }
         }
     };
@@ -111,8 +111,8 @@ public class CandidateSearchActivity extends BaseActivity {
                 int error = httpResponsedMessage.getError();
                 if (error == 0) {
                     l.showToast(TbadkCoreApplication.getInst(), (int) R.string.bar_manager_vote_success);
-                    if (CandidateSearchActivity.this.bGv != null) {
-                        for (com.baidu.tieba.barselect.data.a aVar : CandidateSearchActivity.this.bGv) {
+                    if (CandidateSearchActivity.this.bGw != null) {
+                        for (com.baidu.tieba.barselect.data.a aVar : CandidateSearchActivity.this.bGw) {
                             aVar.eqW = true;
                         }
                     }

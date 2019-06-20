@@ -10,20 +10,20 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements l {
-    private EditorTools TB;
-    private int TC;
-    private int ccI;
-    private boolean[] csP;
-    private int[] csQ;
+    private EditorTools TA;
+    private int TB;
+    private int ccJ;
+    private boolean[] csQ;
+    private int[] csR;
     private int mType;
-    public static int csR = 1;
+    public static int csS = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.csP = new boolean[]{false, false, false, false, false};
-        this.csQ = new int[]{0, 0};
-        this.ccI = 0;
+        this.csQ = new boolean[]{false, false, false, false, false};
+        this.csR = new int[]{0, 0};
+        this.ccJ = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds17), context.getResources().getDimensionPixelSize(R.dimen.ds28), context.getResources().getDimensionPixelSize(R.dimen.ds10), context.getResources().getDimensionPixelSize(R.dimen.ds28));
         setGravity(17);
@@ -46,64 +46,64 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.csP[0] = false;
+                        this.csQ[0] = false;
                         break;
                     } else {
-                        this.csP[0] = true;
+                        this.csQ[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.csP[0] = false;
-                    this.csP[1] = false;
-                    this.csP[2] = false;
-                    this.csP[3] = false;
-                    this.csP[4] = false;
-                    this.csQ[0] = 0;
-                    this.csQ[1] = 0;
+                    this.csQ[0] = false;
+                    this.csQ[1] = false;
+                    this.csQ[2] = false;
+                    this.csQ[3] = false;
+                    this.csQ[4] = false;
+                    this.csR[0] = 0;
+                    this.csR[1] = 0;
                     break;
                 case 10:
-                    this.csP[2] = true;
+                    this.csQ[2] = true;
                     break;
                 case 11:
-                    this.csP[2] = false;
+                    this.csQ[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.crF != null) {
-                            if (aVar2.crF.getChosedFiles() != null) {
-                                this.csQ[0] = aVar2.crF.getChosedFiles().size();
+                        if (aVar2.crG != null) {
+                            if (aVar2.crG.getChosedFiles() != null) {
+                                this.csR[0] = aVar2.crG.getChosedFiles().size();
                             } else {
-                                this.csQ[0] = 0;
+                                this.csR[0] = 0;
                             }
                         }
-                        if (this.csQ[0] > 0) {
-                            this.csP[1] = true;
+                        if (this.csR[0] > 0) {
+                            this.csQ[1] = true;
                             break;
                         } else {
-                            this.csP[1] = false;
+                            this.csQ[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.csQ;
+                    int[] iArr = this.csR;
                     iArr[0] = iArr[0] - 1;
-                    if (this.csQ[0] > 0) {
-                        this.csP[1] = true;
+                    if (this.csR[0] > 0) {
+                        this.csQ[1] = true;
                         break;
                     } else {
-                        this.csP[1] = false;
+                        this.csQ[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.csP[3] = true;
+                    this.csQ[3] = true;
                     break;
                 case 29:
-                    this.csP[3] = false;
+                    this.csQ[3] = false;
                     break;
             }
             kr(this.mType);
@@ -112,24 +112,24 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.TB = editorTools;
+        this.TA = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.TB != null) {
-            this.TB.b(aVar);
+        if (this.TA != null) {
+            this.TA.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.TC = i;
+        this.TB = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.TC;
+        return this.TB;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.ccI = i;
+        this.ccJ = i;
         if (isEnabled()) {
             al.c(this, R.color.cp_link_tip_a, 1, i);
         } else {
@@ -163,17 +163,17 @@ public class SendView extends TextView implements l {
 
     public void kr(int i) {
         if (i == ALL) {
-            if (this.csP[0] || this.csP[1] || this.csP[2] || this.csP[3] || this.csP[4]) {
+            if (this.csQ[0] || this.csQ[1] || this.csQ[2] || this.csQ[3] || this.csQ[4]) {
                 setEnabled(true);
-                al.c(this, R.color.cp_link_tip_a, 1, this.ccI);
+                al.c(this, R.color.cp_link_tip_a, 1, this.ccJ);
                 return;
             }
             setEnabled(false);
             al.f(this, R.color.cp_cont_e, 1);
-        } else if (i == csR) {
-            if (this.csP[1]) {
+        } else if (i == csS) {
+            if (this.csQ[1]) {
                 setEnabled(true);
-                al.c(this, R.color.cp_link_tip_a, 1, this.ccI);
+                al.c(this, R.color.cp_link_tip_a, 1, this.ccJ);
                 return;
             }
             setEnabled(false);

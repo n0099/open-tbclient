@@ -34,7 +34,7 @@ public class s implements com.baidu.adp.widget.ListView.m {
         return this.fme;
     }
 
-    public void wj(String str) {
+    public void wi(String str) {
         this.fme = str;
     }
 

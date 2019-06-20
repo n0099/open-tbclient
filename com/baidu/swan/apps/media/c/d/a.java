@@ -71,12 +71,12 @@ public class a {
                     if (DEBUG) {
                         Log.d("AudioRecorderManager", "aac format init");
                     }
-                    MediaCodecInfo fn = fn("audio/mp4a-latm");
+                    MediaCodecInfo fm = fm("audio/mp4a-latm");
                     MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", i2, i);
                     createAudioFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, i3);
                     createAudioFormat.setInteger("aac-profile", 2);
-                    if (fn != null) {
-                        this.mMediaCodec = MediaCodec.createByCodecName(fn.getName());
+                    if (fm != null) {
+                        this.mMediaCodec = MediaCodec.createByCodecName(fm.getName());
                         this.mMediaCodec.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
                         this.mMediaCodec.start();
                         this.aCn = this.mMediaCodec.getInputBuffers();
@@ -136,7 +136,7 @@ public class a {
         }
     }
 
-    private MediaCodecInfo fn(String str) {
+    private MediaCodecInfo fm(String str) {
         int codecCount = MediaCodecList.getCodecCount();
         for (int i = 0; i < codecCount; i++) {
             MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);

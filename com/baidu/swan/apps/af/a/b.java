@@ -25,7 +25,7 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static boolean gN(String str) {
+    public static boolean gM(String str) {
         MalformedURLException e;
         boolean z;
         if (DEBUG && !com.baidu.swan.apps.ac.a.a.Ii()) {
@@ -53,11 +53,11 @@ public final class b {
             String lowerCase = str.toLowerCase();
             if (lowerCase.startsWith("weixin://wap/pay")) {
                 com.baidu.swan.apps.console.c.d("WebSafeCheckers", "url is weixin pay, Domain in white list");
-                e.hm("wechatH5");
+                e.hl("wechatH5");
                 z = true;
             } else if (lowerCase.startsWith("alipays://platformapi/startapp")) {
                 com.baidu.swan.apps.console.c.d("WebSafeCheckers", "url is ali pay, Domain in white list");
-                e.hm("alipayH5");
+                e.hl("alipayH5");
                 z = true;
             } else {
                 try {
@@ -127,7 +127,7 @@ public final class b {
         }
     }
 
-    public static boolean gO(String str) {
+    public static boolean gN(String str) {
         if (DEBUG && !com.baidu.swan.apps.ac.a.a.Ii()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;
@@ -192,7 +192,7 @@ public final class b {
                 Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + LX);
             }
             return true;
-        } else if (!gP(str2)) {
+        } else if (!gO(str2)) {
             return false;
         } else {
             boolean vK = com.baidu.swan.apps.u.a.DE().vK();
@@ -276,7 +276,7 @@ public final class b {
         }
     }
 
-    private static boolean gP(String str) {
+    private static boolean gO(String str) {
         for (String str2 : aQX) {
             if (str.startsWith(str2)) {
                 return true;
@@ -289,7 +289,7 @@ public final class b {
         return !vV && str.startsWith(HttpHost.DEFAULT_SCHEME_NAME);
     }
 
-    public static boolean gQ(String str) {
+    public static boolean gP(String str) {
         if (DEBUG && !com.baidu.swan.apps.ac.a.a.Ii()) {
             Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
             return true;

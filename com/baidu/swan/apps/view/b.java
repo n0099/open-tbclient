@@ -136,7 +136,7 @@ public class b {
 
     public void eH(int i) {
         com.baidu.swan.apps.performance.f.HY().f(new UbcFlowEvent("first_anim_end"));
-        com.baidu.swan.apps.y.f.GN().fz("first_anim_end");
+        com.baidu.swan.apps.y.f.GN().fy("first_anim_end");
         this.bbh.a(this.bbi, i);
     }
 

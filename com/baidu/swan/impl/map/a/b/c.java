@@ -30,9 +30,9 @@ public class c {
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
         paint.setColor(dVar.aAk.color);
-        paint.setTextSize(dVar.aAk.aaN);
+        paint.setTextSize(dVar.aAk.aaM);
         float f = dVar.aAk.aAn;
-        float f2 = dVar.aAk.aaH;
+        float f2 = dVar.aAk.aaG;
         Paint paint2 = new Paint();
         paint2.setAntiAlias(true);
         paint2.setStyle(Paint.Style.FILL_AND_STROKE);

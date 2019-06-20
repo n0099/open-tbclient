@@ -8,12 +8,12 @@ import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class h {
     private com.baidu.tbadk.m.h dmO;
-    private d iui;
-    BdTypeListView iuv;
+    private d iuj;
+    BdTypeListView iuw;
     private Context mContext;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener gBX = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener gBZ = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.jG()) {
@@ -21,34 +21,34 @@ public class h {
                     h.this.dmO.dettachView(h.this.mRootView);
                     h.this.dmO = null;
                 }
-                if (h.this.iui != null) {
-                    h.this.iui.ccA();
+                if (h.this.iuj != null) {
+                    h.this.iuj.ccB();
                 }
             }
         }
     };
 
-    public BdTypeListView ccL() {
-        return this.iuv;
+    public BdTypeListView ccM() {
+        return this.iuw;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.iuv = (BdTypeListView) view.findViewById(R.id.list);
+        this.iuw = (BdTypeListView) view.findViewById(R.id.list);
     }
 
-    public d ccM() {
-        return this.iui;
+    public d ccN() {
+        return this.iuj;
     }
 
     public void b(d dVar) {
-        this.iui = dVar;
+        this.iuj = dVar;
     }
 
     public void aj(String str, boolean z) {
-        f.a(this.dmO, this.gBX, this.mContext, this.mRootView, str, z);
-        this.iuv.setVisibility(8);
+        f.a(this.dmO, this.gBZ, this.mContext, this.mRootView, str, z);
+        this.iuw.setVisibility(8);
     }
 }

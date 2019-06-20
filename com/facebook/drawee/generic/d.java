@@ -10,13 +10,13 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d extends g implements q {
     @Nullable
-    Drawable jUk;
+    Drawable jUn;
     @Nullable
-    private r jWB;
+    private r jWE;
 
     public d(Drawable drawable) {
         super(drawable);
-        this.jUk = null;
+        this.jUn = null;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
@@ -31,13 +31,13 @@ public class d extends g implements q {
 
     @Override // com.facebook.drawee.drawable.q
     public void a(@Nullable r rVar) {
-        this.jWB = rVar;
+        this.jWE = rVar;
     }
 
     @Override // com.facebook.drawee.drawable.g, android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
-        if (this.jWB != null) {
-            this.jWB.si(z);
+        if (this.jWE != null) {
+            this.jWE.sj(z);
         }
         return super.setVisible(z, z2);
     }
@@ -46,19 +46,19 @@ public class d extends g implements q {
     @SuppressLint({"WrongCall"})
     public void draw(Canvas canvas) {
         if (isVisible()) {
-            if (this.jWB != null) {
-                this.jWB.onDraw();
+            if (this.jWE != null) {
+                this.jWE.onDraw();
             }
             super.draw(canvas);
-            if (this.jUk != null) {
-                this.jUk.setBounds(getBounds());
-                this.jUk.draw(canvas);
+            if (this.jUn != null) {
+                this.jUn.setBounds(getBounds());
+                this.jUn.draw(canvas);
             }
         }
     }
 
     public void g(@Nullable Drawable drawable) {
-        this.jUk = drawable;
+        this.jUn = drawable;
         invalidateSelf();
     }
 }

@@ -36,12 +36,12 @@ public class c {
     public void a(String str, a aVar) {
         com.baidu.swan.apps.ae.b Lq;
         if (aVar != null && !TextUtils.isEmpty(str) && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null) {
-            if (com.baidu.swan.games.subpackage.a.Sw().jU(str)) {
+            if (com.baidu.swan.games.subpackage.a.Sw().jT(str)) {
                 aVar.Sy();
                 return;
             }
-            String gE = com.baidu.swan.games.subpackage.a.Sw().gE(str);
-            if (TextUtils.isEmpty(gE)) {
+            String gD = com.baidu.swan.games.subpackage.a.Sw().gD(str);
+            if (TextUtils.isEmpty(gD)) {
                 aVar.cI(2112);
                 return;
             }
@@ -51,7 +51,7 @@ public class c {
                 String a2 = a(aVar);
                 swanGameSubPackageAPSInfo.appId = Lq.id;
                 swanGameSubPackageAPSInfo.appVersion = Lq.getVersion();
-                swanGameSubPackageAPSInfo.key = gE;
+                swanGameSubPackageAPSInfo.key = gD;
                 swanGameSubPackageAPSInfo.bkI = e.FV().FE();
                 swanGameSubPackageAPSInfo.bkJ = com.baidu.swan.games.subpackage.a.Sw().G(str, 1);
                 swanGameSubPackageAPSInfo.bkL = a2;

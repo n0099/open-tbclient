@@ -9,7 +9,7 @@ import com.baidu.swan.ubc.m;
 import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean cZm = false;
+    private static boolean cZn = false;
 
     public static void a(Application application, boolean z) {
         gj(z);
@@ -61,10 +61,10 @@ public class c {
     }
 
     private static void gj(boolean z) {
-        cZm = z;
+        cZn = z;
     }
 
     public static boolean aDb() {
-        return !cZm || com.baidu.swan.apps.an.a.hasLollipop();
+        return !cZn || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

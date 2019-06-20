@@ -29,7 +29,7 @@ public class a {
         this.dqB = BdCacheService.hq().b("tb.frs.game.strategy.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public void wC(final String str) {
+    public void wB(final String str) {
         if (this.dqB != null && str != null) {
             aa.a(new z<GameForumGuideTabResIdl>() { // from class: com.baidu.tieba.frs.game.strategy.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */

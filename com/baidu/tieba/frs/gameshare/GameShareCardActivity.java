@@ -79,8 +79,8 @@ public class GameShareCardActivity extends BaseActivity implements a.InterfaceC0
     public e u(Bitmap bitmap) {
         e eVar = new e();
         eVar.n(bitmap);
+        eVar.cjS = false;
         eVar.cjR = false;
-        eVar.cjQ = false;
         eVar.aoT();
         return eVar;
     }

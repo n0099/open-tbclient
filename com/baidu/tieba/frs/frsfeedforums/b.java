@@ -8,8 +8,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b {
     public View aMY;
-    public View cWI;
-    public int ccI = 3;
+    public View cWJ;
+    public int ccJ = 3;
     public BarImageView fzS;
     public TextView fzT;
     public TextView fzU;
@@ -18,7 +18,7 @@ public class b {
     public int position;
 
     public b(View view) {
-        this.cWI = view;
+        this.cWJ = view;
         this.fzS = (BarImageView) view.findViewById(R.id.frs_feed_forum_image);
         this.mTitle = (TextView) view.findViewById(R.id.frs_feed_forum_title);
         this.fzT = (TextView) view.findViewById(R.id.frs_feed_forum_other_info);

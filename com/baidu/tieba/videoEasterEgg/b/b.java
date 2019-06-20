@@ -16,26 +16,26 @@ import com.baidu.tbadk.t.bf;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class b implements a {
-    private com.baidu.tieba.videoEasterEgg.a.a jxZ = new com.baidu.tieba.videoEasterEgg.a.b();
-    private com.baidu.tieba.videoEasterEgg.b jya;
+    private com.baidu.tieba.videoEasterEgg.a.a jyc = new com.baidu.tieba.videoEasterEgg.a.b();
+    private com.baidu.tieba.videoEasterEgg.b jyd;
     private TbPageContext<?> mPageContext;
 
     public b(TbPageContext<?> tbPageContext, com.baidu.tieba.videoEasterEgg.b bVar, Intent intent) {
         this.mPageContext = tbPageContext;
-        this.jya = bVar;
-        this.jxZ.W(intent);
-        this.jxZ.y(tbPageContext.getUniqueId());
+        this.jyd = bVar;
+        this.jyc.W(intent);
+        this.jyc.y(tbPageContext.getUniqueId());
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void onClose() {
-        if (this.jya != null) {
-            this.jya.finishActivity();
+        if (this.jyd != null) {
+            this.jyd.finishActivity();
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cuo() {
+    public void cun() {
         if (this.mPageContext != null) {
             if (bf.iE() || bc.cE(this.mPageContext.getPageActivity())) {
                 ajT();
@@ -44,30 +44,30 @@ public class b implements a {
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cup() {
-        if (this.jxZ != null && this.jya != null) {
-            this.jya.Fs(this.jxZ.getVideoUrl());
+    public void cuo() {
+        if (this.jyc != null && this.jyd != null) {
+            this.jyd.Fu(this.jyc.getVideoUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void aFm() {
-        if (this.jya != null) {
-            this.jya.Bf();
+        if (this.jyd != null) {
+            this.jyd.Bf();
+        }
+    }
+
+    @Override // com.baidu.tieba.videoEasterEgg.b.a
+    public void cup() {
+        if (this.jyd != null && this.jyc != null) {
+            this.jyd.eu(this.jyc.getPopText(), this.jyc.getPopImageUrl());
         }
     }
 
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void cuq() {
-        if (this.jya != null && this.jxZ != null) {
-            this.jya.eu(this.jxZ.getPopText(), this.jxZ.getPopImageUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.videoEasterEgg.b.a
-    public void cur() {
-        if (this.jxZ != null) {
-            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.jxZ.getID()), false);
+        if (this.jyc != null) {
+            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(this.jyc.getID()), false);
         }
     }
 
@@ -78,8 +78,8 @@ public class b implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void playVideo() {
-        if (this.jxZ != null && this.jya != null) {
-            this.jya.Fr(this.jxZ.getVideoUrl());
+        if (this.jyc != null && this.jyd != null) {
+            this.jyd.Ft(this.jyc.getVideoUrl());
         }
     }
 
@@ -92,14 +92,14 @@ public class b implements a {
     }
 
     private void ajT() {
-        if (this.jxZ != null && this.mPageContext != null) {
+        if (this.jyc != null && this.mPageContext != null) {
             final e eVar = new e();
-            eVar.title = this.jxZ.getShareTitle();
-            eVar.content = this.jxZ.getShareContent();
-            eVar.linkUrl = this.jxZ.getShareUrl();
-            eVar.cjx = this.jxZ.getShareUrl();
-            if (!ap.isEmpty(this.jxZ.getShareImageUrl())) {
-                eVar.imageUri = Uri.parse(this.jxZ.getShareImageUrl());
+            eVar.title = this.jyc.getShareTitle();
+            eVar.content = this.jyc.getShareContent();
+            eVar.linkUrl = this.jyc.getShareUrl();
+            eVar.cjy = this.jyc.getShareUrl();
+            if (!ap.isEmpty(this.jyc.getShareImageUrl())) {
+                eVar.imageUri = Uri.parse(this.jyc.getShareImageUrl());
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.mPageContext.getPageActivity(), eVar, true, true);
             shareDialogConfig.setIsCopyLink(true);

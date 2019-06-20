@@ -33,7 +33,7 @@ public class a implements k {
     }
 
     @Override // com.baidu.swan.ubc.k
-    public boolean fK(String str) {
+    public boolean fJ(String str) {
         int i;
         c DE = com.baidu.swan.apps.u.a.DE();
         String Q = DE != null ? DE.Q("ANDROID_UBC_SAMPLE_" + str, "") : "";
@@ -56,7 +56,7 @@ public class a implements k {
 
     @Override // com.baidu.swan.ubc.k
     public void b(String str, Object obj, int i) {
-        if (!(obj instanceof String) || !d.kX((String) obj)) {
+        if (!(obj instanceof String) || !d.kW((String) obj)) {
             com.baidu.swan.apps.u.a.Eg().a(str, obj, i);
         }
     }

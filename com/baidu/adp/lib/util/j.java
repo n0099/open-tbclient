@@ -15,21 +15,21 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
-    private static j DO;
-    private long DM;
+    private static j DN;
+    private long DL;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
-    private static boolean DL = true;
-    private NetworkInfo DD = null;
+    private static boolean DK = true;
+    private NetworkInfo DC = null;
     private boolean isWifi = true;
-    private boolean DE = false;
-    private boolean DF = true;
+    private boolean DD = false;
+    private boolean DE = true;
+    private int DF = 0;
     private int DG = 0;
-    private int DH = 0;
-    private int DI = -1;
-    private String DJ = null;
-    private int DK = -1;
-    private boolean DN = true;
-    private Runnable DQ = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
+    private int DH = -1;
+    private String DI = null;
+    private int DJ = -1;
+    private boolean DM = true;
+    private Runnable DO = new Runnable() { // from class: com.baidu.adp.lib.util.j.1
         @Override // java.lang.Runnable
         public void run() {
             try {
@@ -62,40 +62,40 @@ public class j {
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        DO = null;
+        DN = null;
     }
 
     private void jF() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-        this.DD = activeNetworkInfo;
+        this.DC = activeNetworkInfo;
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() == 1) {
                 this.isWifi = true;
-                this.DE = false;
+                this.DD = false;
             } else if (activeNetworkInfo.getType() == 0) {
                 this.isWifi = false;
-                this.DE = true;
+                this.DD = true;
             } else {
                 this.isWifi = false;
-                this.DE = false;
+                this.DD = false;
             }
-            this.DF = true;
-            this.DG = activeNetworkInfo.getSubtype();
-            if (this.DE) {
-                this.DH = as(this.DG);
+            this.DE = true;
+            this.DF = activeNetworkInfo.getSubtype();
+            if (this.DD) {
+                this.DG = as(this.DF);
             } else {
-                this.DH = 0;
+                this.DG = 0;
             }
         } else {
             this.isWifi = false;
+            this.DD = false;
             this.DE = false;
-            this.DF = false;
-            this.DG = 0;
-            this.DG = 0;
+            this.DF = 0;
+            this.DF = 0;
         }
-        this.DI = jN();
-        this.DJ = Proxy.getDefaultHost();
-        this.DK = Proxy.getDefaultPort();
+        this.DH = jN();
+        this.DI = Proxy.getDefaultHost();
+        this.DJ = Proxy.getDefaultPort();
     }
 
     private NetworkInfo getActiveNetworkInfo() {
@@ -125,57 +125,57 @@ public class j {
     }
 
     public boolean jH() {
-        if (this.DD == null) {
+        if (this.DC == null) {
             jF();
         }
-        return this.DF;
+        return this.DE;
     }
 
     public boolean isWifi() {
-        if (this.DD == null) {
+        if (this.DC == null) {
             jF();
         }
         return this.isWifi;
     }
 
     public boolean jI() {
-        if (this.DD == null) {
+        if (this.DC == null) {
             jF();
         }
-        return this.DE;
+        return this.DD;
     }
 
     public int jJ() {
-        if (this.DD == null) {
+        if (this.DC == null) {
             jF();
+        }
+        return this.DG;
+    }
+
+    public int jK() {
+        if (this.DH == -1) {
+            try {
+                this.DH = jN();
+            } catch (Exception e) {
+                this.DH = 0;
+            }
         }
         return this.DH;
     }
 
-    public int jK() {
-        if (this.DI == -1) {
-            try {
-                this.DI = jN();
-            } catch (Exception e) {
-                this.DI = 0;
-            }
+    public String jL() {
+        if (this.DI == null) {
+            this.DI = Proxy.getDefaultHost();
         }
         return this.DI;
     }
 
-    public String jL() {
-        if (this.DJ == null) {
-            this.DJ = Proxy.getDefaultHost();
-        }
-        return this.DJ;
-    }
-
     private long jM() {
-        return this.DM;
+        return this.DL;
     }
 
     private void n(long j) {
-        this.DM = j;
+        this.DL = j;
     }
 
     private static int jN() {
@@ -240,28 +240,28 @@ public class j {
     }
 
     public int getProxyPort() {
-        if (-1 == this.DK) {
-            this.DK = Proxy.getDefaultPort();
+        if (-1 == this.DJ) {
+            this.DJ = Proxy.getDefaultPort();
         }
-        return this.DK;
+        return this.DJ;
     }
 
     public boolean jO() {
-        return this.DN;
+        return this.DM;
     }
 
     public void ae(boolean z) {
-        this.DN = z;
+        this.DM = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public static synchronized j jP() {
         j jVar;
         synchronized (j.class) {
-            if (DO == null) {
-                DO = new j();
+            if (DN == null) {
+                DN = new j();
             }
-            jVar = DO;
+            jVar = DN;
         }
         return jVar;
     }
@@ -273,7 +273,7 @@ public class j {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            AsyncService.INSTANCE.sendRunnable(j.jP().DQ);
+            AsyncService.INSTANCE.sendRunnable(j.jP().DO);
         }
     }
 
@@ -371,7 +371,7 @@ public class j {
     }
 
     public static boolean kd() {
-        return DL;
+        return DK;
     }
 
     public static boolean be(String str) {

@@ -7,11 +7,11 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum gej;
+    private CardForum gel;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.gej = cardForum;
+            this.gel = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
                 setYuelaouLocate(aYh() + cardForum.position.intValue());
@@ -35,8 +35,8 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.gej != null) {
-            return this.gej.position.intValue();
+        if (this.gel != null) {
+            return this.gel.position.intValue();
         }
         return 0;
     }

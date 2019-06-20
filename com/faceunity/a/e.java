@@ -17,21 +17,21 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes5.dex */
 public class e {
     private boolean aeU;
-    private h iZT;
-    private c ker;
-    private int kes;
+    private h iZX;
+    private c keu;
+    private int kev;
     private MediaCodec.BufferInfo mBufferInfo;
     private MediaCodec mEncoder;
     private Surface mInputSurface;
     private Bundle aGy = new Bundle();
-    private long keX = 0;
-    private boolean keT = false;
+    private long kfa = 0;
+    private boolean keW = false;
 
     public e(int i, int i2, int i3, c cVar) throws IOException {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.iZT = lVar.bMn();
+            this.iZX = lVar.bMo();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -47,13 +47,13 @@ public class e {
             this.aGy.putInt("request-sync", 0);
             this.mEncoder.setParameters(this.aGy);
         }
-        this.kes = -1;
+        this.kev = -1;
         this.aeU = false;
-        this.ker = cVar;
+        this.keu = cVar;
     }
 
     public synchronized void requestStop() {
-        this.keT = true;
+        this.keW = true;
     }
 
     public Surface getInputSurface() {
@@ -66,15 +66,15 @@ public class e {
             this.mEncoder.release();
             this.mEncoder = null;
         }
-        if (this.ker != null) {
+        if (this.keu != null) {
             try {
-                this.ker.stop();
+                this.keu.stop();
             } catch (IllegalStateException e) {
-                if (this.iZT != null) {
-                    this.iZT.av(17, com.baidu.tieba.j.a.p(e));
+                if (this.iZX != null) {
+                    this.iZX.av(17, com.baidu.tieba.j.a.p(e));
                 }
             }
-            this.ker = null;
+            this.keu = null;
         }
     }
 
@@ -97,19 +97,19 @@ public class e {
                 }
                 MediaFormat outputFormat = this.mEncoder.getOutputFormat();
                 Log.d("VideoEncoder", "encoder output format changed: " + outputFormat);
-                this.kes = this.ker.addTrack(outputFormat);
-                if (!this.ker.start()) {
-                    synchronized (this.ker) {
-                        while (!this.ker.isStarted() && !this.keT) {
+                this.kev = this.keu.addTrack(outputFormat);
+                if (!this.keu.start()) {
+                    synchronized (this.keu) {
+                        while (!this.keu.isStarted() && !this.keW) {
                             try {
-                                this.ker.wait(100L);
+                                this.keu.wait(100L);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
                 }
-                if (!this.keT) {
+                if (!this.keW) {
                     this.aeU = true;
                 } else {
                     return;
@@ -130,12 +130,12 @@ public class e {
                     }
                     byteBuffer.position(this.mBufferInfo.offset);
                     byteBuffer.limit(this.mBufferInfo.offset + this.mBufferInfo.size);
-                    this.ker.writeSampleData(this.kes, byteBuffer, this.mBufferInfo);
+                    this.keu.writeSampleData(this.kev, byteBuffer, this.mBufferInfo);
                 }
                 this.mEncoder.releaseOutputBuffer(dequeueOutputBuffer, false);
-                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.keX >= 500) {
+                if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.kfa >= 500) {
                     this.mEncoder.setParameters(this.aGy);
-                    this.keX = System.currentTimeMillis();
+                    this.kfa = System.currentTimeMillis();
                 }
                 if ((this.mBufferInfo.flags & 4) != 0) {
                     if (!z) {

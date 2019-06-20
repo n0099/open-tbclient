@@ -49,7 +49,7 @@ public class CardPersonDynamicThreadData extends b {
     public String userPortrait;
     public VideoInfo videoInfo;
     public boolean eBk = false;
-    public boolean crZ = true;
+    public boolean csa = true;
     public int eBD = 0;
     public int from = 0;
     public Abs[] eBH = new Abs[0];
@@ -255,20 +255,20 @@ public class CardPersonDynamicThreadData extends b {
             if (postInfoList.is_share_thread.intValue() == 1) {
                 OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
                 originalThreadInfo.parser(postInfoList.origin_thread_info);
-                this.threadData.bKP = originalThreadInfo;
+                this.threadData.bKQ = originalThreadInfo;
                 this.threadData.isShareThread = true;
             }
             this.threadData.at(postInfoList.share_num.intValue());
             this.threadData.setTid(this.threadId);
             this.threadData.setFid(postInfoList.forum_id.longValue());
-            this.threadData.mp(this.forumName);
+            this.threadData.mo(this.forumName);
             this.threadData.hc(this.abo);
             this.threadData.hd(this.eBC);
             this.threadData.aq(this.eBz);
             this.threadData.setTitle(this.title);
             this.threadData.U(this.rich_title);
             this.threadData.V(this.rich_abstract);
-            this.threadData.mq(this.eBA);
+            this.threadData.mp(this.eBA);
             this.threadData.setThreadType((int) this.eBB);
             if (this.eBI != null) {
                 this.threadData.s(new ArrayList<>(Arrays.asList(this.eBI)));

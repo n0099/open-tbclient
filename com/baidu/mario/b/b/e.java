@@ -17,8 +17,8 @@ public class e {
     }
 
     public boolean a(String str, int i, f fVar) {
-        if (!com.baidu.mario.b.c.a.cD(str)) {
-            com.baidu.mario.b.c.a.cC(str);
+        if (!com.baidu.mario.b.c.a.cC(str)) {
+            com.baidu.mario.b.c.a.cB(str);
         }
         try {
             this.aeT = new MediaMuxer(str, i);

@@ -7,7 +7,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class t {
     private static t ezu;
-    private List<am> cUD;
+    private List<am> cUE;
 
     public static t aXP() {
         if (ezu == null) {
@@ -22,18 +22,18 @@ public class t {
 
     public void b(am amVar) {
         if (amVar != null) {
-            if (this.cUD == null) {
-                this.cUD = new ArrayList();
+            if (this.cUE == null) {
+                this.cUE = new ArrayList();
             }
-            this.cUD.add(amVar);
+            this.cUE.add(amVar);
         }
     }
 
     public void gM(boolean z) {
         int i;
-        if (com.baidu.tbadk.core.util.v.Z(this.cUD) != 0) {
+        if (com.baidu.tbadk.core.util.v.Z(this.cUE) != 0) {
             int i2 = -1;
-            for (am amVar : this.cUD) {
+            for (am amVar : this.cUE) {
                 if (amVar != null) {
                     if (i2 != amVar.getPosition()) {
                         int position = amVar.getPosition();
@@ -46,30 +46,30 @@ public class t {
                     i2 = i;
                 }
             }
-            this.cUD.clear();
+            this.cUE.clear();
         }
     }
 
     public void iv(boolean z) {
-        if (com.baidu.tbadk.core.util.v.Z(this.cUD) != 0) {
-            for (am amVar : this.cUD) {
+        if (com.baidu.tbadk.core.util.v.Z(this.cUE) != 0) {
+            for (am amVar : this.cUE) {
                 if (amVar != null) {
                     amVar.P("obj_type", z ? 1 : 0);
                     TiebaStatic.log(amVar);
                 }
             }
-            this.cUD.clear();
+            this.cUE.clear();
         }
     }
 
     public void aGA() {
-        if (com.baidu.tbadk.core.util.v.Z(this.cUD) != 0) {
-            for (am amVar : this.cUD) {
+        if (com.baidu.tbadk.core.util.v.Z(this.cUE) != 0) {
+            for (am amVar : this.cUE) {
                 if (amVar != null) {
                     TiebaStatic.log(amVar);
                 }
             }
-            this.cUD.clear();
+            this.cUE.clear();
         }
     }
 }

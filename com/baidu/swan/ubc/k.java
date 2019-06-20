@@ -24,7 +24,7 @@ public interface k {
 
     void c(String str, int i, String str2);
 
-    boolean fK(String str);
+    boolean fJ(String str);
 
     String getAppId();
 

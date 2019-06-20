@@ -15,14 +15,14 @@ public class g {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void i(Exception exc) {
         if (aiq != null) {
-            aiq.cU(j(exc).toString());
+            aiq.cT(j(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void cU(String str) {
+    public static void cT(String str) {
         if (aiq != null) {
-            aiq.cU(str);
+            aiq.cT(str);
         }
     }
 

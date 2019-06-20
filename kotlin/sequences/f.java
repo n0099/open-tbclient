@@ -50,7 +50,7 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object kkK;
+        final /* synthetic */ Object kkN;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
@@ -63,35 +63,35 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object[] kkL;
+        final /* synthetic */ Object[] kkO;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.M(this.kkL))).iterator();
+            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.M(this.kkO))).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable kkM;
+        final /* synthetic */ Iterable kkP;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection a = n.a(this.kkM);
+            Collection a = n.a(this.kkP);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$3$iterator$1(a)).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c kkN;
+        final /* synthetic */ kotlin.sequences.c kkQ;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.d.a(this.kkN);
+            HashSet a = kotlin.sequences.d.a(this.kkQ);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }

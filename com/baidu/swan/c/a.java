@@ -27,7 +27,7 @@ public final class a {
     public static int INVALID_INDEX = -1;
     public static int aVN = 1;
 
-    public static boolean kY(String str) {
+    public static boolean kX(String str) {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
@@ -403,7 +403,7 @@ public final class a {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !lb(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !la(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -547,7 +547,7 @@ public final class a {
                     c(inputStream);
                     c(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !lb(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !la(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -612,7 +612,7 @@ public final class a {
         return str;
     }
 
-    public static String kZ(String str) {
+    public static String kY(String str) {
         if (TextUtils.isEmpty(str) || str.endsWith(File.separator)) {
             return null;
         }
@@ -624,13 +624,13 @@ public final class a {
         return str;
     }
 
-    public static String la(String str) {
+    public static String kZ(String str) {
         int lastIndexOf;
-        String kZ = kZ(str);
-        if (TextUtils.isEmpty(kZ) || (lastIndexOf = kZ.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == kZ.length() - 1) {
+        String kY = kY(str);
+        if (TextUtils.isEmpty(kY) || (lastIndexOf = kY.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == kY.length() - 1) {
             return "";
         }
-        return kZ.substring(lastIndexOf + 1);
+        return kY.substring(lastIndexOf + 1);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1207=4] */
@@ -725,7 +725,7 @@ public final class a {
         }
     }
 
-    public static boolean lb(String str) {
+    public static boolean la(String str) {
         return str.contains("../");
     }
 }

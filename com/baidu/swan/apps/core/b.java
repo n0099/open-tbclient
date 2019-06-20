@@ -192,9 +192,9 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
         settings.setGeolocationDatabasePath(path2);
         settings.setDatabasePath(path);
         settings.setAppCachePath(path3);
-        String ia = com.baidu.swan.apps.al.a.ia(settings.getUserAgentString());
-        if (!TextUtils.equals(ia, this.mUserAgent)) {
-            this.mUserAgent = ia;
+        String hZ = com.baidu.swan.apps.al.a.hZ(settings.getUserAgentString());
+        if (!TextUtils.equals(hZ, this.mUserAgent)) {
+            this.mUserAgent = hZ;
             settings.setUserAgentString(this.mUserAgent);
             if (DEBUG) {
                 Log.i("SwanAppSysWebViewManager", "set ua:" + this.mUserAgent);
@@ -484,7 +484,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 shouldInterceptRequest = super.shouldInterceptRequest(webView, str);
             }
             InputStream inputStream = null;
-            if (com.baidu.swan.apps.swancore.b.a.hJ(str)) {
+            if (com.baidu.swan.apps.swancore.b.a.hI(str)) {
                 if (b.DEBUG) {
                     Log.d("SwanAppSysWebViewManager", "start create config response stream");
                 }
@@ -546,7 +546,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 Log.d("SwanAppSysWebViewManager", "SwanAppWebViewClient::onPageFinished url: " + str);
             }
             if (b.this.aoz != null) {
-                b.this.aoz.ds(str);
+                b.this.aoz.dr(str);
             }
             if (b.this.aos != null) {
                 b.this.aos.onPageFinished(webView, str);
@@ -848,7 +848,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 }
 
                 @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
-                public void dr(String str4) {
+                public void dq(String str4) {
                     jsPromptResult.confirm(str4);
                 }
 
@@ -871,7 +871,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 }
 
                 @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
-                public void dr(String str3) {
+                public void dq(String str3) {
                     jsResult.confirm();
                 }
 
@@ -894,7 +894,7 @@ public abstract class b implements TypedCallbackHandler, e<SystemWebViewImpl>, c
                 }
 
                 @Override // com.baidu.swan.apps.core.e.b.InterfaceC0136b
-                public void dr(String str3) {
+                public void dq(String str3) {
                     jsResult.confirm();
                 }
 

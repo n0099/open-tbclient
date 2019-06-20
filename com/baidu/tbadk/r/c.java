@@ -171,7 +171,7 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam("sign", s.bm(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && w.iE()) {
-            httpMessage.addParam("sig", StringU.rt(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.rs(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }
@@ -181,13 +181,13 @@ public class c extends com.baidu.adp.framework.a.d {
         if (ahN != null) {
             httpMessage.addParam("stTime", String.valueOf(ahN.mTime));
             httpMessage.addParam("stSize", String.valueOf(ahN.aVH));
-            httpMessage.addParam("stTimesNum", String.valueOf(ahN.bRx));
+            httpMessage.addParam("stTimesNum", String.valueOf(ahN.bRy));
             httpMessage.addParam("stMode", String.valueOf(ahN.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(ahN.bRw));
+            httpMessage.addParam("stMethod", String.valueOf(ahN.bRx));
         }
         int hT = aa.hT(0);
         if (hT == 0 && ahN != null) {
-            hT = ahN.bRx;
+            hT = ahN.bRy;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(hT));
     }

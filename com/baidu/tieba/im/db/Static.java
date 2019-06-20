@@ -19,7 +19,7 @@ public class Static {
                         /* renamed from: aCb */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.yj((String) customResponsedMessage.getData());
+                                g.yl((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

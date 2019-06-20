@@ -3,5 +3,5 @@ package com.facebook.drawee.drawable;
 public interface r {
     void onDraw();
 
-    void si(boolean z);
+    void sj(boolean z);
 }

@@ -20,74 +20,74 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private com.baidu.tieba.b.a fWA;
-    private j fWB;
-    private e fWC;
-    private h fWD;
-    private n fWE;
-    private n fWF;
-    private com.baidu.tieba.homepage.concern.a.a fWG;
-    private k fWH;
-    private l fWI;
-    private f fWJ;
-    private g fWK;
-    private i fWL;
-    private d fWM;
-    private com.baidu.tieba.homepage.concern.a.c fWN;
-    private com.baidu.tieba.homepage.concern.a.b fWO;
-    private m fWP;
-    private List<com.baidu.adp.widget.ListView.a> fWy = new ArrayList();
-    private BdTypeRecyclerView fWz;
+    private List<com.baidu.adp.widget.ListView.a> fWA = new ArrayList();
+    private BdTypeRecyclerView fWB;
+    private com.baidu.tieba.b.a fWC;
+    private j fWD;
+    private e fWE;
+    private h fWF;
+    private n fWG;
+    private n fWH;
+    private com.baidu.tieba.homepage.concern.a.a fWI;
+    private k fWJ;
+    private l fWK;
+    private f fWL;
+    private g fWM;
+    private i fWN;
+    private d fWO;
+    private com.baidu.tieba.homepage.concern.a.c fWP;
+    private com.baidu.tieba.homepage.concern.a.b fWQ;
+    private m fWR;
     private List<com.baidu.adp.widget.ListView.m> mDataList;
     private TbPageContext<?> mPageContext;
 
     public a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.fWz = bdTypeRecyclerView;
+        this.fWB = bdTypeRecyclerView;
         this.mPageContext = (TbPageContext) com.baidu.adp.base.i.ab(context);
         dD(context);
         b(bdTypeRecyclerView);
-        bdTypeRecyclerView.addAdapters(this.fWy);
+        bdTypeRecyclerView.addAdapters(this.fWA);
     }
 
     private void dD(Context context) {
-        this.fWI = new l(this.mPageContext, com.baidu.tieba.card.data.k.eAY);
-        this.fWJ = new f(this.mPageContext, com.baidu.tieba.card.data.k.eBd);
-        this.fWK = new g(this.mPageContext, com.baidu.tieba.card.data.k.eBe);
-        this.fWL = new i(this.mPageContext, com.baidu.tieba.card.data.k.eBf);
-        this.fWM = new d(this.mPageContext, com.baidu.tieba.card.data.k.eAZ);
-        this.fWN = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, com.baidu.tieba.card.data.k.eBb);
-        this.fWO = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.card.data.k.eBc);
-        this.fWP = new m(this.mPageContext, com.baidu.tieba.card.data.l.bIw);
-        this.fWy.add(this.fWI);
-        this.fWy.add(this.fWJ);
-        this.fWy.add(this.fWK);
-        this.fWy.add(this.fWL);
-        this.fWy.add(this.fWM);
-        this.fWy.add(this.fWN);
-        this.fWy.add(this.fWO);
-        this.fWy.add(this.fWP);
-        this.fWA = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.coZ);
-        this.fWD = new h(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
-        this.fWE = new n(this.mPageContext, com.baidu.tieba.card.data.l.eBl);
-        this.fWF = new n(this.mPageContext, com.baidu.tieba.card.data.l.eBm);
-        this.fWB = new j(this.mPageContext.getContext());
-        this.fWC = new e(this.mPageContext.getContext());
-        this.fWG = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
-        this.fWH = new k(this.mPageContext, com.baidu.tieba.card.data.k.bIA);
-        this.fWy.add(this.fWA);
-        this.fWy.add(this.fWD);
-        this.fWy.add(this.fWE);
-        this.fWy.add(this.fWF);
-        this.fWy.add(this.fWB);
-        this.fWy.add(this.fWC);
-        this.fWy.add(this.fWG);
-        this.fWy.add(this.fWH);
-        rV("page_concern");
+        this.fWK = new l(this.mPageContext, com.baidu.tieba.card.data.k.eAY);
+        this.fWL = new f(this.mPageContext, com.baidu.tieba.card.data.k.eBd);
+        this.fWM = new g(this.mPageContext, com.baidu.tieba.card.data.k.eBe);
+        this.fWN = new i(this.mPageContext, com.baidu.tieba.card.data.k.eBf);
+        this.fWO = new d(this.mPageContext, com.baidu.tieba.card.data.k.eAZ);
+        this.fWP = new com.baidu.tieba.homepage.concern.a.c(this.mPageContext, com.baidu.tieba.card.data.k.eBb);
+        this.fWQ = new com.baidu.tieba.homepage.concern.a.b(this.mPageContext, com.baidu.tieba.card.data.k.eBc);
+        this.fWR = new m(this.mPageContext, com.baidu.tieba.card.data.l.bIx);
+        this.fWA.add(this.fWK);
+        this.fWA.add(this.fWL);
+        this.fWA.add(this.fWM);
+        this.fWA.add(this.fWN);
+        this.fWA.add(this.fWO);
+        this.fWA.add(this.fWP);
+        this.fWA.add(this.fWQ);
+        this.fWA.add(this.fWR);
+        this.fWC = new com.baidu.tieba.b.a(this.mPageContext, com.baidu.tbadk.data.b.cpa);
+        this.fWF = new h(this.mPageContext, com.baidu.tieba.card.data.k.TYPE);
+        this.fWG = new n(this.mPageContext, com.baidu.tieba.card.data.l.eBl);
+        this.fWH = new n(this.mPageContext, com.baidu.tieba.card.data.l.eBm);
+        this.fWD = new j(this.mPageContext.getContext());
+        this.fWE = new e(this.mPageContext.getContext());
+        this.fWI = new com.baidu.tieba.homepage.concern.a.a(this.mPageContext, com.baidu.tieba.card.data.j.TYPE);
+        this.fWJ = new k(this.mPageContext, com.baidu.tieba.card.data.k.bIB);
+        this.fWA.add(this.fWC);
+        this.fWA.add(this.fWF);
+        this.fWA.add(this.fWG);
+        this.fWA.add(this.fWH);
+        this.fWA.add(this.fWD);
+        this.fWA.add(this.fWE);
+        this.fWA.add(this.fWI);
+        this.fWA.add(this.fWJ);
+        rU("page_concern");
     }
 
     public void aF(List<com.baidu.adp.widget.ListView.m> list) {
         this.mDataList = list;
-        this.fWz.setData(list);
+        this.fWB.setData(list);
     }
 
     public void onChangeSkinType(int i) {
@@ -95,39 +95,39 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        if (this.fWz != null) {
-            this.fWz.getListAdapter().notifyDataSetChanged();
+        if (this.fWB != null) {
+            this.fWB.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        this.fWG.cwh = bdUniqueId;
-        this.fWD.cwh = bdUniqueId;
-        this.fWE.cwh = bdUniqueId;
-        this.fWF.cwh = bdUniqueId;
-        this.fWG.cwh = bdUniqueId;
-        this.fWH.cwh = bdUniqueId;
+        this.fWI.cwi = bdUniqueId;
+        this.fWF.cwi = bdUniqueId;
+        this.fWG.cwi = bdUniqueId;
+        this.fWH.cwi = bdUniqueId;
+        this.fWI.cwi = bdUniqueId;
+        this.fWJ.cwi = bdUniqueId;
     }
 
-    private void rV(String str) {
-        if (this.fWy != null) {
-            for (com.baidu.adp.widget.ListView.a aVar : this.fWy) {
+    private void rU(String str) {
+        if (this.fWA != null) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.fWA) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).rV(str);
+                    ((com.baidu.tieba.a.f) aVar).rU(str);
                 }
             }
         }
     }
 
     private void b(r rVar) {
-        this.fWI.b(rVar);
-        this.fWJ.b(rVar);
         this.fWK.b(rVar);
         this.fWL.b(rVar);
         this.fWM.b(rVar);
         this.fWN.b(rVar);
         this.fWO.b(rVar);
         this.fWP.b(rVar);
+        this.fWQ.b(rVar);
+        this.fWR.b(rVar);
     }
 
     public List<com.baidu.adp.widget.ListView.m> getDataList() {

@@ -3,21 +3,21 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class ar {
-    private static ar bSU = null;
-    private boolean bSV = false;
+    private static ar bSV = null;
     private boolean bSW = false;
-    private int bSX = TbConfig.POST_IMAGE_SMALL;
-    private String bSY = String.valueOf(45);
+    private boolean bSX = false;
+    private int bSY = TbConfig.POST_IMAGE_SMALL;
+    private String bSZ = String.valueOf(45);
 
     public static ar ail() {
-        if (bSU == null) {
+        if (bSV == null) {
             synchronized (ar.class) {
-                if (bSU == null) {
-                    bSU = new ar();
+                if (bSV == null) {
+                    bSV = new ar();
                 }
             }
         }
-        return bSU;
+        return bSV;
     }
 
     public ar() {
@@ -32,33 +32,33 @@ public class ar {
     }
 
     public void dZ(boolean z) {
-        this.bSW = z;
+        this.bSX = z;
     }
 
     public boolean ain() {
-        return this.bSW;
+        return this.bSX;
     }
 
     public void ea(boolean z) {
-        this.bSV = z;
+        this.bSW = z;
         aim();
     }
 
     private void aio() {
-        this.bSV = com.baidu.adp.lib.util.j.jT();
+        this.bSW = com.baidu.adp.lib.util.j.jT();
     }
 
     public boolean aip() {
-        return this.bSV;
+        return this.bSW;
     }
 
     public String aiq() {
-        return this.bSY;
+        return this.bSZ;
     }
 
     public int air() {
         aiv();
-        return this.bSX;
+        return this.bSY;
     }
 
     public int ais() {
@@ -67,7 +67,7 @@ public class ar {
 
     public void ait() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.abb().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.abb().getViewImageQuality() != 1 : !this.bSV) {
+        if (com.baidu.tbadk.core.i.abb().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.abb().getViewImageQuality() != 1 : !this.bSW) {
             z = false;
         }
         dZ(z);
@@ -82,7 +82,7 @@ public class ar {
         } else if (com.baidu.tbadk.core.i.abb().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.bSY = valueOf;
+        this.bSZ = valueOf;
     }
 
     public void aiv() {
@@ -106,7 +106,7 @@ public class ar {
                 i = 1800;
                 break;
         }
-        this.bSX = i;
+        this.bSY = i;
     }
 
     public static boolean aiw() {

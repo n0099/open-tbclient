@@ -1,8 +1,8 @@
 package com.baidu.tieba.video.meida;
 /* loaded from: classes5.dex */
 public abstract class c {
-    String jsU;
-    a jsV;
+    String jsX;
+    a jsY;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -12,14 +12,14 @@ public abstract class c {
     /* loaded from: classes5.dex */
     public static class b {
         public int aBO;
-        public String jsW;
-        public int jsX;
+        public String jsZ;
+        public int jta;
         public long sampleRate;
         public int size;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(String str) {
-        this.jsU = str;
+        this.jsX = str;
     }
 }

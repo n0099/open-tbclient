@@ -40,15 +40,15 @@ public class b implements SensorEventListener {
     }
 
     public boolean remove(String str) {
-        com.baidu.swan.impl.map.item.b kc = kc(str);
-        if (kc != null) {
-            this.bmH.remove(kc);
+        com.baidu.swan.impl.map.item.b kb = kb(str);
+        if (kb != null) {
+            this.bmH.remove(kb);
             return true;
         }
         return false;
     }
 
-    public com.baidu.swan.impl.map.item.b kc(String str) {
+    public com.baidu.swan.impl.map.item.b kb(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

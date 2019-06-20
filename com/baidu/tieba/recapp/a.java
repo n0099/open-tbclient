@@ -15,35 +15,35 @@ import com.baidu.tieba.recapp.view.IVrPlayView;
 public abstract class a {
     public String ald;
     public MediaPlayer.OnPreparedListener ber;
-    public MediaPlayer.OnErrorListener cSn;
-    public a.InterfaceC0268a cVR;
-    public IVrPlayView iyJ;
-    public com.a.a.g iyK;
-    public com.baidu.tieba.ad.play.a iyL;
-    public MediaPlayer.OnCompletionListener iyM;
-    public a.b iyN;
+    public MediaPlayer.OnErrorListener cSo;
+    public a.InterfaceC0268a cVS;
+    public IVrPlayView iyK;
+    public com.a.a.g iyL;
+    public com.baidu.tieba.ad.play.a iyM;
+    public MediaPlayer.OnCompletionListener iyN;
+    public a.b iyO;
     public TbPageContext<?> mContext;
     public int mStatus = -1;
 
     public a(IVrPlayView iVrPlayView) {
-        this.iyJ = iVrPlayView;
-        this.mContext = this.iyJ.getPageContext();
-        ceu();
+        this.iyK = iVrPlayView;
+        this.mContext = this.iyK.getPageContext();
+        cev();
         initListener();
     }
 
-    private void ceu() {
+    private void cev() {
         if (this.mStatus == -1) {
-            this.iyK = com.a.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.iyL = com.a.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.iyL = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.iyJ.setPlayer(a.this.iyL);
+                    a.this.iyM = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.iyK.setPlayer(a.this.iyM);
                 }
             }).o(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.iyJ.getGLView());
-            this.iyK.onResume(this.mContext.getPageActivity());
+            }).b(this.iyK.getGLView());
+            this.iyL.onResume(this.mContext.getPageActivity());
         }
     }
 
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.iyL != null && !StringUtils.isNull(this.ald)) {
-            this.iyL.a(this.cVR);
-            this.iyL.setVideoPath(this.ald);
-            this.iyL.start();
-            this.iyL.a(this.ber);
-            this.iyL.setOnErrorListener(this.cSn);
-            this.iyL.a(this.iyM);
+        if (this.iyM != null && !StringUtils.isNull(this.ald)) {
+            this.iyM.a(this.cVS);
+            this.iyM.setVideoPath(this.ald);
+            this.iyM.start();
+            this.iyM.a(this.ber);
+            this.iyM.setOnErrorListener(this.cSo);
+            this.iyM.a(this.iyN);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.iyL != null) {
-            this.iyL.seekTo(0);
-            this.iyL.onDestroy();
-            this.iyJ.onDestroy();
+        if (this.mStatus != -1 && this.iyM != null) {
+            this.iyM.seekTo(0);
+            this.iyM.onDestroy();
+            this.iyK.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.iyJ.onDestroy();
-        if (this.iyL != null && this.mStatus != -1) {
+        this.iyK.onDestroy();
+        if (this.iyM != null && this.mStatus != -1) {
+            this.iyM.onDestroy();
+            this.iyM = null;
+        }
+        if (this.iyL != null) {
             this.iyL.onDestroy();
             this.iyL = null;
-        }
-        if (this.iyK != null) {
-            this.iyK.onDestroy();
-            this.iyK = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.iyL == null) {
+        if (this.iyM == null) {
             return 0L;
         }
-        return this.iyL.getCurrentPosition();
+        return this.iyM.getCurrentPosition();
     }
 }

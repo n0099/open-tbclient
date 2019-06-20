@@ -4,20 +4,20 @@ import android.content.Context;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class n implements Runnable {
-    final /* synthetic */ Context aas;
-    final /* synthetic */ Throwable aat;
+    final /* synthetic */ Context aar;
+    final /* synthetic */ Throwable aas;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(Context context, Throwable th) {
-        this.aas = context;
-        this.aat = th;
+        this.aar = context;
+        this.aas = th;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            i.c(this.aas, i.i(g.a(this.aas, this.aat, false)));
-            k.o(this.aas);
+            i.c(this.aar, i.i(g.a(this.aar, this.aas, false)));
+            k.o(this.aar);
         } catch (Exception e) {
             e.printStackTrace();
         }

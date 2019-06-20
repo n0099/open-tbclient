@@ -5,16 +5,16 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private String iXT;
-    private String iXU;
-    private String iXV;
+    private String iXX;
+    private String iXY;
+    private String iXZ;
     private int mHeight;
     private int mImageType;
     private String mTitle;
     private int mWidth;
 
-    public String clU() {
-        return this.iXT;
+    public String clV() {
+        return this.iXX;
     }
 
     public int getImageWidth() {
@@ -25,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String clV() {
-        return this.iXU;
+    public String clW() {
+        return this.iXY;
     }
 
     public String getTitle() {
@@ -34,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.iXV;
+        return this.iXZ;
     }
 
     public void a(ActHot actHot) {
@@ -55,10 +55,10 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.iXT = actHot.img_src;
-            this.iXU = actHot.link;
+            this.iXX = actHot.img_src;
+            this.iXY = actHot.link;
             this.mTitle = actHot.author_name;
-            this.iXV = actHot.img_des;
+            this.iXZ = actHot.img_des;
             this.mImageType = actHot.img_type.intValue();
         }
     }

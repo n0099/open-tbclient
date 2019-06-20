@@ -96,7 +96,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean kG(String str) {
+    public boolean kF(String str) {
         if (s.Xr().Ht()) {
             return true;
         }
@@ -104,12 +104,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean kH(String str) {
+    public boolean kG(String str) {
         return this.bvl.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String kI(String str) {
+    public String kH(String str) {
         return this.bvo.containsKey(str) ? this.bvo.get(str) : "";
     }
 
@@ -151,28 +151,28 @@ public class d {
         }
     }
 
-    public int kJ(String str) {
+    public int kI(String str) {
         if (TextUtils.isEmpty(str) || !this.bvn.containsKey(str)) {
             return 0;
         }
         return Integer.parseInt(this.bvn.get(str));
     }
 
-    public boolean kK(String str) {
+    public boolean kJ(String str) {
         if (this.bvp == null || !this.bvp.containsKey(str)) {
             return false;
         }
         return this.bvp.get(str).WS();
     }
 
-    public boolean kL(String str) {
+    public boolean kK(String str) {
         if (this.bvp == null || !this.bvp.containsKey(str)) {
             return false;
         }
         return this.bvp.get(str).WT();
     }
 
-    public String kM(String str) {
+    public String kL(String str) {
         return (TextUtils.isEmpty(str) || !this.bvq.contains(str)) ? "0" : "1";
     }
 }

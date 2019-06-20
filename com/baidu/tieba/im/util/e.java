@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern bTp = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern bTq = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String ak(String str, boolean z) {
         String str2 = null;
@@ -125,7 +125,7 @@ public class e {
         }
     }
 
-    private static final String yK(String str) {
+    private static final String yM(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -154,7 +154,7 @@ public class e {
         return sb.toString();
     }
 
-    private static final String yL(String str) {
+    private static final String yN(String str) {
         StringBuilder sb = new StringBuilder();
         if (TextUtils.isEmpty(str)) {
             return null;
@@ -186,19 +186,19 @@ public class e {
             return null;
         }
         if (i == 1) {
-            String yK = (str.length() <= 1 || str.charAt(0) != '[') ? null : yK(str);
-            if (TextUtils.isEmpty(yK)) {
-                yK = str;
+            String yM = (str.length() <= 1 || str.charAt(0) != '[') ? null : yM(str);
+            if (TextUtils.isEmpty(yM)) {
+                yM = str;
             }
-            if (yK == null) {
+            if (yM == null) {
                 return null;
             }
-            Matcher matcher = bTp.matcher(yK);
+            Matcher matcher = bTq.matcher(yM);
             while (matcher.find()) {
                 String group = matcher.group();
-                yK = yK.replace(group, group.replace("#(", "[").replace(")", "]"));
+                yM = yM.replace(group, group.replace("#(", "[").replace(")", "]"));
             }
-            return yK;
+            return yM;
         } else if (i == 2) {
             return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic);
         } else {
@@ -206,7 +206,7 @@ public class e {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
             }
             if (i == 11) {
-                return yM(str);
+                return yO(str);
             }
             if (i == 23) {
                 return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
@@ -295,7 +295,7 @@ public class e {
                         return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
                     }
                 } else if (i == 9) {
-                    return yL(str);
+                    return yN(str);
                 } else {
                     return null;
                 }
@@ -327,7 +327,7 @@ public class e {
         return A(chatMessage);
     }
 
-    private static String yM(String str) {
+    private static String yO(String str) {
         String str2 = null;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -441,19 +441,19 @@ public class e {
 
     public static com.baidu.tieba.im.data.d a(CommonMsgPojo commonMsgPojo) {
         if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
-            return yN(commonMsgPojo.getContent());
+            return yP(commonMsgPojo.getContent());
         }
         return null;
     }
 
-    public static com.baidu.tieba.im.data.d yN(String str) {
+    public static com.baidu.tieba.im.data.d yP(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
-                return yO(jSONArray.getJSONObject(0).optString("msg_src"));
+                return yQ(jSONArray.getJSONObject(0).optString("msg_src"));
             }
             return null;
         } catch (Exception e) {
@@ -462,13 +462,13 @@ public class e {
         }
     }
 
-    public static com.baidu.tieba.im.data.d yO(String str) {
+    public static com.baidu.tieba.im.data.d yQ(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.gxY = split[0];
+        dVar.gya = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

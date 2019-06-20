@@ -29,7 +29,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        final String optString = o.cZ(unitedSchemeEntity.getParam("params")).optString("cb");
+        final String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             c.i("GetSysInfo", "cb is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

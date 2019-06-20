@@ -6,35 +6,35 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c iKG = null;
+    private c iKK = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iKG = new c(this);
+        this.iKK = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iKG.onChangeSkinType(i);
+        this.iKK.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.iKG.chb()) {
-            this.iKG.chf();
+        if (view == this.iKK.chc()) {
+            this.iKK.chg();
             TiebaStatic.log("c10649");
         }
-        if (view == this.iKG.chc()) {
-            this.iKG.chg();
+        if (view == this.iKK.chd()) {
+            this.iKK.chh();
             TiebaStatic.log("c10653");
-        } else if (view == this.iKG.chd()) {
-            this.iKG.chh();
-        } else if (view == this.iKG.che()) {
-            this.iKG.chi();
+        } else if (view == this.iKK.che()) {
+            this.iKK.chi();
+        } else if (view == this.iKK.chf()) {
+            this.iKK.chj();
         }
     }
 }

@@ -13,39 +13,39 @@ import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a {
-    private long bGJ;
+    private long bGK;
     private long fwB;
-    private TopicDetailModel gfd;
-    private TopicDetailView gfe;
-    private long gff = 1;
+    private TopicDetailModel gff;
+    private TopicDetailView gfg;
+    private long gfh = 1;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gfd = new TopicDetailModel(getPageContext());
-        this.gfe = new TopicDetailView(getPageContext(), this, bundle);
-        setContentView(this.gfe);
+        this.gff = new TopicDetailModel(getPageContext());
+        this.gfg = new TopicDetailView(getPageContext(), this, bundle);
+        setContentView(this.gfg);
         addGlobalLayoutListener();
         adjustResizeForSoftInput();
-        this.gfd.a(this);
+        this.gff.a(this);
         loadData();
-        this.gfe.getEditor().buM();
+        this.gfg.getEditor().buN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        TiebaStatic.log(new am("c13350").l("topic_id", this.bGJ));
+        TiebaStatic.log(new am("c13350").l("topic_id", this.bGK));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.gfe != null && this.gfe.getEditor() != null) {
-            this.gfe.getEditor().arM();
+        if (this.gfg != null && this.gfg.getEditor() != null) {
+            this.gfg.getEditor().arM();
         }
     }
 
@@ -61,55 +61,55 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             finish();
             return;
         }
-        this.bGJ = longExtra;
+        this.bGK = longExtra;
         if (!j.jG()) {
-            this.gfe.hideLoadingView();
-            this.gfe.jk(true);
+            this.gfg.hideLoadingView();
+            this.gfg.jk(true);
             return;
         }
-        this.gfe.aHK();
-        this.gfe.cV(false);
-        if (this.gfe != null && this.gfe.getEditor() != null) {
-            this.gfe.getEditor().setTopicId(longExtra);
+        this.gfg.aHK();
+        this.gfg.cV(false);
+        if (this.gfg != null && this.gfg.getEditor() != null) {
+            this.gfg.getEditor().setTopicId(longExtra);
         }
-        this.gfd.dl(longExtra);
+        this.gff.dl(longExtra);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, com.baidu.tieba.homepage.topic.topicdetail.b.a aVar) {
-        this.gfe.hideLoadingView();
+        this.gfg.hideLoadingView();
         if (i != 0 || aVar == null || v.aa(aVar.mDataList)) {
-            this.gfe.jk(true);
+            this.gfg.jk(true);
             return;
         }
-        this.gfe.aHK();
-        this.gfe.setData(aVar);
+        this.gfg.aHK();
+        this.gfg.setData(aVar);
     }
 
     public void dk(long j) {
-        this.gff++;
+        this.gfh++;
         this.fwB = j;
-        this.gfd.d(this.bGJ, this.gff, this.fwB);
+        this.gff.d(this.bGK, this.gfh, this.fwB);
     }
 
     @Override // com.baidu.tieba.homepage.topic.topicdetail.a
     public void a(int i, boolean z, List<m> list) {
-        this.gfe.setNextData(i, z, list);
+        this.gfg.setNextData(i, z, list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gfe.onChangeSkinType();
+        this.gfg.onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (this.gfe != null && this.gfe.getEditor() != null) {
-            this.gfe.getEditor().onActivityResult(i, i2, intent);
+        if (this.gfg != null && this.gfg.getEditor() != null) {
+            this.gfg.getEditor().onActivityResult(i, i2, intent);
         }
     }
 

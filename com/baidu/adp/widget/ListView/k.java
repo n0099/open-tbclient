@@ -7,17 +7,17 @@ import android.view.View;
 import com.baidu.tbadk.TbSingleton;
 /* loaded from: classes.dex */
 public class k {
-    private h NQ;
-    private l NR;
+    private h NP;
+    private l NQ;
+    private float NR;
     private float NT;
-    private float NU;
-    private int NV;
-    private com.baidu.tbadk.p.a.a NW;
+    private int NU;
+    private com.baidu.tbadk.p.a.a NV;
     private int mCurrentPosition;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private VelocityTracker mVelocityTracker;
-    private RecyclerView.OnChildAttachStateChangeListener NX = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.k.1
+    private RecyclerView.OnChildAttachStateChangeListener NW = new RecyclerView.OnChildAttachStateChangeListener() { // from class: com.baidu.adp.widget.ListView.k.1
         @Override // android.support.v7.widget.RecyclerView.OnChildAttachStateChangeListener
         public void onChildViewAttachedToWindow(View view) {
             k.this.F(view);
@@ -45,9 +45,9 @@ public class k {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0) {
                 k.this.mRecyclerView.stopScroll();
-                k.this.NT = motionEvent.getX();
-                k.this.NU = motionEvent.getY();
-                k.this.mCurrentPosition = k.this.mRecyclerView.getChildAdapterPosition(k.this.findChildViewUnder(k.this.NT, k.this.NU));
+                k.this.NR = motionEvent.getX();
+                k.this.NT = motionEvent.getY();
+                k.this.mCurrentPosition = k.this.mRecyclerView.getChildAdapterPosition(k.this.findChildViewUnder(k.this.NR, k.this.NT));
                 if (k.this.mVelocityTracker == null) {
                     k.this.mVelocityTracker = VelocityTracker.obtain();
                 }
@@ -56,20 +56,20 @@ public class k {
             } else if (actionMasked == 2) {
                 float x = motionEvent.getX();
                 float y = motionEvent.getY();
-                int i = (k.this.mOrientation == 2 ? y - k.this.NU : x - k.this.NT) >= 0.0f ? 2 : 1;
-                if (i != k.this.NV) {
-                    k.this.NV = i;
+                int i = (k.this.mOrientation == 2 ? y - k.this.NT : x - k.this.NR) >= 0.0f ? 2 : 1;
+                if (i != k.this.NU) {
+                    k.this.NU = i;
                     k.this.mVelocityTracker.clear();
                 }
                 k.this.mVelocityTracker.addMovement(motionEvent);
                 k.this.mVelocityTracker.computeCurrentVelocity(50);
                 k.this.o(k.this.mVelocityTracker.getXVelocity(), k.this.mVelocityTracker.getYVelocity());
-                k.this.NT = x;
-                k.this.NU = y;
+                k.this.NR = x;
+                k.this.NT = y;
                 return false;
             } else if (actionMasked == 3 || actionMasked == 1) {
+                k.this.NR = 0.0f;
                 k.this.NT = 0.0f;
-                k.this.NU = 0.0f;
                 k.this.mVelocityTracker.clear();
                 return false;
             } else {
@@ -87,8 +87,8 @@ public class k {
     };
 
     public k(i iVar) {
-        this.NQ = new h(iVar);
-        this.NR = new l(iVar);
+        this.NP = new h(iVar);
+        this.NQ = new l(iVar);
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -96,18 +96,18 @@ public class k {
             if (this.mRecyclerView != null) {
                 this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
                 this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.NX);
+                this.mRecyclerView.removeOnChildAttachStateChangeListener(this.NW);
             }
             this.mRecyclerView = recyclerView;
             this.mOrientation = i;
             if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-                this.NR.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
+                this.NQ.a((BdTypeRecyclerView) this.mRecyclerView, this.mOrientation);
             } else {
-                this.NQ.a(this.mRecyclerView, this.mOrientation);
+                this.NP.a(this.mRecyclerView, this.mOrientation);
             }
             this.mRecyclerView.addOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.addOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.addOnChildAttachStateChangeListener(this.NX);
+            this.mRecyclerView.addOnChildAttachStateChangeListener(this.NW);
         }
     }
 
@@ -115,59 +115,59 @@ public class k {
         if (this.mRecyclerView != null) {
             this.mRecyclerView.removeOnItemTouchListener(this.mOnItemTouchListener);
             this.mRecyclerView.removeOnScrollListener(this.mOnScrollListener);
-            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.NX);
+            this.mRecyclerView.removeOnChildAttachStateChangeListener(this.NW);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void o(float f, float f2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.NR.a(f, f2, this.mCurrentPosition);
+            this.NQ.a(f, f2, this.mCurrentPosition);
         }
-        this.NQ.a(f, f2, this.mCurrentPosition);
+        this.NP.a(f, f2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r(int i, int i2) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.NR.k(i, i2, this.mCurrentPosition);
+            this.NQ.k(i, i2, this.mCurrentPosition);
         }
-        this.NQ.k(i, i2, this.mCurrentPosition);
+        this.NP.k(i, i2, this.mCurrentPosition);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aQ(int i) {
         if (i == 1) {
             if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                if (this.NW == null) {
-                    this.NW = new com.baidu.tbadk.p.a.a("anim_switch_slide");
+                if (this.NV == null) {
+                    this.NV = new com.baidu.tbadk.p.a.a("anim_switch_slide");
                 }
-                this.NW.aus();
+                this.NV.aus();
             }
-        } else if (i == 0 && this.NW != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-            this.NW.aut();
+        } else if (i == 0 && this.NV != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+            this.NV.aut();
         }
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.NR.aP(i);
+            this.NQ.aP(i);
         }
-        this.NQ.aP(i);
+        this.NP.aP(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.NR.D(view);
-        } else {
             this.NQ.D(view);
+        } else {
+            this.NP.D(view);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void G(View view) {
         if (this.mRecyclerView instanceof BdTypeRecyclerView) {
-            this.NR.E(view);
-        } else {
             this.NQ.E(view);
+        } else {
+            this.NP.E(view);
         }
     }
 

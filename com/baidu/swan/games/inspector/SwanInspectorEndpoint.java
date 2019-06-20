@@ -68,12 +68,12 @@ public class SwanInspectorEndpoint {
 
         private JSONObject RC() {
             if (this.bhP == null) {
-                this.bhP = jv(this.bhO);
+                this.bhP = ju(this.bhO);
             }
             return this.bhP;
         }
 
-        private JSONObject jv(String str) {
+        private JSONObject ju(String str) {
             try {
                 return new JSONObject(str);
             } catch (JSONException e) {

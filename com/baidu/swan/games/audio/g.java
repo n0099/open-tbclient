@@ -56,7 +56,7 @@ public class g extends EventTargetImpl implements a, b {
     private void Qi() {
         String valueOf = String.valueOf(c.PW());
         this.aAu = valueOf;
-        this.bei = iJ(valueOf);
+        this.bei = iI(valueOf);
         init();
     }
 
@@ -169,7 +169,7 @@ public class g extends EventTargetImpl implements a, b {
         return 0;
     }
 
-    private static AudioPlayer iJ(String str) {
+    private static AudioPlayer iI(String str) {
         return new AudioPlayer(str);
     }
 

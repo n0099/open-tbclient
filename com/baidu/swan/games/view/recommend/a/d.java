@@ -19,7 +19,7 @@ public class d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iE(String str);
+        void iD(String str);
     }
 
     public d() {
@@ -47,7 +47,7 @@ public class d {
         this.width = this.blX;
         this.height = this.blY;
         if (this.blZ != null) {
-            this.blZ.iE(str);
+            this.blZ.iD(str);
         }
     }
 

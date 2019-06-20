@@ -10,12 +10,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.adp.widget.ListView.b {
-    private TextView hXe;
-    private View.OnClickListener hXf = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
+    private TextView hXf;
+    private View.OnClickListener hXg = new View.OnClickListener() { // from class: com.baidu.tieba.pb.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             ((PbActivity) a.this.mPageContext.getOrignalPage()).skipToLoginActivity();
-            ((PbActivity) a.this.mPageContext.getOrignalPage()).ob(true);
+            ((PbActivity) a.this.mPageContext.getOrignalPage()).oc(true);
         }
     };
     private TbPageContext<PbActivity> mPageContext;
@@ -28,8 +28,8 @@ public class a extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public View nG() {
         this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.login_see_more_layout, (ViewGroup) null);
-        this.hXe = (TextView) this.mRootView.findViewById(R.id.login_button);
-        this.hXe.setOnClickListener(this.hXf);
+        this.hXf = (TextView) this.mRootView.findViewById(R.id.login_button);
+        this.hXf.setOnClickListener(this.hXg);
         iP(TbadkCoreApplication.getInst().getSkinType());
         return this.mRootView;
     }

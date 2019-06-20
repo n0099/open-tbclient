@@ -155,7 +155,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType bTt = NativePageType.NONE;
+        public NativePageType bTu = NativePageType.NONE;
         public String id;
     }
 
@@ -534,7 +534,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.bTt = NativePageType.PB;
+                    aVar.bTu = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -569,7 +569,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.bTt = NativePageType.PB;
+                aVar.bTu = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -601,7 +601,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.bTt = NativePageType.FRS;
+                aVar.bTu = NativePageType.FRS;
             }
         }
         return aVar;
@@ -1324,12 +1324,12 @@ public class UtilHelper {
     }
 
     public static void install_apk(Context context, String str) {
-        File mZ;
-        if (str != null && str.length() > 0 && (mZ = m.mZ(str)) != null) {
+        File mY;
+        if (str != null && str.length() > 0 && (mY = m.mY(str)) != null) {
             try {
                 Intent intent = new Intent();
                 intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(getUriFromFile(mZ, intent, context), "application/vnd.android.package-archive");
+                intent.setDataAndType(getUriFromFile(mY, intent, context), "application/vnd.android.package-archive");
                 intent.addFlags(268435456);
                 if (isHaveActivityCanHandleIntent(intent)) {
                     context.startActivity(intent);

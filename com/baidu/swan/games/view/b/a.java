@@ -33,11 +33,11 @@ public class a {
         public void onClick(View view) {
             if (a.this.blp != null && a.this.bls) {
                 if (a.this.blt != null) {
-                    a.this.blt.jz(a.this.blp.getText().toString());
+                    a.this.blt.jy(a.this.blp.getText().toString());
                 }
                 if (a.this.blu != null && !a.this.blu.bin && a.this.blt != null) {
                     a.this.blt.RE();
-                    a.this.jX("");
+                    a.this.jW("");
                 }
             }
         }
@@ -54,7 +54,7 @@ public class a {
         @Override // android.text.TextWatcher
         public void afterTextChanged(final Editable editable) {
             if (a.this.blt != null) {
-                a.this.blt.jy(editable.toString());
+                a.this.blt.jx(editable.toString());
             }
             a.this.blr.post(new Runnable() { // from class: com.baidu.swan.games.view.b.a.2.1
                 @Override // java.lang.Runnable
@@ -75,11 +75,11 @@ public class a {
                 return false;
             }
             if (a.this.blt != null) {
-                a.this.blt.jz(a.this.blp.getText().toString());
+                a.this.blt.jy(a.this.blp.getText().toString());
             }
             if (!a.this.blu.bin && a.this.blt != null) {
                 a.this.blt.RE();
-                a.this.jX("");
+                a.this.jW("");
             }
             return true;
         }
@@ -137,7 +137,7 @@ public class a {
             this.blo.setVisibility(8);
             this.blq.setVisibility(8);
             if (this.blt != null && this.blp != null) {
-                this.blt.jA(this.blp.getText().toString());
+                this.blt.jz(this.blp.getText().toString());
             }
         }
     }
@@ -190,7 +190,7 @@ public class a {
         }
     }
 
-    public boolean jX(final String str) {
+    public boolean jW(final String str) {
         if (!this.bls || this.blp == null) {
             return false;
         }

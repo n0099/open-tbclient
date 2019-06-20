@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class bx extends com.baidu.adp.lib.b.a {
-    public static final String[] cAL = {"com.baidu.tieba.voice"};
+    public static final String[] cAM = {"com.baidu.tieba.voice"};
 
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
@@ -10,7 +10,7 @@ public class bx extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected void initData() {
         this.mName = "voice";
-        this.yU = cAL;
+        this.yT = cAM;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -20,7 +20,7 @@ public class bx extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] hy() {
-        return cAL;
+        return cAM;
     }
 
     @Override // com.baidu.adp.lib.b.a

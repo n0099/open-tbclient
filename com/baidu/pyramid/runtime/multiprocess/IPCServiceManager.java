@@ -87,7 +87,7 @@ public class IPCServiceManager {
                 a = b(contentResolver, jSONObject);
             }
             if (jSONObject.length() != 0) {
-                g.cU(jSONObject.toString());
+                g.cT(jSONObject.toString());
             }
             if (a == null) {
                 return null;

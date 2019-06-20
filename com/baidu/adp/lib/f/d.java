@@ -4,12 +4,12 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class d {
+    private static int Bs = 0;
     private static int Bt = 0;
     private static int Bu = 0;
     private static int Bv = 0;
     private static int Bw = 0;
     private static int Bx = 0;
-    private static int By = 0;
     private static Object syncLock = new Object();
 
     public static com.baidu.adp.lib.stats.a iw() {
@@ -20,14 +20,14 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    Bv = (int) (Bv + aVar.iG());
+                    Bu = (int) (Bu + aVar.iG());
                 }
                 if (aVar2 != null) {
-                    Bu = (int) (Bu + aVar2.iG());
+                    Bt = (int) (Bt + aVar2.iG());
                 }
-                int i = Bt + 1;
-                Bt = i;
-                if (i + Bw > 100) {
+                int i = Bs + 1;
+                Bs = i;
+                if (i + Bv > 100) {
                     ix();
                 }
             }
@@ -38,14 +38,14 @@ public class d {
         if (aVar != null || aVar2 != null) {
             synchronized (syncLock) {
                 if (aVar != null) {
-                    By = (int) (By + aVar.iG());
+                    Bx = (int) (Bx + aVar.iG());
                 }
                 if (aVar2 != null) {
-                    Bx = (int) (Bx + aVar2.iG());
+                    Bw = (int) (Bw + aVar2.iG());
                 }
-                int i = Bw + 1;
-                Bw = i;
-                if (i + Bt > 100) {
+                int i = Bv + 1;
+                Bv = i;
+                if (i + Bs > 100) {
                     ix();
                 }
             }
@@ -53,23 +53,23 @@ public class d {
     }
 
     public static void ix() {
-        if (Bt + Bw > 10) {
+        if (Bs + Bv > 10) {
             com.baidu.adp.lib.stats.a iw = iw();
             iw.append(SocialConstants.PARAM_ACT, "allStat");
-            iw.append("diskTaskCostTime", String.valueOf(Bv));
-            iw.append("diskCostTime", String.valueOf(Bu));
-            iw.append("diskNum", String.valueOf(Bt));
-            iw.append("netTaskCostTime", String.valueOf(By));
-            iw.append("netCostTime", String.valueOf(Bx));
-            iw.append("netNum", String.valueOf(Bw));
+            iw.append("diskTaskCostTime", String.valueOf(Bu));
+            iw.append("diskCostTime", String.valueOf(Bt));
+            iw.append("diskNum", String.valueOf(Bs));
+            iw.append("netTaskCostTime", String.valueOf(Bx));
+            iw.append("netCostTime", String.valueOf(Bw));
+            iw.append("netNum", String.valueOf(Bv));
             iw.append("isWifi", "1");
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, iw);
-            Bu = 0;
             Bt = 0;
-            Bx = 0;
+            Bs = 0;
             Bw = 0;
             Bv = 0;
-            By = 0;
+            Bu = 0;
+            Bx = 0;
         }
     }
 }

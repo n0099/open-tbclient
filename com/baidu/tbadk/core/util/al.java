@@ -38,12 +38,12 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class al {
-    private static String bSq;
-    public static Resources bSr;
-    private static Resources bSs;
-    private static String bSt;
-    private static AssetManager bSu;
-    private static SparseIntArray bSv;
+    private static String bSr;
+    public static Resources bSs;
+    private static Resources bSt;
+    private static String bSu;
+    private static AssetManager bSv;
+    private static SparseIntArray bSw;
     private static String sPackagename;
     private static int sPacknameLength;
 
@@ -52,28 +52,28 @@ public class al {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                al.bSr = null;
+                al.bSs = null;
             }
         });
-        bSq = "skinType not support";
+        bSr = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
-        bSv = new SparseIntArray();
+        bSw = new SparseIntArray();
     }
 
-    public static void nJ(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void nI(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    bSu = (AssetManager) AssetManager.class.newInstance();
-                    File mZ = m.mZ(str);
-                    if (mZ == null || !mZ.exists()) {
+                    bSv = (AssetManager) AssetManager.class.newInstance();
+                    File mY = m.mY(str);
+                    if (mY == null || !mY.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), (int) R.string.theme_skin_apk_error);
                     } else {
-                        bSu.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(bSu, mZ.getAbsolutePath());
-                        bSs = new Resources(bSu, resources.getDisplayMetrics(), resources.getConfiguration());
-                        bSt = m.nc(str);
+                        bSv.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(bSv, mY.getAbsolutePath());
+                        bSt = new Resources(bSv, resources.getDisplayMetrics(), resources.getConfiguration());
+                        bSu = m.nb(str);
                     }
                 }
             } catch (Throwable th) {
@@ -171,7 +171,7 @@ public class al {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(R.color.common_color_10004);
         }
-        throw new IllegalArgumentException(bSq);
+        throw new IllegalArgumentException(bSr);
     }
 
     public static int ib(int i) {
@@ -182,17 +182,17 @@ public class al {
     public static int b(Resources resources, int i) {
         String str;
         int i2;
-        if (bSr == null) {
-            bSr = resources;
+        if (bSs == null) {
+            bSs = resources;
         }
-        int i3 = bSv.get(i, -1);
+        int i3 = bSw.get(i, -1);
         if (i3 == -1) {
             try {
                 str = resources.getResourceName(i);
             } catch (Exception e) {
                 str = null;
             }
-            if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && bSr != null) {
+            if (!TextUtils.isEmpty(str) && str.indexOf(":") > 0 && bSs != null) {
                 if (sPacknameLength == 0) {
                     sPackagename = BdBaseApplication.getInst().getPackageName();
                     sPacknameLength = sPackagename.length();
@@ -200,15 +200,15 @@ public class al {
                 if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
                     str = sPackagename + str.substring(str.indexOf(":"));
                 }
-                i3 = bSr.getIdentifier(str + "_1", null, null);
+                i3 = bSs.getIdentifier(str + "_1", null, null);
                 if (i3 <= 0) {
-                    i2 = bSr.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
-                    bSv.put(i, i2);
+                    i2 = bSs.getIdentifier(("com.baidu.tieba.pluginResource" + str.substring(str.indexOf(":"))) + "_1", null, null);
+                    bSw.put(i, i2);
                     return i2;
                 }
             }
             i2 = i3;
-            bSv.put(i, i2);
+            bSw.put(i, i2);
             return i2;
         }
         return i3;
@@ -274,10 +274,10 @@ public class al {
 
     private static int c(Resources resources, int i) {
         String str;
-        if (bSs == null) {
-            bSs = resources;
+        if (bSt == null) {
+            bSt = resources;
         }
-        if (bSs == null) {
+        if (bSt == null) {
             return 0;
         }
         try {
@@ -292,7 +292,7 @@ public class al {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return bSs.getIdentifier(bSt + str.substring(str.indexOf(":")), null, null);
+        return bSt.getIdentifier(bSu + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void j(View view, int i) {
@@ -314,8 +314,8 @@ public class al {
         if (c == 0) {
             resources2 = resources;
             c = i;
-        } else if (bSs != null) {
-            resources2 = bSs;
+        } else if (bSt != null) {
+            resources2 = bSt;
         } else {
             resources2 = resources;
             c = i;
@@ -342,8 +342,8 @@ public class al {
         if (c == 0) {
             resources2 = resources;
             c = i;
-        } else if (bSs != null) {
-            resources2 = bSs;
+        } else if (bSt != null) {
+            resources2 = bSt;
         } else {
             resources2 = resources;
             c = i;
@@ -368,8 +368,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bSs != null) {
-                resources2 = bSs;
+            } else if (bSt != null) {
+                resources2 = bSt;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -379,8 +379,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bSr != null) {
-                resources2 = bSr;
+            } else if (bSs != null) {
+                resources2 = bSs;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -414,12 +414,12 @@ public class al {
         }
         if (i == 2) {
             int c = c(resources, i2);
-            if (c != 0 && bSs != null) {
-                Resources resources2 = bSs;
+            if (c != 0 && bSt != null) {
+                Resources resources2 = bSt;
                 i2 = c;
             }
-        } else if (i == 1 && (b = b(resources, i2)) != 0 && bSr != null) {
-            Resources resources3 = bSr;
+        } else if (i == 1 && (b = b(resources, i2)) != 0 && bSs != null) {
+            Resources resources3 = bSs;
             i2 = b;
         }
         if (i2 != 0) {
@@ -452,8 +452,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bSs != null) {
-                resources2 = bSs;
+            } else if (bSt != null) {
+                resources2 = bSt;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -463,8 +463,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (bSr != null) {
-                resources2 = bSr;
+            } else if (bSs != null) {
+                resources2 = bSs;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -508,8 +508,8 @@ public class al {
     }
 
     public static int h(Resources resources, int i) {
-        if (bSr == null) {
-            bSr = resources;
+        if (bSs == null) {
+            bSs = resources;
         }
         com.baidu.tbadk.core.d.a.a(SocialConstants.PARAM_IMG_URL, -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, Constants.PHONE_BRAND, Build.BRAND);
         try {
@@ -518,7 +518,7 @@ public class al {
                 return 0;
             }
             String replace = resourceName.replace("_svg", "");
-            if (replace.indexOf(":") <= 0 || bSr == null) {
+            if (replace.indexOf(":") <= 0 || bSs == null) {
                 return 0;
             }
             if (sPacknameLength == 0) {
@@ -528,7 +528,7 @@ public class al {
             if (replace.length() > sPacknameLength && replace.charAt(sPacknameLength) != ':' && replace.startsWith(sPackagename)) {
                 replace = sPackagename + replace.substring(replace.indexOf(":"));
             }
-            return bSr.getIdentifier(replace + "_1", null, null);
+            return bSs.getIdentifier(replace + "_1", null, null);
         } catch (Exception e) {
             return 0;
         }
@@ -545,13 +545,13 @@ public class al {
             int b = b(resources, i);
             if (b == 0) {
                 b = i;
-            } else if (bSr != null) {
-                Resources resources2 = bSr;
+            } else if (bSs != null) {
+                Resources resources2 = bSs;
             } else {
                 b = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(bSr, b, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(bSs, b, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -565,7 +565,7 @@ public class al {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(bSs, c, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(bSt, c, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }

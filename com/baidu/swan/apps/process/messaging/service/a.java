@@ -54,21 +54,21 @@ public final class a {
         return new LinkedHashSet<>(this.aGV.values());
     }
 
-    public synchronized b gh(@Nullable String str) {
-        b gj;
-        gj = gj(str);
-        if (gj == null) {
-            gj = IM();
+    public synchronized b gg(@Nullable String str) {
+        b gi;
+        gi = gi(str);
+        if (gi == null) {
+            gi = IM();
         }
-        return gj;
+        return gi;
     }
 
     @NonNull
-    public synchronized b gi(@Nullable String str) {
-        b gh;
-        gh = gh(str);
-        b(gh.aGX);
-        return gh;
+    public synchronized b gh(@Nullable String str) {
+        b gg;
+        gg = gg(str);
+        b(gg.aGX);
+        return gg;
     }
 
     public synchronized b IM() {
@@ -76,7 +76,7 @@ public final class a {
         b bVar;
         b bVar2 = null;
         synchronized (this) {
-            gl("b4 computNextAvailableProcess");
+            gk("b4 computNextAvailableProcess");
             int i = 0;
             b bVar3 = null;
             while (true) {
@@ -143,7 +143,7 @@ public final class a {
     @Nullable
     public synchronized b IN() {
         b bVar;
-        gl("b4 computNextPreloadProcess");
+        gk("b4 computNextPreloadProcess");
         int i = 0;
         bVar = null;
         while (true) {
@@ -173,14 +173,14 @@ public final class a {
     }
 
     @Nullable
-    public synchronized b gj(@Nullable String str) {
-        List<b> gk;
-        gk = gk(str);
-        return gk.isEmpty() ? null : gk.get(gk.size() - 1);
+    public synchronized b gi(@Nullable String str) {
+        List<b> gj;
+        gj = gj(str);
+        return gj.isEmpty() ? null : gj.get(gj.size() - 1);
     }
 
     @NonNull
-    public synchronized List<b> gk(@Nullable String str) {
+    public synchronized List<b> gj(@Nullable String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         if (!TextUtils.isEmpty(str)) {
@@ -198,14 +198,14 @@ public final class a {
         if (remove != null) {
             this.aGV.put(swanAppProcessInfo, remove);
         }
-        gl("lru -> " + swanAppProcessInfo);
+        gk("lru -> " + swanAppProcessInfo);
     }
 
     public void a(String str, b bVar) {
         if (!TextUtils.isEmpty(str)) {
-            List<b> gk = IK().gk(str);
-            if (!gk.isEmpty()) {
-                for (b bVar2 : gk) {
+            List<b> gj = IK().gj(str);
+            if (!gj.isEmpty()) {
+                for (b bVar2 : gj) {
                     if (bVar2 != bVar && bVar2 != null && bVar2.IW()) {
                         if (DEBUG) {
                             Log.i("SwanAppClientObjManager", "deduplicateClients: protectedClient=" + bVar);
@@ -264,11 +264,11 @@ public final class a {
             return this.mAppId;
         }
 
-        public b gm(String str) {
-            return TextUtils.isEmpty(str) ? this : gn(str);
+        public b gl(String str) {
+            return TextUtils.isEmpty(str) ? this : gm(str);
         }
 
-        public b gn(String str) {
+        public b gm(String str) {
             if (TextUtils.isEmpty(str)) {
                 str = "ai_app_id_unknown";
             }
@@ -312,7 +312,7 @@ public final class a {
         }
     }
 
-    public void gl(String str) {
+    public void gk(String str) {
         if (DEBUG) {
             if (TextUtils.isEmpty(str)) {
                 str = "";

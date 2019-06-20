@@ -5,7 +5,7 @@ public class b implements Runnable {
     private int fqA;
     private boolean frf;
     private m frm;
-    private boolean gZe = false;
+    private boolean gZf = false;
 
     public b(m mVar) {
         this.frm = mVar;
@@ -23,14 +23,14 @@ public class b implements Runnable {
         this.dkD = i;
     }
 
-    public void mQ(boolean z) {
-        this.gZe = z;
+    public void mR(boolean z) {
+        this.gZf = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         if (this.frm != null) {
-            if (!this.gZe) {
+            if (!this.gZf) {
                 this.frm.a(this.fqA, this.dkD, this.frf, 2);
             } else {
                 this.frm.a(this.fqA, this.dkD, this.frf, 1);

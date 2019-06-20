@@ -19,9 +19,9 @@ import com.baidu.tbadk.widget.layout.FrsBaseVideoView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class x extends a<bg> implements com.baidu.tieba.a.e {
-    private bg VK;
-    private String Wt;
-    private final View cSZ;
+    private bg VJ;
+    private String Ws;
+    private final View cTa;
     private HeadImageView eqG;
     private TextView ezD;
     private TextView ezE;
@@ -41,7 +41,7 @@ public class x extends a<bg> implements com.baidu.tieba.a.e {
         this.ezD = (TextView) view.findViewById(R.id.card_topic_name);
         this.ezF = (TextView) view.findViewById(R.id.card_thread_title);
         this.ezE = (TextView) view.findViewById(R.id.card_reply_time);
-        this.cSZ = view.findViewById(R.id.card_divider_line);
+        this.cTa = view.findViewById(R.id.card_divider_line);
         this.ezH = (FrsBaseVideoView) view.findViewById(R.id.base_video_view);
         this.ezH.setClickListener(this);
     }
@@ -51,7 +51,7 @@ public class x extends a<bg> implements com.baidu.tieba.a.e {
         this.eqG.invalidate();
         al.j(this.ezD, R.color.cp_cont_b);
         al.k(getView(), R.drawable.addresslist_item_bg);
-        al.l(this.cSZ, R.color.cp_bg_line_e);
+        al.l(this.cTa, R.color.cp_bg_line_e);
         if (this.ezH != null) {
             this.ezH.onChangeSkinType(i);
         }
@@ -72,13 +72,13 @@ public class x extends a<bg> implements com.baidu.tieba.a.e {
             }
             return;
         }
-        this.VK = bgVar;
+        this.VJ = bgVar;
         if (getView() != null) {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
         if (this.ezH != null) {
-            this.ezH.a(this.VK, bgVar.ade());
+            this.ezH.a(this.VJ, bgVar.ade());
         }
         if (bgVar.adv() != null) {
             this.ezD.setText(bgVar.adv().getName_show());
@@ -89,36 +89,36 @@ public class x extends a<bg> implements com.baidu.tieba.a.e {
         spannableStringBuilder.append((CharSequence) bgVar.m(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_c)), 0, str.length(), 33);
         this.ezF.setText(spannableStringBuilder);
-        n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        n.a(this.ezF, this.VJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.VK != null) {
+        if (this.VJ != null) {
             if (aXr() != null) {
-                aXr().a(view, (View) this.VK, (Object) this.ezG);
+                aXr().a(view, (View) this.VJ, (Object) this.ezG);
             }
-            n.uS(this.VK.getTid());
-            n.a(this.ezF, this.VK.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            n.uR(this.VJ.getTid());
+            n.a(this.ezF, this.VJ.getTid(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
             aXQ();
         }
     }
 
     private void aXQ() {
-        if (this.VK != null && this.VK.adv() != null && this.VK.adv().getName_show() != null) {
+        if (this.VJ != null && this.VJ.adv() != null && this.VJ.adv().getName_show() != null) {
             if (com.baidu.tbadk.plugins.b.fE(true) && !com.baidu.tbadk.plugins.b.auB()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.VK.adv().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.VK.getFid(), this.VK.afb(), this.VK.afc(), com.baidu.adp.lib.g.b.c(this.VK.getTid(), 0L));
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.VJ.adv().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.VJ.getFid(), this.VJ.afb(), this.VJ.afc(), com.baidu.adp.lib.g.b.c(this.VJ.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
                 return;
             }
-            ba.aiz().c(this.mPageContext, new String[]{this.VK.afd()});
+            ba.aiz().c(this.mPageContext, new String[]{this.VJ.afd()});
         }
     }
 
     @Override // com.baidu.tieba.a.e
     public void setPage(String str) {
-        this.Wt = str;
+        this.Ws = str;
     }
 }

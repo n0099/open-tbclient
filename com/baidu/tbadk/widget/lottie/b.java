@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a cJe;
+    private a cJf;
     private x mNetWork;
     private String mUrl;
-    private String wV;
+    private String wU;
 
     /* loaded from: classes.dex */
     public interface a {
         void h(boolean z, String str);
     }
 
-    public static boolean rg(String str) {
+    public static boolean rf(String str) {
         File file = new File(str);
         if (file.exists()) {
             return true;
@@ -35,31 +35,31 @@ public class b extends BdAsyncTask<Void, Void, String> {
     }
 
     public b(String str, String str2, a aVar) {
-        this.wV = str;
+        this.wU = str;
         this.mUrl = str2;
-        this.cJe = aVar;
+        this.cJf = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public String doInBackground(Void... voidArr) {
-        if (ap.isEmpty(this.wV) || ap.isEmpty(this.mUrl) || !rg(this.wV)) {
+        if (ap.isEmpty(this.wU) || ap.isEmpty(this.mUrl) || !rf(this.wU)) {
             return null;
         }
         String bm = s.bm(this.mUrl);
-        String str = this.wV + bm + "/";
-        if (ri(str)) {
+        String str = this.wU + bm + "/";
+        if (rh(str)) {
             return bm;
         }
         this.mNetWork = new x();
         this.mNetWork.setUrl(this.mUrl);
-        String str2 = this.wV + bm + ".zip";
+        String str2 = this.wU + bm + ".zip";
         if (this.mNetWork.a(str2, null, 0, 3, 0, true) && cg(str2, str)) {
-            rh(str2);
+            rg(str2);
             return bm;
         }
-        rh(str2);
+        rg(str2);
         return null;
     }
 
@@ -67,11 +67,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.cJe != null) {
+        if (this.cJf != null) {
             if (!ap.isEmpty(str)) {
-                this.cJe.h(true, str);
+                this.cJf.h(true, str);
             } else {
-                this.cJe.h(false, null);
+                this.cJf.h(false, null);
             }
         }
     }
@@ -83,13 +83,13 @@ public class b extends BdAsyncTask<Void, Void, String> {
         return r.bK(str, str2);
     }
 
-    private void rh(String str) {
+    private void rg(String str) {
         if (!ap.isEmpty(str)) {
             m.A(new File(str));
         }
     }
 
-    private boolean ri(String str) {
+    private boolean rh(String str) {
         return !ap.isEmpty(str) && new File(str).exists();
     }
 }

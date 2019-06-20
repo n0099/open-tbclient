@@ -12,7 +12,7 @@ import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class b implements i {
     public static final String TAG = b.class.getSimpleName();
-    private static b cUq;
+    private static b cUr;
     private int mPort = 0;
 
     private b() {
@@ -20,14 +20,14 @@ public class b implements i {
     }
 
     public static b aBc() {
-        if (cUq == null) {
+        if (cUr == null) {
             synchronized (b.class) {
-                if (cUq == null) {
-                    cUq = new b();
+                if (cUr == null) {
+                    cUr = new b();
                 }
             }
         }
-        return cUq;
+        return cUr;
     }
 
     private static long aAY() {
@@ -56,17 +56,17 @@ public class b implements i {
     }
 
     @Override // com.baidu.tieba.play.i
-    public String rL(String str) {
+    public String rK(String str) {
         if (aBd()) {
-            String rM = rM(str);
-            if (rM == null) {
-                String rJ = rJ(str);
-                if (rJ != null && new File(c.cUd + rJ + "/header_downloaded").exists()) {
+            String rL = rL(str);
+            if (rL == null) {
+                String rI = rI(str);
+                if (rI != null && new File(c.cUe + rI + "/header_downloaded").exists()) {
                     return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                 }
                 return str;
             }
-            return rM;
+            return rL;
         }
         return str;
     }
@@ -74,30 +74,30 @@ public class b implements i {
     @Override // com.baidu.tieba.play.i
     public String T(String str, boolean z) {
         if (aBd()) {
-            String rM = rM(str);
-            if (rM == null) {
-                String rJ = rJ(str);
-                if (rJ != null) {
+            String rL = rL(str);
+            if (rL == null) {
+                String rI = rI(str);
+                if (rI != null) {
                     if (z) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
-                    if (new File(c.cUd + rJ + "/header_downloaded").exists()) {
+                    if (new File(c.cUe + rI + "/header_downloaded").exists()) {
                         return "http://127.0.0.1:" + getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str);
                     }
                     return str;
                 }
                 return str;
             }
-            return rM;
+            return rL;
         }
         return str;
     }
 
     @Override // com.baidu.tieba.play.i
-    public String rM(String str) {
-        String rJ;
+    public String rL(String str) {
+        String rI;
         File file;
-        if (str == null || !str.contains("/") || (rJ = rJ(str)) == null || (file = new File(c.cUd + rJ + "/completed")) == null || !file.exists()) {
+        if (str == null || !str.contains("/") || (rI = rI(str)) == null || (file = new File(c.cUe + rI + "/completed")) == null || !file.exists()) {
             return null;
         }
         return file.getAbsolutePath();
@@ -110,17 +110,17 @@ public class b implements i {
 
     @Override // com.baidu.tieba.play.i
     public void ar(Context context, String str) {
-        e.cW(context).rP(str);
+        e.cW(context).rO(str);
     }
 
     @Override // com.baidu.tieba.play.i
     public void as(Context context, String str) {
-        e.cW(context).rQ(str);
+        e.cW(context).rP(str);
     }
 
     @Override // com.baidu.tieba.play.i
-    public void rN(String str) {
-        a.aBa().rK(str);
+    public void rM(String str) {
+        a.aBa().rJ(str);
     }
 
     @Override // com.baidu.tieba.play.i
@@ -128,7 +128,7 @@ public class b implements i {
         e.cW(context).clearCache();
     }
 
-    public static String rJ(String str) {
+    public static String rI(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -151,7 +151,7 @@ public class b implements i {
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
         if (this.mPort == 0) {
-            File file = new File(c.cUe);
+            File file = new File(c.cUf);
             if (file.exists()) {
                 try {
                     fileInputStream = new FileInputStream(file);
@@ -249,7 +249,7 @@ public class b implements i {
     }
 
     @Override // com.baidu.tieba.play.i
-    public String rO(String str) {
-        return com.baidu.tieba.VideoCache.i.cUd + rJ(str);
+    public String rN(String str) {
+        return com.baidu.tieba.VideoCache.i.cUe + rI(str);
     }
 }

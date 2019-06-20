@@ -17,9 +17,9 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class g {
-    private BdListView MS;
+    private BdListView MR;
     private View bBg;
-    private com.baidu.tbadk.coreExtra.view.c cdV;
+    private com.baidu.tbadk.coreExtra.view.c cdW;
     private BawuTeamInfoActivity fkM;
     private h fkN;
     private NoNetworkView fkO;
@@ -42,14 +42,14 @@ public class g {
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.showBottomLine();
         this.fkO = (NoNetworkView) this.bBg.findViewById(R.id.view_no_network);
-        this.MS = (BdListView) this.bBg.findViewById(R.id.listview_bawu_team_info);
+        this.MR = (BdListView) this.bBg.findViewById(R.id.listview_bawu_team_info);
         this.fkN = new h(this.fkM.getPageContext());
-        this.MS.setAdapter((ListAdapter) this.fkN);
+        this.MR.setAdapter((ListAdapter) this.fkN);
         this.fkQ = new h.b() { // from class: com.baidu.tieba.forumMember.bawu.g.1
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void wf(String str) {
+            public void we(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     ba.aiz().c(g.this.fkM.getPageContext(), new String[]{str});
                 } else {
@@ -89,13 +89,13 @@ public class g {
     }
 
     public void bis() {
-        this.MS.setVisibility(8);
+        this.MR.setVisibility(8);
         this.fkM.showNetRefreshView(this.bBg, this.fkM.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
     public void bit() {
         this.fkM.hideNetRefreshView(this.bBg);
-        this.MS.setVisibility(0);
+        this.MR.setVisibility(0);
     }
 
     public void f(NoNetworkView.a aVar) {
@@ -104,17 +104,17 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        if (this.cdV == null) {
-            this.cdV = new com.baidu.tbadk.coreExtra.view.c(this.fkM);
+        if (this.cdW == null) {
+            this.cdW = new com.baidu.tbadk.coreExtra.view.c(this.fkM);
         }
-        this.cdV.apm();
-        this.cdV.setAccountData(accountData);
-        this.cdV.jN(1);
+        this.cdW.apm();
+        this.cdW.setAccountData(accountData);
+        this.cdW.jN(1);
     }
 
     public void onDestroy() {
-        if (this.cdV != null) {
-            this.cdV.onDestroy();
+        if (this.cdW != null) {
+            this.cdW.onDestroy();
         }
     }
 }

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class h {
-    private String SW;
+    private String SV;
     private String aFq;
     private int bvC;
     private JSONObject bvD;
@@ -21,7 +21,7 @@ public class h {
     public h(String str, String str2, int i) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str;
         this.aFq = str;
         this.bvC = -1;
@@ -39,7 +39,7 @@ public class h {
     public h(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str;
         this.aFq = str;
         this.bvC = -1;
@@ -53,7 +53,7 @@ public class h {
     public h(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str2;
         this.aFq = str;
         this.bvC = i;
@@ -71,7 +71,7 @@ public class h {
     public h(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
         this.bvF = false;
-        this.SW = "";
+        this.SV = "";
         this.mId = str2;
         this.aFq = str;
         this.bvC = i;
@@ -133,7 +133,7 @@ public class h {
     }
 
     public String getFileName() {
-        return this.SW;
+        return this.SV;
     }
 
     public String WY() {
@@ -149,7 +149,7 @@ public class h {
     }
 
     public void WZ() {
-        if (this.mId != null && this.mId.equals(this.aFq) && d.WI().kH(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.aFq) && d.WI().kG(this.mId)) {
             this.bvE = s.Xr().Hs();
         }
     }

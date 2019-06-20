@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class b {
-    private BaseActivity cVp;
+    private BaseActivity cVq;
     private NoNetworkView eRV;
     private View fmo;
     private a fmp;
@@ -25,52 +25,52 @@ public class b {
     private View mRootView;
 
     public b(BaseActivity baseActivity) {
-        this.cVp = baseActivity;
-        this.cVp.setContentView(R.layout.forum_member_activity);
-        this.mRootView = this.cVp.findViewById(R.id.activity_root_view);
-        this.mNavigationBar = (NavigationBar) this.cVp.findViewById(R.id.view_navigation_bar);
-        this.mNavigationBar.setCenterTextTitle(this.cVp.getString(R.string.forummember)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.b.1
+        this.cVq = baseActivity;
+        this.cVq.setContentView(R.layout.forum_member_activity);
+        this.mRootView = this.cVq.findViewById(R.id.activity_root_view);
+        this.mNavigationBar = (NavigationBar) this.cVq.findViewById(R.id.view_navigation_bar);
+        this.mNavigationBar.setCenterTextTitle(this.cVq.getString(R.string.forummember)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.member.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.cVp.finish();
+                b.this.cVq.finish();
             }
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.cVp.setNetRefreshViewTopMargin(BdListViewHelper.cBh);
-        this.eRV = (NoNetworkView) this.cVp.findViewById(R.id.view_no_network);
-        this.mListView = (BdTypeListView) this.cVp.findViewById(R.id.forum_member_listview);
-        this.mPullView = new i(this.cVp.getPageContext());
-        this.mPullView.setTag(this.cVp.getUniqueId());
-        if (this.cVp instanceof h.c) {
-            this.mPullView.setListPullRefreshListener((h.c) this.cVp);
+        this.cVq.setNetRefreshViewTopMargin(BdListViewHelper.cBi);
+        this.eRV = (NoNetworkView) this.cVq.findViewById(R.id.view_no_network);
+        this.mListView = (BdTypeListView) this.cVq.findViewById(R.id.forum_member_listview);
+        this.mPullView = new i(this.cVq.getPageContext());
+        this.mPullView.setTag(this.cVq.getUniqueId());
+        if (this.cVq instanceof h.c) {
+            this.mPullView.setListPullRefreshListener((h.c) this.cVq);
         }
-        if (this.cVp instanceof BdListView.e) {
-            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVp);
+        if (this.cVq instanceof BdListView.e) {
+            this.mListView.setOnSrollToBottomListener((BdListView.e) this.cVq);
         }
         this.mListView.setPullRefresh(this.mPullView);
-        this.fmo = BdListViewHelper.a(this.cVp.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
-        this.fmp = new a(this.cVp, this.mListView);
+        this.fmo = BdListViewHelper.a(this.cVq.getPageContext().getPageActivity(), this.mListView, BdListViewHelper.HeadType.DEFAULT);
+        this.fmp = new a(this.cVq, this.mListView);
         this.mListView.addAdapters(this.fmp.aHP());
     }
 
     public void showLoadingView() {
         this.mListView.setVisibility(8);
-        this.cVp.showLoadingView(this.mRootView, true);
+        this.cVq.showLoadingView(this.mRootView, true);
     }
 
     public void hideLoadingView() {
         this.mListView.setVisibility(0);
-        this.cVp.hideLoadingView(this.mRootView);
+        this.cVq.hideLoadingView(this.mRootView);
     }
 
-    public void wk(String str) {
+    public void wj(String str) {
         this.mListView.setVisibility(8);
-        this.cVp.showNetRefreshView(this.mRootView, str, true);
+        this.cVq.showNetRefreshView(this.mRootView, str, true);
     }
 
     public void aHK() {
         this.mListView.setVisibility(0);
-        this.cVp.hideNetRefreshView(this.mRootView);
+        this.cVq.hideNetRefreshView(this.mRootView);
     }
 
     public void bU(List<m> list) {
@@ -98,8 +98,8 @@ public class b {
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.cVp.getPageContext(), i);
-        this.eRV.onChangeSkinType(this.cVp.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.cVq.getPageContext(), i);
+        this.eRV.onChangeSkinType(this.cVq.getPageContext(), i);
         notifyDataSetChanged();
         al.l(this.mRootView, R.color.cp_bg_line_c);
     }

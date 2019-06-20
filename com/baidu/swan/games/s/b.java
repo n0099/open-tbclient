@@ -108,11 +108,11 @@ public class b {
         return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs");
     }
 
-    public static void jO(String str) {
-        jP(String.format("aigame_storage_%s_%s", str, ""));
+    public static void jN(String str) {
+        jO(String.format("aigame_storage_%s_%s", str, ""));
     }
 
-    private static void jP(String str) {
+    private static void jO(String str) {
         File[] listFiles;
         if (str != null && str.startsWith("aigame_storage_") && (listFiles = Ss().listFiles()) != null) {
             for (File file : listFiles) {

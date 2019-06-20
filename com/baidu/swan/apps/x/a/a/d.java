@@ -54,13 +54,13 @@ public class d implements com.baidu.swan.apps.model.a {
     public static class b extends C0194d {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         private static final String TAG = b.class.getSimpleName();
-        public float aaH;
+        public float aaG;
         public String abu;
         public int bgColor;
 
         public b() {
             super();
-            this.aaH = 0.0f;
+            this.aaG = 0.0f;
             this.abu = "BYCLICK";
             this.bgColor = -1;
         }
@@ -69,7 +69,7 @@ public class d implements com.baidu.swan.apps.model.a {
         public void parseFromJson(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 super.parseFromJson(jSONObject);
-                this.aaH = Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("borderRadius", 0.0d)));
+                this.aaG = Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("borderRadius", 0.0d)));
                 this.abu = jSONObject.has("display") ? jSONObject.optString("display") : "BYCLICK";
                 this.bgColor = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("bgColor"), -1);
             }
@@ -86,7 +86,7 @@ public class d implements com.baidu.swan.apps.model.a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         private static final String TAG = c.class.getSimpleName();
         public float aAm;
-        public float aaH;
+        public float aaG;
         public int borderColor;
         public float x;
         public float y;
@@ -97,7 +97,7 @@ public class d implements com.baidu.swan.apps.model.a {
             this.y = 0.0f;
             this.aAm = 0.0f;
             this.borderColor = 0;
-            this.aaH = 0.0f;
+            this.aaG = 0.0f;
         }
 
         @Override // com.baidu.swan.apps.x.a.a.d.C0194d, com.baidu.swan.apps.model.a
@@ -112,7 +112,7 @@ public class d implements com.baidu.swan.apps.model.a {
                 }
                 this.aAm = Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("borderWidth", 0.0d)));
                 this.borderColor = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("borderColor"), 0);
-                this.aaH = Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("borderRadius", 0.0d)));
+                this.aaG = Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("borderRadius", 0.0d)));
             }
         }
 
@@ -160,7 +160,7 @@ public class d implements com.baidu.swan.apps.model.a {
     /* loaded from: classes2.dex */
     public static class C0194d implements com.baidu.swan.apps.model.a {
         public float aAn;
-        public float aaN;
+        public float aaM;
         public int bgColor;
         public int color;
         public String content;
@@ -169,7 +169,7 @@ public class d implements com.baidu.swan.apps.model.a {
         private C0194d() {
             this.content = "";
             this.color = ViewCompat.MEASURED_STATE_MASK;
-            this.aaN = com.baidu.swan.apps.x.a.d.f(10.0d);
+            this.aaM = com.baidu.swan.apps.x.a.d.f(10.0d);
             this.bgColor = 0;
             this.aAn = 0.0f;
             this.textAlign = "center";
@@ -180,7 +180,7 @@ public class d implements com.baidu.swan.apps.model.a {
             if (jSONObject != null && jSONObject.has("content")) {
                 this.content = jSONObject.optString("content");
                 this.color = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("color"), ViewCompat.MEASURED_STATE_MASK);
-                this.aaN = jSONObject.has("fontSize") ? Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("fontSize", 0.0d))) : com.baidu.swan.apps.x.a.d.f(10.0d);
+                this.aaM = jSONObject.has("fontSize") ? Math.abs(com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("fontSize", 0.0d))) : com.baidu.swan.apps.x.a.d.f(10.0d);
                 this.bgColor = com.baidu.swan.apps.x.a.d.B(jSONObject.optString("bgColor"), 0);
                 this.aAn = com.baidu.swan.apps.x.a.d.f(jSONObject.optDouble("padding", 0.0d));
                 this.textAlign = jSONObject.has("textAlign") ? jSONObject.optString("textAlign") : "center";

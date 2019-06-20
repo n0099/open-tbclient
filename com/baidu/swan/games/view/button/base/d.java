@@ -9,7 +9,7 @@ import java.io.File;
 public class d {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static PathType hA(String str) {
+    public static PathType hz(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }

@@ -27,15 +27,15 @@ public final class b {
         return C0155b.aFV;
     }
 
-    public Bundle fT(String str) {
-        Bundle fV = HQ().fV(str);
-        if (fV == null) {
-            fV = new Bundle();
+    public Bundle fS(String str) {
+        Bundle fU = HQ().fU(str);
+        if (fU == null) {
+            fU = new Bundle();
         }
         if (DEBUG) {
-            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + fV.size());
+            Log.i("UbcBundleHeloer", "xpass -> startTargetSwanApp: intent.bundle.ext.size=" + fU.size());
         }
-        return fV;
+        return fU;
     }
 
     public void a(final String str, final SwanAppProcessInfo swanAppProcessInfo) {
@@ -45,9 +45,9 @@ public final class b {
         j.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1
             @Override // java.lang.Runnable
             public void run() {
-                final Bundle fT = b.this.fT(str);
+                final Bundle fS = b.this.fS(str);
                 if (b.DEBUG) {
-                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fT.size());
+                    Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: ext.size=" + fS.size());
                 }
                 if (!TextUtils.isEmpty(str) && swanAppProcessInfo.isSwanAppProcess()) {
                     ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.1.1
@@ -56,7 +56,7 @@ public final class b {
                             if (b.DEBUG) {
                                 Log.i("UbcBundleHeloer", "xpass -> sendMsgToClient: action");
                             }
-                            com.baidu.swan.apps.process.messaging.service.b.IY().a(swanAppProcessInfo, 109, fT);
+                            com.baidu.swan.apps.process.messaging.service.b.IY().a(swanAppProcessInfo, 109, fS);
                         }
                     }, 2500L);
                 }
@@ -121,7 +121,7 @@ public final class b {
     }
 
     private void b(String str, String str2, Object obj) {
-        com.baidu.swan.apps.v.c.a.eS(str).eT(String.format("%s: %s", str2, obj)).eW("[CheckPoint]");
+        com.baidu.swan.apps.v.c.a.eR(str).eS(String.format("%s: %s", str2, obj)).eV("[CheckPoint]");
     }
 
     private b a(a aVar) {
@@ -129,7 +129,7 @@ public final class b {
         return this;
     }
 
-    public synchronized Bundle fU(String str) {
+    public synchronized Bundle fT(String str) {
         Bundle bundle;
         synchronized (this.aFI) {
             bundle = getBundle(str);
@@ -146,7 +146,7 @@ public final class b {
         return this;
     }
 
-    public Bundle fV(String str) {
+    public Bundle fU(String str) {
         Bundle remove;
         synchronized (this.aFI) {
             remove = this.aFI.remove(str);
@@ -176,7 +176,7 @@ public final class b {
         public void run() {
             if (!TextUtils.isEmpty(this.aFT)) {
                 synchronized (b.this.aFI) {
-                    D(b.this.fU(this.aFT));
+                    D(b.this.fT(this.aFT));
                 }
             }
         }

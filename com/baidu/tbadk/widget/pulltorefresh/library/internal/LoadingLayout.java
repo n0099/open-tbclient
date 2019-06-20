@@ -23,15 +23,15 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class LoadingLayout extends FrameLayout implements com.baidu.tbadk.widget.pulltorefresh.library.a {
     static final Interpolator aLS = new LinearInterpolator();
-    private FrameLayout cJN;
-    private boolean cJO;
-    private final TextView cJP;
+    private FrameLayout cJO;
+    private boolean cJP;
     private final TextView cJQ;
-    protected final PullToRefreshBase.Orientation cJR;
-    private CharSequence cJS;
+    private final TextView cJR;
+    protected final PullToRefreshBase.Orientation cJS;
     private CharSequence cJT;
     private CharSequence cJU;
-    protected final PullToRefreshBase.Mode cJr;
+    private CharSequence cJV;
+    protected final PullToRefreshBase.Mode cJs;
     protected final ImageView mHeaderImage;
     protected final ProgressBar mHeaderProgress;
 
@@ -54,8 +54,8 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
         ColorStateList colorStateList;
         ColorStateList colorStateList2;
         Drawable drawable;
-        this.cJr = mode;
-        this.cJR = orientation;
+        this.cJs = mode;
+        this.cJS = orientation;
         switch (orientation) {
             case HORIZONTAL:
                 LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_horizontal, this);
@@ -64,24 +64,24 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
                 LayoutInflater.from(context).inflate(R.layout.tbadkcore_pull_to_refresh_header_vertical, this);
                 break;
         }
-        this.cJN = (FrameLayout) findViewById(R.id.fl_inner);
-        this.cJP = (TextView) this.cJN.findViewById(R.id.pull_to_refresh_text);
-        this.mHeaderProgress = (ProgressBar) this.cJN.findViewById(R.id.pull_to_refresh_progress);
-        this.cJQ = (TextView) this.cJN.findViewById(R.id.pull_to_refresh_sub_text);
-        this.mHeaderImage = (ImageView) this.cJN.findViewById(R.id.pull_to_refresh_image);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cJN.getLayoutParams();
+        this.cJO = (FrameLayout) findViewById(R.id.fl_inner);
+        this.cJQ = (TextView) this.cJO.findViewById(R.id.pull_to_refresh_text);
+        this.mHeaderProgress = (ProgressBar) this.cJO.findViewById(R.id.pull_to_refresh_progress);
+        this.cJR = (TextView) this.cJO.findViewById(R.id.pull_to_refresh_sub_text);
+        this.mHeaderImage = (ImageView) this.cJO.findViewById(R.id.pull_to_refresh_image);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.cJO.getLayoutParams();
         switch (mode) {
             case PULL_FROM_END:
                 layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 48 : 3;
-                this.cJS = context.getString(R.string.pull_to_refresh_pull_label);
-                this.cJT = context.getString(R.string.pull_to_refresh_refreshing_label);
-                this.cJU = context.getString(R.string.pull_to_refresh_release_label);
+                this.cJT = context.getString(R.string.pull_to_refresh_pull_label);
+                this.cJU = context.getString(R.string.pull_to_refresh_refreshing_label);
+                this.cJV = context.getString(R.string.pull_to_refresh_release_label);
                 break;
             default:
                 layoutParams.gravity = orientation == PullToRefreshBase.Orientation.VERTICAL ? 80 : 5;
-                this.cJS = context.getString(R.string.pull_to_refresh_pull_label);
-                this.cJT = context.getString(R.string.pull_to_refresh_refreshing_label);
-                this.cJU = context.getString(R.string.pull_to_refresh_release_label);
+                this.cJT = context.getString(R.string.pull_to_refresh_pull_label);
+                this.cJU = context.getString(R.string.pull_to_refresh_refreshing_label);
+                this.cJV = context.getString(R.string.pull_to_refresh_release_label);
                 break;
         }
         if (typedArray.hasValue(18) && (drawable = typedArray.getDrawable(18)) != null) {
@@ -141,63 +141,63 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
     }
 
     public final int getContentSize() {
-        switch (this.cJR) {
+        switch (this.cJS) {
             case HORIZONTAL:
-                return this.cJN.getWidth();
+                return this.cJO.getWidth();
             default:
-                return this.cJN.getHeight();
+                return this.cJO.getHeight();
         }
     }
 
     public final void onPull(float f) {
-        if (!this.cJO) {
+        if (!this.cJP) {
             onPullImpl(f);
         }
     }
 
     public final void pullToRefresh() {
-        if (this.cJP != null) {
-            this.cJP.setText(this.cJS);
+        if (this.cJQ != null) {
+            this.cJQ.setText(this.cJT);
         }
         pullToRefreshImpl();
     }
 
     public final void refreshing() {
-        if (this.cJP != null) {
-            this.cJP.setText(this.cJT);
+        if (this.cJQ != null) {
+            this.cJQ.setText(this.cJU);
         }
-        if (this.cJO) {
+        if (this.cJP) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).start();
         } else {
             refreshingImpl();
         }
-        if (this.cJQ != null) {
-            this.cJQ.setVisibility(8);
+        if (this.cJR != null) {
+            this.cJR.setVisibility(8);
         }
     }
 
     public final void releaseToRefresh() {
-        if (this.cJP != null) {
-            this.cJP.setText(this.cJU);
+        if (this.cJQ != null) {
+            this.cJQ.setText(this.cJV);
         }
         releaseToRefreshImpl();
     }
 
     public final void reset() {
-        if (this.cJP != null) {
-            this.cJP.setText(this.cJS);
+        if (this.cJQ != null) {
+            this.cJQ.setText(this.cJT);
         }
         this.mHeaderImage.setVisibility(0);
-        if (this.cJO) {
+        if (this.cJP) {
             ((AnimationDrawable) this.mHeaderImage.getDrawable()).stop();
         } else {
             resetImpl();
         }
-        if (this.cJQ != null) {
-            if (TextUtils.isEmpty(this.cJQ.getText())) {
-                this.cJQ.setVisibility(8);
+        if (this.cJR != null) {
+            if (TextUtils.isEmpty(this.cJR.getText())) {
+                this.cJR.setVisibility(8);
             } else {
-                this.cJQ.setVisibility(0);
+                this.cJR.setVisibility(0);
             }
         }
     }
@@ -210,81 +210,81 @@ public abstract class LoadingLayout extends FrameLayout implements com.baidu.tba
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public final void setLoadingDrawable(Drawable drawable) {
         this.mHeaderImage.setImageDrawable(drawable);
-        this.cJO = drawable instanceof AnimationDrawable;
+        this.cJP = drawable instanceof AnimationDrawable;
         onLoadingDrawableSet(drawable);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
     public void setPullLabel(CharSequence charSequence) {
-        this.cJS = charSequence;
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
-    public void setRefreshingLabel(CharSequence charSequence) {
         this.cJT = charSequence;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
-    public void setReleaseLabel(CharSequence charSequence) {
+    public void setRefreshingLabel(CharSequence charSequence) {
         this.cJU = charSequence;
     }
 
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.a
+    public void setReleaseLabel(CharSequence charSequence) {
+        this.cJV = charSequence;
+    }
+
     public void setTextTypeface(Typeface typeface) {
-        this.cJP.setTypeface(typeface);
+        this.cJQ.setTypeface(typeface);
     }
 
     private void setSubHeaderText(CharSequence charSequence) {
-        if (this.cJQ != null) {
+        if (this.cJR != null) {
             if (TextUtils.isEmpty(charSequence)) {
-                this.cJQ.setVisibility(8);
+                this.cJR.setVisibility(8);
                 return;
             }
-            this.cJQ.setText(charSequence);
-            if (8 == this.cJQ.getVisibility()) {
-                this.cJQ.setVisibility(0);
+            this.cJR.setText(charSequence);
+            if (8 == this.cJR.getVisibility()) {
+                this.cJR.setVisibility(0);
             }
         }
     }
 
     private void setSubTextAppearance(int i) {
-        if (this.cJQ != null) {
-            this.cJQ.setTextAppearance(getContext(), i);
+        if (this.cJR != null) {
+            this.cJR.setTextAppearance(getContext(), i);
         }
     }
 
     private void setSubTextColor(ColorStateList colorStateList) {
-        if (this.cJQ != null) {
-            this.cJQ.setTextColor(colorStateList);
+        if (this.cJR != null) {
+            this.cJR.setTextColor(colorStateList);
         }
     }
 
     private void setTextAppearance(int i) {
-        if (this.cJP != null) {
-            this.cJP.setTextAppearance(getContext(), i);
-        }
         if (this.cJQ != null) {
             this.cJQ.setTextAppearance(getContext(), i);
+        }
+        if (this.cJR != null) {
+            this.cJR.setTextAppearance(getContext(), i);
         }
     }
 
     private void setTextColor(ColorStateList colorStateList) {
-        if (this.cJP != null) {
-            this.cJP.setTextColor(colorStateList);
-        }
         if (this.cJQ != null) {
             this.cJQ.setTextColor(colorStateList);
+        }
+        if (this.cJR != null) {
+            this.cJR.setTextColor(colorStateList);
         }
     }
 
     public void setTextColor(int i) {
-        if (this.cJP != null) {
-            this.cJP.setTextColor(i);
+        if (this.cJQ != null) {
+            this.cJQ.setTextColor(i);
         }
     }
 
     public void setTextSize(int i) {
-        if (this.cJP != null) {
-            this.cJP.setTextSize(0, i);
+        if (this.cJQ != null) {
+            this.cJQ.setTextSize(0, i);
         }
     }
 }

@@ -12,15 +12,15 @@ public class a {
         @Override // com.baidu.swan.apps.an.d.a
         /* renamed from: a */
         public void D(HybridUbcFlow hybridUbcFlow) {
-            a.this.fP(hybridUbcFlow.name);
+            a.this.fO(hybridUbcFlow.name);
         }
     };
 
-    public synchronized HybridUbcFlow fO(String str) {
-        HybridUbcFlow fQ;
+    public synchronized HybridUbcFlow fN(String str) {
+        HybridUbcFlow fP;
         synchronized (this.aFm) {
-            fQ = fQ(str);
-            if (fQ == null) {
+            fP = fP(str);
+            if (fP == null) {
                 HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
                 hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aFo);
                 com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aFn.get(str);
@@ -28,10 +28,10 @@ public class a {
                     aVar.D(hybridUbcFlow);
                 }
                 this.aFm.put(str, hybridUbcFlow);
-                fQ = hybridUbcFlow;
+                fP = hybridUbcFlow;
             }
         }
-        return fQ;
+        return fP;
     }
 
     public a b(String str, com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar) {
@@ -41,14 +41,14 @@ public class a {
         return this;
     }
 
-    public a fP(String str) {
+    public a fO(String str) {
         synchronized (this.aFm) {
             this.aFm.remove(str);
         }
         return this;
     }
 
-    public HybridUbcFlow fQ(String str) {
+    public HybridUbcFlow fP(String str) {
         HybridUbcFlow hybridUbcFlow;
         synchronized (this.aFm) {
             hybridUbcFlow = this.aFm.get(str);

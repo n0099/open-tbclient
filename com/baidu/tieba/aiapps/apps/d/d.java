@@ -14,40 +14,40 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes4.dex */
 public class d {
-    public static String dbw = "https://mbd.baidu.com";
+    public static String dbx = "https://mbd.baidu.com";
 
     public static String aDW() {
-        return String.format("%s/ma/invoice/create", dbw);
+        return String.format("%s/ma/invoice/create", dbx);
     }
 
     public static String aDX() {
-        return String.format("%s/ma/invoice/list", dbw);
+        return String.format("%s/ma/invoice/list", dbx);
     }
 
     public static String aDY() {
-        return String.format("%s/ma/invoice/oa_list", dbw);
+        return String.format("%s/ma/invoice/oa_list", dbx);
     }
 
     public static String aDZ() {
-        return String.format("%s/ma/invoice/modify", dbw);
+        return String.format("%s/ma/invoice/modify", dbx);
     }
 
     public static String aEa() {
-        return String.format("%s/ma/invoice/modify_default", dbw);
+        return String.format("%s/ma/invoice/modify_default", dbx);
     }
 
     public static String aEb() {
-        return String.format("%s/ma/invoice/del", dbw);
+        return String.format("%s/ma/invoice/del", dbx);
     }
 
     public static String aEc() {
-        return String.format("%s/ma/address", dbw);
+        return String.format("%s/ma/address", dbx);
     }
 
-    public static String sH(String str) {
-        String m21do = m21do(aEg());
-        String m21do2 = m21do(getUid());
-        return B(B(B(B(B(B(B(B(str, "uid", m21do2), "ua", m21do(VC())), "ut", m21do), "osbranch", aEe()), "pkgname", mL()), "network", aEd()), "appname", getAppName()), "cfrom", aEk());
+    public static String sG(String str) {
+        String dn = dn(aEg());
+        String dn2 = dn(getUid());
+        return B(B(B(B(B(B(B(B(str, "uid", dn2), "ua", dn(VC())), "ut", dn), "osbranch", aEe()), "pkgname", mL()), "network", aEd()), "appname", getAppName()), "cfrom", aEk());
     }
 
     public static String aEd() {
@@ -164,8 +164,7 @@ public class d {
         return str;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public static String m21do(String str) {
+    public static String dn(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

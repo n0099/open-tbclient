@@ -20,13 +20,13 @@ public class GameShareData implements Parcelable {
             return new GameShareData[i];
         }
     };
-    public String bGb;
     public String bGc;
-    public float bGd;
+    public String bGd;
     public float bGe;
-    public String bGf;
+    public float bGf;
     public String bGg;
     public String bGh;
+    public String bGi;
     public String gameName;
     public String userName;
     public String userPortrait;
@@ -35,30 +35,30 @@ public class GameShareData implements Parcelable {
     }
 
     protected GameShareData(Parcel parcel) {
-        this.bGb = parcel.readString();
-        this.gameName = parcel.readString();
         this.bGc = parcel.readString();
-        this.bGd = parcel.readFloat();
+        this.gameName = parcel.readString();
+        this.bGd = parcel.readString();
+        this.bGe = parcel.readFloat();
         this.userName = parcel.readString();
         this.userPortrait = parcel.readString();
-        this.bGe = parcel.readFloat();
-        this.bGf = parcel.readString();
+        this.bGf = parcel.readFloat();
         this.bGg = parcel.readString();
         this.bGh = parcel.readString();
+        this.bGi = parcel.readString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.bGb);
-        parcel.writeString(this.gameName);
         parcel.writeString(this.bGc);
-        parcel.writeFloat(this.bGd);
+        parcel.writeString(this.gameName);
+        parcel.writeString(this.bGd);
+        parcel.writeFloat(this.bGe);
         parcel.writeString(this.userName);
         parcel.writeString(this.userPortrait);
-        parcel.writeFloat(this.bGe);
-        parcel.writeString(this.bGf);
+        parcel.writeFloat(this.bGf);
         parcel.writeString(this.bGg);
         parcel.writeString(this.bGh);
+        parcel.writeString(this.bGi);
     }
 
     @Override // android.os.Parcelable
@@ -68,16 +68,16 @@ public class GameShareData implements Parcelable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bGb = jSONObject.optString("barIconUrl");
+            this.bGc = jSONObject.optString("barIconUrl");
             this.gameName = jSONObject.optString("barName");
-            this.bGc = jSONObject.optString("barDescribe");
-            this.bGd = (float) jSONObject.optDouble("score");
+            this.bGd = jSONObject.optString("barDescribe");
+            this.bGe = (float) jSONObject.optDouble("score");
             this.userName = jSONObject.optString("userName");
             this.userPortrait = jSONObject.optString("avastar");
-            this.bGe = (float) jSONObject.optDouble("userScore");
-            this.bGf = jSONObject.optString("content");
-            this.bGg = jSONObject.optString("qrCodeUrl");
-            this.bGh = jSONObject.optString("headBgUrl");
+            this.bGf = (float) jSONObject.optDouble("userScore");
+            this.bGg = jSONObject.optString("content");
+            this.bGh = jSONObject.optString("qrCodeUrl");
+            this.bGi = jSONObject.optString("headBgUrl");
         }
     }
 }

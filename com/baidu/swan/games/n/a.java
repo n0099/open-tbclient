@@ -49,8 +49,8 @@ public class a extends HandlerThread {
         super("SwanGamePageMonitor", 5);
         this.biA = false;
         this.aDz = 0;
-        this.aDC = a.C0195a.fv("solid_parser");
-        this.aDD = a.C0195a.fv("hsv_parser");
+        this.aDC = a.C0195a.fu("solid_parser");
+        this.aDD = a.C0195a.fu("hsv_parser");
     }
 
     public static a RF() {
@@ -94,7 +94,7 @@ public class a extends HandlerThread {
                             a.this.log("top fragment is not SwanGameFragment");
                             return;
                         } else {
-                            a.this.jE(zK.toString());
+                            a.this.jD(zK.toString());
                             return;
                         }
                     }
@@ -129,7 +129,7 @@ public class a extends HandlerThread {
                         public void run() {
                             e vi2 = com.baidu.swan.apps.w.e.FV().vi();
                             if (vi2 != null && vi2.zK() == null) {
-                                a.this.a(new c.a().fw("loading").GM());
+                                a.this.a(new c.a().fv("loading").GM());
                             }
                         }
                     }, 10000L);
@@ -157,14 +157,14 @@ public class a extends HandlerThread {
         this.aDz++;
         String a = a(cVar, z);
         log("detail=" + a);
-        com.baidu.swan.apps.ak.a hZ = new com.baidu.swan.apps.ak.a().Y(5L).Z(i).hZ(a);
+        com.baidu.swan.apps.ak.a hY = new com.baidu.swan.apps.ak.a().Y(5L).Z(i).hY(a);
         com.baidu.swan.apps.v.b.b bVar = null;
         if (com.baidu.swan.apps.ae.b.Lq() != null) {
             bVar = com.baidu.swan.apps.ae.b.Lq().vk();
         }
         d dVar = new d();
         dVar.k("errorList", com.baidu.swan.games.r.b.Sm().Sn());
-        com.baidu.swan.apps.statistic.e.b(dVar.a(hZ).s(bVar).hp(com.baidu.swan.apps.statistic.e.dM(1)).hq(com.baidu.swan.apps.ae.b.LB()).cv(false));
+        com.baidu.swan.apps.statistic.e.b(dVar.a(hY).s(bVar).ho(com.baidu.swan.apps.statistic.e.dM(1)).hp(com.baidu.swan.apps.ae.b.LB()).cv(false));
     }
 
     private String a(com.baidu.swan.apps.y.c cVar, boolean z) {
@@ -202,7 +202,7 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jE(String str) {
+    public void jD(String str) {
         if (!TextUtils.equals(str, this.biB)) {
             this.biB = str;
             log("monitorNewPage token = " + str);
@@ -227,7 +227,7 @@ public class a extends HandlerThread {
                 ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.n.a.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.jF(b.this.token);
+                        a.this.jE(b.this.token);
                         a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.swan.games.n.a.b.1.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -285,7 +285,7 @@ public class a extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jF(final String str) {
+    public void jE(final String str) {
         DuMixGameSurfaceView RG = RG();
         if (RG != null) {
             RG.a(new DuMixGameSurfaceView.b() { // from class: com.baidu.swan.games.n.a.1
@@ -299,7 +299,7 @@ public class a extends HandlerThread {
                                 Bitmap createBitmap = Bitmap.createBitmap(c2, i, i2, Bitmap.Config.ARGB_8888);
                                 a.this.log("screenshot = " + createBitmap);
                                 if (createBitmap != null) {
-                                    com.baidu.swan.apps.y.c GM = new c.a().fx(str).h(createBitmap).GM();
+                                    com.baidu.swan.apps.y.c GM = new c.a().fw(str).h(createBitmap).GM();
                                     Message obtainMessage = a.this.mHandler.obtainMessage(3);
                                     obtainMessage.obj = GM;
                                     a.this.mHandler.sendMessage(obtainMessage);

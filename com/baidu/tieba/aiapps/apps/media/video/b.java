@@ -19,7 +19,7 @@ import java.io.File;
 /* loaded from: classes4.dex */
 public class b {
     private SwanAppNAViewContainer akG;
-    private a deg;
+    private a deh;
     private Context mContext;
 
     public b(Context context) {
@@ -36,7 +36,7 @@ public class b {
 
     private void k(com.baidu.swan.apps.media.d.c cVar) {
         if (cVar != null) {
-            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aDm, cVar.id, ac.ir(cVar.aDm)) == null) {
+            if (com.baidu.swan.apps.view.container.c.b.a(cVar.aDm, cVar.id, ac.iq(cVar.aDm)) == null) {
                 if (aFg().getModel() != null) {
                     aFg().Pr();
                 }
@@ -56,10 +56,10 @@ public class b {
     }
 
     private a aFc() {
-        if (this.deg == null) {
-            this.deg = new a(this.mContext);
+        if (this.deh == null) {
+            this.deh = new a(this.mContext);
         }
-        return this.deg;
+        return this.deh;
     }
 
     public FrameLayout aFd() {
@@ -98,9 +98,9 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public class a extends FrameLayout {
-        private FrameLayout deb;
-        private ImageView deh;
-        private SimpleDraweeView dei;
+        private FrameLayout dec;
+        private ImageView dei;
+        private SimpleDraweeView dej;
 
         public a(Context context) {
             super(context);
@@ -110,35 +110,35 @@ public class b {
         }
 
         private void aFh() {
-            this.deb = new FrameLayout(getContext());
-            addView(this.deb, new FrameLayout.LayoutParams(-1, -1));
+            this.dec = new FrameLayout(getContext());
+            addView(this.dec, new FrameLayout.LayoutParams(-1, -1));
         }
 
         private void aFi() {
-            this.dei = new SimpleDraweeView(getContext());
+            this.dej = new SimpleDraweeView(getContext());
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            this.dei.getHierarchy().b(n.b.jWb);
-            addView(this.dei, layoutParams);
+            this.dej.getHierarchy().b(n.b.jWe);
+            addView(this.dej, layoutParams);
         }
 
         private void aFj() {
-            this.deh = new ImageView(b.this.mContext);
-            this.deh.setImageResource(R.drawable.btn_play);
+            this.dei = new ImageView(b.this.mContext);
+            this.dei.setImageResource(R.drawable.btn_play);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            addView(this.deh, layoutParams);
+            addView(this.dei, layoutParams);
         }
 
         public FrameLayout aFd() {
-            return this.deb;
+            return this.dec;
         }
 
         public View aFk() {
-            return this.deh;
+            return this.dei;
         }
 
         public SimpleDraweeView aFl() {
-            return this.dei;
+            return this.dej;
         }
 
         public void cq(String str, String str2) {
@@ -146,7 +146,7 @@ public class b {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "cover";
                 }
-                n.b bVar = n.b.jWb;
+                n.b bVar = n.b.jWe;
                 char c = 65535;
                 switch (str2.hashCode()) {
                     case 3143043:
@@ -170,36 +170,36 @@ public class b {
                 }
                 switch (c) {
                     case 0:
-                        n.b bVar2 = n.b.jWa;
+                        n.b bVar2 = n.b.jWd;
                         break;
                     case 1:
-                        n.b bVar3 = n.b.jWb;
+                        n.b bVar3 = n.b.jWe;
                         break;
                     case 2:
-                        n.b bVar4 = n.b.jVV;
+                        n.b bVar4 = n.b.jVY;
                         break;
                 }
-                this.dei.getHierarchy().b(n.b.jWb);
-                a(str, this.dei);
+                this.dej.getHierarchy().b(n.b.jWe);
+                a(str, this.dej);
             }
         }
 
         public void a(String str, SimpleDraweeView simpleDraweeView) {
-            Uri iq = iq(str);
-            if (iq == null) {
+            Uri ip = ip(str);
+            if (ip == null) {
                 simpleDraweeView.setController(null);
                 return;
             }
-            ImageRequestBuilder U = ImageRequestBuilder.U(iq);
+            ImageRequestBuilder U = ImageRequestBuilder.U(ip);
             int measuredWidth = simpleDraweeView.getMeasuredWidth() / 2;
             int measuredHeight = simpleDraweeView.getMeasuredHeight() / 2;
             if (measuredWidth > 0 && measuredHeight > 0) {
                 U.c(new com.facebook.imagepipeline.common.c(measuredWidth, measuredHeight));
             }
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cCu().b(simpleDraweeView.getController()).aO(U.cIz()).cDe());
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.cCt().b(simpleDraweeView.getController()).aO(U.cIy()).cDd());
         }
 
-        public Uri iq(String str) {
+        public Uri ip(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
