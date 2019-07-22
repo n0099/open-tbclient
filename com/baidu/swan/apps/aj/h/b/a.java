@@ -11,60 +11,60 @@ import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private Vibrator aXs;
-    private long aXt;
-    private final a.InterfaceC0109a aXu;
+    private Vibrator aYc;
+    private long aYd;
+    private final a.InterfaceC0106a aYe;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.aj.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0117a {
-        public static final a aXw = new a();
+    private static class C0114a {
+        public static final a aYg = new a();
     }
 
     private a() {
-        this.aXt = 0L;
-        this.aXu = new a.InterfaceC0109a() { // from class: com.baidu.swan.apps.aj.h.b.a.1
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0109a
+        this.aYd = 0L;
+        this.aYe = new a.InterfaceC0106a() { // from class: com.baidu.swan.apps.aj.h.b.a.1
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0106a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aXs != null) {
-                    a.this.aXs.vibrate(a.this.aXt);
+                if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aYc != null) {
+                    a.this.aYc.vibrate(a.this.aYd);
                 }
             }
         };
         this.mContext = AppRuntime.getAppContext();
-        this.aXs = (Vibrator) this.mContext.getSystemService("vibrator");
+        this.aYc = (Vibrator) this.mContext.getSystemService("vibrator");
     }
 
-    public static a NR() {
-        return C0117a.aXw;
+    public static a OG() {
+        return C0114a.aYg;
     }
 
-    public void vibrate(long j) {
-        this.aXt = j;
-        if (NS()) {
-            this.aXs.vibrate(this.aXt);
+    public void X(long j) {
+        this.aYd = j;
+        if (OH()) {
+            this.aYc.vibrate(this.aYd);
             return;
         }
         String[] strArr = {"android.permission.VIBRATE"};
-        e FV = e.FV();
-        if (FV != null) {
-            FV.a(700, strArr, this.aXu);
+        e GF = e.GF();
+        if (GF != null) {
+            GF.a(700, strArr, this.aYe);
         }
     }
 
-    private boolean NS() {
-        if (com.baidu.swan.apps.an.a.Os()) {
+    private boolean OH() {
+        if (com.baidu.swan.apps.an.a.Ph()) {
             return this.mContext != null && ActivityCompat.checkSelfPermission(this.mContext, "android.permission.VIBRATE") == 0;
         }
         return true;
     }
 
-    public void NT() {
-        vibrate(15L);
+    public void OI() {
+        X(15L);
     }
 
-    public void NU() {
-        vibrate(400L);
+    public void OJ() {
+        X(400L);
     }
 }

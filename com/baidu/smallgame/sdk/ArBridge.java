@@ -244,7 +244,7 @@ public class ArBridge {
                 if (ArBridge.this.mMsgHandlers != null) {
                     Iterator it = ArBridge.this.mMsgHandlers.iterator();
                     while (it.hasNext()) {
-                        if (((a) it.next()).ajn == dVar) {
+                        if (((a) it.next()).ajP == dVar) {
                             it.remove();
                         }
                     }
@@ -272,8 +272,8 @@ public class ArBridge {
     public void processIncomingMessage(b bVar) {
         for (a aVar : this.mMsgHandlers) {
             if (aVar.mMessageType == 0 || bVar.mMessageType == aVar.mMessageType) {
-                if (-1 == aVar.ajm || bVar.ajq == aVar.ajm) {
-                    aVar.ajn.b(bVar.mMessageType, bVar.ajo, bVar.ajp);
+                if (-1 == aVar.ajO || bVar.ajS == aVar.ajO) {
+                    aVar.ajP.b(bVar.mMessageType, bVar.ajQ, bVar.ajR);
                 }
             }
         }
@@ -282,30 +282,30 @@ public class ArBridge {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        public int ajo;
-        public HashMap<String, Object> ajp;
-        public int ajq;
+        public int ajQ;
+        public HashMap<String, Object> ajR;
+        public int ajS;
         public int mMessageType;
 
         public b(int i, int i2, HashMap<String, Object> hashMap, int i3) {
             this.mMessageType = i;
-            this.ajo = i2;
-            this.ajp = hashMap;
-            this.ajq = i3;
+            this.ajQ = i2;
+            this.ajR = hashMap;
+            this.ajS = i3;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        public int ajm;
-        public d ajn;
+        public int ajO;
+        public d ajP;
         public int mMessageType;
 
         public a(int i, int i2, d dVar) {
             this.mMessageType = i;
-            this.ajm = i2;
-            this.ajn = dVar;
+            this.ajO = i2;
+            this.ajP = dVar;
         }
     }
 

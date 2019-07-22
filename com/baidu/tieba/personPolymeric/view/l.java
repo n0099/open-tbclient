@@ -4,13 +4,13 @@ import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView imy;
-    private TextView imz;
+    private TbImageView isP;
+    private TextView isQ;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.imy = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.imz = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.isP = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.isQ = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        al.l(this.mRootView, R.color.cp_bg_line_d);
-        al.k(this.imy, R.drawable.item_gift_selector);
-        al.l(this.imz, R.color.common_color_10294);
-        al.j(this.imz, R.color.cp_link_tip_a);
+        am.l(this.mRootView, R.color.cp_bg_line_d);
+        am.k(this.isP, R.drawable.item_gift_selector);
+        am.l(this.isQ, R.color.common_color_10294);
+        am.j(this.isQ, R.color.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.imy.startLoad(oVar.picUrl, 10, false);
+        this.isP.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.imz.setVisibility(0);
+            this.isQ.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.imz.setText("99");
+                this.isQ.setText("99");
                 return;
             } else {
-                this.imz.setText(String.valueOf(oVar.giftNum));
+                this.isQ.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.imz.setVisibility(8);
+        this.isQ.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

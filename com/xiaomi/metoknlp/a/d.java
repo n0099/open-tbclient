@@ -2,7 +2,6 @@ package com.xiaomi.metoknlp.a;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes3.dex */
 public class d {
     private static TelephonyManager a;
@@ -17,7 +16,7 @@ public class d {
 
     public static void a(Context context) {
         b = context;
-        a = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        a = (TelephonyManager) context.getSystemService("phone");
     }
 
     public static String b() {

@@ -5,11 +5,11 @@ import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 /* loaded from: classes2.dex */
 public interface b {
     @Nullable
-    V8EngineConfiguration.CodeCacheSetting At();
+    V8EngineConfiguration.CodeCacheSetting Bb();
 
-    String Au();
+    String Bc();
 
-    String Av();
+    String Bd();
 
     void a(com.baidu.swan.games.e.a aVar);
 

@@ -4,8 +4,7 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.mobstat.bt;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.mobstat.bm;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Date;
 import java.util.UUID;
@@ -44,12 +43,12 @@ public class CooperService implements ICooperService {
     }
 
     public JSONObject getHeaderExt(Context context) {
-        String headerExt = BasicStoreTools.getInstance().getHeaderExt(context);
-        if (TextUtils.isEmpty(headerExt)) {
+        String k = bq.a().k(context);
+        if (TextUtils.isEmpty(k)) {
             return null;
         }
         try {
-            return new JSONObject(headerExt);
+            return new JSONObject(k);
         } catch (JSONException e) {
             return null;
         }
@@ -62,22 +61,22 @@ public class CooperService implements ICooperService {
             jSONObject = extraInfo.dumpToJson();
         }
         this.b.setHeaderExt(jSONObject);
-        BasicStoreTools.getInstance().setHeaderExt(context, jSONObject.toString());
+        bq.a().g(context, jSONObject.toString());
         if (extraInfo != null) {
             str = "Set global ExtraInfo: " + jSONObject;
         } else {
             str = "Clear global ExtraInfo";
         }
-        bj.c().a(str);
+        bc.c().a(str);
     }
 
     public JSONObject getPushId(Context context) {
-        String pushId = BasicStoreTools.getInstance().getPushId(context);
-        if (TextUtils.isEmpty(pushId)) {
+        String l = bq.a().l(context);
+        if (TextUtils.isEmpty(l)) {
             return null;
         }
         try {
-            return new JSONObject(pushId);
+            return new JSONObject(l);
         } catch (JSONException e) {
             return null;
         }
@@ -98,17 +97,21 @@ public class CooperService implements ICooperService {
         } catch (Exception e) {
         }
         this.b.setPushInfo(pushId);
-        BasicStoreTools.getInstance().setPushId(context, pushId.toString());
+        bq.a().h(context, pushId.toString());
         if (str3 != null) {
             str4 = "Set platform:" + str2 + " pushId: " + str3;
         } else {
             str4 = "Clear platform:" + str2 + " pushId";
         }
-        bj.c().a(str4);
+        bc.c().a(str4);
+    }
+
+    public void setStartType(boolean z) {
+        this.b.setStartType(z);
     }
 
     private static String a(Context context) {
-        String l = cc.l(context);
+        String l = bw.l(context);
         if (!TextUtils.isEmpty(l)) {
             return l.replaceAll(":", "");
         }
@@ -116,7 +119,7 @@ public class CooperService implements ICooperService {
     }
 
     private static String b(Context context) {
-        String k = cc.k(context);
+        String k = bw.k(context);
         if (!TextUtils.isEmpty(k)) {
             return k.replaceAll(":", "");
         }
@@ -124,7 +127,7 @@ public class CooperService implements ICooperService {
     }
 
     private static String c(Context context) {
-        String n = cc.n(context);
+        String n = bw.n(context);
         if (!TextUtils.isEmpty(n)) {
             return n.replaceAll(":", "");
         }
@@ -139,15 +142,15 @@ public class CooperService implements ICooperService {
         if (!TextUtils.isEmpty(this.b.s)) {
             return this.b.s;
         }
-        String appDeviceMac = BasicStoreTools.getInstance().getAppDeviceMac(context);
-        if (!TextUtils.isEmpty(appDeviceMac)) {
-            this.b.s = appDeviceMac;
+        String h = bq.a().h(context);
+        if (!TextUtils.isEmpty(h)) {
+            this.b.s = h;
             return this.b.s;
         }
         String a2 = a(context, z);
         if (!TextUtils.isEmpty(a2) && !replace.equals(a2)) {
             this.b.s = getSecretValue(a2);
-            BasicStoreTools.getInstance().setAppDeviceMac(context, this.b.s);
+            bq.a().e(context, this.b.s);
             return this.b.s;
         }
         this.b.s = "";
@@ -171,15 +174,15 @@ public class CooperService implements ICooperService {
         if (!TextUtils.isEmpty(this.b.t)) {
             return this.b.t;
         }
-        String appDeviceMacTv = BasicStoreTools.getInstance().getAppDeviceMacTv(context);
-        if (!TextUtils.isEmpty(appDeviceMacTv)) {
-            this.b.t = appDeviceMacTv;
+        String j = bq.a().j(context);
+        if (!TextUtils.isEmpty(j)) {
+            this.b.t = j;
             return this.b.t;
         }
-        String c = cc.c(1, context);
+        String c = bw.c(1, context);
         if (!TextUtils.isEmpty(c)) {
             this.b.t = c;
-            BasicStoreTools.getInstance().setAppDeviceMacTv(context, c);
+            bq.a().f(context, c);
             return this.b.t;
         }
         this.b.t = "";
@@ -188,17 +191,14 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public String getCUID(Context context, boolean z) {
-        if (this.b.f == null) {
-            this.b.f = BasicStoreTools.getInstance().getGenerateDeviceCUID(context);
-            if (this.b.f == null || "".equalsIgnoreCase(this.b.f)) {
-                try {
-                    this.b.f = cd.a(context);
-                    Matcher matcher = Pattern.compile("\\s*|\t|\r|\n").matcher(this.b.f);
-                    this.b.f = matcher.replaceAll("");
-                    this.b.f = getSecretValue(this.b.f);
-                    BasicStoreTools.getInstance().setGenerateDeviceCUID(context, this.b.f);
-                } catch (Exception e) {
-                }
+        bq.a().b(context, "");
+        if (this.b.f == null || "".equalsIgnoreCase(this.b.f)) {
+            try {
+                this.b.f = bx.a(context);
+                Matcher matcher = Pattern.compile("\\s*|\t|\r|\n").matcher(this.b.f);
+                this.b.f = matcher.replaceAll("");
+                this.b.f = getSecretValue(this.b.f);
+            } catch (Exception e) {
             }
         }
         if (z) {
@@ -207,7 +207,7 @@ public class CooperService implements ICooperService {
         try {
             String str = this.b.f;
             if (!TextUtils.isEmpty(str)) {
-                return new String(bt.b.b(1, bw.a(str.getBytes())));
+                return new String(bm.b.b(1, bp.a(str.getBytes())));
             }
         } catch (Exception e2) {
         }
@@ -221,7 +221,7 @@ public class CooperService implements ICooperService {
 
     public String getDevicImei(Context context) {
         try {
-            return ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+            return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e) {
             return "";
         }
@@ -229,12 +229,16 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public String getDeviceId(TelephonyManager telephonyManager, Context context) {
-        String str = this.b.i;
-        if (!TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(this.b.i)) {
             return this.b.i;
         }
-        if (BasicStoreTools.getInstance().getForTV(context)) {
+        if (bq.a().i(context)) {
             this.b.i = getMacIdForTv(context);
+            return this.b.i;
+        }
+        String s = bq.a().s(context);
+        if (!TextUtils.isEmpty(s)) {
+            this.b.i = s;
             return this.b.i;
         } else if (telephonyManager == null) {
             return this.b.i;
@@ -243,36 +247,36 @@ public class CooperService implements ICooperService {
             try {
                 String deviceId = telephonyManager.getDeviceId();
                 if (deviceId != null) {
-                    str = compile.matcher(deviceId).replaceAll("");
+                    s = compile.matcher(deviceId).replaceAll("");
                 }
             } catch (Exception e) {
             }
-            if (str == null || str.equals(Config.NULL_DEVICE_ID)) {
-                str = a(context);
+            if (s == null || s.equals(Config.NULL_DEVICE_ID)) {
+                s = a(context);
             }
-            if (cc.w(context) && (TextUtils.isEmpty(str) || str.equals(Config.NULL_DEVICE_ID))) {
+            if (bw.w(context) && (TextUtils.isEmpty(s) || s.equals(Config.NULL_DEVICE_ID))) {
                 try {
-                    str = c(context);
+                    s = c(context);
                 } catch (Exception e2) {
                 }
             }
-            if (TextUtils.isEmpty(str) || str.equals(Config.NULL_DEVICE_ID)) {
-                str = d(context);
+            if (TextUtils.isEmpty(s) || s.equals(Config.NULL_DEVICE_ID)) {
+                s = d(context);
             }
-            this.b.i = str;
+            this.b.i = s;
             this.b.i = getSecretValue(this.b.i);
             return this.b.i;
         }
     }
 
     private String d(Context context) {
-        String generateDeviceId = BasicStoreTools.getInstance().getGenerateDeviceId(context);
-        if (TextUtils.isEmpty(generateDeviceId) || generateDeviceId.equals(Config.NULL_DEVICE_ID)) {
+        String e = bq.a().e(context);
+        if (TextUtils.isEmpty(e) || e.equals(Config.NULL_DEVICE_ID)) {
             String str = "hol" + (new Date().getTime() + "").hashCode() + "mes";
-            BasicStoreTools.getInstance().setGenerateDeviceId(context, str);
+            bq.a().a(context, str);
             return str;
         }
-        return generateDeviceId;
+        return e;
     }
 
     public String getPlainDeviceIdForCar(Context context) {
@@ -291,12 +295,12 @@ public class CooperService implements ICooperService {
     private String e(Context context) {
         try {
             if (this.b.l == null || this.b.l.equals("")) {
-                boolean appChannelWithCode = BasicStoreTools.getInstance().getAppChannelWithCode(context);
-                if (appChannelWithCode) {
-                    this.b.l = BasicStoreTools.getInstance().getAppChannelWithPreference(context);
+                boolean g = bq.a().g(context);
+                if (g) {
+                    this.b.l = bq.a().f(context);
                 }
-                if (!appChannelWithCode || this.b.l == null || this.b.l.equals("")) {
-                    this.b.l = cc.a(context, Config.CHANNEL_META_NAME);
+                if (!g || this.b.l == null || this.b.l.equals("")) {
+                    this.b.l = bw.a(context, Config.CHANNEL_META_NAME);
                 }
             }
         } catch (Exception e) {
@@ -307,20 +311,20 @@ public class CooperService implements ICooperService {
     @Override // com.baidu.mobstat.ICooperService
     public String getAppKey(Context context) {
         if (this.b.e == null) {
-            this.b.e = cc.a(context, Config.APPKEY_META_NAME);
+            this.b.e = bw.a(context, Config.APPKEY_META_NAME);
         }
         return this.b.e;
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getMTJSDKVersion() {
-        return "3.9.2.0";
+        return "3.9.5.1";
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public int getAppVersionCode(Context context) {
         if (this.b.g == -1) {
-            this.b.g = cc.f(context);
+            this.b.g = bw.f(context);
         }
         return this.b.g;
     }
@@ -328,7 +332,7 @@ public class CooperService implements ICooperService {
     @Override // com.baidu.mobstat.ICooperService
     public String getAppVersionName(Context context) {
         if (TextUtils.isEmpty(this.b.h)) {
-            this.b.h = cc.g(context);
+            this.b.h = bw.g(context);
         }
         return this.b.h;
     }
@@ -350,7 +354,7 @@ public class CooperService implements ICooperService {
     @Override // com.baidu.mobstat.ICooperService
     public String getLinkedWay(Context context) {
         if (TextUtils.isEmpty(this.b.r)) {
-            this.b.r = cc.r(context);
+            this.b.r = bw.r(context);
         }
         return this.b.r;
     }
@@ -387,22 +391,22 @@ public class CooperService implements ICooperService {
 
     @Override // com.baidu.mobstat.ICooperService
     public boolean checkWifiLocationSetting(Context context) {
-        return "true".equalsIgnoreCase(cc.a(context, Config.GET_WIFI_LOCATION));
+        return "true".equalsIgnoreCase(bw.a(context, Config.GET_WIFI_LOCATION));
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public boolean checkGPSLocationSetting(Context context) {
-        return "true".equals(cc.a(context, Config.GET_GPS_LOCATION));
+        return "true".equals(bw.a(context, Config.GET_GPS_LOCATION));
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public boolean checkCellLocationSetting(Context context) {
-        return "true".equalsIgnoreCase(cc.a(context, Config.GET_CELL_LOCATION));
+        return "true".equalsIgnoreCase(bw.a(context, Config.GET_CELL_LOCATION));
     }
 
     @Override // com.baidu.mobstat.ICooperService
     public String getSecretValue(String str) {
-        return bt.b.c(1, str.getBytes());
+        return bm.b.c(1, str.getBytes());
     }
 
     public String getUUID() {
@@ -414,11 +418,11 @@ public class CooperService implements ICooperService {
     }
 
     public void enableDeviceMac(Context context, boolean z) {
-        BasicStoreTools.getInstance().setMacEnabledTrick(context, z);
+        bq.a().d(context, z);
     }
 
     public boolean isDeviceMacEnabled(Context context) {
-        return BasicStoreTools.getInstance().getMacEnabledTrick(context);
+        return bq.a().m(context);
     }
 
     public void setUserId(Context context, String str) {
@@ -428,12 +432,12 @@ public class CooperService implements ICooperService {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        BasicStoreTools.getInstance().setUserId(context, str);
+        bq.a().i(context, str);
         this.b.setUserId(str);
-        bj.c().a("Set user id " + str);
+        bc.c().a("Set user id " + str);
     }
 
     public String getUserId(Context context) {
-        return BasicStoreTools.getInstance().getUserId(context);
+        return bq.a().q(context);
     }
 }

@@ -9,18 +9,18 @@ import com.baidu.tieba.pb.chosen.PbChosenActivity;
 /* loaded from: classes5.dex */
 public class a {
     public a() {
-        bPB();
-        bPA();
+        bSm();
+        bSl();
     }
 
-    private void bPB() {
+    private void bSm() {
         MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, com.baidu.tieba.tbadkCore.a.a.bn(TbConfig.FINE_PB_PRAISE, 309095));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, com.baidu.tieba.tbadkCore.a.a.bo(TbConfig.FINE_PB_PRAISE, 309095));
         tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void bPA() {
+    private void bSl() {
         b bVar = new b(309095);
         bVar.setResponsedClass(ChosenPbZanSocketResponse.class);
         bVar.D(true);

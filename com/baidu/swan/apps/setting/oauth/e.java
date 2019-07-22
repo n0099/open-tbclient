@@ -13,26 +13,26 @@ public class e {
     public final String id;
     public String grade = "";
     public String name = "";
-    public String aUf = "";
+    public String aUP = "";
     public String description = "";
-    public List<String> aUg = new ArrayList();
-    public final List<String> aUh = new ArrayList();
-    public int aUi = -1;
+    public List<String> aUQ = new ArrayList();
+    public final List<String> aUR = new ArrayList();
+    public int aUS = -1;
     private String type = "";
 
     private e(String str) {
         this.id = str;
     }
 
-    public boolean MF() {
-        return this.aUi > 0;
+    public boolean Nu() {
+        return this.aUS > 0;
     }
 
-    public boolean MG() {
-        return this.aUi != 0;
+    public boolean Nv() {
+        return this.aUS != 0;
     }
 
-    public boolean MH() {
+    public boolean Nw() {
         return "1".equals(this.type);
     }
 
@@ -53,20 +53,20 @@ public class e {
         eVar.grade = jSONObject.optString("grade");
         eVar.type = jSONObject.optString("type", "");
         eVar.name = jSONObject.optString("name", "");
-        eVar.aUf = jSONObject.optString("short_name", "");
+        eVar.aUP = jSONObject.optString("short_name", "");
         eVar.description = jSONObject.optString("description", "");
-        eVar.aUi = jSONObject.optInt("tip_status", -1);
+        eVar.aUS = jSONObject.optInt("tip_status", -1);
         JSONArray optJSONArray = jSONObject.optJSONArray("ext");
         if (optJSONArray != null) {
             int length = optJSONArray.length();
             for (int i = 0; i < length; i++) {
-                eVar.aUh.add(optJSONArray.optString(i));
+                eVar.aUR.add(optJSONArray.optString(i));
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray(Message.RULE);
             if (optJSONArray2 != null) {
                 int length2 = optJSONArray2.length();
                 for (int i2 = 0; i2 < length2; i2++) {
-                    eVar.aUg.add(optJSONArray2.optString(i2));
+                    eVar.aUQ.add(optJSONArray2.optString(i2));
                 }
             }
         }
@@ -74,6 +74,6 @@ public class e {
     }
 
     public String toString() {
-        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aUi));
+        return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.id, Integer.valueOf(this.aUS));
     }
 }

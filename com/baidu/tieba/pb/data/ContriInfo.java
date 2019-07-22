@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.data;
 
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,7 +17,7 @@ public class ContriInfo implements Serializable {
         if (jSONObject != null) {
             this.colorMsg = jSONObject.optString("color_msg");
             this.afterMsg = jSONObject.optString("after_msg");
-            if (!ap.isEmpty(this.afterMsg) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+            if (!aq.isEmpty(this.afterMsg) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
                 this.afterMsg = this.afterMsg.substring(0, indexOf) + "\n" + this.afterMsg.substring(indexOf + 1, this.afterMsg.length());
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("toast_config");
@@ -44,7 +44,7 @@ public class ContriInfo implements Serializable {
     }
 
     public boolean isShowToast() {
-        return (ap.isEmpty(this.colorMsg) || ap.isEmpty(this.afterMsg)) ? false : true;
+        return (aq.isEmpty(this.colorMsg) || aq.isEmpty(this.afterMsg)) ? false : true;
     }
 
     public String getColorMsg() {

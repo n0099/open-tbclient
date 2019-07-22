@@ -42,7 +42,7 @@ public class ImageFileInfo extends MediaFileInfo {
 
     public String toCachedKey(boolean z) {
         if (getImageType() == 1) {
-            return com.baidu.adp.lib.f.c.iv().e(this.filePath, 20);
+            return com.baidu.adp.lib.f.c.iE().e(this.filePath, 20);
         }
         if (z) {
             if (this._cacheKey_all == null) {

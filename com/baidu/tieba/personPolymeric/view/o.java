@@ -8,23 +8,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.l> {
-    private TbImageView ing;
-    private TextView inh;
-    private ImageView ini;
-    private com.baidu.tieba.personPolymeric.c.l inj;
+    private com.baidu.tieba.personPolymeric.c.l itA;
+    private TbImageView itx;
+    private TextView ity;
+    private ImageView itz;
     private View mRootView;
 
     public o(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mRootView = getView();
-        this.ing = (TbImageView) this.mRootView.findViewById(R.id.polymeric_vedio_pic);
-        this.inh = (TextView) this.mRootView.findViewById(R.id.polymeric_vedio_des);
-        this.ini = (ImageView) this.mRootView.findViewById(R.id.polymeric_vedio_play_icon);
+        this.itx = (TbImageView) this.mRootView.findViewById(R.id.polymeric_vedio_pic);
+        this.ity = (TextView) this.mRootView.findViewById(R.id.polymeric_vedio_des);
+        this.itz = (ImageView) this.mRootView.findViewById(R.id.polymeric_vedio_play_icon);
         this.mRootView.setOnClickListener(this);
     }
 
@@ -32,9 +32,9 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.l(this.mRootView, R.color.cp_bg_line_d);
-            al.f(this.inh, R.color.cp_cont_b, 1);
-            al.b(this.ini, (int) R.drawable.icon_play_video, i);
+            am.l(this.mRootView, R.color.cp_bg_line_d);
+            am.f(this.ity, R.color.cp_cont_b, 1);
+            am.b(this.itz, (int) R.drawable.icon_play_video, i);
         }
     }
 
@@ -47,9 +47,9 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personPolymeric.c.l lVar) {
         if (lVar != null) {
-            this.inj = lVar;
-            this.ing.startLoad(lVar.thumbnailUrl, 10, false);
-            this.inh.setText(lVar.title);
+            this.itA = lVar;
+            this.itx.startLoad(lVar.thumbnailUrl, 10, false);
+            this.ity.setText(lVar.title);
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -57,7 +57,7 @@ public class o extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.mRootView == view) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(this.inj.tid, this.inj.postId, "person_page")));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(this.itA.tid, this.itA.postId, "person_page")));
         }
     }
 }

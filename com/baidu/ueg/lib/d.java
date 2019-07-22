@@ -10,7 +10,7 @@ public class d {
         return str.getBytes(charset);
     }
 
-    public static byte[] GE(String str) {
+    public static byte[] Hy(String str) {
         return a(str, c.UTF_8);
     }
 
@@ -21,7 +21,7 @@ public class d {
         return new String(bArr, charset);
     }
 
-    public static String V(byte[] bArr) {
+    public static String W(byte[] bArr) {
         return a(bArr, c.UTF_8);
     }
 }

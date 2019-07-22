@@ -7,7 +7,7 @@ import java.util.List;
 public class d implements com.baidu.swan.apps.b.b.h {
     @Override // com.baidu.swan.apps.b.b.h
     @Nullable
-    public List<ContentValues> wc() {
+    public List<ContentValues> wD() {
         return null;
     }
 }

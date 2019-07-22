@@ -7,15 +7,15 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.content.ShapeStroke;
 /* loaded from: classes2.dex */
 public class p extends a {
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> mk;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> mj;
     private final String name;
 
     public p(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, ShapeStroke shapeStroke) {
-        super(fVar, aVar, shapeStroke.dc().toPaintCap(), shapeStroke.dd().toPaintJoin(), shapeStroke.cO(), shapeStroke.db(), shapeStroke.de(), shapeStroke.df());
+        super(fVar, aVar, shapeStroke.dj().toPaintCap(), shapeStroke.dk().toPaintJoin(), shapeStroke.cU(), shapeStroke.di(), shapeStroke.dl(), shapeStroke.dm());
         this.name = shapeStroke.getName();
-        this.mk = shapeStroke.dv().cz();
-        this.mk.b(this);
-        aVar.a(this.mk);
+        this.mj = shapeStroke.dC().cF();
+        this.mj.b(this);
+        aVar.a(this.mj);
     }
 
     @Override // com.airbnb.lottie.a.a.d
@@ -25,7 +25,7 @@ public class p extends a {
 
     @Override // com.airbnb.lottie.a.a.a, com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
-        this.paint.setColor(this.mk.getValue().intValue());
+        this.paint.setColor(this.mj.getValue().intValue());
         super.a(canvas, matrix, i);
     }
 

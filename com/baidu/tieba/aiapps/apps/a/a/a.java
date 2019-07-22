@@ -8,7 +8,6 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
-import com.baidu.tieba.aiapps.apps.a.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -36,7 +35,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            bVar.Lu().a((Activity) context, "mapp_i_get_bduss", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.a.1
+            bVar.Mh().a((Activity) context, "mapp_i_get_bduss", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
@@ -46,10 +45,10 @@ public class a extends z {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
                         return;
                     }
-                    String dj = c.dj(context);
+                    String dk = com.baidu.tieba.aiapps.apps.a.c.dk(context);
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("bduss", dj);
+                        jSONObject.put("bduss", dk);
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                     } catch (JSONException e) {
                         if (a.DEBUG) {

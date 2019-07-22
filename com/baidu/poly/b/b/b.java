@@ -4,17 +4,17 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public class b {
-    public static String cQ(String str) {
+    public static String cV(String str) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
-            return x(messageDigest.digest());
+            return y(messageDigest.digest());
         } catch (NoSuchAlgorithmException e) {
             return String.valueOf(str.hashCode());
         }
     }
 
-    private static String x(byte[] bArr) {
+    private static String y(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
             String hexString = Integer.toHexString(b & 255);

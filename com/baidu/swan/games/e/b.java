@@ -7,13 +7,13 @@ import com.baidu.searchbox.v8engine.JsSerializeValue;
 import com.baidu.searchbox.v8engine.event.EventTarget;
 /* loaded from: classes2.dex */
 public interface b extends TypedCallbackHandler, JSRuntime, com.baidu.swan.apps.core.container.a {
-    com.baidu.swan.games.e.b.b QM();
+    com.baidu.swan.games.e.b.b RF();
 
-    EventTarget QN();
+    EventTarget RG();
 
-    EventTarget QO();
+    EventTarget RH();
 
-    com.baidu.swan.games.e.a.a QP();
+    com.baidu.swan.games.e.a.a RI();
 
     byte[] a(JsSerializeValue jsSerializeValue, boolean z);
 
@@ -21,7 +21,7 @@ public interface b extends TypedCallbackHandler, JSRuntime, com.baidu.swan.apps.
 
     JsSerializeValue c(byte[] bArr, boolean z);
 
-    boolean post(Runnable runnable);
+    boolean l(Runnable runnable);
 
     void runOnJSThread(Runnable runnable);
 

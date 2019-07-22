@@ -1,21 +1,24 @@
 package com.baidu.mobstat;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.util.zip.GZIPOutputStream;
+import java.net.InetSocketAddress;
 /* loaded from: classes6.dex */
-public class by {
-    public static byte[] a(byte[] bArr) {
-        if (bArr == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        try {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
-            gZIPOutputStream.write(bArr);
-            gZIPOutputStream.close();
-        } catch (IOException e) {
-        }
-        return byteArrayOutputStream.toByteArray();
+public interface by {
+
+    /* loaded from: classes6.dex */
+    public enum a {
+        NOT_YET_CONNECTED,
+        CONNECTING,
+        OPEN,
+        CLOSING,
+        CLOSED
     }
+
+    /* loaded from: classes6.dex */
+    public enum b {
+        CLIENT
+    }
+
+    InetSocketAddress a();
+
+    void a(cq cqVar);
 }

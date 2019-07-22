@@ -5,88 +5,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes4.dex */
 class b {
-    int iaD;
-    private int iai;
-    private int iaj;
-    private byte[] iak;
-    private int ial;
-    private int iam;
-    private int ian;
-    int iao;
-    int iaq;
-    int iax;
-    int iay;
-    int iaz;
-    int iap = 12;
-    int iar = 4096;
-    int[] ias = new int[5003];
-    int[] iat = new int[5003];
-    int iau = 5003;
-    int iav = 0;
-    boolean iaw = false;
-    int iaA = 0;
-    int iaB = 0;
-    int[] iaC = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] iaE = new byte[256];
+    private int igA;
+    private int igB;
+    private byte[] igC;
+    private int igD;
+    private int igE;
+    private int igF;
+    int igG;
+    int igI;
+    int igP;
+    int igQ;
+    int igR;
+    int igV;
+    int igH = 12;
+    int igJ = 4096;
+    int[] igK = new int[5003];
+    int[] igL = new int[5003];
+    int igM = 5003;
+    int igN = 0;
+    boolean igO = false;
+    int igS = 0;
+    int igT = 0;
+    int[] igU = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] igW = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.iai = i;
-        this.iaj = i2;
-        this.iak = bArr;
-        this.ial = Math.max(2, i3);
+        this.igA = i;
+        this.igB = i2;
+        this.igC = bArr;
+        this.igD = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.iaE;
-        int i = this.iaD;
-        this.iaD = i + 1;
+        byte[] bArr = this.igW;
+        int i = this.igV;
+        this.igV = i + 1;
         bArr[i] = b;
-        if (this.iaD >= 254) {
-            f(outputStream);
+        if (this.igV >= 254) {
+            h(outputStream);
         }
     }
 
-    void e(OutputStream outputStream) throws IOException {
-        xU(this.iau);
-        this.iav = this.iay + 2;
-        this.iaw = true;
-        b(this.iay, outputStream);
+    void f(OutputStream outputStream) throws IOException {
+        yz(this.igM);
+        this.igN = this.igQ + 2;
+        this.igO = true;
+        b(this.igQ, outputStream);
     }
 
-    void xU(int i) {
+    void yz(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.ias[i2] = -1;
+            this.igK[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.iax = i;
-        this.iaw = false;
-        this.iao = this.iax;
-        this.iaq = xV(this.iao);
-        this.iay = 1 << (i - 1);
-        this.iaz = this.iay + 1;
-        this.iav = this.iay + 2;
-        this.iaD = 0;
-        int bXK = bXK();
-        for (int i3 = this.iau; i3 < 65536; i3 *= 2) {
+        this.igP = i;
+        this.igO = false;
+        this.igG = this.igP;
+        this.igI = yA(this.igG);
+        this.igQ = 1 << (i - 1);
+        this.igR = this.igQ + 1;
+        this.igN = this.igQ + 2;
+        this.igV = 0;
+        int caz = caz();
+        for (int i3 = this.igM; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.iau;
-        xU(i5);
-        b(this.iay, outputStream);
+        int i5 = this.igM;
+        yz(i5);
+        b(this.igQ, outputStream);
         while (true) {
-            int bXK2 = bXK();
-            if (bXK2 != -1) {
-                int i6 = (bXK2 << this.iap) + bXK;
-                int i7 = (bXK2 << i4) ^ bXK;
-                if (this.ias[i7] == i6) {
-                    bXK = this.iat[i7];
+            int caz2 = caz();
+            if (caz2 != -1) {
+                int i6 = (caz2 << this.igH) + caz;
+                int i7 = (caz2 << i4) ^ caz;
+                if (this.igK[i7] == i6) {
+                    caz = this.igL[i7];
                 } else {
-                    if (this.ias[i7] >= 0) {
+                    if (this.igK[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -96,100 +96,100 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.ias[i7] == i6) {
-                                bXK = this.iat[i7];
+                            if (this.igK[i7] == i6) {
+                                caz = this.igL[i7];
                                 break;
                             }
-                        } while (this.ias[i7] >= 0);
+                        } while (this.igK[i7] >= 0);
                     }
-                    b(bXK, outputStream);
-                    if (this.iav < this.iar) {
-                        int[] iArr = this.iat;
-                        int i9 = this.iav;
-                        this.iav = i9 + 1;
+                    b(caz, outputStream);
+                    if (this.igN < this.igJ) {
+                        int[] iArr = this.igL;
+                        int i9 = this.igN;
+                        this.igN = i9 + 1;
                         iArr[i7] = i9;
-                        this.ias[i7] = i6;
-                        bXK = bXK2;
+                        this.igK[i7] = i6;
+                        caz = caz2;
                     } else {
-                        e(outputStream);
-                        bXK = bXK2;
+                        f(outputStream);
+                        caz = caz2;
                     }
                 }
             } else {
-                b(bXK, outputStream);
-                b(this.iaz, outputStream);
+                b(caz, outputStream);
+                b(this.igR, outputStream);
                 return;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.ial);
-        this.iam = this.iai * this.iaj;
-        this.ian = 0;
-        a(this.ial + 1, outputStream);
+    public void g(OutputStream outputStream) throws IOException {
+        outputStream.write(this.igD);
+        this.igE = this.igA * this.igB;
+        this.igF = 0;
+        a(this.igD + 1, outputStream);
         outputStream.write(0);
     }
 
-    void f(OutputStream outputStream) throws IOException {
-        if (this.iaD > 0) {
-            outputStream.write(this.iaD);
-            outputStream.write(this.iaE, 0, this.iaD);
-            this.iaD = 0;
+    void h(OutputStream outputStream) throws IOException {
+        if (this.igV > 0) {
+            outputStream.write(this.igV);
+            outputStream.write(this.igW, 0, this.igV);
+            this.igV = 0;
         }
     }
 
-    final int xV(int i) {
+    final int yA(int i) {
         return (1 << i) - 1;
     }
 
-    private int bXK() {
-        if (this.iam == 0) {
+    private int caz() {
+        if (this.igE == 0) {
             return -1;
         }
-        this.iam--;
-        byte[] bArr = this.iak;
-        int i = this.ian;
-        this.ian = i + 1;
+        this.igE--;
+        byte[] bArr = this.igC;
+        int i = this.igF;
+        this.igF = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.iaA &= this.iaC[this.iaB];
-        if (this.iaB > 0) {
-            this.iaA |= i << this.iaB;
+        this.igS &= this.igU[this.igT];
+        if (this.igT > 0) {
+            this.igS |= i << this.igT;
         } else {
-            this.iaA = i;
+            this.igS = i;
         }
-        this.iaB += this.iao;
-        while (this.iaB >= 8) {
-            a((byte) (this.iaA & 255), outputStream);
-            this.iaA >>= 8;
-            this.iaB -= 8;
+        this.igT += this.igG;
+        while (this.igT >= 8) {
+            a((byte) (this.igS & 255), outputStream);
+            this.igS >>= 8;
+            this.igT -= 8;
         }
-        if (this.iav > this.iaq || this.iaw) {
-            if (this.iaw) {
-                int i2 = this.iax;
-                this.iao = i2;
-                this.iaq = xV(i2);
-                this.iaw = false;
+        if (this.igN > this.igI || this.igO) {
+            if (this.igO) {
+                int i2 = this.igP;
+                this.igG = i2;
+                this.igI = yA(i2);
+                this.igO = false;
             } else {
-                this.iao++;
-                if (this.iao == this.iap) {
-                    this.iaq = this.iar;
+                this.igG++;
+                if (this.igG == this.igH) {
+                    this.igI = this.igJ;
                 } else {
-                    this.iaq = xV(this.iao);
+                    this.igI = yA(this.igG);
                 }
             }
         }
-        if (i == this.iaz) {
-            while (this.iaB > 0) {
-                a((byte) (this.iaA & 255), outputStream);
-                this.iaA >>= 8;
-                this.iaB -= 8;
+        if (i == this.igR) {
+            while (this.igT > 0) {
+                a((byte) (this.igS & 255), outputStream);
+                this.igS >>= 8;
+                this.igT -= 8;
             }
-            f(outputStream);
+            h(outputStream);
         }
     }
 }

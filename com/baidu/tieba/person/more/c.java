@@ -5,7 +5,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ab;
@@ -13,24 +13,24 @@ import com.baidu.tieba.personCenter.data.g;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class c {
-    private a ida;
+    private a ijs;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
-    private ab<g> sE;
+    private ab<g> sH;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
     }
 
-    public void O(View view) {
+    public void Q(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
-        aHR();
+        aJr();
         this.mListView = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.ida = new a(this.mPageContext, this.mListView, this.sE);
+        this.ijs = new a(this.mPageContext, this.mListView, this.sH);
     }
 
-    private void aHR() {
+    private void aJr() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -47,12 +47,12 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.ida.notifyDataSetChanged();
-        al.l(this.mListView, R.color.cp_bg_line_d);
+        this.ijs.notifyDataSetChanged();
+        am.l(this.mListView, R.color.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void d(ab<g> abVar) {
-        this.sE = abVar;
+        this.sH = abVar;
     }
 }

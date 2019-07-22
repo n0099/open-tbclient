@@ -12,20 +12,21 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> gJJ = new HashMap<>();
+    protected HashMap<String, ChatSetting> gPT = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
     public abstract void a(ChatSetting chatSetting, k<Void> kVar);
 
-    protected abstract l<String> bDI();
+    protected abstract l<String> bGp();
 
-    public abstract ChatSetting dn(String str, String str2);
+    /* renamed from: do  reason: not valid java name */
+    public abstract ChatSetting mo22do(String str, String str2);
 
-    public void r(Class<? extends ChatSetting> cls) {
+    public void t(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.gJJ) {
-            this.gJJ.clear();
+        synchronized (this.gPT) {
+            this.gPT.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +34,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.gJJ) {
-                l<String> bDI = bDI();
-                List<l.b<String>> b = r.b(bDI);
+            synchronized (this.gPT) {
+                l<String> bGp = bGp();
+                List<l.b<String>> b = r.b(bGp);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
-                        if (str4 != null && str4.startsWith(str3) && (str = bDI.get(str4)) != null) {
-                            this.gJJ.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                        if (str4 != null && str4.startsWith(str3) && (str = bGp.get(str4)) != null) {
+                            this.gPT.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }
@@ -49,28 +50,27 @@ public abstract class a {
     }
 
     public void w(String str, String str2, boolean z) {
-        ChatSetting dn = dn(str, str2);
-        if (dn != null) {
-            dn.setAcceptNotify(z);
-            a(dn);
+        ChatSetting mo22do = mo22do(str, str2);
+        if (mo22do != null) {
+            mo22do.setAcceptNotify(z);
+            a(mo22do);
         }
     }
 
     public void a(String str, String str2, boolean z, k<Void> kVar) {
-        ChatSetting dn = dn(str, str2);
-        if (dn != null) {
-            dn.setAcceptNotify(z);
-            a(dn, kVar);
+        ChatSetting mo22do = mo22do(str, str2);
+        if (mo22do != null) {
+            mo22do.setAcceptNotify(z);
+            a(mo22do, kVar);
         }
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public boolean m22do(String str, String str2) {
-        ChatSetting dn = dn(str, str2);
-        if (dn == null) {
+    public boolean dp(String str, String str2) {
+        ChatSetting mo22do = mo22do(str, str2);
+        if (mo22do == null) {
             return false;
         }
-        return dn.isAcceptNotify();
+        return mo22do.isAcceptNotify();
     }
 
     public void a(final String str, final String str2, k<Boolean> kVar) {
@@ -79,11 +79,11 @@ public abstract class a {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // com.baidu.tbadk.util.z
             public Boolean doInBackground() {
-                ChatSetting dn = a.this.dn(str, str2);
-                if (dn == null) {
+                ChatSetting mo22do = a.this.mo22do(str, str2);
+                if (mo22do == null) {
                     return false;
                 }
-                return Boolean.valueOf(dn.isAcceptNotify());
+                return Boolean.valueOf(mo22do.isAcceptNotify());
             }
         }, kVar);
     }

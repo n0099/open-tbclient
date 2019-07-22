@@ -15,11 +15,11 @@ public class c {
                     fVar.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "bundleId为空"));
                 } else {
                     HashMap<String, String> a = com.baidu.swan.pms.b.b.a(bVar);
-                    if (fVar.Vj() != null) {
-                        a.putAll(fVar.Vj());
+                    if (fVar.Wc() != null) {
+                        a.putAll(fVar.Wc());
                     }
-                    fVar.yD();
-                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Vy(), a, fVar.Vk(), new com.baidu.swan.pms.b.b.a(fVar, bVar));
+                    fVar.zj();
+                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Wr(), a, fVar.Wd(), new com.baidu.swan.pms.b.b.a(fVar, bVar));
                 }
             }
         }
@@ -32,15 +32,15 @@ public class c {
                     fVar.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "request对象为空"));
                 } else if (TextUtils.isEmpty(dVar.getBundleId())) {
                     fVar.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "bundleId为空"));
-                } else if (TextUtils.isEmpty(dVar.VX())) {
+                } else if (TextUtils.isEmpty(dVar.WQ())) {
                     fVar.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "分包名为空"));
                 } else {
                     HashMap<String, String> a = com.baidu.swan.pms.b.b.a(dVar);
-                    if (fVar.Vj() != null) {
-                        a.putAll(fVar.Vj());
+                    if (fVar.Wc() != null) {
+                        a.putAll(fVar.Wc());
                     }
-                    fVar.yD();
-                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Vy(), a, fVar.Vk(), new com.baidu.swan.pms.b.b.c(fVar, dVar));
+                    fVar.zj();
+                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Wr(), a, fVar.Wd(), new com.baidu.swan.pms.b.b.c(fVar, dVar));
                 }
             }
         }
@@ -53,11 +53,11 @@ public class c {
                     fVar2.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "request对象为空"));
                 } else {
                     HashMap<String, String> a = com.baidu.swan.pms.b.b.a(fVar);
-                    if (fVar2.Vj() != null) {
-                        a.putAll(fVar2.Vj());
+                    if (fVar2.Wc() != null) {
+                        a.putAll(fVar2.Wc());
                     }
-                    fVar2.yD();
-                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Vz(), a, fVar2.Vk(), new com.baidu.swan.pms.b.b.d(fVar2, fVar));
+                    fVar2.zj();
+                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Ws(), a, fVar2.Wd(), new com.baidu.swan.pms.b.b.d(fVar2, fVar));
                 }
             }
         }
@@ -70,11 +70,11 @@ public class c {
                     fVar.a(new com.baidu.swan.pms.model.a(PushConstants.BROADCAST_MESSAGE_ARRIVE, "request对象为空"));
                 } else {
                     HashMap<String, String> a = com.baidu.swan.pms.b.b.a(aVar);
-                    if (fVar.Vj() != null) {
-                        a.putAll(fVar.Vj());
+                    if (fVar.Wc() != null) {
+                        a.putAll(fVar.Wc());
                     }
-                    fVar.yD();
-                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.VA(), a, fVar.Vk(), new com.baidu.swan.pms.b.b.b(fVar, aVar));
+                    fVar.zj();
+                    com.baidu.swan.pms.b.a.a(com.baidu.swan.pms.b.e.Wt(), a, fVar.Wd(), new com.baidu.swan.pms.b.b.b(fVar, aVar));
                 }
             }
         }

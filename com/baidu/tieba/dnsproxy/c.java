@@ -17,10 +17,10 @@ import org.apache.http.cookie.ClientCookie;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean eNG;
+    boolean eSG;
 
     public c(boolean z) {
-        this.eNG = z;
+        this.eSG = z;
         setPriority(4);
     }
 
@@ -33,8 +33,8 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String sb;
         String str;
         StringBuilder sb2;
-        l<String> a = BdCacheService.hq().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.eNG) {
+        l<String> a = BdCacheService.hA().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
+        if (this.eSG) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -61,7 +61,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String bce = new a().bce();
+            String bef = new a().bef();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -69,12 +69,12 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + bce + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + bef + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
-            eVar.ik().setUrl(str4);
+            eVar.iu().setUrl(str4);
             cVar.d(-1, -1, -1);
-            byte[] bArr = eVar.il().AN;
+            byte[] bArr = eVar.iv().AU;
             StringBuilder sb4 = null;
             if (bArr != null) {
                 try {
@@ -119,7 +119,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.bcg().f(hashSet);
+                    b.beh().f(hashSet);
                     publishProgress(hashMap3);
                     a.f("dnsproxycachedata", str);
                     sb2 = sb5;
@@ -131,18 +131,18 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                     sb2 = null;
                 }
                 sb4 = sb2;
-            } else if (eVar.in() != null) {
-                sb = eVar.in().At;
+            } else if (eVar.ix() != null) {
+                sb = eVar.ix().Az;
             } else {
                 StringBuilder sb7 = new StringBuilder();
-                List<com.baidu.adp.lib.network.http.d> im = eVar.im();
-                if (im != null) {
-                    for (com.baidu.adp.lib.network.http.d dVar : im) {
-                        if (dVar != null && !TextUtils.isEmpty(dVar.At)) {
+                List<com.baidu.adp.lib.network.http.d> iw = eVar.iw();
+                if (iw != null) {
+                    for (com.baidu.adp.lib.network.http.d dVar : iw) {
+                        if (dVar != null && !TextUtils.isEmpty(dVar.Az)) {
                             if (sb7.length() > 0) {
                                 sb7.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             }
-                            sb7.append(dVar.At);
+                            sb7.append(dVar.Az);
                         }
                     }
                 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.card;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +29,9 @@ public enum CardLinkageManager {
                         Object c2 = com.baidu.tbadk.core.util.v.c(data, i2 - headerViewsCount);
                         if ((c2 instanceof com.baidu.tieba.card.data.b) && bVar.position == ((com.baidu.tieba.card.data.b) c2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             if (z) {
-                                al.k(findViewByPosition, R.color.cp_bg_line_e);
+                                am.k(findViewByPosition, R.color.cp_bg_line_e);
                             } else {
-                                al.k(findViewByPosition, R.color.cp_bg_line_d);
+                                am.k(findViewByPosition, R.color.cp_bg_line_d);
                             }
                         }
                     }

@@ -28,5 +28,5 @@ public interface h {
 
     boolean c(Context context, String[] strArr);
 
-    boolean rY(String str);
+    boolean sq(String str);
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class d {
-    private static d eOn = null;
+    private static d eTn = null;
     private BroadcastReceiver receiver = new BroadcastReceiver() { // from class: com.baidu.tieba.dnsproxy.a.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -27,7 +27,7 @@ public class d {
                 int intExtra = intent.getIntExtra("speed", -1);
                 if (!TextUtils.isEmpty(stringExtra)) {
                     if (intExtra == -1) {
-                        d.this.h(stringExtra, booleanExtra, false);
+                        d.this.i(stringExtra, booleanExtra, false);
                     } else {
                         d.this.a(stringExtra, intExtra, booleanExtra, false);
                     }
@@ -35,26 +35,26 @@ public class d {
             }
         }
     };
-    private Object eOo = new Object();
-    private Map<String, a> eOp = null;
-    private a eOq = null;
-    private boolean eOr = false;
+    private Object eTo = new Object();
+    private Map<String, a> eTp = null;
+    private a eTq = null;
+    private boolean eTr = false;
 
-    public static final d bcv() {
-        if (eOn == null) {
+    public static final d bew() {
+        if (eTn == null) {
             synchronized (d.class) {
-                if (eOn == null) {
-                    eOn = new d();
+                if (eTn == null) {
+                    eTn = new d();
                 }
             }
         }
-        return eOn;
+        return eTn;
     }
 
     private d() {
     }
 
-    public void open() {
+    public void ZP() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_sub_process_ip_data_change"));
@@ -62,13 +62,13 @@ public class d {
             TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_main_process_ip_data_change"));
         }
-        if (!this.eOr) {
-            c.bcr().a(new k<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
+        if (!this.eTr) {
+            c.bes().a(new k<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.k
                 /* renamed from: a */
                 public void onReturnDataInUI(final WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-                    e.bci().o(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
+                    e.bej().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             HashMap hashMap = new HashMap();
@@ -80,24 +80,24 @@ public class d {
                                     }
                                 }
                             }
-                            synchronized (d.this.eOo) {
-                                if (d.this.eOp == null) {
-                                    d.this.eOp = new ConcurrentHashMap();
+                            synchronized (d.this.eTo) {
+                                if (d.this.eTp == null) {
+                                    d.this.eTp = new ConcurrentHashMap();
                                 }
-                                d.this.eOp.clear();
-                                d.this.eOp.putAll(hashMap);
+                                d.this.eTp.clear();
+                                d.this.eTp.putAll(hashMap);
                             }
-                            d.this.eOr = true;
-                            d.this.bcx();
+                            d.this.eTr = true;
+                            d.this.bey();
                             ArrayList<a> arrayList = new ArrayList();
-                            for (Map.Entry entry : d.this.eOp.entrySet()) {
-                                if (d.this.eOq != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).eOb > 604800000) {
+                            for (Map.Entry entry : d.this.eTp.entrySet()) {
+                                if (d.this.eTq != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).eTb > 604800000) {
                                     arrayList.add(entry.getValue());
-                                    com.baidu.tieba.dnsproxy.d.bch().R("conpoint_remove", "out_time", (String) entry.getKey());
+                                    com.baidu.tieba.dnsproxy.d.bei().R("conpoint_remove", "out_time", (String) entry.getKey());
                                 }
                             }
                             for (a aVar : arrayList) {
-                                d.this.eOp.remove(aVar.name);
+                                d.this.eTp.remove(aVar.name);
                             }
                         }
                     });
@@ -110,77 +110,77 @@ public class d {
         TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
     }
 
-    public void bcw() {
-        bcx();
+    public void bex() {
+        bey();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bcx() {
-        if (this.eOr) {
-            String bcq = a.bcq();
-            if (!TextUtils.isEmpty(bcq)) {
-                if (!this.eOp.containsKey(bcq)) {
-                    e.bci().iW(false);
+    public void bey() {
+        if (this.eTr) {
+            String ber = a.ber();
+            if (!TextUtils.isEmpty(ber)) {
+                if (!this.eTp.containsKey(ber)) {
+                    e.bej().jg(false);
                     return;
                 }
-                this.eOq = this.eOp.get(bcq);
-                if (this.eOq == null) {
-                    e.bci().iW(false);
+                this.eTq = this.eTp.get(ber);
+                if (this.eTq == null) {
+                    e.bej().jg(false);
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.eOq.eOc > 3600000 && currentTimeMillis - this.eOq.eOb < 3600000) {
-                    e.bci().iW(false);
+                if (currentTimeMillis - this.eTq.eTc > 3600000 && currentTimeMillis - this.eTq.eTb < 3600000) {
+                    e.bej().jg(false);
                 }
             }
         }
     }
 
-    public float cJ(String str, String str2) {
-        if (!this.eOr || this.eOq == null) {
-            return 0.0f;
-        }
-        b bVar = this.eOq.eNZ.get(str2);
-        if (bVar == null) {
-            return 0.0f;
-        }
-        return bVar.eOd;
-    }
-
     public float cK(String str, String str2) {
-        if (!this.eOr || this.eOq == null) {
+        if (!this.eTr || this.eTq == null) {
+            return 0.0f;
+        }
+        b bVar = this.eTq.eSZ.get(str2);
+        if (bVar == null) {
+            return 0.0f;
+        }
+        return bVar.eTd;
+    }
+
+    public float cL(String str, String str2) {
+        if (!this.eTr || this.eTq == null) {
             return 10000.0f;
         }
-        b bVar = this.eOq.eOa.get(str2);
+        b bVar = this.eTq.eTa.get(str2);
         if (bVar == null) {
             return 10000.0f;
         }
-        return bVar.eOd;
+        return bVar.eTd;
     }
 
-    public void ad(String str, boolean z) {
-        h(str, z, true);
+    public void ah(String str, boolean z) {
+        i(str, z, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void h(final String str, final boolean z, final boolean z2) {
-        if (this.eOr && !TextUtils.isEmpty(str)) {
-            e.bci().o(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
+    public void i(final String str, final boolean z, final boolean z2) {
+        if (this.eTr && !TextUtils.isEmpty(str)) {
+            e.bej().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.eOq != null) {
-                        b bVar = d.this.eOq.eNZ.get(str);
+                    if (d.this.eTq != null) {
+                        b bVar = d.this.eTq.eSZ.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.eOq.eNZ.put(str, bVar);
+                            d.this.eTq.eSZ.put(str, bVar);
                         }
-                        bVar.pS(z ? 1 : 0);
-                        synchronized (d.this.eOo) {
-                            hashMap = new HashMap(d.this.eOp);
+                        bVar.qj(z ? 1 : 0);
+                        synchronized (d.this.eTo) {
+                            hashMap = new HashMap(d.this.eTp);
                         }
-                        c.bcr().v(hashMap);
+                        c.bes().v(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
@@ -200,41 +200,41 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final int i, final boolean z, final boolean z2) {
-        if (this.eOr && !TextUtils.isEmpty(str)) {
-            e.bci().o(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
+        if (this.eTr && !TextUtils.isEmpty(str)) {
+            e.bej().p(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.eOq == null) {
-                        String bcq = a.bcq();
-                        if (!TextUtils.isEmpty(bcq)) {
+                    if (d.this.eTq == null) {
+                        String ber = a.ber();
+                        if (!TextUtils.isEmpty(ber)) {
                             a aVar = new a();
-                            aVar.name = bcq;
-                            d.this.eOq = aVar;
-                            d.this.eOp.put(bcq, aVar);
+                            aVar.name = ber;
+                            d.this.eTq = aVar;
+                            d.this.eTp.put(ber, aVar);
                         }
                     }
-                    if (d.this.eOq != null) {
-                        b bVar = d.this.eOq.eNZ.get(str);
+                    if (d.this.eTq != null) {
+                        b bVar = d.this.eTq.eSZ.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.eOq.eNZ.put(str, bVar);
+                            d.this.eTq.eSZ.put(str, bVar);
                         }
-                        bVar.pS(z ? 1 : 0);
+                        bVar.qj(z ? 1 : 0);
                         if (z) {
-                            b bVar2 = d.this.eOq.eOa.get(str);
+                            b bVar2 = d.this.eTq.eTa.get(str);
                             if (bVar2 == null) {
                                 bVar2 = new b();
                                 bVar2.address = str;
-                                d.this.eOq.eOa.put(str, bVar2);
+                                d.this.eTq.eTa.put(str, bVar2);
                             }
-                            bVar2.pS(i);
+                            bVar2.qj(i);
                         }
-                        synchronized (d.this.eOo) {
-                            hashMap = new HashMap(d.this.eOp);
+                        synchronized (d.this.eTo) {
+                            hashMap = new HashMap(d.this.eTp);
                         }
-                        c.bcr().v(hashMap);
+                        c.bes().v(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");

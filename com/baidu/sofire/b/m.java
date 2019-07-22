@@ -36,8 +36,9 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.protocol.HTTP;
 @SuppressLint({"NewApi"})
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class m {
     Context a;
     byte[] b;
@@ -143,7 +144,7 @@ public final class m {
                 httpURLConnection.setInstanceFollowRedirects(true);
                 httpURLConnection.setConnectTimeout(this.e);
                 httpURLConnection.setReadTimeout(this.f);
-                httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.a)[0] + "/" + t.a(this.a) + "/3.1.9.3");
+                httpURLConnection.setRequestProperty(HTTP.USER_AGENT, "eos/" + e.g(this.a)[0] + "/" + t.a(this.a) + "/3.2.2.1");
                 httpURLConnection.setRequestProperty("Pragma", "no-cache");
                 httpURLConnection.setRequestProperty("Accept", "*/*");
                 httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
@@ -180,7 +181,7 @@ public final class m {
         httpURLConnection.setInstanceFollowRedirects(true);
         httpURLConnection.setConnectTimeout(this.e);
         httpURLConnection.setReadTimeout(this.f);
-        httpURLConnection.setRequestProperty("User-Agent", "eos/" + e.g(this.a)[0] + "/" + t.a(this.a) + "/3.1.9.3");
+        httpURLConnection.setRequestProperty(HTTP.USER_AGENT, "eos/" + e.g(this.a)[0] + "/" + t.a(this.a) + "/3.2.2.1");
         httpURLConnection.setRequestProperty("Pragma", "no-cache");
         httpURLConnection.setRequestProperty("Accept", "*/*");
         httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
@@ -593,7 +594,7 @@ public final class m {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public class a implements X509TrustManager {
         private X509TrustManager b;
 

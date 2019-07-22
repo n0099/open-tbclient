@@ -1,111 +1,73 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes.dex */
 public class an {
-    private static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
-    private static Method mSetStatusBarColorIcon;
-    private static Method mSetStatusBarDarkIcon;
-    private static Field mStatusBarColorFiled;
+    private String key;
+    private List<Object> params = new ArrayList();
+    private int position;
 
-    static {
-        SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = 0;
-        try {
-            mSetStatusBarColorIcon = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        }
-        try {
-            mSetStatusBarDarkIcon = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException e2) {
-            e2.printStackTrace();
-        }
-        try {
-            mStatusBarColorFiled = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException e3) {
-            e3.printStackTrace();
-        }
-        try {
-            SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException e4) {
-            e4.printStackTrace();
-        } catch (NoSuchFieldException e5) {
-            e5.printStackTrace();
+    public List<Object> getParams() {
+        return this.params;
+    }
+
+    public String getKey() {
+        return this.key;
+    }
+
+    public void setPosition(int i) {
+        this.position = i;
+    }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public an() {
+    }
+
+    public an(String str) {
+        this.key = str;
+    }
+
+    public an bT(String str, String str2) {
+        this.params.add(str);
+        this.params.add(str2);
+        return this;
+    }
+
+    public an P(String str, int i) {
+        this.params.add(str);
+        this.params.add(Integer.valueOf(i));
+        return this;
+    }
+
+    public an l(String str, long j) {
+        this.params.add(str);
+        this.params.add(Long.valueOf(j));
+        return this;
+    }
+
+    private void ab(List<Object> list) {
+        this.params = list;
+    }
+
+    public void nV(String str) {
+        int indexOf;
+        if (!aq.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
+            this.params.remove(indexOf);
+            this.params.remove(indexOf);
         }
     }
 
-    private static boolean changeMeizuFlag(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        int i;
-        try {
-            Field declaredField = layoutParams.getClass().getDeclaredField(str);
-            declaredField.setAccessible(true);
-            int i2 = declaredField.getInt(layoutParams);
-            Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-            declaredField2.setAccessible(true);
-            int i3 = declaredField2.getInt(layoutParams);
-            if (z) {
-                i = i2 | i3;
-            } else {
-                i = (i2 ^ (-1)) & i3;
-            }
-            if (i3 != i) {
-                declaredField2.setInt(layoutParams, i);
-                return true;
-            }
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e2) {
-            e2.printStackTrace();
-        } catch (NoSuchFieldException e3) {
-            e3.printStackTrace();
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-        return false;
+    public an ajh() {
+        an anVar = new an(getKey());
+        anVar.ab(getParams());
+        return anVar;
     }
 
-    private static void setStatusBarDarkIcon(View view, boolean z) {
-        int i;
-        int systemUiVisibility = view.getSystemUiVisibility();
-        if (z) {
-            i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
-        } else {
-            i = (SYSTEM_UI_FLAG_LIGHT_STATUS_BAR ^ (-1)) & systemUiVisibility;
-        }
-        if (i != systemUiVisibility) {
-            view.setSystemUiVisibility(i);
-        }
-    }
-
-    private static void setStatusBarColor(Window window, int i) {
-        WindowManager.LayoutParams attributes = window.getAttributes();
-        if (mStatusBarColorFiled != null) {
-            try {
-                if (mStatusBarColorFiled.getInt(attributes) != i) {
-                    mStatusBarColorFiled.set(attributes, Integer.valueOf(i));
-                    window.setAttributes(attributes);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void setStatusBarDarkIcon(Window window, boolean z) {
-        if (Build.VERSION.SDK_INT < 23) {
-            changeMeizuFlag(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
-            return;
-        }
-        View decorView = window.getDecorView();
-        if (decorView != null) {
-            setStatusBarDarkIcon(decorView, z);
-            setStatusBarColor(window, 0);
-        }
+    public void aji() {
+        TiebaStatic.log(this);
     }
 }

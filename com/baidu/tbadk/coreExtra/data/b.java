@@ -3,64 +3,64 @@ package com.baidu.tbadk.coreExtra.data;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private boolean cei;
-    private String cej;
-    private String cek;
-    private String cel;
-    private String cem;
-    private boolean cen;
-    private String ceo;
-    private boolean cep;
-    private String ceq;
+    private boolean cfl;
+    private String cfm;
+    private String cfn;
+    private String cfo;
+    private String cfp;
+    private boolean cfq;
+    private String cfr;
+    private boolean cfs;
+    private String cft;
 
-    public boolean akL() {
-        return this.cei;
+    public boolean alQ() {
+        return this.cfl;
     }
 
-    public void ev(boolean z) {
-        this.cei = z;
+    public void ez(boolean z) {
+        this.cfl = z;
     }
 
-    public boolean akM() {
-        return this.cep;
+    public boolean alR() {
+        return this.cfs;
     }
 
-    public String akN() {
-        return this.ceq;
+    public String alS() {
+        return this.cft;
     }
 
-    public String akO() {
-        return this.ceo;
+    public String alT() {
+        return this.cfr;
     }
 
-    public boolean akP() {
-        return this.cen;
+    public boolean alU() {
+        return this.cfq;
     }
 
-    public String akQ() {
-        return this.cem;
+    public String alV() {
+        return this.cfp;
     }
 
-    public String akR() {
-        return this.cel;
+    public String alW() {
+        return this.cfo;
     }
 
-    public String akS() {
-        return this.cej;
+    public String alX() {
+        return this.cfm;
     }
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            ev(jSONObject.optInt("switch") == 1);
-            this.cej = jSONObject.optString("feed_text");
-            this.cek = jSONObject.optString("enter_forum_text");
-            this.cel = jSONObject.optString("my_tab_text");
+            ez(jSONObject.optInt("switch") == 1);
+            this.cfm = jSONObject.optString("feed_text");
+            this.cfn = jSONObject.optString("enter_forum_text");
+            this.cfo = jSONObject.optString("my_tab_text");
             long optLong = jSONObject.optLong("dot_timestamp");
-            this.cem = optLong == 0 ? "" : optLong + "";
-            this.cen = jSONObject.optInt("user_satisfy") == 1;
-            this.ceo = jSONObject.optString("h5_url");
-            this.cep = jSONObject.optInt("person_item_switch") == 1;
-            this.ceq = jSONObject.optString("person_item_text");
+            this.cfp = optLong == 0 ? "" : optLong + "";
+            this.cfq = jSONObject.optInt("user_satisfy") == 1;
+            this.cfr = jSONObject.optString("h5_url");
+            this.cfs = jSONObject.optInt("person_item_switch") == 1;
+            this.cft = jSONObject.optString("person_item_text");
         }
     }
 }

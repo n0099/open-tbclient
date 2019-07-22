@@ -4,17 +4,17 @@ import android.view.Choreographer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class g implements Runnable {
-    final /* synthetic */ e YX;
+    final /* synthetic */ e Zs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(e eVar) {
-        this.YX = eVar;
+        this.Zs = eVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         try {
-            Choreographer.getInstance().postFrameCallback(e.YT);
+            Choreographer.getInstance().postFrameCallback(e.Zo);
         } catch (Exception e) {
             e.printStackTrace();
         }

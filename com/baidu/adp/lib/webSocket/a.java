@@ -7,8 +7,8 @@ import java.nio.ByteBuffer;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
-    private final int EM;
-    private final int EN;
+    private final int EU;
+    private final int EV;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -16,25 +16,25 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.EM = i;
-        this.EN = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.EM);
+        this.EU = i;
+        this.EV = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.EU);
         this.mBuffer.clear();
     }
 
-    public ByteBuffer getBuffer() {
+    public ByteBuffer kI() {
         return this.mBuffer;
     }
 
-    public Buffer flip() {
+    public Buffer kJ() {
         return this.mBuffer.flip();
     }
 
-    public Buffer clear() {
+    public Buffer kK() {
         return this.mBuffer.clear();
     }
 
-    public int remaining() {
+    public int kL() {
         return this.mBuffer.remaining();
     }
 
@@ -42,7 +42,7 @@ public class a extends OutputStream {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.EN) + 1) * this.EN);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.EV) + 1) * this.EV);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -71,11 +71,11 @@ public class a extends OutputStream {
         write(bArr, 0, bArr.length);
     }
 
-    public synchronized void write(String str) throws IOException {
+    public synchronized void bq(String str) throws IOException {
         write(str.getBytes(HTTP.UTF_8));
     }
 
-    public synchronized void kx() throws IOException {
+    public synchronized void kM() throws IOException {
         write(13);
         write(10);
     }

@@ -6,37 +6,37 @@ import com.baidu.tbadk.core.data.bi;
 import com.baidu.tbadk.core.data.bl;
 /* loaded from: classes.dex */
 public class v extends bg {
-    public static final BdUniqueId iXN = BdUniqueId.gen();
-    private boolean drA = false;
-    private bi iXO;
-    private bl iXP;
+    public static final BdUniqueId jee = BdUniqueId.gen();
+    private boolean dtI = false;
+    private bi jef;
+    private bl jeg;
 
     @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return iXN;
+        return jee;
     }
 
-    public boolean btf() {
-        return this.drA;
+    public boolean bvh() {
+        return this.dtI;
     }
 
-    public void qJ(boolean z) {
-        this.drA = z;
+    public void qY(boolean z) {
+        this.dtI = z;
     }
 
-    public bi clS() {
-        return this.iXO;
+    public bi coK() {
+        return this.jef;
     }
 
     public void a(bi biVar) {
-        this.iXO = biVar;
+        this.jef = biVar;
     }
 
-    public bl clT() {
-        return this.iXP;
+    public bl coL() {
+        return this.jeg;
     }
 
     public void a(bl blVar) {
-        this.iXP = blVar;
+        this.jeg = blVar;
     }
 }

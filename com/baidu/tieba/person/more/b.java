@@ -15,44 +15,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b {
-    private c icX;
-    private List<m> icY;
-    private PersonMoreData icZ;
+    private c ijp;
+    private List<m> ijq;
+    private PersonMoreData ijr;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, Bundle bundle, ab<g> abVar) {
         this.mPageContext = tbPageContext;
-        this.icX = new c(tbPageContext);
-        this.icX.d(abVar);
+        this.ijp = new c(tbPageContext);
+        this.ijp.d(abVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.icZ = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.ijr = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.icX.O(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        bYk();
-        this.icX.setData(this.icY);
+        this.ijp.Q(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        caZ();
+        this.ijp.setData(this.ijq);
     }
 
     public void onChangeSkinType() {
-        if (this.icX != null) {
-            this.icX.onChangeSkinType();
+        if (this.ijp != null) {
+            this.ijp.onChangeSkinType();
         }
     }
 
-    private void bYk() {
-        this.icY = new ArrayList();
-        if (this.icZ != null && !v.aa(this.icZ.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.icZ.mUrlMaps) {
+    private void caZ() {
+        this.ijq = new ArrayList();
+        if (this.ijr != null && !v.aa(this.ijr.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.ijr.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     g gVar = new g();
                     gVar.title = personMoreItemData.mName;
                     gVar.type = 36;
-                    gVar.bCQ = personMoreItemData.mUrl;
+                    gVar.bDN = personMoreItemData.mUrl;
                     gVar.itemId = personMoreItemData.mId;
-                    this.icY.add(gVar);
+                    this.ijq.add(gVar);
                 }
             }
         }

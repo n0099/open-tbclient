@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.core.util.x;
 import java.io.File;
@@ -56,11 +56,11 @@ public class b {
                     if (StringUtils.isNull(loadString)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        oX(str2);
+                        po(str2);
                     } else if (!TextUtils.equals(loadString, str)) {
                         inst.saveString("launch_config_md5", str);
                         inst.saveString("launch_config_remote_url", str2);
-                        oX(str2);
+                        po(str2);
                     }
                 }
             }
@@ -68,47 +68,47 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anC() {
+    public void aoH() {
         String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
         if (!StringUtils.isNull(loadString)) {
             TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
         }
     }
 
-    public String anD() {
+    public String aoI() {
         return TbadkSettings.getInst().loadString("launch_config_local_url", "");
     }
 
-    public void oX(String str) {
-        String anD = anD();
-        if (!TextUtils.equals(anD, str) || !isFileExist(anD)) {
-            bY(str, anD);
+    public void po(String str) {
+        String aoI = aoI();
+        if (!TextUtils.equals(aoI, str) || !isFileExist(aoI)) {
+            bZ(str, aoI);
         }
     }
 
     private boolean isFileExist(String str) {
-        File mY = m.mY(as.nS(str));
-        return mY != null && mY.exists() && mY.isFile();
+        File nk = m.nk(at.oj(str));
+        return nk != null && nk.exists() && nk.isFile();
     }
 
-    private void bY(String str, String str2) {
-        if (j.jT()) {
-            new a(str, as.nS(str), str2).execute(new String[0]);
+    private void bZ(String str, String str2) {
+        if (j.kd()) {
+            new a(str, at.oj(str), str2).execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        private final String bPo;
-        private final String chK;
-        private final String chL;
+        private final String bQo;
+        private final String ciQ;
+        private final String ciR;
         private x mNetWork = null;
 
         public a(String str, String str2, String str3) {
-            this.chK = str;
-            this.bPo = str2;
-            this.chL = str3;
+            this.ciQ = str;
+            this.bQo = str2;
+            this.ciR = str3;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -117,14 +117,14 @@ public class b {
         public Boolean doInBackground(String... strArr) {
             Boolean bool = false;
             try {
-                this.mNetWork = new x(this.chK);
-                bool = Boolean.valueOf(this.mNetWork.a(this.bPo + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
+                this.mNetWork = new x(this.ciQ);
+                bool = Boolean.valueOf(this.mNetWork.a(this.bQo + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
                 if (bool != null && bool.booleanValue()) {
-                    if (!StringUtils.isNull(m.m(null, this.bPo + ".tmp", null, this.bPo)) && !TextUtils.isEmpty(this.chK) && !this.chK.equals(this.chL)) {
-                        m.nr(as.nS(this.chL));
+                    if (!StringUtils.isNull(m.m(null, this.bQo + ".tmp", null, this.bQo)) && !TextUtils.isEmpty(this.ciQ) && !this.ciQ.equals(this.ciR)) {
+                        m.nD(at.oj(this.ciR));
                     }
                 } else {
-                    m.nr(this.bPo + ".tmp");
+                    m.nD(this.bQo + ".tmp");
                 }
             } catch (Exception e) {
             }
@@ -137,7 +137,7 @@ public class b {
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((a) bool);
             if (bool != null && bool.booleanValue()) {
-                new b().anC();
+                new b().aoH();
             }
         }
     }

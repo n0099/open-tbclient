@@ -43,6 +43,7 @@ public class LivenessStat {
     public String livingPassType = TYPE_STRING_DEFAULT;
     public int whiteBg = -1;
     public float illumValue = -1.0f;
+    public int onLineIllum = -1;
     public String livingPassPeriod = TYPE_STRING_DEFAULT;
     public int getIDLPicture = -1;
     public String faceMatchType = TYPE_STRING_DEFAULT;
@@ -177,6 +178,7 @@ public class LivenessStat {
             hashMap.put("white_bg", this.whiteBg + "");
         }
         hashMap.put("illum", this.illumValue + "");
+        hashMap.put("abtest_illum", this.onLineIllum + "");
         hashMap.put("time_whole", (this.timePointEnd - this.timePointStart) + "");
         hashMap.put("error_code", this.errCode + "");
         hashMap.put("recog_type", this.recogType);

@@ -11,18 +11,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c extends a {
-    private final float density;
-    private final Rect pK;
     private final Rect pL;
+    private final Rect pM;
+    private final float pN;
     private final Paint paint;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.airbnb.lottie.f fVar, Layer layer, float f) {
         super(fVar, layer);
         this.paint = new Paint(3);
-        this.pK = new Rect();
         this.pL = new Rect();
-        this.density = f;
+        this.pM = new Rect();
+        this.pN = f;
     }
 
     @Override // com.airbnb.lottie.model.layer.a
@@ -32,9 +32,9 @@ public class c extends a {
             this.paint.setAlpha(i);
             canvas.save();
             canvas.concat(matrix);
-            this.pK.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.pL.set(0, 0, (int) (bitmap.getWidth() * this.density), (int) (bitmap.getHeight() * this.density));
-            canvas.drawBitmap(bitmap, this.pK, this.pL, this.paint);
+            this.pL.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.pM.set(0, 0, (int) (bitmap.getWidth() * this.pN), (int) (bitmap.getHeight() * this.pN));
+            canvas.drawBitmap(bitmap, this.pL, this.pM, this.paint);
             canvas.restore();
         }
     }
@@ -45,13 +45,13 @@ public class c extends a {
         Bitmap bitmap = getBitmap();
         if (bitmap != null) {
             rectF.set(rectF.left, rectF.top, Math.min(rectF.right, bitmap.getWidth()), Math.min(rectF.bottom, bitmap.getHeight()));
-            this.pw.mapRect(rectF);
+            this.px.mapRect(rectF);
         }
     }
 
     @Nullable
     private Bitmap getBitmap() {
-        return this.kC.H(this.px.getRefId());
+        return this.kB.H(this.py.getRefId());
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d

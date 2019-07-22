@@ -7,7 +7,6 @@ import com.squareup.wire.Message;
 import com.squareup.wire.Wire;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -147,12 +146,12 @@ public class af {
             java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L4c
             com.baidu.adp.lib.util.BdLog.e(r1)     // Catch: java.lang.Throwable -> L4c
             com.baidu.adp.lib.util.n.g(r3)
-            com.baidu.adp.lib.util.n.b(r2)
+            com.baidu.adp.lib.util.n.c(r2)
             goto L3
         L32:
             byte[] r0 = r2.toByteArray()     // Catch: java.lang.Throwable -> L23
             com.baidu.adp.lib.util.n.g(r3)
-            com.baidu.adp.lib.util.n.b(r2)
+            com.baidu.adp.lib.util.n.c(r2)
             goto L3
         L3d:
             r1 = move-exception
@@ -161,7 +160,7 @@ public class af {
             r0 = r1
         L41:
             com.baidu.adp.lib.util.n.g(r3)
-            com.baidu.adp.lib.util.n.b(r2)
+            com.baidu.adp.lib.util.n.c(r2)
             throw r0
         L48:
             r1 = move-exception
@@ -197,7 +196,7 @@ public class af {
                     try {
                         fileOutputStream2.write(bArr, 0, bArr.length);
                         fileOutputStream2.flush();
-                        com.baidu.adp.lib.util.n.b((OutputStream) fileOutputStream2);
+                        com.baidu.adp.lib.util.n.c(fileOutputStream2);
                         return true;
                     } catch (Throwable th) {
                         th = th;
@@ -206,7 +205,7 @@ public class af {
                             BdLog.e(th.getMessage());
                             return false;
                         } finally {
-                            com.baidu.adp.lib.util.n.b((OutputStream) fileOutputStream);
+                            com.baidu.adp.lib.util.n.c(fileOutputStream);
                         }
                     }
                 }

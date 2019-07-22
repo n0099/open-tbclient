@@ -7,32 +7,32 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes4.dex */
 public class d extends k<PostData, a> {
-    private View.OnClickListener eHf;
+    private View.OnClickListener eMb;
 
     public d(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.eHf = onClickListener;
+        this.eMb = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bv */
+    /* renamed from: bB */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.eHf);
+        inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.eMb);
         a aVar = new a(inflate);
-        aVar.aoY();
+        aVar.aqe();
         return aVar;
     }
 
@@ -47,29 +47,29 @@ public class d extends k<PostData, a> {
 
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        private TextView hCO;
+        private TextView hJb;
 
         public a(View view) {
             super(view);
-            this.hCO = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.hJb = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.iZh) {
-                    Drawable drawable = al.getDrawable(R.drawable.icon_emotion_smallarrow_n);
+                if (postData.jfy) {
+                    Drawable drawable = am.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.hCO.setCompoundDrawables(null, null, drawable, null);
+                    this.hJb.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
-                Drawable drawable2 = al.getDrawable(R.drawable.icon_emotion_smallarrow_down);
+                Drawable drawable2 = am.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.hCO.setCompoundDrawables(null, null, drawable2, null);
+                this.hJb.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void aoY() {
-            al.j(this.hCO, R.color.cp_cont_d);
+        public void aqe() {
+            am.j(this.hJb, R.color.cp_cont_d);
         }
     }
 }

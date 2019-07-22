@@ -6,11 +6,11 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShapeTrimPath implements b {
-    private final Type mR;
+    private final Type mQ;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oW;
-    private final com.airbnb.lottie.model.a.b pg;
+    private final com.airbnb.lottie.model.a.b oX;
     private final com.airbnb.lottie.model.a.b ph;
+    private final com.airbnb.lottie.model.a.b pi;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -31,30 +31,30 @@ public class ShapeTrimPath implements b {
 
     private ShapeTrimPath(String str, Type type, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3) {
         this.name = str;
-        this.mR = type;
-        this.pg = bVar;
-        this.ph = bVar2;
-        this.oW = bVar3;
+        this.mQ = type;
+        this.ph = bVar;
+        this.pi = bVar2;
+        this.oX = bVar3;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type cf() {
-        return this.mR;
+    public Type ck() {
+        return this.mQ;
     }
 
-    public com.airbnb.lottie.model.a.b dx() {
+    public com.airbnb.lottie.model.a.b dE() {
+        return this.pi;
+    }
+
+    public com.airbnb.lottie.model.a.b dF() {
         return this.ph;
     }
 
     public com.airbnb.lottie.model.a.b dy() {
-        return this.pg;
-    }
-
-    public com.airbnb.lottie.model.a.b dr() {
-        return this.oW;
+        return this.oX;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -63,7 +63,7 @@ public class ShapeTrimPath implements b {
     }
 
     public String toString() {
-        return "Trim Path: {start: " + this.pg + ", end: " + this.ph + ", offset: " + this.oW + "}";
+        return "Trim Path: {start: " + this.ph + ", end: " + this.pi + ", offset: " + this.oX + "}";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

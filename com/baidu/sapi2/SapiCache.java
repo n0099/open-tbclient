@@ -4,33 +4,24 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
-import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.sapi2.SapiOptions;
-import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.a.c;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
-import com.baidu.sapi2.outsdk.ChinaMobileSDK;
-import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
-import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
-import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
-import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.utils.FileUtil;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
-import com.baidu.sapi2.utils.enums.Domain;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.ref.SoftReference;
+import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -39,12 +30,13 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public final class SapiCache {
     private static final Map<String, SoftReference<String>> a = new ConcurrentHashMap();
-    private static final List<String> b = new ArrayList();
-    private static final List<String> c = new ArrayList();
-    private static Context d;
+    private final List<String> b = new ArrayList();
+    private final List<String> c = new ArrayList();
+    private Context d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -54,52 +46,49 @@ public final class SapiCache {
         void a(SapiOptions.Cache.Module module, String str);
     }
 
-    private SapiCache() {
-    }
-
-    static void a(String str, String str2) {
+    void a(String str, String str2) {
         a.put(str, new SoftReference<>(str2));
     }
 
-    static void a(String str) {
+    void a(String str) {
         a.remove(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String a(Context context, String str) {
+    public String a(Context context, String str) {
         if (!SapiContext.getInstance(context).getBoolean(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, false)) {
             return null;
         }
         return b(context, c(str));
     }
 
-    static String b(final Context context, String str) {
-        e();
+    String b(final Context context, String str) {
+        a();
         if (SapiContext.getInstance(context).getSapiOptions().getCache().isEnabled()) {
-            String b2 = b(str);
-            if (TextUtils.isEmpty(b2)) {
-                SapiOptions.Cache.Module c2 = c(context, str);
-                if (c2 != null) {
-                    a(c2, new a() { // from class: com.baidu.sapi2.SapiCache.1
+            String b = b(str);
+            if (TextUtils.isEmpty(b)) {
+                SapiOptions.Cache.Module c = c(context, str);
+                if (c != null) {
+                    a(c, new a() { // from class: com.baidu.sapi2.SapiCache.1
                         @Override // com.baidu.sapi2.SapiCache.a
                         public void a(SapiOptions.Cache.Module module, String str2) {
-                            SapiCache.a(module.id, str2);
+                            SapiCache.this.a(module.id, str2);
                         }
 
                         @Override // com.baidu.sapi2.SapiCache.a
                         public void a(SapiOptions.Cache.Module module) {
-                            SapiCache.a(context, module);
+                            SapiCache.this.a(context, module);
                         }
                     });
                 }
                 return b(str);
             }
-            return b2;
+            return b;
         }
         return null;
     }
 
-    static String b(String str) {
+    String b(String str) {
         if (a.containsKey(str) && a.get(str) != null) {
             String str2 = a.get(str).get();
             if (!TextUtils.isEmpty(str2)) {
@@ -110,7 +99,7 @@ public final class SapiCache {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static SapiOptions.Cache.Module c(Context context, String str) {
+    public SapiOptions.Cache.Module c(Context context, String str) {
         for (SapiOptions.Cache.Module module : SapiContext.getInstance(context).getSapiOptions().getCache().getModules()) {
             if (module.id.equals(str)) {
                 return module;
@@ -119,48 +108,47 @@ public final class SapiCache {
         return null;
     }
 
-    public static void init(Context context) {
-        if (context == null) {
-            throw new IllegalArgumentException("Context can't be null");
-        }
-        d = context.getApplicationContext();
-        a();
-        b();
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(Context context) {
+        this.d = context.getApplicationContext();
+        SapiOptions sapiOptions = SapiContext.getInstance(this.d).getSapiOptions();
+        a(sapiOptions);
+        b(sapiOptions);
     }
 
-    static void a() {
-        SapiOptions.Cache cache = SapiContext.getInstance(d).getSapiOptions().getCache();
+    void a(SapiOptions sapiOptions) {
+        SapiOptions.Cache cache = sapiOptions.getCache();
         if (cache.isEnabled()) {
             for (SapiOptions.Cache.Module module : cache.getModules()) {
-                b.add(module.id);
+                this.b.add(module.id);
             }
-            c.addAll(b);
+            this.c.addAll(this.b);
             for (SapiOptions.Cache.Module module2 : cache.getModules()) {
                 a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.2
                     @Override // com.baidu.sapi2.SapiCache.a
                     public void a(SapiOptions.Cache.Module module3, String str) {
-                        SapiCache.a(module3.id, str);
+                        SapiCache.this.a(module3.id, str);
                     }
 
                     @Override // com.baidu.sapi2.SapiCache.a
                     public void a(SapiOptions.Cache.Module module3) {
-                        SapiCache.a(SapiCache.d, module3);
+                        SapiCache.this.a(SapiCache.this.d, module3);
                     }
                 });
             }
         }
     }
 
-    static void a(SapiOptions.Cache.Module module, a aVar) {
+    void a(SapiOptions.Cache.Module module, a aVar) {
         if (aVar == null) {
             throw new IllegalArgumentException(a.class.getName() + "can't be null");
         }
         String externalFile = SapiOptions.Cache.Module.getExternalFile(module.id);
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && new File(Environment.getExternalStorageDirectory(), externalFile).exists()) {
-                String e = e(externalFile);
-                if (MD5Util.toMd5(e.getBytes(), false).equals(module.hash)) {
-                    aVar.a(module, e);
+                String d = d(externalFile);
+                if (MD5Util.toMd5(d.getBytes(), false).equals(module.hash)) {
+                    aVar.a(module, d);
                 } else {
                     aVar.a(module);
                 }
@@ -172,7 +160,7 @@ public final class SapiCache {
         }
     }
 
-    static void a(Context context, SapiOptions.Cache.Module module) {
+    void a(Context context, SapiOptions.Cache.Module module) {
         String internalFile = SapiOptions.Cache.Module.getInternalFile(module.id);
         if (new File(context.getFilesDir(), internalFile).exists()) {
             try {
@@ -184,7 +172,7 @@ public final class SapiCache {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String c(String str) {
+    public String c(String str) {
         Uri parse;
         String str2 = parse.getHost() + (Uri.parse(str).getPort() == -1 ? "" : ":" + parse.getPort()) + parse.getPath();
         if (!str2.endsWith(".html")) {
@@ -193,181 +181,154 @@ public final class SapiCache {
         return str2;
     }
 
-    static void b() {
-        if (SapiUtils.hasActiveNetwork(d)) {
-            try {
-                HttpHashMapWrap c2 = c();
-                String d2 = d();
-                SapiOptions sapiOptions = SapiContext.getInstance(d).getSapiOptions();
-                int i = sapiOptions.configStep;
-                if (sapiOptions.configType == 0) {
-                    c2.put("cdnversion", String.valueOf((int) (System.currentTimeMillis() / (i * 1000))));
-                } else {
-                    d2 = d2.replace("config.txt", "config_" + String.valueOf((int) (System.currentTimeMillis() / (i * 1000))) + ".txt");
-                }
-                new HttpClientWrap().get(d2, c2, null, null, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.3
-                    /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onSuccess(int i2, String str) {
-                        super.onSuccess(i2, str);
-                        if (str != null) {
-                            SapiCache.d(str);
-                            SapiCache.i();
+    void b(final SapiOptions sapiOptions) {
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        String str = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + SapiEnv.SAPI_CONFIG_HTTPS_URI;
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("If-None-Match", SapiContext.getInstance(this.d).getString(SapiContext.KEY_CONFIG_FILE_ETAG));
+        try {
+            new HttpClientWrap().get(str, httpHashMapWrap, hashMap, (List<HttpCookie>) null, (String) null, 0, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.SapiCache.3
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onSuccess(int i, String str2, HashMap<String, String> hashMap2) {
+                    if (str2 != null) {
+                        SapiCache.this.a(str2, sapiOptions);
+                        if (hashMap2 != null) {
+                            SapiContext.getInstance(SapiCache.this.d).put(SapiContext.KEY_CONFIG_FILE_ETAG, hashMap2.get("ETag"));
                         }
+                        SapiCache.this.b();
                     }
+                }
 
-                    /* JADX INFO: Access modifiers changed from: protected */
-                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                    public void onFailure(Throwable th, String str) {
-                        super.onFailure(th, str);
-                        StatService.onEvent("sslerr_config", Collections.singletonMap("na_err_code", "0"), false);
-                        SapiCache.i();
-                    }
-                });
-            } catch (Throwable th) {
-                Log.e(th);
-            }
+                /* JADX INFO: Access modifiers changed from: protected */
+                @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                public void onFailure(Throwable th, int i, String str2) {
+                    SapiCache.this.c(sapiOptions);
+                    SapiCache.this.b();
+                }
+            });
+        } catch (Throwable th) {
+            Log.e(th);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void i() {
-        ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.4
-            @Override // java.lang.Runnable
-            public void run() {
-                String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
-                if (!TextUtils.isEmpty(deviceInfo)) {
-                    StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo), false);
-                }
-            }
-        }));
-    }
-
-    static void d(final String str) {
-        final SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
-        if (TextUtils.isEmpty(sapiConfiguration.sofireAppKey) || TextUtils.isEmpty(sapiConfiguration.sofireSecKey) || sapiConfiguration.sofireHostID == -1) {
-            throw new IllegalArgumentException("sofireAppKey or sofireSecKey can't be empty and sofireHostID can't equal -1");
+    public void b() {
+        String deviceInfo = SapiDeviceInfo.getDeviceInfo(SapiEnv.SAPI_CONFIG_URI);
+        if (!TextUtils.isEmpty(deviceInfo)) {
+            StatService.onEvent("dvif_interface", Collections.singletonMap(AppIconSetting.DEFAULT_LARGE_ICON, deviceInfo));
         }
-        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.5
-            @Override // java.lang.Runnable
-            public void run() {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    SapiOptions sapiOptions = SapiContext.getInstance(SapiCache.d).getSapiOptions();
-                    final SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
-                    if (fromJSON.getSofireSdkEnabled()) {
-                        SapiCache.a(sapiConfiguration);
-                    }
-                    new ChinaMobileSDK().preGetPhoneInfo(SapiCache.d, sapiConfiguration.chinaMobileAppID, sapiConfiguration.chinaMobileAppKey, fromJSON.chinaMobileOauthGray);
-                    PluginFacade.setSwitch(SapiCache.d, fromJSON.getPluginsEnabled());
-                    SapiOptions.Cache cache = fromJSON.getCache();
-                    final SapiOptions.Cache cache2 = sapiOptions.getCache();
-                    SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
-                    SapiAccountManager.getInstance().preFetchStoken(SapiAccountManager.getInstance().getSession(), false);
-                    new FaceLoginService().requestFaceLoginModel();
-                    SapiCache.a(fromJSON.resetFileExecPer);
-                    SapiCache.c.clear();
-                    if (cache.isEnabled()) {
-                        for (SapiOptions.Cache.Module module : cache.getModules()) {
-                            SapiCache.c.add(module.id);
-                        }
-                        for (final SapiOptions.Cache.Module module2 : cache.getModules()) {
-                            SapiOptions.Cache.Module module3 = null;
-                            for (SapiOptions.Cache.Module module4 : sapiOptions.getCache().getModules()) {
-                                if (!module4.id.equals(module2.id)) {
-                                    module4 = module3;
-                                }
-                                module3 = module4;
-                            }
-                            if (!SapiCache.a(module2, module3)) {
-                                SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
-                                SapiContext.getInstance(SapiCache.d).put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
-                                SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.5.2
-                                    @Override // com.baidu.sapi2.SapiCache.a
-                                    public void a(SapiOptions.Cache.Module module5, String str2) {
-                                    }
-
-                                    @Override // com.baidu.sapi2.SapiCache.a
-                                    public void a(SapiOptions.Cache.Module module5) {
-                                        String internalFile = SapiOptions.Cache.Module.getInternalFile(module5.id);
-                                        String externalFile = SapiOptions.Cache.Module.getExternalFile(module5.id);
-                                        if (new File(SapiCache.d.getFilesDir(), internalFile).exists()) {
-                                            try {
-                                                String d2 = SapiCache.d(SapiCache.d, internalFile);
-                                                if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.d)) {
-                                                    SapiCache.a(externalFile, d2.getBytes());
-                                                }
-                                            } catch (Throwable th) {
-                                                Log.e(th);
-                                            }
-                                        }
-                                    }
-                                });
-                            } else {
-                                SapiCache.a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.5.1
-                                    @Override // com.baidu.sapi2.SapiCache.a
-                                    public void a(SapiOptions.Cache.Module module5, String str2) {
-                                        SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
-                                        if (!TextUtils.isEmpty(module2.id) && !TextUtils.isEmpty(str2)) {
-                                            SapiCache.a(module2.id, str2);
-                                            SapiCache.a(SapiCache.d, SapiOptions.Cache.Module.getInternalFile(module2.id), str2.getBytes());
-                                        }
-                                    }
-
-                                    @Override // com.baidu.sapi2.SapiCache.a
-                                    public void a(SapiOptions.Cache.Module module5) {
-                                        new HttpClientWrap().get(module2.downloadUrl, SapiCache.c(), null, null, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiCache.5.1.1
-                                            /* JADX INFO: Access modifiers changed from: protected */
-                                            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onSuccess(int i, String str2) {
-                                                SapiCache.a(str2, module2, fromJSON);
-                                            }
-
-                                            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                                            public void onFailure(Throwable th, String str2) {
-                                                fromJSON.setCache(cache2);
-                                                SapiContext.getInstance(SapiCache.d).setSapiOptions(fromJSON);
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                }
-            }
-        }));
     }
 
-    static void a(final String str, final SapiOptions.Cache.Module module, final SapiOptions sapiOptions) {
-        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.SapiCache.6
-            @Override // java.lang.Runnable
-            public void run() {
-                if (!TextUtils.isEmpty(SapiOptions.Cache.Module.this.id) && !TextUtils.isEmpty(str) && SapiOptions.Cache.Module.this.hash.equals(MD5Util.toMd5(str.getBytes(), false))) {
-                    SapiContext.getInstance(SapiCache.d).setSapiOptions(sapiOptions);
-                    SapiCache.a(SapiOptions.Cache.Module.this.id, str);
-                    SapiCache.a(SapiCache.d, SapiOptions.Cache.Module.getInternalFile(SapiOptions.Cache.Module.this.id), str.getBytes());
-                    if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.d)) {
-                        SapiCache.a(SapiOptions.Cache.Module.getExternalFile(SapiOptions.Cache.Module.this.id), str.getBytes());
+    /* JADX INFO: Access modifiers changed from: private */
+    public void c(SapiOptions sapiOptions) {
+        new c().a(SapiAccountManager.getInstance().getSapiConfiguration(), sapiOptions.chinaMobileOauthGray, sapiOptions.ctGray);
+        SapiAccountManager.getInstance().preFetchStoken(SapiAccountManager.getInstance().getSession(), false);
+        new com.baidu.sapi2.share.a.c().a();
+        a(sapiOptions.resetFileExecPer);
+    }
+
+    void a(String str, SapiOptions sapiOptions) {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            final SapiOptions fromJSON = SapiOptions.fromJSON(jSONObject);
+            SapiContext.getInstance(this.d).setSapiOptions(fromJSON);
+            SapiContext.getInstance(this.d).setPkgSigns(SapiOptions.PkgSigns.fromJSON(jSONObject));
+            SapiOptions.Cache cache = fromJSON.getCache();
+            final SapiOptions.Cache cache2 = sapiOptions.getCache();
+            c(fromJSON);
+            this.c.clear();
+            if (cache.isEnabled()) {
+                for (SapiOptions.Cache.Module module : cache.getModules()) {
+                    this.c.add(module.id);
+                }
+                for (final SapiOptions.Cache.Module module2 : cache.getModules()) {
+                    SapiOptions.Cache.Module module3 = null;
+                    for (SapiOptions.Cache.Module module4 : cache2.getModules()) {
+                        if (!module4.id.equals(module2.id)) {
+                            module4 = module3;
+                        }
+                        module3 = module4;
+                    }
+                    if (a(module2, module3)) {
+                        a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.4
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(SapiOptions.Cache.Module module5, String str2) {
+                                if (!TextUtils.isEmpty(module2.id) && !TextUtils.isEmpty(str2)) {
+                                    SapiCache.this.a(module2.id, str2);
+                                    SapiCache.this.a(SapiCache.this.d, SapiOptions.Cache.Module.getInternalFile(module2.id), str2.getBytes());
+                                }
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(SapiOptions.Cache.Module module5) {
+                                new HttpClientWrap().get(module2.downloadUrl, new HttpHashMapWrap(), null, null, new HttpHandlerWrap(true) { // from class: com.baidu.sapi2.SapiCache.4.1
+                                    /* JADX INFO: Access modifiers changed from: protected */
+                                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                                    public void onSuccess(int i, String str2) {
+                                        SapiCache.this.a(str2, module2);
+                                    }
+
+                                    @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                                    public void onFailure(Throwable th, int i, String str2) {
+                                        fromJSON.setCache(cache2);
+                                        SapiContext.getInstance(SapiCache.this.d).setSapiOptions(fromJSON);
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        SapiContext.getInstance(this.d).put(SapiContext.KEY_LOGIN_PAGE_IS_CACHED, true);
+                        a(module2, new a() { // from class: com.baidu.sapi2.SapiCache.5
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(SapiOptions.Cache.Module module5, String str2) {
+                            }
+
+                            @Override // com.baidu.sapi2.SapiCache.a
+                            public void a(SapiOptions.Cache.Module module5) {
+                                String internalFile = SapiOptions.Cache.Module.getInternalFile(module5.id);
+                                String externalFile = SapiOptions.Cache.Module.getExternalFile(module5.id);
+                                if (new File(SapiCache.this.d.getFilesDir(), internalFile).exists()) {
+                                    try {
+                                        String d = SapiCache.this.d(SapiCache.this.d, internalFile);
+                                        if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", SapiCache.this.d)) {
+                                            SapiCache.this.a(externalFile, d.getBytes());
+                                        }
+                                    } catch (Throwable th) {
+                                        Log.e(th);
+                                    }
+                                }
+                            }
+                        });
                     }
                 }
             }
-        }));
+        } catch (JSONException e) {
+        }
+    }
+
+    void a(String str, SapiOptions.Cache.Module module) {
+        if (!TextUtils.isEmpty(module.id) && !TextUtils.isEmpty(str) && module.hash.equals(MD5Util.toMd5(str.getBytes(), false))) {
+            a(module.id, str);
+            a(this.d, SapiOptions.Cache.Module.getInternalFile(module.id), str.getBytes());
+            if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.d)) {
+                a(SapiOptions.Cache.Module.getExternalFile(module.id), str.getBytes());
+            }
+        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
     @TargetApi(4)
-    static void a(boolean z) {
+    void a(boolean z) {
         if (z) {
-            String packageDirExecutePer = SapiContext.getInstance(d).getPackageDirExecutePer();
+            String packageDirExecutePer = SapiContext.getInstance(this.d).getPackageDirExecutePer();
             if (!TextUtils.isEmpty(packageDirExecutePer)) {
                 Process process = null;
                 try {
                     try {
-                        process = Runtime.getRuntime().exec("chmod " + packageDirExecutePer + " " + d.getApplicationInfo().dataDir);
+                        process = Runtime.getRuntime().exec("chmod " + packageDirExecutePer + " " + this.d.getApplicationInfo().dataDir);
                         if (process.waitFor() == 0) {
-                            SapiContext.getInstance(d).setPackageDirExecutePer("");
+                            SapiContext.getInstance(this.d).setPackageDirExecutePer("");
                         }
                         if (process != null) {
                             process.destroy();
@@ -388,55 +349,21 @@ public final class SapiCache {
         }
     }
 
-    static void a(SapiConfiguration sapiConfiguration) {
-        try {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean init = SafeService.getInstance().init(d, sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, 1);
-            long currentTimeMillis2 = System.currentTimeMillis();
-            String currentZid = SapiAccountManager.getInstance().getSafeFacade().getCurrentZid(d);
-            long currentTimeMillis3 = System.currentTimeMillis();
-            HashMap hashMap = new HashMap();
-            hashMap.put("ssdk_init_time", (currentTimeMillis2 - currentTimeMillis) + "");
-            hashMap.put("ssdk_zid_time", (currentTimeMillis3 - currentTimeMillis2) + "");
-            hashMap.put("ssdk_zid_whole_time", (currentTimeMillis3 - currentTimeMillis) + "");
-            hashMap.put("initSucc", init + "");
-            hashMap.put("zid", currentZid);
-            StatService.onEvent("ssdk_zid", hashMap, false);
-        } catch (Exception e) {
-            Log.e(e);
-        }
-    }
-
-    static synchronized HttpHashMapWrap c() {
-        HttpHashMapWrap httpHashMapWrap;
-        synchronized (SapiCache.class) {
-            httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl);
-            httpHashMapWrap.put(SapiContext.KEY_SDK_VERSION, SapiAccountManager.VERSION_NAME);
-            httpHashMapWrap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(d));
-        }
-        return httpHashMapWrap;
-    }
-
-    static boolean a(SapiOptions.Cache.Module module, SapiOptions.Cache.Module module2) {
+    boolean a(SapiOptions.Cache.Module module, SapiOptions.Cache.Module module2) {
         return !TextUtils.isEmpty(module.hash) && (module2 == null || !module.hash.equals(module2.hash));
     }
 
-    static String d() {
-        return !SapiAccountManager.getInstance().getSapiConfiguration().environment.equals(Domain.DOMAIN_ONLINE) ? SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigUrl() + SapiEnv.SAPI_CONFIG_URI : SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + SapiEnv.SAPI_CONFIG_HTTPS_URI;
-    }
-
-    static void e() {
+    void a() {
         ArrayList<String> arrayList = new ArrayList();
-        for (String str : b) {
-            if (!c.contains(str)) {
+        for (String str : this.b) {
+            if (!this.c.contains(str)) {
                 arrayList.add(str);
                 a(str);
             }
         }
         for (String str2 : arrayList) {
-            if (b.contains(str2)) {
-                b.remove(str2);
+            if (this.b.contains(str2)) {
+                this.b.remove(str2);
             }
         }
     }
@@ -449,14 +376,15 @@ public final class SapiCache {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [661=4] */
-    static void a(android.content.Context r5, java.lang.String r6, byte[] r7) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [559=4] */
+    void a(android.content.Context r6, java.lang.String r7, byte[] r8) {
         /*
+            r5 = this;
             r0 = 0
             r1 = 0
-            java.io.FileOutputStream r0 = r5.openFileOutput(r6, r1)     // Catch: java.lang.Throwable -> L1a
-            r0.write(r7)     // Catch: java.lang.Throwable -> L1a
-            com.baidu.sapi2.SapiContext r1 = com.baidu.sapi2.SapiContext.getInstance(r5)     // Catch: java.lang.Throwable -> L1a
+            java.io.FileOutputStream r0 = r6.openFileOutput(r7, r1)     // Catch: java.lang.Throwable -> L1a
+            r0.write(r8)     // Catch: java.lang.Throwable -> L1a
+            com.baidu.sapi2.SapiContext r1 = com.baidu.sapi2.SapiContext.getInstance(r6)     // Catch: java.lang.Throwable -> L1a
             java.lang.String r2 = "login_page_is_cached"
             r3 = 1
             r1.put(r2, r3)     // Catch: java.lang.Throwable -> L1a
@@ -498,78 +426,22 @@ public final class SapiCache {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sapi2.SapiCache.a(android.content.Context, java.lang.String, byte[]):void");
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [694=4] */
-    static void a(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        FileOutputStream fileOutputStream2 = null;
+    void a(String str, byte[] bArr) {
         try {
             if ("mounted".equals(Environment.getExternalStorageState())) {
-                File file = new File(Environment.getExternalStorageDirectory(), str);
-                if (!file.getParentFile().exists()) {
-                    file.getParentFile().mkdirs();
-                }
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                fileOutputStream = new FileOutputStream(file);
-                try {
-                    fileOutputStream.write(bArr);
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream2 = fileOutputStream;
-                    try {
-                        Log.e(th);
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                                return;
-                            } catch (Throwable th2) {
-                                Log.e(th2);
-                                return;
-                            }
-                        }
-                        return;
-                    } catch (Throwable th3) {
-                        if (fileOutputStream2 != null) {
-                            try {
-                                fileOutputStream2.close();
-                            } catch (Throwable th4) {
-                                Log.e(th4);
-                            }
-                        }
-                        throw th3;
-                    }
-                }
-            } else {
-                fileOutputStream = null;
+                FileUtil.write(new File(Environment.getExternalStorageDirectory(), str), bArr, false);
             }
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (Throwable th5) {
-                    Log.e(th5);
-                }
-            }
-        } catch (Throwable th6) {
-            th = th6;
+        } catch (Throwable th) {
+            Log.e(th);
         }
     }
 
-    static String e(String str) throws IOException {
-        return a(new FileInputStream(new File(Environment.getExternalStorageDirectory(), str)));
+    String d(String str) throws IOException {
+        return FileUtil.read(new File(Environment.getExternalStorageDirectory(), str).getAbsolutePath());
     }
 
-    static String d(Context context, String str) throws IOException {
-        return a(context.openFileInput(str));
-    }
-
-    static String a(InputStream inputStream) throws IOException {
-        try {
-            byte[] bArr = new byte[inputStream.available()];
-            inputStream.read(bArr);
-            return new String(bArr);
-        } finally {
-            inputStream.close();
-        }
+    @TargetApi(4)
+    String d(Context context, String str) throws IOException {
+        return FileUtil.read(context.getApplicationInfo().dataDir + File.separator + "files" + File.separator + str);
     }
 }

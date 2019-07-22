@@ -26,9 +26,9 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         ArrayList<com.baidu.adp.lib.stats.base.c> arrayList2 = get(i);
         ArrayList<String> arrayList3 = new ArrayList<>();
         for (int i2 = 0; i2 < arrayList2.size(); i2++) {
-            String aP = aP(arrayList2.get(i2).mFileName);
-            if (!TextUtils.isEmpty(aP)) {
-                for (String str : aP.split("\r\n")) {
+            String aQ = aQ(arrayList2.get(i2).mFileName);
+            if (!TextUtils.isEmpty(aQ)) {
+                for (String str : aQ.split("\r\n")) {
                     if (size > 0) {
                         Iterator<String> it = arrayList.iterator();
                         while (it.hasNext()) {
@@ -48,14 +48,14 @@ class BdUploadingLogInfo extends ArrayList<ArrayList<com.baidu.adp.lib.stats.bas
         return arrayList3;
     }
 
-    private String aP(String str) {
+    private String aQ(String str) {
         d dVar = new d(this.mLogDir, str, DiskFileOperate.Action.READ);
         dVar.L(this.mUseSdCard);
         if (!this.mMustSuccess) {
             dVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
             dVar.Q(3);
         }
-        com.baidu.adp.lib.Disk.d.gt().b(dVar);
+        com.baidu.adp.lib.Disk.d.gC().b(dVar);
         if (dVar.isSuccess()) {
             return dVar.getContent();
         }

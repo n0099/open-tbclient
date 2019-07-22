@@ -8,17 +8,17 @@ import java.util.List;
 import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public class b extends BdAsyncTask<Void, Void, List<d>> {
-    private static long jsu = 3600000;
+    private static long jyC = 3600000;
     private Context context;
-    private a jsB;
+    private a jyJ;
     private int maxHeight;
     private int maxWidth;
-    private SimpleDateFormat jsw = new SimpleDateFormat("mm:ss");
-    private SimpleDateFormat jsv = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat jyE = new SimpleDateFormat("mm:ss");
+    private SimpleDateFormat jyD = new SimpleDateFormat("HH:mm:ss");
 
     /* loaded from: classes5.dex */
     public interface a {
-        void eo(List<d> list);
+        void er(List<d> list);
     }
 
     public b(Context context) {
@@ -26,12 +26,12 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
         this.maxHeight = context.getResources().getDimensionPixelSize(R.dimen.ds220);
         this.maxWidth = this.maxHeight;
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.jsw.setTimeZone(timeZone);
-        this.jsv.setTimeZone(timeZone);
+        this.jyE.setTimeZone(timeZone);
+        this.jyD.setTimeZone(timeZone);
     }
 
     public void b(a aVar) {
-        this.jsB = aVar;
+        this.jyJ = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -39,11 +39,11 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     /* renamed from: c */
     public List<d> doInBackground(Void... voidArr) {
-        List<d> ep = e.ep(this.context);
-        e.c("/sdcard", ep, false);
-        e.c("/sdcard/DCIM", ep, true);
-        e.eq(ep);
-        return ep;
+        List<d> eq = e.eq(this.context);
+        e.c("/sdcard", eq, false);
+        e.c("/sdcard/DCIM", eq, true);
+        e.et(eq);
+        return eq;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,8 +52,8 @@ public class b extends BdAsyncTask<Void, Void, List<d>> {
     /* renamed from: P */
     public void onPostExecute(List<d> list) {
         super.onPostExecute(list);
-        if (this.jsB != null) {
-            this.jsB.eo(list);
+        if (this.jyJ != null) {
+            this.jyJ.er(list);
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c;
 /* loaded from: classes.dex */
@@ -217,7 +217,7 @@ public class NavigationBar extends RelativeLayout {
         this.mCenterText = (TextView) this.mRootView.findViewById(R.id.center_text);
         this.mBottomLine = this.mRootView.findViewById(R.id.bottom_line);
         this.topCoverBgView = this.mRootView.findViewById(R.id.navigation_bar_view_cover_bg);
-        this.topCoverBgView.setBackgroundDrawable(al.S(0, R.drawable.navigation_cover_top_bg));
+        this.topCoverBgView.setBackgroundDrawable(am.V(0, R.drawable.navigation_cover_top_bg));
         this.barBgView = this.mRootView.findViewById(R.id.navigation_bar_view_bg);
         if (attributeSet != null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.NavigationBar);
@@ -371,6 +371,10 @@ public class NavigationBar extends RelativeLayout {
         return this.mCenterText.getText();
     }
 
+    public TextView getCenterText() {
+        return this.mCenterText;
+    }
+
     public TextView setTitleText(String str) {
         if (this.mTextTitle == null) {
             this.mTextTitle = (TextView) getViewFromLayoutFile(R.layout.widget_nb_item_title);
@@ -458,7 +462,7 @@ public class NavigationBar extends RelativeLayout {
     }
 
     public void setDefTextButtonColor(TextView textView) {
-        al.j(textView, R.color.navi_op_text);
+        am.j(textView, R.color.navi_op_text);
     }
 
     public TextView addTextButtonByDefTextColor(ControlAlign controlAlign, String str, View.OnClickListener onClickListener) {
@@ -592,16 +596,16 @@ public class NavigationBar extends RelativeLayout {
 
     @SuppressLint({"ResourceAsColor"})
     public void onChangeSkinType(com.baidu.adp.base.e<?> eVar, int i) {
-        al.h(this, R.color.cp_bg_line_d, i);
-        al.h(this.mBottomLine, this.mBottomLineColor, i);
+        am.h(this, R.color.cp_bg_line_d, i);
+        am.h(this.mBottomLine, this.mBottomLineColor, i);
         onBackBtnOnChangeSkin(i);
-        al.e(this.mTextTitle, R.color.cp_cont_b, R.color.s_navbar_title_color);
-        al.e(this.mCenterText, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        am.e(this.mTextTitle, R.color.cp_cont_b, R.color.s_navbar_title_color);
+        am.e(this.mCenterText, R.color.cp_cont_b, R.color.s_navbar_title_color);
         if (this.mRegisterView != null) {
-            al.f(this.mRegisterView, R.color.cp_cont_f, 1);
+            am.f(this.mRegisterView, R.color.cp_cont_f, 1);
         }
         if (this.mLoginView != null) {
-            al.f(this.mLoginView, R.color.cp_cont_f, 1);
+            am.f(this.mLoginView, R.color.cp_cont_f, 1);
         }
         initPadding();
         if (eVar instanceof TbPageContext) {
@@ -619,9 +623,9 @@ public class NavigationBar extends RelativeLayout {
             i = TbadkCoreApplication.getInst().getSkinType();
         }
         if (this.mBackImagedeepResId > 0 && this.mBackImagelightResId > 0) {
-            al.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
+            am.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId, i);
         } else {
-            al.a(this.mBackImageView, (int) R.drawable.icon_return_bg_s, (int) R.drawable.icon_return_bg, i);
+            am.a(this.mBackImageView, (int) R.drawable.icon_return_bg_s, (int) R.drawable.icon_return_bg, i);
         }
     }
 
@@ -629,7 +633,7 @@ public class NavigationBar extends RelativeLayout {
         if (i < 0) {
             i = TbadkCoreApplication.getInst().getSkinType();
         }
-        al.c(this.mCenterText, R.color.cp_cont_b, 1, i);
+        am.d(this.mCenterText, R.color.cp_cont_b, 1, i);
     }
 
     public ImageView getBackImageView() {
@@ -639,7 +643,7 @@ public class NavigationBar extends RelativeLayout {
     public void setmBackImageViewBg(int i, int i2) {
         this.mBackImagedeepResId = i;
         this.mBackImagelightResId = i2;
-        al.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
+        am.a(this.mBackImageView, this.mBackImagedeepResId, this.mBackImagelightResId);
     }
 
     public void release() {

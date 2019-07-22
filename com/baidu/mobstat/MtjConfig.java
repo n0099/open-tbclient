@@ -1,6 +1,8 @@
 package com.baidu.mobstat;
 /* loaded from: classes6.dex */
 public class MtjConfig {
+    public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
+    public static final String BAIDU_MTJ_PUSH_MSG = "Baidu_mtj_push_msg";
 
     /* loaded from: classes6.dex */
     public enum FeedTrackStrategy {

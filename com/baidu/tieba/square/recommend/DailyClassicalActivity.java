@@ -23,8 +23,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.DailyClassicalActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
@@ -34,23 +34,23 @@ import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes5.dex */
 public class DailyClassicalActivity extends ProxyAdkBaseActivity implements BaseWebView.b {
-    private static boolean iUg = false;
-    private static long hJI = 0;
-    private ImageView SC = null;
+    private static boolean jaw = false;
+    private static long hPV = 0;
+    private ImageView SX = null;
     private RelativeLayout mParent = null;
-    private RelativeLayout iKG = null;
-    private TextView faq = null;
-    private View.OnClickListener iTZ = null;
+    private RelativeLayout iQY = null;
+    private TextView ffr = null;
+    private View.OnClickListener jap = null;
     private BaseWebView mWebView = null;
     private ProgressBar mProgressBar = null;
-    private LinearLayout iUa = null;
-    private a iUb = null;
-    private boolean iUc = false;
-    private boolean iUd = true;
-    private TextView iUe = null;
-    private TextView iUf = null;
-    private boolean dls = false;
-    private String iUh = "1";
+    private LinearLayout jaq = null;
+    private a jar = null;
+    private boolean jas = false;
+    private boolean jat = true;
+    private TextView jau = null;
+    private TextView jav = null;
+    private boolean dmZ = false;
+    private String jax = "1";
 
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2902021, new CustomMessageTask.CustomRunnable<DailyClassicalActivityConfig>() { // from class: com.baidu.tieba.square.recommend.DailyClassicalActivity.1
@@ -81,14 +81,14 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
 
     private void initUI() {
         this.mParent = (RelativeLayout) findViewById(R.id.parent);
-        this.iKG = (RelativeLayout) findViewById(R.id.title);
-        this.faq = (TextView) findViewById(R.id.title_text);
-        this.iUa = (LinearLayout) findViewById(R.id.tag_webview_item);
-        this.SC = (ImageView) findViewById(R.id.back);
-        this.iUe = (TextView) this.iUa.findViewById(R.id.webview_fail);
-        this.iUf = (TextView) this.iUa.findViewById(R.id.webview_crash_tip);
+        this.iQY = (RelativeLayout) findViewById(R.id.title);
+        this.ffr = (TextView) findViewById(R.id.title_text);
+        this.jaq = (LinearLayout) findViewById(R.id.tag_webview_item);
+        this.SX = (ImageView) findViewById(R.id.back);
+        this.jau = (TextView) this.jaq.findViewById(R.id.webview_fail);
+        this.jav = (TextView) this.jaq.findViewById(R.id.webview_crash_tip);
         this.mProgressBar = (ProgressBar) findViewById(R.id.tag_progress);
-        this.iTZ = new View.OnClickListener() { // from class: com.baidu.tieba.square.recommend.DailyClassicalActivity.2
+        this.jap = new View.OnClickListener() { // from class: com.baidu.tieba.square.recommend.DailyClassicalActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 int id = view.getId();
@@ -99,25 +99,25 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                 }
             }
         };
-        this.SC.setOnClickListener(this.iTZ);
-        if (cld()) {
-            this.iUf.setVisibility(8);
+        this.SX.setOnClickListener(this.jap);
+        if (cnV()) {
+            this.jav.setVisibility(8);
             refresh();
             return;
         }
-        this.iUf.setVisibility(0);
+        this.jav.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.ProxyAdkBaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        al.g(this.mParent, i);
-        al.i(this.iKG, i);
-        al.c(this.faq, i);
-        al.a(this.SC, i);
+        am.g(this.mParent, i);
+        am.i(this.iQY, i);
+        am.c(this.ffr, i);
+        am.a(this.SX, i);
         if (this.mWebView != null) {
-            al.g(this.mWebView, i);
+            am.g(this.mWebView, i);
             refresh();
         }
     }
@@ -129,30 +129,30 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     }
 
     public void refresh() {
-        if (TbadkCoreApplication.getInst().getWebviewCrashCount() == 0 && !cld()) {
-            this.iUf.setVisibility(0);
+        if (TbadkCoreApplication.getInst().getWebviewCrashCount() == 0 && !cnV()) {
+            this.jav.setVisibility(0);
             return;
         }
-        this.iUf.setVisibility(8);
-        if (!this.dls) {
-            this.dls = true;
+        this.jav.setVisibility(8);
+        if (!this.dmZ) {
+            this.dmZ = true;
             this.mProgressBar.setVisibility(0);
-            this.iUc = false;
-            this.iUd = true;
-            gT();
-            this.iUb = new a();
-            this.iUb.setPriority(3);
-            this.iUb.execute(new Object[0]);
+            this.jas = false;
+            this.jat = true;
+            hc();
+            this.jar = new a();
+            this.jar.setPriority(3);
+            this.jar.execute(new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void clc() {
-        if (this.iUc) {
-            if (!this.iUd) {
+    public void cnU() {
+        if (this.jas) {
+            if (!this.jat) {
                 showToast(getResources().getString(R.string.neterror));
             }
-            this.dls = false;
+            this.dmZ = false;
             this.mProgressBar.setVisibility(8);
         }
     }
@@ -162,7 +162,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         if (StringUtils.isNull(str)) {
             return false;
         }
-        int b = ba.aiz().b(getPageContext(), new String[]{str});
+        int b = bb.ajC().b(getPageContext(), new String[]{str});
         if (b == 1) {
             finish();
             return true;
@@ -171,22 +171,22 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         } else {
             if (str.contains("jumptoapp_browser=classic_everyday")) {
                 if (str.contains("pn=")) {
-                    String ce = ce(str, "pn=");
-                    if (ce != null && ce.length() >= 0) {
-                        this.iUh = ce;
+                    String cf = cf(str, "pn=");
+                    if (cf != null && cf.length() >= 0) {
+                        this.jax = cf;
                     }
                 } else {
-                    this.iUh = "1";
+                    this.jax = "1";
                 }
                 refresh();
                 return true;
             }
-            com.baidu.tbadk.browser.a.ag(this, str + "&_client_version=" + TbConfig.getVersion());
+            com.baidu.tbadk.browser.a.af(this, str + "&_client_version=" + TbConfig.getVersion());
             return true;
         }
     }
 
-    private String ce(String str, String str2) {
+    private String cf(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -199,7 +199,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         return "";
     }
 
-    private boolean cld() {
+    private boolean cnV() {
         boolean z = false;
         if (this.mWebView == null) {
             try {
@@ -207,13 +207,13 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                     super.showToast(getString(R.string.web_view_corrupted));
                 } else {
                     this.mWebView = new BaseWebView(this);
-                    al.g(this.mWebView, TbadkCoreApplication.getInst().getSkinType());
+                    am.g(this.mWebView, TbadkCoreApplication.getInst().getSkinType());
                     this.mWebView.setOnLoadUrlListener(this);
                     this.mWebView.setHorizontalScrollBarEnabled(false);
                     this.mWebView.setHorizontalScrollbarOverlay(false);
                     this.mWebView.setScrollBarStyle(33554432);
                     this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                    this.iUa.addView(this.mWebView);
+                    this.jaq.addView(this.mWebView);
                     z = true;
                 }
                 return z;
@@ -225,9 +225,9 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         return true;
     }
 
-    private void gT() {
-        if (this.iUb != null) {
-            this.iUb.cancel();
+    private void hc() {
+        if (this.jar != null) {
+            this.jar.cancel();
         }
     }
 
@@ -250,25 +250,25 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(Object... objArr) {
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
-            this.mNetWork.ahC().aiB().aiE().bUg = false;
+            this.mNetWork.aiE().ajE().ajH().bVh = false;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 this.mNetWork.o("night_type", "1");
             }
-            this.mNetWork.o(Config.PACKAGE_NAME, DailyClassicalActivity.this.iUh);
+            this.mNetWork.o(Config.PACKAGE_NAME, DailyClassicalActivity.this.jax);
             this.mNetWork.o("_version_more", "1");
             this.mNetWork.o("platform", "android");
-            if (DailyClassicalActivity.iUg) {
-                boolean unused = DailyClassicalActivity.iUg = false;
+            if (DailyClassicalActivity.jaw) {
+                boolean unused = DailyClassicalActivity.jaw = false;
                 this.mNetWork.o("msg_click", "1");
-                this.mNetWork.o(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, String.valueOf(DailyClassicalActivity.hJI));
+                this.mNetWork.o(MIPushNotificationHelper4Hybrid.KEY_MESSAGE_ID, String.valueOf(DailyClassicalActivity.hPV));
             }
-            Address X = com.baidu.adp.lib.d.a.hO().X(false);
+            Address X = com.baidu.adp.lib.d.a.hY().X(false);
             if (X != null && DailyClassicalActivity.this.getIsLocationOn()) {
                 this.mNetWork.o("lbs", String.valueOf(X.getLatitude()) + Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(X.getLongitude()));
             }
             try {
-                this.data = this.mNetWork.ahe();
-                if (this.mNetWork.ahF()) {
+                this.data = this.mNetWork.aig();
+                if (this.mNetWork.aiH()) {
                     return this.data;
                 }
             } catch (Exception e) {
@@ -280,9 +280,9 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetWork != null) {
-                this.mNetWork.ia();
+                this.mNetWork.ik();
             }
-            DailyClassicalActivity.this.dls = false;
+            DailyClassicalActivity.this.dmZ = false;
             super.cancel(true);
         }
 
@@ -290,20 +290,20 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            DailyClassicalActivity.this.iUb = null;
-            DailyClassicalActivity.this.iUa.setOnClickListener(null);
-            if (this.mNetWork == null || !this.mNetWork.ahF() || str == null || str.length() <= 0) {
-                DailyClassicalActivity.this.iUd = false;
-                DailyClassicalActivity.this.iUe.setVisibility(0);
+            DailyClassicalActivity.this.jar = null;
+            DailyClassicalActivity.this.jaq.setOnClickListener(null);
+            if (this.mNetWork == null || !this.mNetWork.aiH() || str == null || str.length() <= 0) {
+                DailyClassicalActivity.this.jat = false;
+                DailyClassicalActivity.this.jau.setVisibility(0);
                 DailyClassicalActivity.this.mWebView.setVisibility(8);
-                DailyClassicalActivity.this.iUa.setOnClickListener(DailyClassicalActivity.this.iTZ);
+                DailyClassicalActivity.this.jaq.setOnClickListener(DailyClassicalActivity.this.jap);
             } else {
                 DailyClassicalActivity.this.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, "text/html", "utf-8", "");
-                DailyClassicalActivity.this.iUe.setVisibility(8);
+                DailyClassicalActivity.this.jau.setVisibility(8);
                 DailyClassicalActivity.this.mWebView.setVisibility(0);
             }
-            DailyClassicalActivity.this.iUc = true;
-            DailyClassicalActivity.this.clc();
+            DailyClassicalActivity.this.jas = true;
+            DailyClassicalActivity.this.cnU();
         }
     }
 }

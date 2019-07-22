@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.entelechy.c.a.a;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tbadk.core.dialog.b;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.v;
 import java.util.List;
@@ -11,16 +11,16 @@ import java.util.List;
 public class a extends b {
     private List<v> mDatas;
 
-    public List<v> bnm() {
+    public List<v> bpn() {
         return this.mDatas;
     }
 
     @Override // com.baidu.tbadk.core.dialog.b
-    public b afJ() {
-        View hw;
-        super.afJ();
-        if (this.mDatas != null && (hw = hw(this.mDatas.size())) != null && (hw.findViewById(R.id.dialog_item_btn) instanceof TextView)) {
-            al.j((TextView) hw.findViewById(R.id.dialog_item_btn), R.color.cp_link_tip_a);
+    public b agL() {
+        View hC;
+        super.agL();
+        if (this.mDatas != null && (hC = hC(this.mDatas.size())) != null && (hC.findViewById(R.id.dialog_item_btn) instanceof TextView)) {
+            am.j((TextView) hC.findViewById(R.id.dialog_item_btn), R.color.cp_link_tip_a);
         }
         return this;
     }

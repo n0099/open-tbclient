@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.web;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -139,9 +140,10 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         relativeLayout2.addView(this.leftBtn, layoutParams);
         relativeLayout2.addView(this.titleText, layoutParams2);
         relativeLayout.addView(relativeLayout2, new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(55, this)));
-        this.webView = new WebView(this);
+        this.webView = new WebView(getApplicationContext());
         this.webView.getSettings().setSavePassword(false);
         this.webView.getSettings().setAllowFileAccess(false);
+        this.webView.getSettings().setAllowContentAccess(false);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams3.topMargin = UIUtils.dip2px(55, this);
         relativeLayout.addView(this.webView, layoutParams3);
@@ -191,6 +193,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         return relativeLayout;
     }
 
+    @SuppressLint({"SetJavaScriptEnabled"})
     private void initWebView() {
         if (!TextUtils.isEmpty(this.baseParam.getBaseData().getSpecifyTitle())) {
             this.titleText.setText(this.baseParam.getBaseData().getSpecifyTitle());
@@ -200,10 +203,19 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         this.webView.getSettings().setUserAgentString(WbUtils.generateUA(this, this.baseParam.getBaseData().getAuthInfo().getAppKey()));
         this.webView.requestFocus();
         this.webView.setScrollBarStyle(0);
-        if (Build.VERSION.SDK_INT >= 11) {
-            this.webView.removeJavascriptInterface("searchBoxJavaBridge_");
-        } else {
-            removeJavascriptInterface(this.webView);
+        removeJavascriptInterface(this.webView, "searchBoxJavaBridge_");
+        removeJavascriptInterface(this.webView, "accessibility");
+        removeJavascriptInterface(this.webView, "accessibilityTraversal");
+        if (Build.VERSION.SDK_INT >= 21) {
+            this.webView.getSettings().setMixedContentMode(2);
+        }
+    }
+
+    public static void removeJavascriptInterface(WebView webView, String str) {
+        try {
+            WebView.class.getDeclaredMethod("removeJavascriptInterface", String.class).invoke(webView, str);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -234,15 +246,6 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             super.onReceivedTitle(webView, str);
             if (TextUtils.isEmpty(WeiboSdkWebActivity.this.baseParam.getBaseData().getSpecifyTitle())) {
                 WeiboSdkWebActivity.this.titleText.setText(str);
-            }
-        }
-    }
-
-    public void removeJavascriptInterface(WebView webView) {
-        if (Build.VERSION.SDK_INT < 11) {
-            try {
-                webView.getClass().getDeclaredMethod("removeJavascriptInterface", new Class[0]).invoke("searchBoxJavaBridge_", new Object[0]);
-            } catch (Exception e) {
             }
         }
     }

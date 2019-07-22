@@ -3,8 +3,8 @@ package com.facebook.c;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public static final c jXq = new c("UNKNOWN", null);
-    private final String jXr;
+    public static final c keu = new c("UNKNOWN", null);
+    private final String kev;
     private final String mName;
 
     /* loaded from: classes2.dex */
@@ -17,7 +17,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.jXr = str2;
+        this.kev = str2;
     }
 
     public String toString() {

@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Looper;
 import com.baidu.appsearchlib.Info;
 import com.baidu.crabsdk.b.r;
-import com.baidu.sapi2.base.network.Apn;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.BufferedReader;
@@ -22,11 +21,11 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class b extends a {
     private static int bw = 5;
-    private boolean aaa;
+    private boolean aax;
 
     public b(Context context) {
         super(context);
-        this.aaa = false;
+        this.aax = false;
     }
 
     private static void a(Map<String, Object> map) {
@@ -88,12 +87,12 @@ public final class b extends a {
         }
     }
 
-    private static Map<String, Object> co(String str) {
+    private static Map<String, Object> cq(String str) {
         String str2;
         String str3;
         HashMap hashMap = new HashMap();
-        String str4 = Apn.APN_UNKNOWN;
-        String str5 = Apn.APN_UNKNOWN;
+        String str4 = "N/A";
+        String str5 = "N/A";
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
@@ -194,7 +193,7 @@ public final class b extends a {
                         int i3 = 1;
                         while (true) {
                             if (i3 >= split2.length) {
-                                str2 = Apn.APN_UNKNOWN;
+                                str2 = "N/A";
                                 break;
                             } else if (f(split2[i3])) {
                                 str2 = split2[i3];
@@ -203,11 +202,11 @@ public final class b extends a {
                                 i3++;
                             }
                         }
-                        String str7 = (!str2.equals(Apn.APN_UNKNOWN) || split2.length <= 1) ? str2 : split2[1];
+                        String str7 = (!str2.equals("N/A") || split2.length <= 1) ? str2 : split2[1];
                         int length = split2.length - 1;
                         while (true) {
                             if (length <= 0) {
-                                str3 = Apn.APN_UNKNOWN;
+                                str3 = "N/A";
                                 break;
                             } else if (f(split2[length])) {
                                 str3 = split2[length];
@@ -216,7 +215,7 @@ public final class b extends a {
                                 length--;
                             }
                         }
-                        if (str3.equals(Apn.APN_UNKNOWN) && split2.length > 0) {
+                        if (str3.equals("N/A") && split2.length > 0) {
                             str3 = split2[split2.length - 1];
                         }
                         hashMap.put("errorLine", str7);
@@ -237,9 +236,9 @@ public final class b extends a {
                     }
                     hashMap.put("apiType", "ANR");
                     hashMap.put("errorType", "ANR");
-                    hashMap.put(Info.kBaiduPIDKey, Apn.APN_UNKNOWN);
+                    hashMap.put(Info.kBaiduPIDKey, "N/A");
                     hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(System.currentTimeMillis()));
-                    hashMap.put("anrMsg", Apn.APN_UNKNOWN);
+                    hashMap.put("anrMsg", "N/A");
                     hashMap.put("threadList", r.L());
                     hashMap.put("traceList", "读取trace文件失败：\n" + e.getMessage());
                     hashMap.put("mainThread", sb7.toString());
@@ -267,7 +266,7 @@ public final class b extends a {
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0080, code lost:
         com.baidu.crabsdk.c.a.v("===line.contains(tracesWroteLog)===");
-        r0 = co(r14);
+        r0 = cq(r14);
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x008c, code lost:
         if (com.baidu.crabsdk.a.N == null) goto L26;
@@ -276,7 +275,7 @@ public final class b extends a {
         com.baidu.crabsdk.a.N.onAnrStarted(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
-        r1 = com.baidu.crabsdk.sender.g.a(r13.ZZ, (java.lang.Throwable) null, false);
+        r1 = com.baidu.crabsdk.sender.g.a(r13.aaw, (java.lang.Throwable) null, false);
      */
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009b, code lost:
         if (r0 == null) goto L37;
@@ -287,15 +286,15 @@ public final class b extends a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a3, code lost:
         r1.putAll(r0);
         com.baidu.crabsdk.sender.g.b(r1);
-        com.baidu.crabsdk.sender.i.a(r13.ZZ, com.baidu.crabsdk.sender.i.i(r1));
+        com.baidu.crabsdk.sender.i.a(r13.aaw, com.baidu.crabsdk.sender.i.i(r1));
         com.baidu.crabsdk.sender.h.ab();
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00b9, code lost:
-        if (com.baidu.crabsdk.sender.h.qX() == false) goto L34;
+        if (com.baidu.crabsdk.sender.h.ru() == false) goto L34;
      */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x00bb, code lost:
         com.baidu.crabsdk.c.a.v("===uploadAnr===");
-        com.baidu.crabsdk.sender.k.a(false, r13.ZZ);
+        com.baidu.crabsdk.sender.k.a(false, r13.aaw);
      */
     /* JADX WARN: Code restructure failed: missing block: B:45:?, code lost:
         return;
@@ -310,10 +309,10 @@ public final class b extends a {
     public final void d(String str) {
         String readLine;
         com.baidu.crabsdk.c.a.v("===readLog()===");
-        if (this.aaa) {
+        if (this.aax) {
             return;
         }
-        this.aaa = true;
+        this.aax = true;
         try {
             com.baidu.crabsdk.c.a.v("===readingTrace===");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -333,6 +332,6 @@ public final class b extends a {
         } catch (OutOfMemoryError e2) {
             com.baidu.crabsdk.c.a.a("内存溢出了！", e2);
         }
-        this.aaa = false;
+        this.aax = false;
     }
 }

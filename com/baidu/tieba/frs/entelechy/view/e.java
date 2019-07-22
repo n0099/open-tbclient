@@ -4,31 +4,31 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.adp.widget.ListView.v;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.p;
 /* loaded from: classes4.dex */
 public class e extends v.a {
-    public View bBg;
-    public TextView bNm;
+    public TextView bOn;
     public Context mContext;
+    public View mRoot;
 
     public e(View view, Context context) {
         super(view);
-        this.bBg = view;
-        this.bNm = (TextView) view.findViewById(R.id.view_frs_read_progress);
+        this.mRoot = view;
+        this.bOn = (TextView) view.findViewById(R.id.view_frs_read_progress);
         this.mContext = context;
     }
 
     public void a(p pVar) {
         if (pVar != null) {
-            this.bNm.setText(R.string.read_here);
-            ajG();
+            this.bOn.setText(R.string.read_here);
+            akL();
         }
     }
 
-    public void ajG() {
-        al.j(this.bNm, R.color.cp_link_tip_a);
-        al.k(this.bBg, R.color.cp_bg_line_e);
+    public void akL() {
+        am.j(this.bOn, R.color.cp_link_tip_a);
+        am.k(this.mRoot, R.color.cp_bg_line_e);
     }
 }

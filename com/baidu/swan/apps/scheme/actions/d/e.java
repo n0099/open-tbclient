@@ -122,28 +122,28 @@ public class e extends z {
     }
 
     private int ac(JSONObject jSONObject) {
-        int gU = gU(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
-        if (gU <= 0) {
+        int hb = hb(jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) / 1000;
+        if (hb <= 0) {
             return 2;
         }
-        return gU;
+        return hb;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, str).dG(i).cl(z).dC(2).Ld();
+        com.baidu.swan.apps.res.widget.b.d.a(context, str).dJ(i).co(z).dF(2).LQ();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, Drawable drawable, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).d(drawable).dG(i).cl(z).Lg();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).d(drawable).dJ(i).co(z).LT();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, @NonNull String str, int i, boolean z) {
-        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).dG(i).cl(z).Lh();
+        com.baidu.swan.apps.res.widget.b.d.a(context, E(str, 14)).dJ(i).co(z).LU();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
     }
 
@@ -182,7 +182,7 @@ public class e extends z {
         return stringBuffer.toString();
     }
 
-    private int gU(String str) {
+    private int hb(String str) {
         if (TextUtils.isEmpty(str)) {
             return -1;
         }
@@ -201,16 +201,16 @@ public class e extends z {
         if (DEBUG) {
             Log.e("ShowToastAction", "imagePath = " + str);
         }
-        ExifInterface gX = gX(str);
-        if (gX == null) {
+        ExifInterface he = he(str);
+        if (he == null) {
             if (DEBUG) {
                 Log.e("ShowToastAction", "exifInterface is null");
                 return null;
             }
             return null;
         }
-        int intValue = Integer.valueOf(gX.getAttribute("ImageWidth")).intValue();
-        int intValue2 = Integer.valueOf(gX.getAttribute("ImageLength")).intValue();
+        int intValue = Integer.valueOf(he.getAttribute("ImageWidth")).intValue();
+        int intValue2 = Integer.valueOf(he.getAttribute("ImageLength")).intValue();
         if (DEBUG) {
             Log.e("ShowToastAction", "width = " + intValue + "， height = " + intValue2);
         }
@@ -234,7 +234,7 @@ public class e extends z {
         return bitmapDrawable;
     }
 
-    private ExifInterface gX(String str) {
+    private ExifInterface he(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

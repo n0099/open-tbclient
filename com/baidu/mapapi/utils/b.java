@@ -603,7 +603,7 @@ public class b {
         }
         bundle2.putString("data", jSONArray.toString());
         bundle2.putString("from", h);
-        bundle2.putString("pkg", g);
+        bundle2.putString(Config.INPUT_DEF_PKG, g);
         bundle2.putString("cls", i);
         bundle2.putInt(Config.TRACE_VISIT_RECENT_COUNT, i4);
         bundle.putBundle("base_params", bundle2);

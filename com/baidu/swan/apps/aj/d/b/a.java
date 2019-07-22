@@ -12,15 +12,15 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.d.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0114a {
-        public static final a aXc = new a();
+    private static class C0111a {
+        public static final a aXM = new a();
     }
 
     private a() {
     }
 
-    public static a NG() {
-        return C0114a.aXc;
+    public static a Ov() {
+        return C0111a.aXM;
     }
 
     public void a(Activity activity, float f) {
@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public float K(Activity activity) {
+    public float N(Activity activity) {
         if (activity != null) {
             WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
             if (attributes.screenBrightness < 0.0f) {

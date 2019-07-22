@@ -1,6 +1,7 @@
 package com.google.zxing.aztec.decoder;
 
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobstat.Config;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -14,7 +15,7 @@ import java.util.Arrays;
 /* loaded from: classes5.dex */
 public final class Decoder {
     private AztecDetectorResult ddata;
-    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+    private static final String[] UPPER_TABLE = {"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", DeviceId.CUIDInfo.I_FIXED, "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private static final String[] LOWER_TABLE = {"CTRL_PS", " ", Config.APP_VERSION_CODE, "b", "c", "d", "e", "f", "g", "h", "i", "j", Config.APP_KEY, "l", Config.MODEL, "n", Config.OS, "p", "q", "r", "s", "t", "u", "v", Config.DEVICE_WIDTH, Config.EVENT_HEAT_X, "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
     private static final String[] MIXED_TABLE = {"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", "\\", "^", "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
     private static final String[] PUNCT_TABLE = {"", "\r", "\r\n", ". ", ", ", ": ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER, ".", "/", ":", ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "<", "=", ">", "?", "[", "]", "{", "}", "CTRL_UL"};

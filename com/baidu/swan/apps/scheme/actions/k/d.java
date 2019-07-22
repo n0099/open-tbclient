@@ -39,6 +39,6 @@ public final class d extends com.baidu.swan.apps.model.a.a.a {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.aDm);
+        return !TextUtils.isEmpty(this.aDU);
     }
 }

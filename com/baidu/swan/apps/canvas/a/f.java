@@ -32,22 +32,22 @@ public class f extends a {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.core.d.d zL;
+        com.baidu.swan.apps.core.d.d As;
         final com.baidu.swan.apps.canvas.c.e c = c(unitedSchemeEntity);
         if (c == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData action parse model is null");
             unitedSchemeEntity.result = bP(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aDm) && (zL = com.baidu.swan.apps.w.e.FV().zL()) != null) {
-            c.aDm = zL.zv();
+        if (TextUtils.isEmpty(c.aDU) && (As = com.baidu.swan.apps.w.e.GF().As()) != null) {
+            c.aDU = As.Ac();
         }
-        if (TextUtils.isEmpty(c.aDm) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aDm + " ; canvas id = " + c.id);
+        if (TextUtils.isEmpty(c.aDU) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData slave id = " + c.aDU + " ; canvas id = " + c.id);
             unitedSchemeEntity.result = bP(201);
             return false;
         }
-        final CanvasView b = com.baidu.swan.apps.canvas.a.xn().b(c);
+        final CanvasView b = com.baidu.swan.apps.canvas.a.xP().b(c);
         if (b == null) {
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasPutImageData canvas view is null");
             unitedSchemeEntity.result = bP(201);
@@ -57,9 +57,9 @@ public class f extends a {
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject wrapCallbackParams;
-                if (c.xs()) {
+                if (c.xW()) {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
-                    b.c(c.xt(), c.xu());
+                    b.c(c.xX(), c.xY());
                     b.postInvalidate();
                 } else {
                     wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "error draw on canvas");

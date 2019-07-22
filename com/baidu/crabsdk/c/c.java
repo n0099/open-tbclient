@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import com.baidu.crabsdk.b.o;
-import com.baidu.sapi2.base.network.Apn;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -14,8 +13,8 @@ import java.util.zip.DeflaterOutputStream;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat ZW;
-    private static PackageManager ZX;
+    private static SimpleDateFormat aat;
+    private static PackageManager aau;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
         if (z) {
@@ -25,7 +24,7 @@ public final class c {
         }
     }
 
-    public static byte[] cj(String str) {
+    public static byte[] cl(String str) {
         Deflater deflater;
         DeflaterOutputStream deflaterOutputStream;
         byte[] bArr = null;
@@ -111,10 +110,10 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (ZW == null) {
-            ZW = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (aat == null) {
+            aat = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return ZW.format(date);
+        return aat.format(date);
     }
 
     public static String f(Throwable th) {
@@ -123,7 +122,7 @@ public final class c {
             return "";
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
-        return stackTrace.length > 0 ? stackTrace[0].toString() : Apn.APN_UNKNOWN;
+        return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
     public static String g(Throwable th) {
@@ -141,25 +140,25 @@ public final class c {
                 return stackTrace[i].toString();
             }
         }
-        return stackTrace.length > 0 ? stackTrace[0].toString() : Apn.APN_UNKNOWN;
+        return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
     }
 
     public static boolean g(Context context, String str) {
-        if (ZX == null) {
-            ZX = context.getPackageManager();
+        if (aau == null) {
+            aau = context.getPackageManager();
         }
         try {
-            return ZX.checkPermission(str, context.getPackageName()) == 0;
+            return aau.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
     }
 
-    public static String qR() {
-        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
-    }
-
     public static String r(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
+    }
+
+    public static String ro() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

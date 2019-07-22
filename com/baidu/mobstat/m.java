@@ -1,194 +1,109 @@
 package com.baidu.mobstat;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.mobstat.bt;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 /* loaded from: classes6.dex */
-public class m {
-    static m a = new m();
-    private String b = "";
+class m extends SQLiteOpenHelper {
+    private String a;
+    private SQLiteDatabase b;
 
-    m() {
+    public m(Context context, String str) throws SQLiteException {
+        super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
+        this.a = str;
     }
 
-    public synchronized void a(Context context, boolean z) {
-        a(context, z, z ? 1 : 20);
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        this.b = sQLiteDatabase;
     }
 
-    private void a(Context context, boolean z, int i) {
-        ArrayList<a> a2 = a(context, i);
-        if (a2 != null && a2.size() != 0) {
+    public synchronized boolean a() {
+        boolean z;
+        boolean z2 = true;
+        synchronized (this) {
+            if (this.b == null) {
+                z = true;
+            } else {
+                z = !this.b.isOpen();
+            }
             if (z) {
-                String b = a2.get(0).b();
-                if (a(b, this.b)) {
-                    this.b = b;
+                try {
+                    this.b = getWritableDatabase();
+                } catch (NullPointerException e) {
+                    throw new NullPointerException("db path is null");
                 }
             }
-            a(context, a2, z);
+            if (this.b == null || !this.b.isOpen()) {
+                z2 = false;
+            }
+        }
+        return z2;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
+    public synchronized void close() {
+        super.close();
+        if (this.b != null) {
+            this.b.close();
+            this.b = null;
         }
     }
 
-    private ArrayList<a> a(Context context, int i) {
-        return Build.VERSION.SDK_INT >= 21 ? c(context, i) : b(context, i);
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        return super.getReadableDatabase();
     }
 
-    private ArrayList<a> b(Context context, int i) {
-        List<ActivityManager.RunningTaskInfo> list;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        return super.getWritableDatabase();
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onOpen(SQLiteDatabase sQLiteDatabase) {
+        super.onOpen(sQLiteDatabase);
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    }
+
+    public void a(String str) {
+        getWritableDatabase().execSQL(str);
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    public final int b() {
+        Cursor cursor = null;
+        int i = 0;
         try {
-            list = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningTasks(50);
-        } catch (Exception e) {
-            bi.c().b(e);
-            list = null;
-        }
-        if (list == null) {
-            return new ArrayList<>();
-        }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (ActivityManager.RunningTaskInfo runningTaskInfo : list) {
-            if (linkedHashMap.size() > i) {
-                break;
+            cursor = this.b.rawQuery("SELECT COUNT(*) FROM " + this.a, null);
+            if (cursor != null && cursor.moveToNext()) {
+                i = cursor.getInt(0);
+            } else if (cursor != null) {
+                cursor.close();
             }
-            ComponentName componentName = runningTaskInfo.topActivity;
-            if (componentName != null) {
-                String packageName = componentName.getPackageName();
-                if (!TextUtils.isEmpty(packageName) && !b(context, packageName) && !linkedHashMap.containsKey(packageName)) {
-                    linkedHashMap.put(packageName, new a(packageName, a(context, packageName), ""));
-                }
+            return i;
+        } finally {
+            if (cursor != null) {
+                cursor.close();
             }
         }
-        return new ArrayList<>(linkedHashMap.values());
     }
 
-    private ArrayList<a> c(Context context, int i) {
-        String[] strArr;
-        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
-        if (runningAppProcesses == null) {
-            return new ArrayList<>();
-        }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
-            ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
-            if (a(runningAppProcessInfo.importance) && (strArr = runningAppProcessInfo.pkgList) != null && strArr.length != 0) {
-                String str = runningAppProcessInfo.pkgList[0];
-                if (!TextUtils.isEmpty(str) && !b(context, str) && !linkedHashMap.containsKey(str)) {
-                    linkedHashMap.put(str, new a(str, a(context, str), String.valueOf(runningAppProcessInfo.importance)));
-                }
-            }
-        }
-        return new ArrayList<>(linkedHashMap.values());
+    public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
+        return this.b.query(this.a, strArr, str, strArr2, str2, str3, str4, str5);
     }
 
-    private boolean a(int i) {
-        if (i != 100 && i != 200 && i != 130) {
-            return false;
-        }
-        return true;
+    public long a(String str, ContentValues contentValues) {
+        return this.b.insert(this.a, str, contentValues);
     }
 
-    private boolean a(String str, String str2) {
-        return (TextUtils.isEmpty(str) || str.equals(this.b)) ? false : true;
-    }
-
-    private String a(Context context, String str) {
-        String str2 = "";
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
-            return "";
-        }
-        try {
-            str2 = packageManager.getPackageInfo(str, 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            bi.c().b(e);
-        }
-        return str2 == null ? "" : str2;
-    }
-
-    private boolean b(Context context, String str) {
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
-            return false;
-        }
-        try {
-            ApplicationInfo applicationInfo = packageManager.getPackageInfo(str, 0).applicationInfo;
-            if (applicationInfo != null) {
-                return (applicationInfo.flags & 1) != 0;
-            }
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
-            bi.c().b(e);
-            return false;
-        }
-    }
-
-    private void a(Context context, ArrayList<a> arrayList, boolean z) {
-        String str;
-        StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis() + "|");
-        sb.append(z ? 1 : 0);
-        try {
-            JSONArray jSONArray = new JSONArray();
-            Iterator<a> it = arrayList.iterator();
-            while (it.hasNext()) {
-                JSONObject a2 = it.next().a();
-                if (a2 != null) {
-                    jSONArray.put(a2);
-                }
-            }
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("app_trace", jSONArray);
-            jSONObject.put("meta-data", sb.toString());
-            str = bt.a.a(jSONObject.toString().getBytes());
-        } catch (Exception e) {
-            bi.c().b(e);
-            str = "";
-        }
-        if (!TextUtils.isEmpty(str)) {
-            r.APP_TRACE.a(System.currentTimeMillis(), str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static class a {
-        private String a;
-        private String b;
-        private String c;
-
-        public a(String str, String str2, String str3) {
-            this.a = str == null ? "" : str;
-            this.b = str2 == null ? "" : str2;
-            this.c = str3 == null ? "" : str3;
-        }
-
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("n", this.a);
-                jSONObject.put("v", this.b);
-                jSONObject.put(Config.DEVICE_WIDTH, this.c);
-                return jSONObject;
-            } catch (JSONException e) {
-                bi.c().b(e);
-                return null;
-            }
-        }
-
-        public String b() {
-            return this.a;
-        }
+    public int a(String str, String[] strArr) {
+        return this.b.delete(this.a, str, strArr);
     }
 }

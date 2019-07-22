@@ -3,60 +3,60 @@ package com.baidu.tieba.h;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
 public class a {
-    private String cVn;
-    private String fRs;
-    private String fRt;
-    private String fRu;
-    private String fRv;
+    private String cWJ;
+    private String fWp;
+    private String fWq;
+    private String fWr;
+    private String fWs;
     private String mImgUrl;
     private String mTitle;
 
     public void a(EsportRank esportRank) {
         if (esportRank != null) {
             this.mTitle = esportRank.title;
-            this.fRs = String.valueOf(esportRank.rank);
-            this.fRt = esportRank.text;
-            this.cVn = esportRank.url;
+            this.fWp = String.valueOf(esportRank.rank);
+            this.fWq = esportRank.text;
+            this.cWJ = esportRank.url;
             if (esportRank.user != null) {
-                this.fRu = esportRank.user.steam_name;
-                this.fRv = esportRank.user.steam_portrait;
+                this.fWr = esportRank.user.steam_name;
+                this.fWs = esportRank.user.steam_portrait;
             }
         }
     }
 
-    public String brG() {
+    public String btH() {
         return this.mTitle;
     }
 
-    public String brH() {
-        return this.fRs;
+    public String btI() {
+        return this.fWp;
     }
 
-    public String brI() {
-        return this.fRt;
+    public String btJ() {
+        return this.fWq;
     }
 
-    public String brJ() {
-        return this.fRu;
+    public String btK() {
+        return this.fWr;
     }
 
-    public String brK() {
-        return this.fRv;
+    public String btL() {
+        return this.fWs;
     }
 
-    public String brL() {
+    public String btM() {
         return this.mImgUrl;
     }
 
-    public void xi(String str) {
+    public void xN(String str) {
         this.mImgUrl = str;
     }
 
-    public String brM() {
-        return this.cVn;
+    public String btN() {
+        return this.cWJ;
     }
 
-    public void xj(String str) {
-        this.cVn = str;
+    public void xO(String str) {
+        this.cWJ = str;
     }
 }

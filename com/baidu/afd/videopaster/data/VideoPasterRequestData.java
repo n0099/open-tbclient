@@ -17,6 +17,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Map;
+import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,20 +29,20 @@ public class VideoPasterRequestData extends HttpMessage {
     public VideoPasterRequestData(com.baidu.afd.videopaster.a aVar) {
         super(CmdConfigHttp.CMD_VIDEO_PASTER_AD_REQUEST);
         addCommonParams();
-        addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
-        addParam(Info.kBaiduPIDKey, aVar.oU());
+        addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
+        addParam(Info.kBaiduPIDKey, aVar.pp());
         addParam("ac", "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
         }
         addParam("is_https", 1);
-        addParam("flr", String.valueOf(aVar.oJ()));
+        addParam("flr", String.valueOf(aVar.pe()));
         addParam(TbConfig.SW_APID, String.valueOf(aVar.width()));
         addParam("sh", String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
-        addParam("fc", String.valueOf(aVar.oJ()));
-        addParam("ft", aVar.oH());
+        addParam("fc", String.valueOf(aVar.pe()));
+        addParam("ft", aVar.pc());
         addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
@@ -49,10 +50,10 @@ public class VideoPasterRequestData extends HttpMessage {
         if (aVar == null) {
             return null;
         }
-        if (aVar == null || aVar.oK() != null) {
-            if (aVar == null || !aVar.oK().isEmpty()) {
+        if (aVar == null || aVar.pf() != null) {
+            if (aVar == null || !aVar.pf().isEmpty()) {
                 JSONArray jSONArray = new JSONArray();
-                for (Map.Entry<String, String> entry : aVar.oK().entrySet()) {
+                for (Map.Entry<String, String> entry : aVar.pf().entrySet()) {
                     jSONArray.put(create(entry.getKey(), entry.getValue()));
                 }
                 return jSONArray.toString();

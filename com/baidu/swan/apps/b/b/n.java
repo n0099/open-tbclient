@@ -19,5 +19,5 @@ public interface n {
 
     void t(String str, int i);
 
-    ExecutorService wf();
+    ExecutorService wG();
 }

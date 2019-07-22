@@ -12,57 +12,57 @@ import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e ol;
-    private final m<PointF, PointF> om;
-    private final g on;
-    private final b oo;
-    private final d oq;
-    @Nullable
-    private final b or;
+    private final e om;
+    private final m<PointF, PointF> on;
+    private final g oo;
+    private final b oq;
+    private final d or;
     @Nullable
     private final b ot;
+    @Nullable
+    private final b ou;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.ol = eVar;
-        this.om = mVar;
-        this.on = gVar;
-        this.oo = bVar;
-        this.oq = dVar;
-        this.or = bVar2;
-        this.ot = bVar3;
+        this.om = eVar;
+        this.on = mVar;
+        this.oo = gVar;
+        this.oq = bVar;
+        this.or = dVar;
+        this.ot = bVar2;
+        this.ou = bVar3;
     }
 
-    public e cK() {
-        return this.ol;
-    }
-
-    public m<PointF, PointF> cL() {
+    public e cQ() {
         return this.om;
     }
 
-    public g cM() {
+    public m<PointF, PointF> cR() {
         return this.on;
     }
 
-    public b cN() {
+    public g cS() {
         return this.oo;
     }
 
-    public d cO() {
+    public b cT() {
         return this.oq;
     }
 
-    @Nullable
-    public b cP() {
+    public d cU() {
         return this.or;
     }
 
     @Nullable
-    public b cQ() {
+    public b cV() {
         return this.ot;
     }
 
-    public p cR() {
+    @Nullable
+    public b cW() {
+        return this.ou;
+    }
+
+    public p cX() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l cS() {
-            return new l(new e(), new e(), g.a.cH(), b.a.cC(), d.a.cE(), b.a.cC(), b.a.cC());
+        public static l cY() {
+            return new l(new e(), new e(), g.a.cN(), b.a.cI(), d.a.cK(), b.a.cI(), b.a.cI());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {

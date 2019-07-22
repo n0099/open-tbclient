@@ -1,109 +1,117 @@
 package com.baidu.mobstat;
 
-import android.content.ContentValues;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.Intent;
+import android.support.v7.widget.ActivityChooserView;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.List;
 /* loaded from: classes6.dex */
-class t extends SQLiteOpenHelper {
-    private String a;
-    private SQLiteDatabase b;
-
-    public t(Context context, String str) throws SQLiteException {
-        super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
-        this.a = str;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        this.b = sQLiteDatabase;
-    }
-
-    public synchronized boolean a() {
-        boolean z;
-        boolean z2 = true;
-        synchronized (this) {
-            if (this.b == null) {
-                z = true;
-            } else {
-                z = !this.b.isOpen();
-            }
-            if (z) {
+public enum t {
+    SERVICE(1) { // from class: com.baidu.mobstat.t.1
+        @Override // com.baidu.mobstat.t
+        public void a(Context context) {
+            if (t.d(context) && u.a(context).b(context)) {
                 try {
-                    this.b = getWritableDatabase();
-                } catch (NullPointerException e) {
-                    throw new NullPointerException("db path is null");
+                    Intent intent = new Intent(context, Class.forName("com.baidu.bottom.service.BottomService"));
+                    intent.putExtra("SDK_PRODUCT_LY", "MS");
+                    context.startService(intent);
+                } catch (Throwable th) {
+                    bb.c().b(th);
                 }
             }
-            if (this.b == null || !this.b.isOpen()) {
-                z2 = false;
+        }
+    },
+    NO_SERVICE(2) { // from class: com.baidu.mobstat.t.2
+        @Override // com.baidu.mobstat.t
+        public void a(Context context) {
+            if (t.d(context)) {
+                Context applicationContext = context.getApplicationContext();
+                a a = u.a(context);
+                ac acVar = new ac();
+                acVar.a = false;
+                acVar.b = "M";
+                acVar.c = false;
+                a.a(applicationContext, acVar.a());
             }
         }
-        return z2;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
-    public synchronized void close() {
-        super.close();
-        if (this.b != null) {
-            this.b.close();
-            this.b = null;
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public synchronized SQLiteDatabase getReadableDatabase() {
-        return super.getReadableDatabase();
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public synchronized SQLiteDatabase getWritableDatabase() {
-        return super.getWritableDatabase();
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onOpen(SQLiteDatabase sQLiteDatabase) {
-        super.onOpen(sQLiteDatabase);
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-    }
-
-    public void a(String str) {
-        getWritableDatabase().execSQL(str);
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    public final int b() {
-        Cursor cursor = null;
-        int i = 0;
-        try {
-            cursor = this.b.rawQuery("SELECT COUNT(*) FROM " + this.a, null);
-            if (cursor != null && cursor.moveToNext()) {
-                i = cursor.getInt(0);
-            } else if (cursor != null) {
-                cursor.close();
-            }
-            return i;
-        } finally {
-            if (cursor != null) {
-                cursor.close();
+    },
+    RECEIVER(3) { // from class: com.baidu.mobstat.t.3
+        @Override // com.baidu.mobstat.t
+        public void a(Context context) {
+            if (t.d(context)) {
+                Context applicationContext = context.getApplicationContext();
+                a a = u.a(context);
+                ac acVar = new ac();
+                acVar.a = false;
+                acVar.b = "R";
+                acVar.c = false;
+                a.a(applicationContext, acVar.a());
             }
         }
+    },
+    ERISED(4) { // from class: com.baidu.mobstat.t.4
+        @Override // com.baidu.mobstat.t
+        public void a(Context context) {
+            if (t.d(context)) {
+                Context applicationContext = context.getApplicationContext();
+                a a = u.a(context);
+                ac acVar = new ac();
+                acVar.a = false;
+                acVar.b = "E";
+                acVar.c = false;
+                a.a(applicationContext, acVar.a());
+            }
+        }
+    };
+    
+    private int e;
+
+    public abstract void a(Context context);
+
+    t(int i) {
+        this.e = i;
     }
 
-    public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
-        return this.b.query(this.a, strArr, str, strArr2, str2, str3, str4, str5);
+    @Override // java.lang.Enum
+    public String toString() {
+        return String.valueOf(this.e);
     }
 
-    public long a(String str, ContentValues contentValues) {
-        return this.b.insert(this.a, str, contentValues);
+    public static t a(int i) {
+        t[] values;
+        for (t tVar : values()) {
+            if (tVar.e == i) {
+                return tVar;
+            }
+        }
+        return NO_SERVICE;
     }
 
-    public int a(String str, String[] strArr) {
-        return this.b.delete(this.a, str, strArr);
+    public static boolean b(Context context) {
+        ActivityManager activityManager = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        if (activityManager != null) {
+            try {
+                List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+                int i = 0;
+                while (runningServices != null) {
+                    if (i >= runningServices.size()) {
+                        break;
+                    } else if (!"com.baidu.bottom.service.BottomService".equals(runningServices.get(i).service.getClassName())) {
+                        i++;
+                    } else {
+                        return true;
+                    }
+                }
+            } catch (Exception e) {
+                bb.c().a(e);
+            }
+        }
+        return false;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean d(Context context) {
+        return bo.e(context, "android.permission.WRITE_EXTERNAL_STORAGE");
     }
 }

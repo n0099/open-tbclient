@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    final int ksB;
-    Object[] ksC;
-    Object[] ksD;
-    int ksE;
+    final int kAa;
+    Object[] kAb;
+    Object[] kAc;
+    int kAd;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.ksC = new Object[this.ksB + 1];
-            this.ksD = this.ksC;
-            this.ksC[0] = obj;
-            this.ksE = 1;
+            this.kAb = new Object[this.kAa + 1];
+            this.kAc = this.kAb;
+            this.kAb[0] = obj;
+            this.kAd = 1;
             this.size = 1;
-        } else if (this.ksE == this.ksB) {
-            Object[] objArr = new Object[this.ksB + 1];
+        } else if (this.kAd == this.kAa) {
+            Object[] objArr = new Object[this.kAa + 1];
             objArr[0] = obj;
-            this.ksD[this.ksB] = objArr;
-            this.ksD = objArr;
-            this.ksE = 1;
+            this.kAc[this.kAa] = objArr;
+            this.kAc = objArr;
+            this.kAd = 1;
             this.size++;
         } else {
-            this.ksD[this.ksE] = obj;
-            this.ksE++;
+            this.kAc[this.kAd] = obj;
+            this.kAd++;
             this.size++;
         }
     }
 
-    public Object[] cLW() {
-        return this.ksC;
+    public Object[] cPL() {
+        return this.kAb;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cLX() {
-        int i = this.ksB;
+    List<Object> cPM() {
+        int i = this.kAa;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cLW = cLW();
+        Object[] cPL = cPL();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cLW[i4]);
+            arrayList.add(cPL[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cLW = (Object[]) cLW[i];
+                cPL = (Object[]) cPL[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return cLX().toString();
+        return cPM().toString();
     }
 }

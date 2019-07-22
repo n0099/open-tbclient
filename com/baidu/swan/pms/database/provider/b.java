@@ -18,20 +18,20 @@ import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
     private Context mContext;
-    public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
-    public static final Uri brN = Uri.parse("content://" + AUTHORITY + "/framework");
-    public static final Uri brO = Uri.parse("content://" + AUTHORITY + "/swan_app");
-    public static final Uri brP = Uri.parse("content://" + AUTHORITY + "/pkg_main");
-    public static final Uri avb = Uri.parse("content://" + AUTHORITY + "/pkg_sub");
-    public static final Uri brQ = Uri.parse("content://" + AUTHORITY + "/extension");
-    private static UriMatcher avc = new UriMatcher(-1);
+    public static final String avF = AppRuntime.getAppContext().getPackageName() + ".aiapp.pms";
+    public static final Uri bsB = Uri.parse("content://" + avF + "/framework");
+    public static final Uri bsC = Uri.parse("content://" + avF + "/swan_app");
+    public static final Uri bsD = Uri.parse("content://" + avF + "/pkg_main");
+    public static final Uri avG = Uri.parse("content://" + avF + "/pkg_sub");
+    public static final Uri bsE = Uri.parse("content://" + avF + "/extension");
+    private static UriMatcher avH = new UriMatcher(-1);
 
     static {
-        avc.addURI(AUTHORITY, "framework", 2);
-        avc.addURI(AUTHORITY, "pkg_main", 0);
-        avc.addURI(AUTHORITY, "pkg_sub", 1);
-        avc.addURI(AUTHORITY, "extension", 3);
-        avc.addURI(AUTHORITY, "swan_app", 4);
+        avH.addURI(avF, "framework", 2);
+        avH.addURI(avF, "pkg_main", 0);
+        avH.addURI(avF, "pkg_sub", 1);
+        avH.addURI(avF, "extension", 3);
+        avH.addURI(avF, "swan_app", 4);
     }
 
     public b(Context context) {
@@ -39,7 +39,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (avc.match(uri)) {
+        switch (avH.match(uri)) {
             case 0:
                 return "pkg_main";
             case 1:
@@ -68,7 +68,7 @@ public class b {
                 Log.e("PMSDBProvider", "query");
             }
             try {
-                return BH().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
+                return Cp().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
             } catch (SQLException e2) {
                 if (e.DEBUG) {
                     e2.printStackTrace();
@@ -87,7 +87,7 @@ public class b {
                 Log.e("PMSDBProvider", "insert:" + contentValues.toString());
             }
             try {
-                long insertWithOnConflict = BH().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
+                long insertWithOnConflict = Cp().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
                 if (insertWithOnConflict > 0) {
                     Uri withAppendedId = ContentUris.withAppendedId(uri, insertWithOnConflict);
                     this.mContext.getContentResolver().notifyChange(withAppendedId, null);
@@ -110,7 +110,7 @@ public class b {
                 Log.e("PMSDBProvider", WriteImageActivityConfig.DELET_FLAG);
             }
             try {
-                int delete = BH().getWritableDatabase().delete(e, str, strArr);
+                int delete = Cp().getWritableDatabase().delete(e, str, strArr);
                 if (delete > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return delete;
@@ -132,7 +132,7 @@ public class b {
                 Log.e("PMSDBProvider", "update");
             }
             try {
-                int update = BH().getWritableDatabase().update(e, contentValues, str, strArr);
+                int update = Cp().getWritableDatabase().update(e, contentValues, str, strArr);
                 if (update > 0) {
                     this.mContext.getContentResolver().notifyChange(uri, null);
                     return update;
@@ -148,7 +148,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SQLiteOpenHelper BH() {
-        return a.Vr();
+    public SQLiteOpenHelper Cp() {
+        return a.Wk();
     }
 }

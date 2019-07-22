@@ -31,7 +31,7 @@ public class EventAnalysis {
         aVar.b = str2;
         String a2 = a(str, str2);
         if (this.a.containsKey(a2)) {
-            bj.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
+            bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
         }
         this.a.put(a2, aVar);
     }
@@ -40,14 +40,14 @@ public class EventAnalysis {
         String a2 = a(str, str2);
         a aVar = this.a.get(a2);
         if (aVar == null) {
-            bj.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
+            bc.c().b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
         } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.b))) {
-            bj.c().b("[WARNING] eventId/label pair not match");
+            bc.c().b("[WARNING] eventId/label pair not match");
         } else {
             this.a.remove(a2);
             long j3 = j2 - aVar.c;
             if (j3 < 0) {
-                bj.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
+                bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
             }
             onEventDuration(context, j, str, str2, aVar.c, j3, extraInfo, map, z);
         }

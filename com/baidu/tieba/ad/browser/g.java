@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes3.dex */
 class g {
@@ -22,7 +22,7 @@ class g {
 
     @JavascriptInterface
     public void closePage(String str) {
-        if (!ap.isEmpty(str)) {
+        if (!aq.isEmpty(str)) {
             Toast.makeText(this.mTbPageContext.getPageActivity(), str, 0).show();
         }
         this.mTbPageContext.getPageActivity().finish();
@@ -39,7 +39,7 @@ class g {
         eVar.title = str;
         eVar.content = str2;
         eVar.linkUrl = str4;
-        if (!ap.isEmpty(str3)) {
+        if (!aq.isEmpty(str3)) {
             eVar.imageUri = Uri.parse(str3);
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this.mTbPageContext.getPageActivity(), eVar, true)));

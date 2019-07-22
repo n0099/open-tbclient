@@ -82,7 +82,7 @@ public final class GzipSource implements Source {
             this.source.skip(readShortLe);
         }
         if (((b >> 3) & 1) == 1) {
-            long indexOf = this.source.indexOf((byte) 0);
+            long indexOf = this.source.indexOf(SECTION_HEADER);
             if (indexOf == -1) {
                 throw new EOFException();
             }
@@ -91,8 +91,8 @@ public final class GzipSource implements Source {
             }
             this.source.skip(1 + indexOf);
         }
-        if (((b >> 4) & 1) == 1) {
-            long indexOf2 = this.source.indexOf((byte) 0);
+        if (((b >> FCOMMENT) & 1) == 1) {
+            long indexOf2 = this.source.indexOf(SECTION_HEADER);
             if (indexOf2 == -1) {
                 throw new EOFException();
             }

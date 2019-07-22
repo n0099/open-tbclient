@@ -8,7 +8,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.channel.commonutils.misc.k;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
@@ -162,7 +161,7 @@ public class g {
                 str = "";
             } else if (TextUtils.isEmpty(e)) {
                 try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
                         e = telephonyManager.getSubscriberId();
                     }

@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.IOException;
@@ -303,7 +302,7 @@ public class d {
         try {
             String str2 = (!f.a() || (a2 = com.xiaomi.channel.commonutils.reflect.a.a("miui.telephony.TelephonyManager", "getDefault", new Object[0])) == null || (a3 = com.xiaomi.channel.commonutils.reflect.a.a(a2, "getMiuiDeviceId", new Object[0])) == null || !(a3 instanceof String)) ? null : (String) String.class.cast(a3);
             if (str2 == null && p(context)) {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (Build.VERSION.SDK_INT < 26) {
                     str = telephonyManager.getDeviceId();
                 } else if (1 == telephonyManager.getPhoneType()) {
@@ -353,7 +352,7 @@ public class d {
                         return "";
                     }
                     try {
-                        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                         Integer num = (Integer) com.xiaomi.channel.commonutils.reflect.a.a(telephonyManager, "getPhoneCount", new Object[0]);
                         if (num == null || num.intValue() <= 1) {
                             return "";
@@ -429,7 +428,7 @@ public class d {
     }
 
     public static String l(Context context) {
-        return ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimOperatorName();
+        return ((TelephonyManager) context.getSystemService("phone")).getSimOperatorName();
     }
 
     public static String m(Context context) {

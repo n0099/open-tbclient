@@ -6,69 +6,69 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.c<AdSettingActivity> {
-    private ImageView fzJ;
-    private TextView iKA;
-    private TextView iKB;
-    private AdSettingActivity iKu;
-    private MsgSettingItemView iKv;
-    private TextView iKw;
-    private View iKx;
-    private View iKy;
-    private TextView iKz;
+    private ImageView fEH;
+    private AdSettingActivity iQM;
+    private MsgSettingItemView iQN;
+    private TextView iQO;
+    private View iQP;
+    private View iQQ;
+    private TextView iQR;
+    private TextView iQS;
+    private TextView iQT;
     private NavigationBar mNavigationBar;
     private View mParent;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.iKu = adSettingActivity;
-        apq();
+        this.iQM = adSettingActivity;
+        aqv();
     }
 
-    private void apq() {
-        this.iKu.setContentView(R.layout.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.iKu.findViewById(R.id.view_navigation_bar);
+    private void aqv() {
+        this.iQM.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.iQM.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.iKu.getPageContext().getString(R.string.ad_control_setting));
-        this.iKv = (MsgSettingItemView) this.iKu.findViewById(R.id.memberAdSetting);
-        this.iKv.setLineVisibility(false);
-        this.iKw = (TextView) this.iKu.findViewById(R.id.memberAdTips);
-        this.iKx = this.iKu.findViewById(R.id.privacyContainer);
-        this.iKy = this.iKu.findViewById(R.id.privacyItem);
-        this.iKB = (TextView) this.iKu.findViewById(R.id.privacyControlText);
-        this.iKz = (TextView) this.iKu.findViewById(R.id.privacyControlTipsSmall);
-        this.iKz = (TextView) this.iKu.findViewById(R.id.privacyControlTipsSmall);
-        this.iKA = (TextView) this.iKu.findViewById(R.id.privacyControlTips);
-        this.fzJ = (ImageView) this.iKu.findViewById(R.id.arrow);
-        this.mParent = this.iKu.findViewById(R.id.parent);
-        this.iKy.setOnClickListener(this.iKu);
-        cgX();
+        this.mNavigationBar.setTitleText(this.iQM.getPageContext().getString(R.string.ad_control_setting));
+        this.iQN = (MsgSettingItemView) this.iQM.findViewById(R.id.memberAdSetting);
+        this.iQN.setLineVisibility(false);
+        this.iQO = (TextView) this.iQM.findViewById(R.id.memberAdTips);
+        this.iQP = this.iQM.findViewById(R.id.privacyContainer);
+        this.iQQ = this.iQM.findViewById(R.id.privacyItem);
+        this.iQT = (TextView) this.iQM.findViewById(R.id.privacyControlText);
+        this.iQR = (TextView) this.iQM.findViewById(R.id.privacyControlTipsSmall);
+        this.iQR = (TextView) this.iQM.findViewById(R.id.privacyControlTipsSmall);
+        this.iQS = (TextView) this.iQM.findViewById(R.id.privacyControlTips);
+        this.fEH = (ImageView) this.iQM.findViewById(R.id.arrow);
+        this.mParent = this.iQM.findViewById(R.id.parent);
+        this.iQQ.setOnClickListener(this.iQM);
+        cjO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.iKu.getLayoutMode().setNightMode(i == 1);
-        this.iKu.getLayoutMode().onModeChanged(this.mParent);
+        this.iQM.getLayoutMode().setNightMode(i == 1);
+        this.iQM.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.j(this.iKw, R.color.cp_cont_b);
-        al.j(this.iKA, R.color.cp_cont_b);
-        al.j(this.iKB, R.color.cp_cont_b);
-        al.j(this.iKz, R.color.cp_cont_c);
-        al.l(this.iKw, R.color.cp_bg_line_d);
-        al.c(this.fzJ, (int) R.drawable.icon_arrow_gray_right_n);
-        al.l(this.iKx, R.color.cp_bg_line_d);
-        al.k(this.iKy, R.drawable.setting_item_selector);
+        am.j(this.iQO, R.color.cp_cont_b);
+        am.j(this.iQS, R.color.cp_cont_b);
+        am.j(this.iQT, R.color.cp_cont_b);
+        am.j(this.iQR, R.color.cp_cont_c);
+        am.l(this.iQO, R.color.cp_bg_line_d);
+        am.c(this.fEH, (int) R.drawable.icon_arrow_gray_right_n);
+        am.l(this.iQP, R.color.cp_bg_line_d);
+        am.k(this.iQQ, R.drawable.setting_item_selector);
     }
 
-    private void cgX() {
+    private void cjO() {
         int i;
         int i2 = 0;
-        this.iKv.setText(R.string.member_ad_setting_text);
-        this.iKv.setOnSwitchStateChangeListener(this.iKu);
+        this.iQN.setText(R.string.member_ad_setting_text);
+        this.iQN.setOnSwitchStateChangeListener(this.iQM);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             i = currentAccountObj.getMemberCloseAdIsOpen();
@@ -77,27 +77,27 @@ public class b extends com.baidu.adp.base.c<AdSettingActivity> {
             i = 0;
         }
         if (i == 0) {
-            this.iKv.setVisibility(8);
-            this.iKw.setVisibility(8);
+            this.iQN.setVisibility(8);
+            this.iQO.setVisibility(8);
         } else if (i2 == 0) {
-            this.iKv.mU();
+            this.iQN.nl();
         } else {
-            this.iKv.mT();
+            this.iQN.nk();
         }
-        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.agM().getString("sync_ad_privacy_url", ""))) {
-            this.iKx.setVisibility(8);
+        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.ahO().getString("sync_ad_privacy_url", ""))) {
+            this.iQP.setVisibility(8);
         }
     }
 
-    public View cgY() {
-        return this.iKy;
+    public View cjP() {
+        return this.iQQ;
     }
 
-    public void cgZ() {
-        this.iKv.mU();
+    public void cjQ() {
+        this.iQN.nl();
     }
 
-    public void cha() {
-        this.iKv.mT();
+    public void cjR() {
+        this.iQN.nk();
     }
 }

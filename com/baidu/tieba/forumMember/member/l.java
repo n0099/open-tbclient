@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivityConfig;
 import tbclient.BawuRoleInfoPub;
@@ -30,8 +30,8 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                 } else if (view.getId() == R.id.title_text_view) {
                     Object tag = view.getTag();
                     m mVar = ((tag instanceof Integer) && (l.this.getItem(((Integer) tag).intValue()) instanceof m)) ? (m) l.this.getItem(((Integer) tag).intValue()) : null;
-                    if (mVar != null && mVar.biz() != null) {
-                        String[] split = !StringUtils.isNull(mVar.biz().member_group_type) ? mVar.biz().member_group_type.split("_") : null;
+                    if (mVar != null && mVar.bkB() != null) {
+                        String[] split = !StringUtils.isNull(mVar.bkB().member_group_type) ? mVar.bkB().member_group_type.split("_") : null;
                         if (split == null || split.length != 2) {
                             str = "";
                         } else {
@@ -49,7 +49,7 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aA */
+    /* renamed from: aE */
     public n onCreateViewHolder(ViewGroup viewGroup) {
         return new n(LayoutInflater.from(this.mContext).inflate(R.layout.forum_member_team_user_view, (ViewGroup) null), this.mClickListener);
     }
@@ -60,18 +60,18 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar != null && mVar.biz() != null) {
-            MemberGroupInfo biz = mVar.biz();
-            if (biz.member_group_list != null && biz.member_group_list.size() > 0 && !StringUtils.isNull(biz.member_group_type)) {
+        if (mVar != null && mVar.bkB() != null) {
+            MemberGroupInfo bkB = mVar.bkB();
+            if (bkB.member_group_list != null && bkB.member_group_list.size() > 0 && !StringUtils.isNull(bkB.member_group_type)) {
                 nVar.mTitleView.setTag(Integer.valueOf(i));
                 String str = "";
-                String[] split = !StringUtils.isNull(biz.member_group_type) ? biz.member_group_type.split("_") : null;
+                String[] split = !StringUtils.isNull(bkB.member_group_type) ? bkB.member_group_type.split("_") : null;
                 if (split != null && split.length == 2) {
                     str = split[1];
                 }
-                nVar.mTitleView.setText(str + "(" + biz.member_group_num + ")");
+                nVar.mTitleView.setText(str + "(" + bkB.member_group_num + ")");
                 int i2 = 0;
-                for (BawuRoleInfoPub bawuRoleInfoPub : biz.member_group_list) {
+                for (BawuRoleInfoPub bawuRoleInfoPub : bkB.member_group_list) {
                     if (i2 > 3) {
                         break;
                     } else if (bawuRoleInfoPub != null) {
@@ -79,14 +79,14 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                         i2++;
                     }
                 }
-                nVar.jv(this.mSkinType == 1);
-                al.l(nVar.flY, R.color.cp_bg_line_d);
-                al.f(nVar.mTitleView, R.color.cp_cont_b, 1);
-                al.f(nVar.flU, R.color.cp_cont_f, 1);
-                al.f(nVar.flV, R.color.cp_cont_f, 1);
-                al.f(nVar.flW, R.color.cp_cont_f, 1);
-                al.f(nVar.flX, R.color.cp_cont_f, 1);
-                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
+                nVar.jF(this.mSkinType == 1);
+                am.l(nVar.fqW, R.color.cp_bg_line_d);
+                am.f(nVar.mTitleView, R.color.cp_cont_b, 1);
+                am.f(nVar.fqS, R.color.cp_cont_f, 1);
+                am.f(nVar.fqT, R.color.cp_cont_f, 1);
+                am.f(nVar.fqU, R.color.cp_cont_f, 1);
+                am.f(nVar.fqV, R.color.cp_cont_f, 1);
+                nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, am.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
         }
         return view;

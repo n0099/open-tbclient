@@ -13,13 +13,13 @@ public abstract class a {
 
     protected abstract void b(d dVar);
 
-    protected abstract void se();
+    protected abstract void sC();
 
-    protected abstract void sf();
+    protected abstract void sD();
 
-    protected abstract void sg();
+    protected abstract void sE();
 
-    protected abstract void sh();
+    protected abstract void sF();
 
-    protected abstract void si();
+    protected abstract void sG();
 }

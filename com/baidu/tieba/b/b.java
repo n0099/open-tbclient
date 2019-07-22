@@ -8,30 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private HTypeListView cWo;
+    private HTypeListView cXK;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public b(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.cWo = hTypeListView;
+        this.cXK = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.mAdapters.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.coV));
-        this.cWo.addAdapters(this.mAdapters);
+        this.mAdapters.add(new c(this.mTbPageContext, com.baidu.tbadk.data.a.cqi));
+        this.cXK.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<m> list) {
         if (!v.aa(list)) {
-            this.cWo.setData(list);
+            this.cXK.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.cWo != null && (this.cWo.getAdapter() instanceof com.baidu.adp.widget.ListView.v)) {
-            ((com.baidu.adp.widget.ListView.v) this.cWo.getAdapter()).notifyDataSetChanged();
+        if (this.cXK != null && (this.cXK.getAdapter() instanceof com.baidu.adp.widget.ListView.v)) {
+            ((com.baidu.adp.widget.ListView.v) this.cXK.getAdapter()).notifyDataSetChanged();
         }
     }
 }

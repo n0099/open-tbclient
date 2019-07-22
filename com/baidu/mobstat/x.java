@@ -1,48 +1,285 @@
 package com.baidu.mobstat;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Pair;
+import com.baidu.mobstat.bt;
+import dalvik.system.DexClassLoader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.jar.JarFile;
+import org.apache.http.protocol.HTTP;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-class x extends q {
-    public x() {
-        super("app_list3", "Create table if not exists app_list3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
-    }
+public class x {
+    private static volatile DexClassLoader a;
+    private static volatile boolean b = false;
 
-    @Override // com.baidu.mobstat.q
-    public ArrayList<p> a(int i, int i2) {
-        Cursor a = a(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, i, i2);
-        ArrayList<p> a2 = a(a);
-        if (a != null) {
-            a.close();
+    public static Class<?> a(Context context, String str) throws ClassNotFoundException {
+        DexClassLoader a2 = a(context);
+        if (a2 == null) {
+            return null;
         }
-        return a2;
+        return a2.loadClass(str);
     }
 
-    @Override // com.baidu.mobstat.q
-    public long a(String str, String str2) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
-        contentValues.put("content", str2);
-        return a(contentValues);
-    }
-
-    @Override // com.baidu.mobstat.q
-    public boolean b(long j) {
-        return a(j);
-    }
-
-    private ArrayList<p> a(Cursor cursor) {
-        ArrayList<p> arrayList = new ArrayList<>();
-        if (cursor != null && cursor.getCount() != 0) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            int columnIndex3 = cursor.getColumnIndex("content");
-            while (cursor.moveToNext()) {
-                arrayList.add(new p(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
+    private static synchronized DexClassLoader a(Context context) {
+        DexClassLoader dexClassLoader = null;
+        synchronized (x.class) {
+            if (a != null) {
+                dexClassLoader = a;
+            } else {
+                File fileStreamPath = context.getFileStreamPath(".remote.jar");
+                if (fileStreamPath == null || fileStreamPath.isFile()) {
+                    if (!b(context, fileStreamPath.getAbsolutePath())) {
+                        bb.c().a("remote jar version lower than min limit, need delete");
+                        if (fileStreamPath.isFile()) {
+                            fileStreamPath.delete();
+                        }
+                    } else if (!c(context, fileStreamPath.getAbsolutePath())) {
+                        bb.c().a("remote jar md5 is not right, need delete");
+                        if (fileStreamPath.isFile()) {
+                            fileStreamPath.delete();
+                        }
+                    } else {
+                        try {
+                            a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                        } catch (Exception e) {
+                            bb.c().a(e);
+                        }
+                        dexClassLoader = a;
+                    }
+                }
             }
         }
-        return arrayList;
+        return dexClassLoader;
+    }
+
+    private static boolean b(Context context, String str) {
+        int i;
+        String b2 = b(str);
+        if (TextUtils.isEmpty(b2)) {
+            return false;
+        }
+        try {
+            i = Integer.valueOf(b2).intValue();
+        } catch (Exception e) {
+            bb.c().b(e);
+            i = 0;
+        }
+        return i >= 4;
+    }
+
+    public static synchronized void a(Context context, com.baidu.mobstat.a aVar) {
+        synchronized (x.class) {
+            if (!b) {
+                if (!bw.q(context)) {
+                    bb.c().a("isWifiAvailable = false, will not to update");
+                } else if (!aVar.a(context)) {
+                    bb.c().a("check time, will not to update");
+                } else {
+                    bb.c().a("can start update config");
+                    new a(context, aVar).start();
+                    b = true;
+                }
+            }
+        }
+    }
+
+    private static boolean c(Context context, String str) {
+        String a2 = bt.b.a(new File(str));
+        bb.c().a("remote.jar local file digest value digest = " + a2);
+        if (TextUtils.isEmpty(a2)) {
+            bb.c().a("remote.jar local file digest value fail");
+            return false;
+        }
+        String b2 = b(str);
+        bb.c().a("remote.jar local file digest value version = " + b2);
+        if (TextUtils.isEmpty(b2)) {
+            return false;
+        }
+        String d = d(context, b2);
+        bb.c().a("remote.jar config digest value remoteJarMd5 = " + d);
+        if (TextUtils.isEmpty(d)) {
+            bb.c().a("remote.jar config digest value lost");
+            return false;
+        }
+        return a2.equals(d);
+    }
+
+    private static String d(Context context, String str) {
+        return y.a(context).c(str);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [203=4] */
+    /* JADX INFO: Access modifiers changed from: private */
+    public static String b(String str) {
+        JarFile jarFile;
+        JarFile jarFile2 = null;
+        try {
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    bb.c().b("file size: " + file.length());
+                }
+                jarFile = new JarFile(str);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (Exception e) {
+            e = e;
+        }
+        try {
+            String value = jarFile.getManifest().getMainAttributes().getValue("Plugin-Version");
+            if (jarFile != null) {
+                try {
+                    jarFile.close();
+                    return value;
+                } catch (Exception e2) {
+                    return value;
+                }
+            }
+            return value;
+        } catch (Exception e3) {
+            e = e3;
+            jarFile2 = jarFile;
+            bb.c().a(e);
+            bb.c().a("baidu remote sdk is not ready" + str);
+            if (jarFile2 != null) {
+                try {
+                    jarFile2.close();
+                } catch (Exception e4) {
+                }
+            }
+            return "";
+        } catch (Throwable th2) {
+            th = th2;
+            jarFile2 = jarFile;
+            if (jarFile2 != null) {
+                try {
+                    jarFile2.close();
+                } catch (Exception e5) {
+                }
+            }
+            throw th;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    static class a extends Thread {
+        private Context a;
+        private com.baidu.mobstat.a b;
+
+        public a(Context context, com.baidu.mobstat.a aVar) {
+            this.a = context;
+            this.b = aVar;
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            try {
+                int i = aa.a ? 3 : 10;
+                bb.c().a("start version check in " + i + "s");
+                sleep(i * 1000);
+                a();
+                a(this.a);
+            } catch (Exception e) {
+                bb.c().a(e);
+            }
+            boolean unused = x.b = false;
+        }
+
+        private void a(Context context) {
+            this.b.a(context, System.currentTimeMillis());
+        }
+
+        private synchronized void a() throws Exception {
+            FileOutputStream fileOutputStream = null;
+            synchronized (this) {
+                bb.c().a("start get config and download jar");
+                Context context = this.a;
+                com.baidu.mobstat.a aVar = this.b;
+                String b = b(context);
+                bb.c().c("update req url is:" + b);
+                HttpURLConnection d = bo.d(context, b);
+                d.connect();
+                String headerField = d.getHeaderField("X-CONFIG");
+                bb.c().a("config is: " + headerField);
+                String headerField2 = d.getHeaderField("X-SIGN");
+                bb.c().a("sign is: " + headerField2);
+                int responseCode = d.getResponseCode();
+                bb.c().a("update response code is: " + responseCode);
+                int contentLength = d.getContentLength();
+                bb.c().a("update response content length is: " + contentLength);
+                if (responseCode == 200 && contentLength > 0) {
+                    try {
+                        fileOutputStream = context.openFileOutput(".remote.jar", 0);
+                        if (bu.a(d.getInputStream(), fileOutputStream)) {
+                            bb.c().a("save remote jar success");
+                        }
+                        bu.a(fileOutputStream);
+                    } catch (IOException e) {
+                        bb.c().b(e);
+                        bu.a(fileOutputStream);
+                    }
+                }
+                DexClassLoader unused = x.a = null;
+                u.a();
+                if (!TextUtils.isEmpty(headerField)) {
+                    aVar.a(context, headerField);
+                }
+                if (!TextUtils.isEmpty(headerField2)) {
+                    aVar.b(context, headerField2);
+                }
+                d.disconnect();
+                bb.c().a("finish get config and download jar");
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:9:0x0042, code lost:
+            if (android.text.TextUtils.isEmpty(r0) == false) goto L9;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        private String b(Context context) {
+            String str;
+            File fileStreamPath;
+            File fileStreamPath2 = context.getFileStreamPath(".remote.jar");
+            if (fileStreamPath2 != null && fileStreamPath2.exists() && (fileStreamPath = context.getFileStreamPath(".remote.jar")) != null) {
+                str = x.b(fileStreamPath.getAbsolutePath());
+                bb.c().a("startDownload remote jar file version = " + str);
+            }
+            str = "24";
+            ArrayList<Pair> arrayList = new ArrayList();
+            arrayList.add(new Pair("dynamicVersion", "" + str));
+            arrayList.add(new Pair("packageName", bw.t(context)));
+            arrayList.add(new Pair("appVersion", bw.g(context)));
+            arrayList.add(new Pair("cuid", bw.a(context)));
+            arrayList.add(new Pair("platform", "Android"));
+            arrayList.add(new Pair(Config.MODEL, android.os.Build.MODEL));
+            arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
+            arrayList.add(new Pair(Config.OS, Build.VERSION.RELEASE));
+            arrayList.add(new Pair("i", "24"));
+            StringBuilder sb = new StringBuilder();
+            for (Pair pair : arrayList) {
+                try {
+                    String encode = URLEncoder.encode(((String) pair.first).toString(), HTTP.UTF_8);
+                    String encode2 = URLEncoder.encode(((String) pair.second).toString(), HTTP.UTF_8);
+                    if (TextUtils.isEmpty(sb.toString())) {
+                        sb.append(encode + "=" + encode2);
+                    } else {
+                        sb.append("&" + encode + "=" + encode2);
+                    }
+                } catch (Exception e) {
+                }
+            }
+            return aa.c + "?" + sb.toString();
+        }
     }
 }

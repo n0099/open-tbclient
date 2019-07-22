@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
@@ -17,16 +18,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d implements u {
-    u.a dfY;
-    private CustomMessageListener dfZ = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
+    u.a dhG;
+    private CustomMessageListener dhH = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (d.this.dfY != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (d.this.dhG != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    d.this.dfY.EA();
+                    d.this.dhG.Fj();
                 } else {
-                    d.this.dfY.EB();
+                    d.this.dhG.Fk();
                 }
             }
         }
@@ -34,20 +35,23 @@ public class d implements u {
 
     public d() {
         TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.dfZ);
+        MessageManager.getInstance().registerListener(this.dhH);
     }
 
     @Override // com.baidu.swan.apps.u.b.u
     public void a(Context context, JSONObject jSONObject, final u.a aVar) {
         if (context instanceof Activity) {
-            this.dfY = aVar;
+            this.dhG = aVar;
             Bundle bundle = new Bundle();
             try {
-                String string = jSONObject.getString("linkUrl");
-                if (string.indexOf("appid") > 0) {
-                    jSONObject.put("linkUrl", "https://tieba.baidu.com/mo/q/smallapp/sharePage?from=singlemessage&isappinstalled=0#/?" + string.substring(string.indexOf("appid")));
+                String optString = jSONObject.optString("shareUrl");
+                if (StringUtils.isNull(optString)) {
+                    optString = jSONObject.getString("linkUrl");
+                }
+                if (optString.indexOf("appid") > 0) {
+                    jSONObject.put("linkUrl", "https://tieba.baidu.com/mo/q/smallapp/sharePage?from=singlemessage&isappinstalled=0#/?" + optString.substring(optString.indexOf("appid")));
                 } else {
-                    jSONObject.put("linkUrl", string);
+                    jSONObject.put("linkUrl", optString);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -62,9 +66,9 @@ public class d implements u {
                 public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
                     if (delegateResult.isOk()) {
                         if (delegateResult.mResult.getBoolean("share_result")) {
-                            aVar.EA();
+                            aVar.Fj();
                         } else {
-                            aVar.EB();
+                            aVar.Fk();
                         }
                     }
                 }

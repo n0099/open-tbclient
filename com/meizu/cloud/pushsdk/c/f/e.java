@@ -9,7 +9,6 @@ import android.net.NetworkInfo;
 import android.net.http.Headers;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Map;
@@ -122,7 +121,7 @@ public class e {
 
     public static String b(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 return telephonyManager.getNetworkOperatorName();
             }

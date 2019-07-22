@@ -6,54 +6,54 @@ import android.view.View;
 import com.baidu.tieba.write.e;
 /* loaded from: classes.dex */
 public abstract class f {
-    protected View bQe;
-    protected e.a jEH;
-    protected a jEP;
+    protected View bRe;
+    protected e.a jLJ;
+    protected a jLR;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect jFl = new Rect();
-    protected Rect jFm = new Rect();
+    protected Rect jMp = new Rect();
+    protected Rect jMq = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Cg(int i);
+        void CN(int i);
     }
 
-    public abstract void cwn();
+    public abstract void czo();
 
-    public abstract void cwp();
+    public abstract void czq();
 
-    public abstract void cwq();
+    public abstract void czr();
 
     public abstract void onDestroy();
 
     public f(Context context, e.a aVar) {
         this.mContext = context;
-        this.jEH = aVar;
+        this.jLJ = aVar;
     }
 
     public void a(a aVar) {
-        this.jEP = aVar;
+        this.jLR = aVar;
     }
 
     public void b(View view, View view2) {
         this.mAnchorView = view;
-        this.bQe = view2;
-        if (this.bQe != null) {
-            this.bQe.getGlobalVisibleRect(this.jFl);
+        this.bRe = view2;
+        if (this.bRe != null) {
+            this.bRe.getGlobalVisibleRect(this.jMp);
         }
     }
 
     public void show() {
-        cwn();
+        czo();
     }
 
-    public void bJ(boolean z) {
+    public void bM(boolean z) {
         if (z) {
-            cwp();
+            czq();
         } else {
-            cwq();
+            czr();
         }
     }
 }

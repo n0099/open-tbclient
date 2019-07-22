@@ -146,7 +146,7 @@ public class TbErrInfo {
     }
 
     public static int getFileHelperSDErr() {
-        switch (com.baidu.adp.lib.util.f.jB()) {
+        switch (com.baidu.adp.lib.util.f.jK()) {
             case 1:
                 return -23;
             case 2:

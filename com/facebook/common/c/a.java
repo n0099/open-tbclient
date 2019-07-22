@@ -1,27 +1,27 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c jSh = b.cBE();
+    private static c jZl = b.cEF();
 
     public static boolean isLoggable(int i) {
-        return jSh.isLoggable(i);
+        return jZl.isLoggable(i);
     }
 
     public static void d(Class<?> cls, String str) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(t(cls), str);
+        if (jZl.isLoggable(2)) {
+            jZl.v(v(cls), str);
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(t(cls), l(str, obj));
+        if (jZl.isLoggable(2)) {
+            jZl.v(v(cls), l(str, obj));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(t(cls), l(str, obj, obj2));
+        if (jZl.isLoggable(2)) {
+            jZl.v(v(cls), l(str, obj, obj2));
         }
     }
 
@@ -32,56 +32,56 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(t(cls), l(str, obj, obj2, obj3, obj4));
+        if (jZl.isLoggable(2)) {
+            jZl.v(v(cls), l(str, obj, obj2, obj3, obj4));
         }
     }
 
     public static void v(String str, String str2, Object... objArr) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(str, l(str2, objArr));
+        if (jZl.isLoggable(2)) {
+            jZl.v(str, l(str2, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Object... objArr) {
-        if (jSh.isLoggable(2)) {
-            jSh.v(t(cls), l(str, objArr));
+        if (jZl.isLoggable(2)) {
+            jZl.v(v(cls), l(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, String str, Object obj) {
-        if (jSh.isLoggable(3)) {
-            jSh.d(t(cls), l(str, obj));
+        if (jZl.isLoggable(3)) {
+            jZl.d(v(cls), l(str, obj));
         }
     }
 
     public static void e(Class<?> cls, String str) {
-        if (jSh.isLoggable(4)) {
-            jSh.i(t(cls), str);
+        if (jZl.isLoggable(4)) {
+            jZl.i(v(cls), str);
         }
     }
 
     public static void f(Class<?> cls, String str) {
-        if (jSh.isLoggable(5)) {
-            jSh.w(t(cls), str);
+        if (jZl.isLoggable(5)) {
+            jZl.w(v(cls), str);
         }
     }
 
     public static void w(String str, String str2, Object... objArr) {
-        if (jSh.isLoggable(5)) {
-            jSh.w(str, l(str2, objArr));
+        if (jZl.isLoggable(5)) {
+            jZl.w(str, l(str2, objArr));
         }
     }
 
     public static void a(String str, Throwable th, String str2, Object... objArr) {
-        if (jSh.isLoggable(5)) {
-            jSh.w(str, l(str2, objArr), th);
+        if (jZl.isLoggable(5)) {
+            jZl.c(str, l(str2, objArr), th);
         }
     }
 
     public static void d(Class<?> cls, String str, Object... objArr) {
-        if (jSh.isLoggable(5)) {
-            jSh.w(t(cls), l(str, objArr));
+        if (jZl.isLoggable(5)) {
+            jZl.w(v(cls), l(str, objArr));
         }
     }
 
@@ -92,68 +92,68 @@ public class a {
     }
 
     public static void a(Class<?> cls, String str, Throwable th) {
-        if (jSh.isLoggable(5)) {
-            jSh.w(t(cls), str, th);
+        if (jZl.isLoggable(5)) {
+            jZl.c(v(cls), str, th);
         }
     }
 
     public static void e(String str, String str2) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(str, str2);
+        if (jZl.isLoggable(6)) {
+            jZl.e(str, str2);
         }
     }
 
     public static void g(Class<?> cls, String str) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(t(cls), str);
+        if (jZl.isLoggable(6)) {
+            jZl.e(v(cls), str);
         }
     }
 
     public static void b(String str, Throwable th, String str2, Object... objArr) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(str, l(str2, objArr), th);
+        if (jZl.isLoggable(6)) {
+            jZl.e(str, l(str2, objArr), th);
         }
     }
 
     public static void e(Class<?> cls, String str, Object... objArr) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(t(cls), l(str, objArr));
+        if (jZl.isLoggable(6)) {
+            jZl.e(v(cls), l(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, Throwable th, String str, Object... objArr) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(t(cls), l(str, objArr), th);
+        if (jZl.isLoggable(6)) {
+            jZl.e(v(cls), l(str, objArr), th);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(str, str2, th);
+        if (jZl.isLoggable(6)) {
+            jZl.e(str, str2, th);
         }
     }
 
     public static void b(Class<?> cls, String str, Throwable th) {
-        if (jSh.isLoggable(6)) {
-            jSh.e(t(cls), str, th);
+        if (jZl.isLoggable(6)) {
+            jZl.e(v(cls), str, th);
         }
     }
 
     public static void f(String str, String str2, Object... objArr) {
-        if (jSh.isLoggable(6)) {
-            jSh.ey(str, l(str2, objArr));
+        if (jZl.isLoggable(6)) {
+            jZl.ez(str, l(str2, objArr));
         }
     }
 
     public static void f(Class<?> cls, String str, Object... objArr) {
-        if (jSh.isLoggable(6)) {
-            jSh.ey(t(cls), l(str, objArr));
+        if (jZl.isLoggable(6)) {
+            jZl.ez(v(cls), l(str, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Throwable th) {
-        if (jSh.isLoggable(6)) {
-            jSh.c(t(cls), str, th);
+        if (jZl.isLoggable(6)) {
+            jZl.f(v(cls), str, th);
         }
     }
 
@@ -161,7 +161,7 @@ public class a {
         return String.format(null, str, objArr);
     }
 
-    private static String t(Class<?> cls) {
+    private static String v(Class<?> cls) {
         return cls.getSimpleName();
     }
 }

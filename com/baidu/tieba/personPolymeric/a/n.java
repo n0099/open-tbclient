@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class n {
-    private com.baidu.tieba.person.a.a icl;
-    private m iiA;
-    private b iiB;
-    private i iiC;
-    private a iiD;
-    private c iiE;
-    private h iiF;
-    private e iiG;
-    private k iiH;
-    private d iiI;
-    private com.baidu.tieba.person.a.d iiJ;
-    private p iiK;
-    private BdPersonListView iiL;
+    private com.baidu.tieba.person.a.a iiD;
+    private m ioS;
+    private b ioT;
+    private i ioU;
+    private a ioV;
+    private c ioW;
+    private h ioX;
+    private e ioY;
+    private k ioZ;
+    private d ipa;
+    private com.baidu.tieba.person.a.d ipb;
+    private p ipc;
+    private BdPersonListView ipd;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdUniqueId mBdUniqueId;
 
@@ -31,42 +31,42 @@ public class n {
     }
 
     private void a(TbPageContext tbPageContext, BdPersonListView bdPersonListView) {
-        this.iiL = bdPersonListView;
-        this.iiA = new m(tbPageContext);
-        this.iiB = new b(tbPageContext);
-        this.iiC = new i(tbPageContext);
-        this.iiD = new a(tbPageContext);
-        this.iiE = new c(tbPageContext);
-        this.iiF = new h(tbPageContext, tbPageContext.getUniqueId());
-        this.iiG = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.ikG);
-        this.iiH = new k(tbPageContext);
-        this.iiI = new d(tbPageContext);
-        this.iiJ = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.icm);
-        this.icl = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.ibT);
-        this.iiK = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-        this.mAdapters.add(this.iiA);
-        this.mAdapters.add(this.iiB);
-        this.mAdapters.add(this.iiC);
+        this.ipd = bdPersonListView;
+        this.ioS = new m(tbPageContext);
+        this.ioT = new b(tbPageContext);
+        this.ioU = new i(tbPageContext);
+        this.ioV = new a(tbPageContext);
+        this.ioW = new c(tbPageContext);
+        this.ioX = new h(tbPageContext, tbPageContext.getUniqueId());
+        this.ioY = new e(tbPageContext, com.baidu.tieba.personPolymeric.c.g.iqY);
+        this.ioZ = new k(tbPageContext);
+        this.ipa = new d(tbPageContext);
+        this.ipb = new com.baidu.tieba.person.a.d(tbPageContext, com.baidu.tieba.person.a.f.iiE);
+        this.iiD = new com.baidu.tieba.person.a.a(tbPageContext.getPageActivity(), com.baidu.tieba.person.d.iil);
+        this.ipc = new p(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
+        this.mAdapters.add(this.ioS);
+        this.mAdapters.add(this.ioT);
+        this.mAdapters.add(this.ioU);
+        this.mAdapters.add(this.ioV);
+        this.mAdapters.add(this.ioW);
+        this.mAdapters.add(this.ioX);
+        this.mAdapters.add(this.ioY);
+        this.mAdapters.add(this.ioZ);
+        this.mAdapters.add(this.ipa);
+        this.mAdapters.add(this.ipb);
         this.mAdapters.add(this.iiD);
-        this.mAdapters.add(this.iiE);
-        this.mAdapters.add(this.iiF);
-        this.mAdapters.add(this.iiG);
-        this.mAdapters.add(this.iiH);
-        this.mAdapters.add(this.iiI);
-        this.mAdapters.add(this.iiJ);
-        this.mAdapters.add(this.icl);
-        this.mAdapters.add(this.iiK);
+        this.mAdapters.add(this.ipc);
         bdPersonListView.addAdapters(this.mAdapters);
     }
 
-    public void T(View.OnClickListener onClickListener) {
-        if (this.iiJ != null) {
-            this.iiJ.Q(onClickListener);
+    public void V(View.OnClickListener onClickListener) {
+        if (this.ipb != null) {
+            this.ipb.S(onClickListener);
         }
     }
 
     public void setIsHost(boolean z) {
-        this.iiK.setIsHost(z);
-        this.iiC.setIsHost(z);
+        this.ipc.setIsHost(z);
+        this.ioU.setIsHost(z);
     }
 }

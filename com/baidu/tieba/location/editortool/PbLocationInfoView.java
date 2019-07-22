@@ -8,11 +8,11 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.base.i;
 import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class PbLocationInfoView extends TextView {
-    private Rect hdJ;
+    private Rect hjW;
     private int mState;
 
     public PbLocationInfoView(Context context) {
@@ -25,14 +25,14 @@ public class PbLocationInfoView extends TextView {
     }
 
     private void init() {
-        this.hdJ = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.hjW = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         onChangeSkinType();
     }
 
     public void onChangeSkinType() {
-        setTextColor(al.getColor(R.color.cp_cont_c));
-        bJb();
+        setTextColor(am.getColor(R.color.cp_cont_c));
+        bLI();
     }
 
     public void setState(int i, String str) {
@@ -48,26 +48,26 @@ public class PbLocationInfoView extends TextView {
             }
             setText(str);
         }
-        bJb();
+        bLI();
     }
 
     public int getState() {
         return this.mState;
     }
 
-    public void bJb() {
+    public void bLI() {
         if (this.mState == 1) {
-            Drawable drawable = al.getDrawable(R.drawable.icon_posts_pin_loading_anim);
+            Drawable drawable = am.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.hdJ);
+                drawable.setBounds(this.hjW);
             }
             setCompoundDrawables(drawable, null, null, null);
             com.baidu.tieba.tbadkCore.a.a((TbPageContextSupport) i.aa(getContext()), (Animatable) drawable);
             return;
         }
-        Drawable drawable2 = al.getDrawable(R.drawable.icon_tips_site);
+        Drawable drawable2 = am.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.hdJ);
+            drawable2.setBounds(this.hjW);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }

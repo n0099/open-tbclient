@@ -7,16 +7,16 @@ import java.util.concurrent.ScheduledFuture;
 /* loaded from: classes2.dex */
 public class e implements Closeable {
     private boolean closed;
-    private final List<d> jS;
-    private ScheduledFuture<?> jT;
-    private boolean jU;
+    private final List<d> jR;
+    private ScheduledFuture<?> jS;
+    private boolean jT;
     private final Object lock;
 
-    public boolean bb() {
+    public boolean bd() {
         boolean z;
         synchronized (this.lock) {
-            bc();
-            z = this.jU;
+            be();
+            z = this.jT;
         }
         return z;
     }
@@ -25,11 +25,11 @@ public class e implements Closeable {
     public void close() {
         synchronized (this.lock) {
             if (!this.closed) {
-                bd();
-                for (d dVar : this.jS) {
+                bf();
+                for (d dVar : this.jR) {
                     dVar.close();
                 }
-                this.jS.clear();
+                this.jR.clear();
                 this.closed = true;
             }
         }
@@ -38,25 +38,25 @@ public class e implements Closeable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(d dVar) {
         synchronized (this.lock) {
-            bc();
-            this.jS.remove(dVar);
+            be();
+            this.jR.remove(dVar);
         }
     }
 
     public String toString() {
-        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(bb()));
+        return String.format(Locale.US, "%s@%s[cancellationRequested=%s]", getClass().getName(), Integer.toHexString(hashCode()), Boolean.toString(bd()));
     }
 
-    private void bc() {
+    private void be() {
         if (this.closed) {
             throw new IllegalStateException("Object already closed");
         }
     }
 
-    private void bd() {
-        if (this.jT != null) {
-            this.jT.cancel(true);
-            this.jT = null;
+    private void bf() {
+        if (this.jS != null) {
+            this.jS.cancel(true);
+            this.jS = null;
         }
     }
 }

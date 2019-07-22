@@ -6,16 +6,16 @@ import java.io.File;
 public class a extends com.baidu.b.a.a.a.a.a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
-    private File bfi;
-    private com.baidu.swan.games.c.b bfj;
+    private File bfU;
+    private com.baidu.swan.games.c.b bfV;
 
     public a(@NonNull File file, @NonNull com.baidu.swan.games.c.b bVar) {
         super("48", "game_core", "swan-game-sconsole");
-        this.bfi = file;
-        this.bfj = bVar;
+        this.bfU = file;
+        this.bfV = bVar;
     }
 
-    public static void Qu() {
+    public static void Rn() {
         com.baidu.b.a.c.a.N("48", "swan-game-sconsole");
     }
 }

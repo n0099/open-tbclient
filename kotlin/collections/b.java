@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State kjP = State.NotReady;
-    private T kjQ;
+    private State kro = State.NotReady;
+    private T krp;
 
-    protected abstract void cJO();
+    protected abstract void cNo();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.kjP, State.Failed)) {
-            switch (this.kjP) {
+        if (!kotlin.jvm.internal.p.h(this.kro, State.Failed)) {
+            switch (this.kro) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cJN();
+                    return cNn();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.kjP = State.NotReady;
-            return this.kjQ;
+            this.kro = State.NotReady;
+            return this.krp;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cJN() {
-        this.kjP = State.Failed;
-        cJO();
-        return kotlin.jvm.internal.p.h(this.kjP, State.Ready);
+    private final boolean cNn() {
+        this.kro = State.Failed;
+        cNo();
+        return kotlin.jvm.internal.p.h(this.kro, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void bh(T t) {
-        this.kjQ = t;
-        this.kjP = State.Ready;
+        this.krp = t;
+        this.kro = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.kjP = State.Done;
+        this.kro = State.Done;
     }
 }

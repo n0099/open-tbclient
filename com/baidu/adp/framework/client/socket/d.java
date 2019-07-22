@@ -14,12 +14,12 @@ import java.nio.ByteBuffer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketResponsedMessage> {
-    private static final BdUniqueId tJ = BdUniqueId.gen();
-    private a tK;
-    private com.baidu.adp.framework.client.socket.coder.c tL;
-    private e tM;
-    private int tN;
-    private SocketMessageTask tO;
+    private static final BdUniqueId tM = BdUniqueId.gen();
+    private a tN;
+    private com.baidu.adp.framework.client.socket.coder.c tO;
+    private e tP;
+    private int tQ;
+    private SocketMessageTask tR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
@@ -28,30 +28,30 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     }
 
     public d(com.baidu.adp.framework.client.socket.coder.c cVar, e eVar, a aVar, int i) {
-        this.tK = null;
-        this.tL = null;
-        this.tM = null;
-        this.tN = 0;
+        this.tN = null;
         this.tO = null;
-        this.tL = cVar;
-        this.tM = eVar;
-        this.tK = aVar;
-        this.tN = i;
+        this.tP = null;
+        this.tQ = 0;
+        this.tR = null;
+        this.tO = cVar;
+        this.tP = eVar;
+        this.tN = aVar;
+        this.tQ = i;
         try {
-            if (this.tM != null) {
-                this.tO = this.tM.fv();
+            if (this.tP != null) {
+                this.tR = this.tP.fC();
             }
-            if (this.tO == null) {
-                this.tO = (SocketMessageTask) MessageManager.getInstance().findTask(this.tL.vp.getCommand());
+            if (this.tR == null) {
+                this.tR = (SocketMessageTask) MessageManager.getInstance().findTask(this.tO.vs.getCommand());
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        setTag(tJ);
+        setTag(tM);
         setPriority(4);
-        if (this.tO != null) {
-            setKey(String.valueOf(this.tO.getCmd()));
-            setParallel(this.tO.getParallel());
+        if (this.tR != null) {
+            setKey(String.valueOf(this.tR.getCmd()));
+            setParallel(this.tR.getParallel());
         }
     }
 
@@ -74,7 +74,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         long j2;
         long j3;
         long currentTimeMillis;
-        boolean fS;
+        boolean ga;
         int i2;
         long j4;
         long j5;
@@ -84,25 +84,25 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         SocketMessage socketMessage;
         byte[] bArr;
         int i3 = 0;
-        if (this.tL == null) {
+        if (this.tO == null) {
             return null;
         }
         try {
-            if (this.tM == null) {
+            if (this.tP == null) {
                 j2 = 0;
             } else {
-                j2 = this.tM.tZ;
+                j2 = this.tP.ud;
             }
-            if (this.tM == null) {
+            if (this.tP == null) {
                 j3 = 0;
             } else {
-                j3 = this.tM.ub;
+                j3 = this.tP.ue;
             }
             currentTimeMillis = System.currentTimeMillis();
-            i3 = this.tL.vp.getCommand();
-            fS = this.tL.vp.fS();
-            i2 = this.tL.vs;
-            cVar2 = com.baidu.adp.framework.client.socket.coder.b.fU().a(this.tL);
+            i3 = this.tO.vs.getCommand();
+            ga = this.tO.vs.ga();
+            i2 = this.tO.vv;
+            cVar2 = com.baidu.adp.framework.client.socket.coder.b.gd().a(this.tO);
         } catch (CoderException e) {
             i = i3;
             cVar = null;
@@ -114,7 +114,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             long j10 = 0;
             long j11 = 0;
             long j12 = 0;
-            if (this.tM == null) {
+            if (this.tP == null) {
                 j4 = 0;
                 j5 = 0;
                 j6 = 0;
@@ -122,15 +122,15 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                 j8 = 0;
                 socketMessage = null;
             } else {
-                SocketMessage fu = this.tM.fu();
-                long startTime = fu.getStartTime();
-                long fo = this.tM.fo();
-                long j13 = fo - startTime;
-                long j14 = currentTimeMillis - fo;
+                SocketMessage fB = this.tP.fB();
+                long startTime = fB.getStartTime();
+                long fw = this.tP.fw();
+                long j13 = fw - startTime;
+                long j14 = currentTimeMillis - fw;
                 if (j2 > 0) {
-                    j9 = j2 - fo;
+                    j9 = j2 - fw;
                     if (j3 >= j2) {
-                        j14 = j3 - fo;
+                        j14 = j3 - fw;
                         j10 = j3 - j2;
                         j12 = currentTimeMillis - j3;
                     }
@@ -141,55 +141,55 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                 j11 = currentTimeMillis2 - currentTimeMillis;
                 j8 = j12;
                 j7 = j10;
-                socketMessage = fu;
+                socketMessage = fB;
             }
             byte[] bArr2 = null;
-            if (cVar2.vr == 0 && cVar2.vs == cVar2.vq.length) {
+            if (cVar2.vu == 0 && cVar2.vv == cVar2.vt.length) {
                 bArr = null;
-            } else if (cVar2.vs <= 0) {
-                cVar2.vq = null;
+            } else if (cVar2.vv <= 0) {
+                cVar2.vt = null;
                 bArr = null;
             } else {
-                if (this.tL.vp.fT()) {
+                if (this.tO.vs.gb()) {
                     try {
-                        short s = ByteBuffer.wrap(cVar2.vq, cVar2.vr, com.baidu.adp.framework.client.socket.coder.a.ve).getShort();
-                        int i4 = com.baidu.adp.framework.client.socket.coder.a.ve + s;
-                        bArr2 = ByteBuffer.allocateDirect(s).put(cVar2.vq, cVar2.vr + com.baidu.adp.framework.client.socket.coder.a.ve, s).array();
-                        cVar2.vr += i4;
-                        cVar2.vs -= i4;
+                        short s = ByteBuffer.wrap(cVar2.vt, cVar2.vu, com.baidu.adp.framework.client.socket.coder.a.vh).getShort();
+                        int i4 = com.baidu.adp.framework.client.socket.coder.a.vh + s;
+                        bArr2 = ByteBuffer.allocateDirect(s).put(cVar2.vt, cVar2.vu + com.baidu.adp.framework.client.socket.coder.a.vh, s).array();
+                        cVar2.vu += i4;
+                        cVar2.vv -= i4;
                     } catch (Exception e2) {
-                        throw new CoderException(h.uw);
+                        throw new CoderException(h.uz);
                     }
                 }
-                cVar2.vq = ByteBuffer.allocateDirect(cVar2.vs).put(cVar2.vq, cVar2.vr, cVar2.vs).array();
+                cVar2.vt = ByteBuffer.allocateDirect(cVar2.vv).put(cVar2.vt, cVar2.vu, cVar2.vv).array();
                 bArr = bArr2;
             }
-            socketResponsedMessage2 = com.baidu.adp.framework.client.socket.coder.b.fU().a(i3, cVar2.vq, socketMessage, this.tO, fS);
+            socketResponsedMessage2 = com.baidu.adp.framework.client.socket.coder.b.gd().a(i3, cVar2.vt, socketMessage, this.tR, ga);
             try {
                 if (socketResponsedMessage2 != null && bArr != null) {
                     try {
                         socketResponsedMessage2.decodeExtraDataInBackGround(i3, bArr);
                     } catch (Exception e3) {
-                        throw new CoderException(h.uw);
+                        throw new CoderException(h.uz);
                     }
                 }
                 long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
                 if (socketResponsedMessage2 != null) {
-                    if (this.tM != null && this.tL != null) {
-                        socketResponsedMessage2.setCostTime(System.currentTimeMillis() - this.tM.fo());
-                        socketResponsedMessage2.setRetry(this.tM.fy());
-                        socketResponsedMessage2.performanceData.vT = j5;
-                        socketResponsedMessage2.performanceData.vV = j4;
-                        socketResponsedMessage2.performanceData.vW = j6;
-                        socketResponsedMessage2.performanceData.vX = j7;
-                        socketResponsedMessage2.performanceData.wa = j8;
+                    if (this.tP != null && this.tO != null) {
+                        socketResponsedMessage2.setCostTime(System.currentTimeMillis() - this.tP.fw());
+                        socketResponsedMessage2.setRetry(this.tP.fG());
+                        socketResponsedMessage2.performanceData.vW = j5;
+                        socketResponsedMessage2.performanceData.vY = j4;
+                        socketResponsedMessage2.performanceData.vZ = j6;
+                        socketResponsedMessage2.performanceData.wa = j7;
+                        socketResponsedMessage2.performanceData.we = j8;
                     }
                     socketResponsedMessage2.setDownSize(i2);
-                    socketResponsedMessage2.performanceData.vZ = currentTimeMillis3;
-                    socketResponsedMessage2.performanceData.vY = j11;
-                    socketResponsedMessage2.sequenceID = this.tL.vp.fR();
+                    socketResponsedMessage2.performanceData.wc = currentTimeMillis3;
+                    socketResponsedMessage2.performanceData.wb = j11;
+                    socketResponsedMessage2.sequenceID = this.tO.vs.fZ();
                     try {
-                        socketResponsedMessage2.beforeDispatchInBackGround(i3, cVar2.vq);
+                        socketResponsedMessage2.beforeDispatchInBackGround(i3, cVar2.vt);
                     } catch (Exception e4) {
                         BdLog.e(e4.getMessage());
                     }
@@ -199,11 +199,11 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
                 cVar = cVar2;
                 socketResponsedMessage = socketResponsedMessage2;
                 j = -100;
-                if (this.tM != null && this.tM.fu() != null) {
-                    j = this.tM.fu().getClientLogID();
+                if (this.tP != null && this.tP.fB() != null) {
+                    j = this.tP.fB().getClientLogID();
                 }
-                BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tN), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tN));
-                i.a("unpacker", i, j, this.tN, "unpacktask", h.uF, "onBinaryMesssage decodebody error");
+                BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
+                i.a("unpacker", i, j, this.tQ, "unpacktask", h.uI, "onBinaryMesssage decodebody error");
                 i3 = i;
                 cVar2 = cVar;
                 socketResponsedMessage2 = socketResponsedMessage;
@@ -219,11 +219,11 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
             cVar = cVar2;
             socketResponsedMessage = null;
             j = -100;
-            if (this.tM != null) {
-                j = this.tM.fu().getClientLogID();
+            if (this.tP != null) {
+                j = this.tP.fB().getClientLogID();
             }
-            BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tN), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tN));
-            i.a("unpacker", i, j, this.tN, "unpacktask", h.uF, "onBinaryMesssage decodebody error");
+            BdStatisticsManager.getInstance().error("im", j, String.valueOf(this.tQ), IntentConfig.CMD, Integer.valueOf(i), "seqid", Integer.valueOf(this.tQ));
+            i.a("unpacker", i, j, this.tQ, "unpacktask", h.uI, "onBinaryMesssage decodebody error");
             i3 = i;
             cVar2 = cVar;
             socketResponsedMessage2 = socketResponsedMessage;
@@ -240,7 +240,7 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
         publishProgress(socketResponsedMessage2);
         if (socketResponsedMessage2 != null) {
             try {
-                socketResponsedMessage2.afterDispatchInBackGround(i3, cVar2.vq);
+                socketResponsedMessage2.afterDispatchInBackGround(i3, cVar2.vt);
             } catch (Exception e7) {
                 BdLog.e(e7.getMessage());
             }
@@ -249,8 +249,8 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     }
 
     private boolean a(SocketResponsedMessage socketResponsedMessage, e eVar) {
-        if (this.tN != 0 && eVar != null && socketResponsedMessage == null) {
-            i.a("unpacker", eVar.getCmd(), eVar.fu() == null ? -1L : eVar.fu().getClientLogID(), this.tN, "checkresponsedMessage", h.uG, "ack cont responsed");
+        if (this.tQ != 0 && eVar != null && socketResponsedMessage == null) {
+            i.a("unpacker", eVar.getCmd(), eVar.fB() == null ? -1L : eVar.fB().getClientLogID(), this.tQ, "checkresponsedMessage", h.uJ, "ack cont responsed");
             return false;
         }
         return true;
@@ -276,26 +276,26 @@ public class d extends BdAsyncTask<String, SocketResponsedMessage, SocketRespons
     }
 
     private void a(SocketResponsedMessage socketResponsedMessage) {
-        if (this.tK != null) {
-            boolean a2 = a(socketResponsedMessage, this.tM);
+        if (this.tN != null) {
+            boolean a2 = a(socketResponsedMessage, this.tP);
             b bVar = new b();
-            bVar.tP = socketResponsedMessage;
+            bVar.tS = socketResponsedMessage;
             if (!a2) {
-                bVar.tQ = this.tM;
+                bVar.tT = this.tP;
             }
-            this.tK.a(bVar);
+            this.tN.a(bVar);
         }
     }
 
-    public static BdUniqueId fg() {
-        return tJ;
+    public static BdUniqueId fn() {
+        return tM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class b {
-        SocketResponsedMessage tP;
-        e tQ;
+        SocketResponsedMessage tS;
+        e tT;
 
         b() {
         }

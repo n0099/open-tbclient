@@ -5,17 +5,17 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0244a cjj;
+    private InterfaceC0241a cko;
 
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0244a {
+    public interface InterfaceC0241a {
         void d(e eVar);
     }
 
@@ -36,16 +36,16 @@ public class a {
                 xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_SHARE_IMAGE);
                 xVar.o("thread_id", str2);
                 xVar.o("type", "3");
-                String ahe = xVar.ahe();
-                if (ap.isEmpty(ahe)) {
+                String aig = xVar.aig();
+                if (aq.isEmpty(aig)) {
                     return eVar2;
                 }
                 try {
-                    str = new JSONObject(ahe).optString(BigdayActivityConfig.IMG_URL);
+                    str = new JSONObject(aig).optString(BigdayActivityConfig.IMG_URL);
                 } catch (JSONException e) {
                     BdLog.e(e);
                 }
-                eVar2.cjU = str;
+                eVar2.ckZ = str;
                 eVar2.imageUri = Uri.parse(str);
                 return eVar2;
             }
@@ -56,14 +56,14 @@ public class a {
             /* renamed from: c */
             public void onPostExecute(e eVar2) {
                 super.onPostExecute(eVar2);
-                if (a.this.cjj != null) {
-                    a.this.cjj.d(eVar2);
+                if (a.this.cko != null) {
+                    a.this.cko.d(eVar2);
                 }
             }
         }.execute(eVar);
     }
 
-    public void a(InterfaceC0244a interfaceC0244a) {
-        this.cjj = interfaceC0244a;
+    public void a(InterfaceC0241a interfaceC0241a) {
+        this.cko = interfaceC0241a;
     }
 }

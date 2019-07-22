@@ -9,17 +9,17 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.recapp.n;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.frs.h<bg, f> implements m {
-    private n cPJ;
+    private n cRf;
 
     public e(n nVar, BdUniqueId bdUniqueId) {
         super(nVar.getTbPageContext(), bdUniqueId);
-        this.cPJ = nVar;
+        this.cRf = nVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bP */
+    /* renamed from: bV */
     public f onCreateViewHolder(ViewGroup viewGroup) {
         View view = new View(this.mPageContext.getPageActivity());
         view.setVisibility(8);
@@ -33,7 +33,7 @@ public class e extends com.baidu.tieba.frs.h<bg, f> implements m {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, f fVar) {
         if (bgVar instanceof AdvertAppInfo) {
             AdvertAppInfo advertAppInfo = (AdvertAppInfo) bgVar;
-            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.g.b.f(advertAppInfo.adPosition, -1), advertAppInfo.bEd.bEq == -1001);
+            com.baidu.tbadk.core.data.c.a(advertAppInfo.advertAppContext, com.baidu.adp.lib.g.b.f(advertAppInfo.adPosition, -1), advertAppInfo.bFd.bFq == -1001);
         }
         return fVar.getView();
     }

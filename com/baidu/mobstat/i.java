@@ -1,19 +1,23 @@
 package com.baidu.mobstat;
-
-import android.content.Context;
-import android.text.TextUtils;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class i {
-    static i a = new i();
+    private long a;
+    private String b;
+    private String c;
 
-    i() {
+    public i(long j, String str, String str2) {
+        this.a = -1L;
+        str2 = str2 == null ? "" : str2;
+        this.a = j;
+        this.b = str;
+        this.c = str2;
     }
 
-    public synchronized void a(Context context) {
-        String o = cc.o(context);
-        if (!TextUtils.isEmpty(o)) {
-            r.AP_LIST.a(System.currentTimeMillis(), o);
-        }
+    public long a() {
+        return this.a;
+    }
+
+    public String b() {
+        return this.c;
     }
 }

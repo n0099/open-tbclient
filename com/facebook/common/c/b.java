@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b jSi = new b();
-    private String jSj = "unknown";
-    private int jSk = 5;
+    public static final b jZm = new b();
+    private String jZn = "unknown";
+    private int jZo = 5;
 
-    public static b cBE() {
-        return jSi;
+    public static b cEF() {
+        return jZm;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.jSk <= i;
+        return this.jZo <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -42,7 +42,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void w(String str, String str2, Throwable th) {
+    public void c(String str, String str2, Throwable th) {
         b(5, str, str2, th);
     }
 
@@ -57,26 +57,26 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void ey(String str, String str2) {
+    public void ez(String str, String str2) {
         p(6, str, str2);
     }
 
     @Override // com.facebook.common.c.c
-    public void c(String str, String str2, Throwable th) {
+    public void f(String str, String str2, Throwable th) {
         b(6, str, str2, th);
     }
 
     private void p(int i, String str, String str2) {
-        Log.println(i, GL(str), str2);
+        Log.println(i, HF(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, GL(str), h(str2, th));
+        Log.println(i, HF(str), h(str2, th));
     }
 
-    private String GL(String str) {
-        if (this.jSj != null) {
-            return this.jSj + ":" + str;
+    private String HF(String str) {
+        if (this.jZn != null) {
+            return this.jZn + ":" + str;
         }
         return str;
     }

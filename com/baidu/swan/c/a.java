@@ -23,11 +23,11 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes2.dex */
 public final class a {
-    private static String bwD = null;
+    private static String bxu = null;
     public static int INVALID_INDEX = -1;
-    public static int aVN = 1;
+    public static int aWx = 1;
 
-    public static boolean kX(String str) {
+    public static boolean lf(String str) {
         return !TextUtils.isEmpty(str) && new File(str).exists();
     }
 
@@ -280,7 +280,7 @@ public final class a {
         }
     }
 
-    public static String ad(Context context, String str) {
+    public static String ac(Context context, String str) {
         try {
             return a(context.openFileInput(str));
         } catch (FileNotFoundException e) {
@@ -403,7 +403,7 @@ public final class a {
                 while (entries.hasMoreElements()) {
                     try {
                         ZipEntry nextElement = entries.nextElement();
-                        if (!TextUtils.isEmpty(nextElement.getName()) && !la(nextElement.getName())) {
+                        if (!TextUtils.isEmpty(nextElement.getName()) && !li(nextElement.getName())) {
                             File file = new File(str2 + "/" + nextElement.getName());
                             if (!nextElement.isDirectory()) {
                                 if (!file.exists()) {
@@ -547,7 +547,7 @@ public final class a {
                     c(inputStream);
                     c(zipInputStream);
                     return true;
-                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !la(nextEntry.getName())) {
+                } else if (!TextUtils.isEmpty(nextEntry.getName()) && !li(nextEntry.getName())) {
                     File file2 = new File(str2 + File.separator + nextEntry.getName());
                     if (nextEntry.isDirectory()) {
                         if (!file2.exists()) {
@@ -612,30 +612,30 @@ public final class a {
         return str;
     }
 
-    public static String kY(String str) {
+    public static String lg(String str) {
         if (TextUtils.isEmpty(str) || str.endsWith(File.separator)) {
             return null;
         }
         int lastIndexOf = str.lastIndexOf(File.separator);
         int length = str.length();
         if (lastIndexOf != INVALID_INDEX && length > lastIndexOf) {
-            return str.substring(lastIndexOf + aVN, length);
+            return str.substring(lastIndexOf + aWx, length);
         }
         return str;
     }
 
-    public static String kZ(String str) {
+    public static String lh(String str) {
         int lastIndexOf;
-        String kY = kY(str);
-        if (TextUtils.isEmpty(kY) || (lastIndexOf = kY.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == kY.length() - 1) {
+        String lg = lg(str);
+        if (TextUtils.isEmpty(lg) || (lastIndexOf = lg.lastIndexOf(".")) == INVALID_INDEX || lastIndexOf == lg.length() - 1) {
             return "";
         }
-        return kY.substring(lastIndexOf + 1);
+        return lg.substring(lastIndexOf + 1);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1207=4] */
     @Nullable
-    public static String ae(Context context, String str) {
+    public static String ad(Context context, String str) {
         InputStream inputStream;
         Throwable th;
         BufferedReader bufferedReader;
@@ -725,7 +725,7 @@ public final class a {
         }
     }
 
-    public static boolean la(String str) {
+    public static boolean li(String str) {
         return str.contains("../");
     }
 }

@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Environment;
 import android.os.StatFs;
-import com.baidu.sapi2.base.network.Apn;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -215,7 +214,7 @@ public class h {
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
         } catch (Exception e) {
-            str = Apn.APN_UNKNOWN;
+            str = "N/A";
         }
         return str.trim();
     }
@@ -232,7 +231,7 @@ public class h {
             inputStream.close();
             str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
         } catch (Exception e) {
-            str = Apn.APN_UNKNOWN;
+            str = "N/A";
         }
         return String.valueOf(str);
     }
@@ -295,11 +294,11 @@ public class h {
                         throw th;
                     }
                 } catch (Exception e8) {
-                    str = Apn.APN_UNKNOWN;
+                    str = "N/A";
                 }
             } catch (Exception e9) {
                 bufferedReader = null;
-                str = Apn.APN_UNKNOWN;
+                str = "N/A";
             } catch (Throwable th3) {
                 bufferedReader = null;
                 th = th3;
@@ -307,7 +306,7 @@ public class h {
         } catch (Exception e10) {
             bufferedReader = null;
             fileReader = null;
-            str = Apn.APN_UNKNOWN;
+            str = "N/A";
         } catch (Throwable th4) {
             fileReader = null;
             th = th4;

@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes5.dex */
 public class e {
     public static boolean a = false;
@@ -26,7 +25,7 @@ public class e {
         NetworkInfo a2 = a(context);
         if (a2 != null) {
             if (a2.getType() != 1) {
-                switch (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNetworkType()) {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                     case 1:
                     case 2:
                         i = 6;
@@ -70,7 +69,7 @@ public class e {
         if (((WifiManager) context.getSystemService("wifi")).getWifiState() == 3) {
             return true;
         }
-        if (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimState() != 5) {
+        if (((TelephonyManager) context.getSystemService("phone")).getSimState() != 5) {
             return false;
         }
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();

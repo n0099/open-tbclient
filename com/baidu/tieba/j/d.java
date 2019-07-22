@@ -5,7 +5,6 @@ import com.baidu.tieba.j.g;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.OutputStream;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class d {
@@ -31,23 +30,23 @@ public class d {
         try {
             fileOutputStream.write(str.getBytes());
             fileOutputStream.flush();
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.g.a.c(fileOutputStream);
             return true;
         } catch (Exception e2) {
             e = e2;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+            com.baidu.adp.lib.g.a.c(fileOutputStream2);
             return false;
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+            com.baidu.adp.lib.g.a.c(fileOutputStream2);
             throw th;
         }
     }
 
-    public static void Ag(String str) {
+    public static void AR(String str) {
         if (!StringUtils.isNull(str)) {
             File file = new File(str);
             if (!file.exists()) {
@@ -95,7 +94,7 @@ public class d {
         return sb.toString();
     }
 
-    public static JSONArray Ah(String str) {
+    public static JSONArray AS(String str) {
         JSONArray jSONArray = new JSONArray();
         if (StringUtils.isNull(str)) {
             return jSONArray;
@@ -130,9 +129,9 @@ public class d {
         }
     }
 
-    public static void Ai(String str) {
+    public static void AT(String str) {
         if (!StringUtils.isNull(str)) {
-            com.baidu.tbadk.core.util.m.A(new File(g.a.hpp + g.a.hpg + str));
+            com.baidu.tbadk.core.util.m.A(new File(g.a.hvB + g.a.hvs + str));
         }
     }
 }

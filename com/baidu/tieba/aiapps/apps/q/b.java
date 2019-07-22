@@ -1,130 +1,350 @@
 package com.baidu.tieba.aiapps.apps.q;
 
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.http.HttpManager;
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.util.concurrent.TimeUnit;
+import okhttp3.Call;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Protocol;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.BufferedSink;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpEntityEnclosingRequest;
+import org.apache.http.HttpHost;
+import org.apache.http.HttpRequest;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpVersion;
+import org.apache.http.ProtocolVersion;
+import org.apache.http.RequestLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.params.ClientPNames;
+import org.apache.http.client.params.CookiePolicy;
+import org.apache.http.conn.ClientConnectionManager;
+import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.cookie.SM;
+import org.apache.http.entity.InputStreamEntity;
+import org.apache.http.message.BasicHttpResponse;
+import org.apache.http.params.AbstractHttpParams;
+import org.apache.http.params.CoreConnectionPNames;
+import org.apache.http.params.CoreProtocolPNames;
+import org.apache.http.params.HttpParams;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.protocol.HttpContext;
 /* loaded from: classes4.dex */
-public class b {
-    public static void putBoolean(String str, boolean z) {
-        if (ProcessUtils.isMainProcess()) {
-            a.aGg().putBoolean(str, z);
+public class b implements e {
+    private static final MediaType dhN = MediaType.parse("application/octet-stream");
+    private OkHttpClient client;
+    private OkHttpClient.Builder dhO = null;
+    private OkHttpClient dhP = null;
+    private final HttpParams params = new AbstractHttpParams() { // from class: com.baidu.tieba.aiapps.apps.q.b.1
+        @Override // org.apache.http.params.HttpParams
+        public Object getParameter(String str) {
+            Proxy proxy;
+            if (str.equals(ConnRoutePNames.DEFAULT_PROXY)) {
+                if (b.this.dhP != null) {
+                    proxy = b.this.dhP.proxy();
+                } else {
+                    proxy = b.this.aHG().proxy();
+                }
+                if (proxy == null) {
+                    return null;
+                }
+                InetSocketAddress inetSocketAddress = (InetSocketAddress) proxy.address();
+                return new HttpHost(inetSocketAddress.getHostName(), inetSocketAddress.getPort());
+            } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
+                int connectTimeoutMillis = b.this.aHG().connectTimeoutMillis();
+                if (b.this.dhP != null) {
+                    connectTimeoutMillis = b.this.dhP.connectTimeoutMillis();
+                }
+                return Integer.valueOf(connectTimeoutMillis);
+            } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
+                int readTimeoutMillis = b.this.aHG().readTimeoutMillis();
+                if (b.this.dhP != null) {
+                    readTimeoutMillis = b.this.dhP.readTimeoutMillis();
+                }
+                return Integer.valueOf(readTimeoutMillis);
+            } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
+                boolean followRedirects = b.this.aHG().followRedirects();
+                if (b.this.dhP != null) {
+                    followRedirects = b.this.dhP.followRedirects();
+                }
+                return Boolean.valueOf(followRedirects);
+            } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
+                return b.this.userAgent;
+            } else {
+                if (str.equals(ClientPNames.CONNECTION_MANAGER_FACTORY) || str.equals(ClientPNames.CONNECTION_MANAGER_FACTORY_CLASS_NAME)) {
+                    return null;
+                }
+                throw new IllegalArgumentException(str);
+            }
+        }
+
+        @Override // org.apache.http.params.HttpParams
+        public HttpParams setParameter(String str, Object obj) {
+            if (str.equals(ConnRoutePNames.DEFAULT_PROXY)) {
+                HttpHost httpHost = (HttpHost) obj;
+                Proxy proxy = null;
+                if (httpHost != null) {
+                    proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(httpHost.getHostName(), httpHost.getPort()));
+                }
+                b.this.aHH().proxy(proxy);
+            } else if (str.equals(CoreConnectionPNames.CONNECTION_TIMEOUT)) {
+                b.this.aHH().connectTimeout(((Integer) obj).intValue(), TimeUnit.MILLISECONDS);
+            } else if (str.equals(CoreConnectionPNames.SO_TIMEOUT)) {
+                int intValue = ((Integer) obj).intValue();
+                b.this.aHH().readTimeout(intValue, TimeUnit.MILLISECONDS).writeTimeout(intValue, TimeUnit.MILLISECONDS);
+            } else if (str.equals(ClientPNames.HANDLE_REDIRECTS)) {
+                boolean booleanValue = ((Boolean) obj).booleanValue();
+                b.this.aHH().followRedirects(booleanValue).followSslRedirects(booleanValue);
+            } else if (str.equals(CoreProtocolPNames.USER_AGENT)) {
+                b.this.userAgent = (String) obj;
+            } else {
+                throw new IllegalArgumentException(str);
+            }
+            return this;
+        }
+
+        @Override // org.apache.http.params.HttpParams
+        public HttpParams copy() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override // org.apache.http.params.HttpParams
+        public boolean removeParameter(String str) {
+            throw new UnsupportedOperationException();
+        }
+    };
+    private String userAgent;
+
+    public b() {
+        aHF();
+    }
+
+    protected void aHF() {
+        this.client = HttpManager.getDefault(AppRuntime.getAppContext()).getOkHttpClient();
+    }
+
+    protected OkHttpClient aHG() {
+        return this.client;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public OkHttpClient.Builder aHH() {
+        if (this.dhO == null) {
+            this.dhO = aHG().newBuilder();
+        }
+        return this.dhO;
+    }
+
+    private Request a(HttpRequest httpRequest) {
+        RequestBody requestBody;
+        String str;
+        Request.Builder builder = new Request.Builder();
+        RequestLine requestLine = httpRequest.getRequestLine();
+        String method = requestLine.getMethod();
+        String uri = requestLine.getUri();
+        builder.url(uri);
+        Header[] allHeaders = httpRequest.getAllHeaders();
+        int length = allHeaders.length;
+        int i = 0;
+        String str2 = null;
+        while (i < length) {
+            Header header = allHeaders[i];
+            String name = header.getName();
+            if ("Content-Type".equalsIgnoreCase(name)) {
+                str = header.getValue();
+            } else {
+                builder.header(name, header.getValue());
+                str = str2;
+            }
+            i++;
+            str2 = str;
+        }
+        HttpParams params = httpRequest.getParams();
+        if (params != null) {
+            if (params.getParameter(CoreProtocolPNames.USER_AGENT) != null) {
+                this.userAgent = (String) params.getParameter(CoreProtocolPNames.USER_AGENT);
+                builder.header(HTTP.USER_AGENT, this.userAgent);
+            } else if (params.getParameter(ClientPNames.COOKIE_POLICY) != null && params.getParameter(ClientPNames.COOKIE_POLICY) == CookiePolicy.BROWSER_COMPATIBILITY) {
+                String cookie = CookieManager.getInstance().getCookie(uri);
+                if (!TextUtils.isEmpty(cookie)) {
+                    builder.addHeader(SM.COOKIE, cookie);
+                }
+            }
+        }
+        if (httpRequest instanceof HttpEntityEnclosingRequest) {
+            HttpEntity entity = ((HttpEntityEnclosingRequest) httpRequest).getEntity();
+            if (entity != null) {
+                requestBody = new a(entity, str2);
+                Header contentEncoding = entity.getContentEncoding();
+                if (contentEncoding != null) {
+                    builder.header(contentEncoding.getName(), contentEncoding.getValue());
+                }
+            } else {
+                requestBody = RequestBody.create((MediaType) null, new byte[0]);
+            }
         } else {
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.e(1, str, String.valueOf(z)));
+            requestBody = null;
+        }
+        builder.tag(httpRequest);
+        return builder.method(method, requestBody).build();
+    }
+
+    private HttpResponse a(Response response) throws IOException {
+        int code = response.code();
+        String message = response.message();
+        ProtocolVersion protocolVersion = HttpVersion.HTTP_1_1;
+        if (response.protocol().equals(Protocol.HTTP_2)) {
+            protocolVersion = new ProtocolVersion(Config.EVENT_NATIVE_VIEW_HIERARCHY, 2, 0);
+        } else if (response.protocol().equals(Protocol.SPDY_3)) {
+            protocolVersion = new ProtocolVersion("spdy", 3, 1);
+        }
+        BasicHttpResponse basicHttpResponse = new BasicHttpResponse(protocolVersion, code, message);
+        ResponseBody body = response.body();
+        InputStreamEntity inputStreamEntity = new InputStreamEntity(body.byteStream(), body.contentLength());
+        basicHttpResponse.setEntity(inputStreamEntity);
+        Headers headers = response.headers();
+        int size = headers.size();
+        for (int i = 0; i < size; i++) {
+            String name = headers.name(i);
+            String value = headers.value(i);
+            basicHttpResponse.addHeader(name, value);
+            if ("Content-Type".equalsIgnoreCase(name)) {
+                inputStreamEntity.setContentType(value);
+            } else if (HTTP.CONTENT_ENCODING.equalsIgnoreCase(name)) {
+                inputStreamEntity.setContentEncoding(value);
+            }
+        }
+        return basicHttpResponse;
+    }
+
+    @Override // com.baidu.tieba.aiapps.apps.q.e
+    public HttpResponse b(HttpUriRequest httpUriRequest) throws ClientProtocolException, IOException {
+        return execute(httpUriRequest);
+    }
+
+    @Override // com.baidu.tieba.aiapps.apps.q.e
+    public void close() {
+    }
+
+    public void aHI() throws IOException {
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpParams getParams() {
+        return this.params;
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public ClientConnectionManager getConnectionManager() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpResponse execute(HttpUriRequest httpUriRequest) throws IOException {
+        return execute((HttpHost) null, httpUriRequest, (HttpContext) null);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpResponse execute(HttpUriRequest httpUriRequest, HttpContext httpContext) throws IOException {
+        return execute((HttpHost) null, httpUriRequest, httpContext);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest) throws IOException {
+        return execute(httpHost, httpRequest, (HttpContext) null);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws IOException {
+        Call newCall;
+        aHI();
+        Request a2 = a(httpRequest);
+        if (this.dhO == null) {
+            newCall = aHG().newCall(a2);
+        } else {
+            this.dhP = this.dhO.build();
+            newCall = this.dhP.newCall(a2);
+        }
+        return a(newCall.execute());
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler) throws IOException {
+        return (T) execute(null, httpUriRequest, responseHandler, null);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public <T> T execute(HttpUriRequest httpUriRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException {
+        return (T) execute(null, httpUriRequest, responseHandler, httpContext);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler) throws IOException {
+        return (T) execute(httpHost, httpRequest, responseHandler, null);
+    }
+
+    @Override // org.apache.http.client.HttpClient
+    public <T> T execute(HttpHost httpHost, HttpRequest httpRequest, ResponseHandler<? extends T> responseHandler, HttpContext httpContext) throws IOException {
+        HttpResponse execute = execute(httpHost, httpRequest, httpContext);
+        try {
+            return responseHandler.handleResponse(execute);
+        } finally {
+            c(execute);
         }
     }
 
-    public static boolean getBoolean(String str, boolean z) {
-        if (ProcessUtils.isMainProcess()) {
-            return a.aGg().getBoolean(str, z);
+    private static void c(HttpResponse httpResponse) {
+        try {
+            httpResponse.getEntity().consumeContent();
+        } catch (Throwable th) {
         }
-        return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.e(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public static class a extends com.baidu.swan.c.d {
-        private a() {
-            super("night_mode_prefs_name");
-        }
+    public static final class a extends RequestBody {
+        private final HttpEntity dhR;
+        private final MediaType mediaType;
 
-        /* JADX INFO: Access modifiers changed from: private */
-        /* renamed from: com.baidu.tieba.aiapps.apps.q.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static final class C0287a {
-            private static final a dgd = new a();
-        }
-
-        public static a aGg() {
-            return C0287a.dgd;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class e {
-        final int aVQ;
-        final String aVR;
-        final String aVS;
-
-        e(int i, String str, String str2) {
-            this.aVQ = i;
-            this.aVR = str;
-            this.aVS = str2;
-        }
-
-        static e J(Bundle bundle) {
-            if (bundle.isEmpty()) {
-                return null;
+        a(HttpEntity httpEntity, String str) {
+            this.dhR = httpEntity;
+            if (str != null) {
+                this.mediaType = MediaType.parse(str);
+            } else if (httpEntity.getContentType() == null) {
+                this.mediaType = b.dhN;
+            } else {
+                this.mediaType = MediaType.parse(httpEntity.getContentType().getValue());
             }
-            return new e(bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
 
-        static Bundle e(int i, String str, String str2) {
-            Bundle bundle = new Bundle();
-            bundle.putString("bundle_prefs_key", str);
-            bundle.putInt("bundle_data_type_key", i);
-            bundle.putString("bundle_data_value_key", str2);
-            return bundle;
+        @Override // okhttp3.RequestBody
+        public long contentLength() {
+            return this.dhR.getContentLength();
         }
 
-        public String toString() {
-            return "SpMethodInfo{mDataType=" + this.aVQ + ", mPrefName='" + this.aVR + "', mDataValue='" + this.aVS + "'}";
-        }
-    }
-
-    /* renamed from: com.baidu.tieba.aiapps.apps.q.b$b  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    private static abstract class AbstractC0288b extends ProviderDelegation {
-        protected abstract Bundle a(e eVar);
-
-        private AbstractC0288b() {
+        @Override // okhttp3.RequestBody
+        public MediaType contentType() {
+            return this.mediaType;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public final Bundle execCall(Bundle bundle) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
-            }
-            return a(e.J(bundle));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class d extends AbstractC0288b {
-        private d() {
-            super();
-        }
-
-        @Override // com.baidu.tieba.aiapps.apps.q.b.AbstractC0288b
-        protected Bundle a(e eVar) {
-            switch (eVar.aVQ) {
-                case 1:
-                    a.aGg().putBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS));
-                    break;
-            }
-            return Bundle.EMPTY;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
-    public static class c extends AbstractC0288b {
-        private c() {
-            super();
-        }
-
-        @Override // com.baidu.tieba.aiapps.apps.q.b.AbstractC0288b
-        protected Bundle a(e eVar) {
-            Bundle bundle = new Bundle();
-            switch (eVar.aVQ) {
-                case 1:
-                    bundle.putBoolean("result_value", a.aGg().getBoolean(eVar.aVR, Boolean.parseBoolean(eVar.aVS)));
-                    break;
-            }
-            return bundle;
+        @Override // okhttp3.RequestBody
+        public void writeTo(BufferedSink bufferedSink) throws IOException {
+            this.dhR.writeTo(bufferedSink.outputStream());
         }
     }
 }

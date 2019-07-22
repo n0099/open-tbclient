@@ -10,23 +10,23 @@ import java.io.RandomAccessFile;
 public class MyAudioRecorder implements d {
     private byte[] buffer;
     private int bufferSize;
-    private boolean cdG;
-    private int cdJ;
-    private State cdK;
-    private short cdL;
-    private int cdM;
-    private short cdN;
-    private int cdO;
-    private int cdP;
-    private int cdQ;
-    private RandomAccessFile cdr;
+    private boolean ceJ;
+    private int ceM;
+    private State ceN;
+    private short ceO;
+    private int ceP;
+    private short ceQ;
+    private int ceR;
+    private int ceS;
+    private int ceT;
+    private RandomAccessFile cet;
     private String filePath;
     private int payloadSize;
     private Thread writeThread;
-    private static final int[] cdF = {44100, 22050, 11025, 8000};
+    private static final int[] ceI = {44100, 22050, 11025, 8000};
     private static Object mLock = new Object();
-    private static AudioRecord cdH = null;
-    private static MediaRecorder cdI = null;
+    private static AudioRecord ceK = null;
+    private static MediaRecorder ceL = null;
 
     /* loaded from: classes.dex */
     public enum State {
@@ -40,87 +40,87 @@ public class MyAudioRecorder implements d {
     public static MyAudioRecorder d(Boolean bool) {
         MyAudioRecorder myAudioRecorder;
         synchronized (mLock) {
-            cdH = null;
-            cdI = null;
+            ceK = null;
+            ceL = null;
             if (!bool.booleanValue()) {
                 int i = 3;
                 while (true) {
-                    myAudioRecorder = new MyAudioRecorder(true, 1, cdF[i], 2, 2);
+                    myAudioRecorder = new MyAudioRecorder(true, 1, ceI[i], 2, 2);
                     int i2 = i - 1;
-                    if (!(myAudioRecorder.akx() != State.INITIALIZING) || !(i2 >= 0)) {
+                    if (!(myAudioRecorder.alC() != State.INITIALIZING) || !(i2 >= 0)) {
                         break;
                     }
                     i = i2;
                 }
             } else {
-                myAudioRecorder = new MyAudioRecorder(false, 1, cdF[3], 2, 2);
+                myAudioRecorder = new MyAudioRecorder(false, 1, ceI[3], 2, 2);
             }
         }
         return myAudioRecorder;
     }
 
-    public State akx() {
-        return this.cdK;
+    public State alC() {
+        return this.ceN;
     }
 
     public MyAudioRecorder(boolean z, int i, int i2, int i3, int i4) {
-        this.cdJ = 0;
+        this.ceM = 0;
         this.filePath = null;
         try {
-            this.cdG = z;
-            if (this.cdG) {
+            this.ceJ = z;
+            if (this.ceJ) {
                 if (i4 == 2) {
-                    this.cdN = (short) 16;
+                    this.ceQ = (short) 16;
                 } else {
-                    this.cdN = (short) 8;
+                    this.ceQ = (short) 8;
                 }
                 if (i3 == 2) {
-                    this.cdL = (short) 1;
+                    this.ceO = (short) 1;
                 } else {
-                    this.cdL = (short) 2;
+                    this.ceO = (short) 2;
                 }
-                this.cdO = i;
-                this.cdM = i2;
-                this.cdP = i4;
-                this.cdQ = (i2 * 120) / 1000;
-                this.bufferSize = (((this.cdQ * 2) * this.cdN) * this.cdL) / 8;
+                this.ceR = i;
+                this.ceP = i2;
+                this.ceS = i4;
+                this.ceT = (i2 * 120) / 1000;
+                this.bufferSize = (((this.ceT * 2) * this.ceQ) * this.ceO) / 8;
                 if (this.bufferSize < AudioRecord.getMinBufferSize(i2, i3, i4)) {
                     this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4);
-                    this.cdQ = this.bufferSize / (((this.cdN * 2) * this.cdL) / 8);
+                    this.ceT = this.bufferSize / (((this.ceQ * 2) * this.ceO) / 8);
                     BdLog.w(MyAudioRecorder.class.getName() + "Increasing buffer size to " + Integer.toString(this.bufferSize));
                 }
-                cdH = new AudioRecord(i, i2, i3, i4, this.bufferSize);
-                if (cdH.getRecordingState() == 3) {
-                    cdH.stop();
+                ceK = new AudioRecord(i, i2, i3, i4, this.bufferSize);
+                if (ceK.getRecordingState() == 3) {
+                    ceK.stop();
                 }
-                if (cdH.getState() != 1) {
+                if (ceK.getState() != 1) {
                     throw new Exception("AudioRecord initialization failed");
                 }
             } else {
-                cdI = new MediaRecorder();
-                cdI.setAudioSource(1);
-                cdI.setOutputFormat(1);
-                cdI.setAudioEncoder(1);
+                ceL = new MediaRecorder();
+                ceL.setAudioSource(1);
+                ceL.setOutputFormat(1);
+                ceL.setAudioEncoder(1);
             }
-            this.cdJ = 0;
+            this.ceM = 0;
             this.filePath = null;
-            this.cdK = State.INITIALIZING;
+            this.ceN = State.INITIALIZING;
         } catch (Exception e) {
             if (e.getMessage() != null) {
                 BdLog.e(e);
             } else {
                 BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while initializing recording");
             }
-            this.cdK = State.ERROR;
+            this.ceN = State.ERROR;
         }
     }
 
-    public boolean oJ(String str) {
+    public boolean pa(String str) {
         try {
-            if (this.cdK == State.INITIALIZING) {
+            if (this.ceN == State.INITIALIZING) {
                 this.filePath = str;
-                if (!this.cdG) {
-                    cdI.setOutputFile(this.filePath);
+                if (!this.ceJ) {
+                    ceL.setOutputFile(this.filePath);
                 }
             }
             return true;
@@ -130,51 +130,51 @@ public class MyAudioRecorder implements d {
             } else {
                 BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured while setting output path");
             }
-            this.cdK = State.ERROR;
+            this.ceN = State.ERROR;
             return false;
         }
     }
 
     public boolean prepare() {
         try {
-            if (this.cdK == State.INITIALIZING) {
-                if (this.cdG) {
-                    if ((this.filePath != null) & (cdH.getState() == 1)) {
-                        if (this.cdr != null) {
-                            this.cdr.close();
-                            this.cdr = null;
+            if (this.ceN == State.INITIALIZING) {
+                if (this.ceJ) {
+                    if ((this.filePath != null) & (ceK.getState() == 1)) {
+                        if (this.cet != null) {
+                            this.cet.close();
+                            this.cet = null;
                         }
-                        this.cdr = new RandomAccessFile(this.filePath, "rw");
-                        this.cdr.setLength(0L);
-                        this.cdr.writeBytes("RIFF");
-                        this.cdr.writeInt(0);
-                        this.cdr.writeBytes("WAVE");
-                        this.cdr.writeBytes("fmt ");
-                        this.cdr.writeInt(Integer.reverseBytes(16));
-                        this.cdr.writeShort(Short.reverseBytes((short) 1));
-                        this.cdr.writeShort(Short.reverseBytes(this.cdL));
-                        this.cdr.writeInt(Integer.reverseBytes(this.cdM));
-                        this.cdr.writeInt(Integer.reverseBytes(((this.cdM * this.cdN) * this.cdL) / 8));
-                        this.cdr.writeShort(Short.reverseBytes((short) ((this.cdL * this.cdN) / 8)));
-                        this.cdr.writeShort(Short.reverseBytes(this.cdN));
-                        this.cdr.writeBytes("data");
-                        this.cdr.writeInt(0);
-                        this.buffer = new byte[((this.cdQ * this.cdN) / 8) * this.cdL];
-                        this.cdK = State.READY;
+                        this.cet = new RandomAccessFile(this.filePath, "rw");
+                        this.cet.setLength(0L);
+                        this.cet.writeBytes("RIFF");
+                        this.cet.writeInt(0);
+                        this.cet.writeBytes("WAVE");
+                        this.cet.writeBytes("fmt ");
+                        this.cet.writeInt(Integer.reverseBytes(16));
+                        this.cet.writeShort(Short.reverseBytes((short) 1));
+                        this.cet.writeShort(Short.reverseBytes(this.ceO));
+                        this.cet.writeInt(Integer.reverseBytes(this.ceP));
+                        this.cet.writeInt(Integer.reverseBytes(((this.ceP * this.ceQ) * this.ceO) / 8));
+                        this.cet.writeShort(Short.reverseBytes((short) ((this.ceO * this.ceQ) / 8)));
+                        this.cet.writeShort(Short.reverseBytes(this.ceQ));
+                        this.cet.writeBytes("data");
+                        this.cet.writeInt(0);
+                        this.buffer = new byte[((this.ceT * this.ceQ) / 8) * this.ceO];
+                        this.ceN = State.READY;
                     } else {
                         BdLog.e(MyAudioRecorder.class.getName() + "prepare() method called on uninitialized recorder");
-                        this.cdK = State.ERROR;
+                        this.ceN = State.ERROR;
                         return false;
                     }
                 } else {
-                    cdI.prepare();
-                    this.cdK = State.READY;
+                    ceL.prepare();
+                    this.ceN = State.READY;
                 }
                 return true;
             }
             BdLog.e(MyAudioRecorder.class.getName() + "prepare() method called on illegal state");
             release();
-            this.cdK = State.ERROR;
+            this.ceN = State.ERROR;
             return false;
         } catch (Exception e) {
             if (e.getMessage() != null) {
@@ -182,64 +182,64 @@ public class MyAudioRecorder implements d {
             } else {
                 BdLog.e(MyAudioRecorder.class.getName() + "Unknown error occured in prepare()");
             }
-            this.cdK = State.ERROR;
+            this.ceN = State.ERROR;
             return false;
         }
     }
 
     public void release() {
-        if (this.cdK == State.RECORDING) {
+        if (this.ceN == State.RECORDING) {
             stop();
         } else {
-            if ((this.cdK == State.READY) & this.cdG) {
+            if ((this.ceN == State.READY) & this.ceJ) {
                 try {
-                    this.cdr.close();
+                    this.cet.close();
                 } catch (IOException e) {
                     BdLog.e(MyAudioRecorder.class.getName() + "I/O exception occured while closing output file");
                 }
                 new File(this.filePath).delete();
             }
         }
-        if (this.cdG) {
-            if (cdH != null) {
-                cdH.release();
+        if (this.ceJ) {
+            if (ceK != null) {
+                ceK.release();
             }
-        } else if (cdI != null) {
-            cdI.release();
+        } else if (ceL != null) {
+            ceL.release();
         }
     }
 
     public void start() {
-        if (this.cdK == State.READY) {
-            if (this.cdG) {
+        if (this.ceN == State.READY) {
+            if (this.ceJ) {
                 this.payloadSize = 0;
-                cdH.startRecording();
-                cdH.read(this.buffer, 0, this.buffer.length);
+                ceK.startRecording();
+                ceK.read(this.buffer, 0, this.buffer.length);
             } else {
-                cdI.start();
+                ceL.start();
             }
-            this.cdK = State.RECORDING;
+            this.ceN = State.RECORDING;
             return;
         }
         BdLog.e(MyAudioRecorder.class.getName() + "start() called on illegal state");
-        this.cdK = State.ERROR;
+        this.ceN = State.ERROR;
     }
 
     public void stop() {
         BdLog.e(MyAudioRecorder.class.getName() + "audioRecorder.stop()");
-        cdH.stop();
+        ceK.stop();
         try {
-            this.cdr.seek(4L);
-            this.cdr.writeInt(Integer.reverseBytes(this.payloadSize + 36));
-            this.cdr.seek(40L);
-            this.cdr.writeInt(Integer.reverseBytes(this.payloadSize));
-            this.cdr.close();
+            this.cet.seek(4L);
+            this.cet.writeInt(Integer.reverseBytes(this.payloadSize + 36));
+            this.cet.seek(40L);
+            this.cet.writeInt(Integer.reverseBytes(this.payloadSize));
+            this.cet.close();
             BdLog.e(MyAudioRecorder.class.getName() + "randomAccessWriter.close()");
         } catch (IOException e) {
             BdLog.e(MyAudioRecorder.class.getName() + "I/O exception occured while closing output file");
-            this.cdK = State.ERROR;
+            this.ceN = State.ERROR;
         }
-        this.cdK = State.STOPPED;
+        this.ceN = State.STOPPED;
     }
 
     private short b(byte b, byte b2) {
@@ -247,21 +247,21 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean oH(String str) {
-        if (oJ(str)) {
+    public boolean oY(String str) {
+        if (pa(str)) {
             return prepare();
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean akt() {
+    public boolean aly() {
         synchronized (mLock) {
             if (this.writeThread == null || !this.writeThread.isAlive()) {
                 this.writeThread = new Thread(new Runnable() { // from class: com.baidu.tbadk.core.voice.service.MyAudioRecorder.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MyAudioRecorder.this.aks();
+                        MyAudioRecorder.this.alx();
                     }
                 });
                 this.writeThread.start();
@@ -271,37 +271,37 @@ public class MyAudioRecorder implements d {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public void aku() {
-        this.cdK = State.STOPPED;
+    public void alz() {
+        this.ceN = State.STOPPED;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
-    public boolean akv() {
-        return this.cdK == State.RECORDING;
+    public boolean alA() {
+        return this.ceN == State.RECORDING;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aks() {
-        if (cdH != null) {
+    public void alx() {
+        if (ceK != null) {
             try {
                 start();
-                while (akv()) {
-                    cdH.read(this.buffer, 0, this.buffer.length);
+                while (alA()) {
+                    ceK.read(this.buffer, 0, this.buffer.length);
                     try {
                         System.out.println(this.buffer);
-                        this.cdr.write(this.buffer);
+                        this.cet.write(this.buffer);
                         this.payloadSize += this.buffer.length;
-                        if (this.cdN == 16) {
+                        if (this.ceQ == 16) {
                             for (int i = 0; i < this.buffer.length / 2; i++) {
                                 short b = b(this.buffer[i * 2], this.buffer[(i * 2) + 1]);
-                                if (b > this.cdJ) {
-                                    this.cdJ = b;
+                                if (b > this.ceM) {
+                                    this.ceM = b;
                                 }
                             }
                         } else {
                             for (int i2 = 0; i2 < this.buffer.length; i2++) {
-                                if (this.buffer[i2] > this.cdJ) {
-                                    this.cdJ = this.buffer[i2];
+                                if (this.buffer[i2] > this.ceM) {
+                                    this.ceM = this.buffer[i2];
                                 }
                             }
                         }

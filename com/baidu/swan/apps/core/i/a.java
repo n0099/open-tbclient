@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.swan.apps.b.c.g;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.facebook.common.internal.h;
@@ -14,11 +15,11 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class a implements g {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final Set<String> asU = h.L("http://", "https://", SkiaImageDecoder.FILE_PREFIX);
+    private static final Set<String> atx = h.M("http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, SkiaImageDecoder.FILE_PREFIX);
 
     @Override // com.baidu.swan.apps.b.c.g
     public boolean P(@NonNull Context context, String str) {
-        return !dR(str) && T(context, str);
+        return !dW(str) && T(context, str);
     }
 
     private static boolean T(Context context, String str) {
@@ -47,11 +48,11 @@ public class a implements g {
         }
     }
 
-    private static boolean dR(String str) {
+    private static boolean dW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        for (String str2 : asU) {
+        for (String str2 : atx) {
             if (str.startsWith(str2)) {
                 return true;
             }

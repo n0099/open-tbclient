@@ -4,6 +4,8 @@ import android.view.View;
 import android.widget.AbsoluteLayout;
 /* loaded from: classes2.dex */
 public interface d extends com.baidu.swan.apps.core.container.a {
+    void A(int i, int i2);
+
     boolean canGoBack();
 
     int getContentHeight();
@@ -18,7 +20,5 @@ public interface d extends com.baidu.swan.apps.core.container.a {
 
     void goBack();
 
-    View wR();
-
-    void x(int i, int i2);
+    View xs();
 }

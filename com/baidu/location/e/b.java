@@ -23,7 +23,6 @@ import android.telephony.gsm.GsmCellLocation;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.idl.authority.AuthorityState;
 import com.baidu.location.g.g;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.Iterator;
@@ -556,7 +555,7 @@ public class b {
 
     public synchronized void b() {
         if (!this.i && com.baidu.location.f.isServing) {
-            this.d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.d = (TelephonyManager) com.baidu.location.f.getServiceContext().getSystemService("phone");
             this.g = new LinkedList();
             this.h = new a();
             i();

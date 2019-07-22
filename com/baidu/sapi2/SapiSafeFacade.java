@@ -2,7 +2,7 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
+import com.baidu.sapi2.utils.SafeService;
 /* loaded from: classes.dex */
 public final class SapiSafeFacade {
     public static final int DEVICE_AUTH_TOKEN_EVENT_ID = 122;

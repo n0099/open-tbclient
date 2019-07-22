@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes6.dex */
 public class d {
-    private a fni;
-    private com.baidu.adp.framework.listener.a fnm = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a fsh;
+    private com.baidu.adp.framework.listener.a fsl = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.fni != null) {
-                    d.this.fni.a(false, null);
+                if (d.this.fsh != null) {
+                    d.this.fsh.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.fni != null) {
-                d.this.fni.a(searchData != null, searchData);
+            if (d.this.fsh != null) {
+                d.this.fsh.a(searchData != null, searchData);
             }
         }
     };
@@ -44,17 +44,17 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.fnm.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.fnm);
+        this.fsl.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.fsl);
     }
 
     public void a(a aVar) {
-        this.fni = aVar;
+        this.fsh = aVar;
     }
 
-    public void wl(String str) {
+    public void wQ(String str) {
         if (!StringUtils.isNull(str)) {
-            if (!l.ki()) {
+            if (!l.kt()) {
                 this.mPageContext.showToast(R.string.neterror);
                 return;
             }

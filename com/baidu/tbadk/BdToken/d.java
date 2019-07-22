@@ -21,52 +21,53 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static final Pattern byd = Pattern.compile("\\$[0-9A-Za-z@]{5,50}[#$]", 2);
-    private q bye;
-    private e byf;
-    private AtomicBoolean byg;
-    private e.a byh;
+    public static final Pattern byU = Pattern.compile("\\$[0-9A-Za-z@]{5,50}[#$]", 2);
+    private r byV;
+    private e byW;
+    private AtomicBoolean byX;
+    private e.a byY;
 
-    public static final d Yu() {
-        return a.byj;
+    public static final d Zq() {
+        return a.bza;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
-    private static class a {
-        private static final d byj = new d();
+    public static class a {
+        private static final d bza = new d();
     }
 
     private d() {
-        this.byg = new AtomicBoolean(false);
-        this.byh = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
+        this.byX = new AtomicBoolean(false);
+        this.byY = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
             @Override // com.baidu.tbadk.BdToken.e.a
-            public void a(boolean z, u uVar) {
-                if (z && uVar != null) {
+            public void a(boolean z, v vVar) {
+                if (z && vVar != null) {
                     d.this.clearClipBoard();
-                    d.this.bw(uVar.getTitle(), uVar.getUrl());
-                    d.this.a(uVar);
+                    d.this.bw(vVar.getTitle(), vVar.getUrl());
+                    d.this.a(vVar);
                 }
             }
         };
         registerTask();
         registerListener();
-        this.byf = new e();
-        this.byf.a(this.byh);
-        this.bye = new q();
+        this.byW = new e();
+        this.byW.a(this.byY);
+        this.byV = new r();
     }
 
     private void registerTask() {
         com.baidu.tieba.tbadkCore.a.a.a(309626, DecryptCodeSocketRespMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.bn(TbConfig.DECRYPT_CODE_URL, 309626));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_DECRYPT_CODE, com.baidu.tieba.tbadkCore.a.a.bo(TbConfig.DECRYPT_CODE_URL, 309626));
         tbHttpMessageTask.setResponsedClass(DecryptCodeHttpRespMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -77,7 +78,7 @@ public class d {
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage responsedMessage) {
                 g decryptData;
-                d.this.byg.compareAndSet(true, false);
+                d.this.byX.compareAndSet(true, false);
                 if (responsedMessage instanceof DecryptCodeHttpRespMsg) {
                     decryptData = ((DecryptCodeHttpRespMsg) responsedMessage).getDecryptData();
                 } else if (responsedMessage instanceof DecryptCodeSocketRespMsg) {
@@ -87,21 +88,21 @@ public class d {
                 }
                 if (decryptData != null) {
                     UtilHelper.clearClipBoard();
-                    int YF = decryptData.YF();
-                    if (YF == 1 || YF == 0) {
+                    int ZB = decryptData.ZB();
+                    if (ZB == 1 || ZB == 0) {
                         if (MessageManager.getInstance().findTask(2921361) != null) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                         }
-                    } else if (YF == 2) {
+                    } else if (ZB == 2) {
                         d.this.bw(decryptData.getTitle(), decryptData.getUrl());
-                    } else if (YF != 4 && YF == 3 && !StringUtils.isNull(decryptData.getUrl())) {
+                    } else if (ZB != 4 && ZB == 3 && !StringUtils.isNull(decryptData.getUrl())) {
                         Uri parse = Uri.parse(decryptData.getUrl());
                         if (parse == null || parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) == null || parse.getQueryParameter("obj_type") == null || !parse.getQueryParameter("obj_type").equals("wise")) {
-                            d.this.li(decryptData.getUrl());
-                        } else if (com.baidu.tbadk.core.sharedPref.b.agM().getInt("need_deal_diversion_jump", 0) == 1) {
-                            com.baidu.tbadk.core.sharedPref.b.agM().putInt("need_deal_diversion_jump", 0);
+                            d.this.lq(decryptData.getUrl());
+                        } else if (com.baidu.tbadk.core.sharedPref.b.ahO().getInt("need_deal_diversion_jump", 0) == 1) {
+                            com.baidu.tbadk.core.sharedPref.b.ahO().putInt("need_deal_diversion_jump", 0);
                             if (MessageManager.getInstance().findTask(2921361) != null) {
-                                TiebaStatic.log(new am("c13390").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
+                                TiebaStatic.log(new an("c13390").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921377, decryptData));
                             }
                         }
@@ -115,8 +116,8 @@ public class d {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                     d.this.check();
-                    d.this.Yw();
-                    d.this.Yv();
+                    d.this.Zs();
+                    d.this.Zr();
                 }
             }
         });
@@ -124,7 +125,7 @@ public class d {
 
     public void check() {
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(clipBoardContent)) {
+        if (!aq.isEmpty(clipBoardContent)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.4
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -135,11 +136,11 @@ public class d {
                         return null;
                     }
                     String str = strArr[0];
-                    if (ap.isEmpty(str)) {
+                    if (aq.isEmpty(str)) {
                         return null;
                     }
-                    String Yy = d.this.Yy();
-                    if (ap.isEmpty(Yy) || (matcher = Pattern.compile(Yy).matcher(str)) == null || !matcher.find()) {
+                    String Zu = d.this.Zu();
+                    if (aq.isEmpty(Zu) || (matcher = Pattern.compile(Zu).matcher(str)) == null || !matcher.find()) {
                         return null;
                     }
                     return str;
@@ -151,21 +152,21 @@ public class d {
                 public void onPostExecute(String str) {
                     super.onPostExecute((AnonymousClass4) str);
                     if (str == null) {
-                        if (d.this.bye != null && d.this.Yx()) {
-                            d.this.bye.check();
+                        if (d.this.byV != null && d.this.Zt()) {
+                            d.this.byV.check();
                             return;
                         }
                         return;
                     }
-                    d.this.lh(str);
+                    d.this.lp(str);
                 }
             }.execute(clipBoardContent);
         }
     }
 
-    public void Yv() {
+    public void Zr() {
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(clipBoardContent)) {
+        if (!aq.isEmpty(clipBoardContent)) {
             new BdAsyncTask<String, Integer, String>() { // from class: com.baidu.tbadk.BdToken.d.5
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -176,7 +177,7 @@ public class d {
                         return null;
                     }
                     String str = strArr[0];
-                    if (ap.isEmpty(str) || (matcher = d.byd.matcher(str)) == null || !matcher.find()) {
+                    if (aq.isEmpty(str) || (matcher = d.byU.matcher(str)) == null || !matcher.find()) {
                         return null;
                     }
                     return str;
@@ -187,8 +188,8 @@ public class d {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public void onPostExecute(String str) {
                     super.onPostExecute((AnonymousClass5) str);
-                    if (str != null && !d.this.byg.get()) {
-                        d.this.byg.compareAndSet(false, true);
+                    if (str != null && !d.this.byX.get()) {
+                        d.this.byX.compareAndSet(false, true);
                         DecryptCodeReqMsg decryptCodeReqMsg = new DecryptCodeReqMsg();
                         decryptCodeReqMsg.setCode(str);
                         MessageManager.getInstance().sendMessage(decryptCodeReqMsg);
@@ -198,22 +199,22 @@ public class d {
         }
     }
 
-    public void Yw() {
+    public void Zs() {
         String clipBoardContent = getClipBoardContent();
-        if (!ap.isEmpty(clipBoardContent) && clipBoardContent.contains("^sZqulxTVsT$")) {
-            lh(clipBoardContent);
+        if (!aq.isEmpty(clipBoardContent) && clipBoardContent.contains("^sZqulxTVsT$")) {
+            lp(clipBoardContent);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean Yx() {
+    public boolean Zt() {
         String topActivityClassName = UtilHelper.getTopActivityClassName();
-        return !ap.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
+        return !aq.isEmpty(topActivityClassName) && topActivityClassName.equals("com.baidu.tieba.tblauncher.MainTabActivity") && TbSingleton.getInstance().isRecommendPage();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lh(String str) {
-        this.byf.load(str);
+    public void lp(String str) {
+        this.byW.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -226,26 +227,26 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String Yy() {
-        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.agM().getString("key_baidu_password_re", "JTVDJTVFJTVCJTIzJTI0YS16QS1aMC05JTVEJTdCMTAlN0QlNUMlNUUlN0IwJTJDMSU3RCU1QiU1QyU1RSUyNCU1RCU3QjElN0Q="), 0));
+    public String Zu() {
+        return new String(Base64.decode(com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_baidu_password_re", "JTVDJTVFJTVCJTIzJTI0YS16QS1aMC05JTVEJTdCMTAlN0QlNUMlNUUlN0IwJTJDMSU3RCU1QiU1QyU1RSUyNCU1RCU3QjElN0Q="), 0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bw(String str, String str2) {
-        TbPageContext<?> V;
-        if (!ap.isEmpty(str2) && (V = V(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            ba.aiz().a(V, str, new String[]{str2});
+        TbPageContext<?> Y;
+        if (!aq.isEmpty(str2) && (Y = Y(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
+            bb.ajC().a(Y, str, new String[]{str2});
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void li(String str) {
+    public void lq(String str) {
         Activity currentActivity;
         Uri parse;
-        if (!ap.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
-            if (str.startsWith(f.SCHEME)) {
+        if (!aq.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
+            if (str.startsWith(f.bzd)) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(f.byu, f.byx);
+                buildUpon.appendQueryParameter(f.bzn, f.bzr);
                 parse = buildUpon.build();
             }
             UtilHelper.dealOneScheme(currentActivity, parse.toString());
@@ -253,13 +254,13 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(u uVar) {
-        if (uVar != null && uVar.YU() != null && !ap.isEmpty(uVar.YU().btntext) && Yx()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, uVar.YU().btntext));
+    public void a(v vVar) {
+        if (vVar != null && vVar.ZT() != null && !aq.isEmpty(vVar.ZT().btntext) && Zt()) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921380, vVar.ZT().btntext));
         }
     }
 
-    private TbPageContext V(Activity activity) {
+    private TbPageContext Y(Activity activity) {
         if (activity instanceof BaseActivity) {
             return ((BaseActivity) activity).getPageContext();
         }

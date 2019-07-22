@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.message.SignMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tieba.signall.SignAllForumActivity;
 import com.baidu.tieba.signall.SignAllForumAdvertActivity;
@@ -32,7 +32,7 @@ public class SignStatic {
         TbadkCoreApplication.getInst().RegisterIntent(SupplementSignActivityConfig.class, SupplementSignActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumActivityConfig.class, SignAllForumActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SignAllForumAdvertActivityConfig.class, SignAllForumAdvertActivity.class);
-        aAu();
+        aBJ();
         registerTask();
     }
 
@@ -57,21 +57,21 @@ public class SignStatic {
                     x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.SIGN_ADDRESS);
                     xVar.o("kw", name);
                     xVar.o("fid", id);
-                    xVar.ahC().aiB().mIsNeedTbs = true;
-                    xVar.dX(true);
-                    String ahe = xVar.ahe();
-                    if (xVar.ahF()) {
-                        if (xVar.ahC().aiC().isRequestSuccess()) {
+                    xVar.aiE().ajE().mIsNeedTbs = true;
+                    xVar.eb(true);
+                    String aig = xVar.aig();
+                    if (xVar.aiH()) {
+                        if (xVar.aiE().ajF().isRequestSuccess()) {
                             signData = new SignData();
-                            signData.parserJson(ahe);
+                            signData.parserJson(aig);
                             signData.forumId = id;
                             signData.forumName = name;
                         } else {
-                            if (!ap.isEmpty(ahe)) {
-                                JSONObject jSONObject = new JSONObject(ahe);
-                                if (AntiHelper.AD(xVar.ahG()) || "199901".equals(jSONObject.optString("error_code"))) {
+                            if (!aq.isEmpty(aig)) {
+                                JSONObject jSONObject = new JSONObject(aig);
+                                if (AntiHelper.Bj(xVar.aiI()) || "199901".equals(jSONObject.optString("error_code"))) {
                                     signData = new SignData();
-                                    signData.parserJson(ahe);
+                                    signData.parserJson(aig);
                                     signData.is_signed = 1;
                                     signData.count_sign_num = 1;
                                     signData.sign_bonus_point = 0;
@@ -79,7 +79,7 @@ public class SignStatic {
                                     signData.forumName = name;
                                 }
                             }
-                            signMessage.mSignErrorCode = xVar.ahG();
+                            signMessage.mSignErrorCode = xVar.aiI();
                             signMessage.mSignErrorString = xVar.getErrorString();
                         }
                         signMessage.signData = signData;
@@ -96,9 +96,9 @@ public class SignStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aAu() {
-        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.SignStatic.2
-            @Override // com.baidu.tbadk.core.util.ba.a
+    private static void aBJ() {
+        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.SignStatic.2
+            @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;

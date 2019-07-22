@@ -1,27 +1,45 @@
 package com.baidu.tbadk.core.util;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class ax {
-    private static String[] bTj = {"com.baidu.tieba.nightResource.NightResourceStatic", "com.baidu.tieba.dnsproxy.DnsProxyStatic", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.imageProblem.cdnOptimize.Static", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.homepage.framework.RecommendFrsStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.frs.FrsActivityStatic", "com.baidu.tieba.VideoCacheClient.VCacheClientStatic", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.tblauncher.ClientStartStatic", "com.baidu.tieba.tblauncher.MainTabActivityStatic", "com.baidu.tieba.frs.game.strategy.FrsGameStrategyFragmentDelegateStatic", "com.baidu.tieba.frs.FRSExtraStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.personCenter.PersonCenterFragmentStatic", "com.baidu.tieba.pbextra.PbExtraStatic", "com.baidu.tieba.pbextra.PushThreadActivityStatic", "com.baidu.tieba.pbextra.praise.PraiseListActivityStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic", "com.baidu.tieba.pb.pb.main.PbActivityStatic", "com.baidu.tieba.account.AccountActivityStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.setting.more.SettingStatic", "com.baidu.tieba.pushdialog.PushDialogStatic", "com.baidu.tieba.write.write.WriteActivityStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic", "com.baidu.tieba.InjectPlugin.FrsFeedAd.FrsFeedAdStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivityStatic", "com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic", "com.baidu.tieba.addresslist.relationship.RelationshipStatic", "com.baidu.tieba.addresslist.TaskRegisterStatic", "com.baidu.tieba.yunpush.PushStatic", "com.baidu.tieba.CrabSdkStatic", "com.baidu.tieba.passaccount.framework.PassManagerStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.screenlocknotify.ScreenLockActivityStatic", "com.baidu.tieba.keepLive.KeepLiveStatic", "com.baidu.tieba.JPushStatic", "com.baidu.tieba.tbadvert.TbAdvertStatic", "com.baidu.tieba.pluginCenter.PluginCenterActivityStatic", "com.baidu.tieba.barselect.BazhuSelectStatic", "com.baidu.tieba.barselect.BarVoteActivityStatic", "com.baidu.tieba.homepage.HomePageStatic", "com.baidu.tieba.im.Static", "com.baidu.tieba.likedForum.LikedForumStatic", "com.baidu.tbadk.TbLaunchStatic", "com.baidu.tbadk.coreExtra.messageCenter.TbadkStatic", "com.baidu.tieba.QuickPlayer.QuickPlayerStatic", "com.baidu.tieba.tbadkCore.tiebaStatMsg.Static", "com.baidu.tieba.tbadkCore.tiebaSwitchMsg.Static", "com.baidu.tieba.im.AddMsgRecordStatic", "com.baidu.tieba.im.db.Static", "com.baidu.tieba.ala.AlaJumpStatStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tbadk.core.util.TiebaStatic", "com.baidu.tbadk.commonReceiver.ReceiverStatic", "com.baidu.tbadk.coreExtra.messageCenter.Static", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.LogoActivityStatic", "com.baidu.adp.lib.stats.BdStatisticsSwitchStatic", "com.baidu.tieba.channel.ChannelStatic", "com.baidu.tieba.easterEgg.EasterEggStatic", "com.baidu.tieba.sharesdk.ShareStatic", "com.baidu.tieba.sharewrite.WriteShareActivityStatic", "com.baidu.tieba.godSquare.GodSquareActivityStatic", "com.baidu.tieba.personExtra.PersonExtraStatic", "com.baidu.tieba.discover.DiscoverDelegateStatic", "com.baidu.tieba.homeExtra.HomeExtraStatic", "com.baidu.tieba.myCollection.ThreadDelegateStatic", "com.baidu.tieba.myCollection.Static", "com.baidu.tieba.forumsearch.controller.ForumSearchStatic", "com.baidu.tieba.postsearch.PostSearchActivityStatic", "com.baidu.tieba.mainentrance.SquareSearchActivityStatic", "com.baidu.tieba.SignStatic", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic", "com.baidu.tieba.videoplay.VideoPlayActivityStatic", "com.baidu.tieba.home.CreateBarActivityStatic", "com.baidu.tieba.QuickPlayer.IjkplayerInitStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.qrcode.activity.QRCodeStatic", "com.baidu.tieba.interestlabel.statics.InterestLabelStatic", "com.baidu.tieba.forumMember.member.FrsMemberStatic", "com.baidu.tieba.forumMember.tbtitle.TbTitleActivityStatic", "com.baidu.tieba.forumMember.bawu.BawuTeamInfoStatic", "com.baidu.tieba.group.GroupActivityStatic", "com.baidu.swan.MapStatic", "com.baidu.tieba.square.flist.ForumRankActivityStatic", "com.baidu.tieba.VideoPlatformStatic", "com.baidu.tieba.launcherGuide.tblauncher.GuideActivityStatic", "com.baidu.tieba.video.localvideo.LocalVideoActivityStatic", "com.baidu.tieba.location.selectpoi.SearchLocationActivityStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.pb.chosen.RecommendsStatic"};
+public class ax extends com.baidu.adp.base.a.d {
+    public ax() {
+        super(m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
+    }
 
-    public static boolean loadStaticClasses() {
-        String[] strArr;
-        try {
-            if (bTj.length <= 0) {
-                return false;
-            }
-            for (String str : bTj) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Class.forName(str);
-                Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-            }
-            return true;
-        } catch (Throwable th) {
-            BdLog.e(th);
-            Log.e("TiebaStaticClassesArray", "init class failed. " + th.getMessage());
-            return false;
+    @Override // com.baidu.adp.base.a.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i <= 9) {
+            U(sQLiteDatabase);
         }
+        if (i < 11) {
+            b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
+            b(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
+            if (i > 9) {
+                b(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.base.a.d
+    public void d(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+        U(sQLiteDatabase);
+    }
+
+    @Override // com.baidu.adp.base.a.d
+    public void e(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS pb_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS friend_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
+    }
+
+    private void U(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }
 }

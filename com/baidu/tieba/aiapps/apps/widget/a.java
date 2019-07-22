@@ -10,19 +10,19 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.swan.apps.res.widget.a.a {
     private static final boolean DEBUG = b.DEBUG;
-    private BdContextMenuView dgr;
+    private BdContextMenuView dhZ;
 
     public a(View view) {
         super(view);
-        dz(view.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_max_width));
-        ci(true);
-        cj(true);
+        dC(view.getResources().getDimensionPixelSize(R.dimen.aiapps_context_menu_max_width));
+        cl(true);
+        cm(true);
     }
 
     @Override // com.baidu.swan.apps.res.widget.a.a
     protected View getMenuView(Context context) {
         BdContextMenuView bdContextMenuView = new BdContextMenuView(context);
-        this.dgr = bdContextMenuView;
+        this.dhZ = bdContextMenuView;
         return bdContextMenuView;
     }
 

@@ -6,7 +6,7 @@ import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.b.h;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public Context a;
 
@@ -18,11 +18,14 @@ public final class a {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
+        new StringBuilder().append(str);
         b.a();
         try {
             TextUtils.isEmpty(str2);
+            String str3 = e.b() + "p/1/r";
+            new StringBuilder().append(str3);
             b.a();
-            String a = h.a(this.a, e.b() + "p/1/r", str);
+            String a = h.a(this.a, str3, str);
             if (TextUtils.isEmpty(a)) {
                 return false;
             }

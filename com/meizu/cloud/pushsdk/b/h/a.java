@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.b.h;
 import android.content.Context;
 import android.net.SSLSessionCache;
 import android.os.Environment;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -26,7 +27,7 @@ public class a extends SSLSocketFactory {
                 com.meizu.cloud.a.a.e(this.a, e.getMessage());
                 sSLSessionCache = new SSLSessionCache(context);
             }
-            com.meizu.cloud.a.a.i(this.a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a("install", SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).a);
+            com.meizu.cloud.a.a.i(this.a, "install tls session cache " + com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a(Config.INPUT_INSTALLED_PKG, SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext).a);
             this.b = sSLContext.getSocketFactory();
         } catch (Exception e2) {
             com.meizu.cloud.a.a.e(this.a, e2.getMessage());

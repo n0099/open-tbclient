@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
-import com.baidu.android.common.logging.Log;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -65,8 +64,8 @@ public final class b {
                 b = "";
             }
             c = "";
-            d = Log.FILE_LIMETE;
-            e = Log.FILE_LIMETE;
+            d = 10485760;
+            e = 10485760;
             f = 5242880;
         }
     }

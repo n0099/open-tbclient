@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    private String awt;
+    private String awY;
 
     public a(j jVar) {
         super(jVar, "/swan/getFormId");
@@ -38,8 +38,8 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
             return false;
         }
-        this.awt = c.optString("cb");
-        if (TextUtils.isEmpty(this.awt)) {
+        this.awY = c.optString("cb");
+        if (TextUtils.isEmpty(this.awY)) {
             if (DEBUG) {
                 Log.e("GetFormIdAction", "mCallBack is null");
             }
@@ -63,10 +63,10 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            com.baidu.swan.apps.u.a.Ee().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
+            com.baidu.swan.apps.u.a.EN().a(appKey, new b() { // from class: com.baidu.swan.apps.n.a.1
                 @Override // com.baidu.swan.apps.ad.a
                 public void onFail(String str) {
-                    callbackHandler.handleSchemeDispatchCallback(a.this.awt, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+                    callbackHandler.handleSchemeDispatchCallback(a.this.awY, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

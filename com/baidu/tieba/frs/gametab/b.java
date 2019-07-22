@@ -13,31 +13,31 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b dWj;
-    private boolean fEF;
+    private com.baidu.tieba.f.b eab;
+    private boolean fJD;
     private Context mContext;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean cBS = false;
-    private a.InterfaceC0302a dWk = new a.InterfaceC0302a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int egj = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds98);
+    private boolean cDj = false;
+    private a.InterfaceC0299a eac = new a.InterfaceC0299a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int ekN = (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds98);
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0302a
-        public void aT(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        public void aY(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ax(i2)) {
-                b.this.kb(false);
+                b.this.kl(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0302a
-        public void aU(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        public void aZ(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ax(i2)) {
-                b.this.kb(true);
+                b.this.kl(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0302a
-        public void aV(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        public void ba(int i, int i2) {
         }
 
         private boolean ax(float f) {
@@ -48,10 +48,10 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.fEF = z;
-        if (this.fEF) {
-            this.dWj = new com.baidu.tieba.f.b(context);
-            this.dWj.a(this.dWk);
+        this.fJD = z;
+        if (this.fJD) {
+            this.eab = new com.baidu.tieba.f.b(context);
+            this.eab.a(this.eac);
         }
     }
 
@@ -68,15 +68,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.fEF = false;
+                    this.fJD = false;
                     break;
                 } else {
-                    this.fEF = true;
+                    this.fJD = true;
                     break;
                 }
         }
-        if (this.fEF && this.dWj != null) {
-            this.dWj.onTouchEvent(motionEvent);
+        if (this.fJD && this.eab != null) {
+            this.eab.onTouchEvent(motionEvent);
         }
     }
 
@@ -89,14 +89,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kb(boolean z) {
-        this.cBS = z;
-        if (this.fEF) {
-            t(!this.cBS, true);
+    public void kl(boolean z) {
+        this.cDj = z;
+        if (this.fJD) {
+            v(!this.cDj, true);
         }
     }
 
-    private void t(boolean z, boolean z2) {
+    private void v(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(2001617);
             customMessage.setTag(this.mPageId);

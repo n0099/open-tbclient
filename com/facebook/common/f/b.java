@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class b extends FilterInputStream {
-    private final byte[] jSV;
-    private int jSW;
-    private int jSX;
+    private final byte[] jZZ;
+    private int kaa;
+    private int kab;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.jSV = bArr;
+        this.jZZ = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : cCa();
+        return read != -1 ? read : cFb();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int cCa = cCa();
-                if (cCa == -1) {
+                int cFb = cFb();
+                if (cFb == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) cCa;
+                bArr[i + i3] = (byte) cFb;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.jSW = this.jSX;
+            this.kaa = this.kab;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.jSX = this.jSW;
+            this.kab = this.kaa;
         }
     }
 
-    private int cCa() {
-        if (this.jSW >= this.jSV.length) {
+    private int cFb() {
+        if (this.kaa >= this.jZZ.length) {
             return -1;
         }
-        byte[] bArr = this.jSV;
-        int i = this.jSW;
-        this.jSW = i + 1;
+        byte[] bArr = this.jZZ;
+        int i = this.kaa;
+        this.kaa = i + 1;
         return bArr[i] & 255;
     }
 }

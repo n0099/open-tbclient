@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
-import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes2.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -40,19 +39,19 @@ public class ConnectManager {
     private void checkApn(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith(Apn.APN_CMWAP) || lowerCase.startsWith(Apn.APN_UNIWAP) || lowerCase.startsWith(Apn.APN_3GWAP)) {
+            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
                 this.mProxy = "10.0.0.172";
                 this.mPort = 80;
                 return;
-            } else if (lowerCase.startsWith(Apn.APN_CTWAP)) {
+            } else if (lowerCase.startsWith("ctwap")) {
                 this.mUseWap = true;
                 this.mApn = lowerCase;
                 this.mProxy = "10.0.0.200";
                 this.mPort = 80;
                 return;
-            } else if (lowerCase.startsWith(Apn.APN_CMNET) || lowerCase.startsWith(Apn.APN_UNINET) || lowerCase.startsWith(Apn.APN_CTNET) || lowerCase.startsWith(Apn.APN_3GNET)) {
+            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                 this.mUseWap = false;
                 this.mApn = lowerCase;
                 return;

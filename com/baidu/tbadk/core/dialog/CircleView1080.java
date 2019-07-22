@@ -9,11 +9,11 @@ import android.view.View;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int bMF = 360;
-    private static int bMG = 100;
-    private int amp;
-    private Paint bMI;
-    private RectF bMK;
+    private static int bNG = 360;
+    private static int bNH = 100;
+    private int amS;
+    private Paint bNJ;
+    private RectF bNL;
     private int mValue;
     private int mWidth;
 
@@ -42,18 +42,18 @@ public class CircleView1080 extends View {
 
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(R.dimen.tbds122);
-        this.amp = getResources().getDimensionPixelSize(R.dimen.tbds6);
-        this.bMI = new Paint();
-        this.bMI.setStrokeWidth(this.amp);
-        this.bMI.setColor(getResources().getColor(R.color.cp_cont_g));
-        this.bMI.setStyle(Paint.Style.STROKE);
-        this.bMI.setAntiAlias(true);
-        this.bMI.setStrokeCap(Paint.Cap.ROUND);
-        this.bMK = new RectF(this.amp / 2, this.amp / 2, this.mWidth + (this.amp / 2), this.mWidth + (this.amp / 2));
+        this.amS = getResources().getDimensionPixelSize(R.dimen.tbds6);
+        this.bNJ = new Paint();
+        this.bNJ.setStrokeWidth(this.amS);
+        this.bNJ.setColor(getResources().getColor(R.color.cp_cont_g));
+        this.bNJ.setStyle(Paint.Style.STROKE);
+        this.bNJ.setAntiAlias(true);
+        this.bNJ.setStrokeCap(Paint.Cap.ROUND);
+        this.bNL = new RectF(this.amS / 2, this.amS / 2, this.mWidth + (this.amS / 2), this.mWidth + (this.amS / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.bMK, 270.0f, (bMF * this.mValue) / bMG, false, this.bMI);
+        canvas.drawArc(this.bNL, 270.0f, (bNG * this.mValue) / bNH, false, this.bNJ);
     }
 }

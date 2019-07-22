@@ -7,16 +7,16 @@ import android.util.Printer;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 final class l implements Printer {
-    private final Context YQ;
-    private i Zc;
-    private long Za = 0;
-    private long Zb = 0;
-    private boolean Zd = false;
+    private final Context Zl;
+    private i Zx;
+    private long Zv = 0;
+    private long Zw = 0;
+    private boolean Zy = false;
 
     public l(i iVar, Context context) {
-        this.Zc = null;
-        this.Zc = iVar;
-        this.YQ = context;
+        this.Zx = null;
+        this.Zx = iVar;
+        this.Zl = context;
     }
 
     @Override // android.util.Printer
@@ -24,24 +24,24 @@ final class l implements Printer {
         if (Debug.isDebuggerConnected()) {
             return;
         }
-        if (!this.Zd) {
-            this.Za = System.currentTimeMillis();
-            this.Zb = SystemClock.currentThreadTimeMillis();
-            this.Zd = true;
-            if (c.as(this.YQ).YO != null) {
-                c.as(this.YQ).YO.start();
+        if (!this.Zy) {
+            this.Zv = System.currentTimeMillis();
+            this.Zw = SystemClock.currentThreadTimeMillis();
+            this.Zy = true;
+            if (c.as(this.Zl).Zj != null) {
+                c.as(this.Zl).Zj.start();
                 return;
             }
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        this.Zd = false;
-        if (currentTimeMillis - this.Za >= ((long) a.U)) {
-            com.baidu.crabsdk.c.a.cf("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Za + "=" + (currentTimeMillis - this.Za) + " >= " + a.U);
-            j.qJ().post(new m(this, this.Za, currentTimeMillis, this.Zb, SystemClock.currentThreadTimeMillis()));
+        this.Zy = false;
+        if (currentTimeMillis - this.Zv >= ((long) a.U)) {
+            com.baidu.crabsdk.c.a.ch("BlockCanary ^^ notifyBlockEvent: " + currentTimeMillis + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Zv + "=" + (currentTimeMillis - this.Zv) + " >= " + a.U);
+            j.rg().post(new m(this, this.Zv, currentTimeMillis, this.Zw, SystemClock.currentThreadTimeMillis()));
         }
-        if (c.as(this.YQ).YO != null) {
-            c.as(this.YQ).YO.stop();
+        if (c.as(this.Zl).Zj != null) {
+            c.as(this.Zl).Zj.stop();
         }
     }
 }

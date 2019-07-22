@@ -3,56 +3,56 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class f {
-    public static final int[] iYe = {3, 8, 13};
-    public static final int[] iYf = {2, 12};
-    public static final int[] iYg = {20};
-    public static final int[] iYh = {3, 13, 23};
-    private SparseIntArray iYi = new SparseIntArray();
-    private String iYj;
-    private final int[] iYk;
+    public static final int[] jev = {3, 8, 13};
+    public static final int[] jew = {2, 12};
+    public static final int[] jex = {20};
+    public static final int[] jey = {3, 13, 23};
+    private String jeA;
+    private final int[] jeB;
+    private SparseIntArray jez = new SparseIntArray();
 
     public f(String str, int[] iArr) {
-        this.iYk = iArr;
-        this.iYj = str;
+        this.jeB = iArr;
+        this.jeA = str;
     }
 
-    public void Au(int i) {
+    public void Ba(int i) {
         int[] iArr;
         if (i < 0) {
             i = 0;
         }
-        if (this.iYi != null) {
-            this.iYi.clear();
-            if (this.iYk != null) {
-                for (int i2 : this.iYk) {
+        if (this.jez != null) {
+            this.jez.clear();
+            if (this.jeB != null) {
+                for (int i2 : this.jeB) {
                     if (i2 >= 0) {
-                        this.iYi.append(i2 + i, i2);
+                        this.jez.append(i2 + i, i2);
                     }
                 }
             }
         }
     }
 
-    public void clY() {
-        Au(0);
+    public void coQ() {
+        Ba(0);
     }
 
-    public void cu(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.iYi != null) {
-            this.iYi.append(i2, i);
+    public void cz(int i, int i2) {
+        if (i >= 0 && i2 >= 0 && this.jez != null) {
+            this.jez.append(i2, i);
         }
     }
 
-    public int Av(int i) {
-        if (i >= 0 && this.iYi != null) {
-            return this.iYi.get(i, -1);
+    public int Bb(int i) {
+        if (i >= 0 && this.jez != null) {
+            return this.jez.get(i, -1);
         }
         return -1;
     }
 
-    public void Aw(int i) {
-        if (this.iYi != null) {
-            this.iYi.delete(i);
+    public void Bc(int i) {
+        if (this.jez != null) {
+            this.jez.delete(i);
         }
     }
 }

@@ -16,33 +16,33 @@ import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.swan.apps.a.c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final a avk;
-    private final String avl = ProcessUtils.getCurProcessName();
-    private e avm;
-    private f avn;
-    private AtomicInteger avo;
-    private CopyOnWriteArrayList<String> avp;
-    private com.baidu.swan.apps.env.a.f avq;
+    private final a avP;
+    private final String avQ = ProcessUtils.getCurProcessName();
+    private e avR;
+    private f avS;
+    private AtomicInteger avT;
+    private CopyOnWriteArrayList<String> avU;
+    private com.baidu.swan.apps.env.a.f avV;
 
     /* loaded from: classes2.dex */
     public interface a {
     }
 
     public b(a aVar) {
-        this.avk = aVar;
-        com.baidu.swan.apps.u.a.DG().a(this);
-        this.avo = new AtomicInteger(0);
-        this.avp = new CopyOnWriteArrayList<>();
-        this.avm = new e();
-        this.avn = new f();
-        this.avq = new com.baidu.swan.apps.env.a.f();
+        this.avP = aVar;
+        com.baidu.swan.apps.u.a.Ep().a(this);
+        this.avT = new AtomicInteger(0);
+        this.avU = new CopyOnWriteArrayList<>();
+        this.avR = new e();
+        this.avS = new f();
+        this.avV = new com.baidu.swan.apps.env.a.f();
         if (DEBUG) {
             Log.i("SwanAppPurger", "create : " + toString());
         }
     }
 
     public String toString() {
-        return "Process<" + this.avl + "> " + super.toString();
+        return "Process<" + this.avQ + "> " + super.toString();
     }
 
     public void p(@Nullable String str, boolean z) {
@@ -67,23 +67,23 @@ public class b implements com.baidu.swan.apps.a.c {
             r(list);
         }
         if (list != null && !list.isEmpty()) {
-            rx.d.bl("").a(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.env.b.1
+            rx.d.bm("").a(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.env.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(String str) {
-                    b.this.avo.incrementAndGet();
+                    b.this.avT.incrementAndGet();
                     if (z) {
                         if (b.DEBUG) {
                             Log.d("SwanAppPurger", "删除小程序==>开始重置小程序授权");
                         }
-                        b.this.avm.p(list);
+                        b.this.avR.p(list);
                     }
                     if (b.DEBUG) {
                         Log.d("SwanAppPurger", "删除小程序==>清除小程序数据、杀进程");
                     }
-                    b.this.avm.q(list);
+                    b.this.avR.q(list);
                     for (String str2 : list) {
-                        if (b.this.avp.contains(str2)) {
+                        if (b.this.avU.contains(str2)) {
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除忽略: " + str2);
                             }
@@ -91,25 +91,25 @@ public class b implements com.baidu.swan.apps.a.c {
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序相关（小程序包、小程序分包）的APS记录: " + str2);
                             }
-                            b.this.avm.dW(str2);
+                            b.this.avR.eb(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序文件: " + str2);
                             }
-                            b.this.avm.ep(str2);
-                            b.this.avn.ep(str2);
+                            b.this.avR.eu(str2);
+                            b.this.avS.eu(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>删除小程序数据库数据: " + str2);
                             }
-                            b.this.avm.ek(str2);
+                            b.this.avR.ep(str2);
                             if (b.DEBUG) {
                                 Log.d("SwanAppPurger", "删除小程序==>清空小程序分包记录: " + str2);
                             }
-                            b.this.avm.ej(str2);
+                            b.this.avR.eo(str2);
                         }
                     }
-                    if (b.this.avo.decrementAndGet() <= 0) {
-                        b.this.avo.set(0);
-                        b.this.avp.clear();
+                    if (b.this.avT.decrementAndGet() <= 0) {
+                        b.this.avT.set(0);
+                        b.this.avU.clear();
                     }
                 }
             });
@@ -118,9 +118,9 @@ public class b implements com.baidu.swan.apps.a.c {
 
     private void r(@Nullable List<String> list) {
         if (list != null && !list.isEmpty()) {
-            List<com.baidu.swan.apps.database.a> BP = com.baidu.swan.apps.database.favorite.a.BP();
+            List<com.baidu.swan.apps.database.a> Cy = com.baidu.swan.apps.database.favorite.a.Cy();
             HashMap hashMap = new HashMap();
-            for (com.baidu.swan.apps.database.a aVar : BP) {
+            for (com.baidu.swan.apps.database.a aVar : Cy) {
                 hashMap.put(aVar.appId, aVar);
             }
             Set<String> a2 = com.baidu.swan.apps.database.a.b.a(AppRuntime.getAppContext().getContentResolver());
@@ -141,19 +141,19 @@ public class b implements com.baidu.swan.apps.a.c {
         }
     }
 
-    public boolean Cf() {
-        return this.avo.get() > 0;
+    public boolean CO() {
+        return this.avT.get() > 0;
     }
 
     public void c(@Nullable Set<String> set) {
-        if (this.avq != null) {
-            this.avq.d(set);
+        if (this.avV != null) {
+            this.avV.d(set);
         }
     }
 
-    public void eo(String str) {
+    public void et(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.avp.add(str);
+            this.avU.add(str);
         }
     }
 }

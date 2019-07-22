@@ -10,22 +10,22 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements e, h {
     private int requestCount;
 
-    public void aZf() {
+    public void bbe() {
         this.requestCount++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> asY() {
+    public HashMap<String, Object> aug() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> asZ() {
+    public HashMap<String, String> auh() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object fs(boolean z) {
+    public Object fw(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.requestCount);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
@@ -40,12 +40,12 @@ public class a implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String asV() {
+    public String aud() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean asW() {
+    public boolean aue() {
         return true;
     }
 

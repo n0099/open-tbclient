@@ -5,49 +5,49 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class f extends h implements Iterable<h> {
-    private final List<h> kfz = new ArrayList();
+    private final List<h> kmF = new ArrayList();
 
     public void b(h hVar) {
         if (hVar == null) {
-            hVar = i.kfA;
+            hVar = i.kmG;
         }
-        this.kfz.add(hVar);
+        this.kmF.add(hVar);
     }
 
     @Override // java.lang.Iterable
     public Iterator<h> iterator() {
-        return this.kfz.iterator();
+        return this.kmF.iterator();
     }
 
     @Override // com.google.gson.h
-    public Number cIG() {
-        if (this.kfz.size() == 1) {
-            return this.kfz.get(0).cIG();
+    public Number cLL() {
+        if (this.kmF.size() == 1) {
+            return this.kmF.get(0).cLL();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
-    public String cIH() {
-        if (this.kfz.size() == 1) {
-            return this.kfz.get(0).cIH();
+    public String cLM() {
+        if (this.kmF.size() == 1) {
+            return this.kmF.get(0).cLM();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.h
-    public boolean getAsBoolean() {
-        if (this.kfz.size() == 1) {
-            return this.kfz.get(0).getAsBoolean();
+    public boolean cLN() {
+        if (this.kmF.size() == 1) {
+            return this.kmF.get(0).cLN();
         }
         throw new IllegalStateException();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof f) && ((f) obj).kfz.equals(this.kfz));
+        return obj == this || ((obj instanceof f) && ((f) obj).kmF.equals(this.kmF));
     }
 
     public int hashCode() {
-        return this.kfz.hashCode();
+        return this.kmF.hashCode();
     }
 }

@@ -5,6 +5,6 @@ import android.content.Context;
 public class m implements com.baidu.swan.apps.b.b.a {
     @Override // com.baidu.swan.apps.b.b.a
     public void aF(Context context) {
-        p.ds(context);
+        p.dt(context);
     }
 }

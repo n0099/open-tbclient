@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class d {
     protected Context a;
-    public b bdg;
+    public b bdS;
     private String d;
     private String e;
     private String f;
@@ -26,11 +26,11 @@ public abstract class d {
 
     public d(Context context, b bVar) {
         this.a = context;
-        this.bdg = bVar;
-        if (this.bdg != null) {
-            this.d = this.bdg.d();
-            this.e = this.bdg.c();
-            this.f = this.bdg.e();
+        this.bdS = bVar;
+        if (this.bdS != null) {
+            this.d = this.bdS.d();
+            this.e = this.bdS.c();
+            this.f = this.bdS.e();
         }
     }
 
@@ -41,7 +41,7 @@ public abstract class d {
     }
 
     private HashMap<String, String> c() {
-        com.baidu.swan.apps.v.b.b vk;
+        com.baidu.swan.apps.v.b.b vL;
         HashMap<String, String> hashMap = new HashMap<>();
         try {
             hashMap.put("lw", String.valueOf(Math.round(z.getDisplayWidth(this.a) / z.bT(this.a))));
@@ -56,22 +56,22 @@ public abstract class d {
             hashMap.put("os", "android");
             hashMap.put("apid", "" + this.d);
             hashMap.put("chid", "0");
-            String OX = ac.OX();
-            if (OX.equals("0")) {
-                OX = "";
+            String PN = ac.PN();
+            if (PN.equals("0")) {
+                PN = "";
             }
-            hashMap.put("imei", OX);
-            hashMap.put("cuid", com.baidu.swan.apps.u.a.DG().bd(com.baidu.swan.apps.u.a.DB()));
+            hashMap.put("imei", PN);
+            hashMap.put("cuid", com.baidu.swan.apps.u.a.Ep().bd(com.baidu.swan.apps.u.a.Ek()));
             hashMap.put("p_ver", this.i);
             hashMap.put("rpt", this.h);
             hashMap.put("tab", "2");
             hashMap.put("req_id", "");
-            com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
-            if (Lq != null && (vk = Lq.vk()) != null) {
-                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vk.EW());
-                JSONObject EJ = vk.EJ();
-                if (EJ != null) {
-                    hashMap.put("eqid", EJ.optString("eqid", ""));
+            com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
+            if (Md != null && (vL = Md.vL()) != null) {
+                hashMap.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vL.FG());
+                JSONObject Ft = vL.Ft();
+                if (Ft != null) {
+                    hashMap.put("eqid", Ft.optString("eqid", ""));
                 }
             }
         } catch (Exception e) {
@@ -80,7 +80,7 @@ public abstract class d {
     }
 
     private int d() {
-        switch (SwanAppNetworkUtils.Hg()) {
+        switch (SwanAppNetworkUtils.HR()) {
             case NONE:
             default:
                 return 0;
@@ -99,8 +99,8 @@ public abstract class d {
 
     private String e() {
         try {
-            String OX = ac.OX();
-            return TextUtils.isEmpty(OX) ? ac.getWifiInfo(this.a) : OX;
+            String PN = ac.PN();
+            return TextUtils.isEmpty(PN) ? ac.getWifiInfo(this.a) : PN;
         } catch (Exception e) {
             return "";
         }

@@ -3,24 +3,24 @@ package rx.internal.util;
 import rx.j;
 /* loaded from: classes2.dex */
 public final class d<T> extends j<T> {
-    final rx.e<? super T> ksF;
+    final rx.e<? super T> kAe;
 
     public d(rx.e<? super T> eVar) {
-        this.ksF = eVar;
+        this.kAe = eVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.ksF.onNext(t);
+        this.kAe.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.ksF.onError(th);
+        this.kAe.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.ksF.onCompleted();
+        this.kAe.onCompleted();
     }
 }

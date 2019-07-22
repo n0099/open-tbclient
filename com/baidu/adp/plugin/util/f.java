@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int Km;
-    int Kn;
-    int Ko;
-    int Kp;
-    int Kq;
-    int Kr;
+    int KA;
+    int KB;
+    int KC;
+    int KD;
+    int Ky;
+    int Kz;
 
-    public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.Km = i;
-        this.Kn = i2;
-        this.Ko = i3;
-        this.Kp = i4;
-        this.Kq = i5;
-        this.Kr = i6;
+    public final void c(int i, int i2, int i3, int i4, int i5, int i6) {
+        this.Ky = i;
+        this.Kz = i2;
+        this.KA = i3;
+        this.KB = i4;
+        this.KC = i5;
+        this.KD = i6;
     }
 
     public String toString() {
-        return this.Km + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Kn + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Ko + " " + this.Kp + ":" + this.Kq + ":" + this.Kr;
+        return this.Ky + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Kz + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.KA + " " + this.KB + ":" + this.KC + ":" + this.KD;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.Km - fVar.Km > 0) {
+        if (this.Ky - fVar.Ky > 0) {
             return 1;
         }
-        if (this.Km - fVar.Km < 0) {
+        if (this.Ky - fVar.Ky < 0) {
             return -1;
         }
-        if (this.Kn - fVar.Kn <= 0) {
-            if (this.Kn - fVar.Kn < 0) {
+        if (this.Kz - fVar.Kz <= 0) {
+            if (this.Kz - fVar.Kz < 0) {
                 return -1;
             }
-            if (this.Ko - fVar.Ko <= 0) {
-                if (this.Ko - fVar.Ko < 0) {
+            if (this.KA - fVar.KA <= 0) {
+                if (this.KA - fVar.KA < 0) {
                     return -1;
                 }
-                if (this.Kp - fVar.Kp <= 0) {
-                    if (this.Kp - fVar.Kp < 0) {
+                if (this.KB - fVar.KB <= 0) {
+                    if (this.KB - fVar.KB < 0) {
                         return -1;
                     }
-                    if (this.Kq - fVar.Kq <= 0) {
-                        if (this.Kq - fVar.Kq < 0) {
+                    if (this.KC - fVar.KC <= 0) {
+                        if (this.KC - fVar.KC < 0) {
                             return -1;
                         }
-                        if (this.Kr - fVar.Kr <= 0) {
-                            return this.Kr - fVar.Kr < 0 ? -1 : 0;
+                        if (this.KD - fVar.KD <= 0) {
+                            return this.KD - fVar.KD < 0 ? -1 : 0;
                         }
                         return 1;
                     }

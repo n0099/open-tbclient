@@ -15,7 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.ProtocolException;
@@ -27,10 +26,10 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class n extends BdAsyncTask<String, String, b> {
     private Activity activity;
-    private a cBC;
-    private String cBD;
-    private File cBE;
-    private boolean cBF;
+    private a cCT;
+    private String cCU;
+    private File cCV;
+    private boolean cCW;
     private int from = 0;
     private String imagePath;
     private String url;
@@ -38,15 +37,15 @@ public class n extends BdAsyncTask<String, String, b> {
     public n(Activity activity, String str, a aVar) {
         this.activity = activity;
         this.url = str;
-        this.cBC = aVar;
+        this.cCT = aVar;
     }
 
     public void setFrom(int i) {
         this.from = i;
     }
 
-    public n fG(boolean z) {
-        this.cBF = z;
+    public n fK(boolean z) {
+        this.cCW = z;
         return this;
     }
 
@@ -58,14 +57,14 @@ public class n extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!avb()) {
+        if (!awk()) {
             return new b(false, "make file error");
         }
-        if (!this.cBF) {
-            if (!avc()) {
+        if (!this.cCW) {
+            if (!awl()) {
                 return new b(false, "download error");
             }
-        } else if (!avd()) {
+        } else if (!awm()) {
             return new b(false, "decode base64 error");
         }
         return new b(true, null);
@@ -78,42 +77,42 @@ public class n extends BdAsyncTask<String, String, b> {
     public void onPostExecute(b bVar) {
         super.onPostExecute(bVar);
         if (bVar == null) {
-            if (this.cBC != null) {
-                this.cBC.onError(-2, "error");
+            if (this.cCT != null) {
+                this.cCT.onError(-2, "error");
             }
         } else if (!bVar.isSuccess()) {
-            if (this.cBC != null) {
-                this.cBC.onError(-1, bVar.getMessage());
+            if (this.cCT != null) {
+                this.cCT.onError(-1, bVar.getMessage());
             }
         } else {
-            ave();
-            if (this.cBC != null) {
-                this.cBC.onSuccess(this.imagePath);
+            awn();
+            if (this.cCT != null) {
+                this.cCT.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean avb() {
+    private boolean awk() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
             if (this.from == 1) {
-                com.baidu.tbadk.core.util.m.mV(com.baidu.tbadk.core.util.m.Dt + "/" + TbConfig.getTempDirName() + "/");
-                com.baidu.tbadk.core.util.m.mV(com.baidu.tbadk.core.util.m.Dt + "/" + TbConfig.getTempDirName() + "/temp/");
-                com.baidu.tbadk.core.util.m.mV(com.baidu.tbadk.core.util.m.Dt + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
-                externalStoragePublicDirectory = new File(com.baidu.tbadk.core.util.m.Dt + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
+                com.baidu.tbadk.core.util.m.nh(com.baidu.tbadk.core.util.m.Dz + "/" + TbConfig.getTempDirName() + "/");
+                com.baidu.tbadk.core.util.m.nh(com.baidu.tbadk.core.util.m.Dz + "/" + TbConfig.getTempDirName() + "/temp/");
+                com.baidu.tbadk.core.util.m.nh(com.baidu.tbadk.core.util.m.Dz + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
+                externalStoragePublicDirectory = new File(com.baidu.tbadk.core.util.m.Dz + "/" + TbConfig.getTempDirName() + "/temp/.nomedia/");
             } else {
                 externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
             }
             if (externalStoragePublicDirectory != null && externalStoragePublicDirectory.exists()) {
-                this.cBD = externalStoragePublicDirectory.getAbsolutePath();
-                if (!TextUtils.isEmpty(this.cBD) && !this.cBD.endsWith("/")) {
-                    this.cBD += "/";
+                this.cCU = externalStoragePublicDirectory.getAbsolutePath();
+                if (!TextUtils.isEmpty(this.cCU) && !this.cCU.endsWith("/")) {
+                    this.cCU += "/";
                 }
             } else {
-                this.cBD = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
+                this.cCU = Environment.getExternalStorageDirectory().getPath() + "/tieba/";
             }
-            File file = new File(this.cBD);
+            File file = new File(this.cCU);
             if (!file.exists()) {
                 file.mkdir();
             }
@@ -122,15 +121,15 @@ public class n extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.cBD + lowerCase + qR(this.url);
-            this.cBE = new File(this.imagePath);
-            if (this.cBE.exists()) {
-                this.cBE.delete();
+            this.imagePath = this.cCU + lowerCase + ri(this.url);
+            this.cCV = new File(this.imagePath);
+            if (this.cCV.exists()) {
+                this.cCV.delete();
             }
-            if (this.cBE.exists()) {
+            if (this.cCV.exists()) {
                 return true;
             }
-            this.cBE.createNewFile();
+            this.cCV.createNewFile();
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -138,17 +137,17 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean avc() {
+    private boolean awl() {
         return m(this.url, this.imagePath, 3);
     }
 
     private boolean m(String str, String str2, int i) {
         boolean z = false;
-        int gi = com.baidu.adp.framework.c.b.ge().gh().gi();
-        int gi2 = com.baidu.adp.framework.c.b.ge().gf().gi();
+        int gr = com.baidu.adp.framework.c.b.gn().gq().gr();
+        int gr2 = com.baidu.adp.framework.c.b.gn().go().gr();
         for (int i2 = 0; i2 < i; i2++) {
             try {
-                z = c(str, str2, gi2, gi);
+                z = c(str, str2, gr2, gr);
                 break;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -170,7 +169,7 @@ public class n extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(qQ(str2), true);
+                fileOutputStream = new FileOutputStream(rh(str2), true);
                 try {
                     a2.connect();
                     responseCode = a2.getResponseCode();
@@ -178,21 +177,21 @@ public class n extends BdAsyncTask<String, String, b> {
                         String headerField2 = a2.getHeaderField("Location");
                         com.baidu.adp.lib.g.a.f(a2);
                         try {
-                            if (this.cBE != null) {
-                                this.cBE.delete();
+                            if (this.cCV != null) {
+                                this.cCV.delete();
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.cBD + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + qR(headerField2);
-                        this.cBE = new File(this.imagePath);
-                        if (this.cBE.exists()) {
-                            this.cBE.delete();
+                        this.imagePath = this.cCU + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + ri(headerField2);
+                        this.cCV = new File(this.imagePath);
+                        if (this.cCV.exists()) {
+                            this.cCV.delete();
                         }
-                        if (!this.cBE.exists()) {
-                            this.cBE.createNewFile();
+                        if (!this.cCV.exists()) {
+                            this.cCV.createNewFile();
                         }
-                        com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
-                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.cBE, true);
+                        com.baidu.adp.lib.g.a.c(fileOutputStream);
+                        FileOutputStream fileOutputStream3 = new FileOutputStream(this.cCV, true);
                         try {
                             a2 = a(new URL(headerField2), i, i2);
                             a2.connect();
@@ -224,7 +223,7 @@ public class n extends BdAsyncTask<String, String, b> {
         if (responseCode != 200) {
             com.baidu.adp.lib.g.a.g(null);
             com.baidu.adp.lib.g.a.f(a2);
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.g.a.c(fileOutputStream);
             return false;
         }
         try {
@@ -238,7 +237,7 @@ public class n extends BdAsyncTask<String, String, b> {
         if ((headerField != null ? com.baidu.adp.lib.g.b.f(headerField, 0) : 0) == 0) {
             com.baidu.adp.lib.g.a.g(null);
             com.baidu.adp.lib.g.a.f(a2);
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+            com.baidu.adp.lib.g.a.c(fileOutputStream);
             return false;
         }
         InputStream inputStream2 = a2.getInputStream();
@@ -257,7 +256,7 @@ public class n extends BdAsyncTask<String, String, b> {
                     fileOutputStream.flush();
                     com.baidu.adp.lib.g.a.g(inputStream2);
                     com.baidu.adp.lib.g.a.f(a2);
-                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.g.a.c(fileOutputStream);
                     return true;
                 } catch (Exception e2) {
                     throw new FileNotFoundException();
@@ -274,12 +273,12 @@ public class n extends BdAsyncTask<String, String, b> {
             fileOutputStream2 = fileOutputStream;
             com.baidu.adp.lib.g.a.g(inputStream);
             com.baidu.adp.lib.g.a.f(httpURLConnection);
-            com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+            com.baidu.adp.lib.g.a.c(fileOutputStream2);
             throw th;
         }
     }
 
-    private boolean avd() {
+    private boolean awm() {
         FileOutputStream fileOutputStream;
         byte[] decode = Base64.decode(this.url.substring(this.url.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP) + 1, this.url.length()), 0);
         for (int i = 0; i < decode.length; i++) {
@@ -289,29 +288,29 @@ public class n extends BdAsyncTask<String, String, b> {
         }
         FileOutputStream fileOutputStream2 = null;
         try {
-            FileOutputStream fileOutputStream3 = new FileOutputStream(this.cBE, true);
+            FileOutputStream fileOutputStream3 = new FileOutputStream(this.cCV, true);
             try {
                 fileOutputStream3.write(decode);
                 fileOutputStream3.flush();
-                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream3);
+                com.baidu.adp.lib.g.a.c(fileOutputStream3);
                 return true;
             } catch (Exception e) {
                 e = e;
                 fileOutputStream = fileOutputStream3;
                 try {
                     e.printStackTrace();
-                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream);
+                    com.baidu.adp.lib.g.a.c(fileOutputStream);
                     return false;
                 } catch (Throwable th) {
                     th = th;
                     fileOutputStream2 = fileOutputStream;
-                    com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+                    com.baidu.adp.lib.g.a.c(fileOutputStream2);
                     throw th;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream3;
-                com.baidu.adp.lib.g.a.b((OutputStream) fileOutputStream2);
+                com.baidu.adp.lib.g.a.c(fileOutputStream2);
                 throw th;
             }
         } catch (Exception e2) {
@@ -322,8 +321,8 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File qQ(String str) {
-        com.baidu.adp.lib.util.f.aY(str);
+    private File rh(String str) {
+        com.baidu.adp.lib.util.f.aZ(str);
         return new File(str);
     }
 
@@ -334,20 +333,20 @@ public class n extends BdAsyncTask<String, String, b> {
     */
     private HttpURLConnection a(URL url, int i, int i2) throws SocketException, ProtocolException {
         HttpURLConnection httpURLConnection;
-        String kb;
+        String kl;
         HttpURLConnection httpURLConnection2 = null;
         try {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (!com.baidu.adp.lib.util.j.jS()) {
+        if (!com.baidu.adp.lib.util.j.kc()) {
             return null;
         }
-        if (com.baidu.adp.lib.util.j.jU() && (kb = com.baidu.adp.lib.util.j.kb()) != null && kb.length() > 0) {
-            if (com.baidu.adp.lib.util.j.be(kb) && com.baidu.adp.lib.util.j.kd()) {
+        if (com.baidu.adp.lib.util.j.ke() && (kl = com.baidu.adp.lib.util.j.kl()) != null && kl.length() > 0) {
+            if (com.baidu.adp.lib.util.j.bf(kl) && com.baidu.adp.lib.util.j.kn()) {
                 StringBuilder sb = new StringBuilder(80);
                 sb.append("http://");
-                sb.append(kb);
+                sb.append(kl);
                 String file = url.getFile();
                 if (file != null && file.startsWith("?")) {
                     sb.append("/");
@@ -355,7 +354,7 @@ public class n extends BdAsyncTask<String, String, b> {
                 sb.append(file);
                 httpURLConnection2 = (HttpURLConnection) new URL(sb.toString()).openConnection();
             } else {
-                httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(kb, com.baidu.adp.lib.util.j.kc())));
+                httpURLConnection2 = (HttpURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(kl, com.baidu.adp.lib.util.j.km())));
             }
         }
         if (httpURLConnection2 == null) {
@@ -373,13 +372,13 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void ave() {
-        if (this.cBE != null) {
-            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.cBE)));
+    private void awn() {
+        if (this.cCV != null) {
+            TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.cCV)));
         }
     }
 
-    private String qR(String str) {
+    private String ri(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

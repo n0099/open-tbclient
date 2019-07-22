@@ -2,7 +2,6 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sapi2.dto.FaceBaseDTO;
@@ -28,53 +27,53 @@ public class h extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.v.b.b vk = bVar.vk();
-        if (vk == null || !vk.isValid()) {
+        com.baidu.swan.apps.v.b.b vL = bVar.vL();
+        if (vL == null || !vL.isValid()) {
             com.baidu.swan.apps.console.c.e("appInfo", "launch info is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appid", vk.getAppId());
-            jSONObject.put("appname", vk.BM());
-            if (!TextUtils.isEmpty(vk.getIconUrl())) {
-                jSONObject.put("iconUrl", vk.getIconUrl());
+            jSONObject.put("appid", vL.getAppId());
+            jSONObject.put("appname", vL.Cv());
+            if (!TextUtils.isEmpty(vL.getIconUrl())) {
+                jSONObject.put("iconUrl", vL.getIconUrl());
             }
-            if (!TextUtils.isEmpty(vk.EX())) {
-                jSONObject.put("appLaunchScheme", vk.EX());
+            if (!TextUtils.isEmpty(vL.FH())) {
+                jSONObject.put("appLaunchScheme", vL.FH());
             }
-            if (vk.Fm() != null) {
-                String str = vk.Fm().description;
+            if (vL.FW() != null) {
+                String str = vL.FW().description;
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("appDesc", str);
                 }
             }
-            String bd = com.baidu.swan.apps.u.a.DG().bd(context);
+            String bd = com.baidu.swan.apps.u.a.Ep().bd(context);
             jSONObject.put("cuid", bd);
             jSONObject.put("mtjCuid", bd);
-            jSONObject.put("clkid", vk.Fb());
-            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vk.EW());
-            jSONObject.put("appId", vk.getAppId());
-            Bundle Fa = vk.Fa();
-            if (Fa != null) {
-                String string = Fa.getString("extraData");
+            jSONObject.put("clkid", vL.FL());
+            jSONObject.put(FaceBaseDTO.KEY_BUSINESS_SCENE, vL.FG());
+            jSONObject.put("appId", vL.getAppId());
+            Bundle FK = vL.FK();
+            if (FK != null) {
+                String string = FK.getString("extraData");
                 if (!TextUtils.isEmpty(string)) {
                     jSONObject.put("extraData", new JSONObject(string));
                 }
-                if (!TextUtils.isEmpty(Fa.getString("srcAppId"))) {
-                    jSONObject.put("srcAppId", Fa.getString("srcAppId"));
+                if (!TextUtils.isEmpty(FK.getString("srcAppId"))) {
+                    jSONObject.put("srcAppId", FK.getString("srcAppId"));
                 }
-                if (!TextUtils.isEmpty(Fa.getString("srcAppPage"))) {
-                    jSONObject.put("srcAppPage", Fa.getString("srcAppPage"));
+                if (!TextUtils.isEmpty(FK.getString("srcAppPage"))) {
+                    jSONObject.put("srcAppPage", FK.getString("srcAppPage"));
                 }
-                String str2 = NotificationCompat.CATEGORY_SYSTEM;
-                SwanAppActivity FH = com.baidu.swan.apps.w.e.FV().FH();
-                if (FH != null) {
-                    str2 = FH.vh();
+                String str2 = "sys";
+                SwanAppActivity Gr = com.baidu.swan.apps.w.e.GF().Gr();
+                if (Gr != null) {
+                    str2 = Gr.vI();
                 }
                 if (TextUtils.isEmpty(str2)) {
-                    str2 = NotificationCompat.CATEGORY_SYSTEM;
+                    str2 = "sys";
                 }
                 if (DEBUG) {
                     Log.d("GetAppInfoSyncAction", "showBy: " + str2);

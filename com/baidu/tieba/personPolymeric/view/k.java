@@ -22,26 +22,26 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class k implements View.OnClickListener {
-    private View bpR;
-    private FrameLayout ilY;
-    private TbImageView ilZ;
-    private TbImageView ima;
-    private TextView imb;
-    private LinearLayout imc;
-    private TextView imd;
-    private TextView ime;
-    private LinearLayout imf;
-    private LinearLayout imh;
-    private LinearLayout imi;
-    private ImageView imj;
+    private View bqE;
+    private ImageView isA;
+    private FrameLayout isq;
+    private TbImageView isr;
+    private TbImageView iss;
+    private TextView ist;
+    private LinearLayout isu;
+    private TextView isv;
+    private TextView isw;
+    private LinearLayout isx;
+    private LinearLayout isy;
+    private LinearLayout isz;
     private boolean mIsHost;
     private TbPageContext mPageContext;
     private View mRootView;
@@ -49,50 +49,50 @@ public class k implements View.OnClickListener {
 
     public k(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        O(aUW());
+        Q(aWR());
     }
 
-    private void O(View view) {
-        this.ilY = (FrameLayout) view.findViewById(R.id.ala_entrance_root);
-        this.ilZ = (TbImageView) view.findViewById(R.id.entrance_background);
-        this.ilZ.setAutoChangeStyle(false);
-        this.ilZ.setDrawerType(1);
-        this.ilZ.setRadius(com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.ds10));
-        this.ima = (TbImageView) view.findViewById(R.id.live_level_img);
-        this.ima.setAutoChangeStyle(false);
-        this.ima.setDrawerType(1);
-        this.ima.setRadius(com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.ds10));
-        this.imb = (TextView) view.findViewById(R.id.live_level_text);
-        this.imc = (LinearLayout) view.findViewById(R.id.replay_root);
-        this.ime = (TextView) this.imc.findViewById(R.id.tv_replay_more);
-        this.imj = (ImageView) this.imc.findViewById(R.id.replay_more_arrow);
-        this.imd = (TextView) this.imc.findViewById(R.id.tv_replay_tile);
-        this.imf = (LinearLayout) this.imc.findViewById(R.id.replay_item_one);
-        this.imh = (LinearLayout) this.imc.findViewById(R.id.replay_item_two);
-        this.imi = (LinearLayout) this.imc.findViewById(R.id.replay_item_three);
-        g(this.imf);
-        g(this.imh);
-        g(this.imi);
-        this.ilY.setOnClickListener(this);
-        this.imf.setOnClickListener(this);
-        this.imh.setOnClickListener(this);
-        this.imi.setOnClickListener(this);
-        this.ime.setOnClickListener(this);
-        this.bpR = view.findViewById(R.id.divider_view);
+    private void Q(View view) {
+        this.isq = (FrameLayout) view.findViewById(R.id.ala_entrance_root);
+        this.isr = (TbImageView) view.findViewById(R.id.entrance_background);
+        this.isr.setAutoChangeStyle(false);
+        this.isr.setDrawerType(1);
+        this.isr.setRadius(com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.ds10));
+        this.iss = (TbImageView) view.findViewById(R.id.live_level_img);
+        this.iss.setAutoChangeStyle(false);
+        this.iss.setDrawerType(1);
+        this.iss.setRadius(com.baidu.adp.lib.util.l.g(this.mPageContext.getPageActivity(), R.dimen.ds10));
+        this.ist = (TextView) view.findViewById(R.id.live_level_text);
+        this.isu = (LinearLayout) view.findViewById(R.id.replay_root);
+        this.isw = (TextView) this.isu.findViewById(R.id.tv_replay_more);
+        this.isA = (ImageView) this.isu.findViewById(R.id.replay_more_arrow);
+        this.isv = (TextView) this.isu.findViewById(R.id.tv_replay_tile);
+        this.isx = (LinearLayout) this.isu.findViewById(R.id.replay_item_one);
+        this.isy = (LinearLayout) this.isu.findViewById(R.id.replay_item_two);
+        this.isz = (LinearLayout) this.isu.findViewById(R.id.replay_item_three);
+        g(this.isx);
+        g(this.isy);
+        g(this.isz);
+        this.isq.setOnClickListener(this);
+        this.isx.setOnClickListener(this);
+        this.isy.setOnClickListener(this);
+        this.isz.setOnClickListener(this);
+        this.isw.setOnClickListener(this);
+        this.bqE = view.findViewById(R.id.divider_view);
     }
 
     public void onChangeSkinType(int i) {
-        al.l(this.mRootView, R.color.cp_bg_line_d);
-        al.j(this.imd, R.color.cp_cont_b);
-        al.j(this.ime, R.color.cp_cont_d);
-        al.l(this.bpR, R.color.cp_bg_line_e);
-        al.c(this.imj, (int) R.drawable.icon_mine_list_arrow);
-        h(this.imf);
-        h(this.imh);
-        h(this.imi);
+        am.l(this.mRootView, R.color.cp_bg_line_d);
+        am.j(this.isv, R.color.cp_cont_b);
+        am.j(this.isw, R.color.cp_cont_d);
+        am.l(this.bqE, R.color.cp_bg_line_e);
+        am.c(this.isA, (int) R.drawable.icon_mine_list_arrow);
+        h(this.isx);
+        h(this.isy);
+        h(this.isz);
     }
 
-    public View aUW() {
+    public View aWR() {
         if (this.mRootView == null) {
             this.mRootView = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(R.layout.item_person_center_ala_live, (ViewGroup) null);
         }
@@ -103,62 +103,62 @@ public class k implements View.OnClickListener {
         this.mIsHost = z;
         this.mUserData = userData;
         a(alaLiveInfoCoreData, z, userData);
-        dU(list);
+        dW(list);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
         if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.ilY.setVisibility(8);
+            this.isq.setVisibility(8);
             return;
         }
-        this.ilY.setVisibility(0);
-        this.ilY.setTag(alaLiveInfoCoreData);
+        this.isq.setVisibility(0);
+        this.isq.setTag(alaLiveInfoCoreData);
         if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.ilZ.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
+            this.isr.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
         int i = userData.alaUserData.level_id;
         if (i <= 10) {
-            this.ima.setBackgroundResource(R.drawable.shape_ala_grade_1_green);
+            this.iss.setBackgroundResource(R.drawable.shape_ala_grade_1_green);
         } else if (i <= 20) {
-            this.ima.setBackgroundResource(R.drawable.shape_ala_grade_2_blue);
+            this.iss.setBackgroundResource(R.drawable.shape_ala_grade_2_blue);
         } else if (i <= 30) {
-            this.ima.setBackgroundResource(R.drawable.shape_ala_grade_3_yellow);
+            this.iss.setBackgroundResource(R.drawable.shape_ala_grade_3_yellow);
         } else if (i <= 40) {
-            this.ima.setBackgroundResource(R.drawable.shape_ala_grade_4_orange);
+            this.iss.setBackgroundResource(R.drawable.shape_ala_grade_4_orange);
         } else {
-            this.ima.setBackgroundResource(R.drawable.shape_ala_grade_5_purple);
+            this.iss.setBackgroundResource(R.drawable.shape_ala_grade_5_purple);
         }
-        this.imb.setText(Cf(String.valueOf(i)));
+        this.ist.setText(CS(String.valueOf(i)));
     }
 
-    private void dU(List<AlaLiveInfoCoreData> list) {
+    private void dW(List<AlaLiveInfoCoreData> list) {
         if (v.aa(list)) {
-            this.imc.setVisibility(8);
+            this.isu.setVisibility(8);
             return;
         }
-        this.imc.setVisibility(0);
-        this.imh.setVisibility(0);
-        this.imi.setVisibility(0);
-        this.imf.setVisibility(0);
+        this.isu.setVisibility(0);
+        this.isy.setVisibility(0);
+        this.isz.setVisibility(0);
+        this.isx.setVisibility(0);
         int size = list.size();
         if (size >= 4) {
-            this.ime.setVisibility(0);
-            this.imj.setVisibility(0);
+            this.isw.setVisibility(0);
+            this.isA.setVisibility(0);
         } else {
-            this.ime.setVisibility(4);
-            this.imj.setVisibility(4);
+            this.isw.setVisibility(4);
+            this.isA.setVisibility(4);
         }
-        a(list.get(0), this.imf);
+        a(list.get(0), this.isx);
         if (size >= 3) {
-            a(list.get(1), this.imh);
-            a(list.get(2), this.imi);
+            a(list.get(1), this.isy);
+            a(list.get(2), this.isz);
         } else if (size >= 2) {
-            a(list.get(1), this.imh);
-            this.imi.setVisibility(4);
+            a(list.get(1), this.isy);
+            this.isz.setVisibility(4);
         } else {
-            this.imh.setVisibility(4);
-            this.imi.setVisibility(4);
+            this.isy.setVisibility(4);
+            this.isz.setVisibility(4);
         }
     }
 
@@ -175,7 +175,7 @@ public class k implements View.OnClickListener {
         tbImageView.setAutoChangeStyle(true);
         tbImageView.setDefaultErrorResource(0);
         tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-        al.j((TextView) linearLayout.findViewById(R.id.replay_item_title), R.color.cp_cont_b);
+        am.j((TextView) linearLayout.findViewById(R.id.replay_item_title), R.color.cp_cont_b);
     }
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, LinearLayout linearLayout) {
@@ -198,7 +198,7 @@ public class k implements View.OnClickListener {
         }
     }
 
-    private SpannableStringBuilder Cf(String str) {
+    private SpannableStringBuilder CS(String str) {
         String string = this.mPageContext.getResources().getString(R.string.ala_live_entrance_level_text_pre);
         String str2 = string + String.format(this.mPageContext.getResources().getString(R.string.ala_live_entrance_level_text_content), str);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str2);
@@ -212,33 +212,33 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ilY) {
-            if (this.ilY.getTag() != null && (this.ilY.getTag() instanceof AlaLiveInfoCoreData)) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.ilY.getTag();
+        if (view == this.isq) {
+            if (this.isq.getTag() != null && (this.isq.getTag() instanceof AlaLiveInfoCoreData)) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.isq.getTag();
                 if (alaLiveInfoCoreData.liveID > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921315, Long.valueOf(alaLiveInfoCoreData.liveID)));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
-                TiebaStatic.log(new am("c12544"));
+                TiebaStatic.log(new an("c12544"));
             }
-        } else if (view == this.imf) {
-            cI(this.imf);
-        } else if (view == this.imh) {
-            cI(this.imh);
-        } else if (view == this.imi) {
-            cI(this.imi);
-        } else if (view == this.ime) {
-            caw();
+        } else if (view == this.isx) {
+            cL(this.isx);
+        } else if (view == this.isy) {
+            cL(this.isy);
+        } else if (view == this.isz) {
+            cL(this.isz);
+        } else if (view == this.isw) {
+            cdl();
         }
     }
 
-    private void cI(View view) {
+    private void cL(View view) {
         if (view.getTag() != null && (view.getTag() instanceof AlaLiveInfoCoreData)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(String.valueOf(((AlaLiveInfoCoreData) view.getTag()).threadId), null, "person_page")));
         }
     }
 
-    private void caw() {
+    private void cdl() {
         if (this.mUserData != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mPageContext.getPageActivity(), this.mUserData.getUserId(), this.mUserData.getUserName(), this.mUserData.getPortrait(), this.mUserData.getSex(), this.mUserData.getUserId().equals(TbadkCoreApplication.getCurrentAccount()))));
         }

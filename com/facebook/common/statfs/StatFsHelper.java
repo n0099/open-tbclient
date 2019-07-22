@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper jSL;
-    private static final long jSM = TimeUnit.MINUTES.toMillis(2);
-    private volatile File jSO;
-    private volatile File jSQ;
+    private static StatFsHelper jZP;
+    private static final long jZQ = TimeUnit.MINUTES.toMillis(2);
+    private volatile File jZS;
+    private volatile File jZU;
     @GuardedBy("lock")
-    private long jSR;
-    private volatile StatFs jSN = null;
-    private volatile StatFs jSP = null;
+    private long jZV;
+    private volatile StatFs jZR = null;
+    private volatile StatFs jZT = null;
     private volatile boolean mInitialized = false;
-    private final Lock jSS = new ReentrantLock();
+    private final Lock jZW = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -33,13 +33,13 @@ public class StatFsHelper {
         EXTERNAL
     }
 
-    public static synchronized StatFsHelper cBX() {
+    public static synchronized StatFsHelper cEY() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (jSL == null) {
-                jSL = new StatFsHelper();
+            if (jZP == null) {
+                jZP = new StatFsHelper();
             }
-            statFsHelper = jSL;
+            statFsHelper = jZP;
         }
         return statFsHelper;
     }
@@ -49,16 +49,16 @@ public class StatFsHelper {
 
     private void ensureInitialized() {
         if (!this.mInitialized) {
-            this.jSS.lock();
+            this.jZW.lock();
             try {
                 if (!this.mInitialized) {
-                    this.jSO = Environment.getDataDirectory();
-                    this.jSQ = Environment.getExternalStorageDirectory();
-                    cBZ();
+                    this.jZS = Environment.getDataDirectory();
+                    this.jZU = Environment.getExternalStorageDirectory();
+                    cFa();
                     this.mInitialized = true;
                 }
             } finally {
-                this.jSS.unlock();
+                this.jZW.unlock();
             }
         }
     }
@@ -74,8 +74,8 @@ public class StatFsHelper {
         long blockSize;
         long availableBlocks;
         ensureInitialized();
-        cBY();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.jSN : this.jSP;
+        cEZ();
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.jZR : this.jZT;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -89,23 +89,23 @@ public class StatFsHelper {
         return 0L;
     }
 
-    private void cBY() {
-        if (this.jSS.tryLock()) {
+    private void cEZ() {
+        if (this.jZW.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.jSR > jSM) {
-                    cBZ();
+                if (SystemClock.uptimeMillis() - this.jZV > jZQ) {
+                    cFa();
                 }
             } finally {
-                this.jSS.unlock();
+                this.jZW.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
-    private void cBZ() {
-        this.jSN = a(this.jSN, this.jSO);
-        this.jSP = a(this.jSP, this.jSQ);
-        this.jSR = SystemClock.uptimeMillis();
+    private void cFa() {
+        this.jZR = a(this.jZR, this.jZS);
+        this.jZT = a(this.jZT, this.jZU);
+        this.jZV = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {
@@ -114,7 +114,7 @@ public class StatFsHelper {
         }
         try {
             if (statFs == null) {
-                statFs = GP(file.getAbsolutePath());
+                statFs = HJ(file.getAbsolutePath());
             } else {
                 statFs.restat(file.getAbsolutePath());
             }
@@ -126,7 +126,7 @@ public class StatFsHelper {
         }
     }
 
-    protected static StatFs GP(String str) {
+    protected static StatFs HJ(String str) {
         return new StatFs(str);
     }
 }

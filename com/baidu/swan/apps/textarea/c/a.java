@@ -5,45 +5,45 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static volatile a aYt;
+    private static volatile a aZd;
     private HashMap<String, b> jk = new HashMap<>();
 
     private a() {
     }
 
-    public static a NZ() {
-        if (aYt == null) {
+    public static a OO() {
+        if (aZd == null) {
             synchronized (a.class) {
-                if (aYt == null) {
-                    aYt = new a();
+                if (aZd == null) {
+                    aZd = new a();
                 }
             }
         }
-        return aYt;
+        return aZd;
     }
 
-    private b hR(String str) {
+    private b hY(String str) {
         c.d("TextAreaBaseParser", "createTextAreaSecondaryParser slaveId:" + str);
         b bVar = new b();
         this.jk.put(str, bVar);
         return bVar;
     }
 
-    public b hS(String str) {
+    public b hZ(String str) {
         c.d("TextAreaBaseParser", "getOrCreateSecondaryParser slaveId:" + str);
-        b hT = hT(str);
-        if (hT == null) {
-            return hR(str);
+        b ia = ia(str);
+        if (ia == null) {
+            return hY(str);
         }
-        return hT;
+        return ia;
     }
 
-    public b hT(String str) {
+    public b ia(String str) {
         c.d("TextAreaBaseParser", "getTextAreaSecondaryParser slaveId:" + str);
         return this.jk.get(str);
     }
 
-    public void hU(String str) {
+    public void ib(String str) {
         c.d("TextAreaBaseParser", "destroyTextAreaSecondaryParser slaveId:" + str);
         this.jk.remove(str);
     }

@@ -25,7 +25,7 @@ public class d extends j {
                 messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
             }
             if (messageSyncMessage != null) {
-                com.baidu.tbadk.core.d.a.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                com.baidu.tbadk.core.e.a.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
             }
             if (socketResponsedMessage.getError() == 110000) {
                 MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
@@ -40,7 +40,7 @@ public class d extends j {
                 }
             }
             if (!a(responsePullMessage)) {
-                b.bCS().bCZ();
+                b.bFz().bFG();
                 return socketResponsedMessage;
             }
             return socketResponsedMessage;
@@ -66,12 +66,12 @@ public class d extends j {
                 return false;
             }
             LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-            LongSparseArray<Long> bCD = com.baidu.tieba.im.memorycache.b.bCs().bCD();
+            LongSparseArray<Long> bFk = com.baidu.tieba.im.memorycache.b.bEZ().bFk();
             boolean z = false;
             for (GroupMsgData groupMsgData : groupMsg) {
                 if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                    if (com.baidu.tieba.im.memorycache.c.vh(groupMsgData.getGroupInfo().getCustomType())) {
-                        Long l2 = bCD.get(groupMsgData.getGroupInfo().getGroupId());
+                    if (com.baidu.tieba.im.memorycache.c.vI(groupMsgData.getGroupInfo().getCustomType())) {
+                        Long l2 = bFk.get(groupMsgData.getGroupInfo().getGroupId());
                         if (l2 != null && (l = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
                             if (l2.longValue() > l.longValue()) {
                                 z = true;
@@ -87,7 +87,7 @@ public class d extends j {
             if (!z || longSparseArray.size() <= 0) {
                 return false;
             }
-            b.bCS().a(longSparseArray);
+            b.bFz().a(longSparseArray);
             return true;
         }
         return false;

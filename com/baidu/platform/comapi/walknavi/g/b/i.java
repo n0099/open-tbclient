@@ -4,8 +4,9 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tieba.R;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
-class i implements Runnable {
+public class i implements Runnable {
     final /* synthetic */ h a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

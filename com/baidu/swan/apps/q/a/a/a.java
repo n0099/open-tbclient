@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.mobstat.Config;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.StringResponseCallback;
@@ -16,7 +17,7 @@ import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.aiapps.apps.a.c;
-import com.baidu.tieba.aiapps.apps.d.d;
+import com.baidu.tieba.aiapps.apps.c.d;
 import java.util.HashSet;
 import java.util.Map;
 import org.json.JSONArray;
@@ -24,18 +25,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a extends z {
-    private int awO;
+    private int axt;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0161a {
+    public interface InterfaceC0158a {
         void x(JSONObject jSONObject);
     }
 
     public a(j jVar) {
         super(jVar, "/swan/privateGetUserInfo");
-        this.awO = -1;
+        this.axt = -1;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -76,19 +77,19 @@ public class a extends z {
             return;
         }
         final JSONObject jSONObject = new JSONObject();
-        jSONObject.put("displayname", a.get("bd_box_display_name"));
+        jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, a.get("bd_box_display_name"));
         jSONObject.put(IntentConfig.PORTRAIT, a.get("bd_box_avatar_url"));
-        if (this.awO != -1) {
+        if (this.axt != -1) {
             a(callbackHandler, str, jSONObject);
         } else {
-            a(new InterfaceC0161a() { // from class: com.baidu.swan.apps.q.a.a.a.1
-                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0161a
+            a(new InterfaceC0158a() { // from class: com.baidu.swan.apps.q.a.a.a.1
+                @Override // com.baidu.swan.apps.q.a.a.a.InterfaceC0158a
                 public void x(JSONObject jSONObject2) {
                     if (jSONObject2 == null) {
                         a.this.a(callbackHandler, str, jSONObject);
                         return;
                     }
-                    a.this.awO = a.this.w(jSONObject2);
+                    a.this.axt = a.this.w(jSONObject2);
                     a.this.a(callbackHandler, str, jSONObject);
                 }
             });
@@ -97,9 +98,9 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
-        if (this.awO != -1) {
+        if (this.axt != -1) {
             try {
-                jSONObject.put("gender", String.valueOf(this.awO));
+                jSONObject.put("gender", String.valueOf(this.axt));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -134,30 +135,30 @@ public class a extends z {
         }
     }
 
-    private void a(final InterfaceC0161a interfaceC0161a) {
-        if (interfaceC0161a != null) {
+    private void a(final InterfaceC0158a interfaceC0158a) {
+        if (interfaceC0158a != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gender", "1");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.sG(com.baidu.tieba.aiapps.apps.d.a.aDS()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.DY().Ew())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
+            ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(d.sZ(com.baidu.tieba.aiapps.apps.c.a.aFi()))).addParam("data", jSONObject.toString()).cookieManager(com.baidu.swan.apps.u.a.EH().Ff())).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.apps.q.a.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: x */
                 public void onSuccess(String str, int i) {
                     try {
-                        interfaceC0161a.x(new JSONObject(str));
+                        interfaceC0158a.x(new JSONObject(str));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
-                        interfaceC0161a.x(null);
+                        interfaceC0158a.x(null);
                     }
                 }
 
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
-                    interfaceC0161a.x(null);
+                    interfaceC0158a.x(null);
                 }
             });
         }

@@ -78,12 +78,12 @@ public class n {
         }
     }
 
-    public static boolean O(Activity activity) {
+    public static boolean R(Activity activity) {
         if (activity == null || !M(activity.getIntent())) {
             return false;
         }
         try {
-            b.L(activity);
+            b.O(activity);
             return true;
         } catch (Exception e) {
             return true;

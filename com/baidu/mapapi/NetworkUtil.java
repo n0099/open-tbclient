@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes5.dex */
 public class NetworkUtil {
     public static NetworkInfo getActiveNetworkInfo(Context context) {
@@ -22,7 +21,7 @@ public class NetworkUtil {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
         if (activeNetworkInfo != null) {
             if (activeNetworkInfo.getType() != 1) {
-                switch (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNetworkType()) {
+                switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
                     case 1:
                     case 2:
                         i = 6;

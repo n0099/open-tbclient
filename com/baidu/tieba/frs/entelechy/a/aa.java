@@ -12,23 +12,23 @@ public interface aa {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bg> bmU();
+    HashMap<Integer, bg> boV();
 
-    int bmV();
+    int boW();
 
-    void bmW();
+    void boX();
 
-    int bmX();
+    int boY();
 
-    int bmY();
+    int boZ();
 
-    void bmZ();
+    void bpa();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 
-    void ko(boolean z);
+    void ky(boolean z);
 
-    boolean m(BdUniqueId bdUniqueId);
+    boolean n(BdUniqueId bdUniqueId);
 
     void notifyDataSetChanged();
 

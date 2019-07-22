@@ -17,17 +17,17 @@ public class FrsCommonTabRequestData extends OrmObject implements h {
     public long lastThreadId = -1;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> asY() {
+    public HashMap<String, Object> aug() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> asZ() {
+    public HashMap<String, String> auh() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object fs(boolean z) {
+    public Object fw(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.tab_id = Integer.valueOf(this.tabId);
         builder.forum_id = Long.valueOf(this.fid);

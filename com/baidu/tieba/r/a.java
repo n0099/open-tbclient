@@ -7,12 +7,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a jgH;
-    private InterfaceC0393a jgI = cpn();
+    private static a jmR;
+    private InterfaceC0392a jmS = crW();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0393a {
+    public interface InterfaceC0392a {
         void behaviorRecordEvent(MotionEvent motionEvent, Activity activity);
 
         void f(Application application);
@@ -22,53 +22,53 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean cpm() {
-        return com.baidu.tbadk.core.sharedPref.b.agM().getInt("pref_key_crab_sdk_enable", 1) == 1;
+    private boolean crV() {
+        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0393a cpn() {
+    private InterfaceC0392a crW() {
         CustomResponsedMessage runTask;
-        if (!cpm() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0393a.class)) == null) {
+        if (!crV() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0392a.class)) == null) {
             return null;
         }
-        return (InterfaceC0393a) runTask.getData();
+        return (InterfaceC0392a) runTask.getData();
     }
 
-    public static a cpo() {
-        if (jgH == null) {
+    public static a crX() {
+        if (jmR == null) {
             synchronized (a.class) {
-                if (jgH == null) {
-                    jgH = new a();
+                if (jmR == null) {
+                    jmR = new a();
                 }
             }
         }
-        return jgH;
+        return jmR;
     }
 
     public void f(Application application) {
-        if (this.jgI != null) {
-            this.jgI.f(application);
+        if (this.jmS != null) {
+            this.jmS.f(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.jgI != null) {
-            this.jgI.onPause(activity);
+        if (this.jmS != null) {
+            this.jmS.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.jgI != null) {
-            this.jgI.onResume(activity);
+        if (this.jmS != null) {
+            this.jmS.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.jgI != null) {
-            this.jgI.behaviorRecordEvent(motionEvent, activity);
+        if (this.jmS != null) {
+            this.jmS.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

@@ -6,7 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
@@ -25,9 +25,9 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.ccl) {
+        if (this.cdo) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.c(this, R.color.cp_cont_d, 1, i);
+            am.d(this, R.color.cp_cont_d, 1, i);
             setBackgroundDrawable(null);
             return;
         }

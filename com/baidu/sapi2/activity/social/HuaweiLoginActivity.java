@@ -11,7 +11,7 @@ public class HuaweiLoginActivity extends BaseSSOLoginActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setupViews();
-        this.sapiWebView.loadHuaWeiSSOLogin(getIntent().getStringExtra("access_token"), getIntent().getStringExtra("uid"), getStatParamList());
+        this.sapiWebView.loadHuaWeiSSOLogin(getIntent().getStringExtra("access_token"), getStatParamList());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

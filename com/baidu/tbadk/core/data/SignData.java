@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.pb.data.ContriInfo;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -42,7 +43,7 @@ public class SignData implements Serializable {
             this.levelup_score = optJSONObject.optInt("levelup_score");
             this.miss_sign_num = optJSONObject.optInt("miss_sign_num");
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("info");
+        JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.LAUNCH_INFO);
         if (optJSONObject2 != null) {
             this.blockPopInfoData = new BlockPopInfoData();
             this.blockPopInfoData.block_info = optJSONObject2.optString("block_content");

@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View bML;
+    private View bNM;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,24 +27,24 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.bML = new View(getContext());
-        addView(this.bML, 0, new RelativeLayout.LayoutParams(-1, -1));
+        this.bNM = new View(getContext());
+        addView(this.bNM, 0, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bML.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.bNM.getLayoutParams();
         int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(R.dimen.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.bML.setLayoutParams(layoutParams);
+        this.bNM.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.bML.setBackgroundDrawable(drawable);
+        this.bNM.setBackgroundDrawable(drawable);
     }
 }

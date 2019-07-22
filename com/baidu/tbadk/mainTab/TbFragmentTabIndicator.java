@@ -5,51 +5,51 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean cwD;
-    protected float cwE;
-    protected float cwF;
-    protected int cwG;
-    protected int cwH;
+    protected boolean cxS;
+    protected float cxT;
+    protected float cxU;
+    protected int cxV;
+    protected int cxW;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.cwD = false;
-        this.cwE = 0.0f;
-        this.cwF = 0.0f;
-        this.cwG = 0;
-        this.cwH = 0;
+        this.cxS = false;
+        this.cxT = 0.0f;
+        this.cxU = 0.0f;
+        this.cxV = 0;
+        this.cxW = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cwD = false;
-        this.cwE = 0.0f;
-        this.cwF = 0.0f;
-        this.cwG = 0;
-        this.cwH = 0;
+        this.cxS = false;
+        this.cxT = 0.0f;
+        this.cxU = 0.0f;
+        this.cxV = 0;
+        this.cxW = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cwD = false;
-        this.cwE = 0.0f;
-        this.cwF = 0.0f;
-        this.cwG = 0;
-        this.cwH = 0;
+        this.cxS = false;
+        this.cxT = 0.0f;
+        this.cxU = 0.0f;
+        this.cxV = 0;
+        this.cxW = 0;
     }
 
-    public void iW(int i) {
+    public void jc(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void fp(boolean z) {
+    public void ft(boolean z) {
     }
 
     public View getContentTv() {
@@ -65,7 +65,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a qy(String str) {
+    public a qP(String str) {
         return null;
     }
 
@@ -102,56 +102,56 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void asL() {
+    public void atT() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.cwD = z;
+        this.cxS = z;
     }
 
     public void setContentSelectTextSize(float f) {
-        this.cwE = f;
+        this.cxT = f;
     }
 
     public void setContentDefaultTextSize(float f) {
-        this.cwF = f;
+        this.cxU = f;
     }
 
     public void setContentSelectTextColor(int i) {
-        this.cwG = i;
+        this.cxV = i;
     }
 
     public void setContentDefaultTextColor(int i) {
-        this.cwH = i;
+        this.cxW = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
-        public int cwJ;
-        public TbFragmentTabIndicator cwL;
+        public int cxY;
+        public TbFragmentTabIndicator cya;
         public View view;
-        public int zK;
-        public boolean cwI = true;
-        public int cwK = R.color.common_color_10225;
+        public int zQ;
+        public boolean cxX = true;
+        public int cxZ = R.color.common_color_10225;
 
-        public void iW(int i) {
-            if (this.cwJ != 0) {
-                al.k(this.view, this.cwJ);
+        public void jc(int i) {
+            if (this.cxY != 0) {
+                am.k(this.view, this.cxY);
             }
             if (this.view instanceof TextView) {
-                if (this.cwK != 0) {
-                    al.f(this.view, this.cwK, 1);
+                if (this.cxZ != 0) {
+                    am.f(this.view, this.cxZ, 1);
                 }
                 int c = c((TextView) this.view);
                 if (c > 0 && c < 10) {
-                    al.k(this.view, R.drawable.icon_news_head_prompt_one);
+                    am.k(this.view, R.drawable.icon_news_head_prompt_one);
                 } else if (c >= 10 && c < 100) {
-                    al.k(this.view, R.drawable.icon_news_head_prompt_two);
+                    am.k(this.view, R.drawable.icon_news_head_prompt_two);
                 } else if (c >= 100) {
-                    al.k(this.view, R.drawable.icon_news_head_prompt_more);
+                    am.k(this.view, R.drawable.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {

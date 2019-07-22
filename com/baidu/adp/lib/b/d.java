@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d zh = null;
+    private static d zn = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -15,13 +15,13 @@ public class d {
         this.mSwitchs = new HashMap<>();
     }
 
-    public static synchronized d hI() {
+    public static synchronized d hS() {
         d dVar;
         synchronized (d.class) {
-            if (zh == null) {
-                zh = new d();
+            if (zn == null) {
+                zn = new d();
             }
-            dVar = zh;
+            dVar = zn;
         }
         return dVar;
     }
@@ -34,7 +34,7 @@ public class d {
 
     public void crash(String str) {
         Iterator<c> it = this.mSwitchs.values().iterator();
-        while (it.hasNext() && !it.next().ax(str)) {
+        while (it.hasNext() && !it.next().ay(str)) {
         }
     }
 
@@ -46,7 +46,7 @@ public class d {
         return false;
     }
 
-    public int ay(String str) {
+    public int az(String str) {
         c cVar = this.mSwitchs.get(str);
         if (cVar != null) {
             return cVar.getType();
@@ -60,8 +60,8 @@ public class d {
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
                     cVar.V(0);
-                    edit.putInt(cVar.getName() + c.zc, 0);
-                    edit.putInt(cVar.getName() + c.zd, cVar.hz());
+                    edit.putInt(cVar.getName() + c.zi, 0);
+                    edit.putInt(cVar.getName() + c.zj, cVar.hJ());
                 }
             }
             edit.commit();

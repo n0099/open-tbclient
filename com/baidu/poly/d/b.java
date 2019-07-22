@@ -7,23 +7,23 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    private static b ahr;
-    private a agy;
+    private static b ahS;
+    private a agV;
 
     private b(a aVar) {
-        this.agy = aVar;
+        this.agV = aVar;
     }
 
     public static void b(a aVar) {
-        ahr = new b(aVar);
+        ahS = new b(aVar);
     }
 
-    public static b ur() {
-        return ahr;
+    public static b uR() {
+        return ahS;
     }
 
     public void a(Bundle bundle, final PayChannel payChannel, final a.c cVar, final com.baidu.poly.a.a<Map<String, String>> aVar) {
-        com.baidu.poly.a.a.a.ug().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.1
+        com.baidu.poly.a.a.a.uG().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
@@ -40,7 +40,7 @@ public class b {
                     }
                 };
                 if (payChannel.getActionType().equals(PayChannel.ACTION_TYPE_SDK)) {
-                    b.this.agy.a(map, payChannel.getPayChannel(), c0085a);
+                    b.this.agV.a(map, payChannel.getPayChannel(), c0085a);
                 }
                 if (aVar != null) {
                     aVar.onSuccess(map);

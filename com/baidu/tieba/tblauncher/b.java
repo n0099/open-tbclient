@@ -6,21 +6,21 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 /* loaded from: classes4.dex */
-public class b implements com.baidu.tbadk.core.e.a {
-    private a jff;
+public class b implements com.baidu.tbadk.core.f.a {
+    private a jlo;
 
-    @Override // com.baidu.tbadk.core.e.a
+    @Override // com.baidu.tbadk.core.f.a
     public void b(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
     }
 
-    @Override // com.baidu.tbadk.core.e.a
+    @Override // com.baidu.tbadk.core.f.a
     public void o(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
-    @Override // com.baidu.tbadk.core.e.a
-    public void cr(Context context) {
+    @Override // com.baidu.tbadk.core.f.a
+    public void cs(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
             o(context, 1);
@@ -29,30 +29,30 @@ public class b implements com.baidu.tbadk.core.e.a {
         }
     }
 
-    @Override // com.baidu.tbadk.core.e.a
+    @Override // com.baidu.tbadk.core.f.a
     public void c(Context context, int i, boolean z) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
     }
 
-    @Override // com.baidu.tbadk.core.e.a
-    public Class<?> agD() {
+    @Override // com.baidu.tbadk.core.f.a
+    public Class<?> ahF() {
         return MainTabActivity.class;
     }
 
-    @Override // com.baidu.tbadk.core.e.a
-    public String agE() {
+    @Override // com.baidu.tbadk.core.f.a
+    public String ahG() {
         return MainTabActivity.class.getName();
     }
 
-    @Override // com.baidu.tbadk.core.e.a
+    @Override // com.baidu.tbadk.core.f.a
     public int getCurrentTabType() {
-        if (this.jff != null) {
-            return this.jff.getCurrentTabType();
+        if (this.jlo != null) {
+            return this.jlo.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.jff = aVar;
+        this.jlo = aVar;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.daily.b.d, a> {
@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: bg */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         Context context = viewGroup.getContext();
         this.tbds42 = l.g(context, R.dimen.tbds42);
@@ -36,8 +36,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         View inflate = LayoutInflater.from(context).inflate(R.layout.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.cTa = inflate.findViewById(R.id.divider_line);
-        aVar.fYL = (TextView) inflate.findViewById(R.id.daily_title);
+        aVar.cUw = inflate.findViewById(R.id.divider_line);
+        aVar.gdI = (TextView) inflate.findViewById(R.id.daily_title);
         return aVar;
     }
 
@@ -47,25 +47,25 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
         if (aVar != null && dVar != null) {
-            String bte = !StringUtils.isNull(dVar.bte()) ? dVar.bte() : this.mContext.getString(R.string.daily_default_title);
-            String btd = !StringUtils.isNull(dVar.btd()) ? dVar.btd() : "";
-            int length = bte.length();
-            int length2 = btd.length();
-            int color = al.getColor(R.color.cp_cont_b);
-            int color2 = al.getColor(R.color.cp_cont_d);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(bte + btd);
+            String bvg = !StringUtils.isNull(dVar.bvg()) ? dVar.bvg() : this.mContext.getString(R.string.daily_default_title);
+            String bvf = !StringUtils.isNull(dVar.bvf()) ? dVar.bvf() : "";
+            int length = bvg.length();
+            int length2 = bvf.length();
+            int color = am.getColor(R.color.cp_cont_b);
+            int color2 = am.getColor(R.color.cp_cont_d);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(bvg + bvf);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds42), 0, length, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.fYL.setText(spannableStringBuilder);
-            al.j(aVar.fYL, R.color.cp_cont_b);
-            al.l(aVar.fYL, R.color.cp_bg_line_d);
-            if (dVar.btf()) {
-                aVar.cTa.setVisibility(0);
-                al.l(aVar.cTa, R.color.cp_bg_line_e);
+            aVar.gdI.setText(spannableStringBuilder);
+            am.j(aVar.gdI, R.color.cp_cont_b);
+            am.l(aVar.gdI, R.color.cp_bg_line_d);
+            if (dVar.bvh()) {
+                aVar.cUw.setVisibility(0);
+                am.l(aVar.cUw, R.color.cp_bg_line_e);
             } else {
-                aVar.cTa.setVisibility(8);
+                aVar.cUw.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -75,8 +75,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public static class a extends v.a {
-        public View cTa;
-        public TextView fYL;
+        public View cUw;
+        public TextView gdI;
 
         public a(View view) {
             super(view);

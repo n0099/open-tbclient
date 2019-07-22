@@ -11,9 +11,11 @@ public class BuyTBeanActivityConfig extends IntentConfig {
     public static final String PAY_FORM = "pay_form";
     public static final String PAY_TYPE = "pay_type";
     public static final String SCENE_ID = "scene_id";
+    public static final int SOURCE_ALA_BUY_HOST_GUARDIAN = 4;
     public static final int SOURCE_ALA_GIFT_LEFT_CORNER = 3;
     public static final int SOURCE_ALA_GIFT_PANEL = 1;
     public static final int SOURCE_ALA_LIVEROOM_OUTSIDE_SHOW = 2;
+    public static final int SOURCE_ALA_ONE_THOUSAND_GIFT = 5;
     public static final int SOURCE_DEFAULT = 0;
     public static final String TBEAN_LEFT_TO_BUY_ALA_GIFT = "tbean_left_to_buy_ala_gift";
 

@@ -1,47 +1,47 @@
 package com.baidu.mario.b.b;
 /* loaded from: classes2.dex */
 public class d {
-    private String aeF = "/sdcard/AR/video/arvideo.mp4";
-    private int aeG = 0;
-    private long aeH = 0;
-    private boolean aeI = true;
+    private String afc = "/sdcard/AR/video/arvideo.mp4";
+    private int afd = 0;
+    private long afe = 0;
+    private boolean aff = true;
     private int mVideoWidth = 720;
     private int mVideoHeight = 1280;
-    private String aeJ = "video/avc";
-    private int aeK = 8294400;
-    private int aeL = 30;
-    private int aeM = 1;
-    private boolean aeN = false;
-    private String aeO = "audio/mp4a-latm";
-    private int aeP = 1;
-    private int aeQ = 128000;
-    private int aeR = 16000;
-    private int aeS = 1024;
+    private String afg = "video/avc";
+    private int afh = 8294400;
+    private int afi = 30;
+    private int afj = 1;
+    private boolean afk = false;
+    private String afl = "audio/mp4a-latm";
+    private int afm = 1;
+    private int afn = 128000;
+    private int afo = 16000;
+    private int afp = 1024;
 
-    public String ts() {
-        return this.aeF;
+    public String tR() {
+        return this.afc;
     }
 
-    public void setOutputFile(String str) {
+    public void cF(String str) {
         if (str != null && !str.isEmpty()) {
-            this.aeF = str;
+            this.afc = str;
         }
     }
 
-    public int tt() {
-        return this.aeG;
+    public int tS() {
+        return this.afd;
     }
 
-    public long tu() {
-        return this.aeH;
+    public long tT() {
+        return this.afe;
     }
 
     public void z(long j) {
-        this.aeH = j;
+        this.afe = j;
     }
 
-    public boolean tv() {
-        return this.aeI;
+    public boolean tU() {
+        return this.aff;
     }
 
     public int getVideoWidth() {
@@ -60,47 +60,47 @@ public class d {
         this.mVideoHeight = i;
     }
 
-    public String tw() {
-        return this.aeJ;
+    public String tV() {
+        return this.afg;
     }
 
-    public int tx() {
-        return this.aeK;
+    public int tW() {
+        return this.afh;
     }
 
-    public int ty() {
-        return this.aeL;
+    public int tX() {
+        return this.afi;
     }
 
-    public int tz() {
-        return this.aeM;
+    public int tY() {
+        return this.afj;
     }
 
-    public boolean tA() {
-        return this.aeN;
+    public boolean tZ() {
+        return this.afk;
     }
 
-    public void aM(boolean z) {
-        this.aeN = z;
+    public void aP(boolean z) {
+        this.afk = z;
     }
 
-    public String tB() {
-        return this.aeO;
+    public String ua() {
+        return this.afl;
     }
 
-    public int tC() {
-        return this.aeP;
+    public int ub() {
+        return this.afm;
     }
 
-    public int tD() {
-        return this.aeQ;
+    public int uc() {
+        return this.afn;
     }
 
-    public int getAudioSampleRate() {
-        return this.aeR;
+    public int ud() {
+        return this.afo;
     }
 
-    public int tE() {
-        return this.aeS;
+    public int ue() {
+        return this.afp;
     }
 }

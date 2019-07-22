@@ -3,13 +3,13 @@ package com.baidu.tieba.tbadkCore.PbEditor;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int ccJ;
-    protected int iXF;
-    protected int iXG;
+    private int cdL;
+    protected int jdW;
+    protected int jdX;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,10 +21,10 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ccJ = 3;
-        this.iXF = (int) context.getResources().getDimension(R.dimen.ds18);
-        this.iXG = (int) context.getResources().getDimension(R.dimen.ds6);
-        setPadding(this.iXF, this.iXG, this.iXF, this.iXG);
+        this.cdL = 3;
+        this.jdW = (int) context.getResources().getDimension(R.dimen.ds18);
+        this.jdX = (int) context.getResources().getDimension(R.dimen.ds6);
+        setPadding(this.jdW, this.jdX, this.jdW, this.jdX);
         setGravity(16);
         setSingleLine(true);
         setTextSize(0, context.getResources().getDimension(R.dimen.ds24));
@@ -37,9 +37,9 @@ public class EditorInfoView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.ccJ) {
-            al.j(this, R.color.cp_cont_f);
-            this.ccJ = i;
+        if (i != this.cdL) {
+            am.j(this, R.color.cp_cont_f);
+            this.cdL = i;
         }
     }
 }

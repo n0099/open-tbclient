@@ -3,46 +3,46 @@ package com.baidu.swan.games.u;
 import com.baidu.searchbox.v8engine.JsFunction;
 /* loaded from: classes2.dex */
 public class b {
-    private JsFunction bkS;
-    private JsFunction bkT;
-    private JsFunction bkU;
+    private JsFunction blF;
+    private JsFunction blG;
+    private JsFunction blH;
 
     public static b i(com.baidu.swan.games.binding.model.c cVar) {
         if (cVar == null) {
             return null;
         }
         b bVar = new b();
-        bVar.bkS = cVar.iQ("onCheckForUpdate");
-        if (bVar.bkS != null) {
-            bVar.bkS.setReleaseMode(false);
+        bVar.blF = cVar.iY("onCheckForUpdate");
+        if (bVar.blF != null) {
+            bVar.blF.setReleaseMode(false);
         }
-        bVar.bkT = cVar.iQ("onUpdateReady");
-        if (bVar.bkT != null) {
-            bVar.bkT.setReleaseMode(false);
+        bVar.blG = cVar.iY("onUpdateReady");
+        if (bVar.blG != null) {
+            bVar.blG.setReleaseMode(false);
         }
-        bVar.bkU = cVar.iQ("onUpdateFailed");
-        if (bVar.bkU != null) {
-            bVar.bkU.setReleaseMode(false);
+        bVar.blH = cVar.iY("onUpdateFailed");
+        if (bVar.blH != null) {
+            bVar.blH.setReleaseMode(false);
             return bVar;
         }
         return bVar;
     }
 
     public void b(c cVar) {
-        if (this.bkS != null) {
-            this.bkS.call(cVar);
+        if (this.blF != null) {
+            this.blF.call(cVar);
         }
     }
 
-    public void SB() {
-        if (this.bkT != null) {
-            this.bkT.call();
+    public void Tu() {
+        if (this.blG != null) {
+            this.blG.call();
         }
     }
 
-    public void SC() {
-        if (this.bkU != null) {
-            this.bkU.call();
+    public void Tv() {
+        if (this.blH != null) {
+            this.blH.call();
         }
     }
 }

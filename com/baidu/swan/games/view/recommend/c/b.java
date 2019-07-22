@@ -18,12 +18,12 @@ import com.baidu.swan.apps.w.e;
 import com.baidu.swan.games.view.recommend.c.a;
 /* loaded from: classes2.dex */
 public class b extends com.baidu.swan.games.view.recommend.a.a {
-    private g bmh;
-    private View bmi;
-    private View bmj;
-    private ImageView bmk;
-    private View bml;
-    private a bmm;
+    private g bmV;
+    private View bmW;
+    private View bmX;
+    private ImageView bmY;
+    private View bmZ;
+    private a bna;
     private RecyclerView mRecyclerView;
 
     public b(@NonNull Context context, @NonNull com.baidu.swan.games.view.recommend.a.d dVar) {
@@ -31,62 +31,62 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.a
-    protected View Tf() {
-        View Tf = super.Tf();
-        this.bmi = LayoutInflater.from(this.mContext).inflate(a.g.swangame_recommend_dialog, (ViewGroup) null);
-        this.bmj = this.bmi.findViewById(a.f.swangame_recommend_dialog_content);
-        this.bml = this.bmi.findViewById(a.f.swangame_recommend_dialog_night_mask);
-        this.bmk = (ImageView) this.bmi.findViewById(a.f.swangame_recommend_dialog_cancel);
-        Tp();
-        this.mRecyclerView = (RecyclerView) this.bmi.findViewById(a.f.swangame_recommend_dialog_list);
+    protected View TY() {
+        View TY = super.TY();
+        this.bmW = LayoutInflater.from(this.mContext).inflate(a.g.swangame_recommend_dialog, (ViewGroup) null);
+        this.bmX = this.bmW.findViewById(a.f.swangame_recommend_dialog_content);
+        this.bmZ = this.bmW.findViewById(a.f.swangame_recommend_dialog_night_mask);
+        this.bmY = (ImageView) this.bmW.findViewById(a.f.swangame_recommend_dialog_cancel);
+        initDialog();
+        this.mRecyclerView = (RecyclerView) this.bmW.findViewById(a.f.swangame_recommend_dialog_list);
         this.mRecyclerView.setItemAnimator(null);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mContext));
         this.mRecyclerView.addItemDecoration(new c(this.mContext));
-        this.bmm = new a(this.mContext);
-        this.mRecyclerView.setAdapter(this.bmm);
-        au(Tf);
-        return Tf;
+        this.bna = new a(this.mContext);
+        this.mRecyclerView.setAdapter(this.bna);
+        aw(TY);
+        return TY;
     }
 
-    private void Tp() {
-        g.a ad = new g.a(this.mContext).cb(true).bZ(true).ce(false).KI().KJ().dx(17170445).ad(this.bmi);
-        ad.ca(false);
-        this.bmh = ad.Aq();
-        com.baidu.swan.apps.an.b.a(e.FV().FH(), this.bmh);
+    private void initDialog() {
+        g.a af = new g.a(this.mContext).ce(true).cc(true).ch(false).Lv().Lw().dA(17170445).af(this.bmW);
+        af.cd(false);
+        this.bmV = af.AX();
+        com.baidu.swan.apps.an.b.a(e.GF().Gr(), this.bmV);
     }
 
-    private void au(View view) {
+    private void aw(View view) {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.blP != null) {
-                    b.this.blP.Tn();
+                if (b.this.bmD != null) {
+                    b.this.bmD.Ug();
                 }
-                b.this.Ts();
+                b.this.Uk();
             }
         });
-        this.bmm.a(new a.InterfaceC0219a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
-            @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0219a
-            public void fm(int i) {
-                if (b.this.blP != null) {
-                    b.this.blP.fi(i);
+        this.bna.a(new a.InterfaceC0216a() { // from class: com.baidu.swan.games.view.recommend.c.b.2
+            @Override // com.baidu.swan.games.view.recommend.c.a.InterfaceC0216a
+            public void fq(int i) {
+                if (b.this.bmD != null) {
+                    b.this.bmD.fm(i);
                 }
-                b.this.Tt();
+                b.this.Ul();
             }
         });
-        this.bmi.findViewById(a.f.swangame_recommend_dialog_game_center).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.3
+        this.bmW.findViewById(a.f.swangame_recommend_dialog_game_center).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (b.this.blO != null && b.this.blP != null) {
-                    b.this.blP.Tm();
+                if (b.this.bmC != null && b.this.bmD != null) {
+                    b.this.bmD.Uf();
                 }
-                b.this.Tt();
+                b.this.Ul();
             }
         });
-        this.bmk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.4
+        this.bmY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.games.view.recommend.c.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                b.this.Tt();
+                b.this.Ul();
             }
         });
     }
@@ -94,52 +94,52 @@ public class b extends com.baidu.swan.games.view.recommend.a.a {
     @Override // com.baidu.swan.games.view.recommend.a.a, com.baidu.swan.games.view.recommend.a.b
     public void a(com.baidu.swan.games.view.recommend.d.b bVar) {
         super.a(bVar);
-        this.bmm.a(bVar);
-        Tq();
+        this.bna.a(bVar);
+        Ui();
     }
 
-    private void Tq() {
-        SwanAppActivity FH = e.FV().FH();
-        float min = Math.min(FH != null && FH.isLandScape() ? 2.5f : 5.0f, this.mRecyclerView.getAdapter().getItemCount());
+    private void Ui() {
+        SwanAppActivity Gr = e.GF().Gr();
+        float min = Math.min(Gr != null && Gr.isLandScape() ? 2.5f : 5.0f, this.mRecyclerView.getAdapter().getItemCount());
         Resources resources = this.mContext.getResources();
         float dimension = (int) ((min * (resources.getDimension(a.d.swangame_recommend_dialog_list_divider_height) + resources.getDimension(a.d.swangame_recommend_dialog_list_item_height))) + resources.getDimension(a.d.swangame_recommend_dialog_list_default_padding));
         float dimension2 = resources.getDimension(a.d.swangame_recommend_dialog_width);
-        Pair<Integer, Integer> FK = e.FV().FK();
-        this.mRecyclerView.getLayoutParams().width = (int) Math.min(dimension2, ((Integer) FK.first).intValue());
-        this.mRecyclerView.getLayoutParams().height = (int) Math.min(dimension, ((Integer) FK.second).intValue() * 0.67f);
+        Pair<Integer, Integer> Gu = e.GF().Gu();
+        this.mRecyclerView.getLayoutParams().width = (int) Math.min(dimension2, ((Integer) Gu.first).intValue());
+        this.mRecyclerView.getLayoutParams().height = (int) Math.min(dimension, ((Integer) Gu.second).intValue() * 0.67f);
         this.mRecyclerView.requestLayout();
     }
 
-    private void Tr() {
-        boolean Ev = com.baidu.swan.apps.u.a.DW().Ev();
-        this.bml.setVisibility(8);
-        this.bmk.setImageResource(Ev ? a.e.swangame_recommend_button_close_night : a.e.swangame_recommend_button_close);
-        if (Ev) {
-            this.bmj.post(new Runnable() { // from class: com.baidu.swan.games.view.recommend.c.b.5
+    private void Uj() {
+        boolean Fe = com.baidu.swan.apps.u.a.EF().Fe();
+        this.bmZ.setVisibility(8);
+        this.bmY.setImageResource(Fe ? a.e.swangame_recommend_button_close_night : a.e.swangame_recommend_button_close);
+        if (Fe) {
+            this.bmX.post(new Runnable() { // from class: com.baidu.swan.games.view.recommend.c.b.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) b.this.bml.getLayoutParams();
-                    layoutParams.width = b.this.bmj.getWidth();
-                    layoutParams.height = b.this.bmj.getHeight();
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) b.this.bmZ.getLayoutParams();
+                    layoutParams.width = b.this.bmX.getWidth();
+                    layoutParams.height = b.this.bmX.getHeight();
                     layoutParams.topMargin = -layoutParams.height;
-                    b.this.bml.setVisibility(0);
+                    b.this.bmZ.setVisibility(0);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ts() {
-        Tr();
-        if (this.bmh != null) {
-            this.bmh.show();
+    public void Uk() {
+        Uj();
+        if (this.bmV != null) {
+            this.bmV.show();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Tt() {
-        if (this.bmh != null) {
-            this.bmh.dismiss();
+    public void Ul() {
+        if (this.bmV != null) {
+            this.bmV.dismiss();
         }
     }
 }

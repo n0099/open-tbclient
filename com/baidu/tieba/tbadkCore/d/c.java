@@ -9,7 +9,7 @@ import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c {
-    private static HashMap<String, e> jah;
+    private static HashMap<String, e> jgy;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tieba.tbadkCore.d.c.1
@@ -17,11 +17,11 @@ public class c {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if ((customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    c.Az(1);
+                    c.Bf(1);
                 }
             }
         });
-        jah = new HashMap<>();
+        jgy = new HashMap<>();
     }
 
     public static void y(String str, String str2, boolean z) {
@@ -29,8 +29,8 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!jah.containsKey(str3)) {
-            jah.put(str3, new e(str, str2, z));
+        if (!jgy.containsKey(str3)) {
+            jgy.put(str3, new e(str, str2, z));
         }
     }
 
@@ -39,40 +39,40 @@ public class c {
             str2 = "";
         }
         String str3 = str + str2;
-        if (!jah.containsKey(str3)) {
-            jah.put(str3, new e(str, str2, z));
+        if (!jgy.containsKey(str3)) {
+            jgy.put(str3, new e(str, str2, z));
         }
-        return jah.get(str3);
+        return jgy.get(str3);
     }
 
-    public static void cmR() {
+    public static void cpJ() {
     }
 
-    public static void Az(int i) {
-        for (String str : jah.keySet()) {
-            a(jah.get(str), i);
+    public static void Bf(int i) {
+        for (String str : jgy.keySet()) {
+            a(jgy.get(str), i);
         }
     }
 
     public static void a(e eVar, int i) {
-        d dVar = eVar.jal;
-        d dVar2 = eVar.jam;
-        d dVar3 = eVar.jan;
+        d dVar = eVar.jgC;
+        d dVar2 = eVar.jgD;
+        d dVar3 = eVar.jgE;
         if (dVar.num + dVar2.num + dVar3.num >= i) {
             com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
             aVar.append(SocialConstants.PARAM_ACT, eVar.type);
-            aVar.append("httpTimeCost", String.valueOf(dVar.jai));
+            aVar.append("httpTimeCost", String.valueOf(dVar.jgz));
             aVar.append("httpNum", String.valueOf(dVar.num));
-            aVar.append("httpFailnum", String.valueOf(dVar.jaj));
+            aVar.append("httpFailnum", String.valueOf(dVar.jgA));
             aVar.append("httpSize", String.valueOf(dVar.size));
-            aVar.append("socketTimeCost", String.valueOf(dVar2.jai));
+            aVar.append("socketTimeCost", String.valueOf(dVar2.jgz));
             aVar.append("socketNum", String.valueOf(dVar2.num));
-            aVar.append("socketFailnum", String.valueOf(dVar2.jaj));
+            aVar.append("socketFailnum", String.valueOf(dVar2.jgA));
             aVar.append("socketSize", String.valueOf(dVar2.size));
-            aVar.append("abortTimeCost", String.valueOf(dVar3.jai));
+            aVar.append("abortTimeCost", String.valueOf(dVar3.jgz));
             aVar.append("abortNum", String.valueOf(dVar3.num));
             aVar.append("netType", eVar.netType);
-            aVar.append("isJson", eVar.jak ? "1" : "0");
+            aVar.append("isJson", eVar.jgB ? "1" : "0");
             BdStatisticsManager.getInstance().debug("frs", aVar);
             dVar.reset();
             dVar2.reset();

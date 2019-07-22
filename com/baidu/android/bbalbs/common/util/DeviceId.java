@@ -24,7 +24,6 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -854,7 +853,7 @@ public final class DeviceId {
         String str2;
         TelephonyManager telephonyManager;
         try {
-            telephonyManager = (TelephonyManager) this.mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            telephonyManager = (TelephonyManager) this.mContext.getSystemService("phone");
         } catch (Exception e) {
             Log.e(TAG, "Read IMEI failed", e);
         }

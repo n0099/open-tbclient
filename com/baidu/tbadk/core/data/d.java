@@ -2,11 +2,11 @@ package com.baidu.tbadk.core.data;
 /* loaded from: classes3.dex */
 public class d {
     public int type = 0;
-    public int bEz = 0;
-    public int bEA = 1;
-    public int bEB = 1;
-    public int bEC = 0;
-    public int bED = 1;
-    public int bEE = 0;
-    public int bEF = 0;
+    public int bFz = 0;
+    public int bFA = 1;
+    public int bFB = 1;
+    public int bFC = 0;
+    public int bFD = 1;
+    public int bFE = 0;
+    public int bFF = 0;
 }

@@ -4,13 +4,13 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
     private int cols;
-    private com.baidu.adp.widget.ImageView.a crE;
-    private com.baidu.adp.widget.ImageView.a crF;
+    private com.baidu.adp.widget.ImageView.a csR;
+    private com.baidu.adp.widget.ImageView.a csS;
     private int rows;
 
-    public abstract boolean arh();
+    public abstract boolean asn();
 
-    public abstract EmotionGroupType ari();
+    public abstract EmotionGroupType aso();
 
     public abstract int getEmotionsCount();
 
@@ -22,51 +22,51 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract String km(int i);
+    public abstract String ks(int i);
 
-    public abstract boolean pR(String str);
+    public abstract boolean qi(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a pS(String str);
+    public abstract com.baidu.adp.widget.ImageView.a qj(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a pT(String str);
+    public abstract com.baidu.adp.widget.ImageView.a qk(String str);
 
-    public com.baidu.adp.widget.ImageView.a arj() {
-        return this.crE;
+    public com.baidu.adp.widget.ImageView.a asp() {
+        return this.csR;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.ns();
+            aVar.nK();
         }
-        this.crE = aVar;
+        this.csR = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a ark() {
-        return this.crF;
+    public com.baidu.adp.widget.ImageView.a asq() {
+        return this.csS;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.ns();
+            aVar.nK();
         }
-        this.crF = aVar;
+        this.csS = aVar;
     }
 
-    public int arl() {
+    public int asr() {
         return this.cols;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void kn(int i) {
+    public void kt(int i) {
         this.cols = i;
     }
 
-    public int arm() {
+    public int ass() {
         return this.rows;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ko(int i) {
+    public void ku(int i) {
         this.rows = i;
     }
 }

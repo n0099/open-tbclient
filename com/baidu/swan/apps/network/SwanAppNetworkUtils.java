@@ -49,14 +49,14 @@ public class SwanAppNetworkUtils {
     public static void a(Context context, CallbackHandler callbackHandler, String str) {
         if (context != null && !TextUtils.isEmpty(str) && callbackHandler != null) {
             boolean isNetworkConnected = isNetworkConnected(context);
-            String Hf = Hf();
+            String HQ = HQ();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("isConnected", isNetworkConnected);
-                if (TextUtils.equals(Hf, "no")) {
-                    Hf = "none";
+                if (TextUtils.equals(HQ, "no")) {
+                    HQ = "none";
                 }
-                jSONObject.put("networkType", Hf);
+                jSONObject.put("networkType", HQ);
                 if (DEBUG) {
                     Log.d("SwanAppNetworkUtils", "——> notifyNetworkStatus: isConnected " + jSONObject.get("isConnected") + " , networkType " + jSONObject.get("networkType"));
                 }
@@ -126,7 +126,7 @@ public class SwanAppNetworkUtils {
         return null;
     }
 
-    public static String Hf() {
+    public static String HQ() {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(AppRuntime.getAppContext());
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
             return "no";
@@ -140,42 +140,42 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType Hg() {
-        String Hf = Hf();
+    public static NetType HR() {
+        String HQ = HQ();
         char c = 65535;
-        switch (Hf.hashCode()) {
+        switch (HQ.hashCode()) {
             case -840472412:
-                if (Hf.equals("unknow")) {
+                if (HQ.equals("unknow")) {
                     c = 5;
                     break;
                 }
                 break;
             case 1653:
-                if (Hf.equals("2g")) {
+                if (HQ.equals("2g")) {
                     c = 0;
                     break;
                 }
                 break;
             case 1684:
-                if (Hf.equals("3g")) {
+                if (HQ.equals("3g")) {
                     c = 1;
                     break;
                 }
                 break;
             case 1715:
-                if (Hf.equals("4g")) {
+                if (HQ.equals("4g")) {
                     c = 2;
                     break;
                 }
                 break;
             case 3521:
-                if (Hf.equals("no")) {
+                if (HQ.equals("no")) {
                     c = 4;
                     break;
                 }
                 break;
             case 3649301:
-                if (Hf.equals("wifi")) {
+                if (HQ.equals("wifi")) {
                     c = 3;
                     break;
                 }

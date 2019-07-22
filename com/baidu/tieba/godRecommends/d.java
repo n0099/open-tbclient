@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tieba.R;
@@ -24,32 +24,32 @@ import tbclient.MFollow.MFollowResult;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class d implements View.OnClickListener {
-    private com.baidu.tbadk.core.dialog.a TD;
-    private a fUN;
-    private ViewGroup fUS;
-    private com.baidu.tieba.godRecommends.a fUT;
-    private TextView fUU;
-    private View fUV;
-    private TextView fUW;
-    private View fUX;
-    private TextView fUY;
+    private com.baidu.tbadk.core.dialog.a TX;
+    private a fZK;
+    private ViewGroup fZP;
+    private com.baidu.tieba.godRecommends.a fZQ;
+    private TextView fZR;
+    private View fZS;
+    private TextView fZT;
+    private View fZU;
+    private TextView fZV;
     private Activity mActivity;
     private TbPageContext<?> mContext;
     private ListView mListView;
     private View.OnClickListener mOnClickListener;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private View mTopLine;
-    private List<MetaData> fUZ = new ArrayList();
-    private List<MetaData> fVa = new ArrayList();
+    private List<MetaData> fZW = new ArrayList();
+    private List<MetaData> fZX = new ArrayList();
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.godRecommends.d.1
         @Override // java.lang.Runnable
         public void run() {
-            if (d.this.bsp()) {
-                if (!d.this.cw(d.this.fUZ)) {
-                    d.this.fUT.setData(d.this.fUZ);
+            if (d.this.buq()) {
+                if (!d.this.cx(d.this.fZW)) {
+                    d.this.fZQ.setData(d.this.fZW);
                 } else {
-                    d.this.ayB();
+                    d.this.azP();
                 }
             }
         }
@@ -57,7 +57,7 @@ public class d implements View.OnClickListener {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void ct(List<MetaData> list);
+        void cu(List<MetaData> list);
     }
 
     public d(TbPageContext<?> tbPageContext) {
@@ -74,70 +74,70 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.fUN = aVar;
+        this.fZK = aVar;
     }
 
     public void a(c cVar) {
-        if (cVar != null && !v.aa(cVar.bsm())) {
-            ayB();
-            this.fUZ.clear();
-            this.fVa.clear();
-            List<MetaData> bsm = cVar.bsm();
-            int size = bsm.size();
+        if (cVar != null && !v.aa(cVar.bun())) {
+            azP();
+            this.fZW.clear();
+            this.fZX.clear();
+            List<MetaData> bun = cVar.bun();
+            int size = bun.size();
             if (size <= 3) {
-                this.fUZ.addAll(bsm);
+                this.fZW.addAll(bun);
             } else {
-                this.fUZ.addAll(bsm.subList(0, 3));
-                this.fVa.addAll(bsm.subList(3, size));
+                this.fZW.addAll(bun.subList(0, 3));
+                this.fZX.addAll(bun.subList(3, size));
             }
             initUI();
-            this.fUU.setText(R.string.god_recommend_title);
-            al.k(this.fUS, R.drawable.bg_god_recommend_layout);
-            al.j(this.fUU, R.color.cp_cont_d);
-            al.l(this.mTopLine, R.color.cp_bg_line_b);
-            al.l(this.fUV, R.color.cp_bg_line_a);
-            al.j(this.fUW, R.color.cp_cont_f);
-            al.k(this.fUW, R.drawable.god_recommend_left_button_selector);
-            al.l(this.fUX, R.color.cp_bg_line_a);
-            al.j(this.fUY, R.color.cp_link_tip_a);
-            al.k(this.fUY, R.drawable.god_recommend_right_button_selertor);
-            this.fUT.setData(this.fUZ);
-            this.mListView.setAdapter((ListAdapter) this.fUT);
-            this.TD.reset();
-            this.TD.b(this.mContext).afG();
+            this.fZR.setText(R.string.god_recommend_title);
+            am.k(this.fZP, R.drawable.bg_god_recommend_layout);
+            am.j(this.fZR, R.color.cp_cont_d);
+            am.l(this.mTopLine, R.color.cp_bg_line_b);
+            am.l(this.fZS, R.color.cp_bg_line_a);
+            am.j(this.fZT, R.color.cp_cont_f);
+            am.k(this.fZT, R.drawable.god_recommend_left_button_selector);
+            am.l(this.fZU, R.color.cp_bg_line_a);
+            am.j(this.fZV, R.color.cp_link_tip_a);
+            am.k(this.fZV, R.drawable.god_recommend_right_button_selertor);
+            this.fZQ.setData(this.fZW);
+            this.mListView.setAdapter((ListAdapter) this.fZQ);
+            this.TX.reset();
+            this.TX.b(this.mContext).agI();
         }
     }
 
     private void initUI() {
-        if (this.fUS == null) {
-            this.fUS = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.god_recommend_content_layout, (ViewGroup) null);
-            this.fUU = (TextView) this.fUS.findViewById(R.id.god_title);
-            this.mTopLine = this.fUS.findViewById(R.id.top_line);
-            this.fUV = this.fUS.findViewById(R.id.content_button_divider);
-            this.fUW = (TextView) this.fUS.findViewById(R.id.btn_to_do_leter);
-            this.fUW.setOnClickListener(this);
-            this.fUX = this.fUS.findViewById(R.id.button_divider);
-            this.fUY = (TextView) this.fUS.findViewById(R.id.btn_attention_all);
-            this.fUY.setOnClickListener(this);
-            this.mListView = (ListView) this.fUS.findViewById(R.id.listview);
-            this.fUT = new com.baidu.tieba.godRecommends.a(this.mActivity);
+        if (this.fZP == null) {
+            this.fZP = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.god_recommend_content_layout, (ViewGroup) null);
+            this.fZR = (TextView) this.fZP.findViewById(R.id.god_title);
+            this.mTopLine = this.fZP.findViewById(R.id.top_line);
+            this.fZS = this.fZP.findViewById(R.id.content_button_divider);
+            this.fZT = (TextView) this.fZP.findViewById(R.id.btn_to_do_leter);
+            this.fZT.setOnClickListener(this);
+            this.fZU = this.fZP.findViewById(R.id.button_divider);
+            this.fZV = (TextView) this.fZP.findViewById(R.id.btn_attention_all);
+            this.fZV.setOnClickListener(this);
+            this.mListView = (ListView) this.fZP.findViewById(R.id.listview);
+            this.fZQ = new com.baidu.tieba.godRecommends.a(this.mActivity);
             this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-            this.fUT.setOnClickListener(this.mOnClickListener);
+            this.fZQ.setOnClickListener(this.mOnClickListener);
         }
-        if (this.TD == null) {
-            this.TD = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-            this.TD.aF(this.fUS);
-            this.TD.hr(1);
-            this.TD.dN(true);
+        if (this.TX == null) {
+            this.TX = new com.baidu.tbadk.core.dialog.a(this.mActivity);
+            this.TX.aH(this.fZP);
+            this.TX.hx(1);
+            this.TX.dR(true);
         }
     }
 
-    private List<MetaData> bsn() {
-        if (v.aa(this.fUZ)) {
+    private List<MetaData> buo() {
+        if (v.aa(this.fZW)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (MetaData metaData : this.fUZ) {
+        for (MetaData metaData : this.fZW) {
             if (metaData != null && !metaData.getGodUserData().getIsLike()) {
                 arrayList.add(metaData);
             }
@@ -145,31 +145,31 @@ public class d implements View.OnClickListener {
         return arrayList;
     }
 
-    public MetaData ti(int i) {
-        return this.fUT.getItem(i);
+    public MetaData tA(int i) {
+        return this.fZQ.getItem(i);
     }
 
-    public void m(List<MFollowResult> list, boolean z) {
-        if (!v.aa(list) && bsp()) {
-            boolean cv = cv(list);
+    public void n(List<MFollowResult> list, boolean z) {
+        if (!v.aa(list) && buq()) {
+            boolean cw = cw(list);
             if (z) {
-                if (cv) {
+                if (cw) {
                     l.showToast(this.mActivity, (int) R.string.attention_success);
-                    ayB();
+                    azP();
                     return;
                 }
-                this.fUT.setData(this.fUZ);
+                this.fZQ.setData(this.fZW);
                 l.showToast(this.mActivity, (int) R.string.attention_fail);
-            } else if (cv) {
-                this.fUT.setData(this.fUZ);
-                bso();
+            } else if (cw) {
+                this.fZQ.setData(this.fZW);
+                bup();
             } else {
-                l.showToast(this.mActivity, cu(list));
+                l.showToast(this.mActivity, cv(list));
             }
         }
     }
 
-    private String cu(List<MFollowResult> list) {
+    private String cv(List<MFollowResult> list) {
         String str;
         String str2;
         int i;
@@ -194,16 +194,16 @@ public class d implements View.OnClickListener {
         return (i2 != 1 || StringUtils.isNull(str)) ? this.mActivity.getString(R.string.attention_fail) : str;
     }
 
-    private void bso() {
-        if (!v.aa(this.fVa)) {
-            int size = this.fUZ.size() - 1;
+    private void bup() {
+        if (!v.aa(this.fZX)) {
+            int size = this.fZW.size() - 1;
             while (true) {
                 if (size >= 0) {
-                    if (this.fUZ.get(size) == null || !this.fUZ.get(size).getGodUserData().getIsLike()) {
+                    if (this.fZW.get(size) == null || !this.fZW.get(size).getGodUserData().getIsLike()) {
                         size--;
                     } else {
-                        this.fUZ.remove(size);
-                        this.fUZ.add(this.fVa.remove(0));
+                        this.fZW.remove(size);
+                        this.fZW.add(this.fZX.remove(0));
                         break;
                     }
                 } else {
@@ -215,7 +215,7 @@ public class d implements View.OnClickListener {
         this.mHandler.postDelayed(this.mRunnable, 500L);
     }
 
-    private boolean cv(List<MFollowResult> list) {
+    private boolean cw(List<MFollowResult> list) {
         if (v.aa(list)) {
             return true;
         }
@@ -224,7 +224,7 @@ public class d implements View.OnClickListener {
             if (!mFollowResult.is_success.booleanValue()) {
                 z = false;
             } else {
-                Iterator<MetaData> it = this.fUZ.iterator();
+                Iterator<MetaData> it = this.fZW.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         MetaData next = it.next();
@@ -242,7 +242,7 @@ public class d implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cw(List<MetaData> list) {
+    public boolean cx(List<MetaData> list) {
         if (!v.aa(list)) {
             for (MetaData metaData : list) {
                 if (metaData != null && !metaData.getGodUserData().getIsLike()) {
@@ -254,13 +254,13 @@ public class d implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bsp() {
-        return this.TD != null && this.TD.isShowing();
+    public boolean buq() {
+        return this.TX != null && this.TX.isShowing();
     }
 
-    public void ayB() {
-        if (bsp()) {
-            this.TD.dismiss();
+    public void azP() {
+        if (buq()) {
+            this.TX.dismiss();
         }
         this.mHandler.removeCallbacksAndMessages(null);
     }
@@ -269,10 +269,10 @@ public class d implements View.OnClickListener {
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_to_do_leter) {
-            this.TD.dismiss();
+            this.TX.dismiss();
         }
-        if (id == R.id.btn_attention_all && this.fUN != null) {
-            this.fUN.ct(bsn());
+        if (id == R.id.btn_attention_all && this.fZK != null) {
+            this.fZK.cu(buo());
         }
     }
 }

@@ -7,11 +7,11 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0292a {
+    public interface InterfaceC0289a {
         void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2);
     }
 
-    void a(InterfaceC0292a interfaceC0292a);
+    void a(InterfaceC0289a interfaceC0289a);
 
-    void aZs();
+    void bbr();
 }

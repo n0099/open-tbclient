@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ import java.util.List;
 @SuppressLint({"UseSparseArrays"})
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
-    private static SparseArray<Integer> cXv = new SparseArray<>();
-    private static HashMap<C0273a, Integer> cXw = new HashMap<>();
-    private static HashMap<C0273a, Integer> cXx = new HashMap<>();
-    private NewFriendsActivity cXu;
-    private b cXy;
+    private static SparseArray<Integer> cYR = new SparseArray<>();
+    private static HashMap<C0270a, Integer> cYS = new HashMap<>();
+    private static HashMap<C0270a, Integer> cYT = new HashMap<>();
+    private NewFriendsActivity cYQ;
+    private b cYU;
     private List<com.baidu.tieba.im.data.a> data;
 
     /* loaded from: classes3.dex */
@@ -31,40 +31,40 @@ public class a extends BaseAdapter implements View.OnClickListener {
     }
 
     static {
-        cXv.put(0, Integer.valueOf((int) R.string.add));
-        cXv.put(4, Integer.valueOf((int) R.string.added));
-        cXv.put(1, Integer.valueOf((int) R.string.pass));
-        cXv.put(2, Integer.valueOf((int) R.string.passed));
-        cXv.put(3, Integer.valueOf((int) R.string.waiting));
-        cXw.put(new C0273a(false), Integer.valueOf((int) R.drawable.btn_pass));
-        cXw.put(new C0273a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
-        cXx.put(new C0273a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
-        cXx.put(new C0273a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+        cYR.put(0, Integer.valueOf((int) R.string.add));
+        cYR.put(4, Integer.valueOf((int) R.string.added));
+        cYR.put(1, Integer.valueOf((int) R.string.pass));
+        cYR.put(2, Integer.valueOf((int) R.string.passed));
+        cYR.put(3, Integer.valueOf((int) R.string.waiting));
+        cYS.put(new C0270a(false), Integer.valueOf((int) R.drawable.btn_pass));
+        cYS.put(new C0270a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        cYT.put(new C0270a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        cYT.put(new C0270a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0273a {
-        private boolean cXz;
+    private static class C0270a {
+        private boolean cYV;
 
-        public C0273a(boolean z) {
-            this.cXz = z;
+        public C0270a(boolean z) {
+            this.cYV = z;
         }
 
         public int hashCode() {
-            return (this.cXz ? 1231 : 1237) + 31;
+            return (this.cYV ? 1231 : 1237) + 31;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.cXz == ((C0273a) obj).cXz;
+            return obj != null && getClass() == obj.getClass() && this.cYV == ((C0270a) obj).cYV;
         }
     }
 
     public a(NewFriendsActivity newFriendsActivity) {
-        this.cXu = newFriendsActivity;
+        this.cYQ = newFriendsActivity;
     }
 
     @Override // android.widget.Adapter
@@ -77,7 +77,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: mr */
+    /* renamed from: my */
     public com.baidu.tieba.im.data.a getItem(int i) {
         return this.data.get(i);
     }
@@ -95,25 +95,25 @@ public class a extends BaseAdapter implements View.OnClickListener {
         } else {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.add_new_friend_list_item, (ViewGroup) null);
             cVar = new c();
-            cVar.cXA = (HeadImageView) view.findViewById(R.id.friend_icon);
-            cVar.cXB = (TextView) view.findViewById(R.id.friend_name);
-            cVar.cXC = (TextView) view.findViewById(R.id.friend_info);
-            cVar.cXD = (TextView) view.findViewById(R.id.friend_add_btn);
+            cVar.cYW = (HeadImageView) view.findViewById(R.id.friend_icon);
+            cVar.cYX = (TextView) view.findViewById(R.id.friend_name);
+            cVar.cYY = (TextView) view.findViewById(R.id.friend_info);
+            cVar.cYZ = (TextView) view.findViewById(R.id.friend_add_btn);
             view.setTag(cVar);
         }
         com.baidu.tieba.im.data.a item = getItem(i);
         cVar.c(item);
-        cVar.cXD.setTag(Integer.valueOf(i));
-        cVar.cXD.setOnClickListener(this);
-        this.cXu.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.cXu.getLayoutMode().onModeChanged(view);
-        Integer num = cXw.get(new C0273a(item.getStatus() == 1));
+        cVar.cYZ.setTag(Integer.valueOf(i));
+        cVar.cYZ.setOnClickListener(this);
+        this.cYQ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.cYQ.getLayoutMode().onModeChanged(view);
+        Integer num = cYS.get(new C0270a(item.getStatus() == 1));
         if (num != null) {
-            al.k(cVar.cXD, num.intValue());
+            am.k(cVar.cYZ, num.intValue());
         }
-        Integer num2 = cXx.get(new C0273a(item.getStatus() == 1));
+        Integer num2 = cYT.get(new C0270a(item.getStatus() == 1));
         if (num2 != null) {
-            al.f(cVar.cXD, num2.intValue(), 1);
+            am.f(cVar.cYZ, num2.intValue(), 1);
         }
         return view;
     }
@@ -144,9 +144,9 @@ public class a extends BaseAdapter implements View.OnClickListener {
             this.data = new ArrayList();
         }
         if (aVar != null && aVar.getId() != 0) {
-            int bP = bP(aVar.getId());
-            if (bP != -1) {
-                this.data.remove(bP);
+            int bQ = bQ(aVar.getId());
+            if (bQ != -1) {
+                this.data.remove(bQ);
                 this.data.add(0, aVar);
                 return;
             }
@@ -154,7 +154,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    private int bP(long j) {
+    private int bQ(long j) {
         if (this.data != null) {
             int size = this.data.size();
             for (int i = 0; i < size; i++) {
@@ -168,38 +168,38 @@ public class a extends BaseAdapter implements View.OnClickListener {
 
     /* loaded from: classes3.dex */
     private static class c {
-        HeadImageView cXA;
-        TextView cXB;
-        TextView cXC;
-        TextView cXD;
+        HeadImageView cYW;
+        TextView cYX;
+        TextView cYY;
+        TextView cYZ;
 
         private c() {
         }
 
         public void c(com.baidu.tieba.im.data.a aVar) {
-            this.cXA.startLoad(aVar.getPortrait(), 12, false);
-            this.cXB.setText(aVar.getName());
+            this.cYW.startLoad(aVar.getPortrait(), 12, false);
+            this.cYX.setText(aVar.getName());
             if (!TextUtils.isEmpty(aVar.getContent())) {
-                this.cXC.setText(aVar.getContent());
+                this.cYY.setText(aVar.getContent());
             } else {
-                this.cXC.setText("");
+                this.cYY.setText("");
             }
             int status = aVar.getStatus();
-            this.cXD.setText(((Integer) a.cXv.get(status)).intValue());
-            this.cXD.setEnabled(status == 0 || status == 1);
+            this.cYZ.setText(((Integer) a.cYR.get(status)).intValue());
+            this.cYZ.setEnabled(status == 0 || status == 1);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.cXy != null) {
+        if (this.cYU != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
-            this.cXy.a(id, intValue, view, getItem(intValue));
+            this.cYU.a(id, intValue, view, getItem(intValue));
         }
     }
 
     public void a(b bVar) {
-        this.cXy = bVar;
+        this.cYU = bVar;
     }
 }

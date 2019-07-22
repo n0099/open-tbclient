@@ -26,9 +26,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bDU;
-        if (StringUtils.isNull(str) && advertAppInfo.bEd != null) {
-            str = advertAppInfo.bEd.userName;
+        String str = advertAppInfo.bEU;
+        if (StringUtils.isNull(str) && advertAppInfo.bFd != null) {
+            str = advertAppInfo.bFd.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -44,29 +44,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.aqF().b(advertAppInfo);
-        String str2 = advertAppInfo.bDU;
+        com.baidu.tbadk.distribute.a.arL().b(advertAppInfo);
+        String str2 = advertAppInfo.bEU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.ceT().a(advertAppInfo.bDX, advertAppInfo.bDW, str2, i, com.baidu.tieba.recapp.download.d.CT(advertAppInfo.bDX).intValue(), null, true, false, true, advertAppInfo.bEd.userPortrait, downloadStaticsData, advertAppInfo.bEd.userName);
+        com.baidu.tieba.recapp.download.d.chK().a(advertAppInfo.bEX, advertAppInfo.bEW, str2, i, com.baidu.tieba.recapp.download.d.DG(advertAppInfo.bEX).intValue(), null, true, false, true, advertAppInfo.bFd.userPortrait, downloadStaticsData, advertAppInfo.bFd.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.ceT().x(advertAppInfo.bDW, advertAppInfo.bDX, true);
+        com.baidu.tieba.recapp.download.d.chK().x(advertAppInfo.bEW, advertAppInfo.bEX, true);
     }
 
-    public static final void aF(Context context, String str) {
+    public static final void aG(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, (int) R.string.download_error);
             return;
         }
-        File mY = com.baidu.tbadk.core.util.m.mY(str.replace(".", "_") + ".apk");
-        if (mY != null) {
+        File nk = com.baidu.tbadk.core.util.m.nk(str.replace(".", "_") + ".apk");
+        if (nk != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(mY, intent, context), "application/vnd.android.package-archive");
+            intent.setDataAndType(UtilHelper.getUriFromFile(nk, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -97,15 +97,15 @@ public class s {
         return false;
     }
 
-    public static boolean aq(Activity activity) {
+    public static boolean at(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean cA = ab.cA(activity);
+        boolean cB = ab.cB(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return cA;
+        return cB;
     }
 
     public static void a(String str, TbImageView tbImageView, float f, int i) {
@@ -146,7 +146,7 @@ public class s {
             tbImageView.startLoad(str, 10, false);
             tbImageView.setEvent(new TbImageView.a() { // from class: com.baidu.tieba.recapp.s.1
                 @Override // com.baidu.tbadk.widget.TbImageView.a
-                public void O(String str2, boolean z) {
+                public void P(String str2, boolean z) {
                     ViewGroup.LayoutParams layoutParams = TbImageView.this.getLayoutParams();
                     if (layoutParams != null) {
                         layoutParams.height = i;
@@ -166,11 +166,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.ceM().sendFRS(z, str, str2, str3, list, str4);
+        r.chD().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.ceM().a(z, str, str2, str3, str4, list, str5);
+        r.chD().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -189,41 +189,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h ceJ = r.ceM().ceJ();
-        if (ceJ == null) {
+        h chA = r.chD().chA();
+        if (chA == null) {
             return false;
         }
-        if (ceJ.rY(str)) {
-            ceJ.a(tbPageContext.getPageActivity(), strArr, true);
+        if (chA.sq(str)) {
+            chA.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return ceJ.c(tbPageContext.getPageActivity(), strArr);
+        return chA.c(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aG(Context context, String str) {
+    public static int aH(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aH(context, str) ? 3 : 0;
+            return aI(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return aH(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aI(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean aH(Context context, String str) {
+    private static boolean aI(Context context, String str) {
         String[] strArr = {str};
-        h ceJ = r.ceM().ceJ();
-        if (ceJ == null) {
+        h chA = r.chD().chA();
+        if (chA == null) {
             return false;
         }
-        if (ceJ.rY(str)) {
-            ceJ.a(context, strArr, true);
+        if (chA.sq(str)) {
+            chA.a(context, strArr, true);
             return true;
         }
-        return ceJ.c(context, strArr);
+        return chA.c(context, strArr);
     }
 }

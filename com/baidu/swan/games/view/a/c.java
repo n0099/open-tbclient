@@ -7,80 +7,80 @@ import java.util.Iterator;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class c {
-    private static final ReentrantLock bkQ = new ReentrantLock();
-    private static ArrayList<a> bla = new ArrayList<>();
+    private static final ReentrantLock blD = new ReentrantLock();
+    private static ArrayList<a> blN = new ArrayList<>();
 
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b FX = e.FV().FX();
-        return FX != null && FX.a(view, bVar);
+        com.baidu.swan.games.view.b GH = e.GF().GH();
+        return GH != null && GH.a(view, bVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        com.baidu.swan.games.view.b FX = e.FV().FX();
-        return FX != null && FX.b(view, bVar);
+        com.baidu.swan.games.view.b GH = e.GF().GH();
+        return GH != null && GH.b(view, bVar);
     }
 
-    public static boolean al(View view) {
-        com.baidu.swan.games.view.b FX = e.FV().FX();
-        return FX != null && FX.al(view);
+    public static boolean an(View view) {
+        com.baidu.swan.games.view.b GH = e.GF().GH();
+        return GH != null && GH.an(view);
     }
 
-    public static boolean ar(View view) {
-        com.baidu.swan.games.view.b FX = e.FV().FX();
-        return FX != null && FX.aq(view);
+    public static boolean at(View view) {
+        com.baidu.swan.games.view.b GH = e.GF().GH();
+        return GH != null && GH.as(view);
     }
 
     public static boolean isLandScape() {
-        com.baidu.swan.games.view.b FX = e.FV().FX();
-        return FX != null && FX.isLandScape();
+        com.baidu.swan.games.view.b GH = e.GF().GH();
+        return GH != null && GH.isLandScape();
     }
 
-    public static int SI() {
-        return ((Integer) e.FV().FK().first).intValue();
+    public static int TB() {
+        return ((Integer) e.GF().Gu().first).intValue();
     }
 
-    public static int SJ() {
-        return ((Integer) e.FV().FK().second).intValue();
+    public static int TC() {
+        return ((Integer) e.GF().Gu().second).intValue();
     }
 
     public static void a(a aVar) {
-        bkQ.lock();
+        blD.lock();
         if (aVar != null) {
             try {
-                if (!bla.contains(aVar)) {
-                    bla.add(aVar);
+                if (!blN.contains(aVar)) {
+                    blN.add(aVar);
                 }
             } finally {
-                bkQ.unlock();
+                blD.unlock();
             }
         }
     }
 
     public static void b(a aVar) {
-        bkQ.lock();
+        blD.lock();
         if (aVar != null) {
             try {
-                bla.remove(aVar);
+                blN.remove(aVar);
             } finally {
-                bkQ.unlock();
+                blD.unlock();
             }
         }
     }
 
-    public static void SK() {
-        if (!bla.isEmpty()) {
-            Iterator<a> it = bla.iterator();
+    public static void TD() {
+        if (!blN.isEmpty()) {
+            Iterator<a> it = blN.iterator();
             while (it.hasNext()) {
-                it.next().PU();
+                it.next().QM();
             }
         }
     }
 
-    public static void SL() {
-        if (!bla.isEmpty()) {
-            Iterator<a> it = bla.iterator();
+    public static void TE() {
+        if (!blN.isEmpty()) {
+            Iterator<a> it = blN.iterator();
             while (it.hasNext()) {
-                it.next().PV();
+                it.next().QN();
             }
         }
     }

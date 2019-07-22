@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import com.baidu.adp.base.e;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HorizontalListView;
 import com.baidu.tieba.R;
@@ -13,12 +13,12 @@ import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private d jKu;
-    private HorizontalListView jrL;
+    private d jRv;
+    private HorizontalListView jxT;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.jKu.b(cVar);
+        this.jRv.b(cVar);
     }
 
     public c(e eVar) {
@@ -28,9 +28,9 @@ public class c extends a {
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
         this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(R.layout.pic_sticker_view, (ViewGroup) null);
-        this.jrL = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
-        this.jKu = new d();
-        this.jrL.setAdapter((ListAdapter) this.jKu);
+        this.jxT = (HorizontalListView) this.mRootView.findViewById(R.id.horizontal_list);
+        this.jRv = new d();
+        this.jxT.setAdapter((ListAdapter) this.jRv);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        al.l(this.mRootView, R.color.cp_bg_line_d);
+        am.l(this.mRootView, R.color.cp_bg_line_d);
     }
 
-    public void ex(List<String> list) {
+    public void eA(List<String> list) {
         if (!v.aa(list)) {
-            this.jKu.setData(list);
-            this.jKu.notifyDataSetChanged();
+            this.jRv.setData(list);
+            this.jRv.notifyDataSetChanged();
         }
     }
 
-    public void cyl() {
-        this.jKu.notifyDataSetChanged();
+    public void cBj() {
+        this.jRv.notifyDataSetChanged();
     }
 }

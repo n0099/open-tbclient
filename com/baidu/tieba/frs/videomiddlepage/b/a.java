@@ -19,18 +19,18 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.SpannableClickTextView;
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fOS = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
+    private static final int fTP = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int g;
         if (context != null && textView != null && !StringUtils.isNull(str)) {
-            int color = al.getColor(R.color.cp_cont_j);
+            int color = am.getColor(R.color.cp_cont_j);
             String str4 = str + "  ";
             TextPaint paint = textView.getPaint();
             int g2 = l.aj(context)[0] - (l.g(context, R.dimen.tbds48) * 2);
@@ -46,21 +46,21 @@ public class a {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString("_");
-            spannableString.setSpan(new C0317a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
+            spannableString.setSpan(new C0314a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.frs.videomiddlepage.b.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
-                        am amVar = new am("c13313");
-                        amVar.bT("tid", str3);
-                        TiebaStatic.log(amVar);
+                        an anVar = new an("c13313");
+                        anVar.bT("tid", str3);
+                        TiebaStatic.log(anVar);
                         com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
                 }
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(fOS, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(fTP, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
@@ -69,9 +69,9 @@ public class a {
             } else {
                 textView.setMovementMethod(LinkMovementMethod.getInstance());
             }
-            am amVar = new am("c13312");
-            amVar.bT("tid", str3);
-            TiebaStatic.log(amVar);
+            an anVar = new an("c13312");
+            anVar.bT("tid", str3);
+            TiebaStatic.log(anVar);
         }
     }
 
@@ -85,12 +85,12 @@ public class a {
 
     /* loaded from: classes4.dex */
     private static class b extends ReplacementSpan {
-        private int fOV;
-        private int fOW;
+        private int fTS;
+        private int fTT;
 
         public b(int i, int i2) {
-            this.fOV = i;
-            this.fOW = i2;
+            this.fTS = i;
+            this.fTT = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -108,16 +108,16 @@ public class a {
 
         private TextPaint c(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.fOV);
-            textPaint.setColor(this.fOW);
+            textPaint.setTextSize(this.fTS);
+            textPaint.setColor(this.fTT);
             return textPaint;
         }
     }
 
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0317a extends ImageSpan {
-        public C0317a(Context context, int i) {
+    private static class C0314a extends ImageSpan {
+        public C0314a(Context context, int i) {
             super(context, i);
         }
 

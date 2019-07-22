@@ -5,8 +5,8 @@ public class d implements Cloneable {
     private int mWidth;
     private int mType = 3553;
     private int mId = -1;
-    private boolean ade = false;
-    private boolean adf = false;
+    private boolean adB = false;
+    private boolean adC = false;
     private long mTimestamp = 0;
 
     public int getType() {
@@ -29,12 +29,12 @@ public class d implements Cloneable {
         return this.mHeight;
     }
 
-    public boolean sk() {
+    public boolean sI() {
         return this.mId != -1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: sl */
+    /* renamed from: sJ */
     public d clone() {
         try {
             return (d) super.clone();
@@ -45,6 +45,6 @@ public class d implements Cloneable {
     }
 
     public String toString() {
-        return "type = " + this.mType + " && id = " + this.mId + " && cameraFrame" + this.ade + " && frontCamera = " + this.adf + " && width * height = " + this.mWidth + " * " + this.mHeight + " && timestamp = " + this.mTimestamp;
+        return "type = " + this.mType + " && id = " + this.mId + " && cameraFrame" + this.adB + " && frontCamera = " + this.adC + " && width * height = " + this.mWidth + " * " + this.mHeight + " && timestamp = " + this.mTimestamp;
     }
 }

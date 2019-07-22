@@ -7,45 +7,45 @@ import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
-    public static final boolean jTd;
-    public static final boolean jTe;
-    public static final boolean jTf;
-    public static b jTg;
-    private static boolean jTh;
-    private static final byte[] jTi;
-    private static final byte[] jTj;
-    private static final byte[] jTk;
-    private static final byte[] jTl;
-    private static final byte[] jTm;
+    public static final boolean kah;
+    public static final boolean kai;
+    public static final boolean kaj;
+    public static b kak;
+    private static boolean kal;
+    private static final byte[] kam;
+    private static final byte[] kan;
+    private static final byte[] kao;
+    private static final byte[] kap;
+    private static final byte[] kaq;
 
     static {
-        jTd = Build.VERSION.SDK_INT <= 17;
-        jTe = Build.VERSION.SDK_INT >= 14;
-        jTf = cCd();
-        jTg = null;
-        jTh = false;
-        jTi = GQ("RIFF");
-        jTj = GQ("WEBP");
-        jTk = GQ("VP8 ");
-        jTl = GQ("VP8L");
-        jTm = GQ("VP8X");
+        kah = Build.VERSION.SDK_INT <= 17;
+        kai = Build.VERSION.SDK_INT >= 14;
+        kaj = cFe();
+        kak = null;
+        kal = false;
+        kam = HK("RIFF");
+        kan = HK("WEBP");
+        kao = HK("VP8 ");
+        kap = HK("VP8L");
+        kaq = HK("VP8X");
     }
 
-    public static b cCc() {
+    public static b cFd() {
         b bVar;
-        if (jTh) {
-            return jTg;
+        if (kal) {
+            return kak;
         }
         try {
             bVar = (b) Class.forName("com.facebook.webpsupport.WebpBitmapFactoryImpl").newInstance();
         } catch (Throwable th) {
             bVar = null;
         }
-        jTh = true;
+        kal = true;
         return bVar;
     }
 
-    private static byte[] GQ(String str) {
+    private static byte[] HK(String str) {
         try {
             return str.getBytes(HTTP.ASCII);
         } catch (UnsupportedEncodingException e) {
@@ -53,7 +53,7 @@ public class c {
         }
     }
 
-    private static boolean cCd() {
+    private static boolean cFe() {
         if (Build.VERSION.SDK_INT < 17) {
             return false;
         }
@@ -70,27 +70,27 @@ public class c {
     }
 
     public static boolean h(byte[] bArr, int i) {
-        return a(bArr, i + 12, jTm) && ((bArr[i + 20] & 2) == 2);
+        return a(bArr, i + 12, kaq) && ((bArr[i + 20] & 2) == 2);
     }
 
     public static boolean i(byte[] bArr, int i) {
-        return a(bArr, i + 12, jTk);
+        return a(bArr, i + 12, kao);
     }
 
     public static boolean j(byte[] bArr, int i) {
-        return a(bArr, i + 12, jTl);
-    }
-
-    public static boolean m(byte[] bArr, int i, int i2) {
-        return i2 >= 21 && a(bArr, i + 12, jTm);
-    }
-
-    public static boolean k(byte[] bArr, int i) {
-        return a(bArr, i + 12, jTm) && ((bArr[i + 20] & 16) == 16);
+        return a(bArr, i + 12, kap);
     }
 
     public static boolean n(byte[] bArr, int i, int i2) {
-        return i2 >= 20 && a(bArr, i, jTi) && a(bArr, i + 8, jTj);
+        return i2 >= 21 && a(bArr, i + 12, kaq);
+    }
+
+    public static boolean k(byte[] bArr, int i) {
+        return a(bArr, i + 12, kaq) && ((bArr[i + 20] & 16) == 16);
+    }
+
+    public static boolean o(byte[] bArr, int i, int i2) {
+        return i2 >= 20 && a(bArr, i, kam) && a(bArr, i + 8, kan);
     }
 
     private static boolean a(byte[] bArr, int i, byte[] bArr2) {

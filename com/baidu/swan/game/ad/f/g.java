@@ -9,7 +9,7 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 /* loaded from: classes2.dex */
 public class g {
-    private a bdC;
+    private a bep;
     @V8JavascriptField
     public int height;
     @V8JavascriptField
@@ -25,7 +25,7 @@ public class g {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iD(String str);
+        void iK(String str);
     }
 
     public g(@NonNull JsObject jsObject) {
@@ -86,12 +86,12 @@ public class g {
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bdC != null) {
-            this.bdC.iD(str);
+        if (this.bep != null) {
+            this.bep.iK(str);
         }
     }
 
     public void a(a aVar) {
-        this.bdC = aVar;
+        this.bep = aVar;
     }
 }

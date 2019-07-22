@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
 import android.widget.AbsoluteLayout;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -20,7 +19,6 @@ import com.baidu.d.a.a;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
@@ -29,8 +27,7 @@ import com.baidu.sapi2.views.ViewUtility;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
-    protected View bottomBackView;
-    protected ImageView mBottomBackBtnIv;
+    protected View dividerLine;
     protected ImageView mLeftBtnIv;
     protected LinearLayout mLeftBtnLayout;
     protected TextView mLeftBtnTv;
@@ -39,11 +36,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     protected TextView mTitle;
     protected RelativeLayout mTitleBgLayout;
     protected RelativeLayout mTitleLayout;
-    public TitleBtnCallback titleBtnCallback;
+    protected TitleBtnCallback titleBtnCallback;
     private PassportViewManager viewManager;
     protected boolean useTitle = true;
     public boolean executeSubClassMethod = true;
-    protected boolean useSDKTitle = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
@@ -63,17 +59,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             this.mRightBtn = (Button) findViewById(a.e.title_btn_right);
             this.mTitleLayout = (RelativeLayout) findViewById(a.e.sapi_title_layout);
             this.mTitleBgLayout = (RelativeLayout) findViewById(a.e.sapi_title_bg_layout);
+            this.dividerLine = findViewById(a.e.title_divider_line);
             this.mRightBtnClose = (ImageView) findViewById(a.e.title_right_close);
-            if (SapiAccountManager.getInstance().getConfignation().showBottomBack) {
-                if (this.bottomBackView == null) {
-                    this.bottomBackView = ((ViewStub) findViewById(a.e.stub_bottom_back)).inflate();
-                }
-                this.mBottomBackBtnIv = (ImageView) this.bottomBackView.findViewById(a.e.sapi_bottom_back);
-                this.mBottomBackBtnIv.setOnClickListener(this);
-                this.mRightBtnClose.setOnClickListener(this);
-                ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
-                ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
-            }
+            ViewUtility.setViewClickAlpha(this.mRightBtnClose, 0.2f);
+            ViewUtility.setViewClickAlpha(this.mLeftBtnIv, 0.2f);
+            this.mRightBtnClose.setOnClickListener(this);
             this.mLeftBtnIv.setOnClickListener(this);
             this.mLeftBtnTv.setOnClickListener(this);
             this.mRightBtn.setOnClickListener(this);
@@ -98,10 +88,6 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onBottomBackBtnClick() {
-    }
-
     protected void onTitleRightBtnClick() {
         onClose();
     }
@@ -112,14 +98,14 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void updateBottomBack(int i) {
-        if (SapiAccountManager.getInstance().getConfignation().showBottomBack) {
+        if (SapiAccountManager.getInstance().getConfignation().showCloseBtn) {
             if (i == 1) {
-                this.bottomBackView.setVisibility(8);
                 this.mRightBtnClose.setVisibility(0);
+                this.mLeftBtnLayout.setVisibility(8);
                 return;
             }
-            this.bottomBackView.setVisibility(0);
             this.mRightBtnClose.setVisibility(8);
+            this.mLeftBtnLayout.setVisibility(0);
         }
     }
 
@@ -129,8 +115,6 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             onLeftBtnClick();
         } else if (view == this.mRightBtn) {
             onRightBtnClick();
-        } else if (view == this.mBottomBackBtnIv) {
-            onBottomBackBtnClick();
         } else if (view == this.mRightBtnClose) {
             onTitleRightBtnClick();
         }
@@ -139,6 +123,14 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     public void setTitleLayoutBg(int i) {
         if (i != Integer.MAX_VALUE) {
             this.mTitleBgLayout.setBackgroundColor(i);
+        }
+    }
+
+    public void setTitleLayoutHeight(int i) {
+        if (i != Integer.MAX_VALUE) {
+            ViewGroup.LayoutParams layoutParams = this.mTitleLayout.getLayoutParams();
+            layoutParams.height = i;
+            this.mTitleLayout.setLayoutParams(layoutParams);
         }
     }
 
@@ -286,7 +278,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         hashMap.put("error", Log.getStackTraceString(th));
         hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("os_version", Build.VERSION.RELEASE);
-        StatService.onEvent("webview_init_error", hashMap, false);
+        StatService.onEvent("webview_init_error", hashMap);
     }
 
     public void configTitle() {
@@ -298,10 +290,10 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     }
 
     public void configCustomTitle() {
-        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
         PassportViewManager.TitleViewModule titleViewModule = PassportViewManager.getInstance().getTitleViewModule();
         if (titleViewModule != null) {
             setTitleLayoutBg(titleViewModule.bgColor);
+            setTitleLayoutHeight(titleViewModule.bgHeight);
             setLeftBtnImage(titleViewModule.leftBtnImgResId);
             setLeftBtnImgVisible(titleViewModule.leftBtnImgVisible);
             setLeftBtnTextVisible(titleViewModule.leftBtnTextVisible);
@@ -318,9 +310,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             setRightBtnText(titleViewModule.rightBtnText);
             setRightBtnTextSize(SapiUtils.px2sp(this, titleViewModule.rightBtnTextSize));
             setRightBtnColor(titleViewModule.rightBtnTextColor);
-        }
-        if (sapiConfiguration.showBottomBack) {
-            setLeftBtnLayoutVisible(8);
+            this.dividerLine.setVisibility(titleViewModule.dividerLineVisible);
         }
     }
 

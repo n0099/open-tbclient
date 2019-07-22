@@ -18,7 +18,6 @@ import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
@@ -303,7 +302,7 @@ public class d {
         this.a = this.e.getPackageName();
         this.b = null;
         try {
-            this.f = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.f = (TelephonyManager) this.e.getSystemService("phone");
             this.n = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
             str = this.f.getDeviceId();
         } catch (Exception e) {

@@ -6,17 +6,17 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    private final String wB = Environment.getExternalStorageDirectory().getAbsolutePath();
-    private String wC = this.wB + "/baidu/";
-    private String wD;
-    private String wE;
+    private final String wE = Environment.getExternalStorageDirectory().getAbsolutePath();
+    private String wF = this.wE + "/baidu/";
+    private String wG;
+    private String wH;
 
     public b() {
-        this.wD = null;
-        this.wE = null;
+        this.wG = null;
+        this.wH = null;
         try {
-            this.wD = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
-            this.wE = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+            this.wG = BdBaseApplication.getInst().getContext().getFilesDir().getAbsolutePath() + "/";
+            this.wH = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -24,41 +24,41 @@ public class b {
 
     public void Z(String str) {
         if (str != null) {
-            this.wC = this.wB + "/" + str + "/";
+            this.wF = this.wE + "/" + str + "/";
         }
     }
 
-    public boolean gs() {
+    public boolean gB() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
     public String a(String str, boolean z, boolean z2, boolean z3) {
         String str2;
         if (z2) {
-            if (!gs()) {
+            if (!gB()) {
                 return null;
             }
             if (str != null) {
-                str2 = this.wC + str + "/";
+                str2 = this.wF + str + "/";
             } else {
-                str2 = this.wC;
+                str2 = this.wF;
             }
         } else if (z3) {
-            if (this.wE == null) {
+            if (this.wH == null) {
                 return null;
             }
             if (str != null) {
-                str2 = this.wE + str + "/";
+                str2 = this.wH + str + "/";
             } else {
-                str2 = this.wE;
+                str2 = this.wH;
             }
-        } else if (this.wD == null) {
+        } else if (this.wG == null) {
             return null;
         } else {
             if (str != null) {
-                str2 = this.wD + str + "/";
+                str2 = this.wG + str + "/";
             } else {
-                str2 = this.wD;
+                str2 = this.wG;
             }
         }
         File file = new File(str2);

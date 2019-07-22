@@ -1,8 +1,8 @@
 package com.baidu.tieba.pbextra.praise;
 /* loaded from: classes4.dex */
 public class a {
-    private String dLJ;
-    private long ibn;
+    private String dPr;
+    private long ihF;
     private String mPortrait;
     private String mUserId;
     private String mUserName;
@@ -11,13 +11,13 @@ public class a {
         this.mUserId = null;
         this.mUserName = null;
         this.mPortrait = null;
-        this.dLJ = null;
-        this.ibn = 0L;
+        this.dPr = null;
+        this.ihF = 0L;
         this.mUserId = str;
         this.mUserName = str2;
         this.mPortrait = str3;
-        this.dLJ = str4;
-        this.ibn = j;
+        this.dPr = str4;
+        this.ihF = j;
     }
 
     public String getUserId() {
@@ -33,10 +33,10 @@ public class a {
     }
 
     public String getShowName() {
-        return this.dLJ;
+        return this.dPr;
     }
 
-    public long bXV() {
-        return this.ibn;
+    public long caK() {
+        return this.ihF;
     }
 }

@@ -13,20 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class b implements Runnable {
-    private Amrnb EC;
-    private String SV;
-    private int SY;
-    private FileOutputStream SZ;
-    private long Ta;
-    private long Tb;
+    private Amrnb EJ;
+    private String Tn;
+    private int Tq;
+    private FileOutputStream Tr;
+    private long Ts;
+    private long Tt;
     private final Handler mHandler;
-    private volatile int ST = 0;
-    private final Handler EE = new Handler();
+    private volatile int Tl = 0;
+    private final Handler EL = new Handler();
     private final Runnable mRecordTimeThread = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.b.1
         @Override // java.lang.Runnable
         public void run() {
-            b.this.bi((int) (System.currentTimeMillis() - b.this.Ta));
-            b.this.EE.postDelayed(b.this.mRecordTimeThread, 200L);
+            b.this.bi((int) (System.currentTimeMillis() - b.this.Ts));
+            b.this.EL.postDelayed(b.this.mRecordTimeThread, 200L);
         }
     };
 
@@ -40,9 +40,9 @@ public class b implements Runnable {
     public b(Handler handler) {
         this.mHandler = handler;
         try {
-            this.EC = Amrnb.getInstance();
-            if (this.EC == null || !Amrnb.bLoadLibrary) {
-                this.EC = null;
+            this.EJ = Amrnb.getInstance();
+            if (this.EJ == null || !Amrnb.bLoadLibrary) {
+                this.EJ = null;
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
                 }
@@ -61,21 +61,21 @@ public class b implements Runnable {
         short s;
         boolean z;
         Process.setThreadPriority(-19);
-        if (this.EC == null) {
+        if (this.EJ == null) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(5));
             }
-        } else if (this.ST == 4) {
+        } else if (this.Tl == 4) {
             if (this.mHandler != null) {
                 this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
             }
-            this.ST = 0;
+            this.Tl = 0;
         } else {
-            if (this.SV != null && this.SV.length() > 0) {
+            if (this.Tn != null && this.Tn.length() > 0) {
                 try {
-                    File createFile = com.baidu.adp.lib.util.f.createFile(null, this.SV);
+                    File createFile = com.baidu.adp.lib.util.f.createFile(null, this.Tn);
                     if (createFile != null) {
-                        this.SZ = new FileOutputStream(createFile);
+                        this.Tr = new FileOutputStream(createFile);
                     } else if (this.mHandler != null) {
                         this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
                         return;
@@ -84,31 +84,31 @@ public class b implements Runnable {
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    pF();
+                    qa();
                     if (this.mHandler != null) {
                         this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
                     }
-                    this.ST = 0;
+                    this.Tl = 0;
                     return;
                 }
             }
-            if (this.ST == 4) {
+            if (this.Tl == 4) {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
                 }
-                pF();
-                this.ST = 0;
+                qa();
+                this.Tl = 0;
                 return;
             }
             AudioRecord audioRecord2 = null;
             try {
-                audioRecord2 = c.pG().pH();
+                audioRecord2 = c.qb().qc();
             } catch (IllegalArgumentException e2) {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(6));
                 }
-                pF();
-                this.ST = 0;
+                qa();
+                this.Tl = 0;
                 return;
             } catch (Exception e3) {
             }
@@ -122,9 +122,9 @@ public class b implements Runnable {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(6));
                 }
-                pF();
-                this.ST = 0;
-            } else if (this.ST == 4) {
+                qa();
+                this.Tl = 0;
+            } else if (this.Tl == 4) {
                 try {
                     audioRecord2.release();
                 } catch (Exception e5) {
@@ -132,11 +132,11 @@ public class b implements Runnable {
                 if (this.mHandler != null) {
                     this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
                 }
-                pF();
-                this.ST = 0;
+                qa();
+                this.Tl = 0;
             } else {
                 audioRecord2.startRecording();
-                if (this.ST == 4) {
+                if (this.Tl == 4) {
                     try {
                         audioRecord2.stop();
                         audioRecord2.release();
@@ -145,13 +145,13 @@ public class b implements Runnable {
                     if (this.mHandler != null) {
                         this.mHandler.sendMessage(this.mHandler.obtainMessage(8));
                     }
-                    pF();
-                    this.ST = 0;
+                    qa();
+                    this.Tl = 0;
                     return;
                 }
-                this.ST = 3;
+                this.Tl = 3;
                 try {
-                    if (this.SZ == null) {
+                    if (this.Tr == null) {
                         try {
                             audioRecord2.stop();
                             audioRecord2.release();
@@ -163,7 +163,7 @@ public class b implements Runnable {
                             if (this.mHandler != null) {
                                 this.mHandler.sendMessage(this.mHandler.obtainMessage(1));
                             }
-                            this.ST = 0;
+                            this.Tl = 0;
                             return;
                         } catch (IOException e8) {
                             try {
@@ -174,22 +174,22 @@ public class b implements Runnable {
                             if (this.mHandler != null) {
                                 this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
                             }
-                            this.ST = 0;
+                            this.Tl = 0;
                             return;
                         }
                     }
-                    com.baidu.adp.lib.util.f.c(this.SZ);
-                    this.EC.encoderInit();
-                    if (this.SY > 0) {
-                        BdSoundGate.pI().init(1600, this.SY);
+                    com.baidu.adp.lib.util.f.d(this.Tr);
+                    this.EJ.encoderInit();
+                    if (this.Tq > 0) {
+                        BdSoundGate.qd().init(1600, this.Tq);
                     }
                     ArrayList arrayList = new ArrayList();
                     short[] sArr2 = null;
                     short s2 = 0;
-                    this.Ta = System.currentTimeMillis();
-                    this.EE.post(this.mRecordTimeThread);
+                    this.Ts = System.currentTimeMillis();
+                    this.EL.post(this.mRecordTimeThread);
                     while (true) {
-                        if (this.ST != 3) {
+                        if (this.Tl != 3) {
                             sArr = sArr2;
                             s = s2;
                             z = false;
@@ -217,7 +217,7 @@ public class b implements Runnable {
                         }
                         s2 = (short) (s2 + read);
                         if (s2 == 160) {
-                            if (this.SY > 0) {
+                            if (this.Tq > 0) {
                                 int size = arrayList.size();
                                 if (size + 1 > 1 && (size + 1) % 10 == 0) {
                                     m(arrayList);
@@ -229,7 +229,7 @@ public class b implements Runnable {
                             }
                             sArr2 = null;
                         }
-                        if (System.currentTimeMillis() - this.Ta > com.baidu.adp.lib.voice.d.EI) {
+                        if (System.currentTimeMillis() - this.Ts > com.baidu.adp.lib.voice.d.EP) {
                             sArr = sArr2;
                             s = s2;
                             z = true;
@@ -250,21 +250,21 @@ public class b implements Runnable {
                         }
                         a(sArr);
                     }
-                    if (this.SY > 0) {
-                        BdSoundGate.pI().release();
+                    if (this.Tq > 0) {
+                        BdSoundGate.qd().release();
                     }
                     System.currentTimeMillis();
                     audioRecord2.stop();
                     audioRecord2.release();
                     System.currentTimeMillis();
-                    if (this.ST == 5) {
-                        if (!pF()) {
+                    if (this.Tl == 5) {
+                        if (!qa()) {
                             if (this.mHandler != null) {
                                 this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
                             }
                         } else {
                             try {
-                                com.baidu.adp.lib.util.f.aY(this.SV);
+                                com.baidu.adp.lib.util.f.aZ(this.Tn);
                                 if (this.mHandler != null) {
                                     this.mHandler.sendMessage(this.mHandler.obtainMessage(100));
                                 }
@@ -272,31 +272,31 @@ public class b implements Runnable {
                                 if (this.mHandler != null) {
                                     this.mHandler.sendMessage(this.mHandler.obtainMessage(101));
                                 }
-                                this.ST = 0;
+                                this.Tl = 0;
                             }
                         }
-                        this.ST = 0;
+                        this.Tl = 0;
                         return;
                     }
-                    this.ST = 4;
-                    this.Tb = System.currentTimeMillis() - this.Ta;
-                    bi((int) this.Tb);
-                    if (this.EE != null) {
-                        this.EE.removeCallbacks(this.mRecordTimeThread);
+                    this.Tl = 4;
+                    this.Tt = System.currentTimeMillis() - this.Ts;
+                    bi((int) this.Tt);
+                    if (this.EL != null) {
+                        this.EL.removeCallbacks(this.mRecordTimeThread);
                     }
                     System.currentTimeMillis();
-                    if (!pF() && this.mHandler != null) {
+                    if (!qa() && this.mHandler != null) {
                         this.mHandler.sendMessage(this.mHandler.obtainMessage(2));
                     }
-                    this.EC.encoderDeinit();
-                    this.ST = 0;
+                    this.EJ.encoderDeinit();
+                    this.Tl = 0;
                     if (this.mHandler != null) {
                         if (z) {
                             this.mHandler.sendMessage(this.mHandler.obtainMessage(7));
                             return;
                         }
                         Message obtainMessage2 = this.mHandler.obtainMessage(0);
-                        obtainMessage2.arg1 = (int) this.Tb;
+                        obtainMessage2.arg1 = (int) this.Tt;
                         this.mHandler.sendMessage(obtainMessage2);
                     }
                 } catch (IOException e12) {
@@ -307,16 +307,16 @@ public class b implements Runnable {
     }
 
     private void m(List<short[]> list) {
-        int blockSize = BdSoundGate.pI().getBlockSize();
-        short[] sArr = new short[blockSize];
-        short[] sArr2 = new short[blockSize];
+        int qe = BdSoundGate.qd().qe();
+        short[] sArr = new short[qe];
+        short[] sArr2 = new short[qe];
         int size = list.size();
         int i = 0;
         for (int i2 = 0; i2 < size; i2++) {
             System.arraycopy(list.get(i2), 0, sArr2, i, 160);
             i += 160;
             if (i2 == size - 1) {
-                BdSoundGate.pI().a(sArr2, sArr);
+                BdSoundGate.qd().a(sArr2, sArr);
                 int i3 = 0;
                 int i4 = 0;
                 while (i3 < size) {
@@ -333,15 +333,15 @@ public class b implements Runnable {
     private void a(short[] sArr) {
         byte[] bArr = new byte[32];
         try {
-            this.SZ.write(bArr, 0, this.EC.encoderEncode(2, sArr, bArr));
+            this.Tr.write(bArr, 0, this.EJ.encoderEncode(2, sArr, bArr));
         } catch (IOException e) {
         }
     }
 
-    private boolean pF() {
-        if (this.SZ != null) {
+    private boolean qa() {
+        if (this.Tr != null) {
             try {
-                this.SZ.close();
+                this.Tr.close();
             } catch (IOException e) {
                 BdLog.e(e.getMessage());
                 return false;
@@ -351,20 +351,20 @@ public class b implements Runnable {
     }
 
     public boolean n(String str, int i) {
-        if (this.EC == null) {
+        if (this.EJ == null) {
             return false;
         }
-        this.ST = 0;
-        this.SV = str;
-        this.SY = i;
+        this.Tl = 0;
+        this.Tn = str;
+        this.Tq = i;
         return true;
     }
 
     public void stop() {
-        this.ST = 4;
+        this.Tl = 4;
     }
 
     public void cancel() {
-        this.ST = 5;
+        this.Tl = 5;
     }
 }

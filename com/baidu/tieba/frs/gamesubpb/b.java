@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private a fDB;
+    private a fIz;
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
     private e mPageContext;
@@ -22,8 +22,8 @@ public class b {
     }
 
     private void initAdapters() {
-        this.fDB = new a((TbPageContext) this.mPageContext, d.fDX);
-        this.mAdapters.add(this.fDB);
+        this.fIz = new a((TbPageContext) this.mPageContext, d.fIV);
+        this.mAdapters.add(this.fIz);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -33,7 +33,7 @@ public class b {
         }
     }
 
-    public void setClickListener(a.InterfaceC0311a interfaceC0311a) {
-        this.fDB.setClickListener(interfaceC0311a);
+    public void setClickListener(a.InterfaceC0308a interfaceC0308a) {
+        this.fIz.setClickListener(interfaceC0308a);
     }
 }

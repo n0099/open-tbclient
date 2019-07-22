@@ -10,61 +10,61 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c implements V8Engine.JavaScriptExceptionDelegate {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.a arY;
-    private String bfK = "";
+    private com.baidu.swan.games.e.a asB;
+    private String bgx = "";
 
     public c(com.baidu.swan.games.e.a aVar) {
-        this.arY = aVar;
+        this.asB = aVar;
     }
 
     @Override // com.baidu.searchbox.v8engine.V8Engine.JavaScriptExceptionDelegate
     public void onV8ExceptionCallBack(String str, String str2) {
-        Log.e("V8Exception", this.arY.GU() + "msg: " + str + " ,stack: " + str2);
-        this.arY.QP().iV(str);
-        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.bfK.equals(str)) {
-            this.bfK = str;
+        Log.e("V8Exception", this.asB.HF() + "msg: " + str + " ,stack: " + str2);
+        this.asB.RI().jd(str);
+        if ((!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) && !this.bgx.equals(str)) {
+            this.bgx = str;
             aW(str, str2);
-            com.baidu.swan.games.r.c.jL(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
+            com.baidu.swan.games.r.c.jT(str + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + str2);
         }
     }
 
     private void aW(String str, String str2) {
-        if (this.arY.QN() != null) {
-            this.arY.QN().dispatchEvent(new a().iW(str + "\n" + str2).iX("").QX());
+        if (this.asB.RG() != null) {
+            this.asB.RG().dispatchEvent(new a().je(str + "\n" + str2).jf("").RQ());
         }
     }
 
     /* loaded from: classes2.dex */
     public static class a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-        private String bfK;
-        private JSEvent bfL = new JSEvent("error");
-        private String bfM;
+        private String bgx;
+        private JSEvent bgy = new JSEvent("error");
+        private String bgz;
 
-        public a iW(String str) {
-            this.bfK = str;
+        public a je(String str) {
+            this.bgx = str;
             return this;
         }
 
-        public a iX(String str) {
-            this.bfM = str;
+        public a jf(String str) {
+            this.bgz = str;
             return this;
         }
 
-        public JSEvent QX() {
+        public JSEvent RQ() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("message", this.bfK);
-                jSONObject.put("stack", this.bfM);
+                jSONObject.put("message", this.bgx);
+                jSONObject.put("stack", this.bgz);
             } catch (JSONException e) {
                 if (DEBUG) {
                     Log.e("V8Exception", Log.getStackTraceString(e));
                 }
             }
             if (jSONObject.length() > 0) {
-                this.bfL.data = jSONObject;
+                this.bgy.data = jSONObject;
             }
-            return this.bfL;
+            return this.bgy;
         }
     }
 }

@@ -13,7 +13,7 @@ public class LabelDataList extends ArrayList<a> {
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
                     a aVar = new a();
-                    aVar.labelId = forumSubLabel.id.intValue();
+                    aVar.bFL = forumSubLabel.id.intValue();
                     aVar.labelName = forumSubLabel.sub_label_name;
                     add(aVar);
                 }
@@ -43,13 +43,13 @@ public class LabelDataList extends ArrayList<a> {
         while (it.hasNext()) {
             a next = it.next();
             if (next != null && next.isSelect) {
-                return next.labelId;
+                return next.bFL;
             }
         }
         a aVar = (a) v.c(this, 0);
         if (aVar != null) {
             aVar.isSelect = true;
-            return aVar.labelId;
+            return aVar.bFL;
         }
         return 0;
     }
@@ -58,7 +58,7 @@ public class LabelDataList extends ArrayList<a> {
         Iterator<a> it = iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next != null && next.labelId == i) {
+            if (next != null && next.bFL == i) {
                 return next.labelName;
             }
         }

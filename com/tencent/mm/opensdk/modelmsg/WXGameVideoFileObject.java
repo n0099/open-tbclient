@@ -41,7 +41,7 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
         if (this.filePath == null || this.filePath.length() == 0) {
             Log.e(TAG, "checkArgs fail, filePath is null");
             return false;
-        } else if (getFileSize(this.filePath) > 10485760) {
+        } else if (getFileSize(this.filePath) > FILE_SIZE_LIMIT) {
             Log.e(TAG, "checkArgs fail, video file size is too large");
             return false;
         } else if (this.videoUrl != null && this.videoUrl.length() > URL_LENGTH_LIMIT) {

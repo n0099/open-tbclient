@@ -4,15 +4,15 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes5.dex */
 public class c {
-    private com.baidu.adp.lib.cache.l<byte[]> dqB;
+    private com.baidu.adp.lib.cache.l<byte[]> dsK;
 
     public c() {
-        Wx();
+        Xr();
     }
 
-    public void Wx() {
-        if (this.dqB == null) {
-            this.dqB = com.baidu.tbadk.core.c.a.afD().mz("tb.im_frsgroup");
+    public void Xr() {
+        if (this.dsK == null) {
+            this.dsK = com.baidu.tbadk.core.d.a.agF().mK("tb.im_frsgroup");
         }
     }
 
@@ -20,17 +20,17 @@ public class c {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        l.b<byte[]> ap = this.dqB != null ? this.dqB.ap("frs_group_" + i + "_" + str) : null;
-        if (ap == null || ap.value == null) {
+        l.b<byte[]> aq = this.dsK != null ? this.dsK.aq("frs_group_" + i + "_" + str) : null;
+        if (aq == null || aq.value == null) {
             return null;
         }
-        return ap.value;
+        return aq.value;
     }
 
     public void a(int i, String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            Wx();
-            this.dqB.a("frs_group_" + i + "_" + str, bArr, 604800000L);
+            Xr();
+            this.dsK.a("frs_group_" + i + "_" + str, bArr, 604800000L);
         }
     }
 }

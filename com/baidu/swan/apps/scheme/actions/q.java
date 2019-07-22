@@ -58,12 +58,12 @@ public class q extends z {
         }
         switch (c) {
             case 0:
-                com.baidu.swan.apps.performance.f.HY().y(m(optParamsAsJo.optJSONArray("data"))).HE();
+                com.baidu.swan.apps.performance.f.IL().y(m(optParamsAsJo.optJSONArray("data"))).Iq();
                 UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler);
                 com.baidu.swan.apps.an.ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.q.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.baidu.swan.apps.an.ac.OV();
+                        com.baidu.swan.apps.an.ac.PL();
                     }
                 });
                 break;
@@ -86,7 +86,7 @@ public class q extends z {
         for (int i = 0; i < jSONArray.length(); i++) {
             UbcFlowEvent aa = aa(jSONArray.optJSONObject(i));
             if (aa != null) {
-                aa.fZ("FE");
+                aa.gf("FE");
                 arrayList.add(aa);
             }
         }
@@ -116,7 +116,7 @@ public class q extends z {
                     SearchFlowEvent searchFlowEvent = new SearchFlowEvent(optString);
                     searchFlowEvent.timestamp = Long.valueOf(optString3).longValue();
                     searchFlowEvent.data = optString2;
-                    searchFlowEvent.aVE = SearchFlowEvent.EventType.END;
+                    searchFlowEvent.aWo = SearchFlowEvent.EventType.END;
                     com.baidu.swan.apps.statistic.search.b.a(searchFlowEvent);
                 }
             } catch (NumberFormatException e) {
@@ -129,8 +129,8 @@ public class q extends z {
 
     private void o(JSONArray jSONArray) {
         long longValue;
-        com.baidu.swan.apps.core.d.d zL = com.baidu.swan.apps.w.e.FV().zL();
-        if (zL != null) {
+        com.baidu.swan.apps.core.d.d As = com.baidu.swan.apps.w.e.GF().As();
+        if (As != null) {
             try {
                 JSONObject jSONObject = jSONArray.getJSONObject(0);
                 if (jSONObject != null) {
@@ -142,10 +142,10 @@ public class q extends z {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
-                        zL.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                        As.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                     }
                     longValue = 0;
-                    zL.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
+                    As.a(new com.baidu.swan.apps.statistic.a.g(string, longValue));
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

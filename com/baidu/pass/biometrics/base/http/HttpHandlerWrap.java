@@ -3,6 +3,8 @@ package com.baidu.pass.biometrics.base.http;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class HttpHandlerWrap {
+    protected boolean executCallbackInChildThread;
+
     public HttpHandlerWrap() {
     }
 
@@ -10,6 +12,14 @@ public class HttpHandlerWrap {
     }
 
     public HttpHandlerWrap(String str) {
+    }
+
+    public HttpHandlerWrap(boolean z) {
+        this.executCallbackInChildThread = z;
+    }
+
+    public boolean isExecutCallbackInChildThread() {
+        return this.executCallbackInChildThread;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,7 +31,7 @@ public class HttpHandlerWrap {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void onFailure(Throwable th, String str) {
+    public void onFailure(Throwable th, int i, String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

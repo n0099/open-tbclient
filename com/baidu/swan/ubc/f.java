@@ -1,13 +1,13 @@
 package com.baidu.swan.ubc;
 /* loaded from: classes2.dex */
 class f {
-    private String bvA;
-    private String bvu;
-    private String bvv;
-    private int bvw;
-    private String bvx;
-    private int bvy;
-    private int bvz;
+    private String bwk;
+    private String bwl;
+    private int bwm;
+    private String bwn;
+    private int bwo;
+    private int bwp;
+    private String bwq;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,14 +15,14 @@ class f {
 
     public f(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.bvu = str2;
-        this.bvv = str3;
-        this.bvw = i;
+        this.bwk = str2;
+        this.bwl = str3;
+        this.bwm = i;
         this.mType = str4;
-        this.bvx = str5;
+        this.bwn = str5;
     }
 
-    public void fU(int i) {
+    public void fY(int i) {
         this.mRate = i;
     }
 
@@ -30,39 +30,39 @@ class f {
         this.mCategory = str;
     }
 
-    public void fV(int i) {
-        this.bvy = i;
+    public void fZ(int i) {
+        this.bwo = i;
     }
 
-    public void fW(int i) {
-        this.bvz = i;
+    public void ga(int i) {
+        this.bwp = i;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String WM() {
-        return this.bvu;
+    public String XG() {
+        return this.bwk;
     }
 
-    public String WN() {
-        return this.bvv;
+    public String XH() {
+        return this.bwl;
     }
 
     public int getTimeout() {
-        return this.bvw;
+        return this.bwm;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String WO() {
-        return this.bvx;
+    public String XI() {
+        return this.bwn;
     }
 
-    public int WP() {
+    public int XJ() {
         return this.mRate;
     }
 
@@ -70,19 +70,19 @@ class f {
         return this.mCategory;
     }
 
-    public int WQ() {
-        return this.bvy;
+    public int XK() {
+        return this.bwo;
     }
 
-    public int WR() {
-        return this.bvz;
+    public int XL() {
+        return this.bwp;
     }
 
-    public void kM(String str) {
-        this.bvA = str;
+    public void kU(String str) {
+        this.bwq = str;
     }
 
-    public String getIdType() {
-        return this.bvA;
+    public String XM() {
+        return this.bwq;
     }
 }

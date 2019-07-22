@@ -16,7 +16,7 @@ public class m {
         return jSONObject;
     }
 
-    public static JSONObject cI(boolean z) {
+    public static JSONObject cL(boolean z) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("isEnded", z);

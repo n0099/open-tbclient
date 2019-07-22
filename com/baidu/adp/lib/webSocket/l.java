@@ -1,79 +1,79 @@
 package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
-    private int FP;
-    private int FQ;
-    private boolean FR;
-    private boolean FT;
-    private int FU;
-    private int FV;
-    private boolean FW;
-    private boolean FX;
-    private String Fd;
+    private int FX;
+    private int FY;
+    private boolean FZ;
+    private String Fk;
+    private boolean Ga;
+    private int Gb;
+    private int Gc;
+    private boolean Gd;
+    private boolean Ge;
 
     public l() {
-        this.Fd = null;
-        this.FP = 32768;
-        this.FQ = 131072;
-        this.FR = false;
-        this.FT = true;
-        this.FU = 30000;
-        this.FV = 30000;
-        this.FW = true;
-        this.FX = true;
-        this.Fd = null;
+        this.Fk = null;
+        this.FX = 32768;
+        this.FY = 131072;
+        this.FZ = false;
+        this.Ga = true;
+        this.Gb = 30000;
+        this.Gc = 30000;
+        this.Gd = true;
+        this.Ge = true;
+        this.Fk = null;
     }
 
     public l(l lVar) {
-        this.Fd = null;
-        this.FP = lVar.FP;
-        this.FQ = lVar.FQ;
-        this.FR = lVar.FR;
-        this.FT = lVar.FT;
-        this.FU = lVar.FU;
-        this.FV = lVar.FV;
-        this.FW = lVar.FW;
+        this.Fk = null;
         this.FX = lVar.FX;
-        this.Fd = lVar.Fd;
+        this.FY = lVar.FY;
+        this.FZ = lVar.FZ;
+        this.Ga = lVar.Ga;
+        this.Gb = lVar.Gb;
+        this.Gc = lVar.Gc;
+        this.Gd = lVar.Gd;
+        this.Ge = lVar.Ge;
+        this.Fk = lVar.Fk;
     }
 
-    public boolean kR() {
-        return this.FR;
+    public boolean lg() {
+        return this.FZ;
     }
 
-    public int kS() {
-        return this.FP;
-    }
-
-    public int kT() {
-        return this.FQ;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.FT;
-    }
-
-    public int kU() {
-        return this.FU;
-    }
-
-    public int kV() {
-        return this.FV;
-    }
-
-    public boolean kW() {
-        return this.FW;
-    }
-
-    public boolean kX() {
+    public int lh() {
         return this.FX;
     }
 
-    public String kY() {
-        return this.Fd;
+    public int li() {
+        return this.FY;
     }
 
-    public void bp(String str) {
-        this.Fd = str;
+    public boolean lj() {
+        return this.Ga;
+    }
+
+    public int lk() {
+        return this.Gb;
+    }
+
+    public int ll() {
+        return this.Gc;
+    }
+
+    public boolean lm() {
+        return this.Gd;
+    }
+
+    public boolean ln() {
+        return this.Ge;
+    }
+
+    public String lo() {
+        return this.Fk;
+    }
+
+    public void br(String str) {
+        this.Fk = str;
     }
 }

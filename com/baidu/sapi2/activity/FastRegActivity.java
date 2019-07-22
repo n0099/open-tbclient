@@ -104,13 +104,6 @@ public class FastRegActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        this.sapiWebView.back();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         if (this.businessFrom == 2002) {

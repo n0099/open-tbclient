@@ -9,8 +9,8 @@ import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.WeiboAppManager;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.net.WeiboParameters;
+import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.sina.weibo.sdk.statistic.WBAgent;
-import com.sina.weibo.sdk.utils.AidTask;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.NetworkHelper;
 import com.sina.weibo.sdk.utils.SecurityHelper;
@@ -42,12 +42,12 @@ public class BaseSsoHandler {
 
     public BaseSsoHandler(Activity activity) {
         this.mAuthActivity = activity;
-        AidTask.getInstance(this.mAuthActivity).aidTaskInit(WbSdk.getAuthInfo().getAppKey());
+        WeiboSsoManager.getInstance().init(activity, WbSdk.getAuthInfo().getAppKey());
     }
 
     public BaseSsoHandler(Context context) {
         this.mAuthActivity = context;
-        AidTask.getInstance(this.mAuthActivity).aidTaskInit(WbSdk.getAuthInfo().getAppKey());
+        WeiboSsoManager.getInstance().init(context, WbSdk.getAuthInfo().getAppKey());
     }
 
     public void authorize(WbAuthListener wbAuthListener) {
@@ -69,10 +69,7 @@ public class BaseSsoHandler {
         }
         this.authListener = wbAuthListener;
         if (authType == AuthType.WebOnly) {
-            if (wbAuthListener != null) {
-                startWebAuth();
-                return;
-            }
+            startWebAuth();
             return;
         }
         boolean z = false;
@@ -187,11 +184,7 @@ public class BaseSsoHandler {
                     this.authListener.onFailure(new WbConnectErrorMessage(safeString2, safeString3));
                 }
             } else if (i2 == 0) {
-                if (intent != null) {
-                    this.authListener.cancel();
-                } else {
-                    this.authListener.cancel();
-                }
+                this.authListener.cancel();
             }
         }
     }

@@ -1,27 +1,27 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 /* loaded from: classes3.dex */
 public class d {
-    public static String zb(String str) {
+    public static String zM(String str) {
         int lastIndexOf;
         int indexOf;
-        String bi = ap.bi(str);
-        if (bi != null) {
-            if (bi.indexOf(".baidu.com") != -1 && (lastIndexOf = bi.lastIndexOf("/")) != -1 && (indexOf = bi.indexOf(".", lastIndexOf)) != -1) {
-                return bi.substring(lastIndexOf + 1, indexOf);
+        String bj = aq.bj(str);
+        if (bj != null) {
+            if (bj.indexOf(".baidu.com") != -1 && (lastIndexOf = bj.lastIndexOf("/")) != -1 && (indexOf = bj.indexOf(".", lastIndexOf)) != -1) {
+                return bj.substring(lastIndexOf + 1, indexOf);
             }
             return null;
         }
-        return bi;
+        return bj;
     }
 
-    public static boolean zc(String str) {
+    public static boolean zN(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
-        String bi = ap.bi(str);
-        return !StringUtils.isNull(bi) && bi.contains("?t=");
+        String bj = aq.bj(str);
+        return !StringUtils.isNull(bj) && bj.contains("?t=");
     }
 }

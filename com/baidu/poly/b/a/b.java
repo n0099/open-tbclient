@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.util.LruCache;
 /* loaded from: classes2.dex */
 public class b {
-    private LruCache<String, Bitmap> aha = new LruCache<String, Bitmap>(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8) { // from class: com.baidu.poly.b.a.b.1
+    private LruCache<String, Bitmap> ahz = new LruCache<String, Bitmap>(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8) { // from class: com.baidu.poly.b.a.b.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
@@ -14,18 +14,18 @@ public class b {
         }
     };
 
-    public Bitmap cM(String str) {
-        return cN(com.baidu.poly.b.b.b.cQ(str));
+    public Bitmap cR(String str) {
+        return cS(com.baidu.poly.b.b.b.cV(str));
     }
 
     public void b(String str, Bitmap bitmap) {
-        String cQ = com.baidu.poly.b.b.b.cQ(str);
-        if (cN(cQ) == null) {
-            this.aha.put(cQ, bitmap);
+        String cV = com.baidu.poly.b.b.b.cV(str);
+        if (cS(cV) == null) {
+            this.ahz.put(cV, bitmap);
         }
     }
 
-    private Bitmap cN(String str) {
-        return this.aha.get(str);
+    private Bitmap cS(String str) {
+        return this.ahz.get(str);
     }
 }

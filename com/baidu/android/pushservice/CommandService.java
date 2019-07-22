@@ -36,13 +36,12 @@ public class CommandService extends Service {
 
     private void b(Intent intent) {
         try {
-            String stringExtra = intent.getStringExtra("bd.cross.request.SOURCE_SERVICE");
-            String stringExtra2 = intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE");
-            if (TextUtils.isEmpty(stringExtra) || TextUtils.isEmpty(stringExtra2)) {
+            String stringExtra = intent.getStringExtra("bd.cross.request.SOURCE_PACKAGE");
+            if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            intent.setPackage(stringExtra2);
-            intent.setClassName(stringExtra2, stringExtra);
+            intent.setPackage(stringExtra);
+            intent.setClassName(stringExtra, "com.baidu.android.pushservice.PushService");
             intent.setAction("com.baidu.android.pushservice.action.CROSS_REQUEST");
             intent.putExtra("bd.cross.request.SENDING", false);
             getApplicationContext().startService(intent);

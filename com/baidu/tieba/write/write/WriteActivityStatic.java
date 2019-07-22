@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.l;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -29,8 +28,8 @@ import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ExceptionData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.az;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 import com.baidu.tieba.write.accountAccess.AccountAccessActivity;
@@ -47,8 +46,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int jNa = 11;
-    private static int jNb = 18;
+    private static int jTZ = 11;
+    private static int jUa = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -65,13 +64,13 @@ public class WriteActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(HotTopicChangeActivityConfig.class, HotTopicChangeFourmActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WriteUrlActivityConfig.class, WriteUrlActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AccountAccessActivityConfig.class, AccountAccessActivity.class);
-        LocationModel.cnh();
-        bsD();
-        ba.aiz().a("feedback:", new ba.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.ba.b
+        LocationModel.cqa();
+        buE();
+        bb.ajC().a("feedback:", new bb.b() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.bb.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null) {
-                    WriteActivityStatic.B(tbPageContext);
+                    WriteActivityStatic.D(tbPageContext);
                 }
             }
         });
@@ -81,23 +80,23 @@ public class WriteActivityStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void B(TbPageContext<?> tbPageContext) {
+    public static void D(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= jNb && Build.VERSION.SDK_INT >= jNa) {
-            F(tbPageContext);
+        if (Build.VERSION.SDK_INT <= jUa && Build.VERSION.SDK_INT >= jTZ) {
+            H(tbPageContext);
         } else {
-            G(tbPageContext);
+            I(tbPageContext);
         }
     }
 
-    private static void F(TbPageContext<?> tbPageContext) {
+    private static void H(TbPageContext<?> tbPageContext) {
         com.baidu.tbadk.browser.a.a(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
     }
 
-    private static void G(TbPageContext<?> tbPageContext) {
+    private static void I(TbPageContext<?> tbPageContext) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, IEventCenterService.EventId.EventMode.SAPIACCOUNT_CAPTCHA)));
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, 12008)));
             return;
         }
         AntiData antiData = new AntiData();
@@ -115,14 +114,14 @@ public class WriteActivityStatic {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && ay.aix() != null && ay.aix().indexOf("NewVcode") != -1) {
+                if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData) && az.ajA() != null && az.ajA().indexOf("NewVcode") != -1) {
                     TbadkCoreApplication.getInst().setNewVcodeWebviewCrashCount(TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() + 1);
                 }
             }
         });
     }
 
-    public static void bsD() {
+    public static void buE() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.write.write.WriteActivityStatic.3
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {

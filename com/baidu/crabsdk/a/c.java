@@ -8,31 +8,31 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes3.dex */
 public class c {
-    private static c YP;
-    private static Context YQ;
-    private static ExecutorService YR;
+    private static c Zk;
+    private static Context Zl;
+    private static ExecutorService Zm;
     private static boolean al = false;
-    public l YN;
-    public p YO;
+    public l Zi;
+    public p Zj;
 
     private c(Context context) {
-        YQ = context;
-        this.YO = new p(Looper.getMainLooper().getThread(), a.U);
-        this.YN = new l(new d(this), context);
-        if (YR == null) {
-            YR = Executors.newSingleThreadExecutor();
+        Zl = context;
+        this.Zj = new p(Looper.getMainLooper().getThread(), a.U);
+        this.Zi = new l(new d(this), context);
+        if (Zm == null) {
+            Zm = Executors.newSingleThreadExecutor();
         }
     }
 
     public static c as(Context context) {
-        if (YP == null) {
+        if (Zk == null) {
             synchronized (c.class) {
-                if (YP == null) {
-                    YP = new c(context);
+                if (Zk == null) {
+                    Zk = new c(context);
                 }
             }
         }
-        return YP;
+        return Zk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,23 +42,23 @@ public class c {
         if (c.isEmpty()) {
             return;
         }
-        a qE = a.qE();
-        qE.YJ = c;
-        qE.a(j, j2, j3, j4);
+        a rb = a.rb();
+        rb.Ze = c;
+        rb.a(j, j2, j3, j4);
     }
 
     public static void start() {
         al = true;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.YT.start();
-            com.baidu.crabsdk.c.a.cf("start FrameMonitor...");
+            e.Zo.start();
+            com.baidu.crabsdk.c.a.ch("start FrameMonitor...");
         }
     }
 
     public static void stop() {
         al = false;
         if (Build.VERSION.SDK_INT >= 16) {
-            e.YT.stop();
+            e.Zo.stop();
         }
     }
 }

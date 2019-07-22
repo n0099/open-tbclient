@@ -6,14 +6,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int ftB;
-    private int fty;
+    private int fyu;
+    private int fyx;
     private Context mContext;
     private int mWidth;
 
@@ -38,9 +38,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.ftB = l.g(this.mContext, R.dimen.ds8);
+        this.fyx = l.g(this.mContext, R.dimen.ds8);
         this.mWidth = l.af(this.mContext);
-        this.fty = l.af(this.mContext) / 2;
+        this.fyu = l.af(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -54,7 +54,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             int i = 0;
             while (i < Z) {
                 if (i % 2 == 0) {
-                    linearLayout = bVM();
+                    linearLayout = bYA();
                 } else {
                     if (linearLayout2 != null) {
                         b(linearLayout2, (String) v.c(arrayList, i - 1));
@@ -66,7 +66,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.fty = this.mWidth;
+                this.fyu = this.mWidth;
                 b(linearLayout2, (String) v.c(arrayList, Z - 1));
             }
         }
@@ -76,23 +76,23 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        al.l(textView, R.color.cp_bg_line_c);
-        al.j(textView, R.color.black_alpha100);
+        am.l(textView, R.color.cp_bg_line_c);
+        am.j(textView, R.color.black_alpha100);
         textView.setTextSize(0, getResources().getDimension(R.dimen.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.fty);
+        textView.setWidth(this.fyu);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.ftB;
-        layoutParams.rightMargin = this.ftB;
+        layoutParams.leftMargin = this.fyx;
+        layoutParams.rightMargin = this.fyx;
     }
 
-    private LinearLayout bVM() {
+    private LinearLayout bYA() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        al.l(linearLayout, R.color.transparent);
+        am.l(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);

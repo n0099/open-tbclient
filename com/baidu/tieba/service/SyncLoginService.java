@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.messageCenter.d;
 import com.baidu.tieba.f;
@@ -88,7 +88,7 @@ public class SyncLoginService extends BdBaseService {
                 this.mNetWork.o("scr_w", String.valueOf(l.af(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_h", String.valueOf(l.ah(TbadkCoreApplication.getInst().getApp())));
                 this.mNetWork.o("scr_dip", String.valueOf(l.ai(TbadkCoreApplication.getInst().getApp())));
-                if (d.anf().ani() > 0) {
+                if (d.aok().aon() > 0) {
                     this.mNetWork.o("_msg_status", "0");
                 } else {
                     this.mNetWork.o("_msg_status", "1");
@@ -107,13 +107,13 @@ public class SyncLoginService extends BdBaseService {
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
                 this.mNetWork.o("package", packageName);
                 this.mNetWork.o("versioncode", TbadkCoreApplication.getInst().getVersionCode() + "");
-                this.mNetWork.o("signmd5", as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
+                this.mNetWork.o("signmd5", at.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
                 this.mNetWork.o("md5", f.getTiebaApkMd5());
-                String ahe = this.mNetWork.ahe();
-                if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
+                String aig = this.mNetWork.aig();
+                if (this.mNetWork.aiE().ajF().isRequestSuccess()) {
                     cVar = new c();
                     try {
-                        cVar.parserJson(ahe);
+                        cVar.parserJson(aig);
                         String unused = SyncLoginService.mStatistics = null;
                         return cVar;
                     } catch (Exception e2) {
@@ -133,7 +133,7 @@ public class SyncLoginService extends BdBaseService {
         public void cancel() {
             SyncLoginService.this.mSyncTask = null;
             if (this.mNetWork != null) {
-                this.mNetWork.ia();
+                this.mNetWork.ik();
             }
             super.cancel(true);
         }

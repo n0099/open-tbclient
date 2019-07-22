@@ -16,8 +16,8 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         if (ACTION_NAME.equals(intent.getAction())) {
-            b.bMP().bMT();
-            if (com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+            b.bPx().bPB();
+            if (com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
                 try {
                     Intent intent2 = new Intent(context, DealIntentService.class);
                     intent2.putExtra(DealIntentService.KEY_CLASS, 33);

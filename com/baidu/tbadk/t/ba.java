@@ -1,10 +1,10 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class ba extends k {
-    private static ba cAK = new ba();
+    private static ba cCb = new ba();
 
-    public static boolean auH() {
-        return cAK.iE();
+    public static boolean avQ() {
+        return cCb.iN();
     }
 
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a
@@ -14,7 +14,7 @@ public class ba extends k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.t.k, com.baidu.adp.lib.b.a
-    public int hz() {
-        return super.hz();
+    public int hJ() {
+        return super.hJ();
     }
 }

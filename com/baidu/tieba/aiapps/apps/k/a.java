@@ -1,37 +1,64 @@
 package com.baidu.tieba.aiapps.apps.k;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.swan.apps.u.b.d;
+import java.net.URISyntaxException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a {
-    public final long delta;
-    public final String dfv;
-    public final Map<String, String> dfw = new HashMap();
-    public final long serverTime;
+public class a implements d {
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static a aFz() {
-        return new a(0L);
+    @Override // com.baidu.swan.apps.u.b.d
+    public boolean e(Context context, JSONObject jSONObject) {
+        String optString = jSONObject.optString("url");
+        if (optString == null) {
+            return false;
+        }
+        try {
+            Intent parseUri = Intent.parseUri(optString, 1);
+            parseUri.addCategory("android.intent.category.BROWSABLE");
+            parseUri.setComponent(null);
+            parseUri.setSelector(null);
+            try {
+                if (context instanceof Activity) {
+                    return ((Activity) context).startActivityIfNeeded(parseUri, -1);
+                }
+                return false;
+            } catch (Exception e) {
+                return false;
+            }
+        } catch (URISyntaxException e2) {
+            return false;
+        }
     }
 
-    private a(long j) {
-        this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.dfv = Long.toHexString(sO(this.serverTime + "#" + this.delta));
-        this.dfw.put("timestamp", Long.toString(this.serverTime));
-        this.dfw.put("delta", Long.toString(this.delta));
-        this.dfw.put("rasign", this.dfv);
-    }
-
-    private long sO(String str) {
-        CRC32 crc32 = new CRC32();
-        crc32.reset();
-        crc32.update(str.getBytes());
-        return crc32.getValue();
-    }
-
-    public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dfv;
+    @Override // com.baidu.swan.apps.u.b.d
+    public boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
+        String optString = jSONObject.optString("url");
+        if (optString == null) {
+            return false;
+        }
+        try {
+            Intent parseUri = Intent.parseUri(optString, 1);
+            parseUri.addCategory("android.intent.category.BROWSABLE");
+            parseUri.setComponent(null);
+            parseUri.setSelector(null);
+            try {
+                if (context instanceof Activity) {
+                    return ((Activity) context).startActivityIfNeeded(parseUri, -1);
+                }
+                return false;
+            } catch (Exception e) {
+                return false;
+            }
+        } catch (URISyntaxException e2) {
+            return false;
+        }
     }
 }

@@ -6,13 +6,13 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
 /* loaded from: classes2.dex */
 abstract class a<E> extends AbstractQueue<E> {
-    protected final AtomicReferenceArray<E> ksV;
+    protected final AtomicReferenceArray<E> kAu;
     protected final int mask;
 
     public a(int i) {
-        int Em = h.Em(i);
-        this.mask = Em - 1;
-        this.ksV = new AtomicReferenceArray<>(Em);
+        int EV = h.EV(i);
+        this.mask = EV - 1;
+        this.kAu = new AtomicReferenceArray<>(EV);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -35,7 +35,7 @@ abstract class a<E> extends AbstractQueue<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int eN(long j) {
+    public final int eW(long j) {
         return ((int) j) & this.mask;
     }
 
@@ -50,7 +50,7 @@ abstract class a<E> extends AbstractQueue<E> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final E Ej(int i) {
-        return a(this.ksV, i);
+    public final E ES(int i) {
+        return a(this.kAu, i);
     }
 }

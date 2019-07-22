@@ -9,12 +9,14 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushManager;
 import com.baidu.android.pushservice.b.d;
 import com.baidu.android.pushservice.i.j;
 import com.baidu.android.pushservice.i.k;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.mobstat.Config;
 import com.coloros.mcssdk.callback.PushCallback;
 import com.coloros.mcssdk.mode.SubscribeResult;
 import java.util.HashMap;
@@ -271,7 +273,7 @@ public class e {
             }
             if (z) {
                 jSONObject2.put("token", str);
-                jSONObject.put("info", jSONObject2);
+                jSONObject.put(Config.LAUNCH_INFO, jSONObject2);
                 j.a(context, b2, str);
             }
             a2.putExtra("push_proxy", jSONObject.toString());
@@ -306,7 +308,7 @@ public class e {
                         jSONObject.put("sys_default_setting", i2);
                         jSONArray.put(jSONObject);
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.baidu.android.pushservice.j.e.a(context));
+                        hashMap.put("uid", DeviceId.getCUID(context));
                         hashMap.put("bccs_apikey", p);
                         hashMap.put("data", jSONArray.toString());
                         com.baidu.android.pushservice.e.a a2 = com.baidu.android.pushservice.e.b.a(str + "/boxmessage?type=message&action=setting", "POST", hashMap);
@@ -427,7 +429,7 @@ public class e {
                 if (B == null) {
                     return true;
                 }
-                String a2 = com.baidu.android.pushservice.j.f.a(l.a(B.getBytes(), str2.getBytes()), false);
+                String a2 = com.baidu.android.pushservice.j.d.a(l.a(B.getBytes(), str2.getBytes()), false);
                 if (!TextUtils.isEmpty(a2)) {
                     if (BaiduAppSSOJni.verify(a2.getBytes(), str, 0)) {
                         return true;

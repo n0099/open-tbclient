@@ -12,7 +12,7 @@ public class a {
                 str2 = context.getResources().getString(R.string.invoice_error_operation_failed);
             }
             com.baidu.swan.apps.console.c.e("chooseInvoiceTitle", "网络请求错误：" + str2);
-            com.baidu.swan.apps.res.widget.b.d.a(context, str2).Ld();
+            com.baidu.swan.apps.res.widget.b.d.a(context, str2).LQ();
         }
     }
 

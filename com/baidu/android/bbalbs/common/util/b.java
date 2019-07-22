@@ -21,7 +21,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.bbalbs.common.a.d;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -803,7 +802,7 @@ public final class b {
         String str2;
         TelephonyManager telephonyManager;
         try {
-            telephonyManager = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            telephonyManager = (TelephonyManager) this.b.getSystemService("phone");
         } catch (Exception e2) {
             Log.e("DeviceId", "Read IMEI failed", e2);
         }

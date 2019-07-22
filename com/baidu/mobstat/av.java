@@ -1,75 +1,115 @@
 package com.baidu.mobstat;
 
-import android.text.TextUtils;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.webkit.WebView;
+import com.baidu.mobstat.ActivityLifeObserver;
+import com.baidu.mobstat.BaiduStatJSInterface;
+import com.baidu.mobstat.MtjConfig;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class av {
-    private String a;
-    private String b;
-    private String c;
-    private long d;
-    private long e;
-    private float f;
-    private float g;
-    private float h;
-    private float i;
-    private String j;
-    private boolean k;
-    private String l;
-
-    public av(String str, String str2, String str3, long j, long j2, float f, float f2, float f3, float f4, String str4, boolean z, String str5) {
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-        this.d = j;
-        this.e = j2;
-        this.f = f;
-        this.g = f2;
-        this.h = f3;
-        this.i = f4;
-        this.j = str4;
-        this.k = z;
-        this.l = str5;
-    }
-
-    public String a() {
-        return this.a;
-    }
-
-    public String b() {
-        return this.j;
-    }
-
-    public JSONObject a(long j, String str, String str2) {
-        if (TextUtils.isEmpty(this.l)) {
-            return null;
+    public static void a(String str) {
+        if (af.a() && !ax.a().b()) {
+            az.a().b(str);
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("n", str);
-            jSONObject.put("t", this.b);
-            jSONObject.put("d", this.d);
-            long j2 = this.e - j;
-            if (j2 <= 0) {
-                j2 = 0;
+    }
+
+    public static void a(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
+        if (!ax.a().b()) {
+            ar.a(feedTrackStrategy);
+        }
+    }
+
+    public static void a(JSONObject jSONObject) {
+        if (af.a() && !ax.a().b()) {
+            aw.a().a(jSONObject);
+        }
+    }
+
+    public static void a(Context context) {
+        if (af.a() && !ax.a().b()) {
+            aw.a().a(context);
+        }
+    }
+
+    public static void a(Context context, boolean z) {
+        if (af.a() && !ax.a().b()) {
+            aw.a().a(context, z);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements ActivityLifeObserver.IActivityLifeCallback {
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityStarted(Activity activity) {
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityResumed(Activity activity) {
+            if (af.a() && !ax.a().b()) {
+                if (bh.c().b()) {
+                    bh.c().a("onActivityResumed");
+                }
+                az.a().a(activity);
             }
-            jSONObject.put("ps", j2);
-            jSONObject.put("at", 1);
-            DecimalFormat decimalFormat = new DecimalFormat("0.0");
-            DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-            decimalFormatSymbols.setDecimalSeparator('.');
-            decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_VIEW_HEIGHT, decimalFormat.format(this.f));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_VIEW_HEIGHT, decimalFormat.format(this.g));
-            jSONObject.put(Config.SESSTION_ACTIVITY_X_TOTAL_HEIGHT, decimalFormat.format(this.h));
-            jSONObject.put(Config.SESSTION_ACTIVITY_Y_TOTAL_HEIGHT, decimalFormat.format(this.i));
-            jSONObject.put("h5", 0);
-            jSONObject.put("sign", this.l);
-        } catch (Exception e) {
-            jSONObject = null;
         }
-        return jSONObject;
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityPaused(Activity activity) {
+            if (af.a() && !ax.a().b()) {
+                if (bh.c().b()) {
+                    bh.c().a("onActivityPaused");
+                }
+                az.a().b(activity);
+            }
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityStopped(Activity activity) {
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        }
+
+        @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
+        public void onActivityDestroyed(Activity activity) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
+        @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
+        public void onPageStarted(WebView webView, String str, bl blVar) {
+            if (af.a() && !ax.a().b()) {
+                if (bh.c().b()) {
+                    bh.c().a("WebView onPageStarted");
+                }
+                webView.addJavascriptInterface(blVar, "WebViewInterface");
+            }
+        }
+
+        @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
+        public void onPageFinished(WebView webView, String str, bl blVar) {
+            if (af.a() && !ax.a().b()) {
+                if (bh.c().b()) {
+                    bh.c().a("WebView onPageFinished");
+                }
+                webView.addJavascriptInterface(blVar, "WebViewInterface");
+                az.a().a(webView, str, blVar);
+            }
+        }
+    }
+
+    public static void b(String str) {
+        if (af.a()) {
+            az.a().a(str);
+        }
     }
 }

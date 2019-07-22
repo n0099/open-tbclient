@@ -13,14 +13,14 @@ public class b {
         DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
         diskFileOperate.L(z);
         diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.gt().b(diskFileOperate);
-        File[] listFiles2 = (diskFileOperate.gH() == null || diskFileOperate.gH().listFiles() == null) ? null : diskFileOperate.gH().listFiles();
+        com.baidu.adp.lib.Disk.d.gC().b(diskFileOperate);
+        File[] listFiles2 = (diskFileOperate.gQ() == null || diskFileOperate.gQ().listFiles() == null) ? null : diskFileOperate.gQ().listFiles();
         if (z2) {
             DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
             diskFileOperate2.L(z);
             diskFileOperate2.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            com.baidu.adp.lib.Disk.d.gt().b(diskFileOperate2);
-            if (diskFileOperate2.gH() != null && (listFiles = diskFileOperate2.gH().listFiles()) != null && listFiles.length != 0) {
+            com.baidu.adp.lib.Disk.d.gC().b(diskFileOperate2);
+            if (diskFileOperate2.gQ() != null && (listFiles = diskFileOperate2.gQ().listFiles()) != null && listFiles.length != 0) {
                 if (listFiles2 == null || listFiles2.length == 0) {
                     return listFiles;
                 }
@@ -33,7 +33,7 @@ public class b {
         return listFiles2;
     }
 
-    public static ArrayList<c> ad(boolean z) {
+    public static ArrayList<c> ae(boolean z) {
         ArrayList<c> arrayList = new ArrayList<>();
         File[] d = d(z, true);
         if (d != null) {
@@ -53,6 +53,6 @@ public class b {
         e eVar = new e(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
         eVar.L(z);
         eVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-        com.baidu.adp.lib.Disk.d.gt().c(eVar);
+        com.baidu.adp.lib.Disk.d.gC().c(eVar);
     }
 }

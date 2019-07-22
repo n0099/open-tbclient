@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
@@ -19,32 +18,32 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    private static d dbD;
+    private static d dde;
 
-    public static d aEt() {
-        if (dbD == null) {
+    public static d aFJ() {
+        if (dde == null) {
             synchronized (d.class) {
-                if (dbD == null) {
-                    dbD = new d();
+                if (dde == null) {
+                    dde = new d();
                 }
             }
         }
-        return dbD;
+        return dde;
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.a aVar) {
         if (invoiceInfo != null) {
-            String aDW = com.baidu.tieba.aiapps.apps.d.d.aDW();
+            String aFm = com.baidu.tieba.aiapps.apps.c.d.aFm();
             HashMap hashMap = new HashMap();
             hashMap.put("data", invoiceInfo.toJson().toString());
-            a(aDW, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.1
+            a(aFm, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: f */
                 public com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> parseResponse(Response response, int i) throws Exception {
                     com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar = new com.baidu.tieba.aiapps.apps.invoice.model.d<>(new InvoiceInfo());
                     if (response != null && response.body() != null) {
-                        dVar.bh(o.cY(response.body().string()));
+                        dVar.bh(o.dd(response.body().string()));
                     }
                     return dVar;
                 }
@@ -54,10 +53,10 @@ public class d {
                 /* renamed from: a */
                 public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar, int i) {
                     if (aVar != null) {
-                        if (!TextUtils.equals(dVar.dbU, "0") || dVar.dbW == null) {
-                            d.this.a(dVar.dbU, dVar.dbV, aVar);
+                        if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
+                            d.this.a(dVar.ddw, dVar.ddx, aVar);
                         } else {
-                            aVar.a(dVar.dbW);
+                            aVar.a(dVar.ddy);
                         }
                     }
                 }
@@ -65,17 +64,17 @@ public class d {
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
                     if (aVar != null) {
-                        aVar.cn(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                        aVar.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                     }
                 }
             });
         }
     }
 
-    public void a(Context context, final String str, final String str2, final c.InterfaceC0282c interfaceC0282c) {
+    public void a(Context context, final String str, final String str2, final c.InterfaceC0279c interfaceC0279c) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            if (interfaceC0282c != null) {
-                interfaceC0282c.cn(LivenessStat.TYPE_STRING_DEFAULT, "");
+            if (interfaceC0279c != null) {
+                interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
                 return;
             }
             return;
@@ -92,27 +91,27 @@ public class d {
                         jSONObject.put("app_key", str2);
                         jSONObject.put("host_pkgname", com.baidu.swan.apps.setting.oauth.c.getAppContext().getPackageName());
                         jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-                        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, bundle.getString("dev", ""));
-                        jSONObject.put("host_api_key", com.baidu.swan.apps.u.a.DN().wr());
+                        jSONObject.put("stoken", bundle.getString("dev", ""));
+                        jSONObject.put("host_api_key", com.baidu.swan.apps.u.a.Ew().wS());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    d.this.a(com.baidu.tieba.aiapps.apps.d.d.aDY(), hashMap, interfaceC0282c);
-                } else if (interfaceC0282c != null) {
-                    interfaceC0282c.cn(LivenessStat.TYPE_STRING_DEFAULT, "");
+                    d.this.a(com.baidu.tieba.aiapps.apps.c.d.aFo(), hashMap, interfaceC0279c);
+                } else if (interfaceC0279c != null) {
+                    interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
                 }
             }
         }, "dev");
     }
 
-    public void a(c.InterfaceC0282c interfaceC0282c) {
-        a(com.baidu.tieba.aiapps.apps.d.d.aDX(), (Map<String, String>) null, interfaceC0282c);
+    public void a(c.InterfaceC0279c interfaceC0279c) {
+        a(com.baidu.tieba.aiapps.apps.c.d.aFn(), (Map<String, String>) null, interfaceC0279c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, Map<String, String> map, final c.InterfaceC0282c interfaceC0282c) {
+    public void a(String str, Map<String, String> map, final c.InterfaceC0279c interfaceC0279c) {
         a(str, map, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -120,7 +119,7 @@ public class d {
             public com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a> parseResponse(Response response, int i) throws Exception {
                 com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a> dVar = new com.baidu.tieba.aiapps.apps.invoice.model.d<>(new com.baidu.tieba.aiapps.apps.invoice.model.a());
                 if (response != null && response.body() != null) {
-                    dVar.bh(o.cY(response.body().string()));
+                    dVar.bh(o.dd(response.body().string()));
                 }
                 return dVar;
             }
@@ -129,36 +128,36 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a> dVar, int i) {
-                if (interfaceC0282c != null) {
-                    if (!TextUtils.equals(dVar.dbU, "0") || dVar.dbW == null) {
-                        d.this.a(dVar.dbU, dVar.dbV, interfaceC0282c);
+                if (interfaceC0279c != null) {
+                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
+                        d.this.a(dVar.ddw, dVar.ddx, interfaceC0279c);
                     } else {
-                        interfaceC0282c.aL(dVar.dbW.dbO);
+                        interfaceC0279c.aL(dVar.ddy.ddp);
                     }
                 }
             }
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                if (interfaceC0282c != null) {
-                    interfaceC0282c.cn(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                if (interfaceC0279c != null) {
+                    interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(InvoiceInfo invoiceInfo, final c.e eVar) {
-        String aDZ = com.baidu.tieba.aiapps.apps.d.d.aDZ();
+        String aFp = com.baidu.tieba.aiapps.apps.c.d.aFp();
         HashMap hashMap = new HashMap();
         hashMap.put("data", invoiceInfo.toJson().toString());
-        a(aDZ, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.4
+        a(aFp, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
             public com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> parseResponse(Response response, int i) throws Exception {
                 com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar = new com.baidu.tieba.aiapps.apps.invoice.model.d<>(new InvoiceInfo());
                 if (response != null && response.body() != null) {
-                    dVar.bh(o.cY(response.body().string()));
+                    dVar.bh(o.dd(response.body().string()));
                 }
                 return dVar;
             }
@@ -168,10 +167,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<InvoiceInfo> dVar, int i) {
                 if (eVar != null) {
-                    if (!TextUtils.equals(dVar.dbU, "0") || dVar.dbW == null) {
-                        d.this.a(dVar.dbU, dVar.dbV, eVar);
+                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
+                        d.this.a(dVar.ddw, dVar.ddx, eVar);
                     } else {
-                        eVar.b(dVar.dbW);
+                        eVar.b(dVar.ddy);
                     }
                 }
             }
@@ -179,25 +178,25 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (eVar != null) {
-                    eVar.cn(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                    eVar.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(final long j, final c.d dVar) {
-        String aEa = com.baidu.tieba.aiapps.apps.d.d.aEa();
+        String aFq = com.baidu.tieba.aiapps.apps.c.d.aFq();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar.toJson().toString());
-        a(aEa, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.5
+        a(aFq, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
             public com.baidu.tieba.aiapps.apps.invoice.model.d parseResponse(Response response, int i) throws Exception {
                 com.baidu.tieba.aiapps.apps.invoice.model.d dVar2 = new com.baidu.tieba.aiapps.apps.invoice.model.d();
                 if (response != null && response.body() != null) {
-                    dVar2.bh(o.cY(response.body().string()));
+                    dVar2.bh(o.dd(response.body().string()));
                 }
                 return dVar2;
             }
@@ -207,10 +206,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d dVar2, int i) {
                 if (dVar != null) {
-                    if (!TextUtils.equals(dVar2.dbU, "0")) {
-                        d.this.a(dVar2.dbU, dVar2.dbV, dVar);
+                    if (!TextUtils.equals(dVar2.ddw, "0")) {
+                        d.this.a(dVar2.ddw, dVar2.ddx, dVar);
                     } else {
-                        dVar.bV(j);
+                        dVar.bW(j);
                     }
                 }
             }
@@ -218,25 +217,25 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (dVar != null) {
-                    dVar.cn(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                    dVar.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(long j, final c.b bVar) {
-        String aEb = com.baidu.tieba.aiapps.apps.d.d.aEb();
+        String aFr = com.baidu.tieba.aiapps.apps.c.d.aFr();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar2 = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
         hashMap.put("data", bVar2.toJson().toString());
-        a(aEb, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.6
+        a(aFr, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: f */
             public com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b> parseResponse(Response response, int i) throws Exception {
                 com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b> dVar = new com.baidu.tieba.aiapps.apps.invoice.model.d<>(new com.baidu.tieba.aiapps.apps.invoice.model.b());
                 if (response != null && response.body() != null) {
-                    dVar.bh(o.cY(response.body().string()));
+                    dVar.bh(o.dd(response.body().string()));
                 }
                 return dVar;
             }
@@ -246,10 +245,10 @@ public class d {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.b> dVar, int i) {
                 if (bVar != null) {
-                    if (!TextUtils.equals(dVar.dbU, "0") || dVar.dbW == null) {
-                        d.this.a(dVar.dbU, dVar.dbV, bVar);
+                    if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
+                        d.this.a(dVar.ddw, dVar.ddx, bVar);
                     } else {
-                        bVar.bU(dVar.dbW.mId);
+                        bVar.bV(dVar.ddy.mId);
                     }
                 }
             }
@@ -257,7 +256,7 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (bVar != null) {
-                    bVar.cn(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                    bVar.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                 }
             }
         });
@@ -267,16 +266,16 @@ public class d {
     public void a(String str, String str2, c cVar) {
         if (cVar != null) {
             if (TextUtils.equals(str, "401")) {
-                cVar.sH(str2);
+                cVar.ta(str2);
             } else {
-                cVar.cn(str, str2);
+                cVar.co(str, str2);
             }
         }
     }
 
     private void a(String str, Map<String, String> map, ResponseCallback responseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.tieba.aiapps.apps.d.d.sG(str))).cookieManager(com.baidu.swan.apps.u.a.DY().Ew());
+            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.tieba.aiapps.apps.c.d.sZ(str))).cookieManager(com.baidu.swan.apps.u.a.EH().Ff());
             if (map != null) {
                 postFormRequestBuilder.params(map);
             }

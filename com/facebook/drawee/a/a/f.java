@@ -7,13 +7,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class f implements i<e> {
-    private final g jTG;
-    private final com.facebook.imagepipeline.d.g jTR;
-    private final Set<com.facebook.drawee.controller.c> jTT;
+    private final g kaK;
+    private final com.facebook.imagepipeline.d.g kaV;
+    private final Set<com.facebook.drawee.controller.c> kaX;
     private final Context mContext;
 
     public f(Context context, @Nullable b bVar) {
-        this(context, j.cFJ(), bVar);
+        this(context, j.cIM(), bVar);
     }
 
     public f(Context context, j jVar, @Nullable b bVar) {
@@ -22,22 +22,22 @@ public class f implements i<e> {
 
     public f(Context context, j jVar, Set<com.facebook.drawee.controller.c> set, @Nullable b bVar) {
         this.mContext = context;
-        this.jTR = jVar.cCv();
-        com.facebook.imagepipeline.a.a.b cFK = jVar.cFK();
-        com.facebook.imagepipeline.a.a.a eB = cFK != null ? cFK.eB(context) : null;
-        if (bVar != null && bVar.cCr() != null) {
-            this.jTG = bVar.cCr();
+        this.kaV = jVar.cFw();
+        com.facebook.imagepipeline.a.a.b cIN = jVar.cIN();
+        com.facebook.imagepipeline.a.a.a eC = cIN != null ? cIN.eC(context) : null;
+        if (bVar != null && bVar.cFs() != null) {
+            this.kaK = bVar.cFs();
         } else {
-            this.jTG = new g();
+            this.kaK = new g();
         }
-        this.jTG.a(context.getResources(), com.facebook.drawee.components.a.cCF(), eB, com.facebook.common.b.f.cBA(), this.jTR.cFb(), bVar != null ? bVar.cCq() : null, bVar != null ? bVar.cCs() : null);
-        this.jTT = set;
+        this.kaK.a(context.getResources(), com.facebook.drawee.components.a.cFG(), eC, com.facebook.common.b.f.cEB(), this.kaV.cIe(), bVar != null ? bVar.cFr() : null, bVar != null ? bVar.cFt() : null);
+        this.kaX = set;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.internal.i
-    /* renamed from: cCE */
+    /* renamed from: cFF */
     public e get() {
-        return new e(this.mContext, this.jTG, this.jTR, this.jTT);
+        return new e(this.mContext, this.kaK, this.kaV, this.kaX);
     }
 }

@@ -8,36 +8,36 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class d implements aj {
-    private final Object jUo;
-    private final ImageRequest kce;
-    private final al kcf;
-    private final ImageRequest.RequestLevel kcg;
+    private final Object kbs;
+    private final ImageRequest kjl;
+    private final al kjm;
+    private final ImageRequest.RequestLevel kjn;
     @GuardedBy("this")
-    private boolean kch;
+    private boolean kjo;
     @GuardedBy("this")
-    private Priority kci;
+    private Priority kjp;
     @GuardedBy("this")
-    private boolean kcj;
+    private boolean kjq;
     private final String mId;
     @GuardedBy("this")
-    private boolean cdC = false;
+    private boolean ceF = false;
     @GuardedBy("this")
     private final List<ak> mCallbacks = new ArrayList();
 
     public d(ImageRequest imageRequest, String str, al alVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {
-        this.kce = imageRequest;
+        this.kjl = imageRequest;
         this.mId = str;
-        this.kcf = alVar;
-        this.jUo = obj;
-        this.kcg = requestLevel;
-        this.kch = z;
-        this.kci = priority;
-        this.kcj = z2;
+        this.kjm = alVar;
+        this.kbs = obj;
+        this.kjn = requestLevel;
+        this.kjo = z;
+        this.kjp = priority;
+        this.kjq = z2;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest cHx() {
-        return this.kce;
+    public ImageRequest cKB() {
+        return this.kjl;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -46,33 +46,33 @@ public class d implements aj {
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public al cHy() {
-        return this.kcf;
+    public al cKC() {
+        return this.kjm;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public Object cCT() {
-        return this.jUo;
+    public Object cFU() {
+        return this.kbs;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public ImageRequest.RequestLevel cHz() {
-        return this.kcg;
+    public ImageRequest.RequestLevel cKD() {
+        return this.kjn;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean cHA() {
-        return this.kch;
+    public synchronized boolean cKE() {
+        return this.kjo;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized Priority cHB() {
-        return this.kci;
+    public synchronized Priority cKF() {
+        return this.kjp;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
-    public synchronized boolean cHC() {
-        return this.kcj;
+    public synchronized boolean cKG() {
+        return this.kjq;
     }
 
     @Override // com.facebook.imagepipeline.producers.aj
@@ -80,26 +80,26 @@ public class d implements aj {
         boolean z = false;
         synchronized (this) {
             this.mCallbacks.add(akVar);
-            if (this.cdC) {
+            if (this.ceF) {
                 z = true;
             }
         }
         if (z) {
-            akVar.cHE();
+            akVar.cKI();
         }
     }
 
     public void cancel() {
-        eE(cHD());
+        eH(cKH());
     }
 
     @Nullable
-    public synchronized List<ak> sl(boolean z) {
+    public synchronized List<ak> sA(boolean z) {
         ArrayList arrayList;
-        if (z == this.kch) {
+        if (z == this.kjo) {
             arrayList = null;
         } else {
-            this.kch = z;
+            this.kjo = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
@@ -108,67 +108,67 @@ public class d implements aj {
     @Nullable
     public synchronized List<ak> a(Priority priority) {
         ArrayList arrayList;
-        if (priority == this.kci) {
+        if (priority == this.kjp) {
             arrayList = null;
         } else {
-            this.kci = priority;
+            this.kjp = priority;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<ak> sm(boolean z) {
+    public synchronized List<ak> sB(boolean z) {
         ArrayList arrayList;
-        if (z == this.kcj) {
+        if (z == this.kjq) {
             arrayList = null;
         } else {
-            this.kcj = z;
+            this.kjq = z;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
     }
 
     @Nullable
-    public synchronized List<ak> cHD() {
+    public synchronized List<ak> cKH() {
         ArrayList arrayList;
-        if (this.cdC) {
+        if (this.ceF) {
             arrayList = null;
         } else {
-            this.cdC = true;
+            this.ceF = true;
             arrayList = new ArrayList(this.mCallbacks);
         }
         return arrayList;
-    }
-
-    public static void eE(@Nullable List<ak> list) {
-        if (list != null) {
-            for (ak akVar : list) {
-                akVar.cHE();
-            }
-        }
-    }
-
-    public static void eF(@Nullable List<ak> list) {
-        if (list != null) {
-            for (ak akVar : list) {
-                akVar.cHF();
-            }
-        }
-    }
-
-    public static void eG(@Nullable List<ak> list) {
-        if (list != null) {
-            for (ak akVar : list) {
-                akVar.cHG();
-            }
-        }
     }
 
     public static void eH(@Nullable List<ak> list) {
         if (list != null) {
             for (ak akVar : list) {
-                akVar.cHH();
+                akVar.cKI();
+            }
+        }
+    }
+
+    public static void eI(@Nullable List<ak> list) {
+        if (list != null) {
+            for (ak akVar : list) {
+                akVar.cKJ();
+            }
+        }
+    }
+
+    public static void eJ(@Nullable List<ak> list) {
+        if (list != null) {
+            for (ak akVar : list) {
+                akVar.cKK();
+            }
+        }
+    }
+
+    public static void eK(@Nullable List<ak> list) {
+        if (list != null) {
+            for (ak akVar : list) {
+                akVar.cKL();
             }
         }
     }

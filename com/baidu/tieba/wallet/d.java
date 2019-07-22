@@ -5,22 +5,22 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import java.net.URL;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
     public static void init() {
-        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.wallet.d.1
-            @Override // com.baidu.tbadk.core.util.ba.a
+        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.wallet.d.1
+            @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
                 if (str.startsWith(TbConfig.URL_JUMP_TAG_WALLET)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.FD(str)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, d.Gs(str)));
                     if (tbPageContext.getOrignalPage() instanceof BaseWebViewActivity) {
                         ((BaseWebViewActivity) tbPageContext.getOrignalPage()).finish();
                     }
@@ -32,7 +32,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String FD(String str) {
+    public static String Gs(String str) {
         URL url;
         try {
             url = new URL(str);

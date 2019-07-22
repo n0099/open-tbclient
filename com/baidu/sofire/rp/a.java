@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.sofire.b.g;
 import com.baidu.sofire.e;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static String a(Context context) {
         String str = "";

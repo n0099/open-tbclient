@@ -1,180 +1,195 @@
 package com.baidu.tbadk.core.util;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.tbadk.TbConfig;
+import android.graphics.Rect;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.StaticLayout;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.message.HistoryMessage;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tieba.R;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class av extends com.baidu.adp.base.a.c {
-    public av(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 20);
-    }
-
-    @Override // com.baidu.adp.base.a.c
-    public void d(SQLiteDatabase sQLiteDatabase) {
-        try {
-            b(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255))");
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
-            b(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time varchar(30),nodisturb_end_time varchar(30),remind_light,stranger_chat_switch int)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-            b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
-            L(sQLiteDatabase);
-            M(sQLiteDatabase);
-            N(sQLiteDatabase);
-            Q(sQLiteDatabase);
-            R(sQLiteDatabase);
-            S(sQLiteDatabase);
-            T(sQLiteDatabase);
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
+public final class av {
+    public static void a(com.baidu.tbadk.core.data.a aVar, Context context, int i, boolean z) {
+        if (aVar != null && aVar.acx() != null && context != null) {
+            bg acx = aVar.acx();
+            String aek = com.baidu.tieba.card.n.aek();
+            if (i == 3 || i == 15) {
+                aek = com.baidu.tieba.card.n.aZF();
+            }
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(acx, null, aek, 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(acx.getFid()));
+            if (i == 3 || i == 15) {
+                createFromThreadCfg.setFrom("from_frs");
+            } else {
+                createFromThreadCfg.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
+            }
+            createFromThreadCfg.setForumName(acx.aeC());
+            createFromThreadCfg.setStartFrom(i);
+            if (aVar.acA() != null) {
+                createFromThreadCfg.addLocateParam(aVar.acA());
+            }
+            if (i == 3 || i == 15) {
+                createFromThreadCfg.setVideo_source("frs");
+            } else if (i == 2) {
+                createFromThreadCfg.setVideo_source("index");
+            }
+            createFromThreadCfg.setJumpGodReply(z);
+            com.baidu.tieba.card.n.vw(acx.getTid());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
 
-    @Override // com.baidu.adp.base.a.c
-    public void e(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS account_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='account_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS search_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS search_post_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_post_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS mark_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='mark_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS draft_box;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='draft_box';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS setting;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='setting';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS chunk_upload_data;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chunk_upload_data';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS frs_image_forums;");
-        b(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_msgs_of;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='frs_image_forums';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS chat_msgs;");
-        b(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_rfs_ost;");
-        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chat_msgs';");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_emotions");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS emotion_group");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS emotions");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
-        b(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        if (i == 1) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
-        }
-        if (i < 3) {
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
-        }
-        if (i < 4) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
-        }
-        if (i < 5) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
-        }
-        if (i < 6) {
-            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
-        }
-        if (i < 7) {
-            L(sQLiteDatabase);
-        }
-        if (i < 8) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
-            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
-        }
-        if (i < 9) {
-            b(sQLiteDatabase, "ALTER TABLE account_data ADD portrait varchar(255)");
-        }
-        if (i < 10) {
-            b(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
-        }
-        if (i < 11) {
-            M(sQLiteDatabase);
-        }
-        if (i < 12) {
-            N(sQLiteDatabase);
-        }
-        if (i < 13) {
-            b(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
-            O(sQLiteDatabase);
-        }
-        if (i < 14) {
-            P(sQLiteDatabase);
-        }
-        if (i < 15) {
-            b(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
-        }
-        if (i < 16) {
-            Q(sQLiteDatabase);
-        }
-        if (i < 17) {
-            R(sQLiteDatabase);
-        }
-        if (i < 18) {
-            S(sQLiteDatabase);
-        }
-        if (i < 20) {
-            b(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
-            T(sQLiteDatabase);
+    public static void a(View view, boolean z, List<MediaData> list, int i, bg bgVar, String str) {
+        if (view != null) {
+            Context context = view.getContext();
+            if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
+                com.baidu.adp.lib.util.l.showToast(context, (int) R.string.plugin_image_viewer_install_error_tips);
+                return;
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
+            for (MediaData mediaData : list) {
+                if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
+                    arrayList.add(mediaData.getSrc_pic());
+                    if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
+                        ImageUrlData imageUrlData = new ImageUrlData();
+                        imageUrlData.urlType = z ? 13 : 14;
+                        imageUrlData.imageUrl = mediaData.getPicUrl();
+                        imageUrlData.originalUrl = mediaData.getOriginalUrl();
+                        imageUrlData.originalSize = mediaData.getOriginalSize();
+                        imageUrlData.isLongPic = mediaData.isLongPic();
+                        imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
+                        imageUrlData.threadId = com.baidu.adp.lib.g.b.c(bgVar.getTid(), -1L);
+                        imageUrlData.postId = mediaData.getPostId();
+                        concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
+                    }
+                }
+            }
+            if (arrayList.size() <= 0) {
+                for (MediaData mediaData2 : list) {
+                    if (!TextUtils.isEmpty(mediaData2.getPicUrl())) {
+                        arrayList.add(mediaData2.getPicUrl());
+                    }
+                }
+            }
+            ImageViewerConfig createConfig = new ImageViewerConfig(context).createConfig(arrayList, i, bgVar.aeC(), String.valueOf(bgVar.getFid()), bgVar.getTid(), z, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true);
+            if (str != null) {
+                createConfig.getIntent().putExtra("from", str);
+            }
+            Rect rect = new Rect();
+            view.getGlobalVisibleRect(rect);
+            createConfig.setSrcRectInScreen(rect, UtilHelper.fixedDrawableRect(rect, view));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, createConfig));
+            if (context instanceof TbPageContextSupport) {
+                HistoryMessage historyMessage = new HistoryMessage();
+                historyMessage.Activity = ((TbPageContextSupport) context).getPageContext();
+                historyMessage.threadId = bgVar.getId();
+                historyMessage.threadName = bgVar.getTitle();
+                historyMessage.forumName = bgVar.aeC();
+                historyMessage.postID = bgVar.aeN();
+                MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
+            }
         }
     }
 
-    protected void L(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
+    public static void a(TextView textView, bg bgVar) {
+        if (textView != null && bgVar != null) {
+            SpannableStringBuilder adY = bgVar.adY();
+            if (bgVar.aeM() == 1 || adY == null || aq.bh(adY.toString())) {
+                textView.setVisibility(8);
+                return;
+            }
+            textView.setVisibility(0);
+            textView.setOnTouchListener(new com.baidu.tieba.view.k(adY));
+            textView.setText(adY);
+            com.baidu.tieba.card.n.a(textView, bgVar.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        }
     }
 
-    protected void M(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, " CREATE TABLE if not exists user_emotions(id INTEGER primary key autoincrement, uid varchar(128), groupId varchar(64), updateTime bigint(21) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_ue_uid ON user_emotions(uid)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists emotion_group(groupId varchar(64) primary key, groupName varchar(128), groupDesc text, emotionsCount int(11) default 0, width  int(11) default 0, height  int(11) default 0, status  int(11) default 0, bytesLength int(11) default 0, bytesReceived int(11) default 0, downloadUrl varchar(512), downloadTime bigint(21) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_eg_gids ON emotion_group(groupId, status)");
-        b(sQLiteDatabase, "CREATE TABLE if not exists emotions(sharpText varchar(512) primary key, groupId varchar(64), orderId int(11) default 0)");
-        b(sQLiteDatabase, "CREATE INDEX if not exists idx_e_gido ON emotions(groupId, orderId)");
+    public static void a(TextView textView, TextView textView2, bg bgVar, int i) {
+        int i2;
+        float f;
+        if (bgVar != null) {
+            bgVar.dO(false);
+            SpannableString adZ = bgVar.adZ();
+            if (adZ != null && !aq.bh(adZ.toString())) {
+                textView.setOnTouchListener(new com.baidu.tieba.view.k(adZ));
+                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(adZ);
+                textView.setVisibility(0);
+                if (textView2.getVisibility() == 8) {
+                    i2 = 5;
+                } else {
+                    i2 = 5 - com.baidu.adp.lib.util.v.b(i, textView2.getPaint(), textView2.getText().toString(), 2);
+                }
+                if (textView2.getVisibility() != 0) {
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams.setMargins(0, 0, 0, 0);
+                    textView.setLayoutParams(layoutParams);
+                } else {
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
+                    layoutParams2.setMargins(0, com.baidu.adp.lib.util.l.g(textView.getContext(), R.dimen.tbds7), 0, 0);
+                    textView.setLayoutParams(layoutParams2);
+                }
+                if (!com.baidu.adp.lib.util.v.a(i, textView.getPaint(), spannableStringBuilder.toString(), i2)) {
+                    textView.setText(spannableStringBuilder, TextView.BufferType.SPANNABLE);
+                } else {
+                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("...");
+                    SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(R.string.abstract_expand_flag));
+                    spannableStringBuilder3.setSpan(new com.baidu.tbadk.widget.richText.c(2, null) { // from class: com.baidu.tbadk.core.util.av.1
+                    }, 0, spannableStringBuilder3.length(), 17);
+                    spannableStringBuilder2.append((CharSequence) spannableStringBuilder3);
+                    StaticLayout staticLayout = new StaticLayout(spannableStringBuilder.toString(), textView.getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+                    float f2 = i;
+                    if (staticLayout.getLineCount() >= i2) {
+                        spannableStringBuilder.delete(staticLayout.getLineEnd(i2 - 1), adZ.length());
+                        f = i - staticLayout.getLineWidth(i2 - 1);
+                    } else {
+                        f = f2;
+                    }
+                    int i3 = 2;
+                    CharSequence subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - 2, spannableStringBuilder.length());
+                    float measureText = textView.getPaint().measureText(spannableStringBuilder2.toString());
+                    while (measureText > textView.getPaint().measureText(subSequence.toString()) + f) {
+                        i3++;
+                        if (spannableStringBuilder.length() - i3 < 0) {
+                            break;
+                        }
+                        subSequence = spannableStringBuilder.subSequence(spannableStringBuilder.length() - i3, spannableStringBuilder.length());
+                    }
+                    if (spannableStringBuilder.length() - i3 > 0) {
+                        spannableStringBuilder.replace(spannableStringBuilder.length() - i3, spannableStringBuilder.length(), (CharSequence) spannableStringBuilder2);
+                    }
+                    bgVar.dO(true);
+                    textView.setText(spannableStringBuilder);
+                }
+            } else {
+                textView.setVisibility(8);
+            }
+            com.baidu.tieba.card.n.a(textView, bgVar.getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+            return;
+        }
+        textView.setVisibility(8);
     }
 
-    protected void N(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists local_game(gameId varchar(64) primary key, gameName varchar(128), gameType int default 0, iconUrl varchar(128), gameLink  varchar(2),packageName varchar(64), launcherActivity  varchar(64),downloadTime varchar(64),installTime varchar(64))");
-        b(sQLiteDatabase, "ALTER TABLE setting ADD remind_light int(11) default 1");
-    }
-
-    protected void O(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "ALTER TABLE account_data ADD gender int");
-        b(sQLiteDatabase, "ALTER TABLE account_data ADD member_iconurl varchar(255)");
-    }
-
-    protected void P(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
-    }
-
-    protected void Q(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists user_collect_emotion(pid varchar(30), uid varchar(30), sharp_text varchar(256), order_id int, width int, height int, pic_url varchar(512), thumbnail varchar(512), backup TEXT, primary key(pid, uid))");
-    }
-
-    protected void R(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "ALTER TABLE setting ADD zan_me_switch int");
-    }
-
-    protected void S(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
-    }
-
-    protected void T(SQLiteDatabase sQLiteDatabase) {
-        b(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, executingMissionList TEXT, totalLimit INTEGER, completedLimitCount INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
+    public static boolean m(bg bgVar) {
+        return (bgVar == null || bgVar.aex() == null || StringUtils.isNull(bgVar.aex().getUserId()) || !bgVar.aex().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
     }
 }

@@ -7,7 +7,7 @@ public interface g {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void y(boolean z, String str);
+        void z(boolean z, String str);
     }
 
     void a(a aVar);

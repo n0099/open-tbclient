@@ -4,11 +4,11 @@ import com.baidu.adp.lib.b.b;
 /* loaded from: classes.dex */
 public abstract class a {
     protected String mName;
-    protected String[] yT;
-    protected int yU = 0;
-    protected int yV = 1;
-    protected int yW = 10;
-    protected b.a yX = new b.a() { // from class: com.baidu.adp.lib.b.a.1
+    protected String[] yZ;
+    protected int za = 0;
+    protected int zb = 1;
+    protected int zc = 10;
+    protected b.a zd = new b.a() { // from class: com.baidu.adp.lib.b.a.1
         @Override // com.baidu.adp.lib.b.b.a
         public void a(String str, int i, boolean z) {
             a.this.R(i);
@@ -19,36 +19,36 @@ public abstract class a {
 
     protected abstract String getName();
 
-    protected abstract int hA();
+    protected abstract String[] hI();
 
-    protected abstract int hB();
+    protected abstract int hJ();
 
-    protected abstract String[] hy();
+    protected abstract int hK();
 
-    protected abstract int hz();
+    protected abstract int hL();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String[] hC() {
+    public String[] hM() {
         return null;
     }
 
-    protected void hD() {
-        b bVar = new b(this.mName, this.yU, this.yX);
-        bVar.a(this.yW, this.yT, this.yV);
-        bVar.g(hC());
-        d.hI().a(bVar);
+    protected void hN() {
+        b bVar = new b(this.mName, this.za, this.zd);
+        bVar.a(this.zc, this.yZ, this.zb);
+        bVar.g(hM());
+        d.hS().a(bVar);
     }
 
     public a() {
         initData();
-        hD();
+        hN();
     }
 
     protected void initData() {
         this.mName = getName();
-        this.yT = hy();
-        this.yU = hz();
-        this.yV = hA();
-        this.yW = hB();
+        this.yZ = hI();
+        this.za = hJ();
+        this.zb = hK();
+        this.zc = hL();
     }
 }

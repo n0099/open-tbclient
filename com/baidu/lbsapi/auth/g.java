@@ -3,7 +3,6 @@ package com.baidu.lbsapi.auth;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.sapi2.base.network.Apn;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class g {
                 return null;
             }
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals(Apn.APN_CMWAP) || extraInfo.trim().toLowerCase().equals(Apn.APN_UNIWAP) || extraInfo.trim().toLowerCase().equals(Apn.APN_3GWAP) || extraInfo.trim().toLowerCase().equals(Apn.APN_CTWAP))) ? "wifi" : extraInfo.trim().toLowerCase().equals(Apn.APN_CTWAP) ? Apn.APN_CTWAP : Apn.APN_CMWAP;
+            return (extraInfo == null || !(extraInfo.trim().toLowerCase().equals("cmwap") || extraInfo.trim().toLowerCase().equals("uniwap") || extraInfo.trim().toLowerCase().equals("3gwap") || extraInfo.trim().toLowerCase().equals("ctwap"))) ? "wifi" : extraInfo.trim().toLowerCase().equals("ctwap") ? "ctwap" : "cmwap";
         } catch (Exception e) {
             if (a.a) {
                 e.printStackTrace();
@@ -381,7 +380,7 @@ public class g {
                 return null;
             }
             a.a("checkNetwork = " + a);
-            HttpsURLConnection httpsURLConnection = a.equals(Apn.APN_CMWAP) ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a.equals(Apn.APN_CTWAP) ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : (HttpsURLConnection) url.openConnection();
+            HttpsURLConnection httpsURLConnection = a.equals("cmwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80))) : a.equals("ctwap") ? (HttpsURLConnection) url.openConnection(new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80))) : (HttpsURLConnection) url.openConnection();
             httpsURLConnection.setHostnameVerifier(new h(this));
             httpsURLConnection.setDoInput(true);
             httpsURLConnection.setDoOutput(true);

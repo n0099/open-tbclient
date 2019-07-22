@@ -49,25 +49,25 @@ public final class q {
                     com.baidu.crabsdk.c.a.v("*** apiType == Block ***");
                     httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     httpURLConnection3.setRequestProperty("EncryptData", str3);
-                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, (String) null));
+                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, (String) null));
                 } else if (str2.equals("NDK")) {
                     com.baidu.crabsdk.c.a.v("*** apiType == NDK ***");
                     httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     httpURLConnection3.setRequestProperty("EncryptData", str3);
                     httpURLConnection3.setRequestProperty(HTTP.CONTENT_LEN, new StringBuilder().append(bArr.length).toString());
-                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, (String) null));
+                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, (String) null));
                 } else {
                     com.baidu.crabsdk.c.a.v("*** apiType != Block ***");
-                    String cr = h.cr(str3);
-                    if (cr.startsWith("NoEncrypt_")) {
+                    String ct = h.ct(str3);
+                    if (ct.startsWith("NoEncrypt_")) {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES2");
-                        cr = cr.substring(10);
-                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + cr);
+                        ct = ct.substring(10);
+                        com.baidu.crabsdk.c.a.v("real rsaAesKey is: " + ct);
                     } else {
                         httpURLConnection3.setRequestProperty("EncryptType", "RSA-AES");
                     }
-                    httpURLConnection3.setRequestProperty("EncryptData", cr);
-                    httpURLConnection3.setRequestProperty("User-Agent", g.a(str2, h.cq(str3)));
+                    httpURLConnection3.setRequestProperty("EncryptData", ct);
+                    httpURLConnection3.setRequestProperty(HTTP.USER_AGENT, g.a(str2, h.cs(str3)));
                 }
                 httpURLConnection3.setConnectTimeout(3000);
                 httpURLConnection3.setReadTimeout(3000);
@@ -77,7 +77,7 @@ public final class q {
                     dataOutputStream.flush();
                     dataOutputStream.close();
                     StringBuffer stringBuffer = new StringBuffer();
-                    com.baidu.crabsdk.c.a.cf("response code is " + httpURLConnection3.getResponseCode());
+                    com.baidu.crabsdk.c.a.ch("response code is " + httpURLConnection3.getResponseCode());
                     if (httpURLConnection3.getResponseCode() == 200) {
                         inputStreamReader = new InputStreamReader(httpURLConnection3.getInputStream());
                         try {

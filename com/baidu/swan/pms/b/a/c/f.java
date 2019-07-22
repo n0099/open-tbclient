@@ -12,21 +12,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f<T> implements Runnable {
-    File axB;
-    e bsD;
-    AtomicBoolean bsE = new AtomicBoolean(false);
-    c<T> bsF;
-    T bsy;
+    File ayi;
+    T bto;
+    e btt;
+    AtomicBoolean btu = new AtomicBoolean(false);
+    c<T> btv;
 
     public f(e eVar, T t, c<T> cVar) {
-        this.bsD = eVar;
-        this.bsy = t;
-        this.bsF = cVar;
+        this.btt = eVar;
+        this.bto = t;
+        this.btv = cVar;
     }
 
-    public void dj(boolean z) {
-        if (this.bsE.get() != z) {
-            this.bsE.set(z);
+    /* renamed from: do  reason: not valid java name */
+    public void m17do(boolean z) {
+        if (this.btu.get() != z) {
+            this.btu.set(z);
         }
     }
 
@@ -34,57 +35,57 @@ public class f<T> implements Runnable {
         if (fVar == null) {
             return false;
         }
-        return this.bsy.equals(fVar.bsy);
+        return this.bto.equals(fVar.bto);
     }
 
-    public com.baidu.swan.pms.a.a<T> VG() {
-        return this.bsF;
+    public com.baidu.swan.pms.a.a<T> Wz() {
+        return this.btv;
     }
 
     public void a(c cVar) {
-        this.bsF.a(cVar);
+        this.btv.a(cVar);
     }
 
-    public T VH() {
-        return this.bsy;
+    public T WA() {
+        return this.bto;
     }
 
-    public int VI() {
-        return this.bsD.bsC.state;
+    public int WB() {
+        return this.btt.bts.state;
     }
 
-    public void VJ() {
-        fG(1);
-        this.bsF.F(this.bsy);
+    public void WC() {
+        fK(1);
+        this.btv.F(this.bto);
     }
 
-    public void VK() {
-        this.bsF.R(this.bsy);
+    public void WD() {
+        this.btv.R(this.bto);
     }
 
-    public void VL() {
-        fG(2);
-        this.bsF.T(this.bsy);
+    public void WE() {
+        fK(2);
+        this.btv.T(this.bto);
     }
 
-    public void VM() {
-        fG(10);
-        this.bsF.E(this.bsy);
+    public void WF() {
+        fK(10);
+        this.btv.E(this.bto);
     }
 
-    public void VN() {
-        fG(3);
-        this.bsF.a((c<T>) this.bsy, this.bsD.bsB);
+    public void WG() {
+        fK(3);
+        this.btv.a((c<T>) this.bto, this.btt.btr);
     }
 
-    public boolean fG(int i) {
-        if (this.bsD.bsC.state != i) {
-            this.bsD.bsC.state = i;
+    public boolean fK(int i) {
+        if (this.btt.bts.state != i) {
+            this.btt.bts.state = i;
             if (i == 2 || i == 3 || i == 10) {
-                dj(true);
+                m17do(true);
                 return true;
             }
-            dj(false);
+            m17do(false);
             return true;
         }
         return false;
@@ -93,37 +94,37 @@ public class f<T> implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (com.baidu.swan.pms.e.DEBUG) {
-            Log.d("ThunderInfoTask", "run:" + this.bsD.bsC.downloadUrl);
+            Log.d("ThunderInfoTask", "run:" + this.btt.bts.downloadUrl);
         }
         j jVar = new j(this);
         while (true) {
-            if (this.bsD.bsB == null || this.bsD.bsB.errorNo != 2200) {
-                if (this.bsE.get()) {
+            if (this.btt.btr == null || this.btt.btr.errorNo != 2200) {
+                if (this.btu.get()) {
                     if (com.baidu.swan.pms.e.DEBUG) {
-                        Log.d("ThunderInfoTask", "stopped:" + this.bsD.bsC.downloadUrl);
+                        Log.d("ThunderInfoTask", "stopped:" + this.btt.bts.downloadUrl);
                     }
-                    VL();
+                    WE();
                     return;
                 }
-                jVar.VQ();
-                if (this.bsD.bsB != null) {
-                    switch (this.bsD.bsB.errorNo) {
+                jVar.WJ();
+                if (this.btt.btr != null) {
+                    switch (this.btt.btr.errorNo) {
                         case PushConstants.EXPIRE_NOTIFICATION /* 2200 */:
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("ThunderInfoTask", "success download:" + this.bsD.bsC.downloadUrl);
+                                Log.d("ThunderInfoTask", "success download:" + this.btt.bts.downloadUrl);
                             }
-                            VM();
-                            a(this.bsD.bsB.errorNo, this.bsD.bsC);
+                            WF();
+                            a(this.btt.btr.errorNo, this.btt.bts);
                             return;
                         default:
                             if (com.baidu.swan.pms.e.DEBUG) {
-                                Log.d("ThunderInfoTask", "retry download:" + this.bsD.bsC.downloadUrl);
+                                Log.d("ThunderInfoTask", "retry download:" + this.btt.bts.downloadUrl);
                             }
-                            this.bsF.mRetryCount++;
-                            if (this.bsF.mRetryCount < 3) {
+                            this.btv.mRetryCount++;
+                            if (this.btv.mRetryCount < 3) {
                                 try {
-                                    if (!this.bsE.get()) {
-                                        Thread.sleep(this.bsF.mRetryCount * 1000);
+                                    if (!this.btu.get()) {
+                                        Thread.sleep(this.btv.mRetryCount * 1000);
                                         break;
                                     } else {
                                         break;
@@ -132,8 +133,8 @@ public class f<T> implements Runnable {
                                     break;
                                 }
                             } else {
-                                VN();
-                                a(this.bsD.bsB.errorNo, this.bsD.bsC);
+                                WG();
+                                a(this.btt.btr.errorNo, this.btt.bts);
                                 return;
                             }
                     }
@@ -145,26 +146,26 @@ public class f<T> implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean VO() {
-        if (TextUtils.isEmpty(this.bsD.bsC.filePath)) {
-            this.axB = com.baidu.swan.pms.e.c.bn(this.bsF.gj(), this.bsD.bsC.md5);
-            if (this.axB == null) {
-                this.bsF.a((c<T>) this.bsy, new com.baidu.swan.pms.model.a(2203, "download : path not available"));
+    public boolean WH() {
+        if (TextUtils.isEmpty(this.btt.bts.filePath)) {
+            this.ayi = com.baidu.swan.pms.e.c.bn(this.btv.gs(), this.btt.bts.md5);
+            if (this.ayi == null) {
+                this.btv.a((c<T>) this.bto, new com.baidu.swan.pms.model.a(2203, "download : path not available"));
                 return false;
             }
-            this.bsD.bsC.filePath = this.axB.getAbsolutePath();
+            this.btt.bts.filePath = this.ayi.getAbsolutePath();
             return true;
         }
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean af(long j) {
+    public boolean ag(long j) {
         boolean z = false;
-        String gj = this.bsF.gj();
-        if (gj != null) {
+        String gs = this.btv.gs();
+        if (gs != null) {
             try {
-                StatFs statFs = new StatFs(gj);
+                StatFs statFs = new StatFs(gs);
                 if (Build.VERSION.SDK_INT >= 18) {
                     z = statFs.getAvailableBlocksLong() * statFs.getBlockSizeLong() > j;
                 } else {
@@ -194,19 +195,19 @@ public class f<T> implements Runnable {
                     e = e2;
                     i2 = i;
                     e.printStackTrace();
-                    com.baidu.swan.pms.c.a.a(eVar.category, "pkg_download", null, i2, jSONObject);
+                    com.baidu.swan.pms.c.a.a(eVar.ave, "pkg_download", null, i2, jSONObject);
                 }
             }
             try {
                 if (eVar instanceof com.baidu.swan.pms.model.f) {
-                    jSONObject.put("appId", eVar.bsc);
+                    jSONObject.put("appId", eVar.bsR);
                 }
             } catch (JSONException e3) {
                 e = e3;
                 e.printStackTrace();
-                com.baidu.swan.pms.c.a.a(eVar.category, "pkg_download", null, i2, jSONObject);
+                com.baidu.swan.pms.c.a.a(eVar.ave, "pkg_download", null, i2, jSONObject);
             }
-            com.baidu.swan.pms.c.a.a(eVar.category, "pkg_download", null, i2, jSONObject);
+            com.baidu.swan.pms.c.a.a(eVar.ave, "pkg_download", null, i2, jSONObject);
         }
     }
 
@@ -215,12 +216,12 @@ public class f<T> implements Runnable {
             return true;
         }
         if (obj instanceof f) {
-            return this.bsD.bsC.equals(((f) obj).bsD.bsC);
+            return this.btt.bts.equals(((f) obj).btt.bts);
         }
         return false;
     }
 
     public int hashCode() {
-        return Objects.hash(this.bsD.bsC);
+        return Objects.hash(this.btt.bts);
     }
 }

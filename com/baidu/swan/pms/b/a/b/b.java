@@ -13,38 +13,38 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class b {
-    private f bsq;
-    private AtomicBoolean bsr = new AtomicBoolean(false);
-    private com.baidu.swan.pms.b.a.c.b bss = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
+    private f btg;
+    private AtomicBoolean bth = new AtomicBoolean(false);
+    private com.baidu.swan.pms.b.a.c.b bti = new com.baidu.swan.pms.b.a.c.b() { // from class: com.baidu.swan.pms.b.a.b.b.1
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void d(f<T> fVar) {
-            b.this.bsq = fVar;
+            b.this.btg = fVar;
         }
 
         @Override // com.baidu.swan.pms.b.a.c.b
         public <T> void e(f<T> fVar) {
-            if (b.this.bsq == fVar) {
-                b.this.bsq = null;
+            if (b.this.btg == fVar) {
+                b.this.btg = null;
             }
         }
     };
-    private l bst = new l(this.bss);
-    private com.baidu.swan.pms.b.a.c.a bsu = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
+    private l btj = new l(this.bti);
+    private com.baidu.swan.pms.b.a.c.a btk = new com.baidu.swan.pms.b.a.c.a() { // from class: com.baidu.swan.pms.b.a.b.b.2
         @Override // com.baidu.swan.pms.b.a.c.a
-        public Runnable di(boolean z) {
-            return b.this.dh(z);
+        public Runnable dn(boolean z) {
+            return b.this.dm(z);
         }
     };
-    private a<f> bsn = new a<>();
-    private BlockingQueue<Runnable> bso = new LinkedBlockingQueue();
-    private ThreadPoolExecutor bsp = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bso);
+    private a<f> btd = new a<>();
+    private BlockingQueue<Runnable> bte = new LinkedBlockingQueue();
+    private ThreadPoolExecutor btf = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.bte);
 
     public void a(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bst.e(bVar);
+        this.btj.e(bVar);
     }
 
     public void b(com.baidu.swan.pms.b.a.c.b bVar) {
-        this.bst.f(bVar);
+        this.btj.f(bVar);
     }
 
     public synchronized <T> void b(f<T> fVar) {
@@ -53,27 +53,27 @@ public class b {
     }
 
     public synchronized <T> void c(f<T> fVar) {
-        this.bsn.X(fVar);
+        this.btd.X(fVar);
         if (e.DEBUG) {
             Log.d("PMSThreadQueue", "put Task:" + fVar);
-            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.bsn);
-            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bso);
+            Log.d("PMSThreadQueue", "current WaitingQueue===>" + this.btd);
+            Log.d("PMSThreadQueue", "current WorkingQueue===>" + this.bte);
         }
     }
 
     public synchronized void start() {
-        if (this.bso.size() < 1) {
-            this.bsp.execute(new g(this.bsr, this.bst, this.bsu));
+        if (this.bte.size() < 1) {
+            this.btf.execute(new g(this.bth, this.btj, this.btk));
         }
     }
 
-    public synchronized Runnable dh(boolean z) {
+    public synchronized Runnable dm(boolean z) {
         f fVar;
-        if (this.bsn != null) {
+        if (this.btd != null) {
             if (z) {
-                fVar = this.bsn.VE();
+                fVar = this.btd.Wx();
             } else {
-                fVar = this.bsn.get();
+                fVar = this.btd.get();
             }
         } else {
             fVar = null;
@@ -83,11 +83,11 @@ public class b {
 
     public synchronized boolean a(f fVar, c cVar) {
         boolean z;
-        if (this.bsq != null && this.bsq.h(fVar)) {
-            this.bsq.a(cVar);
+        if (this.btg != null && this.btg.h(fVar)) {
+            this.btg.a(cVar);
             z = true;
         } else {
-            f Y = this.bsn.Y(fVar);
+            f Y = this.btd.Y(fVar);
             if (Y != null) {
                 if (e.DEBUG) {
                     Log.w("PMSThreadQueue", "found duplicated task in mWaitingQueue:" + fVar.toString());

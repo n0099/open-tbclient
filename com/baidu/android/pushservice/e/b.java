@@ -146,7 +146,7 @@ public class b {
                 httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
                 httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                 if (!TextUtils.isEmpty(str3)) {
-                    httpURLConnection.setRequestProperty("User-Agent", str3);
+                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3);
                 }
                 if (httpURLConnection instanceof HttpsURLConnection) {
                 }

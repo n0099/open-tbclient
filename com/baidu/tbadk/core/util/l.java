@@ -3,26 +3,26 @@ package com.baidu.tbadk.core.util;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class l {
-    private StringBuilder bQn;
+    private StringBuilder bRn;
 
     public l() {
-        this.bQn = null;
-        this.bQn = null;
+        this.bRn = null;
+        this.bRn = null;
     }
 
     public void o(String str, Object obj) {
-        if (!ap.isEmpty(str) && obj != null) {
+        if (!aq.isEmpty(str) && obj != null) {
             try {
-                if (this.bQn == null) {
-                    this.bQn = new StringBuilder();
-                    this.bQn.append(str);
-                    this.bQn.append("=");
-                    this.bQn.append(obj.toString());
+                if (this.bRn == null) {
+                    this.bRn = new StringBuilder();
+                    this.bRn.append(str);
+                    this.bRn.append("=");
+                    this.bRn.append(obj.toString());
                 } else {
-                    this.bQn.append("|");
-                    this.bQn.append(str);
-                    this.bQn.append("=");
-                    this.bQn.append(obj.toString());
+                    this.bRn.append("|");
+                    this.bRn.append(str);
+                    this.bRn.append("=");
+                    this.bRn.append(obj.toString());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -31,6 +31,6 @@ public class l {
     }
 
     public String toString() {
-        return this.bQn != null ? this.bQn.toString() : "";
+        return this.bRn != null ? this.bRn.toString() : "";
     }
 }

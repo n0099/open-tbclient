@@ -8,24 +8,24 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class ScalarSynchronousObservable<T> extends rx.d<T> {
-    static final boolean ksL = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
-    final T ksK;
+    static final boolean kAk = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
+    final T kAj;
 
     static <T> rx.f b(j<? super T> jVar, T t) {
-        return ksL ? new SingleProducer(jVar, t) : new c(jVar, t);
+        return kAk ? new SingleProducer(jVar, t) : new c(jVar, t);
     }
 
-    public static <T> ScalarSynchronousObservable<T> by(T t) {
+    public static <T> ScalarSynchronousObservable<T> bB(T t) {
         return new ScalarSynchronousObservable<>(t);
     }
 
     protected ScalarSynchronousObservable(T t) {
         super(rx.c.c.b(new a(t)));
-        this.ksK = t;
+        this.kAj = t;
     }
 
     public T get() {
-        return this.ksK;
+        return this.kAj;
     }
 
     public rx.d<T> e(final rx.g gVar) {
@@ -61,7 +61,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
                 }
             };
         }
-        return a((d.a) new b(this.ksK, fVar));
+        return a((d.a) new b(this.kAj, fVar));
     }
 
     /* loaded from: classes2.dex */
@@ -154,9 +154,9 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(j<? super R> jVar) {
-                rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.ksK);
+                rx.d dVar = (rx.d) fVar.call(ScalarSynchronousObservable.this.kAj);
                 if (dVar instanceof ScalarSynchronousObservable) {
-                    jVar.setProducer(ScalarSynchronousObservable.b(jVar, ((ScalarSynchronousObservable) dVar).ksK));
+                    jVar.setProducer(ScalarSynchronousObservable.b(jVar, ((ScalarSynchronousObservable) dVar).kAj));
                 } else {
                     dVar.a((j) rx.b.f.d(jVar));
                 }
@@ -168,7 +168,7 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
     /* loaded from: classes2.dex */
     public static final class c<T> implements rx.f {
         final j<? super T> actual;
-        boolean knT;
+        boolean kvs;
         final T value;
 
         public c(j<? super T> jVar, T t) {
@@ -178,12 +178,12 @@ public final class ScalarSynchronousObservable<T> extends rx.d<T> {
 
         @Override // rx.f
         public void request(long j) {
-            if (!this.knT) {
+            if (!this.kvs) {
                 if (j < 0) {
                     throw new IllegalStateException("n >= required but it was " + j);
                 }
                 if (j != 0) {
-                    this.knT = true;
+                    this.kvs = true;
                     j<? super T> jVar = this.actual;
                     if (!jVar.isUnsubscribed()) {
                         Object obj = (T) this.value;

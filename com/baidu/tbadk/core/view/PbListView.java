@@ -10,30 +10,30 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class PbListView extends com.baidu.adp.widget.ListView.b {
-    private ImageView bZf;
-    private boolean bZg;
+    private ImageView cah;
+    private boolean cai;
     private Context mContext;
     private TextView mTextView = null;
     private ProgressBar mProgressBar = null;
     private View.OnClickListener mOnClickListener = null;
-    private View bBg = null;
-    private View bZe = null;
-    private int bZh = 0;
-    private String bZi = null;
-    private LinearLayout bZj = null;
+    private View mRoot = null;
+    private View cag = null;
+    private int caj = 0;
+    private String cak = null;
+    private LinearLayout cal = null;
     private int mTextColor = 0;
-    private int bZk = R.color.cp_cont_e;
-    private int bZl = R.color.cp_bg_line_b;
-    private ImageView bZm = null;
-    private LinearLayout bZn = null;
-    private boolean bZo = true;
+    private int cam = R.color.cp_cont_e;
+    private int can = R.color.cp_bg_line_b;
+    private ImageView cao = null;
+    private LinearLayout cap = null;
+    private boolean caq = true;
     private int mSkinType = -1;
-    private int bZp = 0;
-    public boolean bZq = false;
+    private int car = 0;
+    public boolean cas = false;
 
     /* loaded from: classes.dex */
     public enum IconType {
@@ -47,56 +47,56 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     }
 
     @Override // com.baidu.adp.widget.ListView.b
-    public View nG() {
-        this.bBg = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
-        this.bZj = (LinearLayout) this.bBg.findViewById(R.id.pb_more_view);
-        this.mTextView = (TextView) this.bBg.findViewById(R.id.pb_more_text);
-        this.bZf = (ImageView) this.bBg.findViewById(R.id.no_data_image);
-        if (this.bZo) {
-            this.bZj.setVisibility(0);
+    public View nZ() {
+        this.mRoot = LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, (ViewGroup) null);
+        this.cal = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_view);
+        this.mTextView = (TextView) this.mRoot.findViewById(R.id.pb_more_text);
+        this.cah = (ImageView) this.mRoot.findViewById(R.id.no_data_image);
+        if (this.caq) {
+            this.cal.setVisibility(0);
         } else {
-            this.bZj.setVisibility(8);
+            this.cal.setVisibility(8);
         }
-        this.mProgressBar = (ProgressBar) this.bBg.findViewById(R.id.progress);
-        this.bZm = (ImageView) this.bBg.findViewById(R.id.pb_more_view_top_line);
-        this.bZe = this.bBg.findViewById(R.id.empty_view);
-        this.bZn = (LinearLayout) this.bBg.findViewById(R.id.pb_more_top_extra_view);
-        return this.bBg;
+        this.mProgressBar = (ProgressBar) this.mRoot.findViewById(R.id.progress);
+        this.cao = (ImageView) this.mRoot.findViewById(R.id.pb_more_view_top_line);
+        this.cag = this.mRoot.findViewById(R.id.empty_view);
+        this.cap = (LinearLayout) this.mRoot.findViewById(R.id.pb_more_top_extra_view);
+        return this.mRoot;
     }
 
-    public void em(boolean z) {
-        this.bZo = z;
+    public void eq(boolean z) {
+        this.caq = z;
     }
 
-    public void iK(int i) {
-        this.bZl = i;
+    public void iQ(int i) {
+        this.can = i;
     }
 
-    public void aju() {
-        this.bZm.setVisibility(0);
+    public void akz() {
+        this.cao.setVisibility(0);
     }
 
-    public void ajv() {
-        this.bZm.setVisibility(8);
+    public void akA() {
+        this.cao.setVisibility(8);
     }
 
-    public void ajw() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bZm.getLayoutParams();
+    public void akB() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cao.getLayoutParams();
         layoutParams.leftMargin = 0;
         layoutParams.rightMargin = 0;
-        this.bZm.setLayoutParams(layoutParams);
+        this.cao.setLayoutParams(layoutParams);
     }
 
-    public void ajx() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bZm.getLayoutParams();
+    public void akC() {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cao.getLayoutParams();
         layoutParams.height = com.baidu.adp.lib.util.l.g(this.mContext, R.dimen.ds1);
-        this.bZm.setLayoutParams(layoutParams);
+        this.cao.setLayoutParams(layoutParams);
     }
 
-    public void iL(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bZm.getLayoutParams();
+    public void iR(int i) {
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cao.getLayoutParams();
         layoutParams.height = i;
-        this.bZm.setLayoutParams(layoutParams);
+        this.cao.setLayoutParams(layoutParams);
     }
 
     public void setTextSize(int i) {
@@ -107,31 +107,31 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mSkinType = i;
     }
 
-    public void ajy() {
+    public void akD() {
         this.mProgressBar.setVisibility(0);
         this.mTextView.setText(this.mContext.getText(R.string.loading));
-        iP(TbadkCoreApplication.getInst().getSkinType());
+        iV(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ajz() {
+    public void akE() {
         this.mProgressBar.setVisibility(8);
-        if (this.bZi != null) {
-            this.mTextView.setText(this.bZi);
+        if (this.cak != null) {
+            this.mTextView.setText(this.cak);
         } else {
             this.mTextView.setText(this.mContext.getText(R.string.pb_load_more));
         }
-        iP(TbadkCoreApplication.getInst().getSkinType());
+        iV(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void ajA() {
+    public void akF() {
         setText(this.mContext.getResources().getString(R.string.list_no_more));
-        ajz();
+        akE();
     }
 
-    public void ajB() {
+    public void akG() {
         this.mTextView.setVisibility(0);
-        this.bZj.setVisibility(0);
-        ajz();
+        this.cal.setVisibility(0);
+        akE();
     }
 
     public void showLoading() {
@@ -139,51 +139,51 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         this.mTextView.setText(this.mContext.getText(R.string.loading));
     }
 
-    public void iM(int i) {
-        al.k(this.bZj, i);
+    public void iS(int i) {
+        am.k(this.cal, i);
     }
 
     public void setHeight(int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bZj.getLayoutParams());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cal.getLayoutParams());
         layoutParams.height = i;
-        this.bZj.setLayoutParams(layoutParams);
+        this.cal.setLayoutParams(layoutParams);
     }
 
-    public void ajC() {
-        this.bBg.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+    public void akH() {
+        this.mRoot.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
     }
 
-    public void ajD() {
-        this.bZg = false;
-        this.bZf.setVisibility(8);
+    public void akI() {
+        this.cai = false;
+        this.cah.setVisibility(8);
         hideEmptyView();
-        iP(TbadkCoreApplication.getInst().getSkinType());
+        iV(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void W(String str, int i) {
-        this.bZi = str;
+        this.cak = str;
         this.mTextView.setText(str);
-        this.bZg = true;
-        this.bZf.setVisibility(0);
-        iP(TbadkCoreApplication.getInst().getSkinType());
-        iS(i);
-        this.bZq = false;
+        this.cai = true;
+        this.cah.setVisibility(0);
+        iV(TbadkCoreApplication.getInst().getSkinType());
+        iY(i);
+        this.cas = false;
     }
 
     public void setText(String str) {
-        this.bZi = str;
+        this.cak = str;
         this.mTextView.setText(str);
-        this.bZg = false;
-        this.bZf.setVisibility(8);
-        iP(TbadkCoreApplication.getInst().getSkinType());
+        this.cai = false;
+        this.cah.setVisibility(8);
+        iV(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setTextColor(int i) {
         this.mTextColor = i;
     }
 
-    public void iN(int i) {
-        this.bZk = i;
+    public void iT(int i) {
+        this.cam = i;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -193,16 +193,16 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
     @Override // com.baidu.adp.widget.ListView.b
     public void onClick() {
         if (this.mOnClickListener != null) {
-            this.mOnClickListener.onClick(this.bBg);
+            this.mOnClickListener.onClick(this.mRoot);
         }
     }
 
-    public void iO(int i) {
-        this.bZp = i;
+    public void iU(int i) {
+        this.car = i;
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public void iP(int i) {
+    public void iV(int i) {
         int color;
         boolean z = false;
         if (this.mSkinType != -1) {
@@ -210,19 +210,19 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         }
         String charSequence = this.mTextView.getText().toString();
         if (charSequence.equals(this.mContext.getText(R.string.pb_load_more))) {
-            color = al.getColor(i, R.color.common_color_10039);
+            color = am.getColor(i, R.color.common_color_10039);
         } else if (charSequence.equals(this.mContext.getText(R.string.loading))) {
-            color = al.getColor(i, R.color.common_color_10039);
+            color = am.getColor(i, R.color.common_color_10039);
         } else if (charSequence.equals(this.mContext.getText(R.string.list_no_more)) || charSequence.equals(this.mContext.getText(R.string.list_has_no_more)) || charSequence.equals(this.mContext.getText(R.string.sub_pb_list_no_more))) {
-            color = al.getColor(i, R.color.common_color_10005);
+            color = am.getColor(i, R.color.common_color_10005);
             z = true;
         } else if (charSequence.equals(this.mContext.getText(R.string.list_no_more_new))) {
-            color = al.getColor(i, R.color.cp_cont_e);
+            color = am.getColor(i, R.color.cp_cont_e);
         } else {
-            color = (charSequence.equals(this.mContext.getText(R.string.list_click_load_more)) || charSequence.equals(this.mContext.getText(R.string.really_great))) ? al.getColor(i, R.color.cp_cont_d) : 0;
+            color = (charSequence.equals(this.mContext.getText(R.string.list_click_load_more)) || charSequence.equals(this.mContext.getText(R.string.really_great))) ? am.getColor(i, R.color.cp_cont_d) : 0;
         }
-        if (z && this.bZk != 0) {
-            color = al.getColor(i, this.bZk);
+        if (z && this.cam != 0) {
+            color = am.getColor(i, this.cam);
         }
         if (color == 0 && this.mTextColor != 0 && !z) {
             color = this.mTextColor;
@@ -230,71 +230,71 @@ public class PbListView extends com.baidu.adp.widget.ListView.b {
         if (color != 0) {
             this.mTextView.setTextColor(color);
         }
-        al.b(this.bZm, this.bZl, i);
-        if (this.bZp == 0) {
-            al.g(this.bZj, R.color.cp_bg_line_d, i);
-        } else if (this.bZp > 0) {
-            al.g(this.bZj, this.bZp, i);
+        am.b(this.cao, this.can, i);
+        if (this.car == 0) {
+            am.g(this.cal, R.color.cp_bg_line_d, i);
+        } else if (this.car > 0) {
+            am.g(this.cal, this.car, i);
         }
-        if (this.bZh != 0) {
-            al.h(this.bZe, this.bZh, i);
+        if (this.caj != 0) {
+            am.h(this.cag, this.caj, i);
         }
-        if (this.bZg) {
-            al.c(this.bZf, (int) R.drawable.pic_emotion_gray_03);
-            al.j(this.mTextView, R.color.cp_cont_d);
+        if (this.cai) {
+            am.c(this.cah, (int) R.drawable.pic_emotion_gray_03);
+            am.j(this.mTextView, R.color.cp_cont_d);
         }
     }
 
-    public void iQ(int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bZe.getLayoutParams());
+    public void iW(int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cag.getLayoutParams());
         layoutParams.height = i;
-        this.bZe.setLayoutParams(layoutParams);
-        this.bZe.setVisibility(0);
+        this.cag.setLayoutParams(layoutParams);
+        this.cag.setVisibility(0);
     }
 
     public void hideEmptyView() {
-        this.bZe.setVisibility(8);
+        this.cag.setVisibility(8);
     }
 
-    public void ajE() {
-        this.bZn.setVisibility(0);
-        this.bZm.setVisibility(0);
-        this.bZj.setVisibility(0);
+    public void akJ() {
+        this.cap.setVisibility(0);
+        this.cao.setVisibility(0);
+        this.cal.setVisibility(0);
         this.mTextView.setVisibility(0);
         this.mProgressBar.setVisibility(0);
         hideEmptyView();
     }
 
-    public void iR(int i) {
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.bZe.getLayoutParams());
+    public void iX(int i) {
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.cag.getLayoutParams());
         layoutParams.height = i;
-        this.bZe.setLayoutParams(layoutParams);
-        this.bZe.setVisibility(0);
-        this.bZn.setVisibility(8);
-        this.bZm.setVisibility(8);
-        this.bZj.setVisibility(8);
+        this.cag.setLayoutParams(layoutParams);
+        this.cag.setVisibility(0);
+        this.cap.setVisibility(8);
+        this.cao.setVisibility(8);
+        this.cal.setVisibility(8);
         this.mTextView.setVisibility(8);
         this.mProgressBar.setVisibility(8);
     }
 
-    public boolean pu() {
+    public boolean pP() {
         return this.mProgressBar != null && this.mProgressBar.getVisibility() == 0;
     }
 
-    public boolean ajF() {
-        return this.bZg;
+    public boolean akK() {
+        return this.cai;
     }
 
-    public void iS(int i) {
+    public void iY(int i) {
         int ah = (com.baidu.adp.lib.util.l.ah(this.mContext) - ((int) this.mContext.getResources().getDimension(R.dimen.tbds589))) / 2;
         if (i > 0) {
             ah -= i / 2;
         }
         int dimension = (int) this.mContext.getResources().getDimension(R.dimen.tbds156);
         int i2 = (i == 0 || ah < dimension) ? dimension : ah;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bZf.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.cah.getLayoutParams();
         layoutParams.topMargin = i2;
-        this.bZf.setLayoutParams(layoutParams);
-        iQ(dimension);
+        this.cah.setLayoutParams(layoutParams);
+        iW(dimension);
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.j;
 import com.meizu.cloud.pushsdk.b.c.k;
@@ -156,7 +157,7 @@ public abstract class c {
         if (this.i == h.HTTP) {
             this.e = Uri.parse("http://" + this.l).buildUpon();
         } else {
-            this.e = Uri.parse("https://" + this.l).buildUpon();
+            this.e = Uri.parse(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.l).buildUpon();
         }
         if (this.g == d.GET) {
             this.e.appendPath("i");

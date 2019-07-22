@@ -61,9 +61,7 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.pass.biometrics.face.liveness.view.BioAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.ConstrastLoadingView;
 import com.baidu.pass.biometrics.face.liveness.view.CustomAlertDialog;
-import com.baidu.pass.biometrics.face.liveness.view.LoadingDialog;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
-import com.baidu.sapi2.bio.BiometricsManager;
 import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
@@ -74,6 +72,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,10 +119,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private boolean hasCameraReadyStatistics;
     private int headMode;
     private String[] headPoses;
+    private int illumValue;
     private long lastCurMills;
     private SdkConfigOptions.LivenessConfigOption livenessConfig;
-    private LoadingDialog loadingDialog;
-    private BioAlertDialog openCameraDialog;
     private BioAlertDialog permissionAlertDialog;
     private ArrayList<HashMap<String, byte[]>> portraitList;
     private FrameLayout poseTipFl;
@@ -153,6 +151,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private boolean isLast = false;
     private boolean guideLiveness = true;
     private boolean whiteBgFlag = false;
+    private boolean firstillumCallback = true;
     private Runnable recogTimeCountRunnable = new Runnable() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.1
         @Override // java.lang.Runnable
         public void run() {
@@ -171,7 +170,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             }
         }
     };
-    Camera.PreviewCallback previewCallback = new Camera.PreviewCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.12
+    Camera.PreviewCallback previewCallback = new Camera.PreviewCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.11
         @Override // android.hardware.Camera.PreviewCallback
         public void onPreviewFrame(byte[] bArr, Camera camera) {
             if (LivenessRecogActivity.this.processState.stateFlag != 0 && LivenessRecogActivity.this.processState.stateFlag != 10 && LivenessRecogActivity.this.processState.stateFlag != 17 && LivenessRecogActivity.this.processState.stateFlag != 19 && LivenessRecogActivity.this.processState.stateFlag != 18) {
@@ -191,13 +190,13 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     private boolean isFinish = false;
     private int lastFaceId = -1;
 
-    static /* synthetic */ int access$1904(LivenessRecogActivity livenessRecogActivity) {
+    static /* synthetic */ int access$2004(LivenessRecogActivity livenessRecogActivity) {
         int i = livenessRecogActivity.frameStack + 1;
         livenessRecogActivity.frameStack = i;
         return i;
     }
 
-    static /* synthetic */ int access$1906(LivenessRecogActivity livenessRecogActivity) {
+    static /* synthetic */ int access$2006(LivenessRecogActivity livenessRecogActivity) {
         int i = livenessRecogActivity.frameStack - 1;
         livenessRecogActivity.frameStack = i;
         return i;
@@ -233,6 +232,13 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.sensorManager.registerSensorListener(new BioSensorManager.SensorCallback() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.2
             @Override // com.baidu.pass.biometrics.face.liveness.utils.BioSensorManager.SensorCallback
             public void onChange(float f) {
+                if (LivenessRecogActivity.this.firstillumCallback) {
+                    LivenessRecogActivity.this.firstillumCallback = false;
+                    if (LivenessRecogActivity.this.isUpdateWhiteBg(f)) {
+                        LivenessRecogActivity.this.firstLivenessRcogType = 2L;
+                        LivenessRecogActivity.this.headMode = 5;
+                    }
+                }
                 LivenessRecogActivity.this.updateWhiteBg(f);
             }
         });
@@ -502,6 +508,8 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         initOnlineConfig();
         this.headMode = getHeadMode();
         initLiveness();
+        this.illumValue = getOnlineIllum();
+        this.livenessStat.onLineIllum = this.illumValue;
         this.sensorManager = new BioSensorManager(this);
     }
 
@@ -563,7 +571,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.surfaceView.setVisibility(4);
         boolean doOpenCamera = this.cameraInterface.doOpenCamera(this, 3);
         if (!doOpenCamera) {
-            showOpenCameraDialog();
+            showPermissionDialog();
         } else {
             CameraInterface.CameraSize previewSize = this.cameraInterface.getPreviewSize();
             bindSurfaceView(previewSize);
@@ -716,9 +724,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.processState.stateFlag = 17;
         this.uiHandler.removeCallbacks(this.recogTimeCountRunnable);
         final BioAlertDialog bioAlertDialog = new BioAlertDialog(this);
-        bioAlertDialog.setTitleMsg(getString(R.string.pass_liveness_dialog_recognized_time_out_title));
+        bioAlertDialog.setTitleMsg(getString(R.string.pass_face_timeout_dialog_title));
         bioAlertDialog.setTimeOutVisible(0);
-        bioAlertDialog.setMessageText(getString(R.string.pass_liveness_dialog_recognized_time_out_msg));
+        bioAlertDialog.setMessageText(getString(R.string.pass_face_timeout_dialog_msg));
         bioAlertDialog.setPositiveBtn(getString(R.string.pass_liveness_dialog_recognized_fail_cancel), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -808,32 +816,6 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         }
     }
 
-    private void showOpenCameraDialog() {
-        this.processState.stateFlag = 19;
-        if (this.openCameraDialog == null) {
-            this.openCameraDialog = new BioAlertDialog(this);
-            this.openCameraDialog.setTitleVisible(true);
-            this.openCameraDialog.setDialogMsg(getString(R.string.pass_liveness_open_camera_no_permission));
-            this.openCameraDialog.setBtnCount(1);
-            this.openCameraDialog.setNeutralBtn(getString(R.string.pass_bio_alert_dialog_btn_ok), new View.OnClickListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.11
-                @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
-                    LivenessRecogActivity.this.openCameraDialog.dismiss();
-                    if (LivenessRecogActivity.this.callback != null) {
-                        PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-                        passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
-                        LivenessRecogActivity.this.callback.onFailure(passFaceRecogResult);
-                    }
-                    LivenessRecogActivity.this.activityFinish(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
-                }
-            });
-        }
-        this.openCameraDialog.setCancelable(false);
-        if (!isFinishing() && !this.openCameraDialog.isShowing()) {
-            this.openCameraDialog.show();
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(9)
     public void faceRecognize() {
@@ -886,7 +868,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.os.AsyncTask
         public String doInBackground(Void... voidArr) {
-            LivenessRecogActivity.access$1904(LivenessRecogActivity.this);
+            LivenessRecogActivity.access$2004(LivenessRecogActivity.this);
             LivenessRecogActivity.this.faceRecognize();
             return null;
         }
@@ -896,7 +878,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         @Override // android.os.AsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((FaceRecognitionTask) str);
-            LivenessRecogActivity.access$1906(LivenessRecogActivity.this);
+            LivenessRecogActivity.access$2006(LivenessRecogActivity.this);
         }
     }
 
@@ -1010,20 +992,24 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
                         LivenessRecogActivity.this.lastWaringType = -1;
                         LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                        if (LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr) && !LivenessRecogActivity.this.animState.startBlinkAnimFlag) {
-                            LivenessRecogActivity.this.startPoseTipAnim(1);
-                            LivenessRecogActivity.this.animState.startBlinkAnimFlag = true;
-                        }
                     }
-                } else if (LivenessRecogActivity.this.processState.stateFlag == 7 && LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
-                    LivenessRecogActivity.this.lastWaringType = -1;
-                    LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
-                    if (LivenessRecogActivity.this.isFaceInsideRound(faceInfoArr) && !LivenessRecogActivity.this.animState.startMouthOpenAnimFlag) {
+                    if (!LivenessRecogActivity.this.animState.startBlinkAnimFlag) {
+                        LivenessRecogActivity.this.startPoseTipAnim(1);
+                        LivenessRecogActivity.this.animState.startBlinkAnimFlag = true;
+                    }
+                } else if (LivenessRecogActivity.this.processState.stateFlag == 7) {
+                    if (LivenessRecogActivity.this.isHasFace(faceInfoArr)) {
+                        LivenessRecogActivity.this.lastWaringType = -1;
+                        LivenessRecogActivity.this.poseTipWarningFl.setVisibility(8);
+                    }
+                    if (!LivenessRecogActivity.this.animState.startMouthOpenAnimFlag) {
                         LivenessRecogActivity.this.startPoseTipAnim(3);
                         LivenessRecogActivity.this.animState.startMouthOpenAnimFlag = true;
                     }
                 }
+                Log.e(LivenessRecogActivity.TAG, "state STATE_START_TRACK_BLICK state", Integer.valueOf(LivenessRecogActivity.this.processState.stateFlag));
                 if (LivenessRecogActivity.this.processState.stateFlag == 6 || LivenessRecogActivity.this.processState.stateFlag == 8) {
+                    Log.e(LivenessRecogActivity.TAG, "state STATE_START_TRACK_BLICK");
                     if (LivenessRecogActivity.this.isTimeOut()) {
                         LivenessRecogActivity.this.handleTimeOut();
                         return;
@@ -1120,6 +1106,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isTimeOut() {
+        Log.e(TAG, "processState.wholeProcessStartTime", Long.valueOf(this.processState.wholeProcessStartTime));
         return System.currentTimeMillis() - this.processState.wholeProcessStartTime > this.processState.wholeProcessTimeOut && this.processState.wholeProcessStartTime > 0;
     }
 
@@ -1269,13 +1256,32 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         return faceInfo != null && this.errorCode == FaceTracker.ErrCode.OK;
     }
 
+    private int getOnlineIllum() {
+        List<Integer> aBtestIllumList = this.livenessConfig.getABtestIllumList();
+        int illumVlaueGray = LocalConfigOptions.getInstance(this).getIllumVlaueGray();
+        if (illumVlaueGray == -1) {
+            Random random = new Random();
+            random.setSeed(System.currentTimeMillis());
+            illumVlaueGray = random.nextInt(aBtestIllumList.size());
+            LocalConfigOptions.getInstance(this).setIllumValueGray(illumVlaueGray);
+            Log.w(TAG, "getOnlineIllum random" + illumVlaueGray);
+        }
+        Log.w(TAG, "getOnlineIllum" + illumVlaueGray);
+        return aBtestIllumList.get(illumVlaueGray).intValue();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public boolean isUpdateWhiteBg(float f) {
+        Log.w(TAG, "whiteBgIllumThr" + this.illumValue);
+        return f <= ((float) this.illumValue);
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(11)
     public void updateWhiteBg(float f) {
         if (!this.whiteBgFlag) {
             this.livenessStat.illumValue = f;
-            Log.w(TAG, "whiteBgIllumThr" + this.livenessConfig.whiteBgIllumThr);
-            if (f <= this.livenessConfig.whiteBgIllumThr) {
+            if (isUpdateWhiteBg(f)) {
                 this.whiteBgFlag = true;
                 this.livenessStat.whiteBg = 1;
                 this.sensorManager.unRegisterSensorListener();
@@ -1284,7 +1290,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     valueAnimator.setDuration(200L);
                     valueAnimator.setInterpolator(new LinearInterpolator());
                     valueAnimator.setIntValues(1, 100);
-                    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.13
+                    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.12
                         private IntEvaluator mEvaluator = new IntEvaluator();
 
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -1364,7 +1370,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 this.poseTipWarningTv.setText(getString(R.string.pass_liveness_put_face_round));
             }
             final Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.pass_liveness_tip_warning);
-            loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.14
+            loadAnimation.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.13
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationStart(Animation animation) {
                 }
@@ -1440,7 +1446,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         super.onRequestPermissionsResult(i, strArr, iArr);
         this.processState.permissionFlag = false;
         if (i == 2002) {
-            if (iArr[0] == 0) {
+            if (iArr.length > 0 && iArr[0] == 0) {
                 this.livenessStat.withCameraPermission = 1;
                 this.livenessStat.openCameraPermissionSuc = 1;
                 this.livenessStat.timePointStartRecog = System.currentTimeMillis();
@@ -1481,9 +1487,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$15] */
+    /* JADX WARN: Type inference failed for: r0v0, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$14] */
     public void constrastPortrait(FaceVerifyData[] faceVerifyDataArr) {
-        new AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.15
+        new AsyncTask<FaceVerifyData, Void, ArrayList<HashMap<String, byte[]>>>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.14
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
@@ -1608,7 +1614,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("type", "authtoken");
             httpHashMapWrap.put("authtoken", this.passFaceRecogDTO.authToken);
         } else if (this.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_OUTER) {
-            httpHashMapWrap.put("type", BiometricsManager.LivenessDTO.LIVENESS_RECOGNIZE_TYPE_UN_REALNAME_VERIFY);
+            httpHashMapWrap.put("type", "outer");
             httpHashMapWrap.put("exuid", this.passFaceRecogDTO.exUid);
         }
         httpHashMapWrap.put("service_type", this.passFaceRecogDTO.serviceType);
@@ -1628,7 +1634,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("nonce", nonce);
         }
         httpHashMapWrap.put("sig", HttpClientWrap.calculateSig(httpHashMapWrap.getMap(), BeanConstants.appSignKey));
-        new HttpClientWrap(this).post(getPortraitContrastUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.16
+        new HttpClientWrap(this).post(getPortraitContrastUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.15
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onSuccess(int i, String str4) {
@@ -1666,7 +1672,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onFailure(Throwable th, String str4) {
+            public void onFailure(Throwable th, int i, String str4) {
                 contrastPortraitResult.setResultCode(-206);
                 contrastPortraitResult.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
                 LivenessRecogActivity.this.handlePortraitContrastFail(contrastPortraitResult);
@@ -1725,9 +1731,9 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
             httpHashMapWrap.put("nonce", nonce);
         }
         httpHashMapWrap.put("sig", HttpClientWrap.calculateSig(httpHashMapWrap.getMap(), BeanConstants.appSignKey));
-        new HttpClientWrap(this).post(getFaceDetectUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.17
+        new HttpClientWrap(this).post(getFaceDetectUrl(), httpHashMapWrap, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.16
             /* JADX INFO: Access modifiers changed from: protected */
-            /* JADX WARN: Type inference failed for: r1v11, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$17$1] */
+            /* JADX WARN: Type inference failed for: r1v11, types: [com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity$16$1] */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
             public void onSuccess(int i, String str3) {
                 Log.i(LivenessRecogActivity.TAG, "faceDetectHttp|responseBody|" + str3);
@@ -1738,7 +1744,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                     if (TextUtils.isEmpty(passFaceRecogResult.callbackkey)) {
                         LivenessRecogActivity.this.callbackFailureOrContinueFaceDetect(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
                     } else if (LivenessRecogActivity.this.callback != null) {
-                        new AsyncTask<Void, Void, PassFaceRecogResult>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.17.1
+                        new AsyncTask<Void, Void, PassFaceRecogResult>() { // from class: com.baidu.pass.biometrics.face.liveness.activity.LivenessRecogActivity.16.1
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX INFO: Access modifiers changed from: protected */
                             @Override // android.os.AsyncTask
@@ -1777,7 +1783,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onFailure(Throwable th, String str3) {
+            public void onFailure(Throwable th, int i, String str3) {
                 LivenessRecogActivity.this.callbackFailureOrContinueFaceDetect(-206, PassBiometricResult.ERROR_MSG_SERVER_ERROR);
             }
         });

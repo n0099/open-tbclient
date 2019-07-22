@@ -65,10 +65,10 @@ public class RequestService implements IRequestService {
         }
         try {
             requestResult.setResponse(String.valueOf(RequestEngine.request(iRequestParam).body().string()));
-            return requestResult;
         } catch (Exception e2) {
-            throw new RequestException(e2.toString());
+            requestResult.setE(e2);
         }
+        return requestResult;
     }
 
     @Override // com.sina.weibo.sdk.network.IRequestService

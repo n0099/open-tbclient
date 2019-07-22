@@ -8,7 +8,7 @@ public class GetQrCodeImageResult extends SapiResult {
     public String imageUrl;
     public String prompt;
 
-    public String getJoinCode() {
-        return this.imageUrl + "&prompt=" + URLEncoder.encode(this.prompt);
+    public String getJoinCode(String str) {
+        return this.imageUrl + "&appName=" + URLEncoder.encode(str);
     }
 }

@@ -11,9 +11,9 @@ public class b extends f<Integer> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: b */
     public Integer a(com.airbnb.lottie.a.a<Integer> aVar, float f) {
-        if (aVar.lJ == null || aVar.lK == null) {
+        if (aVar.lI == null || aVar.lJ == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        return Integer.valueOf(com.airbnb.lottie.c.a.a(f, aVar.lJ.intValue(), aVar.lK.intValue()));
+        return Integer.valueOf(com.airbnb.lottie.c.a.a(f, aVar.lI.intValue(), aVar.lJ.intValue()));
     }
 }

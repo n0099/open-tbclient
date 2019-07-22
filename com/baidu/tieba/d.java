@@ -18,75 +18,75 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.tbadkCore.u;
 /* loaded from: classes.dex */
 public class d extends Dialog {
-    private VersionData cSD;
-    private CombineDownload cSE;
-    private boolean cSF;
-    private boolean cSG;
-    private boolean cSH;
-    private boolean cSI;
-    private LinearLayout cSJ;
-    private TextView cSK;
-    private TextView cSL;
-    private TextView cSM;
-    private String cSN;
-    private TextView cSO;
-    private TextView cSP;
-    private TextView cSQ;
-    private TextView cSR;
-    private ImageView cSS;
-    private TextView cST;
-    private TextView cSU;
-    private View cSV;
-    private LinearLayout cSW;
-    private TextView cSX;
-    private TextView cSY;
-    private TextView cSZ;
-    private View cTa;
-    private LinearLayout cTb;
-    private a cTc;
-    private View.OnClickListener cTd;
-    private View.OnClickListener cTe;
-    private boolean cTf;
-    private boolean cTg;
+    private VersionData cTZ;
+    private View.OnClickListener cUA;
+    private boolean cUB;
+    private boolean cUC;
+    private CombineDownload cUa;
+    private boolean cUb;
+    private boolean cUc;
+    private boolean cUd;
+    private boolean cUe;
+    private LinearLayout cUf;
+    private TextView cUg;
+    private TextView cUh;
+    private TextView cUi;
+    private String cUj;
+    private TextView cUk;
+    private TextView cUl;
+    private TextView cUm;
+    private TextView cUn;
+    private ImageView cUo;
+    private TextView cUp;
+    private TextView cUq;
+    private View cUr;
+    private LinearLayout cUs;
+    private TextView cUt;
+    private TextView cUu;
+    private TextView cUv;
+    private View cUw;
+    private LinearLayout cUx;
+    private a cUy;
+    private View.OnClickListener cUz;
     private View dividerLine;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
     /* loaded from: classes.dex */
     interface a {
-        void aAx();
+        void aBM();
 
-        void aAy();
+        void aBN();
 
-        void gd(boolean z);
+        void gh(boolean z);
 
-        void ge(boolean z);
+        void gi(boolean z);
 
         void stopService();
     }
 
     public d(Context context, int i) {
         super(context, i);
-        this.cSF = false;
-        this.cSG = true;
-        this.cSH = false;
-        this.cSI = false;
-        this.cTf = true;
-        this.cTg = true;
+        this.cUb = false;
+        this.cUc = true;
+        this.cUd = false;
+        this.cUe = false;
+        this.cUB = true;
+        this.cUC = true;
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.d.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view.getId() == d.this.cSQ.getId()) {
-                    d.this.cTc.aAx();
-                    d.this.cU(d.this.mContext);
-                } else if (view.getId() == d.this.cSS.getId()) {
-                    d.this.cTc.aAx();
+                if (view.getId() == d.this.cUm.getId()) {
+                    d.this.cUy.aBM();
+                    d.this.cV(d.this.mContext);
+                } else if (view.getId() == d.this.cUo.getId()) {
+                    d.this.cUy.aBM();
                 }
             }
         };
@@ -97,38 +97,38 @@ public class d extends Dialog {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.app_download_dialog);
-        this.cSJ = (LinearLayout) findViewById(R.id.app_info);
-        this.cSK = (TextView) findViewById(R.id.app_version_and_size);
-        this.cSL = (TextView) findViewById(R.id.app_description);
-        this.cSR = (TextView) findViewById(R.id.fullsize_download_button);
-        this.cSP = (TextView) findViewById(R.id.cancel_download_button);
-        this.cSQ = (TextView) findViewById(R.id.btn_update_save_flow);
-        this.cSS = (ImageView) findViewById(R.id.img_close);
-        this.cSQ.setOnClickListener(this.mOnClickListener);
-        this.cSS.setOnClickListener(this.mOnClickListener);
+        this.cUf = (LinearLayout) findViewById(R.id.app_info);
+        this.cUg = (TextView) findViewById(R.id.app_version_and_size);
+        this.cUh = (TextView) findViewById(R.id.app_description);
+        this.cUn = (TextView) findViewById(R.id.fullsize_download_button);
+        this.cUl = (TextView) findViewById(R.id.cancel_download_button);
+        this.cUm = (TextView) findViewById(R.id.btn_update_save_flow);
+        this.cUo = (ImageView) findViewById(R.id.img_close);
+        this.cUm.setOnClickListener(this.mOnClickListener);
+        this.cUo.setOnClickListener(this.mOnClickListener);
         this.dividerLine = findViewById(R.id.divider_line);
-        this.cSM = (TextView) findViewById(R.id.download_process);
-        this.cST = (TextView) findViewById(R.id.incremental_download_button);
-        this.cSU = (TextView) findViewById(R.id.not_install_as_tip);
-        this.cSV = findViewById(R.id.incremental_download_layout);
-        this.cSO = (TextView) findViewById(R.id.other_app_recommend);
-        this.cTa = findViewById(R.id.divider_under_button);
-        this.cTb = (LinearLayout) findViewById(R.id.cancel_confirm_ll);
-        this.cSN = this.cSM.getText().toString();
-        this.cSW = (LinearLayout) findViewById(R.id.cancel_dialog);
-        this.cSY = (TextView) findViewById(R.id.sure_cancel);
-        this.cSZ = (TextView) findViewById(R.id.cancel_button);
-        this.cSX = (TextView) findViewById(R.id.cancel_tip);
-        this.cSY.setOnClickListener(this.cTd);
-        this.cSZ.setOnClickListener(this.cTe);
-        if (com.baidu.adp.lib.b.d.hI().ay("android_shouzhu_update") == 1) {
-            this.cTf = true;
+        this.cUi = (TextView) findViewById(R.id.download_process);
+        this.cUp = (TextView) findViewById(R.id.incremental_download_button);
+        this.cUq = (TextView) findViewById(R.id.not_install_as_tip);
+        this.cUr = findViewById(R.id.incremental_download_layout);
+        this.cUk = (TextView) findViewById(R.id.other_app_recommend);
+        this.cUw = findViewById(R.id.divider_under_button);
+        this.cUx = (LinearLayout) findViewById(R.id.cancel_confirm_ll);
+        this.cUj = this.cUi.getText().toString();
+        this.cUs = (LinearLayout) findViewById(R.id.cancel_dialog);
+        this.cUu = (TextView) findViewById(R.id.sure_cancel);
+        this.cUv = (TextView) findViewById(R.id.cancel_button);
+        this.cUt = (TextView) findViewById(R.id.cancel_tip);
+        this.cUu.setOnClickListener(this.cUz);
+        this.cUv.setOnClickListener(this.cUA);
+        if (com.baidu.adp.lib.b.d.hS().az("android_shouzhu_update") == 1) {
+            this.cUB = true;
         } else {
-            this.cTf = false;
+            this.cUB = false;
         }
-        String size = this.cSD.getSize();
-        String newVersion = this.cSD.getNewVersion();
-        String newVersionDesc = this.cSD.getNewVersionDesc();
+        String size = this.cTZ.getSize();
+        String newVersion = this.cTZ.getNewVersion();
+        String newVersionDesc = this.cTZ.getNewVersionDesc();
         StringBuilder sb = new StringBuilder();
         sb.append(this.mContext.getString(R.string.new_version_format));
         if (!TextUtils.isEmpty(newVersion)) {
@@ -137,92 +137,92 @@ public class d extends Dialog {
         if (!TextUtils.isEmpty(size)) {
             sb.append(" / " + String.format("%.2f", Float.valueOf(com.baidu.adp.lib.g.b.c(size, 0.0f) / 1048576.0f)) + "MB");
         }
-        this.cSK.setText(sb.toString());
-        this.cSL.setText(newVersionDesc);
-        if (this.cSD.forceUpdate()) {
-            this.cSI = true;
-            this.cSP.setText(this.mContext.getString(R.string.quit));
-            this.cSQ.setVisibility(8);
-            this.cSS.setVisibility(8);
-        } else if (this.cSD.isOfficialVersion() && l.F(this.mContext, "com.tencent.android.qqdownloader")) {
-            this.cSP.setVisibility(8);
+        this.cUg.setText(sb.toString());
+        this.cUh.setText(newVersionDesc);
+        if (this.cTZ.forceUpdate()) {
+            this.cUe = true;
+            this.cUl.setText(this.mContext.getString(R.string.quit));
+            this.cUm.setVisibility(8);
+            this.cUo.setVisibility(8);
+        } else if (this.cTZ.isOfficialVersion() && l.F(this.mContext, "com.tencent.android.qqdownloader")) {
+            this.cUl.setVisibility(8);
         } else {
-            this.cSP.setText(this.mContext.getString(R.string.update_after));
-            this.cSQ.setVisibility(8);
-            this.cSS.setVisibility(8);
+            this.cUl.setText(this.mContext.getString(R.string.update_after));
+            this.cUm.setVisibility(8);
+            this.cUo.setVisibility(8);
         }
-        if (this.cSE != null && this.cSE.showCombineDownload() && !TextUtils.isEmpty(this.cSE.getApkMD5RSA())) {
-            this.cSO.setText(this.cSE.getAppName());
-            if (!u.isInstalledPackage(this.mContext, this.cSE.getAppProc()) && !TextUtils.isEmpty(this.cSE.getAppUrl())) {
-                this.cSO.setVisibility(0);
+        if (this.cUa != null && this.cUa.showCombineDownload() && !TextUtils.isEmpty(this.cUa.getApkMD5RSA())) {
+            this.cUk.setText(this.cUa.getAppName());
+            if (!u.isInstalledPackage(this.mContext, this.cUa.getAppProc()) && !TextUtils.isEmpty(this.cUa.getAppUrl())) {
+                this.cUk.setVisibility(0);
                 Drawable drawable = this.mContext.getResources().getDrawable(R.drawable.btn_dailog_choose_s);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                this.cSO.setCompoundDrawables(drawable, null, null, null);
-                this.cSF = true;
+                this.cUk.setCompoundDrawables(drawable, null, null, null);
+                this.cUb = true;
             } else {
-                this.cSO.setVisibility(8);
-                this.cSF = false;
+                this.cUk.setVisibility(8);
+                this.cUb = false;
             }
         } else {
-            this.cSO.setVisibility(8);
-            this.cSF = false;
+            this.cUk.setVisibility(8);
+            this.cUb = false;
         }
-        gb(this.cTf);
-        this.cSR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.1
+        gf(this.cUB);
+        this.cUn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 TiebaStatic.log("c10003");
-                d.this.cSH = true;
-                if (d.this.cSG) {
-                    Drawable drawable2 = al.getDrawable(R.drawable.btn_dailog_choose_d);
+                d.this.cUd = true;
+                if (d.this.cUc) {
+                    Drawable drawable2 = am.getDrawable(R.drawable.btn_dailog_choose_d);
                     drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                    d.this.cSO.setCompoundDrawables(drawable2, null, null, null);
+                    d.this.cUk.setCompoundDrawables(drawable2, null, null, null);
                 }
-                d.this.cTc.gd(d.this.cSG);
+                d.this.cUy.gh(d.this.cUc);
             }
         });
-        this.cST.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.2
+        this.cUp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.cTg) {
+                if (d.this.cUC) {
                     TiebaStatic.log("c10001");
                 } else {
                     TiebaStatic.log("c10009");
                 }
-                d.this.cST.setEnabled(false);
-                d.this.cTc.ge(d.this.cSG);
+                d.this.cUp.setEnabled(false);
+                d.this.cUy.gi(d.this.cUc);
             }
         });
-        this.cSP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.3
+        this.cUl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.cTc.aAx();
+                d.this.cUy.aBM();
             }
         });
-        this.cSO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.4
+        this.cUk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!d.this.cSH) {
-                    if (d.this.cSG) {
-                        Drawable drawable2 = al.getDrawable(R.drawable.btn_dailog_choose_n);
+                if (!d.this.cUd) {
+                    if (d.this.cUc) {
+                        Drawable drawable2 = am.getDrawable(R.drawable.btn_dailog_choose_n);
                         drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                        d.this.cSO.setCompoundDrawables(drawable2, null, null, null);
-                        d.this.cSF = false;
-                        d.this.cSG = false;
+                        d.this.cUk.setCompoundDrawables(drawable2, null, null, null);
+                        d.this.cUb = false;
+                        d.this.cUc = false;
                         return;
                     }
-                    Drawable drawable3 = al.getDrawable(R.drawable.btn_dailog_choose_s);
+                    Drawable drawable3 = am.getDrawable(R.drawable.btn_dailog_choose_s);
                     drawable3.setBounds(0, 0, drawable3.getMinimumWidth(), drawable3.getMinimumHeight());
-                    d.this.cSO.setCompoundDrawables(drawable3, null, null, null);
-                    d.this.cSF = true;
-                    d.this.cSG = true;
+                    d.this.cUk.setCompoundDrawables(drawable3, null, null, null);
+                    d.this.cUb = true;
+                    d.this.cUc = true;
                 }
             }
         });
-        aAv();
+        aBK();
     }
 
-    private void aAv() {
+    private void aBK() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -232,94 +232,94 @@ public class d extends Dialog {
         }
     }
 
-    public void gb(boolean z) {
+    public void gf(boolean z) {
         if (f.a(this.mContext.getPackageManager())) {
-            this.cSU.setVisibility(8);
+            this.cUq.setVisibility(8);
         } else {
-            this.cSU.setVisibility(0);
+            this.cUq.setVisibility(0);
         }
         if (z) {
-            if (this.cSD == null || TextUtils.isEmpty(this.cSD.getPatch()) || this.cSD.getNewVersionCode() < 0) {
-                this.cSV.setVisibility(0);
-                this.cST.setText(R.string.super_update);
-                al.k(this.cST, R.drawable.dialog_middle_item_bg_selector);
-                this.cTb.setVisibility(0);
-                this.cTg = false;
+            if (this.cTZ == null || TextUtils.isEmpty(this.cTZ.getPatch()) || this.cTZ.getNewVersionCode() < 0) {
+                this.cUr.setVisibility(0);
+                this.cUp.setText(R.string.super_update);
+                am.k(this.cUp, R.drawable.dialog_middle_item_bg_selector);
+                this.cUx.setVisibility(0);
+                this.cUC = false;
                 TiebaStatic.log("c10008");
                 TiebaStatic.log("c10010");
                 return;
             }
-            this.cSV.setVisibility(0);
-            this.cST.setText(R.string.incremental_update);
-            al.k(this.cST, R.drawable.dialog_single_button_bg_selector);
-            this.cTa.setVisibility(8);
-            this.cTb.setVisibility(8);
-            this.cTg = true;
+            this.cUr.setVisibility(0);
+            this.cUp.setText(R.string.incremental_update);
+            am.k(this.cUp, R.drawable.dialog_single_button_bg_selector);
+            this.cUw.setVisibility(8);
+            this.cUx.setVisibility(8);
+            this.cUC = true;
             TiebaStatic.log("c10002");
-        } else if (this.cSD == null || TextUtils.isEmpty(this.cSD.getPatch()) || this.cSD.getNewVersionCode() < 0) {
-            this.cSV.setVisibility(8);
-            this.cTb.setVisibility(0);
+        } else if (this.cTZ == null || TextUtils.isEmpty(this.cTZ.getPatch()) || this.cTZ.getNewVersionCode() < 0) {
+            this.cUr.setVisibility(8);
+            this.cUx.setVisibility(0);
             TiebaStatic.log("c10010");
         } else {
-            this.cSV.setVisibility(0);
-            al.k(this.cST, R.drawable.dialog_middle_item_bg_selector);
-            this.cST.setText(R.string.incremental_update);
-            this.cTb.setVisibility(0);
-            this.cTg = true;
+            this.cUr.setVisibility(0);
+            am.k(this.cUp, R.drawable.dialog_middle_item_bg_selector);
+            this.cUp.setText(R.string.incremental_update);
+            this.cUx.setVisibility(0);
+            this.cUC = true;
             TiebaStatic.log("c10002");
             TiebaStatic.log("c10010");
         }
     }
 
     public void updateProgress(int i) {
-        this.cSR.setVisibility(8);
-        this.cSV.setVisibility(8);
-        this.cSP.setVisibility(8);
+        this.cUn.setVisibility(8);
+        this.cUr.setVisibility(8);
+        this.cUl.setVisibility(8);
         this.dividerLine.setVisibility(8);
-        this.cSH = true;
-        this.cTb.setVisibility(0);
-        this.cSM.setVisibility(0);
-        this.cSM.setText(this.cSN + i + "%");
-        this.cSS.setVisibility(8);
-        this.cSQ.setVisibility(8);
+        this.cUd = true;
+        this.cUx.setVisibility(0);
+        this.cUi.setVisibility(0);
+        this.cUi.setText(this.cUj + i + "%");
+        this.cUo.setVisibility(8);
+        this.cUm.setVisibility(8);
     }
 
-    public void gc(boolean z) {
-        this.cSR.setEnabled(z);
+    public void gg(boolean z) {
+        this.cUn.setEnabled(z);
     }
 
     @Override // android.app.Dialog
     public void onBackPressed() {
         super.onBackPressed();
-        if (this.cSH) {
-            this.cTc.stopService();
-            this.cSJ.setVisibility(8);
-            if (this.cSI) {
-                this.cSX.setText(getContext().getString(R.string.download_exit));
+        if (this.cUd) {
+            this.cUy.stopService();
+            this.cUf.setVisibility(8);
+            if (this.cUe) {
+                this.cUt.setText(getContext().getString(R.string.download_exit));
             }
-            this.cSW.setVisibility(0);
+            this.cUs.setVisibility(0);
             return;
         }
-        this.cTc.aAy();
+        this.cUy.aBN();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
-        this.cSD = versionData;
-        this.cSE = combineDownload;
-        this.cTc = aVar;
+        this.cTZ = versionData;
+        this.cUa = combineDownload;
+        this.cUy = aVar;
     }
 
-    public void aAw() {
-        this.cSW.setVisibility(8);
-        this.cSJ.setVisibility(0);
+    public void aBL() {
+        this.cUs.setVisibility(8);
+        this.cUf.setVisibility(0);
     }
 
     public void g(View.OnClickListener onClickListener) {
-        this.cTd = onClickListener;
+        this.cUz = onClickListener;
     }
 
     public void h(View.OnClickListener onClickListener) {
-        this.cTe = onClickListener;
+        this.cUA = onClickListener;
     }
 
     public void c(TbPageContext<?> tbPageContext, int i) {
@@ -327,10 +327,10 @@ public class d extends Dialog {
             tbPageContext.getLayoutMode().setNightMode(i == 1);
             tbPageContext.getLayoutMode().onModeChanged(findViewById(R.id.app_download_dialog_layout));
         }
-        al.c(this.cSS, (int) R.drawable.write_close_selector);
+        am.c(this.cUo, (int) R.drawable.write_close_selector);
     }
 
-    public void cU(Context context) {
+    public void cV(Context context) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://details?id=" + context.getPackageName()));
         try {
             intent.setClassName("com.tencent.android.qqdownloader", "com.tencent.pangu.link.LinkProxyActivity");

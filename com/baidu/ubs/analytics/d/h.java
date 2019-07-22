@@ -1,6 +1,5 @@
 package com.baidu.ubs.analytics.d;
 
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.ubs.analytics.a.l;
 import com.baidu.ubs.analytics.a.n;
 import com.coloros.mcssdk.mode.CommandMessage;
@@ -34,7 +33,7 @@ public final class h {
             jSONObject2.put("netType", bVar.n().x());
             jSONObject2.put("appName", bVar.n().C());
             jSONObject2.put("expInfo", bVar.n().B());
-            jSONObject2.put(ISapiAccount.SAPI_ACCOUNT_PHONE, bVar.n().getPhone());
+            jSONObject2.put("phone", bVar.n().getPhone());
             for (n nVar : bVar.o()) {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("startTime", nVar.N());

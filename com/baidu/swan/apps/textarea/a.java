@@ -9,65 +9,65 @@ import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static InterfaceC0185a aXT;
-    private static volatile a aXU;
-    private int aXP = 0;
-    private int aXQ = 200;
-    private int aXR;
-    private String aXS;
+    private static InterfaceC0182a aYD;
+    private static volatile a aYE;
+    private int aYB;
+    private String aYC;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
+    private int aYz = 0;
+    private int aYA = 200;
 
     /* renamed from: com.baidu.swan.apps.textarea.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0185a {
-        void ey(String str);
+    public interface InterfaceC0182a {
+        void eD(String str);
 
         void y(String str, int i);
 
         void z(String str, int i);
     }
 
-    public static a NX() {
-        if (aXU == null) {
+    public static a OM() {
+        if (aYE == null) {
             synchronized (a.class) {
-                if (aXU == null) {
-                    aXU = new a();
+                if (aYE == null) {
+                    aYE = new a();
                 }
             }
         }
-        return aXU;
+        return aYE;
     }
 
-    private void ai(final View view) {
+    private void ak(final View view) {
         if (this.mOnGlobalLayoutListener == null) {
             this.mOnGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.textarea.a.1
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
-                    if (a.aXT != null) {
-                        a.aXT.ey(a.this.aXS);
+                    if (a.aYD != null) {
+                        a.aYD.eD(a.this.aYC);
                     }
                     Rect rect = new Rect();
                     view.getWindowVisibleDisplayFrame(rect);
                     int height = rect.height();
-                    if (a.this.aXR == a.this.aXP) {
-                        a.this.aXR = height;
-                    } else if (a.this.aXR != height) {
-                        if (a.this.aXR - height > a.this.aXQ) {
-                            if (a.aXT != null) {
-                                a.aXT.y(a.this.aXS, a.this.aXR - height);
+                    if (a.this.aYB == a.this.aYz) {
+                        a.this.aYB = height;
+                    } else if (a.this.aYB != height) {
+                        if (a.this.aYB - height > a.this.aYA) {
+                            if (a.aYD != null) {
+                                a.aYD.y(a.this.aYC, a.this.aYB - height);
                                 if (a.DEBUG) {
-                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.aXR + " visibleHeight " + height);
+                                    Log.d("SoftKeyboardHelper", "onKeyBoardShow: mRootViewVisibleHeight " + a.this.aYB + " visibleHeight " + height);
                                 }
                             }
-                            a.this.aXR = height;
-                        } else if (height - a.this.aXR > a.this.aXQ) {
-                            if (a.aXT != null) {
-                                a.aXT.z(a.this.aXS, height - a.this.aXR);
+                            a.this.aYB = height;
+                        } else if (height - a.this.aYB > a.this.aYA) {
+                            if (a.aYD != null) {
+                                a.aYD.z(a.this.aYC, height - a.this.aYB);
                             }
                             if (a.DEBUG) {
-                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.aXR + " visibleHeight " + height);
+                                Log.d("SoftKeyboardHelper", "onKeyBoardHide: mRootViewVisibleHeight " + a.this.aYB + " visibleHeight " + height);
                             }
-                            a.this.aXR = height;
+                            a.this.aYB = height;
                         }
                     }
                 }
@@ -76,22 +76,22 @@ public class a {
         view.getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
     }
 
-    public void a(View view, String str, InterfaceC0185a interfaceC0185a) {
-        ai(view);
-        this.aXS = str;
-        aXT = interfaceC0185a;
-        this.aXR = 0;
+    public void a(View view, String str, InterfaceC0182a interfaceC0182a) {
+        ak(view);
+        this.aYC = str;
+        aYD = interfaceC0182a;
+        this.aYB = 0;
     }
 
-    public void aj(@NonNull View view) {
+    public void al(@NonNull View view) {
         view.getViewTreeObserver().removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
-        this.aXS = "";
-        aXT = null;
-        this.aXR = 0;
+        this.aYC = "";
+        aYD = null;
+        this.aYB = 0;
     }
 
     public static void release() {
-        aXT = null;
-        aXU = null;
+        aYD = null;
+        aYE = null;
     }
 }

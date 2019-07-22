@@ -1,6 +1,7 @@
 package com.baidu.swan.apps.statistic;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.an.j;
 import com.baidu.swan.ubc.s;
 import com.baidu.ubc.UBC;
@@ -12,34 +13,34 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(C0181a c0181a) {
-        if (c0181a != null) {
+    public void a(C0178a c0178a) {
+        if (c0178a != null) {
             final JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(c0181a.from)) {
-                    jSONObject.put("from", c0181a.from);
+                if (!TextUtils.isEmpty(c0178a.from)) {
+                    jSONObject.put("from", c0178a.from);
                 }
-                if (!TextUtils.isEmpty(c0181a.type)) {
-                    jSONObject.put("type", c0181a.type);
+                if (!TextUtils.isEmpty(c0178a.type)) {
+                    jSONObject.put("type", c0178a.type);
                 }
-                if (!TextUtils.isEmpty(c0181a.value)) {
-                    jSONObject.put(UBC.CONTENT_KEY_VALUE, c0181a.value);
+                if (!TextUtils.isEmpty(c0178a.value)) {
+                    jSONObject.put(UBC.CONTENT_KEY_VALUE, c0178a.value);
                 }
-                if (!TextUtils.isEmpty(c0181a.source)) {
-                    jSONObject.put("source", c0181a.source);
+                if (!TextUtils.isEmpty(c0178a.source)) {
+                    jSONObject.put("source", c0178a.source);
                 }
-                if (!TextUtils.isEmpty(c0181a.page)) {
-                    jSONObject.put("page", c0181a.page);
+                if (!TextUtils.isEmpty(c0178a.page)) {
+                    jSONObject.put("page", c0178a.page);
                 }
-                boolean isEmpty = TextUtils.isEmpty(c0181a.appId);
-                boolean isEmpty2 = TextUtils.isEmpty(c0181a.aUV);
+                boolean isEmpty = TextUtils.isEmpty(c0178a.appId);
+                boolean isEmpty2 = TextUtils.isEmpty(c0178a.aVF);
                 if (!isEmpty || !isEmpty2) {
                     JSONObject jSONObject2 = new JSONObject();
                     if (!isEmpty) {
-                        jSONObject2.put("appid", c0181a.appId);
+                        jSONObject2.put("appid", c0178a.appId);
                     }
                     if (!isEmpty2) {
-                        jSONObject2.put("info", c0181a.aUV);
+                        jSONObject2.put(Config.LAUNCH_INFO, c0178a.aVF);
                     }
                     jSONObject.put("ext", jSONObject2);
                 }
@@ -59,32 +60,32 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.statistic.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0181a {
-        private String aUV;
+    public static class C0178a {
+        private String aVF;
         private String appId;
         private String page;
         private String source;
         private String type;
         private String value;
-        private a aUU = new a();
+        private a aVE = new a();
         private String from = "swan";
 
-        public C0181a(int i) {
+        public C0178a(int i) {
             this.type = String.valueOf(i);
         }
 
-        public C0181a hi(String str) {
+        public C0178a hp(String str) {
             this.appId = str;
             return this;
         }
 
-        public C0181a hj(String str) {
-            this.aUV = str;
+        public C0178a hq(String str) {
+            this.aVF = str;
             return this;
         }
 
-        public void Fr() {
-            this.aUU.a(this);
+        public void Gb() {
+            this.aVE.a(this);
         }
     }
 }

@@ -4,24 +4,24 @@ import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 /* loaded from: classes2.dex */
 public class d {
-    private int bgO;
+    private int bhA;
+    private int bhB;
     @V8JavascriptField
     public String[] files;
-    private int mID;
 
     public d() {
-        this.bgO = 0;
-        int i = this.bgO;
-        this.bgO = i + 1;
-        this.mID = i;
+        this.bhB = 0;
+        int i = this.bhB;
+        this.bhB = i + 1;
+        this.bhA = i;
     }
 
     @JavascriptInterface
     public int jsObjectID() {
-        return this.mID;
+        return this.bhA;
     }
 
     public String toString() {
-        return "ReadDirCallBack" + this.mID;
+        return "ReadDirCallBack" + this.bhA;
     }
 }

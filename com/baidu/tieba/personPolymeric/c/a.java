@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.data.UserVideoChannelInfoData;
 import com.baidu.tieba.R;
@@ -29,51 +29,51 @@ import tbclient.User;
 import tbclient.UserDynamic;
 /* loaded from: classes6.dex */
 public abstract class a {
-    private AntiData ceO;
-    private PersonUserGodInfo idJ;
-    private com.baidu.tieba.person.data.d idK;
-    private ArrayList<com.baidu.adp.widget.ListView.m> ikd;
-    private c ike;
-    private com.baidu.tieba.person.a.f ikf;
-    private m ikg;
-    private AlaLiveInfoCoreData ikh;
-    private List<AlaLiveInfoCoreData> iki;
-    protected g ikj;
-    protected List<com.baidu.adp.widget.ListView.m> ikk;
-    protected ArrayList<com.baidu.adp.widget.ListView.m> ikn;
-    public n iko;
-    public n ikp;
-    public n ikq;
-    public n ikr;
-    public n iks;
-    public n ikt;
-    private UserVideoChannelInfoData iku;
-    public UserAgreeInfo ikv;
-    public NicknameInfo ikw;
+    private AntiData cfT;
+    private PersonUserGodInfo ijY;
+    private com.baidu.tieba.person.data.d ijZ;
+    private List<AlaLiveInfoCoreData> iqA;
+    protected g iqB;
+    protected List<com.baidu.adp.widget.ListView.m> iqC;
+    protected ArrayList<com.baidu.adp.widget.ListView.m> iqF;
+    public n iqG;
+    public n iqH;
+    public n iqI;
+    public n iqJ;
+    public n iqK;
+    public n iqL;
+    private UserVideoChannelInfoData iqM;
+    public UserAgreeInfo iqN;
+    public NicknameInfo iqO;
+    private ArrayList<com.baidu.adp.widget.ListView.m> iqv;
+    private c iqw;
+    private com.baidu.tieba.person.a.f iqx;
+    private m iqy;
+    private AlaLiveInfoCoreData iqz;
     protected boolean isHost;
     protected i mCardNullPolymericData;
     private UserData mUserData;
-    private boolean ijZ = true;
+    private boolean iqr = true;
     protected int sex = 1;
-    private int ika = 1;
-    private int ikb = 1;
-    private int ikc = -1;
+    private int iqs = 1;
+    private int iqt = 1;
+    private int iqu = -1;
     public int maskType = 0;
-    protected ArrayList<com.baidu.adp.widget.ListView.m> ikl = new ArrayList<>();
-    private ArrayList<n> ikm = new ArrayList<>();
+    protected ArrayList<com.baidu.adp.widget.ListView.m> iqD = new ArrayList<>();
+    private ArrayList<n> iqE = new ArrayList<>();
 
-    public abstract void cak();
+    public abstract void ccZ();
 
     public a(boolean z) {
         this.isHost = z;
     }
 
-    public boolean bEm() {
-        return this.ijZ;
+    public boolean bGT() {
+        return this.iqr;
     }
 
-    public void pC(boolean z) {
-        this.ijZ = z;
+    public void pQ(boolean z) {
+        this.iqr = z;
     }
 
     public boolean isHost() {
@@ -89,36 +89,36 @@ public abstract class a {
                 this.mUserData = new UserData();
             }
             this.mUserData.parserProtobuf(cVar.GetUser());
-            if (this.ceO == null) {
-                this.ceO = new AntiData();
+            if (this.cfT == null) {
+                this.cfT = new AntiData();
             }
-            this.ceO.parserProtobuf(cVar.GetAntiStat());
+            this.cfT.parserProtobuf(cVar.GetAntiStat());
             if (cVar.GetUser() != null) {
                 if (cVar.GetUser().priv_sets != null) {
-                    this.ika = cVar.GetUser().priv_sets.like.intValue();
-                    this.ikb = cVar.GetUser().priv_sets.post.intValue();
+                    this.iqs = cVar.GetUser().priv_sets.like.intValue();
+                    this.iqt = cVar.GetUser().priv_sets.post.intValue();
                 }
                 this.sex = cVar.GetUser().sex.intValue();
             }
             if (cVar.getTaInfo() != null) {
-                this.ijZ = cVar.getTaInfo().is_friend.intValue() == 1;
+                this.iqr = cVar.getTaInfo().is_friend.intValue() == 1;
             }
             this.mUserData.setIsFriend(cVar.getTaInfo().is_friend.intValue());
-            if (this.iku == null) {
-                this.iku = new UserVideoChannelInfoData();
+            if (this.iqM == null) {
+                this.iqM = new UserVideoChannelInfoData();
             }
             if (cVar.getUserChannelInfo() != null) {
-                this.iku.parserProtobuf(cVar.getUserChannelInfo());
+                this.iqM.parserProtobuf(cVar.getUserChannelInfo());
             }
             if (cVar.getBookrackData() != null) {
                 com.baidu.tieba.person.data.a aVar = new com.baidu.tieba.person.data.a();
                 aVar.a(cVar.getBookrackData());
-                this.idK = new com.baidu.tieba.person.data.d(true, aVar);
+                this.ijZ = new com.baidu.tieba.person.data.d(true, aVar);
             }
-            if (!v.aa(cVar.getConcernedForumList()) && !this.isHost && !cal()) {
-                dS(cVar.getConcernedForumList());
+            if (!v.aa(cVar.getConcernedForumList()) && !this.isHost && !cda()) {
+                dU(cVar.getConcernedForumList());
             }
-            if (this.ikj == null) {
+            if (this.iqB == null) {
                 a(cVar.GetUser());
             }
             Random random = new Random();
@@ -129,7 +129,7 @@ public abstract class a {
                     }
                 }
             }
-            String aX = ap.aX(System.currentTimeMillis());
+            String aY = aq.aY(System.currentTimeMillis());
             String str2 = "";
             String str3 = "";
             if (!v.aa(cVar.getDynamicInfoList())) {
@@ -139,22 +139,22 @@ public abstract class a {
                     if (dynamicInfo != null && dynamicInfo.dynamic_timestamp.longValue() >= 0) {
                         long longValue = dynamicInfo.dynamic_timestamp.longValue() * 1000;
                         date.setTime(longValue);
-                        String aX2 = ap.aX(longValue);
-                        String ba = ap.ba(longValue);
-                        String aZ = ap.aZ(longValue);
-                        if (ap.equals(aX2, aX)) {
+                        String aY2 = aq.aY(longValue);
+                        String bb = aq.bb(longValue);
+                        String ba = aq.ba(longValue);
+                        if (aq.bV(aY2, aY)) {
                             z = false;
                         } else {
                             z = true;
                         }
-                        if (ap.equals(aZ, str3) && ap.equals(ba, str2) && ap.equals(aX2, aX)) {
+                        if (aq.bV(ba, str3) && aq.bV(bb, str2) && aq.bV(aY2, aY)) {
                             z2 = false;
-                            aZ = str3;
-                            str = aX;
+                            ba = str3;
+                            str = aY;
                         } else {
                             z2 = true;
-                            str2 = ba;
-                            str = aX2;
+                            str2 = bb;
+                            str = aY2;
                         }
                         switch (dynamicInfo.type.intValue()) {
                             case 1:
@@ -168,76 +168,76 @@ public abstract class a {
                                 break;
                         }
                         z3 = false;
-                        str3 = aZ;
-                        aX = str;
+                        str3 = ba;
+                        aY = str;
                     }
                 }
             }
-            if (this.mCardNullPolymericData == null && v.aa(this.ikk) && v.aa(this.ikn)) {
+            if (this.mCardNullPolymericData == null && v.aa(this.iqC) && v.aa(this.iqF)) {
                 this.mCardNullPolymericData = new i();
                 this.mCardNullPolymericData.sex = this.sex;
                 this.mCardNullPolymericData.isHost = this.isHost;
             }
             if (this.isHost) {
-                bYu();
+                cbj();
                 this.maskType = cVar.getMaskType();
             }
-            if (this.idJ == null) {
-                this.idJ = new PersonUserGodInfo();
+            if (this.ijY == null) {
+                this.ijY = new PersonUserGodInfo();
             }
             if (cVar.getUserGodInfo() != null && (cVar.getUserGodInfo().god_type.intValue() == 2 || cVar.getUserGodInfo().god_type.intValue() == 1)) {
                 this.mUserData.setIsBigV(true);
-                this.idJ.parserProtobuf(cVar.getUserGodInfo());
+                this.ijY.parserProtobuf(cVar.getUserGodInfo());
             }
-            this.ikv = cVar.getUserAgreeInfo();
-            this.ikh = cVar.getLiveInfo();
-            this.iki = cVar.getLiveReplayInfo();
-            this.ikw = cVar.getNicknameInfo();
+            this.iqN = cVar.getUserAgreeInfo();
+            this.iqz = cVar.getLiveInfo();
+            this.iqA = cVar.getLiveReplayInfo();
+            this.iqO = cVar.getNicknameInfo();
         }
     }
 
     private void a(User user) {
         if (user != null && !v.aa(user.gift_list)) {
-            this.ikj = new g();
-            this.ikj.parserProtoBuf(user);
+            this.iqB = new g();
+            this.iqB.parserProtoBuf(user);
         }
     }
 
     private void a(DynamicInfo dynamicInfo, Random random, boolean z, boolean z2, boolean z3) {
         ThreadInfo threadInfo;
-        if ((!cam() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
-            if (this.ikk == null) {
-                this.ikk = new ArrayList();
+        if ((!cdb() || this.isHost) && (threadInfo = dynamicInfo.thread_dynamic) != null) {
+            if (this.iqC == null) {
+                this.iqC = new ArrayList();
             }
-            int random2 = UtilHelper.getRandom(random, 3, this.ikc);
-            this.ikc = random2;
+            int random2 = UtilHelper.getRandom(random, 3, this.iqu);
+            this.iqu = random2;
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
-            cardPersonDynamicThreadData.eBP = true;
+            cardPersonDynamicThreadData.eGL = true;
             cardPersonDynamicThreadData.isHost = this.isHost;
             cardPersonDynamicThreadData.sex = this.sex;
-            cardPersonDynamicThreadData.eBN = z;
-            cardPersonDynamicThreadData.eBM = z2;
-            cardPersonDynamicThreadData.eBO = z3;
+            cardPersonDynamicThreadData.eGJ = z;
+            cardPersonDynamicThreadData.eGI = z2;
+            cardPersonDynamicThreadData.eGK = z3;
             cardPersonDynamicThreadData.from = 3;
             cardPersonDynamicThreadData.a(threadInfo, random2, dynamicInfo.dynamic_timestamp.longValue());
-            this.ikk.add(cardPersonDynamicThreadData);
+            this.iqC.add(cardPersonDynamicThreadData);
         }
     }
 
     private void a(PostInfoList postInfoList, Random random) {
-        if (!cam() || this.isHost) {
-            if (this.ikn == null) {
-                this.ikn = new ArrayList<>();
+        if (!cdb() || this.isHost) {
+            if (this.iqF == null) {
+                this.iqF = new ArrayList<>();
             }
-            this.ikc = UtilHelper.getRandom(random, 3, this.ikc);
+            this.iqu = UtilHelper.getRandom(random, 3, this.iqu);
             CardPersonDynamicThreadData cardPersonDynamicThreadData = new CardPersonDynamicThreadData();
-            cardPersonDynamicThreadData.eBP = true;
+            cardPersonDynamicThreadData.eGL = true;
             cardPersonDynamicThreadData.isHost = this.isHost;
             cardPersonDynamicThreadData.sex = this.sex;
-            cardPersonDynamicThreadData.eBN = false;
-            cardPersonDynamicThreadData.eBM = false;
-            cardPersonDynamicThreadData.parseProtobuf(postInfoList, this.ikc);
-            this.ikn.add(cardPersonDynamicThreadData);
+            cardPersonDynamicThreadData.eGJ = false;
+            cardPersonDynamicThreadData.eGI = false;
+            cardPersonDynamicThreadData.parseProtobuf(postInfoList, this.iqu);
+            this.iqF.add(cardPersonDynamicThreadData);
         }
     }
 
@@ -246,16 +246,16 @@ public abstract class a {
         if (userDynamic != null) {
             List<User> list = userDynamic.concerned_user_list;
             if (!v.aa(list)) {
-                if (this.ikk == null) {
-                    this.ikk = new ArrayList();
+                if (this.iqC == null) {
+                    this.iqC = new ArrayList();
                 }
                 d dVar = new d();
                 dVar.isHost = this.isHost;
-                dVar.eBM = z;
+                dVar.eGI = z;
                 dVar.sex = this.sex;
-                dVar.eBF = ap.ba(dynamicInfo.dynamic_timestamp.longValue() * 1000);
-                dVar.eBG = ap.aZ(dynamicInfo.dynamic_timestamp.longValue() * 1000);
-                dVar.eBG = ap.aZ(dynamicInfo.dynamic_timestamp.longValue() * 1000);
+                dVar.eGB = aq.bb(dynamicInfo.dynamic_timestamp.longValue() * 1000);
+                dVar.eGC = aq.ba(dynamicInfo.dynamic_timestamp.longValue() * 1000);
+                dVar.eGC = aq.ba(dynamicInfo.dynamic_timestamp.longValue() * 1000);
                 dVar.users = new ArrayList();
                 for (User user : list) {
                     if (user != null) {
@@ -264,44 +264,44 @@ public abstract class a {
                         dVar.users.add(userData);
                     }
                 }
-                this.ikk.add(dVar);
+                this.iqC.add(dVar);
             }
         }
     }
 
     private void b(DynamicInfo dynamicInfo, boolean z) {
         ForumDynamic forumDynamic;
-        if ((!cal() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
-            if (this.ikk == null) {
-                this.ikk = new ArrayList();
+        if ((!cda() || this.isHost) && (forumDynamic = dynamicInfo.forum_dynamic) != null) {
+            if (this.iqC == null) {
+                this.iqC = new ArrayList();
             }
             b bVar = new b();
             bVar.isHost = this.isHost;
             bVar.sex = this.sex;
-            bVar.eBM = z;
-            bVar.eBF = ap.ba(dynamicInfo.dynamic_timestamp.longValue() * 1000);
-            bVar.eBG = ap.aZ(dynamicInfo.dynamic_timestamp.longValue() * 1000);
+            bVar.eGI = z;
+            bVar.eGB = aq.bb(dynamicInfo.dynamic_timestamp.longValue() * 1000);
+            bVar.eGC = aq.ba(dynamicInfo.dynamic_timestamp.longValue() * 1000);
             bVar.forumId = forumDynamic.forum_id.longValue();
             bVar.avatar = forumDynamic.avatar;
-            bVar.iky = forumDynamic.forum_name;
+            bVar.iqQ = forumDynamic.forum_name;
             bVar.isAttention = forumDynamic.is_like.intValue() == 1;
-            bVar.ikz = forumDynamic.member_count.intValue();
+            bVar.iqR = forumDynamic.member_count.intValue();
             bVar.postNum = forumDynamic.thread_count.intValue();
-            this.ikk.add(bVar);
-            this.ikk.add(cf(com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.ds1), R.color.cp_bg_line_c));
+            this.iqC.add(bVar);
+            this.iqC.add(cl(com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst().getApplicationContext(), R.dimen.ds1), R.color.cp_bg_line_c));
         }
     }
 
-    public List<com.baidu.adp.widget.ListView.m> cab() {
-        if (this.ikf == null) {
+    public List<com.baidu.adp.widget.ListView.m> ccQ() {
+        if (this.iqx == null) {
             return null;
         }
-        return this.ikf.getPhotoAlbum();
+        return this.iqx.getPhotoAlbum();
     }
 
-    private void dS(List<ForumDynamic> list) {
-        this.ike = new c();
-        this.ike.ikB = new ArrayList();
+    private void dU(List<ForumDynamic> list) {
+        this.iqw = new c();
+        this.iqw.iqT = new ArrayList();
         for (ForumDynamic forumDynamic : list) {
             if (forumDynamic != null) {
                 f fVar = new f();
@@ -309,70 +309,70 @@ public abstract class a {
                 fVar.forumName = forumDynamic.forum_name;
                 fVar.avatar = forumDynamic.avatar;
                 fVar.sex = this.sex;
-                fVar.ikF = forumDynamic.user_thread_count.intValue();
-                this.ike.ikB.add(fVar);
+                fVar.iqX = forumDynamic.user_thread_count.intValue();
+                this.iqw.iqT.add(fVar);
             }
         }
     }
 
-    private boolean cal() {
+    private boolean cda() {
         if (this.isHost) {
             return false;
         }
-        if (this.ika == 3) {
+        if (this.iqs == 3) {
             return true;
         }
-        return this.ika == 2 && !this.ijZ;
+        return this.iqs == 2 && !this.iqr;
     }
 
-    public boolean cam() {
+    public boolean cdb() {
         if (this.isHost) {
             return false;
         }
-        if (this.ikb == 3) {
+        if (this.iqt == 3) {
             return true;
         }
-        return this.ikb == 2 && !this.ijZ;
+        return this.iqt == 2 && !this.iqr;
     }
 
-    protected com.baidu.tieba.person.d cf(int i, int i2) {
+    protected com.baidu.tieba.person.d cl(int i, int i2) {
         com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d();
-        dVar.hYn = i;
-        dVar.cwp = i2;
+        dVar.ieD = i;
+        dVar.cxE = i2;
         return dVar;
     }
 
-    public void can() {
-        this.ijZ = true;
+    public void cdc() {
+        this.iqr = true;
         this.sex = 1;
-        this.ika = 1;
-        this.ikb = 1;
-        this.ikc = -1;
+        this.iqs = 1;
+        this.iqt = 1;
+        this.iqu = -1;
         this.mUserData = null;
-        if (this.ikd != null) {
-            this.ikd.clear();
+        if (this.iqv != null) {
+            this.iqv.clear();
         }
-        this.ikd = null;
-        this.ike = null;
-        this.ikf = null;
-        this.ikg = null;
-        this.ikj = null;
+        this.iqv = null;
+        this.iqw = null;
+        this.iqx = null;
+        this.iqy = null;
+        this.iqB = null;
         this.mCardNullPolymericData = null;
-        if (this.ikk != null) {
-            this.ikk.clear();
+        if (this.iqC != null) {
+            this.iqC.clear();
         }
-        if (this.ikn != null) {
-            this.ikn.clear();
+        if (this.iqF != null) {
+            this.iqF.clear();
         }
-        this.ikk = null;
-        this.ikn = null;
-        this.ikl.clear();
-        this.ikv = null;
-        this.ikw = null;
+        this.iqC = null;
+        this.iqF = null;
+        this.iqD.clear();
+        this.iqN = null;
+        this.iqO = null;
         this.maskType = 0;
-        this.ikh = null;
-        if (this.iki != null) {
-            this.iki.clear();
+        this.iqz = null;
+        if (this.iqA != null) {
+            this.iqA.clear();
         }
     }
 
@@ -380,109 +380,109 @@ public abstract class a {
         return this.mUserData;
     }
 
-    public AntiData biZ() {
-        return this.ceO;
+    public AntiData blb() {
+        return this.cfT;
     }
 
-    public AlaLiveInfoCoreData cao() {
-        return this.ikh;
+    public AlaLiveInfoCoreData cdd() {
+        return this.iqz;
     }
 
-    public List<AlaLiveInfoCoreData> cap() {
-        return this.iki;
+    public List<AlaLiveInfoCoreData> cde() {
+        return this.iqA;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.m> bwf() {
-        return this.ikl;
+    public ArrayList<com.baidu.adp.widget.ListView.m> byJ() {
+        return this.iqD;
     }
 
-    public c caq() {
-        return this.ike;
+    public c cdf() {
+        return this.iqw;
     }
 
-    public g car() {
-        return this.ikj;
+    public g cdg() {
+        return this.iqB;
     }
 
-    public PersonUserGodInfo cas() {
-        return this.idJ;
+    public PersonUserGodInfo cdh() {
+        return this.ijY;
     }
 
-    private void bYu() {
-        this.ikm.clear();
-        this.ikq = ab(R.drawable.icon_starer_caise_heibai, R.string.mark, 20);
-        this.ikq.ayy = new Bundle();
-        this.ikq.ayy.putBoolean("person_center_item_red_tip", true);
-        this.ikq.ikQ.ayy = new Bundle();
-        this.ikq.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(this.ikq);
-        this.ikr = ab(R.drawable.icon_lover_caise_heibai, R.string.contacts, 24);
-        this.ikr.ayy = new Bundle();
-        this.ikr.ayy.putBoolean("person_center_item_red_tip", true);
-        this.ikr.ikQ.ayy = new Bundle();
-        this.ikr.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(this.ikr);
-        this.iko = ab(R.drawable.icon_liwu_caise_heibai, R.string.gift, 34);
-        this.iko.ayy = new Bundle();
-        this.iko.ayy.putBoolean("person_center_item_red_tip", true);
-        this.iko.ikQ.ayy = new Bundle();
-        this.iko.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(this.iko);
-        n ab = ab(R.drawable.icon_lishi_caise_heibai, R.string.history, 21);
-        ab.ikQ.ayy = new Bundle();
-        ab.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(ab);
+    private void cbj() {
+        this.iqE.clear();
+        this.iqI = ac(R.drawable.icon_starer_caise_heibai, R.string.mark, 20);
+        this.iqI.azf = new Bundle();
+        this.iqI.azf.putBoolean("person_center_item_red_tip", true);
+        this.iqI.iri.azf = new Bundle();
+        this.iqI.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(this.iqI);
+        this.iqJ = ac(R.drawable.icon_lover_caise_heibai, R.string.contacts, 24);
+        this.iqJ.azf = new Bundle();
+        this.iqJ.azf.putBoolean("person_center_item_red_tip", true);
+        this.iqJ.iri.azf = new Bundle();
+        this.iqJ.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(this.iqJ);
+        this.iqG = ac(R.drawable.icon_liwu_caise_heibai, R.string.gift, 34);
+        this.iqG.azf = new Bundle();
+        this.iqG.azf.putBoolean("person_center_item_red_tip", true);
+        this.iqG.iri.azf = new Bundle();
+        this.iqG.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(this.iqG);
+        n ac = ac(R.drawable.icon_lishi_caise_heibai, R.string.history, 21);
+        ac.iri.azf = new Bundle();
+        ac.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(ac);
         if (TbadkCoreApplication.getInst().appResponseToIntentClass(AlaLiveRoomActivityConfig.class)) {
-            n ab2 = ab(R.drawable.icon_zhibou_caise_heibai, R.string.ala_live, 29);
-            ab2.ayy = new Bundle();
-            ab2.ikQ.ayy = new Bundle();
-            ab2.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-            this.ikm.add(ab2);
+            n ac2 = ac(R.drawable.icon_zhibou_caise_heibai, R.string.ala_live, 29);
+            ac2.azf = new Bundle();
+            ac2.iri.azf = new Bundle();
+            ac2.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+            this.iqE.add(ac2);
         }
-        if (this.iku != null) {
-            TiebaStatic.log(new am("c11956"));
-            if (this.iku.getManChannel() == 1) {
-                this.ikp = ab(R.drawable.icon_weibar_caise_heibai, R.string.frs_channel_tip, 30);
-                this.ikp.ayy = new Bundle();
-                this.ikp.ayy.putBoolean("person_center_item_red_tip", true);
-                this.ikp.ikQ.ayy = new Bundle();
-                this.ikp.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-                this.ikm.add(this.ikp);
+        if (this.iqM != null) {
+            TiebaStatic.log(new an("c11956"));
+            if (this.iqM.getManChannel() == 1) {
+                this.iqH = ac(R.drawable.icon_weibar_caise_heibai, R.string.frs_channel_tip, 30);
+                this.iqH.azf = new Bundle();
+                this.iqH.azf.putBoolean("person_center_item_red_tip", true);
+                this.iqH.iri.azf = new Bundle();
+                this.iqH.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+                this.iqE.add(this.iqH);
             }
         }
-        this.iks = ab(R.drawable.icon_vip_heibai, R.string.member_center_item, 16);
-        this.iks.ayy = new Bundle();
-        this.iks.ayy.putBoolean("person_center_item_red_tip", true);
-        this.iks.ikQ.ayy = new Bundle();
-        this.iks.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(this.iks);
-        n ab3 = ab(R.drawable.icon_bookshoop_caise_heibai, R.string.book_shel, 33);
-        ab3.ikQ.ayy = new Bundle();
-        ab3.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        if (this.idK != null) {
-            ab3.ikQ.ayy.putString("book_jump_link", this.idK.icy);
+        this.iqK = ac(R.drawable.icon_vip_heibai, R.string.member_center_item, 16);
+        this.iqK.azf = new Bundle();
+        this.iqK.azf.putBoolean("person_center_item_red_tip", true);
+        this.iqK.iri.azf = new Bundle();
+        this.iqK.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(this.iqK);
+        n ac3 = ac(R.drawable.icon_bookshoop_caise_heibai, R.string.book_shel, 33);
+        ac3.iri.azf = new Bundle();
+        ac3.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        if (this.ijZ != null) {
+            ac3.iri.azf.putString("book_jump_link", this.ijZ.iiQ);
         }
-        this.ikm.add(ab3);
-        n ab4 = ab(R.drawable.icon_kabao_caise_heibai, R.string.card_box, 35);
-        ab4.ikQ.ayy = new Bundle();
-        ab4.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(ab4);
-        n ab5 = ab(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.consumption_records, 17);
-        ab5.ikQ.ayy = new Bundle();
-        ab5.ikQ.ayy.putSerializable(UserData.TYPE_USER, this.mUserData);
-        this.ikm.add(ab5);
-        n ab6 = ab(R.drawable.icon_fuwu_caise_heibai, R.string.person_service_centre, 41);
-        ab6.ikQ.ayy = new Bundle();
-        ab6.ikQ.ayy.putString("key_service_centre", "");
-        this.ikm.add(ab6);
+        this.iqE.add(ac3);
+        n ac4 = ac(R.drawable.icon_kabao_caise_heibai, R.string.card_box, 35);
+        ac4.iri.azf = new Bundle();
+        ac4.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(ac4);
+        n ac5 = ac(R.drawable.icon_xiaofeijilu_caise_heibai, R.string.consumption_records, 17);
+        ac5.iri.azf = new Bundle();
+        ac5.iri.azf.putSerializable(UserData.TYPE_USER, this.mUserData);
+        this.iqE.add(ac5);
+        n ac6 = ac(R.drawable.icon_fuwu_caise_heibai, R.string.person_service_centre, 41);
+        ac6.iri.azf = new Bundle();
+        ac6.iri.azf.putString("key_service_centre", "");
+        this.iqE.add(ac6);
     }
 
-    private n ab(int i, int i2, int i3) {
+    private n ac(int i, int i2, int i3) {
         n nVar = new n();
-        nVar.iconId = i;
+        nVar.iki = i;
         nVar.title = TbadkCoreApplication.getInst().getString(i2);
-        nVar.ikQ = new com.baidu.tieba.personCenter.c.a();
-        nVar.ikQ.eXw = i3;
+        nVar.iri = new com.baidu.tieba.personCenter.c.a();
+        nVar.iri.fcx = i3;
         return nVar;
     }
 }

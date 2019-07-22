@@ -16,16 +16,16 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class c {
     public static void y(k kVar) {
-        HashMap<Integer, bg> bmU;
-        if (kVar != null && kVar.blc() != null && (bmU = kVar.blc().bmU()) != null) {
+        HashMap<Integer, bg> boV;
+        if (kVar != null && kVar.bne() != null && (boV = kVar.bne().boV()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bg> entry : bmU.entrySet()) {
+            for (Map.Entry<Integer, bg> entry : boV.entrySet()) {
                 bg value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.ceT().x(arrayList);
+            com.baidu.tieba.recapp.download.d.chK().x(arrayList);
         }
     }
 
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.iB().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.g.e.iK().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.bkQ();
+                        k.this.bmS();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

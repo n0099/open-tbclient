@@ -24,14 +24,14 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
         WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String str = currentAccount == null ? "" : currentAccount;
-        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) atF();
+        com.baidu.tbadk.mvc.b.d dVar = (com.baidu.tbadk.mvc.b.d) auN();
         if (dVar != null) {
             if (dVar instanceof com.baidu.tbadk.mvc.b.b) {
-                l<byte[]> bD = com.baidu.tbadk.core.c.a.afD().bD(this.ye, str);
+                l<byte[]> bD = com.baidu.tbadk.core.d.a.agF().bD(this.yk, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar2 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar2 == null) {
-                        BdCacheService.hq().a(bD);
+                        BdCacheService.hA().a(bD);
                     } else {
                         bD.remove(dVar2.getCacheKey());
                     }
@@ -45,11 +45,11 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     writeCacheRespMsg.setSuccess(true);
                 }
             } else if (dVar instanceof f) {
-                l<String> bE = com.baidu.tbadk.core.c.a.afD().bE(this.ye, str);
+                l<String> bE = com.baidu.tbadk.core.d.a.agF().bE(this.yk, str);
                 if (writeCacheMessage.isClear()) {
                     com.baidu.tbadk.mvc.b.d dVar4 = (com.baidu.tbadk.mvc.b.d) writeCacheMessage.getData();
                     if (dVar4 == null) {
-                        BdCacheService.hq().a(bE);
+                        BdCacheService.hA().a(bE);
                     } else {
                         bE.remove(dVar4.getCacheKey());
                     }
@@ -59,9 +59,9 @@ public class d<T extends com.baidu.tbadk.mvc.b.d> extends a<T> {
                     if (dVar5 == null) {
                         return writeCacheRespMsg;
                     }
-                    String asX = ((f) dVar5).asX();
-                    if (asX != null) {
-                        bE.f(dVar5.getCacheKey(), asX);
+                    String auf = ((f) dVar5).auf();
+                    if (auf != null) {
+                        bE.f(dVar5.getCacheKey(), auf);
                         writeCacheRespMsg.setSuccess(true);
                     }
                 }

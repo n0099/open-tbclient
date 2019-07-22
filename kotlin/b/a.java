@@ -4,56 +4,56 @@ import kotlin.collections.y;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public class a implements Iterable<Integer> {
-    public static final C0491a kkA = new C0491a(null);
-    private final int kky;
-    private final int kkz;
+    public static final C0491a krZ = new C0491a(null);
+    private final int krX;
+    private final int krY;
     private final int step;
 
     public a(int i, int i2, int i3) {
         if (i3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.kky = i;
-        this.kkz = kotlin.internal.a.al(i, i2, i3);
+        this.krX = i;
+        this.krY = kotlin.internal.a.am(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.kky;
+        return this.krX;
     }
 
     public final int getLast() {
-        return this.kkz;
+        return this.krY;
     }
 
-    public final int cKe() {
+    public final int cNO() {
         return this.step;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Iterable
-    /* renamed from: cKf */
+    /* renamed from: cNP */
     public y iterator() {
-        return new b(this.kky, this.kkz, this.step);
+        return new b(this.krX, this.krY, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.kky > this.kkz : this.kky < this.kkz;
+        return this.step > 0 ? this.krX > this.krY : this.krX < this.krY;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.kky == ((a) obj).kky && this.kkz == ((a) obj).kkz && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.krX == ((a) obj).krX && this.krY == ((a) obj).krY && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.kky * 31) + this.kkz) * 31) + this.step;
+        return (((this.krX * 31) + this.krY) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.kky + ".." + this.kkz + " step " + this.step : "" + this.kky + " downTo " + this.kkz + " step " + (-this.step);
+        return this.step > 0 ? "" + this.krX + ".." + this.krY + " step " + this.step : "" + this.krX + " downTo " + this.krY + " step " + (-this.step);
     }
 
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */
@@ -66,7 +66,7 @@ public class a implements Iterable<Integer> {
             this();
         }
 
-        public final a am(int i, int i2, int i3) {
+        public final a an(int i, int i2, int i3) {
             return new a(i, i2, i3);
         }
     }

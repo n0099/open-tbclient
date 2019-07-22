@@ -6,46 +6,46 @@ import java.security.PublicKey;
 import javax.crypto.SecretKey;
 /* loaded from: classes.dex */
 public class d {
-    private static d vt = null;
-    private SecretKey vu = null;
-    private byte[] vv = null;
+    private static d vw = null;
+    private SecretKey vx = null;
+    private byte[] vy = null;
 
-    public static d fV() {
-        if (vt == null) {
+    public static d ge() {
+        if (vw == null) {
             synchronized (d.class) {
-                if (vt == null) {
-                    vt = new d();
+                if (vw == null) {
+                    vw = new d();
                 }
             }
         }
-        return vt;
+        return vw;
     }
 
     public void h(byte[] bArr) {
         try {
-            PublicKey n = u.n(bArr);
+            PublicKey o = u.o(bArr);
             String at = u.at(32);
             byte[] bArr2 = new byte[at.length()];
             for (int i = 0; i < at.length(); i++) {
                 bArr2[i] = (byte) at.charAt(i);
             }
-            this.vu = u.bn(at);
-            this.vv = u.b(n, bArr2);
+            this.vx = u.bo(at);
+            this.vy = u.b(o, bArr2);
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
-            this.vu = null;
-            this.vv = new byte[0];
+            this.vx = null;
+            this.vy = new byte[0];
         }
     }
 
     private d() {
     }
 
-    public byte[] fW() {
-        return this.vv;
+    public byte[] gf() {
+        return this.vy;
     }
 
-    public SecretKey getSecretKey() {
-        return this.vu;
+    public SecretKey gg() {
+        return this.vx;
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.pb.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public class i implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId hBY = BdUniqueId.gen();
-    public static final BdUniqueId hBZ = BdUniqueId.gen();
-    public long hCa;
-    public String hCb;
+    public static final BdUniqueId hIl = BdUniqueId.gen();
+    public static final BdUniqueId hIm = BdUniqueId.gen();
+    public long hIn;
+    public String hIo;
     public BdUniqueId mType;
     public boolean isNew = true;
     public int sortType = 0;
-    public String hCc = "";
-    public boolean hCd = false;
+    public String hIp = "";
+    public boolean hIq = false;
 
     public i(BdUniqueId bdUniqueId) {
-        this.mType = hBZ;
+        this.mType = hIm;
         this.mType = bdUniqueId;
     }
 

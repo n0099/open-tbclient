@@ -11,11 +11,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class g {
-    private static String sW = null;
-    private static volatile SQLiteDatabase sS = null;
-    public static HashMap<String, SQLiteDatabase> gyq = new HashMap<>();
+    private static String sZ = null;
+    private static volatile SQLiteDatabase sV = null;
+    public static HashMap<String, SQLiteDatabase> gEB = new HashMap<>();
 
-    public static synchronized SQLiteDatabase bzZ() {
+    public static synchronized SQLiteDatabase bCE() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -26,34 +26,34 @@ public class g {
                 sQLiteDatabase = null;
             } else {
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (gyq.containsKey(str)) {
-                    sQLiteDatabase = gyq.get(str);
-                } else if (sS != null && str.equals(sW) && sS.isOpen()) {
-                    sQLiteDatabase = sS;
+                if (gEB.containsKey(str)) {
+                    sQLiteDatabase = gEB.get(str);
+                } else if (sV != null && str.equals(sZ) && sV.isOpen()) {
+                    sQLiteDatabase = sV;
                 } else {
-                    if (sS != null) {
-                        com.baidu.adp.lib.util.n.i(sS);
+                    if (sV != null) {
+                        com.baidu.adp.lib.util.n.i(sV);
                     }
                     f fVar = new f(TbadkCoreApplication.getInst().getApp(), str);
-                    sW = str;
-                    sS = fVar.getWritableDatabase();
-                    sQLiteDatabase = sS;
+                    sZ = str;
+                    sV = fVar.getWritableDatabase();
+                    sQLiteDatabase = sV;
                 }
             }
         }
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> bAa() {
+    public static LinkedList<String> bCF() {
         Cursor cursor;
         Throwable th;
         Exception exc;
         Cursor cursor2 = null;
-        SQLiteDatabase bzZ = bzZ();
+        SQLiteDatabase bCE = bCE();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (bzZ != null) {
+        if (bCE != null) {
             try {
-                cursor2 = bzZ.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor2 = bCE.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor2 != null) {
                     try {
                         cursor2.moveToFirst();
@@ -92,20 +92,20 @@ public class g {
         return linkedList;
     }
 
-    public static void yl(String str) {
+    public static void yV(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.bAb().bAc();
-                Iterator<String> it = bAa().iterator();
+                h.bCG().bCH();
+                Iterator<String> it = bCF().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.bAb().update("tb_message_center", contentValues, null, null);
+                            h.bCG().a("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.bAb().a(next, null, null);
+                            h.bCG().a(next, (String) null, (String[]) null);
                         }
                     }
                 }
@@ -114,7 +114,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.bAb().endTransaction();
+            h.bCG().bCI();
         }
     }
 }

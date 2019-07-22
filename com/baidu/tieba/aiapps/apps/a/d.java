@@ -11,7 +11,7 @@ public class d extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putString("result", c.dl(getAgent().getContext()));
+        bundle2.putString("result", c.dm(getAgent().getContext()));
         return bundle2;
     }
 }

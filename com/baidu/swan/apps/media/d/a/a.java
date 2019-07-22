@@ -65,7 +65,7 @@ public class a extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Lu().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
+                bVar.Mh().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.media.d.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */
@@ -94,18 +94,18 @@ public class a extends z {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            rx.d.bl(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
+            rx.d.bm(file).d(new rx.functions.f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: t */
                 public File call(File file2) {
-                    String hx = com.baidu.swan.apps.storage.b.hx(com.baidu.swan.apps.ae.b.LB());
-                    if (!TextUtils.isEmpty(hx) && file2.getPath().startsWith(hx)) {
+                    String hE = com.baidu.swan.apps.storage.b.hE(com.baidu.swan.apps.ae.b.Mo());
+                    if (!TextUtils.isEmpty(hE) && file2.getPath().startsWith(hE)) {
                         return a.this.d(context, file2);
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cLq()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cPf()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: s */
@@ -128,11 +128,11 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(Context context, String str, long j) {
-        if (fp(str)) {
+        if (fu(str)) {
             long J = J(j);
             ContentValues i = i(str, J);
             i.put("datetaken", Long.valueOf(J));
-            i.put("mime_type", fo(str));
+            i.put("mime_type", ft(str));
             context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, i);
         }
     }
@@ -150,7 +150,7 @@ public class a extends z {
         return contentValues;
     }
 
-    private String fo(String str) {
+    private String ft(String str) {
         String lowerCase = str.toLowerCase();
         if (!lowerCase.endsWith("mp4") && !lowerCase.endsWith("mpeg4") && lowerCase.endsWith("3gp")) {
             return "video/3gp";
@@ -165,7 +165,7 @@ public class a extends z {
         return j;
     }
 
-    private boolean fp(String str) {
+    private boolean fu(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

@@ -11,9 +11,9 @@ public interface b {
     public interface a {
     }
 
+    Bitmap a(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options);
+
     void a(com.facebook.common.g.a aVar);
 
     void a(a aVar);
-
-    Bitmap decodeFileDescriptor(FileDescriptor fileDescriptor, Rect rect, BitmapFactory.Options options);
 }

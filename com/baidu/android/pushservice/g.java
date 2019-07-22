@@ -6,6 +6,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.g.m;
 import com.baidu.android.pushservice.i.l;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,15 +21,14 @@ public final class g {
     private static String[] i = {"sa0.tuisong.baidu.com", "sa1.tuisong.baidu.com", "sa2.tuisong.baidu.com", "sa3.tuisong.baidu.com", "sa4.tuisong.baidu.com", "sa5.tuisong.baidu.com", "sa6.tuisong.baidu.com", "sa7.tuisong.baidu.com", "sa8.tuisong.baidu.com", "sa9.tuisong.baidu.com"};
     public static int a = 5287;
     public static int b = 5288;
-    private static final String[] j = {"202.108.23.109", "180.149.132.103", "111.13.12.174", "111.13.12.61"};
     public static String[] c = {"202.108.23.105", "180.149.132.107", "180.149.131.209", "111.13.100.86", "111.13.100.85", " 61.135.185.18", "220.181.163.183", "220.181.163.182"};
-    private static boolean k = true;
-    private static String l = "http://m.baidu.com";
+    private static boolean j = true;
+    private static String k = "http://m.baidu.com";
+    private static ArrayList<String> l = null;
     private static ArrayList<String> m = null;
-    private static ArrayList<String> n = null;
-    public static final String d = l;
+    public static final String d = k;
     public static final String e = d + "/searchbox?action=publicsrv&type=issuedcode";
-    private static boolean o = false;
+    private static boolean n = false;
 
     public static int a(Context context) {
         return l.D(context) ? b : a;
@@ -39,54 +39,8 @@ public final class g {
     }
 
     public static String a(Context context, boolean z) {
-        if (n == null || n.isEmpty() || k) {
-            n = a(context, ".baidu.push.sa");
-        }
-        if (n != null && n.size() > 0) {
-            if (!z) {
-                n.remove(0);
-            }
-            if (n.size() > 0) {
-                return n.get(0);
-            }
-        }
-        return null;
-    }
-
-    private static ArrayList<String> a(Context context, String str) {
-        int i2 = 0;
-        ArrayList<String> b2 = b(context, str);
-        if (b2.size() <= 0) {
-            if (str.equals(".baidu.push.http")) {
-                String[] strArr = j;
-                int length = strArr.length;
-                while (i2 < length) {
-                    b2.add(strArr[i2]);
-                    i2++;
-                }
-            } else {
-                String[] strArr2 = c;
-                int length2 = strArr2.length;
-                while (i2 < length2) {
-                    b2.add(strArr2[i2]);
-                    i2++;
-                }
-            }
-            k = true;
-            c(context);
-        } else {
-            k = false;
-        }
-        return b2;
-    }
-
-    public static String b() {
-        return "https://" + f;
-    }
-
-    public static String b(Context context, boolean z) {
-        if (m == null || m.isEmpty()) {
-            m = a(context, ".baidu.push.http");
+        if (m == null || m.isEmpty() || j) {
+            m = a(context, ".baidu.push.sa");
         }
         if (m != null && m.size() > 0) {
             if (!z) {
@@ -97,6 +51,26 @@ public final class g {
             }
         }
         return null;
+    }
+
+    private static ArrayList<String> a(Context context, String str) {
+        ArrayList<String> b2 = b(context, str);
+        if (b2.size() <= 0) {
+            if (str.equals(".baidu.push.sa")) {
+                for (String str2 : c) {
+                    b2.add(str2);
+                }
+            }
+            j = true;
+            c(context);
+        } else {
+            j = false;
+        }
+        return b2;
+    }
+
+    public static String b() {
+        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + f;
     }
 
     private static ArrayList<String> b(Context context, String str) {
@@ -178,7 +152,7 @@ public final class g {
             }
             String property5 = properties.getProperty("config_server");
             if (!TextUtils.isEmpty(property5)) {
-                l = property5;
+                k = property5;
             }
             if (e.a == 0) {
                 String property6 = properties.getProperty("api_key");
@@ -186,7 +160,7 @@ public final class g {
                     e.b = property6;
                 }
             }
-            o = true;
+            n = true;
             com.baidu.android.pushservice.e.b.a(fileInputStream);
         } catch (Exception e4) {
             fileInputStream = null;
@@ -232,9 +206,7 @@ public final class g {
             com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("updateBackupIp", (short) 95) { // from class: com.baidu.android.pushservice.g.1
                 @Override // com.baidu.android.pushservice.h.c
                 public void a() {
-                    boolean b2 = g.b(context.getApplicationContext(), g.h, ".baidu.push.sa");
-                    boolean b3 = g.b(context.getApplicationContext(), g.f, ".baidu.push.http");
-                    if (b2 && b3) {
+                    if (g.b(context.getApplicationContext(), g.h, ".baidu.push.sa")) {
                         SharedPreferences.Editor edit = sharedPreferences.edit();
                         edit.putLong(".baidu.push.dns.refresh", System.currentTimeMillis());
                         edit.commit();
@@ -245,14 +217,14 @@ public final class g {
     }
 
     public static String d() {
-        return o ? a() + "/rest/2.0/channel/channel" : b() + "/rest/2.0/channel/channel";
+        return n ? a() + "/rest/2.0/channel/channel" : b() + "/rest/2.0/channel/channel";
     }
 
     public static String e() {
-        return o ? a() + "/rest/2.0/channel/" : b() + "/rest/2.0/channel/";
+        return n ? a() + "/rest/2.0/channel/" : b() + "/rest/2.0/channel/";
     }
 
     public static boolean f() {
-        return o;
+        return n;
     }
 }

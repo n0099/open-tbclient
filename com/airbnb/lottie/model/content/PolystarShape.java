@@ -8,15 +8,15 @@ import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class PolystarShape implements b {
-    private final Type mz;
+    private final Type my;
     private final String name;
-    private final com.airbnb.lottie.model.a.b oP;
     private final com.airbnb.lottie.model.a.b oQ;
     private final com.airbnb.lottie.model.a.b oR;
     private final com.airbnb.lottie.model.a.b oS;
     private final com.airbnb.lottie.model.a.b oT;
-    private final m<PointF, PointF> om;
-    private final com.airbnb.lottie.model.a.b oo;
+    private final com.airbnb.lottie.model.a.b oU;
+    private final m<PointF, PointF> on;
+    private final com.airbnb.lottie.model.a.b oq;
 
     /* loaded from: classes2.dex */
     public enum Type {
@@ -42,51 +42,50 @@ public class PolystarShape implements b {
 
     private PolystarShape(String str, Type type, com.airbnb.lottie.model.a.b bVar, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.b bVar2, com.airbnb.lottie.model.a.b bVar3, com.airbnb.lottie.model.a.b bVar4, com.airbnb.lottie.model.a.b bVar5, com.airbnb.lottie.model.a.b bVar6) {
         this.name = str;
-        this.mz = type;
-        this.oP = bVar;
-        this.om = mVar;
-        this.oo = bVar2;
-        this.oQ = bVar3;
-        this.oR = bVar4;
-        this.oS = bVar5;
-        this.oT = bVar6;
+        this.my = type;
+        this.oQ = bVar;
+        this.on = mVar;
+        this.oq = bVar2;
+        this.oR = bVar3;
+        this.oS = bVar4;
+        this.oT = bVar5;
+        this.oU = bVar6;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public Type dj() {
-        return this.mz;
+    public Type dq() {
+        return this.my;
     }
 
-    public com.airbnb.lottie.model.a.b dk() {
-        return this.oP;
-    }
-
-    public m<PointF, PointF> cL() {
-        return this.om;
-    }
-
-    public com.airbnb.lottie.model.a.b cN() {
-        return this.oo;
-    }
-
-    public com.airbnb.lottie.model.a.b dl() {
+    public com.airbnb.lottie.model.a.b dr() {
         return this.oQ;
     }
 
-    public com.airbnb.lottie.model.a.b dm() {
+    public m<PointF, PointF> cR() {
+        return this.on;
+    }
+
+    public com.airbnb.lottie.model.a.b cT() {
+        return this.oq;
+    }
+
+    public com.airbnb.lottie.model.a.b ds() {
         return this.oR;
     }
 
-    public com.airbnb.lottie.model.a.b dn() {
+    public com.airbnb.lottie.model.a.b dt() {
         return this.oS;
     }
 
-    /* renamed from: do  reason: not valid java name */
-    public com.airbnb.lottie.model.a.b m6do() {
+    public com.airbnb.lottie.model.a.b du() {
         return this.oT;
+    }
+
+    public com.airbnb.lottie.model.a.b dv() {
+        return this.oU;
     }
 
     @Override // com.airbnb.lottie.model.content.b

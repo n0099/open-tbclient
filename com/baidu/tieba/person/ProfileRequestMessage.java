@@ -146,7 +146,7 @@ public class ProfileRequestMessage extends NetMessage {
             double ai = l.ai(TbadkCoreApplication.getInst().getApp());
             int af = l.af(TbadkCoreApplication.getInst().getApp());
             int ah = l.ah(TbadkCoreApplication.getInst().getApp());
-            int viewImageQuality = i.abb().getViewImageQuality();
+            int viewImageQuality = i.aca().getViewImageQuality();
             builder.scr_w = Integer.valueOf(af);
             builder.scr_h = Integer.valueOf(ah);
             builder.scr_dip = Double.valueOf(ai);

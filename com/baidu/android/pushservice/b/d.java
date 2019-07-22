@@ -6,13 +6,12 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.SystemProperties;
 import android.text.TextUtils;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.g;
 import com.baidu.android.pushservice.i.i;
 import com.baidu.android.pushservice.i.l;
-import com.baidu.android.pushservice.j.h;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.coloros.mcssdk.PushManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
@@ -176,12 +175,12 @@ public class d extends b {
                     if (str.equalsIgnoreCase("HUAWEI") && !l.f() && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.l(this.a)) {
                         str2 = "3.1";
                     }
-                    if (str.equalsIgnoreCase(RomTypeUtil.ROM_OPPO) && PushSettings.j(this.a) && !j(this.a)) {
+                    if (str.equalsIgnoreCase("OPPO") && PushSettings.j(this.a) && !j(this.a)) {
                         str2 = "V1.0";
                     }
                     Matcher matcher = Pattern.compile(fVar.c()).matcher(str2);
                     if (matcher.find()) {
-                        Double valueOf = Double.valueOf(str.equalsIgnoreCase(RomTypeUtil.ROM_OPPO) ? matcher.group(1) : matcher.group());
+                        Double valueOf = Double.valueOf(str.equalsIgnoreCase("OPPO") ? matcher.group(1) : matcher.group());
                         Double valueOf2 = Double.valueOf(fVar.b());
                         if (fVar.d() == 0) {
                             if (valueOf.doubleValue() >= valueOf2.doubleValue()) {
@@ -511,7 +510,7 @@ public class d extends b {
                                 hashMap.put("pushSdkInt", ((int) com.baidu.android.pushservice.a.a()) + "");
                             }
                             hashMap.put("manufacture", Build.MANUFACTURER);
-                            hashMap.put("cuid", com.baidu.android.pushservice.j.e.a(d.this.a));
+                            hashMap.put("cuid", DeviceId.getCUID(d.this.a));
                             hashMap.put(Constants.PACKAGE_NAME, d.this.a.getPackageName());
                             String a2 = d.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {
@@ -583,7 +582,7 @@ public class d extends b {
                             try {
                                 CertificateFactory certificateFactory = CertificateFactory.getInstance("X509");
                                 X509Certificate x509Certificate = certificateFactory != null ? (X509Certificate) certificateFactory.generateCertificate(byteArrayInputStream) : null;
-                                bArr = x509Certificate != null ? h.a(x509Certificate.getEncoded()) : null;
+                                bArr = x509Certificate != null ? com.baidu.android.pushservice.j.f.a(x509Certificate.getEncoded()) : null;
                                 try {
                                     byteArrayInputStream.close();
                                 } catch (IOException e2) {

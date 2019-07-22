@@ -8,7 +8,7 @@ class d {
     d() {
     }
 
-    public static double v(byte[] bArr) {
+    public static double w(byte[] bArr) {
         double d = 0.0d;
         for (int i = 0; i < bArr.length; i += 2) {
             int i2 = (bArr[i] & 255) + ((bArr[i + 1] & 255) << 8);
@@ -20,7 +20,7 @@ class d {
         return Math.log10(((d / bArr.length) / 2.0d) + 1.0d) * 10.0d;
     }
 
-    public static double w(byte[] bArr) {
+    public static double x(byte[] bArr) {
         double d = 0.0d;
         for (int i = 0; i < bArr.length; i += 2) {
             int i2 = (bArr[i] & 255) + ((bArr[i + 1] & 255) << 8);

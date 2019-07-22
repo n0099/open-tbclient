@@ -29,7 +29,7 @@ public class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
             return false;
         }
-        String optString = o.cY(unitedSchemeEntity.getParam("params")).optString("cb");
+        String optString = o.dd(unitedSchemeEntity.getParam("params")).optString("cb");
         if (TextUtils.isEmpty(optString)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
@@ -62,21 +62,21 @@ public class a extends z {
             return;
         }
         boolean z = eVar.forbidden;
-        int OO = ab.OO();
-        long OP = ab.OP();
-        List<String> list = eVar.aUh;
+        int PE = ab.PE();
+        long PF = ab.PF();
+        List<String> list = eVar.aUR;
         JSONArray jSONArray = new JSONArray();
         JSONObject jSONObject = new JSONObject();
         try {
             for (String str2 : list) {
                 jSONArray.put(str2);
             }
-            jSONObject.put("launchCount", OO);
-            jSONObject.put("visitDuration", OP);
+            jSONObject.put("launchCount", PE);
+            jSONObject.put("visitDuration", PF);
             jSONObject.put("forbidden", z);
             jSONObject.put("ext", jSONArray);
             if (DEBUG) {
-                Log.i("GetBehaviorInfoAction", "launchCount:" + OO + " visitDuration:" + OP + " forbidden:" + z + " ext:" + jSONArray.toString());
+                Log.i("GetBehaviorInfoAction", "launchCount:" + PE + " visitDuration:" + PF + " forbidden:" + z + " ext:" + jSONArray.toString());
             }
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
         } catch (JSONException e) {

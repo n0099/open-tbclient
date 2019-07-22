@@ -18,8 +18,8 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ void aL(boolean z) {
-        super.aL(z);
+    public /* bridge */ /* synthetic */ void aO(boolean z) {
+        super.aO(z);
     }
 
     @Override // com.baidu.mario.b.b.b
@@ -28,23 +28,23 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ long sO() {
-        return super.sO();
+    public /* bridge */ /* synthetic */ void tO() {
+        super.tO();
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ void tp() {
-        super.tp();
+    public /* bridge */ /* synthetic */ void tP() {
+        super.tP();
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ void tq() {
-        super.tq();
+    public /* bridge */ /* synthetic */ void tQ() {
+        super.tQ();
     }
 
     @Override // com.baidu.mario.b.b.b
-    public /* bridge */ /* synthetic */ void tr() {
-        super.tr();
+    public /* bridge */ /* synthetic */ long tm() {
+        return super.tm();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:? A[RETURN, SYNTHETIC] */
@@ -55,28 +55,28 @@ public class g extends b {
     public void a(d dVar, e eVar) {
         boolean z = true;
         if (dVar != null && eVar != null) {
-            this.aeA = eVar;
-            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.tw(), dVar.getVideoWidth(), dVar.getVideoHeight());
+            this.aeX = eVar;
+            MediaFormat createVideoFormat = MediaFormat.createVideoFormat(dVar.tV(), dVar.getVideoWidth(), dVar.getVideoHeight());
             createVideoFormat.setInteger("color-format", 2130708361);
-            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.tx());
-            createVideoFormat.setInteger("frame-rate", dVar.ty());
-            createVideoFormat.setInteger("i-frame-interval", dVar.tz());
+            createVideoFormat.setInteger(IjkMediaMeta.IJKM_KEY_BITRATE, dVar.tW());
+            createVideoFormat.setInteger("frame-rate", dVar.tX());
+            createVideoFormat.setInteger("i-frame-interval", dVar.tY());
             try {
-                this.mEncoder = MediaCodec.createEncoderByType(dVar.tw());
+                this.mEncoder = MediaCodec.createEncoderByType(dVar.tV());
                 this.mEncoder.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
                 this.mInputSurface = this.mEncoder.createInputSurface();
-                this.aeC = true;
+                this.aeZ = true;
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (this.aeB == null) {
-                this.aeB.aF(z);
+            if (this.aeY == null) {
+                this.aeY.aI(z);
                 return;
             }
             return;
         }
         z = false;
-        if (this.aeB == null) {
+        if (this.aeY == null) {
         }
     }
 
@@ -85,14 +85,14 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.b.b.b
-    protected void tn() {
-        if (this.aeD == 0) {
-            this.aeD = this.mBufferInfo.presentationTimeUs;
-            aeE = 0L;
+    protected void tN() {
+        if (this.afa == 0) {
+            this.afa = this.mBufferInfo.presentationTimeUs;
+            afb = 0L;
         }
-        this.mBufferInfo.presentationTimeUs -= this.aeD;
-        aeE = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.b.c.sN().x(aeE / 1000);
+        this.mBufferInfo.presentationTimeUs -= this.afa;
+        afb = this.mBufferInfo.presentationTimeUs;
+        com.baidu.mario.b.c.tl().x(afb / 1000);
         Log.d(TAG, "syncTimestamp mVideoEncoder = " + this.mBufferInfo.size + "|" + this.mBufferInfo.presentationTimeUs);
     }
 }

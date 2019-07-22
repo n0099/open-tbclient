@@ -8,72 +8,72 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class a {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int aBM;
-    public String aBN;
-    public int aBO;
-    public int aBP;
-    public int aBQ;
-    public String aBR;
+    public int aCu;
+    public String aCv;
+    public int aCw;
+    public int aCx;
+    public int aCy;
+    public String aCz;
 
     public static a a(JSONObject jSONObject, a aVar) {
         if (jSONObject != null) {
             aVar = new a();
-            aVar.aBM = jSONObject.optInt(UBC.CONTENT_KEY_DURATION, 60000);
-            aVar.aBN = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
-            if (TextUtils.isEmpty(aVar.aBN)) {
-                aVar.aBN = "aac";
+            aVar.aCu = jSONObject.optInt(UBC.CONTENT_KEY_DURATION, 60000);
+            aVar.aCv = jSONObject.optString(IjkMediaMeta.IJKM_KEY_FORMAT);
+            if (TextUtils.isEmpty(aVar.aCv)) {
+                aVar.aCv = "aac";
             }
-            aVar.aBO = jSONObject.optInt("numberOfChannels", 1);
-            aVar.aBP = jSONObject.optInt("sampleRate", 8000);
-            aVar.aBQ = jSONObject.optInt("encodeBitRate");
-            if (aVar.aBQ == 0) {
-                switch (aVar.aBP) {
+            aVar.aCw = jSONObject.optInt("numberOfChannels", 1);
+            aVar.aCx = jSONObject.optInt("sampleRate", 8000);
+            aVar.aCy = jSONObject.optInt("encodeBitRate");
+            if (aVar.aCy == 0) {
+                switch (aVar.aCx) {
                     case 8000:
-                        aVar.aBQ = 16000;
+                        aVar.aCy = 16000;
                         break;
                     case 16000:
-                        aVar.aBQ = 24000;
+                        aVar.aCy = 24000;
                         break;
                     case 44100:
-                        aVar.aBQ = 64000;
+                        aVar.aCy = 64000;
                         break;
                 }
             }
-            aVar.aBR = jSONObject.optString("cb");
+            aVar.aCz = jSONObject.optString("cb");
         }
         return aVar;
     }
 
-    public JSONObject Gx() {
-        if (this.aBM > 600000 || this.aBM <= 0) {
+    public JSONObject Hh() {
+        if (this.aCu > 600000 || this.aCu <= 0) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
         }
-        if (this.aBO != 1 && this.aBO != 2) {
+        if (this.aCw != 1 && this.aCw != 2) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
         }
-        if (!TextUtils.equals(this.aBN, "aac") && !TextUtils.equals(this.aBN, "pcm")) {
+        if (!TextUtils.equals(this.aCv, "aac") && !TextUtils.equals(this.aCv, "pcm")) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
         }
-        if (this.aBP != 8000 && this.aBP != 16000 && this.aBP != 44100) {
+        if (this.aCx != 8000 && this.aCx != 16000 && this.aCx != 44100) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
         }
-        if (!TextUtils.equals(this.aBN, "pcm")) {
+        if (!TextUtils.equals(this.aCv, "pcm")) {
             boolean z = false;
-            switch (this.aBP) {
+            switch (this.aCx) {
                 case 8000:
-                    if (this.aBQ > 48000 || this.aBQ < 16000) {
+                    if (this.aCy > 48000 || this.aCy < 16000) {
                         z = true;
                         break;
                     }
                     break;
                 case 16000:
-                    if (this.aBQ > 96000 || this.aBQ < 24000) {
+                    if (this.aCy > 96000 || this.aCy < 24000) {
                         z = true;
                         break;
                     }
                     break;
                 case 44100:
-                    if (this.aBQ > 320000 || this.aBQ < 64000) {
+                    if (this.aCy > 320000 || this.aCy < 64000) {
                         z = true;
                         break;
                     }
@@ -83,13 +83,13 @@ public class a {
                 return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
             }
         }
-        if (TextUtils.isEmpty(this.aBR)) {
+        if (TextUtils.isEmpty(this.aCz)) {
             return UnitedSchemeUtility.wrapCallbackParams(202, "none cb");
         }
         return null;
     }
 
     public String toString() {
-        return "recordTime : " + this.aBM + "; channel : " + this.aBO + "; audioFormat : " + this.aBN + "; sampleRate : " + this.aBP + "; bitRate : " + this.aBQ + "; callbacks : " + this.aBR;
+        return "recordTime : " + this.aCu + "; channel : " + this.aCw + "; audioFormat : " + this.aCv + "; sampleRate : " + this.aCx + "; bitRate : " + this.aCy + "; callbacks : " + this.aCz;
     }
 }

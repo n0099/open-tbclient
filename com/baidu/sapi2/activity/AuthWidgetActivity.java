@@ -23,14 +23,8 @@ public class AuthWidgetActivity extends BaseActivity {
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             this.authUrl = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
-            if (TextUtils.isEmpty(this.authUrl)) {
-                this.result.setResultCode(-204);
-                this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
-                finishActivity();
-                return;
-            }
             this.u = SapiUtils.urlParamsToMap(this.authUrl).get("u");
-            if (TextUtils.isEmpty(this.u)) {
+            if (TextUtils.isEmpty(this.authUrl) || TextUtils.isEmpty(this.u)) {
                 this.result.setResultCode(-204);
                 this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
                 finishActivity();
@@ -104,13 +98,6 @@ public class AuthWidgetActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

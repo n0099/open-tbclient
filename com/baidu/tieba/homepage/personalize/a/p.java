@@ -8,14 +8,14 @@ import com.baidu.card.z;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.topic.topictab.b.a, z<com.baidu.tieba.homepage.topic.topictab.b.a>> implements com.baidu.tieba.a.f {
-    private String Ws;
-    private NEGFeedBackView.a cRh;
-    public BdUniqueId cwi;
+    private String WN;
+    private NEGFeedBackView.a cSD;
+    public BdUniqueId cxx;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -27,22 +27,22 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
+    /* renamed from: aL */
     public z<com.baidu.tieba.homepage.topic.topictab.b.a> onCreateViewHolder(ViewGroup viewGroup) {
         x.a aVar = new x.a(this.mPageContext.getPageActivity(), false);
         com.baidu.tieba.homepage.personalize.view.e eVar = new com.baidu.tieba.homepage.personalize.view.e(this.mContext, this.mPageContext);
         eVar.setTag(this.mPageId);
         aVar.b(eVar);
-        aVar.qq().setBackgroundResource(R.drawable.addresslist_item_bg);
-        aVar.qq().bt(0);
-        aVar.qq().bu(0);
-        aVar.qq().bv(0);
-        aVar.qq().bs(0);
-        aVar.qq().br(0);
-        x qr = aVar.qr();
-        qr.bq(2);
-        z<com.baidu.tieba.homepage.topic.topictab.b.a> zVar = new z<>(qr);
-        zVar.setPageId(this.cwi);
+        aVar.qN().setBackgroundResource(R.drawable.addresslist_item_bg);
+        aVar.qN().bt(0);
+        aVar.qN().bu(0);
+        aVar.qN().bv(0);
+        aVar.qN().bs(0);
+        aVar.qN().br(0);
+        x qO = aVar.qO();
+        qO.bq(2);
+        z<com.baidu.tieba.homepage.topic.topictab.b.a> zVar = new z<>(qO);
+        zVar.setPageId(this.cxx);
         return zVar;
     }
 
@@ -54,20 +54,20 @@ public class p extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (aVar == null || zVar == null || zVar.getView() == null) {
             return null;
         }
-        TiebaStatic.log(new am("c13448"));
-        zVar.qs().setPage(this.Ws);
-        zVar.qt().a(this.cRh);
+        TiebaStatic.log(new an("c13448"));
+        zVar.qP().setPage(this.WN);
+        zVar.qQ().a(this.cSD);
         zVar.a(aVar);
-        zVar.qs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        zVar.qP().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return zVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void rU(String str) {
-        this.Ws = str;
+    public void sm(String str) {
+        this.WN = str;
     }
 
     public void setEventCallback(NEGFeedBackView.a aVar) {
-        this.cRh = aVar;
+        this.cSD = aVar;
     }
 }

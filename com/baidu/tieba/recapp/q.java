@@ -45,11 +45,11 @@ public class q implements com.baidu.c.a.b.c {
         }
         if (view instanceof CriusTbClipImageView) {
             float f = view.getResources().getDisplayMetrics().density;
-            if (aVar.aaG > 0.0f) {
-                int B = B(aVar.aaG, f);
-                ((CriusTbClipImageView) view).setRadius(B, B, B, B);
+            if (aVar.abe > 0.0f) {
+                int D = D(aVar.abe, f);
+                ((CriusTbClipImageView) view).setRadius(D, D, D, D);
             } else {
-                ((CriusTbClipImageView) view).setRadius(B(aVar.aaH, f), B(aVar.aaI, f), B(aVar.aaJ, f), B(aVar.aaK, f));
+                ((CriusTbClipImageView) view).setRadius(D(aVar.abf, f), D(aVar.abg, f), D(aVar.abh, f), D(aVar.abi, f));
             }
             ((CriusTbClipImageView) view).startLoad(aVar.src, 30, false);
             return true;
@@ -59,7 +59,7 @@ public class q implements com.baidu.c.a.b.c {
             int dimension = (int) view.getContext().getResources().getDimension(R.dimen.ds278);
             VideoInfo.Builder builder = new VideoInfo.Builder();
             builder.video_url = aVar.src;
-            builder.thumbnail_url = aVar.aaF;
+            builder.thumbnail_url = aVar.abd;
             builder.video_duration = Integer.valueOf(aVar.videoDuration);
             builder.video_width = Integer.valueOf(aVar.width);
             builder.video_height = Integer.valueOf(aVar.height);
@@ -74,9 +74,9 @@ public class q implements com.baidu.c.a.b.c {
             return false;
         }
         if (str2.startsWith(SkiaImageDecoder.FILE_PREFIX) && str2.length() > 7) {
-            int identifier = com.baidu.adp.base.g.eS().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+            int identifier = com.baidu.adp.base.g.eZ().getResources().getIdentifier(str2.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
             if (!TextUtils.isEmpty(str3) && str3.startsWith(SkiaImageDecoder.FILE_PREFIX) && str3.length() > 7) {
-                int identifier2 = com.baidu.adp.base.g.eS().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
+                int identifier2 = com.baidu.adp.base.g.eZ().getResources().getIdentifier(str3.substring(7), "drawable", BdBaseApplication.getInst().getPackageName());
                 if (identifier2 <= 0 || identifier <= 0) {
                     return true;
                 }
@@ -94,20 +94,20 @@ public class q implements com.baidu.c.a.b.c {
                 return true;
             }
         }
-        com.baidu.adp.lib.f.c.iv().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
+        com.baidu.adp.lib.f.c.iE().a(str2, 17, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.recapp.q.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str4, int i) {
                 if (str2.equalsIgnoreCase(str4)) {
-                    view.setBackgroundDrawable(aVar.nu());
+                    view.setBackgroundDrawable(aVar.nM());
                 }
             }
         }, null);
         return true;
     }
 
-    private int B(float f, float f2) {
+    private int D(float f, float f2) {
         return (int) (Math.max(f, 0.0f) * f2);
     }
 }

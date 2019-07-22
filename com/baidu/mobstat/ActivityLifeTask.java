@@ -3,8 +3,8 @@ package com.baidu.mobstat;
 import android.content.Context;
 import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.AutoTrack;
-import com.baidu.mobstat.am;
-import com.baidu.mobstat.bc;
+import com.baidu.mobstat.af;
+import com.baidu.mobstat.av;
 /* loaded from: classes6.dex */
 public class ActivityLifeTask {
     private static boolean a = false;
@@ -31,8 +31,8 @@ public class ActivityLifeTask {
     private static synchronized void a(Context context) {
         synchronized (ActivityLifeTask.class) {
             b = new AutoTrack.MyActivityLifeCallback(1);
-            d = new am.a();
-            c = new bc.a();
+            d = new af.a();
+            c = new av.a();
             e = new AutoTrack.MyActivityLifeCallback(2);
         }
     }

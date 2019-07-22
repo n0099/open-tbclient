@@ -11,70 +11,70 @@ import java.util.List;
 import tbclient.SimpleForum;
 /* loaded from: classes3.dex */
 public class a implements com.baidu.tieba.c.a {
-    private a.InterfaceC0292a eSY;
-    private com.baidu.tieba.write.transmit.model.a jEa;
-    private List<SimpleForum> jEb;
-    private boolean jEc;
+    private a.InterfaceC0289a eXZ;
+    private com.baidu.tieba.write.transmit.model.a jLc;
+    private List<SimpleForum> jLd;
+    private boolean jLe;
     private int mPrivateThread;
-    private ArrayList<TransmitForumData> dMb = new ArrayList<>();
-    private a.InterfaceC0430a jEd = new a.InterfaceC0430a() { // from class: com.baidu.tieba.write.a.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0430a
+    private ArrayList<TransmitForumData> dPJ = new ArrayList<>();
+    private a.InterfaceC0429a jLf = new a.InterfaceC0429a() { // from class: com.baidu.tieba.write.a.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
         public void onError() {
-            a.this.cwc();
+            a.this.czd();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0430a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
         public void g(List<SimpleForum> list, int i) {
-            a.this.jEb = list;
+            a.this.jLd = list;
             a.this.mPrivateThread = i;
-            a.this.aZG();
+            a.this.bbF();
         }
     };
 
     public a() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.jEa = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.jEa.a(this.jEd);
-        this.jEa.setRequestId(gen);
+        this.jLc = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.jLc.a(this.jLf);
+        this.jLc.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZG() {
-        this.dMb.clear();
-        if (v.Z(this.jEb) > 0) {
-            for (SimpleForum simpleForum : this.jEb) {
+    public void bbF() {
+        this.dPJ.clear();
+        if (v.Z(this.jLd) > 0) {
+            for (SimpleForum simpleForum : this.jLd) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
-                    this.dMb.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
+                    this.dPJ.add(new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar));
                 }
             }
         }
-        if (this.eSY != null) {
-            this.eSY.a(this.dMb, true, 2, this.mPrivateThread);
+        if (this.eXZ != null) {
+            this.eXZ.a(this.dPJ, true, 2, this.mPrivateThread);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwc() {
-        if (!this.jEc) {
-            if (this.eSY != null) {
-                this.eSY.a(null, false, 2, 0);
+    public void czd() {
+        if (!this.jLe) {
+            if (this.eXZ != null) {
+                this.eXZ.a(null, false, 2, 0);
             }
-            this.jEc = true;
+            this.jLe = true;
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void aZs() {
-        if (this.eSY != null && this.jEa != null) {
-            this.jEc = false;
-            this.jEa.setThreadTitle(null);
-            this.jEa.setThreadContent(null);
-            this.jEa.loadData();
+    public void bbr() {
+        if (this.eXZ != null && this.jLc != null) {
+            this.jLe = false;
+            this.jLc.setThreadTitle(null);
+            this.jLc.setThreadContent(null);
+            this.jLc.loadData();
         }
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0292a interfaceC0292a) {
-        this.eSY = interfaceC0292a;
+    public void a(a.InterfaceC0289a interfaceC0289a) {
+        this.eXZ = interfaceC0289a;
     }
 }

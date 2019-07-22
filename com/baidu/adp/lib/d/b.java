@@ -9,5 +9,5 @@ public interface b {
 
     void destroy();
 
-    void hS();
+    void ic();
 }

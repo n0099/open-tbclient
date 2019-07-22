@@ -14,7 +14,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    private final c fYg = new c();
+    private final c gdd = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         int i2;
@@ -35,10 +35,10 @@ public class a {
         for (ConcernData concernData : builder.thread_info) {
             if (concernData != null) {
                 bg bgVar = new bg();
-                bgVar.dL(true);
+                bgVar.dP(true);
                 bgVar.a(concernData.thread_list);
-                if ((k.V(bgVar) || l.V(bgVar)) && bgVar.getType() != bg.bIB) {
-                    int[] afo = bgVar.afo();
+                if ((k.V(bgVar) || l.V(bgVar)) && bgVar.getType() != bg.bJB) {
+                    int[] agq = bgVar.agq();
                     k ap = d.ap(bgVar);
                     if (ap != null) {
                         ap.tid = bgVar.getTid();
@@ -46,9 +46,9 @@ public class a {
                         d.a(ap);
                     }
                     if (k.V(bgVar)) {
-                        ap.uU("1");
+                        ap.vz("1");
                     } else if (l.V(bgVar)) {
-                        ap.uU("2");
+                        ap.vz("2");
                     }
                     if (ap != null && ap.isValid()) {
                         linkedList.add(ap);
@@ -58,11 +58,11 @@ public class a {
                         ao.tid = bgVar.getTid();
                         ao.position = i3;
                         if (ao instanceof k) {
-                            if (bgVar.aet() == 1) {
+                            if (bgVar.afv() == 1) {
                                 d.b(ao);
-                                ao.bIg = afo[0];
-                                ao.bIh = afo[1];
-                            } else if (bgVar.aet() >= 2) {
+                                ao.bJg = agq[0];
+                                ao.bJh = agq[1];
+                            } else if (bgVar.afv() >= 2) {
                                 d.c(ao);
                             } else {
                                 d.d(ao);
@@ -72,9 +72,9 @@ public class a {
                         }
                     }
                     if (k.V(bgVar)) {
-                        ao.uU("1");
+                        ao.vz("1");
                     } else if (l.V(bgVar)) {
-                        ao.uU("2");
+                        ao.vz("2");
                     }
                     if (ao != null && ao.isValid()) {
                         linkedList.add(ao);
@@ -86,9 +86,9 @@ public class a {
                         d.f(ap2);
                     }
                     if (k.V(bgVar)) {
-                        ap2.uU("1");
+                        ap2.vz("1");
                     } else if (l.V(bgVar)) {
-                        ap2.uU("2");
+                        ap2.vz("2");
                     }
                     if (ap2 != null && ap2.isValid()) {
                         linkedList.add(ap2);
@@ -101,9 +101,9 @@ public class a {
                             d.g(ap3);
                         }
                         if (k.V(bgVar)) {
-                            ap3.uU("1");
+                            ap3.vz("1");
                         } else if (l.V(bgVar)) {
-                            ap3.uU("2");
+                            ap3.vz("2");
                         }
                         if (ap3 != null && ap3.isValid()) {
                             linkedList.add(ap3);
@@ -115,10 +115,10 @@ public class a {
                         ap4.position = i3;
                         d.h(ap4);
                     }
-                    if (bgVar.getType() == bg.bIj) {
-                        ap4.uU("1");
+                    if (bgVar.getType() == bg.bJj) {
+                        ap4.vz("1");
                     } else if (l.V(bgVar)) {
-                        ap4.uU("2");
+                        ap4.vz("2");
                     }
                     if (ap4 != null && ap4.isValid()) {
                         linkedList.add(ap4);
@@ -130,7 +130,7 @@ public class a {
                 } else if (l.V(bgVar)) {
                     l lVar = new l(bgVar);
                     lVar.tid = bgVar.getTid();
-                    lVar.pt(concernData.source.intValue());
+                    lVar.pJ(concernData.source.intValue());
                     if (lVar.isValid()) {
                         linkedList.add(lVar);
                     }
@@ -138,7 +138,7 @@ public class a {
                     j jVar = new j(bgVar);
                     if (jVar != null) {
                         jVar.tid = bgVar.getTid();
-                        jVar.uU("3");
+                        jVar.vz("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -146,9 +146,9 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bgVar;
-                    kVar2.uU(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.vz(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
-                    kVar2.pt(concernData.source.intValue());
+                    kVar2.pJ(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
                         linkedList.add(kVar2);
                     }
@@ -159,8 +159,8 @@ public class a {
             }
             i3 = i2;
         }
-        this.fYg.cPW = linkedList;
-        return this.fYg;
+        this.gdd.cRs = linkedList;
+        return this.gdd;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -187,7 +187,7 @@ public class a {
                     }
                 }
             }
-            this.fYg.gez = v.Z(list) - Z;
+            this.gdd.gkK = v.Z(list) - Z;
         }
     }
 

@@ -10,99 +10,99 @@ import com.baidu.swan.apps.res.widget.dialog.g;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public class h extends g {
-    private int Kq;
-    private String aHA;
-    private boolean aHB;
-    private int aHS;
-    private Date aHr;
-    private Date aHs;
-    private BdTimePicker aOy;
-    private boolean aOz;
+    private int KC;
+    private Date aHZ;
+    private int aIA;
+    private Date aIa;
+    private String aIi;
+    private boolean aIj;
+    private BdTimePicker aPi;
+    private boolean aPj;
 
     h(Context context) {
         super(context, a.i.NoTitleDialog);
-        this.aOz = false;
+        this.aPj = false;
     }
 
     public void setHour(int i) {
-        this.aHS = i;
+        this.aIA = i;
     }
 
     public int getHour() {
-        return this.aOy.getHour();
+        return this.aPi.getHour();
     }
 
     public void setMinute(int i) {
-        this.Kq = i;
+        this.KC = i;
     }
 
     public int getMinute() {
-        return this.aOy.getMinute();
+        return this.aPi.getMinute();
     }
 
-    private void KD() {
-        this.aOy = new BdTimePicker(getContext());
+    private void Lq() {
+        this.aPi = new BdTimePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
-        this.aOy.setLayoutParams(layoutParams);
-        this.aOy.setScrollCycle(true);
-        this.aOy.setStartDate(this.aHr);
-        this.aOy.setmEndDate(this.aHs);
-        this.aOy.setHour(this.aHS);
-        this.aOy.setMinute(this.Kq);
-        this.aOy.Jb();
-        this.aOy.setDisabled(this.aHB);
+        this.aPi.setLayoutParams(layoutParams);
+        this.aPi.setScrollCycle(true);
+        this.aPi.setStartDate(this.aHZ);
+        this.aPi.setmEndDate(this.aIa);
+        this.aPi.setHour(this.aIA);
+        this.aPi.setMinute(this.KC);
+        this.aPi.JO();
+        this.aPi.setDisabled(this.aIj);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        if (this.aOz) {
+        if (this.aPj) {
             getWindow().addFlags(4718592);
         }
-        KD();
-        KF().ad(this.aOy);
+        Lq();
+        Ls().af(this.aPi);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
     public void show() {
-        TextView KB = KF().KB();
-        if (KB != null) {
-            KB.setBackgroundResource(a.e.aiapp_alertdialog_button_day_bg_all_selector);
+        TextView Lo = Ls().Lo();
+        if (Lo != null) {
+            Lo.setBackgroundResource(a.e.aiapp_alertdialog_button_day_bg_all_selector);
         }
-        if (this.aOy != null) {
-            if (this.aHS != this.aOy.getHour()) {
-                this.aOy.setHour(this.aHS);
+        if (this.aPi != null) {
+            if (this.aIA != this.aPi.getHour()) {
+                this.aPi.setHour(this.aIA);
             }
-            if (this.Kq != this.aOy.getMinute()) {
-                this.aOy.setMinute(this.Kq);
+            if (this.KC != this.aPi.getMinute()) {
+                this.aPi.setMinute(this.KC);
             }
         }
         super.show();
     }
 
     public void setFields(String str) {
-        this.aHA = str;
+        this.aIi = str;
     }
 
     public void setDisabled(boolean z) {
-        this.aHB = z;
+        this.aIj = z;
     }
 
     public void setStartDate(Date date) {
-        this.aHr = date;
+        this.aHZ = date;
     }
 
     public void setEndDate(Date date) {
-        this.aHs = date;
+        this.aIa = date;
     }
 
     /* loaded from: classes2.dex */
     public static class a extends g.a {
-        public Date aNS;
-        public Date aNT;
-        public Date aNU;
-        private String aNV;
-        private boolean aNW;
+        public Date aOC;
+        public Date aOD;
+        public Date aOE;
+        private String aOF;
+        private boolean aOG;
 
         public a(Context context) {
             super(context);
@@ -114,44 +114,44 @@ public class h extends g {
         }
 
         public a j(Date date) {
-            this.aNS = date;
+            this.aOC = date;
             return this;
         }
 
         public a k(Date date) {
-            this.aNT = date;
+            this.aOD = date;
             return this;
         }
 
         public a l(Date date) {
-            this.aNU = date;
+            this.aOE = date;
             return this;
         }
 
-        public a gx(String str) {
-            this.aNV = str;
+        public a gD(String str) {
+            this.aOF = str;
             return this;
         }
 
-        public a ch(boolean z) {
-            this.aNW = z;
+        public a ck(boolean z) {
+            this.aOG = z;
             return this;
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Aq() {
-            h hVar = (h) super.Aq();
-            hVar.setFields(this.aNV);
-            hVar.setDisabled(this.aNW);
-            if (this.aNU != null) {
-                hVar.setHour(this.aNU.getHours());
-                hVar.setMinute(this.aNU.getMinutes());
+        public g AX() {
+            h hVar = (h) super.AX();
+            hVar.setFields(this.aOF);
+            hVar.setDisabled(this.aOG);
+            if (this.aOE != null) {
+                hVar.setHour(this.aOE.getHours());
+                hVar.setMinute(this.aOE.getMinutes());
             }
-            if (this.aNS != null) {
-                hVar.setStartDate(this.aNS);
+            if (this.aOC != null) {
+                hVar.setStartDate(this.aOC);
             }
-            if (this.aNT != null) {
-                hVar.setEndDate(this.aNT);
+            if (this.aOD != null) {
+                hVar.setEndDate(this.aOD);
             }
             return hVar;
         }

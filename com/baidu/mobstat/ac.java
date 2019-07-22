@@ -1,38 +1,57 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-class ac implements h {
-    private ag a = ag.a;
+public class ac {
+    public boolean a;
+    public String b;
+    public boolean c;
 
-    @Override // com.baidu.mobstat.h
-    public void a(Context context, JSONObject jSONObject) {
-        this.a.a(context, jSONObject);
+    public ac() {
+        this.a = false;
+        this.b = "";
+        this.c = false;
     }
 
-    @Override // com.baidu.mobstat.h
-    public void a(Context context, String str) {
-        this.a.a(context, str);
+    public ac(JSONObject jSONObject) {
+        this.a = false;
+        this.b = "";
+        this.c = false;
+        try {
+            this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+        } catch (Exception e) {
+            bb.c().b(e);
+        }
+        try {
+            this.b = jSONObject.getString("SDK_PRODUCT_LY");
+        } catch (Exception e2) {
+            bb.c().b(e2);
+        }
+        try {
+            this.c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
+        } catch (Exception e3) {
+            bb.c().b(e3);
+        }
     }
 
-    @Override // com.baidu.mobstat.h
-    public void b(Context context, String str) {
-        this.a.b(context, str);
-    }
-
-    @Override // com.baidu.mobstat.h
-    public void a(Context context, long j) {
-        this.a.a(context, j);
-    }
-
-    @Override // com.baidu.mobstat.h
-    public boolean a(Context context) {
-        return this.a.a(context);
-    }
-
-    @Override // com.baidu.mobstat.h
-    public boolean b(Context context) {
-        return this.a.b(context);
+    public JSONObject a() {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("SDK_BPLUS_SERVICE", this.a);
+        } catch (JSONException e) {
+            bb.c().b(e);
+        }
+        try {
+            jSONObject.put("SDK_PRODUCT_LY", this.b);
+        } catch (JSONException e2) {
+            bb.c().b(e2);
+        }
+        try {
+            jSONObject.put("SDK_LOCAL_SERVER", this.c);
+        } catch (JSONException e3) {
+            bb.c().b(e3);
+        }
+        return jSONObject;
     }
 }

@@ -6,7 +6,7 @@ public class d {
 
     /* loaded from: classes2.dex */
     public static final class a {
-        public static String fC(int i) {
+        public static String fG(int i) {
             switch (i) {
                 case 1001:
                     return "system error";

@@ -5,7 +5,7 @@ import com.baidu.tieba.tbadkCore.FrsViewData;
 public interface k {
     void a(FrsViewData frsViewData, int i);
 
-    boolean sG(int i);
+    boolean sY(int i);
 
-    void sJ(int i);
+    void tb(int i);
 }

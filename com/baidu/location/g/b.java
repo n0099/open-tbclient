@@ -6,7 +6,6 @@ import android.telephony.TelephonyManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.android.bbalbs.common.util.DeviceId;
 import com.baidu.location.a.k;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes3.dex */
@@ -128,7 +127,7 @@ public class b {
             return;
         }
         try {
-            this.a = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+            this.a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
         } catch (Exception e2) {
             this.a = "NULL";
         }

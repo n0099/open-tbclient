@@ -40,8 +40,8 @@ public class d extends a {
             unitedSchemeEntity.result = bP(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "insert action parse model is null");
         } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aDm);
-            if (a != null && com.baidu.swan.apps.canvas.a.xn().a(context, a, c)) {
+            AbsoluteLayout a = a(unitedSchemeEntity, c.aDU);
+            if (a != null && com.baidu.swan.apps.canvas.a.xP().a(context, a, c)) {
                 z = true;
             }
             a(unitedSchemeEntity, callbackHandler, z);

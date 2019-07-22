@@ -10,48 +10,48 @@ import com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> implements BdSwitchView.a {
-    private f iLN;
-    private MsgRemindModel iLO;
-    private OfficialAccountPushModel iLP;
-    private MsgRemindModel.a iLQ = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
+    private f iSf;
+    private MsgRemindModel iSg;
+    private OfficialAccountPushModel iSh;
+    private MsgRemindModel.a iSi = new MsgRemindModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.1
         @Override // com.baidu.tieba.setting.model.MsgRemindModel.a
-        public void e(int i, boolean z, boolean z2) {
+        public void f(int i, boolean z, boolean z2) {
             if (i == 8) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.iLN.chP().mU();
-                        MsgReceiveActivity.this.iLN.qp(false);
-                        MsgReceiveActivity.this.iLN.qo(false);
+                        MsgReceiveActivity.this.iSf.ckG().nl();
+                        MsgReceiveActivity.this.iSf.qE(false);
+                        MsgReceiveActivity.this.iSf.qD(false);
                         return;
                     }
-                    MsgReceiveActivity.this.iLN.chP().mT();
-                    MsgReceiveActivity.this.iLN.qp(true);
-                    MsgReceiveActivity.this.iLN.qo(true);
+                    MsgReceiveActivity.this.iSf.ckG().nk();
+                    MsgReceiveActivity.this.iSf.qE(true);
+                    MsgReceiveActivity.this.iSf.qD(true);
                 }
             } else if (i == 9) {
                 if (!z) {
                     if (z2) {
-                        MsgReceiveActivity.this.iLN.chQ().mU();
+                        MsgReceiveActivity.this.iSf.ckH().nl();
                     } else {
-                        MsgReceiveActivity.this.iLN.chQ().mT();
+                        MsgReceiveActivity.this.iSf.ckH().nk();
                     }
                 }
             } else if (i == 7) {
                 if (z) {
-                    com.baidu.tbadk.coreExtra.messageCenter.d.anf().eJ(z2);
+                    com.baidu.tbadk.coreExtra.messageCenter.d.aok().eN(z2);
                 } else if (z2) {
-                    MsgReceiveActivity.this.iLN.chR().mU();
+                    MsgReceiveActivity.this.iSf.ckI().nl();
                 } else {
-                    MsgReceiveActivity.this.iLN.chR().mT();
+                    MsgReceiveActivity.this.iSf.ckI().nk();
                 }
             }
         }
     };
-    private OfficialAccountPushModel.a iLR = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
+    private OfficialAccountPushModel.a iSj = new OfficialAccountPushModel.a() { // from class: com.baidu.tieba.setting.more.MsgReceiveActivity.2
         @Override // com.baidu.tieba.setting.officialAccountPush.OfficialAccountPushModel.a
         public void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str) {
-            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.iLN != null) {
-                MsgReceiveActivity.this.iLN.aC(arrayList);
+            if (i == OfficialAccountPushModel.NET_SUCCESS && MsgReceiveActivity.this.iSf != null) {
+                MsgReceiveActivity.this.iSf.aC(arrayList);
             }
         }
     };
@@ -60,39 +60,39 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iLN = new f(this);
-        this.iLN.init();
-        this.iLO = new MsgRemindModel(this);
+        this.iSf = new f(this);
+        this.iSf.init();
+        this.iSg = new MsgRemindModel(this);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.iLN.bCl()) {
+        if (view == this.iSf.bES()) {
             finish();
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
-        if (view == this.iLN.chP()) {
+        if (view == this.iSf.ckG()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLO.a(8, true, this.iLQ);
-                this.iLN.qp(true);
-                this.iLN.qo(true);
+                this.iSg.a(8, true, this.iSi);
+                this.iSf.qE(true);
+                this.iSf.qD(true);
                 return;
             }
-            this.iLO.a(8, false, this.iLQ);
-            this.iLN.qp(false);
-            this.iLN.qo(false);
-        } else if (view == this.iLN.chQ()) {
+            this.iSg.a(8, false, this.iSi);
+            this.iSf.qE(false);
+            this.iSf.qD(false);
+        } else if (view == this.iSf.ckH()) {
             if (switchState == BdSwitchView.SwitchState.ON) {
-                this.iLO.a(9, true, this.iLQ);
+                this.iSg.a(9, true, this.iSi);
             } else {
-                this.iLO.a(9, false, this.iLQ);
+                this.iSg.a(9, false, this.iSi);
             }
-        } else if (view == this.iLN.chR()) {
-            this.iLO.a(7, switchState == BdSwitchView.SwitchState.OFF, this.iLQ);
+        } else if (view == this.iSf.ckI()) {
+            this.iSg.a(7, switchState == BdSwitchView.SwitchState.OFF, this.iSi);
         }
     }
 
@@ -100,25 +100,25 @@ public class MsgReceiveActivity extends BaseActivity<MsgReceiveActivity> impleme
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.iLN.onChangeSkinType(i);
+        this.iSf.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.iLP == null) {
-            this.iLP = new OfficialAccountPushModel(this.iLR);
+        if (this.iSh == null) {
+            this.iSh = new OfficialAccountPushModel(this.iSj);
         }
-        this.iLP.ciQ();
+        this.iSh.aVN();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.iLP != null) {
-            this.iLP.onDestroy();
+        if (this.iSh != null) {
+            this.iSh.onDestroy();
         }
     }
 }

@@ -5,24 +5,24 @@ import com.baidu.adp.lib.voice.h;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class e extends MediaPlayer implements c {
-    private static Object cdS = new Object();
-    private static e cdT = null;
-    private boolean cdU = false;
-    private boolean cdV = true;
+    private static Object ceV = new Object();
+    private static e ceW = null;
+    private boolean ceX = false;
+    private boolean ceY = true;
     private int errorNo = -1;
 
     private e() {
     }
 
-    public static e akC() {
-        if (cdT == null) {
-            synchronized (cdS) {
-                if (cdT == null) {
-                    cdT = new e();
+    public static e alH() {
+        if (ceW == null) {
+            synchronized (ceV) {
+                if (ceW == null) {
+                    ceW = new e();
                 }
             }
         }
-        return cdT;
+        return ceW;
     }
 
     public void setStreamType(int i) {
@@ -30,14 +30,14 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean oK(String str) {
+    public boolean pb(String str) {
         this.errorNo = -1;
-        if (!this.cdU) {
-            this.cdV = true;
+        if (!this.ceX) {
+            this.ceY = true;
             reset();
             try {
                 setDataSource(str);
-                setStreamType(h.EK);
+                setStreamType(h.ES);
                 try {
                     prepare();
                 } catch (IOException e) {
@@ -59,54 +59,54 @@ public class e extends MediaPlayer implements c {
                 return false;
             }
         }
-        this.cdU = true;
+        this.ceX = true;
         return true;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aky() {
+    public void alD() {
         start();
-        this.cdV = false;
+        this.ceY = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void aku() {
-        if (!this.cdV) {
+    public void alz() {
+        if (!this.ceY) {
             stop();
-            this.cdV = true;
-            this.cdU = false;
+            this.ceY = true;
+            this.ceX = false;
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void akz() {
+    public void alE() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void akA() {
+    public void alF() {
         reset();
-        this.cdU = false;
-        this.cdV = true;
+        this.ceX = false;
+        this.ceY = true;
         this.errorNo = -1;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public int ku() {
+    public int kF() {
         return getCurrentPosition();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean akB() {
-        return this.cdU;
+    public boolean alG() {
+        return this.ceX;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
     public void seek(int i) {
-        jj(i);
+        jp(i);
     }
 
-    public void jj(int i) {
+    public void jp(int i) {
         try {
             seekTo(i);
         } catch (Exception e) {

@@ -11,26 +11,26 @@ public class ar extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hy() {
+    protected String[] hI() {
         return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hz() {
+    protected int hJ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hA() {
+    protected int hK() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hB() {
+    protected int hL() {
         return 10;
     }
 
-    public static boolean iE() {
-        return com.baidu.adp.lib.b.d.hI().ay("android_net_type_fixed") == 1;
+    public static boolean iN() {
+        return com.baidu.adp.lib.b.d.hS().az("android_net_type_fixed") == 1;
     }
 }

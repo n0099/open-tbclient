@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.location.a;
 import com.baidu.tieba.tbadkCore.location.c;
@@ -17,43 +17,43 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class b extends BaseAdapter {
     private ArrayList<Object> data;
-    private SelectLocationActivity hec;
+    private SelectLocationActivity hkp;
     private boolean isShowLocation;
 
     public b(SelectLocationActivity selectLocationActivity) {
         this.isShowLocation = true;
-        this.hec = selectLocationActivity;
-        com.baidu.tieba.tbadkCore.location.a locationData = c.cnc().getLocationData();
-        this.isShowLocation = c.cnc().cnd() ? false : true;
+        this.hkp = selectLocationActivity;
+        com.baidu.tieba.tbadkCore.location.a locationData = c.cpV().getLocationData();
+        this.isShowLocation = c.cpV().cpW() ? false : true;
         if (locationData != null) {
-            this.data = j(locationData.cnb(), locationData.cna());
+            this.data = j(locationData.cpU(), locationData.cpT());
         }
     }
 
-    private ArrayList<Object> j(List<a.C0410a> list, String str) {
+    private ArrayList<Object> j(List<a.C0409a> list, String str) {
         if (list == null || list.size() <= 0) {
             return null;
         }
         ArrayList<Object> arrayList = new ArrayList<>();
-        a.C0410a c0410a = null;
-        for (a.C0410a c0410a2 : list) {
-            if (c0410a2 != null && !TextUtils.isEmpty(c0410a2.getName())) {
-                if (TextUtils.equals(c0410a2.getName(), str)) {
-                    c0410a = c0410a2;
+        a.C0409a c0409a = null;
+        for (a.C0409a c0409a2 : list) {
+            if (c0409a2 != null && !TextUtils.isEmpty(c0409a2.getName())) {
+                if (TextUtils.equals(c0409a2.getName(), str)) {
+                    c0409a = c0409a2;
                 } else {
-                    arrayList.add(c0410a2);
+                    arrayList.add(c0409a2);
                 }
             }
         }
-        if (c0410a != null) {
-            arrayList.add(0, c0410a);
+        if (c0409a != null) {
+            arrayList.add(0, c0409a);
         } else {
-            a.C0410a c0410a3 = new a.C0410a();
-            c0410a3.setName(str);
-            arrayList.add(0, c0410a3);
+            a.C0409a c0409a3 = new a.C0409a();
+            c0409a3.setName(str);
+            arrayList.add(0, c0409a3);
         }
-        if (this.hec != null) {
-            arrayList.add(0, this.hec.getPageContext().getString(R.string.select_position_no_location));
+        if (this.hkp != null) {
+            arrayList.add(0, this.hkp.getPageContext().getString(R.string.select_position_no_location));
         }
         return arrayList;
     }
@@ -64,7 +64,7 @@ public class b extends BaseAdapter {
         if (item instanceof String) {
             return 0;
         }
-        if (item instanceof a.C0410a) {
+        if (item instanceof a.C0409a) {
             return 1;
         }
         return 2;
@@ -113,43 +113,43 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0354b {
-        View eim;
-        ImageView hed;
+    public static class C0353b {
+        View enc;
+        ImageView hkq;
         TextView title;
 
-        private C0354b() {
+        private C0353b() {
         }
     }
 
     private View c(View view, int i, boolean z) {
-        C0354b c0354b;
+        C0353b c0353b;
         View view2;
         Object item = getItem(i);
         if (item instanceof String) {
             String str = (String) item;
-            if (view == null || !(view.getTag() instanceof C0354b)) {
-                View inflate = LayoutInflater.from(this.hec.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
-                c0354b = new C0354b();
-                c0354b.title = (TextView) inflate.findViewById(R.id.select_location_title);
-                c0354b.hed = (ImageView) inflate.findViewById(R.id.select_location_tick);
-                c0354b.eim = inflate.findViewById(R.id.select_location_line);
-                inflate.setTag(c0354b);
+            if (view == null || !(view.getTag() instanceof C0353b)) {
+                View inflate = LayoutInflater.from(this.hkp.getPageContext().getPageActivity()).inflate(R.layout.select_location_nolocation_item, (ViewGroup) null);
+                c0353b = new C0353b();
+                c0353b.title = (TextView) inflate.findViewById(R.id.select_location_title);
+                c0353b.hkq = (ImageView) inflate.findViewById(R.id.select_location_tick);
+                c0353b.enc = inflate.findViewById(R.id.select_location_line);
+                inflate.setTag(c0353b);
                 view2 = inflate;
             } else {
-                c0354b = (C0354b) view.getTag();
+                c0353b = (C0353b) view.getTag();
                 view2 = view;
             }
             if (i == 0 && !this.isShowLocation) {
-                c0354b.hed.setVisibility(0);
-                al.c(c0354b.hed, (int) R.drawable.icon_site_ok);
+                c0353b.hkq.setVisibility(0);
+                am.c(c0353b.hkq, (int) R.drawable.icon_site_ok);
             } else {
-                c0354b.hed.setVisibility(4);
+                c0353b.hkq.setVisibility(4);
             }
-            c0354b.title.setText(str);
-            al.l(c0354b.eim, R.color.cp_bg_line_b);
-            al.f(c0354b.title, R.color.cp_link_tip_a, 1);
-            al.k(view2, R.drawable.home_recommend_item_bg);
+            c0353b.title.setText(str);
+            am.l(c0353b.enc, R.color.cp_bg_line_b);
+            am.f(c0353b.title, R.color.cp_link_tip_a, 1);
+            am.k(view2, R.drawable.home_recommend_item_bg);
             return view2;
         }
         return null;
@@ -158,9 +158,9 @@ public class b extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        TextView bmf;
-        TextView hdV;
-        ImageView hed;
+        TextView bmT;
+        TextView hki;
+        ImageView hkq;
 
         private a() {
         }
@@ -169,32 +169,32 @@ public class b extends BaseAdapter {
     private View d(View view, int i, boolean z) {
         a aVar;
         Object item = getItem(i);
-        if (item instanceof a.C0410a) {
-            a.C0410a c0410a = (a.C0410a) item;
-            if (view == null || !(view.getTag() instanceof C0354b)) {
-                view = LayoutInflater.from(this.hec.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
+        if (item instanceof a.C0409a) {
+            a.C0409a c0409a = (a.C0409a) item;
+            if (view == null || !(view.getTag() instanceof C0353b)) {
+                view = LayoutInflater.from(this.hkp.getPageContext().getPageActivity()).inflate(R.layout.select_location_address_item, (ViewGroup) null);
                 a aVar2 = new a();
-                aVar2.bmf = (TextView) view.findViewById(R.id.select_location_name);
-                aVar2.hdV = (TextView) view.findViewById(R.id.select_location_address);
-                aVar2.hed = (ImageView) view.findViewById(R.id.select_location_tick);
+                aVar2.bmT = (TextView) view.findViewById(R.id.select_location_name);
+                aVar2.hki = (TextView) view.findViewById(R.id.select_location_address);
+                aVar2.hkq = (ImageView) view.findViewById(R.id.select_location_tick);
                 view.setTag(aVar2);
                 aVar = aVar2;
             } else {
                 aVar = (a) view.getTag();
             }
-            aVar.hdV.setText(c0410a.getAddr());
+            aVar.hki.setText(c0409a.getAddr());
             if (this.isShowLocation && i == 1) {
-                aVar.hed.setVisibility(0);
-                if (TextUtils.isEmpty(c0410a.getAddr())) {
-                    aVar.hdV.setText(R.string.select_location_current);
+                aVar.hkq.setVisibility(0);
+                if (TextUtils.isEmpty(c0409a.getAddr())) {
+                    aVar.hki.setText(R.string.select_location_current);
                 }
             } else {
-                aVar.hed.setVisibility(4);
+                aVar.hkq.setVisibility(4);
             }
-            aVar.bmf.setText(c0410a.getName());
-            this.hec.getLayoutMode().setNightMode(z);
-            this.hec.getLayoutMode().onModeChanged(view);
-            al.k(view, R.drawable.home_recommend_item_bg);
+            aVar.bmT.setText(c0409a.getName());
+            this.hkp.getLayoutMode().setNightMode(z);
+            this.hkp.getLayoutMode().onModeChanged(view);
+            am.k(view, R.drawable.home_recommend_item_bg);
             return view;
         }
         return null;

@@ -11,14 +11,14 @@ import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class a {
-    private PushDialogActivity ivO;
+    private PushDialogActivity iCf;
     private long taskId;
     private String tid;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(PushDialogActivity pushDialogActivity) {
-        this.ivO = pushDialogActivity;
-        this.ivO.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
+        this.iCf = pushDialogActivity;
+        this.iCf.registerListener(new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614) { // from class: com.baidu.tieba.pushdialog.a.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage instanceof PushDialogHttpResMsg) {
@@ -28,12 +28,12 @@ public class a {
                 }
             }
         });
-        Intent intent = this.ivO.getIntent();
+        Intent intent = this.iCf.getIntent();
         if (intent != null) {
             this.tid = intent.getStringExtra("thread_id");
             this.taskId = intent.getLongExtra("task_id", 0L);
             if (StringUtils.isNull(this.tid)) {
-                this.ivO.finish();
+                this.iCf.finish();
             }
         }
     }
@@ -42,8 +42,8 @@ public class a {
     public void loadData() {
         long c = com.baidu.adp.lib.g.b.c(this.tid, 0L);
         if (c == 0) {
-            if (this.ivO != null) {
-                this.ivO.a(false, null);
+            if (this.iCf != null) {
+                this.iCf.a(false, null);
                 return;
             }
             return;
@@ -56,15 +56,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogSocketResMsg pushDialogSocketResMsg) {
-        if (this.ivO != null) {
-            this.ivO.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
+        if (this.iCf != null) {
+            this.iCf.a(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PushDialogHttpResMsg pushDialogHttpResMsg) {
-        if (this.ivO != null) {
-            this.ivO.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
+        if (this.iCf != null) {
+            this.iCf.a(pushDialogHttpResMsg.getError() == 0, pushDialogHttpResMsg.getData());
         }
     }
 

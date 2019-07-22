@@ -3,11 +3,13 @@ package com.baidu.swan.games.audio.b;
 import android.media.MediaPlayer;
 /* loaded from: classes2.dex */
 public interface c extends com.baidu.swan.games.audio.a {
-    boolean Qj();
+    boolean Rb();
 
-    void cJ(boolean z);
+    void a(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
 
-    void setOnBufferingUpdateListener(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
+    void a(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
+
+    void cM(boolean z);
 
     void setOnCompletionListener(MediaPlayer.OnCompletionListener onCompletionListener);
 
@@ -16,8 +18,6 @@ public interface c extends com.baidu.swan.games.audio.a {
     void setOnInfoListener(MediaPlayer.OnInfoListener onInfoListener);
 
     void setOnPreparedListener(MediaPlayer.OnPreparedListener onPreparedListener);
-
-    void setOnSeekCompleteListener(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
 
     void setSrc(String str) throws Exception;
 

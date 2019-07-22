@@ -7,16 +7,16 @@ import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.widget.CountDownTextView;
 /* loaded from: classes3.dex */
 public class e {
-    protected final String iFv;
-    protected com.baidu.tieba.recapp.report.b iFw;
-    protected AdvertAppInfo iFx;
-    protected com.baidu.tieba.lego.card.b.b iFy;
+    protected final String iLN;
+    protected com.baidu.tieba.recapp.report.b iLO;
+    protected AdvertAppInfo iLP;
+    protected com.baidu.tieba.lego.card.b.b iLQ;
     public TbPageContext mContext;
     protected final View mRootView;
 
     public e(View view, String str) {
         this.mRootView = view;
-        this.iFv = str;
+        this.iLN = str;
     }
 
     public void a(AdCard.f fVar) {
@@ -26,28 +26,28 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final <T> T zg(int i) {
+    public final <T> T zL(int i) {
         return (T) this.mRootView.findViewById(i);
     }
 
-    public void cfL() {
+    public void ciC() {
         this.mRootView.setVisibility(0);
-        if (this.iFw != null) {
-            this.iFw.yZ(303);
-            com.baidu.tieba.recapp.report.c.cfH().a(this.iFw);
+        if (this.iLO != null) {
+            this.iLO.zE(303);
+            com.baidu.tieba.recapp.report.c.ciy().a(this.iLO);
         }
     }
 
-    public void cfM() {
+    public void ciD() {
         this.mRootView.setVisibility(8);
     }
 
     public void e(com.baidu.tieba.recapp.report.b bVar) {
-        this.iFw = bVar;
+        this.iLO = bVar;
     }
 
     public void c(com.baidu.tieba.lego.card.b.b bVar) {
-        this.iFy = bVar;
+        this.iLQ = bVar;
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
@@ -60,10 +60,10 @@ public class e {
     public void setTimeoutListener(CountDownTextView.b bVar) {
     }
 
-    public void qe(boolean z) {
+    public void qt(boolean z) {
     }
 
     public void setAdvertAppInfo(AdvertAppInfo advertAppInfo) {
-        this.iFx = advertAppInfo;
+        this.iLP = advertAppInfo;
     }
 }

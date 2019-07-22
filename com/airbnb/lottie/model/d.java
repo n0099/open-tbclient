@@ -11,14 +11,14 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int nJ;
-    public int nK;
-    double nL;
-    public double nM;
+    int nI;
+    public int nJ;
+    double nK;
+    public double nL;
+    @ColorInt
+    public int nM;
     public boolean nN;
     public int size;
-    @ColorInt
-    public int strokeColor;
     public int strokeWidth;
     public String text;
 
@@ -26,12 +26,12 @@ public class d {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.nJ = i2;
-        this.nK = i3;
-        this.nL = d;
-        this.nM = d2;
+        this.nI = i2;
+        this.nJ = i3;
+        this.nK = d;
+        this.nL = d2;
         this.color = i4;
-        this.strokeColor = i5;
+        this.nM = i5;
         this.strokeWidth = i6;
         this.nN = z;
     }
@@ -58,7 +58,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.nL);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.nJ) * 31) + this.nK) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.nK);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.nI) * 31) + this.nJ) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

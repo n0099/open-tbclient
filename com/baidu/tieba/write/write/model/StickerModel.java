@@ -12,12 +12,12 @@ import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class StickerModel extends BdBaseModel {
-    private a jOu;
-    private com.baidu.adp.framework.listener.a jOv;
+    private a jVt;
+    private com.baidu.adp.framework.listener.a jVu;
 
     public StickerModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.jOv = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
+        this.jVu = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_STICKET_LIST, 309475) { // from class: com.baidu.tieba.write.write.model.StickerModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null) {
@@ -28,23 +28,23 @@ public class StickerModel extends BdBaseModel {
                         } else if (responsedMessage instanceof ResponseSocketGetStickerMessage) {
                             list = ((ResponseSocketGetStickerMessage) responsedMessage).getUrlList();
                         }
-                        if (StickerModel.this.jOu != null) {
-                            StickerModel.this.jOu.ez(list);
+                        if (StickerModel.this.jVt != null) {
+                            StickerModel.this.jVt.eC(list);
                         }
                     }
                 }
             }
         };
-        registerListener(this.jOv);
+        registerListener(this.jVu);
     }
 
     public void a(a aVar) {
-        this.jOu = aVar;
+        this.jVt = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean LoadData() {
-        if (j.jG()) {
+        if (j.jQ()) {
             com.baidu.tieba.tbadkCore.a.a.a(309475, ResponseSocketGetStickerMessage.class, false, false);
             com.baidu.tieba.tbadkCore.a.a.a(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
             RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();

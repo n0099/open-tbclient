@@ -2,7 +2,7 @@ package com.baidu.sofire;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public SharedPreferences a;
     public SharedPreferences.Editor b;
@@ -20,10 +20,5 @@ public final class g {
 
     public final String a() {
         return this.a.getString("xytk", "");
-    }
-
-    public final void a(String str) {
-        this.b.putString("xytk_m", str);
-        this.b.commit();
     }
 }

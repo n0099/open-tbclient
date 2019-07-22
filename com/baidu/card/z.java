@@ -7,83 +7,83 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes3.dex */
 public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
-    private x<T> WO;
-    private s WP;
-    private com.baidu.tieba.card.ab<T> WQ;
-    private m WR;
-    private w WS;
+    private x<T> Xj;
+    private s Xk;
+    private com.baidu.tieba.card.ab<T> Xl;
+    private m Xm;
+    private w Xn;
     private BdUniqueId mId;
 
     public z(x<T> xVar) {
         super(xVar.getView());
-        this.WQ = null;
-        this.WO = xVar;
+        this.Xl = null;
+        this.Xj = xVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v.a
     public View getView() {
-        return this.WO.getView();
+        return this.Xj.getView();
     }
 
-    public x<T> qs() {
-        return this.WO;
+    public x<T> qP() {
+        return this.Xj;
     }
 
-    public s qt() {
-        if (this.WP == null) {
-            this.WP = new s(((TbPageContextSupport) this.WO.getView().getContext()).getPageContext());
-            this.WP.VZ.setUniqueId(this.mId);
+    public s qQ() {
+        if (this.Xk == null) {
+            this.Xk = new s(((TbPageContextSupport) this.Xj.getView().getContext()).getPageContext());
+            this.Xk.Wu.setUniqueId(this.mId);
         }
-        this.WO.a(this.WP);
-        return this.WP;
+        this.Xj.a(this.Xk);
+        return this.Xk;
     }
 
-    public m qu() {
-        return aA(true);
+    public m qR() {
+        return aD(true);
     }
 
-    public m aA(boolean z) {
-        if (this.WR == null) {
-            this.WR = new m(this.WO.getContext());
+    public m aD(boolean z) {
+        if (this.Xm == null) {
+            this.Xm = new m(this.Xj.getContext());
         }
-        this.WR.g(this.mId);
-        this.WR.ay(z);
-        this.WO.a(this.WR);
-        return this.WR;
+        this.Xm.g(this.mId);
+        this.Xm.aB(z);
+        this.Xj.a(this.Xm);
+        return this.Xm;
     }
 
-    public w qv() {
-        if (this.WS == null) {
-            this.WS = new w(((TbPageContextSupport) this.WO.getView().getContext()).getPageContext());
-            this.WS.setPageId(this.mId);
+    public w qS() {
+        if (this.Xn == null) {
+            this.Xn = new w(((TbPageContextSupport) this.Xj.getView().getContext()).getPageContext());
+            this.Xn.setPageId(this.mId);
         }
-        this.WO.a(this.WS);
-        return this.WS;
+        this.Xj.a(this.Xn);
+        return this.Xn;
     }
 
     public void a(T t) {
         boolean z = false;
         if (t == null) {
-            this.WO.getView().setVisibility(8);
+            this.Xj.getView().setVisibility(8);
             return;
         }
-        this.WO.getView().setVisibility(0);
-        if (this.WP != null && this.WP.VZ != null) {
-            if (!t.isSelf() && t.abx() != null) {
-                this.WP.C(t.abx());
-                this.WP.VZ.setVisibility(0);
+        this.Xj.getView().setVisibility(0);
+        if (this.Xk != null && this.Xk.Wu != null) {
+            if (!t.isSelf() && t.acz() != null) {
+                this.Xk.C(t.acz());
+                this.Xk.Wu.setVisibility(0);
                 z = true;
-            } else if (this.WP != null && this.WP.VZ != null) {
-                this.WP.VZ.setVisibility(8);
+            } else if (this.Xk != null && this.Xk.Wu != null) {
+                this.Xk.Wu.setVisibility(8);
             }
         }
-        this.WO.b((x<T>) t);
-        if (this.WS != null) {
-            this.WS.az(z);
-            this.WS.C(t.abv());
+        this.Xj.b((x<T>) t);
+        if (this.Xn != null) {
+            this.Xn.aC(z);
+            this.Xn.C(t.acx());
         }
-        if (this.WR != null) {
-            this.WR.C(t.abv());
+        if (this.Xm != null) {
+            this.Xm.C(t.acx());
         }
     }
 
@@ -92,6 +92,6 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
     }
 
     public void c(com.baidu.tieba.card.ab<T> abVar) {
-        this.WO.a(abVar);
+        this.Xj.a(abVar);
     }
 }

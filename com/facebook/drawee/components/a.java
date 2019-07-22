@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a jTW = null;
-    private final Runnable jTY = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a kba = null;
+    private final Runnable kbc = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.cCG();
-            for (InterfaceC0451a interfaceC0451a : a.this.jTX) {
-                interfaceC0451a.release();
+            a.cFH();
+            for (InterfaceC0450a interfaceC0450a : a.this.kbb) {
+                interfaceC0450a.release();
             }
-            a.this.jTX.clear();
+            a.this.kbb.clear();
         }
     };
-    private final Set<InterfaceC0451a> jTX = new HashSet();
+    private final Set<InterfaceC0450a> kbb = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0451a {
+    public interface InterfaceC0450a {
         void release();
     }
 
-    public static synchronized a cCF() {
+    public static synchronized a cFG() {
         a aVar;
         synchronized (a.class) {
-            if (jTW == null) {
-                jTW = new a();
+            if (kba == null) {
+                kba = new a();
             }
-            aVar = jTW;
+            aVar = kba;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0451a interfaceC0451a) {
-        cCG();
-        if (this.jTX.add(interfaceC0451a) && this.jTX.size() == 1) {
-            this.mUiHandler.post(this.jTY);
+    public void a(InterfaceC0450a interfaceC0450a) {
+        cFH();
+        if (this.kbb.add(interfaceC0450a) && this.kbb.size() == 1) {
+            this.mUiHandler.post(this.kbc);
         }
     }
 
-    public void b(InterfaceC0451a interfaceC0451a) {
-        cCG();
-        this.jTX.remove(interfaceC0451a);
+    public void b(InterfaceC0450a interfaceC0450a) {
+        cFH();
+        this.kbb.remove(interfaceC0450a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cCG() {
+    public static void cFH() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

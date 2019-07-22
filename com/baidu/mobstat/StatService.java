@@ -1,12 +1,10 @@
 package com.baidu.mobstat;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
-import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -15,8 +13,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.am;
-import com.baidu.mobstat.bc;
+import com.baidu.mobstat.af;
+import com.baidu.mobstat.av;
 import java.util.ArrayList;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
@@ -67,80 +65,9 @@ public class StatService {
         synchronized (StatService.class) {
             if (a(activity, "onResume(...)")) {
                 if (!a(Activity.class, "onResume")) {
-                    bj.c().c("[WARNING] onResume must be called in Activity.onResume()");
+                    bc.c().c("[WARNING] onResume must be called in Activity.onResume()");
                 } else {
                     BDStatCore.instance().onResume(activity, false);
-                }
-            }
-        }
-    }
-
-    @Deprecated
-    public static synchronized void onResume(Fragment fragment) {
-        synchronized (StatService.class) {
-            if (fragment == null) {
-                bj.c().c("[WARNING] onResume parameter invalid");
-            } else if (!a(Fragment.class, "onResume")) {
-                bj.c().c("[WARNING] onResume must be called in Fragment.onResume()");
-            } else if (fragment.getActivity() == null) {
-                bj.c().c("[WARNING] can not get FragmentActivity, fragment may not attached to activity");
-            } else {
-                BDStatCore.instance().onResume(fragment);
-            }
-        }
-    }
-
-    @TargetApi(11)
-    @Deprecated
-    public static synchronized void onResume(android.app.Fragment fragment) {
-        synchronized (StatService.class) {
-            if (fragment == null) {
-                bj.c().c("[WARNING] onResume parameter invalid");
-            } else if (!a(fragment.getClass(), "onResume")) {
-                bj.c().c("[WARNING] onResume must be called in Fragment.onResume()");
-            } else if (fragment.getActivity() == null) {
-                bj.c().c("[WARNING] can not get Activity, fragment may not attached to activity");
-            } else {
-                BDStatCore.instance().onResume(fragment);
-            }
-        }
-    }
-
-    public static synchronized void onPageStart(Context context, String str) {
-        synchronized (StatService.class) {
-            if (context != null) {
-                if (!TextUtils.isEmpty(str)) {
-                    BDStatCore.instance().onPageStart(context, str);
-                }
-            }
-            bj.c().c("[WARNING] onPageStart parameter invalid");
-        }
-    }
-
-    private static synchronized void a(Context context, String str, ExtraInfo extraInfo) {
-        synchronized (StatService.class) {
-            if (context != null) {
-                if (!TextUtils.isEmpty(str)) {
-                    BDStatCore.instance().onPageEnd(context, str, extraInfo);
-                }
-            }
-            bj.c().c("[WARNING] onPageEnd parameter invalid");
-        }
-    }
-
-    public static synchronized void onPageEnd(Context context, String str) {
-        synchronized (StatService.class) {
-            a(context, str, null);
-        }
-    }
-
-    public static synchronized void onPause(Activity activity, ExtraInfo extraInfo) {
-        synchronized (StatService.class) {
-            if (a(activity, "onPause(...)")) {
-                if (!a(Activity.class, "onPause")) {
-                    bj.c().c("[WARNING] onPause must be called in Activity.onPause");
-                } else {
-                    BDStatCore.instance().onPause(activity, false, extraInfo);
                 }
             }
         }
@@ -152,30 +79,43 @@ public class StatService {
         }
     }
 
-    @Deprecated
-    public static synchronized void onPause(Fragment fragment) {
+    public static synchronized void onPause(Activity activity, ExtraInfo extraInfo) {
         synchronized (StatService.class) {
-            if (fragment == null) {
-                bj.c().c("[WARNING] onPause parameter invalid");
-            } else if (!a(Fragment.class, "onPause")) {
-                bj.c().c("[WARNING] onPause must be called in Fragment.onPause()");
-            } else {
-                BDStatCore.instance().onPause(fragment);
+            if (a(activity, "onPause(...)")) {
+                if (!a(Activity.class, "onPause")) {
+                    bc.c().c("[WARNING] onPause must be called in Activity.onPause");
+                } else {
+                    BDStatCore.instance().onPause(activity, false, extraInfo);
+                }
             }
         }
     }
 
-    @TargetApi(11)
-    @Deprecated
-    public static synchronized void onPause(android.app.Fragment fragment) {
+    public static synchronized void onPageStart(Context context, String str) {
         synchronized (StatService.class) {
-            if (fragment == null) {
-                bj.c().c("[WARNING] onPause parameter invalid");
-            } else if (!a(fragment.getClass(), "onPause")) {
-                bj.c().c("[WARNING] onPause must be called in android.app.Fragment.onPause()");
-            } else {
-                BDStatCore.instance().onPause(fragment);
+            if (context != null) {
+                if (!TextUtils.isEmpty(str)) {
+                    BDStatCore.instance().onPageStart(context, str);
+                }
             }
+            bc.c().c("[WARNING] onPageStart parameter invalid");
+        }
+    }
+
+    public static synchronized void onPageEnd(Context context, String str) {
+        synchronized (StatService.class) {
+            a(context, str, null);
+        }
+    }
+
+    private static synchronized void a(Context context, String str, ExtraInfo extraInfo) {
+        synchronized (StatService.class) {
+            if (context != null) {
+                if (!TextUtils.isEmpty(str)) {
+                    BDStatCore.instance().onPageEnd(context, str, extraInfo);
+                }
+            }
+            bc.c().c("[WARNING] onPageEnd parameter invalid");
         }
     }
 
@@ -193,9 +133,9 @@ public class StatService {
 
     public static void start(Context context) {
         if (a(context, "start(...)")) {
-            boolean a2 = cd.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
-                bj.c().c("[WARNING] start 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
+                bc.c().c("[WARNING] start 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
             BDStatCore.instance().onSessionStart(context, a2);
         }
@@ -204,9 +144,9 @@ public class StatService {
     @Deprecated
     public static void setSendLogStrategy(Context context, SendStrategyEnum sendStrategyEnum, int i, boolean z) {
         if (a(context, "setSendLogStrategy(...)")) {
-            boolean a2 = cd.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
-                bj.c().c("[WARNING] setSendLogStrategy 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
+                bc.c().c("[WARNING] setSendLogStrategy 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
             BDStatCore.instance().onSessionStart(context, a2);
             LogSender.instance().setSendLogStrategy(context.getApplicationContext(), sendStrategyEnum, i, z);
@@ -227,11 +167,11 @@ public class StatService {
 
     private static void a(Context context, String str, String str2, int i, ExtraInfo extraInfo, Map<String, String> map) {
         if (a(context, "onEvent(...)") && !TextUtils.isEmpty(str)) {
-            boolean a2 = cd.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
-                bj.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
+                bc.c().c("[WARNING] onEvent 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i, extraInfo, cd.a(map), a2);
+            BDStatCore.instance().onEvent(context.getApplicationContext(), str, str2, i, extraInfo, bx.a(map), a2);
         }
     }
 
@@ -267,21 +207,21 @@ public class StatService {
 
     private static void a(Context context, String str, String str2, ExtraInfo extraInfo, Map<String, String> map) {
         if (a(context, "onEventEnd(...)") && !TextUtils.isEmpty(str)) {
-            BDStatCore.instance().onEventEnd(context.getApplicationContext(), str, str2, extraInfo, cd.a(map));
+            BDStatCore.instance().onEventEnd(context.getApplicationContext(), str, str2, extraInfo, bx.a(map));
         }
     }
 
     private static void a(Context context, String str, String str2, long j, ExtraInfo extraInfo, Map<String, String> map) {
         if (a(context, "onEventDuration(...)") && !TextUtils.isEmpty(str)) {
             if (j <= 0) {
-                bj.c().b("[WARNING] onEventDuration duration must be greater than zero");
+                bc.c().b("[WARNING] onEventDuration duration must be greater than zero");
                 return;
             }
-            boolean a2 = cd.a(Application.class, "onCreate");
+            boolean a2 = bx.a(Application.class, "onCreate");
             if (a2) {
-                bj.c().c("[WARNING] onEventDuration 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
+                bc.c().c("[WARNING] onEventDuration 方法被 Application.onCreate()调用，not a good practice; 可能由于多进程反复重启等原因造成Application.onCreate() 方法多次被执行，导致启动次数高；建议埋点在统计路径触发的第一个页面中，比如APP主页面中");
             }
-            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j, extraInfo, cd.a(map), a2);
+            BDStatCore.instance().onEventDuration(context.getApplicationContext(), str, str2, j, extraInfo, bx.a(map), a2);
         }
     }
 
@@ -295,7 +235,7 @@ public class StatService {
 
     private static boolean a(Context context, String str) {
         if (context == null) {
-            bj.c().b("[WARNING] " + str + ", context is null, invalid");
+            bc.c().b("[WARNING] " + str + ", context is null, invalid");
             return false;
         }
         return true;
@@ -328,11 +268,11 @@ public class StatService {
     }
 
     public static void setDebugOn(boolean z) {
-        bj.c().a(z);
+        bc.c().a(z);
     }
 
     public static void setForTv(Context context, boolean z) {
-        BasicStoreTools.getInstance().setForTV(context, z);
+        bq.a().c(context, z);
         BDStatCore.instance().init(context);
     }
 
@@ -357,9 +297,9 @@ public class StatService {
     @SuppressLint({"NewApi", "SetJavaScriptEnabled"})
     private static void a(Context context, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, boolean z) {
         if (context == null) {
-            bj.c().c("[WARNING] context is null, invalid");
+            bc.c().c("[WARNING] context is null, invalid");
         } else if (webView == null) {
-            bj.c().c("[WARNING] webview is null, invalid");
+            bc.c().c("[WARNING] webview is null, invalid");
         } else {
             a(webView);
             WebSettings settings = webView.getSettings();
@@ -369,12 +309,12 @@ public class StatService {
             if (!z) {
                 webView.setWebViewClient(new BaiduStatJSInterface.CustomWebViewClient(context, webViewClient, null, null));
             } else {
-                bs bsVar = new bs();
-                webView.addJavascriptInterface(bsVar, "WebViewInterface");
+                bl blVar = new bl();
+                webView.addJavascriptInterface(blVar, "WebViewInterface");
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new am.b());
-                arrayList.add(new bc.b());
-                WebChromeClient customWebChromeViewClient = new BaiduStatJSInterface.CustomWebChromeViewClient(context, webChromeClient, arrayList, bsVar);
+                arrayList.add(new af.b());
+                arrayList.add(new av.b());
+                WebChromeClient customWebChromeViewClient = new BaiduStatJSInterface.CustomWebChromeViewClient(context, webChromeClient, arrayList, blVar);
                 webView.setWebChromeClient(customWebChromeViewClient);
                 webView.setTag(-96001, customWebChromeViewClient);
             }
@@ -383,7 +323,7 @@ public class StatService {
     }
 
     public static String getTestDeviceId(Context context) {
-        return cc.b(context);
+        return bw.b(context);
     }
 
     public static String getSdkVersion() {
@@ -393,7 +333,7 @@ public class StatService {
     public static void onErised(Context context, String str, String str2, String str3) {
         if (a(context, "onErised(...)")) {
             if (str == null || "".equals(str)) {
-                bj.c().c("[WARNING] AppKey is invalid");
+                bc.c().c("[WARNING] AppKey is invalid");
             } else {
                 BDStatCore.instance().onErised(context, str, str2, str3);
             }
@@ -408,11 +348,11 @@ public class StatService {
         if (z && a(context, "autoTrace(...)")) {
             String appKey = CooperService.instance().getAppKey(context);
             if (TextUtils.isEmpty(appKey)) {
-                bj.c().c("[WARNING] AppKey is invalid, auto trace will do not take effect");
+                bc.c().c("[WARNING] AppKey is invalid, auto trace will do not take effect");
                 return;
             }
-            am.a(appKey);
-            am.a(z2);
+            af.a(appKey);
+            af.a(z2);
             if (!b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
@@ -480,7 +420,7 @@ public class StatService {
     }
 
     public static void setFeedTrack(MtjConfig.FeedTrackStrategy feedTrackStrategy) {
-        bc.a(feedTrackStrategy);
+        av.a(feedTrackStrategy);
         b = true;
     }
 
@@ -510,5 +450,15 @@ public class StatService {
                 BDStatCore.instance().init(context);
             }
         }
+    }
+
+    public static synchronized void setStartType(boolean z) {
+        synchronized (StatService.class) {
+            CooperService.instance().setStartType(z);
+        }
+    }
+
+    public static void setCrashExtraInfo(String str) {
+        ExceptionAnalysis.getInstance().setCrashExtraInfo(str);
     }
 }

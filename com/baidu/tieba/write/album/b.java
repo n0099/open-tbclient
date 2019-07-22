@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
@@ -18,21 +18,21 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String fcT;
-    private int fcU;
-    private AlbumActivity jFS;
+    private String fhT;
+    private int fhU;
+    private AlbumActivity jMV;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jFS = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jFS.getPageContext().getPageActivity());
-        this.fcU = l.af(this.jFS.getPageContext().getPageActivity()) / 2;
+        this.jMV = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jMV.getPageContext().getPageActivity());
+        this.fhU = l.af(this.jMV.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.fcT = str;
+        this.fhT = str;
     }
 
     @Override // android.widget.Adapter
@@ -42,7 +42,7 @@ public class b extends BaseAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: qB */
+    /* renamed from: qT */
     public com.baidu.tbadk.album.a getItem(int i) {
         return (com.baidu.tbadk.album.a) v.c(this.mList, i);
     }
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(R.layout.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jGd = (TbImageView) view.findViewById(R.id.item_head);
-            aVar.fcX = (TextView) view.findViewById(R.id.item_name);
-            aVar.fcY = (ImageView) view.findViewById(R.id.item_arrow);
-            aVar.jGd.setGifIconSupport(false);
-            aVar.jGd.setLongIconSupport(false);
+            aVar.jNg = (TbImageView) view.findViewById(R.id.item_head);
+            aVar.fhX = (TextView) view.findViewById(R.id.item_name);
+            aVar.fhY = (ImageView) view.findViewById(R.id.item_arrow);
+            aVar.jNg.setGifIconSupport(false);
+            aVar.jNg.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,34 +73,34 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.fcX.setText(l.a(aVar.fcX.getPaint(), item.getName(), this.fcU) + "(" + item.getCount() + ")");
+                aVar.fhX.setText(l.a(aVar.fhX.getPaint(), item.getName(), this.fhU) + "(" + item.getCount() + ")");
             } else {
-                aVar.fcX.setText("");
+                aVar.fhX.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fcT)) {
-                al.c(aVar.fcY, (int) R.drawable.icon_list_select_ok_n);
-                aVar.fcY.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.fhT)) {
+                am.c(aVar.fhY, (int) R.drawable.icon_list_select_ok_n);
+                aVar.fhY.setVisibility(0);
             } else {
-                aVar.fcY.setVisibility(8);
+                aVar.fhY.setVisibility(8);
             }
-            MediaFileInfo Zp = item.Zp();
-            if (Zp instanceof VideoFileInfo) {
-                aVar.jGd.startLoad(((VideoFileInfo) Zp).videoPath, 37, false);
-            } else if (Zp instanceof ImageFileInfo) {
-                aVar.jGd.startLoad(((ImageFileInfo) Zp).getFilePath(), 35, false);
+            MediaFileInfo aao = item.aao();
+            if (aao instanceof VideoFileInfo) {
+                aVar.jNg.startLoad(((VideoFileInfo) aao).videoPath, 37, false);
+            } else if (aao instanceof ImageFileInfo) {
+                aVar.jNg.startLoad(((ImageFileInfo) aao).getFilePath(), 35, false);
             }
-            al.j(aVar.fcX, R.color.cp_cont_b);
-            al.k(view, R.drawable.addresslist_item_bg);
+            am.j(aVar.fhX, R.color.cp_cont_b);
+            am.k(view, R.drawable.addresslist_item_bg);
         }
         return view;
     }
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView fcX;
-        ImageView fcY;
-        TbImageView jGd;
+        TextView fhX;
+        ImageView fhY;
+        TbImageView jNg;
 
         private a() {
         }

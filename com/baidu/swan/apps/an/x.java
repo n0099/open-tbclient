@@ -23,16 +23,16 @@ public final class x {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aZx;
-        public final boolean aZy;
-        public final int aZz;
-        public final String wU;
+        public final boolean bah;
+        public final boolean bai;
+        public final int baj;
+        public final String wX;
 
         a(String str, boolean z, boolean z2, int i) {
-            this.wU = str;
-            this.aZx = z;
-            this.aZy = z2;
-            this.aZz = i;
+            this.wX = str;
+            this.bah = z;
+            this.bai = z2;
+            this.baj = i;
         }
     }
 
@@ -42,7 +42,7 @@ public final class x {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<a> OJ() {
+    public static List<a> Pz() {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         BufferedReader bufferedReader3;
@@ -99,7 +99,7 @@ public final class x {
                                             break;
                                         }
                                         str = (String) it.next();
-                                        if (TextUtils.equals(((a) hashMap.get(str)).wU, nextToken)) {
+                                        if (TextUtils.equals(((a) hashMap.get(str)).wX, nextToken)) {
                                             break;
                                         }
                                     }
@@ -115,7 +115,7 @@ public final class x {
                                 }
                             } else if (aN(nextToken, nextToken2)) {
                                 hashSet.add(nextToken2);
-                                if (ig(nextToken2)) {
+                                if (in(nextToken2)) {
                                     arrayList.add(new a(nextToken2, false, contains, i2));
                                     i2++;
                                 }
@@ -123,7 +123,7 @@ public final class x {
                         }
                     }
                     for (a aVar : hashMap.values()) {
-                        if (ig(aVar.wU)) {
+                        if (in(aVar.wX)) {
                             arrayList.add(aVar);
                         }
                     }
@@ -196,7 +196,7 @@ public final class x {
         return arrayList;
     }
 
-    private static boolean ig(String str) {
+    private static boolean in(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }

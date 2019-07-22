@@ -5,47 +5,47 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 /* loaded from: classes.dex */
 public class b extends com.baidu.tieba.f.a {
-    private ScaleGestureDetector cHi;
-    private a eOD;
+    private ScaleGestureDetector cIC;
+    private a eTD;
 
     /* loaded from: classes.dex */
     public interface a {
-        void iY(boolean z);
+        void ji(boolean z);
     }
 
     public b(Context context) {
-        this.cHi = new ScaleGestureDetector(context, new C0303b());
+        this.cIC = new ScaleGestureDetector(context, new C0300b());
     }
 
     public void a(a aVar) {
-        this.eOD = aVar;
+        this.eTD = aVar;
     }
 
     /* renamed from: com.baidu.tieba.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private final class C0303b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        private boolean eOE;
+    private final class C0300b extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        private boolean eTE;
 
-        private C0303b() {
-            this.eOE = false;
+        private C0300b() {
+            this.eTE = false;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            this.eOE = false;
+            this.eTE = false;
             return true;
         }
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            if (scaleGestureDetector != null && b.this.eOD != null) {
+            if (scaleGestureDetector != null && b.this.eTD != null) {
                 float scaleFactor = scaleGestureDetector.getScaleFactor();
-                if (!this.eOE && scaleFactor > 1.0f) {
-                    this.eOE = true;
-                    b.this.eOD.iY(true);
-                } else if (!this.eOE && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                    this.eOE = true;
-                    b.this.eOD.iY(false);
+                if (!this.eTE && scaleFactor > 1.0f) {
+                    this.eTE = true;
+                    b.this.eTD.ji(true);
+                } else if (!this.eTE && scaleFactor > 0.0f && scaleFactor < 1.0f) {
+                    this.eTE = true;
+                    b.this.eTD.ji(false);
                 }
             }
             return true;
@@ -53,14 +53,14 @@ public class b extends com.baidu.tieba.f.a {
 
         @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
         public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            this.eOE = true;
+            this.eTE = true;
         }
     }
 
     @Override // com.baidu.tieba.f.a
     public boolean onTouchEvent(MotionEvent motionEvent) {
         try {
-            this.cHi.onTouchEvent(motionEvent);
+            this.cIC.onTouchEvent(motionEvent);
             return super.onTouchEvent(motionEvent);
         } catch (Exception e) {
             return false;

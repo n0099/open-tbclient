@@ -3,8 +3,8 @@ package com.baidu.tieba.frs;
 public class am {
     public String forumId;
     public String forumName;
-    public Object ftc;
-    public boolean ftd = false;
+    public Object fxY;
+    public boolean fxZ = false;
     public int pn;
     public String stType;
 }

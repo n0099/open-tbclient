@@ -5,7 +5,7 @@ import android.os.Build;
 import android.view.View;
 /* loaded from: classes2.dex */
 public class f {
-    static final k buD;
+    static final k bvt;
 
     /* loaded from: classes2.dex */
     interface k {
@@ -77,7 +77,7 @@ public class f {
 
     /* loaded from: classes2.dex */
     static class e extends d {
-        static boolean buE = false;
+        static boolean bvu = false;
 
         e() {
         }
@@ -85,8 +85,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static class C0230f extends e {
-        C0230f() {
+    static class C0227f extends e {
+        C0227f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -96,7 +96,7 @@ public class f {
     }
 
     /* loaded from: classes2.dex */
-    static class g extends C0230f {
+    static class g extends C0227f {
         g() {
         }
     }
@@ -121,25 +121,25 @@ public class f {
 
     static {
         if (Build.VERSION.SDK_INT >= 21) {
-            buD = new j();
+            bvt = new j();
         } else {
-            buD = new i();
+            bvt = new i();
         }
     }
 
     public static void setLayerType(View view, int i2, Paint paint) {
-        buD.setLayerType(view, i2, paint);
+        bvt.setLayerType(view, i2, paint);
     }
 
     public static int getLayerType(View view) {
-        return buD.getLayerType(view);
+        return bvt.getLayerType(view);
     }
 
     public static void setSaveFromParentEnabled(View view, boolean z) {
-        buD.setSaveFromParentEnabled(view, z);
+        bvt.setSaveFromParentEnabled(view, z);
     }
 
     public static boolean hasOverlappingRendering(View view) {
-        return buD.hasOverlappingRendering(view);
+        return bvt.hasOverlappingRendering(view);
     }
 }

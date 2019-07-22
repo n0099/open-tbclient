@@ -6,41 +6,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.at;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.au;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean jmI = false;
-    private UEGCancelModel.a jmG;
-    public int jmH = at.a.bTh;
-    private UEGCancelModel jmF = new UEGCancelModel();
+    public static boolean jsP = false;
+    private UEGCancelModel.a jsN;
+    public int jsO = au.a.bUi;
+    private UEGCancelModel jsM = new UEGCancelModel();
 
     public b() {
-        if (this.jmG == null) {
-            this.jmG = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.jsN == null) {
+            this.jsN = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.jmI) {
+                    if (blockPopInfoData != null && !b.jsP) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.jmF.a(this.jmG);
+        this.jsM.a(this.jsN);
     }
 
-    public void Bn(int i) {
-        this.jmH = i;
-        this.jmF.cancelRequest();
+    public void BU(int i) {
+        this.jsO = i;
+        this.jsM.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BlockPopInfoData blockPopInfoData) {
         boolean z = false;
-        if (blockPopInfoData != null && com.baidu.adp.base.a.eM().eN() != null) {
+        if (blockPopInfoData != null && com.baidu.adp.base.a.eT().eU() != null) {
             String str = blockPopInfoData.block_id_code;
             int i = blockPopInfoData.win_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -48,59 +48,59 @@ public class b {
             String str3 = blockPopInfoData.ok_info;
             String str4 = blockPopInfoData.ahead_info;
             String str5 = blockPopInfoData.block_info;
-            if ((i == 1 || i == 2 || i == 3 || i == 4) && !ap.isEmpty(currentAccount) && !ap.isEmpty(str)) {
-                boolean z2 = com.baidu.tbadk.core.sharedPref.b.agM().getBoolean(str + i + currentAccount, false);
-                if ((!ap.isEmpty(str2) || i == 4) && !ap.isEmpty(str3) && ((!ap.isEmpty(str4) || i == 4) && !ap.isEmpty(str5))) {
+            if ((i == 1 || i == 2 || i == 3 || i == 4) && !aq.isEmpty(currentAccount) && !aq.isEmpty(str)) {
+                boolean z2 = com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean(str + i + currentAccount, false);
+                if ((!aq.isEmpty(str2) || i == 4) && !aq.isEmpty(str3) && ((!aq.isEmpty(str4) || i == 4) && !aq.isEmpty(str5))) {
                     z = true;
                 }
                 if (!z2 && z) {
-                    com.baidu.tbadk.core.sharedPref.b.agM().putBoolean(str + i + currentAccount, true);
+                    com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new am("c12534").P("obj_locate", this.jmH).P("obj_type", i));
+                    TiebaStatic.log(new an("c12534").P("obj_locate", this.jsO).P("obj_type", i));
                 }
             }
         }
     }
 
     private void b(final BlockPopInfoData blockPopInfoData) {
-        Activity eN;
-        if (blockPopInfoData != null && (eN = com.baidu.adp.base.a.eM().eN()) != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eN);
-            aVar.mD(blockPopInfoData.block_info);
+        Activity eU;
+        if (blockPopInfoData != null && (eU = com.baidu.adp.base.a.eT().eU()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(eU);
+            aVar.mO(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new am("c12535").P("obj_locate", b.this.jmH).P("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an("c12535").P("obj_locate", b.this.jsO).P("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new am("c12536").P("obj_locate", b.this.jmH).P("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new an("c12536").P("obj_locate", b.this.jsO).P("obj_type", blockPopInfoData.win_type));
                 }
             });
-            aVar.b(((f) eN).getPageContext());
-            aVar.afG();
+            aVar.b(((f) eU).getPageContext());
+            aVar.agI();
         }
     }
 
-    public void rn(boolean z) {
-        jmI = z;
+    public void rA(boolean z) {
+        jsP = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
-        Activity eN;
-        if (blockPopInfoData != null && (eN = com.baidu.adp.base.a.eM().eN()) != null) {
-            AntiHelper.aJ(eN, blockPopInfoData.ahead_url);
+        Activity eU;
+        if (blockPopInfoData != null && (eU = com.baidu.adp.base.a.eT().eU()) != null) {
+            AntiHelper.aK(eU, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.jmF != null) {
-            this.jmF.onDestroy();
+        if (this.jsM != null) {
+            this.jsM.onDestroy();
         }
     }
 }

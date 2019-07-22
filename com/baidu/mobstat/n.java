@@ -1,15 +1,48 @@
 package com.baidu.mobstat;
+
+import android.content.ContentValues;
+import android.database.Cursor;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public enum n {
-    AP_LIST,
-    APP_USER_LIST,
-    APP_SYS_LIST,
-    APP_TRACE_CURRENT,
-    APP_TRACE_HIS,
-    APP_CHANGE,
-    APP_APK,
-    LAST_SEND,
-    LAST_UPDATE;
-    
-    public long j;
+class n extends j {
+    public n() {
+        super("ap_list3", "Create table if not exists ap_list3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
+    }
+
+    @Override // com.baidu.mobstat.j
+    public ArrayList<i> a(int i, int i2) {
+        Cursor a = a(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, i, i2);
+        ArrayList<i> a2 = a(a);
+        if (a != null) {
+            a.close();
+        }
+        return a2;
+    }
+
+    @Override // com.baidu.mobstat.j
+    public long a(String str, String str2) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
+        contentValues.put("content", str2);
+        return a(contentValues);
+    }
+
+    @Override // com.baidu.mobstat.j
+    public boolean b(long j) {
+        return a(j);
+    }
+
+    private ArrayList<i> a(Cursor cursor) {
+        ArrayList<i> arrayList = new ArrayList<>();
+        if (cursor != null && cursor.getCount() != 0) {
+            int columnIndex = cursor.getColumnIndex("_id");
+            int columnIndex2 = cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
+            int columnIndex3 = cursor.getColumnIndex("content");
+            while (cursor.moveToNext()) {
+                arrayList.add(new i(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
+            }
+        }
+        return arrayList;
+    }
 }

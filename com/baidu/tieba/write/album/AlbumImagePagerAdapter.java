@@ -4,7 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private AlbumActivity jFS;
-    private Map<Integer, Boolean> jGc = new HashMap();
+    private AlbumActivity jMV;
+    private Map<Integer, Boolean> jNf = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.jFS = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jFS.getPageContext().getPageActivity());
+        this.jMV = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jMV.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -44,15 +44,15 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         viewGroup.removeView((View) obj);
     }
 
-    public ImageFileInfo wQ(int i) {
+    public ImageFileInfo xt(int i) {
         return (ImageFileInfo) v.c(this.mList, i);
     }
 
-    public boolean Cm(int i) {
-        if (this.jGc.get(Integer.valueOf(i)) == null) {
+    public boolean CT(int i) {
+        if (this.jNf.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.jGc.get(Integer.valueOf(i)).booleanValue();
+        return this.jNf.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -72,14 +72,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         tbImageView2.setDefaultErrorResource(0);
         tbImageView2.setGifIconSupport(false);
         tbImageView2.setLongIconSupport(false);
-        ImageFileInfo wQ = wQ(i);
-        if (wQ != null) {
-            tbImageView2.startLoad(wQ.getFilePath(), 35, false, true);
-            tbImageView.startLoad(wQ.getFilePath(), 36, false);
-            this.jGc.put(Integer.valueOf(i), true);
+        ImageFileInfo xt = xt(i);
+        if (xt != null) {
+            tbImageView2.startLoad(xt.getFilePath(), 35, false, true);
+            tbImageView.startLoad(xt.getFilePath(), 36, false);
+            this.jNf.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        al.l(inflate, R.color.cp_bg_line_d);
+        am.l(inflate, R.color.cp_bg_line_d);
         return inflate;
     }
 }

@@ -9,40 +9,40 @@ import com.baidu.swan.ubc.m;
 import com.baidu.swan.ubc.q;
 /* loaded from: classes4.dex */
 public class c {
-    private static boolean cZn = false;
+    private static boolean daM = false;
 
     public static void a(Application application, boolean z) {
-        gj(z);
-        if (aDb()) {
+        gn(z);
+        if (aEr()) {
             d(application);
             e(application);
         }
     }
 
     private static void d(Application application) {
-        e.a(new com.baidu.tieba.aiapps.apps.r.d());
-        if (com.baidu.pyramid.runtime.multiprocess.a.uB()) {
-            q.Xn();
-            m.Xd().initConfig();
+        e.a(new com.baidu.tieba.aiapps.apps.q.d());
+        if (com.baidu.pyramid.runtime.multiprocess.a.vb()) {
+            q.Yj();
+            m.XY().initConfig();
         }
     }
 
     private static void e(Application application) {
         com.facebook.drawee.a.a.c.initialize(application);
         if (ProcessUtils.isMainProcess()) {
-            aDa();
-            com.baidu.swan.apps.env.d.Cg().l(null);
+            aEq();
+            com.baidu.swan.apps.env.d.CP().l(null);
         }
-        a.dd(application).aCX();
+        a.de(application).aEn();
         if (com.baidu.swan.apps.b.DEBUG) {
-            com.baidu.swan.apps.am.a.E(0, 1);
+            com.baidu.swan.apps.am.a.H(0, 1);
         }
     }
 
-    private static void aDa() {
+    private static void aEq() {
         final boolean z = true;
-        final boolean z2 = com.baidu.swan.apps.core.pms.a.co(0) && com.baidu.swan.pms.d.a.fJ(0);
-        if (!com.baidu.swan.apps.core.pms.a.co(1) || !com.baidu.swan.pms.d.a.fJ(1)) {
+        final boolean z2 = com.baidu.swan.apps.core.pms.a.co(0) && com.baidu.swan.pms.d.a.fN(0);
+        if (!com.baidu.swan.apps.core.pms.a.co(1) || !com.baidu.swan.pms.d.a.fN(1)) {
             z = false;
         }
         if (z2 || z) {
@@ -60,11 +60,11 @@ public class c {
         }
     }
 
-    private static void gj(boolean z) {
-        cZn = z;
+    private static void gn(boolean z) {
+        daM = z;
     }
 
-    public static boolean aDb() {
-        return !cZn || com.baidu.swan.apps.an.a.hasLollipop();
+    public static boolean aEr() {
+        return !daM || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

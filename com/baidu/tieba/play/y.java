@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y irf = null;
-    private LinkedHashMap<String, Integer> irg = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private static y ixv = null;
+    private LinkedHashMap<String, Integer> ixw = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.irg.clear();
+                y.this.ixw.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class y {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static y cbW() {
-        if (irf == null) {
+    public static y ceM() {
+        if (ixv == null) {
             synchronized (y.class) {
-                if (irf == null) {
-                    irf = new y();
+                if (ixv == null) {
+                    ixv = new y();
                 }
             }
         }
-        return irf;
+        return ixv;
     }
 
-    public void bf(String str, int i) {
-        if (i != 0 || !this.irg.containsKey(str)) {
-            this.irg.put(str, Integer.valueOf(i));
+    public void bg(String str, int i) {
+        if (i != 0 || !this.ixw.containsKey(str)) {
+            this.ixw.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.irg.remove(str);
+            this.ixw.remove(str);
         }
     }
 
-    public int Cm(String str) {
-        Integer num = this.irg.get(str);
+    public int CZ(String str) {
+        Integer num = this.ixw.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.irg.clear();
+        this.ixw.clear();
     }
 }

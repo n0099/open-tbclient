@@ -12,7 +12,6 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.bbalbs.common.security.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
@@ -294,7 +293,7 @@ public class g {
 
     public static boolean b(String str, String str2, String str3) {
         try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes())));
+            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes())));
             Signature signature = Signature.getInstance("SHA1WithRSA");
             signature.initVerify(generatePublic);
             signature.update(str.getBytes());

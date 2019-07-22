@@ -5,9 +5,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.apps.model.a.a.a {
-    private String akW;
-    private String akX;
-    public String akY;
+    private String alA;
+    private String alB;
+    public String alC;
 
     public a(String str) {
         super("cameraId", "camera");
@@ -21,31 +21,31 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.akW = jSONObject.optString("devicePosition", "back");
-        this.akX = jSONObject.optString("flash", "auto");
-        this.akY = jSONObject.optString("cameraId");
+        this.alA = jSONObject.optString("devicePosition", "back");
+        this.alB = jSONObject.optString("flash", "auto");
+        this.alC = jSONObject.optString("cameraId");
     }
 
     public boolean isFrontCamera() {
-        return TextUtils.equals(this.akW, "front");
+        return TextUtils.equals(this.alA, "front");
     }
 
-    public String xi() {
-        return C0122a.dg(this.akX);
+    public String xJ() {
+        return C0119a.dl(this.alB);
     }
 
     public int getWidth() {
-        return this.aDo.getWidth();
+        return this.aDW.getWidth();
     }
 
     public int getHeight() {
-        return this.aDo.getHeight();
+        return this.aDW.getHeight();
     }
 
     /* renamed from: com.baidu.swan.apps.camera.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0122a {
-        static String dg(String str) {
+    private static class C0119a {
+        static String dl(String str) {
             char c = 65535;
             switch (str.hashCode()) {
                 case 3551:

@@ -9,20 +9,20 @@ import android.util.SparseIntArray;
 import android.view.View;
 /* loaded from: classes.dex */
 public class h {
-    private i Nr;
-    private float Nt;
-    private float Nu;
+    private i NJ;
+    private float NL;
+    private float NM;
     private int mCurrentPosition;
     private int mOrientation;
     private RecyclerView mRecyclerView;
     private int mScrollState;
-    private boolean Nv = false;
-    private SparseIntArray Ns = new SparseIntArray();
-    private SparseArray<ValueAnimator> Nw = new SparseArray<>();
-    private SparseIntArray Nx = new SparseIntArray();
+    private boolean NN = false;
+    private SparseIntArray NK = new SparseIntArray();
+    private SparseArray<ValueAnimator> NP = new SparseArray<>();
+    private SparseIntArray NQ = new SparseIntArray();
 
     public h(i iVar) {
-        this.Nr = iVar;
+        this.NJ = iVar;
     }
 
     public void a(RecyclerView recyclerView, int i) {
@@ -37,86 +37,86 @@ public class h {
             if (this.mOrientation != 2) {
                 f2 = f;
             }
-            if (Math.abs(f2) < this.Nr.nY()) {
-                this.Nv = true;
-                nN();
+            if (Math.abs(f2) < this.NJ.ou()) {
+                this.NN = true;
+                oj();
                 return;
             }
             this.mCurrentPosition = i;
-            this.Nv = false;
-            if (Math.abs(f2) > this.Nr.nU()) {
-                f3 = f2 > 0.0f ? this.Nr.nU() : -this.Nr.nU();
+            this.NN = false;
+            if (Math.abs(f2) > this.NJ.oq()) {
+                f3 = f2 > 0.0f ? this.NJ.oq() : -this.NJ.oq();
             } else {
                 f3 = f2;
             }
-            this.Ns.clear();
-            float nQ = f3 * this.Nr.nQ();
+            this.NK.clear();
+            float om = f3 * this.NJ.om();
             if (f3 < 0.0f) {
-                float nR = this.Nr.nR();
+                float on = this.NJ.on();
                 int i3 = 1;
                 while (true) {
                     int i4 = i - i3;
-                    float f4 = nQ + (i3 * nR);
-                    float f5 = nR * 1.4f;
+                    float f4 = om + (i3 * on);
+                    float f5 = on * 1.4f;
                     if (f4 > 0.0f) {
                         break;
                     }
-                    float nP = (f4 / this.Nr.nP()) + this.Ns.get(i4);
-                    if (Math.abs(nP) > this.Nr.nT()) {
-                        nP = -this.Nr.nT();
+                    float ol = (f4 / this.NJ.ol()) + this.NK.get(i4);
+                    if (Math.abs(ol) > this.NJ.op()) {
+                        ol = -this.NJ.op();
                     }
-                    this.Ns.append(i4, (int) nP);
+                    this.NK.append(i4, (int) ol);
                     i3++;
-                    nR = f5;
+                    on = f5;
                 }
-                float nR2 = this.Nr.nR();
+                float on2 = this.NJ.on();
                 while (true) {
                     int i5 = i + i2;
-                    float f6 = nQ + (i2 * nR2);
-                    float f7 = nR2 * 1.4f;
+                    float f6 = om + (i2 * on2);
+                    float f7 = on2 * 1.4f;
                     if (f6 <= 0.0f) {
-                        float nO = (f6 / this.Nr.nO()) + this.Ns.get(i5);
-                        if (Math.abs(nO) > this.Nr.nS()) {
-                            nO = -this.Nr.nS();
+                        float ok = (f6 / this.NJ.ok()) + this.NK.get(i5);
+                        if (Math.abs(ok) > this.NJ.oo()) {
+                            ok = -this.NJ.oo();
                         }
-                        this.Ns.append(i5, (int) nO);
+                        this.NK.append(i5, (int) ok);
                         i2++;
-                        nR2 = f7;
+                        on2 = f7;
                     } else {
                         return;
                     }
                 }
             } else {
-                float nR3 = this.Nr.nR();
+                float on3 = this.NJ.on();
                 int i6 = 1;
                 while (true) {
                     int i7 = i - i6;
-                    float f8 = nQ - (i6 * nR3);
-                    float f9 = nR3 * 1.4f;
+                    float f8 = om - (i6 * on3);
+                    float f9 = on3 * 1.4f;
                     if (f8 < 0.0f) {
                         break;
                     }
-                    float nO2 = (f8 / this.Nr.nO()) + this.Ns.get(i7);
-                    if (Math.abs(nO2) > this.Nr.nS()) {
-                        nO2 = this.Nr.nS();
+                    float ok2 = (f8 / this.NJ.ok()) + this.NK.get(i7);
+                    if (Math.abs(ok2) > this.NJ.oo()) {
+                        ok2 = this.NJ.oo();
                     }
-                    this.Ns.append(i7, (int) nO2);
+                    this.NK.append(i7, (int) ok2);
                     i6++;
-                    nR3 = f9;
+                    on3 = f9;
                 }
-                float nR4 = this.Nr.nR();
+                float on4 = this.NJ.on();
                 while (true) {
                     int i8 = i + i2;
-                    float f10 = nQ - (i2 * nR4);
-                    float f11 = nR4 * 1.4f;
+                    float f10 = om - (i2 * on4);
+                    float f11 = on4 * 1.4f;
                     if (f10 >= 0.0f) {
-                        float nP2 = (f10 / this.Nr.nP()) + this.Ns.get(i8);
-                        if (Math.abs(nP2) > this.Nr.nT()) {
-                            nP2 = this.Nr.nT();
+                        float ol2 = (f10 / this.NJ.ol()) + this.NK.get(i8);
+                        if (Math.abs(ol2) > this.NJ.op()) {
+                            ol2 = this.NJ.op();
                         }
-                        this.Ns.append(i8, (int) nP2);
+                        this.NK.append(i8, (int) ol2);
                         i2++;
-                        nR4 = f11;
+                        on4 = f11;
                     } else {
                         return;
                     }
@@ -129,19 +129,19 @@ public class h {
         if (this.mRecyclerView != null) {
             this.mScrollState = i;
             if (this.mScrollState == 0) {
-                this.Ns.clear();
-                nN();
+                this.NK.clear();
+                oj();
             } else if (this.mScrollState == 2) {
-                nN();
+                oj();
             } else if (this.mScrollState == 1) {
-                this.Ns.clear();
-                nN();
+                this.NK.clear();
+                oj();
             }
         }
     }
 
     public void k(int i, int i2, int i3) {
-        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.Nv) {
+        if (this.mRecyclerView != null && this.mScrollState == 1 && !this.NN) {
             if (this.mOrientation != 2) {
                 i2 = i;
             }
@@ -166,7 +166,7 @@ public class h {
         }
     }
 
-    private float C(View view) {
+    private float E(View view) {
         if (view == null) {
             return 0.0f;
         }
@@ -188,31 +188,31 @@ public class h {
         if (view != null) {
             if (f < 0.0f) {
                 if (i < i2) {
-                    float C = C(view) + (this.Nr.nW() * f);
-                    if (C > (-this.Ns.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
-                        m(view, C);
+                    float E = E(view) + (this.NJ.os() * f);
+                    if (E > (-this.NK.get(i)) + E(this.mRecyclerView.getChildAt(i3 + 1))) {
+                        m(view, E);
                     } else {
                         e(view, i);
                     }
                 } else if (i > i2) {
-                    float C2 = C(view) + (this.Nr.nV() * f);
-                    if (C2 > (-this.Ns.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
-                        m(view, C2);
+                    float E2 = E(view) + (this.NJ.or() * f);
+                    if (E2 > (-this.NK.get(i)) + E(this.mRecyclerView.getChildAt(i3 - 1))) {
+                        m(view, E2);
                     } else {
                         e(view, i);
                     }
                 }
             } else if (i > i2) {
-                float C3 = C(view) + (this.Nr.nW() * f);
-                if (C3 < (-this.Ns.get(i)) + C(this.mRecyclerView.getChildAt(i3 - 1))) {
-                    m(view, C3);
+                float E3 = E(view) + (this.NJ.os() * f);
+                if (E3 < (-this.NK.get(i)) + E(this.mRecyclerView.getChildAt(i3 - 1))) {
+                    m(view, E3);
                 } else {
                     e(view, i);
                 }
             } else if (i < i2) {
-                float C4 = C(view) + (this.Nr.nV() * f);
-                if (C4 < (-this.Ns.get(i)) + C(this.mRecyclerView.getChildAt(i3 + 1))) {
-                    m(view, C4);
+                float E4 = E(view) + (this.NJ.or() * f);
+                if (E4 < (-this.NK.get(i)) + E(this.mRecyclerView.getChildAt(i3 + 1))) {
+                    m(view, E4);
                 } else {
                     e(view, i);
                 }
@@ -220,47 +220,47 @@ public class h {
         }
     }
 
-    public void D(View view) {
+    public void F(View view) {
         if (this.mRecyclerView != null && this.mScrollState != 0) {
             int childAdapterPosition = this.mRecyclerView.getChildAdapterPosition(view);
             RecyclerView.LayoutManager layoutManager = this.mRecyclerView.getLayoutManager();
             if (layoutManager instanceof LinearLayoutManager) {
                 if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
-                    float f = -this.Ns.get(childAdapterPosition, 0);
+                    float f = -this.NK.get(childAdapterPosition, 0);
                     if (f != 0.0f) {
-                        this.Nt = f;
+                        this.NL = f;
                     } else {
-                        f = this.Nt;
+                        f = this.NL;
                     }
-                    m(view, f + (this.mRecyclerView.getChildAt(1) != null ? C(this.mRecyclerView.getChildAt(1)) : 0.0f));
+                    m(view, f + (this.mRecyclerView.getChildAt(1) != null ? E(this.mRecyclerView.getChildAt(1)) : 0.0f));
                 } else {
-                    float f2 = -this.Ns.get(childAdapterPosition, 0);
+                    float f2 = -this.NK.get(childAdapterPosition, 0);
                     if (f2 != 0.0f) {
-                        this.Nu = f2;
+                        this.NM = f2;
                     } else {
-                        f2 = this.Nu;
+                        f2 = this.NM;
                     }
-                    m(view, f2 + (this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() + (-2)) != null ? C(this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() - 2)) : 0.0f));
+                    m(view, f2 + (this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() + (-2)) != null ? E(this.mRecyclerView.getChildAt(this.mRecyclerView.getChildCount() - 2)) : 0.0f));
                 }
                 e(view, childAdapterPosition);
             }
         }
     }
 
-    public void E(View view) {
+    public void G(View view) {
         if (this.mRecyclerView != null) {
             m(view, 0.0f);
             int childAdapterPosition = this.mRecyclerView.getChildAdapterPosition(view);
-            this.Ns.delete(childAdapterPosition);
-            if (this.Nw.get(childAdapterPosition) != null) {
-                this.Nw.get(childAdapterPosition).cancel();
+            this.NK.delete(childAdapterPosition);
+            if (this.NP.get(childAdapterPosition) != null) {
+                this.NP.get(childAdapterPosition).cancel();
             }
-            this.Nw.delete(childAdapterPosition);
-            this.Nx.delete(childAdapterPosition);
+            this.NP.delete(childAdapterPosition);
+            this.NQ.delete(childAdapterPosition);
         }
     }
 
-    private void nN() {
+    private void oj() {
         int childCount = this.mRecyclerView.getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = this.mRecyclerView.getChildAt(i);
@@ -270,15 +270,15 @@ public class h {
 
     private void e(final View view, final int i) {
         if (view != null) {
-            ValueAnimator valueAnimator = this.Nw.get(i);
+            ValueAnimator valueAnimator = this.NP.get(i);
             if (valueAnimator == null) {
-                if (Math.abs(C(view)) < 0.1f) {
+                if (Math.abs(E(view)) < 0.1f) {
                     m(view, 0.0f);
                     return;
                 }
-                ValueAnimator ofFloat = ValueAnimator.ofFloat(C(view), 0.0f);
+                ValueAnimator ofFloat = ValueAnimator.ofFloat(E(view), 0.0f);
                 ofFloat.setInterpolator(new j(1.0f));
-                ofFloat.setDuration(this.Nr.nZ());
+                ofFloat.setDuration(this.NJ.ov());
                 ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.adp.widget.ListView.h.1
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -292,16 +292,16 @@ public class h {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        h.this.Nw.delete(i);
-                        h.this.Nx.delete(i);
-                        h.this.Ns.delete(i);
+                        h.this.NP.delete(i);
+                        h.this.NQ.delete(i);
+                        h.this.NK.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        h.this.Nw.delete(i);
-                        h.this.Nx.delete(i);
+                        h.this.NP.delete(i);
+                        h.this.NQ.delete(i);
                         h.this.m(view, 0.0f);
                     }
 
@@ -309,18 +309,18 @@ public class h {
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-                this.Nw.append(i, ofFloat);
-                this.Nx.append(i, (int) C(view));
+                this.NP.append(i, ofFloat);
+                this.NQ.append(i, (int) E(view));
                 ofFloat.start();
                 return;
             }
             if (!valueAnimator.isRunning()) {
                 valueAnimator.start();
             }
-            float C = C(view);
-            if (Math.abs(C) > Math.abs(this.Nx.get(i)) + this.Nr.nX()) {
-                this.Nx.append(i, (int) C);
-                valueAnimator.setFloatValues(C, 0.0f);
+            float E = E(view);
+            if (Math.abs(E) > Math.abs(this.NQ.get(i)) + this.NJ.ot()) {
+                this.NQ.append(i, (int) E);
+                valueAnimator.setFloatValues(E, 0.0f);
                 valueAnimator.cancel();
                 valueAnimator.start();
             }

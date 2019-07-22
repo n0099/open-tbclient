@@ -5,7 +5,7 @@ import com.baidu.location.BDLocation;
 import java.io.Serializable;
 /* loaded from: classes.dex */
 public class LocalViewSize {
-    private static LocalViewSize bQY = null;
+    private static LocalViewSize bRY = null;
     private Context mContext = null;
 
     /* loaded from: classes.dex */
@@ -14,11 +14,11 @@ public class LocalViewSize {
         public int width;
     }
 
-    public static LocalViewSize ahv() {
-        if (bQY == null) {
-            bQY = new LocalViewSize();
+    public static LocalViewSize aix() {
+        if (bRY == null) {
+            bRY = new LocalViewSize();
         }
-        return bQY;
+        return bRY;
     }
 
     private LocalViewSize() {
@@ -59,7 +59,7 @@ public class LocalViewSize {
         return imageSize2;
     }
 
-    public int ahw() {
+    public int aiy() {
         int af = com.baidu.adp.lib.util.l.af(this.mContext);
         if (af >= 1080) {
             return 1080;
@@ -67,7 +67,7 @@ public class LocalViewSize {
         return (af < 720 || af >= 1080) ? 480 : 720;
     }
 
-    public ImageSize ahx() {
+    public ImageSize aiz() {
         int i = 240;
         int af = com.baidu.adp.lib.util.l.af(this.mContext);
         if (af < 240) {
@@ -85,15 +85,15 @@ public class LocalViewSize {
         return imageSize;
     }
 
-    public ImageSize ahy() {
+    public ImageSize aiA() {
         ImageSize imageSize = new ImageSize();
         imageSize.height = com.baidu.adp.lib.util.l.ah(this.mContext);
         imageSize.width = com.baidu.adp.lib.util.l.af(this.mContext);
         return imageSize;
     }
 
-    public int ahz() {
-        ImageSize ahx = ahx();
-        return ahx.height >= ahx.width ? ahx.height : ahx.width;
+    public int aiB() {
+        ImageSize aiz = aiz();
+        return aiz.height >= aiz.width ? aiz.height : aiz.width;
     }
 }

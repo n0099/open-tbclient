@@ -29,27 +29,27 @@ import com.baidu.swan.apps.res.ui.NetworkErrorView;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewImpl> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected com.baidu.swan.apps.core.f.c ati;
-    private c atk;
-    private b atl;
-    protected boolean atm;
+    protected com.baidu.swan.apps.core.f.c atL;
+    private c atN;
+    private b atO;
+    protected boolean atP;
     @Nullable
-    private com.baidu.swan.apps.scheme.actions.k.d atn;
-    private com.baidu.swan.apps.core.e.e ato;
-    private int atp;
+    private com.baidu.swan.apps.scheme.actions.k.d atQ;
+    private com.baidu.swan.apps.core.e.e atR;
+    private int atS;
 
     public d(Context context) {
         super(context);
-        this.atm = true;
-        a(new C0138d());
+        this.atP = true;
+        a(new C0135d());
         a(new a());
         aW(context);
     }
 
     private void aW(Context context) {
-        com.baidu.swan.apps.b.b.a wa = com.baidu.swan.apps.ae.e.LH().aQg.get().vy().wa();
-        if (wa != null) {
-            wa.aF(context);
+        com.baidu.swan.apps.b.b.a wB = com.baidu.swan.apps.ae.e.Mv().aQQ.get().vZ().wB();
+        if (wB != null) {
+            wB.aF(context);
         }
     }
 
@@ -63,101 +63,101 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b
     public void a(b.a aVar) {
         super.a(aVar);
-        aVar.aoF = false;
+        aVar.api = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b
-    public void yl() {
-        super.yl();
-        com.baidu.swan.apps.scheme.actions.k.e eVar = new com.baidu.swan.apps.scheme.actions.k.e(this.aov);
+    public void yQ() {
+        super.yQ();
+        com.baidu.swan.apps.scheme.actions.k.e eVar = new com.baidu.swan.apps.scheme.actions.k.e(this.aoY);
         eVar.c(this);
-        this.aov.a(eVar);
+        this.aoY.a(eVar);
     }
 
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void loadUrl(String str) {
-        if (this.atm && !com.baidu.swan.apps.af.a.b.gM(str)) {
-            Bd().Bf();
+        if (this.atP && !com.baidu.swan.apps.af.a.b.gT(str)) {
+            BL().BN();
         } else {
             super.loadUrl(str);
         }
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
-    public String wT() {
+    public String xu() {
         return "ai_apps_widget";
     }
 
     @Override // com.baidu.swan.apps.b.c.f
     @Nullable
-    public com.baidu.swan.apps.scheme.actions.k.d wV() {
-        return this.atn;
+    public com.baidu.swan.apps.scheme.actions.k.d xw() {
+        return this.atQ;
     }
 
     public void d(@Nullable com.baidu.swan.apps.scheme.actions.k.d dVar) {
-        this.atn = dVar;
+        this.atQ = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c Bb() {
-        if (this.atk == null) {
-            this.atk = new c(wS().getContext(), wS());
+    public c BJ() {
+        if (this.atN == null) {
+            this.atN = new c(xt().getContext(), xt());
         }
-        return this.atk;
+        return this.atN;
     }
 
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void onPause() {
         super.onPause();
-        Bc();
+        BK();
     }
 
-    private void Bc() {
+    private void BK() {
         loadJavaScript("document.querySelector('video').pause();");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public b Bd() {
-        if (this.atl == null) {
-            this.atl = new b(wS().getContext(), wS());
-            this.atl.c(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.i.d.1
+    public b BL() {
+        if (this.atO == null) {
+            this.atO = new b(xt().getContext(), xt());
+            this.atO.c(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.i.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (SwanAppNetworkUtils.isNetworkConnected(d.this.wS().getContext()) && com.baidu.swan.apps.af.a.b.gM(d.this.wS().getUrl())) {
-                        d.this.wS().reload();
-                        d.this.atl.Bg();
+                    if (SwanAppNetworkUtils.isNetworkConnected(d.this.xt().getContext()) && com.baidu.swan.apps.af.a.b.gT(d.this.xt().getUrl())) {
+                        d.this.xt().reload();
+                        d.this.atO.BO();
                     }
                 }
             });
         }
-        return this.atl;
+        return this.atO;
     }
 
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.b.c.c
     public void a(com.baidu.swan.apps.core.f.c cVar) {
-        this.ati = cVar;
+        this.atL = cVar;
     }
 
     @Override // com.baidu.swan.apps.core.i.c, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void destroy() {
-        this.ati = null;
+        this.atL = null;
         super.destroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.swan.apps.core.i.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0138d extends WebViewClient {
+    public class C0135d extends WebViewClient {
         /* JADX INFO: Access modifiers changed from: protected */
-        public C0138d() {
+        public C0135d() {
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            d.this.Bb().Bh();
-            if (com.baidu.swan.apps.u.a.DE().vO()) {
-                d.this.Be();
+            d.this.BJ().BP();
+            if (com.baidu.swan.apps.u.a.En().wp()) {
+                d.this.BM();
             }
         }
 
@@ -165,13 +165,13 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (i != -10) {
-                d.this.Bd().Bf();
+                d.this.BL().BN();
             }
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
-            d.this.Bb().hideProgressBar();
+            d.this.BJ().hideProgressBar();
         }
 
         @Override // android.webkit.WebViewClient
@@ -179,7 +179,7 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
             if (d.DEBUG) {
                 Log.d("SwanAppSysWebViewWidget", "shouldOverrideUrlLoading url: " + str);
             }
-            if (com.baidu.swan.apps.af.a.b.gM(str)) {
+            if (com.baidu.swan.apps.af.a.b.gT(str)) {
                 return e.P(webView.getContext(), str);
             }
             return true;
@@ -203,12 +203,12 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
 
         @Override // android.webkit.WebChromeClient
         public void onShowCustomView(View view, int i, final WebChromeClient.CustomViewCallback customViewCallback) {
-            if (d.this.ato == null) {
-                d.this.ato = new com.baidu.swan.apps.core.e.e(d.this.mContext);
+            if (d.this.atR == null) {
+                d.this.atR = new com.baidu.swan.apps.core.e.e(d.this.mContext);
             }
-            d.this.ato.a(view, i, new e.a() { // from class: com.baidu.swan.apps.core.i.d.a.1
+            d.this.atR.a(view, i, new e.a() { // from class: com.baidu.swan.apps.core.i.d.a.1
                 @Override // com.baidu.swan.apps.core.e.e.a
-                public void onCustomViewHidden() {
+                public void AY() {
                     customViewCallback.onCustomViewHidden();
                 }
             });
@@ -217,19 +217,19 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
         @Override // android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             super.onReceivedTitle(webView, str);
-            if (d.this.ati != null) {
-                d.this.ati.cZ(str);
+            if (d.this.atL != null) {
+                d.this.atL.de(str);
             }
         }
 
         @Override // android.webkit.WebChromeClient
         @RequiresApi(api = 21)
         public boolean onShowFileChooser(WebView webView, final ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-            com.baidu.swan.apps.b.c.a.c.xa().a(new c.a() { // from class: com.baidu.swan.apps.core.i.d.a.2
+            com.baidu.swan.apps.b.c.a.c.xB().a(new c.a() { // from class: com.baidu.swan.apps.core.i.d.a.2
                 @Override // com.baidu.swan.apps.b.c.a.c.a
                 public void a(Activity activity, int i, int i2, Intent intent) {
                     if (i == 200) {
-                        com.baidu.swan.apps.b.c.a.c.xa().b(this);
+                        com.baidu.swan.apps.b.c.a.c.xB().b(this);
                         valueCallback.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(i2, intent));
                     }
                 }
@@ -241,92 +241,92 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
                 }
                 return true;
             } catch (Exception e) {
-                com.baidu.swan.apps.res.widget.b.d.a(webView.getContext(), webView.getResources().getText(a.h.swan_webview_show_file_chooser_failed)).Ld();
+                com.baidu.swan.apps.res.widget.b.d.a(webView.getContext(), webView.getResources().getText(a.h.swan_webview_show_file_chooser_failed)).LQ();
                 return false;
             }
         }
     }
 
     public void hideCustomView() {
-        if (this.ato != null) {
-            this.ato.hideCustomView();
+        if (this.atR != null) {
+            this.atR.hideCustomView();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class c {
-        private EfficientProgressBar atw;
+        private EfficientProgressBar atZ;
 
         public c(Context context, ViewGroup viewGroup) {
-            this.atw = null;
+            this.atZ = null;
             if (context == null || viewGroup == null) {
                 throw new IllegalArgumentException("context and viewGroup must not be null.");
             }
-            this.atw = new EfficientProgressBar(context);
-            this.atw.setProgressDrawable(context.getResources().getDrawable(a.e.aiapps_progress_thumb));
-            this.atw.setId(a.f.aiapps_nbsearch_web_loading_progress_bar);
-            this.atw.setVisibility(4);
-            this.atw.setFocusable(false);
-            this.atw.setClickable(false);
-            viewGroup.addView(this.atw);
+            this.atZ = new EfficientProgressBar(context);
+            this.atZ.setProgressDrawable(context.getResources().getDrawable(a.e.aiapps_progress_thumb));
+            this.atZ.setId(a.f.aiapps_nbsearch_web_loading_progress_bar);
+            this.atZ.setVisibility(4);
+            this.atZ.setFocusable(false);
+            this.atZ.setClickable(false);
+            viewGroup.addView(this.atZ);
         }
 
-        public void Bh() {
-            this.atw.reset();
+        public void BP() {
+            this.atZ.reset();
             updateProgress(0);
         }
 
         public void updateProgress(int i) {
-            this.atw.setProgress(i, true);
+            this.atZ.setProgress(i, true);
         }
 
         public void hideProgressBar() {
-            this.atw.setProgress(100, true);
+            this.atZ.setProgress(100, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b {
-        private NetworkErrorView atv;
+        private NetworkErrorView atY;
 
         public b(Context context, ViewGroup viewGroup) {
             if (context == null || viewGroup == null) {
                 throw new IllegalArgumentException("context and viewGroup must not be null.");
             }
-            this.atv = new NetworkErrorView(context);
-            this.atv.setBackgroundColor(context.getResources().getColor(a.c.aiapps_white));
-            viewGroup.addView(this.atv, new FrameLayout.LayoutParams(-1, -1));
-            this.atv.setVisibility(8);
+            this.atY = new NetworkErrorView(context);
+            this.atY.setBackgroundColor(context.getResources().getColor(a.c.aiapps_white));
+            viewGroup.addView(this.atY, new FrameLayout.LayoutParams(-1, -1));
+            this.atY.setVisibility(8);
         }
 
-        public void Bf() {
-            this.atv.setVisibility(0);
+        public void BN() {
+            this.atY.setVisibility(0);
         }
 
-        public void Bg() {
-            this.atv.setVisibility(8);
+        public void BO() {
+            this.atY.setVisibility(8);
         }
 
         public void c(View.OnClickListener onClickListener) {
-            this.atv.setOnClickListener(onClickListener);
-            this.atv.setReloadClickListener(onClickListener);
+            this.atY.setOnClickListener(onClickListener);
+            this.atY.setReloadClickListener(onClickListener);
         }
     }
 
-    public void Be() {
-        com.baidu.swan.apps.core.d.d zL = com.baidu.swan.apps.w.e.FV().vi().zL();
-        if (zL != null && zL.getView() != null) {
-            final View findViewById = zL.getView().findViewById(a.f.ai_apps_fragment_base_view);
-            if (zL.zA().wN() != null && findViewById != null) {
+    public void BM() {
+        com.baidu.swan.apps.core.d.d As = com.baidu.swan.apps.w.e.GF().vJ().As();
+        if (As != null && As.getView() != null) {
+            final View findViewById = As.getView().findViewById(a.f.ai_apps_fragment_base_view);
+            if (As.Ah().xo() != null && findViewById != null) {
                 findViewById.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.core.i.d.2
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
                         if (d.DEBUG) {
                             Log.d("SwanAppSysWebViewWidget", "onGlobalLayout");
                         }
-                        d.this.W(findViewById);
+                        d.this.Y(findViewById);
                     }
                 });
             }
@@ -334,14 +334,14 @@ public class d extends com.baidu.swan.apps.core.i.c implements f<SystemWebViewIm
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void W(View view) {
+    public void Y(View view) {
         Rect rect = new Rect();
         view.getWindowVisibleDisplayFrame(rect);
         int i = rect.bottom - rect.top;
-        if (i != this.atp) {
+        if (i != this.atS) {
             view.getLayoutParams().height = i;
             view.requestLayout();
-            this.atp = i;
+            this.atS = i;
         }
     }
 }

@@ -18,42 +18,42 @@ import tbclient.User;
 /* loaded from: classes3.dex */
 public class d {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static d iWt;
-    private com.baidu.adp.lib.cache.l<byte[]> dqB;
+    private static d jcL;
+    private com.baidu.adp.lib.cache.l<byte[]> dsK;
     private j responseData = null;
 
     private d() {
-        this.dqB = null;
-        this.dqB = BdCacheService.hq().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.dsK = null;
+        this.dsK = BdCacheService.hA().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static d clx() {
-        if (iWt == null) {
+    public static d cop() {
+        if (jcL == null) {
             synchronized (d.class) {
-                if (iWt == null) {
-                    iWt = new d();
+                if (jcL == null) {
+                    jcL = new d();
                 }
             }
         }
-        return iWt;
+        return jcL;
     }
 
-    public long cly() {
-        long j = com.baidu.tbadk.core.sharedPref.b.agM().getLong("key_frs_cache_time", 604800000L);
+    public long coq() {
+        long j = com.baidu.tbadk.core.sharedPref.b.ahO().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
         }
         return j;
     }
 
-    public boolean DK(String str) {
-        if (this.dqB != null && str != null) {
-            byte[] bArr = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public boolean Ex(String str) {
+        if (this.dsK != null && str != null) {
+            byte[] bArr = this.dsK.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 this.responseData = new j();
                 this.responseData.parserProtobuf(bArr);
                 if (this.responseData.forum != null && this.responseData.forum.getFrsBannerData() != null) {
-                    this.responseData.forum.getFrsBannerData().bFT = false;
+                    this.responseData.forum.getFrsBannerData().bGU = false;
                 }
                 return true;
             }
@@ -61,9 +61,9 @@ public class d {
         return false;
     }
 
-    public void eg(String str, String str2) {
-        if (this.dqB != null && str != null) {
-            byte[] bArr = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void eh(String str, String str2) {
+        if (this.dsK != null && str != null) {
+            byte[] bArr = this.dsK.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -83,9 +83,9 @@ public class d {
         }
     }
 
-    public void eh(String str, String str2) {
-        if (this.dqB != null && str != null) {
-            byte[] bArr = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void ei(String str, String str2) {
+        if (this.dsK != null && str != null) {
+            byte[] bArr = this.dsK.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -111,9 +111,9 @@ public class d {
         }
     }
 
-    public void ei(String str, String str2) {
-        if (this.dqB != null && str != null) {
-            byte[] bArr = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
+    public void ej(String str, String str2) {
+        if (this.dsK != null && str != null) {
+            byte[] bArr = this.dsK.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
                 try {
                     FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
@@ -147,7 +147,7 @@ public class d {
         List<ThreadInfo> list;
         int Z;
         int i;
-        if (this.dqB != null && str != null && bArr != null && bArr.length > 0) {
+        if (this.dsK != null && str != null && bArr != null && bArr.length > 0) {
             try {
                 FrsPageResIdl frsPageResIdl = (FrsPageResIdl) WIRE.parseFrom(bArr, FrsPageResIdl.class);
                 if (frsPageResIdl != null && frsPageResIdl.data != null && (Z = com.baidu.tbadk.core.util.v.Z((list = frsPageResIdl.data.thread_list))) > 0) {
@@ -155,7 +155,7 @@ public class d {
                         c(str, bArr, true);
                         return;
                     }
-                    byte[] bArr2 = this.dqB.get(TbadkCoreApplication.getCurrentAccount() + str);
+                    byte[] bArr2 = this.dsK.get(TbadkCoreApplication.getCurrentAccount() + str);
                     if (bArr2 == null) {
                         c(str, bArr, true);
                         return;
@@ -224,29 +224,29 @@ public class d {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.dqB.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, cly());
+                this.dsK.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, coq());
                 return;
             }
-            this.dqB.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, cly());
+            this.dsK.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, coq());
         }
     }
 
-    public void aw(String str, boolean z) {
+    public void aA(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.dqB.remove(TbadkCoreApplication.getCurrentAccount() + str);
+                this.dsK.remove(TbadkCoreApplication.getCurrentAccount() + str);
                 return;
             }
-            this.dqB.aq(TbadkCoreApplication.getCurrentAccount() + str);
+            this.dsK.ar(TbadkCoreApplication.getCurrentAccount() + str);
         }
     }
 
     public boolean isSameDay(String str) {
-        l.b<byte[]> ap;
-        if (str == null || str.length() <= 0 || (ap = this.dqB.ap(str)) == null) {
+        l.b<byte[]> aq;
+        if (str == null || str.length() <= 0 || (aq = this.dsK.aq(str)) == null) {
             return false;
         }
-        return UtilHelper.isSameDay(ap.yG, System.currentTimeMillis());
+        return UtilHelper.isSameDay(aq.yM, System.currentTimeMillis());
     }
 
     public j getResponseData() {

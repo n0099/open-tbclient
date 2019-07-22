@@ -5,21 +5,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 public class a {
     public static void a(com.baidu.tbadk.coreExtra.data.e eVar) {
         if (eVar != null) {
-            if (eVar.ceJ != 0) {
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("app_entrance_nologin", eVar.ceJ + "");
+            if (eVar.cfO != 0) {
+                com.baidu.tbadk.core.sharedPref.b.ahO().putString("app_entrance_nologin", eVar.cfO + "");
             }
-            if (eVar.ceI != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), eVar.ceI + "");
+            if (eVar.cfN != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+                com.baidu.tbadk.core.sharedPref.b.ahO().putString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), eVar.cfN + "");
             }
         }
     }
 
-    public int azd() {
+    public int aAr() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
-            string = com.baidu.tbadk.core.sharedPref.b.agM().getString("app_entrance_nologin", "");
+            string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("app_entrance_nologin", "");
         } else {
-            string = com.baidu.tbadk.core.sharedPref.b.agM().getString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+            string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
         }
         int f = com.baidu.adp.lib.g.b.f(string, 0);
         if (f != 1 && f == 2) {

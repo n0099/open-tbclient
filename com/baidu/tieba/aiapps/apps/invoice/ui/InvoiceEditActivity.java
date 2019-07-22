@@ -15,32 +15,32 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes4.dex */
 public class InvoiceEditActivity extends BaseActivity {
-    private ScrollView bbv;
-    private InvoiceInfoEditView dcg;
-    private InvoiceInfo dch;
-    private SwanAppBdActionBar dci;
+    private ScrollView bcg;
+    private InvoiceInfoEditView ddH;
+    private InvoiceInfo ddI;
+    private SwanAppBdActionBar ddJ;
     private int mType = 1;
-    private View.OnClickListener dcj = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2
+    private View.OnClickListener ddK = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (InvoiceEditActivity.this.dcg != null && InvoiceEditActivity.this.dcg.aEv()) {
-                new g.a(InvoiceEditActivity.this).d(InvoiceEditActivity.this.getString(R.string.invoice_dialog_exit_title)).gw(InvoiceEditActivity.this.getString(R.string.invoice_dialog_exit_message)).b(R.string.invoice_dialog_exit_pos_btn, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2.1
+            if (InvoiceEditActivity.this.ddH != null && InvoiceEditActivity.this.ddH.aFL()) {
+                new g.a(InvoiceEditActivity.this).d(InvoiceEditActivity.this.getString(R.string.invoice_dialog_exit_title)).gC(InvoiceEditActivity.this.getString(R.string.invoice_dialog_exit_message)).b(R.string.invoice_dialog_exit_pos_btn, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         InvoiceEditActivity.this.finish();
                     }
-                }).c(R.string.invoice_dialog_exit_neg_btn, (DialogInterface.OnClickListener) null).KK();
+                }).c(R.string.invoice_dialog_exit_neg_btn, (DialogInterface.OnClickListener) null).Lx();
             } else {
                 InvoiceEditActivity.this.finish();
             }
         }
     };
-    private View.OnClickListener dck = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.3
+    private View.OnClickListener ddL = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             InvoiceInfo invoiceInfo;
-            if (InvoiceEditActivity.this.dcg != null) {
-                invoiceInfo = InvoiceEditActivity.this.dcg.getInvoiceInfo();
+            if (InvoiceEditActivity.this.ddH != null) {
+                invoiceInfo = InvoiceEditActivity.this.ddH.getInvoiceInfo();
             } else {
                 invoiceInfo = null;
             }
@@ -51,7 +51,7 @@ public class InvoiceEditActivity extends BaseActivity {
                 }
                 return;
             }
-            InvoiceEditActivity.this.e(invoiceInfo.c(InvoiceEditActivity.this.dch));
+            InvoiceEditActivity.this.e(invoiceInfo.c(InvoiceEditActivity.this.ddI));
         }
     };
 
@@ -69,78 +69,78 @@ public class InvoiceEditActivity extends BaseActivity {
         if (intent != null) {
             this.mType = intent.getIntExtra("type", 1);
         }
-        this.dci = (SwanAppBdActionBar) findViewById(R.id.bd_action_bar);
-        if (this.dci != null) {
-            this.dci.setLeftFirstViewVisibility(false);
-            this.dci.setRightMenuVisibility(false);
-            this.dci.setLeftSecondViewVisibility(0);
-            this.dci.setLeftSecondViewText(getString(R.string.invoice_action_bar_cancel));
-            this.dci.setLeftSecondViewTextSize(14);
-            this.dci.setLeftSecondViewClickListener(this.dcj);
-            this.dci.setRightTxtZone1Visibility(0);
-            this.dci.setRightTxtZone1Text(getString(R.string.invoice_action_bar_save));
-            this.dci.setRightTxtZone1Clickable(false);
-            this.dci.setRightTxtZone1OnClickListener(this.dck);
-            this.dci.setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_txt_color_selector));
+        this.ddJ = (SwanAppBdActionBar) findViewById(R.id.bd_action_bar);
+        if (this.ddJ != null) {
+            this.ddJ.setLeftFirstViewVisibility(false);
+            this.ddJ.setRightMenuVisibility(false);
+            this.ddJ.setLeftSecondViewVisibility(0);
+            this.ddJ.setLeftSecondViewText(getString(R.string.invoice_action_bar_cancel));
+            this.ddJ.setLeftSecondViewTextSize(14);
+            this.ddJ.setLeftSecondViewClickListener(this.ddK);
+            this.ddJ.setRightTxtZone1Visibility(0);
+            this.ddJ.setRightTxtZone1Text(getString(R.string.invoice_action_bar_save));
+            this.ddJ.setRightTxtZone1Clickable(false);
+            this.ddJ.setRightTxtZone1OnClickListener(this.ddL);
+            this.ddJ.setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_txt_color_selector));
             if (this.mType == 0) {
-                this.dci.setTitle(getString(R.string.invoice_action_bar_title_edit));
+                this.ddJ.setTitle(getString(R.string.invoice_action_bar_title_edit));
             } else {
-                this.dci.setTitle(getString(R.string.invoice_action_bar_title_create));
+                this.ddJ.setTitle(getString(R.string.invoice_action_bar_title_create));
             }
         }
     }
 
     private void initView() {
-        this.bbv = (ScrollView) findViewById(R.id.scroll_view);
-        this.dcg = (InvoiceInfoEditView) findViewById(R.id.invoice_info_view);
-        this.bbv.setBackground(getResources().getDrawable(R.color.edit_activity_bg));
-        aEx();
-        this.dcg.setInputStatusListener(new b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.1
+        this.bcg = (ScrollView) findViewById(R.id.scroll_view);
+        this.ddH = (InvoiceInfoEditView) findViewById(R.id.invoice_info_view);
+        this.bcg.setBackground(getResources().getDrawable(R.color.edit_activity_bg));
+        aFN();
+        this.ddH.setInputStatusListener(new b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.1
             @Override // com.baidu.tieba.aiapps.apps.invoice.b
-            public void aEq() {
-                InvoiceEditActivity.this.gp(true);
+            public void aFG() {
+                InvoiceEditActivity.this.gt(true);
             }
 
             @Override // com.baidu.tieba.aiapps.apps.invoice.b
-            public void aEr() {
-                InvoiceEditActivity.this.gp(false);
+            public void aFH() {
+                InvoiceEditActivity.this.gt(false);
             }
 
             @Override // com.baidu.tieba.aiapps.apps.invoice.b
-            public void aEs() {
-                InvoiceEditActivity.this.aEx();
+            public void aFI() {
+                InvoiceEditActivity.this.aFN();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEx() {
-        if (this.dcg.aEu()) {
-            gp(true);
+    public void aFN() {
+        if (this.ddH.aFK()) {
+            gt(true);
         } else {
-            gp(false);
+            gt(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gp(boolean z) {
-        if (aDd() != null) {
+    public void gt(boolean z) {
+        if (aEt() != null) {
             if (z) {
-                aDd().setRightTxtZone1Clickable(true);
-                aDd().setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_activate_txt_color_selector));
+                aEt().setRightTxtZone1Clickable(true);
+                aEt().setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_activate_txt_color_selector));
                 return;
             }
-            aDd().setRightTxtZone1Clickable(false);
-            aDd().setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_txt_color_selector));
+            aEt().setRightTxtZone1Clickable(false);
+            aEt().setRightTxtZone1TextSelector(getResources().getColorStateList(R.color.aiapps_invoice_action_bar_txt_color_selector));
         }
     }
 
     private void Y(Intent intent) {
         if (intent != null && this.mType == 0) {
             InvoiceInfo invoiceInfo = (InvoiceInfo) intent.getParcelableExtra("invoice");
-            this.dch = invoiceInfo;
+            this.ddI = invoiceInfo;
             if (invoiceInfo != null) {
-                this.dcg.d(this.dch);
+                this.ddH.d(this.ddI);
             }
         }
     }
@@ -149,11 +149,11 @@ public class InvoiceEditActivity extends BaseActivity {
     public void e(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            d.aEt().a(invoiceInfo, new c.e() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.4
+            d.aFJ().a(invoiceInfo, new c.e() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.4
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c.e
                 public void b(InvoiceInfo invoiceInfo2) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "修改发票成功");
-                    InvoiceEditActivity.this.vl();
+                    InvoiceEditActivity.this.vM();
                     Intent intent = new Intent();
                     intent.putExtra("invoice", invoiceInfo2);
                     InvoiceEditActivity.this.setResult(-1, intent);
@@ -161,14 +161,14 @@ public class InvoiceEditActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void sH(String str) {
-                    InvoiceEditActivity.this.sI(str);
+                public void ta(String str) {
+                    InvoiceEditActivity.this.tb(str);
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void cn(String str, String str2) {
+                public void co(String str, String str2) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "修改发票失败");
-                    InvoiceEditActivity.this.co(str, str2);
+                    InvoiceEditActivity.this.cp(str, str2);
                 }
             });
         }
@@ -178,11 +178,11 @@ public class InvoiceEditActivity extends BaseActivity {
     public void f(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            d.aEt().a(invoiceInfo, new c.a() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.5
+            d.aFJ().a(invoiceInfo, new c.a() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.5
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c.a
                 public void a(InvoiceInfo invoiceInfo2) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "创建发票成功");
-                    InvoiceEditActivity.this.vl();
+                    InvoiceEditActivity.this.vM();
                     Intent intent = new Intent();
                     intent.putExtra("invoice", invoiceInfo2);
                     InvoiceEditActivity.this.setResult(-1, intent);
@@ -190,50 +190,50 @@ public class InvoiceEditActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void sH(String str) {
-                    InvoiceEditActivity.this.sI(str);
+                public void ta(String str) {
+                    InvoiceEditActivity.this.tb(str);
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void cn(String str, String str2) {
+                public void co(String str, String str2) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "创建发票失败");
-                    InvoiceEditActivity.this.co(str, str2);
+                    InvoiceEditActivity.this.cp(str, str2);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sI(String str) {
-        vl();
+    public void tb(String str) {
+        vM();
         com.baidu.tieba.aiapps.apps.invoice.a.a(this, null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void co(String str, String str2) {
-        vl();
+    public void cp(String str, String str2) {
+        vM();
         com.baidu.tieba.aiapps.apps.invoice.a.p(this, str, str2);
     }
 
     private void showLoadingView() {
-        com.baidu.swan.apps.res.widget.loadingview.a.d(this, this.dcg);
+        com.baidu.swan.apps.res.widget.loadingview.a.d(this, this.ddH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vl() {
-        com.baidu.swan.apps.res.widget.loadingview.a.i(this.dcg);
+    public void vM() {
+        com.baidu.swan.apps.res.widget.loadingview.a.i(this.ddH);
     }
 
-    public SwanAppBdActionBar aDd() {
-        return this.dci;
+    public SwanAppBdActionBar aEt() {
+        return this.ddJ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.dcg != null) {
-            this.dcg.onActivityDestroy();
+        if (this.ddH != null) {
+            this.ddH.aFO();
         }
     }
 }

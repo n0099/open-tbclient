@@ -1,5 +1,6 @@
 package kotlin.text;
 
+import com.baidu.mobstat.Config;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -37,7 +38,7 @@ public final class Regex implements Serializable {
         this(r0);
         kotlin.jvm.internal.p.k(str, "pattern");
         kotlin.jvm.internal.p.k(regexOption, "option");
-        Pattern compile = Pattern.compile(str, Companion.DY(regexOption.getValue()));
+        Pattern compile = Pattern.compile(str, Companion.EH(regexOption.getValue()));
         kotlin.jvm.internal.p.j(compile, "Pattern.compile(pattern,…nicodeCase(option.value))");
     }
 
@@ -52,7 +53,7 @@ public final class Regex implements Serializable {
         kotlin.jvm.internal.p.k(set, "options");
         a aVar = Companion;
         e = j.e(set);
-        Pattern compile = Pattern.compile(str, aVar.DY(e));
+        Pattern compile = Pattern.compile(str, aVar.EH(e));
         kotlin.jvm.internal.p.j(compile, "Pattern.compile(pattern,…odeCase(options.toInt()))");
     }
 
@@ -78,12 +79,12 @@ public final class Regex implements Serializable {
     }
 
     public final boolean matches(CharSequence charSequence) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         return this.nativePattern.matcher(charSequence).matches();
     }
 
     public final boolean containsMatchIn(CharSequence charSequence) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         return this.nativePattern.matcher(charSequence).find();
     }
 
@@ -96,7 +97,7 @@ public final class Regex implements Serializable {
 
     public final h find(CharSequence charSequence, int i) {
         h a2;
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         Matcher matcher = this.nativePattern.matcher(charSequence);
         kotlin.jvm.internal.p.j(matcher, "nativePattern.matcher(input)");
         a2 = j.a(matcher, i, charSequence);
@@ -111,13 +112,13 @@ public final class Regex implements Serializable {
     }
 
     public final kotlin.sequences.c<h> findAll(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         return kotlin.sequences.d.a(new Regex$findAll$1(this, charSequence, i), Regex$findAll$2.INSTANCE);
     }
 
     public final h matchEntire(CharSequence charSequence) {
         h a2;
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         Matcher matcher = this.nativePattern.matcher(charSequence);
         kotlin.jvm.internal.p.j(matcher, "nativePattern.matcher(input)");
         a2 = j.a(matcher, charSequence);
@@ -125,7 +126,7 @@ public final class Regex implements Serializable {
     }
 
     public final String replace(CharSequence charSequence, String str) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.p.k(str, "replacement");
         String replaceAll = this.nativePattern.matcher(charSequence).replaceAll(str);
         kotlin.jvm.internal.p.j(replaceAll, "nativePattern.matcher(in…).replaceAll(replacement)");
@@ -134,7 +135,7 @@ public final class Regex implements Serializable {
 
     public final String replace(CharSequence charSequence, kotlin.jvm.a.b<? super h, ? extends CharSequence> bVar) {
         int i = 0;
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.p.k(bVar, "transform");
         h find$default = find$default(this, charSequence, 0, 2, null);
         if (find$default == null) {
@@ -144,12 +145,12 @@ public final class Regex implements Serializable {
         StringBuilder sb = new StringBuilder(length);
         do {
             if (find$default == null) {
-                kotlin.jvm.internal.p.cKa();
+                kotlin.jvm.internal.p.cNK();
             }
-            sb.append(charSequence, i, find$default.cKl().cKg().intValue());
+            sb.append(charSequence, i, find$default.cNV().cNQ().intValue());
             sb.append(bVar.invoke(find$default));
-            i = find$default.cKl().cKh().intValue() + 1;
-            find$default = find$default.cKm();
+            i = find$default.cNV().cNR().intValue() + 1;
+            find$default = find$default.cNW();
             if (i >= length) {
                 break;
             }
@@ -163,7 +164,7 @@ public final class Regex implements Serializable {
     }
 
     public final String replaceFirst(CharSequence charSequence, String str) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         kotlin.jvm.internal.p.k(str, "replacement");
         String replaceFirst = this.nativePattern.matcher(charSequence).replaceFirst(str);
         kotlin.jvm.internal.p.j(replaceFirst, "nativePattern.matcher(in…replaceFirst(replacement)");
@@ -178,7 +179,7 @@ public final class Regex implements Serializable {
     }
 
     public final List<String> split(CharSequence charSequence, int i) {
-        kotlin.jvm.internal.p.k(charSequence, "input");
+        kotlin.jvm.internal.p.k(charSequence, Config.INPUT_PART);
         if (i >= 0) {
             Pattern pattern = this.nativePattern;
             if (i == 0) {
@@ -255,7 +256,7 @@ public final class Regex implements Serializable {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int DY(int i) {
+        public final int EH(int i) {
             return (i & 2) != 0 ? i | 64 : i;
         }
     }

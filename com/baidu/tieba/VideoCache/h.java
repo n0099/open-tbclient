@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
 /* loaded from: classes4.dex */
 public class h {
-    private String bzP;
-    private String cTU;
-    private boolean cTV;
-    private long cTW = -1;
-    private long cTX = -1;
-    private long cTY = 0;
-    private long cTZ = 0;
+    private String bAM;
+    private String cVq;
+    private boolean cVr;
+    private long cVs = -1;
+    private long cVt = -1;
+    private long cVu = 0;
+    private long cVv = 0;
 
-    public String aAQ() {
-        return this.cTU;
+    public String aCf() {
+        return this.cVq;
     }
 
-    public void rD(String str) {
-        this.cTU = str;
+    public void rV(String str) {
+        this.cVq = str;
     }
 
-    public String aAR() {
-        return this.bzP;
+    public String aCg() {
+        return this.bAM;
     }
 
-    public void rE(String str) {
-        this.bzP = str;
+    public void rW(String str) {
+        this.bAM = str;
     }
 
-    public boolean aAS() {
-        return this.cTV;
+    public boolean aCh() {
+        return this.cVr;
     }
 
-    public void gf(boolean z) {
-        this.cTV = z;
+    public void gj(boolean z) {
+        this.cVr = z;
     }
 
-    public long aAT() {
-        return this.cTW;
-    }
-
-    public void bK(long j) {
-        this.cTW = j;
-    }
-
-    public long aAU() {
-        return this.cTX;
+    public long aCi() {
+        return this.cVs;
     }
 
     public void bL(long j) {
-        this.cTX = j;
+        this.cVs = j;
     }
 
-    public long getTotalLength() {
-        return this.cTY;
-    }
-
-    public void bd(long j) {
-        this.cTY = j;
+    public long aCj() {
+        return this.cVt;
     }
 
     public void bM(long j) {
-        this.cTZ = j;
+        this.cVt = j;
     }
 
-    public long aAV() {
-        return this.cTZ;
+    public long getTotalLength() {
+        return this.cVu;
+    }
+
+    public void be(long j) {
+        this.cVu = j;
+    }
+
+    public void bN(long j) {
+        this.cVv = j;
+    }
+
+    public long aCk() {
+        return this.cVv;
     }
 }

@@ -10,72 +10,72 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
-    private ImageView agT;
-    private TextView aif;
-    private LinearLayout cmO;
-    private HeadImageView iMQ;
+    private ImageView ahs;
+    private LinearLayout cob;
+    private HeadImageView iTi;
     private Context mContext;
+    private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        apq();
+        aqv();
         c(attributeSet);
-        jT(TbadkCoreApplication.getInst().getSkinType());
+        jZ(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        apq();
-        jT(TbadkCoreApplication.getInst().getSkinType());
+        aqv();
+        jZ(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void jT(int i) {
-        al.f(this.aif, R.color.common_color_10039, 1);
-        al.b(this.agT, (int) R.drawable.icon_arrow_gray_right_n, i);
-        this.iMQ.invalidate();
+    public void jZ(int i) {
+        am.f(this.textView, R.color.common_color_10039, 1);
+        am.b(this.ahs, (int) R.drawable.icon_arrow_gray_right_n, i);
+        this.iTi.invalidate();
     }
 
-    public void ciI() {
-        if (this.iMQ != null) {
-            this.iMQ.setVisibility(8);
+    public void clA() {
+        if (this.iTi != null) {
+            this.iTi.setVisibility(8);
         }
     }
 
-    public void ciJ() {
-        if (this.iMQ != null) {
-            this.iMQ.setVisibility(0);
+    public void clB() {
+        if (this.iTi != null) {
+            this.iTi.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.aif.setText(str);
+        this.textView.setText(str);
     }
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.iMQ.startLoad(str, 26, false);
+            this.iTi.startLoad(str, 26, false);
         } else {
-            this.iMQ.startLoad(str, 12, false);
+            this.iTi.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void apq() {
+    private void aqv() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
-        this.cmO = (LinearLayout) findViewById(R.id.container);
-        this.aif = (TextView) findViewById(R.id.text);
-        this.iMQ = (HeadImageView) findViewById(R.id.icon);
-        this.agT = (ImageView) findViewById(R.id.arrow);
+        this.cob = (LinearLayout) findViewById(R.id.container);
+        this.textView = (TextView) findViewById(R.id.text);
+        this.iTi = (HeadImageView) findViewById(R.id.icon);
+        this.ahs = (ImageView) findViewById(R.id.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
@@ -84,12 +84,12 @@ public class SettingTextImageView extends FrameLayout {
         int color = obtainStyledAttributes.getColor(3, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.aif.setText(string);
+            this.textView.setText(string);
         }
         if (color > -1) {
-            this.aif.setTextColor(color);
+            this.textView.setTextColor(color);
         }
-        this.cmO.setClickable(false);
-        this.cmO.setFocusable(false);
+        this.cob.setClickable(false);
+        this.cob.setFocusable(false);
     }
 }

@@ -38,7 +38,7 @@ public class g extends z {
             return false;
         }
         final a aVar = new a(optParamsAsJo);
-        bVar.Lu().a((Activity) context, aVar, null, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.swan.apps.setting.a.g.1
+        bVar.Mh().a((Activity) context, aVar, null, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<e.c>>() { // from class: com.baidu.swan.apps.setting.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
@@ -77,19 +77,19 @@ public class g extends z {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public final boolean aTO;
-        public final long aTP;
+        public final boolean aUy;
+        public final long aUz;
 
         public a(@NonNull JSONObject jSONObject) {
-            this.aTO = jSONObject.has("timeout");
-            this.aTP = jSONObject.optLong("timeout", 0L);
-            if (this.aTP < 0) {
+            this.aUy = jSONObject.has("timeout");
+            this.aUz = jSONObject.optLong("timeout", 0L);
+            if (this.aUz < 0) {
                 com.baidu.swan.apps.console.c.w("LoginAction", "timeout is a minus：" + toString());
             }
         }
 
         public String toString() {
-            return "LoginTimeoutConfig{enableTimeout=" + this.aTO + ", timeoutMills=" + this.aTP + '}';
+            return "LoginTimeoutConfig{enableTimeout=" + this.aUy + ", timeoutMills=" + this.aUz + '}';
         }
     }
 }

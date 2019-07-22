@@ -9,7 +9,6 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.mobstat.Config;
@@ -36,7 +35,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class g {
     private String c;
     private boolean d;
@@ -63,30 +62,31 @@ public final class g {
     /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
         r0.intentFilters.add(r7);
         r1 = a(r7.d);
+        new java.lang.StringBuilder().append(r1);
         com.baidu.sofire.b.a();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x004c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0054, code lost:
         if (android.text.TextUtils.isEmpty(r1) != false) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0055, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x005d, code lost:
         if (r1.equals("____") != false) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0061, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0069, code lost:
         if (r6.i.keySet().contains(r1) != false) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x006a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0072, code lost:
         if ("android.intent.action.PACKAGE_REMOVED__package".equals(r1) != false) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x006c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0074, code lost:
         r3 = new com.baidu.sofire.MyReceiver();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0071, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0079, code lost:
         com.baidu.sofire.core.g.f.registerReceiver(r3, r7.d);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0078, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0080, code lost:
         r0 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00a0, code lost:
         r0 = true;
      */
     /*
@@ -112,8 +112,6 @@ public final class g {
                 }
             }
         }
-        f.registerReceiver(myReceiver, hVar.d);
-        this.i.put(a, myReceiver);
         if (z) {
             try {
                 Thread.sleep(3000L);
@@ -122,6 +120,8 @@ public final class g {
             }
             f.registerReceiver(myReceiver, hVar.d);
         }
+        this.i.put(a, myReceiver);
+        f.registerReceiver(myReceiver, hVar.d);
         this.i.put(a, myReceiver);
     }
 
@@ -238,6 +238,7 @@ public final class g {
                     }
                 }
                 String a = a(hVar.d);
+                new StringBuilder().append(a);
                 com.baidu.sofire.b.a();
                 if (!TextUtils.isEmpty(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                     Iterator<ApkInfo> it = b().iterator();
@@ -248,6 +249,7 @@ public final class g {
                                 for (h hVar2 : next.intentFilters) {
                                     String a2 = a(hVar2.d);
                                     if (!TextUtils.isEmpty(a2) && a2.equals(a)) {
+                                        new StringBuilder().append(a);
                                         com.baidu.sofire.b.a();
                                         break loop2;
                                     }
@@ -255,6 +257,7 @@ public final class g {
                                 continue;
                             }
                         } else {
+                            new StringBuilder().append(a);
                             com.baidu.sofire.b.a();
                             f.unregisterReceiver(this.i.get(a));
                             this.i.remove(a);
@@ -291,7 +294,7 @@ public final class g {
         this.d = z;
         this.c = apkInfo.versionName;
         boolean a = a(apkInfo);
-        new StringBuilder("LoadApk cost time:").append(System.currentTimeMillis() - currentTimeMillis);
+        new StringBuilder().append(System.currentTimeMillis() - currentTimeMillis);
         com.baidu.sofire.b.a();
         return a;
     }
@@ -381,7 +384,7 @@ public final class g {
                                     }
                                 }
                             }
-                            new StringBuilder("verify md5:result=").append(pair.first);
+                            new StringBuilder().append(pair.first);
                             com.baidu.sofire.b.a();
                             if (!((Boolean) pair.first).booleanValue()) {
                                 HashMap hashMap2 = new HashMap();
@@ -429,6 +432,7 @@ public final class g {
             String jSONArray2 = jSONArray.toString();
             com.baidu.sofire.b.a();
             String a = com.baidu.sofire.b.h.a(f, com.baidu.sofire.b.e.b() + "p/1/pdl", jSONArray2, false);
+            new StringBuilder().append(a);
             com.baidu.sofire.b.a();
             JSONArray jSONArray3 = new JSONArray(a);
             if (jSONArray3.length() <= 0) {
@@ -529,6 +533,7 @@ public final class g {
         String str7 = (TextUtils.isEmpty(str4) && ((PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI) && hashSet.contains(PassBiometricUtil.CPU_TYPE_ARMEABI)) || (Build.VERSION.SDK_INT >= 8 && PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI2) && hashSet.contains(PassBiometricUtil.CPU_TYPE_ARMEABI)))) ? str + "/armeabi" + str3 : str4;
         apkInfo.libPath = str7;
         PathClassLoader pathClassLoader = new PathClassLoader(apkInfo.hostContext.getPackageResourcePath(), getClass().getClassLoader());
+        new StringBuilder().append(str7);
         com.baidu.sofire.b.a();
         try {
             String absolutePath = new File(str2, "apkDex").getAbsolutePath();
@@ -536,7 +541,7 @@ public final class g {
             e(absolutePath);
             apkInfo.classLoader = new f(apkInfo.pkgPath, absolutePath, str7, pathClassLoader);
             Class<?> loadClass = apkInfo.classLoader.loadClass("com.baidu.sofire.engine.EngineImpl");
-            new StringBuilder("success load EngineImpl ").append(loadClass);
+            new StringBuilder().append(loadClass);
             com.baidu.sofire.b.a();
             if (loadClass == null || TextUtils.isEmpty(loadClass.getName())) {
                 throw new Exception("class ForHostApp.ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
@@ -549,13 +554,13 @@ public final class g {
                 com.baidu.sofire.b.e.d(absolutePath2);
                 e(absolutePath2);
                 a(apkInfo, str, hashSet, sb, false, true);
-                new StringBuilder("before create ClassLoader,dexFile:").append((Object) sb);
+                new StringBuilder().append((Object) sb);
                 com.baidu.sofire.b.a();
                 apkInfo.classLoader = new f(sb.toString(), absolutePath2, str7, pathClassLoader);
                 Class<?> loadClass2 = apkInfo.classLoader.loadClass("com.baidu.sofire.engine.EngineImpl");
-                new StringBuilder("success load EngineImpl ").append(loadClass2);
+                new StringBuilder().append(loadClass2);
                 com.baidu.sofire.b.a();
-                new StringBuilder("load dex suc or not ,now can remove the dex!").append((Object) sb);
+                new StringBuilder().append((Object) sb);
                 com.baidu.sofire.b.a();
                 File file = new File(sb.toString());
                 if (file.exists()) {
@@ -603,9 +608,9 @@ public final class g {
             if (f != null) {
                 com.baidu.sofire.b.e.d(f.getFileStreamPath(apkInfo.packageName).getAbsolutePath());
             }
-            new StringBuilder("after unload mApkInfoMapPath size:").append(this.h.size());
+            new StringBuilder().append(this.h.size());
             com.baidu.sofire.b.a();
-            new StringBuilder("after unload mApkInfoMapPkgName size:").append(this.a.size());
+            new StringBuilder().append(this.a.size());
             com.baidu.sofire.b.a();
             return true;
         }
@@ -656,7 +661,7 @@ public final class g {
             }
             return true;
         } catch (Throwable th) {
-            Log.e("Utilities", "ensureDirectory - " + th);
+            com.baidu.sofire.b.e.a();
             return false;
         }
     }
@@ -690,96 +695,96 @@ public final class g {
             java.lang.String r1 = r15.pkgPath     // Catch: java.io.FileNotFoundException -> L141 java.util.zip.ZipException -> L174 java.io.EOFException -> L1ba java.lang.Throwable -> L229
             r8.<init>(r1)     // Catch: java.io.FileNotFoundException -> L141 java.util.zip.ZipException -> L174 java.io.EOFException -> L1ba java.lang.Throwable -> L229
         L25:
-            java.util.Enumeration r9 = r8.entries()     // Catch: java.lang.Throwable -> L327 java.io.EOFException -> L346 java.util.zip.ZipException -> L36a
+            java.util.Enumeration r9 = r8.entries()     // Catch: java.lang.Throwable -> L324 java.io.EOFException -> L343 java.util.zip.ZipException -> L367
         L29:
-            boolean r1 = r9.hasMoreElements()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            if (r1 == 0) goto L318
-            java.lang.Object r1 = r9.nextElement()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.util.zip.ZipEntry r1 = (java.util.zip.ZipEntry) r1     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.String r10 = r1.getName()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r1 = r9.hasMoreElements()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            if (r1 == 0) goto L315
+            java.lang.Object r1 = r9.nextElement()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.util.zip.ZipEntry r1 = (java.util.zip.ZipEntry) r1     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.String r10 = r1.getName()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r6 = "lib/"
-            boolean r6 = r10.startsWith(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            if (r6 == 0) goto L38f
-            boolean r6 = r1.isDirectory()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            if (r6 != 0) goto L38f
-            if (r19 == 0) goto L38f
-            java.lang.String r7 = android.os.Build.CPU_ABI     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r6 = r10.startsWith(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            if (r6 == 0) goto L38c
+            boolean r6 = r1.isDirectory()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            if (r6 != 0) goto L38c
+            if (r19 == 0) goto L38c
+            java.lang.String r7 = android.os.Build.CPU_ABI     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r6 = 0
             int r11 = android.os.Build.VERSION.SDK_INT     // Catch: java.lang.Throwable -> L255
             r12 = 8
             if (r11 < r12) goto L55
             java.lang.String r6 = android.os.Build.CPU_ABI2     // Catch: java.lang.Throwable -> L255
         L55:
-            com.baidu.sofire.b.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            boolean r11 = r10.contains(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            com.baidu.sofire.b.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            boolean r11 = r10.contains(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r11 != 0) goto L8b
-            boolean r11 = android.text.TextUtils.isEmpty(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r11 = android.text.TextUtils.isEmpty(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r11 != 0) goto L6a
-            boolean r11 = r10.contains(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r11 = r10.contains(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r11 != 0) goto L8b
         L6a:
             java.lang.String r11 = "armeabi"
-            boolean r11 = r10.contains(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r11 = r10.contains(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r11 == 0) goto L29
             java.lang.String r11 = "armeabi-v7a"
-            boolean r7 = r11.equalsIgnoreCase(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r7 = r11.equalsIgnoreCase(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r7 != 0) goto L8b
-            boolean r7 = android.text.TextUtils.isEmpty(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r7 = android.text.TextUtils.isEmpty(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r7 != 0) goto L29
             java.lang.String r7 = "armeabi-v7a"
-            boolean r6 = r7.equalsIgnoreCase(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            boolean r6 = r7.equalsIgnoreCase(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             if (r6 == 0) goto L29
         L8b:
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            r6.<init>()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            r6.<init>()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r0 = r16
-            java.lang.StringBuilder r6 = r6.append(r0)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r6 = r6.append(r0)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r7 = 3
-            java.lang.String r7 = r10.substring(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.String r7 = r10.substring(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r11 = ".so"
-            java.lang.StringBuilder r12 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            r12.<init>()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.StringBuilder r12 = r12.append(r3)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r12 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            r12.<init>()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.StringBuilder r12 = r12.append(r3)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r13 = ".so"
-            java.lang.StringBuilder r12 = r12.append(r13)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.String r12 = r12.toString()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.String r7 = r7.replace(r11, r12)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.String r7 = r6.toString()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r12 = r12.append(r13)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.String r12 = r12.toString()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.String r7 = r7.replace(r11, r12)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.StringBuilder r6 = r6.append(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.String r7 = r6.toString()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r11 = "l="
-            r6.<init>(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            r6.<init>(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r0 = r16
-            java.lang.StringBuilder r6 = r6.append(r0)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r6 = r6.append(r0)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r11 = ", n="
-            java.lang.StringBuilder r6 = r6.append(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.StringBuilder r6 = r6.append(r10)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r6 = r6.append(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.StringBuilder r6 = r6.append(r10)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             java.lang.String r11 = ", f="
-            java.lang.StringBuilder r6 = r6.append(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            r6.append(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            com.baidu.sofire.b.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.StringBuilder r6 = r6.append(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            r6.append(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            com.baidu.sofire.b.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r6 = 0
             r11 = 47
-            int r11 = r7.lastIndexOf(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.lang.String r6 = r7.substring(r6, r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            int r11 = r7.lastIndexOf(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.lang.String r6 = r7.substring(r6, r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r11 = 47
-            int r11 = r6.lastIndexOf(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            int r11 = r6.lastIndexOf(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             int r11 = r11 + 1
-            java.lang.String r11 = r6.substring(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            java.lang.String r11 = r6.substring(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             r0 = r17
-            r0.add(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            e(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.io.File r6 = new java.io.File     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            r6.<init>(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            r6.delete()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.io.InputStream r6 = r8.getInputStream(r1)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            r2.<init>(r7)     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
+            r0.add(r11)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            e(r6)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.io.File r6 = new java.io.File     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            r6.<init>(r7)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            r6.delete()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.io.InputStream r6 = r8.getInputStream(r1)     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            r2.<init>(r7)     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
         L114:
-            int r4 = r6.read(r5)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L32a java.io.EOFException -> L34c
+            int r4 = r6.read(r5)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L327 java.io.EOFException -> L349
             if (r4 <= 0) goto L261
             r11 = 0
-            r2.write(r5, r11, r4)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L32a java.io.EOFException -> L34c
+            r2.write(r5, r11, r4)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L327 java.io.EOFException -> L349
             goto L114
         L11f:
             r1 = move-exception
@@ -793,7 +798,7 @@ public final class g {
             r6 = r18
             r7 = r19
             r8 = r20
-            a(r1, r2, r3, r4, r5, r6, r7, r8)     // Catch: java.lang.Throwable -> L340
+            a(r1, r2, r3, r4, r5, r6, r7, r8)     // Catch: java.lang.Throwable -> L33d
             if (r11 == 0) goto L136
             r11.close()
         L136:
@@ -864,7 +869,7 @@ public final class g {
             r6 = r18
             r7 = r19
             r8 = r20
-            a(r1, r2, r3, r4, r5, r6, r7, r8)     // Catch: java.lang.Throwable -> L340
+            a(r1, r2, r3, r4, r5, r6, r7, r8)     // Catch: java.lang.Throwable -> L33d
             if (r11 == 0) goto L1d1
             r11.close()
         L1d1:
@@ -931,7 +936,7 @@ public final class g {
             throw r1     // Catch: java.util.zip.ZipException -> L174 java.io.EOFException -> L1ba java.lang.Throwable -> L229
         L255:
             r11 = move-exception
-            com.baidu.sofire.b.e.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L327 java.io.EOFException -> L35e
+            com.baidu.sofire.b.e.a()     // Catch: java.util.zip.ZipException -> L25b java.lang.Throwable -> L324 java.io.EOFException -> L35b
             goto L55
         L25b:
             r1 = move-exception
@@ -940,48 +945,48 @@ public final class g {
             r11 = r8
             goto L123
         L261:
-            r2.close()     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L32a java.io.EOFException -> L34c
+            r2.close()     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L327 java.io.EOFException -> L349
             if (r6 == 0) goto L269
-            r6.close()     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L32a java.io.EOFException -> L34c
+            r6.close()     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L327 java.io.EOFException -> L349
         L269:
             r4 = 1
-            com.baidu.sofire.b.e.a(r7, r4)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L32a java.io.EOFException -> L34c
+            com.baidu.sofire.b.e.a(r7, r4)     // Catch: java.util.zip.ZipException -> L11f java.lang.Throwable -> L327 java.io.EOFException -> L349
             r4 = r6
         L26e:
             r7 = 0
             java.lang.String r6 = ".dex"
-            boolean r6 = r10.endsWith(r6)     // Catch: java.lang.Throwable -> L382
-            if (r6 == 0) goto L313
-            boolean r6 = r1.isDirectory()     // Catch: java.lang.Throwable -> L382
-            if (r6 != 0) goto L313
-            if (r20 == 0) goto L313
-            java.lang.String r10 = r15.dataDir     // Catch: java.lang.Throwable -> L382
-            e(r10)     // Catch: java.lang.Throwable -> L382
-            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L382
-            java.lang.StringBuilder r11 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L382
-            r11.<init>()     // Catch: java.lang.Throwable -> L382
-            int r12 = r15.key     // Catch: java.lang.Throwable -> L382
-            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L382
+            boolean r6 = r10.endsWith(r6)     // Catch: java.lang.Throwable -> L37f
+            if (r6 == 0) goto L310
+            boolean r6 = r1.isDirectory()     // Catch: java.lang.Throwable -> L37f
+            if (r6 != 0) goto L310
+            if (r20 == 0) goto L310
+            java.lang.String r10 = r15.dataDir     // Catch: java.lang.Throwable -> L37f
+            e(r10)     // Catch: java.lang.Throwable -> L37f
+            java.io.File r6 = new java.io.File     // Catch: java.lang.Throwable -> L37f
+            java.lang.StringBuilder r11 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L37f
+            r11.<init>()     // Catch: java.lang.Throwable -> L37f
+            int r12 = r15.key     // Catch: java.lang.Throwable -> L37f
+            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L37f
             java.lang.String r12 = "-"
-            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L382
-            java.lang.String r12 = r15.versionName     // Catch: java.lang.Throwable -> L382
-            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L382
+            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L37f
+            java.lang.String r12 = r15.versionName     // Catch: java.lang.Throwable -> L37f
+            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L37f
             java.lang.String r12 = ".dex"
-            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L382
-            java.lang.String r11 = r11.toString()     // Catch: java.lang.Throwable -> L382
-            r6.<init>(r10, r11)     // Catch: java.lang.Throwable -> L382
-            java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L388
+            java.lang.StringBuilder r11 = r11.append(r12)     // Catch: java.lang.Throwable -> L37f
+            java.lang.String r11 = r11.toString()     // Catch: java.lang.Throwable -> L37f
+            r6.<init>(r10, r11)     // Catch: java.lang.Throwable -> L37f
+            java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L385
             java.lang.String r10 = "e: "
-            r7.<init>(r10)     // Catch: java.lang.Throwable -> L388
-            java.lang.String r10 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L388
-            r7.append(r10)     // Catch: java.lang.Throwable -> L388
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L388
-            java.io.InputStream r4 = r8.getInputStream(r1)     // Catch: java.lang.Throwable -> L388
-            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L388
-            r1.<init>(r6)     // Catch: java.lang.Throwable -> L388
+            r7.<init>(r10)     // Catch: java.lang.Throwable -> L385
+            java.lang.String r10 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L385
+            r7.append(r10)     // Catch: java.lang.Throwable -> L385
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L385
+            java.io.InputStream r4 = r8.getInputStream(r1)     // Catch: java.lang.Throwable -> L385
+            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L385
+            r1.<init>(r6)     // Catch: java.lang.Throwable -> L385
         L2c8:
             int r2 = r4.read(r5)     // Catch: java.lang.Throwable -> L2d3
-            if (r2 <= 0) goto L2f9
+            if (r2 <= 0) goto L2f6
             r7 = 0
             r1.write(r5, r7, r2)     // Catch: java.lang.Throwable -> L2d3
             goto L2c8
@@ -993,24 +998,23 @@ public final class g {
             r4 = r1
             r1 = r14
         L2d9:
-            java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            java.lang.String r10 = "unable extracting dex file for "
-            r7.<init>(r10)     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            r7.append(r1)     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            if (r2 == 0) goto L2f6
-            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-            if (r1 == 0) goto L2f6
-            r2.delete()     // Catch: java.lang.Throwable -> L33c java.io.EOFException -> L364 java.util.zip.ZipException -> L37c
-        L2f6:
+            java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            r7.<init>()     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            java.lang.String r1 = r1.getMessage()     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            r7.append(r1)     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            if (r2 == 0) goto L2f3
+            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+            if (r1 == 0) goto L2f3
+            r2.delete()     // Catch: java.lang.Throwable -> L339 java.io.EOFException -> L361 java.util.zip.ZipException -> L379
+        L2f3:
             r2 = r6
             goto L29
-        L2f9:
+        L2f6:
             r1.close()     // Catch: java.lang.Throwable -> L2d3
-            if (r4 == 0) goto L301
+            if (r4 == 0) goto L2fe
             r4.close()     // Catch: java.lang.Throwable -> L2d3
-        L301:
+        L2fe:
             java.lang.String r2 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L2d3
             r0 = r18
             r0.append(r2)     // Catch: java.lang.Throwable -> L2d3
@@ -1018,124 +1022,124 @@ public final class g {
             r7 = 1
             com.baidu.sofire.b.e.a(r2, r7)     // Catch: java.lang.Throwable -> L2d3
             r2 = r1
-        L313:
+        L310:
             r14 = r2
             r2 = r4
             r4 = r14
             goto L29
-        L318:
+        L315:
             r8.close()
-            if (r2 == 0) goto L320
+            if (r2 == 0) goto L31d
             r2.close()
-        L320:
+        L31d:
             if (r4 == 0) goto L140
             r4.close()
             goto L140
-        L327:
+        L324:
             r1 = move-exception
             goto L22b
-        L32a:
+        L327:
             r1 = move-exception
             r4 = r2
             r2 = r6
             goto L22b
-        L32f:
+        L32c:
             r1 = move-exception
             r14 = r2
             r2 = r4
             r4 = r14
             goto L22b
-        L335:
+        L332:
             r2 = move-exception
             r14 = r2
             r2 = r4
             r4 = r1
             r1 = r14
             goto L22b
-        L33c:
+        L339:
             r1 = move-exception
             r2 = r6
             goto L22b
-        L340:
+        L33d:
             r1 = move-exception
             r4 = r9
             r2 = r10
             r8 = r11
             goto L22b
-        L346:
+        L343:
             r1 = move-exception
             r9 = r4
             r10 = r2
             r11 = r8
             goto L1be
-        L34c:
+        L349:
             r1 = move-exception
             r9 = r2
             r10 = r6
             r11 = r8
             goto L1be
-        L352:
+        L34f:
             r1 = move-exception
             r9 = r2
             r10 = r4
             r11 = r8
             goto L1be
-        L358:
+        L355:
             r2 = move-exception
             r9 = r1
             r10 = r4
             r11 = r8
             goto L1be
-        L35e:
+        L35b:
             r1 = move-exception
             r9 = r4
             r10 = r2
             r11 = r8
             goto L1be
-        L364:
+        L361:
             r1 = move-exception
             r9 = r4
             r10 = r6
             r11 = r8
             goto L1be
-        L36a:
+        L367:
             r1 = move-exception
             r9 = r4
             r10 = r2
             r11 = r8
             goto L123
-        L370:
+        L36d:
             r1 = move-exception
             r9 = r2
             r10 = r4
             r11 = r8
             goto L123
-        L376:
+        L373:
             r2 = move-exception
             r9 = r1
             r10 = r4
             r11 = r8
             goto L123
-        L37c:
+        L379:
             r1 = move-exception
             r9 = r4
             r10 = r6
             r11 = r8
             goto L123
-        L382:
+        L37f:
             r1 = move-exception
             r6 = r4
             r4 = r2
             r2 = r7
             goto L2d9
-        L388:
+        L385:
             r1 = move-exception
             r14 = r6
             r6 = r4
             r4 = r2
             r2 = r14
             goto L2d9
-        L38f:
+        L38c:
             r14 = r4
             r4 = r2
             r2 = r14
@@ -1145,15 +1149,15 @@ public final class g {
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(10:5|(1:97)(7:10|11|12|(1:14)|15|(3:22|(3:23|24|(1:26)(1:27))|28)|62)|29|30|31|(8:36|37|38|(3:40|41|(1:43)(1:44))|45|(1:47)|48|49)|73|60|61|62) */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x01d5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x01d7, code lost:
         r1 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01d6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x01d8, code lost:
         r2 = r0;
         r0 = r1;
         r1 = null;
      */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x010a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1172,6 +1176,7 @@ public final class g {
                 }
                 String name = nextEntry.getName();
                 if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextEntry.isDirectory() && z) {
+                    new StringBuilder().append(name);
                     com.baidu.sofire.b.a();
                     String str3 = Build.CPU_ABI;
                     String str4 = null;
@@ -1202,7 +1207,6 @@ public final class g {
                                 th = th2;
                                 zipInputStream.close();
                                 if (fileOutputStream3 != null) {
-                                    fileOutputStream3.close();
                                 }
                                 throw th;
                             }
@@ -1218,7 +1222,7 @@ public final class g {
                     e(str6);
                     File file3 = new File(str6, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName + ".dex");
                     try {
-                        new StringBuilder("dex is extracting: ").append(file3.getAbsolutePath());
+                        new StringBuilder().append(file3.getAbsolutePath());
                         com.baidu.sofire.b.a();
                         file3.delete();
                         file3.createNewFile();
@@ -1235,7 +1239,7 @@ public final class g {
                                 fileOutputStream2 = fileOutputStream4;
                                 file = file3;
                                 try {
-                                    new StringBuilder("unable extracting dex file for ").append(th.getMessage());
+                                    new StringBuilder().append(th.getMessage());
                                     com.baidu.sofire.b.a();
                                     if (file != null && file.exists()) {
                                         file.delete();
@@ -1247,6 +1251,7 @@ public final class g {
                                     fileOutputStream3 = fileOutputStream2;
                                     zipInputStream.close();
                                     if (fileOutputStream3 != null) {
+                                        fileOutputStream3.close();
                                     }
                                     throw th;
                                 }

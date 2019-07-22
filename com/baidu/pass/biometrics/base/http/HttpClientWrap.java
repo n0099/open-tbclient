@@ -74,7 +74,7 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
+        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.1
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onStart() {
                 httpHandlerWrap.onStart();
@@ -92,7 +92,7 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str2) {
-                httpHandlerWrap.onFailure(th, str2);
+                httpHandlerWrap.onFailure(th, -1, str2);
             }
         });
     }
@@ -102,7 +102,7 @@ public class HttpClientWrap {
     }
 
     public void get(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final BinaryHttpHandlerWrap binaryHttpHandlerWrap) {
-        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
+        this.passHttpClient.get(this.context, buildParamDTO(str, httpHashMap, list, i), new BinaryHttpResponseHandler(Looper.getMainLooper(), binaryHttpHandlerWrap.allowedContentTypes, binaryHttpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.2
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onStart() {
                 binaryHttpHandlerWrap.onStart();
@@ -120,7 +120,7 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str2) {
-                binaryHttpHandlerWrap.onFailure(th, str2);
+                binaryHttpHandlerWrap.onFailure(th, -1, str2);
             }
         });
     }
@@ -134,7 +134,7 @@ public class HttpClientWrap {
     }
 
     public void post(String str, HttpHashMap httpHashMap, List<HttpCookie> list, int i, final HttpHandlerWrap httpHandlerWrap) {
-        this.passHttpClient.post(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
+        this.passHttpClient.post(this.context, buildParamDTO(str, httpHashMap, list, i), new HttpResponseHandler(Looper.getMainLooper(), httpHandlerWrap.isExecutCallbackInChildThread()) { // from class: com.baidu.pass.biometrics.base.http.HttpClientWrap.3
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onStart() {
                 httpHandlerWrap.onStart();
@@ -152,7 +152,7 @@ public class HttpClientWrap {
 
             @Override // com.baidu.pass.http.HttpResponseHandler
             protected void onFailure(Throwable th, String str2) {
-                httpHandlerWrap.onFailure(th, str2);
+                httpHandlerWrap.onFailure(th, -1, str2);
             }
         });
     }

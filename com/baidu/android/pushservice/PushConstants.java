@@ -72,7 +72,7 @@ public final class PushConstants {
 
     private static byte[] decryptB(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.j.g.a(bArr, str);
+            return com.baidu.android.pushservice.j.e.a(bArr, str);
         } catch (Exception e) {
             return null;
         }
@@ -80,7 +80,7 @@ public final class PushConstants {
 
     private static byte[] encryptB(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.j.g.b(bArr, str);
+            return com.baidu.android.pushservice.j.e.b(bArr, str);
         } catch (Exception e) {
             return null;
         }
@@ -88,13 +88,13 @@ public final class PushConstants {
 
     private static byte[] encryptL(byte[] bArr, String str) {
         try {
-            return com.baidu.android.pushservice.j.g.c(bArr, str);
+            return com.baidu.android.pushservice.j.e.c(bArr, str);
         } catch (Exception e) {
             return null;
         }
     }
 
     private static boolean verify(byte[] bArr, String str, String str2) {
-        return com.baidu.android.pushservice.j.g.a(bArr, str, str2);
+        return com.baidu.android.pushservice.j.e.a(bArr, str, str2);
     }
 }

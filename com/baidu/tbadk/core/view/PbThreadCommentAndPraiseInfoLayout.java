@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends NewThreadCommentAndPraiseInfoLayout {
-    private View.OnClickListener bZr;
+    private View.OnClickListener cat;
 
     public PbThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
@@ -30,26 +30,26 @@ public class PbThreadCommentAndPraiseInfoLayout extends NewThreadCommentAndPrais
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void aO(View view) {
-        if (this.bZr != null) {
-            this.bZr.onClick(view);
+    protected void aQ(View view) {
+        if (this.cat != null) {
+            this.cat.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void aP(View view) {
-        if (this.bZr != null) {
-            this.bZr.onClick(view);
+    protected void aR(View view) {
+        if (this.cat != null) {
+            this.cat.onClick(view);
         }
     }
 
-    public void oB(String str) {
-        if (this.VJ != null && !TextUtils.isEmpty(str) && str.equals(this.VJ.getTid())) {
+    public void oS(String str) {
+        if (this.We != null && !TextUtils.isEmpty(str) && str.equals(this.We.getTid())) {
             com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-            dVar.bEz = 4;
-            dVar.bEB = 2;
-            this.bZZ.setStatisticData(dVar);
-            this.bZZ.aja();
+            dVar.bFz = 4;
+            dVar.bFB = 2;
+            this.cbb.setStatisticData(dVar);
+            this.cbb.ake();
         }
     }
 
@@ -57,6 +57,6 @@ public class PbThreadCommentAndPraiseInfoLayout extends NewThreadCommentAndPrais
     }
 
     public void setOnClickOutListener(View.OnClickListener onClickListener) {
-        this.bZr = onClickListener;
+        this.cat = onClickListener;
     }
 }

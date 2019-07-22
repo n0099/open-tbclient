@@ -2,13 +2,14 @@ package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
@@ -22,6 +23,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
@@ -40,16 +42,14 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.base.utils.EncodeUtils;
-import com.baidu.sapi2.base.utils.NetworkUtil;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -226,7 +226,10 @@ public class SapiUtils {
         if (Build.VERSION.SDK_INT <= 27 || context.getApplicationInfo().targetSdkVersion <= 27) {
             str = Build.SERIAL;
         } else if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
-            str = Build.getSerial();
+            try {
+                str = Build.getSerial();
+            } catch (Throwable th) {
+            }
         }
         return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
     }
@@ -250,15 +253,15 @@ public class SapiUtils {
         return null;
     }
 
-    @TargetApi(5)
-    public static String getBlueToothDeviceName(Context context) {
-        BluetoothAdapter defaultAdapter;
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @TargetApi(3)
+    public static String a(Context context) {
         try {
-            return (!checkRequestPermission("android.permission.BLUETOOTH", context) || (defaultAdapter = BluetoothAdapter.getDefaultAdapter()) == null || defaultAdapter.getName() == null) ? "" : defaultAdapter.getName();
+            return Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
         } catch (Exception e2) {
             Log.e(e2);
+            return "";
         }
-        return "";
     }
 
     public static String createRequestParams(List<PassNameValuePair> list) {
@@ -288,7 +291,7 @@ public class SapiUtils {
         if (context == null || context.checkCallingOrSelfPermission("android.permission.SEND_SMS") != 0) {
             return false;
         }
-        switch (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimState()) {
+        switch (((TelephonyManager) context.getSystemService("phone")).getSimState()) {
             case 5:
                 return true;
             default:
@@ -297,7 +300,15 @@ public class SapiUtils {
     }
 
     public static boolean hasActiveNetwork(Context context) {
-        return NetworkUtil.isNetworkAvaliable(context);
+        if (context == null) {
+            return false;
+        }
+        try {
+            return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo() != null;
+        } catch (Throwable th) {
+            Log.e(th);
+            return false;
+        }
     }
 
     @TargetApi(3)
@@ -345,7 +356,7 @@ public class SapiUtils {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [577=4, 578=4, 569=5, 571=4, 572=4, 573=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [578=5, 580=4, 581=4, 582=4, 586=4, 587=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -463,7 +474,7 @@ public class SapiUtils {
                     return sb.toString().substring(0, sb.length() - 1);
                 }
             } else {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager != null) {
                     return telephonyManager.getSimSerialNumber();
                 }
@@ -552,9 +563,9 @@ public class SapiUtils {
 
     public static String getCookiePtoken() {
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-        String cookie = getCookie(confignation.environment.getWap(getDefaultHttpsEnabled()), "PTOKEN");
+        String cookie = getCookie(confignation.environment.getWap(), "PTOKEN");
         if (TextUtils.isEmpty(cookie)) {
-            return getCookie(confignation.environment.getURL(getDefaultHttpsEnabled()), "PTOKEN");
+            return getCookie(confignation.environment.getURL(), "PTOKEN");
         }
         return cookie;
     }
@@ -601,10 +612,10 @@ public class SapiUtils {
             }
             for (String str2 : getAuthorizedDomainsForPtoken(context)) {
                 arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-                arrayList.add(new PassNameValuePair("https://" + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
             }
             for (String str3 : getAuthorizedDomainsForPtoken(context)) {
-                arrayList.add(new PassNameValuePair("https://" + str3, buildStokenCookie(str3, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
             }
             syncCookies(context, arrayList);
             return true;
@@ -616,7 +627,7 @@ public class SapiUtils {
     private static String a(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "httponly" + (z ? ";secure" : "");
     }
 
     public static String buildDeviceInfoCookie(String str, String str2, String str3) {
@@ -676,13 +687,13 @@ public class SapiUtils {
         }
         List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains(context);
         if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
-            String replaceAll = confignation.environment.getWap(getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
-            String replaceAll2 = confignation.environment.getURL(getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll = confignation.environment.getWap().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll2 = confignation.environment.getURL().replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
             cuidAuthorizedDomains.add(replaceAll);
             cuidAuthorizedDomains.add(replaceAll2);
         }
         for (String str : cuidAuthorizedDomains) {
-            cookieManager.setCookie("https://" + str, buildCuidCookie(str, confignation.clientId));
+            cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildCuidCookie(str, confignation.clientId));
         }
         if (list != null) {
             for (PassNameValuePair passNameValuePair : list) {
@@ -719,7 +730,7 @@ public class SapiUtils {
             if (packageInfo.signatures.length <= 0) {
                 return "";
             }
-            return EncodeUtils.toMd5(packageInfo.signatures[0].toByteArray());
+            return MD5Util.toMd5(packageInfo.signatures[0].toByteArray(), false);
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -775,26 +786,29 @@ public class SapiUtils {
     }
 
     public static boolean isQrLoginSchema(String str) {
+        if (b(str)) {
+            return true;
+        }
         if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
-                if (split.length > 1) {
-                    hashMap.put(split[0], split[1]);
-                } else if (split.length == 1) {
-                    hashMap.put(split[0], "");
-                }
-            }
-            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            return (TextUtils.isEmpty(urlParamsToMap.get(b)) || TextUtils.isEmpty(urlParamsToMap.get("sign")) || TextUtils.isEmpty(urlParamsToMap.get("cmd")) || TextUtils.isEmpty(urlParamsToMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+        }
+        return false;
+    }
+
+    private static boolean b(String str) {
+        if (!TextUtils.isEmpty(str) && str.contains("qrsign") && str.contains("scope") && str.contains("channelid") && str.contains("client_id")) {
+            Map<String, String> urlParamsToMap = urlParamsToMap(str);
+            return (TextUtils.isEmpty(urlParamsToMap.get("qrsign")) || TextUtils.isEmpty(urlParamsToMap.get("scope")) || TextUtils.isEmpty(urlParamsToMap.get("channelid")) || TextUtils.isEmpty(urlParamsToMap.get("client_id"))) ? false : true;
         }
         return false;
     }
 
     public static String[] isQrArtificialAppeal(String str) {
         Domain environment;
-        String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap(true)).getHost();
+        String host = Uri.parse(ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getWap()).getHost();
         Uri parse = Uri.parse(str);
-        String str2 = Uri.parse(environment.getWap(true)).getHost() + "/v3/getpass/artificialappeal";
+        String str2 = Uri.parse(environment.getWap()).getHost() + "/v3/getpass/artificialappeal";
         if (TextUtils.isEmpty(str) || !str.contains(str2)) {
             return null;
         }
@@ -808,7 +822,10 @@ public class SapiUtils {
 
     public static Map<String, String> parseQrLoginSchema(String str) {
         HashMap hashMap = new HashMap();
-        if (isQrLoginSchema(str)) {
+        if (b(str)) {
+            hashMap.put(KEY_QR_LOGIN_LP, "pc");
+            return hashMap;
+        } else if (isQrLoginSchema(str)) {
             Map<String, String> urlParamsToMap = urlParamsToMap(str);
             if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
                 HashMap hashMap2 = new HashMap();
@@ -818,11 +835,12 @@ public class SapiUtils {
                     hashMap2.put("islogin", "1");
                 }
                 hashMap2.put("client", "android");
-                StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2, false);
+                StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2);
             }
             return urlParamsToMap;
+        } else {
+            return hashMap;
         }
-        return hashMap;
     }
 
     public static String parseQrFaceAuthSchema(String str) {
@@ -872,7 +890,7 @@ public class SapiUtils {
         hashMap.put("sms", 2);
         hashMap.put("face", 3);
         hashMap.put(SocialType.WEIXIN.getName() + "", 4);
-        hashMap.put(SocialType.SINA_WEIBO.getName() + "", 5);
+        hashMap.put(SocialType.SINA_WEIBO_SSO.getName() + "", 5);
         hashMap.put(SocialType.QQ_SSO.getName() + "", 6);
         hashMap.put(SocialType.HUAWEI.getName() + "", 10);
         hashMap.put("slient_share", 7);
@@ -918,13 +936,13 @@ public class SapiUtils {
                 case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE /* 11001 */:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE;
                     break;
-                case 11002:
+                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_MOB_TO_WIFI /* 11002 */:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_MOB_TO_WIFI;
                     break;
-                case 11003:
+                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_WIFI_TO_MOB /* 11003 */:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_WIFI_TO_MOB;
                     break;
-                case 12001:
+                case SapiGIDEvent.TIME_FREQ /* 12001 */:
                     event = GIDEvent.TIME_FREQ;
                     break;
             }
@@ -963,13 +981,23 @@ public class SapiUtils {
 
     @TargetApi(23)
     public static boolean checkRequestPermission(String str, Context context) {
-        if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
-            return Build.VERSION.SDK_INT < 23 && context.checkCallingOrSelfPermission(str) == 0;
+        try {
+            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) != 0) {
+                if (Build.VERSION.SDK_INT < 23) {
+                    if (context.checkCallingOrSelfPermission(str) == 0) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return true;
+        } catch (Exception e2) {
+            return false;
         }
-        return true;
     }
 
     public static String calculateSig(Map<String, String> map, String str) {
+        map.remove("sig");
         ArrayList arrayList = new ArrayList();
         for (String str2 : map.keySet()) {
             arrayList.add(str2);
@@ -979,24 +1007,21 @@ public class SapiUtils {
         Iterator it = arrayList.iterator();
         while (it.hasNext()) {
             String str3 = (String) it.next();
-            sb.append(str3);
-            sb.append("=");
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
+                    sb.append(str3).append("=").append(URLEncoder.encode(str4, HTTP.UTF_8)).append("&");
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
-            sb.append("&");
         }
         sb.append("sign_key=").append(str);
         return MD5Util.toMd5(sb.toString().getBytes(), false);
     }
 
-    public static boolean statExtraValid(Context context, String str) {
-        return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance(context).getLoginStatExtraLimitLen();
+    public static boolean statExtraValid(String str) {
+        return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getLoginStatExtraLimitLen();
     }
 
     @TargetApi(4)
@@ -1008,12 +1033,8 @@ public class SapiUtils {
         if (packageName.matches("com.baidu.sapi2.(.*)")) {
             return true;
         }
-        try {
-            if ((context.getApplicationInfo().flags & 2) != 0) {
-                return false;
-            }
-        } catch (Exception e2) {
-            Log.e(e2);
+        if (isDebug(context)) {
+            return false;
         }
         Map<String, String> authorizedPackages = SapiContext.getInstance(context).getAuthorizedPackages();
         String packageSign = getPackageSign(context, packageName);
@@ -1021,6 +1042,18 @@ public class SapiUtils {
             if (packageName.matches(str) && packageSign.equals(authorizedPackages.get(str))) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    @TargetApi(4)
+    public static boolean isDebug(Context context) {
+        try {
+            if ((context.getApplicationInfo().flags & 2) != 0) {
+                return true;
+            }
+        } catch (Exception e2) {
+            Log.e(e2);
         }
         return false;
     }
@@ -1103,5 +1136,40 @@ public class SapiUtils {
             }
         }
         return "";
+    }
+
+    public static void notNull(Object obj, String str) {
+        if (obj == null) {
+            throw new IllegalArgumentException(str);
+        }
+    }
+
+    public static void notEmpty(String str, String str2) {
+        if (TextUtils.isEmpty(str)) {
+            throw new IllegalArgumentException(str2);
+        }
+    }
+
+    public static String[] getPkgIconAndName(Context context, String str) {
+        String[] strArr = new String[2];
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(str, 0);
+            Bitmap createScaledBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) packageInfo.applicationInfo.loadIcon(packageManager)).getBitmap(), 80, 80, true);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            int i = 100;
+            createScaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            while (byteArrayOutputStream.toByteArray().length > 524288 && i > 0) {
+                i /= 2;
+                byteArrayOutputStream.reset();
+                createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
+            }
+            strArr[0] = "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray());
+            strArr[1] = packageInfo.applicationInfo.loadLabel(packageManager).toString();
+            byteArrayOutputStream.close();
+        } catch (Exception e2) {
+            Log.e(e2);
+        }
+        return strArr;
     }
 }

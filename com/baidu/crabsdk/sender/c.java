@@ -7,7 +7,6 @@ import android.os.Process;
 import android.util.Base64;
 import com.baidu.crabsdk.b.r;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.base.network.Apn;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
@@ -16,14 +15,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class c extends a {
-    private ActivityManager aab;
+    private ActivityManager aay;
     private int by;
 
     public c(Context context) {
         super(context);
-        this.aab = null;
+        this.aay = null;
         this.by = -100;
-        this.aab = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        this.aay = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
     }
 
     private static Map<String, Object> a(ActivityManager.ProcessErrorStateInfo processErrorStateInfo, String str) {
@@ -31,9 +30,9 @@ public final class c extends a {
         try {
             StackTraceElement[] stackTrace = Looper.getMainLooper().getThread().getStackTrace();
             if (stackTrace == null || stackTrace.length <= 0) {
-                hashMap.put("mainThread", Apn.APN_UNKNOWN);
-                hashMap.put("errorLine", Apn.APN_UNKNOWN);
-                hashMap.put("errorOriLine", Apn.APN_UNKNOWN);
+                hashMap.put("mainThread", "N/A");
+                hashMap.put("errorLine", "N/A");
+                hashMap.put("errorOriLine", "N/A");
             } else {
                 StringBuilder sb = new StringBuilder();
                 for (StackTraceElement stackTraceElement : stackTrace) {
@@ -59,11 +58,11 @@ public final class c extends a {
             com.baidu.crabsdk.c.a.a("封装anr数据失败!", e);
         }
         try {
-            byte[] cs = i.cs(str);
-            if (cs == null || cs.length <= 0) {
+            byte[] cu = i.cu(str);
+            if (cu == null || cu.length <= 0) {
                 com.baidu.crabsdk.c.a.w("read trace file error! " + str);
             } else {
-                hashMap.put(Config.TRACE_PART, Base64.encodeToString(cs, 0));
+                hashMap.put(Config.TRACE_PART, Base64.encodeToString(cu, 0));
             }
         } catch (Exception e2) {
             com.baidu.crabsdk.c.a.a("wrap trace to anrRecord error!", e2);
@@ -75,33 +74,33 @@ public final class c extends a {
 
     private boolean g(String str) {
         try {
-            ActivityManager.ProcessErrorStateInfo qU = qU();
-            if (qU == null) {
+            ActivityManager.ProcessErrorStateInfo rr = rr();
+            if (rr == null) {
                 return false;
             }
-            if (qU.pid == Process.myPid()) {
-                com.baidu.crabsdk.c.a.cf("anr info catched...");
-                Map<String, Object> a = a(qU, str);
+            if (rr.pid == Process.myPid()) {
+                com.baidu.crabsdk.c.a.ch("anr info catched...");
+                Map<String, Object> a = a(rr, str);
                 if (com.baidu.crabsdk.a.N != null) {
                     com.baidu.crabsdk.a.N.onAnrStarted(a);
                 }
-                Map<String, Object> a2 = g.a(this.ZZ, (Throwable) null, false);
+                Map<String, Object> a2 = g.a(this.aaw, (Throwable) null, false);
                 if (a2 == null) {
-                    com.baidu.crabsdk.c.a.ch("info map is null!");
+                    com.baidu.crabsdk.c.a.cj("info map is null!");
                     return true;
                 }
                 a2.putAll(a);
                 g.b(a2);
-                i.a(this.ZZ, i.i(a2));
+                i.a(this.aaw, i.i(a2));
                 h.ab();
-                if (h.qX()) {
-                    com.baidu.crabsdk.c.a.cf("begin to upload anr info...");
-                    k.a(false, this.ZZ);
+                if (h.ru()) {
+                    com.baidu.crabsdk.c.a.ch("begin to upload anr info...");
+                    k.a(false, this.aaw);
                 }
             } else {
-                com.baidu.crabsdk.c.a.cf("Anr occur! But not the current pid!" + Process.myPid());
+                com.baidu.crabsdk.c.a.ch("Anr occur! But not the current pid!" + Process.myPid());
             }
-            com.baidu.crabsdk.c.a.cf("getLogcatErrorInfo return true");
+            com.baidu.crabsdk.c.a.ch("getLogcatErrorInfo return true");
             return true;
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("getLogcatErrorInfo error!", e);
@@ -112,9 +111,9 @@ public final class c extends a {
         }
     }
 
-    private ActivityManager.ProcessErrorStateInfo qU() {
+    private ActivityManager.ProcessErrorStateInfo rr() {
         try {
-            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aab.getProcessesInErrorState();
+            List<ActivityManager.ProcessErrorStateInfo> processesInErrorState = this.aay.getProcessesInErrorState();
             if (processesInErrorState != null) {
                 for (ActivityManager.ProcessErrorStateInfo processErrorStateInfo : processesInErrorState) {
                     if (processErrorStateInfo.condition == 2) {
@@ -133,7 +132,7 @@ public final class c extends a {
         if (this.by != Process.myPid()) {
             this.by = Process.myPid();
             try {
-                com.baidu.crabsdk.c.a.cf("anr trace logic thread.");
+                com.baidu.crabsdk.c.a.ch("anr trace logic thread.");
                 boolean g = g(str);
                 long nanoTime = System.nanoTime();
                 while (!g) {
@@ -144,7 +143,7 @@ public final class c extends a {
                     }
                     g = g(str);
                     if ((System.nanoTime() - nanoTime) / 1000000 > StatisticConfig.MIN_UPLOAD_INTERVAL) {
-                        com.baidu.crabsdk.c.a.ch("anr trace logic timeout!");
+                        com.baidu.crabsdk.c.a.cj("anr trace logic timeout!");
                         return;
                     }
                 }

@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h klD = new h();
-    static h klE;
-    static h klF;
-    int klC;
-    boolean klu = true;
-    boolean klv = true;
-    boolean klw = false;
-    boolean klx = false;
-    boolean kly = false;
-    boolean klz = true;
-    boolean klA = true;
-    boolean klB = true;
+    static h ktc = new h();
+    static h ktd;
+    static h kte;
+    boolean ksT = true;
+    boolean ksU = true;
+    boolean ksV = false;
+    boolean ksW = false;
+    boolean ksX = false;
+    boolean ksY = true;
+    boolean ksZ = true;
+    boolean kta = true;
+    int ktb;
 
     h() {
     }
 
     static {
-        klD.klu = true;
-        klD.klv = false;
-        klD.klw = false;
-        klD.klx = false;
-        klD.kly = true;
-        klD.klz = false;
-        klD.klA = false;
-        klD.klC = 0;
-        klE = new h();
-        klE.klu = true;
-        klE.klv = true;
-        klE.klw = false;
-        klE.klx = false;
-        klE.kly = false;
-        klD.klC = 1;
-        klF = new h();
-        klF.klu = false;
-        klF.klv = true;
-        klF.klw = false;
-        klF.klx = true;
-        klF.kly = false;
-        klF.klB = false;
-        klF.klC = 2;
+        ktc.ksT = true;
+        ktc.ksU = false;
+        ktc.ksV = false;
+        ktc.ksW = false;
+        ktc.ksX = true;
+        ktc.ksY = false;
+        ktc.ksZ = false;
+        ktc.ktb = 0;
+        ktd = new h();
+        ktd.ksT = true;
+        ktd.ksU = true;
+        ktd.ksV = false;
+        ktd.ksW = false;
+        ktd.ksX = false;
+        ktc.ktb = 1;
+        kte = new h();
+        kte.ksT = false;
+        kte.ksU = true;
+        kte.ksV = false;
+        kte.ksW = true;
+        kte.ksX = false;
+        kte.kta = false;
+        kte.ktb = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Hl(String str) {
+    public String In(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Ee(int i) {
-        if (this.klx) {
+    public String EN(int i) {
+        if (this.ksW) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String Hm(String str) {
+    String Io(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return Hm(str).replace('$', '.');
+            return Io(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
-    public String E(Class cls) {
-        return b(cls, cls.getName(), this.klu);
+    public String G(Class cls) {
+        return b(cls, cls.getName(), this.ksT);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.kly);
+        return b(cls, str, this.ksX);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -92,13 +92,13 @@ class h {
             if (i > 0) {
                 stringBuffer.append(", ");
             }
-            stringBuffer.append(E(clsArr[i]));
+            stringBuffer.append(G(clsArr[i]));
         }
     }
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.klv) {
+            if (!this.ksU) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.klw && clsArr != null && clsArr.length != 0) {
+        if (this.ksV && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

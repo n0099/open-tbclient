@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected JSONObject aVi;
-    protected JSONObject aVj;
-    public String ayL;
+    protected JSONObject aVS;
+    protected JSONObject aVT;
+    public String azs;
     public String mAppId;
     public String mFrom = "swan";
     public String mSource;
@@ -34,16 +34,16 @@ public class e {
                 this.mSource = "NA";
             }
             jSONObject.put("source", this.mSource);
-            if (!TextUtils.isEmpty(this.ayL)) {
-                jSONObject.put("page", this.ayL);
+            if (!TextUtils.isEmpty(this.azs)) {
+                jSONObject.put("page", this.azs);
             }
-            if (this.aVi == null) {
-                this.aVi = new JSONObject();
+            if (this.aVS == null) {
+                this.aVS = new JSONObject();
             }
             if (!TextUtils.isEmpty(this.mAppId)) {
-                this.aVi.put("appid", this.mAppId);
+                this.aVS.put("appid", this.mAppId);
             }
-            jSONObject.put("ext", this.aVi);
+            jSONObject.put("ext", this.aVS);
             return jSONObject;
         } catch (JSONException e) {
             if (DEBUG) {
@@ -55,14 +55,14 @@ public class e {
 
     public void aj(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aVi == null) {
-                this.aVi = new JSONObject();
+            if (this.aVS == null) {
+                this.aVS = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.aVi.put(next, jSONObject.opt(next));
+                    this.aVS.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -74,18 +74,18 @@ public class e {
 
     public void ak(JSONObject jSONObject) {
         if (jSONObject != null) {
-            if (this.aVi == null) {
-                this.aVi = new JSONObject();
+            if (this.aVS == null) {
+                this.aVS = new JSONObject();
             }
-            this.aVj = this.aVi.optJSONObject("extlog");
-            if (this.aVj == null) {
-                this.aVj = new JSONObject();
+            this.aVT = this.aVS.optJSONObject("extlog");
+            if (this.aVT == null) {
+                this.aVT = new JSONObject();
             }
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
                 try {
-                    this.aVj.put(next, jSONObject.opt(next));
+                    this.aVT.put(next, jSONObject.opt(next));
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -93,7 +93,7 @@ public class e {
                 }
             }
             try {
-                this.aVi.put("extlog", this.aVj);
+                this.aVS.put("extlog", this.aVT);
             } catch (JSONException e2) {
                 if (DEBUG) {
                     e2.printStackTrace();
@@ -103,11 +103,11 @@ public class e {
     }
 
     public void k(@NonNull String str, Object obj) {
-        if (this.aVi == null) {
-            this.aVi = new JSONObject();
+        if (this.aVS == null) {
+            this.aVS = new JSONObject();
         }
         try {
-            this.aVi.put(str, obj);
+            this.aVS.put(str, obj);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

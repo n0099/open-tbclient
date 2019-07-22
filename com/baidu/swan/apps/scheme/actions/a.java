@@ -10,7 +10,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class a extends z {
     @NonNull
-    public abstract String Mb();
+    public abstract String MP();
 
     public abstract boolean b(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar);
 
@@ -32,14 +32,14 @@ public abstract class a extends z {
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, com.baidu.swan.apps.ae.b bVar) {
         boolean e;
-        String gV = gV("insert");
-        String gV2 = gV("update");
-        String gV3 = gV("remove");
-        if (TextUtils.equals(gV, str)) {
+        String hc = hc("insert");
+        String hc2 = hc("update");
+        String hc3 = hc("remove");
+        if (TextUtils.equals(hc, str)) {
             e = b(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gV2, str)) {
+        } else if (TextUtils.equals(hc2, str)) {
             e = c(context, unitedSchemeEntity, callbackHandler, str, bVar);
-        } else if (TextUtils.equals(gV3, str)) {
+        } else if (TextUtils.equals(hc3, str)) {
             e = d(context, unitedSchemeEntity, callbackHandler, str, bVar);
         } else {
             e = e(context, unitedSchemeEntity, callbackHandler, str, bVar);
@@ -72,7 +72,7 @@ public abstract class a extends z {
         return jSONObject;
     }
 
-    private String gV(String str) {
-        return Mb() + "/" + str;
+    private String hc(String str) {
+        return MP() + "/" + str;
     }
 }

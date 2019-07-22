@@ -1,5 +1,6 @@
 package com.baidu.sapi2.activity;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +24,8 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.social.SocialLoginBase;
+import com.baidu.sapi2.utils.PtokenStat;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
@@ -39,6 +42,7 @@ public class LoginActivity extends BaseActivity {
     public static final int REQUEST_SOCIAL_LOGIN = 2001;
     public static boolean supportShareLogin = true;
     private int businessType;
+    private List<PassNameValuePair> extraParams;
     private boolean finishActivityAfterSuc;
     private String loginType;
     private SapiWebView.SystemUpwardSmsCallback.Result result;
@@ -129,6 +133,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
+    @TargetApi(5)
     public void finish() {
         super.finish();
         SocialLoginBase.setWXLoginCallback(null);
@@ -146,12 +151,6 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        this.sapiWebView.back();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         this.webAuthResult.setResultCode(-301);
@@ -165,8 +164,9 @@ public class LoginActivity extends BaseActivity {
         super.setupViews();
         configTitle();
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
+        this.extraParams = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
         this.businessType = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-        this.userName = getIntent().getStringExtra("username");
+        this.userName = getIntent().getStringExtra(EXTRA_PARAM_USERNAME);
         this.loginType = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
         this.sapiWebView = (SapiWebView) findViewById(a.e.sapi_webview);
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.3
@@ -197,8 +197,8 @@ public class LoginActivity extends BaseActivity {
         if (supportShareLogin) {
             this.sapiWebView.setShareAccountClickCallback(new SapiWebView.ShareAccountClickCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.7
                 @Override // com.baidu.sapi2.SapiWebView.ShareAccountClickCallback
-                public void onClick(String str, String str2) {
-                    new ShareCallPacking().startLoginShareActivityForResult(LoginActivity.this, str, str2);
+                public void onClick(String str, String str2, String str3, String str4) {
+                    new ShareCallPacking().startLoginShareActivityForResult(LoginActivity.this, str, str2, str3, str4, LoginActivity.this.extraParams);
                 }
             });
         }
@@ -218,20 +218,21 @@ public class LoginActivity extends BaseActivity {
             }
         });
         SapiJsCallBacks.JoinLoginParams joinLoginParams = new SapiJsCallBacks.JoinLoginParams();
-        List<PassNameValuePair> arrayList = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
         if (webLoginDTO != null) {
-            if (!TextUtils.isEmpty(webLoginDTO.encryptedId) && !TextUtils.isEmpty(webLoginDTO.preSetUname)) {
+            if ((!TextUtils.isEmpty(webLoginDTO.encryptedId) || !TextUtils.isEmpty(webLoginDTO.uid)) && !TextUtils.isEmpty(webLoginDTO.preSetUname)) {
                 SapiJsCallBacks.DirectedLoginParams directedLoginParams = new SapiJsCallBacks.DirectedLoginParams();
+                directedLoginParams.uid = webLoginDTO.uid;
                 directedLoginParams.encryptedId = webLoginDTO.encryptedId;
                 directedLoginParams.displayname = webLoginDTO.preSetUname;
-                arrayList.add(SapiWebView.EXTRA_SUPPORT_DIRECT_LOGIN);
+                this.extraParams.add(SapiWebView.EXTRA_SUPPORT_DIRECT_LOGIN);
                 this.sapiWebView.setDirectedLoginParams(directedLoginParams);
             }
             if (WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
-                arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
+                this.extraParams.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
             }
             this.sapiWebView.shareV2Disable = webLoginDTO.shareV2Disable;
             joinLoginParams.agreement = webLoginDTO.agreement;
+            this.sapiWebView.setHideSuccessTip(webLoginDTO.hideSuccessTip);
         }
         if (WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.loginType)) {
             joinLoginParams.hasThirdAccount = true;
@@ -240,16 +241,16 @@ public class LoginActivity extends BaseActivity {
         }
         this.sapiWebView.setJoinLoingParams(joinLoginParams);
         if (WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.loginType) || WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.loginType)) {
-            this.sapiWebView.loadLogin(4, arrayList);
+            this.sapiWebView.loadLogin(4, this.extraParams);
         } else if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.loginType)) {
             setTitleText(a.g.sapi_sdk_title_sms_login);
-            this.sapiWebView.loadLogin(1, arrayList);
+            this.sapiWebView.loadLogin(1, this.extraParams);
         } else {
             if (!TextUtils.isEmpty(this.userName)) {
-                arrayList.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.userName));
+                this.extraParams.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.userName));
             }
             setTitleText(a.g.sapi_sdk_title_login);
-            this.sapiWebView.loadLogin(arrayList);
+            this.sapiWebView.loadLogin(this.extraParams);
         }
     }
 
@@ -298,6 +299,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void loginSucces(AccountType accountType, boolean z) {
+        new PtokenStat().onEvent(PtokenStat.LOGIN + SapiUtils.getLastLoginType());
         if (this.businessType == 2003) {
             SapiAccount session = SapiAccountManager.getInstance().getSession();
             Intent intent = new Intent();
@@ -348,8 +350,7 @@ public class LoginActivity extends BaseActivity {
             public void onSuccess() {
                 LoginActivity.this.loginSucces(AccountType.NORMAL, false);
             }
-        }, i, i2, intent);
-        this.sapiWebView.onAuthorizedResult(i, i2, intent);
+        }, i, i2, intent, this.extraParams);
         if (i == 2001) {
             if (i2 == 1001) {
                 loginSucces(null, true);
@@ -367,7 +368,7 @@ public class LoginActivity extends BaseActivity {
                 String str2 = "";
                 if (intent != null) {
                     str = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
-                    str2 = intent.getStringExtra("username");
+                    str2 = intent.getStringExtra(EXTRA_PARAM_USERNAME);
                 }
                 if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(str)) {
                     this.sapiWebView.preSetUserName(str2);

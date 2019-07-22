@@ -4,25 +4,25 @@ import com.facebook.cache.common.CacheEventListener;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object jRN = new Object();
-    private static i jRO;
-    private static int jRP;
-    private com.facebook.cache.common.b jRQ;
-    private long jRR;
-    private long jRS;
-    private long jRT;
-    private IOException jRU;
-    private CacheEventListener.EvictionReason jRV;
-    private i jRW;
-    private String jRf;
+    private static final Object jYR = new Object();
+    private static i jYS;
+    private static int jYT;
+    private String ixF;
+    private com.facebook.cache.common.b jYU;
+    private long jYV;
+    private long jYW;
+    private long jYX;
+    private IOException jYY;
+    private CacheEventListener.EvictionReason jYZ;
+    private i jZa;
 
-    public static i cBv() {
-        synchronized (jRN) {
-            if (jRO != null) {
-                i iVar = jRO;
-                jRO = iVar.jRW;
-                iVar.jRW = null;
-                jRP--;
+    public static i cEw() {
+        synchronized (jYR) {
+            if (jYS != null) {
+                i iVar = jYS;
+                jYS = iVar.jZa;
+                iVar.jZa = null;
+                jYT--;
                 return iVar;
             }
             return new i();
@@ -33,60 +33,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i g(com.facebook.cache.common.b bVar) {
-        this.jRQ = bVar;
+        this.jYU = bVar;
         return this;
     }
 
-    public i GK(String str) {
-        this.jRf = str;
+    public i HE(String str) {
+        this.ixF = str;
         return this;
     }
 
-    public i eA(long j) {
-        this.jRR = j;
+    public i eI(long j) {
+        this.jYV = j;
         return this;
     }
 
-    public i eB(long j) {
-        this.jRT = j;
+    public i eJ(long j) {
+        this.jYX = j;
         return this;
     }
 
-    public i eC(long j) {
-        this.jRS = j;
+    public i eK(long j) {
+        this.jYW = j;
         return this;
     }
 
     public i a(IOException iOException) {
-        this.jRU = iOException;
+        this.jYY = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.jRV = evictionReason;
+        this.jYZ = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (jRN) {
-            if (jRP < 5) {
+        synchronized (jYR) {
+            if (jYT < 5) {
                 reset();
-                jRP++;
-                if (jRO != null) {
-                    this.jRW = jRO;
+                jYT++;
+                if (jYS != null) {
+                    this.jZa = jYS;
                 }
-                jRO = this;
+                jYS = this;
             }
         }
     }
 
     private void reset() {
-        this.jRQ = null;
-        this.jRf = null;
-        this.jRR = 0L;
-        this.jRS = 0L;
-        this.jRT = 0L;
-        this.jRU = null;
-        this.jRV = null;
+        this.jYU = null;
+        this.ixF = null;
+        this.jYV = 0L;
+        this.jYW = 0L;
+        this.jYX = 0L;
+        this.jYY = null;
+        this.jYZ = null;
     }
 }

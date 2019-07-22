@@ -117,7 +117,7 @@ public abstract class a<T, V extends v.a> {
         if (this.mAdapter == null || this.mType == null) {
             return -1;
         }
-        return this.mAdapter.s(i, this.mType.getId());
+        return this.mAdapter.v(i, this.mType.getId());
     }
 
     public int getCount() {

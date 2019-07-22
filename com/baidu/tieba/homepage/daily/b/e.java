@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fYW = BdUniqueId.gen();
-    public List<a> fYX;
+    public static final BdUniqueId gdT = BdUniqueId.gen();
+    public List<a> gdU;
 
-    public static e cB(List<DailyTopic> list) {
+    public static e cC(List<DailyTopic> list) {
         if (v.aa(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.fYX = arrayList;
+        eVar.gdU = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fYW;
+        return gdT;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String fYY;
-        private String fYZ;
-        private String fZa;
-        private String fZb;
-        private String fZc;
+        private String gdV;
+        private String gdW;
+        private String gdX;
+        private String gdY;
+        private String gdZ;
 
         public void a(DailyTopic dailyTopic) {
-            this.fYY = dailyTopic.topic_pic;
-            this.fYZ = dailyTopic.topic_title;
-            this.fZa = dailyTopic.topic_abstract;
-            this.fZb = dailyTopic.topic_url;
-            this.fZc = dailyTopic.topic_rank_url;
+            this.gdV = dailyTopic.topic_pic;
+            this.gdW = dailyTopic.topic_title;
+            this.gdX = dailyTopic.topic_abstract;
+            this.gdY = dailyTopic.topic_url;
+            this.gdZ = dailyTopic.topic_rank_url;
         }
 
-        public String btg() {
-            return this.fYY;
+        public String bvi() {
+            return this.gdV;
         }
 
-        public String acE() {
-            return this.fYZ;
+        public String adG() {
+            return this.gdW;
         }
 
-        public String bth() {
-            return this.fZa;
+        public String bvj() {
+            return this.gdX;
         }
 
-        public String afd() {
-            return this.fZb;
+        public String agf() {
+            return this.gdY;
         }
 
-        public String bti() {
-            return this.fZc;
+        public String bvk() {
+            return this.gdZ;
         }
     }
 }

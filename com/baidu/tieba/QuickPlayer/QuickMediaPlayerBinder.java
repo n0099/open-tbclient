@@ -6,10 +6,9 @@ import android.os.Build;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import android.view.Surface;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
 import java.util.HashMap;
 import java.util.List;
@@ -193,7 +192,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                     } else {
                         i = MODEL_MX4.equals(Build.MODEL) ? 2 : 0;
                     }
-                    TiebaStatic.log(new am("c12200").P("obj_type", i).bT("uid", TbadkCoreApplication.getCurrentAccount()));
+                    TiebaStatic.log(new an("c12200").P("obj_type", i).bT("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
                 if (this.mContext instanceof a) {
                     ((a) this.mContext).addPlayer(this.mMediaPlayer, this.mUri);
@@ -231,7 +230,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 this.mOnSubErrorInfoListener.onSubError(-24399, -24399, com.baidu.tieba.j.a.p(e));
             }
             if (this.mOnErrorListener != null) {
-                this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? SapiErrorCode.NETWORK_FAILED : -100, -24399, -24399);
+                this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -24399, -24399);
             }
         } catch (OutOfMemoryError e2) {
             e2.printStackTrace();
@@ -243,7 +242,7 @@ public class QuickMediaPlayerBinder extends IQuickMediaPlayer.Stub {
                 this.mOnSubErrorInfoListener.onSubError(-34399, -34399, com.baidu.tieba.j.a.p(e2));
             }
             if (this.mOnErrorListener != null) {
-                this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? SapiErrorCode.NETWORK_FAILED : -100, -34399, -34399);
+                this.mOnErrorListener.onError(this.mMediaPlayer, isIjkPlayer() ? -200 : -100, -34399, -34399);
             }
         }
     }

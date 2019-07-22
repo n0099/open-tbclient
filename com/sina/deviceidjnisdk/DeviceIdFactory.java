@@ -1,12 +1,8 @@
 package com.sina.deviceidjnisdk;
 
 import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes2.dex */
 public class DeviceIdFactory {
     private static volatile IDeviceId sInstance;
@@ -40,20 +36,20 @@ public class DeviceIdFactory {
         String deviceId;
         synchronized (DeviceIdFactory.class) {
             try {
-                deviceId = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+                deviceId = DeviceInfo.getDeviceId(context);
                 if (TextUtils.isEmpty(deviceId)) {
-                    WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
-                    deviceId = connectionInfo != null ? connectionInfo.getMacAddress() : "";
+                    deviceId = DeviceInfo.getMacAddress(context);
                 }
                 if (TextUtils.isEmpty(deviceId)) {
                     deviceId = Config.NULL_DEVICE_ID;
                 }
             } catch (Exception e) {
+                e.printStackTrace();
             }
             if (!TextUtils.isEmpty(deviceId)) {
                 str = getIValueNative(context, deviceId);
             }
-            str = "";
+            str = null;
         }
         return str;
     }

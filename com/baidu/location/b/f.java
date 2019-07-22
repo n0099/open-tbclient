@@ -6,6 +6,7 @@ import android.os.Message;
 import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -55,7 +56,7 @@ public class f {
             }
             this.k.put("cltr[0]", "" + Jni.encodeOfflineLocationUpdateRequest(jSONObject.toString()));
             this.k.put("cfg", 1);
-            this.k.put("info", Jni.encode(com.baidu.location.g.b.a().c()));
+            this.k.put(Config.LAUNCH_INFO, Jni.encode(com.baidu.location.g.b.a().c()));
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 

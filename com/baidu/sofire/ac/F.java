@@ -16,7 +16,7 @@ import com.baidu.sofire.core.h;
 import com.baidu.sofire.jni.Asc;
 import com.tencent.connect.common.Constants;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class F implements FI {
     private static F instance;
     private static Asc sAsc;
@@ -60,7 +60,7 @@ public class F implements FI {
                 b.a();
                 if (a != null) {
                     a.a(new h(str, intentFilter, str2, str3));
-                    new StringBuilder("intentFilter.hasAction(Intent.ACTION_BOOT_COMPLETED)").append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
+                    new StringBuilder().append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
                     b.a();
                     if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
                         a aVar = a.d;
@@ -117,7 +117,7 @@ public class F implements FI {
                     } else {
                         Class<?> a2 = ((f) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                         Object a3 = e.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, null), str3, clsArr, objArr);
-                        new StringBuilder("result object=").append(a3);
+                        new StringBuilder().append(a3);
                         b.a();
                         if (callback != null) {
                             callback.onEnd(a3);

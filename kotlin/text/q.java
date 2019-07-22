@@ -7,18 +7,18 @@ import kotlin.collections.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class q extends p {
-    public static final boolean m(CharSequence charSequence) {
+    public static final boolean n(CharSequence charSequence) {
         boolean z;
         kotlin.jvm.internal.p.k(charSequence, "$receiver");
         if (charSequence.length() != 0) {
-            kotlin.b.c o = k.o(charSequence);
-            if (!(o instanceof Collection) || !((Collection) o).isEmpty()) {
-                Iterator<Integer> it = o.iterator();
+            kotlin.b.c p = k.p(charSequence);
+            if (!(p instanceof Collection) || !((Collection) p).isEmpty()) {
+                Iterator<Integer> it = p.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
                         break;
-                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).nextInt()))) {
+                    } else if (!a.isWhitespace(charSequence.charAt(((y) it).cNB()))) {
                         z = false;
                         break;
                     }

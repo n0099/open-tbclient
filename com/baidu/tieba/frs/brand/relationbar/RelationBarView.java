@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
 import com.baidu.tieba.R;
@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a fvY;
+    private a fAU;
     private RecyclerView mRecyclerView;
     private int mSkinType;
 
@@ -43,8 +43,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
         this.mRecyclerView = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
-        this.fvY = new a(context);
-        this.mRecyclerView.setAdapter(this.fvY);
+        this.fAU = new a(context);
+        this.mRecyclerView.setAdapter(this.fAU);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         int g = l.g(context, R.dimen.tbds44);
@@ -58,16 +58,16 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             return;
         }
         setVisibility(0);
-        this.fvY.setData(list);
-        this.fvY.notifyDataSetChanged();
+        this.fAU.setData(list);
+        this.fAU.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.l(this, R.color.cp_bg_line_e);
-            this.fvY.notifyDataSetChanged();
+            am.l(this, R.color.cp_bg_line_e);
+            this.fAU.notifyDataSetChanged();
         }
     }
 }

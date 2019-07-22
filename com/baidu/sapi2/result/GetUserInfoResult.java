@@ -4,7 +4,9 @@ public class GetUserInfoResult extends SapiResult {
     public static final String ERROR_MSG_UNKNOWN = "用户信息获取失败";
     public static final int RESULT_CODE_BDUSS_EXPIRED = 400021;
     public static final String RESULT_MSG_BDUSS_EXPIRED = "用户登录状态失效，请重新登录";
+    public int carSdkFace;
     public String displayname;
+    public int faceLoginSwitch;
     public boolean incompleteUser;
     public String portrait;
     public String portraitHttps;

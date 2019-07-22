@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private com.baidu.tieba.enterForum.data.b eQt;
-    private LinearLayout eWM;
-    private TextView eWN;
-    private ImageView eWO;
+    private com.baidu.tieba.enterForum.data.b eVt;
+    private LinearLayout fbN;
+    private TextView fbO;
+    private ImageView fbP;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -43,11 +43,11 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-        this.eWM = (LinearLayout) findViewById(R.id.search_container);
-        this.eWN = (TextView) findViewById(R.id.search_text);
-        this.eWO = (ImageView) findViewById(R.id.search_icon);
+        this.fbN = (LinearLayout) findViewById(R.id.search_container);
+        this.fbO = (TextView) findViewById(R.id.search_text);
+        this.fbP = (ImageView) findViewById(R.id.search_icon);
         setDescendantFocusability(262144);
-        this.eWM.setOnClickListener(this);
+        this.fbN.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -60,30 +60,30 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         if (!TbadkCoreApplication.isLogin()) {
             TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
         }
-        TiebaStatic.log(new am("c13367").bT("obj_location", "1"));
+        TiebaStatic.log(new an("c13367").bT("obj_location", "1"));
         MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
     }
 
     public void setSearchHint(String str) {
-        this.eWN.setText(UtilHelper.getFixedText(str, 20));
+        this.fbO.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public void onChangeSkinType() {
-        al.c(this.eWO, (int) R.drawable.icon_ba_search_n);
-        al.j(this.eWN, R.color.cp_cont_d);
-        if (this.eQt != null && this.eQt.eQV) {
-            al.k(this.eWM, R.drawable.enter_forum_search_ad_bg);
+        am.c(this.fbP, (int) R.drawable.icon_ba_search_n);
+        am.j(this.fbO, R.color.cp_cont_d);
+        if (this.eVt != null && this.eVt.eVV) {
+            am.k(this.fbN, R.drawable.enter_forum_search_ad_bg);
         } else {
-            al.k(this.eWM, R.drawable.enter_forum_search_bg);
+            am.k(this.fbN, R.drawable.enter_forum_search_bg);
         }
     }
 
     public void setAdState(com.baidu.tieba.enterForum.data.b bVar) {
-        this.eQt = bVar;
-        if (bVar != null && bVar.eQV) {
-            al.k(this.eWM, R.drawable.enter_forum_search_ad_bg);
+        this.eVt = bVar;
+        if (bVar != null && bVar.eVV) {
+            am.k(this.fbN, R.drawable.enter_forum_search_ad_bg);
         } else {
-            al.k(this.eWM, R.drawable.enter_forum_search_bg);
+            am.k(this.fbN, R.drawable.enter_forum_search_bg);
         }
     }
 }

@@ -8,12 +8,12 @@ import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tbadk.lcs.a;
 import com.baidu.tieba.keepLive.nativekeepalive.GuardServiceObserver;
 import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
 /* loaded from: classes3.dex */
 public class KeepLiveUtil {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
@@ -95,7 +95,7 @@ public class KeepLiveUtil {
         if (mKeepLiveContext == null) {
             mKeepLiveContext = TbadkCoreApplication.getInst().getApplicationContext();
         }
-        if (!RomTypeUtil.isEmui()) {
+        if (!ak.Pw()) {
             SyncService.startAccountSync(mKeepLiveContext.getApplicationContext());
         }
     }

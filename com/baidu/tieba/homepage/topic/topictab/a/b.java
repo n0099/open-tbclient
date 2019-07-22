@@ -8,32 +8,35 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class b {
-    private r eTY;
-    private a ggL;
+    private r eYZ;
+    private c glz;
+    private a gmY;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public b(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eTY = rVar;
+        this.eYZ = rVar;
         initAdapters();
-        this.eTY.addAdapters(this.mAdapters);
+        this.eYZ.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.ggL = new a(this.mPageContext);
-        this.mAdapters.add(this.ggL);
+        this.gmY = new a(this.mPageContext);
+        this.glz = new c(this.mPageContext);
+        this.mAdapters.add(this.gmY);
+        this.mAdapters.add(this.glz);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eTY != null) {
-            this.eTY.getListAdapter().notifyDataSetChanged();
+        if (this.eYZ != null) {
+            this.eYZ.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eTY.setData(list);
+        this.eYZ.setData(list);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

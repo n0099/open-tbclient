@@ -114,7 +114,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EI(i)));
         this.offsetSize = i;
     }
 
@@ -124,7 +124,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setLengthSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.EI(i)));
         this.lengthSize = i;
     }
 
@@ -134,7 +134,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setBaseOffsetSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_5, this, this, org.aspectj.a.a.a.EI(i)));
         this.baseOffsetSize = i;
     }
 
@@ -144,7 +144,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public void setIndexSize(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_7, this, this, org.aspectj.a.a.a.EI(i)));
         this.indexSize = i;
     }
 
@@ -159,7 +159,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Item createItem(int i, int i2, int i3, long j, List<Extent> list) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.DZ(i), org.aspectj.a.a.a.DZ(i2), org.aspectj.a.a.a.DZ(i3), org.aspectj.a.a.a.eH(j), list}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_10, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.EI(i), org.aspectj.a.a.a.EI(i2), org.aspectj.a.a.a.EI(i3), org.aspectj.a.a.a.eP(j), list}));
         return new Item(i, i2, i3, j, list);
     }
 
@@ -269,7 +269,7 @@ public class ItemLocationBox extends AbstractFullBox {
     }
 
     public Extent createExtent(long j, long j2, long j3) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.eH(j), org.aspectj.a.a.a.eH(j2), org.aspectj.a.a.a.eH(j3)}));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_11, (Object) this, (Object) this, new Object[]{org.aspectj.a.a.a.eP(j), org.aspectj.a.a.a.eP(j2), org.aspectj.a.a.a.eP(j3)}));
         return new Extent(j, j2, j3);
     }
 

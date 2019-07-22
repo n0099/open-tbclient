@@ -8,13 +8,13 @@ public interface a {
 
     void k(HashMap hashMap);
 
-    int oH();
+    int pc();
 
-    int oJ();
+    int pe();
 
-    Map<String, String> oK();
+    Map<String, String> pf();
 
-    String oU();
+    String pp();
 
     int width();
 }

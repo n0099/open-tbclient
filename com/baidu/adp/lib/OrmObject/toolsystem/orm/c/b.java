@@ -11,29 +11,29 @@ public class b implements h {
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.c.h
     public Object g(com.baidu.adp.lib.OrmObject.toolsystem.orm.d.c cVar) {
-        Class<?> gS = cVar.gS();
-        if (gS == Boolean.class || gS == Boolean.TYPE) {
+        Class<?> hb = cVar.hb();
+        if (hb == Boolean.class || hb == Boolean.TYPE) {
             return Boolean.valueOf(this.value);
         }
-        if (gS == Short.class || gS == Short.TYPE) {
+        if (hb == Short.class || hb == Short.TYPE) {
             return Short.valueOf((short) (this.value ? 0 : 1));
-        } else if (gS == Integer.class || gS == Integer.TYPE) {
+        } else if (hb == Integer.class || hb == Integer.TYPE) {
             return Integer.valueOf(this.value ? 0 : 1);
-        } else if (gS == Long.class || gS == Long.TYPE) {
+        } else if (hb == Long.class || hb == Long.TYPE) {
             return Long.valueOf(this.value ? 0 : 1);
-        } else if (gS == Float.class || gS == Float.TYPE) {
+        } else if (hb == Float.class || hb == Float.TYPE) {
             return Float.valueOf(this.value ? 0 : 1);
-        } else if (gS == Double.class || gS == Double.TYPE) {
+        } else if (hb == Double.class || hb == Double.TYPE) {
             return Double.valueOf(this.value ? 0 : 1);
-        } else if (gS == Character.class || gS == Character.TYPE) {
+        } else if (hb == Character.class || hb == Character.TYPE) {
             return Character.valueOf((char) (this.value ? 0 : 1));
-        } else if (gS == String.class) {
+        } else if (hb == String.class) {
             return String.valueOf(this.value);
         } else {
-            if (gS == char[].class) {
+            if (hb == char[].class) {
                 return String.valueOf(this.value).toCharArray();
             }
-            if (gS == byte[].class) {
+            if (hb == byte[].class) {
                 try {
                     return com.baidu.adp.lib.util.c.decode(String.valueOf(this.value), 0);
                 } catch (IOException e) {

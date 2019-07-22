@@ -7,7 +7,7 @@ import java.net.URLEncoder;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class g {
-    public static void az(Context context, String str) {
+    public static void aA(Context context, String str) {
         String format;
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -15,7 +15,7 @@ public class g {
             } catch (UnsupportedEncodingException e) {
                 format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
             }
-            com.baidu.tbadk.browser.a.af(context, format);
+            com.baidu.tbadk.browser.a.ae(context, format);
         }
     }
 }

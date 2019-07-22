@@ -9,32 +9,32 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static b aws;
-    public String awn;
+    private static b awX;
+    public String awS;
 
     @NonNull
-    public static b es(@NonNull String str) {
-        if (aws == null) {
-            aws = v(et(str));
+    public static b ex(@NonNull String str) {
+        if (awX == null) {
+            awX = v(ey(str));
         }
-        return aws;
+        return awX;
     }
 
     @NonNull
     private static b v(JSONObject jSONObject) {
         b bVar = new b();
         if (jSONObject != null) {
-            bVar.awn = jSONObject.optString("extension-core-version");
+            bVar.awS = jSONObject.optString("extension-core-version");
         }
         return bVar;
     }
 
-    private static JSONObject et(@NonNull String str) {
+    private static JSONObject ey(@NonNull String str) {
         if (DEBUG) {
             Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
         }
-        String ae = com.baidu.swan.c.a.ae(AppRuntime.getAppContext(), str);
-        if (TextUtils.isEmpty(ae)) {
+        String ad = com.baidu.swan.c.a.ad(AppRuntime.getAppContext(), str);
+        if (TextUtils.isEmpty(ad)) {
             if (DEBUG) {
                 Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
                 return null;
@@ -42,7 +42,7 @@ public class b {
             return null;
         }
         try {
-            JSONObject jSONObject = new JSONObject(ae);
+            JSONObject jSONObject = new JSONObject(ad);
             if (DEBUG) {
                 Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
             }

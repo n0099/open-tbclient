@@ -32,16 +32,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class d implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static Context b;
-    private static d f;
+    private static d e;
     public com.baidu.sofire.e a;
-    com.baidu.sofire.a.a c;
-    private volatile boolean e = false;
-    private com.baidu.sofire.g g;
-    private static int h = 0;
-    public static List<Integer> d = new ArrayList();
+    private volatile boolean d = false;
+    private com.baidu.sofire.g f;
+    private com.baidu.sofire.a.a h;
+    private static int g = 0;
+    public static List<Integer> c = new ArrayList();
 
     @Override // android.content.SharedPreferences.OnSharedPreferenceChangeListener
     public final void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String str) {
@@ -49,7 +49,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             try {
                 if (str.equals("xytk")) {
                     com.baidu.sofire.b.a();
-                    e.a = this.g.a();
+                    e.a = this.f.a();
                 }
             } catch (Throwable th) {
                 com.baidu.sofire.b.e.a();
@@ -60,10 +60,10 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
     private d(Context context) {
         com.baidu.sofire.b.a();
         b = context.getApplicationContext();
-        this.c = com.baidu.sofire.a.a.a(b);
+        this.h = com.baidu.sofire.a.a.a(b);
         this.a = new com.baidu.sofire.e(b);
-        this.g = new com.baidu.sofire.g(b);
-        com.baidu.sofire.g gVar = this.g;
+        this.f = new com.baidu.sofire.g(b);
+        com.baidu.sofire.g gVar = this.f;
         if (gVar.a == null) {
             return;
         }
@@ -71,43 +71,43 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
     }
 
     public static d a() {
-        return f;
+        return e;
     }
 
     public static synchronized d a(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (f == null) {
-                f = new d(context.getApplicationContext());
+            if (e == null) {
+                e = new d(context.getApplicationContext());
             }
-            dVar = f;
+            dVar = e;
         }
         return dVar;
     }
 
-    /* JADX WARN: Type inference failed for: r0v13, types: [com.baidu.sofire.core.d$1] */
-    public final synchronized void a(final Callback callback) {
+    public final synchronized void a(Callback callback) {
+        String str;
         com.baidu.sofire.b.e.d(b);
-        new StringBuilder("initCalledByHost=").append(this.e);
+        new StringBuilder().append(this.d);
         com.baidu.sofire.b.a();
-        if (this.e) {
+        if (this.d) {
             if (callback != null) {
                 callback.onEnd(new Object[0]);
             }
         } else {
-            this.e = true;
+            this.d = true;
             com.baidu.sofire.e eVar = this.a;
-            eVar.c.putString("ssv", "3.1.9.3");
+            eVar.c.putString("ssv", "3.2.2.1");
             eVar.c.commit();
             Report.getInstance(b).n();
             IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_REMOVED");
             intentFilter.addDataScheme("package");
             b.registerReceiver(new MyReceiver(), intentFilter);
-            for (ApkInfo apkInfo : this.c.a()) {
-                String str = null;
+            for (ApkInfo apkInfo : this.h.a()) {
                 try {
                     str = b.getFilesDir().getCanonicalPath();
-                } catch (IOException e) {
+                } catch (IOException e2) {
+                    str = null;
                     com.baidu.sofire.b.e.a();
                 }
                 if (str != null) {
@@ -115,50 +115,44 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                     com.baidu.sofire.b.e.d(apkInfo.dataDir + "/lib");
                 }
             }
-            new Thread() { // from class: com.baidu.sofire.core.d.1
-                @Override // java.lang.Thread, java.lang.Runnable
-                public final void run() {
-                    try {
-                        super.run();
-                        d.this.c.d();
-                        com.baidu.sofire.b.a();
-                        new StringBuilder("preferences.isInitOnce()=").append(d.this.a.a());
-                        com.baidu.sofire.b.a();
-                        if (!d.this.a.a()) {
-                            com.baidu.sofire.e eVar2 = d.this.a;
-                            eVar2.c.putBoolean("iio", true);
-                            eVar2.c.commit();
-                        } else {
-                            com.baidu.sofire.a.a aVar = d.this.c;
-                            ContentValues contentValues = new ContentValues();
-                            contentValues.put("n", (Integer) 0);
-                            aVar.c.update("pgn", contentValues, "n=-1", null);
-                        }
-                        new U(d.b, 1, false).start();
-                        if (callback != null) {
-                            callback.onEnd(new Object[0]);
-                        }
-                    } catch (Throwable th) {
-                        com.baidu.sofire.b.e.a();
-                    }
+            this.h.d();
+            com.baidu.sofire.b.a();
+            new StringBuilder().append(this.a.a());
+            com.baidu.sofire.b.a();
+            if (!this.a.a()) {
+                com.baidu.sofire.e eVar2 = this.a;
+                eVar2.c.putBoolean("iio", true);
+                eVar2.c.commit();
+            } else {
+                com.baidu.sofire.a.a aVar = this.h;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("n", (Integer) 0);
+                try {
+                    aVar.c.update("pgn", contentValues, "n=-1", null);
+                } catch (Throwable th) {
+                    com.baidu.sofire.b.e.a();
                 }
-            }.start();
+            }
+            new U(b, 1, false).start();
+            if (callback != null) {
+                callback.onEnd(new Object[0]);
+            }
         }
     }
 
     public final void b() {
         try {
-            List<ApkInfo> a = this.c.a();
+            List<ApkInfo> a = this.h.a();
             new StringBuilder("all=").append(a);
             com.baidu.sofire.b.a();
-            final List<Integer> q = this.a.q();
-            List<Integer> p = this.a.p();
-            for (int i = 0; i < p.size(); i++) {
-                if (!q.contains(p.get(i))) {
-                    q.add(p.get(i));
+            final List<Integer> p = this.a.p();
+            List<Integer> o = this.a.o();
+            for (int i = 0; i < o.size(); i++) {
+                if (!p.contains(o.get(i))) {
+                    p.add(o.get(i));
                 }
             }
-            Collections.sort(a, new Comparator<ApkInfo>() { // from class: com.baidu.sofire.core.d.2
+            Collections.sort(a, new Comparator<ApkInfo>() { // from class: com.baidu.sofire.core.d.1
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
                 @Override // java.util.Comparator
                 public final /* synthetic */ int compare(ApkInfo apkInfo, ApkInfo apkInfo2) {
@@ -169,8 +163,8 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             if (apkInfo3.priority > apkInfo4.priority) {
                                 return 1;
                             }
-                            int indexOf = (q == null || !q.contains(Integer.valueOf(apkInfo3.key))) ? -1 : q.indexOf(Integer.valueOf(apkInfo3.key));
-                            int indexOf2 = (q == null || !q.contains(Integer.valueOf(apkInfo4.key))) ? -1 : q.indexOf(Integer.valueOf(apkInfo4.key));
+                            int indexOf = (p == null || !p.contains(Integer.valueOf(apkInfo3.key))) ? -1 : p.indexOf(Integer.valueOf(apkInfo3.key));
+                            int indexOf2 = (p == null || !p.contains(Integer.valueOf(apkInfo4.key))) ? -1 : p.indexOf(Integer.valueOf(apkInfo4.key));
                             if (indexOf == -1 || indexOf2 != -1) {
                                 if ((indexOf != -1 || indexOf2 == -1) && indexOf <= indexOf2) {
                                     return indexOf >= indexOf2 ? 0 : -1;
@@ -188,7 +182,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 g a2 = g.a();
                 if ((a2 != null ? a2.d(apkInfo.packageName) : null) == null) {
                     boolean z = true;
-                    if (this.c.g(apkInfo.key) == 3) {
+                    if (this.h.g(apkInfo.key) == 3) {
                         com.baidu.sofire.b.a();
                         z = false;
                     }
@@ -209,7 +203,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             File file5 = new File(file4, apkInfo.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + apkInfo.versionName);
                             if (com.baidu.sofire.b.e.a(file5)) {
                                 com.baidu.sofire.c.a(file5);
-                                new StringBuilder("remove the backup file: ").append(file5.getAbsolutePath()).append(" s=").append(file5.delete());
+                                new StringBuilder().append(file5.getAbsolutePath()).append(" s=").append(file5.delete());
                                 com.baidu.sofire.b.a();
                             }
                         }
@@ -249,7 +243,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 }
                 this.a.a(arrayList);
                 if (hashMap.size() <= 0) {
-                    this.a.r();
+                    this.a.q();
                     return;
                 }
                 String str = com.baidu.sofire.b.e.b() + "p/1/pio";
@@ -265,10 +259,11 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 String jSONArray3 = jSONArray2.toString();
                 com.baidu.sofire.b.a();
                 String a = com.baidu.sofire.b.h.a(context, str, jSONArray3);
+                new StringBuilder().append(a);
                 com.baidu.sofire.b.a();
                 JSONArray jSONArray4 = new JSONArray(a);
                 if (jSONArray4.length() > 0) {
-                    this.a.r();
+                    this.a.q();
                 }
                 for (int i2 = 0; i2 < jSONArray4.length(); i2++) {
                     JSONObject optJSONObject2 = jSONArray4.optJSONObject(i2);
@@ -333,60 +328,60 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [565=7, 567=6, 571=5, 573=6] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [549=7, 551=6, 555=5, 557=6] */
     private void a(int r10, java.lang.String r11, java.lang.String r12, android.content.pm.PackageInfo r13) {
         /*
             r9 = this;
             r3 = 0
             r0 = 0
             r4 = 1
-            com.baidu.sofire.a.a r1 = r9.c     // Catch: java.lang.Throwable -> L106
-            com.baidu.sofire.core.ApkInfo r1 = r1.a(r10)     // Catch: java.lang.Throwable -> L106
+            com.baidu.sofire.a.a r1 = r9.h     // Catch: java.lang.Throwable -> L103
+            com.baidu.sofire.core.ApkInfo r1 = r1.a(r10)     // Catch: java.lang.Throwable -> L103
             if (r1 == 0) goto L1c
-            java.lang.String r1 = r1.versionName     // Catch: java.lang.Throwable -> L106
-            boolean r1 = com.baidu.sofire.b.e.c(r11, r1)     // Catch: java.lang.Throwable -> L106
+            java.lang.String r1 = r1.versionName     // Catch: java.lang.Throwable -> L103
+            boolean r1 = com.baidu.sofire.b.e.c(r11, r1)     // Catch: java.lang.Throwable -> L103
             if (r1 != 0) goto L14
         L13:
             return
         L14:
-            com.baidu.sofire.a.a r1 = r9.c     // Catch: java.lang.Throwable -> L100
-            com.baidu.sofire.core.ApkInfo r1 = r1.a(r10)     // Catch: java.lang.Throwable -> L100
+            com.baidu.sofire.a.a r1 = r9.h     // Catch: java.lang.Throwable -> Lfd
+            com.baidu.sofire.core.ApkInfo r1 = r1.a(r10)     // Catch: java.lang.Throwable -> Lfd
             if (r1 != 0) goto Laa
         L1c:
-            boolean r1 = android.text.TextUtils.isEmpty(r11)     // Catch: java.lang.Throwable -> L260
-            if (r1 != 0) goto L279
-            java.io.File r2 = new java.io.File     // Catch: java.lang.Throwable -> L260
-            android.content.Context r1 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L260
-            java.io.File r1 = r1.getFilesDir()     // Catch: java.lang.Throwable -> L260
+            boolean r1 = android.text.TextUtils.isEmpty(r11)     // Catch: java.lang.Throwable -> L25d
+            if (r1 != 0) goto L276
+            java.io.File r2 = new java.io.File     // Catch: java.lang.Throwable -> L25d
+            android.content.Context r1 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L25d
+            java.io.File r1 = r1.getFilesDir()     // Catch: java.lang.Throwable -> L25d
             java.lang.String r5 = ".tmp"
-            r2.<init>(r1, r5)     // Catch: java.lang.Throwable -> L260
-            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> L260
+            r2.<init>(r1, r5)     // Catch: java.lang.Throwable -> L25d
+            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> L25d
             if (r1 != 0) goto L39
-            r2.mkdir()     // Catch: java.lang.Throwable -> L260
+            r2.mkdir()     // Catch: java.lang.Throwable -> L25d
         L39:
-            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L260
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L260
-            r5.<init>()     // Catch: java.lang.Throwable -> L260
-            java.lang.StringBuilder r5 = r5.append(r10)     // Catch: java.lang.Throwable -> L260
+            java.io.File r1 = new java.io.File     // Catch: java.lang.Throwable -> L25d
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L25d
+            r5.<init>()     // Catch: java.lang.Throwable -> L25d
+            java.lang.StringBuilder r5 = r5.append(r10)     // Catch: java.lang.Throwable -> L25d
             java.lang.String r6 = "-"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Throwable -> L260
-            java.lang.StringBuilder r5 = r5.append(r11)     // Catch: java.lang.Throwable -> L260
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Throwable -> L25d
+            java.lang.StringBuilder r5 = r5.append(r11)     // Catch: java.lang.Throwable -> L25d
             java.lang.String r6 = ".zip"
-            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Throwable -> L260
-            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L260
-            r1.<init>(r2, r5)     // Catch: java.lang.Throwable -> L260
-            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L265
-            r2.<init>(r1)     // Catch: java.lang.Throwable -> L265
-            android.content.Context r5 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L26c
-            android.content.res.AssetManager r5 = r5.getAssets()     // Catch: java.lang.Throwable -> L26c
-            java.lang.String r6 = java.lang.String.valueOf(r10)     // Catch: java.lang.Throwable -> L26c
-            java.io.InputStream r0 = r5.open(r6)     // Catch: java.lang.Throwable -> L26c
+            java.lang.StringBuilder r5 = r5.append(r6)     // Catch: java.lang.Throwable -> L25d
+            java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L25d
+            r1.<init>(r2, r5)     // Catch: java.lang.Throwable -> L25d
+            java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L262
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> L262
+            android.content.Context r5 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L269
+            android.content.res.AssetManager r5 = r5.getAssets()     // Catch: java.lang.Throwable -> L269
+            java.lang.String r6 = java.lang.String.valueOf(r10)     // Catch: java.lang.Throwable -> L269
+            java.io.InputStream r0 = r5.open(r6)     // Catch: java.lang.Throwable -> L269
             r5 = 8192(0x2000, float:1.148E-41)
             byte[] r5 = new byte[r5]     // Catch: java.lang.Throwable -> L80
         L74:
             int r6 = r0.read(r5)     // Catch: java.lang.Throwable -> L80
             r7 = -1
-            if (r6 == r7) goto L10c
+            if (r6 == r7) goto L109
             r7 = 0
             r2.write(r5, r7, r6)     // Catch: java.lang.Throwable -> L80
             goto L74
@@ -397,16 +392,16 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             r2 = r0
             r0 = r8
         L85:
-            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L25b
-            if (r0 == 0) goto L221
-            boolean r3 = r0.exists()     // Catch: java.lang.Throwable -> L25b
-            if (r3 == 0) goto L221
-            com.baidu.sofire.c.a(r0)     // Catch: java.lang.Throwable -> L25b
-            com.baidu.sofire.a.a r3 = r9.c     // Catch: java.lang.Throwable -> L25b
-            r3.h(r10)     // Catch: java.lang.Throwable -> L25b
-            r0.delete()     // Catch: java.lang.Throwable -> L25b
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L258
+            if (r0 == 0) goto L21e
+            boolean r3 = r0.exists()     // Catch: java.lang.Throwable -> L258
+            if (r3 == 0) goto L21e
+            com.baidu.sofire.c.a(r0)     // Catch: java.lang.Throwable -> L258
+            com.baidu.sofire.a.a r3 = r9.h     // Catch: java.lang.Throwable -> L258
+            r3.h(r10)     // Catch: java.lang.Throwable -> L258
+            r0.delete()     // Catch: java.lang.Throwable -> L258
             if (r2 == 0) goto La0
-            r2.close()     // Catch: java.io.IOException -> L248
+            r2.close()     // Catch: java.io.IOException -> L245
         La0:
             if (r1 == 0) goto L13
             r1.close()     // Catch: java.io.IOException -> La7
@@ -415,89 +410,88 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             r0 = move-exception
             goto L13
         Laa:
-            com.baidu.sofire.a.a r2 = r9.c     // Catch: java.lang.Throwable -> L100
-            r2.h(r10)     // Catch: java.lang.Throwable -> L100
-            java.io.File r2 = new java.io.File     // Catch: java.lang.Throwable -> L100
-            java.lang.String r1 = r1.pkgPath     // Catch: java.lang.Throwable -> L100
-            r2.<init>(r1)     // Catch: java.lang.Throwable -> L100
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L100
-            java.lang.String r5 = "deleteNotLoadedPlugin file="
-            r1.<init>(r5)     // Catch: java.lang.Throwable -> L100
-            java.lang.String r5 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> L100
-            java.lang.StringBuilder r1 = r1.append(r5)     // Catch: java.lang.Throwable -> L100
+            com.baidu.sofire.a.a r2 = r9.h     // Catch: java.lang.Throwable -> Lfd
+            r2.h(r10)     // Catch: java.lang.Throwable -> Lfd
+            java.io.File r2 = new java.io.File     // Catch: java.lang.Throwable -> Lfd
+            java.lang.String r1 = r1.pkgPath     // Catch: java.lang.Throwable -> Lfd
+            r2.<init>(r1)     // Catch: java.lang.Throwable -> Lfd
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lfd
+            r1.<init>()     // Catch: java.lang.Throwable -> Lfd
+            java.lang.String r5 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> Lfd
+            java.lang.StringBuilder r1 = r1.append(r5)     // Catch: java.lang.Throwable -> Lfd
             java.lang.String r5 = ", e="
-            java.lang.StringBuilder r1 = r1.append(r5)     // Catch: java.lang.Throwable -> L100
-            boolean r5 = r2.exists()     // Catch: java.lang.Throwable -> L100
-            r1.append(r5)     // Catch: java.lang.Throwable -> L100
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L100
-            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> L100
+            java.lang.StringBuilder r1 = r1.append(r5)     // Catch: java.lang.Throwable -> Lfd
+            boolean r5 = r2.exists()     // Catch: java.lang.Throwable -> Lfd
+            r1.append(r5)     // Catch: java.lang.Throwable -> Lfd
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> Lfd
+            boolean r1 = r2.exists()     // Catch: java.lang.Throwable -> Lfd
             if (r1 == 0) goto L1c
-            com.baidu.sofire.c.a(r2)     // Catch: java.lang.Throwable -> L100
-            boolean r1 = r2.delete()     // Catch: java.lang.Throwable -> L100
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L100
-            r5.<init>()     // Catch: java.lang.Throwable -> L100
-            java.lang.String r2 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> L100
-            java.lang.StringBuilder r2 = r5.append(r2)     // Catch: java.lang.Throwable -> L100
+            com.baidu.sofire.c.a(r2)     // Catch: java.lang.Throwable -> Lfd
+            boolean r1 = r2.delete()     // Catch: java.lang.Throwable -> Lfd
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> Lfd
+            r5.<init>()     // Catch: java.lang.Throwable -> Lfd
+            java.lang.String r2 = r2.getAbsolutePath()     // Catch: java.lang.Throwable -> Lfd
+            java.lang.StringBuilder r2 = r5.append(r2)     // Catch: java.lang.Throwable -> Lfd
             java.lang.String r5 = " s="
-            java.lang.StringBuilder r2 = r2.append(r5)     // Catch: java.lang.Throwable -> L100
-            r2.append(r1)     // Catch: java.lang.Throwable -> L100
-            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L100
+            java.lang.StringBuilder r2 = r2.append(r5)     // Catch: java.lang.Throwable -> Lfd
+            r2.append(r1)     // Catch: java.lang.Throwable -> Lfd
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> Lfd
             goto L1c
-        L100:
+        Lfd:
             r1 = move-exception
-            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L106
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L103
             goto L1c
-        L106:
+        L103:
             r1 = move-exception
             com.baidu.sofire.b.e.a()
             goto L1c
-        L10c:
+        L109:
             r2.flush()     // Catch: java.lang.Throwable -> L80
             java.lang.String r5 = r1.getAbsolutePath()     // Catch: java.lang.Throwable -> L80
             r6 = 1
             com.baidu.sofire.b.e.a(r5, r6)     // Catch: java.lang.Throwable -> L80
             java.lang.String r5 = com.baidu.sofire.b.o.a(r1)     // Catch: java.lang.Throwable -> L80
-            if (r5 == 0) goto L123
+            if (r5 == 0) goto L120
             boolean r6 = r5.equalsIgnoreCase(r12)     // Catch: java.lang.Throwable -> L80
-            if (r6 != 0) goto L133
-        L123:
+            if (r6 != 0) goto L130
+        L120:
             r1.delete()     // Catch: java.lang.Throwable -> L80
-            if (r0 == 0) goto L12b
-            r0.close()     // Catch: java.io.IOException -> L240
-        L12b:
-            r2.close()     // Catch: java.io.IOException -> L130
+            if (r0 == 0) goto L128
+            r0.close()     // Catch: java.io.IOException -> L23d
+        L128:
+            r2.close()     // Catch: java.io.IOException -> L12d
             goto L13
-        L130:
+        L12d:
             r0 = move-exception
             goto L13
-        L133:
+        L130:
             com.baidu.sofire.core.ApkInfo r6 = new com.baidu.sofire.core.ApkInfo     // Catch: java.lang.Throwable -> L80
             java.lang.String r7 = r1.getAbsolutePath()     // Catch: java.lang.Throwable -> L80
             r6.<init>(r10, r11, r7)     // Catch: java.lang.Throwable -> L80
             r6.apkMD5 = r5     // Catch: java.lang.Throwable -> L80
             r5 = 1
             r6.priority = r5     // Catch: java.lang.Throwable -> L80
-            com.baidu.sofire.a.a r5 = r9.c     // Catch: java.lang.Throwable -> L80
+            com.baidu.sofire.a.a r5 = r9.h     // Catch: java.lang.Throwable -> L80
             r5.a(r6)     // Catch: java.lang.Throwable -> L80
-            com.baidu.sofire.a.a r5 = r9.c     // Catch: java.lang.Throwable -> L80
+            com.baidu.sofire.a.a r5 = r9.h     // Catch: java.lang.Throwable -> L80
             int r5 = r5.g(r10)     // Catch: java.lang.Throwable -> L80
             r6 = 3
-            if (r5 != r6) goto L276
+            if (r5 != r6) goto L273
             com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L80
-        L152:
+        L14f:
             com.baidu.sofire.e r4 = r9.a     // Catch: java.lang.Throwable -> L80
             boolean r4 = r4.c()     // Catch: java.lang.Throwable -> L80
-            if (r4 == 0) goto L1c1
-            if (r3 == 0) goto L1c1
+            if (r4 == 0) goto L1be
+            if (r3 == 0) goto L1be
             java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> L80
             android.content.Context r4 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L80
             java.io.File r4 = r4.getFilesDir()     // Catch: java.lang.Throwable -> L80
             java.lang.String r5 = ".b"
             r3.<init>(r4, r5)     // Catch: java.lang.Throwable -> L80
             boolean r4 = r3.exists()     // Catch: java.lang.Throwable -> L80
-            if (r4 != 0) goto L173
+            if (r4 != 0) goto L170
             r3.mkdir()     // Catch: java.lang.Throwable -> L80
-        L173:
+        L170:
             java.io.File r4 = new java.io.File     // Catch: java.lang.Throwable -> L80
             java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L80
             r5.<init>()     // Catch: java.lang.Throwable -> L80
@@ -508,40 +502,40 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L80
             r4.<init>(r3, r5)     // Catch: java.lang.Throwable -> L80
             boolean r3 = com.baidu.sofire.b.e.a(r4)     // Catch: java.lang.Throwable -> L80
-            if (r3 != 0) goto L199
+            if (r3 != 0) goto L196
             com.baidu.sofire.b.e.a(r1, r4)     // Catch: java.lang.Throwable -> L80
-        L199:
+        L196:
             android.content.Context r3 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L80
             com.baidu.sofire.c.a(r3, r10, r1, r4)     // Catch: java.lang.Throwable -> L80
             r8 = r1
             r1 = r2
             r2 = r0
             r0 = r8
-        L1a2:
-            com.baidu.sofire.a.a r3 = r9.c     // Catch: java.lang.Throwable -> L273
-            com.baidu.sofire.core.ApkInfo r3 = r3.a(r10)     // Catch: java.lang.Throwable -> L273
-            if (r3 == 0) goto L1b2
-            java.lang.String r3 = r3.pkgPath     // Catch: java.lang.Throwable -> L273
-            boolean r3 = com.baidu.sofire.b.e.c(r3)     // Catch: java.lang.Throwable -> L273
-            if (r3 != 0) goto L203
-        L1b2:
-            if (r2 == 0) goto L1b7
-            r2.close()     // Catch: java.io.IOException -> L243
-        L1b7:
+        L19f:
+            com.baidu.sofire.a.a r3 = r9.h     // Catch: java.lang.Throwable -> L270
+            com.baidu.sofire.core.ApkInfo r3 = r3.a(r10)     // Catch: java.lang.Throwable -> L270
+            if (r3 == 0) goto L1af
+            java.lang.String r3 = r3.pkgPath     // Catch: java.lang.Throwable -> L270
+            boolean r3 = com.baidu.sofire.b.e.c(r3)     // Catch: java.lang.Throwable -> L270
+            if (r3 != 0) goto L200
+        L1af:
+            if (r2 == 0) goto L1b4
+            r2.close()     // Catch: java.io.IOException -> L240
+        L1b4:
             if (r1 == 0) goto L13
-            r1.close()     // Catch: java.io.IOException -> L1be
+            r1.close()     // Catch: java.io.IOException -> L1bb
             goto L13
-        L1be:
+        L1bb:
             r0 = move-exception
             goto L13
-        L1c1:
+        L1be:
             java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> L80
             android.content.Context r4 = com.baidu.sofire.core.d.b     // Catch: java.lang.Throwable -> L80
             java.io.File r4 = r4.getFilesDir()     // Catch: java.lang.Throwable -> L80
             java.lang.String r5 = ".b"
             r3.<init>(r4, r5)     // Catch: java.lang.Throwable -> L80
             boolean r4 = r3.exists()     // Catch: java.lang.Throwable -> L80
-            if (r4 == 0) goto L1fe
+            if (r4 == 0) goto L1fb
             java.io.File r4 = new java.io.File     // Catch: java.lang.Throwable -> L80
             java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L80
             r5.<init>()     // Catch: java.lang.Throwable -> L80
@@ -552,123 +546,123 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             java.lang.String r5 = r5.toString()     // Catch: java.lang.Throwable -> L80
             r4.<init>(r3, r5)     // Catch: java.lang.Throwable -> L80
             boolean r3 = com.baidu.sofire.b.e.a(r4)     // Catch: java.lang.Throwable -> L80
-            if (r3 == 0) goto L1fe
+            if (r3 == 0) goto L1fb
             com.baidu.sofire.c.a(r4)     // Catch: java.lang.Throwable -> L80
             r4.delete()     // Catch: java.lang.Throwable -> L80
-        L1fe:
+        L1fb:
             r8 = r1
             r1 = r2
             r2 = r0
             r0 = r8
-            goto L1a2
-        L203:
-            boolean r3 = r9.a(r10, r11, r13)     // Catch: java.lang.Throwable -> L273
-            if (r3 == 0) goto L212
-            java.util.List<java.lang.Integer> r3 = com.baidu.sofire.core.d.d     // Catch: java.lang.Throwable -> L273
-            java.lang.Integer r4 = java.lang.Integer.valueOf(r10)     // Catch: java.lang.Throwable -> L273
-            r3.add(r4)     // Catch: java.lang.Throwable -> L273
-        L212:
-            if (r2 == 0) goto L217
-            r2.close()     // Catch: java.io.IOException -> L246
-        L217:
+            goto L19f
+        L200:
+            boolean r3 = r9.a(r10, r11, r13)     // Catch: java.lang.Throwable -> L270
+            if (r3 == 0) goto L20f
+            java.util.List<java.lang.Integer> r3 = com.baidu.sofire.core.d.c     // Catch: java.lang.Throwable -> L270
+            java.lang.Integer r4 = java.lang.Integer.valueOf(r10)     // Catch: java.lang.Throwable -> L270
+            r3.add(r4)     // Catch: java.lang.Throwable -> L270
+        L20f:
+            if (r2 == 0) goto L214
+            r2.close()     // Catch: java.io.IOException -> L243
+        L214:
             if (r1 == 0) goto L13
-            r1.close()     // Catch: java.io.IOException -> L21e
+            r1.close()     // Catch: java.io.IOException -> L21b
+            goto L13
+        L21b:
+            r0 = move-exception
             goto L13
         L21e:
-            r0 = move-exception
-            goto L13
-        L221:
-            if (r2 == 0) goto L226
-            r2.close()     // Catch: java.io.IOException -> L24b
-        L226:
+            if (r2 == 0) goto L223
+            r2.close()     // Catch: java.io.IOException -> L248
+        L223:
             if (r1 == 0) goto L13
-            r1.close()     // Catch: java.io.IOException -> L22d
+            r1.close()     // Catch: java.io.IOException -> L22a
+            goto L13
+        L22a:
+            r0 = move-exception
             goto L13
         L22d:
-            r0 = move-exception
-            goto L13
-        L230:
             r1 = move-exception
             r2 = r0
             r8 = r1
             r1 = r0
             r0 = r8
-        L235:
-            if (r1 == 0) goto L23a
-            r1.close()     // Catch: java.io.IOException -> L24d
-        L23a:
-            if (r2 == 0) goto L23f
-            r2.close()     // Catch: java.io.IOException -> L24f
-        L23f:
+        L232:
+            if (r1 == 0) goto L237
+            r1.close()     // Catch: java.io.IOException -> L24a
+        L237:
+            if (r2 == 0) goto L23c
+            r2.close()     // Catch: java.io.IOException -> L24c
+        L23c:
             throw r0
+        L23d:
+            r0 = move-exception
+            goto L128
         L240:
             r0 = move-exception
-            goto L12b
+            goto L1b4
         L243:
             r0 = move-exception
-            goto L1b7
-        L246:
-            r0 = move-exception
-            goto L217
-        L248:
+            goto L214
+        L245:
             r0 = move-exception
             goto La0
-        L24b:
+        L248:
             r0 = move-exception
-            goto L226
-        L24d:
+            goto L223
+        L24a:
             r1 = move-exception
-            goto L23a
-        L24f:
+            goto L237
+        L24c:
             r1 = move-exception
-            goto L23f
-        L251:
-            r1 = move-exception
-            r8 = r1
-            r1 = r0
-            r0 = r8
-            goto L235
-        L256:
+            goto L23c
+        L24e:
             r1 = move-exception
             r8 = r1
             r1 = r0
             r0 = r8
-            goto L235
-        L25b:
+            goto L232
+        L253:
+            r1 = move-exception
+            r8 = r1
+            r1 = r0
+            r0 = r8
+            goto L232
+        L258:
             r0 = move-exception
             r8 = r1
             r1 = r2
             r2 = r8
-            goto L235
-        L260:
+            goto L232
+        L25d:
             r1 = move-exception
             r1 = r0
             r2 = r0
             goto L85
-        L265:
+        L262:
             r2 = move-exception
             r2 = r0
             r8 = r0
             r0 = r1
             r1 = r8
             goto L85
-        L26c:
+        L269:
             r3 = move-exception
             r8 = r1
             r1 = r2
             r2 = r0
             r0 = r8
             goto L85
-        L273:
+        L270:
             r3 = move-exception
             goto L85
-        L276:
+        L273:
             r3 = r4
-            goto L152
-        L279:
+            goto L14f
+        L276:
             r1 = r0
             r2 = r0
-            goto L1a2
+            goto L19f
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.core.d.a(int, java.lang.String, java.lang.String, android.content.pm.PackageInfo):void");
     }
@@ -682,11 +676,12 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         String str2;
         String str3;
         try {
+            new StringBuilder().append(i);
             com.baidu.sofire.b.a();
-            if (z && this.c.c(i) != 1) {
+            if (z && this.h.c(i) != 1) {
                 z2 = false;
             } else {
-                ApkInfo a = this.c.a(i);
+                ApkInfo a = this.h.a(i);
                 if (a == null) {
                     com.baidu.sofire.b.a();
                     HashMap hashMap = new HashMap();
@@ -703,7 +698,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                     com.baidu.sofire.b.a();
                     if (!com.baidu.sofire.b.e.a(file)) {
                         com.baidu.sofire.b.a();
-                        this.c.f(i);
+                        this.h.f(i);
                         HashMap hashMap2 = new HashMap();
                         hashMap2.put("0", 3);
                         hashMap2.put("1", String.valueOf(i));
@@ -719,7 +714,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                         g a2 = g.a(b.getApplicationContext());
                         com.baidu.sofire.b.a();
                         if (!a2.a(a, false)) {
-                            this.c.f(i);
+                            this.h.f(i);
                             a2.a(a.pkgPath);
                             HashMap hashMap3 = new HashMap();
                             hashMap3.put("0", 4);
@@ -732,10 +727,10 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             z2 = false;
                         } else {
                             com.baidu.sofire.b.a();
-                            String[] g = com.baidu.sofire.b.e.g(b);
-                            if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
-                                String str4 = g[0];
-                                str2 = g[1];
+                            String[] g2 = com.baidu.sofire.b.e.g(b);
+                            if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
+                                String str4 = g2[0];
+                                str2 = g2[1];
                                 str3 = str4;
                             } else {
                                 str2 = "925fc15df8a49bed0b3eca8d2b44cb7b";
@@ -743,8 +738,8 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             }
                             new StringBuilder("ak=").append(str3).append(", sk=").append(str2);
                             com.baidu.sofire.b.a();
-                            ApkInfo c = a2.c(a.pkgPath);
-                            f fVar = (f) c.classLoader;
+                            ApkInfo c2 = a2.c(a.pkgPath);
+                            f fVar = (f) c2.classLoader;
                             Class<?> a3 = fVar.a("com.baidu.sofire.engine.EngineImpl");
                             if (a3 == null) {
                                 com.baidu.sofire.b.a();
@@ -757,13 +752,17 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                 if (!z) {
                                     com.baidu.sofire.b.e.a(b, "1003105", hashMap4);
                                 }
-                                this.c.f(i);
+                                this.h.f(i);
                                 z2 = false;
                             } else {
                                 Object invoke = a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, b);
                                 new StringBuilder("ai=").append(invoke);
                                 com.baidu.sofire.b.a();
-                                com.baidu.sofire.b.e.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str3, str2);
+                                try {
+                                    com.baidu.sofire.b.e.a(invoke, "setSecurityVerifyInfo", new Class[]{String.class, String.class}, str3, str2);
+                                } catch (Throwable th) {
+                                    com.baidu.sofire.b.e.a();
+                                }
                                 if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.n()))).booleanValue()) {
                                     HashMap hashMap5 = new HashMap();
                                     hashMap5.put("0", 6);
@@ -772,20 +771,20 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                                     if (!z) {
                                         com.baidu.sofire.b.e.a(b, "1003105", hashMap5);
                                     }
-                                    this.c.f(i);
-                                    a2.a(c.pkgPath);
+                                    this.h.f(i);
+                                    a2.a(c2.pkgPath);
                                     com.baidu.sofire.b.a();
                                     z2 = false;
                                 } else {
-                                    c.initStatus = 1;
-                                    c.apkParseSuc = 1;
-                                    this.c.a(c);
+                                    c2.initStatus = 1;
+                                    c2.apkParseSuc = 1;
+                                    this.h.a(c2);
                                     com.baidu.sofire.b.a();
-                                    int g2 = this.c.g(c.key);
-                                    new StringBuilder("plugin now loadStatus :").append(c.key).append(" ").append(g2);
+                                    int g3 = this.h.g(c2.key);
+                                    new StringBuilder().append(c2.key).append(" ").append(g3);
                                     com.baidu.sofire.b.a();
-                                    if (g2 < 3 && g2 != -1) {
-                                        this.c.b(c.key, g2 + 1);
+                                    if (g3 < 3 && g3 != -1) {
+                                        this.h.b(c2.key, g3 + 1);
                                     }
                                     HashMap hashMap6 = new HashMap();
                                     hashMap6.put("0", 0);
@@ -802,23 +801,39 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                     }
                 }
             }
-        } catch (Throwable th) {
+        } catch (Throwable th2) {
             com.baidu.sofire.b.e.a();
             z2 = false;
         }
         return z2;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003e: IGET  (r4v43 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x013a: IGET  (r4v41 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x01dc: IGET  (r7v8 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02f4: IGET  (r4v26 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0355: IGET  (r5v1 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0452: IGET  (r4v21 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    public final void a(String str, String str2) {
+        try {
+            this.h.a(str);
+            File file = new File(str2);
+            new StringBuilder("f=").append(file.getAbsolutePath()).append(", e=").append(file.exists());
+            com.baidu.sofire.b.a();
+            if (file.exists()) {
+                com.baidu.sofire.c.a(file);
+                new StringBuilder().append(file.getAbsolutePath()).append(" s=").append(file.delete());
+                com.baidu.sofire.b.a();
+            }
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a();
+        }
+    }
+
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x003b: IGET  (r4v41 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0137: IGET  (r4v39 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x01d9: IGET  (r7v8 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x02f1: IGET  (r4v24 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0352: IGET  (r5v1 int A[REMOVE]) = (r12v0 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0452: IGET  (r4v19 int A[REMOVE]) = (r12v1 com.baidu.sofire.core.ApkInfo) com.baidu.sofire.core.ApkInfo.key int)] */
     public final boolean a(ApkInfo apkInfo, String str) {
         String str2;
         String str3;
-        new StringBuilder("newCloudCome apkInfo=").append(apkInfo);
+        new StringBuilder().append(apkInfo);
         com.baidu.sofire.b.a();
         if (apkInfo == null) {
             return false;
@@ -835,11 +850,11 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 com.baidu.sofire.b.e.a(b, "1003106", hashMap);
                 return false;
             }
-            if (!this.c.b(apkInfo.key)) {
-                this.c.a(apkInfo);
+            if (!this.h.b(apkInfo.key)) {
+                this.h.a(apkInfo);
             }
             g a = g.a(b.getApplicationContext());
-            this.c.a(apkInfo.key, 1);
+            this.h.a(apkInfo.key, 1);
             b(apkInfo.packageName);
             if (!a.a(apkInfo, true)) {
                 HashMap hashMap2 = new HashMap();
@@ -851,35 +866,35 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 com.baidu.sofire.c.a(file);
                 file.delete();
                 a(apkInfo.key, apkInfo.versionName, true, (PackageInfo) null);
-                this.c.a(apkInfo.key, 0);
+                this.h.a(apkInfo.key, 0);
                 return false;
             }
-            String[] g = com.baidu.sofire.b.e.g(b);
-            if (g != null && g.length == 2 && !TextUtils.isEmpty(g[0]) && !TextUtils.isEmpty(g[1])) {
-                str2 = g[0];
-                str3 = g[1];
+            String[] g2 = com.baidu.sofire.b.e.g(b);
+            if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
+                str2 = g2[0];
+                str3 = g2[1];
             } else {
                 str2 = "3";
                 str3 = "925fc15df8a49bed0b3eca8d2b44cb7b";
             }
-            ApkInfo c = a.c(apkInfo.pkgPath);
-            if (c == null) {
+            ApkInfo c2 = a.c(apkInfo.pkgPath);
+            if (c2 == null) {
                 return false;
             }
-            f fVar = (f) c.classLoader;
+            f fVar = (f) c2.classLoader;
             Class<?> a2 = fVar.a("com.baidu.sofire.engine.EngineImpl");
             if (a2 == null) {
                 com.baidu.sofire.b.a();
                 Class<?> a3 = fVar.a("java.lang.String");
                 HashMap hashMap3 = new HashMap();
                 hashMap3.put("0", 6);
-                hashMap3.put("1", new StringBuilder().append(c.key).toString());
-                hashMap3.put("2", c.versionName);
+                hashMap3.put("1", new StringBuilder().append(c2.key).toString());
+                hashMap3.put("2", c2.versionName);
                 hashMap3.put("3", Base64.encodeToString(("classloader=" + fVar + ",StringClass=" + a3).getBytes(), 0).replace("\n", "").replace("\t", "").replace("\r", ""));
                 com.baidu.sofire.b.e.a(b, "1003106", hashMap3);
                 com.baidu.sofire.c.a(file);
                 file.delete();
-                this.c.a(c.key, 0);
+                this.h.a(c2.key, 0);
                 return false;
             }
             Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b);
@@ -887,46 +902,46 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             if (!((Boolean) com.baidu.sofire.b.e.a(invoke, "init", new Class[]{Integer.TYPE, Boolean.TYPE}, 0, Boolean.valueOf(this.a.n()))).booleanValue()) {
                 com.baidu.sofire.b.a();
                 com.baidu.sofire.c.a(file);
-                b(c.packageName);
+                b(c2.packageName);
                 file.delete();
-                a(c.key, c.versionName, true, (PackageInfo) null);
-                this.c.a(c.key, 0);
+                a(c2.key, c2.versionName, true, (PackageInfo) null);
+                this.h.a(c2.key, 0);
                 HashMap hashMap4 = new HashMap();
                 hashMap4.put("0", 4);
-                hashMap4.put("1", new StringBuilder().append(c.key).toString());
-                hashMap4.put("2", c.versionName);
+                hashMap4.put("1", new StringBuilder().append(c2.key).toString());
+                hashMap4.put("2", c2.versionName);
                 com.baidu.sofire.b.e.a(b, "1003106", hashMap4);
                 return false;
             }
-            if (c.isMem) {
+            if (c2.isMem) {
                 com.baidu.sofire.c.a(file);
                 file.delete();
-                com.baidu.sofire.b.e.d(c.dataDir);
+                com.baidu.sofire.b.e.d(c2.dataDir);
                 if (g.b != null) {
-                    g.b.add(Integer.valueOf(c.key));
+                    g.b.add(Integer.valueOf(c2.key));
                 }
             }
             com.baidu.sofire.b.a();
             try {
-                ApkInfo a4 = this.c.a(c.key);
-                new StringBuilder("old apkinfo=").append(a4);
+                ApkInfo a4 = this.h.a(c2.key);
+                new StringBuilder().append(a4);
                 com.baidu.sofire.b.a();
-                File file2 = (a4 == null || a4.versionName.equals(c.versionName)) ? null : new File(a4.pkgPath);
-                c.initStatus = 1;
-                c.apkParseSuc = 1;
-                long a5 = this.c.a(c);
+                File file2 = (a4 == null || a4.versionName.equals(c2.versionName)) ? null : new File(a4.pkgPath);
+                c2.initStatus = 1;
+                c2.apkParseSuc = 1;
+                long a5 = this.h.a(c2);
                 if (a5 > 0 && file2 != null && file2.exists()) {
                     com.baidu.sofire.c.a(file2);
-                    file2.delete();
+                    new StringBuilder().append(file2.delete());
                     com.baidu.sofire.b.a();
                 }
-                new StringBuilder("insertOrUpdateRecord =").append(a5).append(", c=").append(this.c.a(c.key, 0));
+                new StringBuilder().append(a5).append(", c=").append(this.h.a(c2.key, 0));
                 com.baidu.sofire.b.a();
                 com.baidu.sofire.b.e.c(b);
                 HashMap hashMap5 = new HashMap();
                 hashMap5.put("0", 0);
-                hashMap5.put("1", new StringBuilder().append(c.key).toString());
-                hashMap5.put("2", c.versionName);
+                hashMap5.put("1", new StringBuilder().append(c2.key).toString());
+                hashMap5.put("2", c2.versionName);
                 com.baidu.sofire.b.e.a(b, "1003106", hashMap5);
             } catch (Throwable th) {
                 com.baidu.sofire.b.e.a();
@@ -940,7 +955,7 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 b(apkInfo.packageName);
                 file.delete();
                 a(apkInfo.key, apkInfo.versionName, true, (PackageInfo) null);
-                this.c.a(apkInfo.key, 0);
+                this.h.a(apkInfo.key, 0);
                 HashMap hashMap6 = new HashMap();
                 hashMap6.put("0", 5);
                 hashMap6.put("1", new StringBuilder().append(apkInfo.key).toString());
@@ -954,11 +969,12 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v8, types: [com.baidu.sofire.core.d$3] */
-    public final void a(final int i, final String str, final Callback callback, final Class<?>[] clsArr, final Object... objArr) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1217=8, 1218=8, 1224=5] */
+    public final void a(int i, String str, Callback callback, Class<?>[] clsArr, Object... objArr) {
         try {
+            new StringBuilder().append(str);
             com.baidu.sofire.b.a();
-            final HashMap hashMap = new HashMap();
+            HashMap hashMap = new HashMap();
             hashMap.put("0", Integer.toString(i));
             hashMap.put("1", !TextUtils.isEmpty(str) ? str : " ");
             hashMap.put("2", "0");
@@ -971,158 +987,156 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 com.baidu.sofire.b.e.a(b, "1003141", hashMap);
                 return;
             }
-            new Thread() { // from class: com.baidu.sofire.core.d.3
-                /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1237=8, 1238=8, 1244=6] */
-                @Override // java.lang.Thread, java.lang.Runnable
-                public final void run() {
-                    boolean z = true;
-                    int i2 = 0;
-                    super.run();
+            if (callback != null) {
+                try {
+                    callback.onBegin(new Object[0]);
+                } catch (IllegalAccessException e2) {
+                    e2.getMessage();
+                    com.baidu.sofire.b.c();
+                    if (callback != null) {
+                        callback.onError(2);
+                    }
                     try {
-                        try {
-                            try {
-                                try {
-                                    if (callback != null) {
-                                        callback.onBegin(new Object[0]);
-                                    }
-                                    boolean d2 = d.this.c.d(i);
-                                    com.baidu.sofire.b.a();
-                                    if (d2) {
-                                        long currentTimeMillis = System.currentTimeMillis();
-                                        while (d.this.c.d(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
-                                            com.baidu.sofire.b.a();
-                                            SystemClock.sleep(300L);
-                                        }
-                                    }
-                                    com.baidu.sofire.b.a();
-                                    if (d.this.c.d(i)) {
-                                        try {
-                                            if (callback != null) {
-                                                callback.onError(3);
-                                            }
-                                            try {
-                                                hashMap.put("3", Integer.toString(12));
-                                                com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                                                return;
-                                            } catch (Throwable th) {
-                                                return;
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            i2 = 12;
-                                            if (i2 != 0) {
-                                                try {
-                                                    hashMap.put("3", Integer.toString(i2));
-                                                    com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                                                } catch (Throwable th3) {
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    }
-                                    if (!d.this.e) {
-                                        d.a(3);
-                                        d.this.a((Callback) null);
-                                    }
-                                    g a = g.a(d.b.getApplicationContext());
-                                    ApkInfo apkInfo = null;
-                                    long currentTimeMillis2 = System.currentTimeMillis();
-                                    while (System.currentTimeMillis() - currentTimeMillis2 <= 120000) {
-                                        com.baidu.sofire.b.a();
-                                        apkInfo = d.this.c.a(i);
-                                        if (apkInfo != null) {
-                                            if (a.d(apkInfo.packageName) != null) {
-                                                break;
-                                            } else if (apkInfo.initStatus == -1) {
-                                                break;
-                                            }
-                                        }
-                                        SystemClock.sleep(1000L);
-                                    }
-                                    z = false;
-                                    if (!z) {
-                                        if (callback != null) {
-                                            callback.onError(4);
-                                        }
-                                        try {
-                                            hashMap.put("3", Integer.toString(13));
-                                            com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                                            return;
-                                        } catch (Throwable th4) {
-                                            return;
-                                        }
-                                    }
-                                    Class<?> a2 = ((f) a.d(apkInfo.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                                    Object a3 = com.baidu.sofire.b.e.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.b), str, clsArr, objArr);
-                                    try {
-                                        new StringBuilder("CommonMethods.callMethodOfClass result object=").append(a3);
-                                        com.baidu.sofire.b.a();
-                                    } catch (Throwable th5) {
-                                        com.baidu.sofire.b.e.a();
-                                    }
-                                    if (callback != null) {
-                                        callback.onEnd(a3);
-                                    }
-                                } catch (Throwable th6) {
-                                    th = th6;
-                                }
-                            } catch (IllegalAccessException e) {
-                                e.getMessage();
-                                com.baidu.sofire.b.c();
-                                if (callback != null) {
-                                    callback.onError(2);
-                                }
-                                try {
-                                    hashMap.put("3", Integer.toString(16));
-                                    com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                                } catch (Throwable th7) {
-                                }
-                            }
-                        } catch (NoSuchMethodException e2) {
-                            e2.getMessage();
-                            com.baidu.sofire.b.c();
-                            if (callback != null) {
-                                callback.onError(2);
-                            }
-                            try {
-                                hashMap.put("3", Integer.toString(14));
-                                com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                            } catch (Throwable th8) {
-                            }
-                        }
-                    } catch (IllegalArgumentException e3) {
-                        e3.getMessage();
-                        com.baidu.sofire.b.c();
-                        if (callback != null) {
-                            callback.onError(2);
-                        }
-                        try {
-                            hashMap.put("3", Integer.toString(17));
-                            com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                        } catch (Throwable th9) {
-                        }
-                    } catch (InvocationTargetException e4) {
-                        e4.getMessage();
-                        com.baidu.sofire.b.c();
-                        if (callback != null) {
-                            callback.onError(2);
-                        }
-                        try {
-                            hashMap.put("3", Integer.toString(15));
-                            com.baidu.sofire.b.e.a(d.b, "1003141", hashMap);
-                        } catch (Throwable th10) {
-                        }
+                        hashMap.put("3", Integer.toString(16));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return;
+                    } catch (Throwable th) {
+                        return;
+                    }
+                } catch (IllegalArgumentException e3) {
+                    e3.getMessage();
+                    com.baidu.sofire.b.c();
+                    if (callback != null) {
+                        callback.onError(2);
+                    }
+                    try {
+                        hashMap.put("3", Integer.toString(17));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return;
+                    } catch (Throwable th2) {
+                        return;
+                    }
+                } catch (NoSuchMethodException e4) {
+                    e4.getMessage();
+                    com.baidu.sofire.b.c();
+                    if (callback != null) {
+                        callback.onError(2);
+                    }
+                    try {
+                        hashMap.put("3", Integer.toString(14));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return;
+                    } catch (Throwable th3) {
+                        return;
+                    }
+                } catch (InvocationTargetException e5) {
+                    e5.getMessage();
+                    com.baidu.sofire.b.c();
+                    if (callback != null) {
+                        callback.onError(2);
+                    }
+                    try {
+                        hashMap.put("3", Integer.toString(15));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return;
+                    } catch (Throwable th4) {
+                        return;
+                    }
+                } catch (Throwable th5) {
+                    th5.getMessage();
+                    com.baidu.sofire.b.c();
+                    if (callback != null) {
+                        callback.onError(3);
+                    }
+                    try {
+                        hashMap.put("3", Integer.toString(18));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return;
+                    } catch (Throwable th6) {
+                        return;
                     }
                 }
-            }.start();
-        } catch (Throwable th) {
+            }
+            boolean d = this.h.d(i);
+            com.baidu.sofire.b.a();
+            if (d) {
+                long currentTimeMillis = System.currentTimeMillis();
+                while (this.h.d(i) && System.currentTimeMillis() - currentTimeMillis < 10000) {
+                    com.baidu.sofire.b.a();
+                    SystemClock.sleep(300L);
+                }
+            }
+            com.baidu.sofire.b.a();
+            if (this.h.d(i)) {
+                if (callback != null) {
+                    callback.onError(3);
+                }
+                try {
+                    hashMap.put("3", Integer.toString(12));
+                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                    return;
+                } catch (Throwable th7) {
+                    return;
+                }
+            }
+            if (!this.d) {
+                a(3);
+                a((Callback) null);
+            }
+            g a = g.a(b.getApplicationContext());
+            boolean z = false;
+            ApkInfo apkInfo = null;
+            long currentTimeMillis2 = System.currentTimeMillis();
+            while (true) {
+                if (System.currentTimeMillis() - currentTimeMillis2 > 120000) {
+                    break;
+                }
+                com.baidu.sofire.b.a();
+                apkInfo = this.h.a(i);
+                if (apkInfo != null) {
+                    if (a.d(apkInfo.packageName) == null) {
+                        if (apkInfo.initStatus == -1) {
+                            break;
+                        }
+                    } else {
+                        z = true;
+                        break;
+                    }
+                }
+                SystemClock.sleep(1000L);
+            }
+            if (!z) {
+                if (callback != null) {
+                    callback.onError(4);
+                }
+                try {
+                    hashMap.put("3", Integer.toString(13));
+                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                    return;
+                } catch (Throwable th8) {
+                    return;
+                }
+            }
+            Class<?> a2 = ((f) a.d(apkInfo.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
+            Object a3 = com.baidu.sofire.b.e.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b), str, clsArr, objArr);
+            try {
+                new StringBuilder().append(a3);
+                com.baidu.sofire.b.a();
+            } catch (Throwable th9) {
+                com.baidu.sofire.b.e.a();
+            }
+            if (callback != null) {
+                callback.onEnd(a3);
+            }
+        } catch (Throwable th10) {
             com.baidu.sofire.b.e.a();
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1347=10, 1348=10] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1325=10, 1326=10] */
     public final Pair<Integer, Object> a(int i, String str, Class<?>[] clsArr, Object... objArr) {
         int i2 = 2;
+        new StringBuilder().append(str);
         com.baidu.sofire.b.a();
         HashMap hashMap = new HashMap();
         hashMap.put("0", Integer.toString(i));
@@ -1138,114 +1152,113 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
             try {
                 try {
                     try {
-                        try {
-                            boolean d2 = this.c.d(i);
-                            com.baidu.sofire.b.a();
-                            if (d2) {
-                                Pair<Integer, Object> pair = new Pair<>(3, null);
-                                try {
-                                    hashMap.put("3", Integer.toString(2));
-                                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                    return pair;
-                                } catch (Throwable th) {
-                                    return pair;
-                                }
-                            } else if (!this.e) {
-                                try {
-                                    Pair<Integer, Object> pair2 = new Pair<>(3, null);
-                                    try {
-                                        hashMap.put("3", Integer.toString(3));
-                                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                        return pair2;
-                                    } catch (Throwable th2) {
-                                        return pair2;
-                                    }
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    i2 = 3;
-                                    if (i2 != 0) {
-                                        try {
-                                            hashMap.put("3", Integer.toString(i2));
-                                            com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                        } catch (Throwable th4) {
-                                        }
-                                    }
-                                    throw th;
-                                }
-                            } else {
-                                g a = g.a();
-                                if (a == null) {
-                                    Pair<Integer, Object> pair3 = new Pair<>(3, null);
-                                    try {
-                                        hashMap.put("3", Integer.toString(4));
-                                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                        return pair3;
-                                    } catch (Throwable th5) {
-                                        return pair3;
-                                    }
-                                }
-                                ApkInfo a2 = this.c.a(i);
-                                if (!((a2 == null || a.d(a2.packageName) == null) ? false : true)) {
-                                    Pair<Integer, Object> pair4 = new Pair<>(4, null);
-                                    try {
-                                        hashMap.put("3", Integer.toString(5));
-                                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                        return pair4;
-                                    } catch (Throwable th6) {
-                                        return pair4;
-                                    }
-                                }
-                                Class<?> a3 = ((f) a.d(a2.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                                Object a4 = com.baidu.sofire.b.e.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, b), str, clsArr, objArr);
-                                try {
-                                    new StringBuilder("CommonMethods.callMethodOfClass result object=").append(a4);
-                                    com.baidu.sofire.b.a();
-                                } catch (Throwable th7) {
-                                    com.baidu.sofire.b.e.a();
-                                }
-                                return new Pair<>(0, a4);
-                            }
-                        } catch (IllegalAccessException e) {
-                            e.getMessage();
-                            com.baidu.sofire.b.c();
-                            Pair<Integer, Object> pair5 = new Pair<>(2, null);
+                        boolean d = this.h.d(i);
+                        new StringBuilder().append(d);
+                        com.baidu.sofire.b.a();
+                        if (d) {
+                            Pair<Integer, Object> pair = new Pair<>(3, null);
                             try {
-                                hashMap.put("3", Integer.toString(8));
+                                hashMap.put("3", Integer.toString(2));
                                 com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                                return pair5;
-                            } catch (Throwable th8) {
-                                return pair5;
+                                return pair;
+                            } catch (Throwable th) {
+                                return pair;
                             }
+                        } else if (!this.d) {
+                            try {
+                                Pair<Integer, Object> pair2 = new Pair<>(3, null);
+                                try {
+                                    hashMap.put("3", Integer.toString(3));
+                                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                                    return pair2;
+                                } catch (Throwable th2) {
+                                    return pair2;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                                i2 = 3;
+                                if (i2 != 0) {
+                                    try {
+                                        hashMap.put("3", Integer.toString(i2));
+                                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                                    } catch (Throwable th4) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        } else {
+                            g a = g.a();
+                            if (a == null) {
+                                Pair<Integer, Object> pair3 = new Pair<>(3, null);
+                                try {
+                                    hashMap.put("3", Integer.toString(4));
+                                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                                    return pair3;
+                                } catch (Throwable th5) {
+                                    return pair3;
+                                }
+                            }
+                            ApkInfo a2 = this.h.a(i);
+                            if (!((a2 == null || a.d(a2.packageName) == null) ? false : true)) {
+                                Pair<Integer, Object> pair4 = new Pair<>(4, null);
+                                try {
+                                    hashMap.put("3", Integer.toString(5));
+                                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                                    return pair4;
+                                } catch (Throwable th6) {
+                                    return pair4;
+                                }
+                            }
+                            Class<?> a3 = ((f) a.d(a2.packageName).classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                            Object a4 = com.baidu.sofire.b.e.a(a3.getDeclaredMethod("getInstance", Context.class).invoke(a3, b), str, clsArr, objArr);
+                            try {
+                                new StringBuilder().append(a4);
+                                com.baidu.sofire.b.a();
+                            } catch (Throwable th7) {
+                                com.baidu.sofire.b.e.a();
+                            }
+                            return new Pair<>(0, a4);
                         }
-                    } catch (Throwable th9) {
-                        th = th9;
+                    } catch (Throwable th8) {
+                        th = th8;
                         i2 = 0;
                     }
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalAccessException e2) {
                     e2.getMessage();
+                    com.baidu.sofire.b.c();
+                    Pair<Integer, Object> pair5 = new Pair<>(2, null);
+                    try {
+                        hashMap.put("3", Integer.toString(8));
+                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                        return pair5;
+                    } catch (Throwable th9) {
+                        return pair5;
+                    }
+                } catch (InvocationTargetException e3) {
+                    e3.getMessage();
                     com.baidu.sofire.b.c();
                     Pair<Integer, Object> pair6 = new Pair<>(2, null);
                     try {
-                        hashMap.put("3", Integer.toString(9));
+                        hashMap.put("3", Integer.toString(7));
                         com.baidu.sofire.b.e.a(b, "1003141", hashMap);
                         return pair6;
                     } catch (Throwable th10) {
                         return pair6;
                     }
-                } catch (InvocationTargetException e3) {
-                    e3.getMessage();
-                    com.baidu.sofire.b.c();
-                    Pair<Integer, Object> pair7 = new Pair<>(2, null);
-                    try {
-                        hashMap.put("3", Integer.toString(7));
-                        com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                        return pair7;
-                    } catch (Throwable th11) {
-                        return pair7;
-                    }
                 }
-            } catch (NoSuchMethodException e4) {
+            } catch (IllegalArgumentException e4) {
                 e4.getMessage();
+                com.baidu.sofire.b.c();
+                Pair<Integer, Object> pair7 = new Pair<>(2, null);
+                try {
+                    hashMap.put("3", Integer.toString(9));
+                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
+                    return pair7;
+                } catch (Throwable th11) {
+                    return pair7;
+                }
+            } catch (NoSuchMethodException e5) {
+                e5.getMessage();
                 com.baidu.sofire.b.c();
                 Pair<Integer, Object> pair8 = new Pair<>(2, null);
                 try {
@@ -1255,33 +1268,23 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                 } catch (Throwable th12) {
                     return pair8;
                 }
-            } catch (Throwable th13) {
-                th13.getMessage();
-                com.baidu.sofire.b.c();
-                Pair<Integer, Object> pair9 = new Pair<>(3, null);
-                try {
-                    hashMap.put("3", Integer.toString(10));
-                    com.baidu.sofire.b.e.a(b, "1003141", hashMap);
-                    return pair9;
-                } catch (Throwable th14) {
-                    return pair9;
-                }
             }
-        } catch (Throwable th15) {
-            th = th15;
+        } catch (Throwable th13) {
+            th = th13;
         }
     }
 
     private static void b(String str) {
         g a;
-        ApkInfo d2;
+        ApkInfo d;
+        new StringBuilder().append(str);
         com.baidu.sofire.b.a();
         try {
-            if (!TextUtils.isEmpty(str) && (a = g.a()) != null && (d2 = a.d(str)) != null) {
-                Class<?> a2 = ((f) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+            if (!TextUtils.isEmpty(str) && (a = g.a()) != null && (d = a.d(str)) != null) {
+                Class<?> a2 = ((f) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                 Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, b);
                 if (invoke != null) {
-                    new StringBuilder("CommonMethods.callMethodOfClass result object=").append(com.baidu.sofire.b.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
+                    new StringBuilder().append(com.baidu.sofire.b.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
                     com.baidu.sofire.b.a();
                     a.b(str);
                 }
@@ -1292,11 +1295,12 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v1, types: [com.baidu.sofire.core.d$4] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.sofire.core.d$2] */
     public final void a(final String str) {
         try {
+            new StringBuilder().append(str);
             com.baidu.sofire.b.a();
-            new Thread() { // from class: com.baidu.sofire.core.d.4
+            new Thread() { // from class: com.baidu.sofire.core.d.2
                 @Override // java.lang.Thread, java.lang.Runnable
                 public final void run() {
                     super.run();
@@ -1306,62 +1310,89 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
                             new StringBuilder().append(str).append(", h=").append(a);
                             com.baidu.sofire.b.a();
                             if (a != null) {
-                                final ApkInfo d2 = a.d(str);
-                                new StringBuilder().append(str).append(", i=").append(d2);
+                                final File file = new File(d.b.getFilesDir(), ".b");
+                                final ApkInfo d = a.d(str);
+                                new StringBuilder().append(str).append(", i=").append(d);
                                 com.baidu.sofire.b.a();
-                                if (d2 == null) {
-                                    ApkInfo c = d.this.c.c(str);
-                                    d dVar = d.this;
-                                    String str2 = str;
-                                    String str3 = c.pkgPath;
-                                    dVar.c.a(str2);
-                                    File file = new File(str3);
-                                    new StringBuilder("f=").append(file.getAbsolutePath()).append(", e=").append(file.exists());
-                                    com.baidu.sofire.b.a();
+                                if (d == null) {
+                                    ApkInfo c2 = d.this.h.c(str);
+                                    d.this.a(str, c2.pkgPath);
                                     if (file.exists()) {
-                                        com.baidu.sofire.c.a(file);
-                                        new StringBuilder().append(file.getAbsolutePath()).append(" s=").append(file.delete());
-                                        com.baidu.sofire.b.a();
+                                        File file2 = new File(file, c2.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + c2.versionName);
+                                        if (com.baidu.sofire.b.e.a(file2)) {
+                                            new StringBuilder().append(file2.getAbsolutePath()).append(" s=").append(file2.delete());
+                                            com.baidu.sofire.b.a();
+                                        }
                                     }
-                                } else {
-                                    Class<?> a2 = ((f) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                                    Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.b);
-                                    new StringBuilder().append(str).append(", i=").append(invoke);
+                                    String sb = new StringBuilder(str).reverse().toString();
+                                    ApkInfo c3 = d.this.h.c(sb);
+                                    if (c3 != null) {
+                                        d.this.a(sb, c3.pkgPath);
+                                        return;
+                                    }
+                                    return;
+                                }
+                                Class<?> a2 = ((f) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
+                                Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, d.b);
+                                new StringBuilder().append(str).append(", i=").append(invoke);
+                                com.baidu.sofire.b.a();
+                                if (invoke != null) {
+                                    new StringBuilder("t:").append(System.currentTimeMillis());
                                     com.baidu.sofire.b.a();
-                                    if (invoke != null) {
-                                        new StringBuilder("t:").append(System.currentTimeMillis());
-                                        com.baidu.sofire.b.a();
-                                        new Timer().schedule(new TimerTask() { // from class: com.baidu.sofire.core.d.4.1
-                                            @Override // java.util.TimerTask, java.lang.Runnable
-                                            public final void run() {
-                                                new StringBuilder("Timer().schedule:").append(System.currentTimeMillis());
+                                    new Timer().schedule(new TimerTask() { // from class: com.baidu.sofire.core.d.2.1
+                                        @Override // java.util.TimerTask, java.lang.Runnable
+                                        public final void run() {
+                                            new StringBuilder().append(System.currentTimeMillis());
+                                            com.baidu.sofire.b.a();
+                                            a.b(str);
+                                            d.this.h.a(str);
+                                            com.baidu.sofire.b.e.c(d.b);
+                                            File file3 = new File(d.pkgPath);
+                                            new StringBuilder("f=").append(file3.getAbsolutePath()).append(", e=").append(file3.exists());
+                                            com.baidu.sofire.b.a();
+                                            if (file3.exists()) {
+                                                com.baidu.sofire.c.a(file3);
+                                                new StringBuilder("d: ").append(file3.getAbsolutePath()).append(" s=").append(file3.delete());
                                                 com.baidu.sofire.b.a();
-                                                a.b(str);
-                                                d.this.c.a(str);
-                                                com.baidu.sofire.b.e.c(d.b);
-                                                File file2 = new File(d2.pkgPath);
-                                                new StringBuilder("f=").append(file2.getAbsolutePath()).append(", e=").append(file2.exists());
-                                                com.baidu.sofire.b.a();
-                                                if (file2.exists()) {
-                                                    com.baidu.sofire.c.a(file2);
-                                                    new StringBuilder("d: ").append(file2.getAbsolutePath()).append(" s=").append(file2.delete());
+                                            }
+                                            if (file.exists()) {
+                                                File file4 = new File(file, d.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d.versionName);
+                                                if (com.baidu.sofire.b.e.a(file4)) {
+                                                    new StringBuilder().append(file4.getAbsolutePath()).append(" s=").append(file4.delete());
                                                     com.baidu.sofire.b.a();
                                                 }
                                             }
-                                        }, KeepJobService.JOB_CHECK_PERIODIC);
-                                        new StringBuilder().append(str).append(", CommonMethods.callMethodOfClass result object=").append(com.baidu.sofire.b.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
+                                            String sb2 = new StringBuilder(str).reverse().toString();
+                                            ApkInfo c4 = d.this.h.c(sb2);
+                                            if (c4 != null) {
+                                                d.this.a(sb2, c4.pkgPath);
+                                            }
+                                        }
+                                    }, KeepJobService.JOB_CHECK_PERIODIC);
+                                    new StringBuilder().append(str).append("object=").append(com.baidu.sofire.b.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]));
+                                    com.baidu.sofire.b.a();
+                                    a.b(str);
+                                    d.this.h.a(str);
+                                    com.baidu.sofire.b.e.c(d.b);
+                                    File file3 = new File(d.pkgPath);
+                                    new StringBuilder("f=").append(file3.getAbsolutePath()).append(", e=").append(file3.exists());
+                                    com.baidu.sofire.b.a();
+                                    if (file3.exists()) {
+                                        com.baidu.sofire.c.a(file3);
+                                        new StringBuilder("d: ").append(file3.getAbsolutePath()).append(" s=").append(file3.delete());
                                         com.baidu.sofire.b.a();
-                                        a.b(str);
-                                        d.this.c.a(str);
-                                        com.baidu.sofire.b.e.c(d.b);
-                                        File file2 = new File(d2.pkgPath);
-                                        new StringBuilder("f=").append(file2.getAbsolutePath()).append(", e=").append(file2.exists());
-                                        com.baidu.sofire.b.a();
-                                        if (file2.exists()) {
-                                            com.baidu.sofire.c.a(file2);
-                                            new StringBuilder("d: ").append(file2.getAbsolutePath()).append(" s=").append(file2.delete());
+                                    }
+                                    if (file.exists()) {
+                                        File file4 = new File(file, d.key + Constants.ACCEPT_TIME_SEPARATOR_SERVER + d.versionName);
+                                        if (com.baidu.sofire.b.e.a(file4)) {
+                                            new StringBuilder().append(file4.getAbsolutePath()).append(" s=").append(file4.delete());
                                             com.baidu.sofire.b.a();
                                         }
+                                    }
+                                    String sb2 = new StringBuilder(str).reverse().toString();
+                                    ApkInfo c4 = d.this.h.c(sb2);
+                                    if (c4 != null) {
+                                        d.this.a(sb2, c4.pkgPath);
                                     }
                                 }
                             }
@@ -1378,8 +1409,8 @@ public final class d implements SharedPreferences.OnSharedPreferenceChangeListen
     }
 
     public static void a(int i) {
-        if (h == 0) {
-            h = i;
+        if (g == 0) {
+            g = i;
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.g;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class FH {
     public static final int TYPE_VERSION = 1;
 
@@ -83,7 +83,7 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.1.9.3";
+        return "3.2.2.1";
     }
 
     public static String gzfi(Context context, String str, int i, String str2) {

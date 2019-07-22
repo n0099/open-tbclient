@@ -8,13 +8,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ArrayList<b> aHF;
+    private ArrayList<b> aIn;
     private TbPageContext mContext;
 
     public a(TbPageContext tbPageContext) {
@@ -22,23 +22,23 @@ public class a extends BaseAdapter {
     }
 
     public void setData(ArrayList<b> arrayList) {
-        this.aHF = arrayList;
+        this.aIn = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.aHF == null) {
+        if (this.aIn == null) {
             return 0;
         }
-        return this.aHF.size();
+        return this.aIn.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.aHF == null || i < 0 || i >= this.aHF.size()) {
+        if (this.aIn == null || i < 0 || i >= this.aIn.size()) {
             return null;
         }
-        return this.aHF.get(i);
+        return this.aIn.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0313a c0313a;
+        C0310a c0310a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0313a c0313a2 = new C0313a();
-            c0313a2.fIO = (RelativeLayout) view.findViewById(R.id.card);
-            c0313a2.fIM = (HeadImageView) view.findViewById(R.id.portrait);
-            c0313a2.mTitle = (TextView) view.findViewById(R.id.title);
-            c0313a2.fIN = (TextView) view.findViewById(R.id.desc);
-            view.setTag(c0313a2);
-            c0313a = c0313a2;
+            C0310a c0310a2 = new C0310a();
+            c0310a2.fNM = (RelativeLayout) view.findViewById(R.id.card);
+            c0310a2.fNK = (HeadImageView) view.findViewById(R.id.portrait);
+            c0310a2.mTitle = (TextView) view.findViewById(R.id.title);
+            c0310a2.fNL = (TextView) view.findViewById(R.id.desc);
+            view.setTag(c0310a2);
+            c0310a = c0310a2;
         } else {
-            c0313a = (C0313a) view.getTag();
+            c0310a = (C0310a) view.getTag();
         }
         b bVar = (b) getItem(i);
         int g = l.g(this.mContext.getPageActivity(), R.dimen.tbds136);
-        c0313a.fIM.setIsRound(true);
-        c0313a.fIM.startLoad(bVar.avatar, 10, g, g, false);
-        c0313a.mTitle.setText(bVar.name);
-        c0313a.fIN.setText(bVar.fIQ);
-        al.f(c0313a.mTitle, R.color.cp_cont_b, 1);
-        al.f(c0313a.fIN, R.color.cp_cont_d, 1);
-        al.k(c0313a.fIO, R.drawable.lite_progrom_icorner_bg);
+        c0310a.fNK.setIsRound(true);
+        c0310a.fNK.startLoad(bVar.avatar, 10, g, g, false);
+        c0310a.mTitle.setText(bVar.name);
+        c0310a.fNL.setText(bVar.fNO);
+        am.f(c0310a.mTitle, R.color.cp_cont_b, 1);
+        am.f(c0310a.fNL, R.color.cp_cont_d, 1);
+        am.k(c0310a.fNM, R.drawable.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0313a {
-        HeadImageView fIM;
-        TextView fIN;
-        RelativeLayout fIO;
+    public class C0310a {
+        HeadImageView fNK;
+        TextView fNL;
+        RelativeLayout fNM;
         TextView mTitle;
 
-        public C0313a() {
+        public C0310a() {
         }
     }
 }

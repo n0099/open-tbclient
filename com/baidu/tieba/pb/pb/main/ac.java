@@ -8,47 +8,47 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 /* loaded from: classes4.dex */
 public class ac {
-    private TextView bNm;
-    private NavigationBarCoverTip fNv;
-    private int fNw;
+    private TextView bOn;
+    private NavigationBarCoverTip fSs;
+    private int fSt;
     private com.baidu.adp.base.e mContext;
 
     public ac(com.baidu.adp.base.e eVar, NavigationBarCoverTip navigationBarCoverTip) {
         this.mContext = eVar;
-        this.fNv = navigationBarCoverTip;
+        this.fSs = navigationBarCoverTip;
         init();
     }
 
     private void init() {
-        this.bNm = new TextView(this.mContext.getPageActivity());
-        this.bNm.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-        this.bNm.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
-        this.bNm.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
-        this.bNm.setGravity(19);
-        this.bNm.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
-        this.bNm.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
+        this.bOn = new TextView(this.mContext.getPageActivity());
+        this.bOn.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+        this.bOn.setMinHeight(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds112));
+        this.bOn.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0, this.mContext.getResources().getDimensionPixelSize(R.dimen.ds34), 0);
+        this.bOn.setGravity(19);
+        this.bOn.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbfontsize42));
+        this.bOn.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds2), 1.0f);
     }
 
-    public void Bm(String str) {
-        if (this.fNv != null) {
-            if (com.baidu.tbadk.core.util.ap.isEmpty(str) || this.fNw > 0) {
+    public void BY(String str) {
+        if (this.fSs != null) {
+            if (com.baidu.tbadk.core.util.aq.isEmpty(str) || this.fSt > 0) {
                 onDestory();
-                this.fNv.setVisibility(8);
+                this.fSs.setVisibility(8);
                 return;
             }
-            this.fNv.setVisibility(0);
-            this.fNw++;
-            this.bNm.setText(str);
-            com.baidu.tbadk.core.util.al.j(this.bNm, R.color.cp_btn_a);
-            this.fNv.removeAllViews();
-            this.fNv.addView(this.bNm);
-            this.fNv.i(this.mContext.getPageActivity(), UIMsg.m_AppUI.MSG_APP_GPS);
+            this.fSs.setVisibility(0);
+            this.fSt++;
+            this.bOn.setText(str);
+            com.baidu.tbadk.core.util.am.j(this.bOn, R.color.cp_btn_a);
+            this.fSs.removeAllViews();
+            this.fSs.addView(this.bOn);
+            this.fSs.i(this.mContext.getPageActivity(), UIMsg.m_AppUI.MSG_APP_GPS);
         }
     }
 
     public void onDestory() {
-        if (this.fNv != null) {
-            this.fNv.onDestroy();
+        if (this.fSs != null) {
+            this.fSs.onDestroy();
         }
     }
 }

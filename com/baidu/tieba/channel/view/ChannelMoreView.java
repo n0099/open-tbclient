@@ -5,81 +5,81 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.channel.data.ChannelInfo;
 /* loaded from: classes6.dex */
 public class ChannelMoreView extends LinearLayout {
-    private TextView bpQ;
-    private View.OnClickListener ckI;
-    private com.baidu.tieba.channel.data.d eCC;
-    private TextView eFq;
-    private TextView eFr;
-    private View eFs;
+    private TextView bqD;
+    private View.OnClickListener clU;
+    private com.baidu.tieba.channel.data.d eHy;
+    private TextView eKm;
+    private TextView eKn;
+    private View eKo;
     private View.OnClickListener mClickListener;
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
         super(context);
-        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
+        this.clU = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ChannelMoreView.this.mClickListener.onClick(view);
             }
         };
         this.mClickListener = onClickListener;
-        this.eCC = dVar;
+        this.eHy = dVar;
         initView();
     }
 
     private void initView() {
         View.inflate(getContext(), R.layout.channel_more_view_layout, this);
-        this.bpQ = (TextView) findViewById(R.id.channel_more_cancel);
-        this.eFs = findViewById(R.id.channel_more_layer);
-        this.eFq = (TextView) findViewById(R.id.channel_up_info);
-        this.eFr = (TextView) findViewById(R.id.channel_push_switch);
-        this.bpQ.setOnClickListener(this.mClickListener);
-        this.eFs.setOnClickListener(this.mClickListener);
-        this.eFq.setOnClickListener(this.mClickListener);
-        this.eFr.setOnClickListener(this.mClickListener);
-        if (this.eCC != null && this.eCC.aYC() != null) {
-            ChannelInfo aYC = this.eCC.aYC();
-            if (aYC.isSubscribe()) {
-                this.eFr.setVisibility(0);
-                if (aYC.isPushOpen()) {
-                    this.eFr.setText(getContext().getResources().getString(R.string.channel_push_switch_close));
+        this.bqD = (TextView) findViewById(R.id.channel_more_cancel);
+        this.eKo = findViewById(R.id.channel_more_layer);
+        this.eKm = (TextView) findViewById(R.id.channel_up_info);
+        this.eKn = (TextView) findViewById(R.id.channel_push_switch);
+        this.bqD.setOnClickListener(this.mClickListener);
+        this.eKo.setOnClickListener(this.mClickListener);
+        this.eKm.setOnClickListener(this.mClickListener);
+        this.eKn.setOnClickListener(this.mClickListener);
+        if (this.eHy != null && this.eHy.baB() != null) {
+            ChannelInfo baB = this.eHy.baB();
+            if (baB.isSubscribe()) {
+                this.eKn.setVisibility(0);
+                if (baB.isPushOpen()) {
+                    this.eKn.setText(getContext().getResources().getString(R.string.channel_push_switch_close));
                     return;
                 } else {
-                    this.eFr.setText(getContext().getResources().getString(R.string.channel_push_switch_open));
+                    this.eKn.setText(getContext().getResources().getString(R.string.channel_push_switch_open));
                     return;
                 }
             }
-            this.eFr.setVisibility(8);
+            this.eKn.setVisibility(8);
         }
     }
 
     public TextView getCancelView() {
-        return this.bpQ;
+        return this.bqD;
     }
 
     public View getLayerView() {
-        return this.eFs;
+        return this.eKo;
     }
 
     public TextView getUpInfoView() {
-        return this.eFq;
+        return this.eKm;
     }
 
     public TextView getPushView() {
-        return this.eFr;
+        return this.eKn;
     }
 
     public void setBackGround() {
-        al.k(this.bpQ, R.drawable.pb_more_pop_cancle_selector);
-        al.f(this.bpQ, R.color.channel_pop_cancel_text_color, 1);
-        al.k(this.eFq, R.drawable.pb_more_pop_cancle_selector);
-        al.f(this.eFq, R.color.channel_pop_text_color, 1);
-        al.k(this.eFr, R.drawable.pb_more_pop_cancle_selector);
-        al.f(this.eFr, R.color.channel_pop_text_color, 1);
+        am.k(this.bqD, R.drawable.pb_more_pop_cancle_selector);
+        am.f(this.bqD, R.color.channel_pop_cancel_text_color, 1);
+        am.k(this.eKm, R.drawable.pb_more_pop_cancle_selector);
+        am.f(this.eKm, R.color.channel_pop_text_color, 1);
+        am.k(this.eKn, R.drawable.pb_more_pop_cancle_selector);
+        am.f(this.eKn, R.color.channel_pop_text_color, 1);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         View findViewById = findViewById(R.id.channel_devide_line);
         if (skinType == 1) {

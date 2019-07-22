@@ -3,18 +3,18 @@ package com.baidu.tbadk.imageManager;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String cuO = "add_user_collect_emotoin";
-    public static String cuP = "image_url";
-    public static String cuQ = "package_id";
-    public static String cuR = "#(meme,setting)";
-    public static String cuS = "#(meme,collect_";
-    public static String cuT = "meme,collect_";
+    public static String cwc = "add_user_collect_emotoin";
+    public static String cwd = "image_url";
+    public static String cwe = "package_id";
+    public static String cwf = "#(meme,setting)";
+    public static String cwg = "#(meme,collect_";
+    public static String cwh = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -22,15 +22,15 @@ public class d {
         public String url;
     }
 
-    public static String ast() {
+    public static String atA() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String asu() {
-        return Math.abs(ast().hashCode()) + "";
+    public static String atB() {
+        return Math.abs(atA().hashCode()) + "";
     }
 
-    public static void qr(String str) {
+    public static void qI(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
@@ -49,14 +49,14 @@ public class d {
                 }
             }
             if (i2 > 0) {
-                am amVar = new am("c12223");
-                amVar.P("obj_param1", i2);
-                TiebaStatic.log(amVar);
+                an anVar = new an("c12223");
+                anVar.P("obj_param1", i2);
+                TiebaStatic.log(anVar);
             }
             if (i > 0) {
-                am amVar2 = new am("c12231");
-                amVar2.P("obj_param1", i);
-                TiebaStatic.log(amVar2);
+                an anVar2 = new an("c12231");
+                anVar2.P("obj_param1", i);
+                TiebaStatic.log(anVar2);
             }
         }
     }

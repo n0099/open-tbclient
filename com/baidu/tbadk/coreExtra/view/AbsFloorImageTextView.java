@@ -17,24 +17,24 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.a.c;
 /* loaded from: classes3.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
-    protected ImageUrlData ckf;
-    private c.a ckg;
-    public com.baidu.tieba.pb.a.c ckh;
+    protected ImageUrlData clr;
+    private c.a cls;
+    public com.baidu.tieba.pb.a.c clt;
     protected String mUserId;
-    protected static final int TOP = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
-    protected static final int BOTTOM = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
+    protected static final int cln = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+    protected static final int clo = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
     protected static final int LEFT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
     protected static final int RIGHT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
-    protected static final int ckd = (l.af(TbadkApplication.getInst()) - LEFT) - RIGHT;
-    protected static final int cke = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
+    protected static final int clp = (l.af(TbadkApplication.getInst()) - LEFT) - RIGHT;
+    protected static final int clq = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
 
     public abstract void a(ImageUrlData imageUrlData);
 
-    public abstract void o(boolean z, boolean z2);
+    public abstract void q(boolean z, boolean z2);
 
     public AbsFloorImageTextView(@NonNull Context context) {
         super(context);
-        this.ckg = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
+        this.cls = new c.a() { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.1
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean b(View view, MotionEvent motionEvent) {
                 return false;
@@ -47,11 +47,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean d(View view, MotionEvent motionEvent) {
-                AbsFloorImageTextView.this.aoV();
+                AbsFloorImageTextView.this.aqb();
                 return true;
             }
         };
-        this.ckh = new com.baidu.tieba.pb.a.c(this.ckg) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
+        this.clt = new com.baidu.tieba.pb.a.c(this.cls) { // from class: com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView.2
             @Override // com.baidu.tieba.pb.a.c, android.view.GestureDetector.OnGestureListener
             public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 return false;
@@ -68,10 +68,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         this.mUserId = str;
     }
 
-    public void aoV() {
-        if (this.ckf != null) {
-            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.ckf.threadId), String.valueOf(this.ckf.postId), this.ckf.mIsSeeHost, this.ckf.mIsReserver, null);
-            if (this.ckf.isFirstPost) {
+    public void aqb() {
+        if (this.clr != null) {
+            PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.clr.threadId), String.valueOf(this.clr.postId), this.clr.mIsSeeHost, this.clr.mIsReserver, null);
+            if (this.clr.isFirstPost) {
                 createHistoryCfg.setJumpToTopArea(true);
             } else {
                 createHistoryCfg.setJumpToCommentArea(true);
@@ -81,8 +81,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> po(String str) {
-        return ab.q(str, cke, ckd);
+    public Pair<Integer, Integer> pF(String str) {
+        return ab.q(str, clq, clp);
     }
 
     protected void o(View view, int i) {
@@ -97,7 +97,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jJ(int i) {
+    public void jP(int i) {
         o(this, i);
     }
 }

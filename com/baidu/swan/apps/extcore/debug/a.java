@@ -5,7 +5,7 @@ public class a {
         return i == 1;
     }
 
-    public static int be(boolean z) {
+    public static int bh(boolean z) {
         return z ? 1 : 0;
     }
 }

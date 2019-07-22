@@ -13,6 +13,7 @@ import android.text.style.URLSpan;
 import android.text.util.Linkify;
 import android.webkit.WebView;
 import android.widget.TextView;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.io.UnsupportedEncodingException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -64,7 +65,7 @@ public final class LinkifyCompat {
         }
         ArrayList arrayList = new ArrayList();
         if ((i & 1) != 0) {
-            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", "https://", "rtsp://"}, Linkify.sUrlMatchFilter, null);
+            gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_WEB_URL, new String[]{"http://", SapiUtils.COOKIE_HTTPS_URL_PREFIX, "rtsp://"}, Linkify.sUrlMatchFilter, null);
         }
         if ((i & 2) != 0) {
             gatherLinks(arrayList, spannable, PatternsCompat.AUTOLINK_EMAIL_ADDRESS, new String[]{"mailto:"}, null, null);

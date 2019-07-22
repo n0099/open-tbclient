@@ -5,7 +5,7 @@ import android.util.Log;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 /* loaded from: classes3.dex */
 public class c {
-    public static int pi(int i) {
+    public static int pz(int i) {
         if (i == 6) {
             return 90;
         }
@@ -18,7 +18,7 @@ public class c {
         return 0;
     }
 
-    public static int M(byte[] bArr) {
+    public static int N(byte[] bArr) {
         int i;
         int i2;
         if (bArr == null) {

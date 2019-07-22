@@ -45,32 +45,32 @@ public class b {
         private int d;
         private int e;
 
-        public a iA(String str) {
+        public a iH(String str) {
             this.b = str;
             return this;
         }
 
-        public a iB(String str) {
+        public a iI(String str) {
             this.a = str;
             return this;
         }
 
-        public a iC(String str) {
+        public a iJ(String str) {
             this.c = str;
             return this;
         }
 
-        public a eP(int i) {
+        public a eT(int i) {
             this.d = z.ad(i);
             return this;
         }
 
-        public a eQ(int i) {
+        public a eU(int i) {
             this.e = z.ad(i);
             return this;
         }
 
-        public b PS() {
+        public b QK() {
             return new b(this);
         }
     }

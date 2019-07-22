@@ -9,19 +9,19 @@ import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aZa;
+    private static String aZK;
 
     private static Context getContext() {
-        return com.baidu.swan.apps.u.a.DB();
+        return com.baidu.swan.apps.u.a.Ek();
     }
 
     public static String getVersionName() {
-        if (!TextUtils.isEmpty(aZa)) {
-            return aZa;
+        if (!TextUtils.isEmpty(aZK)) {
+            return aZK;
         }
         try {
-            aZa = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-            return aZa;
+            aZK = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
+            return aZK;
         } catch (PackageManager.NameNotFoundException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -40,27 +40,27 @@ public class b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        private String aZb;
-        private String aZc;
-        private String aZd;
+        private String aZL;
+        private String aZM;
+        private String aZN;
 
         public a aJ(@NonNull String str, @NonNull String str2) {
-            this.aZb = String.format("%s/%s", str, str2);
+            this.aZL = String.format("%s/%s", str, str2);
             return this;
         }
 
         public a aK(@NonNull String str, @NonNull String str2) {
-            this.aZc = String.format("%s/%s", str, str2);
+            this.aZM = String.format("%s/%s", str, str2);
             return this;
         }
 
         public a aL(@NonNull String str, @NonNull String str2) {
-            this.aZd = String.format("(%s; P1 %s)", str, str2);
+            this.aZN = String.format("(%s; P1 %s)", str, str2);
             return this;
         }
 
-        public String On() {
-            return String.format("%s %s %s", this.aZb, this.aZc, this.aZd);
+        public String Pc() {
+            return String.format("%s %s %s", this.aZL, this.aZM, this.aZN);
         }
     }
 }

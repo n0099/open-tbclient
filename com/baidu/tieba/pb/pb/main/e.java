@@ -7,48 +7,48 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class e extends ar {
-    private TextView hDO;
+    private TextView hKb;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.hDO = null;
+        this.hKb = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ar
     protected void a(d dVar) {
-        this.hDO = (TextView) this.mRootView.findViewById(R.id.icon_push);
-        this.hDO.setVisibility(8);
+        this.hKb = (TextView) this.mRootView.findViewById(R.id.icon_push);
+        this.hKb.setVisibility(8);
     }
 
-    public void nX(boolean z) {
-        if (this.hDO != null) {
+    public void ol(boolean z) {
+        if (this.hKb != null) {
             if (z) {
-                this.hDO.setText(R.string.push);
-                com.baidu.tbadk.core.util.al.j(this.hDO, R.drawable.push_text_selector);
-                com.baidu.tbadk.core.util.al.k(this.hDO, R.drawable.push_bg_selector);
-                this.hDO.setClickable(true);
+                this.hKb.setText(R.string.push);
+                com.baidu.tbadk.core.util.am.j(this.hKb, R.drawable.push_text_selector);
+                com.baidu.tbadk.core.util.am.k(this.hKb, R.drawable.push_bg_selector);
+                this.hKb.setClickable(true);
             } else {
-                this.hDO.setText(R.string.already_push);
-                com.baidu.tbadk.core.util.al.k(this.hDO, R.drawable.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.j(this.hDO, R.color.cp_cont_d);
-                this.hDO.setClickable(false);
+                this.hKb.setText(R.string.already_push);
+                com.baidu.tbadk.core.util.am.k(this.hKb, R.drawable.label_bg_gray80);
+                com.baidu.tbadk.core.util.am.j(this.hKb, R.color.cp_cont_d);
+                this.hKb.setClickable(false);
             }
-            this.hDO.setVisibility(0);
+            this.hKb.setVisibility(0);
         }
     }
 
     public void at(bg bgVar) {
-        if (bgVar != null && bgVar.adP() != null) {
-            int status = bgVar.adP().getStatus();
+        if (bgVar != null && bgVar.aeR() != null) {
+            int status = bgVar.aeR().getStatus();
             if (status == 1) {
-                nX(true);
+                ol(true);
             } else if (status == 2) {
-                nX(false);
+                ol(false);
             }
         }
     }
 
-    public TextView bRd() {
-        return this.hDO;
+    public TextView bTP() {
+        return this.hKb;
     }
 }

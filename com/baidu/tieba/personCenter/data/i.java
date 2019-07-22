@@ -1,8 +1,8 @@
 package com.baidu.tieba.personCenter.data;
 /* loaded from: classes4.dex */
 public class i {
-    public boolean idY;
-    public String iea;
+    public boolean iko;
+    public String ikq;
     public boolean isShowRedTip = false;
-    public long idZ = -1;
+    public long ikp = -1;
 }

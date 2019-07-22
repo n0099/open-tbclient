@@ -15,81 +15,86 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class e {
-    public static final String cjV = m.Dt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
-    public int bLt;
-    public Bundle cjA;
-    public String cjD;
-    public String cjE;
-    public int cjK;
-    public String cjL;
-    public String cjM;
-    public String cjN;
-    private Bundle cjP;
-    public String cjU;
-    public String cjx;
+    public static final String clf = m.Dz + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int bMt;
+    public String ckC;
+    public Bundle ckF;
+    public String ckI;
+    public String ckJ;
+    public int ckP;
+    public String ckQ;
+    public String ckR;
+    public String ckS;
+    private Bundle ckU;
+    public String ckZ;
+    public String clc;
+    public int cld;
+    public String cle;
     public String fid;
     public String imageUrl;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean cjl = false;
-    public boolean cjm = false;
-    public boolean cjn = false;
-    public boolean cjo = false;
-    public boolean cjp = false;
-    public boolean cjq = false;
-    public boolean cjr = false;
-    public boolean cjs = false;
-    public boolean cjt = false;
-    public boolean cju = false;
-    public boolean cjv = false;
-    public String cjw = "";
-    public int cjF = 0;
-    public int cjG = 3;
-    public int cjH = 0;
-    public int cjI = 0;
-    public int cjJ = 0;
+    public boolean ckq = false;
+    public boolean ckr = false;
+    public boolean cks = false;
+    public boolean ckt = false;
+    public boolean cku = false;
+    public boolean ckv = false;
+    public boolean ckw = false;
+    public boolean ckx = false;
+    public boolean cky = false;
+    public boolean ckz = false;
+    public boolean ckA = false;
+    public String ckB = "";
+    public int ckK = 0;
+    public int ckL = 3;
+    public int ckM = 0;
+    public int ckN = 0;
+    public int ckO = 0;
     public int shareType = 0;
-    public boolean cjQ = true;
-    public boolean cjR = true;
-    public boolean cjS = true;
-    public int cjT = 0;
+    public boolean ckV = true;
+    public boolean ckW = true;
+    public boolean ckX = true;
+    public int ckY = 0;
+    public boolean cla = true;
+    public boolean clb = false;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String cjy = null;
+    public String ckD = null;
     public Uri imageUri = null;
-    public Location cjB = null;
-    private WeakReference<Bitmap> cjO = null;
-    public String cjC = null;
+    public Location ckG = null;
+    private WeakReference<Bitmap> ckT = null;
+    public String ckH = null;
     public String extData = null;
-    public String cjz = null;
+    public String ckE = null;
 
-    public Bundle aoQ() {
-        return this.cjP;
+    public Bundle apW() {
+        return this.ckU;
     }
 
     public void E(Bundle bundle) {
-        this.cjP = bundle;
+        this.ckU = bundle;
     }
 
-    public Bitmap aoR() {
+    public Bitmap apX() {
         Bitmap bitmap;
-        if (this.cjO == null || (bitmap = this.cjO.get()) == null || bitmap.isRecycled()) {
+        if (this.ckT == null || (bitmap = this.ckT.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void n(Bitmap bitmap) {
-        this.cjO = new WeakReference<>(bitmap);
+        this.ckT = new WeakReference<>(bitmap);
     }
 
-    public byte[] aoS() {
+    public byte[] apY() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.cjO == null || (bitmap = this.cjO.get()) == null || bitmap.isRecycled()) {
+        if (this.ckT == null || (bitmap = this.ckT.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -106,17 +111,17 @@ public class e {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [240=4, 241=4, 243=4, 244=4] */
-    public void aoT() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [249=4, 250=4, 252=4, 253=4] */
+    public void apZ() {
         FileOutputStream fileOutputStream = null;
-        if (this.cjO == null) {
+        if (this.ckT == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                if (m.gs()) {
-                    File file = new File(cjV);
+                if (m.gB()) {
+                    File file = new File(clf);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -124,14 +129,14 @@ public class e {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] aoS = aoS();
-                    if (aoS != null) {
+                    byte[] apY = apY();
+                    if (apY != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(aoS);
+                            fileOutputStream3.write(apY);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.cjO = null;
+                            this.ckT = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

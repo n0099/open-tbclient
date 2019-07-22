@@ -1,32 +1,31 @@
 package com.baidu.ueg.encrypt;
 
-import com.baidu.android.common.security.RSAUtil;
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private PublicKey jQu;
+    private PublicKey jXv;
 
     public c(String str) throws Exception {
-        GC(str);
+        Hw(str);
     }
 
-    private void GC(String str) throws Exception {
-        if (com.baidu.ueg.a.a.m(str)) {
+    private void Hw(String str) throws Exception {
+        if (com.baidu.ueg.a.a.n(str)) {
             throw new Exception("PubKey can not be blank.");
         }
-        this.jQu = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.GD(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
+        this.jXv = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.Hx(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
     }
 
     @Override // com.baidu.ueg.encrypt.a
     public String encrypt(String str) throws Exception {
-        if (com.baidu.ueg.a.a.m(str)) {
+        if (com.baidu.ueg.a.a.n(str)) {
             throw new Exception("Plaintext can not be blank.");
         }
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(1, this.jQu);
-        return com.baidu.ueg.lib.a.S(cipher.doFinal(str.getBytes()));
+        cipher.init(1, this.jXv);
+        return com.baidu.ueg.lib.a.T(cipher.doFinal(str.getBytes()));
     }
 }

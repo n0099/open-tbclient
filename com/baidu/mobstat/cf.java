@@ -1,38 +1,17 @@
 package com.baidu.mobstat;
 
-import com.baidu.mobstat.cw;
-import java.net.InetSocketAddress;
+import com.tencent.connect.common.Constants;
 /* loaded from: classes6.dex */
-public abstract class cf implements ch {
-    @Override // com.baidu.mobstat.ch
-    public void a(ce ceVar, cy cyVar, df dfVar) throws cn {
+public class cf extends ce {
+    @Override // com.baidu.mobstat.ce, com.baidu.mobstat.cd
+    public ct a(ct ctVar) {
+        super.a(ctVar);
+        ctVar.a("Sec-WebSocket-Version", Constants.VIA_REPORT_TYPE_JOININ_GROUP);
+        return ctVar;
     }
 
-    @Override // com.baidu.mobstat.ch
-    public void a(ce ceVar, cy cyVar) throws cn {
-    }
-
-    @Override // com.baidu.mobstat.ch
-    public void a(ce ceVar, cw cwVar) {
-    }
-
-    @Override // com.baidu.mobstat.ch
-    public void b(ce ceVar, cw cwVar) {
-        cx cxVar = new cx(cwVar);
-        cxVar.a(cw.a.PONG);
-        ceVar.a(cxVar);
-    }
-
-    @Override // com.baidu.mobstat.ch
-    public void c(ce ceVar, cw cwVar) {
-    }
-
-    @Override // com.baidu.mobstat.ch
-    public String a(ce ceVar) throws cn {
-        InetSocketAddress a = ceVar.a();
-        if (a == null) {
-            throw new cp("socket not bound");
-        }
-        return "<cross-domain-policy><allow-access-from domain=\"*\" to-ports=\"" + a.getPort() + "\" /></cross-domain-policy>\u0000";
+    @Override // com.baidu.mobstat.ce, com.baidu.mobstat.cd
+    public cd c() {
+        return new cf();
     }
 }

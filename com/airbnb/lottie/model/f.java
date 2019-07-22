@@ -3,8 +3,8 @@ package com.airbnb.lottie.model;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f {
-    private final float ascent;
     private final String nP;
+    private final float nQ;
     private final String name;
     private final String style;
 
@@ -12,10 +12,10 @@ public class f {
         this.nP = str;
         this.name = str2;
         this.style = str3;
-        this.ascent = f;
+        this.nQ = f;
     }
 
-    public String getFamily() {
+    public String cC() {
         return this.nP;
     }
 
@@ -23,7 +23,7 @@ public class f {
         return this.name;
     }
 
-    public String cx() {
+    public String cD() {
         return this.style;
     }
 

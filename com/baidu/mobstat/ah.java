@@ -1,14 +1,26 @@
 package com.baidu.mobstat;
 
-import android.os.Build;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public final class ah {
-    public static boolean a = true;
-    public static final String b;
-    public static final String c;
+public class ah {
+    public static int a(Context context, float f) {
+        if (context == null) {
+            return 0;
+        }
+        return (int) ((f / context.getResources().getDisplayMetrics().density) + 0.5f);
+    }
 
-    static {
-        b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
-        c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
+    public static float b(Context context, float f) {
+        if (context == null) {
+            return 0.0f;
+        }
+        return (f / context.getResources().getDisplayMetrics().density) + 0.5f;
+    }
+
+    public static int c(Context context, float f) {
+        if (context == null) {
+            return 0;
+        }
+        return (int) ((context.getResources().getDisplayMetrics().density * f) + 0.5f);
     }
 }

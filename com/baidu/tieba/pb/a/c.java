@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a hCv;
-    private View hCw;
+    private a hII;
+    private View hIJ;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.hCv = aVar;
+        this.hII = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.hCw = view;
+        this.hIJ = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -60,29 +60,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.hCv != null) {
-            return this.hCv.b(this.hCw, motionEvent);
+        if (this.hII != null) {
+            return this.hII.b(this.hIJ, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.hCv != null) {
-            return this.hCv.c(this.hCw, motionEvent);
+        if (this.hII != null) {
+            return this.hII.c(this.hIJ, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.hCv != null) {
-            return this.hCv.d(this.hCw, motionEvent);
+        if (this.hII != null) {
+            return this.hII.d(this.hIJ, motionEvent);
         }
         return false;
     }
 
-    public void cq(View view) {
-        this.hCw = view;
+    public void ct(View view) {
+        this.hIJ = view;
     }
 }

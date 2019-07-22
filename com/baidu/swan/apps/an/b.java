@@ -48,7 +48,7 @@ public final class b {
         return b(context, intent, false);
     }
 
-    public static void L(Activity activity) {
+    public static void O(Activity activity) {
         if (DEBUG) {
             Log.i("ActivityUtils", "tryFinishAndRemoveTask: " + activity);
         }
@@ -67,27 +67,27 @@ public final class b {
         }
     }
 
-    public static void M(Activity activity) {
+    public static void P(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.setFlags(1024, 1024);
-            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | Ou());
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | Pj());
         }
     }
 
-    public static void N(Activity activity) {
+    public static void Q(Activity activity) {
         if (activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
             Window window = activity.getWindow();
             window.clearFlags(1024);
-            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (Ou() ^ (-1));
-            if (com.baidu.swan.apps.res.widget.a.aMT) {
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (Pj() ^ (-1));
+            if (com.baidu.swan.apps.res.widget.a.aNC) {
                 systemUiVisibility |= Config.MAX_CACHE_JSON_CAPACIT_EXCEPTION;
             }
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
     }
 
-    public static int Ou() {
+    public static int Pj() {
         return 5894;
     }
 }

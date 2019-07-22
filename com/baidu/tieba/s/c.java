@@ -10,12 +10,12 @@ public class c {
             return false;
         }
         com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
-        eVar.ik().setUrl(str);
-        eVar.ik().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-        eVar.ik().d("", bArr);
+        eVar.iu().setUrl(str);
+        eVar.iu().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+        eVar.iu().d("", bArr);
         new com.baidu.adp.lib.network.http.c(eVar).f(3, -1, -1);
-        int i = eVar.il().responseCode;
-        byte[] bArr2 = eVar.il().AN;
+        int i = eVar.iv().responseCode;
+        byte[] bArr2 = eVar.iv().AU;
         if (bArr2 == null || i != 200) {
             return false;
         }
@@ -30,7 +30,7 @@ public class c {
         }
     }
 
-    public static byte[] ek(List<String> list) {
+    public static byte[] en(List<String> list) {
         if (list == null) {
             return null;
         }

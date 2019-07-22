@@ -2,6 +2,7 @@ package com.sina.weibo.sdk.network.intercept;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.network.IRequestIntercept;
 import com.sina.weibo.sdk.network.IRequestParam;
@@ -63,7 +64,7 @@ public class RequestTokenInterception implements IRequestIntercept {
         IRequestService requestService = RequestService.getInstance();
         RequestParam.Builder builder = new RequestParam.Builder(iRequestParam.getContext());
         SharedPreferences sharedPreferences = iRequestParam.getContext().getSharedPreferences("weibo_sdk_refresh_token_done", 0);
-        builder.addPostParam("email", "liwei31@staff.weibo.com");
+        builder.addPostParam(NotificationCompat.CATEGORY_EMAIL, "liwei31@staff.weibo.com");
         builder.addPostParam("password", "8eVZQVioD11DiZoZ5saqmttJJfqgHBockRY4GBXsbfc");
         builder.setNeedIntercept(false);
         if (i == 0) {

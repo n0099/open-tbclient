@@ -9,7 +9,7 @@ import tbclient.VideoInfo;
 /* loaded from: classes.dex */
 public class v {
     private int duration;
-    private String iqH;
+    private String iwX;
     private int videoHeight;
     private String videoMd5;
     private long videoSize;
@@ -31,8 +31,8 @@ public class v {
                     }
                     VideoDesc next = it.next();
                     if (next != null && !StringUtils.isNull(next.video_url)) {
-                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.jT()) {
-                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.jU()) {
+                        if (next.video_id.intValue() != 2 || !com.baidu.adp.lib.util.j.kd()) {
+                            if (next.video_id.intValue() == 3 && com.baidu.adp.lib.util.j.ke()) {
                                 videoDesc = next;
                                 break;
                             }
@@ -49,7 +49,7 @@ public class v {
                     this.videoUrl = str;
                     this.videoSize = videoInfo.video_length.intValue();
                     this.duration = videoInfo.video_duration.intValue();
-                    this.iqH = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+                    this.iwX = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
                     this.videoMd5 = videoInfo.video_md5;
                 }
             }
@@ -57,7 +57,7 @@ public class v {
             this.videoUrl = str;
             this.videoSize = videoInfo.video_length.intValue();
             this.duration = videoInfo.video_duration.intValue();
-            this.iqH = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
+            this.iwX = videoInfo.video_width + Config.EVENT_HEAT_X + videoInfo.video_height;
             this.videoMd5 = videoInfo.video_md5;
         }
     }
@@ -80,7 +80,7 @@ public class v {
         return this.videoHeight;
     }
 
-    public long cbO() {
+    public long ceE() {
         return this.videoSize;
     }
 
@@ -88,7 +88,7 @@ public class v {
         return this.duration;
     }
 
-    public String cbP() {
-        return this.iqH;
+    public String ceF() {
+        return this.iwX;
     }
 }

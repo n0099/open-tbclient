@@ -31,15 +31,15 @@ public class h extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        final com.baidu.swan.apps.setting.a Lu = bVar.Lu();
-        if (!bVar.Lu().Mt()) {
+        final com.baidu.swan.apps.setting.a Mh = bVar.Mh();
+        if (!bVar.Mh().Nh()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not open setting page");
             return false;
         }
-        Lu.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.h.1
+        Mh.a(new a.b() { // from class: com.baidu.swan.apps.setting.a.h.1
             @Override // com.baidu.swan.apps.setting.a.b
-            public void Mw() {
-                Lu.b(this);
+            public void Nk() {
+                Mh.b(this);
                 d.a(callbackHandler, bVar, optString);
             }
         });

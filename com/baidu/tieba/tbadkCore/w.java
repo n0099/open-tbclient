@@ -7,14 +7,14 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a iXQ;
+    private a jeh;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -29,11 +29,11 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.iXQ = aVar;
+        this.jeh = aVar;
     }
 
     public void C(String str, long j) {
-        new b(str, j, this.mFrom, this.iXQ, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.jeh, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,8 +42,8 @@ public class w {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> iXR;
-        private WeakReference<w> iXS;
+        private WeakReference<a> jei;
+        private WeakReference<w> jej;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -53,11 +53,11 @@ public class w {
         public b(String str, long j, String str2, a aVar, w wVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.iXR = null;
-            this.iXS = new WeakReference<>(wVar);
+            this.jei = null;
+            this.jej = new WeakReference<>(wVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.iXR = new WeakReference<>(aVar);
+            this.jei = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -77,14 +77,14 @@ public class w {
                     this.mNetwork.o("favo_type", "1");
                     this.mNetwork.o("st_type", this.mFrom);
                     this.mNetwork.o("authsid", this.authSid);
-                    this.mNetwork.ahC().aiB().mIsNeedTbs = true;
-                    String ahe = this.mNetwork.ahe();
-                    if (!ap.isEmpty(ahe) && (jSONObject = new JSONObject(ahe)) != null) {
+                    this.mNetwork.aiE().ajE().mIsNeedTbs = true;
+                    String aig = this.mNetwork.aig();
+                    if (!aq.isEmpty(aig) && (jSONObject = new JSONObject(aig)) != null) {
                         this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.ahC().aiC().isRequestSuccess()) {
+                    if (this.mNetwork.aiE().ajF().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -100,12 +100,12 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.iXR != null) {
+            if (this.jei != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.iXR.get();
+                a aVar2 = this.jei.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.ahC().aiC().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.aiE().ajF().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar2.u(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
@@ -114,7 +114,7 @@ public class w {
                     } else {
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.ahF() ? this.mNetwork.getErrorString() : this.mNetwork.ahI();
+                            String errorString = this.mNetwork.aiH() ? this.mNetwork.getErrorString() : this.mNetwork.aiK();
                             aVar.errorMessage = errorString;
                             aVar2.v(errorString, this.errorCode);
                         }

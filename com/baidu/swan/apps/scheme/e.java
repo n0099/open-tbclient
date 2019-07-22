@@ -15,7 +15,7 @@ public final class e {
     public static j a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         j jVar = new j();
         unitedSchemeMainDispatcher.setDynamicDispatcher("swan", jVar);
-        com.baidu.swan.apps.u.a.Eb().a(jVar);
+        com.baidu.swan.apps.u.a.EK().a(jVar);
         jVar.a(new com.baidu.swan.apps.scheme.actions.i.e(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.i.d(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.i.j(jVar));
@@ -105,7 +105,7 @@ public final class e {
         jVar.a(new com.baidu.swan.apps.scheme.actions.favorite.c(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.favorite.f(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.i.f(jVar));
-        jVar.a(new com.baidu.swan.apps.d.a(jVar));
+        jVar.a(new com.baidu.swan.apps.d.b(jVar));
         jVar.a(new com.baidu.swan.apps.extcore.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.a.a(jVar));
         jVar.a(new com.baidu.swan.apps.scheme.actions.a.b(jVar));

@@ -40,61 +40,24 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
         c("http-" + lVar.a);
     }
 
-    private void a(final String str, final int i) {
-        com.baidu.android.pushservice.h.d.a().a(new com.baidu.android.pushservice.h.c("insertHttpBehavior", (short) 95) { // from class: com.baidu.android.pushservice.d.a.1
-            @Override // com.baidu.android.pushservice.h.c
-            public void a() {
-                try {
-                    com.baidu.android.pushservice.g.f fVar = new com.baidu.android.pushservice.g.f();
-                    fVar.d = str;
-                    fVar.e = System.currentTimeMillis();
-                    fVar.f = com.baidu.android.pushservice.g.a.b.b(a.this.a);
-                    fVar.g = i;
-                    if (str.equals("030403")) {
-                        fVar.i = com.baidu.android.pushservice.i.l.w(a.this.a);
-                    } else if (str.equals("030401")) {
-                        fVar.i = com.baidu.android.pushservice.i.l.x(a.this.a);
-                    }
-                    com.baidu.android.pushservice.g.m.b(a.this.a, fVar);
-                } catch (Exception e) {
-                }
-            }
-        });
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00f4 A[Catch: all -> 0x0125, TRY_LEAVE, TryCatch #2 {all -> 0x0125, blocks: (B:39:0x00d2, B:41:0x00f4, B:43:0x0102), top: B:59:0x00d2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0102 A[Catch: all -> 0x0125, TRY_ENTER, TRY_LEAVE, TryCatch #2 {all -> 0x0125, blocks: (B:39:0x00d2, B:41:0x00f4, B:43:0x0102), top: B:59:0x00d2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x007c A[Catch: all -> 0x00ad, TRY_LEAVE, TryCatch #5 {all -> 0x00ad, blocks: (B:24:0x005a, B:26:0x007c, B:28:0x008a), top: B:47:0x005a }] */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x008a A[Catch: all -> 0x00ad, TRY_ENTER, TRY_LEAVE, TryCatch #5 {all -> 0x00ad, blocks: (B:24:0x005a, B:26:0x007c, B:28:0x008a), top: B:47:0x005a }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private int b(int i) {
         InputStream inputStream;
         boolean z;
-        int i2;
         boolean z2;
-        if (i > 0) {
-            String b = com.baidu.android.pushservice.g.b(this.a, i == 1);
-            if (b == null) {
-                return 10002;
-            }
-            if (this.c.startsWith("http://")) {
-                this.c = this.c.replace("http://", "");
-                int indexOf = this.c.indexOf("/");
-                if (indexOf > 0) {
-                    this.c = this.c.substring(indexOf);
-                }
-                this.c = "http://" + b + this.c;
-                com.baidu.android.pushservice.f.a.a("AbstractProcessor", " --- abstract request URL: " + this.c, this.a);
-            }
-        }
+        int i2;
         try {
             HashMap<String, String> hashMap = new HashMap<>();
             a(hashMap);
             com.baidu.android.pushservice.e.a a = com.baidu.android.pushservice.e.b.a(this.c, "POST", hashMap);
-            int b2 = a.b();
+            int b = a.b();
             InputStream a2 = a.a();
             try {
-                if (b2 == 200) {
+                if (b == 200) {
                     try {
                         a(0, b(com.baidu.android.pushservice.g.a.b.a(a2)).getBytes());
                         z2 = false;
@@ -107,9 +70,8 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                             com.baidu.android.pushservice.f.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);
                             if (z) {
                             }
-                            i2 = -1;
                             com.baidu.android.pushservice.e.b.a(inputStream);
-                            return i2;
+                            return -1;
                         } catch (Throwable th) {
                             th = th;
                             com.baidu.android.pushservice.e.b.a(inputStream);
@@ -117,10 +79,10 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                         }
                     }
                 } else {
-                    z2 = b2 == 503;
+                    z2 = b == 503;
                     try {
                         a(com.baidu.android.pushservice.g.a.b.a(a2));
-                        i2 = b2;
+                        i2 = b;
                     } catch (Exception e2) {
                         e = e2;
                         inputStream = a2;
@@ -132,18 +94,18 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
                         } else {
                             a(10003);
                         }
-                        i2 = -1;
                         com.baidu.android.pushservice.e.b.a(inputStream);
-                        return i2;
+                        return -1;
                     }
                 }
-                if (a2 == null || b2 == 0) {
+                if (a2 == null || b == 0) {
                     if (i >= 2) {
                         a(10002);
                     }
                     i2 = 10002;
                 }
                 com.baidu.android.pushservice.e.b.a(a2);
+                return i2;
             } catch (Throwable th2) {
                 th = th2;
                 inputStream = a2;
@@ -158,7 +120,6 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
             th = th3;
             inputStream = null;
         }
-        return i2;
     }
 
     private void b(int i, byte[] bArr) {
@@ -345,35 +306,19 @@ public abstract class a extends com.baidu.android.pushservice.h.c {
     }
 
     public boolean c() {
-        boolean z = false;
-        if (!TextUtils.isEmpty(this.c)) {
-            int i = 0;
-            while (true) {
-                if (i <= 2) {
-                    int b = b(i);
-                    if (b != 0) {
-                        if (b != 10002) {
-                            break;
-                        }
-                        if (i > 0) {
-                            a("030403", b);
-                        } else {
-                            a("030401", b);
-                        }
-                        i++;
-                    } else {
-                        z = true;
-                        if (i > 0) {
-                            a("030402", b);
-                        }
-                    }
-                } else {
-                    break;
-                }
-            }
-        } else {
+        if (TextUtils.isEmpty(this.c)) {
             com.baidu.android.pushservice.f.a.b("AbstractProcessor", "mUrl is null", this.a);
+            return false;
         }
-        return z;
+        for (int i = 0; i <= 2; i++) {
+            int b = b(i);
+            if (b == 0) {
+                return true;
+            }
+            if (b != 10002) {
+                return false;
+            }
+        }
+        return false;
     }
 }

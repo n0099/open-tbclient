@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.b implements m {
-    public static final BdUniqueId fYa = BdUniqueId.gen();
-    public static final BdUniqueId fYb = BdUniqueId.gen();
+    public static final BdUniqueId gcX = BdUniqueId.gen();
+    public static final BdUniqueId gcY = BdUniqueId.gen();
     public boolean isLinkThread;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.isLinkThread ? fYb : fYa;
+        return this.isLinkThread ? gcY : gcX;
     }
 }

@@ -7,13 +7,14 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.install.e;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aVJ = "/aiapp";
+    private static String aWt = "/aiapp";
 
     @Nullable
     public static String aE(String str, String str2) {
@@ -40,10 +41,10 @@ public final class b {
                 if (indexOf > 0) {
                     str3 = str3.substring(0, indexOf);
                 }
-                stringBuffer.append(hx(str2));
+                stringBuffer.append(hE(str2));
             } else if (host.startsWith("store_")) {
                 str3 = host.replace("store_", "");
-                stringBuffer.append(ht(str2));
+                stringBuffer.append(hA(str2));
             } else {
                 str3 = null;
             }
@@ -74,22 +75,22 @@ public final class b {
 
     @Nullable
     private static String aF(@NonNull String str, @NonNull String str2) {
-        String hu;
+        String hB;
         String replace = str.replace("bdfile://usr/", "");
-        if (replace.contains("..") || replace.contains(File.separator) || (hu = hu(str2)) == null) {
+        if (replace.contains("..") || replace.contains(File.separator) || (hB = hB(str2)) == null) {
             return null;
         }
-        return hu + File.separator + replace;
+        return hB + File.separator + replace;
     }
 
-    public static boolean hs(String str) {
-        PathType hz = hz(str);
-        return hz == PathType.BD_FILE || hz == PathType.RELATIVE;
+    public static boolean hz(String str) {
+        PathType hG = hG(str);
+        return hG == PathType.BD_FILE || hG == PathType.RELATIVE;
     }
 
     public static String b(String str, @NonNull com.baidu.swan.apps.ae.b bVar) {
         String a;
-        switch (hz(str)) {
+        switch (hG(str)) {
             case BD_FILE:
                 a = aE(str, bVar.id);
                 break;
@@ -112,21 +113,21 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> path2Scheme: path " + str + " swanAppId " + str2);
         }
-        String ht = ht(str2);
-        String hx = hx(str2);
-        String hu = hu(str2);
+        String hA = hA(str2);
+        String hE = hE(str2);
+        String hB = hB(str2);
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("bdfile://");
-        if (!TextUtils.isEmpty(hx) && str.startsWith(hx)) {
-            replace = str.replace(hx, "");
+        if (!TextUtils.isEmpty(hE) && str.startsWith(hE)) {
+            replace = str.replace(hE, "");
             stringBuffer.append("tmp_");
-        } else if (!TextUtils.isEmpty(ht) && str.startsWith(ht)) {
-            replace = str.replace(ht, "");
+        } else if (!TextUtils.isEmpty(hA) && str.startsWith(hA)) {
+            replace = str.replace(hA, "");
             stringBuffer.append("store_");
-        } else if (TextUtils.isEmpty(hu) || !str.startsWith(hu)) {
+        } else if (TextUtils.isEmpty(hB) || !str.startsWith(hB)) {
             return null;
         } else {
-            return "bdfile://usr/" + str.replace(hu + File.separator, "");
+            return "bdfile://usr/" + str.replace(hB + File.separator, "");
         }
         if (DEBUG) {
             Log.d("StorageUtil", "——> path2Scheme: relative path " + replace);
@@ -141,19 +142,19 @@ public final class b {
         return stringBuffer.toString();
     }
 
-    public static String ht(String str) {
+    public static String hA(String str) {
         if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str)) {
             return null;
         }
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + AppRuntime.getAppContext().getExternalFilesDir(null));
         }
-        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aVJ + "/store" + File.separator + "aiapp_" + str;
-        hA(str2);
+        String str2 = AppRuntime.getAppContext().getExternalFilesDir(null) + aWt + "/store" + File.separator + "aiapp_" + str;
+        hH(str2);
         return str2;
     }
 
-    private static String hu(String str) {
+    private static String hB(String str) {
         File externalFilesDir;
         if (!Environment.getExternalStorageState().equals("mounted") || TextUtils.isEmpty(str) || (externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null)) == null) {
             return null;
@@ -162,33 +163,33 @@ public final class b {
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppStoreDirectory: " + absolutePath);
         }
-        String hw = hw(absolutePath);
-        if (hw != null) {
-            String str2 = absolutePath + aVJ + "/usr" + File.separator + hw + File.separator + "aiapp_" + str;
-            hA(str2);
+        String hD = hD(absolutePath);
+        if (hD != null) {
+            String str2 = absolutePath + aWt + "/usr" + File.separator + hD + File.separator + "aiapp_" + str;
+            hH(str2);
             return str2;
         }
         return null;
     }
 
-    private static boolean hv(String str) {
+    private static boolean hC(String str) {
         File[] listFiles;
         return (TextUtils.isEmpty(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length <= 0) ? false : true;
     }
 
     @Nullable
-    private static String hw(@NonNull String str) {
-        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
-        if (Lq == null) {
+    private static String hD(@NonNull String str) {
+        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
+        if (Md == null) {
             return null;
         }
         String str2 = "";
-        if (Lq.Lv() != null) {
-            str2 = Lq.Lv().vx();
+        if (Md.Mi() != null) {
+            str2 = Md.Mi().vY();
         }
         if (!TextUtils.isEmpty(str2)) {
             String md5 = com.baidu.swan.c.b.toMd5(str2.getBytes(), false);
-            if (hv(str + aVJ + File.separator + md5)) {
+            if (hC(str + aWt + File.separator + md5)) {
                 if (DEBUG) {
                     Log.d("StorageUtil", "the filesystem base path is under UID ");
                     return md5;
@@ -196,22 +197,22 @@ public final class b {
                 return md5;
             }
         }
-        String bd = com.baidu.swan.apps.u.a.DG().bd(AppRuntime.getAppContext());
+        String bd = com.baidu.swan.apps.u.a.Ep().bd(AppRuntime.getAppContext());
         if (!TextUtils.isEmpty(bd)) {
             bd = bd.replace("|", "");
         }
         return com.baidu.swan.c.b.toMd5(bd.getBytes(), false);
     }
 
-    public static String hx(String str) {
+    public static String hE(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         if (DEBUG) {
             Log.d("StorageUtil", "——> getSwanAppTmpDirectory: " + AppRuntime.getAppContext().getExternalCacheDir());
         }
-        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aVJ + "/tmp" + File.separator + "aiapp_" + str;
-        hA(str2);
+        String str2 = AppRuntime.getAppContext().getExternalCacheDir() + aWt + "/tmp" + File.separator + "aiapp_" + str;
+        hH(str2);
         return str2;
     }
 
@@ -220,9 +221,9 @@ public final class b {
             return "";
         }
         if (!TextUtils.isEmpty(str3)) {
-            return hx(str) + File.separator + str2 + ("." + str3);
+            return hE(str) + File.separator + str2 + ("." + str3);
         }
-        return hx(str) + File.separator + str2;
+        return hE(str) + File.separator + str2;
     }
 
     public static String a(String str, com.baidu.swan.apps.ae.b bVar, String str2) {
@@ -230,12 +231,12 @@ public final class b {
         if (bVar == null) {
             return null;
         }
-        com.baidu.swan.apps.v.b.b vk = bVar.vk();
-        boolean z = vk != null && vk.isDebug();
+        com.baidu.swan.apps.v.b.b vL = bVar.vL();
+        boolean z = vL != null && vL.isDebug();
         if (DEBUG && z) {
             Log.d("StorageUtil", "relative path : " + str);
-            ae = e.a.Ds();
-        } else if (TextUtils.isEmpty(bVar.id) || TextUtils.isEmpty(str2) || hz(str) != PathType.RELATIVE) {
+            ae = e.a.Eb();
+        } else if (TextUtils.isEmpty(bVar.id) || TextUtils.isEmpty(str2) || hG(str) != PathType.RELATIVE) {
             return null;
         } else {
             ae = e.d.ae(bVar.id, str2);
@@ -254,7 +255,7 @@ public final class b {
     }
 
     @Nullable
-    public static String hy(String str) {
+    public static String hF(String str) {
         File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_remote_debug_folder");
         if (file.exists()) {
             String replace = str.replace("//", "/");
@@ -269,20 +270,20 @@ public final class b {
         return null;
     }
 
-    public static PathType hz(String str) {
+    public static PathType hG(String str) {
         if (TextUtils.isEmpty(str)) {
             return PathType.ERROR;
         }
         if (str.startsWith("bdfile://")) {
             return PathType.BD_FILE;
         }
-        if (str.startsWith("http://") || str.startsWith("https://")) {
+        if (str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             return PathType.NETWORK;
         }
         return PathType.RELATIVE;
     }
 
-    private static boolean hA(String str) {
+    private static boolean hH(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
@@ -294,9 +295,9 @@ public final class b {
     }
 
     public static String d(com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.v.b.b vk = bVar.vk();
-        if (vk != null && !TextUtils.isEmpty(vk.getAppKey()) && vk.getType() == 1) {
-            return vk.getAppKey() + "_dev";
+        com.baidu.swan.apps.v.b.b vL = bVar.vL();
+        if (vL != null && !TextUtils.isEmpty(vL.getAppKey()) && vL.getType() == 1) {
+            return vL.getAppKey() + "_dev";
         }
         return bVar.id;
     }

@@ -8,11 +8,11 @@ public abstract class b implements a {
         return false;
     }
 
-    @Override // com.baidu.tieba.play.g.InterfaceC0388g
+    @Override // com.baidu.tieba.play.g.InterfaceC0387g
     public void b(g gVar) {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.a
-    public void gw(boolean z) {
+    public void gA(boolean z) {
     }
 }

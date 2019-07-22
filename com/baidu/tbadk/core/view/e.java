@@ -12,62 +12,62 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class e {
-    private Toast Ef;
-    private View bXJ;
-    private TextView bXK;
-    private ImageView bXL;
+    private Toast El;
+    private View bYL;
+    private TextView bYM;
+    private ImageView bYN;
     private Context mContext;
-    public long bXG = 3000;
-    private int bXH = -1;
-    private int bXI = -1;
-    private Runnable bXN = new Runnable() { // from class: com.baidu.tbadk.core.view.e.1
+    public long bYI = 3000;
+    private int bYJ = -1;
+    private int bYK = -1;
+    private Runnable bYP = new Runnable() { // from class: com.baidu.tbadk.core.view.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.Ef != null) {
-                e.this.Ef.cancel();
+            if (e.this.El != null) {
+                e.this.El.cancel();
             }
         }
     };
-    private Handler bXM = new Handler();
+    private Handler bYO = new Handler();
 
     public e() {
         this.mContext = null;
-        this.bXJ = null;
-        this.bXK = null;
-        this.bXL = null;
+        this.bYL = null;
+        this.bYM = null;
+        this.bYN = null;
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.bXJ = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
-        this.bXK = (TextView) this.bXJ.findViewById(R.id.tip_text);
-        this.bXL = (ImageView) this.bXJ.findViewById(R.id.tip_iamge);
+        this.bYL = LayoutInflater.from(this.mContext).inflate(R.layout.image_toast_view, (ViewGroup) null);
+        this.bYM = (TextView) this.bYL.findViewById(R.id.tip_text);
+        this.bYN = (ImageView) this.bYL.findViewById(R.id.tip_iamge);
     }
 
     public void showToast(int i, int i2) {
-        this.bXK.setText(i2);
-        this.bXL.setImageResource(i);
-        aM(this.bXJ);
+        this.bYM.setText(i2);
+        this.bYN.setImageResource(i);
+        aO(this.bYL);
     }
 
-    public void aM(View view) {
-        this.bXM.removeCallbacks(this.bXN);
-        if (this.Ef == null) {
-            this.Ef = new Toast(this.mContext);
+    public void aO(View view) {
+        this.bYO.removeCallbacks(this.bYP);
+        if (this.El == null) {
+            this.El = new Toast(this.mContext);
         }
-        this.bXM.postDelayed(this.bXN, this.bXG);
-        this.Ef.setView(view);
-        this.Ef.setDuration(1);
-        this.Ef.setGravity(17, 0, 0);
-        this.Ef.show();
+        this.bYO.postDelayed(this.bYP, this.bYI);
+        this.El.setView(view);
+        this.El.setDuration(1);
+        this.El.setGravity(17, 0, 0);
+        this.El.show();
     }
 
     public void i(CharSequence charSequence) {
-        this.bXK.setText(charSequence);
-        this.bXL.setImageResource(R.drawable.icon_toast_game_ok);
-        aM(this.bXJ);
+        this.bYM.setText(charSequence);
+        this.bYN.setImageResource(R.drawable.icon_toast_game_ok);
+        aO(this.bYL);
     }
 
     public void j(CharSequence charSequence) {
-        this.bXK.setText(charSequence);
-        this.bXL.setImageResource(R.drawable.icon_toast_game_error);
-        aM(this.bXJ);
+        this.bYM.setText(charSequence);
+        this.bYN.setImageResource(R.drawable.icon_toast_game_error);
+        aO(this.bYL);
     }
 }

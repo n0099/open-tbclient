@@ -8,66 +8,66 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class CircleProgressView extends View {
-    private float aAe;
-    private Paint ckL;
-    private Paint ckM;
-    private RectF ckN;
+    private float aAM;
+    private Paint clX;
+    private Paint clY;
+    private RectF clZ;
     private int currentProgress;
 
     public CircleProgressView(Context context) {
         super(context);
-        this.aAe = 5.0f;
-        apb();
+        this.aAM = 5.0f;
+        aqh();
     }
 
     public CircleProgressView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aAe = 5.0f;
-        apb();
+        this.aAM = 5.0f;
+        aqh();
     }
 
-    private void apb() {
-        this.ckN = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
-        this.ckL = new Paint();
-        this.ckL.setAntiAlias(true);
-        this.ckL.setDither(true);
-        this.ckL.setStyle(Paint.Style.STROKE);
-        this.ckL.setStrokeCap(Paint.Cap.ROUND);
-        this.ckL.setStrokeWidth(this.aAe);
-        this.ckM = new Paint();
-        this.ckM.setAntiAlias(true);
-        this.ckM.setDither(true);
-        this.ckM.setStyle(Paint.Style.STROKE);
-        this.ckM.setStrokeCap(Paint.Cap.ROUND);
-        this.ckM.setStrokeWidth(this.aAe);
+    private void aqh() {
+        this.clZ = new RectF(0.0f, 0.0f, 0.0f, 0.0f);
+        this.clX = new Paint();
+        this.clX.setAntiAlias(true);
+        this.clX.setDither(true);
+        this.clX.setStyle(Paint.Style.STROKE);
+        this.clX.setStrokeCap(Paint.Cap.ROUND);
+        this.clX.setStrokeWidth(this.aAM);
+        this.clY = new Paint();
+        this.clY.setAntiAlias(true);
+        this.clY.setDither(true);
+        this.clY.setStyle(Paint.Style.STROKE);
+        this.clY.setStrokeCap(Paint.Cap.ROUND);
+        this.clY.setStrokeWidth(this.aAM);
     }
 
     public void setCircleBackgroundColor(int i) {
-        this.ckM.setColor(i);
+        this.clY.setColor(i);
         postInvalidate();
     }
 
     public void setCircleForegroundColor(int i) {
-        this.ckL.setColor(i);
+        this.clX.setColor(i);
         postInvalidate();
     }
 
     public void setWidth(int i) {
-        this.aAe = i;
-        this.ckM.setStrokeWidth(i);
-        this.ckL.setStrokeWidth(i);
+        this.aAM = i;
+        this.clY.setStrokeWidth(i);
+        this.clX.setStrokeWidth(i);
         postInvalidate();
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
         if (this.currentProgress >= 0) {
-            this.ckN.left = this.aAe;
-            this.ckN.top = this.aAe;
-            this.ckN.right = getWidth() - this.aAe;
-            this.ckN.bottom = getHeight() - this.aAe;
-            canvas.drawArc(this.ckN, 0.0f, 360.0f, false, this.ckM);
-            canvas.drawArc(this.ckN, -90.0f, 360.0f * (this.currentProgress / 100), false, this.ckL);
+            this.clZ.left = this.aAM;
+            this.clZ.top = this.aAM;
+            this.clZ.right = getWidth() - this.aAM;
+            this.clZ.bottom = getHeight() - this.aAM;
+            canvas.drawArc(this.clZ, 0.0f, 360.0f, false, this.clY);
+            canvas.drawArc(this.clZ, -90.0f, 360.0f * (this.currentProgress / 100), false, this.clX);
         }
     }
 

@@ -1,5 +1,7 @@
 package com.baidu.mobstat;
 /* loaded from: classes6.dex */
-public interface da extends dd {
-    void a(String str, String str2);
+public interface da extends cu, cz {
+    void a(String str);
+
+    void a(short s);
 }

@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,7 +12,7 @@ public class QrLoginUtils {
     public static boolean isJoinQrLoginSchema(String str) {
         try {
             URL url = new URL(str);
-            return ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true).equals(new StringBuilder().append(url.getProtocol()).append("://").append(url.getHost()).toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("prompt");
+            return ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true).equals(new StringBuilder().append(url.getProtocol()).append("://").append(url.getHost()).toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("appName");
         } catch (MalformedURLException e) {
             return false;
         }
@@ -24,6 +25,6 @@ public class QrLoginUtils {
         if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
             return LivenessStat.TYPE_STRING_DEFAULT;
         }
-        return URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("prompt"));
+        return String.format(SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getJoinQrLoginPrompt(), URLDecoder.decode(SapiUtils.urlParamsToMap(str).get("appName")));
     }
 }

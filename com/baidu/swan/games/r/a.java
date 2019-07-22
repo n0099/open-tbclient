@@ -8,28 +8,28 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    public d bkq;
-    private int bkr;
-    private long bks;
+    public d bld;
+    private int ble;
+    private long blf;
     public int type;
 
     public a(int i, d dVar) {
         this.type = i;
-        this.bkq = dVar;
-        this.bkr = Sl() ? 20 : 10;
-        this.bks = System.currentTimeMillis();
+        this.bld = dVar;
+        this.ble = Te() ? 20 : 10;
+        this.blf = System.currentTimeMillis();
     }
 
-    private boolean Sl() {
-        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
-        if (Lq == null) {
+    private boolean Te() {
+        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
+        if (Md == null) {
             return false;
         }
-        Activity activity = Lq.getActivity();
+        Activity activity = Md.getActivity();
         if (activity instanceof SwanAppActivity) {
-            com.baidu.swan.apps.o.d vd = ((SwanAppActivity) activity).vd();
-            if (vd instanceof com.baidu.swan.games.g.a) {
-                return ((com.baidu.swan.games.g.a) vd).Rg();
+            com.baidu.swan.apps.o.d vE = ((SwanAppActivity) activity).vE();
+            if (vE instanceof com.baidu.swan.games.g.a) {
+                return ((com.baidu.swan.games.g.a) vE).RZ();
             }
             return false;
         }
@@ -40,10 +40,10 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("type", this.type);
-            jSONObject.put("stage", this.bkr);
-            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.bks);
-            if (this.bkq != null) {
-                jSONObject.put("msg", this.bkq.toJSON());
+            jSONObject.put("stage", this.ble);
+            jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, this.blf);
+            if (this.bld != null) {
+                jSONObject.put("msg", this.bld.toJSON());
             }
         } catch (JSONException e) {
         }

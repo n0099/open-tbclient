@@ -15,107 +15,107 @@ import java.util.UUID;
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean Ih() {
-        return f.Ni().getBoolean("swan_debug_force_ab", false);
+    public static boolean IU() {
+        return f.NX().getBoolean("swan_debug_force_ab", false);
     }
 
-    public static boolean Ii() {
+    public static boolean IV() {
         return getBoolean("aiapps_websafe_debug_key", true);
     }
 
-    public static boolean Ij() {
+    public static boolean IW() {
         return getBoolean("aiapps_server_domains_debug_key", false);
     }
 
-    public static void bC(boolean z) {
-        setBoolean("aiapps_websafe_debug_key", z);
-    }
-
-    public static void bD(boolean z) {
-        setBoolean("aiapps_server_domains_debug_key", z);
-    }
-
-    public static boolean Ik() {
-        return getBoolean("aiapps_close_view_disable_debug_key", false);
-    }
-
-    public static boolean Il() {
-        return getBoolean("aiapps_sconsole_scan_mode_debug_key", false);
-    }
-
-    public static boolean Im() {
-        return getBoolean("aiapps_use_extension_debug_key", false);
-    }
-
-    public static void bE(boolean z) {
-        setBoolean("aiapps_use_extension_debug_key", z);
-    }
-
-    public static boolean In() {
-        return getBoolean("aiapps_emit_live_debug_key", false);
-    }
-
     public static void bF(boolean z) {
-        setBoolean("aiapps_emit_live_debug_key", z);
-    }
-
-    public static boolean Io() {
-        return getBoolean("aiapps_emit_https_debug_key", false);
+        s("aiapps_websafe_debug_key", z);
     }
 
     public static void bG(boolean z) {
-        setBoolean("aiapps_emit_https_debug_key", z);
+        s("aiapps_server_domains_debug_key", z);
     }
 
-    public static boolean Ip() {
-        return getBoolean("aiapps_emit_wss_debug_key", false);
+    public static boolean IX() {
+        return getBoolean("aiapps_close_view_disable_debug_key", false);
+    }
+
+    public static boolean IY() {
+        return getBoolean("aiapps_sconsole_scan_mode_debug_key", false);
+    }
+
+    public static boolean IZ() {
+        return getBoolean("aiapps_use_extension_debug_key", false);
     }
 
     public static void bH(boolean z) {
-        setBoolean("aiapps_emit_wss_debug_key", z);
+        s("aiapps_use_extension_debug_key", z);
+    }
+
+    public static boolean Ja() {
+        return getBoolean("aiapps_emit_live_debug_key", false);
     }
 
     public static void bI(boolean z) {
-        setBoolean("aiapps_load_cts_debug_key", z);
+        s("aiapps_emit_live_debug_key", z);
     }
 
-    public static boolean Iq() {
+    public static boolean Jb() {
+        return getBoolean("aiapps_emit_https_debug_key", false);
+    }
+
+    public static void bJ(boolean z) {
+        s("aiapps_emit_https_debug_key", z);
+    }
+
+    public static boolean Jc() {
+        return getBoolean("aiapps_emit_wss_debug_key", false);
+    }
+
+    public static void bK(boolean z) {
+        s("aiapps_emit_wss_debug_key", z);
+    }
+
+    public static void bL(boolean z) {
+        s("aiapps_load_cts_debug_key", z);
+    }
+
+    public static boolean Jd() {
         return getBoolean("aiapps_load_cts_debug_key", false);
     }
 
-    public static void ga(String str) {
-        f.Ni().putString("aiapps_env_data", str);
+    public static void gg(String str) {
+        f.NX().putString("aiapps_env_data", str);
     }
 
-    public static String Ir() {
-        return f.Ni().getString("aiapps_env_data", "");
+    public static String Je() {
+        return f.NX().getString("aiapps_env_data", "");
     }
 
-    private static void setBoolean(String str, boolean z) {
-        f.Ni().putBoolean(str, z);
+    private static void s(String str, boolean z) {
+        f.NX().putBoolean(str, z);
     }
 
     private static boolean getBoolean(String str, boolean z) {
-        return f.Ni().getBoolean(str, z);
+        return f.NX().getBoolean(str, z);
     }
 
     private static boolean b(c cVar) {
-        return (DEBUG && cVar.ayM) || gb(cVar.ayU);
+        return (DEBUG && cVar.azt) || gh(cVar.azB);
     }
 
     public static boolean l(com.baidu.swan.apps.v.b.b bVar) {
-        return (DEBUG && bVar.isDebug()) || gb(bVar.Fl());
+        return (DEBUG && bVar.isDebug()) || gh(bVar.FV());
     }
 
-    public static boolean gb(String str) {
-        return !TextUtils.isEmpty(str) || d.xG();
+    public static boolean gh(String str) {
+        return !TextUtils.isEmpty(str) || d.yl();
     }
 
-    public static boolean Is() {
+    public static boolean Jf() {
         return getBoolean("aiapps_force_authorized_key", false);
     }
 
-    public static boolean It() {
+    public static boolean Jg() {
         return getBoolean("aiapps_pay_channel_key", false);
     }
 
@@ -123,32 +123,32 @@ public final class a {
         if (DEBUG && bVar.isDebug()) {
             return e.a.a(bVar, bVar2);
         }
-        if (gb(bVar.Fl())) {
-            return e.C0149e.j(bVar);
+        if (gh(bVar.FV())) {
+            return e.C0146e.j(bVar);
         }
         return null;
     }
 
     public static boolean d(Context context, c cVar) {
         if (b(cVar)) {
-            com.baidu.swan.apps.v.b.b EI = EI();
-            cVar.EK().putLong("aiapp_start_timestamp", System.currentTimeMillis());
-            EI.setAppId(cVar.mAppId);
-            EI.eH(cVar.mFrom);
-            EI.setPage(cVar.ayL);
-            EI.setDebug(cVar.ayM);
-            EI.eL(cVar.ayO);
-            EI.p(cVar.EK());
-            EI.eI(cVar.ayP);
-            EI.eM(cVar.ayQ);
-            EI.a(cVar.atK);
-            EI.a(cVar.atL);
-            EI.eP(cVar.ayR);
-            EI.eQ(cVar.ayU);
-            EI.setVersion("0");
-            EI.cr(cVar.ayS);
-            EI.setOrientation(cVar.ayT);
-            SwanAppLauncherActivity.a(context, EI, UUID.randomUUID().toString());
+            com.baidu.swan.apps.v.b.b Fs = Fs();
+            cVar.Fu().putLong("aiapp_start_timestamp", System.currentTimeMillis());
+            Fs.setAppId(cVar.mAppId);
+            Fs.eM(cVar.mFrom);
+            Fs.setPage(cVar.azs);
+            Fs.setDebug(cVar.azt);
+            Fs.eQ(cVar.azv);
+            Fs.p(cVar.Fu());
+            Fs.eN(cVar.azw);
+            Fs.eR(cVar.azx);
+            Fs.a(cVar.aun);
+            Fs.a(cVar.auo);
+            Fs.eU(cVar.azy);
+            Fs.eV(cVar.azB);
+            Fs.setVersion("0");
+            Fs.cr(cVar.azz);
+            Fs.setOrientation(cVar.azA);
+            SwanAppLauncherActivity.a(context, Fs, UUID.randomUUID().toString());
             return true;
         }
         return false;
@@ -156,24 +156,24 @@ public final class a {
 
     public static String m(com.baidu.swan.apps.v.b.b bVar) {
         if (DEBUG && bVar.isDebug()) {
-            return e.a.Dr().getPath();
+            return e.a.Ea().getPath();
         }
-        if (gb(bVar.Fl())) {
-            return e.C0149e.Ds().getPath();
+        if (gh(bVar.FV())) {
+            return e.C0146e.Eb().getPath();
         }
         return "";
     }
 
-    public static com.baidu.swan.apps.v.b.b EI() {
+    public static com.baidu.swan.apps.v.b.b Fs() {
         com.baidu.swan.apps.v.b.b bVar = new com.baidu.swan.apps.v.b.b();
         bVar.e(new PMSAppInfo());
-        bVar.dY("小程序测试");
+        bVar.ed("小程序测试");
         bVar.setAppId("10985873");
         bVar.F(Color.parseColor("#FF308EF0"));
-        bVar.eH("1230000000000000");
-        bVar.eE("小程序简介");
-        bVar.eF("测试服务类目");
-        bVar.eG("测试主体信息");
+        bVar.eM("1230000000000000");
+        bVar.eJ("小程序简介");
+        bVar.eK("测试服务类目");
+        bVar.eL("测试主体信息");
         bVar.setAppKey("CdKRXT4IrCwTD6LIBS7DIlL8rmbKx58N");
         bVar.setVersion("1.0");
         bVar.setIconUrl("https://gss3.bdstatic.com/9rkZsjib41gCpNKfpU_Y_D3/searchbox/aps/1516937209_WechatIMG147.jpeg");

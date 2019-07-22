@@ -14,30 +14,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes6.dex */
 public class a extends v.a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a ikY;
-    private static String ikZ;
-    public TextView Xq;
-    public TextView bZX;
-    public TextView caU;
-    public HeadImageView fIM;
-    private final LinearLayout hsl;
-    public ReplyLinearLayout ikT;
-    public TextView ikU;
-    protected final LinearLayout ikV;
-    protected final ColumnLayout ikW;
-    protected final ColumnLayout ikX;
-    private int ila;
-    public LinearLayout ilb;
-    public TextView ilc;
+    private static com.baidu.adp.widget.ImageView.a irq;
+    private static String irr;
+    public TextView XL;
+    public TextView caZ;
+    public TextView cbW;
+    public HeadImageView fNK;
+    private final LinearLayout hyx;
+    public ReplyLinearLayout irl;
+    public TextView irm;
+    protected final LinearLayout irn;
+    protected final ColumnLayout iro;
+    protected final ColumnLayout irp;
+    private int irs;
+    public LinearLayout irt;
+    public TextView iru;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
 
@@ -45,51 +45,51 @@ public class a extends v.a implements View.OnClickListener {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.ikT = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.ikT.setIsHost(this.mIsHost);
-        this.ikU = (TextView) view.findViewById(R.id.original_post_title);
-        this.ilb = (LinearLayout) view.findViewById(R.id.top_line);
-        this.fIM = (HeadImageView) view.findViewById(R.id.portrait);
-        this.Xq = (TextView) view.findViewById(R.id.username);
-        this.bZX = (TextView) view.findViewById(R.id.reply_time);
-        this.caU = (TextView) view.findViewById(R.id.forum_name);
-        this.ilc = (TextView) view.findViewById(R.id.reply_count);
-        this.hsl = (LinearLayout) view.findViewById(R.id.item_content);
-        this.ikW = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.ikX = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.ikV = (LinearLayout) view.findViewById(R.id.person_child);
-        this.ila = l.dip2px(view.getContext(), 42.0f);
-        if (this.hsl != null) {
-            this.hsl.setOnClickListener(this);
+        this.irl = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.irl.setIsHost(this.mIsHost);
+        this.irm = (TextView) view.findViewById(R.id.original_post_title);
+        this.irt = (LinearLayout) view.findViewById(R.id.top_line);
+        this.fNK = (HeadImageView) view.findViewById(R.id.portrait);
+        this.XL = (TextView) view.findViewById(R.id.username);
+        this.caZ = (TextView) view.findViewById(R.id.reply_time);
+        this.cbW = (TextView) view.findViewById(R.id.forum_name);
+        this.iru = (TextView) view.findViewById(R.id.reply_count);
+        this.hyx = (LinearLayout) view.findViewById(R.id.item_content);
+        this.iro = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.irp = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.irn = (LinearLayout) view.findViewById(R.id.person_child);
+        this.irs = l.dip2px(view.getContext(), 42.0f);
+        if (this.hyx != null) {
+            this.hyx.setOnClickListener(this);
         }
-        this.fIM.setOnClickListener(this);
-        this.Xq.setOnClickListener(this);
-        this.caU.setOnClickListener(this);
-        this.ilc.setOnClickListener(this);
-        this.ikW.setOnClickListener(this);
-        this.ikX.setOnClickListener(this);
-        this.ikU.setOnClickListener(this);
+        this.fNK.setOnClickListener(this);
+        this.XL.setOnClickListener(this);
+        this.cbW.setOnClickListener(this);
+        this.iru.setOnClickListener(this);
+        this.iro.setOnClickListener(this);
+        this.irp.setOnClickListener(this);
+        this.irm.setOnClickListener(this);
     }
 
-    public void iP(int i) {
-        al.k(this.ikU, R.color.cp_bg_line_e);
-        al.l(getView(), R.color.cp_bg_line_c);
-        al.k(this.ikV, R.drawable.daily_recommend_item_selector);
-        al.f(this.Xq, R.color.cp_cont_d, 1);
-        al.f(this.bZX, R.color.cp_cont_d, 1);
-        al.f(this.caU, R.color.cp_cont_d, 1);
-        al.f(this.ilc, R.color.cp_cont_d, 1);
+    public void iV(int i) {
+        am.k(this.irm, R.color.cp_bg_line_e);
+        am.l(getView(), R.color.cp_bg_line_c);
+        am.k(this.irn, R.drawable.daily_recommend_item_selector);
+        am.f(this.XL, R.color.cp_cont_d, 1);
+        am.f(this.caZ, R.color.cp_cont_d, 1);
+        am.f(this.cbW, R.color.cp_cont_d, 1);
+        am.f(this.iru, R.color.cp_cont_d, 1);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         String[] strArr;
-        TiebaStatic.log(new am("c12043").P("obj_type", this.mIsHost ? 1 : 2));
-        if (view == this.caU) {
+        TiebaStatic.log(new an("c12043").P("obj_type", this.mIsHost ? 1 : 2));
+        if (view == this.cbW) {
             if (this.mPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.ikU && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.irm && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -117,7 +117,7 @@ public class a extends v.a implements View.OnClickListener {
         String str4;
         String str5;
         String str6;
-        String aC;
+        String aD;
         String str7;
         String valueOf;
         String str8 = null;
@@ -131,7 +131,7 @@ public class a extends v.a implements View.OnClickListener {
                             str6 = TextUtils.isEmpty(postInfoList.name_show) ? postInfoList.user_name : postInfoList.name_show;
                             strArr[0] = String.valueOf(postInfoList.thread_id);
                             strArr[1] = String.valueOf(postInfoList.post_id);
-                            aC = ap.aC(postInfoList.create_time * 1000);
+                            aD = aq.aD(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
@@ -141,12 +141,12 @@ public class a extends v.a implements View.OnClickListener {
                             strArr[1] = String.valueOf(postInfoList.content[0].post_id);
                             strArr[2] = String.valueOf(postInfoList.content[0].post_type);
                             strArr[3] = String.valueOf(postInfoList.thread_type);
-                            aC = ap.aC(postInfoList.create_time * 1000);
+                            aD = aq.aD(postInfoList.create_time * 1000);
                             str7 = postInfoList.forum_name;
                             valueOf = String.valueOf(postInfoList.reply_num);
                         }
                         str4 = str6;
-                        str3 = aC;
+                        str3 = aD;
                         str2 = str7;
                         str9 = valueOf;
                         str8 = 1;
@@ -194,30 +194,30 @@ public class a extends v.a implements View.OnClickListener {
             }
         }
         if (str8 != null) {
-            this.Xq.setText(str4);
-            this.bZX.setText(str3);
-            this.caU.setText(str2);
-            this.caU.setTag(str2);
-            this.ilc.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
-            this.caU.setOnClickListener(this);
-            Ce(str);
-            if (this.hsl != null) {
-                this.hsl.setTag(strArr);
+            this.XL.setText(str4);
+            this.caZ.setText(str3);
+            this.cbW.setText(str2);
+            this.cbW.setTag(str2);
+            this.iru.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str5));
+            this.cbW.setOnClickListener(this);
+            CR(str);
+            if (this.hyx != null) {
+                this.hyx.setTag(strArr);
             }
-            this.ikW.setTag(strArr);
-            this.ikX.setTag(strArr);
+            this.iro.setTag(strArr);
+            this.irp.setTag(strArr);
         }
     }
 
-    private void Ce(String str) {
-        if (ikZ != null && !ikZ.equals(str)) {
-            ikY = null;
+    private void CR(String str) {
+        if (irr != null && !irr.equals(str)) {
+            irq = null;
         }
-        if (ikY != null) {
-            this.fIM.setImageBitmap(ikY.ns());
-            ikZ = str;
+        if (irq != null) {
+            this.fNK.setImageBitmap(irq.nK());
+            irr = str;
             return;
         }
-        this.fIM.startLoad(str, 12, this.ila, this.ila, false);
+        this.fNK.startLoad(str, 12, this.irs, this.irs, false);
     }
 }

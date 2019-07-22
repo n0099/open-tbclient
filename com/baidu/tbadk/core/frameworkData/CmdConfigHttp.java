@@ -64,7 +64,7 @@ public class CmdConfigHttp {
     public static final int CMD_EMOTION_EDIT_TEXT_UEG = 1003348;
     public static final int CMD_EMOTION_PACKAGE_DETAIL = 1003346;
     public static final int CMD_ENTERTAINMENT = 1003079;
-    public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003443;
+    public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
     public static final int CMD_FORUM_MULTI_CONCERN = 1003337;
     public static final int CMD_FRIEND_AND_STRANGER_MSG_SWITCH = 1003318;
@@ -75,6 +75,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
     public static final int CMD_FRS_TALK_BALL = 1003403;
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
+    public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;
     public static final int CMD_GET_BOTTLE_FORUM_LIST = 1003316;

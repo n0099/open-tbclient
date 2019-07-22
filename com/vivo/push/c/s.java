@@ -3,6 +3,7 @@ package com.vivo.push.c;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
@@ -41,7 +42,7 @@ public final class s extends aa {
                     return;
                 case 2:
                     String skipContent = a.getSkipContent();
-                    if (!skipContent.startsWith("http://") && !skipContent.startsWith("https://")) {
+                    if (!skipContent.startsWith("http://") && !skipContent.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
                         z = false;
                     }
                     if (z) {

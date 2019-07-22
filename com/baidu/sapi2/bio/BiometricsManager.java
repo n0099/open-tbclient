@@ -2,6 +2,8 @@ package com.baidu.sapi2.bio;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.fsg.api.BaiduRIM;
+import com.baidu.fsg.api.RimServiceCallback;
 import com.baidu.pass.biometrics.base.PassBiometric;
 import com.baidu.pass.biometrics.base.PassBiometricFactory;
 import com.baidu.pass.biometrics.face.liveness.PassFaceOperation;
@@ -11,9 +13,10 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,15 +26,43 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class BiometricsManager {
+    public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
+    public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
+    public static final String LIVENESS_RECOGNIZE_TYPE_CERTINFO = "certinfo";
+    public static final String LIVENESS_RECOGNIZE_TYPE_UN_REALNAME_REG = "faceDetect";
+    public static final String LIVENESS_RECOGNIZE_TYPE_UN_REALNAME_VERIFY = "outer";
     public static final String PASS_PRODUCT_ID = "pp";
     public static final String TAG = BiometricsManager.class.getSimpleName();
     private static BiometricsManager instance;
+
+    /* loaded from: classes2.dex */
+    public interface DelegateRimServiceCallback {
+        void onResult(int i, Map<String, Object> map);
+    }
 
     public static BiometricsManager getInstance() {
         if (instance == null) {
             instance = new BiometricsManager();
         }
         return instance;
+    }
+
+    public boolean usePassBioSDK(Context context) {
+        try {
+            Class.forName("com.baidu.fsg.api.BaiduRIM");
+            SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
+            if (sapiConfiguration.rimSDKEnable) {
+                return false;
+            }
+            List<String> rimBackList = SapiContext.getInstance(context).getRimBackList();
+            if (rimBackList.isEmpty()) {
+                return true;
+            }
+            return (rimBackList.contains("all") || rimBackList.contains(sapiConfiguration.tpl)) ? false : true;
+        } catch (Throwable th) {
+            Log.e(th);
+            return true;
+        }
     }
 
     public void recogWithBduss(Context context, String str, Map<String, String> map, String str2, String str3, String str4, PassFaceRecogCallback passFaceRecogCallback) {
@@ -63,9 +94,9 @@ public class BiometricsManager {
         PassFaceRecogDTO passFaceRecogDTO = new PassFaceRecogDTO();
         PassFaceOperation passFaceOperation = new PassFaceOperation();
         passFaceOperation.operationType = PassFaceOperation.OperationType.RECOGNIZE;
-        passFaceRecogDTO.imageFlag = str2;
         passFaceRecogDTO.extraParamsMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, str);
         passFaceRecogDTO.extraParamsMap.put("cuid", SapiUtils.getClientId(context));
+        passFaceRecogDTO.imageFlag = str2;
         if (map != null) {
             passFaceRecogDTO.extraParamsMap.putAll(map);
         }
@@ -112,6 +143,56 @@ public class BiometricsManager {
             str = "empty";
         }
         return "pp-pp-" + str + "-{tpl:" + SapiAccountManager.getInstance().getConfignation().tpl + ",scene:" + str2 + "}";
+    }
+
+    public void rimlivenessRecognize(Context context, String str, LivenessDTO livenessDTO, final DelegateRimServiceCallback delegateRimServiceCallback) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("method", "startLivenessRecognize");
+        hashMap.put("imageFlag", Integer.valueOf(livenessDTO.imageFlag));
+        hashMap.put("recogType", livenessDTO.livenessRecogType);
+        hashMap.put("showGuidePage", Integer.valueOf(livenessDTO.showGuidePage));
+        hashMap.put("supPro", livenessDTO.subPro);
+        if ("certinfo".equals(livenessDTO.livenessRecogType)) {
+            hashMap.put("realName", livenessDTO.realName);
+            hashMap.put("idCardNo", livenessDTO.idCardNum);
+            hashMap.put("phoneNo", livenessDTO.phoneNum);
+        } else if ("bduss".equals(livenessDTO.livenessRecogType)) {
+            SapiAccount accountFromBduss = SapiContext.getInstance(context).getAccountFromBduss(livenessDTO.bduss);
+            if (accountFromBduss != null) {
+                hashMap.put("bduss", accountFromBduss.bduss);
+                hashMap.put("uid", accountFromBduss.uid);
+                hashMap.put("stoken", str);
+            }
+        } else if ("authtoken".equals(livenessDTO.livenessRecogType)) {
+            hashMap.put("authToken", livenessDTO.authToken);
+        }
+        livenessDTO.transParamsList.add(new PassNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, livenessDTO.subPro));
+        livenessDTO.transParamsList.add(new PassNameValuePair("cuid", SapiUtils.getClientId(context)));
+        hashMap.put("spParams", SapiUtils.createRequestParams(livenessDTO.transParamsList));
+        BaiduRIM.getInstance().accessRimService(context, hashMap, new RimServiceCallback() { // from class: com.baidu.sapi2.bio.BiometricsManager.2
+            public void onResult(int i, Map<String, Object> map) {
+                delegateRimServiceCallback.onResult(i, map);
+            }
+        });
+    }
+
+    public void bioScanFace(Context context, LivenessDTO livenessDTO, final DelegateRimServiceCallback delegateRimServiceCallback) {
+        HashMap hashMap = new HashMap();
+        hashMap.put("method", "startLivenessRecognize");
+        hashMap.put("imageFlag", Integer.valueOf(livenessDTO.imageFlag));
+        hashMap.put("showGuidePage", Integer.valueOf(livenessDTO.showGuidePage));
+        hashMap.put("recogType", livenessDTO.livenessRecogType);
+        hashMap.put("showGuidePage", Integer.valueOf(livenessDTO.showGuidePage));
+        hashMap.put("exuid", livenessDTO.livingUname);
+        hashMap.put("showGuidePage", Integer.valueOf(livenessDTO.showGuidePage));
+        livenessDTO.transParamsList.add(new PassNameValuePair(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, livenessDTO.subPro));
+        livenessDTO.transParamsList.add(new PassNameValuePair("cuid", SapiUtils.getClientId(context)));
+        hashMap.put("spParams", SapiUtils.createRequestParams(livenessDTO.transParamsList));
+        BaiduRIM.getInstance().accessRimService(context, hashMap, new RimServiceCallback() { // from class: com.baidu.sapi2.bio.BiometricsManager.3
+            public void onResult(int i, Map<String, Object> map) {
+                delegateRimServiceCallback.onResult(i, map);
+            }
+        });
     }
 
     public LivenessResult parseMap2LivenessResult(int i, Map<String, Object> map) {

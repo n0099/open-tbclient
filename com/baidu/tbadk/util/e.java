@@ -5,45 +5,45 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static LinkedList<Integer> Iw;
+    private static LinkedList<Integer> II;
 
-    public static int get() {
+    public static int Qr() {
         return ap(null);
     }
 
     public static int ap(List<Integer> list) {
-        if (Iw == null) {
-            auT();
+        if (II == null) {
+            awc();
         }
         Integer aq = aq(list);
         return aq != null ? aq.intValue() : R.color.cp_atp_a;
     }
 
-    private static void auT() {
-        Iw = new LinkedList<>();
-        Iw.offer(Integer.valueOf((int) R.color.cp_atp_a));
-        Iw.offer(Integer.valueOf((int) R.color.cp_atp_b));
-        Iw.offer(Integer.valueOf((int) R.color.cp_atp_c));
-        Iw.offer(Integer.valueOf((int) R.color.cp_atp_d));
-        Iw.offer(Integer.valueOf((int) R.color.cp_atp_e));
+    private static void awc() {
+        II = new LinkedList<>();
+        II.offer(Integer.valueOf((int) R.color.cp_atp_a));
+        II.offer(Integer.valueOf((int) R.color.cp_atp_b));
+        II.offer(Integer.valueOf((int) R.color.cp_atp_c));
+        II.offer(Integer.valueOf((int) R.color.cp_atp_d));
+        II.offer(Integer.valueOf((int) R.color.cp_atp_e));
     }
 
     private static Integer aq(List<Integer> list) {
-        Integer peek = Iw.peek();
+        Integer peek = II.peek();
         if (list == null || list.size() == 0) {
-            Iw.offer(Iw.poll());
+            II.offer(II.poll());
             return peek;
         } else if (list.size() > 4) {
-            Iw.offer(Iw.poll());
+            II.offer(II.poll());
             return peek;
         } else {
             int i = 0;
             while (true) {
-                if (i >= Iw.size()) {
+                if (i >= II.size()) {
                     i = 0;
                     break;
                 }
-                Integer num = Iw.get(i);
+                Integer num = II.get(i);
                 boolean z = false;
                 for (Integer num2 : list) {
                     z = num2.intValue() == num.intValue() ? true : z;
@@ -53,8 +53,8 @@ public class e {
                 }
                 i++;
             }
-            Integer remove = Iw.remove(i);
-            Iw.offer(remove);
+            Integer remove = II.remove(i);
+            II.offer(remove);
             return remove;
         }
     }

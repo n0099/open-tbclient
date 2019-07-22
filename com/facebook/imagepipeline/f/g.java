@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.f;
 /* loaded from: classes2.dex */
 public interface g {
-    boolean cGL();
+    int cJO();
 
-    boolean cGM();
+    boolean cJP();
 
-    int getQuality();
+    boolean cJQ();
 }

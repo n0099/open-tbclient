@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public interface ak {
-    void cHE();
+    void cKI();
 
-    void cHF();
+    void cKJ();
 
-    void cHG();
+    void cKK();
 
-    void cHH();
+    void cKL();
 }

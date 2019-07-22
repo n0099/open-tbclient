@@ -13,13 +13,13 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private View cTa;
-    private TextView dcA;
-    private EditText dcB;
-    private String dcC;
-    private boolean dcD;
+    private String bsY;
+    private View cUw;
+    private TextView dea;
+    private EditText deb;
+    private String dec;
+    private boolean ded;
     private Context mContext;
-    private String mErrorMessage;
     private RelativeLayout mRootView;
 
     public InvoiceInfoItemView(Context context) {
@@ -40,112 +40,112 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, R.layout.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(R.id.item_root_view);
         this.mRootView.setBackground(getResources().getDrawable(R.color.invoice_edit_view_bg));
-        this.dcA = (TextView) findViewById(R.id.invoice_info_desc);
-        this.dcB = (EditText) findViewById(R.id.invoice_info_content);
-        this.cTa = findViewById(R.id.divider_line);
-        this.dcA.setTextColor(getResources().getColor(R.color.invoice_info_desc));
-        this.dcB.setTextColor(getResources().getColor(R.color.invoice_info_content));
-        this.dcB.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
-        this.cTa.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
+        this.dea = (TextView) findViewById(R.id.invoice_info_desc);
+        this.deb = (EditText) findViewById(R.id.invoice_info_content);
+        this.cUw = findViewById(R.id.divider_line);
+        this.dea.setTextColor(getResources().getColor(R.color.invoice_info_desc));
+        this.deb.setTextColor(getResources().getColor(R.color.invoice_info_content));
+        this.deb.setHintTextColor(getResources().getColor(R.color.invoice_info_content_hint));
+        this.cUw.setBackground(getResources().getDrawable(R.color.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.dcD = aVar.dcD;
-            this.dcA.setText(aVar.aYJ);
-            this.dcB.setHint(aVar.dcF);
-            if (!aVar.dcG) {
-                this.dcB.setSingleLine();
+            this.ded = aVar.ded;
+            this.dea.setText(aVar.aZt);
+            this.deb.setHint(aVar.def);
+            if (!aVar.deg) {
+                this.deb.setSingleLine();
             } else {
-                aVar.dcE |= 131072;
+                aVar.dee |= 131072;
             }
-            this.dcB.setInputType(aVar.dcE);
-            if (!TextUtils.isEmpty(aVar.dcH)) {
-                this.dcB.setKeyListener(DigitsKeyListener.getInstance(aVar.dcH));
+            this.deb.setInputType(aVar.dee);
+            if (!TextUtils.isEmpty(aVar.deh)) {
+                this.deb.setKeyListener(DigitsKeyListener.getInstance(aVar.deh));
             }
-            this.dcC = aVar.dcC;
-            this.mErrorMessage = aVar.mErrorMessage;
+            this.dec = aVar.dec;
+            this.bsY = aVar.bsY;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.dcB != null) {
-            return this.dcB.getText().toString().trim();
+        if (this.deb != null) {
+            return this.deb.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.dcB != null) {
-            this.dcB.setText(charSequence);
+        if (this.deb != null) {
+            this.deb.setText(charSequence);
         }
     }
 
-    public boolean aEz() {
-        return this.dcD;
+    public boolean aFQ() {
+        return this.ded;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.dcB != null && textWatcher != null) {
-            this.dcB.addTextChangedListener(textWatcher);
+        if (this.deb != null && textWatcher != null) {
+            this.deb.addTextChangedListener(textWatcher);
         }
     }
 
-    public void removeTextChangedListener(TextWatcher textWatcher) {
-        if (this.dcB != null) {
-            this.dcB.removeTextChangedListener(textWatcher);
+    public void e(TextWatcher textWatcher) {
+        if (this.deb != null) {
+            this.deb.removeTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String aYJ;
-        private String dcC;
-        private boolean dcD = false;
-        private int dcE = 1;
-        private String dcF;
-        private boolean dcG;
-        private String dcH;
-        private String mErrorMessage;
+        private String aZt;
+        private String bsY;
+        private String dec;
+        private boolean ded = false;
+        private int dee = 1;
+        private String def;
+        private boolean deg;
+        private String deh;
 
-        public a gq(boolean z) {
-            this.dcD = z;
+        public a gu(boolean z) {
+            this.ded = z;
             return this;
         }
 
-        public a sJ(String str) {
-            this.aYJ = str;
+        public a tc(String str) {
+            this.aZt = str;
             return this;
         }
 
-        public a mA(int i) {
-            this.dcE = i;
+        public a mH(int i) {
+            this.dee = i;
             return this;
         }
 
-        public a sK(String str) {
-            this.dcF = str;
+        public a td(String str) {
+            this.def = str;
             return this;
         }
 
-        public a sL(String str) {
-            this.dcC = str;
+        public a te(String str) {
+            this.dec = str;
             return this;
         }
 
-        public a sM(String str) {
-            this.mErrorMessage = str;
+        public a tf(String str) {
+            this.bsY = str;
             return this;
         }
 
-        public a gr(boolean z) {
-            this.dcG = z;
+        public a gv(boolean z) {
+            this.deg = z;
             return this;
         }
 
-        public a sN(String str) {
-            this.dcH = str;
+        public a tg(String str) {
+            this.deh = str;
             return this;
         }
     }

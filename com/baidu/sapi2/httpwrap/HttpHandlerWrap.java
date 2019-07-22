@@ -1,8 +1,11 @@
 package com.baidu.sapi2.httpwrap;
 
 import android.os.Looper;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 public class HttpHandlerWrap {
+    protected boolean executCallbackInChildThread;
+
     public HttpHandlerWrap() {
     }
 
@@ -10,6 +13,14 @@ public class HttpHandlerWrap {
     }
 
     public HttpHandlerWrap(String str) {
+    }
+
+    public HttpHandlerWrap(boolean z) {
+        this.executCallbackInChildThread = z;
+    }
+
+    public boolean isExecutCallbackInChildThread() {
+        return this.executCallbackInChildThread;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -21,10 +32,15 @@ public class HttpHandlerWrap {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void onFailure(Throwable th, String str) {
+    public void onFailure(Throwable th, int i, String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onSuccess(int i, String str) {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
+        onSuccess(i, str);
     }
 }

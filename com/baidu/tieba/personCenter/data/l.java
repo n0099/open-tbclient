@@ -3,12 +3,12 @@ package com.baidu.tieba.personCenter.data;
 import tbclient.SmartApp;
 /* loaded from: classes4.dex */
 public class l implements c {
-    private String eRo;
-    private String goG;
-    private Long ied;
-    private String iee;
-    private String ief;
-    private Integer ieg;
+    private String eWo;
+    private String guS;
+    private Long ikt;
+    private String iku;
+    private String ikv;
+    private Integer ikw;
     private String mAppKey;
     private String mLink;
     private String mName;
@@ -17,18 +17,18 @@ public class l implements c {
     public l(SmartApp smartApp) {
         this.mType = 0;
         if (smartApp != null) {
-            this.ied = smartApp.swan_app_id;
+            this.ikt = smartApp.swan_app_id;
             this.mAppKey = smartApp.id;
-            this.eRo = smartApp.avatar;
+            this.eWo = smartApp.avatar;
             this.mName = smartApp.name;
-            this.goG = smartApp._abstract;
-            this.iee = smartApp.pic;
-            this.ief = smartApp.h5_url;
+            this.guS = smartApp._abstract;
+            this.iku = smartApp.pic;
+            this.ikv = smartApp.h5_url;
             this.mLink = smartApp.link;
             if (smartApp.is_recom.intValue() == 1) {
                 this.mType = 1;
             }
-            this.ieg = smartApp.is_game;
+            this.ikw = smartApp.is_game;
         }
     }
 
@@ -37,8 +37,8 @@ public class l implements c {
         return this.mType;
     }
 
-    public Long bYv() {
-        return this.ied;
+    public Long cbk() {
+        return this.ikt;
     }
 
     public String getAppKey() {
@@ -46,22 +46,22 @@ public class l implements c {
     }
 
     public String getAvatar() {
-        return this.eRo;
+        return this.eWo;
     }
 
     public String getName() {
         return this.mName;
     }
 
-    public String akO() {
-        return this.ief;
+    public String alT() {
+        return this.ikv;
     }
 
     public String getLink() {
         return this.mLink;
     }
 
-    public Integer bYw() {
-        return this.ieg;
+    public Integer cbl() {
+        return this.ikw;
     }
 }

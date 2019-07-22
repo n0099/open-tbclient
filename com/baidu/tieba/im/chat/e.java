@@ -9,54 +9,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected com.baidu.adp.lib.c.a gsB;
-    protected com.baidu.adp.lib.c.b gsC;
-    protected long gsI;
-    private boolean gsJ;
-    private boolean gsK;
-    protected int gsL;
+    protected com.baidu.adp.lib.c.a gyM;
+    protected com.baidu.adp.lib.c.b gyN;
+    protected long gyT;
+    private boolean gyU;
+    private boolean gyV;
+    protected int gyW;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gsB = null;
-        this.gsC = null;
-        this.gsI = 0L;
-        this.gsJ = false;
-        this.gsK = false;
+        this.gyM = null;
+        this.gyN = null;
+        this.gyT = 0L;
+        this.gyU = false;
+        this.gyV = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.gsB = aVar;
+        this.gyM = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.gsC = bVar;
+        this.gyN = bVar;
     }
 
-    private void bxQ() {
-        this.gsI = System.currentTimeMillis() / 1000;
+    private void bAu() {
+        this.gyT = System.currentTimeMillis() / 1000;
     }
 
-    public boolean bxR() {
-        return this.gsJ;
+    public boolean bAv() {
+        return this.gyU;
     }
 
-    public void lv(boolean z) {
-        this.gsJ = z;
+    public void lJ(boolean z) {
+        this.gyU = z;
     }
 
-    public boolean bxS() {
-        return this.gsK;
+    public boolean bAw() {
+        return this.gyV;
     }
 
-    public void lw(boolean z) {
-        this.gsK = z;
+    public void lK(boolean z) {
+        this.gyV = z;
     }
 
-    public void uC(int i) {
-        this.gsL = i;
+    public void vd(int i) {
+        this.gyW = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -67,21 +67,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        bxQ();
+        bAu();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends v.a {
-        private T gsM;
+        private T gyX;
 
         public a(View view, T t) {
             super(view);
-            this.gsM = t;
+            this.gyX = t;
         }
 
-        public T bxT() {
-            return this.gsM;
+        public T bAx() {
+            return this.gyX;
         }
     }
 }

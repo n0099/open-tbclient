@@ -15,7 +15,7 @@ class n {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public View bum;
+        public View bvc;
     }
 
     /* loaded from: classes2.dex */
@@ -59,11 +59,11 @@ class n {
     }
 
     public static void setEpicenter(Object obj, View view) {
-        final Rect aB = aB(view);
+        final Rect aD = aD(view);
         ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.1
             @Override // android.transition.Transition.EpicenterCallback
             public Rect onGetEpicenter(Transition transition) {
-                return aB;
+                return aD;
             }
         });
     }
@@ -210,21 +210,21 @@ class n {
     private static void a(Transition transition, final a aVar) {
         if (transition != null) {
             transition.setEpicenterCallback(new Transition.EpicenterCallback() { // from class: com.baidu.swan.support.v4.app.n.3
-                private Rect bug;
+                private Rect buW;
 
                 @Override // android.transition.Transition.EpicenterCallback
                 public Rect onGetEpicenter(Transition transition2) {
-                    if (this.bug == null && a.this.bum != null) {
-                        this.bug = n.aB(a.this.bum);
+                    if (this.buW == null && a.this.bvc != null) {
+                        this.buW = n.aD(a.this.bvc);
                     }
-                    return this.bug;
+                    return this.buW;
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static Rect aB(View view) {
+    public static Rect aD(View view) {
         Rect rect = new Rect();
         int[] iArr = new int[2];
         view.getLocationOnScreen(iArr);

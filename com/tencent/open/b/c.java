@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class c {
@@ -64,7 +63,7 @@ public class c {
             return "";
         }
         try {
-            a = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+            a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             return a;
         } catch (Exception e2) {
             return "";
@@ -79,7 +78,7 @@ public class c {
             return "";
         }
         try {
-            b = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimSerialNumber();
+            b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
             return b;
         } catch (Exception e2) {
             return "";

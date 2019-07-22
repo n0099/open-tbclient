@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 /* loaded from: classes5.dex */
@@ -27,7 +26,7 @@ public final class e {
                                 if (!"9774d56d682e549c".equals(string2) && !TextUtils.isEmpty(string2)) {
                                     a = UUID.nameUUIDFromBytes(string2.getBytes("utf8"));
                                 } else {
-                                    String deviceId = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+                                    String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                                     a = deviceId != null ? UUID.nameUUIDFromBytes(deviceId.getBytes("utf8")) : UUID.randomUUID();
                                 }
                             } catch (UnsupportedEncodingException e) {

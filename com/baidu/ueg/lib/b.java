@@ -3,11 +3,11 @@ package com.baidu.ueg.lib;
 import java.util.Arrays;
 /* loaded from: classes3.dex */
 public abstract class b {
-    protected final int Dk;
-    protected final byte jQG = 61;
-    private final int jQH;
-    private final int jQI;
-    private final int jQJ;
+    protected final int Dq;
+    protected final byte jXH = 61;
+    private final int jXI;
+    private final int jXJ;
+    private final int jXK;
 
     abstract void a(byte[] bArr, int i, int i2, a aVar);
 
@@ -19,11 +19,11 @@ public abstract class b {
     /* loaded from: classes3.dex */
     public static class a {
         byte[] buffer;
-        boolean eof;
-        int jQK;
-        long jQL;
-        int jQM;
-        int jQN;
+        int jXL;
+        long jXM;
+        int jXN;
+        boolean jXO;
+        int jXP;
         int modulus;
         int pos;
 
@@ -31,34 +31,34 @@ public abstract class b {
         }
 
         public String toString() {
-            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.jQN), Boolean.valueOf(this.eof), Integer.valueOf(this.jQK), Long.valueOf(this.jQL), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.jQM));
+            return String.format("%s[buffer=%s, currentLinePos=%s, eof=%s, ibitWorkArea=%s, lbitWorkArea=%s, modulus=%s, pos=%s, readPos=%s]", getClass().getSimpleName(), Arrays.toString(this.buffer), Integer.valueOf(this.jXP), Boolean.valueOf(this.jXO), Integer.valueOf(this.jXL), Long.valueOf(this.jXM), Integer.valueOf(this.modulus), Integer.valueOf(this.pos), Integer.valueOf(this.jXN));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(int i, int i2, int i3, int i4) {
-        this.jQH = i;
-        this.jQI = i2;
-        this.Dk = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
-        this.jQJ = i4;
+        this.jXI = i;
+        this.jXJ = i2;
+        this.Dq = i3 > 0 && i4 > 0 ? (i3 / i2) * i2 : 0;
+        this.jXK = i4;
     }
 
     int a(a aVar) {
         if (aVar.buffer != null) {
-            return aVar.pos - aVar.jQM;
+            return aVar.pos - aVar.jXN;
         }
         return 0;
     }
 
-    protected int cAP() {
+    protected int cDO() {
         return 8192;
     }
 
     private byte[] b(a aVar) {
         if (aVar.buffer == null) {
-            aVar.buffer = new byte[cAP()];
+            aVar.buffer = new byte[cDO()];
             aVar.pos = 0;
-            aVar.jQM = 0;
+            aVar.jXN = 0;
         } else {
             byte[] bArr = new byte[aVar.buffer.length * 2];
             System.arraycopy(aVar.buffer, 0, bArr, 0, aVar.buffer.length);
@@ -74,12 +74,12 @@ public abstract class b {
 
     int c(byte[] bArr, int i, int i2, a aVar) {
         if (aVar.buffer == null) {
-            return aVar.eof ? -1 : 0;
+            return aVar.jXO ? -1 : 0;
         }
         int min = Math.min(a(aVar), i2);
-        System.arraycopy(aVar.buffer, aVar.jQM, bArr, i, min);
-        aVar.jQM += min;
-        if (aVar.jQM >= aVar.pos) {
+        System.arraycopy(aVar.buffer, aVar.jXN, bArr, i, min);
+        aVar.jXN += min;
+        if (aVar.jXN >= aVar.pos) {
             aVar.buffer = null;
             return min;
         }
@@ -87,7 +87,7 @@ public abstract class b {
     }
 
     public byte[] decode(String str) {
-        return decode(d.GE(str));
+        return decode(d.Hy(str));
     }
 
     public byte[] decode(byte[] bArr) {
@@ -107,7 +107,7 @@ public abstract class b {
             a aVar = new a();
             a(bArr, 0, bArr.length, aVar);
             a(bArr, 0, -1, aVar);
-            byte[] bArr2 = new byte[aVar.pos - aVar.jQM];
+            byte[] bArr2 = new byte[aVar.pos - aVar.jXN];
             c(bArr2, 0, bArr2.length, aVar);
             return bArr2;
         }
@@ -115,7 +115,7 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean T(byte[] bArr) {
+    public boolean U(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
@@ -127,10 +127,10 @@ public abstract class b {
         return false;
     }
 
-    public long U(byte[] bArr) {
-        long length = (((bArr.length + this.jQH) - 1) / this.jQH) * this.jQI;
-        if (this.Dk > 0) {
-            return length + ((((this.Dk + length) - 1) / this.Dk) * this.jQJ);
+    public long V(byte[] bArr) {
+        long length = (((bArr.length + this.jXI) - 1) / this.jXI) * this.jXJ;
+        if (this.Dq > 0) {
+            return length + ((((this.Dq + length) - 1) / this.Dq) * this.jXK);
         }
         return length;
     }

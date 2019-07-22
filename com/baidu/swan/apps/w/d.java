@@ -12,27 +12,27 @@ import java.util.TimerTask;
 /* loaded from: classes2.dex */
 public class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private c azu = new c(this);
-    private a azv = new a();
-    private boolean azw;
+    private c aAb = new c(this);
+    private a aAc = new a();
+    private boolean aAd;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void cH(int i);
+        void cI(int i);
     }
 
     public void bj(Context context) {
-        if (!this.azw) {
-            this.azw = true;
-            context.registerReceiver(this.azu, c.getIntentFilter());
+        if (!this.aAd) {
+            this.aAd = true;
+            context.registerReceiver(this.aAb, c.getIntentFilter());
         }
     }
 
     public void bk(Context context) {
-        if (this.azw) {
-            this.azw = false;
+        if (this.aAd) {
+            this.aAd = false;
             try {
-                context.unregisterReceiver(this.azu);
+                context.unregisterReceiver(this.aAb);
             } catch (IllegalArgumentException e) {
                 if (DEBUG) {
                     e.printStackTrace();
@@ -42,86 +42,86 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bs(boolean z) {
+    public void bv(boolean z) {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
         }
         if (z) {
-            FN();
+            Gx();
         } else {
-            FO();
+            Gy();
         }
     }
 
     public void a(b bVar) {
-        this.azv.a(bVar);
+        this.aAc.a(bVar);
     }
 
-    public void FM() {
+    public void Gw() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
         }
-        this.azv.iF();
+        this.aAc.iO();
     }
 
-    private void FN() {
-        this.azv.FQ();
+    private void Gx() {
+        this.aAc.GA();
     }
 
-    private void FO() {
-        this.azv.FR();
+    private void Gy() {
+        this.aAc.GB();
     }
 
-    public void FP() {
+    public void Gz() {
         if (DEBUG) {
             Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
         }
-        this.azv.stopTimer();
+        this.aAc.stopTimer();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        private b azx;
-        private long azy = 300;
+        private b aAe;
+        private long aAf = 300;
         private int mStatus = 0;
         private Timer mTimer;
 
         static /* synthetic */ long b(a aVar) {
-            long j = aVar.azy - 1;
-            aVar.azy = j;
+            long j = aVar.aAf - 1;
+            aVar.aAf = j;
             return j;
         }
 
-        public void iF() {
+        public void iO() {
             this.mStatus = 1;
-            FT();
-            xf();
-            FS();
+            GD();
+            xG();
+            GC();
         }
 
         public void stopTimer() {
             this.mStatus = 2;
-            xf();
-            FT();
+            xG();
+            GD();
         }
 
-        public void FQ() {
+        public void GA() {
             if (this.mStatus == 4) {
                 this.mStatus = 3;
-                xf();
-                FS();
+                xG();
+                GC();
             }
         }
 
-        public void FR() {
+        public void GB() {
             if (this.mStatus != 2) {
                 this.mStatus = 4;
-                xf();
+                xG();
             }
         }
 
-        private synchronized void xf() {
+        private synchronized void xG() {
             if (this.mTimer != null) {
                 this.mTimer.cancel();
                 this.mTimer.purge();
@@ -129,29 +129,29 @@ public class d {
             }
         }
 
-        private void FS() {
+        private void GC() {
             this.mTimer = new Timer();
-            this.mTimer.schedule(FU(), 0L, 1000L);
+            this.mTimer.schedule(GE(), 0L, 1000L);
         }
 
-        private void FT() {
-            this.azy = 300L;
+        private void GD() {
+            this.aAf = 300L;
         }
 
         public void a(b bVar) {
-            this.azx = bVar;
+            this.aAe = bVar;
         }
 
-        private TimerTask FU() {
+        private TimerTask GE() {
             return new TimerTask() { // from class: com.baidu.swan.apps.w.d.a.1
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
                     if (d.DEBUG) {
-                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.azy);
+                        Log.d("SwanAppCollectionPolicy", "task run: " + a.this.aAf);
                     }
                     a.b(a.this);
-                    if (a.this.azy <= 0 && a.this.azx != null) {
-                        a.this.azx.cH(1);
+                    if (a.this.aAf <= 0 && a.this.aAe != null) {
+                        a.this.aAe.cI(1);
                         a.this.stopTimer();
                     }
                 }
@@ -189,10 +189,10 @@ public class d {
                 }
                 switch (c) {
                     case 0:
-                        dVar.bs(true);
+                        dVar.bv(true);
                         return;
                     case 1:
-                        dVar.bs(false);
+                        dVar.bv(false);
                         return;
                     default:
                         return;

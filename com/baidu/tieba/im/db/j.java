@@ -9,19 +9,19 @@ import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class j {
-    private static j gyy;
+    private static j gEJ;
 
-    public static synchronized j bAe() {
+    public static synchronized j bCK() {
         j jVar;
         synchronized (j.class) {
-            if (gyy == null) {
+            if (gEJ == null) {
                 synchronized (j.class) {
-                    if (gyy == null) {
-                        gyy = new j();
+                    if (gEJ == null) {
+                        gEJ = new j();
                     }
                 }
             }
-            jVar = gyy;
+            jVar = gEJ;
         }
         return jVar;
     }
@@ -29,9 +29,9 @@ public class j {
     private j() {
     }
 
-    public boolean aK(String str, int i) {
+    public boolean aL(String str, int i) {
         try {
-            return h.bAb().a("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            return h.bCG().a("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         } catch (Exception e) {
             e.printStackTrace();
             TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
@@ -39,75 +39,75 @@ public class j {
         }
     }
 
-    public LinkedList<ImMessageCenterPojo> bAf() {
+    public LinkedList<ImMessageCenterPojo> bCL() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        Cursor rawQuery = h.bAb().rawQuery("SELECT * FROM tb_message_center", null);
-        if (rawQuery != null) {
-            while (rawQuery.moveToNext()) {
+        Cursor b = h.bCG().b("SELECT * FROM tb_message_center", null);
+        if (b != null) {
+            while (b.moveToNext()) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.g.b.c(rawQuery.getString(rawQuery.getColumnIndex("pull_msgid")), 0L));
-                imMessageCenterPojo.setGid(rawQuery.getString(rawQuery.getColumnIndex("gid")));
-                imMessageCenterPojo.setGroup_name(rawQuery.getString(rawQuery.getColumnIndex("group_name")));
-                imMessageCenterPojo.setNameShow(rawQuery.getString(rawQuery.getColumnIndex("group_name_show")));
-                imMessageCenterPojo.setGroup_head(rawQuery.getString(rawQuery.getColumnIndex("group_head")));
-                imMessageCenterPojo.setCustomGroupType(rawQuery.getInt(rawQuery.getColumnIndex("custom_group_type")));
-                imMessageCenterPojo.setIsFriend(rawQuery.getInt(rawQuery.getColumnIndex("is_friend")));
-                imMessageCenterPojo.setUnread_count(rawQuery.getInt(rawQuery.getColumnIndex("unread_count")));
-                imMessageCenterPojo.setLast_rid(rawQuery.getLong(rawQuery.getColumnIndex("last_msgId")));
-                imMessageCenterPojo.setLast_user_name(rawQuery.getString(rawQuery.getColumnIndex("last_user_name")));
-                imMessageCenterPojo.setLast_content_time(rawQuery.getLong(rawQuery.getColumnIndex("last_content_time")));
-                imMessageCenterPojo.setSend_status(rawQuery.getInt(rawQuery.getColumnIndex("send_status")));
-                imMessageCenterPojo.setLast_content(rawQuery.getString(rawQuery.getColumnIndex("last_content")));
-                imMessageCenterPojo.setPulled_msgId(rawQuery.getLong(rawQuery.getColumnIndex("pull_msgid")));
-                imMessageCenterPojo.setIs_hidden(rawQuery.getInt(rawQuery.getColumnIndex("is_hidden")));
+                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.g.b.c(b.getString(b.getColumnIndex("pull_msgid")), 0L));
+                imMessageCenterPojo.setGid(b.getString(b.getColumnIndex("gid")));
+                imMessageCenterPojo.setGroup_name(b.getString(b.getColumnIndex("group_name")));
+                imMessageCenterPojo.setNameShow(b.getString(b.getColumnIndex("group_name_show")));
+                imMessageCenterPojo.setGroup_head(b.getString(b.getColumnIndex("group_head")));
+                imMessageCenterPojo.setCustomGroupType(b.getInt(b.getColumnIndex("custom_group_type")));
+                imMessageCenterPojo.setIsFriend(b.getInt(b.getColumnIndex("is_friend")));
+                imMessageCenterPojo.setUnread_count(b.getInt(b.getColumnIndex("unread_count")));
+                imMessageCenterPojo.setLast_rid(b.getLong(b.getColumnIndex("last_msgId")));
+                imMessageCenterPojo.setLast_user_name(b.getString(b.getColumnIndex("last_user_name")));
+                imMessageCenterPojo.setLast_content_time(b.getLong(b.getColumnIndex("last_content_time")));
+                imMessageCenterPojo.setSend_status(b.getInt(b.getColumnIndex("send_status")));
+                imMessageCenterPojo.setLast_content(b.getString(b.getColumnIndex("last_content")));
+                imMessageCenterPojo.setPulled_msgId(b.getLong(b.getColumnIndex("pull_msgid")));
+                imMessageCenterPojo.setIs_hidden(b.getInt(b.getColumnIndex("is_hidden")));
                 linkedList.add(imMessageCenterPojo);
             }
         }
-        com.baidu.adp.lib.util.n.e(rawQuery);
+        com.baidu.adp.lib.util.n.e(b);
         return linkedList;
     }
 
-    public LinkedList<ImMessageCenterPojo> bAg() {
+    public LinkedList<ImMessageCenterPojo> bCM() {
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-        Cursor rawQuery = h.bAb().rawQuery("SELECT * FROM tb_message_center", null);
-        if (rawQuery != null) {
-            while (rawQuery.moveToNext()) {
+        Cursor b = h.bCG().b("SELECT * FROM tb_message_center", null);
+        if (b != null) {
+            while (b.moveToNext()) {
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.g.b.c(rawQuery.getString(rawQuery.getColumnIndex("pull_msgid")), 0L));
-                imMessageCenterPojo.setGid(rawQuery.getString(rawQuery.getColumnIndex("gid")));
-                imMessageCenterPojo.setGroup_name(rawQuery.getString(rawQuery.getColumnIndex("group_name")));
-                imMessageCenterPojo.setNameShow(rawQuery.getString(rawQuery.getColumnIndex("group_name_show")));
-                imMessageCenterPojo.setGroup_head(rawQuery.getString(rawQuery.getColumnIndex("group_head")));
-                imMessageCenterPojo.setCustomGroupType(rawQuery.getInt(rawQuery.getColumnIndex("custom_group_type")));
-                imMessageCenterPojo.setIsFriend(rawQuery.getInt(rawQuery.getColumnIndex("is_friend")));
-                imMessageCenterPojo.setUnread_count(rawQuery.getInt(rawQuery.getColumnIndex("unread_count")));
-                imMessageCenterPojo.setLast_rid(rawQuery.getLong(rawQuery.getColumnIndex("last_msgId")));
-                imMessageCenterPojo.setLast_user_name(rawQuery.getString(rawQuery.getColumnIndex("last_user_name")));
-                imMessageCenterPojo.setLast_content_time(rawQuery.getLong(rawQuery.getColumnIndex("last_content_time")));
-                imMessageCenterPojo.setSend_status(rawQuery.getInt(rawQuery.getColumnIndex("send_status")));
-                imMessageCenterPojo.setLast_content(rawQuery.getString(rawQuery.getColumnIndex("last_content")));
-                imMessageCenterPojo.setPulled_msgId(rawQuery.getLong(rawQuery.getColumnIndex("pull_msgid")));
-                imMessageCenterPojo.setIs_hidden(rawQuery.getInt(rawQuery.getColumnIndex("is_hidden")));
-                imMessageCenterPojo.setSent_msgId(rawQuery.getLong(rawQuery.getColumnIndex("sent_mid")));
-                imMessageCenterPojo.setRead_msgId(rawQuery.getLong(rawQuery.getColumnIndex("read_mid")));
-                imMessageCenterPojo.setUserType(rawQuery.getInt(rawQuery.getColumnIndex("user_type")));
-                imMessageCenterPojo.setSid(rawQuery.getLong(rawQuery.getColumnIndex("sid")));
-                imMessageCenterPojo.setTaskId(rawQuery.getString(rawQuery.getColumnIndex("task_id")));
-                imMessageCenterPojo.setPushIds(rawQuery.getString(rawQuery.getColumnIndex("ext1")));
+                imMessageCenterPojo.setPulled_msgId(com.baidu.adp.lib.g.b.c(b.getString(b.getColumnIndex("pull_msgid")), 0L));
+                imMessageCenterPojo.setGid(b.getString(b.getColumnIndex("gid")));
+                imMessageCenterPojo.setGroup_name(b.getString(b.getColumnIndex("group_name")));
+                imMessageCenterPojo.setNameShow(b.getString(b.getColumnIndex("group_name_show")));
+                imMessageCenterPojo.setGroup_head(b.getString(b.getColumnIndex("group_head")));
+                imMessageCenterPojo.setCustomGroupType(b.getInt(b.getColumnIndex("custom_group_type")));
+                imMessageCenterPojo.setIsFriend(b.getInt(b.getColumnIndex("is_friend")));
+                imMessageCenterPojo.setUnread_count(b.getInt(b.getColumnIndex("unread_count")));
+                imMessageCenterPojo.setLast_rid(b.getLong(b.getColumnIndex("last_msgId")));
+                imMessageCenterPojo.setLast_user_name(b.getString(b.getColumnIndex("last_user_name")));
+                imMessageCenterPojo.setLast_content_time(b.getLong(b.getColumnIndex("last_content_time")));
+                imMessageCenterPojo.setSend_status(b.getInt(b.getColumnIndex("send_status")));
+                imMessageCenterPojo.setLast_content(b.getString(b.getColumnIndex("last_content")));
+                imMessageCenterPojo.setPulled_msgId(b.getLong(b.getColumnIndex("pull_msgid")));
+                imMessageCenterPojo.setIs_hidden(b.getInt(b.getColumnIndex("is_hidden")));
+                imMessageCenterPojo.setSent_msgId(b.getLong(b.getColumnIndex("sent_mid")));
+                imMessageCenterPojo.setRead_msgId(b.getLong(b.getColumnIndex("read_mid")));
+                imMessageCenterPojo.setUserType(b.getInt(b.getColumnIndex("user_type")));
+                imMessageCenterPojo.setSid(b.getLong(b.getColumnIndex("sid")));
+                imMessageCenterPojo.setTaskId(b.getString(b.getColumnIndex("task_id")));
+                imMessageCenterPojo.setPushIds(b.getString(b.getColumnIndex("ext1")));
                 linkedList.add(imMessageCenterPojo);
             }
         }
-        com.baidu.adp.lib.util.n.e(rawQuery);
+        com.baidu.adp.lib.util.n.e(b);
         return linkedList;
     }
 
-    public ImMessageCenterPojo aL(String str, int i) {
+    public ImMessageCenterPojo aM(String str, int i) {
         Cursor cursor;
         ImMessageCenterPojo imMessageCenterPojo;
         Exception e;
         try {
             try {
-                cursor = h.bAb().rawQuery("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+                cursor = h.bCG().b("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
             } catch (Throwable th) {
                 th = th;
                 com.baidu.adp.lib.util.n.e(null);
@@ -168,12 +168,12 @@ public class j {
         return imMessageCenterPojo;
     }
 
-    public LinkedList<ImMessageCenterPojo> bAh() {
+    public LinkedList<ImMessageCenterPojo> bCN() {
         Cursor cursor;
         LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
         try {
             try {
-                cursor = h.bAb().rawQuery("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(1), String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
+                cursor = h.bCG().b("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(1), String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
@@ -240,16 +240,16 @@ public class j {
             } else if (i == 3 && unread_count > 0) {
                 try {
                     try {
-                        Cursor rawQuery = h.bAb().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
-                        if (rawQuery != null && rawQuery.moveToNext()) {
-                            int i3 = unread_count + rawQuery.getInt(rawQuery.getColumnIndex("unread_count"));
+                        Cursor b = h.bCG().b("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+                        if (b != null && b.moveToNext()) {
+                            int i3 = unread_count + b.getInt(b.getColumnIndex("unread_count"));
                             if (i3 > 0) {
                                 contentValues.put("unread_count", Integer.valueOf(i3));
                             }
                         } else {
                             contentValues.put("unread_count", Integer.valueOf(unread_count));
                         }
-                        com.baidu.adp.lib.util.n.e(rawQuery);
+                        com.baidu.adp.lib.util.n.e(b);
                     } catch (Exception e) {
                         BdLog.e(e);
                         com.baidu.adp.lib.util.n.e(null);
@@ -283,9 +283,9 @@ public class j {
             }
             contentValues.put("user_type", Integer.valueOf(imMessageCenterPojo.getUserType()));
             BdLog.i("sql-" + contentValues);
-            if (h.bAb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) == 0) {
+            if (h.bCG().a("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) == 0) {
                 BdLog.i("insert");
-                h.bAb().insert("tb_message_center", null, contentValues);
+                h.bCG().a("tb_message_center", (String) null, contentValues);
             }
         }
     }
@@ -310,16 +310,16 @@ public class j {
             } else if (i == 3 && unread_count > 0) {
                 try {
                     try {
-                        Cursor rawQuery = h.bAb().rawQuery("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
-                        if (rawQuery != null && rawQuery.moveToNext()) {
-                            int i2 = unread_count + rawQuery.getInt(rawQuery.getColumnIndex("unread_count"));
+                        Cursor b = h.bCG().b("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
+                        if (b != null && b.moveToNext()) {
+                            int i2 = unread_count + b.getInt(b.getColumnIndex("unread_count"));
                             if (i2 > 0) {
                                 contentValues.put("unread_count", Integer.valueOf(i2));
                             }
                         } else {
                             contentValues.put("unread_count", Integer.valueOf(unread_count));
                         }
-                        com.baidu.adp.lib.util.n.e(rawQuery);
+                        com.baidu.adp.lib.util.n.e(b);
                     } catch (Exception e) {
                         BdLog.e(e);
                         com.baidu.adp.lib.util.n.e(null);
@@ -346,22 +346,22 @@ public class j {
                 contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
             }
             BdLog.i("sql-" + contentValues);
-            if (h.bAb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) == 0) {
+            if (h.bCG().a("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) == 0) {
                 BdLog.i("insert");
-                h.bAb().insert("tb_message_center", null, contentValues);
+                h.bCG().a("tb_message_center", (String) null, contentValues);
             }
         }
     }
 
-    public void aM(String str, int i) {
+    public void aN(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("unread_count", (Integer) 0);
-            h.bAb().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
+            h.bCG().a("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
         }
     }
 
-    public boolean bAi() {
-        return h.bAb().a("tb_message_center", "custom_group_type=? AND is_friend!=?", new String[]{String.valueOf(2), String.valueOf(1)});
+    public boolean bCO() {
+        return h.bCG().a("tb_message_center", "custom_group_type=? AND is_friend!=?", new String[]{String.valueOf(2), String.valueOf(1)});
     }
 }

@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a IE;
-    private c IF;
-    private ArrayList<b> IG = new ArrayList<>();
-    private C0021a IH;
+    private static a IQ;
+    private c IR;
+    private ArrayList<b> IS = new ArrayList<>();
+    private C0021a IT;
 
     /* loaded from: classes.dex */
     public interface c {
@@ -21,26 +21,26 @@ public class a {
     private a() {
     }
 
-    public static a lV() {
-        if (IE == null) {
+    public static a ml() {
+        if (IQ == null) {
             synchronized (a.class) {
-                if (IE == null) {
-                    IE = new a();
+                if (IQ == null) {
+                    IQ = new a();
                 }
             }
         }
-        return IE;
+        return IQ;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.IF = cVar;
+            this.IR = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.IG.iterator();
+                    Iterator<b> it2 = this.IS.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,19 +51,19 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.IG.add(next);
+                        this.IS.add(next);
                     }
                 }
             }
-            lW();
+            mm();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void lW() {
-        if (this.IG.size() != 0 && this.IH == null) {
-            this.IH = new C0021a(this.IG.get(0));
-            this.IH.execute(new String[0]);
+    public void mm() {
+        if (this.IS.size() != 0 && this.IT == null) {
+            this.IT = new C0021a(this.IS.get(0));
+            this.IT.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0021a extends BdAsyncTask<String, Integer, Boolean> {
-        private b II;
+        private b IU;
 
         public C0021a(b bVar) {
-            this.II = bVar;
+            this.IU = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.II != null) {
-                return Boolean.valueOf(bB(this.II.apkPath));
+            if (this.IU != null) {
+                return Boolean.valueOf(bD(this.IU.apkPath));
             }
             return false;
         }
@@ -92,35 +92,35 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0021a) bool);
-            a.this.IH = null;
-            if (a.this.IG.size() > 0) {
-                Iterator it = a.this.IG.iterator();
+            a.this.IT = null;
+            if (a.this.IS.size() > 0) {
+                Iterator it = a.this.IS.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.II, bVar)) {
-                        a.this.IG.remove(bVar);
+                    if (a.this.a(this.IU, bVar)) {
+                        a.this.IS.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.IF != null) {
-                a.this.IF.D(this.II.packageName, this.II.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.IR != null) {
+                a.this.IR.D(this.IU.packageName, this.IU.apkPath);
             }
-            a.this.lW();
+            a.this.mm();
         }
 
-        private boolean bB(String str) {
+        private boolean bD(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
             try {
                 f.l(new File(str));
-                com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse", str, null);
+                com.baidu.adp.plugin.b.a.mc().f("plugin_del_unuse", "delete_unuse", str, null);
             } catch (Throwable th) {
-                com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
+                com.baidu.adp.plugin.b.a.mc().f("plugin_del_unuse", "delete_unuse_fail", str, th.getMessage());
             }
             int length = str.length();
             if (length >= 4) {
@@ -128,9 +128,9 @@ public class a {
                 if (file.exists() && file.isDirectory()) {
                     try {
                         f.l(file);
-                        com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse", str, null);
+                        com.baidu.adp.plugin.b.a.mc().f("plugin_del_unuse", "delete_unuse", str, null);
                     } catch (Throwable th2) {
-                        com.baidu.adp.plugin.b.a.lM().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
+                        com.baidu.adp.plugin.b.a.mc().f("plugin_del_unuse", "delete_unuse_fail", str, th2.getMessage());
                     }
                 }
                 return true;

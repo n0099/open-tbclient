@@ -135,7 +135,7 @@ public class a<K, V> {
         return this.size;
     }
 
-    public final synchronized int getMaxSize() {
+    public final synchronized int hs() {
         return this.maxSize;
     }
 

@@ -19,10 +19,15 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.SimpleTimeZone;
 /* loaded from: classes3.dex */
-public class b {
-    public static final String a = b.class.getSimpleName();
-    public static final String b = "Set-Cookie";
+class b {
+    private static final String a = b.class.getSimpleName();
+    private static final String b = "Set-Cookie";
     private static final String c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    private static final String d = "Cookie";
+    private static final String e = "https://";
+
+    b() {
+    }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @TargetApi(9)
@@ -88,8 +93,8 @@ public class b {
                     httpURLConnection.setRequestProperty("Cookie", substring);
                 }
             }
-        } catch (Exception e) {
-            c.a(a, "asyncWebviewCookie2NA:" + e.toString());
+        } catch (Exception e2) {
+            c.a(a, "asyncWebviewCookie2NA:" + e2.toString());
         }
     }
 
@@ -98,7 +103,7 @@ public class b {
         calendar.setTimeInMillis(j);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + "httponly" + (z ? ";secure" : "");
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(calendar.getTime()) + ";httponly" + (z ? ";secure" : "");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -134,8 +139,8 @@ public class b {
                     }
                 }
             }
-        } catch (Exception e) {
-            c.a(a, "asyncNaCookie2Webview:" + e.toString());
+        } catch (Exception e2) {
+            c.a(a, "asyncNaCookie2Webview:" + e2.toString());
         }
     }
 
@@ -147,7 +152,7 @@ public class b {
                 return false;
             }
             return a(str, httpCookie.getSecure());
-        } catch (Exception e) {
+        } catch (Exception e2) {
             return false;
         }
     }

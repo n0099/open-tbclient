@@ -8,7 +8,6 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
@@ -120,7 +119,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onAccountSwitch(SapiWebView.SwitchAccountCallback.Result result) {
                 Intent intent = new Intent(LoadExternalWebViewActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                intent.putExtra("username", result.userName);
+                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, result.userName);
                 LoadExternalWebViewActivity.this.startActivityForResult(intent, 2001);
             }
         });
@@ -138,7 +137,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
             public void onPreFillUserName(SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult) {
                 Intent intent = new Intent();
                 intent.putExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME);
-                intent.putExtra("username", preFillUserNameResult.userName);
+                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, preFillUserNameResult.userName);
                 LoadExternalWebViewActivity.this.setResult(-1, intent);
             }
         });
@@ -163,14 +162,10 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void configTitle() {
         setTitleText(this.title);
-        SapiConfiguration sapiConfiguration = SapiAccountManager.getInstance().getSapiConfiguration();
         if (PassportViewManager.getInstance().getTitleViewModule() != null) {
             configCustomTitle();
-            return;
-        }
-        setBtnVisibility(4, 0, 4);
-        if (sapiConfiguration.showBottomBack) {
-            setLeftBtnDrawable(null, null, null, null);
+        } else {
+            setBtnVisibility(4, 0, 4);
         }
     }
 
@@ -190,13 +185,6 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         } else {
             finish();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

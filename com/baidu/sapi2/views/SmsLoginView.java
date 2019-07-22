@@ -3,13 +3,11 @@ package com.baidu.sapi2.views;
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.graphics.drawable.GradientDrawable;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.widget.ActivityChooserView;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.SpannedString;
@@ -30,10 +28,11 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.GetDynamicPwdCallback;
-import com.baidu.sapi2.receiver.SMSReceiver;
 import com.baidu.sapi2.result.DynamicPwdLoginResult;
 import com.baidu.sapi2.result.GetDynamicPwdResult;
 import com.baidu.sapi2.shell.result.WebAuthResult;
+import com.baidu.sapi2.utils.PtokenStat;
+import com.baidu.sapi2.utils.SapiCoreUtil;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
@@ -41,11 +40,10 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 /* loaded from: classes2.dex */
 public class SmsLoginView extends FrameLayout {
-    public static final String KEY_PRO_STAT_EXTRA = "extrajson";
-    public static final String KEY_SDK_SITUATION = "sdk_situation";
-    public static final String KEY_SDK_SITUATION_POP_LOGIN = "pop_login";
-    public static final String KEY_SDK_SKIP_REG = "skipreg";
-    public static final String TAG = "SmsLoginView";
+    private static final String KEY_PRO_STAT_EXTRA = "extrajson";
+    private static final String KEY_SDK_SITUATION = "sdk_situation";
+    private static final String KEY_SDK_SITUATION_POP_LOGIN = "pop_login";
+    private static final String KEY_SDK_SKIP_REG = "skipreg";
     private EditText checkCode;
     private View codeContainer;
     private Context context;
@@ -119,7 +117,7 @@ public class SmsLoginView extends FrameLayout {
                     }
                     if (SapiUtils.getLastLoginType() == 2) {
                         String decryptStr = SapiContext.getInstance(context).getDecryptStr(SapiContext.KEY_LAST_LOGIN_PHONE);
-                        if (!TextUtils.isEmpty(decryptStr)) {
+                        if (!TextUtils.isEmpty(decryptStr) && decryptStr.length() == 11) {
                             SmsLoginView.this.phone.setText(decryptStr);
                             SmsLoginView.this.phone.setSelection(decryptStr.length());
                         }
@@ -298,7 +296,7 @@ public class SmsLoginView extends FrameLayout {
         String obj = this.checkCode.getText().toString();
         String smsLoginStatExtra = PassportSDK.getInstance().getSmsLoginStatExtra();
         HashMap hashMap = new HashMap();
-        if (SapiUtils.statExtraValid(getContext(), smsLoginStatExtra)) {
+        if (SapiUtils.statExtraValid(smsLoginStatExtra)) {
             hashMap.put("extrajson", smsLoginStatExtra);
         }
         hashMap.put(KEY_SDK_SITUATION, "pop_login");
@@ -316,6 +314,7 @@ public class SmsLoginView extends FrameLayout {
                     SapiContext.getInstance(SmsLoginView.this.context).put(SapiContext.KEY_PRE_LOGIN_TYPE, "sms");
                     PassportSDK.getInstance().getSmsViewLoginCallback().onSuccess(webAuthResult);
                 }
+                new PtokenStat().onEvent(PtokenStat.LOGIN_POP);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -392,7 +391,7 @@ public class SmsLoginView extends FrameLayout {
                 SmsLoginView.this.loginPhoneNumber = SmsLoginView.this.phone.getText().toString();
                 String smsLoginStatExtra = PassportSDK.getInstance().getSmsLoginStatExtra();
                 HashMap hashMap = new HashMap();
-                if (SapiUtils.statExtraValid(SmsLoginView.this.getContext(), smsLoginStatExtra)) {
+                if (SapiUtils.statExtraValid(smsLoginStatExtra)) {
                     hashMap.put("extrajson", smsLoginStatExtra);
                 }
                 hashMap.put(SmsLoginView.KEY_SDK_SITUATION, "pop_login");
@@ -472,11 +471,7 @@ public class SmsLoginView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public void registerReceiver(Handler handler) {
         if (this.smsReceiver == null) {
-            this.smsReceiver = new SMSReceiver(handler);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.provider.Telephony.SMS_RECEIVED");
-            intentFilter.setPriority(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            getContext().registerReceiver(this.smsReceiver, intentFilter);
+            this.smsReceiver = SapiCoreUtil.registerReceiver(this.context, handler);
         }
     }
 

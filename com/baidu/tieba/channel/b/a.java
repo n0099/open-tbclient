@@ -17,90 +17,90 @@ import com.baidu.tieba.channel.view.ChannelMoreView;
 import com.baidu.tieba.channel.view.k;
 /* loaded from: classes6.dex */
 public class a {
-    private View.OnClickListener ckI = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
+    private View.OnClickListener clU = new View.OnClickListener() { // from class: com.baidu.tieba.channel.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.eDA.getCancelView()) {
-                if (view != a.this.eDA.getLayerView()) {
-                    if (view == a.this.eDA.getUpInfoView()) {
-                        a.this.aUv();
-                        if (a.this.aYy()) {
-                            a.this.TU();
+            if (view != a.this.eIw.getCancelView()) {
+                if (view != a.this.eIw.getLayerView()) {
+                    if (view == a.this.eIw.getUpInfoView()) {
+                        a.this.aWt();
+                        if (a.this.bax()) {
+                            a.this.UM();
                         }
                         TiebaStatic.log("c11994");
-                    } else if (view == a.this.eDA.getPushView()) {
-                        if (a.this.eDB != null) {
-                            a.this.eDB.a(18, null, null, -1);
+                    } else if (view == a.this.eIw.getPushView()) {
+                        if (a.this.eIx != null) {
+                            a.this.eIx.a(18, null, null, -1);
                         }
-                        if (a.this.aYy()) {
-                            a.this.TU();
+                        if (a.this.bax()) {
+                            a.this.UM();
                         }
                     }
-                } else if (a.this.aYy()) {
-                    a.this.TU();
+                } else if (a.this.bax()) {
+                    a.this.UM();
                 }
-            } else if (a.this.aYy()) {
-                a.this.TU();
+            } else if (a.this.bax()) {
+                a.this.UM();
             }
         }
     };
-    private Runnable cvT;
-    private d eCC;
-    private ChannelMoreView eDA;
-    private ChannelHomeActivity eDB;
-    private k eDz;
+    private Runnable cxi;
+    private d eHy;
+    private k eIv;
+    private ChannelMoreView eIw;
+    private ChannelHomeActivity eIx;
 
     public a(ChannelHomeActivity channelHomeActivity) {
-        this.eDB = channelHomeActivity;
+        this.eIx = channelHomeActivity;
     }
 
     public void showPopWindow() {
-        if (this.eCC != null) {
-            if (this.eDz == null) {
-                this.eDA = new ChannelMoreView(this.eDB.getApplicationContext(), this.eCC, this.ckI);
-                this.eDA.setBackGround();
-                this.eDz = new k(this.eDB.getActivity(), this.eDA);
+        if (this.eHy != null) {
+            if (this.eIv == null) {
+                this.eIw = new ChannelMoreView(this.eIx.getApplicationContext(), this.eHy, this.clU);
+                this.eIw.setBackGround();
+                this.eIv = new k(this.eIx.getActivity(), this.eIw);
             }
-            this.eDz.showAtLocation(this.eDB.findViewById(R.id.channel_home_navigation_bar), 17, 0, 0);
+            this.eIv.showAtLocation(this.eIx.findViewById(R.id.channel_home_navigation_bar), 17, 0, 0);
         }
     }
 
-    public void TU() {
-        if (this.cvT == null) {
-            this.cvT = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
+    public void UM() {
+        if (this.cxi == null) {
+            this.cxi = new Runnable() { // from class: com.baidu.tieba.channel.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.this.eDz != null) {
-                        g.a(a.this.eDz, a.this.eDB.getPageContext().getPageActivity());
-                        a.this.eDz = null;
+                    if (a.this.eIv != null) {
+                        g.a(a.this.eIv, a.this.eIx.getPageContext().getPageActivity());
+                        a.this.eIv = null;
                     }
                 }
             };
         }
-        e.iB().postDelayed(this.cvT, 100L);
+        e.iK().postDelayed(this.cxi, 100L);
     }
 
     public void b(d dVar) {
-        this.eCC = dVar;
+        this.eHy = dVar;
     }
 
-    public boolean aYy() {
-        return this.eDz != null && this.eDz.isShowing();
+    public boolean bax() {
+        return this.eIv != null && this.eIv.isShowing();
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eDA != null) {
-            this.eDA.setBackGround();
+        if (this.eIw != null) {
+            this.eIw.setBackGround();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aUv() {
-        if (this.eCC != null && this.eCC.aYC() != null) {
-            ChannelInfo aYC = this.eCC.aYC();
-            String valueOf = String.valueOf(aYC.getUserId());
+    public void aWt() {
+        if (this.eHy != null && this.eHy.baB() != null) {
+            ChannelInfo baB = this.eHy.baB();
+            String valueOf = String.valueOf(baB.getUserId());
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.eDB.getPageContext().getPageActivity()).createNormalConfig(aYC.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.eIx.getPageContext().getPageActivity()).createNormalConfig(baB.getUserId(), !TextUtils.isEmpty(currentAccount) && currentAccount.equals(valueOf), false)));
         }
     }
 }

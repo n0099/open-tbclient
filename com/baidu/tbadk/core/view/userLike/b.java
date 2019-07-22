@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.view.userLike;
 import android.view.View;
 /* loaded from: classes.dex */
 public interface b {
-    void aX(View view);
+    void aZ(View view);
 
     void d(boolean z, int i, boolean z2);
 
@@ -11,5 +11,5 @@ public interface b {
 
     void f(boolean z, int i);
 
-    void iY(int i);
+    void je(int i);
 }

@@ -6,77 +6,77 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a implements View.OnClickListener {
-    private ViewGroup epX;
-    private TextView gUJ;
-    private TextView gUK;
-    private ImageView gUL;
-    private TextView gUM;
-    private ImageView gUN;
-    private TextView gUO;
-    private int gUP;
-    private int gUQ;
-    private int gUR;
+    private ViewGroup euV;
+    private TextView haU;
+    private TextView haV;
+    private ImageView haW;
+    private TextView haX;
+    private ImageView haY;
+    private TextView haZ;
+    private int hba;
+    private int hbb;
+    private int hbc;
 
     public a(Context context) {
-        this.epX = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
-        this.gUJ = (TextView) this.epX.findViewById(R.id.choose_like_label);
-        this.gUK = (TextView) this.epX.findViewById(R.id.recommend_interest_thread);
-        this.gUL = (ImageView) this.epX.findViewById(R.id.male_icon);
-        this.gUM = (TextView) this.epX.findViewById(R.id.male_text);
-        this.gUN = (ImageView) this.epX.findViewById(R.id.female_icon);
-        this.gUO = (TextView) this.epX.findViewById(R.id.female_text);
-        this.gUL.setOnClickListener(this);
-        this.gUN.setOnClickListener(this);
+        this.euV = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.label_recommend_header, (ViewGroup) null);
+        this.haU = (TextView) this.euV.findViewById(R.id.choose_like_label);
+        this.haV = (TextView) this.euV.findViewById(R.id.recommend_interest_thread);
+        this.haW = (ImageView) this.euV.findViewById(R.id.male_icon);
+        this.haX = (TextView) this.euV.findViewById(R.id.male_text);
+        this.haY = (ImageView) this.euV.findViewById(R.id.female_icon);
+        this.haZ = (TextView) this.euV.findViewById(R.id.female_text);
+        this.haW.setOnClickListener(this);
+        this.haY.setOnClickListener(this);
         onChangeSkinType();
     }
 
     private void onChangeSkinType() {
-        al.j(this.gUJ, R.color.cp_cont_b);
-        al.j(this.gUK, R.color.cp_cont_d);
-        al.c(this.gUL, (int) R.drawable.img_lable_boy_n);
-        al.j(this.gUM, R.color.cp_cont_d);
-        al.c(this.gUN, (int) R.drawable.img_lable_girl_n);
-        al.j(this.gUO, R.color.cp_cont_d);
+        am.j(this.haU, R.color.cp_cont_b);
+        am.j(this.haV, R.color.cp_cont_d);
+        am.c(this.haW, (int) R.drawable.img_lable_boy_n);
+        am.j(this.haX, R.color.cp_cont_d);
+        am.c(this.haY, (int) R.drawable.img_lable_girl_n);
+        am.j(this.haZ, R.color.cp_cont_d);
     }
 
     public void setData(List<com.baidu.tieba.interestlabel.b.a> list) {
         if (v.Z(list) == 2) {
-            this.gUP = list.get(0).labelId;
-            this.gUQ = list.get(1).labelId;
+            this.hba = list.get(0).bFL;
+            this.hbb = list.get(1).bFL;
         }
     }
 
-    public ViewGroup bGM() {
-        return this.epX;
+    public ViewGroup bJt() {
+        return this.euV;
     }
 
-    public int bGN() {
-        return this.gUR;
+    public int bJu() {
+        return this.hbc;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         boolean z;
         int i = R.color.cp_cont_d;
-        if (view == this.gUL) {
+        if (view == this.haW) {
             z = true;
         } else {
-            z = view == this.gUN ? false : false;
+            z = view == this.haY ? false : false;
         }
-        this.gUR = z ? this.gUP : this.gUQ;
-        al.c(this.gUL, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
-        al.j(this.gUM, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
-        al.c(this.gUN, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
-        TextView textView = this.gUO;
+        this.hbc = z ? this.hba : this.hbb;
+        am.c(this.haW, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+        am.j(this.haX, z ? R.color.cp_link_tip_a : R.color.cp_cont_d);
+        am.c(this.haY, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+        TextView textView = this.haZ;
         if (!z) {
             i = R.color.cp_cont_h;
         }
-        al.j(textView, i);
+        am.j(textView, i);
     }
 }

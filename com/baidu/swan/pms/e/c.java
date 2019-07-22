@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    public static File cf(Context context) {
+    public static File cg(Context context) {
         File dir = context.getDir("pms_dir", 0);
         if (!dir.exists()) {
             dir.mkdir();

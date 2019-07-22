@@ -15,7 +15,7 @@ import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class b {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static final FileFilter aGw = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
+    private static final FileFilter aHe = new FileFilter() { // from class: com.baidu.swan.apps.process.b.1
         @Override // java.io.FileFilter
         public boolean accept(File file) {
             String name = file.getName();
@@ -32,24 +32,24 @@ public class b {
     };
 
     public static float bo(Context context) {
-        float bp = (bp(context) + Iv()) / 2.0f;
+        float bp = (bp(context) + Ji()) / 2.0f;
         if (DEBUG) {
             Log.d("SwanPerformanceEvaluation", "deviceLevel -> " + bp);
         }
         return bp;
     }
 
-    private static float Iv() {
+    private static float Ji() {
         float f;
         float f2;
-        int Iy = Iy();
-        int Iw = Iw();
+        int Jl = Jl();
+        int Jj = Jj();
         if (DEBUG) {
-            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Iy);
-            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Iw);
+            Log.d("SwanPerformanceEvaluation", "cpu max freqKHz -> " + Jl);
+            Log.d("SwanPerformanceEvaluation", "cpu max cores -> " + Jj);
         }
-        if (Iy != -1) {
-            float f3 = ((Iy / 1000.0f) - 1200.0f) / 1600.0f;
+        if (Jl != -1) {
+            float f3 = ((Jl / 1000.0f) - 1200.0f) / 1600.0f;
             if (f3 <= 0.0f) {
                 f3 = 0.0f;
             }
@@ -63,8 +63,8 @@ public class b {
         } else {
             f = 0.5f;
         }
-        if (Iw != -1) {
-            float f4 = ((Iw - 2) * 1.0f) / 6.0f;
+        if (Jj != -1) {
+            float f4 = ((Jj - 2) * 1.0f) / 6.0f;
             if (f4 <= 0.0f) {
                 f4 = 0.0f;
             }
@@ -96,25 +96,25 @@ public class b {
         return f3;
     }
 
-    public static int Iw() {
+    public static int Jj() {
         if (Build.VERSION.SDK_INT <= 10) {
             return 1;
         }
         try {
-            int gc = gc("/sys/devices/system/cpu/possible");
-            if (gc == -1) {
-                gc = gc("/sys/devices/system/cpu/present");
+            int gi = gi("/sys/devices/system/cpu/possible");
+            if (gi == -1) {
+                gi = gi("/sys/devices/system/cpu/present");
             }
-            if (gc == -1) {
-                return Ix();
+            if (gi == -1) {
+                return Jk();
             }
-            return gc;
+            return gi;
         } catch (NullPointerException | SecurityException e) {
             return -1;
         }
     }
 
-    private static int gc(String str) {
+    private static int gi(String str) {
         FileInputStream fileInputStream;
         Throwable th;
         try {
@@ -129,9 +129,9 @@ public class b {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
             String readLine = bufferedReader.readLine();
             bufferedReader.close();
-            int gd = gd(readLine);
+            int gj = gj(readLine);
             com.baidu.swan.c.a.c(fileInputStream);
-            return gd;
+            return gj;
         } catch (IOException e2) {
             com.baidu.swan.c.a.c(fileInputStream);
             return -1;
@@ -142,23 +142,23 @@ public class b {
         }
     }
 
-    private static int gd(String str) {
+    private static int gj(String str) {
         if (str == null || !str.matches("0-[\\d]+$")) {
             return -1;
         }
         return Integer.valueOf(str.substring(2)).intValue() + 1;
     }
 
-    private static int Ix() {
-        return new File("/sys/devices/system/cpu/").listFiles(aGw).length;
+    private static int Jk() {
+        return new File("/sys/devices/system/cpu/").listFiles(aHe).length;
     }
 
-    public static int Iy() {
+    public static int Jl() {
         int i;
         try {
-            int Iw = Iw();
+            int Jj = Jj();
             i = -1;
-            for (int i2 = 0; i2 < Iw; i2++) {
+            for (int i2 = 0; i2 < Jj; i2++) {
                 File file = new File("/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq");
                 if (file.exists() && file.canRead()) {
                     byte[] bArr = new byte[128];

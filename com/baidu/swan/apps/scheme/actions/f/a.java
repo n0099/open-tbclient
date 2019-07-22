@@ -25,31 +25,31 @@ public class a extends z {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        e vi = com.baidu.swan.apps.w.e.FV().vi();
-        if (vi == null) {
+        e vJ = com.baidu.swan.apps.w.e.GF().vJ();
+        if (vJ == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.b zK = vi.zK();
-        if (zK == null) {
+        com.baidu.swan.apps.core.d.b Ar = vJ.Ar();
+        if (Ar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        SwanAppActionBar yU = zK.yU();
-        if (yU == null) {
+        SwanAppActionBar zB = Ar.zB();
+        if (zB == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        View rightMenu = yU.getRightMenu();
+        View rightMenu = zB.getRightMenu();
         if (rightMenu == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        unitedSchemeEntity.result = ah(rightMenu);
+        unitedSchemeEntity.result = aj(rightMenu);
         return true;
     }
 
-    private JSONObject ah(View view) {
+    private JSONObject aj(View view) {
         JSONObject wrapCallbackParams;
         float ag = com.baidu.swan.apps.an.z.ag(view.getLeft());
         float ag2 = com.baidu.swan.apps.an.z.ag(view.getRight());

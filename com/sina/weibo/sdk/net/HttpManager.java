@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
@@ -198,7 +197,7 @@ public class HttpManager {
         weiboParameters.put("oauth_timestamp", timestamp);
         Object obj = weiboParameters.get("access_token");
         Object obj2 = weiboParameters.get(Oauth2AccessToken.KEY_REFRESH_TOKEN);
-        Object obj3 = weiboParameters.get(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        Object obj3 = weiboParameters.get("phone");
         if (obj != null && (obj instanceof String)) {
             str = (String) obj;
         } else if (obj2 != null && (obj2 instanceof String)) {

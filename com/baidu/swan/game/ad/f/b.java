@@ -12,14 +12,14 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 public class b extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @V8JavascriptField
     public String adUnitId;
-    private String bdm;
-    private h bdq;
-    private j bdr;
+    private String bdY;
+    private h bec;
+    private j bed;
 
     public b(com.baidu.swan.games.e.b bVar, JsObject jsObject) {
         super(bVar);
         this.adUnitId = "";
-        this.bdr = new j() { // from class: com.baidu.swan.game.ad.f.b.1
+        this.bed = new j() { // from class: com.baidu.swan.game.ad.f.b.1
             @Override // com.baidu.swan.game.ad.f.j
             public void a() {
                 b.this.dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
@@ -35,21 +35,21 @@ public class b extends EventTargetImpl implements com.baidu.swan.games.a.c {
             @Override // com.baidu.swan.game.ad.f.j
             public void a(boolean z) {
                 JSEvent jSEvent = new JSEvent("close");
-                jSEvent.data = m.cI(z);
+                jSEvent.data = m.cL(z);
                 b.this.dispatchEvent(jSEvent);
             }
         };
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
         if (c != null) {
             this.adUnitId = c.optString("adUnitId");
-            this.bdm = c.optString("appSid");
+            this.bdY = c.optString("appSid");
         }
-        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.bdm)) {
+        if (c == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.bdY)) {
             bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
             return;
         }
-        this.bdq = new h(this.bdm, this.adUnitId);
-        this.bdq.a(this.bdr);
+        this.bec = new h(this.bdY, this.adUnitId);
+        this.bec.a(this.bed);
         loadAd(null);
     }
 
@@ -57,18 +57,18 @@ public class b extends EventTargetImpl implements com.baidu.swan.games.a.c {
     @JavascriptInterface
     public synchronized void loadAd(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (this.bdq != null) {
-            this.bdq.a(c);
+        if (this.bec != null) {
+            this.bec.a(c);
         }
     }
 
     @Override // com.baidu.swan.games.a.c
     @JavascriptInterface
     public synchronized void showAd(JsObject jsObject) {
-        com.baidu.swan.games.view.a.b.jV("video");
+        com.baidu.swan.games.view.a.b.kd("video");
         com.baidu.swan.games.binding.model.c c = com.baidu.swan.games.binding.model.c.c(jsObject);
-        if (this.bdq != null) {
-            this.bdq.b(c);
+        if (this.bec != null) {
+            this.bec.b(c);
         }
     }
 }

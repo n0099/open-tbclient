@@ -42,9 +42,9 @@ public class BaiduStatJSInterface {
 
     /* loaded from: classes6.dex */
     public interface IWebviewPageLoadCallback {
-        void onPageFinished(WebView webView, String str, bs bsVar);
+        void onPageFinished(WebView webView, String str, bl blVar);
 
-        void onPageStarted(WebView webView, String str, bs bsVar);
+        void onPageStarted(WebView webView, String str, bl blVar);
     }
 
     /* loaded from: classes6.dex */
@@ -52,13 +52,13 @@ public class BaiduStatJSInterface {
         private WeakReference<Context> a;
         private WebViewClient b;
         private IWebviewPageLoadCallback c;
-        private bs d;
+        private bl d;
 
-        public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bs bsVar) {
+        public CustomWebViewClient(Context context, WebViewClient webViewClient, IWebviewPageLoadCallback iWebviewPageLoadCallback, bl blVar) {
             this.a = new WeakReference<>(context);
             this.b = webViewClient;
             this.c = iWebviewPageLoadCallback;
-            this.d = bsVar;
+            this.d = blVar;
         }
 
         @Override // android.webkit.WebViewClient
@@ -169,7 +169,10 @@ public class BaiduStatJSInterface {
             while (keys.hasNext()) {
                 try {
                     String next = keys.next();
-                    hashMap.put(next, jSONObject.getString(next));
+                    String string = jSONObject.getString(next);
+                    if (hashMap != null) {
+                        hashMap.put(next, string);
+                    }
                 } catch (Exception e) {
                 }
             }
@@ -323,14 +326,14 @@ public class BaiduStatJSInterface {
         private WeakReference<Context> a;
         private WebChromeClient b;
         private ArrayList<IWebviewPageLoadCallback> c;
-        private bs d;
+        private bl d;
         private int e = 0;
 
-        public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bs bsVar) {
+        public CustomWebChromeViewClient(Context context, WebChromeClient webChromeClient, ArrayList<IWebviewPageLoadCallback> arrayList, bl blVar) {
             this.a = new WeakReference<>(context);
             this.b = webChromeClient;
             this.c = arrayList;
-            this.d = bsVar;
+            this.d = blVar;
         }
 
         @Override // android.webkit.WebChromeClient

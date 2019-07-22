@@ -17,7 +17,7 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
 
     @Override // kotlin.jvm.internal.CallableReference
     public final kotlin.reflect.d getOwner() {
-        return kotlin.jvm.internal.s.D(h.class);
+        return kotlin.jvm.internal.s.F(h.class);
     }
 
     @Override // kotlin.jvm.internal.CallableReference
@@ -29,6 +29,6 @@ final class Regex$findAll$2 extends FunctionReference implements kotlin.jvm.a.b<
     @Override // kotlin.jvm.a.b
     public final h invoke(h hVar) {
         kotlin.jvm.internal.p.k(hVar, "p1");
-        return hVar.cKm();
+        return hVar.cNW();
     }
 }

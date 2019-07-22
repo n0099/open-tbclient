@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> Zn = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> ZI = new LinkedHashMap<>();
     private int V;
-    private Thread Zo;
+    private Thread ZJ;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.V = a.V;
-        this.Zo = thread;
+        this.ZJ = thread;
         this.V = i;
     }
 
@@ -21,14 +21,14 @@ public final class p extends n {
 
     public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (Zn) {
-            for (Long l : Zn.keySet()) {
+        synchronized (ZI) {
+            for (Long l : ZI.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(Zn.get(l));
+                    arrayList.add(ZI.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.cf("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.ch("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -36,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void n() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.Zo.getStackTrace()) {
+        for (StackTraceElement stackTraceElement : this.ZJ.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (Zn) {
-            if (Zn.size() == this.V && this.V > 0) {
-                Zn.remove(Zn.keySet().iterator().next());
+        synchronized (ZI) {
+            if (ZI.size() == this.V && this.V > 0) {
+                ZI.remove(ZI.keySet().iterator().next());
             }
-            Zn.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            ZI.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

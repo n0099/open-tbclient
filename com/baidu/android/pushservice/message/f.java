@@ -7,10 +7,10 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.WindowManager;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -152,7 +152,7 @@ public class f extends d {
     private String f() {
         String simOperator;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService("phone");
             if (telephonyManager != null && (simOperator = telephonyManager.getSimOperator()) != null) {
                 if (simOperator.equals("46000") || simOperator.equals("46002") || simOperator.equals("46007")) {
                     return "cm";
@@ -173,7 +173,7 @@ public class f extends d {
     private String g() {
         TelephonyManager telephonyManager;
         try {
-            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) this.a.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) == null) {
+            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) this.a.getSystemService("phone")) == null) {
                 return null;
             }
             return telephonyManager.getSubscriberId();
@@ -277,9 +277,9 @@ public class f extends d {
             if (!TextUtils.isEmpty(h)) {
                 jSONObject2.put("mac", h);
             }
-            String a = com.baidu.android.pushservice.j.e.a(this.a);
-            if (!TextUtils.isEmpty(a)) {
-                jSONObject2.put("cuid", a);
+            String cuid = DeviceId.getCUID(this.a);
+            if (!TextUtils.isEmpty(cuid)) {
+                jSONObject2.put("cuid", cuid);
             }
             String g = g();
             if (!TextUtils.isEmpty(g)) {
@@ -295,9 +295,9 @@ public class f extends d {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        byte[] a2 = a(h.MSG_ID_HANDSHAKE.a(), str.getBytes());
+        byte[] a = a(h.MSG_ID_HANDSHAKE.a(), str.getBytes());
         e eVar = new e(h.MSG_ID_HANDSHAKE.a());
-        eVar.c = a2;
+        eVar.c = a;
         eVar.d = true;
         eVar.a(false);
         a(eVar);

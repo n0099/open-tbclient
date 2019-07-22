@@ -1017,8 +1017,6 @@ public final class c {
         public static final int pickerview_wheelview_textColorCenter = 2;
         public static final int pickerview_wheelview_textColorOut = 5;
         public static final int pickerview_wheelview_textSize = 1;
-        public static final int sapi_sdk_circle_image_view_sapi_sdk_border_color = 1;
-        public static final int sapi_sdk_circle_image_view_sapi_sdk_border_width = 0;
         public static final int sapi_sdk_sms_login_view_sapi_sdk_show_keyboard = 0;
         public static final int scaleStyle_scalableType = 0;
         public static final int videoScaleStyle_videoScalableType = 0;
@@ -1151,7 +1149,6 @@ public final class c {
         public static final int[] moreTabWidget = {R.attr.widget_icon, R.attr.widget_text};
         public static final int[] noNetworkView = {R.attr.is_support_offline};
         public static final int[] pickerview = {R.attr.wheelview_gravity, R.attr.wheelview_textSize, R.attr.wheelview_textColorCenter, R.attr.wheelview_dividerColor, R.attr.wheelview_lineSpacingMultiplier, R.attr.wheelview_textColorOut};
-        public static final int[] sapi_sdk_circle_image_view = {R.attr.sapi_sdk_border_width, R.attr.sapi_sdk_border_color};
         public static final int[] sapi_sdk_sms_login_view = {R.attr.sapi_sdk_show_keyboard};
         public static final int[] scaleStyle = {R.attr.scalableType};
         public static final int[] videoScaleStyle = {R.attr.videoScalableType};

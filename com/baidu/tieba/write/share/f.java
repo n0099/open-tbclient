@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tieba.R;
@@ -21,9 +21,9 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e jIM;
+    private e jPN;
     private BdUniqueId mPageId;
-    private String wE = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+    private String wH = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
     public f(BdUniqueId bdUniqueId) {
         this.mPageId = bdUniqueId;
@@ -36,7 +36,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.jIM = eVar;
+        this.jPN = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -54,10 +54,10 @@ public class f {
             if (cVarArr.length == 0 || (cVar = cVarArr[0]) == null) {
                 return null;
             }
-            com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.nS(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
+            com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, at.oj(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
             cVar2.J(true);
             cVar2.K(false);
-            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(ex(cVar2.gD(), cVar2.getName()), true, false);
+            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(ey(cVar2.gM(), cVar2.getName()), true, false);
             if (f != null && f.picInfo != null) {
                 if (f.picInfo.originPic != null && !StringUtils.isNull(f.picInfo.originPic.picUrl)) {
                     str = f.picInfo.originPic.picUrl;
@@ -68,11 +68,11 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.jIu;
+                str = cVar.jPv;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-            xVar.ahC().aiB().mIsNeedTbs = true;
+            xVar.aiE().ajE().mIsNeedTbs = true;
             xVar.o("anonymous", "1");
             xVar.o("can_no_forum", "0");
             xVar.o("is_feedback", "0");
@@ -80,24 +80,24 @@ public class f {
                 xVar.o("vcode_tag", Constants.VIA_REPORT_TYPE_SET_AVATAR);
             }
             xVar.o("new_vcode", "1");
-            xVar.o("content", cVar.Hj);
+            xVar.o("content", cVar.Hu);
             xVar.o("fid", cVar.forumId);
-            xVar.o("kw", cVar.jIt);
+            xVar.o("kw", cVar.jPu);
             xVar.o("is_hide", "0");
             xVar.o(IntentConfig.CALL_FROM, "2");
-            xVar.o("title", cVar.Hj);
+            xVar.o("title", cVar.Hu);
             xVar.o("is_ntitle", "1");
             xVar.o("st_type", "notitle");
             xVar.o("is_location", "2");
-            Address X = com.baidu.adp.lib.d.a.hO().X(false);
+            Address X = com.baidu.adp.lib.d.a.hY().X(false);
             if (X != null && TbadkCoreApplication.getInst().getIsLocationOn() && !TbConfig.getPositionPagerId().equals(cVar.forumId)) {
                 xVar.o("lbs", String.valueOf(X.getLatitude()) + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP + String.valueOf(X.getLongitude()));
                 xVar.o("lat", String.valueOf(X.getLatitude()));
                 xVar.o("lng", String.valueOf(X.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cnc().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cpV().getLocationData();
             if (locationData != null) {
-                xVar.o("name", locationData.cna());
+                xVar.o("name", locationData.cpT());
                 xVar.o("sn", locationData.getSn());
             }
             xVar.o("is_link_thread", "0");
@@ -105,18 +105,18 @@ public class f {
                 xVar.o("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.o("tbopen_app_key", cVar.appKey);
-            xVar.o("tbopen_app_icon", cVar.jIs);
+            xVar.o("tbopen_app_icon", cVar.jPt);
             xVar.o("tbopen_app_name", cVar.appName);
             xVar.o("share_abstract", cVar.content);
             xVar.o("share_image", str);
             xVar.o("share_h5_url", cVar.linkUrl);
-            xVar.o("share_swan_app_key", cVar.jIr);
-            xVar.o("share_swan_path", cVar.jIv);
-            String ahe = xVar.ahe();
+            xVar.o("share_swan_app_key", cVar.jPs);
+            xVar.o("share_swan_path", cVar.jPw);
+            String aig = xVar.aig();
             d dVar = new d();
             try {
-                JSONObject jSONObject = new JSONObject(ahe);
-                dVar.jIx = jSONObject.optString("msg");
+                JSONObject jSONObject = new JSONObject(aig);
+                dVar.jPy = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -125,29 +125,29 @@ public class f {
             } catch (Exception e) {
             }
             ErrorData errorData = new ErrorData();
-            if (xVar.ahC().aiC().isRequestSuccess()) {
-                errorData.parserJson(ahe);
+            if (xVar.aiE().ajF().isRequestSuccess()) {
+                errorData.parserJson(aig);
             } else {
-                errorData.setError_code(xVar.ahF() ? xVar.ahG() : xVar.ahH());
+                errorData.setError_code(xVar.aiH() ? xVar.aiI() : xVar.aiJ());
                 errorData.setError_msg(xVar.getErrorString());
             }
-            if (errorData.error_code != 0 && !j.jS()) {
+            if (errorData.error_code != 0 && !j.kc()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.neterror));
             }
-            dVar.jIw = errorData;
+            dVar.jPx = errorData;
             AntiData antiData = new AntiData();
             try {
-                antiData.parserJson(new JSONObject(ahe).optJSONObject("anti_stat"));
+                antiData.parserJson(new JSONObject(aig).optJSONObject("anti_stat"));
             } catch (Exception e2) {
             }
             dVar.antiData = antiData;
             return dVar;
         }
 
-        public String ex(String str, String str2) {
-            String str3 = f.this.wE + str2;
+        public String ey(String str, String str2) {
+            String str3 = f.this.wH + str2;
             if (str != null) {
-                return f.this.wE + str + "/" + str2;
+                return f.this.wH + str + "/" + str2;
             }
             return str3;
         }
@@ -157,8 +157,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.jIM != null) {
-                f.this.jIM.a(dVar);
+            if (f.this.jPN != null) {
+                f.this.jPN.a(dVar);
             }
         }
     }

@@ -3,10 +3,10 @@ package com.sina.weibo.sdk.statistic;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.sina.weibo.sdk.constant.WBConstants;
-import com.sina.weibo.sdk.utils.AidTask;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
@@ -269,7 +269,7 @@ class WBAgentHandler {
             if (isFirstStartBoolean(context)) {
                 adEventLog.setmEvent_id("1");
             }
-            adEventLog.setmImei(MD5.hexdigest(AidTask.getImei(context)));
+            adEventLog.setmImei(MD5.hexdigest(getImei(context)));
             adEventLog.setmStart_time(System.currentTimeMillis());
             adEventLog.setmExtend(map);
             String aid = Utility.getAid(context, str);
@@ -289,6 +289,14 @@ class WBAgentHandler {
             uploadAdlog(context, adEventLog);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private static String getImei(Context context) {
+        try {
+            return ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        } catch (Exception e) {
+            return "";
         }
     }
 

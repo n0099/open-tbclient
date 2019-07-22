@@ -18,12 +18,12 @@ public class g implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.b vZ() {
+    public com.baidu.swan.apps.b.b.b wA() {
         return new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public OkHttpClient wb() {
+    public OkHttpClient wC() {
         return new OkHttpClient.Builder().build();
     }
 
@@ -59,7 +59,7 @@ public class g implements com.baidu.swan.apps.b.b.d {
 
         @Override // com.baidu.swan.apps.b.b.p
         public com.baidu.swan.apps.b.c.f aK(Context context) {
-            return new com.baidu.swan.apps.d.c(context);
+            return new com.baidu.swan.apps.d.d(context);
         }
     }
 
@@ -94,7 +94,7 @@ public class g implements com.baidu.swan.apps.b.b.d {
 
         @Override // com.baidu.swan.apps.b.b.b
         @NonNull
-        public com.baidu.swan.apps.setting.oauth.a.d u(Activity activity) {
+        public com.baidu.swan.apps.setting.oauth.a.d x(Activity activity) {
             return new d(activity);
         }
 
@@ -106,7 +106,7 @@ public class g implements com.baidu.swan.apps.b.b.d {
     }
 
     @Override // com.baidu.swan.apps.b.b.d
-    public com.baidu.swan.apps.b.b.a wa() {
+    public com.baidu.swan.apps.b.b.a wB() {
         return new m();
     }
 }

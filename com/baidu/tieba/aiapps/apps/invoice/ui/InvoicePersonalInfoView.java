@@ -8,8 +8,8 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoItemView;
 /* loaded from: classes4.dex */
 public class InvoicePersonalInfoView extends InvoiceBaseInfoView {
-    private InvoiceInfoItemView dbZ;
-    private InvoiceInfoItemView dcc;
+    private InvoiceInfoItemView ddB;
+    private InvoiceInfoItemView ddE;
 
     public InvoicePersonalInfoView(Context context) {
         this(context, null);
@@ -26,23 +26,23 @@ public class InvoicePersonalInfoView extends InvoiceBaseInfoView {
 
     private void init(Context context) {
         setOrientation(1);
-        this.dbZ = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gq(true).sJ(context.getString(R.string.invoice_desc_name)).gr(true).sK(context.getString(R.string.invoice_hint_personal_name)).sL("\\S+$").sM(context.getString(R.string.invoice_err_msg_personal_name)));
-        this.dcc = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().sJ(context.getString(R.string.invoice_desc_mobile)).gr(true).mA(2).sK(context.getString(R.string.invoice_hint_mobile)));
-        this.dbY = new InvoiceInfoItemView[]{this.dbZ, this.dcc};
-        for (int i = 0; i < this.dbY.length; i++) {
-            addView(this.dbY[i], i);
+        this.ddB = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().gu(true).tc(context.getString(R.string.invoice_desc_name)).gv(true).td(context.getString(R.string.invoice_hint_personal_name)).te("\\S+$").tf(context.getString(R.string.invoice_err_msg_personal_name)));
+        this.ddE = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().tc(context.getString(R.string.invoice_desc_mobile)).gv(true).mH(2).td(context.getString(R.string.invoice_hint_mobile)));
+        this.ddA = new InvoiceInfoItemView[]{this.ddB, this.ddE};
+        for (int i = 0; i < this.ddA.length; i++) {
+            addView(this.ddA[i], i);
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
     public InvoiceInfo getInvoiceInfo() {
-        return new InvoiceInfo(1, this.dbZ.getContent(), this.dcc.getContent());
+        return new InvoiceInfo(1, this.ddB.getContent(), this.ddE.getContent());
     }
 
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
-            this.dbZ.setContent(invoiceInfo.mTitle);
-            this.dcc.setContent(invoiceInfo.dbR);
+            this.ddB.setContent(invoiceInfo.mTitle);
+            this.ddE.setContent(invoiceInfo.dds);
         }
     }
 }

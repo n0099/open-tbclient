@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class l {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static HashMap<String, Integer> aZq = new HashMap<>();
-    private static HashMap<String, Integer> aZr = new HashMap<>();
-    private static HashMap<String, String> aZs = new HashMap<>();
-    public static HashMap<String, String> aZt = new HashMap<>();
-    private static final Pattern aZu;
+    private static HashMap<String, Integer> baa = new HashMap<>();
+    private static HashMap<String, Integer> bab = new HashMap<>();
+    private static HashMap<String, String> bac = new HashMap<>();
+    public static HashMap<String, String> bad = new HashMap<>();
+    private static final Pattern bae;
 
     static {
         e("application/andrew-inset", "ez", 5);
@@ -332,15 +332,15 @@ public final class l {
         e("audio/aac", "aac", 1);
         e("application/vnd.rn-realmedia", "rm", 0);
         e("message/rfc822", "mht", 11);
-        aZu = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        bae = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void e(String str, String str2, int i) {
-        aZq.put(str2, Integer.valueOf(i));
-        aZr.put(str, Integer.valueOf(i));
-        aZs.put(str2, str);
-        if (!aZt.containsKey(str)) {
-            aZt.put(str, str2);
+        baa.put(str2, Integer.valueOf(i));
+        bab.put(str, Integer.valueOf(i));
+        bac.put(str2, str);
+        if (!bad.containsKey(str)) {
+            bad.put(str, str2);
         }
     }
 }

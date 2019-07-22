@@ -1,185 +1,152 @@
 package com.baidu.mobstat;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import com.coremedia.iso.boxes.MetaBox;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes6.dex */
-public class bp {
-    private boolean a;
-    private List<b> b = new ArrayList();
-    private String c;
-    private br d;
-    private boolean e;
+public final class bp {
+    private static final byte[] a = {65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(View view, boolean z);
+    public static byte[] a(byte[] bArr) {
+        return a(bArr, bArr.length);
     }
 
-    public bp(Activity activity, br brVar, boolean z) {
-        this.c = activity.getClass().getName();
-        this.d = brVar;
-        this.e = z;
-    }
-
-    public void a(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.a = ((JSONObject) jSONObject.get(MetaBox.TYPE)).getInt("matchAll") != 0;
-            } catch (Exception e) {
-            }
-            if (!this.a) {
-                try {
-                    JSONArray jSONArray = (JSONArray) jSONObject.get("data");
-                    for (int i = 0; i < jSONArray.length(); i++) {
-                        JSONObject jSONObject2 = (JSONObject) jSONArray.get(i);
-                        String optString = jSONObject2.optString("page");
-                        String optString2 = jSONObject2.optString("layout");
-                        int optInt = jSONObject2.optInt("contentAsLabel");
-                        boolean z = jSONObject2.optInt("ignoreCellIndex") != 0;
-                        if (this.c.equals(optString)) {
-                            this.b.add(new b(optString, optString2, z, optInt));
-                        }
-                    }
-                } catch (Exception e2) {
+    public static byte[] a(byte[] bArr, int i) {
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7 = (i / 4) * 3;
+        if (i7 == 0) {
+            return new byte[0];
+        }
+        byte[] bArr2 = new byte[i7];
+        int i8 = 0;
+        while (true) {
+            byte b = bArr[i - 1];
+            if (b != 10 && b != 13 && b != 32 && b != 9) {
+                if (b != 61) {
+                    break;
                 }
+                i8++;
             }
+            i--;
         }
-    }
-
-    public void a(Activity activity) {
-        if (this.e || this.a || (this.b != null && this.b.size() != 0)) {
-            View a2 = bq.a(activity);
-            a(activity, a2, null, a2);
-        }
-    }
-
-    private void a(Activity activity, View view, c cVar, View view2) {
-        if (view != null && !ap.a(view) && !bq.c(activity, view)) {
-            c cVar2 = new c(view, cVar, view2);
-            if (cVar != null) {
-                boolean b2 = this.a ? bq.b(view, cVar2.c()) : a(this.b, cVar2.a(), cVar2.b());
-                if (b2 || this.e) {
-                    if (bk.c().b() && b2) {
-                        bk.c().a("accumulate view:" + view.getClass().getName() + "; content:" + bq.h(view));
-                    }
-                    if (bo.c().b()) {
-                        bo.c().a("accumulate view:" + view.getClass().getName() + "; content:" + bq.h(view));
-                    }
-                    this.d.a(view, b2);
+        int i9 = 0;
+        int i10 = 0;
+        int i11 = 0;
+        int i12 = 0;
+        while (i9 < i) {
+            byte b2 = bArr[i9];
+            if (b2 == 10 || b2 == 13 || b2 == 32) {
+                i2 = i10;
+                i3 = i12;
+                i4 = i11;
+            } else if (b2 == 9) {
+                i2 = i10;
+                i3 = i12;
+                i4 = i11;
+            } else {
+                if (b2 >= 65 && b2 <= 90) {
+                    i5 = b2 - 65;
+                } else if (b2 >= 97 && b2 <= 122) {
+                    i5 = b2 - 71;
+                } else if (b2 >= 48 && b2 <= 57) {
+                    i5 = b2 + 4;
+                } else if (b2 == 43) {
+                    i5 = 62;
+                } else if (b2 == 47) {
+                    i5 = 63;
+                } else {
+                    return null;
                 }
-            }
-            if (!(view instanceof WebView) && (view instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view;
-                for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                    a(activity, viewGroup.getChildAt(i), cVar2, view2);
+                int i13 = (i10 << 6) | ((byte) i5);
+                if (i11 % 4 == 3) {
+                    int i14 = i12 + 1;
+                    bArr2[i12] = (byte) ((16711680 & i13) >> 16);
+                    int i15 = i14 + 1;
+                    bArr2[i14] = (byte) ((65280 & i13) >> 8);
+                    i6 = i15 + 1;
+                    bArr2[i15] = (byte) (i13 & 255);
+                } else {
+                    i6 = i12;
                 }
+                i4 = i11 + 1;
+                i3 = i6;
+                i2 = i13;
+            }
+            i9++;
+            i11 = i4;
+            i12 = i3;
+            i10 = i2;
+        }
+        if (i8 > 0) {
+            int i16 = i10 << (i8 * 6);
+            int i17 = i12 + 1;
+            bArr2[i12] = (byte) ((16711680 & i16) >> 16);
+            if (i8 == 1) {
+                i12 = i17 + 1;
+                bArr2[i17] = (byte) ((65280 & i16) >> 8);
+            } else {
+                i12 = i17;
             }
         }
+        byte[] bArr3 = new byte[i12];
+        System.arraycopy(bArr2, 0, bArr3, 0, i12);
+        return bArr3;
     }
 
-    private boolean a(List<b> list, String str, String str2) {
-        for (b bVar : list) {
-            String str3 = bVar.c ? str2 : str;
-            if (!TextUtils.isEmpty(str3) && str3.equals(bVar.b)) {
-                return true;
-            }
-        }
-        return false;
+    public static String b(byte[] bArr) throws UnsupportedEncodingException {
+        return a(bArr, "utf-8");
     }
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public String a;
-        public String b;
-        public boolean c;
-        public int d;
-
-        public b(String str, String str2, boolean z, int i) {
-            this.a = str;
-            this.b = str2;
-            this.c = z;
-            this.d = i;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static class c {
-        public String a;
-        public String b;
-        public String c;
-        public c d;
-
-        public c(View view, c cVar, View view2) {
-            this.d = cVar;
-            this.a = bq.l(view);
-            this.b = bq.b(view);
-            String c = bq.c(view);
-            if (TextUtils.isEmpty(c)) {
-                c = bq.a(view, c());
-                if (TextUtils.isEmpty(c)) {
-                    c = bq.a(view, view2);
-                }
+    public static String a(byte[] bArr, String str) throws UnsupportedEncodingException {
+        int i;
+        int length = (bArr.length * 4) / 3;
+        byte[] bArr2 = new byte[length + (length / 76) + 3];
+        int length2 = bArr.length - (bArr.length % 3);
+        int i2 = 0;
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length2) {
+            int i5 = i4 + 1;
+            bArr2[i4] = a[(bArr[i3] & 255) >> 2];
+            int i6 = i5 + 1;
+            bArr2[i5] = a[((bArr[i3] & 3) << 4) | ((bArr[i3 + 1] & 255) >> 4)];
+            int i7 = i6 + 1;
+            bArr2[i6] = a[((bArr[i3 + 1] & 15) << 2) | ((bArr[i3 + 2] & 255) >> 6)];
+            int i8 = i7 + 1;
+            bArr2[i7] = a[bArr[i3 + 2] & 63];
+            if ((i8 - i2) % 76 == 0 && i8 != 0) {
+                i2++;
             }
-            this.c = c;
+            i3 += 3;
+            i4 = i8;
         }
-
-        public String a() {
-            StringBuilder sb = new StringBuilder();
-            while (this != null) {
-                sb.insert(0, this.a(false));
-                this = this.d;
-            }
-            return sb.toString();
+        switch (bArr.length % 3) {
+            case 1:
+                int i9 = i4 + 1;
+                bArr2[i4] = a[(bArr[length2] & 255) >> 2];
+                int i10 = i9 + 1;
+                bArr2[i9] = a[(bArr[length2] & 3) << 4];
+                int i11 = i10 + 1;
+                bArr2[i10] = 61;
+                i = i11 + 1;
+                bArr2[i11] = 61;
+                break;
+            case 2:
+                int i12 = i4 + 1;
+                bArr2[i4] = a[(bArr[length2] & 255) >> 2];
+                int i13 = i12 + 1;
+                bArr2[i12] = a[((bArr[length2] & 3) << 4) | ((bArr[length2 + 1] & 255) >> 4)];
+                int i14 = i13 + 1;
+                bArr2[i13] = a[(bArr[length2 + 1] & 15) << 2];
+                i = i14 + 1;
+                bArr2[i14] = 61;
+                break;
+            default:
+                i = i4;
+                break;
         }
-
-        public String b() {
-            boolean z;
-            boolean z2;
-            StringBuilder sb = new StringBuilder();
-            boolean z3 = false;
-            while (this != null) {
-                if (!z3) {
-                    String c = this.c();
-                    if ("ListView".equals(c) || "RecyclerView".equals(c) || "GridView".equals(c)) {
-                        z2 = true;
-                        z = true;
-                        sb.insert(0, this.a(z2));
-                        this = this.d;
-                        z3 = z;
-                    }
-                }
-                z = z3;
-                z2 = false;
-                sb.insert(0, this.a(z2));
-                this = this.d;
-                z3 = z;
-            }
-            return sb.toString();
-        }
-
-        public String a(boolean z) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("/");
-            sb.append(this.a);
-            if (!z) {
-                sb.append("[");
-                sb.append(this.c);
-                sb.append("]");
-            }
-            return sb.toString();
-        }
-
-        public String c() {
-            return this.d == null ? "" : this.d.b;
-        }
+        return new String(bArr2, 0, i, str);
     }
 }

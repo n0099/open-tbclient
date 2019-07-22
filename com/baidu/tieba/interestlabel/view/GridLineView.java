@@ -6,12 +6,12 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class GridLineView extends BdGridView {
-    private int gUF;
+    private int haQ;
     private Paint mPaint;
 
     public GridLineView(Context context) {
@@ -32,9 +32,9 @@ public class GridLineView extends BdGridView {
     private void init(Context context) {
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.STROKE);
-        this.mPaint.setColor(al.getColor(R.color.cp_bg_line_c));
+        this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
         this.mPaint.setStrokeWidth(1.0f);
-        this.gUF = l.g(context, R.dimen.ds26);
+        this.haQ = l.g(context, R.dimen.ds26);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,13 +53,13 @@ public class GridLineView extends BdGridView {
             for (int i2 = 1; i2 <= i; i2++) {
                 canvas.drawLine(0.0f, (height * i2) + top, width, (height * i2) + top, this.mPaint);
                 for (int i3 = 1; i3 < numColumns; i3++) {
-                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.gUF, width2 * i3, ((height * i2) + top) - this.gUF, this.mPaint);
+                    canvas.drawLine(width2 * i3, ((i2 - 1) * height) + top + this.haQ, width2 * i3, ((height * i2) + top) - this.haQ, this.mPaint);
                 }
             }
         }
     }
 
     public void onChangeSkinType() {
-        this.mPaint.setColor(al.getColor(R.color.cp_bg_line_c));
+        this.mPaint.setColor(am.getColor(R.color.cp_bg_line_c));
     }
 }

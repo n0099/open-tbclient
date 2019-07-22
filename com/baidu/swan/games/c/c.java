@@ -5,20 +5,20 @@ import com.baidu.sapi2.views.SmsLoginView;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.m.a.b {
-    private String beX;
-    private String beY;
+    private String bfK;
+    private String bfL;
     private String data;
 
     public c(@NonNull String str, String str2, String str3, String str4) {
         super(str);
-        this.beX = str2;
-        this.beY = str3;
+        this.bfK = str2;
+        this.bfL = str3;
         this.data = str4;
     }
 
     @Override // com.baidu.swan.apps.m.a.b, com.baidu.swan.apps.m.a.a
-    public String eq(String str) {
-        String str2 = this.beX;
+    public String ev(String str) {
+        String str2 = this.bfK;
         char c = 65535;
         switch (str2.hashCode()) {
             case -2011830027:
@@ -42,9 +42,9 @@ public class c extends com.baidu.swan.apps.m.a.b {
         }
         switch (c) {
             case 0:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.beY, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Ov(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.bfL, JSONObject.quote(com.baidu.swan.apps.an.e.a(com.baidu.swan.apps.an.e.Pk(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.data));
             case 1:
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.beY, JSONObject.quote(this.data));
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.bfL, JSONObject.quote(this.data));
             case 2:
                 return String.format("%s.message = { type:'act',act:'%s' };", str, this.data);
             default:
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.apps.m.a.b {
         }
     }
 
-    public static com.baidu.swan.apps.m.a.b cL(boolean z) {
+    public static com.baidu.swan.apps.m.a.b cO(boolean z) {
         return new c("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? SmsLoginView.StatEvent.LOGIN_SHOW : "hide");
     }
 

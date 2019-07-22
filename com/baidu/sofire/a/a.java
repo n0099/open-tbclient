@@ -16,19 +16,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static a d;
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0104a e;
+    private C0101a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0104a(context.getApplicationContext());
+        this.e = new C0101a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -50,11 +50,11 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    private class C0104a extends SQLiteOpenHelper {
-        public C0104a(Context context) {
+    /* loaded from: classes2.dex */
+    private class C0101a extends SQLiteOpenHelper {
+        public C0101a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
-            new StringBuilder("DatabaseHelper version=").append(a.this.a);
+            new StringBuilder().append(a.this.a);
             b.a();
         }
 
@@ -582,6 +582,7 @@ public final class a {
     }
 
     public final void a(String str) {
+        new StringBuilder().append(str);
         b.a();
         if (!TextUtils.isEmpty(str)) {
             try {
@@ -605,7 +606,7 @@ public final class a {
                 if (a != null) {
                     a.b(apkInfo2.packageName);
                 }
-                new StringBuilder().append(apkInfo2.packageName).append(" is deleted IfAPKNotExist count=").append(this.c.delete("pgn", "k=" + apkInfo2.key, null));
+                new StringBuilder().append(apkInfo2.packageName).append(this.c.delete("pgn", "k=" + apkInfo2.key, null));
                 b.a();
                 e.d(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
                 if (this.f != null) {
@@ -1007,10 +1008,24 @@ public final class a {
     }
 
     public final void h(int i) {
+        new StringBuilder().append(i);
         b.a();
         if (i > 0) {
             try {
-                this.c.delete("pgn", "k=" + i, null);
+                new StringBuilder().append(this.c.delete("pgn", "k=" + i, null));
+                b.a();
+            } catch (Throwable th) {
+                e.a();
+            }
+        }
+    }
+
+    public final void a(int i, String str) {
+        new StringBuilder().append(i).append(" v = ").append(str);
+        b.a();
+        if (i > 0 && !TextUtils.isEmpty(str)) {
+            try {
+                this.c.delete("pgn", "k=" + i + " and v=?", new String[]{str});
                 b.a();
             } catch (Throwable th) {
                 e.a();

@@ -12,14 +12,14 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.browser.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.video.g;
 /* loaded from: classes.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
-    private TextView isF;
-    private TextView isG;
-    private TextView jyf;
+    private TextView iyW;
+    private TextView iyX;
+    private TextView jEo;
     private Runnable mHideRunnable;
     private int mSkinType;
 
@@ -61,36 +61,36 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), R.layout.video_network_state_tip, this);
-        this.isF = (TextView) findViewById(R.id.play);
-        this.isG = (TextView) findViewById(R.id.free_flow);
-        this.isG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
+        this.iyW = (TextView) findViewById(R.id.play);
+        this.iyX = (TextView) findViewById(R.id.free_flow);
+        this.iyX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video_net_tip.VideoNetworkStateTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 a.a(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         });
-        this.jyf = (TextView) findViewById(R.id.play_tips);
+        this.jEo = (TextView) findViewById(R.id.play_tips);
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean ccp() {
-        return (hasAgreeToPlay() || g.cqT().cqU() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.jU()) ? false : true;
+    public boolean cff() {
+        return (hasAgreeToPlay() || g.ctE().ctF() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.ke()) ? false : true;
     }
 
-    public void cur() {
+    public void cxg() {
         setVisibility(0);
-        this.isF.setVisibility(0);
-        this.isG.setVisibility(0);
-        this.jyf.setVisibility(8);
+        this.iyW.setVisibility(0);
+        this.iyX.setVisibility(0);
+        this.jEo.setVisibility(8);
     }
 
-    public void cus() {
+    public void cxh() {
         setVisibility(0);
-        this.isF.setVisibility(8);
-        this.isG.setVisibility(8);
-        this.jyf.setVisibility(0);
-        e.iB().removeCallbacks(this.mHideRunnable);
-        e.iB().postDelayed(this.mHideRunnable, 3000L);
+        this.iyW.setVisibility(8);
+        this.iyX.setVisibility(8);
+        this.jEo.setVisibility(0);
+        e.iK().removeCallbacks(this.mHideRunnable);
+        e.iK().postDelayed(this.mHideRunnable, 3000L);
     }
 
     public void hide() {
@@ -106,18 +106,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.isF.setOnClickListener(onClickListener);
+        this.iyW.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.j(this.isF, R.color.cp_btn_a);
-            al.k(this.isF, R.drawable.rectangle_background_alpha80);
-            al.j(this.isG, R.color.cp_btn_a);
-            al.k(this.isG, R.drawable.blue_rectangle_background);
-            al.j(this.jyf, R.color.cp_btn_a);
-            al.k(this.jyf, R.drawable.rectangle_background_alpha80);
+            am.j(this.iyW, R.color.cp_btn_a);
+            am.k(this.iyW, R.drawable.rectangle_background_alpha80);
+            am.j(this.iyX, R.color.cp_btn_a);
+            am.k(this.iyX, R.drawable.blue_rectangle_background);
+            am.j(this.jEo, R.color.cp_btn_a);
+            am.k(this.jEo, R.drawable.rectangle_background_alpha80);
         }
     }
 }

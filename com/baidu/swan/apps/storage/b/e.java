@@ -16,7 +16,7 @@ public class e implements SharedPreferences {
         if (TextUtils.isEmpty(str) || NotifyAdapterUtil.PRIMARY_CHANNEL.equals(str)) {
             this.mSp = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext());
         } else {
-            this.mSp = com.baidu.swan.apps.u.a.DB().getSharedPreferences(str, 0);
+            this.mSp = com.baidu.swan.apps.u.a.Ek().getSharedPreferences(str, 0);
         }
     }
 
@@ -80,8 +80,8 @@ public class e implements SharedPreferences {
         this.mSp.edit().putString(str, str2).apply();
     }
 
-    public void putStringSet(String str, Set<String> set) {
-        b(str, set);
+    public void b(String str, Set<String> set) {
+        c(str, set);
         this.mSp.edit().putStringSet(str, set).apply();
     }
 
@@ -110,7 +110,7 @@ public class e implements SharedPreferences {
         }
     }
 
-    private void b(String str, Set<String> set) {
+    private void c(String str, Set<String> set) {
         if (set != null) {
             for (String str2 : set) {
                 aI(str, str2);

@@ -1,82 +1,82 @@
 package com.baidu.tbadk.core;
 
-import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.as;
 /* loaded from: classes.dex */
 public class i {
-    private static i bCC;
+    private static i bDz;
     private int mIsAbstractOn = 1;
-    private int bCD = 0;
-    private int bCE = 0;
+    private int bDA = 0;
+    private int bDB = 0;
     private String forumName = null;
-    private boolean bCF = true;
+    private boolean bDC = true;
     private int mViewImageQuality = 0;
 
-    public static i abb() {
+    public static i aca() {
         i iVar;
-        if (bCC == null) {
+        if (bDz == null) {
             synchronized (i.class) {
-                if (bCC == null) {
-                    bCC = new i();
+                if (bDz == null) {
+                    bDz = new i();
                 }
-                iVar = bCC;
+                iVar = bDz;
             }
             return iVar;
         }
-        return bCC;
+        return bDz;
     }
 
     private i() {
     }
 
     public void initSetting() {
-        this.bCD = com.baidu.tbadk.core.sharedPref.b.agM().getInt("image_quality", 0);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.agM().getInt("new_abstract_state", 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.agM().getInt("view_image_quality", 0);
-        this.bCF = com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("show_images", true);
+        this.bDA = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("image_quality", 0);
+        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("new_abstract_state", 0);
+        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("view_image_quality", 0);
+        this.bDC = com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean("show_images", true);
     }
 
-    public int abc() {
-        this.bCD = com.baidu.tbadk.core.sharedPref.b.agM().getInt("image_quality", 0);
-        return this.bCD;
+    public int acb() {
+        this.bDA = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("image_quality", 0);
+        return this.bDA;
     }
 
-    public void gK(int i) {
-        if (this.bCE != i) {
-            this.bCE = i;
-            com.baidu.tbadk.core.sharedPref.b.agM().putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
+    public void gO(int i) {
+        if (this.bDB != i) {
+            this.bDB = i;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
         }
     }
 
-    public int abd() {
-        this.bCE = com.baidu.tbadk.core.sharedPref.b.agM().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
-        return this.bCE;
+    public int acc() {
+        this.bDB = com.baidu.tbadk.core.sharedPref.b.ahO().getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 0);
+        return this.bDB;
     }
 
-    public void lY(String str) {
+    public void mi(String str) {
         this.forumName = str;
     }
 
-    public String abe() {
+    public String acd() {
         return this.forumName;
     }
 
-    public boolean abf() {
-        return this.bCF;
+    public boolean ace() {
+        return this.bDC;
     }
 
-    public void dB(boolean z) {
-        if (this.bCF != z) {
-            this.bCF = z;
-            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("show_images", z);
+    public void dF(boolean z) {
+        if (this.bDC != z) {
+            this.bDC = z;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("show_images", z);
         }
     }
 
-    public void gL(int i) {
+    public void gP(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.agM().putInt("view_image_quality", i);
-            ar.ail().ait();
-            ar.ail().aiu();
+            com.baidu.tbadk.core.sharedPref.b.ahO().putInt("view_image_quality", i);
+            as.ajo().ajw();
+            as.ajo().ajx();
         }
     }
 

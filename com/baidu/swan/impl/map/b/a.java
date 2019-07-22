@@ -17,131 +17,131 @@ public class a {
     public static void a(Marker marker, com.baidu.swan.impl.map.item.b bVar) {
         c b = bVar.b(marker);
         String str = "";
-        if (b != null && b.bnt != null) {
-            str = b.bnt.id;
+        if (b != null && b.bog != null) {
+            str = b.bog.id;
         }
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).m("markerId", str).TQ();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("markerId", str).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "markertap");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "markertap", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "markertap", jSONObject);
     }
 
     public static void c(com.baidu.swan.impl.map.item.b bVar, com.baidu.swan.apps.x.a.a.d dVar) {
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).m("markerId", dVar.id).TQ();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("markerId", dVar.id).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "callouttap");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "callouttap", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "callouttap", jSONObject);
     }
 
     public static void a(View view, com.baidu.swan.impl.map.item.b bVar) {
-        com.baidu.swan.impl.map.item.a ay = bVar.ay(view);
+        com.baidu.swan.impl.map.item.a aA = bVar.aA(view);
         String str = "";
-        if (ay != null && ay.bnp != null) {
-            str = ay.bnp.id;
+        if (aA != null && aA.boc != null) {
+            str = aA.boc.id;
         }
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).m("controlId", str).TQ();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("controlId", str).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "controltap");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "controltap", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "controltap", jSONObject);
     }
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, MapStatus mapStatus) {
-        JSONObject TQ = C0220a.TP().m("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).m("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).TQ();
-        JSONObject TQ2 = C0220a.TP().m("mapId", bVar.id).m("northeast", TQ).m("southwest", C0220a.TP().m("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).m("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).TQ()).TQ();
+        JSONObject UI = C0217a.UH().m("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).m("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).UI();
+        JSONObject UI2 = C0217a.UH().m("mapId", bVar.id).m("northeast", UI).m("southwest", C0217a.UH().m("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).m("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).UI()).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "regionchange");
-            jSONObject.put("data", TQ2.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI2.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "regionchange", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "regionchange", jSONObject);
     }
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, LatLng latLng) {
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).m("position", C0220a.TP().m("latitude", Double.valueOf(latLng.latitude)).m("longitude", Double.valueOf(latLng.longitude)).TQ()).TQ();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("position", C0217a.UH().m("latitude", Double.valueOf(latLng.latitude)).m("longitude", Double.valueOf(latLng.longitude)).UI()).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "tap");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "tap", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "tap", jSONObject);
     }
 
     public static void b(com.baidu.swan.impl.map.item.b bVar) {
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).TQ();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "updated");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "updated", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "updated", jSONObject);
     }
 
     public static void a(com.baidu.swan.impl.map.item.b bVar, MapPoi mapPoi) {
         LatLng position = mapPoi.getPosition();
-        C0220a.TP().m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).TQ();
-        JSONObject TQ = C0220a.TP().m("mapId", bVar.id).m("name", mapPoi.getName()).m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).TQ();
+        C0217a.UH().m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
+        JSONObject UI = C0217a.UH().m("mapId", bVar.id).m("name", mapPoi.getName()).m("latitude", Double.valueOf(position.latitude)).m("longitude", Double.valueOf(position.longitude)).UI();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "poitap");
-            jSONObject.put("data", TQ.toString());
-            jSONObject.put("wvID", bVar.bnr);
+            jSONObject.put("data", UI.toString());
+            jSONObject.put("wvID", bVar.boe);
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
             }
         }
-        d.a(bVar.bnr, bVar.id, "map", "poitap", jSONObject);
+        d.a(bVar.boe, bVar.id, "map", "poitap", jSONObject);
     }
 
     /* renamed from: com.baidu.swan.impl.map.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class C0220a {
+    private static class C0217a {
         private JSONObject params = new JSONObject();
 
-        static C0220a TP() {
-            return new C0220a();
+        static C0217a UH() {
+            return new C0217a();
         }
 
-        C0220a m(String str, Object obj) {
+        C0217a m(String str, Object obj) {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     this.params.put(str, obj);
@@ -152,11 +152,11 @@ public class a {
             return this;
         }
 
-        JSONObject TQ() {
+        JSONObject UI() {
             return this.params;
         }
 
-        C0220a() {
+        C0217a() {
         }
     }
 }

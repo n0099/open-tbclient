@@ -6,25 +6,23 @@ import java.lang.reflect.Field;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
+    private static volatile a tA;
+    private SparseArray<String> tB;
 
-    /* renamed from: tv  reason: collision with root package name */
-    private static volatile a f3tv;
-    private SparseArray<String> tw;
-
-    public static a fb() {
-        if (f3tv == null) {
+    public static a fi() {
+        if (tA == null) {
             synchronized (a.class) {
-                if (f3tv == null) {
-                    f3tv = new a();
+                if (tA == null) {
+                    tA = new a();
                 }
             }
         }
-        return f3tv;
+        return tA;
     }
 
     private a() {
-        this.tw = null;
-        this.tw = new SparseArray<>();
+        this.tB = null;
+        this.tB = new SparseArray<>();
     }
 
     public void i(List<String> list) {
@@ -44,10 +42,10 @@ public class a {
                 for (Field field : fields) {
                     int i = field.getInt(newInstance);
                     String name = field.getName();
-                    if (this.tw.get(i) != null) {
-                        throw new Error("cmd " + str + " " + name + " 和 " + this.tw.get(i) + " 重复");
+                    if (this.tB.get(i) != null) {
+                        throw new Error("cmd " + str + " " + name + " 和 " + this.tB.get(i) + " 重复");
                     }
-                    this.tw.put(i, name);
+                    this.tB.put(i, name);
                 }
             }
         } catch (ClassNotFoundException e) {
@@ -62,7 +60,7 @@ public class a {
     }
 
     public String A(int i) {
-        String str = this.tw.get(i);
+        String str = this.tB.get(i);
         if (str != null) {
             return str;
         }

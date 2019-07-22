@@ -1,94 +1,112 @@
 package com.baidu.tbadk.core.util;
 
-import android.app.Activity;
-import android.content.Intent;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.R;
-import java.io.File;
+import android.os.Build;
+import android.text.TextUtils;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class ak {
-    public static void c(TbPageContext<?> tbPageContext) {
-        try {
-            if (!m.gs()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.agZ());
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.agZ());
-                }
+    private static String bTr;
+    private static String sVersion;
+
+    public static boolean Pw() {
+        return ajg();
+    }
+
+    public static boolean ajg() {
+        return check("EMUI") && Build.VERSION.SDK_INT >= 24;
+    }
+
+    public static boolean check(String str) {
+        if (bTr != null) {
+            return bTr.equals(str);
+        }
+        String gE = gE("ro.miui.ui.version.name");
+        sVersion = gE;
+        if (!TextUtils.isEmpty(gE)) {
+            bTr = "MIUI";
+        } else {
+            String gE2 = gE("ro.build.version.emui");
+            sVersion = gE2;
+            if (!TextUtils.isEmpty(gE2)) {
+                bTr = "EMUI";
             } else {
-                File ne = m.ne("camera.jpg");
-                if (ne != null) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(ne, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public static void a(TbPageContext<?> tbPageContext, String str) {
-        try {
-            if (!m.gs()) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(m.agZ());
-                    return;
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(m.agZ());
-                    return;
+                String gE3 = gE("ro.build.version.opporom");
+                sVersion = gE3;
+                if (!TextUtils.isEmpty(gE3)) {
+                    bTr = "OPPO";
                 } else {
-                    return;
+                    String gE4 = gE("ro.vivo.os.version");
+                    sVersion = gE4;
+                    if (!TextUtils.isEmpty(gE4)) {
+                        bTr = "VIVO";
+                    } else {
+                        String gE5 = gE("ro.smartisan.version");
+                        sVersion = gE5;
+                        if (!TextUtils.isEmpty(gE5)) {
+                            bTr = "SMARTISAN";
+                        } else {
+                            sVersion = Build.DISPLAY;
+                            if (sVersion.toUpperCase().contains("FLYME")) {
+                                bTr = "FLYME";
+                            } else {
+                                sVersion = "unknown";
+                                bTr = Build.MANUFACTURER.toUpperCase();
+                            }
+                        }
+                    }
                 }
             }
-            String str2 = m.Dt + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
-            boolean z = false;
-            if (m.mV(str2)) {
-                File file = new File(str2 + "/" + str);
-                if (!file.exists()) {
-                    z = file.createNewFile();
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
-                    tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
-                }
-            }
-            if (!z) {
-                if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
-                }
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
+        return bTr.equals(str);
     }
 
-    public static void W(Activity activity) {
-        X(activity);
-    }
-
-    public static void X(Activity activity) {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [91=4] */
+    public static String gE(String str) {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2 = null;
         try {
-            Intent intent = new Intent();
-            intent.setType("image/*");
-            intent.setAction("android.intent.action.GET_CONTENT");
-            activity.startActivityForResult(intent, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            BufferedReader bufferedReader3 = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()), 1024);
+            try {
+                String readLine = bufferedReader3.readLine();
+                bufferedReader3.close();
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                        return readLine;
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return readLine;
+                    }
+                }
+                return readLine;
+            } catch (IOException e2) {
+                bufferedReader = bufferedReader3;
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader3;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (IOException e5) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

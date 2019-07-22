@@ -40,7 +40,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.EI(i)));
         this.intLength = i;
     }
 
@@ -50,7 +50,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setValue(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.eH(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_3, this, this, org.aspectj.a.a.a.eP(j)));
         if (j <= 127 && j > -128) {
             this.intLength = 1;
         } else if (j <= 32767 && j > -32768 && this.intLength < 2) {

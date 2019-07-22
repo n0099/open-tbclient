@@ -7,16 +7,16 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
 
     /* loaded from: classes.dex */
     public class a {
-        private int cgE = 0;
-        private int cgF = 0;
-        private int cgG = 0;
-        private int cgH = 0;
-        private int cgJ = 0;
-        private int cgI = 0;
-        private int cgK = 0;
-        private int cpp = 0;
-        private int cpq = 0;
-        private int cpr = 0;
+        private int chJ = 0;
+        private int chK = 0;
+        private int chL = 0;
+        private int chM = 0;
+        private int chO = 0;
+        private int chN = 0;
+        private int chP = 0;
+        private int cqC = 0;
+        private int cqD = 0;
+        private int cqE = 0;
 
         public a() {
         }
@@ -30,92 +30,92 @@ public class NewsNotifyMessage extends CustomResponsedMessage<Object> {
     public NewsNotifyMessage(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
         super(2001120);
         this.mData = new a();
-        this.mData.cgE = i;
-        this.mData.cgF = i2;
-        this.mData.cgG = i3;
-        this.mData.cgH = i4;
-        this.mData.cgI = i5;
-        this.mData.cgK = i6;
-        this.mData.cpp = i7;
+        this.mData.chJ = i;
+        this.mData.chK = i2;
+        this.mData.chL = i3;
+        this.mData.chM = i4;
+        this.mData.chN = i5;
+        this.mData.chP = i6;
+        this.mData.cqC = i7;
     }
 
     public int getMsgAgree() {
-        return this.mData.cgE;
+        return this.mData.chJ;
     }
 
     public void setMsgAgree(int i) {
-        this.mData.cgE = i;
+        this.mData.chJ = i;
     }
 
     public int getMsgReplyme() {
-        return this.mData.cgF;
+        return this.mData.chK;
     }
 
     public void setMsgReplyme(int i) {
-        this.mData.cgF = i;
+        this.mData.chK = i;
     }
 
     public int getMsgAtme() {
-        return this.mData.cgG;
+        return this.mData.chL;
     }
 
     public void setMsgAtme(int i) {
-        this.mData.cgG = i;
+        this.mData.chL = i;
     }
 
     public int getMsgChat() {
-        return this.mData.cgH;
+        return this.mData.chM;
     }
 
     public void setMsgChat(int i) {
-        this.mData.cgH = i;
+        this.mData.chM = i;
     }
 
     public void setMsgFans(int i) {
-        this.mData.cgJ = i;
+        this.mData.chO = i;
     }
 
     public int getMsgFans() {
-        return this.mData.cgJ;
+        return this.mData.chO;
     }
 
     public int getMsgBookmark() {
-        return this.mData.cgI;
+        return this.mData.chN;
     }
 
     public void setMsgBookmark(int i) {
-        this.mData.cgI = i;
+        this.mData.chN = i;
     }
 
     public int getMsgGiftNum() {
-        return this.mData.cgK;
+        return this.mData.chP;
     }
 
     public void setMsgGiftNum(int i) {
-        this.mData.cgK = i;
+        this.mData.chP = i;
     }
 
     public void setMsgPrivateChat(int i) {
-        this.mData.cpp = i;
+        this.mData.cqC = i;
     }
 
     public int getMsgPrivateChat() {
-        return this.mData.cpp;
+        return this.mData.cqC;
     }
 
     public void setMsgStrangerChat(int i) {
-        this.mData.cpq = i;
+        this.mData.cqD = i;
     }
 
     public int getMsgStrangerChat() {
-        return this.mData.cpq;
+        return this.mData.cqD;
     }
 
     public void setMsgOfficialMerge(int i) {
-        this.mData.cpr = i;
+        this.mData.cqE = i;
     }
 
     public int getMsgOfficialMerge() {
-        return this.mData.cpr;
+        return this.mData.cqE;
     }
 }

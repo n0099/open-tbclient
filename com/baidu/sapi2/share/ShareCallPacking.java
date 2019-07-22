@@ -4,12 +4,18 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.dto.PassNameValuePair;
+import com.baidu.sapi2.utils.TPRunnable;
+import com.baidu.sapi2.utils.ThreadPoolService;
+import java.util.List;
 /* loaded from: classes.dex */
 public class ShareCallPacking {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_FACE_LOGIN_MODEL = "FACE_LOGIN_MODEL";
     public static final String EXTRA_FACE_LOGIN_UID = "FACE_LOGIN_UID";
     public static final String EXTRA_SDK_VERSION = "SDK_VERSION";
+    public static final String EXTRA_SESSION_ID = "extra_session_id";
+    public static final String EXTRA_TRACE_ID = "extra_trace_id";
     public static final String EXTRA_V2_FACE_LOGIN_UIDS = "V2_FACE_LOGIN_UIDS_TIMES";
     public static final String LOGIN_TYPE_SHARE_V1_CHOICE = "choice_share";
     public static final String LOGIN_TYPE_SHARE_V2_CHOICE = "choice_share_v2";
@@ -31,20 +37,23 @@ public class ShareCallPacking {
         return c.a(context, str);
     }
 
-    public void markLoginState(boolean z) {
-        if (a.a().c(SapiAccountManager.getInstance().getConfignation().context)) {
-            new ShareStorage().a(z);
-            c.a();
-        }
-        SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
+    public void markLoginState(final boolean z) {
+        ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.share.ShareCallPacking.1
+            @Override // java.lang.Runnable
+            public void run() {
+                new ShareStorage().a(z);
+                c.a();
+                SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
+            }
+        }));
     }
 
-    public void startLoginShareActivityForResult(Activity activity, String str, String str2) {
-        c.a(activity, str, str2);
+    public void startLoginShareActivityForResult(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list) {
+        c.a(activity, str, str2, str3, str4, list);
     }
 
-    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent) {
-        c.a(shareLoginCallBack, i, i2, intent, this);
+    public void onLoginActivityActivityResult(ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, List<PassNameValuePair> list) {
+        c.a(shareLoginCallBack, i, i2, intent, this, list);
     }
 
     /* loaded from: classes.dex */

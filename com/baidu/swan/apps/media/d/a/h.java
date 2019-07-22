@@ -15,17 +15,17 @@ public class h extends g {
 
     @Override // com.baidu.swan.apps.media.d.a.g
     public boolean a(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.aAu + " slave id: " + cVar.aDm);
+        com.baidu.swan.apps.console.c.i("video", "remove, video id:" + cVar.aBc + " slave id: " + cVar.aDU);
         b(aVar, cVar, unitedSchemeEntity, callbackHandler);
         return true;
     }
 
     private void b(com.baidu.swan.apps.media.d.a aVar, com.baidu.swan.apps.media.d.c cVar, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.view.container.a iw = com.baidu.swan.apps.view.container.c.c.iw(cVar.aDm);
-        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar, iw);
-        if (iw != null && a != null) {
-            com.baidu.swan.apps.view.container.c.c.b(a, iw);
-            com.baidu.swan.apps.view.container.c.c.d(a, iw);
+        com.baidu.swan.apps.view.container.a iD = com.baidu.swan.apps.view.container.c.c.iD(cVar.aDU);
+        SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar, iD);
+        if (iD != null && a != null) {
+            com.baidu.swan.apps.view.container.c.c.b(a, iD);
+            com.baidu.swan.apps.view.container.c.c.d(a, iD);
         }
         aVar.onDestroy();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

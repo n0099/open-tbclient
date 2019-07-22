@@ -57,10 +57,10 @@ public final class Base64 {
                     i5 = b2 + 4;
                 } else if (b2 == 43) {
                     i5 = 62;
-                } else if (b2 != 47) {
-                    return null;
-                } else {
+                } else if (b2 == 47) {
                     i5 = 63;
+                } else {
+                    return null;
                 }
                 int i13 = (i10 << 6) | ((byte) i5);
                 if (i11 % 4 == 3) {

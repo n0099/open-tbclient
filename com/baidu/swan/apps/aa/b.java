@@ -6,21 +6,21 @@ import android.util.Log;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b aFf;
+    private static volatile b aFN;
     private static final String TAG = b.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static synchronized b Hy() {
+    public static synchronized b Ik() {
         b bVar;
         synchronized (b.class) {
-            if (aFf == null) {
+            if (aFN == null) {
                 synchronized (b.class) {
-                    if (aFf == null) {
-                        aFf = new b();
+                    if (aFN == null) {
+                        aFN = new b();
                     }
                 }
             }
-            bVar = aFf;
+            bVar = aFN;
         }
         return bVar;
     }
@@ -29,26 +29,26 @@ public class b {
     }
 
     public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.b bVar) {
-        com.baidu.swan.apps.ae.b Lq;
+        com.baidu.swan.apps.ae.b Md;
         if (DEBUG) {
             Log.d(TAG, "doBaiFuBaoPay orderInfo: " + str);
         }
-        if (TextUtils.isEmpty(str) || (Lq = com.baidu.swan.apps.ae.b.Lq()) == null) {
+        if (TextUtils.isEmpty(str) || (Md = com.baidu.swan.apps.ae.b.Md()) == null) {
             return false;
         }
-        com.baidu.swan.apps.u.a.DR().a(Lq, str, bVar);
+        com.baidu.swan.apps.u.a.EA().a(Md, str, bVar);
         return true;
     }
 
     public boolean a(Context context, String str, com.baidu.swan.apps.aa.a.a aVar) {
-        com.baidu.swan.apps.ae.b Lq;
+        com.baidu.swan.apps.ae.b Md;
         if (DEBUG) {
             Log.d(TAG, "doAliPay orderInfo: " + str);
         }
-        if (TextUtils.isEmpty(str) || (Lq = com.baidu.swan.apps.ae.b.Lq()) == null) {
+        if (TextUtils.isEmpty(str) || (Md = com.baidu.swan.apps.ae.b.Md()) == null) {
             return false;
         }
-        com.baidu.swan.apps.u.a.DR().a(Lq, str, aVar);
+        com.baidu.swan.apps.u.a.EA().a(Md, str, aVar);
         return true;
     }
 
@@ -59,7 +59,7 @@ public class b {
         if (map == null) {
             return false;
         }
-        com.baidu.swan.apps.u.a.DR().a(context, map, dVar);
+        com.baidu.swan.apps.u.a.EA().a(context, map, dVar);
         return true;
     }
 }

@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private int bjH;
-    private b.C0216b bjI;
-    private String bjJ;
+    private int bku;
+    private b.C0213b bkv;
+    private String bkw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.bjH = -1;
-        this.bjI = new b.C0216b();
-        d.Sa().Sb().setGameRecordCallback(this);
+        this.bku = -1;
+        this.bkv = new b.C0213b();
+        d.ST().SU().setGameRecordCallback(this);
     }
 
     private void l(String str, Object obj) {
@@ -31,18 +31,18 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void fa(int i) {
-        this.bjH = i;
+    public void fe(int i) {
+        this.bku = i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void jJ(String str) {
-        this.bjJ = str;
+    public void jR(String str) {
+        this.bkw = str;
     }
 
     @Override // com.baidu.mario.b.b
     public void onStart() {
-        l(IntentConfig.START, this.bjH == -1 ? this.bjI : new b.c(this.bjH));
+        l(IntentConfig.START, this.bku == -1 ? this.bkv : new b.c(this.bku));
         f fVar = new f();
         fVar.mType = IntentConfig.START;
         e.c(fVar);
@@ -50,7 +50,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
 
     @Override // com.baidu.mario.b.b
     public void onPause() {
-        l("pause", this.bjI);
+        l("pause", this.bkv);
         f fVar = new f();
         fVar.mType = "pause";
         e.c(fVar);
@@ -58,7 +58,7 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
 
     @Override // com.baidu.mario.b.b
     public void onResume() {
-        l("resume", this.bjI);
+        l("resume", this.bkv);
         f fVar = new f();
         fVar.mType = "resume";
         e.c(fVar);
@@ -67,9 +67,9 @@ public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     @Override // com.baidu.mario.b.b
     public void h(int i, String str) {
         if (DEBUG) {
-            Log.d("GameRecorderApi", "schemeVideoPath:" + this.bjJ);
+            Log.d("GameRecorderApi", "schemeVideoPath:" + this.bkw);
         }
-        l(IntentConfig.STOP, new b.d(this.bjJ));
+        l(IntentConfig.STOP, new b.d(this.bkw));
         f fVar = new f();
         fVar.mType = IntentConfig.STOP;
         fVar.k("dura", String.valueOf(i / 1000.0f));

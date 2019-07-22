@@ -1,7 +1,6 @@
 package com.baidu.sapi2.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ProgressBar;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.sapi2.base.debug.Log;
 /* loaded from: classes2.dex */
 public class SapiWebViewUtil {
     public static void addCustomView(Context context, SapiWebView sapiWebView) {
@@ -53,25 +51,16 @@ public class SapiWebViewUtil {
         }
     }
 
-    public static void setNoNetworkView(final Context context, SapiWebView sapiWebView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(a.e.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                Intent intent = new Intent("android.settings.SETTINGS");
-                intent.setFlags(270532608);
-                context.startActivity(intent);
-            }
-        });
-        sapiWebView.setNoNetworkView(inflate);
+    private static void setNoNetworkView(Context context, SapiWebView sapiWebView) {
+        sapiWebView.setNoNetworkView(((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_network_unavailable, (ViewGroup) null));
     }
 
-    public static void setTimeoutView(Context context, final SapiWebView sapiWebView) {
+    private static void setTimeoutView(Context context, final SapiWebView sapiWebView) {
         final View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(a.e.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2
+        inflate.findViewById(a.e.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2.1
+                SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         inflate.setVisibility(4);
@@ -83,7 +72,7 @@ public class SapiWebViewUtil {
         sapiWebView.setTimeoutView(inflate);
     }
 
-    public static void setProgressBar(Context context, SapiWebView sapiWebView) {
+    private static void setProgressBar(Context context, SapiWebView sapiWebView) {
         try {
             ProgressBar progressBar = new ProgressBar(context, null, 16842872);
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));

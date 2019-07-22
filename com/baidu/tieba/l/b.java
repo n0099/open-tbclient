@@ -24,7 +24,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 /* loaded from: classes.dex */
 final class b {
-    private static Method hqv;
+    private static Method hwH;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<File> a(Context context, ApplicationInfo applicationInfo, File file, boolean z) throws IOException {
@@ -38,7 +38,7 @@ final class b {
             } catch (IOException e) {
                 Log.w("MultiDex", "Failed to reload existing extracted secondary dex files, falling back to fresh extraction", e);
                 if (context instanceof c.a) {
-                    ((c.a) context).getSplash().bMv();
+                    ((c.a) context).getSplash().bPd();
                 }
                 g = g(file2, file);
                 b(context, M(file2), N, g.size() + 1);
@@ -46,7 +46,7 @@ final class b {
         } else {
             Log.i("MultiDex", "Detected that extraction must be performed.");
             if (context instanceof c.a) {
-                ((c.a) context).getSplash().bMv();
+                ((c.a) context).getSplash().bPd();
             }
             g = g(file2, file);
             b(context, M(file2), N, g.size() + 1);
@@ -58,7 +58,7 @@ final class b {
     private static List<File> a(Context context, File file, File file2) throws IOException {
         Log.i("MultiDex", "loading existing secondary dex files");
         String str = file.getName() + ".classes";
-        int i = co(context).getInt("dex.number", 1);
+        int i = cp(context).getInt("dex.number", 1);
         ArrayList arrayList = new ArrayList(i);
         for (int i2 = 2; i2 <= i; i2++) {
             File file3 = new File(file2, str + i2 + ".zip");
@@ -75,8 +75,8 @@ final class b {
     }
 
     private static boolean a(Context context, File file, long j) {
-        SharedPreferences co = co(context);
-        return (co.getLong("timestamp", -1L) == M(file) && co.getLong("crc", -1L) == j) ? false : true;
+        SharedPreferences cp = cp(context);
+        return (cp.getLong("timestamp", -1L) == M(file) && cp.getLong("crc", -1L) == j) ? false : true;
     }
 
     private static long M(File file) {
@@ -143,14 +143,14 @@ final class b {
     }
 
     private static void b(Context context, long j, long j2, int i) {
-        SharedPreferences.Editor edit = co(context).edit();
+        SharedPreferences.Editor edit = cp(context).edit();
         edit.putLong("timestamp", j);
         edit.putLong("crc", j2);
         edit.putInt("dex.number", i);
         apply(edit);
     }
 
-    private static SharedPreferences co(Context context) {
+    private static SharedPreferences cp(Context context) {
         return context.getSharedPreferences("multidex.version", Build.VERSION.SDK_INT < 11 ? 0 : 4);
     }
 
@@ -241,9 +241,9 @@ final class b {
     }
 
     private static void apply(SharedPreferences.Editor editor) {
-        if (hqv != null) {
+        if (hwH != null) {
             try {
-                hqv.invoke(editor, new Object[0]);
+                hwH.invoke(editor, new Object[0]);
                 return;
             } catch (IllegalAccessException e) {
             } catch (InvocationTargetException e2) {
@@ -254,9 +254,9 @@ final class b {
 
     static {
         try {
-            hqv = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
+            hwH = SharedPreferences.Editor.class.getMethod("apply", new Class[0]);
         } catch (NoSuchMethodException e) {
-            hqv = null;
+            hwH = null;
         }
     }
 }

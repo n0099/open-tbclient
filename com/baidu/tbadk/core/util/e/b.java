@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.util.e;
 /* loaded from: classes.dex */
 public interface b {
-    void bV(String str, String str2);
+    void bW(String str, String str2);
+
+    void oH(String str);
 
     void onSuccess(String str);
-
-    void oq(String str);
 }

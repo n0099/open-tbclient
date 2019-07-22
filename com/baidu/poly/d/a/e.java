@@ -6,25 +6,25 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e ahC;
+    private static e aid;
 
     private e() {
     }
 
-    public static e uu() {
-        if (ahC == null) {
+    public static e uU() {
+        if (aid == null) {
             synchronized (e.class) {
-                if (ahC == null) {
-                    ahC = new e();
+                if (aid == null) {
+                    aid = new e();
                 }
             }
         }
-        return ahC;
+        return aid;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d
     public void a(Activity activity, Map<String, String> map, final a.C0085a c0085a) {
-        com.baidu.swan.apps.aa.b.Hy().b(activity, l(map), new com.baidu.swan.apps.aa.a.d() { // from class: com.baidu.poly.d.a.e.1
+        com.baidu.swan.apps.aa.b.Ik().b(activity, l(map), new com.baidu.swan.apps.aa.a.d() { // from class: com.baidu.poly.d.a.e.1
             @Override // com.baidu.swan.apps.aa.a.d
             public void k(int i, String str) {
                 if (c0085a != null) {

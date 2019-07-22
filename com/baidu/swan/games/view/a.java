@@ -6,24 +6,24 @@ import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public class a {
     public static boolean c(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        b FW = e.FV().FW();
-        return FW != null && FW.a(view, bVar);
+        b GG = e.GF().GG();
+        return GG != null && GG.a(view, bVar);
     }
 
     public static boolean b(View view, com.baidu.swan.apps.model.a.a.b bVar) {
-        b FW = e.FV().FW();
-        return FW != null && FW.b(view, bVar);
+        b GG = e.GF().GG();
+        return GG != null && GG.b(view, bVar);
     }
 
-    public static boolean al(View view) {
-        b FW = e.FV().FW();
-        return FW != null && FW.al(view);
+    public static boolean an(View view) {
+        b GG = e.GF().GG();
+        return GG != null && GG.an(view);
     }
 
-    public static Context SE() {
-        b FW = e.FV().FW();
-        if (FW != null) {
-            return FW.getContext();
+    public static Context Tx() {
+        b GG = e.GF().GG();
+        if (GG != null) {
+            return GG.getContext();
         }
         return null;
     }

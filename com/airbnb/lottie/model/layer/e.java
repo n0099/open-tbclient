@@ -10,28 +10,28 @@ import com.airbnb.lottie.model.content.j;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class e extends a {
-    private final com.airbnb.lottie.a.a.c mO;
+    private final com.airbnb.lottie.a.a.c mN;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(com.airbnb.lottie.f fVar, Layer layer) {
         super(fVar, layer);
-        this.mO = new com.airbnb.lottie.a.a.c(fVar, this, new j(layer.getName(), layer.cy()));
-        this.mO.b(Collections.emptyList(), Collections.emptyList());
+        this.mN = new com.airbnb.lottie.a.a.c(fVar, this, new j(layer.getName(), layer.cE()));
+        this.mN.b(Collections.emptyList(), Collections.emptyList());
     }
 
     @Override // com.airbnb.lottie.model.layer.a
     void b(@NonNull Canvas canvas, Matrix matrix, int i) {
-        this.mO.a(canvas, matrix, i);
+        this.mN.a(canvas, matrix, i);
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        this.mO.a(rectF, this.pw);
+        this.mN.a(rectF, this.px);
     }
 
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void b(@Nullable String str, @Nullable String str2, @Nullable ColorFilter colorFilter) {
-        this.mO.b(str, str2, colorFilter);
+        this.mN.b(str, str2, colorFilter);
     }
 }

@@ -7,9 +7,9 @@ public interface u {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void EA();
+        void Fj();
 
-        void EB();
+        void Fk();
     }
 
     void a(Context context, JSONObject jSONObject, a aVar);

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.c;
@@ -19,14 +19,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.card.data.f;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tieba.card.a<f> {
-    private c ewY;
-    public ClickableHeaderImageView fRm;
-    private MetaData fVB;
-    private f fVC;
-    private TextView fVD;
-    public CommonUserLikeButton fVw;
-    private TextView fVy;
-    private TextView fVz;
+    private c eBX;
+    public ClickableHeaderImageView fWj;
+    private TextView gaA;
+    public CommonUserLikeButton gat;
+    private TextView gav;
+    private TextView gaw;
+    private MetaData gay;
+    private f gaz;
     private View mBottomLine;
     private TbPageContext<?> mPageContext;
 
@@ -34,19 +34,19 @@ public class b extends com.baidu.tieba.card.a<f> {
         super(tbPageContext);
         this.mPageContext = tbPageContext;
         getView().setOnClickListener(this);
-        this.fRm = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
-        this.fRm.setGodIconMargin(R.dimen.ds6);
-        this.fRm.setAfterClickListener(this);
-        this.fVy = (TextView) getView().findViewById(R.id.god_name);
-        this.fVz = (TextView) getView().findViewById(R.id.god_describe);
-        this.fVD = (TextView) getView().findViewById(R.id.rec_reason);
-        this.fVw = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
-        this.ewY = new c(tbPageContext, this.fVw);
-        this.fVw.setAfterOnClickListener(this);
+        this.fWj = (ClickableHeaderImageView) getView().findViewById(R.id.god_header_view);
+        this.fWj.setGodIconMargin(R.dimen.ds6);
+        this.fWj.setAfterClickListener(this);
+        this.gav = (TextView) getView().findViewById(R.id.god_name);
+        this.gaw = (TextView) getView().findViewById(R.id.god_describe);
+        this.gaA = (TextView) getView().findViewById(R.id.rec_reason);
+        this.gat = (CommonUserLikeButton) getView().findViewById(R.id.god_like_btn);
+        this.eBX = new c(tbPageContext, this.gat);
+        this.gat.setAfterOnClickListener(this);
         this.mBottomLine = getView().findViewById(R.id.bottom_line);
     }
 
-    public void i(BdUniqueId bdUniqueId) {
+    public void j(BdUniqueId bdUniqueId) {
         if (bdUniqueId == null) {
         }
     }
@@ -54,11 +54,11 @@ public class b extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(getView(), R.drawable.home_thread_card_item_bg);
-            al.j(this.fVy, R.color.cp_cont_b);
-            al.j(this.fVz, R.color.cp_cont_d);
-            al.j(this.fVD, R.color.cp_cont_d);
-            al.l(this.mBottomLine, R.color.cp_bg_line_b);
+            am.k(getView(), R.drawable.home_thread_card_item_bg);
+            am.j(this.gav, R.color.cp_cont_b);
+            am.j(this.gaw, R.color.cp_cont_d);
+            am.j(this.gaA, R.color.cp_cont_d);
+            am.l(this.mBottomLine, R.color.cp_bg_line_b);
         }
         this.mSkinType = i;
     }
@@ -71,31 +71,31 @@ public class b extends com.baidu.tieba.card.a<f> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
-        if (fVar != null && fVar.bJb != null && fVar.bJb.getGodUserData() != null) {
-            this.fVC = fVar;
-            this.fVB = fVar.bJb;
-            this.fRm.setData(fVar.bJb);
-            this.fVy.setText(fVar.bJb.getName_show());
-            this.fVz.setText(fVar.bJb.getGodUserData().getIntro());
+        if (fVar != null && fVar.bKb != null && fVar.bKb.getGodUserData() != null) {
+            this.gaz = fVar;
+            this.gay = fVar.bKb;
+            this.fWj.setData(fVar.bKb);
+            this.gav.setText(fVar.bKb.getName_show());
+            this.gaw.setText(fVar.bKb.getGodUserData().getIntro());
             String string = this.mPageContext.getResources().getString(R.string.recommend_reason);
-            String recommendReason = fVar.bJb.getGodUserData().getRecommendReason();
+            String recommendReason = fVar.bKb.getGodUserData().getRecommendReason();
             if (StringUtils.isNull(recommendReason)) {
-                this.fVD.setText("");
+                this.gaA.setText("");
             } else {
-                this.fVD.setText(String.format(string, recommendReason));
+                this.gaA.setText(String.format(string, recommendReason));
             }
-            this.ewY.a(fVar.bJb);
+            this.eBX.a(fVar.bKb);
             onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (aXr() != null) {
-            aXr().a(view, this.fVC);
+        if (aZo() != null) {
+            aZo().a(view, this.gaz);
         }
-        if (view == getView() && this.fVB != null && !StringUtils.isNull(this.fVB.getName_show()) && !StringUtils.isNull(this.fVB.getUserId())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.fVB.getUserId(), this.fVB.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
+        if (view == getView() && this.gay != null && !StringUtils.isNull(this.gay.getName_show()) && !StringUtils.isNull(this.gay.getUserId())) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.mPageContext.getPageActivity(), this.gay.getUserId(), this.gay.getName_show(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
         }
     }
 }

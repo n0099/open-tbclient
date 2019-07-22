@@ -5,18 +5,18 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class b<T> implements j<T> {
-    private boolean kcd = false;
+    private boolean kjk = false;
 
     protected abstract void A(Throwable th);
 
-    protected abstract void cGs();
+    protected abstract void cJv();
 
     protected abstract void d(T t, boolean z);
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void e(@Nullable T t, boolean z) {
-        if (!this.kcd) {
-            this.kcd = z;
+        if (!this.kjk) {
+            this.kjk = z;
             try {
                 d(t, z);
             } catch (Exception e) {
@@ -27,8 +27,8 @@ public abstract class b<T> implements j<T> {
 
     @Override // com.facebook.imagepipeline.producers.j
     public synchronized void B(Throwable th) {
-        if (!this.kcd) {
-            this.kcd = true;
+        if (!this.kjk) {
+            this.kjk = true;
             try {
                 A(th);
             } catch (Exception e) {
@@ -38,11 +38,11 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void cBz() {
-        if (!this.kcd) {
-            this.kcd = true;
+    public synchronized void cEA() {
+        if (!this.kjk) {
+            this.kjk = true;
             try {
-                cGs();
+                cJv();
             } catch (Exception e) {
                 n(e);
             }
@@ -50,17 +50,17 @@ public abstract class b<T> implements j<T> {
     }
 
     @Override // com.facebook.imagepipeline.producers.j
-    public synchronized void aQ(float f) {
-        if (!this.kcd) {
+    public synchronized void aR(float f) {
+        if (!this.kjk) {
             try {
-                be(f);
+                bf(f);
             } catch (Exception e) {
                 n(e);
             }
         }
     }
 
-    protected void be(float f) {
+    protected void bf(float f) {
     }
 
     protected void n(Exception exc) {
