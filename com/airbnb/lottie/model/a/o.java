@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class o<V, O> implements m<V, O> {
-    final List<com.airbnb.lottie.a.a<V>> mW;
-    final V nm;
+    final List<com.airbnb.lottie.a.a<V>> mV;
+    final V nl;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(V v) {
@@ -15,8 +15,8 @@ public abstract class o<V, O> implements m<V, O> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(List<com.airbnb.lottie.a.a<V>> list, V v) {
-        this.mW = list;
-        this.nm = v;
+        this.mV = list;
+        this.nl = v;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: V */
@@ -26,18 +26,18 @@ public abstract class o<V, O> implements m<V, O> {
     }
 
     public boolean hasAnimation() {
-        return !this.mW.isEmpty();
+        return !this.mV.isEmpty();
     }
 
-    public O cB() {
-        return k(this.nm);
+    public O cH() {
+        return k(this.nl);
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("parseInitialValue=").append(this.nm);
-        if (!this.mW.isEmpty()) {
-            sb.append(", values=").append(Arrays.toString(this.mW.toArray()));
+        sb.append("parseInitialValue=").append(this.nl);
+        if (!this.mV.isEmpty()) {
+            sb.append(", values=").append(Arrays.toString(this.mV.toArray()));
         }
         return sb.toString();
     }

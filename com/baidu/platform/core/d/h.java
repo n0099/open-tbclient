@@ -19,7 +19,6 @@ import com.baidu.mapapi.search.route.MassTransitRouteResult;
 import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.SuggestAddrInfo;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-import com.baidu.sapi2.share.face.FaceLoginModel;
 import com.baidu.ubc.UBC;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import java.util.ArrayList;
@@ -120,7 +119,7 @@ public class h extends com.baidu.platform.base.d {
                         busInfo.setDepartureStation(optJSONObject4.optString("on_station"));
                         busInfo.setArriveStation(optJSONObject4.optString("off_station"));
                         busInfo.setDepartureTime(optJSONObject4.optString("first_time"));
-                        busInfo.setArriveTime(optJSONObject4.optString(FaceLoginModel.KEY_LAST_LOGIN_TIME));
+                        busInfo.setArriveTime(optJSONObject4.optString(com.baidu.sapi2.share.a.b.e));
                         transitStep.setBusInfo(busInfo);
                         break;
                     }

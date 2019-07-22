@@ -1,6 +1,5 @@
 package com.baidu.swan.game.ad.e;
 
-import com.baidu.sapi2.outsdk.ChinaMobileSDK;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -15,7 +14,7 @@ public class b {
         a.put("101003", "请求的sdk版本信息有误");
         a.put("101004", "请求的referer信息有误");
         a.put("101005", "请求的appid不合法");
-        a.put(ChinaMobileSDK.b, "应用信息缺失");
+        a.put("103000", "应用信息缺失");
         a.put("103010", "应用ID信息缺失");
         a.put("103011", "应用ID信息错误，MSSP未收录");
         a.put("103012", "应用ID无效，MSSP上未生效");

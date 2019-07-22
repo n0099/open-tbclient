@@ -6,13 +6,13 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public interface k {
-    String Eo();
+    String EX();
 
-    l Ez();
+    l Fi();
 
-    String Hs();
+    String Ie();
 
-    boolean Ht();
+    boolean If();
 
     void a(String str, int i, JSONArray jSONArray);
 
@@ -24,7 +24,7 @@ public interface k {
 
     void c(String str, int i, String str2);
 
-    boolean fJ(String str);
+    boolean fO(String str);
 
     String getAppId();
 
@@ -36,7 +36,7 @@ public interface k {
 
     void t(String str, int i);
 
-    int vc();
+    int vD();
 
-    ExecutorService wf();
+    ExecutorService wG();
 }

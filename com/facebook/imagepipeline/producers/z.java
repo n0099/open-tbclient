@@ -12,11 +12,11 @@ public class z extends y {
 
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
-        return e(new FileInputStream(imageRequest.cIt().toString()), (int) imageRequest.cIt().length());
+        return e(new FileInputStream(imageRequest.cLx().toString()), (int) imageRequest.cLx().length());
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String cHI() {
+    protected String cKM() {
         return "LocalFileFetchProducer";
     }
 }

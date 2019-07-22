@@ -2,12 +2,12 @@ package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class ai extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void hD() {
-        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.yU, this.yX);
-        bVar.a(this.yW, this.yT, this.yV);
-        bVar.g(hC());
+    protected void hN() {
+        com.baidu.adp.lib.b.b bVar = new com.baidu.adp.lib.b.b(this.mName, this.za, this.zd);
+        bVar.a(this.zc, this.yZ, this.zb);
+        bVar.g(hM());
         bVar.Q(true);
-        com.baidu.adp.lib.b.d.hI().a(bVar);
+        com.baidu.adp.lib.b.d.hS().a(bVar);
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -20,22 +20,22 @@ public class ai extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hy() {
+    protected String[] hI() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hz() {
+    protected int hJ() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hA() {
+    protected int hK() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hB() {
+    protected int hL() {
         return 10;
     }
 }

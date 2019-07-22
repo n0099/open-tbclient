@@ -4,11 +4,11 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.tbadk.core.data.bg;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bd;
 /* loaded from: classes3.dex */
 public class PraiseView extends BasePraiseView<bg> {
-    private View.OnClickListener bZu;
+    private View.OnClickListener caw;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -23,93 +23,93 @@ public class PraiseView extends BasePraiseView<bg> {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((bg) this.mData).aeO();
+        return ((bg) this.mData).afQ();
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.baidu.tbadk.core.data.bg */
     /* JADX WARN: Multi-variable type inference failed */
     public void n(bg bgVar) {
         if (bgVar != 0) {
-            if (bgVar.aeQ() != 0) {
-                if (bgVar.aeR() == 0 || bgVar.aeR() == 1) {
-                    bgVar.hl(2);
+            if (bgVar.afS() != 0) {
+                if (bgVar.afT() == 0 || bgVar.afT() == 1) {
+                    bgVar.hr(2);
                 }
-                if (bgVar.aeR() == 3 || bgVar.aeR() == 4) {
-                    bgVar.hl(5);
+                if (bgVar.afT() == 3 || bgVar.afT() == 4) {
+                    bgVar.hr(5);
                 }
             }
             this.mData = bgVar;
             this.mThreadId = bgVar.getTid();
             this.mForumId = String.valueOf(bgVar.getFid());
-            this.bKE = ((bg) this.mData).aeO();
-            this.bKF = ((bg) this.mData).aeP();
-            Jf();
+            this.bLE = ((bg) this.mData).afQ();
+            this.bLF = ((bg) this.mData).afR();
+            JS();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
-    public void Jf() {
+    public void JS() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.bVW);
+        String string = context.getString(this.bWY);
         if (num > 0) {
-            string = ap.aN(num);
+            string = aq.aO(num);
         }
-        this.bWb.setText(string);
-        this.bWb.setContentDescription(context.getString(this.bVW) + num);
-        if (this.mData != 0 && ((bg) this.mData).aeQ() != 0 && ajf()) {
-            this.bWc.setImageDrawable(W(this.bVY, this.bVX));
-            this.bWb.setTextColor(createColorStateList(this.bWa, this.bVZ));
+        this.bXd.setText(string);
+        this.bXd.setContentDescription(context.getString(this.bWY) + num);
+        if (this.mData != 0 && ((bg) this.mData).afS() != 0 && akj()) {
+            this.bXe.setImageDrawable(Z(this.bXa, this.bWZ));
+            this.bXd.setTextColor(createColorStateList(this.bXc, this.bXb));
             return;
         }
-        this.bWc.setImageDrawable(W(this.bVX, this.bVY));
-        this.bWb.setTextColor(createColorStateList(this.bVZ, this.bWa));
+        this.bXe.setImageDrawable(Z(this.bWZ, this.bXa));
+        this.bXd.setTextColor(createColorStateList(this.bXb, this.bXc));
     }
 
-    public int aje() {
+    public int aki() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((bg) this.mData).aeQ() != 0 && ajf()) {
-            ((bg) this.mData).hl(2);
-            ((bg) this.mData).hj(0);
-            ((bg) this.mData).ar(((bg) this.mData).aeO() - 1);
-            ((bg) this.mData).as(((bg) this.mData).aeP());
+        if (((bg) this.mData).afS() != 0 && akj()) {
+            ((bg) this.mData).hr(2);
+            ((bg) this.mData).hp(0);
+            ((bg) this.mData).as(((bg) this.mData).afQ() - 1);
+            ((bg) this.mData).at(((bg) this.mData).afR());
             i = 1;
         } else {
-            if (((bg) this.mData).aeQ() != 0 && ((bg) this.mData).aeR() == 5) {
-                ((bg) this.mData).as(((bg) this.mData).aeP() - 1);
+            if (((bg) this.mData).afS() != 0 && ((bg) this.mData).afT() == 5) {
+                ((bg) this.mData).at(((bg) this.mData).afR() - 1);
             }
-            ((bg) this.mData).hj(1);
-            ((bg) this.mData).ar(((bg) this.mData).aeO() + 1);
-            ((bg) this.mData).hl(2);
-            com.baidu.tieba.n.a.ceu().x(getTbPageContext());
+            ((bg) this.mData).hp(1);
+            ((bg) this.mData).as(((bg) this.mData).afQ() + 1);
+            ((bg) this.mData).hr(2);
+            com.baidu.tieba.n.a.chl().z(getTbPageContext());
             i = 0;
         }
         return i;
     }
 
-    public int aL(View view) {
-        if (com.baidu.tbadk.util.i.isFastDoubleClick() || !bc.cE(getContext()) || this.mData == 0) {
+    public int aN(View view) {
+        if (com.baidu.tbadk.util.i.isFastDoubleClick() || !bd.cF(getContext()) || this.mData == 0) {
             return -1;
         }
-        int aje = aje();
-        Jf();
-        ir(aje);
-        iq(aje);
-        if (this.bVj != null) {
-            this.bVj.onClick(view);
+        int aki = aki();
+        JS();
+        ix(aki);
+        iw(aki);
+        if (this.bWk != null) {
+            this.bWk.onClick(view);
         }
-        a(aje, (bg) this.mData);
-        if (this.bZu != null && ((bg) this.mData).adz()) {
-            this.bZu.onClick(view);
+        a(aki, (bg) this.mData);
+        if (this.caw != null && ((bg) this.mData).aeB()) {
+            this.caw.onClick(view);
         }
-        return aje;
+        return aki;
     }
 
-    public boolean ajf() {
-        return this.mData != 0 && (((bg) this.mData).aeR() == 2 || ((bg) this.mData).aeR() == 1);
+    public boolean akj() {
+        return this.mData != 0 && (((bg) this.mData).afT() == 2 || ((bg) this.mData).afT() == 1);
     }
 
     public void setShowPraiseNum(boolean z) {
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bg> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.bZu = onClickListener;
+        this.caw = onClickListener;
     }
 }

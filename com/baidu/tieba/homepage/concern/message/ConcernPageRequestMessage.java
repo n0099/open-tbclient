@@ -19,7 +19,7 @@ public class ConcernPageRequestMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             builder.page_tag = this.pageTag;
-            builder.last_req_unix = Long.valueOf(b.agM().getLong(b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
+            builder.last_req_unix = Long.valueOf(b.ahO().getLong(b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), 0L));
             if (z) {
                 s.bindCommonParamsToProtobufData(builder, true);
             }

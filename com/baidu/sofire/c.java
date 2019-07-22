@@ -4,26 +4,28 @@ import android.content.Context;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class c {
     private static Map<String, d> a = new HashMap();
 
     public static void a(Context context, int i, File file, File file2) {
-        try {
-            if (com.baidu.sofire.b.e.a(file)) {
-                if (!com.baidu.sofire.b.e.a(file2)) {
-                    com.baidu.sofire.b.e.a(file, file2);
+        if (file != null) {
+            try {
+                if (com.baidu.sofire.b.e.a(file)) {
+                    if (!com.baidu.sofire.b.e.a(file2)) {
+                        com.baidu.sofire.b.e.a(file, file2);
+                    }
+                    new StringBuilder("f=").append(file).append(", b=").append(file2);
+                    b.a();
+                    if (!a.containsKey(file.getAbsolutePath())) {
+                        d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
+                        dVar.startWatching();
+                        a.put(file.getAbsolutePath(), dVar);
+                    }
                 }
-                new StringBuilder("f=").append(file).append(", b=").append(file2);
-                b.a();
-                if (!a.containsKey(file.getAbsolutePath())) {
-                    d dVar = new d(context, i, file.getAbsolutePath(), file2.getAbsolutePath());
-                    dVar.startWatching();
-                    a.put(file.getAbsolutePath(), dVar);
-                }
+            } catch (Throwable th) {
+                com.baidu.sofire.b.e.a();
             }
-        } catch (Throwable th) {
-            com.baidu.sofire.b.e.a();
         }
     }
 

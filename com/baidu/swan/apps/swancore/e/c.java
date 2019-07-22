@@ -3,56 +3,56 @@ package com.baidu.swan.apps.swancore.e;
 import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public boolean aWl;
-    public boolean aWm;
+    public boolean aWV;
+    public boolean aWW;
     @Nullable
-    public com.baidu.swan.apps.v.b.c aWn;
-    public String aWo;
+    public com.baidu.swan.apps.v.b.c aWX;
+    public String aWY;
 
     private c() {
-        this.aWl = false;
-        this.aWm = false;
-        this.aWn = null;
-        this.aWo = "";
+        this.aWV = false;
+        this.aWW = false;
+        this.aWX = null;
+        this.aWY = "";
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private boolean aWl = false;
-        private boolean aWm = false;
+        private boolean aWV = false;
+        private boolean aWW = false;
         @Nullable
-        private com.baidu.swan.apps.v.b.c aWn = null;
-        private String aWo = "";
+        private com.baidu.swan.apps.v.b.c aWX = null;
+        private String aWY = "";
 
-        public static a Nv() {
+        public static a Ok() {
             return new a();
         }
 
-        public a cx(boolean z) {
-            this.aWl = z;
+        public a cA(boolean z) {
+            this.aWV = z;
             return this;
         }
 
-        public a hK(String str) {
-            this.aWo = str;
+        public a hR(String str) {
+            this.aWY = str;
             return this;
         }
 
-        public c Nw() {
+        public c Ol() {
             c cVar = new c();
-            cVar.aWl = this.aWl;
-            cVar.aWm = this.aWm;
-            cVar.aWn = this.aWn;
-            cVar.aWo = this.aWo;
+            cVar.aWV = this.aWV;
+            cVar.aWW = this.aWW;
+            cVar.aWX = this.aWX;
+            cVar.aWY = this.aWY;
             return cVar;
         }
 
-        public c Nx() {
-            this.aWl = false;
-            this.aWm = false;
-            this.aWn = null;
-            this.aWo = "";
-            return Nw();
+        public c Om() {
+            this.aWV = false;
+            this.aWW = false;
+            this.aWX = null;
+            this.aWY = "";
+            return Ol();
         }
     }
 }

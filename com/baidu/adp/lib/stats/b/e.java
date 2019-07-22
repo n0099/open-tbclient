@@ -6,7 +6,7 @@ import com.tencent.connect.common.Constants;
 public class e extends com.baidu.adp.lib.stats.base.a {
     public e(i iVar) {
         super(iVar);
-        this.Cp = 50;
-        this.Cq = Constants.PARAM_PLATFORM_ID;
+        this.Cv = 50;
+        this.Cw = Constants.PARAM_PLATFORM_ID;
     }
 }

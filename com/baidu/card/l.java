@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class l extends b<com.baidu.tbadk.core.data.a> {
-    private ThreadLinkView VC;
-    private TextView VD;
-    private com.baidu.tbadk.core.data.a Vp;
+    private com.baidu.tbadk.core.data.a VJ;
+    private ThreadLinkView VX;
+    private TextView VY;
     private View mRootView;
 
     public l(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(R.layout.card_link_layout, (ViewGroup) null, true);
-        this.VC = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
-        this.VD = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
+        this.VX = (ThreadLinkView) this.mRootView.findViewById(R.id.link_thread_root);
+        this.VY = (TextView) this.mRootView.findViewById(R.id.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,27 +34,27 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.i
     /* renamed from: a */
     public void C(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar == null || aVar.abv() == null) {
+        if (aVar == null || aVar.acx() == null) {
             getView().setVisibility(8);
             return;
         }
-        this.Vp = aVar;
-        bg abv = aVar.abv();
-        com.baidu.tieba.card.n.a(abv, this.VD);
-        this.VC.setData(abv);
+        this.VJ = aVar;
+        bg acx = aVar.acx();
+        com.baidu.tieba.card.n.a(acx, this.VY);
+        this.VX.setData(acx);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.VC.onChangeSkinType();
-        if (this.Vp != null && this.Vp.abv() != null) {
-            com.baidu.tieba.card.n.a(this.VD, this.Vp.abv().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
+        this.VX.onChangeSkinType();
+        if (this.VJ != null && this.VJ.acx() != null) {
+            com.baidu.tieba.card.n.a(this.VY, this.VJ.acx().getId(), (int) R.color.cp_cont_b, (int) R.color.cp_cont_d);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.VC.setTag(bdUniqueId);
+        this.VX.setTag(bdUniqueId);
     }
 }

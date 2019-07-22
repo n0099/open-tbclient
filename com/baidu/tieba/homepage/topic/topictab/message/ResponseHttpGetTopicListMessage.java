@@ -2,7 +2,6 @@ package com.baidu.tieba.homepage.topic.topictab.message;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.m;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -43,12 +42,12 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
                         aVar.a(newTopicList);
                         this.mTopicDataList.add(aVar);
                         c cVar = new c();
-                        cVar.eUy = R.dimen.tbds16;
+                        cVar.eZz = R.dimen.tbds16;
                         this.mTopicDataList.add(cVar);
                         i2++;
                     }
                 }
-                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eUy = TbadkCoreApplication.getInst().getMainTabBottomBarHeightId();
+                ((c) v.c(this.mTopicDataList, this.mTopicDataList.size() - 1)).eZz = 0;
             }
         }
     }

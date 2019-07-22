@@ -11,11 +11,11 @@ public class k extends f<com.airbnb.lottie.model.k> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: f */
     public com.airbnb.lottie.model.k a(com.airbnb.lottie.a.a<com.airbnb.lottie.model.k> aVar, float f) {
-        if (aVar.lJ == null || aVar.lK == null) {
+        if (aVar.lI == null || aVar.lJ == null) {
             throw new IllegalStateException("Missing values for keyframe.");
         }
-        com.airbnb.lottie.model.k kVar = aVar.lJ;
-        com.airbnb.lottie.model.k kVar2 = aVar.lK;
+        com.airbnb.lottie.model.k kVar = aVar.lI;
+        com.airbnb.lottie.model.k kVar2 = aVar.lJ;
         return new com.airbnb.lottie.model.k(com.airbnb.lottie.c.e.lerp(kVar.getScaleX(), kVar2.getScaleX(), f), com.airbnb.lottie.c.e.lerp(kVar.getScaleY(), kVar2.getScaleY(), f));
     }
 }

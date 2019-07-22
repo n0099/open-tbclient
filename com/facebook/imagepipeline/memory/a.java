@@ -5,9 +5,9 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class a {
     @GuardedBy("this")
-    private long aVH;
-    private final int gMR;
-    private final com.facebook.common.references.c<Bitmap> kbp;
+    private long aWr;
+    private final int gTb;
+    private final com.facebook.common.references.c<Bitmap> kiw;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
@@ -15,9 +15,9 @@ public class a {
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.gMR = i;
+        this.gTb = i;
         this.mMaxSize = i2;
-        this.kbp = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.kiw = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: S */
@@ -34,10 +34,10 @@ public class a {
     public synchronized boolean V(Bitmap bitmap) {
         boolean z;
         int ac = com.facebook.d.a.ac(bitmap);
-        if (this.mCount < this.gMR) {
-            if (this.aVH + ac <= this.mMaxSize) {
+        if (this.mCount < this.gTb) {
+            if (this.aWr + ac <= this.mMaxSize) {
                 this.mCount++;
-                this.aVH = ac + this.aVH;
+                this.aWr = ac + this.aWr;
                 z = true;
             }
         }
@@ -49,13 +49,13 @@ public class a {
         synchronized (this) {
             int ac = com.facebook.d.a.ac(bitmap);
             com.facebook.common.internal.g.checkArgument(this.mCount > 0, "No bitmaps registered.");
-            com.facebook.common.internal.g.b(((long) ac) <= this.aVH, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(ac), Long.valueOf(this.aVH));
-            this.aVH -= ac;
+            com.facebook.common.internal.g.b(((long) ac) <= this.aWr, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(ac), Long.valueOf(this.aWr));
+            this.aWr -= ac;
             this.mCount--;
         }
     }
 
-    public com.facebook.common.references.c<Bitmap> cGQ() {
-        return this.kbp;
+    public com.facebook.common.references.c<Bitmap> cJU() {
+        return this.kiw;
     }
 }

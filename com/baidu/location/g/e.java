@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.base.network.Apn;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -35,15 +34,15 @@ public abstract class e {
     private static int a(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
-            if (lowerCase.startsWith(Apn.APN_CMWAP) || lowerCase.startsWith(Apn.APN_UNIWAP) || lowerCase.startsWith(Apn.APN_3GWAP)) {
+            if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
                 String defaultHost = Proxy.getDefaultHost();
                 a = (defaultHost == null || defaultHost.equals("") || defaultHost.equals("null")) ? "10.0.0.172" : "10.0.0.172";
                 return a.d;
-            } else if (lowerCase.startsWith(Apn.APN_CTWAP)) {
+            } else if (lowerCase.startsWith("ctwap")) {
                 String defaultHost2 = Proxy.getDefaultHost();
                 a = (defaultHost2 == null || defaultHost2.equals("") || defaultHost2.equals("null")) ? "10.0.0.200" : "10.0.0.200";
                 return a.d;
-            } else if (lowerCase.startsWith(Apn.APN_CMNET) || lowerCase.startsWith(Apn.APN_UNINET) || lowerCase.startsWith(Apn.APN_CTNET) || lowerCase.startsWith(Apn.APN_3GNET)) {
+            } else if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("uninet") || lowerCase.startsWith("ctnet") || lowerCase.startsWith("3gnet")) {
                 return a.e;
             }
         }

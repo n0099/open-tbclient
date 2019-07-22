@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TopicDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.util.ae;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
@@ -25,47 +25,47 @@ import com.baidu.tieba.tbadkCore.a.a;
 public class TopicStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(TopicDetailActivityConfig.class, TopicDetailActivity.class);
-        buE();
-        buF();
-        buG();
-        buH();
-        buI();
+        bxi();
+        bxj();
+        bxk();
+        bxl();
+        bxm();
     }
 
-    private static void buE() {
+    private static void bxi() {
         a.a(309628, ResponseSocketGetTopicListMessage.class, false, false);
         a.a(309628, CmdConfigHttp.CMD_TOPIC_LIST, TbConfig.URL_GET_TAB_TOPIC_LIST, ResponseHttpGetTopicListMessage.class, false, false, true, false);
     }
 
-    private static void buF() {
+    private static void bxj() {
         a.a(309629, ResponseSocketGetTopicDetailMessage.class, false, false);
         a.a(309629, CmdConfigHttp.CMD_TOPIC_DETAIL, TbConfig.URL_GET_TOPIC_DETAIL, ResponseHttpGetTopicDetailMessage.class, false, false, true, false);
     }
 
-    private static void buG() {
+    private static void bxk() {
         a.a(309631, ResponseSocketGetTopicThreadMessage.class, false, false);
         a.a(309631, CmdConfigHttp.CMD_TOPIC_THREAD, TbConfig.URL_GET_TOPIC_THREAD, ResponseHttpGetTopicThreadMessage.class, false, false, true, false);
     }
 
-    private static void buH() {
+    private static void bxl() {
         a.a(309085, BlessSocketResponseMessage.class, false, false);
         a.a(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
     }
 
-    private static void buI() {
-        ba.aiz().a(new ba.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
-            @Override // com.baidu.tbadk.core.util.ba.a
+    private static void bxm() {
+        bb.ajC().a(new bb.a() { // from class: com.baidu.tieba.homepage.topic.TopicStatic.1
+            @Override // com.baidu.tbadk.core.util.bb.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null) {
                     return 3;
                 }
                 String lowerCase = strArr[0].toLowerCase();
                 if (lowerCase.startsWith("http://tieba.baidu.com/mo/q/newtopic/detail") || lowerCase.startsWith("https://tieba.baidu.com/mo/q/newtopic/detail")) {
-                    String ce = ae.ce(lowerCase, "topic_id=");
-                    if (StringUtils.isNull(ce)) {
+                    String cf = ae.cf(lowerCase, "topic_id=");
+                    if (StringUtils.isNull(cf)) {
                         return 3;
                     }
-                    tbPageContext.sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.c(ce, 0L))));
+                    tbPageContext.sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(tbPageContext.getPageActivity(), b.c(cf, 0L))));
                     return 1;
                 } else if (lowerCase.contains("com.baidu.tieba://deeplink?jump=new_hot_topic_list")) {
                     try {

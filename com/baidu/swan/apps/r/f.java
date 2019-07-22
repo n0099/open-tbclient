@@ -23,25 +23,25 @@ public class f extends z {
             Log.d("OpenInputAction", "handle entity: " + unitedSchemeEntity.toString());
         }
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-        com.baidu.swan.apps.w.e FV = com.baidu.swan.apps.w.e.FV();
+        com.baidu.swan.apps.w.e GF = com.baidu.swan.apps.w.e.GF();
         if (optParamsAsJo == null) {
             com.baidu.swan.apps.console.c.e("openInput", "paramsJson is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.core.d.e vi = FV.vi();
-        if (vi == null) {
+        com.baidu.swan.apps.core.d.e vJ = GF.vJ();
+        if (vJ == null) {
             com.baidu.swan.apps.console.c.e("openInput", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        b bVar2 = new b(vi.zL(), new b.a() { // from class: com.baidu.swan.apps.r.f.1
+        b bVar2 = new b(vJ.As(), new b.a() { // from class: com.baidu.swan.apps.r.f.1
             @Override // com.baidu.swan.apps.r.b.a
             public void d(String str, JSONObject jSONObject) {
                 f.this.a(callbackHandler, 0, str, jSONObject);
             }
         });
-        c.Dl().c(bVar2);
+        c.DU().c(bVar2);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(bVar2.a(context, i(unitedSchemeEntity), optParamsAsJo) ? 0 : 1001));
         return true;
     }

@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core.frameworkData;
 /* loaded from: classes.dex */
 public class a {
-    public static int bNR = 2921329;
+    public static int bOR = 2921329;
 }

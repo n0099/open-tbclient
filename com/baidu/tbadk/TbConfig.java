@@ -214,6 +214,7 @@ public class TbConfig {
     public static final String HOME_REALTIME_ADDRESS = "c/f/excellent/realtime";
     public static final String HOT_THREAD_UNLIKE = "c/f/choiceness/unlike";
     public static final String HTTPS_FRS_PREFIX = "http://tieba.baidu.com/f?kw=";
+    public static final String HTTPS_LIVE_SHARE_PREFIX = "https://tieba.baidu.com/ala/share";
     public static final String HTTPS_PB_PREFIX = "http://tieba.baidu.com/p/";
     public static final String HTTPS_PREFIX = "http://tieba.baidu.com/f?";
     public static final String HTTP_PB_PREFIX = "http://tieba.baidu.com/p/";
@@ -451,6 +452,7 @@ public class TbConfig {
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
     public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
+    public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
     public static final String URL_GET_GRAFFITI_LIST = "c/f/pb/graffiti";
@@ -469,7 +471,7 @@ public class TbConfig {
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
-    public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/n/apage-runtime/page/packet?tieba_hybrid_enabled=1";
+    public static final String URL_JUMP_TAG_CARDBOX = "https://tieba.baidu.com/mo/q/packetpage/myPacket?tieba_hybrid_enabled=1";
     public static final String URL_JUMP_TAG_WALLET = "http://www.bdwallet.activity";
     public static final String URL_MANGA_CHAPTER_ALL = "c/e/cartoon/getAllChapters";
     public static final String URL_MANGA_CHAPTER_DETAIL = "c/e/cartoon/cartoonReader";
@@ -725,7 +727,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.asp().kw(i);
+            c.atw().kC(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

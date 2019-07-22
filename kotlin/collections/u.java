@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class u implements Iterator<Double> {
-    public abstract double nextDouble();
+    public abstract double cNv();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -11,9 +11,9 @@ public abstract class u implements Iterator<Double> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
+    /* renamed from: cNu */
     public final Double next() {
-        return Double.valueOf(nextDouble());
+        return Double.valueOf(cNv());
     }
 }

@@ -6,10 +6,9 @@ import android.os.Process;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class k {
     private static final String a = new String(c.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
     private static final String b = new String(c.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
@@ -358,7 +357,7 @@ public final class k {
     private String c(String str) {
         String str2;
         if (e("android.permission.READ_PHONE_STATE")) {
-            TelephonyManager telephonyManager = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) this.e.getSystemService("phone");
             if (telephonyManager != null) {
                 str2 = telephonyManager.getDeviceId();
                 if (str2 != null && str2.contains(":")) {
@@ -393,7 +392,7 @@ public final class k {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public String a;
         public String b;

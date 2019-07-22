@@ -100,13 +100,6 @@ public class FillUProfileActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         this.result.setResultCode(-301);

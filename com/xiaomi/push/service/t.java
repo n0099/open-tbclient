@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.TreeMap;
@@ -224,7 +225,7 @@ public class t {
         if (com.xiaomi.channel.commonutils.android.i.Russia.name().equals(a2)) {
             return "https://ru.register.xmpush.global.xiaomi.com/pass/v2/register";
         }
-        return "https://" + (com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/v2/register";
+        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + (com.xiaomi.channel.commonutils.misc.a.a() ? "sandbox.xmpush.xiaomi.com" : "register.xmpush.xiaomi.com") + "/pass/v2/register";
     }
 
     public static void c(Context context) {

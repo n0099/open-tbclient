@@ -5,7 +5,7 @@ import java.util.Random;
 public final class a {
     private static final Random sRandom = new Random();
 
-    public static float abs(float f) {
+    public static float aH(float f) {
         return f > 0.0f ? f : -f;
     }
 }

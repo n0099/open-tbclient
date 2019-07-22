@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -57,7 +57,7 @@ public class MarkData implements Serializable {
     }
 
     public String getAuthorName() {
-        return !ap.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
+        return !aq.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
     }
 
     public void setAuthorName(String str) {
@@ -338,9 +338,9 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (ap.equals(optString, "pic")) {
+                if (aq.bV(optString, "pic")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
-                } else if (ap.equals(optString, "flash")) {
+                } else if (aq.bV(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
                 }
             }
@@ -348,7 +348,7 @@ public class MarkData implements Serializable {
             this.is_follow = jSONObject.optInt("is_follow");
             this.is_deleted = jSONObject.optInt("is_deleted");
             this.mState = jSONObject.optString("post_no_msg");
-            if (ap.isEmpty(this.portrait)) {
+            if (aq.isEmpty(this.portrait)) {
                 this.metaData.setPortrait("null");
             } else {
                 this.metaData.setPortrait(this.portrait);

@@ -17,6 +17,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbDomainConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
@@ -401,7 +402,7 @@ public class CompatibleUtile {
         public void loadUrl(WebView webView, String str) {
             if (webView != null && !TextUtils.isEmpty(str)) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("referer", TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
+                hashMap.put(Config.LAUNCH_REFERER, TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS);
                 webView.loadUrl(str, hashMap);
             }
         }

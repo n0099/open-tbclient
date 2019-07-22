@@ -10,32 +10,32 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends g<JSONObject> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    protected final String aUA;
+    protected final String aVk;
     protected final Activity mActivity;
     protected final String mScope;
 
     public f(Activity activity, String str, String str2) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aUA = str2;
+        this.aVk = str2;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean Df() {
+    protected boolean DO() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.baidu.swan.apps.ae.b LG = LG();
-            jSONObject.put("ma_id", LG.id);
+            com.baidu.swan.apps.ae.b Mu = Mu();
+            jSONObject.put("ma_id", Mu.id);
             jSONObject.put("scope", this.mScope);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            jSONObject.put("app_key", LG.getAppKey());
-            if (!TextUtils.equals("0", this.aUA)) {
-                jSONObject.put("action_type", this.aUA);
+            jSONObject.put("app_key", Mu.getAppKey());
+            if (!TextUtils.equals("0", this.aVk)) {
+                jSONObject.put("action_type", this.aVk);
             }
-            String wr = com.baidu.swan.apps.u.a.DN().wr();
-            if (!TextUtils.isEmpty(wr)) {
-                jSONObject.put("host_api_key", wr);
+            String wS = com.baidu.swan.apps.u.a.Ew().wS();
+            if (!TextUtils.isEmpty(wS)) {
+                jSONObject.put("host_api_key", wS);
             }
         } catch (JSONException e) {
             if (DEBUG) {
@@ -48,7 +48,7 @@ public class f extends g<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.DN().i(this.mActivity, gVar.MJ());
+        return com.baidu.swan.apps.u.a.Ew().i(this.mActivity, gVar.Ny());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

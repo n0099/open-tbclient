@@ -15,8 +15,8 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -24,64 +24,64 @@ import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class IdentityReviewActivity extends BaseActivity {
-    private com.baidu.tieba.barselect.data.c ero;
-    private com.baidu.tieba.barselect.data.b esU;
-    public String esV;
-    public String esW;
-    private View esX;
-    private TextView esY;
-    private TextView esZ;
-    private TextView eta;
-    private TextView etb;
-    private TbImageView etd;
-    private TbImageView ete;
-    private TextView etf;
-    private TextView etg;
-    private com.baidu.tieba.barselect.view.a eth;
+    private com.baidu.tieba.barselect.data.c ewm;
+    private com.baidu.tieba.barselect.data.b exS;
+    public String exT;
+    public String exU;
+    private View exV;
+    private TextView exW;
+    private TextView exX;
+    private TextView exY;
+    private TextView exZ;
+    private TbImageView eya;
+    private TbImageView eyb;
+    private TextView eyc;
+    private TextView eyd;
+    private com.baidu.tieba.barselect.view.a eye;
     private long forumId;
     private NavigationBar mNavigationBar;
     private boolean needRetry = false;
-    private int eti = 0;
-    private int etj = 0;
-    private View.OnClickListener ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.1
+    private int eyf = 0;
+    private int eyg = 0;
+    private View.OnClickListener clU = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getId() == R.id.identity_card_positive) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(IdentityReviewActivity.this, IdentityReviewActivity.this.esV, CameraActivityConfig.CONTENT_TYPE_ID_CARD_FRONT, 101)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(IdentityReviewActivity.this, IdentityReviewActivity.this.exT, CameraActivityConfig.CONTENT_TYPE_ID_CARD_FRONT, 101)));
             } else if (view.getId() == R.id.identity_card_negative) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(IdentityReviewActivity.this, IdentityReviewActivity.this.esW, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921412, new CameraActivityConfig(IdentityReviewActivity.this, IdentityReviewActivity.this.exU, CameraActivityConfig.CONTENT_TYPE_ID_CARD_BACK, 102)));
             } else if (view.getId() == R.id.bottom_next_button) {
-                new a(IdentityReviewActivity.this.esV, 1, IdentityReviewActivity.this.ero).execute(new Void[0]);
+                new a(IdentityReviewActivity.this.exT, 1, IdentityReviewActivity.this.ewm).execute(new Void[0]);
                 IdentityReviewActivity.this.needRetry = true;
-                IdentityReviewActivity.this.eth = new com.baidu.tieba.barselect.view.a(IdentityReviewActivity.this);
-                IdentityReviewActivity.this.eth.setCancelable(true);
-                IdentityReviewActivity.this.eth.setCanceledOnTouchOutside(false);
-                IdentityReviewActivity.this.eth.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
-                g.a(IdentityReviewActivity.this.eth, IdentityReviewActivity.this);
+                IdentityReviewActivity.this.eye = new com.baidu.tieba.barselect.view.a(IdentityReviewActivity.this);
+                IdentityReviewActivity.this.eye.setCancelable(true);
+                IdentityReviewActivity.this.eye.setCanceledOnTouchOutside(false);
+                IdentityReviewActivity.this.eye.setMessage(TbadkCoreApplication.getInst().getString(R.string.check_id_card));
+                g.a(IdentityReviewActivity.this.eye, IdentityReviewActivity.this);
             }
         }
     };
-    com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cuv = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.2
+    com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> cvJ = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (str != null && aVar != null) {
-                if (str.equals(IdentityReviewActivity.this.esV)) {
-                    aVar.a(IdentityReviewActivity.this.etd);
-                    IdentityReviewActivity.this.etf.setVisibility(0);
-                } else if (str.equals(IdentityReviewActivity.this.esW)) {
-                    aVar.a(IdentityReviewActivity.this.ete);
-                    IdentityReviewActivity.this.etg.setVisibility(0);
+                if (str.equals(IdentityReviewActivity.this.exT)) {
+                    aVar.a(IdentityReviewActivity.this.eya);
+                    IdentityReviewActivity.this.eyc.setVisibility(0);
+                } else if (str.equals(IdentityReviewActivity.this.exU)) {
+                    aVar.a(IdentityReviewActivity.this.eyb);
+                    IdentityReviewActivity.this.eyd.setVisibility(0);
                 }
             }
             if (str != null) {
-                com.baidu.tbadk.imageManager.c.asp().qo(str + 32);
+                com.baidu.tbadk.imageManager.c.atw().qF(str + 32);
             }
         }
     };
-    com.baidu.adp.framework.listener.a byk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMMIT_CARD_INFO, 309643) { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.3
+    com.baidu.adp.framework.listener.a bzb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMMIT_CARD_INFO, 309643) { // from class: com.baidu.tieba.barselect.idCard.IdentityReviewActivity.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -90,39 +90,39 @@ public class IdentityReviewActivity extends BaseActivity {
                 if (extra instanceof CommitCardInfoReqMsg) {
                     if (error == 0) {
                         if (((CommitCardInfoReqMsg) extra).card_type == 1) {
-                            IdentityReviewActivity.this.eti = 2;
+                            IdentityReviewActivity.this.eyf = 2;
                         } else if (((CommitCardInfoReqMsg) extra).card_type == 2) {
-                            IdentityReviewActivity.this.etj = 2;
+                            IdentityReviewActivity.this.eyg = 2;
                         }
-                        if (IdentityReviewActivity.this.eti < 2 || IdentityReviewActivity.this.etj < 2) {
-                            if (IdentityReviewActivity.this.etj == 1) {
-                                if (IdentityReviewActivity.this.ero == null) {
-                                    if (IdentityReviewActivity.this.eth != null) {
-                                        g.b(IdentityReviewActivity.this.eth, IdentityReviewActivity.this);
+                        if (IdentityReviewActivity.this.eyf < 2 || IdentityReviewActivity.this.eyg < 2) {
+                            if (IdentityReviewActivity.this.eyg == 1) {
+                                if (IdentityReviewActivity.this.ewm == null) {
+                                    if (IdentityReviewActivity.this.eye != null) {
+                                        g.b(IdentityReviewActivity.this.eye, IdentityReviewActivity.this);
                                         return;
                                     }
                                     return;
                                 }
-                                new a(IdentityReviewActivity.this.esW, 2, IdentityReviewActivity.this.ero).execute(new Void[0]);
+                                new a(IdentityReviewActivity.this.exU, 2, IdentityReviewActivity.this.ewm).execute(new Void[0]);
                             }
-                        } else if (IdentityReviewActivity.this.esU != null) {
-                            IdentityReviewActivity.this.esU.cv(IdentityReviewActivity.this.forumId);
-                        } else if (IdentityReviewActivity.this.eth != null) {
-                            g.b(IdentityReviewActivity.this.eth, IdentityReviewActivity.this);
+                        } else if (IdentityReviewActivity.this.exS != null) {
+                            IdentityReviewActivity.this.exS.cA(IdentityReviewActivity.this.forumId);
+                        } else if (IdentityReviewActivity.this.eye != null) {
+                            g.b(IdentityReviewActivity.this.eye, IdentityReviewActivity.this);
                         }
                     } else if (error != -100000303 || !IdentityReviewActivity.this.needRetry) {
-                        if (IdentityReviewActivity.this.eth != null && IdentityReviewActivity.this.eth.isShowing()) {
-                            g.b(IdentityReviewActivity.this.eth, IdentityReviewActivity.this);
+                        if (IdentityReviewActivity.this.eye != null && IdentityReviewActivity.this.eye.isShowing()) {
+                            g.b(IdentityReviewActivity.this.eye, IdentityReviewActivity.this);
                         }
                         l.E(TbadkCoreApplication.getInst(), responsedMessage.getErrorString());
-                        IdentityReviewActivity.this.eti = 1;
-                        IdentityReviewActivity.this.etj = 1;
+                        IdentityReviewActivity.this.eyf = 1;
+                        IdentityReviewActivity.this.eyg = 1;
                     } else {
-                        IdentityReviewActivity.this.eti = 1;
-                        IdentityReviewActivity.this.etj = 1;
-                        if (IdentityReviewActivity.this.ero != null) {
+                        IdentityReviewActivity.this.eyf = 1;
+                        IdentityReviewActivity.this.eyg = 1;
+                        if (IdentityReviewActivity.this.ewm != null) {
                             IdentityReviewActivity.this.needRetry = false;
-                            new a(IdentityReviewActivity.this.esV, 1, IdentityReviewActivity.this.ero).execute(new Void[0]);
+                            new a(IdentityReviewActivity.this.exT, 1, IdentityReviewActivity.this.ewm).execute(new Void[0]);
                         }
                     }
                 }
@@ -137,19 +137,19 @@ public class IdentityReviewActivity extends BaseActivity {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getOrginalMessage() != null) {
                 int error = httpResponsedMessage.getError();
-                if (IdentityReviewActivity.this.eth != null && IdentityReviewActivity.this.eth.isShowing()) {
-                    g.b(IdentityReviewActivity.this.eth, IdentityReviewActivity.this);
+                if (IdentityReviewActivity.this.eye != null && IdentityReviewActivity.this.eye.isShowing()) {
+                    g.b(IdentityReviewActivity.this.eye, IdentityReviewActivity.this);
                 }
                 String str = "https://tieba.baidu.com/mo/q/newmanagerapplyresult?passIDCert=1&nomenu=1&forum_id=" + IdentityReviewActivity.this.forumId;
                 if (error == 0) {
-                    ba.aiz().c(IdentityReviewActivity.this.getPageContext(), new String[]{str});
+                    bb.ajC().c(IdentityReviewActivity.this.getPageContext(), new String[]{str});
                     IdentityReviewActivity.this.setResult(-1);
                     IdentityReviewActivity.this.finish();
                     return;
                 }
                 l.E(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
-                IdentityReviewActivity.this.eti = 1;
-                IdentityReviewActivity.this.etj = 1;
+                IdentityReviewActivity.this.eyf = 1;
+                IdentityReviewActivity.this.eyg = 1;
             }
         }
     };
@@ -160,28 +160,28 @@ public class IdentityReviewActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.identity_review_activity);
         this.forumId = getIntent().getLongExtra("fid", 0L);
-        this.ero = new com.baidu.tieba.barselect.data.c(getPageContext());
-        this.esU = new com.baidu.tieba.barselect.data.b(getPageContext());
-        this.esV = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
-        this.esW = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
-        this.esX = findViewById(R.id.id_card_view);
+        this.ewm = new com.baidu.tieba.barselect.data.c(getPageContext());
+        this.exS = new com.baidu.tieba.barselect.data.b(getPageContext());
+        this.exT = new File(TbadkCoreApplication.getInst().getFilesDir(), "positive.jpg").getAbsolutePath();
+        this.exU = new File(TbadkCoreApplication.getInst().getFilesDir(), "negative.jpg").getAbsolutePath();
+        this.exV = findViewById(R.id.id_card_view);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.id_review_navigation_bar);
         this.mNavigationBar.setCenterTextTitle(getResources().getString(R.string.bar_manager_apply));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.esY = (TextView) findViewById(R.id.bottom_next_button);
-        this.esY.setEnabled(false);
-        this.esZ = (TextView) findViewById(R.id.identity_view_title);
-        this.eta = (TextView) findViewById(R.id.positive_card_coloct_tip);
-        this.etb = (TextView) findViewById(R.id.negative_card_coloct_tip);
-        this.etd = (TbImageView) findViewById(R.id.identity_card_positive);
-        this.ete = (TbImageView) findViewById(R.id.identity_card_negative);
-        this.etf = (TextView) findViewById(R.id.identity_card_positive_logo);
-        this.etg = (TextView) findViewById(R.id.identity_card_negative_logo);
-        MessageManager.getInstance().registerListener(this.byk);
+        this.exW = (TextView) findViewById(R.id.bottom_next_button);
+        this.exW.setEnabled(false);
+        this.exX = (TextView) findViewById(R.id.identity_view_title);
+        this.exY = (TextView) findViewById(R.id.positive_card_coloct_tip);
+        this.exZ = (TextView) findViewById(R.id.negative_card_coloct_tip);
+        this.eya = (TbImageView) findViewById(R.id.identity_card_positive);
+        this.eyb = (TbImageView) findViewById(R.id.identity_card_negative);
+        this.eyc = (TextView) findViewById(R.id.identity_card_positive_logo);
+        this.eyd = (TextView) findViewById(R.id.identity_card_negative_logo);
+        MessageManager.getInstance().registerListener(this.bzb);
         MessageManager.getInstance().registerListener(this.mHttpMessageListener);
-        this.etd.setOnClickListener(this.ckI);
-        this.ete.setOnClickListener(this.ckI);
-        this.esY.setOnClickListener(this.ckI);
+        this.eya.setOnClickListener(this.clU);
+        this.eyb.setOnClickListener(this.clU);
+        this.exW.setOnClickListener(this.clU);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -192,21 +192,21 @@ public class IdentityReviewActivity extends BaseActivity {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        al.c(this.esY, R.color.cp_btn_a, 1, i);
-        al.g(this.esY, R.drawable.bg_id_card_button, i);
-        al.c(this.esZ, R.color.cp_cont_b, 1, i);
-        al.c(this.eta, R.color.cp_cont_d, 1, i);
-        al.c(this.etb, R.color.cp_cont_d, 1, i);
+        am.d(this.exW, R.color.cp_btn_a, 1, i);
+        am.g(this.exW, R.drawable.bg_id_card_button, i);
+        am.d(this.exX, R.color.cp_cont_b, 1, i);
+        am.d(this.exY, R.color.cp_cont_d, 1, i);
+        am.d(this.exZ, R.color.cp_cont_d, 1, i);
         int g = l.g(this, R.dimen.tbds10);
-        al.c(this.etf, R.color.cp_btn_a, 1, i);
-        al.c(this.etg, R.color.cp_btn_a, 1, i);
-        al.b(this.etf, g, (int) R.color.cp_cont_b_alpha42, (int) R.color.cp_cont_b_alpha42, i);
-        al.b(this.etg, g, (int) R.color.cp_cont_b_alpha42, (int) R.color.cp_cont_b_alpha42, i);
-        if (this.eti < 1) {
-            al.b(this.etd, (int) R.drawable.pic_id_front, i);
+        am.d(this.eyc, R.color.cp_btn_a, 1, i);
+        am.d(this.eyd, R.color.cp_btn_a, 1, i);
+        am.b(this.eyc, g, (int) R.color.cp_cont_b_alpha42, (int) R.color.cp_cont_b_alpha42, i);
+        am.b(this.eyd, g, (int) R.color.cp_cont_b_alpha42, (int) R.color.cp_cont_b_alpha42, i);
+        if (this.eyf < 1) {
+            am.b(this.eya, (int) R.drawable.pic_id_front, i);
         }
-        if (this.etj < 1) {
-            al.b(this.ete, (int) R.drawable.pic_id_back, i);
+        if (this.eyg < 1) {
+            am.b(this.eyb, (int) R.drawable.pic_id_back, i);
         }
     }
 
@@ -216,17 +216,17 @@ public class IdentityReviewActivity extends BaseActivity {
         super.onActivityResult(i, i2, intent);
         if (i2 == -1) {
             if (i == 101) {
-                com.baidu.adp.lib.f.c.iv().a(this.esV, 32, this.cuv, getUniqueId());
-                this.eti = 1;
+                com.baidu.adp.lib.f.c.iE().a(this.exT, 32, this.cvJ, getUniqueId());
+                this.eyf = 1;
             } else if (i == 102) {
-                com.baidu.adp.lib.f.c.iv().a(this.esW, 32, this.cuv, getUniqueId());
-                this.etj = 1;
+                com.baidu.adp.lib.f.c.iE().a(this.exU, 32, this.cvJ, getUniqueId());
+                this.eyg = 1;
             }
-            if (this.esY != null) {
-                if (this.etj >= 1 && this.eti >= 1) {
-                    this.esY.setEnabled(true);
+            if (this.exW != null) {
+                if (this.eyg >= 1 && this.eyf >= 1) {
+                    this.exW.setEnabled(true);
                 } else {
-                    this.esY.setEnabled(false);
+                    this.exW.setEnabled(false);
                 }
             }
         }
@@ -235,10 +235,10 @@ public class IdentityReviewActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.byk);
+        MessageManager.getInstance().unRegisterListener(this.bzb);
         MessageManager.getInstance().unRegisterListener(this.mHttpMessageListener);
-        if (this.eth != null && this.eth.isShowing()) {
-            g.b(this.eth, this);
+        if (this.eye != null && this.eye.isShowing()) {
+            g.b(this.eye, this);
         }
         super.onDestroy();
     }

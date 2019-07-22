@@ -9,45 +9,45 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes2.dex */
 public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private com.baidu.swan.games.e.b beh;
+    private com.baidu.swan.games.e.b beU;
     @V8JavascriptField
     public JsObject canvas = null;
 
     public e(com.baidu.swan.games.e.b bVar) {
-        this.beh = bVar;
-        RN();
-        RO();
+        this.beU = bVar;
+        SG();
+        SH();
     }
 
-    private boolean RN() {
-        return bf(com.baidu.swan.games.i.a.bd(com.baidu.swan.apps.w.e.FV().FE(), "swan-game-open-data.js"), "swan-game-open-data.js");
+    private boolean SG() {
+        return bf(com.baidu.swan.games.i.a.bd(com.baidu.swan.apps.w.e.GF().Go(), "swan-game-open-data.js"), "swan-game-open-data.js");
     }
 
-    private boolean RO() {
-        String FE = com.baidu.swan.apps.w.e.FV().FE();
-        String RR = f.RP().RR();
+    private boolean SH() {
+        String Go = com.baidu.swan.apps.w.e.GF().Go();
+        String SK = f.SI().SK();
         if (DEBUG) {
-            Log.d("SwanGameOpenDataContext", "baseFilePath: " + FE);
-            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + RR);
+            Log.d("SwanGameOpenDataContext", "baseFilePath: " + Go);
+            Log.d("SwanGameOpenDataContext", "openDataJSFile: " + SK);
         }
-        return bf(FE, RR);
+        return bf(Go, SK);
     }
 
     @JavascriptInterface
     public void destroyOpenDataContext() {
-        this.beh.QM().QY();
+        this.beU.RF().RR();
     }
 
     @JavascriptInterface
     public void postMessage(JsObject jsObject) {
-        this.beh.QO().dispatchEvent(new JSEvent("postmessage", jsObject));
+        this.beU.RH().dispatchEvent(new JSEvent("postmessage", jsObject));
     }
 
     private boolean bf(String str, String str2) {
-        if (!f.RP().RQ() || TextUtils.isEmpty(str)) {
+        if (!f.SI().SJ() || TextUtils.isEmpty(str)) {
             return false;
         }
-        this.beh.QM().aV(str, str2);
+        this.beU.RF().aV(str, str2);
         return true;
     }
 }

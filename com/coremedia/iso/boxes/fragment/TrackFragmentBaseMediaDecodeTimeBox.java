@@ -61,7 +61,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     }
 
     public void setBaseMediaDecodeTime(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.eH(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.eP(j)));
         this.baseMediaDecodeTime = j;
     }
 

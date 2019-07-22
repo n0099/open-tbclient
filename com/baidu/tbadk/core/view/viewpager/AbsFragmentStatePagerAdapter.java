@@ -28,7 +28,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
     public void startUpdate(ViewGroup viewGroup) {
     }
 
-    public final ArrayList<Fragment> ake() {
+    public final ArrayList<Fragment> alj() {
         return this.mFragments;
     }
 
@@ -44,7 +44,7 @@ public abstract class AbsFragmentStatePagerAdapter extends PagerAdapter {
             if (item == null) {
                 return null;
             }
-            if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null) {
+            if (this.mSavedState.size() > i && (savedState = this.mSavedState.get(i)) != null && !item.isAdded()) {
                 item.setInitialSavedState(savedState);
             }
             while (this.mFragments.size() <= i) {

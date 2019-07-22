@@ -18,12 +18,12 @@ public final class FragmentState implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: fQ */
+        /* renamed from: fU */
         public FragmentState[] newArray(int i) {
             return new FragmentState[i];
         }
     };
-    Fragment bub;
+    Fragment buS;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.bub != null) {
-            return this.bub;
+        if (this.buS != null) {
+            return this.buS;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.bub = Fragment.b(context, this.mClassName, this.mArguments);
+        this.buS = Fragment.b(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.bub.mSavedFragmentState = this.mSavedFragmentState;
+            this.buS.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.bub.b(this.mIndex, fragment);
-        this.bub.mFromLayout = this.mFromLayout;
-        this.bub.mRestored = true;
-        this.bub.mFragmentId = this.mFragmentId;
-        this.bub.mContainerId = this.mContainerId;
-        this.bub.mTag = this.mTag;
-        this.bub.mRetainInstance = this.mRetainInstance;
-        this.bub.mDetached = this.mDetached;
-        this.bub.btB = jVar.btB;
+        this.buS.b(this.mIndex, fragment);
+        this.buS.mFromLayout = this.mFromLayout;
+        this.buS.mRestored = true;
+        this.buS.mFragmentId = this.mFragmentId;
+        this.buS.mContainerId = this.mContainerId;
+        this.buS.mTag = this.mTag;
+        this.buS.mRetainInstance = this.mRetainInstance;
+        this.buS.mDetached = this.mDetached;
+        this.buS.bus = jVar.bus;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.bub);
+            Log.v("FragmentManager", "Instantiated fragment " + this.buS);
         }
-        return this.bub;
+        return this.buS;
     }
 
     @Override // android.os.Parcelable

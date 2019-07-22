@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,7 +18,7 @@ import java.net.URLDecoder;
 public class ae {
     private static BaseWebView mBaseWebView;
 
-    public static void avz() {
+    public static void awI() {
         try {
             if (mBaseWebView == null) {
                 mBaseWebView = new BaseWebView(TbadkCoreApplication.getInst());
@@ -29,14 +29,14 @@ public class ae {
     }
 
     public static String getUserAgent() {
-        avz();
+        awI();
         if (mBaseWebView == null || mBaseWebView.getSettings() == null) {
             return null;
         }
         return mBaseWebView.getSettings().getUserAgentString();
     }
 
-    public static String ce(String str, String str2) {
+    public static String cf(String str, String str2) {
         int indexOf = str.indexOf(str2);
         if (indexOf != -1) {
             int length = str2.length() + indexOf;
@@ -54,7 +54,7 @@ public class ae {
         return "";
     }
 
-    public static String cf(String str, String str2) {
+    public static String cg(String str, String str2) {
         String[] split;
         String str3 = "";
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (split = str.split("[?]")) != null && split.length >= 2) {
@@ -87,7 +87,7 @@ public class ae {
         return str3;
     }
 
-    public static Bundle qZ(String str) {
+    public static Bundle rr(String str) {
         URL url;
         String query;
         String[] split;
@@ -117,17 +117,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String cCd;
+        public String cDu;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.cCd = "";
+            this.cDu = "";
             this.BDUSS = str;
-            this.cCd = str2;
+            this.cDu = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cCd != null ? this.cCd.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.cDu != null ? this.cDu.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -143,7 +143,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.cCd == null ? aVar.cCd == null : this.cCd.equals(aVar.cCd);
+                return this.cDu == null ? aVar.cDu == null : this.cDu.equals(aVar.cDu);
             }
             return false;
         }
@@ -167,8 +167,8 @@ public class ae {
         }
     }
 
-    public static String ra(String str) {
-        if (!ap.isEmpty(str) && !str.contains("page_type")) {
+    public static String rs(String str) {
+        if (!aq.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {
                 sb.append("&");

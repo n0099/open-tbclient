@@ -11,29 +11,29 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    private DialogInterface.OnCancelListener bMa;
-    protected D hCA;
-    protected V hCz;
+    private DialogInterface.OnCancelListener bNa;
+    protected V hIM;
+    protected D hIN;
     protected Context mContext;
     private AlertDialog mDialog;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
-    private int bLO = -1;
-    private boolean hCx = true;
-    private boolean hCy = false;
+    private int bMO = -1;
+    private boolean hIK = true;
+    private boolean hIL = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.hCz = v;
-        this.hCA = d;
+        this.hIM = v;
+        this.hIN = d;
         a(d);
     }
 
@@ -43,44 +43,44 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
             com.baidu.adp.lib.g.g.a(this.mDialog, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.hCy) {
+        if (this.hIL) {
             this.mDialog = new AlertDialog.Builder(this.mContext, R.style.search_dialog).create();
         } else {
             this.mDialog = new AlertDialog.Builder(this.mContext).create();
         }
-        this.mDialog.setCanceledOnTouchOutside(aMJ());
-        this.mDialog.setCancelable(aMK());
+        this.mDialog.setCanceledOnTouchOutside(aOv());
+        this.mDialog.setCancelable(aOw());
         this.mDialog.setOnKeyListener(this.mOnKeyListener);
-        if (this.bMa != null) {
-            this.mDialog.setOnCancelListener(this.bMa);
+        if (this.bNa != null) {
+            this.mDialog.setOnCancelListener(this.bNa);
         }
         com.baidu.adp.lib.g.g.a(this.mDialog, this.mPageContext.getPageActivity());
         if (this.mDialog.getWindow().getDecorView().getParent() != null) {
             Window window = this.mDialog.getWindow();
-            if (this.bLO == -1) {
-                this.bLO = 17;
+            if (this.bMO == -1) {
+                this.bMO = 17;
             }
-            window.setGravity(this.bLO);
+            window.setGravity(this.bMO);
             window.setBackgroundDrawableResource(R.drawable.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
-            DisplayMetrics s = l.s(this.mPageContext.getPageActivity());
-            if (s != null) {
-                int afF = afF();
+            DisplayMetrics v = l.v(this.mPageContext.getPageActivity());
+            if (v != null) {
+                int agH = agH();
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                    attributes.width = s.heightPixels - (afF * 2);
+                    attributes.width = v.heightPixels - (agH * 2);
                 } else {
-                    attributes.width = s.widthPixels - (afF * 2);
+                    attributes.width = v.widthPixels - (agH * 2);
                 }
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.hCz.getViewGroup());
+            window.setContentView(this.hIM.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bc.a(this.hCz.getViewGroup(), false, new bc.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
-                @Override // com.baidu.tbadk.core.util.bc.a
-                public boolean aG(View view) {
+            bd.a(this.hIM.getViewGroup(), false, new bd.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+                @Override // com.baidu.tbadk.core.util.bd.a
+                public boolean aI(View view) {
                     if (view instanceof EditText) {
                         atomicBoolean.set(true);
                         return true;
@@ -109,19 +109,19 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
         return false;
     }
 
-    public a xb(int i) {
-        this.bLO = i;
+    public a xF(int i) {
+        this.bMO = i;
         return this;
     }
 
-    public a nR(boolean z) {
-        this.hCy = z;
+    public a of(boolean z) {
+        this.hIL = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.hCz != null) {
-            this.hCz.a(d);
+        if (this.hIM != null) {
+            this.hIM.a(d);
         }
     }
 }

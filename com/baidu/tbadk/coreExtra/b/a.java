@@ -6,24 +6,24 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a cef = null;
-    private boolean cee;
-    private int ceg;
+    private static volatile a cfi = null;
+    private boolean cfh;
+    private int cfj;
 
     private a() {
-        this.cee = false;
-        this.ceg = 0;
+        this.cfh = false;
+        this.cfj = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.L(true);
             dVar.a(DiskFileOperate.OperateType.MUST_SUCCESS);
-            if (dVar.gu()) {
+            if (dVar.gD()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.ceg = Integer.parseInt(content);
+                    this.cfj = Integer.parseInt(content);
                 }
-                if (this.ceg == 1 || this.ceg == 2) {
-                    this.cee = true;
+                if (this.cfj == 1 || this.cfj == 2) {
+                    this.cfh = true;
                 }
             }
         } catch (Throwable th) {
@@ -31,26 +31,26 @@ public class a {
         }
     }
 
-    public static a akF() {
-        if (cef == null) {
+    public static a alK() {
+        if (cfi == null) {
             synchronized (a.class) {
-                if (cef == null) {
-                    cef = new a();
+                if (cfi == null) {
+                    cfi = new a();
                 }
             }
         }
-        return cef;
+        return cfi;
     }
 
-    public boolean akG() {
-        return this.cee;
+    public boolean alL() {
+        return this.cfh;
     }
 
-    public int akH() {
-        return this.ceg;
+    public int alM() {
+        return this.cfj;
     }
 
-    public String akI() {
-        return this.cee ? "pub_env=" + this.ceg + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+    public String alN() {
+        return this.cfh ? "pub_env=" + this.cfj + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

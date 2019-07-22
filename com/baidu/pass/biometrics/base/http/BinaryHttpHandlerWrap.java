@@ -13,6 +13,11 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
         this.allowedContentTypes = strArr;
     }
 
+    public BinaryHttpHandlerWrap(boolean z, String[] strArr) {
+        this.executCallbackInChildThread = z;
+        this.allowedContentTypes = strArr;
+    }
+
     /* JADX INFO: Access modifiers changed from: protected */
     public void onSuccess(int i, byte[] bArr) {
     }

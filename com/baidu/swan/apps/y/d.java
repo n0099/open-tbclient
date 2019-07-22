@@ -19,8 +19,8 @@ class d extends a {
         }
         int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
         boolean z2 = pixel == -1 || pixel == -657931;
-        if (!z2 && this.aDu != null) {
-            for (Integer num : this.aDu) {
+        if (!z2 && this.aEc != null) {
+            for (Integer num : this.aEc) {
                 if (num.intValue() == pixel) {
                     z = true;
                     break;

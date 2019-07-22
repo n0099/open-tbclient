@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class i {
-    private float Nz = 8.0f;
-    private float NB = 15.0f;
-    private float NC = 4.0f;
-    private float ND = 60.0f;
-    private int NE = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int NF = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int NG = 500;
-    private float NH = 0.4f;
-    private float NI = 1.0f;
-    private float NJ = 20.0f;
-    private float NK = 10.0f;
-    private int NL = 360;
-    private float NM = 5.0f;
+    private float NT = 8.0f;
+    private float NU = 15.0f;
+    private float NV = 4.0f;
+    private float NW = 60.0f;
+    private int NX = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private int NY = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private int NZ = 500;
+    private float Oa = 0.4f;
+    private float Ob = 1.0f;
+    private float Oc = 20.0f;
+    private float Od = 10.0f;
+    private int Oe = 360;
+    private float Of = 5.0f;
 
-    public float nO() {
-        return this.Nz;
+    public float ok() {
+        return this.NT;
     }
 
-    public float nP() {
-        return this.NB;
+    public float ol() {
+        return this.NU;
     }
 
-    public float nQ() {
-        return this.NC;
+    public float om() {
+        return this.NV;
     }
 
-    public float nR() {
-        return this.ND;
+    public float on() {
+        return this.NW;
     }
 
-    public int nS() {
-        return this.NE;
+    public int oo() {
+        return this.NX;
     }
 
-    public int nT() {
-        return this.NF;
+    public int op() {
+        return this.NY;
     }
 
-    public int nU() {
-        return this.NG;
+    public int oq() {
+        return this.NZ;
     }
 
-    public float nV() {
-        return this.NH;
+    public float or() {
+        return this.Oa;
     }
 
-    public float nW() {
-        return this.NI;
+    public float os() {
+        return this.Ob;
     }
 
-    public float nX() {
-        return this.NJ;
+    public float ot() {
+        return this.Oc;
     }
 
-    public float nY() {
-        return this.NK;
+    public float ou() {
+        return this.Od;
     }
 
-    public int nZ() {
-        return this.NL;
+    public int ov() {
+        return this.Oe;
     }
 }

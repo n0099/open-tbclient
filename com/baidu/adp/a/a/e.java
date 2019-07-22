@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int tp;
-    private a tq;
+    private int ts;
+    private a tt;
 
-    public a eZ() throws IOException {
+    public a fg() throws IOException {
         a aVar = new a();
-        aVar.ts = P("/proc/uid_stat/" + this.tp + "/tcp_rcv");
-        aVar.tt = P("/proc/uid_stat/" + this.tp + "/tcp_snd");
-        aVar.tr = d.c(aVar.ts + aVar.tt);
+        aVar.f2tv = P("/proc/uid_stat/" + this.ts + "/tcp_rcv");
+        aVar.tw = P("/proc/uid_stat/" + this.ts + "/tcp_snd");
+        aVar.tu = d.c(aVar.f2tv + aVar.tw);
         return aVar;
     }
 
-    public a fa() throws IOException {
-        a eZ = eZ();
-        this.tq.ts = d.c(eZ.ts - d.eY().ts);
-        this.tq.tt = d.c(eZ.tt - d.eY().tt);
-        this.tq.tr = d.c(eZ.tr - d.eY().tr);
-        return this.tq;
+    public a fh() throws IOException {
+        a fg = fg();
+        this.tt.f2tv = d.c(fg.f2tv - d.ff().f2tv);
+        this.tt.tw = d.c(fg.tw - d.ff().tw);
+        this.tt.tu = d.c(fg.tu - d.ff().tu);
+        return this.tt;
     }
 
     public double P(String str) {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(fa());
+                d.a(fh());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!eW()) {
+            if (!fd()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,11 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double tr = 0.0d;
-        double ts = 0.0d;
-        double tt = 0.0d;
+        double tu = 0.0d;
+
+        /* renamed from: tv  reason: collision with root package name */
+        double f2tv = 0.0d;
+        double tw = 0.0d;
 
         public a() {
         }

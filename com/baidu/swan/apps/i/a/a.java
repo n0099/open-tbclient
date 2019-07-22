@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
@@ -80,7 +81,7 @@ public class a extends z {
     private void a(Context context, com.baidu.swan.apps.i.a aVar, CallbackHandler callbackHandler) {
         Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
         intent.putExtra("name", aVar.getDisplayName());
-        intent.putExtra("email", aVar.email);
+        intent.putExtra(NotificationCompat.CATEGORY_EMAIL, aVar.email);
         intent.putParcelableArrayListExtra("data", a(aVar));
         intent.setFlags(268435456);
         a(context, intent, callbackHandler);
@@ -90,7 +91,7 @@ public class a extends z {
         Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
         intent.setType("vnd.android.cursor.item/contact");
         intent.putExtra("name", aVar.getDisplayName());
-        intent.putExtra("email", aVar.email);
+        intent.putExtra(NotificationCompat.CATEGORY_EMAIL, aVar.email);
         intent.putParcelableArrayListExtra("data", a(aVar));
         intent.setFlags(268435456);
         a(context, intent, callbackHandler);
@@ -114,20 +115,20 @@ public class a extends z {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.i.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.xS());
-        arrayList.add(aVar.xT());
-        arrayList.add(aVar.xU());
-        arrayList.add(aVar.xV());
-        arrayList.add(aVar.xW());
-        arrayList.add(aVar.xX());
-        arrayList.add(aVar.xQ());
-        arrayList.add(aVar.xY());
-        arrayList.add(aVar.ya());
-        arrayList.add(aVar.xR());
-        arrayList.add(aVar.xZ());
-        arrayList.add(aVar.yb());
-        arrayList.add(aVar.yc());
-        arrayList.add(aVar.yd());
+        arrayList.add(aVar.yx());
+        arrayList.add(aVar.yy());
+        arrayList.add(aVar.yz());
+        arrayList.add(aVar.yA());
+        arrayList.add(aVar.yB());
+        arrayList.add(aVar.yC());
+        arrayList.add(aVar.yv());
+        arrayList.add(aVar.yD());
+        arrayList.add(aVar.yF());
+        arrayList.add(aVar.yw());
+        arrayList.add(aVar.yE());
+        arrayList.add(aVar.yG());
+        arrayList.add(aVar.yH());
+        arrayList.add(aVar.yI());
         return arrayList;
     }
 }

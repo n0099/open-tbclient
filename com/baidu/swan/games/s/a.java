@@ -13,15 +13,15 @@ public class a extends c {
     public void getStorage(JsObject jsObject) {
         String a = a(jsObject, "getStorage");
         if (a != null) {
-            d jP = jP(a);
-            if (jP.isSuccess()) {
+            d jX = jX(a);
+            if (jX.isSuccess()) {
                 com.baidu.swan.games.s.a.b bVar = new com.baidu.swan.games.s.a.b();
-                bVar.errMsg = com.baidu.swan.games.s.a.a.jR("getStorage");
-                bVar.data = jP.getData();
+                bVar.errMsg = com.baidu.swan.games.s.a.a.jZ("getStorage");
+                bVar.data = jX.getData();
                 com.baidu.swan.games.utils.a.a(i(jsObject), true, bVar);
                 return;
             }
-            a(jsObject, "getStorage", a, jP);
+            a(jsObject, "getStorage", a, jX);
         }
     }
 
@@ -35,18 +35,18 @@ public class a extends c {
     public void removeStorage(JsObject jsObject) {
         String a = a(jsObject, "removeStorage");
         if (a != null) {
-            a(jsObject, "removeStorage", a, jQ(a));
+            a(jsObject, "removeStorage", a, jY(a));
         }
     }
 
     public void clearStorage(JsObject jsObject) {
-        a(jsObject, "clearStorage", "", St());
+        a(jsObject, "clearStorage", "", Tm());
     }
 
     public void getStorageInfo(JsObject jsObject) {
         com.baidu.swan.games.binding.model.c i = i(jsObject);
         com.baidu.swan.games.s.a.c storageInfoSync = getStorageInfoSync();
-        storageInfoSync.errMsg = com.baidu.swan.games.s.a.a.jR("getStorageInfo");
+        storageInfoSync.errMsg = com.baidu.swan.games.s.a.a.jZ("getStorageInfo");
         com.baidu.swan.games.utils.a.a(i, true, storageInfoSync);
     }
 
@@ -72,10 +72,10 @@ public class a extends c {
                 if (propertyType == 7) {
                     return d.Q(jsObject.toString(i));
                 }
-                return d.jS(String.format("parameter error: the key must be string instead of %s.", d.fb(propertyType)));
+                return d.ka(String.format("parameter error: the key must be string instead of %s.", d.ff(propertyType)));
             }
         }
-        return d.jS("parameter error: the parameter key is necessary.");
+        return d.ka("parameter error: the parameter key is necessary.");
     }
 
     private JsSerializeValue k(JsObject jsObject) {

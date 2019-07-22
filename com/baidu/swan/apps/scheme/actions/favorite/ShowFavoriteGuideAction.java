@@ -36,17 +36,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class ShowFavoriteGuideAction extends z {
-    public static GuideType aSh;
-    private PopupWindow aRY;
-    private Timer aRZ;
-    private Bitmap aSa;
-    private SwanAppActivity aSb;
-    private ContentObserver aSc;
-    private com.baidu.swan.apps.o.a aSd;
-    private long aSe;
-    private long aSf;
-    private long aSg;
-    private String ayh;
+    public static GuideType aSR;
+    private PopupWindow aSI;
+    private Timer aSJ;
+    private Bitmap aSK;
+    private SwanAppActivity aSL;
+    private ContentObserver aSM;
+    private com.baidu.swan.apps.o.a aSN;
+    private long aSO;
+    private long aSP;
+    private long aSQ;
+    private String ayO;
     private CallbackHandler mCallbackHandler;
 
     public ShowFavoriteGuideAction(j jVar) {
@@ -63,24 +63,24 @@ public class ShowFavoriteGuideAction extends z {
             com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "params parse error");
             return false;
         }
-        com.baidu.swan.apps.an.j.Oz().d(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.1
+        com.baidu.swan.apps.an.j.Po().d(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.swan.apps.storage.b.f Ni = com.baidu.swan.apps.storage.b.f.Ni();
+                com.baidu.swan.apps.storage.b.f NX = com.baidu.swan.apps.storage.b.f.NX();
                 final GuideType parse = GuideType.parse(c.optString("type"));
                 final String optString = c.optString("content", null);
                 if (TextUtils.isEmpty(optString)) {
                     optString = context.getString(parse.defaultText);
                 }
-                ShowFavoriteGuideAction.this.ayh = c.optString("cb");
+                ShowFavoriteGuideAction.this.ayO = c.optString("cb");
                 String str = bVar.id;
                 String str2 = "favorite_guide_count_" + str;
-                if (com.baidu.swan.apps.database.favorite.a.ef(str)) {
+                if (com.baidu.swan.apps.database.favorite.a.ek(str)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite already");
-                    com.baidu.swan.apps.storage.b.f.Ni().putString(str2, LivenessStat.TYPE_STRING_DEFAULT);
+                    com.baidu.swan.apps.storage.b.f.NX().putString(str2, LivenessStat.TYPE_STRING_DEFAULT);
                     return;
                 }
-                String string = com.baidu.swan.apps.storage.b.f.Ni().getString(str2, "");
+                String string = com.baidu.swan.apps.storage.b.f.NX().getString(str2, "");
                 if (TextUtils.equals(LivenessStat.TYPE_STRING_DEFAULT, string)) {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "favorite at one time");
                     return;
@@ -93,13 +93,13 @@ public class ShowFavoriteGuideAction extends z {
                     j = Long.parseLong(split[1]);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                ShowFavoriteGuideAction.this.aSe = Ni.getLong("swan_favorite_guide_duration", 3L);
-                ShowFavoriteGuideAction.this.aSf = Ni.getLong("swan_favorite_guide_intervalDays", 3L);
-                ShowFavoriteGuideAction.this.aSg = Ni.getLong("swan_favorite_guide_maxTimes", 3L);
-                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + ShowFavoriteGuideAction.this.aSe + ", mIntervalDays=" + ShowFavoriteGuideAction.this.aSf + ", mMaxTimes=" + ShowFavoriteGuideAction.this.aSg + " ,storageValue=" + string);
-                if (i < ShowFavoriteGuideAction.this.aSg && currentTimeMillis - j > ShowFavoriteGuideAction.this.aSf * 86400000) {
-                    com.baidu.swan.apps.storage.b.f.Ni().putString(str2, (i + 1) + "#" + currentTimeMillis);
-                    ShowFavoriteGuideAction.this.aSa = ac.a(bVar.vk(), "ShowFavoriteGuideAction", false);
+                ShowFavoriteGuideAction.this.aSO = NX.getLong("swan_favorite_guide_duration", 3L);
+                ShowFavoriteGuideAction.this.aSP = NX.getLong("swan_favorite_guide_intervalDays", 3L);
+                ShowFavoriteGuideAction.this.aSQ = NX.getLong("swan_favorite_guide_maxTimes", 3L);
+                com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "duration=" + ShowFavoriteGuideAction.this.aSO + ", mIntervalDays=" + ShowFavoriteGuideAction.this.aSP + ", mMaxTimes=" + ShowFavoriteGuideAction.this.aSQ + " ,storageValue=" + string);
+                if (i < ShowFavoriteGuideAction.this.aSQ && currentTimeMillis - j > ShowFavoriteGuideAction.this.aSP * 86400000) {
+                    com.baidu.swan.apps.storage.b.f.NX().putString(str2, (i + 1) + "#" + currentTimeMillis);
+                    ShowFavoriteGuideAction.this.aSK = ac.a(bVar.vL(), "ShowFavoriteGuideAction", false);
                     ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.1.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -119,8 +119,8 @@ public class ShowFavoriteGuideAction extends z {
     /* JADX INFO: Access modifiers changed from: private */
     @UiThread
     public void a(@NonNull final Activity activity, @NonNull final com.baidu.swan.apps.ae.b bVar, @NonNull final GuideType guideType, String str) {
-        final com.baidu.swan.apps.core.d.e vi;
-        Me();
+        final com.baidu.swan.apps.core.d.e vJ;
+        MS();
         a(activity, bVar);
         View inflate = LayoutInflater.from(activity).inflate(guideType == GuideType.TIPS ? a.g.aiapps_favorite_guide_tips : a.g.aiapps_favorite_guide_normal, (ViewGroup) null, false);
         TextView textView = (TextView) inflate.findViewById(a.f.favorite_guide_content);
@@ -136,15 +136,15 @@ public class ShowFavoriteGuideAction extends z {
                 int[] iArr = new int[2];
                 findViewById.getLocationOnScreen(iArr);
                 inflate.findViewById(a.f.favorite_guide_arrow).setPadding(0, 0, ((com.baidu.swan.apps.an.z.getDisplayWidth(null) - iArr[0]) - (findViewById.getWidth() / 2)) - com.baidu.swan.apps.an.z.ad(7.0f), 0);
-                this.aRY = new PopupWindow(inflate, -2, -2);
-                this.aRY.showAsDropDown(findViewById, 0, -com.baidu.swan.apps.an.z.ad(3.0f));
-                if (this.aSb != null && (vi = this.aSb.vi()) != null) {
-                    final com.baidu.swan.apps.core.d.b zK = vi.zK();
+                this.aSI = new PopupWindow(inflate, -2, -2);
+                this.aSI.showAsDropDown(findViewById, 0, -com.baidu.swan.apps.an.z.ad(3.0f));
+                if (this.aSL != null && (vJ = this.aSL.vJ()) != null) {
+                    final com.baidu.swan.apps.core.d.b Ar = vJ.Ar();
                     findViewById.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.2
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
-                            if ((vi != null && zK != vi.zK()) || com.baidu.swan.apps.an.z.OM()) {
-                                ShowFavoriteGuideAction.this.Me();
+                            if ((vJ != null && Ar != vJ.Ar()) || com.baidu.swan.apps.an.z.PC()) {
+                                ShowFavoriteGuideAction.this.MS();
                                 if (findViewById != null) {
                                     findViewById.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                                 }
@@ -165,8 +165,8 @@ public class ShowFavoriteGuideAction extends z {
             layoutParams.width = i;
             relativeLayout.setLayoutParams(layoutParams);
             ImageView imageView = (ImageView) inflate.findViewById(a.f.favorite_guide_icon);
-            if (this.aSa != null) {
-                imageView.setImageBitmap(this.aSa);
+            if (this.aSK != null) {
+                imageView.setImageBitmap(this.aSK);
             } else {
                 imageView.setImageResource(a.e.aiapps_default_grey_icon);
             }
@@ -177,8 +177,8 @@ public class ShowFavoriteGuideAction extends z {
                 imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        ShowFavoriteGuideAction.this.Me();
-                        ShowFavoriteGuideAction.this.cs(false);
+                        ShowFavoriteGuideAction.this.MS();
+                        ShowFavoriteGuideAction.this.cv(false);
                         ShowFavoriteGuideAction.a(guideType, "flow_close_close", "click");
                     }
                 });
@@ -186,103 +186,103 @@ public class ShowFavoriteGuideAction extends z {
             ((Button) inflate.findViewById(a.f.favorite_guide_add_btn)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    ShowFavoriteGuideAction.aSh = guideType;
-                    boolean Q = com.baidu.swan.apps.view.coverview.c.b.Q(activity);
-                    ShowFavoriteGuideAction.this.cs(Q);
-                    com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "add favorite result=" + Q);
-                    ShowFavoriteGuideAction.this.Me();
-                    if (ShowFavoriteGuideAction.this.aRZ != null) {
-                        ShowFavoriteGuideAction.this.aRZ.cancel();
+                    ShowFavoriteGuideAction.aSR = guideType;
+                    boolean T = com.baidu.swan.apps.view.coverview.c.b.T(activity);
+                    ShowFavoriteGuideAction.this.cv(T);
+                    com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "add favorite result=" + T);
+                    ShowFavoriteGuideAction.this.MS();
+                    if (ShowFavoriteGuideAction.this.aSJ != null) {
+                        ShowFavoriteGuideAction.this.aSJ.cancel();
                     }
                     ShowFavoriteGuideAction.a(guideType, guideType == GuideType.WEAK ? "flow_add" : "flow_close_add", "click");
                 }
             });
-            this.aRY = new PopupWindow(inflate, -1, -2);
-            this.aRY.setSoftInputMode(16);
-            this.aRY.showAtLocation(activity.getWindow().getDecorView(), 81, 0, (int) com.baidu.swan.apps.an.z.ae(50.0f));
+            this.aSI = new PopupWindow(inflate, -1, -2);
+            this.aSI.setSoftInputMode(16);
+            this.aSI.a(activity.getWindow().getDecorView(), 81, 0, (int) com.baidu.swan.apps.an.z.ae(50.0f));
         }
         if (guideType == GuideType.TIPS || guideType == GuideType.WEAK) {
-            if (this.aRZ != null) {
-                this.aRZ.cancel();
+            if (this.aSJ != null) {
+                this.aSJ.cancel();
             }
-            this.aRZ = new Timer();
-            this.aRZ.schedule(new TimerTask() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.5
+            this.aSJ = new Timer();
+            this.aSJ.schedule(new TimerTask() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.5
                 @Override // java.util.TimerTask, java.lang.Runnable
                 public void run() {
-                    ShowFavoriteGuideAction.this.Me();
-                    ShowFavoriteGuideAction.this.cs(com.baidu.swan.apps.database.favorite.a.ef(bVar.id));
-                    if (ShowFavoriteGuideAction.this.aRZ != null) {
-                        ShowFavoriteGuideAction.this.aRZ.cancel();
+                    ShowFavoriteGuideAction.this.MS();
+                    ShowFavoriteGuideAction.this.cv(com.baidu.swan.apps.database.favorite.a.ek(bVar.id));
+                    if (ShowFavoriteGuideAction.this.aSJ != null) {
+                        ShowFavoriteGuideAction.this.aSJ.cancel();
                     }
                 }
-            }, this.aSe * 1000);
+            }, this.aSO * 1000);
         }
         a(guideType, "", SmsLoginView.StatEvent.LOGIN_SHOW);
     }
 
     private void a(@NonNull Activity activity, @NonNull final com.baidu.swan.apps.ae.b bVar) {
-        this.aSc = new ContentObserver(null) { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.6
+        this.aSM = new ContentObserver(null) { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.6
             @Override // android.database.ContentObserver
             public void onChange(boolean z) {
                 super.onChange(z);
-                com.baidu.swan.apps.an.j.OB().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.6.1
+                com.baidu.swan.apps.an.j.Pq().execute(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (com.baidu.swan.apps.database.favorite.a.ef(bVar.id)) {
-                            ShowFavoriteGuideAction.this.Me();
+                        if (com.baidu.swan.apps.database.favorite.a.ek(bVar.id)) {
+                            ShowFavoriteGuideAction.this.MS();
                         }
                     }
                 });
             }
         };
-        AppRuntime.getAppContext().getContentResolver().registerContentObserver(com.baidu.swan.apps.database.favorite.a.BQ(), false, this.aSc);
+        AppRuntime.getAppContext().getContentResolver().registerContentObserver(com.baidu.swan.apps.database.favorite.a.Cz(), false, this.aSM);
         if (activity instanceof SwanAppActivity) {
-            this.aSb = (SwanAppActivity) activity;
-            if (this.aSd != null) {
-                this.aSb.b(this.aSd);
+            this.aSL = (SwanAppActivity) activity;
+            if (this.aSN != null) {
+                this.aSL.b(this.aSN);
             }
-            this.aSd = new com.baidu.swan.apps.o.a() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.7
+            this.aSN = new com.baidu.swan.apps.o.a() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.7
                 @Override // com.baidu.swan.apps.o.a, com.baidu.swan.apps.o.b
-                public void CH() {
+                public void Dq() {
                     com.baidu.swan.apps.console.c.i("ShowFavoriteGuideAction", "call onActivityDestroyed");
-                    ShowFavoriteGuideAction.this.Me();
-                    if (ShowFavoriteGuideAction.this.aSb != null && ShowFavoriteGuideAction.this.aSd != null) {
-                        ShowFavoriteGuideAction.this.aSb.b(ShowFavoriteGuideAction.this.aSd);
+                    ShowFavoriteGuideAction.this.MS();
+                    if (ShowFavoriteGuideAction.this.aSL != null && ShowFavoriteGuideAction.this.aSN != null) {
+                        ShowFavoriteGuideAction.this.aSL.b(ShowFavoriteGuideAction.this.aSN);
                     }
                 }
             };
-            this.aSb.a(this.aSd);
+            this.aSL.a(this.aSN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public void Me() {
+    public void MS() {
         ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.scheme.actions.favorite.ShowFavoriteGuideAction.8
             @Override // java.lang.Runnable
             public void run() {
-                if (ShowFavoriteGuideAction.this.aRY != null) {
-                    ShowFavoriteGuideAction.this.aRY.dismiss();
+                if (ShowFavoriteGuideAction.this.aSI != null) {
+                    ShowFavoriteGuideAction.this.aSI.dismiss();
                 }
             }
         });
-        if (this.aSc != null) {
-            AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(this.aSc);
-            this.aSc = null;
+        if (this.aSM != null) {
+            AppRuntime.getAppContext().getContentResolver().unregisterContentObserver(this.aSM);
+            this.aSM = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
-    public void cs(boolean z) {
-        if (this.ayh != null && this.mCallbackHandler != null) {
+    public void cv(boolean z) {
+        if (this.ayO != null && this.mCallbackHandler != null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("action", z ? 1 : 0);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            this.mCallbackHandler.handleSchemeDispatchCallback(this.ayh, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
+            this.mCallbackHandler.handleSchemeDispatchCallback(this.ayO, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success").toString());
         }
     }
 
@@ -298,7 +298,7 @@ public class ShowFavoriteGuideAction extends z {
         private int showWidth4px;
         private String typeName;
 
-        GuideType(String str, int i, int i2, int i3) {
+        GuideType(String str, int i, int i2, @StringRes int i3) {
             this.typeName = str;
             this.limit = i;
             this.showWidth4px = i2;
@@ -320,7 +320,7 @@ public class ShowFavoriteGuideAction extends z {
 
     public static void a(GuideType guideType, String str, String str2) {
         String str3;
-        String LB = com.baidu.swan.apps.ae.b.LB();
+        String Mo = com.baidu.swan.apps.ae.b.Mo();
         com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
         if (guideType == null) {
             str3 = "window";
@@ -340,7 +340,7 @@ public class ShowFavoriteGuideAction extends z {
         fVar.mType = str3;
         fVar.mSource = str;
         fVar.mValue = str2;
-        fVar.k("appkey", LB);
+        fVar.k("appkey", Mo);
         com.baidu.swan.apps.statistic.e.a("923", fVar);
     }
 }

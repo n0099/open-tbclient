@@ -5,99 +5,99 @@ import android.support.annotation.FloatRange;
 import com.baidu.mapapi.map.WeightedLatLng;
 /* loaded from: classes2.dex */
 public class c extends ValueAnimator {
-    private long qn;
-    private boolean qm = false;
+    private long qp;
+    private boolean qo = false;
     private float speed = 1.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float value = 0.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float qo = 0.0f;
+    private float qq = 0.0f;
     @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
-    private float qp = 1.0f;
+    private float qr = 1.0f;
 
     public c() {
         setInterpolator(null);
         addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.airbnb.lottie.c.c.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (!c.this.qm) {
+                if (!c.this.qo) {
                     c.this.value = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 }
             }
         });
-        dR();
+        dY();
     }
 
-    public void bJ() {
-        this.qm = true;
+    public void bN() {
+        this.qo = true;
     }
 
     public void h(long j) {
-        this.qn = j;
-        dR();
+        this.qp = j;
+        dY();
     }
 
     public void l(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        float clamp = e.clamp(f, this.qo, this.qp);
+        float clamp = e.clamp(f, this.qq, this.qr);
         this.value = clamp;
-        float abs = (isReversed() ? this.qp - clamp : clamp - this.qo) / Math.abs(this.qp - this.qo);
+        float abs = (isReversed() ? this.qr - clamp : clamp - this.qq) / Math.abs(this.qr - this.qq);
         if (getDuration() > 0) {
             setCurrentPlayTime(abs * ((float) getDuration()));
         }
     }
 
-    public float dQ() {
+    public float dX() {
         return this.value;
     }
 
     public void j(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.qo = f;
-        this.qp = f2;
-        dR();
+        this.qq = f;
+        this.qr = f2;
+        dY();
     }
 
     public void m(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f >= this.qp) {
+        if (f >= this.qr) {
             throw new IllegalArgumentException("Min value must be smaller then max value.");
         }
-        this.qo = f;
-        dR();
+        this.qq = f;
+        dY();
     }
 
     public void n(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        if (f <= this.qo) {
+        if (f <= this.qq) {
             throw new IllegalArgumentException("Max value must be greater than min value.");
         }
-        this.qp = f;
-        dR();
+        this.qr = f;
+        dY();
     }
 
     public void setSpeed(float f) {
         this.speed = f;
-        dR();
+        dY();
     }
 
     public float getSpeed() {
         return this.speed;
     }
 
-    public void bo() {
+    public void br() {
         start();
-        l(isReversed() ? this.qp : this.qo);
+        l(isReversed() ? this.qr : this.qq);
     }
 
-    public void bq() {
+    public void bt() {
         float f = this.value;
         cancel();
         l(f);
     }
 
-    public void bp() {
+    public void bs() {
         float f = this.value;
-        if (isReversed() && this.value == this.qo) {
-            f = this.qp;
-        } else if (!isReversed() && this.value == this.qp) {
-            f = this.qo;
+        if (isReversed() && this.value == this.qq) {
+            f = this.qr;
+        } else if (!isReversed() && this.value == this.qr) {
+            f = this.qq;
         }
         start();
         l(f);
@@ -107,11 +107,11 @@ public class c extends ValueAnimator {
         return this.speed < 0.0f;
     }
 
-    private void dR() {
-        setDuration((((float) this.qn) * (this.qp - this.qo)) / Math.abs(this.speed));
+    private void dY() {
+        setDuration((((float) this.qp) * (this.qr - this.qq)) / Math.abs(this.speed));
         float[] fArr = new float[2];
-        fArr[0] = this.speed < 0.0f ? this.qp : this.qo;
-        fArr[1] = this.speed < 0.0f ? this.qo : this.qp;
+        fArr[0] = this.speed < 0.0f ? this.qr : this.qq;
+        fArr[1] = this.speed < 0.0f ? this.qq : this.qr;
         setFloatValues(fArr);
         l(this.value);
     }

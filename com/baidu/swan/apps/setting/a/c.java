@@ -3,7 +3,6 @@ package com.baidu.swan.apps.setting.a;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -45,10 +44,10 @@ public class c extends z {
                     public void D(com.baidu.swan.apps.setting.b.a aVar) {
                         JSONObject wrapCallbackParams;
                         com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback:: " + aVar.toString());
-                        if (aVar.ML()) {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aUJ, 0);
+                        if (aVar.NA()) {
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(aVar.aVt, 0);
                         } else {
-                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aUK.toString(SapiErrorCode.NETWORK_FAILED));
+                            wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied;\n err by -> " + aVar.aVu.toString(-200));
                         }
                         callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                     }

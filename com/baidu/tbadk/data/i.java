@@ -1,28 +1,28 @@
 package com.baidu.tbadk.data;
 /* loaded from: classes.dex */
 public class i {
-    private boolean cpC;
-    private boolean cpD;
+    private boolean cqO;
+    private boolean cqP;
     private String method;
 
-    public boolean aqv() {
-        return this.cpC;
+    public boolean arA() {
+        return this.cqO;
     }
 
-    public void eU(boolean z) {
-        this.cpC = z;
+    public void eY(boolean z) {
+        this.cqO = z;
     }
 
-    public void aqw() {
-        this.cpC = false;
+    public void arB() {
+        this.cqO = false;
     }
 
     public boolean isOpen() {
-        return this.cpD;
+        return this.cqP;
     }
 
-    public void eV(boolean z) {
-        this.cpD = z;
+    public void eZ(boolean z) {
+        this.cqP = z;
     }
 
     public String getMethod() {

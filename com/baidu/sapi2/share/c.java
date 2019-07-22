@@ -13,21 +13,18 @@ import android.os.Looper;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
-import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.share.face.FaceLoginModel;
-import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.share.a.b;
+import com.baidu.sapi2.utils.Log;
+import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.util.ArrayList;
@@ -35,10 +32,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class c {
     static final int a = 87;
@@ -247,22 +242,6 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void b(Context context, String str) {
-        if (context != null && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(b.b(context, str));
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    SapiContext.getInstance(context).addReloginCredentials(next, SapiAccount.ReloginCredentials.fromJSONObject(jSONObject.optJSONObject(next)));
-                }
-            } catch (Throwable th) {
-                Log.e(th);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, LoginShareStrategy loginShareStrategy, ShareModel shareModel) {
         if (context != null && loginShareStrategy != null && shareModel != null) {
             if (TextUtils.isEmpty(shareModel.c())) {
@@ -280,76 +259,59 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a() {
-        ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.share.c.3
-            @Override // java.lang.Runnable
-            public void run() {
-                SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
-                Context context = confignation.context;
-                if (SapiUtils.isOnline(context) && !ShareDirectionType.EXPORT.equals(confignation.loginShareDirection())) {
-                    ArrayList arrayList = new ArrayList();
-                    List<Intent> a2 = c.a(context);
-                    if (a2.size() == 0) {
-                        SapiContext.getInstance(context).setShareStorage(null);
-                        return;
+        int i = 0;
+        SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
+        Context context = confignation.context;
+        if (SapiUtils.isOnline(context) && !ShareDirectionType.EXPORT.equals(confignation.loginShareDirection())) {
+            ArrayList arrayList = new ArrayList();
+            List<Intent> a2 = a(context);
+            if (a2.size() == 0) {
+                SapiContext.getInstance(context).setShareStorage(null);
+                return;
+            }
+            ShareStorage shareStorage = new ShareStorage();
+            HashSet hashSet = new HashSet();
+            for (SapiAccount sapiAccount : SapiAccountManager.getInstance().getLoginAccounts()) {
+                hashSet.add(sapiAccount.displayname);
+            }
+            int size = a2.size();
+            int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
+            int i2 = 0;
+            int i3 = 0;
+            for (Intent intent : a2) {
+                ShareStorage.StorageModel a3 = shareStorage.a(intent.getComponent().getPackageName());
+                if (a3 != null && a3.d != ordinal) {
+                    size--;
+                } else if (a3 == null) {
+                    i3++;
+                } else {
+                    if (a3.c == 0) {
+                        i2++;
+                    } else if (a3.c == 1) {
+                        i++;
                     }
-                    ShareStorage shareStorage = new ShareStorage();
-                    HashSet hashSet = new HashSet();
-                    for (SapiAccount sapiAccount : SapiAccountManager.getInstance().getLoginAccounts()) {
-                        hashSet.add(sapiAccount.displayname);
+                    if (a3.b == 0 && !hashSet.contains(a3.displayname)) {
+                        arrayList.add(a3);
+                        hashSet.add(a3.displayname);
                     }
-                    int size = a2.size();
-                    int ordinal = SapiAccountManager.getInstance().getConfignation().environment.ordinal();
-                    int i = size;
-                    int i2 = 0;
-                    int i3 = 0;
-                    int i4 = 0;
-                    for (Intent intent : a2) {
-                        ShareStorage.StorageModel a3 = shareStorage.a(intent.getComponent().getPackageName());
-                        if (a3 == null || a3.d == ordinal) {
-                            if (a3 == null) {
-                                i4++;
-                            } else {
-                                if (a3.c == 0) {
-                                    i3++;
-                                } else if (a3.c == 1) {
-                                    i2++;
-                                }
-                                if (a3.b == 0 && !hashSet.contains(a3.displayname)) {
-                                    arrayList.add(a3);
-                                    hashSet.add(a3.displayname);
-                                }
-                            }
-                            i4 = i4;
-                            i3 = i3;
-                            i2 = i2;
-                        } else {
-                            i--;
-                        }
-                    }
-                    SapiContext.getInstance(context).setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("cuid", SapiUtils.getClientId(context));
-                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
-                    hashMap.put("read_failure_count", i4 + "");
-                    hashMap.put("read_sp_count", i3 + "");
-                    hashMap.put("read_sd_count", i2 + "");
-                    hashMap.put("app_count", i + "");
-                    hashMap.put("share_count", arrayList.size() + "");
-                    hashMap.put("os_version", Build.VERSION.RELEASE);
-                    StatService.onEvent("share_read", hashMap, false);
                 }
             }
-        }));
+            SapiContext.getInstance(context).setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
+            SapiStatUtil.statShareV2OpenMax(context, i3, i2, i, size, shareStorage, arrayList);
+        }
     }
 
-    public static void a(Activity activity, String str, String str2) {
+    public static void a(Activity activity, String str, String str2, String str3, String str4, List<PassNameValuePair> list) {
+        int i = 0;
         if (activity == null) {
             throw new IllegalArgumentException("loginActivity can't be null");
         }
-        if (!TextUtils.isEmpty(str)) {
+        if (!TextUtils.isEmpty(str) && SapiUtils.isAppInstalled(activity, str)) {
             ComponentName componentName = new ComponentName(str, "com.baidu.sapi2.activity.ShareActivity");
             Intent intent = new Intent();
             intent.putExtra("android.intent.extra.TEXT", str2);
+            intent.putExtra(ShareCallPacking.EXTRA_SESSION_ID, str4);
+            intent.putExtra(ShareCallPacking.EXTRA_TRACE_ID, str3);
             intent.setComponent(componentName);
             activity.startActivityForResult(intent, 20001);
         } else {
@@ -357,33 +319,25 @@ public final class c {
         }
         ShareCallPacking.statModel = new ShareCallPacking.StatModel();
         List<ShareStorage.StorageModel> a2 = a.a().a(activity);
-        int i = 0;
         while (true) {
-            if (i < a2.size()) {
-                if (!a2.get(i).pkg.equals(str) || !a2.get(i).url.equals(str2)) {
-                    i++;
+            int i2 = i;
+            if (i2 < a2.size()) {
+                if (!a2.get(i2).pkg.equals(str) || !a2.get(i2).url.equals(str2)) {
+                    i = i2 + 1;
                 } else {
-                    ShareCallPacking.statModel.index = i;
-                    ShareCallPacking.statModel.accountTpl = a2.get(i).tpl;
-                    ShareCallPacking.statModel.appName = a2.get(i).app;
+                    ShareCallPacking.statModel.index = i2;
+                    ShareCallPacking.statModel.accountTpl = a2.get(i2).tpl;
+                    ShareCallPacking.statModel.appName = a2.get(i2).app;
                     break;
                 }
             } else {
                 break;
             }
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put("index", ShareCallPacking.statModel.index + "");
-        hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_TPL, ShareCallPacking.statModel.accountTpl);
-        hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, ShareCallPacking.statModel.appName);
-        StatService.onEvent("share_account_click", hashMap, false);
+        SapiStatUtil.statShareV2Click(ShareCallPacking.statModel, list);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0104  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void a(ShareCallPacking.ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, ShareCallPacking shareCallPacking) {
+    public static void a(ShareCallPacking.ShareLoginCallBack shareLoginCallBack, int i, int i2, Intent intent, ShareCallPacking shareCallPacking, List<PassNameValuePair> list) {
         int i3;
         String str;
         String str2;
@@ -394,7 +348,7 @@ public final class c {
             }
             Context context = SapiAccountManager.getInstance().getConfignation().context;
             if (i2 == -1) {
-                SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra("share_account");
+                SapiAccount sapiAccount = (SapiAccount) intent.getParcelableExtra(b);
                 if (sapiAccount != null) {
                     if (intent.getIntExtra(ShareCallPacking.EXTRA_SDK_VERSION, 0) >= 190) {
                         ShareAccountAccessor.getAccessor().setAccountPkg(sapiAccount, intent.getStringExtra("PKG"));
@@ -413,30 +367,22 @@ public final class c {
                         ArrayList arrayList = new ArrayList();
                         String stringExtra = intent.getStringExtra("FACE_LOGIN_UID");
                         if (!TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(SapiContext.getInstance(context).getFaceLoginUid())) {
-                            arrayList.add(new FaceLoginModel.a(stringExtra, 1L));
+                            arrayList.add(new b.a(stringExtra, 1L));
                         }
                         String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
                         if (!TextUtils.isEmpty(stringExtra2)) {
-                            arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
+                            arrayList.addAll(new com.baidu.sapi2.share.a.c().b(stringExtra2));
                         }
                         if (!arrayList.isEmpty()) {
-                            new FaceLoginService().syncPriWithShare(arrayList, false);
+                            new com.baidu.sapi2.share.a.c().a((List<b.a>) arrayList, false);
                         }
                     }
                     SapiContext.getInstance(context).put(SapiContext.KEY_PRE_LOGIN_TYPE, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
                     shareLoginCallBack.onSuccess();
-                    str3 = str4;
                     str2 = "";
                     i3 = 0;
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("share_result", i3 + "");
-                    hashMap.put("fail_reason", str2);
-                    if (ShareCallPacking.statModel != null) {
-                        hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_TPL, ShareCallPacking.statModel.accountTpl);
-                        hashMap.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, ShareCallPacking.statModel.appName);
-                    }
-                    hashMap.put("uid", str3);
-                    StatService.onEvent("share_account_result", hashMap, false);
+                    str3 = str4;
+                    SapiStatUtil.statShareV2Result(ShareCallPacking.statModel, str2, i3, str3, list);
                 }
                 i3 = 1;
                 str = SapiResult.ERROR_MSG_V2_SHARE_ACCOUNT_FAIL;
@@ -445,7 +391,7 @@ public final class c {
             } else {
                 i3 = 2;
                 if (intent != null) {
-                    str = intent.getStringExtra("share_fail_reason");
+                    str = intent.getStringExtra(c);
                     Toast.makeText(context, str, 0).show();
                 } else {
                     str = "result data is null";
@@ -454,13 +400,7 @@ public final class c {
             }
             str2 = str;
             str3 = "";
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("share_result", i3 + "");
-            hashMap2.put("fail_reason", str2);
-            if (ShareCallPacking.statModel != null) {
-            }
-            hashMap2.put("uid", str3);
-            StatService.onEvent("share_account_result", hashMap2, false);
+            SapiStatUtil.statShareV2Result(ShareCallPacking.statModel, str2, i3, str3, list);
         }
     }
 

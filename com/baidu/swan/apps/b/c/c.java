@@ -32,17 +32,17 @@ public interface c<T extends d> extends m, e<T> {
 
     boolean c(com.baidu.swan.apps.scheme.actions.k.d dVar);
 
-    com.baidu.swan.apps.canvas.c.g cX(String str);
+    com.baidu.swan.apps.canvas.c.g dc(String str);
 
-    boolean wL();
+    boolean xm();
 
-    PullToRefreshBaseWebView wM();
+    PullToRefreshBaseWebView xn();
 
-    f wN();
+    f xo();
 
-    boolean wO();
+    boolean xp();
 
-    void wP();
+    void xq();
 
-    com.baidu.swan.apps.view.d.a wQ();
+    com.baidu.swan.apps.view.d.a xr();
 }

@@ -1,69 +1,58 @@
 package com.baidu.swan.apps.d;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import com.baidu.swan.apps.a;
-import com.baidu.swan.apps.b.c.f;
-import com.baidu.swan.apps.core.d.g;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.d.e;
+import com.baidu.swan.apps.scheme.actions.z;
+import com.baidu.swan.apps.scheme.j;
 /* loaded from: classes2.dex */
-public class b extends g {
-    /* JADX INFO: Access modifiers changed from: private */
-    public void aP(boolean z) {
-        this.aqh.setLeftHomeViewVisibility(z ? 0 : 8);
+public class b extends z {
+    public b(j jVar) {
+        super(jVar, "/swan/openAdLandingPage");
     }
 
-    @Override // com.baidu.swan.apps.core.d.g
-    protected f wN() {
-        return com.baidu.swan.apps.core.j.c.Bi().Bj().aK(getContext());
-    }
-
-    @Override // com.baidu.swan.apps.core.d.g
-    protected com.baidu.swan.apps.core.f.c xb() {
-        return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.b.1
-            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
-            public void goBack() {
-                b.this.aP(b.this.arl.canGoBack());
-            }
-
-            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
-            public void cZ(final String str) {
-                b.this.aP(b.this.arl.canGoBack());
-                b.this.aqh.post(new Runnable() { // from class: com.baidu.swan.apps.d.b.1.1
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        b.this.aqh.setTitle(TextUtils.isEmpty(str) ? "" : str);
-                    }
-                });
-            }
-        };
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.swan.apps.core.d.g, com.baidu.swan.apps.core.d.b
-    public void M(View view) {
-        super.M(view);
-        this.aqh.setRightZoneVisibility(false);
-        this.aqh.setLeftHomeViewSrc(a.e.aiapps_action_bar_close_black_selector);
-        this.aqh.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.2
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                if (b.this.arl.canGoBack()) {
-                    b.this.arl.goBack();
-                } else {
-                    b.this.yX();
+    @Override // com.baidu.swan.apps.scheme.actions.z
+    public boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        if (DEBUG) {
+            Log.d("OpenAdLandingPageAction", "handle entity: " + unitedSchemeEntity.toString());
+        }
+        final String b = com.baidu.swan.apps.scheme.actions.i.a.b(unitedSchemeEntity, "params");
+        if (TextUtils.isEmpty(b)) {
+            com.baidu.swan.apps.console.c.i("AdLanding", "adLanding: url is empty");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            return false;
+        }
+        final e vJ = com.baidu.swan.apps.w.e.GF().vJ();
+        if (vJ == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        bVar.Mh().a((Activity) context, "mapp_i_open_adlanding", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.d.b.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.swan.apps.an.d.a
+            /* renamed from: b */
+            public void D(Boolean bool) {
+                if (!bool.booleanValue()) {
+                    com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page failed");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied"));
+                    return;
                 }
+                b.this.a(com.baidu.swan.apps.model.b.aq(b, b), vJ);
+                com.baidu.swan.apps.console.c.i("AdLanding", "open adLanding page success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             }
         });
-        this.aqh.setLeftHomeViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.b.3
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                g.Ab();
-            }
-        });
+        return true;
     }
 
-    @Override // com.baidu.swan.apps.core.d.b
-    protected boolean xc() {
-        return true;
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.baidu.swan.apps.model.b bVar, e eVar) {
+        com.baidu.swan.apps.console.c.i("AdLanding", "openAdLanding: page url=" + bVar.mBaseUrl);
+        eVar.dS("adLanding").B(e.arw, e.ary).a("adLanding", bVar).AD();
     }
 }

@@ -8,17 +8,17 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
 public class f {
-    private boolean coC = false;
-    private int coD = 0;
+    private boolean cpP = false;
+    private int cpQ = 0;
 
-    public void pA(String str) {
+    public void pR(String str) {
         int lastIndexOf;
         String str2;
         Exception e;
         int i;
         int i2;
-        this.coC = false;
-        this.coD = 0;
+        this.cpP = false;
+        this.cpQ = 0;
         if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
             String str3 = null;
             try {
@@ -49,7 +49,7 @@ public class f {
                             if (socket.isConnected()) {
                                 i4++;
                                 i3 = (int) ((System.currentTimeMillis() - currentTimeMillis) + i3);
-                                this.coC = true;
+                                this.cpP = true;
                             }
                             i = i4;
                             i2 = i3;
@@ -80,19 +80,19 @@ public class f {
                     i3 = i2;
                     i4 = i;
                 }
-                if (this.coC && i4 > 0) {
-                    this.coD = i3 / i4;
+                if (this.cpP && i4 > 0) {
+                    this.cpQ = i3 / i4;
                 }
             }
         }
     }
 
     public boolean isSucc() {
-        return this.coC;
+        return this.cpP;
     }
 
-    public int aqa() {
-        return this.coD;
+    public int arf() {
+        return this.cpQ;
     }
 
     private int getTimeout() {

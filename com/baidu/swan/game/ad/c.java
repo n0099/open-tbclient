@@ -19,13 +19,13 @@ import com.baidu.swan.game.ad.component.CircleTextProgressbar;
 import com.baidu.swan.game.ad.component.RewardVideoView;
 /* loaded from: classes2.dex */
 public abstract class c {
-    private Button bcH;
-    private RewardVideoView bcR;
-    private com.baidu.swan.apps.media.d.a bcS;
-    private CircleTextProgressbar bcT;
-    private com.baidu.swan.game.ad.a.a bcU;
-    private a.b bcV;
-    private a.c bcW;
+    private RewardVideoView bdD;
+    private com.baidu.swan.apps.media.d.a bdE;
+    private CircleTextProgressbar bdF;
+    private com.baidu.swan.game.ad.a.a bdG;
+    private a.b bdH;
+    private a.c bdI;
+    private Button bdt;
     public Context c;
     private RelativeLayout d;
     private View e;
@@ -38,93 +38,93 @@ public abstract class c {
     private Runnable s = new Runnable() { // from class: com.baidu.swan.game.ad.c.2
         @Override // java.lang.Runnable
         public void run() {
-            if (c.this.bcS != null) {
-                int currentPosition = c.this.bcS.getCurrentPosition();
-                c.this.h = c.this.bcS.getDuration();
+            if (c.this.bdE != null) {
+                int currentPosition = c.this.bdE.getCurrentPosition();
+                c.this.h = c.this.bdE.getDuration();
                 int i = 0;
                 if (c.this.h > 0 && currentPosition <= c.this.h && currentPosition >= 0) {
                     i = (int) Math.round((c.this.h - currentPosition) / 1000.0d);
                 }
                 int min = Math.min(currentPosition + 1000, c.this.h);
-                c.this.bcT.a(c.this.h, min);
-                c.this.bcT.setText(String.valueOf(i));
+                c.this.bdF.a(c.this.h, min);
+                c.this.bdF.setText(String.valueOf(i));
                 if (min < c.this.h) {
                     c.this.p.postDelayed(c.this.s, 100L);
                 }
             }
         }
     };
-    private View.OnClickListener bcX = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.3
+    private View.OnClickListener bdJ = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.bcR != null) {
-                if (c.this.bcR.a()) {
+            if (c.this.bdD != null) {
+                if (c.this.bdD.a()) {
                     c.this.k.setImageResource(a.c.ng_game_vol_open);
-                    c.this.bcR.a(false);
+                    c.this.bdD.a(false);
                     return;
                 }
                 c.this.k.setImageResource(a.c.ng_game_vol_close);
-                c.this.bcR.a(true);
+                c.this.bdD.a(true);
             }
         }
     };
-    private View.OnClickListener bcY = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.4
+    private View.OnClickListener bdK = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.4
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.bcV != null) {
-                c.this.bcV.a();
+            if (c.this.bdH != null) {
+                c.this.bdH.a();
             }
         }
     };
-    private View.OnClickListener bcZ = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.5
+    private View.OnClickListener bdL = new View.OnClickListener() { // from class: com.baidu.swan.game.ad.c.5
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (c.this.bcW != null) {
-                c.this.bcW.b();
+            if (c.this.bdI != null) {
+                c.this.bdI.b();
             }
         }
     };
-    public int a = com.baidu.swan.games.view.a.c.SI();
-    public int b = com.baidu.swan.games.view.a.c.SJ();
+    public int a = com.baidu.swan.games.view.a.c.TB();
+    public int b = com.baidu.swan.games.view.a.c.TC();
 
-    public abstract View PR();
+    public abstract View QJ();
 
     public c(Context context, com.baidu.swan.game.ad.a.a aVar) {
         this.c = context;
-        this.bcU = aVar;
+        this.bdG = aVar;
         j();
     }
 
     private void j() {
         Resources resources = this.c.getResources();
-        this.e = PR();
+        this.e = QJ();
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.a, this.b);
         this.e.setLayoutParams(layoutParams);
         this.d = (RelativeLayout) this.e.findViewById(a.d.reward_relative);
-        this.bcR = (RewardVideoView) this.e.findViewById(a.d.video_view);
-        this.bcR.setLayoutParams(layoutParams);
-        this.bcT = (CircleTextProgressbar) this.e.findViewById(a.d.progress);
-        this.bcT.setVisibility(4);
-        this.bcT.setOutLineColor(resources.getColor(a.b.out_line_color));
-        this.bcT.setProgressColor(resources.getColor(a.b.progress_color));
-        this.bcT.setProgressLineWidth(z.dip2px(this.c, 2.0f));
-        this.bcT.setTextColor(resources.getColor(a.b.progress_text_color));
-        this.bcT.setProgressType(CircleTextProgressbar.b.COUNT);
+        this.bdD = (RewardVideoView) this.e.findViewById(a.d.video_view);
+        this.bdD.setLayoutParams(layoutParams);
+        this.bdF = (CircleTextProgressbar) this.e.findViewById(a.d.progress);
+        this.bdF.setVisibility(4);
+        this.bdF.setOutLineColor(resources.getColor(a.b.out_line_color));
+        this.bdF.setProgressColor(resources.getColor(a.b.progress_color));
+        this.bdF.setProgressLineWidth(z.dip2px(this.c, 2.0f));
+        this.bdF.setTextColor(resources.getColor(a.b.progress_text_color));
+        this.bdF.setProgressType(CircleTextProgressbar.b.COUNT);
         this.j = (LinearLayout) this.e.findViewById(a.d.vol_clo);
         this.k = (ImageView) this.e.findViewById(a.d.volume);
         this.l = (TextView) this.e.findViewById(a.d.close_ad);
         this.m = (RelativeLayout) this.e.findViewById(a.d.banner);
-        ((AdImageVIew) this.e.findViewById(a.d.reward_icon)).setImageUrl(this.bcU.d());
-        ((TextView) this.e.findViewById(a.d.title)).setText(this.bcU.a());
-        ((TextView) this.e.findViewById(a.d.desc)).setText(this.bcU.b());
-        this.bcH = (Button) this.e.findViewById(a.d.download);
-        if (this.bcU.g() == 1) {
-            this.bcH.setText(resources.getString(a.f.see_detail));
+        ((AdImageVIew) this.e.findViewById(a.d.reward_icon)).setImageUrl(this.bdG.d());
+        ((TextView) this.e.findViewById(a.d.title)).setText(this.bdG.a());
+        ((TextView) this.e.findViewById(a.d.desc)).setText(this.bdG.b());
+        this.bdt = (Button) this.e.findViewById(a.d.download);
+        if (this.bdG.g() == 1) {
+            this.bdt.setText(resources.getString(a.f.see_detail));
         }
-        if (this.bcU.g() == 2) {
-            this.bcH.setText(resources.getString(a.f.down_immediately));
+        if (this.bdG.g() == 2) {
+            this.bdt.setText(resources.getString(a.f.down_immediately));
         }
-        this.bcS = this.bcR.getPlayer();
+        this.bdE = this.bdD.getPlayer();
         k();
     }
 
@@ -135,18 +135,18 @@ public abstract class c {
                 return true;
             }
         });
-        this.k.setOnClickListener(this.bcX);
-        this.l.setOnClickListener(this.bcY);
-        this.m.setOnClickListener(this.bcZ);
-        this.bcH.setOnClickListener(this.bcZ);
+        this.k.setOnClickListener(this.bdJ);
+        this.l.setOnClickListener(this.bdK);
+        this.m.setOnClickListener(this.bdL);
+        this.bdt.setOnClickListener(this.bdL);
     }
 
     public void a(a.c cVar) {
-        this.bcW = cVar;
+        this.bdI = cVar;
     }
 
     public void a(a.b bVar) {
-        this.bcV = bVar;
+        this.bdH = bVar;
     }
 
     public View a() {
@@ -154,49 +154,49 @@ public abstract class c {
     }
 
     public void a(String str) {
-        if (this.bcR != null) {
-            this.bcR.a(str);
+        if (this.bdD != null) {
+            this.bdD.a(str);
         }
     }
 
-    public com.baidu.swan.apps.media.d.a PQ() {
-        if (this.bcR != null) {
-            return this.bcR.getPlayer();
+    public com.baidu.swan.apps.media.d.a QI() {
+        if (this.bdD != null) {
+            return this.bdD.getPlayer();
         }
         return null;
     }
 
     private void l() {
-        if (this.bcT != null) {
+        if (this.bdF != null) {
             this.p.removeCallbacksAndMessages(null);
             this.p.postDelayed(this.s, 0L);
         }
     }
 
     private void m() {
-        if (this.bcT != null) {
+        if (this.bdF != null) {
             this.p.removeCallbacksAndMessages(null);
         }
     }
 
     public void c() {
         l();
-        if (this.bcT.getVisibility() != 0) {
-            this.bcT.setVisibility(0);
-            this.bcT.setTimeMillis(this.h);
+        if (this.bdF.getVisibility() != 0) {
+            this.bdF.setVisibility(0);
+            this.bdF.setTimeMillis(this.h);
         }
         if (this.j.getVisibility() != 0) {
             this.j.setVisibility(0);
         }
         if (this.m.getVisibility() != 0) {
-            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0196a.ng_game_ad_open));
+            this.m.setAnimation(AnimationUtils.loadAnimation(this.c, a.C0193a.ng_game_ad_open));
             this.m.setVisibility(0);
         }
     }
 
     public void d() {
-        if (this.bcS != null) {
-            this.h = this.bcS.getDuration();
+        if (this.bdE != null) {
+            this.h = this.bdE.getDuration();
         }
     }
 
@@ -213,8 +213,8 @@ public abstract class c {
     }
 
     public void h() {
-        if (this.bcT != null) {
-            this.bcT.setVisibility(4);
+        if (this.bdF != null) {
+            this.bdF.setVisibility(4);
         }
         m();
     }

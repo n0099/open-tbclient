@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import com.baidu.tieba.setting.usermutelist.UserMuteQueryModel;
 import com.baidu.tieba.setting.usermutelist.a;
@@ -26,77 +26,77 @@ import java.util.ArrayList;
 import tbclient.UserMuteQuery.MuteUser;
 /* loaded from: classes3.dex */
 public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
-    private static final BdUniqueId iNw = BdUniqueId.gen();
-    private e hEK;
-    private com.baidu.tbadk.core.view.e hEL;
-    private b iNt;
-    private a iNu;
-    private UserMuteQueryModel iNv;
-    private String iNx;
+    private static final BdUniqueId iTO = BdUniqueId.gen();
+    private e hKX;
+    private com.baidu.tbadk.core.view.e hKY;
+    private b iTL;
+    private a iTM;
+    private UserMuteQueryModel iTN;
+    private String iTP;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
-    private ArrayList<MuteUser> aHF = new ArrayList<>();
+    private ArrayList<MuteUser> aIn = new ArrayList<>();
     private boolean isNeedRefresh = false;
     private int page = 1;
-    private int iNy = 10;
-    private UserMuteQueryModel.a iNz = new UserMuteQueryModel.a() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.1
+    private int iTQ = 10;
+    private UserMuteQueryModel.a iTR = new UserMuteQueryModel.a() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.1
         @Override // com.baidu.tieba.setting.usermutelist.UserMuteQueryModel.a
         public void a(ArrayList<MuteUser> arrayList, int i, String str) {
-            UserMuteListActivity.this.mWaitingDialog.ef(false);
+            UserMuteListActivity.this.mWaitingDialog.ej(false);
             if (i != UserMuteQueryModel.NET_SUCCESS) {
-                UserMuteListActivity.this.iNt.boO();
+                UserMuteListActivity.this.iTL.bqP();
                 UserMuteListActivity.this.showToast(str);
                 return;
             }
             UserMuteListActivity.b(UserMuteListActivity.this);
-            UserMuteListActivity.this.aHF.addAll(arrayList);
-            if (UserMuteListActivity.this.aHF == null || UserMuteListActivity.this.aHF.size() <= 0) {
-                UserMuteListActivity.this.iNt.boO();
+            UserMuteListActivity.this.aIn.addAll(arrayList);
+            if (UserMuteListActivity.this.aIn == null || UserMuteListActivity.this.aIn.size() <= 0) {
+                UserMuteListActivity.this.iTL.bqP();
             } else {
-                UserMuteListActivity.this.iNu.setData(UserMuteListActivity.this.aHF);
+                UserMuteListActivity.this.iTM.setData(UserMuteListActivity.this.aIn);
             }
         }
     };
-    private CustomMessageListener hFn = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.3
+    private CustomMessageListener hLA = new CustomMessageListener(2001428) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == UserMuteListActivity.iNw) {
-                UserMuteListActivity.this.mWaitingDialog.ef(false);
+            if (customResponsedMessage != null && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == UserMuteListActivity.iTO) {
+                UserMuteListActivity.this.mWaitingDialog.ej(false);
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    UserMuteListActivity.this.hEL.i(UserMuteListActivity.this.hEK.getResources().getString(R.string.un_mute_success));
+                    UserMuteListActivity.this.hKY.i(UserMuteListActivity.this.hKX.getResources().getString(R.string.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
-                if (ap.isEmpty(muteMessage)) {
-                    muteMessage = UserMuteListActivity.this.hEK.getResources().getString(R.string.un_mute_fail);
+                if (aq.isEmpty(muteMessage)) {
+                    muteMessage = UserMuteListActivity.this.hKX.getResources().getString(R.string.un_mute_fail);
                 }
-                UserMuteListActivity.this.hEL.j(muteMessage);
+                UserMuteListActivity.this.hKY.j(muteMessage);
             }
         }
     };
-    private CustomMessageListener iNA = new CustomMessageListener(2016304) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.4
+    private CustomMessageListener iTS = new CustomMessageListener(2016304) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             UserMuteListActivity.this.isNeedRefresh = true;
         }
     };
-    private CustomMessageListener iNB = new CustomMessageListener(2016303) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.5
+    private CustomMessageListener iTT = new CustomMessageListener(2016303) { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if ((customResponsedMessage != null || UserMuteListActivity.this.iNx == null) && UserMuteListActivity.this.aHF != null && UserMuteListActivity.this.aHF.size() > 0) {
+            if ((customResponsedMessage != null || UserMuteListActivity.this.iTP == null) && UserMuteListActivity.this.aIn != null && UserMuteListActivity.this.aIn.size() > 0) {
                 int i = 0;
                 while (true) {
                     int i2 = i;
-                    if (i2 < UserMuteListActivity.this.aHF.size()) {
-                        MuteUser muteUser = (MuteUser) UserMuteListActivity.this.aHF.get(i2);
-                        if (muteUser != null && (muteUser.user_id + "").equals(UserMuteListActivity.this.iNx)) {
-                            UserMuteListActivity.this.aHF.remove(i2);
-                            UserMuteListActivity.this.iNu.notifyDataSetChanged();
-                            if (UserMuteListActivity.this.aHF.size() == 0) {
-                                UserMuteListActivity.this.iNt.boO();
+                    if (i2 < UserMuteListActivity.this.aIn.size()) {
+                        MuteUser muteUser = (MuteUser) UserMuteListActivity.this.aIn.get(i2);
+                        if (muteUser != null && (muteUser.user_id + "").equals(UserMuteListActivity.this.iTP)) {
+                            UserMuteListActivity.this.aIn.remove(i2);
+                            UserMuteListActivity.this.iTM.notifyDataSetChanged();
+                            if (UserMuteListActivity.this.aIn.size() == 0) {
+                                UserMuteListActivity.this.iTL.bqP();
                                 return;
                             }
                             return;
@@ -109,23 +109,23 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             }
         }
     };
-    private a.b iNC = new a.b() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.6
+    private a.b iTU = new a.b() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.6
         @Override // com.baidu.tieba.setting.usermutelist.a.b
         public void q(long j, String str) {
-            if (!j.jS()) {
+            if (!j.kc()) {
                 UserMuteListActivity.this.showToast(R.string.neterror);
                 return;
             }
             TiebaStatic.log("c10047");
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
-            userMuteAddAndDelCustomMessage.setData(true, j + "", str, null, null, 2, null, UserMuteListActivity.iNw);
-            UserMuteListActivity.this.iNx = j + "";
-            userMuteAddAndDelCustomMessage.setTag(UserMuteListActivity.iNw);
+            userMuteAddAndDelCustomMessage.setData(true, j + "", str, null, null, 2, null, UserMuteListActivity.iTO);
+            UserMuteListActivity.this.iTP = j + "";
+            userMuteAddAndDelCustomMessage.setTag(UserMuteListActivity.iTO);
             UserMuteListActivity.this.a(true, userMuteAddAndDelCustomMessage, null, str);
         }
     };
-    private a.InterfaceC0401a iND = new a.InterfaceC0401a() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.7
-        @Override // com.baidu.tieba.setting.usermutelist.a.InterfaceC0401a
+    private a.InterfaceC0400a iTV = new a.InterfaceC0400a() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.7
+        @Override // com.baidu.tieba.setting.usermutelist.a.InterfaceC0400a
         public void r(long j, String str) {
             UserMuteListActivity.this.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(UserMuteListActivity.this.getPageContext().getPageActivity(), j + "", str)));
         }
@@ -141,15 +141,15 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.iNu = new a(this, this.iNC, this.iND);
-        this.iNv = new UserMuteQueryModel(this.iNz);
-        this.iNt = new b(this, this.iNu);
-        this.iNt.getListView().setAdapter((ListAdapter) this.iNu);
-        this.iNt.getListView().setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.8
+        this.iTM = new a(this, this.iTU, this.iTV);
+        this.iTN = new UserMuteQueryModel(this.iTR);
+        this.iTL = new b(this, this.iTM);
+        this.iTL.getListView().setAdapter((ListAdapter) this.iTM);
+        this.iTL.getListView().setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.8
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if (absListView.getLastVisiblePosition() == absListView.getCount() - 1) {
-                    UserMuteListActivity.this.iNv.c(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.iNy);
+                    UserMuteListActivity.this.iTN.c(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L), UserMuteListActivity.this.page, UserMuteListActivity.this.iTQ);
                 }
             }
 
@@ -158,16 +158,16 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             }
         });
         showLoadingDialog();
-        registerListener(this.iNB);
-        registerListener(this.iNA);
-        this.iNv.el(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
-        this.hEK = getPageContext();
-        this.hEL = new com.baidu.tbadk.core.view.e();
-        this.hEL.bXG = 1000L;
-        registerListener(this.hFn);
+        registerListener(this.iTT);
+        registerListener(this.iTS);
+        this.iTN.ev(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+        this.hKX = getPageContext();
+        this.hKY = new com.baidu.tbadk.core.view.e();
+        this.hKY.bYI = 1000L;
+        registerListener(this.hLA);
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
-        userMuteAddAndDelCustomMessage.mId = iNw;
-        userMuteAddAndDelCustomMessage.setTag(iNw);
+        userMuteAddAndDelCustomMessage.mId = iTO;
+        userMuteAddAndDelCustomMessage.setTag(iTO);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
     }
 
@@ -175,10 +175,10 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.hEK = null;
-        this.iNv.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.hFn);
-        MessageManager.getInstance().unRegisterListener(iNw);
+        this.hKX = null;
+        this.iTN.onDestroy();
+        MessageManager.getInstance().unRegisterListener(this.hLA);
+        MessageManager.getInstance().unRegisterListener(iTO);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -188,14 +188,14 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
         if (this.isNeedRefresh) {
             this.isNeedRefresh = false;
             showLoadingDialog();
-            this.iNv.el(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
+            this.iTN.ev(com.baidu.adp.lib.g.b.c(TbadkCoreApplication.getCurrentAccount(), 0L));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showLoadingDialog() {
-        if (!j.jS()) {
-            this.iNt.ciP();
+        if (!j.kc()) {
+            this.iTL.clH();
             return;
         }
         if (this.mWaitingDialog == null) {
@@ -203,14 +203,14 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             this.mWaitingDialog.e(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.9
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    if (UserMuteListActivity.this.iNv != null) {
-                        UserMuteListActivity.this.iNv.cancelLoadData();
+                    if (UserMuteListActivity.this.iTN != null) {
+                        UserMuteListActivity.this.iTN.cancelLoadData();
                     }
-                    MessageManager.getInstance().removeMessage(UserMuteListActivity.iNw);
+                    MessageManager.getInstance().removeMessage(UserMuteListActivity.iTO);
                 }
             });
         }
-        this.mWaitingDialog.ef(true);
+        this.mWaitingDialog.ej(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -220,11 +220,11 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
             MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
             return;
         }
-        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.hEK.getPageActivity());
-        if (ap.isEmpty(str)) {
-            aVar.mD(this.hEK.getResources().getString(R.string.block_mute_message_alert, str2));
+        com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.hKX.getPageActivity());
+        if (aq.isEmpty(str)) {
+            aVar.mO(this.hKX.getResources().getString(R.string.block_mute_message_alert, str2));
         } else {
-            aVar.mD(str);
+            aVar.mO(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.setting.usermutelist.UserMuteListActivity.10
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -240,6 +240,6 @@ public class UserMuteListActivity extends BaseActivity<UserMuteListActivity> {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.hEK).afG();
+        aVar.b(this.hKX).agI();
     }
 }

@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
-import com.sina.weibo.sdk.utils.AidTask;
+import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class WbSdk {
@@ -21,8 +21,7 @@ public class WbSdk {
             }
             authInfo = authInfo2;
             CommonParamInterception.setAppKey(authInfo2.getAppKey());
-            AidTask.getInstance(context).setAppkey(authInfo2.getAppKey());
-            AidTask.getInstance(context).aidTaskInit(authInfo.getAppKey());
+            WeiboSsoManager.getInstance().init(context, authInfo2.getAppKey());
             init = true;
         }
     }

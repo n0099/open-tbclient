@@ -36,8 +36,8 @@ public class d extends z {
                 return false;
             }
         }
-        com.baidu.swan.apps.core.d.e vi = com.baidu.swan.apps.w.e.FV().vi();
-        if (vi == null) {
+        com.baidu.swan.apps.core.d.e vJ = com.baidu.swan.apps.w.e.GF().vJ();
+        if (vJ == null) {
             com.baidu.swan.apps.console.c.e("navigateBack", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -45,20 +45,20 @@ public class d extends z {
         if (DEBUG) {
             Log.d("NavigateBackAction", "back delta: " + optInt);
         }
-        if (optInt >= vi.zN()) {
-            optInt = vi.zN() - 1;
+        if (optInt >= vJ.Au()) {
+            optInt = vJ.Au() - 1;
         }
         if (DEBUG) {
             Log.d("NavigateBackAction", "real back delta: " + optInt);
         }
-        vi.dN("navigateBack").y(com.baidu.swan.apps.core.d.e.aqV, com.baidu.swan.apps.core.d.e.aqU).ch(optInt).commit();
-        if (!(vi.zK() instanceof com.baidu.swan.apps.core.d.d)) {
+        vJ.dS("navigateBack").B(com.baidu.swan.apps.core.d.e.ary, com.baidu.swan.apps.core.d.e.arx).ch(optInt).commit();
+        if (!(vJ.Ar() instanceof com.baidu.swan.apps.core.d.d)) {
             com.baidu.swan.apps.console.c.e("navigateBack", "top fragment error");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) vi.zK();
-        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.ha(dVar != null ? dVar.zv() : ""), 0));
+        com.baidu.swan.apps.core.d.d dVar = (com.baidu.swan.apps.core.d.d) vJ.Ar();
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hh(dVar != null ? dVar.Ac() : ""), 0));
         return true;
     }
 }

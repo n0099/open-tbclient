@@ -5,11 +5,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.scheme.actions.z;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONException;
@@ -33,7 +31,7 @@ public class b extends z {
         }
         final String optString = optParamsAsJo.optString("tpl");
         if (TextUtils.isEmpty(optString)) {
-            c.e("GetStokenAction", "empty tpl");
+            com.baidu.swan.apps.console.c.e("GetStokenAction", "empty tpl");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty tpl");
             return false;
         }
@@ -45,14 +43,14 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            bVar.Lu().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
+            bVar.Mh().a((Activity) context, "mapp_i_get_stoken", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
                     if (!bool.booleanValue()) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
-                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.dj(context))) {
+                    } else if (TextUtils.isEmpty(com.baidu.tieba.aiapps.apps.a.c.dk(context))) {
                         callbackHandler.handleSchemeDispatchCallback(optString2, UnitedSchemeUtility.wrapCallbackParams(1001, "bduss is invalid").toString());
                     } else {
                         com.baidu.tieba.aiapps.apps.a.c.a((Activity) context, new com.baidu.swan.apps.an.d.a<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.a.b.1.1
@@ -63,10 +61,10 @@ public class b extends z {
                                 JSONObject wrapCallbackParams;
                                 if (bundle != null && !TextUtils.isEmpty(bundle.getString(optString))) {
                                     String string = bundle.getString(optString);
-                                    c.i("GetStokenAction", "stoken=" + string);
+                                    com.baidu.swan.apps.console.c.i("GetStokenAction", "stoken=" + string);
                                     try {
                                         JSONObject jSONObject = new JSONObject();
-                                        jSONObject.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, string);
+                                        jSONObject.put("stoken", string);
                                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                                     } catch (JSONException e) {
                                         if (b.DEBUG) {

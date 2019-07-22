@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String bsb;
-    private ArrayList<String> jEf;
+    private String bsQ;
+    private ArrayList<String> jLh;
 
     public void m(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.aa(this.jEf)) {
+        if (spannable != null && !v.aa(this.jLh)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jEf.iterator();
+                Iterator<String> it = this.jLh.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = al.getColor(R.color.cp_btn_a);
-                int color2 = al.getColor(R.color.cp_cont_h_alpha85);
+                int color = am.getColor(R.color.cp_btn_a);
+                int color2 = am.getColor(R.color.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.aa(cwd())) {
+        if (v.aa(cze())) {
             return false;
         }
         return n(editText) || n(editText2);
@@ -107,18 +107,18 @@ public class b {
     }
 
     public void aI(ArrayList<String> arrayList) {
-        this.jEf = arrayList;
+        this.jLh = arrayList;
     }
 
-    public ArrayList<String> cwd() {
-        return this.jEf;
+    public ArrayList<String> cze() {
+        return this.jLh;
     }
 
-    public void FG(String str) {
-        this.bsb = str;
+    public void GA(String str) {
+        this.bsQ = str;
     }
 
-    public String cwh() {
-        return this.bsb;
+    public String czi() {
+        return this.bsQ;
     }
 }

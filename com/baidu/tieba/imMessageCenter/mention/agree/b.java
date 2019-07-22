@@ -19,20 +19,20 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 /* loaded from: classes4.dex */
 public class b {
-    private a gQu;
-    private ArrayList<m> gQv;
+    private a gWE;
+    private ArrayList<m> gWF;
     public boolean hasMore;
     private BdUniqueId uniqueId;
-    private boolean gQs = false;
-    private long gQt = 0;
-    private com.baidu.adp.framework.listener.a gQw = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
+    private boolean gWC = false;
+    private long gWD = 0;
+    private com.baidu.adp.framework.listener.a gWG = new com.baidu.adp.framework.listener.a(CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593) { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z = false;
             if (responsedMessage != null) {
                 if (responsedMessage.hasError()) {
-                    if (b.this.gQu != null) {
-                        b.this.gQu.vX(responsedMessage.getErrorString());
+                    if (b.this.gWE != null) {
+                        b.this.gWE.wC(responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -57,7 +57,7 @@ public class b {
     public interface a {
         void V(ArrayList<m> arrayList);
 
-        void vX(String str);
+        void wC(String str);
     }
 
     static {
@@ -68,26 +68,26 @@ public class b {
     public b(TbPageContext tbPageContext, a aVar) {
         if (tbPageContext != null) {
             this.uniqueId = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.gQw);
-            this.gQu = aVar;
+            tbPageContext.registerListener(this.gWG);
+            this.gWE = aVar;
         }
     }
 
-    public void bsO() {
-        abr();
-        abq();
+    public void buP() {
+        acq();
+        acp();
     }
 
-    public void bmw() {
-        this.gQt = 0L;
-        abq();
+    public void box() {
+        this.gWD = 0L;
+        acp();
     }
 
-    public void aHt() {
-        abq();
+    public void aIQ() {
+        acp();
     }
 
-    private void abr() {
+    private void acq() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a>>() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -96,7 +96,7 @@ public class b {
             public ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList = new ArrayList<>();
-                l<byte[]> bD = com.baidu.tbadk.core.c.a.afD().bD("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
+                l<byte[]> bD = com.baidu.tbadk.core.d.a.agF().bD("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
                 if (bD != null && (bArr = bD.get("agree_me_cache_key")) != null) {
                     try {
                         AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
@@ -129,50 +129,50 @@ public class b {
         }.execute(new Void[0]);
     }
 
-    private void abq() {
+    private void acp() {
         AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-        agreeMeRequestMessage.id = this.gQt;
+        agreeMeRequestMessage.id = this.gWD;
         agreeMeRequestMessage.setTag(this.uniqueId);
         MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList) {
-        if (!this.gQs) {
-            if (v.aa(this.gQv)) {
-                this.gQv = new ArrayList<>();
+        if (!this.gWC) {
+            if (v.aa(this.gWF)) {
+                this.gWF = new ArrayList<>();
             } else {
-                this.gQv.clear();
+                this.gWF.clear();
             }
-            this.gQv.addAll(arrayList);
-            m mVar = (m) v.c(this.gQv, this.gQv.size() - 1);
+            this.gWF.addAll(arrayList);
+            m mVar = (m) v.c(this.gWF, this.gWF.size() - 1);
             if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-                this.gQt = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+                this.gWD = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
             }
-            if (this.gQu != null && !v.aa(this.gQv)) {
-                this.gQu.V(this.gQv);
+            if (this.gWE != null && !v.aa(this.gWF)) {
+                this.gWE.V(this.gWF);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(ArrayList<com.baidu.tieba.imMessageCenter.mention.base.a> arrayList, boolean z) {
-        this.gQs = true;
-        if (v.aa(this.gQv)) {
-            this.gQv = new ArrayList<>();
+        this.gWC = true;
+        if (v.aa(this.gWF)) {
+            this.gWF = new ArrayList<>();
         }
         if (!z) {
-            this.gQv.addAll(arrayList);
+            this.gWF.addAll(arrayList);
         } else {
-            this.gQv.clear();
-            this.gQv.addAll(0, arrayList);
+            this.gWF.clear();
+            this.gWF.addAll(0, arrayList);
         }
-        m mVar = (m) v.c(this.gQv, this.gQv.size() - 1);
+        m mVar = (m) v.c(this.gWF, this.gWF.size() - 1);
         if (mVar instanceof com.baidu.tieba.imMessageCenter.mention.base.a) {
-            this.gQt = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
+            this.gWD = ((com.baidu.tieba.imMessageCenter.mention.base.a) mVar).getMsgId();
         }
-        if (this.gQu != null) {
-            this.gQu.V(this.gQv);
+        if (this.gWE != null) {
+            this.gWE.V(this.gWF);
         }
     }
 }

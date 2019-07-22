@@ -12,17 +12,17 @@ import java.util.List;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class d {
-    public static long geO;
-    private String geN;
+    public static long gkZ;
+    private String gkY;
 
-    public void cI(List<m> list) {
+    public void cK(List<m> list) {
         com.baidu.tieba.card.data.c cVar;
         if (TbadkCoreApplication.isLogin()) {
-            if (this.geN == null) {
-                this.geN = com.baidu.tbadk.core.sharedPref.b.agM().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (this.gkY == null) {
+                this.gkY = com.baidu.tbadk.core.sharedPref.b.ahO().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "");
             }
-            if (!StringUtils.isNull(this.geN)) {
-                String[] split = this.geN.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (!StringUtils.isNull(this.gkY)) {
+                String[] split = this.gkY.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length == 2) {
                     String str = split[0];
                     long c = com.baidu.adp.lib.g.b.c(split[1], 0L);
@@ -34,8 +34,8 @@ public class d {
                                     z = true;
                                 } else if (!StringUtils.isNull(cVar.tid) && !cVar.tid.equals(str) && z) {
                                     c cVar2 = new c();
-                                    cVar2.bbz = c;
-                                    cVar2.geM = false;
+                                    cVar2.bck = c;
+                                    cVar2.gkX = false;
                                     list.add(i, cVar2);
                                     return;
                                 }
@@ -51,23 +51,23 @@ public class d {
         ThreadInfo threadInfo;
         if (TbadkCoreApplication.isLogin() && !v.aa(list) && i == v.Z(list2) - 1 && z && (threadInfo = (ThreadInfo) v.c(list2, i)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
             System.currentTimeMillis();
-            this.geN = null;
-            geO = threadInfo.tid.longValue();
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
+            this.gkY = null;
+            gkZ = threadInfo.tid.longValue();
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public void aF(List<ThreadInfo> list) {
         ThreadInfo threadInfo;
-        if (h.gev && !v.aa(list) && (threadInfo = (ThreadInfo) v.c(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
-            this.geN = null;
-            geO = threadInfo.tid.longValue();
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
+        if (h.gkG && !v.aa(list) && (threadInfo = (ThreadInfo) v.c(list, list.size() - 1)) != null && threadInfo.tid != null && threadInfo.tid.longValue() != 0) {
+            this.gkY = null;
+            gkZ = threadInfo.tid.longValue();
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), threadInfo.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + System.currentTimeMillis());
         }
     }
 
     public static void a(long j, int i, List<ThreadInfo> list, List<m> list2) {
-        if (j == geO && !v.aa(list) && !v.aa(list2)) {
+        if (j == gkZ && !v.aa(list) && !v.aa(list2)) {
             if (i == 0) {
                 int i2 = 0;
                 while (true) {
@@ -86,16 +86,16 @@ public class d {
             } else {
                 final ThreadInfo threadInfo = list.get(i - 1);
                 if (threadInfo != null && threadInfo.tid.longValue() != 0) {
-                    geO = threadInfo.tid.longValue();
+                    gkZ = threadInfo.tid.longValue();
                     aa.a(new z<Object>() { // from class: com.baidu.tieba.homepage.personalize.b.d.1
                         @Override // com.baidu.tbadk.util.z
                         public Object doInBackground() {
-                            String[] split = com.baidu.tbadk.core.sharedPref.b.agM().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                            String[] split = com.baidu.tbadk.core.sharedPref.b.ahO().getString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             if (split.length == 2) {
                                 String str = split[0];
                                 long c = com.baidu.adp.lib.g.b.c(split[1], 0L);
                                 if (c != 0 && !StringUtils.isNull(str)) {
-                                    com.baidu.tbadk.core.sharedPref.b.agM().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), ThreadInfo.this.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + c);
+                                    com.baidu.tbadk.core.sharedPref.b.ahO().putString("read_progress_" + TbadkCoreApplication.getCurrentAccount(), ThreadInfo.this.tid + Constants.ACCEPT_TIME_SEPARATOR_SP + c);
                                 }
                             }
                             return null;

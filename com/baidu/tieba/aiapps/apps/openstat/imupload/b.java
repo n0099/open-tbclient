@@ -26,14 +26,14 @@ import okio.Okio;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class b {
-    private static b dfA;
-    private OkHttpClient dfz = aFD();
+    private static b dhd;
+    private OkHttpClient dhc = aGZ();
 
-    public static b aFC() {
-        if (dfA == null) {
-            dfA = new b();
+    public static b aGY() {
+        if (dhd == null) {
+            dhd = new b();
         }
-        return dfA;
+        return dhd;
     }
 
     private b() {
@@ -42,16 +42,16 @@ public class b {
     public void a(@NonNull Map<String, String> map, @NonNull byte[] bArr, String str, c cVar) {
         if (cVar != null) {
             Request a2 = a(map, bArr, str, "" + ((int) ((Math.random() * 100000.0d) + 10000.0d)));
-            if (this.dfz == null) {
-                this.dfz = aFD();
+            if (this.dhc == null) {
+                this.dhc = aGZ();
             }
             try {
-                Response execute = this.dfz.newCall(a2).execute();
+                Response execute = this.dhc.newCall(a2).execute();
                 try {
                     if (execute.body() != null) {
-                        String[] I = I(execute.body().bytes());
-                        cVar.errorCode = Integer.valueOf(I[0]).intValue();
-                        cVar.errMsg = I[1];
+                        String[] J = J(execute.body().bytes());
+                        cVar.errorCode = Integer.valueOf(J[0]).intValue();
+                        cVar.errMsg = J[1];
                     }
                 } catch (IOException e) {
                 }
@@ -67,7 +67,7 @@ public class b {
     }
 
     @NonNull
-    private OkHttpClient aFD() {
+    private OkHttpClient aGZ() {
         return new OkHttpClient.Builder().protocols(Arrays.asList(Protocol.HTTP_2, Protocol.HTTP_1_1)).pingInterval(1000L, TimeUnit.MILLISECONDS).addInterceptor(new a()).connectTimeout(30L, TimeUnit.SECONDS).readTimeout(30L, TimeUnit.SECONDS).writeTimeout(30L, TimeUnit.SECONDS).connectionPool(new ConnectionPool()).build();
     }
 
@@ -92,18 +92,18 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "";
         }
-        BIMLogPb.LogRequest.AuthInfo build = newBuilder.sP(str).build();
+        BIMLogPb.LogRequest.AuthInfo build = newBuilder.tl(str).build();
         long currentTimeMillis = System.currentTimeMillis();
-        return BIMLogPb.LogRequest.newBuilder().bZ(1L).sQ("smart_app").b(build).ca(currentTimeMillis).sR(com.baidu.tieba.aiapps.apps.openstat.imupload.a.p("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+        return BIMLogPb.LogRequest.newBuilder().ca(1L).tm("smart_app").b(build).cb(currentTimeMillis).tn(com.baidu.tieba.aiapps.apps.openstat.imupload.a.p("smart_app", currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
     }
 
     @NonNull
-    private String[] I(@NonNull byte[] bArr) {
+    private String[] J(@NonNull byte[] bArr) {
         try {
             BIMLogPb.LogResponse parseFrom = BIMLogPb.LogResponse.parseFrom(bArr);
-            if (this.dfz.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
-                this.dfz.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
-                this.dfz = this.dfz.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
+            if (this.dhc.pingIntervalMillis() != parseFrom.getPingIntervalMs()) {
+                this.dhc.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
+                this.dhc = this.dhc.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
             }
             return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
         } catch (InvalidProtocolBufferException e) {

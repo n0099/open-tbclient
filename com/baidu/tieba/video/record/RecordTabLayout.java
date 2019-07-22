@@ -11,46 +11,46 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 /* loaded from: classes5.dex */
 public class RecordTabLayout extends LinearLayout {
-    private int fFX;
-    private LinearLayout jvj;
-    private View jvk;
-    private boolean jvl;
-    private a jvm;
+    private int fKV;
+    private LinearLayout jBs;
+    private View jBt;
+    private boolean jBu;
+    private a jBv;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void R(int i, boolean z);
+        void T(int i, boolean z);
     }
 
     public RecordTabLayout(Context context) {
         super(context);
-        this.jvl = true;
+        this.jBu = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jvl = true;
+        this.jBu = true;
         initView();
     }
 
     public RecordTabLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.jvl = true;
+        this.jBu = true;
         initView();
     }
 
     private void initView() {
         setOrientation(1);
-        this.jvj = new LinearLayout(getContext());
-        this.jvj.setOrientation(0);
-        this.jvj.setGravity(17);
-        addView(this.jvj, new ViewGroup.LayoutParams(-1, -2));
-        this.jvk = new View(getContext());
-        this.jvk.setBackgroundColor(getResources().getColor(R.color.cp_btn_a));
+        this.jBs = new LinearLayout(getContext());
+        this.jBs.setOrientation(0);
+        this.jBs.setGravity(17);
+        addView(this.jBs, new ViewGroup.LayoutParams(-1, -2));
+        this.jBt = new View(getContext());
+        this.jBt.setBackgroundColor(getResources().getColor(R.color.cp_btn_a));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(com.baidu.adp.lib.util.l.g(getContext(), R.dimen.ds44), com.baidu.adp.lib.util.l.g(getContext(), R.dimen.ds4));
         layoutParams.topMargin = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.ds18);
-        addView(this.jvk, layoutParams);
+        addView(this.jBt, layoutParams);
     }
 
     public void aM(final int i, String str) {
@@ -62,29 +62,29 @@ public class RecordTabLayout extends LinearLayout {
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.record.RecordTabLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (RecordTabLayout.this.fFX != i) {
+                if (RecordTabLayout.this.fKV != i) {
                     RecordTabLayout.this.setCurrentTab(i, true);
-                    if (RecordTabLayout.this.jvm != null) {
-                        RecordTabLayout.this.jvm.R(i, true);
+                    if (RecordTabLayout.this.jBv != null) {
+                        RecordTabLayout.this.jBv.T(i, true);
                     }
                 }
             }
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        if (this.jvj.getChildCount() != 0) {
+        if (this.jBs.getChildCount() != 0) {
             layoutParams.leftMargin = com.baidu.adp.lib.util.l.g(getContext(), R.dimen.ds44);
         }
-        this.jvj.addView(textView, layoutParams);
+        this.jBs.addView(textView, layoutParams);
     }
 
     public void setCurrentTab(int i, final boolean z) {
         TextView textView;
-        if (this.fFX != i) {
-            this.fFX = i;
+        if (this.fKV != i) {
+            this.fKV = i;
             final TextView textView2 = null;
             int i2 = 0;
-            while (i2 < this.jvj.getChildCount()) {
-                View childAt = this.jvj.getChildAt(i2);
+            while (i2 < this.jBs.getChildCount()) {
+                View childAt = this.jBs.getChildAt(i2);
                 if (childAt instanceof TextView) {
                     Object tag = childAt.getTag();
                     if ((tag instanceof Integer) && ((Integer) tag).intValue() == i) {
@@ -100,19 +100,19 @@ public class RecordTabLayout extends LinearLayout {
                 i2++;
                 textView2 = textView;
             }
-            if (this.jvl) {
+            if (this.jBu) {
                 textView2.post(new Runnable() { // from class: com.baidu.tieba.video.record.RecordTabLayout.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.jvk.getWidth()) / 2)) - RecordTabLayout.this.jvk.getLeft();
+                        float x = (textView2.getX() + ((textView2.getWidth() - RecordTabLayout.this.jBt.getWidth()) / 2)) - RecordTabLayout.this.jBt.getLeft();
                         if (z) {
-                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.jvk, "translationX", RecordTabLayout.this.jvk.getTranslationX(), x);
+                            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(RecordTabLayout.this.jBt, "translationX", RecordTabLayout.this.jBt.getTranslationX(), x);
                             ofFloat.setDuration(500L);
                             ofFloat.setInterpolator(new OvershootInterpolator(1.0f));
                             ofFloat.start();
                             return;
                         }
-                        RecordTabLayout.this.jvk.setTranslationX(x);
+                        RecordTabLayout.this.jBt.setTranslationX(x);
                     }
                 });
             }
@@ -120,17 +120,17 @@ public class RecordTabLayout extends LinearLayout {
     }
 
     public int getCurrentTab() {
-        return this.fFX;
+        return this.fKV;
     }
 
     public void setListener(a aVar) {
-        this.jvm = aVar;
+        this.jBv = aVar;
     }
 
     public void setShowIndicator(boolean z) {
-        this.jvl = z;
-        if (!this.jvl) {
-            this.jvk.setVisibility(4);
+        this.jBu = z;
+        if (!this.jBu) {
+            this.jBt.setVisibility(4);
         }
     }
 }

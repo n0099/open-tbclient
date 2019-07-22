@@ -18,15 +18,15 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class CanvasView extends AbsCanvasView {
-    private List<a> amR;
-    private final DrawFilter amS;
-    private int amT;
-    private HashMap<String, Bitmap> amU;
-    private b amV;
+    private List<a> anu;
+    private final DrawFilter anv;
+    private int anw;
+    private HashMap<String, Bitmap> anx;
+    private b any;
 
     /* loaded from: classes2.dex */
     public interface b {
-        void xp();
+        void xR();
     }
 
     public CanvasView(Context context) {
@@ -39,35 +39,35 @@ public class CanvasView extends AbsCanvasView {
 
     public CanvasView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.amR = new ArrayList();
-        this.amS = new PaintFlagsDrawFilter(0, 3);
-        this.amT = 0;
-        this.amU = new HashMap<>();
-        this.amT = getLayerType();
+        this.anu = new ArrayList();
+        this.anv = new PaintFlagsDrawFilter(0, 3);
+        this.anw = 0;
+        this.anx = new HashMap<>();
+        this.anw = getLayerType();
     }
 
     public void c(List<com.baidu.swan.apps.canvas.a.a.a> list, boolean z) {
-        if (list != null && !this.amR.contains(list)) {
+        if (list != null && !this.anu.contains(list)) {
             if (!z) {
-                this.amR.clear();
+                this.anu.clear();
             }
-            int size = this.amR.size();
+            int size = this.anu.size();
             boolean z2 = z && size > 0;
             a aVar = new a();
             if (z2) {
-                a aVar2 = this.amR.get(size - 1);
-                aVar.amX = aVar2.amX;
-                aVar.amE = aVar2.amE;
-                aVar.amE.addAll(list);
+                a aVar2 = this.anu.get(size - 1);
+                aVar.anA = aVar2.anA;
+                aVar.anh = aVar2.anh;
+                aVar.anh.addAll(list);
             } else {
-                aVar.amX = new com.baidu.swan.apps.canvas.a.a.b(this);
-                aVar.amE = list;
+                aVar.anA = new com.baidu.swan.apps.canvas.a.a.b(this);
+                aVar.anh = list;
             }
-            this.amR.add(aVar);
+            this.anu.add(aVar);
             ac.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.canvas.view.CanvasView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    CanvasView.this.xy();
+                    CanvasView.this.yc();
                 }
             });
         }
@@ -75,23 +75,23 @@ public class CanvasView extends AbsCanvasView {
 
     @Override // android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        return xx() || super.onTouchEvent(motionEvent);
+        return yb() || super.onTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.amR.size() > 0) {
+        if (this.anu.size() > 0) {
             canvas.save();
-            canvas.setDrawFilter(this.amS);
-            for (a aVar : this.amR) {
-                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.amE;
-                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.amX;
+            canvas.setDrawFilter(this.anv);
+            for (a aVar : this.anu) {
+                List<com.baidu.swan.apps.canvas.a.a.a> list = aVar.anh;
+                com.baidu.swan.apps.canvas.a.a.b bVar = aVar.anA;
                 bVar.init();
                 for (com.baidu.swan.apps.canvas.a.a.a aVar2 : list) {
                     aVar2.a(bVar, canvas);
                     if (aVar2 instanceof k) {
-                        ((k) aVar2).m(this.amU);
+                        ((k) aVar2).m(this.anx);
                     }
                 }
             }
@@ -100,21 +100,22 @@ public class CanvasView extends AbsCanvasView {
     }
 
     public com.baidu.swan.apps.canvas.a.a.b getCanvasContext() {
-        if (this.amR.size() > 0) {
-            return this.amR.get(this.amR.size() - 1).amX;
+        if (this.anu.size() > 0) {
+            return this.anu.get(this.anu.size() - 1).anA;
         }
         return null;
     }
 
-    public Bitmap dj(String str) {
+    /* renamed from: do  reason: not valid java name */
+    public Bitmap m15do(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.amU.get(str);
+        return this.anx.get(str);
     }
 
-    public synchronized void onRelease() {
-        this.amU.clear();
+    public synchronized void xK() {
+        this.anx.clear();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -122,17 +123,17 @@ public class CanvasView extends AbsCanvasView {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void xy() {
+    public void yc() {
         int i;
-        int i2 = this.amT;
-        if (this.amR.size() > 0) {
-            Iterator<a> it = this.amR.iterator();
+        int i2 = this.anw;
+        if (this.anu.size() > 0) {
+            Iterator<a> it = this.anu.iterator();
             while (true) {
                 i = i2;
                 if (!it.hasNext()) {
                     break;
                 }
-                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().amE) {
+                for (com.baidu.swan.apps.canvas.a.a.a aVar : it.next().anh) {
                     if ((aVar instanceof af) || (aVar instanceof f)) {
                         i2 = 1;
                         break;
@@ -153,14 +154,14 @@ public class CanvasView extends AbsCanvasView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        List<com.baidu.swan.apps.canvas.a.a.a> amE;
-        com.baidu.swan.apps.canvas.a.a.b amX;
+        com.baidu.swan.apps.canvas.a.a.b anA;
+        List<com.baidu.swan.apps.canvas.a.a.a> anh;
 
         private a() {
         }
     }
 
     public void setOnDrawCompleteLinstener(b bVar) {
-        this.amV = bVar;
+        this.any = bVar;
     }
 }

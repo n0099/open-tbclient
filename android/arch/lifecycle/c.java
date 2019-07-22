@@ -31,7 +31,7 @@ public class c extends Lifecycle {
             return;
         }
         this.jA = true;
-        sync();
+        aU();
         this.jA = false;
     }
 
@@ -129,7 +129,7 @@ public class c extends Lifecycle {
         }
     }
 
-    private void sync() {
+    private void aU() {
         while (!aQ()) {
             this.jB = false;
             if (this.jx.compareTo(this.jw.aN().getValue().jx) < 0) {

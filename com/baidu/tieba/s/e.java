@@ -12,56 +12,56 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class e {
-    private List<String> jmY;
-    private List<String> jmZ;
+    private List<String> jtf;
+    private List<String> jtg;
     private String mCurrentFileName;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        private static final e jnb = new e();
+        private static final e jti = new e();
     }
 
     private e() {
-        this.jmY = new ArrayList();
-        this.jmZ = new ArrayList();
-        if (f.gs()) {
-            cqA();
+        this.jtf = new ArrayList();
+        this.jtg = new ArrayList();
+        if (f.gB()) {
+            ctk();
         }
     }
 
-    private void cqA() {
+    private void ctk() {
         new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
-                com.baidu.tieba.j.d.Ag(c.a.cUa);
-                com.baidu.tieba.j.d.Ag(c.a.hph);
-                com.baidu.tieba.j.d.Ag(c.a.hpi);
-                com.baidu.tieba.j.d.Ag(c.a.hpk);
-                com.baidu.tieba.j.d.Ag(c.a.hpl);
+                com.baidu.tieba.j.d.AR(c.a.cVw);
+                com.baidu.tieba.j.d.AR(c.a.hvt);
+                com.baidu.tieba.j.d.AR(c.a.hvu);
+                com.baidu.tieba.j.d.AR(c.a.hvw);
+                com.baidu.tieba.j.d.AR(c.a.hvx);
                 return null;
             }
         }.execute(new Void[0]);
     }
 
-    public static e cqB() {
-        return a.jnb;
+    public static e ctl() {
+        return a.jti;
     }
 
-    public void cqw() {
-        if (f.gs()) {
+    public void ctg() {
+        if (f.gB()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.s.e.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List EK = e.EK(c.a.hpj);
-                    if (EK != null) {
-                        int size = EK.size();
+                    List Fy = e.Fy(c.a.hvv);
+                    if (Fy != null) {
+                        int size = Fy.size();
                         for (int i = 0; i < size; i++) {
-                            e.this.a((d) EK.get(i));
+                            e.this.a((d) Fy.get(i));
                         }
                     }
                     return null;
@@ -71,7 +71,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<d> EK(String str) {
+    public static List<d> Fy(String str) {
         File[] listFiles;
         ArrayList arrayList = null;
         if (!StringUtils.isNull(str)) {
@@ -80,14 +80,14 @@ public class e {
                 int length = listFiles.length;
                 arrayList = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
-                    arrayList.add(new d(EL(com.baidu.tieba.j.d.L(listFiles[i])), listFiles[i].getAbsolutePath()));
+                    arrayList.add(new d(Fz(com.baidu.tieba.j.d.L(listFiles[i])), listFiles[i].getAbsolutePath()));
                 }
             }
         }
         return arrayList;
     }
 
-    private static List<String> EL(String str) {
+    private static List<String> Fz(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -104,39 +104,39 @@ public class e {
 
     public synchronized void c(JSONObject jSONObject, boolean z) {
         if (jSONObject != null) {
-            this.jmY.add(jSONObject.toString());
-            String bMp = bMp();
-            if (f.gs()) {
-                l(jSONObject, bMp);
+            this.jtf.add(jSONObject.toString());
+            String bOX = bOX();
+            if (f.gB()) {
+                l(jSONObject, bOX);
             }
-            if (this.jmY.size() >= com.baidu.tbadk.coreExtra.model.f.aox() || z) {
-                a(new d(this.jmY, bMp));
-                this.jmY.clear();
+            if (this.jtf.size() >= com.baidu.tbadk.coreExtra.model.f.apD() || z) {
+                a(new d(this.jtf, bOX));
+                this.jtf.clear();
                 this.mCurrentFileName = null;
             }
         }
     }
 
-    private String bMp() {
+    private String bOX() {
         if (StringUtils.isNull(this.mCurrentFileName)) {
-            if (f.gs()) {
+            if (f.gB()) {
                 this.mCurrentFileName = String.valueOf(System.currentTimeMillis());
             } else {
                 return null;
             }
         }
-        return c.a.hpj + this.mCurrentFileName;
+        return c.a.hvv + this.mCurrentFileName;
     }
 
     private void l(JSONObject jSONObject, String str) {
-        if (!StringUtils.isNull(str) && f.gs()) {
+        if (!StringUtils.isNull(str) && f.gB()) {
             new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.s.e.3
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(String... strArr) {
                     if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                        e.this.ep(strArr[0], strArr[1]);
+                        e.this.eq(strArr[0], strArr[1]);
                     }
                     return null;
                 }
@@ -145,9 +145,9 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized boolean ep(String str, String str2) {
+    public synchronized boolean eq(String str, String str2) {
         boolean f;
-        if (this.jmZ.contains(str)) {
+        if (this.jtg.contains(str)) {
             f = false;
         } else {
             File file = new File(str);
@@ -177,9 +177,9 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void b(d dVar) {
         try {
-            if (c.h(c.ek(dVar.jmW), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.jmX)) {
-                m.deleteFile(new File(dVar.jmX));
-                this.jmZ.add(dVar.jmX);
+            if (c.h(c.en(dVar.jtd), TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(dVar.jte)) {
+                m.deleteFile(new File(dVar.jte));
+                this.jtg.add(dVar.jte);
             }
         } catch (Exception e) {
             e.printStackTrace();

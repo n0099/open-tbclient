@@ -14,9 +14,9 @@ import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HeadPendantView;
 import com.baidu.tbadk.data.MetaData;
@@ -24,23 +24,23 @@ import com.baidu.tieba.R;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu.tbadk.core.view.userLike.b {
-    private Animation.AnimationListener ecH;
-    private TextView ilT;
-    private HeadPendantView ilU;
-    private View ilV;
-    private View ilW;
-    private boolean ill;
+    private Animation.AnimationListener ehd;
+    private boolean irD;
+    private TextView isl;
+    private HeadPendantView ism;
+    private View isn;
+    private View iso;
 
     public LikeButtonWithHeadPortrait(Context context) {
         super(context);
-        this.ecH = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
+        this.ehd = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cav();
+                LikeButtonWithHeadPortrait.this.cdk();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -52,14 +52,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
     public LikeButtonWithHeadPortrait(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ecH = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
+        this.ehd = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cav();
+                LikeButtonWithHeadPortrait.this.cdk();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -71,14 +71,14 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
     public LikeButtonWithHeadPortrait(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.ecH = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
+        this.ehd = new Animation.AnimationListener() { // from class: com.baidu.tieba.personPolymeric.view.LikeButtonWithHeadPortrait.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                LikeButtonWithHeadPortrait.this.cav();
+                LikeButtonWithHeadPortrait.this.cdk();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -90,56 +90,56 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.view_like_button_with_head_portrait, this);
-        this.ilU = (HeadPendantView) findViewById(R.id.head_img);
-        this.ilU.getHeadView().setIsRound(true);
-        this.ilT = (TextView) findViewById(R.id.btn_like);
-        this.ilV = findViewById(R.id.view_background);
-        this.ilW = findViewById(R.id.right_circular_view);
+        this.ism = (HeadPendantView) findViewById(R.id.head_img);
+        this.ism.getHeadView().setIsRound(true);
+        this.isl = (TextView) findViewById(R.id.btn_like);
+        this.isn = findViewById(R.id.view_background);
+        this.iso = findViewById(R.id.right_circular_view);
     }
 
     public void e(MetaData metaData) {
-        this.ilU.a(metaData, R.dimen.tbds42, R.dimen.tbds24);
+        this.ism.a(metaData, R.dimen.tbds42, R.dimen.tbds24);
     }
 
-    public void er(boolean z) {
-        this.ill = z;
-        if (getWidth() != 0 && this.ilU.getWidth() != 0) {
+    public void ev(boolean z) {
+        this.irD = z;
+        if (getWidth() != 0 && this.ism.getWidth() != 0) {
             if (z) {
-                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.ilU.getWidth() / 2), 0.0f, 0.0f);
+                TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, (getWidth() / 2) - (this.ism.getWidth() / 2), 0.0f, 0.0f);
                 translateAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation.setDuration(300L);
                 translateAnimation.setFillAfter(true);
-                translateAnimation.setAnimationListener(this.ecH);
+                translateAnimation.setAnimationListener(this.ehd);
                 translateAnimation.setStartOffset(150L);
-                this.ilU.startAnimation(translateAnimation);
-                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.ilU.getWidth() / 2)), 0.0f, 0.0f);
+                this.ism.startAnimation(translateAnimation);
+                TranslateAnimation translateAnimation2 = new TranslateAnimation(0.0f, -((getWidth() / 2) - (this.ism.getWidth() / 2)), 0.0f, 0.0f);
                 translateAnimation2.setInterpolator(new AccelerateDecelerateInterpolator());
                 translateAnimation2.setDuration(300L);
                 translateAnimation2.setFillAfter(true);
                 translateAnimation2.setStartOffset(150L);
-                this.ilW.startAnimation(translateAnimation2);
+                this.iso.startAnimation(translateAnimation2);
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setDuration(150L);
                 alphaAnimation.setFillAfter(true);
-                this.ilT.startAnimation(alphaAnimation);
-                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.ilU.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
+                this.isl.startAnimation(alphaAnimation);
+                ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, this.ism.getWidth() / getWidth(), 1.0f, 1.0f, 1, 0.5f, 1, 0.5f);
                 scaleAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
                 scaleAnimation.setDuration(300L);
                 scaleAnimation.setFillAfter(true);
                 scaleAnimation.setStartOffset(150L);
-                this.ilV.startAnimation(scaleAnimation);
+                this.isn.startAnimation(scaleAnimation);
                 setClickable(false);
                 return;
             }
-            this.ilT.setVisibility(0);
-            this.ilV.setVisibility(0);
+            this.isl.setVisibility(0);
+            this.isn.setVisibility(0);
             setClickable(true);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void f(boolean z, int i) {
-        er(z);
+        ev(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
@@ -148,19 +148,19 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void iY(int i) {
+    public void je(int i) {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.b
-    public void aX(View view) {
-        TiebaStatic.log(new am("c12503").bT("obj_locate", "4"));
-        if (!this.ill) {
+    public void aZ(View view) {
+        TiebaStatic.log(new an("c12503").bT("obj_locate", "4"));
+        if (!this.irD) {
             Context context = getContext();
             if ((context instanceof Activity) && (context instanceof com.baidu.tbadk.o.a)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
                 List<String> currentPageSourceKeyList = ((com.baidu.tbadk.o.a) context).getCurrentPageSourceKeyList();
-                if (currentPageSourceKeyList != null && ap.equals((String) v.c(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !ap.isEmpty(stringExtra)) {
-                    TiebaStatic.log(new am("c12613").P("obj_type", 1).bT("tid", stringExtra));
+                if (currentPageSourceKeyList != null && aq.bV((String) v.c(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !aq.isEmpty(stringExtra)) {
+                    TiebaStatic.log(new an("c12613").P("obj_type", 1).bT("tid", stringExtra));
                 }
             }
         }
@@ -172,19 +172,19 @@ public class LikeButtonWithHeadPortrait extends FrameLayout implements com.baidu
     }
 
     public void onChangeSkinType(int i) {
-        al.k(this.ilV, R.drawable.shape_person_top_like_bg);
-        al.k(this.ilW, R.drawable.shape_person_top_like_bg);
-        this.ilT.setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(R.drawable.icon_nav_follow), (Drawable) null, (Drawable) null, (Drawable) null);
-        al.j(this.ilT, R.color.cp_cont_f);
+        am.k(this.isn, R.drawable.shape_person_top_like_bg);
+        am.k(this.iso, R.drawable.shape_person_top_like_bg);
+        this.isl.setCompoundDrawablesWithIntrinsicBounds(am.getDrawable(R.drawable.icon_nav_follow), (Drawable) null, (Drawable) null, (Drawable) null);
+        am.j(this.isl, R.color.cp_cont_f);
     }
 
-    public void cav() {
-        this.ilU.clearAnimation();
-        this.ilT.clearAnimation();
-        this.ilV.clearAnimation();
-        this.ilW.clearAnimation();
-        this.ilT.setVisibility(8);
-        this.ilV.setVisibility(8);
-        this.ilW.setVisibility(8);
+    public void cdk() {
+        this.ism.clearAnimation();
+        this.isl.clearAnimation();
+        this.isn.clearAnimation();
+        this.iso.clearAnimation();
+        this.isl.setVisibility(8);
+        this.isn.setVisibility(8);
+        this.iso.setVisibility(8);
     }
 }

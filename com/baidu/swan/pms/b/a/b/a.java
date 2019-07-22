@@ -12,7 +12,7 @@ public class a<T> {
         notifyAll();
     }
 
-    public synchronized T VE() {
+    public synchronized T Wx() {
         T t;
         if (this.mQueue.isEmpty()) {
             t = null;

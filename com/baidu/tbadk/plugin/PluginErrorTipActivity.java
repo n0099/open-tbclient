@@ -13,7 +13,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.g.e;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -22,14 +22,14 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity> {
-    private View cdY;
-    private ImageView czM;
-    private TextView czN;
-    private View czO;
-    private TextView czP;
-    private TextView czQ;
-    private PluginStatus czR;
-    private ShadowLayout czS;
+    private ImageView cBc;
+    private TextView cBd;
+    private View cBe;
+    private TextView cBf;
+    private TextView cBg;
+    private PluginStatus cBh;
+    private ShadowLayout cBi;
+    private View cfb;
     private NavigationBar mNavigationBar;
 
     public static final void a(Context context, PluginStatus pluginStatus) {
@@ -51,11 +51,11 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (getIntent() != null) {
-            this.czR = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
+            this.cBh = (PluginStatus) PluginStatus.objectWithJsonStr(getIntent().getStringExtra(PluginStatus.class.getName()), PluginStatus.class);
         } else {
-            this.czR = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
+            this.cBh = (PluginStatus) PluginStatus.objectWithJsonStr(bundle.getString(PluginStatus.class.getName()), PluginStatus.class);
         }
-        if (this.czR == null) {
+        if (this.cBh == null) {
             finish();
             return;
         }
@@ -65,29 +65,29 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     protected void initUI() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
-        this.cdY = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
-        this.cdY.setOnClickListener(this);
+        this.cfb = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
+        this.cfb.setOnClickListener(this);
         this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-        this.czM = (ImageView) findViewById(R.id.plugin_error_tip_image);
-        this.czN = (TextView) findViewById(R.id.plugin_error_install_fail);
-        this.czP = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-        this.czO = findViewById(R.id.plugin_error_parent);
-        this.czS = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-        this.czQ = (TextView) findViewById(R.id.plugin_error_btn);
-        this.czQ.setOnClickListener(this);
-        this.czP.setText(getString(R.string.plugin_error_tips, new Object[]{this.czR.getErrorMsg(), this.czR.mM()}));
-        if (this.czR.getErrorCode() == 5 || this.czR.getErrorCode() == 1 || this.czR.getErrorCode() == 100) {
-            this.czQ.setText(R.string.pluginstatus_btn_restartapp);
-            this.czQ.setVisibility(0);
+        this.cBc = (ImageView) findViewById(R.id.plugin_error_tip_image);
+        this.cBd = (TextView) findViewById(R.id.plugin_error_install_fail);
+        this.cBf = (TextView) findViewById(R.id.plugin_error_tip_resolve);
+        this.cBe = findViewById(R.id.plugin_error_parent);
+        this.cBi = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
+        this.cBg = (TextView) findViewById(R.id.plugin_error_btn);
+        this.cBg.setOnClickListener(this);
+        this.cBf.setText(getString(R.string.plugin_error_tips, new Object[]{this.cBh.getErrorMsg(), this.cBh.nc()}));
+        if (this.cBh.getErrorCode() == 5 || this.cBh.getErrorCode() == 1 || this.cBh.getErrorCode() == 100) {
+            this.cBg.setText(R.string.pluginstatus_btn_restartapp);
+            this.cBg.setVisibility(0);
             return;
         }
-        this.czQ.setVisibility(8);
+        this.cBg.setVisibility(8);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.czR);
+        String jsonStrWithObject = PluginStatus.jsonStrWithObject(this.cBh);
         if (jsonStrWithObject != null) {
             bundle.putString(PluginStatus.class.getName(), jsonStrWithObject);
         }
@@ -95,14 +95,14 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cdY) {
+        if (view == this.cfb) {
             finish();
-        } else if (view == this.czQ) {
-            if (this.czR != null && this.czR.getErrorCode() == 100) {
-                com.baidu.adp.plugin.b.a.lM().ah(true);
+        } else if (view == this.cBg) {
+            if (this.cBh != null && this.cBh.getErrorCode() == 100) {
+                com.baidu.adp.plugin.b.a.mc().aj(true);
             }
             showLoadingDialog(getResources().getString(R.string.waiting));
-            e.iB().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
+            e.iK().postDelayed(new Runnable() { // from class: com.baidu.tbadk.plugin.PluginErrorTipActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
                     HashSet hashSet = new HashSet(10);
@@ -129,12 +129,12 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        al.c(this.czM, (int) R.drawable.new_pic_emotion_05);
-        al.j(this.czN, R.color.cp_cont_c);
-        al.l(this.czO, R.color.cp_bg_line_d);
-        al.j(this.czP, R.color.cp_cont_b);
-        al.j(this.czQ, R.color.cp_cont_g);
-        al.k(this.czQ, R.drawable.selector_blue_gradient_button);
-        this.czS.setShadowColor(R.color.plugin_button_shadow_blue);
+        am.c(this.cBc, (int) R.drawable.new_pic_emotion_05);
+        am.j(this.cBd, R.color.cp_cont_c);
+        am.l(this.cBe, R.color.cp_bg_line_d);
+        am.j(this.cBf, R.color.cp_cont_b);
+        am.j(this.cBg, R.color.cp_cont_g);
+        am.k(this.cBg, R.drawable.selector_blue_gradient_button);
+        this.cBi.setShadowColor(R.color.plugin_button_shadow_blue);
     }
 }

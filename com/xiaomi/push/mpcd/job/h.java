@@ -7,7 +7,6 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -104,7 +103,7 @@ public class h extends g {
     private String h() {
         if (this.b) {
             try {
-                String subscriberId = ((TelephonyManager) this.d.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
+                String subscriberId = ((TelephonyManager) this.d.getSystemService("phone")).getSubscriberId();
                 return TextUtils.isEmpty(subscriberId) ? "" : com.xiaomi.channel.commonutils.string.d.a(subscriberId) + Constants.ACCEPT_TIME_SEPARATOR_SP + com.xiaomi.channel.commonutils.string.d.b(subscriberId);
             } catch (Throwable th) {
                 return "";
@@ -116,7 +115,7 @@ public class h extends g {
     private String i() {
         if (this.e) {
             try {
-                String simSerialNumber = ((TelephonyManager) this.d.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimSerialNumber();
+                String simSerialNumber = ((TelephonyManager) this.d.getSystemService("phone")).getSimSerialNumber();
                 return TextUtils.isEmpty(simSerialNumber) ? "" : com.xiaomi.channel.commonutils.string.d.a(simSerialNumber) + Constants.ACCEPT_TIME_SEPARATOR_SP + com.xiaomi.channel.commonutils.string.d.b(simSerialNumber);
             } catch (Throwable th) {
                 return "";

@@ -38,7 +38,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.eM().l(getPageContext().getPageActivity());
+        a.eT().o(getPageContext().getPageActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -147,16 +147,16 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.iv().d(this.mId);
+        c.iE().d(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
-        a.eM().m(getPageContext().getPageActivity());
+        a.eT().p(getPageContext().getPageActivity());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.iv().e(this.mId);
+        c.iE().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -222,7 +222,7 @@ public abstract class PluginAdpBaseFragmentActivity extends PluginBaseFragmentAc
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginContextWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.eS().getResources();
+        Resources resources = g.eZ().getResources();
         return (resources == null || !BdBaseApplication.getInst().getIsPluginResourcOpen()) ? super.getResources() : resources;
     }
 }

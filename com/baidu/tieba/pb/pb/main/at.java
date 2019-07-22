@@ -11,14 +11,14 @@ public class at implements CustomMessageTask.CustomRunnable<Object> {
             return null;
         }
         PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-        byte[] ap = g.bSt().ap(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
+        byte[] at = g.bVf().at(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
         PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
         pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
         pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
         pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
         pbPageReadLocalResponseMessage.setContext(pbPageReadLocalRequestMessage.getContext());
         try {
-            pbPageReadLocalResponseMessage.decodeInBackGround(2004003, ap);
+            pbPageReadLocalResponseMessage.decodeInBackGround(2004003, at);
             return pbPageReadLocalResponseMessage;
         } catch (Exception e) {
             e.printStackTrace();

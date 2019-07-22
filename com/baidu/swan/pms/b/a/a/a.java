@@ -11,16 +11,16 @@ import java.util.List;
 public class a {
     public static synchronized void a(com.baidu.swan.pms.b.c.a aVar, f fVar) {
         synchronized (a.class) {
-            com.baidu.swan.pms.b.a.c.f<d> a = h.a(aVar.bsP, fVar);
-            com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.f> a2 = h.a(aVar.bse, fVar);
-            com.baidu.swan.pms.b.a.c.f<b> a3 = h.a(aVar.bsR, fVar);
-            List<com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h>> a4 = h.a(aVar.bsO, fVar);
+            com.baidu.swan.pms.b.a.c.f<d> a = h.a(aVar.btF, fVar);
+            com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.f> a2 = h.a(aVar.bsT, fVar);
+            com.baidu.swan.pms.b.a.c.f<b> a3 = h.a(aVar.btH, fVar);
+            List<com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h>> a4 = h.a(aVar.btE, fVar);
             i iVar = new i(fVar);
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a));
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a2));
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a3));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a2));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a3));
             for (com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h> fVar2 : a4) {
-                iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(fVar2));
+                iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(fVar2));
             }
             iVar.startDownload();
         }
@@ -28,21 +28,21 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.b.c.d dVar, f fVar) {
         synchronized (a.class) {
-            com.baidu.swan.pms.b.a.c.f<d> a = h.a(dVar.bsP, fVar);
-            com.baidu.swan.pms.b.a.c.f<b> a2 = h.a(dVar.bsR, fVar);
+            com.baidu.swan.pms.b.a.c.f<d> a = h.a(dVar.btF, fVar);
+            com.baidu.swan.pms.b.a.c.f<b> a2 = h.a(dVar.btH, fVar);
             i iVar = new i(fVar);
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a));
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a2));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a2));
             iVar.startDownload();
         }
     }
 
     public static synchronized void a(c cVar, f fVar) {
         synchronized (a.class) {
-            List<com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h>> a = h.a(cVar.bsO, fVar);
+            List<com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h>> a = h.a(cVar.btE, fVar);
             i iVar = new i(fVar);
             for (com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.h> fVar2 : a) {
-                iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(fVar2));
+                iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(fVar2));
             }
             iVar.startDownload();
         }
@@ -50,9 +50,9 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.b.c.b bVar, f fVar) {
         synchronized (a.class) {
-            com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.i> a = h.a(bVar.bsS, fVar);
+            com.baidu.swan.pms.b.a.c.f<com.baidu.swan.pms.model.i> a = h.a(bVar.btI, fVar);
             i iVar = new i(fVar);
-            iVar.a(com.baidu.swan.pms.b.a.c.d.VF().f(a));
+            iVar.a(com.baidu.swan.pms.b.a.c.d.Wy().f(a));
             iVar.startDownload();
         }
     }

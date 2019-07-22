@@ -4,7 +4,7 @@ public interface a {
 
     /* renamed from: com.baidu.swan.game.ad.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0197a {
+    public interface InterfaceC0194a {
         void a(com.baidu.swan.game.ad.a.a aVar);
 
         void a(String str);

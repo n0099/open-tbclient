@@ -7,7 +7,6 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class NetworkUtils {
@@ -102,7 +101,7 @@ public final class NetworkUtils {
         if (isWifiNetworkAvailable(context)) {
             return 1;
         }
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         if (telephonyManager != null) {
             switch (telephonyManager.getNetworkType()) {
                 case 1:

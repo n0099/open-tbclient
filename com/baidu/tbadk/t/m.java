@@ -11,22 +11,22 @@ public class m extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hy() {
+    protected String[] hI() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hz() {
-        return com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_bigday_sync_switch", 0);
+    protected int hJ() {
+        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_bigday_sync_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hA() {
+    protected int hK() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hB() {
+    protected int hL() {
         return 10;
     }
 }

@@ -6,27 +6,27 @@ import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private String bem;
-    private HashMap<String, c> bel = new HashMap<>();
+    private String beZ;
+    private HashMap<String, c> beY = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
-    private final Object beo = new Object();
-    private com.baidu.swan.games.network.b ben = com.baidu.swan.games.network.b.RI();
+    private final Object bfc = new Object();
+    private com.baidu.swan.games.network.b bfa = com.baidu.swan.games.network.b.SB();
 
     public b(String str) {
-        this.bem = str;
+        this.beZ = str;
     }
 
-    private boolean iJ(String str) {
-        return this.bel.containsKey(str);
+    private boolean iQ(String str) {
+        return this.beY.containsKey(str);
     }
 
     public void a(String str, a aVar) {
-        synchronized (this.beo) {
-            if (!iJ(str)) {
+        synchronized (this.bfc) {
+            if (!iQ(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
                 }
-                iK(str);
+                iR(str);
             } else if (DEBUG) {
                 Log.e("AudioDownloadManager", "re load url = " + str);
             }
@@ -34,9 +34,9 @@ public class b implements a {
         }
     }
 
-    public void iK(String str) {
-        c cVar = new c(this.ben, this.bem, str, this);
-        this.bel.put(str, cVar);
+    public void iR(String str) {
+        c cVar = new c(this.bfa, this.beZ, str, this);
+        this.beY.put(str, cVar);
         cVar.load();
     }
 
@@ -53,8 +53,8 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void aQ(String str, String str2) {
         ArrayList<a> arrayList;
-        synchronized (this.beo) {
-            if (iJ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+        synchronized (this.bfc) {
+            if (iQ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
                     arrayList.get(i).aQ(str, str2);
@@ -62,7 +62,7 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.bel.remove(str);
+                this.beY.remove(str);
             }
         }
     }
@@ -70,13 +70,13 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void t(int i, String str) {
         ArrayList<a> arrayList;
-        synchronized (this.beo) {
-            if (iJ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
+        synchronized (this.bfc) {
+            if (iQ(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).t(i, str);
                 }
-                this.bel.remove(str);
+                this.beY.remove(str);
             }
         }
     }

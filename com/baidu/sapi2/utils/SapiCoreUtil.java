@@ -2,12 +2,13 @@ package com.baidu.sapi2.utils;
 
 import android.annotation.TargetApi;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.os.Handler;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SmsService;
-import com.baidu.sapi2.base.debug.Log;
 import com.coloros.mcssdk.mode.CommandMessage;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
@@ -35,6 +36,14 @@ public class SapiCoreUtil {
         }
     }
 
+    public static BroadcastReceiver registerReceiver(Context context, Handler handler) {
+        try {
+            return SmsService.registerReceiver(context, handler);
+        } catch (Throwable th) {
+            return null;
+        }
+    }
+
     public static InputStream getCacheInputStream(Context context, String str) {
         InputStream fileInputStream;
         try {
@@ -49,28 +58,23 @@ public class SapiCoreUtil {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [130=4] */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v7, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [147=4] */
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c6  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0110  */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Process] */
-    /* JADX WARN: Type inference failed for: r5v16 */
-    /* JADX WARN: Type inference failed for: r5v17 */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0114  */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0118  */
     @TargetApi(4)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static boolean chmodFile(Context context, File file) {
         Process process;
-        String str = 0;
+        String str = null;
         try {
-            try {
-                Runtime runtime = Runtime.getRuntime();
-                String packageName = context.getPackageName();
-                process = null;
-                while (!packageName.equals(file.getName())) {
+            Runtime runtime = Runtime.getRuntime();
+            String packageName = context.getPackageName();
+            process = null;
+            while (!packageName.equals(file.getName())) {
+                try {
                     try {
                         process = file.isDirectory() ? runtime.exec("chmod 701 " + file) : runtime.exec("chmod 664 " + file);
                         file = file.getParentFile();
@@ -83,45 +87,46 @@ public class SapiCoreUtil {
                         if (r0 != 0) {
                         }
                     }
-                }
-                String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
-                if (TextUtils.isEmpty(parseExecutePer)) {
-                    parseExecutePer = "701";
-                    str = "chmod 701 " + file;
-                } else if (parseExecutePer.substring(2, 3).equals("0")) {
-                    str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
-                }
-                Log.e(TAG, "chmodFile", CommandMessage.COMMAND, str, "originPer", parseExecutePer);
-                if (str != 0) {
-                    process = runtime.exec(str);
-                    if (TextUtils.isEmpty(SapiContext.getInstance(context).getPackageDirExecutePer())) {
-                        SapiContext.getInstance(context).setPackageDirExecutePer(parseExecutePer);
+                } catch (Throwable th) {
+                    th = th;
+                    if (process != null) {
+                        process.destroy();
                     }
+                    throw th;
                 }
-                r0 = process != null ? process.waitFor() : -1;
-                if (process != null) {
-                    process.destroy();
+            }
+            String parseExecutePer = parseExecutePer(getExecResult(context.getApplicationInfo().dataDir));
+            if (TextUtils.isEmpty(parseExecutePer)) {
+                parseExecutePer = "701";
+                str = "chmod 701 " + file;
+            } else if (parseExecutePer.substring(2, 3).equals("0")) {
+                str = "chmod " + parseExecutePer.substring(0, 2) + "1 " + file;
+            }
+            Log.e(TAG, "chmodFile", CommandMessage.COMMAND, str, "originPer", parseExecutePer);
+            if (str != null) {
+                process = runtime.exec(str);
+                if (TextUtils.isEmpty(SapiContext.getInstance(context).getPackageDirExecutePer())) {
+                    SapiContext.getInstance(context).setPackageDirExecutePer(parseExecutePer);
                 }
-            } catch (Throwable th) {
-                th = th;
-                if (0 != 0) {
-                    str.destroy();
-                }
-                throw th;
+            }
+            r0 = process != null ? process.waitFor() : -1;
+            if (process != null) {
+                process.destroy();
             }
         } catch (Exception e2) {
             e = e2;
             process = null;
         } catch (Throwable th2) {
             th = th2;
-            if (0 != 0) {
+            process = null;
+            if (process != null) {
             }
             throw th;
         }
         return r0 != 0;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [154=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [170=4] */
     public static String getExecResult(String str) {
         Process process;
         Throwable th;

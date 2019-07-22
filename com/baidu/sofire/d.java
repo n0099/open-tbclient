@@ -3,7 +3,7 @@ package com.baidu.sofire;
 import android.content.Context;
 import android.os.FileObserver;
 import java.io.File;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class d extends FileObserver {
     private String a;
     private String b;
@@ -62,7 +62,7 @@ public class d extends FileObserver {
                                         com.baidu.sofire.b.e.a(d.this.a, true);
                                         c.a(new File(d.this.a));
                                         c.a(d.this.d, d.this.c, new File(d.this.a), new File(d.this.b));
-                                        new StringBuilder("update delete status to -1").append(d.this.a.toString());
+                                        new StringBuilder().append(d.this.a.toString());
                                         b.a();
                                         com.baidu.sofire.a.a.a(d.this.d).b(d.this.c, -1);
                                     }

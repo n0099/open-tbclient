@@ -7,34 +7,34 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public abstract class h {
-    private static final HashMap<String, h> air = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> ais = new ConcurrentHashMap<>();
+    private static final HashMap<String, h> aiR = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> aiS = new ConcurrentHashMap<>();
 
-    public abstract IBinder uK();
+    public abstract IBinder vk();
 
     /* loaded from: classes.dex */
     private static class a {
-        public IBinder ait;
-        public boolean exported;
+        public IBinder aiT;
+        public boolean aiU;
 
         private a() {
-            this.exported = false;
+            this.aiU = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        h hVar = air.get(str);
+        h hVar = aiR.get(str);
         if (hVar != null) {
-            hVar.uL();
-            return hVar.uK();
+            hVar.vl();
+            return hVar.vk();
         }
-        a aVar = ais.get(str);
+        a aVar = aiS.get(str);
         if (aVar != null) {
-            if (!aVar.exported && Binder.getCallingUid() != Process.myUid()) {
+            if (!aVar.aiU && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.ait;
+            return aVar.aiT;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return ais.remove(str) != null;
+        return aiS.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,16 +52,16 @@ public abstract class h {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (air.get(str) != null) {
+        if (aiR.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.ait = iBinder;
-        aVar.exported = z;
-        ais.put(str, aVar);
+        aVar.aiT = iBinder;
+        aVar.aiU = z;
+        aiS.put(str, aVar);
     }
 
-    public void uL() {
+    public void vl() {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }

@@ -6,61 +6,61 @@ import com.baidu.tieba.j.h;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int chunkLength = 524288;
-    private static int jbH = 6144000;
-    private static int jbI = 524288;
-    private h iZX;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b jbJ;
+    private static int jhY = 524288;
+    private static int jhZ = 6144000;
+    private static int jia = 524288;
+    private h jgo;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b jib;
 
     public a(h hVar) {
-        this.iZX = hVar;
+        this.jgo = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
-            if (d.hI().ay("is_video_batch") == 1) {
-                this.jbJ = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, jbI, this.iZX);
+            if (d.hS().az("is_video_batch") == 1) {
+                this.jib = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, jia, this.jgo);
             } else {
-                this.jbJ = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, jbH, this.iZX);
+                this.jib = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, jhY, jhZ, this.jgo);
             }
-            this.jbJ.a(eVar);
-            return this.jbJ.bo(str2, i);
+            this.jib.a(eVar);
+            return this.jib.bp(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.iZX != null) {
-                this.iZX.h(306, -4399, com.baidu.tieba.j.a.p(e));
+            if (this.jgo != null) {
+                this.jgo.h(306, -4399, com.baidu.tieba.j.a.p(e));
             }
             return null;
         }
     }
 
-    public void cnA() {
-        if (this.jbJ != null) {
-            this.jbJ.cancel();
+    public void cqt() {
+        if (this.jib != null) {
+            this.jib.cancel();
         }
     }
 
-    public static void AI(int i) {
+    public static void Bo(int i) {
         if (i <= 0) {
-            jbI = 524288;
+            jia = 524288;
         } else {
-            jbI = i;
+            jia = i;
         }
     }
 
-    public static void AJ(int i) {
+    public static void Bp(int i) {
         if (i <= 0) {
-            chunkLength = 524288;
+            jhY = 524288;
         } else {
-            chunkLength = i;
+            jhY = i;
         }
     }
 
-    public static void AK(int i) {
+    public static void Bq(int i) {
         if (i <= 0) {
-            jbH = 6144000;
+            jhZ = 6144000;
         } else {
-            jbH = i;
+            jhZ = i;
         }
     }
 }

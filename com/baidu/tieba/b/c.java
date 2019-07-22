@@ -13,7 +13,7 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.l.a> {
@@ -49,18 +49,18 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.coX == -100) {
+                if (aVar2.cqk == -100) {
                     TiebaStatic.log("c12679");
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
                     if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
-                        com.baidu.tbadk.core.e.b.b(c.this.mPageContext.getPageActivity(), 15, true);
+                        com.baidu.tbadk.core.f.b.b(c.this.mPageContext.getPageActivity(), 15, true);
                         return;
                     } else {
-                        ba.aiz().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        bb.ajC().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
                         return;
                     }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.coW;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.cqj;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));

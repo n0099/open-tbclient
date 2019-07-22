@@ -31,8 +31,8 @@ public class e {
             final FrsShareCardView frsShareCardView = new FrsShareCardView(frsFragment.getPageContext().getPageActivity());
             frsShareCardView.setPageId(frsFragment.getUniqueId());
             frsShareCardView.setData(h);
-            aVar.hr(1);
-            aVar.aF(frsShareCardView);
+            aVar.hx(1);
+            aVar.aH(frsShareCardView);
             aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.frs.f.e.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -48,10 +48,10 @@ public class e {
                     aVar2.dismiss();
                 }
             });
-            aVar.dN(true);
-            aVar.b(frsFragment.getPageContext()).afG();
+            aVar.dR(true);
+            aVar.b(frsFragment.getPageContext()).agI();
             if (!k.isEmpty(h.getImageUrl())) {
-                frsShareCardView.ai(h.getImageUrl(), false);
+                frsShareCardView.am(h.getImageUrl(), false);
             }
         }
     }

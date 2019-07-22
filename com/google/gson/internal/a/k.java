@@ -6,39 +6,39 @@ import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class k<T> extends n<T> {
     private final com.google.gson.d gson;
-    private n<T> kfy;
-    private final com.google.gson.m<T> khf;
-    private final com.google.gson.g<T> khg;
-    private final com.google.gson.b.a<T> khh;
-    private final o khi;
-    private final k<T>.a khj = new a();
+    private n<T> kmE;
+    private final com.google.gson.m<T> kol;
+    private final com.google.gson.g<T> kom;
+    private final com.google.gson.b.a<T> kon;
+    private final o koo;
+    private final k<T>.a kop = new a();
 
     public k(com.google.gson.m<T> mVar, com.google.gson.g<T> gVar, com.google.gson.d dVar, com.google.gson.b.a<T> aVar, o oVar) {
-        this.khf = mVar;
-        this.khg = gVar;
+        this.kol = mVar;
+        this.kom = gVar;
         this.gson = dVar;
-        this.khh = aVar;
-        this.khi = oVar;
+        this.kon = aVar;
+        this.koo = oVar;
     }
 
     @Override // com.google.gson.n
     public void a(com.google.gson.stream.a aVar, T t) throws IOException {
-        if (this.khf == null) {
-            cJb().a(aVar, t);
+        if (this.kol == null) {
+            cMh().a(aVar, t);
         } else if (t == null) {
-            aVar.cJr();
+            aVar.cMx();
         } else {
-            com.google.gson.internal.f.b(this.khf.a(t, this.khh.cJt(), this.khj), aVar);
+            com.google.gson.internal.f.b(this.kol.a(t, this.kon.cMz(), this.kop), aVar);
         }
     }
 
-    private n<T> cJb() {
-        n<T> nVar = this.kfy;
+    private n<T> cMh() {
+        n<T> nVar = this.kmE;
         if (nVar != null) {
             return nVar;
         }
-        n<T> a2 = this.gson.a(this.khi, this.khh);
-        this.kfy = a2;
+        n<T> a2 = this.gson.a(this.koo, this.kon);
+        this.kmE = a2;
         return a2;
     }
 

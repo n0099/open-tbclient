@@ -30,11 +30,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends z {
-    private static Set<String> anf;
-    private static Set<String> ang = new HashSet();
-    private c anc;
-    private ExecutorService and;
-    private int ane;
+    private static Set<String> anI;
+    private static Set<String> anJ = new HashSet();
+    private c anF;
+    private ExecutorService anG;
+    private int anH;
 
     public a(j jVar) {
         super(jVar, "/swan/debuggerlaunch");
@@ -42,26 +42,26 @@ public class a extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        boolean equals = TextUtils.equals(f.Ni().getString("enableSwitch", "1"), "1");
+        boolean equals = TextUtils.equals(f.NX().getString("enableSwitch", "1"), "1");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null || optParamsAsJo.length() <= 0 || !equals) {
             com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "param is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        this.anc = c.t(optParamsAsJo);
-        if (this.anc == null) {
+        this.anF = c.t(optParamsAsJo);
+        if (this.anF == null) {
             Log.e("DebuggerLaunchAction", "Remote Debug params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!xE()) {
+        } else if (!yj()) {
             Q(context, "404");
             return false;
         } else {
-            if (xD().contains(com.baidu.swan.apps.u.a.DG().bc(context)) || ang.contains(aP(context))) {
+            if (yi().contains(com.baidu.swan.apps.u.a.Ep().bc(context)) || anJ.contains(aP(context))) {
                 a(context, unitedSchemeEntity, callbackHandler);
             } else {
-                com.baidu.swan.apps.u.a.DG().a(this.anc.appKey, new c.a() { // from class: com.baidu.swan.apps.console.a.a.1
+                com.baidu.swan.apps.u.a.Ep().a(this.anF.appKey, new c.a() { // from class: com.baidu.swan.apps.console.a.a.1
                     @Override // com.baidu.swan.apps.u.b.c.a
                     public void k(Exception exc) {
                         com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "onFail : Authentication exception :", exc);
@@ -70,10 +70,10 @@ public class a extends z {
                     }
 
                     @Override // com.baidu.swan.apps.u.b.c.a
-                    public void aU(boolean z) {
+                    public void aX(boolean z) {
                         if (z) {
                             com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "Authentication Success");
-                            a.ang.add(a.this.aP(context));
+                            a.anJ.add(a.this.aP(context));
                             a.this.a(context, unitedSchemeEntity, callbackHandler);
                             return;
                         }
@@ -87,13 +87,13 @@ public class a extends z {
         }
     }
 
-    private Set<String> xD() {
-        if (anf == null) {
-            anf = new HashSet();
+    private Set<String> yi() {
+        if (anI == null) {
+            anI = new HashSet();
             try {
-                JSONArray jSONArray = new JSONArray(f.Ni().getString("authWlist", ""));
+                JSONArray jSONArray = new JSONArray(f.NX().getString("authWlist", ""));
                 for (int i = 0; i < jSONArray.length(); i++) {
-                    anf.add(jSONArray.optString(i));
+                    anI.add(jSONArray.optString(i));
                 }
             } catch (JSONException e) {
                 if (DEBUG) {
@@ -101,43 +101,43 @@ public class a extends z {
                 }
             }
         }
-        return anf;
+        return anI;
     }
 
-    private boolean xE() {
-        return (this.anc.ank == null || this.anc.ank.length() <= 0 || TextUtils.isEmpty(this.anc.anl)) ? false : true;
+    private boolean yj() {
+        return (this.anF.anN == null || this.anF.anN.length() <= 0 || TextUtils.isEmpty(this.anF.anO)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String aP(Context context) {
-        return com.baidu.swan.apps.u.a.DG().bc(context) + this.anc.appKey;
+        return com.baidu.swan.apps.u.a.Ep().bc(context) + this.anF.appKey;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         int i = 0;
-        final File Dv = e.C0149e.Dv();
-        if (Dv.exists()) {
-            Dv.delete();
+        final File Ee = e.C0146e.Ee();
+        if (Ee.exists()) {
+            Ee.delete();
         }
-        this.and = Executors.newFixedThreadPool(4);
-        this.ane = 0;
+        this.anG = Executors.newFixedThreadPool(4);
+        this.anH = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.anc.ank.length()) {
-                final String bR = this.anc.bR(i2);
+            if (i2 < this.anF.anN.length()) {
+                final String bR = this.anF.bR(i2);
                 if (TextUtils.isEmpty(bR)) {
-                    int i3 = this.ane + 1;
-                    this.ane = i3;
-                    if (i3 >= this.anc.ank.length()) {
+                    int i3 = this.anH + 1;
+                    this.anH = i3;
+                    if (i3 >= this.anF.anN.length()) {
                         com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "IPs are invalid");
                         Q(context, "404");
                     }
                 } else {
-                    this.and.execute(new Runnable() { // from class: com.baidu.swan.apps.console.a.a.2
+                    this.anG.execute(new Runnable() { // from class: com.baidu.swan.apps.console.a.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(context, bR, Dv, unitedSchemeEntity, callbackHandler);
+                            a.this.a(context, bR, Ee, unitedSchemeEntity, callbackHandler);
                         }
                     });
                 }
@@ -156,16 +156,16 @@ public class a extends z {
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 com.baidu.swan.c.e.d(executeSync.body().byteStream(), file);
                 com.baidu.swan.apps.v.b.c cVar = new com.baidu.swan.apps.v.b.c();
-                cVar.mAppId = this.anc.appId;
-                cVar.ayM = false;
-                cVar.ayQ = "1";
+                cVar.mAppId = this.anF.appId;
+                cVar.azt = false;
+                cVar.azx = "1";
                 Intent c = com.baidu.swan.apps.v.b.c.c(context, cVar);
                 c.putExtra("remoteDebugUrl", str);
                 context.startActivity(c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                if (this.and != null) {
-                    this.and.shutdownNow();
-                    this.and = null;
+                if (this.anG != null) {
+                    this.anG.shutdownNow();
+                    this.anG = null;
                 }
             }
             if (executeSync != null) {
@@ -177,9 +177,9 @@ public class a extends z {
             }
         } catch (IOException e) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            int i = this.ane + 1;
-            this.ane = i;
-            if (i >= this.anc.ank.length()) {
+            int i = this.anH + 1;
+            this.anH = i;
+            if (i >= this.anF.anN.length()) {
                 com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "IPs are invalid");
                 Q(context, "404");
             }
@@ -188,15 +188,15 @@ public class a extends z {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Q(Context context, String str) {
-        String string = f.Ni().getString("errorURL", "");
+        String string = f.NX().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, dm(str)).Ld();
+            com.baidu.swan.apps.res.widget.b.d.a(context, dr(str)).LQ();
         } else {
-            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + dn(string + "?" + str));
+            SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + ds(string + "?" + str));
         }
     }
 
-    private String dm(String str) {
+    private String dr(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case 51509:
@@ -222,7 +222,7 @@ public class a extends z {
         }
     }
 
-    private String dn(String str) {
+    private String ds(String str) {
         try {
             return URLEncoder.encode(str, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {

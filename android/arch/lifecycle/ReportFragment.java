@@ -21,7 +21,7 @@ public class ReportFragment extends Fragment {
         void onStart();
     }
 
-    public static void g(Activity activity) {
+    public static void j(Activity activity) {
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (fragmentManager.findFragmentByTag("android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag") == null) {
             fragmentManager.beginTransaction().add(new ReportFragment(), "android.arch.lifecycle.LifecycleDispatcher.report_fragment_tag").commit();
@@ -90,7 +90,7 @@ public class ReportFragment extends Fragment {
     private void c(Lifecycle.Event event) {
         Activity activity = getActivity();
         if (activity instanceof d) {
-            ((d) activity).aU().a(event);
+            ((d) activity).aV().a(event);
         } else if (activity instanceof b) {
             Lifecycle lifecycle = ((b) activity).getLifecycle();
             if (lifecycle instanceof c) {

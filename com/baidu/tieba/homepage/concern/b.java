@@ -4,28 +4,28 @@ import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.card.data.l;
 /* loaded from: classes4.dex */
 public class b {
     public static void a(View view, com.baidu.tieba.card.data.c cVar, boolean z) {
-        if (view != null && cVar != null && cVar.abv() != null && !StringUtils.isNull(cVar.abv().getTid())) {
-            am amVar = new am("c12352");
+        if (view != null && cVar != null && cVar.acx() != null && !StringUtils.isNull(cVar.acx().getTid())) {
+            an anVar = new an("c12352");
             if (z) {
-                amVar.P("obj_locate", 1);
+                anVar.P("obj_locate", 1);
             } else {
-                amVar.P("obj_locate", 2);
+                anVar.P("obj_locate", 2);
             }
             if (cVar instanceof l) {
-                amVar.P("obj_type", 2);
+                anVar.P("obj_type", 2);
             } else {
-                amVar.bT("obj_type", cVar.aYb());
+                anVar.bT("obj_type", cVar.aZZ());
             }
-            amVar.bT("tid", cVar.threadData.getTid());
-            amVar.l("fid", cVar.threadData.getFid());
-            amVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-            amVar.P("obj_param1", cVar.aYe() ? 2 : 1);
-            TiebaStatic.log(amVar);
+            anVar.bT("tid", cVar.threadData.getTid());
+            anVar.l("fid", cVar.threadData.getFid());
+            anVar.bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
+            anVar.P("obj_param1", cVar.bad() ? 2 : 1);
+            TiebaStatic.log(anVar);
         }
     }
 }

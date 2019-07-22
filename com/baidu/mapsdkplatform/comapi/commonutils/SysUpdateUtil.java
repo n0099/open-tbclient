@@ -6,7 +6,6 @@ import android.net.Proxy;
 import com.baidu.mapapi.NetworkUtil;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver;
 import com.baidu.mapsdkplatform.comjni.engine.AppEngine;
-import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes5.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
@@ -42,15 +41,15 @@ public class SysUpdateUtil implements SysUpdateObserver {
             b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
-                if (lowerCase2.startsWith(Apn.APN_CMWAP) || lowerCase2.startsWith(Apn.APN_UNIWAP) || lowerCase2.startsWith(Apn.APN_3GWAP)) {
+                if (lowerCase2.startsWith("cmwap") || lowerCase2.startsWith("uniwap") || lowerCase2.startsWith("3gwap")) {
                     c = "10.0.0.172";
                     d = 80;
                     b = true;
-                } else if (lowerCase2.startsWith(Apn.APN_CTWAP)) {
+                } else if (lowerCase2.startsWith("ctwap")) {
                     c = "10.0.0.200";
                     d = 80;
                     b = true;
-                } else if (lowerCase2.startsWith(Apn.APN_CMNET) || lowerCase2.startsWith(Apn.APN_UNINET) || lowerCase2.startsWith(Apn.APN_CTNET) || lowerCase2.startsWith(Apn.APN_3GNET)) {
+                } else if (lowerCase2.startsWith("cmnet") || lowerCase2.startsWith("uninet") || lowerCase2.startsWith("ctnet") || lowerCase2.startsWith("3gnet")) {
                     b = false;
                 }
             } else {

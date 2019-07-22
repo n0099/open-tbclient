@@ -9,6 +9,7 @@ import android.content.pm.ServiceInfo;
 import android.net.Uri;
 import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -88,7 +89,7 @@ public class aw {
                     }
                 } else if (com.xiaomi.push.service.aw.c.equals(str3) && (str2 = map.get("web_uri")) != null) {
                     String trim = str2.trim();
-                    String str6 = (trim.startsWith("http://") || trim.startsWith("https://")) ? trim : "http://" + trim;
+                    String str6 = (trim.startsWith("http://") || trim.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? trim : "http://" + trim;
                     try {
                         String protocol = new URL(str6).getProtocol();
                         if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {

@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private static b bAB = null;
-    private static a bAC = null;
-    private static boolean bAD = false;
-    private static String bAE = "";
-    private static transient List<String> bAF = new ArrayList(5);
+    private static b bBy = null;
+    private static a bBz = null;
+    private static boolean bBA = false;
+    private static String bBB = "";
+    private static transient List<String> bBC = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (bAC == null) {
+        if (bBz == null) {
             synchronized (a.class) {
-                if (bAC == null) {
-                    bAC = new a();
-                    bAB = b.c(baseFragmentActivity);
+                if (bBz == null) {
+                    bBz = new a();
+                    bBy = b.c(baseFragmentActivity);
                 }
             }
-        } else if (bAB != null) {
-            bAB.a(baseFragmentActivity.getPageContext());
+        } else if (bBy != null) {
+            bBy.a(baseFragmentActivity.getPageContext());
         }
-        if (bAD && bAB != null) {
-            bAB.ZP();
-            bAB.ZQ();
-            bAD = false;
+        if (bBA && bBy != null) {
+            bBy.aaO();
+            bBy.aaP();
+            bBA = false;
         }
-        return bAC;
+        return bBz;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        ZL();
+        aaK();
         if (z) {
-            ZG();
+            aaF();
         }
         if (z2) {
-            ZH();
+            aaG();
         }
-        dt(z3);
+        dy(z3);
         a(aVar);
     }
 
-    public void ZG() {
-        ZL();
-        if (bAB != null) {
-            bAB.ZP();
-            bAD = false;
+    public void aaF() {
+        aaK();
+        if (bBy != null) {
+            bBy.aaO();
+            bBA = false;
         }
     }
 
-    public void ZH() {
-        ZL();
-        if (bAB != null) {
-            bAB.ZQ();
-            bAD = false;
+    public void aaG() {
+        aaK();
+        if (bBy != null) {
+            bBy.aaP();
+            bBA = false;
         }
     }
 
-    public void dt(boolean z) {
-        ZL();
-        if (bAB != null) {
-            bAB.dt(z);
+    public void dy(boolean z) {
+        aaK();
+        if (bBy != null) {
+            bBy.dy(z);
         }
     }
 
     public void a(b.a aVar) {
-        ZL();
-        if (bAB != null) {
-            bAB.c(aVar);
+        aaK();
+        if (bBy != null) {
+            bBy.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        ZL();
-        if (bAB != null) {
-            if (bAB.ZM()) {
-                bAB.c(aVar);
+        aaK();
+        if (bBy != null) {
+            if (bBy.aaL()) {
+                bBy.c(aVar);
             }
-            bAB.ZO();
+            bBy.aaN();
         }
     }
 
     public void a(int i, b.a aVar) {
-        ZL();
-        if (bAB != null) {
-            if (bAB.ZM()) {
-                bAB.c(aVar);
+        aaK();
+        if (bBy != null) {
+            if (bBy.aaL()) {
+                bBy.c(aVar);
             }
-            bAB.gm(i);
+            bBy.gq(i);
         }
     }
 
-    public void ZI() {
-        ZL();
-        if (bAB != null) {
-            bAB.ZI();
-            bAD = true;
+    public void aaH() {
+        aaK();
+        if (bBy != null) {
+            bBy.aaH();
+            bBA = true;
         }
     }
 
-    public void ZJ() {
-        ZL();
-        if (bAB != null) {
-            bAB.ZJ();
+    public void aaI() {
+        aaK();
+        if (bBy != null) {
+            bBy.aaI();
         }
     }
 
-    public void ZK() {
-        ZL();
-        ZJ();
-        ZI();
+    public void aaJ() {
+        aaK();
+        aaI();
+        aaH();
     }
 
-    private void ZL() {
-        if (bAB == null) {
+    private void aaK() {
+        if (bBy == null) {
         }
     }
 
-    public static void Jv() {
+    public static void Ki() {
         try {
-            if (bAB != null) {
-                if (bAC != null) {
-                    bAC.ZK();
+            if (bBy != null) {
+                if (bBz != null) {
+                    bBz.aaJ();
                 }
-                bAB.ZN();
-                bAB.ZR();
-                bAB = null;
+                bBy.aaM();
+                bBy.aaQ();
+                bBy = null;
             }
-            if (bAC != null) {
-                bAC = null;
+            if (bBz != null) {
+                bBz = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

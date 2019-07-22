@@ -16,12 +16,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a cUp;
+    private static a cVL;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable cvT = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cxi = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -56,7 +56,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").bT("errormsg", "预加载文件失败").bT("error", r3.getMessage()).bT("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.an("c12027").bT("errormsg", "预加载文件失败").bT("error", r3.getMessage()).bT("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -117,13 +117,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String aBb = a.this.aBb();
-                    if (aBb != null && !aBb.isEmpty()) {
-                        File file = new File(c.cUe + b.rI(aBb) + "/header_downloaded");
+                    String aCq = a.this.aCq();
+                    if (aCq != null && !aCq.isEmpty()) {
+                        File file = new File(c.cVA + b.sa(aCq) + "/header_downloaded");
                         if (file.exists()) {
-                            d.am(a.TAG, "header exists " + aBb);
+                            d.am(a.TAG, "header exists " + aCq);
                         } else {
-                            d.am(a.TAG, "client preload start: " + aBb);
+                            d.am(a.TAG, "client preload start: " + aCq);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -142,8 +142,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aBb);
-                                    int port = b.aBc().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(aCq);
+                                    int port = b.aCr().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), UIMsg.m_AppUI.MSG_APP_GPS);
@@ -200,7 +200,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.am(a.TAG, "client preload check1: " + aBb);
+                                            d.am(a.TAG, "client preload check1: " + aCq);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -252,7 +252,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.am(a.TAG, "client preload end: " + aBb);
+                            d.am(a.TAG, "client preload end: " + aCq);
                         }
                     }
                 } else {
@@ -289,29 +289,29 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.cvT);
+    private Thread mThread = new Thread(this.cxi);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a aBa() {
-        if (cUp == null) {
+    public static a aCp() {
+        if (cVL == null) {
             synchronized (a.class) {
-                if (cUp == null) {
-                    cUp = new a();
+                if (cVL == null) {
+                    cVL = new a();
                 }
             }
         }
-        return cUp;
+        return cVL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String aBb() {
+    public synchronized String aCq() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void rJ(String str) {
+    public synchronized void sb(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

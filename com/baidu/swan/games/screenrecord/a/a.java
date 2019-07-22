@@ -3,33 +3,33 @@ package com.baidu.swan.games.screenrecord.a;
 import java.util.Comparator;
 /* loaded from: classes2.dex */
 public class a {
-    public long bjN;
-    public long bjO;
+    public long bkA;
+    public long bkB;
 
     public static long[] a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return new long[]{aVar.bjN, aVar.bjO};
+        return new long[]{aVar.bkA, aVar.bkB};
     }
 
     public boolean b(a aVar) {
-        if (this.bjN > aVar.bjO || this.bjO < aVar.bjN) {
+        if (this.bkA > aVar.bkB || this.bkB < aVar.bkA) {
             return false;
         }
-        this.bjN = Math.min(this.bjN, aVar.bjN);
-        this.bjO = Math.max(this.bjO, aVar.bjO);
+        this.bkA = Math.min(this.bkA, aVar.bkA);
+        this.bkB = Math.max(this.bkB, aVar.bkB);
         return true;
     }
 
     /* renamed from: com.baidu.swan.games.screenrecord.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0215a implements Comparator<a> {
+    public static class C0212a implements Comparator<a> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(a aVar, a aVar2) {
-            return (int) (aVar.bjN - aVar2.bjN);
+            return (int) (aVar.bkA - aVar2.bkA);
         }
     }
 }

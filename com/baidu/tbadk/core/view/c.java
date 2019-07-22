@@ -6,59 +6,59 @@ import android.graphics.RectF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.style.ReplacementSpan;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 /* loaded from: classes.dex */
 public class c extends ReplacementSpan {
-    private int aNb;
-    private int bWn;
-    private int bWo;
-    private int bWp;
-    private int bWr;
-    private int bWs;
-    private int bWt;
+    private int aNK;
+    private int bXp;
+    private int bXq;
+    private int bXr;
+    private int bXt;
+    private int bXu;
+    private int bXv;
     private int mTextSize;
-    private RectF bWq = new RectF();
-    private Paint bWu = new Paint();
+    private RectF bXs = new RectF();
+    private Paint bXw = new Paint();
 
     public c(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.bWn = i;
-        this.bWo = i2;
-        this.bWp = i3;
+        this.bXp = i;
+        this.bXq = i2;
+        this.bXr = i3;
         this.mTextSize = i4;
-        this.aNb = i5;
-        this.bWr = i6;
-        this.bWt = i7;
-        this.bWu.setAntiAlias(true);
-        this.bWu.setStyle(Paint.Style.STROKE);
-        this.bWu.setTextSize(this.mTextSize);
+        this.aNK = i5;
+        this.bXt = i6;
+        this.bXv = i7;
+        this.bXw.setAntiAlias(true);
+        this.bXw.setStyle(Paint.Style.STROKE);
+        this.bXw.setTextSize(this.mTextSize);
     }
 
     @Override // android.text.style.ReplacementSpan
     public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.bWs = ((int) this.bWu.measureText(charSequence, i, i2)) + (this.bWr * 2);
-        return this.bWs;
+        this.bXu = ((int) this.bXw.measureText(charSequence, i, i2)) + (this.bXt * 2);
+        return this.bXu;
     }
 
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        this.bWu.setColor(al.getColor(this.bWp));
-        int i6 = ((i5 - this.bWt) / 2) + i3;
-        this.bWq.left = f;
-        this.bWq.top = i6;
-        this.bWq.right = this.bWs + f;
-        this.bWq.bottom = i6 + this.bWt;
-        canvas.drawRoundRect(this.bWq, this.bWo, this.bWo, this.bWu);
-        Paint.FontMetricsInt fontMetricsInt = this.bWu.getFontMetricsInt();
-        this.bWu.setColor(al.getColor(this.aNb));
-        canvas.drawText(charSequence, i, i2, f + this.bWr, (int) ((this.bWq.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.bWu);
+        this.bXw.setColor(am.getColor(this.bXr));
+        int i6 = ((i5 - this.bXv) / 2) + i3;
+        this.bXs.left = f;
+        this.bXs.top = i6;
+        this.bXs.right = this.bXu + f;
+        this.bXs.bottom = i6 + this.bXv;
+        canvas.drawRoundRect(this.bXs, this.bXq, this.bXq, this.bXw);
+        Paint.FontMetricsInt fontMetricsInt = this.bXw.getFontMetricsInt();
+        this.bXw.setColor(am.getColor(this.aNK));
+        canvas.drawText(charSequence, i, i2, f + this.bXt, (int) ((this.bXs.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.bXw);
     }
 
-    public void eh(boolean z) {
-        if (this.bWu != null) {
+    public void el(boolean z) {
+        if (this.bXw != null) {
             if (z) {
-                this.bWu.setStyle(Paint.Style.FILL);
+                this.bXw.setStyle(Paint.Style.FILL);
             } else {
-                this.bWu.setStyle(Paint.Style.STROKE);
+                this.bXw.setStyle(Paint.Style.STROKE);
             }
         }
     }

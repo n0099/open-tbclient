@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.d;
 /* loaded from: classes4.dex */
 public class PbThreadPostView extends LinearLayout {
-    private d hJL;
-    public View hSV;
-    public TextView hSW;
-    public TextView hSX;
+    private d hPY;
+    public View hZi;
+    public TextView hZj;
+    public TextView hZk;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
 
@@ -36,30 +36,30 @@ public class PbThreadPostView extends LinearLayout {
         setOrientation(1);
         setGravity(17);
         LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
-        qA();
+        qX();
     }
 
-    private void qA() {
-        this.hSV = findViewById(R.id.pb_thread_post_container);
-        this.hSW = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.hSX = (TextView) findViewById(R.id.pb_thread_post_button);
+    private void qX() {
+        this.hZi = findViewById(R.id.pb_thread_post_container);
+        this.hZj = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.hZk = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(d dVar) {
-        this.hJL = dVar;
-        nq(TbadkCoreApplication.getInst().getSkinType());
+        this.hPY = dVar;
+        nz(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.hSX.setOnClickListener(this.mOnClickListener);
+            this.hZk.setOnClickListener(this.mOnClickListener);
         }
     }
 
-    public void nq(int i) {
-        al.h(this.hSV, R.color.cp_bg_line_e, i);
-        al.j(this.hSW, R.color.cp_cont_j);
-        al.j(this.hSX, R.color.cp_link_tip_a);
+    public void nz(int i) {
+        am.h(this.hZi, R.color.cp_bg_line_e, i);
+        am.j(this.hZj, R.color.cp_cont_j);
+        am.j(this.hZk, R.color.cp_link_tip_a);
     }
 }

@@ -1,48 +1,64 @@
 package com.baidu.mobstat;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import java.util.ArrayList;
+import android.content.Context;
 /* loaded from: classes6.dex */
-class u extends q {
-    public u() {
-        super("ap_list3", "Create table if not exists ap_list3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
-    }
+public class u {
+    private static a a;
 
-    @Override // com.baidu.mobstat.q
-    public ArrayList<p> a(int i, int i2) {
-        Cursor a = a(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, i, i2);
-        ArrayList<p> a2 = a(a);
-        if (a != null) {
-            a.close();
-        }
-        return a2;
-    }
-
-    @Override // com.baidu.mobstat.q
-    public long a(String str, String str2) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
-        contentValues.put("content", str2);
-        return a(contentValues);
-    }
-
-    @Override // com.baidu.mobstat.q
-    public boolean b(long j) {
-        return a(j);
-    }
-
-    private ArrayList<p> a(Cursor cursor) {
-        ArrayList<p> arrayList = new ArrayList<>();
-        if (cursor != null && cursor.getCount() != 0) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            int columnIndex3 = cursor.getColumnIndex("content");
-            while (cursor.moveToNext()) {
-                arrayList.add(new p(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
+    /* JADX WARN: Removed duplicated region for block: B:11:0x002f A[Catch: all -> 0x0059, TRY_ENTER, TryCatch #2 {, blocks: (B:4:0x0003, B:6:0x0011, B:8:0x001a, B:9:0x0023, B:11:0x002f, B:12:0x003e, B:16:0x0050), top: B:28:0x0003 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized a a(Context context) {
+        a aVar;
+        Class<?> a2;
+        synchronized (u.class) {
+            bb.c().a("getBPStretegyController begin");
+            a aVar2 = a;
+            if (aVar2 == null) {
+                try {
+                    a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
+                } catch (Exception e) {
+                    e = e;
+                }
+                if (a2 != null) {
+                    aVar = new w(a2.newInstance());
+                    try {
+                        bb.c().a("Get BPStretegyController load remote class v2");
+                    } catch (Exception e2) {
+                        aVar2 = aVar;
+                        e = e2;
+                        bb.c().a(e);
+                        aVar = aVar2;
+                        if (aVar == null) {
+                        }
+                        a = aVar;
+                        x.a(context, aVar);
+                        bb.c().a("getBPStretegyController end");
+                        return aVar;
+                    }
+                    if (aVar == null) {
+                        aVar = new v();
+                        bb.c().a("Get BPStretegyController load local class");
+                    }
+                    a = aVar;
+                    x.a(context, aVar);
+                    bb.c().a("getBPStretegyController end");
+                }
             }
+            aVar = aVar2;
+            if (aVar == null) {
+            }
+            a = aVar;
+            x.a(context, aVar);
+            bb.c().a("getBPStretegyController end");
         }
-        return arrayList;
+        return aVar;
+    }
+
+    public static synchronized void a() {
+        synchronized (u.class) {
+            a = null;
+        }
     }
 }

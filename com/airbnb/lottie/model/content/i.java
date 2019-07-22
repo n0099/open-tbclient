@@ -9,19 +9,19 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i implements b {
     private final String name;
-    private final Path.FillType oB;
+    private final Path.FillType oC;
     @Nullable
-    private final com.airbnb.lottie.model.a.a og;
+    private final com.airbnb.lottie.model.a.a oh;
     @Nullable
-    private final com.airbnb.lottie.model.a.d oq;
-    private final boolean pa;
+    private final com.airbnb.lottie.model.a.d or;
+    private final boolean pd;
 
     private i(String str, boolean z, Path.FillType fillType, @Nullable com.airbnb.lottie.model.a.a aVar, @Nullable com.airbnb.lottie.model.a.d dVar) {
         this.name = str;
-        this.pa = z;
-        this.oB = fillType;
-        this.og = aVar;
-        this.oq = dVar;
+        this.pd = z;
+        this.oC = fillType;
+        this.oh = aVar;
+        this.or = dVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -42,17 +42,17 @@ public class i implements b {
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.a dv() {
-        return this.og;
+    public com.airbnb.lottie.model.a.a dC() {
+        return this.oh;
     }
 
     @Nullable
-    public com.airbnb.lottie.model.a.d cO() {
-        return this.oq;
+    public com.airbnb.lottie.model.a.d cU() {
+        return this.or;
     }
 
-    public Path.FillType getFillType() {
-        return this.oB;
+    public Path.FillType de() {
+        return this.oC;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -61,6 +61,6 @@ public class i implements b {
     }
 
     public String toString() {
-        return "ShapeFill{color=" + (this.og == null ? "null" : Integer.toHexString(this.og.cB().intValue())) + ", fillEnabled=" + this.pa + ", opacity=" + (this.oq == null ? "null" : this.oq.cB()) + '}';
+        return "ShapeFill{color=" + (this.oh == null ? "null" : Integer.toHexString(this.oh.cH().intValue())) + ", fillEnabled=" + this.pd + ", opacity=" + (this.or == null ? "null" : this.or.cH()) + '}';
     }
 }

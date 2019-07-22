@@ -10,15 +10,15 @@ import tbclient.Personalized.CardGod;
 import tbclient.User;
 /* loaded from: classes4.dex */
 public class f extends com.baidu.tieba.card.data.h implements p {
-    private CardGod get;
+    private CardGod gkE;
 
     public void a(CardGod cardGod) {
         if (cardGod != null) {
-            this.get = cardGod;
-            this.mGroupTitle = this.get.card_title;
-            if (!v.aa(this.get.gods)) {
+            this.gkE = cardGod;
+            this.mGroupTitle = this.gkE.card_title;
+            if (!v.aa(this.gkE.gods)) {
                 int i = 0;
-                Iterator<User> it = this.get.gods.iterator();
+                Iterator<User> it = this.gkE.gods.iterator();
                 while (true) {
                     int i2 = i;
                     if (it.hasNext()) {
@@ -30,7 +30,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
                                 i = i2;
                             } else {
                                 i iVar = new i();
-                                iVar.bJb = metaData;
+                                iVar.bKb = metaData;
                                 a(iVar);
                                 i = i2 + 1;
                             }
@@ -45,30 +45,30 @@ public class f extends com.baidu.tieba.card.data.h implements p {
         }
     }
 
-    public boolean aCA() {
+    public boolean aDQ() {
         return v.Z(getDataList()) > 2;
     }
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.get == null || this.get.position == null) {
+        if (this.gkE == null || this.gkE.position == null) {
             return 0;
         }
-        return this.get.position.intValue();
+        return this.gkE.position.intValue();
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aYf() {
+    public boolean bae() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void iy(boolean z) {
+    public void iH(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void iz(boolean z) {
+    public void iI(boolean z) {
         this.showBottomDivider = z;
     }
 }

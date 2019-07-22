@@ -12,18 +12,18 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a asS;
-    private Map<String, c> asT;
+    private static volatile a atv;
+    private Map<String, c> atw;
 
-    public static a AW() {
-        if (asS == null) {
+    public static a BE() {
+        if (atv == null) {
             synchronized (a.class) {
-                if (asS == null) {
-                    asS = new a();
+                if (atv == null) {
+                    atv = new a();
                 }
             }
         }
-        return asS;
+        return atv;
     }
 
     public void ab(String str, String str2) {
@@ -34,33 +34,33 @@ public class a {
                 if (DEBUG && !TextUtils.isEmpty(v)) {
                     Log.i("SwanAppPreHandleHelper", "pre handle configData : " + v);
                 }
-                c gF = c.gF(v);
-                if (this.asT == null) {
-                    this.asT = new HashMap();
+                c gM = c.gM(v);
+                if (this.atw == null) {
+                    this.atw = new HashMap();
                 }
-                if (gF != null) {
-                    this.asT.put(str, gF);
+                if (gM != null) {
+                    this.atw.put(str, gM);
                 }
             }
         }
     }
 
     @Nullable
-    public c dQ(String str) {
-        if (this.asT == null || TextUtils.isEmpty(str)) {
+    public c dV(String str) {
+        if (this.atw == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.asT.get(str);
+        return this.atw.get(str);
     }
 
-    private void AX() {
-        this.asT = null;
-        asS = null;
+    private void BF() {
+        this.atw = null;
+        atv = null;
     }
 
     public static void release() {
-        if (asS != null) {
-            asS.AX();
+        if (atv != null) {
+            atv.BF();
         }
     }
 }

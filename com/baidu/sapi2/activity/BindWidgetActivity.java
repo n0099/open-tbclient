@@ -33,6 +33,14 @@ public class BindWidgetActivity extends BaseActivity {
         super.onCreate(bundle);
         try {
             setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
+            this.bindWidgetAction = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
+            this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
+            if (this.bindWidgetAction == null || TextUtils.isEmpty(this.bduss)) {
+                this.result.setResultCode(-204);
+                this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
+                finishActivity();
+                return;
+            }
             init();
             setupViews();
         } catch (Throwable th) {
@@ -45,13 +53,6 @@ public class BindWidgetActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.bindWidgetAction = (BindWidgetAction) getIntent().getSerializableExtra(EXTRA_BIND_WIDGET_ACTION);
-        this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
-        if (this.bindWidgetAction == null || TextUtils.isEmpty(this.bduss)) {
-            this.result.setResultCode(-204);
-            this.result.setResultMsg(SapiResult.ERROR_MSG_PARAMS_ERROR);
-            finishActivity();
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -98,13 +99,6 @@ public class BindWidgetActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

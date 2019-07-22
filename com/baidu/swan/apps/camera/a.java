@@ -26,7 +26,7 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.camera.c.a {
     private static final boolean DEBUG = b.DEBUG;
-    private com.baidu.swan.apps.camera.b.b akC;
+    private com.baidu.swan.apps.camera.b.b alf;
     private Timer mTimer;
 
     private a() {
@@ -34,12 +34,12 @@ public class a implements com.baidu.swan.apps.camera.c.a {
 
     /* renamed from: com.baidu.swan.apps.camera.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0121a {
-        private static final a akF = new a();
+    private static class C0118a {
+        private static final a ali = new a();
     }
 
-    public static a xe() {
-        return C0121a.akF;
+    public static a xF() {
+        return C0118a.ali;
     }
 
     public boolean a(byte[] bArr, String str, int i, int i2) {
@@ -89,11 +89,11 @@ public class a implements com.baidu.swan.apps.camera.c.a {
         }
     }
 
-    public CameraPreview dd(String str) {
-        if (TextUtils.isEmpty(str) || akV.isEmpty()) {
+    public CameraPreview di(String str) {
+        if (TextUtils.isEmpty(str) || alz.isEmpty()) {
             return null;
         }
-        for (CameraPreview cameraPreview : akV) {
+        for (CameraPreview cameraPreview : alz) {
             if (cameraPreview != null && TextUtils.equals(cameraPreview.getSlaveId(), str)) {
                 return cameraPreview;
             }
@@ -102,13 +102,13 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void a(CameraPreview cameraPreview) {
-        akV.add(cameraPreview);
+        alz.add(cameraPreview);
     }
 
-    public void de(String str) {
+    public void dj(String str) {
         CameraPreview cameraPreview;
-        if (!TextUtils.isEmpty(str) && !akV.isEmpty()) {
-            Iterator<CameraPreview> it = akV.iterator();
+        if (!TextUtils.isEmpty(str) && !alz.isEmpty()) {
+            Iterator<CameraPreview> it = alz.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     cameraPreview = null;
@@ -120,20 +120,20 @@ public class a implements com.baidu.swan.apps.camera.c.a {
                 }
             }
             if (cameraPreview != null) {
-                cameraPreview.onRelease();
-                akV.remove(cameraPreview);
+                cameraPreview.xK();
+                alz.remove(cameraPreview);
             }
         }
     }
 
     public void a(int i, final com.baidu.swan.apps.camera.b.b bVar) {
-        this.akC = bVar;
+        this.alf = bVar;
         this.mTimer = new Timer();
         this.mTimer.schedule(new TimerTask() { // from class: com.baidu.swan.apps.camera.a.1
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.xh();
+                    bVar.xI();
                 }
                 a.this.stopTimer();
             }
@@ -141,32 +141,32 @@ public class a implements com.baidu.swan.apps.camera.c.a {
     }
 
     public void stopTimer() {
-        this.akC = null;
+        this.alf = null;
         if (this.mTimer != null) {
             this.mTimer.cancel();
         }
     }
 
-    public void xf() {
-        if (this.akC != null) {
-            this.akC.cancel();
+    public void xG() {
+        if (this.alf != null) {
+            this.alf.cancel();
         }
         stopTimer();
     }
 
-    public void aQ(boolean z) {
+    public void aT(boolean z) {
         if (z) {
-            xf();
+            xG();
         }
     }
 
     public void c(String str, String str2, boolean z) {
-        if (y.ih("1.13.0")) {
+        if (y.io("1.13.0")) {
             HashMap hashMap = new HashMap();
             hashMap.put("wvID", str);
             hashMap.put("cameraId", str2);
             hashMap.put("eType", z ? "error" : IntentConfig.STOP);
-            e.FV().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
+            e.GF().a(new com.baidu.swan.apps.m.a.b("camera", hashMap));
             return;
         }
         JSONObject jSONObject = new JSONObject();

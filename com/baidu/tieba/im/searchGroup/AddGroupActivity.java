@@ -20,26 +20,26 @@ import com.baidu.tieba.im.model.SearchGroupModel;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
-    private a gIW = null;
-    private SearchGroupModel gIX = null;
-    private c gIY = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
+    private a gPg = null;
+    private SearchGroupModel gPh = null;
+    private c gPi = new c(103007) { // from class: com.baidu.tieba.im.searchGroup.AddGroupActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            AddGroupActivity.this.gIW.lV(false);
+            AddGroupActivity.this.gPg.mj(false);
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
-                AddGroupActivity.this.bDB();
+                AddGroupActivity.this.bGi();
             } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
-                AddGroupActivity.this.bDB();
+                AddGroupActivity.this.bGi();
             } else {
                 ResponseSearchGroupMessage responseSearchGroupMessage = (ResponseSearchGroupMessage) socketResponsedMessage;
                 if (responseSearchGroupMessage.getError() != 0) {
-                    AddGroupActivity.this.aC(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
+                    AddGroupActivity.this.aD(responseSearchGroupMessage.getErrorString(), responseSearchGroupMessage.getError());
                     return;
                 }
                 List<BaseGroupData> searchResult = responseSearchGroupMessage.getSearchResult();
                 if (searchResult == null || searchResult.size() <= 0) {
-                    AddGroupActivity.this.bDB();
+                    AddGroupActivity.this.bGi();
                 } else {
                     AddGroupActivity.this.a(searchResult.get(0));
                 }
@@ -51,31 +51,31 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gIW = new a(this);
-        this.gIX = new SearchGroupModel(this);
-        registerListener(this.gIY);
+        this.gPg = new a(this);
+        this.gPh = new SearchGroupModel(this);
+        registerListener(this.gPi);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gIW.changeSkinType(i);
+        this.gPg.changeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gIW.bDD()) {
+        if (view == this.gPg.bGk()) {
             finish();
-        } else if (view == this.gIW.bDC()) {
+        } else if (view == this.gPg.bGj()) {
             TiebaStatic.log("add_group_searchbtn_click");
             if (view.getTag() instanceof String) {
-                yI((String) view.getTag());
+                zt((String) view.getTag());
             }
-        } else if (view == this.gIW.bzf()) {
-            this.gIW.bDF();
-        } else if (view == this.gIW.bDE()) {
+        } else if (view == this.gPg.bBK()) {
+            this.gPg.bGm();
+        } else if (view == this.gPg.bGl()) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
         }
     }
@@ -93,20 +93,20 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void onDestroy() {
         releaseResouce();
         super.onDestroy();
-        if (this.gIX != null) {
-            this.gIX.cancelLoadData();
+        if (this.gPh != null) {
+            this.gPh.cancelLoadData();
         }
     }
 
-    public void yI(String str) {
+    public void zt(String str) {
         if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
             try {
-                this.gIW.lV(true);
-                this.gIX.sendMessage(b.c(str, 0L));
+                this.gPg.mj(true);
+                this.gPh.sendMessage(b.c(str, 0L));
                 return;
             } catch (NumberFormatException e) {
                 e.printStackTrace();
-                this.gIW.lV(false);
+                this.gPg.mj(false);
                 showToast(R.string.groupid_error);
                 return;
             }
@@ -115,7 +115,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bDB() {
+    public void bGi() {
         showToast(R.string.add_group_toast_noresult);
     }
 
@@ -127,7 +127,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aC(String str, int i) {
+    public void aD(String str, int i) {
         if (i < 0) {
             showToast(R.string.neterror);
         } else if (!TextUtils.isEmpty(str)) {

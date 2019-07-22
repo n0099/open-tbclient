@@ -7,28 +7,28 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.dialog.a;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.forumsearch.controller.e;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
-    private final TextView dlf;
-    private final ImageView fnA;
+    private final TextView dmM;
+    private final ImageView fsz;
     private int mSkinType;
 
     public a(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.fnA = (ImageView) getView().findViewById(R.id.history_delete);
-        this.dlf = (TextView) getView().findViewById(R.id.history_title);
-        this.fnA.setOnClickListener(this);
+        this.fsz = (ImageView) getView().findViewById(R.id.history_delete);
+        this.dmM = (TextView) getView().findViewById(R.id.history_title);
+        this.fsz.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.k(this.fnA, R.drawable.icon_search_history_del);
-            al.j(this.dlf, R.color.cp_cont_e);
+            am.k(this.fsz, R.drawable.icon_search_history_del);
+            am.j(this.dmM, R.color.cp_cont_e);
             this.mSkinType = i;
         }
     }
@@ -45,14 +45,14 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fnA) {
+        if (view == this.fsz) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mTbPageContext.getPageActivity());
-            aVar.hn(R.string.confirm_delete_all_history);
-            aVar.dN(true);
+            aVar.ht(R.string.confirm_delete_all_history);
+            aVar.dR(true);
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.forumsearch.c.a.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    e.biP();
+                    e.bkR();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
                     aVar2.dismiss();
                 }
@@ -64,7 +64,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.forumsearch.b.a> {
                 }
             });
             aVar.b(this.mTbPageContext);
-            aVar.afG();
+            aVar.agI();
         }
     }
 }

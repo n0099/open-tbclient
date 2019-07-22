@@ -6,19 +6,19 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.tbadk.core.util.ak;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
 /* loaded from: classes3.dex */
 public class KeepLiveStatic {
     public static final CustomMessageListener mKeepLiveServiceListener = new CustomMessageListener(2921300) { // from class: com.baidu.tieba.keepLive.KeepLiveStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst()) && !RomTypeUtil.isEmui()) {
+            if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst()) && !ak.Pw()) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Boolean) {
                     if (((Boolean) data).booleanValue()) {
-                        a.eM().eN();
+                        a.eT().eU();
                     } else {
                         KeepLiveUtil.startForKeeplive(TbadkCoreApplication.getInst().getApplicationContext());
                     }
@@ -42,7 +42,7 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!RomTypeUtil.isEmui() && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+            if (!ak.Pw() && (customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 ScreenManager.isBackGround = false;
             }
         }
@@ -51,7 +51,7 @@ public class KeepLiveStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!RomTypeUtil.isEmui() && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
+            if (!ak.Pw() && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                 ScreenManager.isBackGround = ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue();
             }
         }

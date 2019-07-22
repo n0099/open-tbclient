@@ -8,7 +8,7 @@ import com.baidu.sofire.ac.F;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public SharedPreferences a;
     public SharedPreferences b;
@@ -51,6 +51,7 @@ public final class e {
     }
 
     public final void a(String str, long j) {
+        new StringBuilder().append(str);
         b.a();
         try {
             this.c.putString("lsl", Base64.encodeToString(F.getInstance().ae(str.getBytes(), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)), 0));
@@ -64,6 +65,7 @@ public final class e {
     public final String d() {
         try {
             String str = new String(F.getInstance().ad(Base64.decode(this.a.getString("lsl", ""), 0), Base64.decode("MzAyMTIxMDJkaWN1ZGlhYg==", 0)));
+            new StringBuilder().append(str);
             b.a();
             return str;
         } catch (Throwable th) {
@@ -129,21 +131,7 @@ public final class e {
         return this.a.getBoolean("hac", false);
     }
 
-    public final String o() {
-        return this.b.getString("xyus", "");
-    }
-
-    public final void a(String str) {
-        this.d.putString("xyus", str);
-        this.d.commit();
-    }
-
-    public final void b(String str) {
-        this.c.putString("cczd_s", str);
-        this.c.commit();
-    }
-
-    public final List<Integer> p() {
+    public final List<Integer> o() {
         String[] split;
         ArrayList arrayList = new ArrayList();
         String string = this.a.getString("hcpk", "");
@@ -176,7 +164,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final List<Integer> q() {
+    public final List<Integer> p() {
         String[] split;
         ArrayList arrayList = new ArrayList();
         String string = this.a.getString("glspk", "");
@@ -209,7 +197,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final void r() {
+    public final void q() {
         this.c.putBoolean("lpcf", true);
         this.c.commit();
     }
@@ -224,7 +212,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final int s() {
+    public final int r() {
         return this.a.getInt("appal_te", 24);
     }
 
@@ -233,7 +221,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final int t() {
+    public final int s() {
         return this.a.getInt("sustfd", 0);
     }
 
@@ -242,7 +230,7 @@ public final class e {
         this.c.commit();
     }
 
-    public final int u() {
+    public final int t() {
         return this.a.getInt("sufzfd", 0);
     }
 
@@ -288,7 +276,7 @@ public final class e {
         this.f.commit();
     }
 
-    public final List<com.baidu.sofire.rp.a.a> v() {
+    public final List<com.baidu.sofire.rp.a.a> u() {
         com.baidu.sofire.rp.a.a a;
         String string = this.e.getString("re_con", "");
         if (TextUtils.isEmpty(string)) {
@@ -304,7 +292,7 @@ public final class e {
         return arrayList;
     }
 
-    public final int w() {
+    public final int v() {
         if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
             return this.e.getInt("re_net_hr", 24);
         }
@@ -326,7 +314,7 @@ public final class e {
         this.f.commit();
     }
 
-    public final int x() {
+    public final int w() {
         return this.e.getInt("up_nu_li", 100);
     }
 
@@ -340,7 +328,7 @@ public final class e {
         this.f.commit();
     }
 
-    public final String c(String str) {
+    public final String a(String str) {
         return this.e.getString("al_da" + str, "");
     }
 

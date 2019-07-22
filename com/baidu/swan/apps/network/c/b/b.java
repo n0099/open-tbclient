@@ -4,12 +4,12 @@ import android.support.annotation.NonNull;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class b {
-    public abstract void Ho();
+    @NonNull
+    public abstract String HZ();
+
+    public abstract void Ia();
 
     public abstract void L(JSONObject jSONObject);
-
-    @NonNull
-    public abstract String getNodeName();
 
     public abstract void onFail();
 }

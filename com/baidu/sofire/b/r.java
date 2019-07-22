@@ -4,7 +4,7 @@ import android.os.Build;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class r {
     private static final int b = Runtime.getRuntime().availableProcessors();
     private static volatile r c;
@@ -13,8 +13,6 @@ public class r {
     private r() {
         this.a = null;
         int i = b <= 0 ? 1 : b;
-        new StringBuilder("Thread Pool core ").append(b);
-        com.baidu.sofire.b.a();
         this.a = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         if (Build.VERSION.SDK_INT >= 9) {
             this.a.allowCoreThreadTimeOut(true);

@@ -17,22 +17,22 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    private static volatile a aSt;
-    private FloatButton aSu;
-    private JSONObject aSv;
-    private String aSw = "";
-    private String ama;
+    private static volatile a aTd;
+    private FloatButton aTe;
+    private JSONObject aTf;
+    private String aTg = "";
+    private String amD;
     private Activity mActivity;
 
-    public static a Mf() {
-        if (aSt == null) {
+    public static a MT() {
+        if (aTd == null) {
             synchronized (a.class) {
-                if (aSt == null) {
-                    aSt = new a();
+                if (aTd == null) {
+                    aTd = new a();
                 }
             }
         }
-        return aSt;
+        return aTd;
     }
 
     private a() {
@@ -44,25 +44,25 @@ public class a {
                 Log.i("FloatButtonGuideManager", jSONObject.toString());
             }
             this.mActivity = activity;
-            this.aSw = jSONObject.optString("name");
-            this.ama = ac.isAppInstalled(activity, this.aSw) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
-            this.aSv = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            this.aTg = jSONObject.optString("name");
+            this.amD = ac.isAppInstalled(activity, this.aTg) ? activity.getString(a.h.swan_app_hover_button_open) : activity.getString(a.h.swan_app_hover_button_download);
+            this.aTf = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
         }
     }
 
-    public FloatButton Mg() {
+    public FloatButton MU() {
         if (!(this.mActivity instanceof SwanAppActivity)) {
             return null;
         }
-        if (this.aSu == null) {
-            this.aSu = e(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
+        if (this.aTe == null) {
+            this.aTe = e(this.mActivity, (ViewGroup) this.mActivity.findViewById(16908290));
         }
-        this.aSu.setFloatButtonText(this.ama);
-        this.aSu.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
-        this.aSu.setFloatButtonDefaultPosition();
-        this.aSu.setFloatButtonStyle(this.aSv);
-        this.aSu.setVisibility(0);
-        return this.aSu;
+        this.aTe.setFloatButtonText(this.amD);
+        this.aTe.setFloatButtonDrawable(this.mActivity.getResources().getDrawable(a.e.swan_app_hover_button_shape));
+        this.aTe.setFloatButtonDefaultPosition();
+        this.aTe.setFloatButtonStyle(this.aTf);
+        this.aTe.setVisibility(0);
+        return this.aTe;
     }
 
     private FloatButton e(Context context, ViewGroup viewGroup) {
@@ -82,37 +82,37 @@ public class a {
     }
 
     public void L(Intent intent) {
-        if (intent != null && this.aSu != null) {
+        if (intent != null && this.aTe != null) {
             String dataString = intent.getDataString();
             if (!TextUtils.isEmpty(dataString)) {
                 String substring = dataString.substring(8);
-                if (!TextUtils.isEmpty(substring) && substring.equals(this.aSw)) {
+                if (!TextUtils.isEmpty(substring) && substring.equals(this.aTg)) {
                     if (TextUtils.equals("android.intent.action.PACKAGE_ADDED", intent.getAction())) {
-                        this.ama = this.mActivity.getResources().getString(a.h.swan_app_hover_button_open);
+                        this.amD = this.mActivity.getResources().getString(a.h.swan_app_hover_button_open);
                     } else if (TextUtils.equals("android.intent.action.PACKAGE_REMOVED", intent.getAction())) {
-                        this.ama = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
+                        this.amD = this.mActivity.getResources().getString(a.h.swan_app_hover_button_download);
                     }
-                    this.aSu.setFloatButtonText(this.ama);
+                    this.aTe.setFloatButtonText(this.amD);
                 }
             }
         }
     }
 
-    public FloatButton Mh() {
-        return this.aSu;
+    public FloatButton MV() {
+        return this.aTe;
     }
 
     public void a(FloatButton floatButton) {
-        this.aSu = floatButton;
+        this.aTe = floatButton;
     }
 
-    public void gY(String str) {
-        this.aSw = str;
+    public void hf(String str) {
+        this.aTg = str;
     }
 
     public static void release() {
-        if (aSt != null) {
-            aSt = null;
+        if (aTd != null) {
+            aTd = null;
         }
     }
 }

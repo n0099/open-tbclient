@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean ceh = false;
+    private boolean cfk = false;
 
-    public boolean akJ() {
-        return this.ceh;
+    public boolean alO() {
+        return this.cfk;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -24,13 +24,13 @@ public class a {
 
     private void aX(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.ceh = true;
+            this.cfk = true;
         }
     }
 
-    public void akK() {
+    public void alP() {
         try {
-            String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("praise_abtest_switch_json", null);
+            String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("praise_abtest_switch_json", null);
             if (!TextUtils.isEmpty(string)) {
                 aX(new JSONObject(string));
             }
@@ -41,9 +41,9 @@ public class a {
 
     public void aY(JSONObject jSONObject) {
         if (jSONObject != null) {
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("praise_abtest_switch_json", jSONObject.toString());
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("praise_abtest_switch_json", "");
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("praise_abtest_switch_json", "");
         }
     }
 }

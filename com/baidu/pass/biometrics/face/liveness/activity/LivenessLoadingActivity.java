@@ -103,7 +103,7 @@ public class LivenessLoadingActivity extends LivenessBaseActivity {
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
-            public void onFailure(Throwable th, String str) {
+            public void onFailure(Throwable th, int i, String str) {
                 LivenessLoadingActivity.this.closeLoading();
                 PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
                 passFaceRecogResult.setResultCode(-206);

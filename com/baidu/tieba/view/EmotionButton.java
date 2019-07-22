@@ -15,25 +15,25 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c;
 /* loaded from: classes.dex */
 public class EmotionButton extends View {
-    private static final int jAD = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-    private static int jAE = 1;
-    private int endColor;
+    private static final int jGM = l.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+    private static int jGN = 1;
+    private int cEG;
+    private int cEH;
+    private int cEI;
     private int height;
-    private int jAF;
-    private int jAG;
-    private int jAH;
-    private LinearGradient jAI;
-    private LinearGradient jAJ;
+    private int jGO;
+    private int jGP;
+    private int jGQ;
+    private LinearGradient jGR;
+    private LinearGradient jGS;
     private Paint mPaint;
     private RectF mRect;
     private TextPaint mTextPaint;
-    private int shadowColor;
-    private int startColor;
     private String text;
     private float textSize;
     private int width;
@@ -62,24 +62,24 @@ public class EmotionButton extends View {
     }
 
     private void init(Context context) {
-        this.shadowColor = al.getColor(R.color.cp_link_tip_a_alpha50);
-        this.startColor = al.getColor(R.color.cp_link_tip_a);
-        this.endColor = al.getColor(R.color.cp_link_tip_b);
-        this.jAF = al.getColor(R.color.cp_link_tip_a_alpha50);
-        this.jAG = al.getColor(R.color.cp_link_tip_a_alpha50);
-        this.jAH = al.getColor(R.color.cp_link_tip_b_alpha50);
+        this.cEI = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.cEG = am.getColor(R.color.cp_link_tip_a);
+        this.cEH = am.getColor(R.color.cp_link_tip_b);
+        this.jGO = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.jGP = am.getColor(R.color.cp_link_tip_a_alpha50);
+        this.jGQ = am.getColor(R.color.cp_link_tip_b_alpha50);
         this.mPaint = new Paint();
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint = new TextPaint(1);
         this.mTextPaint.setTextSize(this.textSize);
         this.mTextPaint.setStyle(Paint.Style.FILL);
         this.mTextPaint.setTextAlign(Paint.Align.CENTER);
-        this.mTextPaint.setColor(al.getColor(R.color.cp_btn_a));
+        this.mTextPaint.setColor(am.getColor(R.color.cp_btn_a));
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.view.EmotionButton.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
-                    int unused = EmotionButton.jAE = motionEvent.getAction();
+                    int unused = EmotionButton.jGN = motionEvent.getAction();
                     EmotionButton.this.invalidate();
                     return false;
                 }
@@ -109,13 +109,13 @@ public class EmotionButton extends View {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = i;
         this.height = i2;
-        this.jAI = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.endColor, this.startColor, Shader.TileMode.MIRROR);
-        this.jAJ = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.jAH, this.jAG, Shader.TileMode.MIRROR);
+        this.jGR = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.cEH, this.cEG, Shader.TileMode.MIRROR);
+        this.jGS = new LinearGradient(5.0f, 10.0f, this.width - 5, this.height - 10, this.jGQ, this.jGP, Shader.TileMode.MIRROR);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        if (jAE == 0) {
+        if (jGN == 0) {
             ae(canvas);
         } else {
             ad(canvas);
@@ -123,8 +123,8 @@ public class EmotionButton extends View {
     }
 
     private void ad(Canvas canvas) {
-        this.mPaint.setShader(this.jAI);
-        this.mPaint.setShadowLayer(jAD, 2.0f, 2.0f, this.shadowColor);
+        this.mPaint.setShader(this.jGR);
+        this.mPaint.setShadowLayer(jGM, 2.0f, 2.0f, this.cEI);
         if (this.mRect == null) {
             this.mRect = new RectF();
         }
@@ -140,8 +140,8 @@ public class EmotionButton extends View {
     }
 
     private void ae(Canvas canvas) {
-        this.mPaint.setShader(this.jAJ);
-        this.mPaint.setShadowLayer(jAD, 2.0f, 2.0f, this.jAF);
+        this.mPaint.setShader(this.jGS);
+        this.mPaint.setShadowLayer(jGM, 2.0f, 2.0f, this.jGO);
         if (this.mRect == null) {
             this.mRect = new RectF();
         }

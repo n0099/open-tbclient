@@ -21,10 +21,10 @@ public interface g {
 
         void f(int i, String str);
 
-        void kC();
+        void kR();
 
         void onOpen(Map<String, String> map);
 
-        void p(byte[] bArr);
+        void q(byte[] bArr);
     }
 }

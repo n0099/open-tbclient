@@ -8,9 +8,9 @@ import java.util.Set;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public abstract class e<K, V> {
-    e<K, V>.b bux;
-    e<K, V>.c buy;
-    e<K, V>.C0228e buz;
+    e<K, V>.b bvn;
+    e<K, V>.c bvo;
+    e<K, V>.C0225e bvp;
 
     protected abstract void colClear();
 
@@ -360,8 +360,8 @@ public abstract class e<K, V> {
 
     /* renamed from: com.baidu.swan.support.v4.b.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    final class C0228e implements Collection<V> {
-        C0228e() {
+    final class C0225e implements Collection<V> {
+        C0225e() {
         }
 
         @Override // java.util.Collection
@@ -546,23 +546,23 @@ public abstract class e<K, V> {
     }
 
     public Set<Map.Entry<K, V>> getEntrySet() {
-        if (this.bux == null) {
-            this.bux = new b();
+        if (this.bvn == null) {
+            this.bvn = new b();
         }
-        return this.bux;
+        return this.bvn;
     }
 
     public Set<K> getKeySet() {
-        if (this.buy == null) {
-            this.buy = new c();
+        if (this.bvo == null) {
+            this.bvo = new c();
         }
-        return this.buy;
+        return this.bvo;
     }
 
     public Collection<V> getValues() {
-        if (this.buz == null) {
-            this.buz = new C0228e();
+        if (this.bvp == null) {
+            this.bvp = new C0225e();
         }
-        return this.buz;
+        return this.bvp;
     }
 }

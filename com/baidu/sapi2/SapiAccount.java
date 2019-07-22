@@ -4,13 +4,14 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.share.ShareAccountAccessor;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,18 +21,28 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
+public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
-    @Deprecated
-    private String a;
+    public static final String SAPI_ACCOUNT_APP = "app";
+    public static final String SAPI_ACCOUNT_EXTRA = "extra";
+    private static final String a = "uid";
+    private static final String b = "displayname";
+    private static final String c = "username";
+    private static final String d = "email";
+    private static final String e = "phone";
+    private static final String f = "bduss";
+    private static final String g = "ptoken";
+    private static final String h = "stoken";
     public String app;
-    @Deprecated
-    private String b;
     public String bduss;
     public String displayname;
     @Deprecated
     public String email;
     protected String extra;
+    @Deprecated
+    private String i;
+    @Deprecated
+    private String j;
     @Deprecated
     public String phone;
     protected String ptoken;
@@ -76,44 +87,9 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         this.app = parcel.readString();
         this.ptoken = parcel.readString();
         this.stoken = parcel.readString();
-        this.b = parcel.readString();
+        this.j = parcel.readString();
         this.extra = parcel.readString();
-        this.a = parcel.readString();
-    }
-
-    @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount
-    public String getSapiAccountInfo(String str) {
-        if (str.equals("uid")) {
-            return this.uid;
-        }
-        if (str.equals("displayname")) {
-            return this.displayname;
-        }
-        if (str.equals("username")) {
-            return this.username;
-        }
-        if (str.equals("email")) {
-            return this.email;
-        }
-        if (str.equals(ISapiAccount.SAPI_ACCOUNT_PHONE)) {
-            return this.phone;
-        }
-        if (str.equals("bduss")) {
-            return this.bduss;
-        }
-        if (str.equals("app")) {
-            return this.app;
-        }
-        if (str.equals(ISapiAccount.SAPI_ACCOUNT_PTOKEN)) {
-            return "";
-        }
-        if (str.equals(ISapiAccount.SAPI_ACCOUNT_STOKEN)) {
-            return this.stoken;
-        }
-        if (str.equals("extra")) {
-            return this.extra;
-        }
-        return null;
+        this.i = parcel.readString();
     }
 
     public JSONObject toJSONObject() {
@@ -123,15 +99,15 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
             jSONObject.put("displayname", this.displayname);
             jSONObject.put("username", this.username);
             jSONObject.put("email", this.email);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, this.phone);
+            jSONObject.put(e, this.phone);
             jSONObject.put("bduss", this.bduss);
             jSONObject.put("app", this.app);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, this.ptoken);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_STOKEN, this.stoken);
+            jSONObject.put(g, this.ptoken);
+            jSONObject.put(h, this.stoken);
             jSONObject.put("extra", this.extra);
             return jSONObject;
-        } catch (JSONException e) {
-            Log.e(e);
+        } catch (JSONException e2) {
+            Log.e(e2);
             return null;
         }
     }
@@ -159,11 +135,11 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         sapiAccount.displayname = jSONObject.optString("displayname");
         sapiAccount.username = jSONObject.optString("username");
         sapiAccount.email = jSONObject.optString("email");
-        sapiAccount.phone = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        sapiAccount.phone = jSONObject.optString(e);
         sapiAccount.bduss = jSONObject.optString("bduss");
         sapiAccount.app = jSONObject.optString("app");
-        sapiAccount.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-        sapiAccount.stoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_STOKEN);
+        sapiAccount.ptoken = jSONObject.optString(g);
+        sapiAccount.stoken = jSONObject.optString(h);
         sapiAccount.extra = jSONObject.optString("extra");
         if (SapiUtils.isValidAccount(sapiAccount)) {
             return sapiAccount;
@@ -182,8 +158,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 if (fromJSONObject != null) {
                     arrayList.add(fromJSONObject);
                 }
-            } catch (JSONException e) {
-                Log.e(e);
+            } catch (JSONException e2) {
+                Log.e(e2);
             }
         }
         return arrayList;
@@ -208,7 +184,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     }
 
     public SocialType getSocialType() {
-        return SocialType.getSocialType(a("social_type", SocialType.UNKNOWN.getType()));
+        return SocialType.getSocialType(a(LoginActivityConfig.SOCIAL_TYPE, SocialType.UNKNOWN.getType()));
     }
 
     public AccountType getAccountType() {
@@ -224,7 +200,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     }
 
     public String getShareAccountPkg() {
-        return a("pkg", (String) null);
+        return a(Config.INPUT_DEF_PKG, (String) null);
     }
 
     public Object clone() throws CloneNotSupportedException {
@@ -259,9 +235,9 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         parcel.writeString(this.app);
         parcel.writeString(this.ptoken);
         parcel.writeString(this.stoken);
-        parcel.writeString(this.b);
+        parcel.writeString(this.j);
         parcel.writeString(this.extra);
-        parcel.writeString(this.a);
+        parcel.writeString(this.i);
     }
 
     public boolean equals(Object obj) {
@@ -291,48 +267,6 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
 
     public String toString() {
         return "SapiAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', phone='" + this.phone + "', bduss='" + this.bduss + "', app='" + this.app + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', extra='" + this.extra + "'}";
-    }
-
-    public ReloginCredentials getReloginCredentials() {
-        return SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getReloginCredentials(this.uid);
-    }
-
-    /* loaded from: classes.dex */
-    public static final class ReloginCredentials {
-        static final String a = "account";
-        static final String b = "account_type";
-        static final String c = "password";
-        static final String d = "ubi";
-        public String account;
-        public String accountType;
-        public String password;
-        public String ubi;
-
-        public JSONObject toJSONObject() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(a, this.account);
-                jSONObject.put("account_type", this.accountType);
-                jSONObject.put(c, this.password);
-                jSONObject.put(d, this.ubi);
-                return jSONObject;
-            } catch (JSONException e) {
-                Log.e(e);
-                return null;
-            }
-        }
-
-        public static ReloginCredentials fromJSONObject(JSONObject jSONObject) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ReloginCredentials reloginCredentials = new ReloginCredentials();
-            reloginCredentials.account = jSONObject.optString(a);
-            reloginCredentials.accountType = jSONObject.optString("account_type");
-            reloginCredentials.password = jSONObject.optString(c);
-            reloginCredentials.ubi = jSONObject.optString(d);
-            return reloginCredentials;
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -397,7 +331,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 jSONObject.put(EXTRA_TPL_STOKEN_LIST, new JSONObject(this.dispersionCertification.tplStokenMap));
                 jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.e);
                 jSONObject.put(EXTRA_TPL, this.f);
-                jSONObject.put(EXTRA_PKG, this.g);
+                jSONObject.put("pkg", this.g);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -417,7 +351,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);
             extraProperty.e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
             extraProperty.f = jSONObject.optString(EXTRA_TPL);
-            extraProperty.g = jSONObject.optString(EXTRA_PKG);
+            extraProperty.g = jSONObject.optString("pkg");
             return extraProperty;
         }
     }
@@ -426,8 +360,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (!TextUtils.isEmpty(this.extra)) {
             try {
                 return new JSONObject(this.extra).optBoolean(str, z);
-            } catch (JSONException e) {
-                Log.e(e);
+            } catch (JSONException e2) {
+                Log.e(e2);
                 return z;
             }
         }
@@ -438,8 +372,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (!TextUtils.isEmpty(this.extra)) {
             try {
                 return new JSONObject(this.extra).optString(str, str2);
-            } catch (JSONException e) {
-                Log.e(e);
+            } catch (JSONException e2) {
+                Log.e(e2);
                 return str2;
             }
         }
@@ -450,8 +384,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
         if (!TextUtils.isEmpty(this.extra)) {
             try {
                 return new JSONObject(this.extra).optInt(str, i);
-            } catch (JSONException e) {
-                Log.e(e);
+            } catch (JSONException e2) {
+                Log.e(e2);
                 return i;
             }
         }
@@ -467,8 +401,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                     jSONObject.put(str, obj);
                     this.extra = jSONObject.toString();
                     return;
-                } catch (JSONException e) {
-                    Log.e(e);
+                } catch (JSONException e2) {
+                    Log.e(e2);
                     return;
                 }
             }
@@ -476,8 +410,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 JSONObject jSONObject2 = new JSONObject(this.extra);
                 jSONObject2.put(str, obj);
                 this.extra = jSONObject2.toString();
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e3) {
+                Log.e(e3);
             }
         }
     }
@@ -485,7 +419,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     /* JADX INFO: Access modifiers changed from: protected */
     public void addSocialInfo(SocialType socialType, String str) {
         putExtra("is_social_account", true);
-        putExtra("social_type", Integer.valueOf(socialType.getType()));
+        putExtra(LoginActivityConfig.SOCIAL_TYPE, Integer.valueOf(socialType.getType()));
         putExtra("social_portrait", str);
     }
 
@@ -501,7 +435,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setAccountPkg(String str) {
-        putExtra("pkg", str);
+        putExtra(Config.INPUT_DEF_PKG, str);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -523,8 +457,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                     extraProperty.a = fromJSONObject.a;
                     extraProperty.e = fromJSONObject.e;
                     this.extra = extraProperty.toJSONObject().toString();
-                } catch (JSONException e) {
-                    Log.e(e);
+                } catch (JSONException e2) {
+                    Log.e(e2);
                 }
             }
         }
@@ -538,8 +472,8 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 fromJSONObject.dispersionCertification.tplStokenMap.clear();
                 this.extra = fromJSONObject.toJSONObject().toString();
             }
-        } catch (JSONException e) {
-            Log.e(e);
+        } catch (JSONException e2) {
+            Log.e(e2);
         }
     }
 
@@ -559,7 +493,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
 
     private boolean b() {
         Context context = ServiceManager.getInstance().getIsAccountManager().getConfignation().context;
-        for (String str : SapiContext.getInstance(context).getSapiOptions().f()) {
+        for (String str : SapiContext.getInstance(context).getSapiOptions().c()) {
             if (context.getPackageName().matches(str)) {
                 return true;
             }

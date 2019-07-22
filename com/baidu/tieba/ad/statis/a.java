@@ -6,12 +6,12 @@ public class a implements com.baidu.tieba.p.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0269a {
-        private static a cWn = new a();
+    private static class C0266a {
+        private static a cXJ = new a();
     }
 
-    public static a aBS() {
-        return C0269a.cWn;
+    public static a aDh() {
+        return C0266a.cXJ;
     }
 
     @Override // com.baidu.tieba.p.a
@@ -25,7 +25,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void ck(String str, String str2) {
+    public void cl(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -34,7 +34,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void cl(String str, String str2) {
+    public void cm(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -43,7 +43,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void cm(String str, String str2) {
+    public void cn(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);

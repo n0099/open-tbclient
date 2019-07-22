@@ -13,16 +13,16 @@ import com.baidu.tieba.R;
 import com.vivo.push.util.NotifyAdapterUtil;
 /* loaded from: classes3.dex */
 public class a {
-    private static a ctT = new a();
-    private GameInfoData ctU;
-    private final c ctV = new c(303009) { // from class: com.baidu.tbadk.game.a.2
+    private static a cvi = new a();
+    private GameInfoData cvj;
+    private final c cvk = new c(303009) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.ctU = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.cvj = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -30,25 +30,25 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.ctV);
+        MessageManager.getInstance().registerListener(this.cvk);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2001261, a.this.asf());
+                return new CustomResponsedMessage<>(2001261, a.this.atm());
             }
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    public static a asc() {
-        return ctT;
+    public static a atj() {
+        return cvi;
     }
 
-    private GameInfoData asd() {
+    private GameInfoData atk() {
         GameInfoData gameInfoData = new GameInfoData();
         gameInfoData.setGameName(TbadkApplication.getInst().getContext().getString(R.string.default_share_to_game_title));
         gameInfoData.setGameLink(this.mUrl);
@@ -58,19 +58,19 @@ public class a {
         return gameInfoData;
     }
 
-    public GameInfoData ase() {
-        return this.ctU == null ? asd() : this.ctU;
+    public GameInfoData atl() {
+        return this.cvj == null ? atk() : this.cvj;
     }
 
-    public ShareFromGameCenterMsgData asf() {
-        GameInfoData ase = ase();
+    public ShareFromGameCenterMsgData atm() {
+        GameInfoData atl = atl();
         ShareFromGameCenterMsgData shareFromGameCenterMsgData = new ShareFromGameCenterMsgData();
-        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? ase.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
-        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? ase.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
-        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? ase.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
-        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? ase.getGameName() : GameShareJsBridge.getInstance().getShareName());
-        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? ase.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
-        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? ase.getGameId() : GameShareJsBridge.getInstance().getGameId();
+        shareFromGameCenterMsgData.setTitle(StringUtils.isNull(GameShareJsBridge.getInstance().getShareTitle(), true) ? atl.getGameName() : GameShareJsBridge.getInstance().getShareTitle());
+        shareFromGameCenterMsgData.setContent(StringUtils.isNull(GameShareJsBridge.getInstance().getShareContent(), true) ? atl.getIntroduce() : GameShareJsBridge.getInstance().getShareContent());
+        shareFromGameCenterMsgData.setImageUrl(StringUtils.isNull(GameShareJsBridge.getInstance().getShareImage(), true) ? atl.getIconUrl() : GameShareJsBridge.getInstance().getShareImage());
+        shareFromGameCenterMsgData.setShareSource(StringUtils.isNull(GameShareJsBridge.getInstance().getShareName(), true) ? atl.getGameName() : GameShareJsBridge.getInstance().getShareName());
+        shareFromGameCenterMsgData.setShareSourceIcon(StringUtils.isNull(GameShareJsBridge.getInstance().getIconUrl(), true) ? atl.getIconUrl() : GameShareJsBridge.getInstance().getIconUrl());
+        String gameId = StringUtils.isNull(GameShareJsBridge.getInstance().getGameId(), true) ? atl.getGameId() : GameShareJsBridge.getInstance().getGameId();
         if (NotifyAdapterUtil.PRIMARY_CHANNEL.equals(gameId)) {
             shareFromGameCenterMsgData.setShareSourceUrl(gameId);
         } else {
@@ -78,7 +78,7 @@ public class a {
         }
         String shareContentUrl = GameShareJsBridge.getInstance().getShareContentUrl();
         if (StringUtils.isNull(shareContentUrl)) {
-            shareContentUrl = ase.getGameLink();
+            shareContentUrl = atl.getGameLink();
         }
         if (StringUtils.isNull(shareContentUrl, true)) {
             shareContentUrl = "";

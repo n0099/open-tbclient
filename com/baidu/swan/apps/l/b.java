@@ -15,18 +15,18 @@ public class b implements h {
 
     @Override // com.baidu.swan.games.e.h
     public String getUserAgent() {
-        return a.Cd();
+        return a.CM();
     }
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static String AQ;
+        private static String AX;
 
-        static String Cd() {
-            if (TextUtils.isEmpty(AQ)) {
-                AQ = new b.a().aJ("swangame", "1.0").aK(SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName()).aL("Baidu", com.baidu.swan.apps.al.b.getOSVersion()).On();
+        static String CM() {
+            if (TextUtils.isEmpty(AX)) {
+                AX = new b.a().aJ("swangame", "1.0").aK(SchemeConfig.DEFAULT_SCHEME_HEAD, com.baidu.swan.apps.al.b.getVersionName()).aL("Baidu", com.baidu.swan.apps.al.b.getOSVersion()).Pc();
             }
-            return AQ;
+            return AX;
         }
     }
 }

@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import java.lang.reflect.Field;
@@ -30,15 +30,15 @@ import java.lang.reflect.Field;
 public final class d {
     public static PopupWindow a(final g gVar) {
         View.OnClickListener onClickListener;
-        Activity eN = com.baidu.adp.base.a.eM().eN();
-        if (eN == null || gVar == null) {
+        Activity eU = com.baidu.adp.base.a.eT().eU();
+        if (eU == null || gVar == null) {
             return null;
         }
         final String url = gVar.getUrl();
         if (StringUtils.isNull(url)) {
             return null;
         }
-        View inflate = LayoutInflater.from(eN).inflate(R.layout.aiapps_token_layout, (ViewGroup) null, true);
+        View inflate = LayoutInflater.from(eU).inflate(R.layout.aiapps_token_layout, (ViewGroup) null, true);
         TextView textView = (TextView) inflate.findViewById(R.id.go_to_aiapps_go);
         TextView textView2 = (TextView) inflate.findViewById(R.id.go_to_aiapps_cancel);
         TextView textView3 = (TextView) inflate.findViewById(R.id.token_title);
@@ -46,25 +46,25 @@ public final class d {
         TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.token_top_cover);
         tbImageView.setDefaultResource(R.drawable.toastpic);
         tbImageView.setAutoChangeStyle(false);
-        final PopupWindow popupWindow = new PopupWindow(eN);
-        switch (gVar.YF()) {
+        final PopupWindow popupWindow = new PopupWindow(eU);
+        switch (gVar.ZB()) {
             case 3:
                 tbImageView.setImageResource(R.drawable.toastpic_scheme);
                 onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
-                            if (com.baidu.adp.base.a.eM().eN() != null && !StringUtils.isNull(g.this.getUrl())) {
+                            if (com.baidu.adp.base.a.eT().eU() != null && !StringUtils.isNull(g.this.getUrl())) {
                                 Uri parse = Uri.parse(g.this.getUrl());
                                 if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null) {
-                                    TiebaStatic.log(new am("c13391").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
+                                    TiebaStatic.log(new an("c13391").bT("obj_type", parse.getQueryParameter("obj_type")).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
                                 }
-                                if (g.this.getUrl().startsWith(f.SCHEME)) {
+                                if (g.this.getUrl().startsWith(f.bzd)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.byu, f.byx);
+                                    buildUpon.appendQueryParameter(f.bzn, f.bzr);
                                     parse = buildUpon.build();
                                 }
-                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eM().eN(), parse.toString());
+                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.eT().eU(), parse.toString());
                             }
                             try {
                                 popupWindow.dismiss();
@@ -87,7 +87,7 @@ public final class d {
                     public void onClick(View view) {
                         if (view.getId() == R.id.go_to_aiapps_go) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                            TiebaStatic.log(new am("c13274").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(VideoPlayActivityConfig.OBJ_ID, gVar.byD).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").bT("obj_name", gVar.appName).P("obj_param1", gVar.byE.intValue()));
+                            TiebaStatic.log(new an("c13274").bT("uid", TbadkCoreApplication.getCurrentAccount()).bT(VideoPlayActivityConfig.OBJ_ID, gVar.bzx).bT(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").bT("obj_name", gVar.appName).P("obj_param1", gVar.bzy.intValue()));
                             try {
                                 popupWindow.dismiss();
                             } catch (Throwable th) {
@@ -102,8 +102,8 @@ public final class d {
                         }
                     }
                 };
-                if (!StringUtils.isNull(gVar.YC())) {
-                    tbImageView.startLoad(gVar.YC(), 10, false);
+                if (!StringUtils.isNull(gVar.Zy())) {
+                    tbImageView.startLoad(gVar.Zy(), 10, false);
                     onClickListener = onClickListener2;
                     break;
                 } else {
@@ -114,15 +114,15 @@ public final class d {
         }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        textView.setText(gVar.YD());
-        textView2.setText(gVar.YE());
+        textView.setText(gVar.Zz());
+        textView2.setText(gVar.ZA());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();
         colorDrawable.setColor(Color.argb(178, 0, 0, 0));
         popupWindow.setBackgroundDrawable(colorDrawable);
-        popupWindow.setWidth(l.af(eN));
-        popupWindow.setHeight(l.ah(eN));
+        popupWindow.setWidth(l.af(eU));
+        popupWindow.setHeight(l.ah(eU));
         popupWindow.setContentView(inflate);
         popupWindow.setOutsideTouchable(true);
         if (Build.VERSION.SDK_INT >= 21) {

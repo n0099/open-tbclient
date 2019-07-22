@@ -5,19 +5,17 @@ import android.net.wifi.WifiManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.base.network.Apn;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class h {
-    private static String ZF = null;
+    private static String aaa = null;
 
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {
-            return Apn.APN_UNKNOWN;
+            return "N/A";
         }
         MessageDigest messageDigest = null;
         try {
@@ -52,17 +50,17 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (ZF != null) {
-                return ZF;
+            if (aaa != null) {
+                return aaa;
             }
             try {
-                ZF = a(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                aaa = a(((TelephonyManager) context.getSystemService("phone")).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.v("getCUID fail," + e);
-                ZF = Apn.APN_UNKNOWN;
+                aaa = "N/A";
             }
-            return ZF;
+            return aaa;
         }
-        return Apn.APN_UNKNOWN;
+        return "N/A";
     }
 }

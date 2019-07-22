@@ -1,56 +1,246 @@
 package com.baidu.mobstat;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import java.util.ArrayList;
+import android.content.Context;
+import android.text.TextUtils;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import java.text.SimpleDateFormat;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-class y extends q {
-    public y() {
-        super("app_trace3", "Create table if not exists app_trace3(_id Integer primary key AUTOINCREMENT,time VARCHAR(50),content TEXT);");
-    }
+public class y {
+    private static y a;
+    private Context b;
+    private JSONObject c = new JSONObject();
+    private long d = 24;
+    private long e = 0;
+    private long f = 0;
+    private long g = 0;
+    private long h = 5;
+    private long i = 24;
+    private long j = 15;
+    private long k = 15;
+    private long l = 30;
+    private long m = 12;
+    private long n = 1;
+    private long o = 24;
+    private String p = "";
+    private String q = "";
 
-    @Override // com.baidu.mobstat.q
-    public ArrayList<p> a(int i, int i2) {
-        Cursor a = a(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, i, i2);
-        ArrayList<p> a2 = a(a);
-        if (a != null) {
-            a.close();
-        }
-        return a2;
-    }
-
-    @Override // com.baidu.mobstat.q
-    public long a(String str, String str2) {
-        Cursor a = a("content", str2, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 1);
-        ArrayList<p> a2 = a(a);
-        if (a != null) {
-            a.close();
-        }
-        if (a2.size() != 0) {
-            return a2.get(0).a();
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
-        contentValues.put("content", str2);
-        return a(contentValues);
-    }
-
-    @Override // com.baidu.mobstat.q
-    public boolean b(long j) {
-        return a(j);
-    }
-
-    private ArrayList<p> a(Cursor cursor) {
-        ArrayList<p> arrayList = new ArrayList<>();
-        if (cursor != null && cursor.getCount() != 0) {
-            int columnIndex = cursor.getColumnIndex("_id");
-            int columnIndex2 = cursor.getColumnIndex(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
-            int columnIndex3 = cursor.getColumnIndex("content");
-            while (cursor.moveToNext()) {
-                arrayList.add(new p(cursor.getLong(columnIndex), cursor.getString(columnIndex2), cursor.getString(columnIndex3)));
+    public static y a(Context context) {
+        if (a == null) {
+            synchronized (y.class) {
+                if (a == null) {
+                    a = new y(context);
+                }
             }
         }
-        return arrayList;
+        return a;
+    }
+
+    private y(Context context) {
+        this.b = context;
+        m();
+        j();
+        k();
+    }
+
+    private void m() {
+        String b = bo.b("backups/system/.timestamp");
+        try {
+            if (!TextUtils.isEmpty(b)) {
+                this.c = new JSONObject(b);
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public boolean a() {
+        return this.e != 0;
+    }
+
+    public boolean b() {
+        return this.f != 0;
+    }
+
+    public long c() {
+        return this.d * 60 * 60 * 1000;
+    }
+
+    public long d() {
+        return this.o * 60 * 60 * 1000;
+    }
+
+    public long e() {
+        return this.h * 60 * 1000;
+    }
+
+    public long f() {
+        return this.i * 60 * 60 * 1000;
+    }
+
+    public long g() {
+        return this.j * 24 * 60 * 60 * 1000;
+    }
+
+    public long h() {
+        return this.k * 24 * 60 * 60 * 1000;
+    }
+
+    public long i() {
+        return this.m * 60 * 60 * 1000;
+    }
+
+    public void j() {
+        try {
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".config2").getBytes())));
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject(str);
+                try {
+                    this.e = jSONObject.getLong("c");
+                } catch (JSONException e) {
+                    bb.c().b(e);
+                }
+                try {
+                    this.h = jSONObject.getLong("d");
+                } catch (JSONException e2) {
+                    bb.c().b(e2);
+                }
+                try {
+                    this.i = jSONObject.getLong("e");
+                } catch (JSONException e3) {
+                    bb.c().b(e3);
+                }
+                try {
+                    this.j = jSONObject.getLong("i");
+                } catch (JSONException e4) {
+                    bb.c().b(e4);
+                }
+                try {
+                    this.d = jSONObject.getLong("f");
+                } catch (JSONException e5) {
+                    bb.c().b(e5);
+                }
+                try {
+                    this.o = jSONObject.getLong("s");
+                } catch (JSONException e6) {
+                    bb.c().b(e6);
+                }
+                try {
+                    this.k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
+                } catch (JSONException e7) {
+                    bb.c().b(e7);
+                }
+                try {
+                    this.l = jSONObject.getLong("at");
+                } catch (JSONException e8) {
+                    bb.c().b(e8);
+                }
+                try {
+                    this.m = jSONObject.getLong(AdvanceSetting.ADVANCE_SETTING);
+                } catch (JSONException e9) {
+                    bb.c().b(e9);
+                }
+                try {
+                    this.n = jSONObject.getLong("ac");
+                } catch (JSONException e10) {
+                    bb.c().b(e10);
+                }
+                try {
+                    this.f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+                } catch (JSONException e11) {
+                    bb.c().b(e11);
+                }
+                try {
+                    this.g = jSONObject.getLong("lsc");
+                } catch (JSONException e12) {
+                    bb.c().b(e12);
+                }
+            }
+        } catch (Exception e13) {
+            bb.c().b(e13);
+        }
+    }
+
+    public void k() {
+        try {
+            String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".sign").getBytes())));
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject jSONObject = new JSONObject(str);
+                try {
+                    this.q = jSONObject.getString("sign");
+                } catch (Exception e) {
+                    bb.c().b(e);
+                }
+                try {
+                    this.p = jSONObject.getString("ver");
+                } catch (Exception e2) {
+                    bb.c().b(e2);
+                }
+            }
+        } catch (Exception e3) {
+            bb.c().b(e3);
+        }
+    }
+
+    public void a(String str) {
+        bo.a(this.b, ".config2", str, false);
+        j();
+    }
+
+    public void b(String str) {
+        bo.a(this.b, ".sign", str, false);
+        k();
+    }
+
+    public String c(String str) {
+        return (TextUtils.isEmpty(this.p) || !this.p.equals(str) || TextUtils.isEmpty(this.q)) ? "" : this.q;
+    }
+
+    public long a(g gVar) {
+        long j = gVar.j;
+        try {
+            String gVar2 = gVar.toString();
+            if (this.c.has(gVar2)) {
+                j = this.c.getLong(gVar2);
+            }
+        } catch (Exception e) {
+            bb.c().a(e);
+        }
+        return b(j);
+    }
+
+    public void a(g gVar, long j) {
+        gVar.j = j;
+        try {
+            this.c.put(gVar.toString(), j);
+        } catch (Exception e) {
+            bb.c().a(e);
+        }
+        try {
+            bo.a("backups/system/.timestamp", this.c.toString(), false);
+        } catch (Exception e2) {
+            bb.c().a(e2);
+        }
+    }
+
+    public boolean l() {
+        long currentTimeMillis = System.currentTimeMillis();
+        long a2 = a(g.LAST_SEND);
+        long d = d();
+        bb.c().a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d);
+        return currentTimeMillis - a2 > d || !a(a2);
+    }
+
+    public boolean a(long j) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+        return simpleDateFormat.format(Long.valueOf(j)).equals(simpleDateFormat.format(Long.valueOf(System.currentTimeMillis())));
+    }
+
+    private long b(long j) {
+        if (j - System.currentTimeMillis() > 0) {
+            return 0L;
+        }
+        return j;
     }
 }

@@ -10,26 +10,26 @@ import com.baidu.tbadk.core.atomData.CreateGroupStepActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes5.dex */
 public class CreateGroupMainActivity extends BaseActivity<CreateGroupMainActivity> {
-    f gws = null;
-    private int gwt;
-    private int gwu;
-    private int gwv;
+    f gCD = null;
+    private int gCE;
+    private int gCF;
+    private int gCG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.gws = new f(this);
+        this.gCD = new f(this);
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(CreateGroupMainActivityConfig.CANCRRATEOFFICIALGROUP, false);
         boolean booleanExtra2 = intent.getBooleanExtra(CreateGroupMainActivityConfig.CANCREATECOMMONGROUP, false);
         String stringExtra = intent.getStringExtra(CreateGroupMainActivityConfig.CREATEGROUPOFFICIALTIP);
         String stringExtra2 = intent.getStringExtra(CreateGroupMainActivityConfig.CREATECOMMONGROUPTIP);
         int intExtra = intent.getIntExtra("forumid", 0);
-        this.gwt = intent.getIntExtra("num_create_group_normal", 0);
-        this.gwu = intent.getIntExtra("num_create_group_offical", 0);
-        this.gwv = intent.getIntExtra("num_create_group_private", 0);
-        this.gws.a(booleanExtra, booleanExtra2, stringExtra, stringExtra2, intExtra);
+        this.gCE = intent.getIntExtra("num_create_group_normal", 0);
+        this.gCF = intent.getIntExtra("num_create_group_offical", 0);
+        this.gCG = intent.getIntExtra("num_create_group_private", 0);
+        this.gCD.a(booleanExtra, booleanExtra2, stringExtra, stringExtra2, intExtra);
         TiebaStatic.eventStat(getPageContext().getContext(), "create_g_bz_pv", "pv", 1, new Object[0]);
     }
 
@@ -37,17 +37,17 @@ public class CreateGroupMainActivity extends BaseActivity<CreateGroupMainActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.gws.onChangeSkinType(i);
+        this.gCD.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.gws.byK()) {
-            sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(getPageContext().getContext(), 3, this.gws.getForumId(), 1013, this.gwt, this.gwu, this.gwv)));
+        if (view == this.gCD.bBp()) {
+            sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(getPageContext().getContext(), 3, this.gCD.getForumId(), 1013, this.gCE, this.gCF, this.gCG)));
             TiebaStatic.eventStat(getPageContext().getContext(), "create_g_common", "click", 1, new Object[0]);
-        } else if (view == this.gws.byL()) {
-            sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(getPageContext().getContext(), 4, this.gws.getForumId(), 1013, this.gwt, this.gwu, this.gwv)));
+        } else if (view == this.gCD.bBq()) {
+            sendMessage(new CustomMessage(2002001, new CreateGroupStepActivityConfig(getPageContext().getContext(), 4, this.gCD.getForumId(), 1013, this.gCE, this.gCF, this.gCG)));
             TiebaStatic.eventStat(getPageContext().getContext(), "create_g_official", "click", 1, new Object[0]);
         }
         finish();

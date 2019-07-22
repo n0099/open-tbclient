@@ -7,8 +7,6 @@ public interface e {
 
     boolean isPlaying();
 
-    void onRelease();
-
     void pause();
 
     void play();
@@ -16,4 +14,6 @@ public interface e {
     void seek(int i);
 
     void stop();
+
+    void xK();
 }

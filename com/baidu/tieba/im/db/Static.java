@@ -16,10 +16,10 @@ public class Static {
                     aa.b(new z<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.z
-                        /* renamed from: aCb */
+                        /* renamed from: aDr */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.yl((String) customResponsedMessage.getData());
+                                g.yV((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;
@@ -27,7 +27,7 @@ public class Static {
                     }, new com.baidu.tbadk.util.k<Void>() { // from class: com.baidu.tieba.im.db.Static.1.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.k
-                        /* renamed from: b */
+                        /* renamed from: a */
                         public void onReturnDataInUI(Void r4) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008016));
                         }

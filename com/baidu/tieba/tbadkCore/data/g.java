@@ -1,20 +1,20 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class g {
-    private String iYl;
     private int isFromDecreaseGiftStepStrategy = 0;
+    private String jeC;
     private int status;
 
     public void setStatus(int i) {
         this.status = i;
     }
 
-    public String clZ() {
-        return this.iYl;
+    public String coR() {
+        return this.jeC;
     }
 
-    public void DU(String str) {
-        this.iYl = str;
+    public void EH(String str) {
+        this.jeC = str;
     }
 
     public int isFromDecreaseGiftStepStrategy() {

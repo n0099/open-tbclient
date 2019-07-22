@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes5.dex */
 public class b implements c.a {
-    private final CloudMusicModel jor;
-    private final c.b jos;
+    private final CloudMusicModel juy;
+    private final c.b juz;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.jor = cloudMusicModel;
-        this.jos = bVar;
+        this.juy = cloudMusicModel;
+        this.juz = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void cre() {
-        this.jos.ro(true);
-        this.jor.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+    public void ctP() {
+        this.juz.rB(true);
+        this.juy.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void az(CloudMusicData cloudMusicData) {
-                b.this.jos.ro(false);
+                b.this.juz.rB(false);
                 if (cloudMusicData != null) {
-                    b.this.jos.rp(false);
+                    b.this.juz.rC(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.jos.rp(true);
+                        b.this.juz.rC(true);
                         return;
                     } else {
-                        b.this.jos.a(cloudMusicData);
+                        b.this.juz.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.jos.rp(true);
+                b.this.juz.rC(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
-    public void bmr() {
-        this.jor.cancelLoadData();
+    public void bos() {
+        this.juy.cancelLoadData();
     }
 }

@@ -14,6 +14,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
+import org.apache.http.cookie.SM;
 /* loaded from: classes2.dex */
 public final class Cookie {
     private final String domain;
@@ -346,7 +347,7 @@ public final class Cookie {
     }
 
     public static List<Cookie> parseAll(HttpUrl httpUrl, Headers headers) {
-        List<String> values = headers.values("Set-Cookie");
+        List<String> values = headers.values(SM.SET_COOKIE);
         ArrayList arrayList = null;
         int size = values.size();
         for (int i = 0; i < size; i++) {

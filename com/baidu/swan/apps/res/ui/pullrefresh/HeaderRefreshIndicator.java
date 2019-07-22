@@ -7,10 +7,10 @@ import com.baidu.swan.apps.an.z;
 import com.baidu.swan.apps.res.ui.DrawableCenterTextView;
 /* loaded from: classes2.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
-    public boolean aJY;
-    private int aJZ;
-    private boolean aKa;
-    private boolean aKb;
+    public boolean aKG;
+    private int aKH;
+    private boolean aKI;
+    private boolean aKJ;
 
     public HeaderRefreshIndicator(Context context) {
         this(context, (AttributeSet) null);
@@ -22,35 +22,35 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aJY = false;
-        this.aJZ = -1;
-        this.aKb = false;
+        this.aKG = false;
+        this.aKH = -1;
+        this.aKJ = false;
     }
 
     public HeaderRefreshIndicator(Context context, AttributeSet attributeSet, boolean z) {
         super(context, attributeSet);
-        this.aJY = false;
-        this.aJZ = -1;
-        this.aKb = false;
-        this.aKa = z;
+        this.aKG = false;
+        this.aKH = -1;
+        this.aKJ = false;
+        this.aKI = z;
     }
 
-    public void uP() {
-        if (!this.aJY) {
-            this.aJY = true;
-            this.aKb = com.baidu.swan.apps.u.a.DW().Ev();
-            JC();
+    public void vq() {
+        if (!this.aKG) {
+            this.aKG = true;
+            this.aKJ = com.baidu.swan.apps.u.a.EF().Fe();
+            Kp();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(z.dip2px(getContext(), 5.0f));
-            cQ(0);
+            cT(0);
         }
     }
 
-    public void JB() {
-        boolean Ev = com.baidu.swan.apps.u.a.DW().Ev();
-        if (this.aKb != Ev) {
-            JC();
-            this.aKb = Ev;
+    public void Ko() {
+        boolean Fe = com.baidu.swan.apps.u.a.EF().Fe();
+        if (this.aKJ != Fe) {
+            Kp();
+            this.aKJ = Fe;
         }
     }
 
@@ -62,10 +62,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        JB();
+        Ko();
     }
 
-    public void JC() {
+    public void Kp() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, z.dip2px(getContext(), 11.0f), z.dip2px(getContext(), 11.0f));

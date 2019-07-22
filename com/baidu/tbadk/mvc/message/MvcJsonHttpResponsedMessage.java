@@ -5,7 +5,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.c.a;
+import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.b.f;
@@ -88,15 +88,15 @@ public class MvcJsonHttpResponsedMessage<D extends j> extends MvcHttpResponsedMe
             if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof com.baidu.tbadk.mvc.b.e)) {
                 com.baidu.tbadk.mvc.b.e eVar = (com.baidu.tbadk.mvc.b.e) mvcHttpMessage.getRequestData();
                 String cacheKey = eVar.getCacheKey();
-                String asV = eVar.asV();
+                String aud = eVar.aud();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(asV) && bArr != null) {
-                    if (eVar.asW()) {
-                        l<byte[]> bD = a.afD().bD(asV, currentAccount);
+                if (cacheKey != null && !TextUtils.isEmpty(aud) && bArr != null) {
+                    if (eVar.aue()) {
+                        l<byte[]> bD = a.agF().bD(aud, currentAccount);
                         if (bD != null) {
                             bD.f(cacheKey, bArr);
                         }
-                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (bE = a.afD().bE(asV, currentAccount)) != null) {
+                    } else if ((mvcHttpMessage.getRequestData() instanceof f) && (bE = a.agF().bE(aud, currentAccount)) != null) {
                         try {
                             bE.f(cacheKey, new String(bArr, HTTP.UTF_8));
                         } catch (UnsupportedEncodingException e) {

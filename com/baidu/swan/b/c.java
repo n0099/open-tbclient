@@ -28,14 +28,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static String bwB;
+    private static String bxs;
 
-    public static void XD() {
-        bwB = null;
+    public static void Yz() {
+        bxs = null;
     }
 
     public static String getToken() {
-        if (TextUtils.isEmpty(bwB)) {
+        if (TextUtils.isEmpty(bxs)) {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7PADDING");
                 SecureRandom secureRandom = SecureRandom.getInstance(com.coloros.mcssdk.c.a.c);
@@ -52,7 +52,7 @@ public class c {
             } catch (NoSuchPaddingException e7) {
             }
         }
-        return bwB;
+        return bxs;
     }
 
     private static void bq(String str, String str2) {
@@ -86,7 +86,7 @@ public class c {
                             IvParameterSpec ivParameterSpec = new IvParameterSpec(decode2);
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS7PADDING");
                             cipher.init(2, secretKeySpec, ivParameterSpec);
-                            String unused = c.bwB = new String(cipher.doFinal(decode), HTTP.UTF_8);
+                            String unused = c.bxs = new String(cipher.doFinal(decode), HTTP.UTF_8);
                         } catch (UnsupportedEncodingException e) {
                         } catch (InvalidAlgorithmParameterException e2) {
                         } catch (InvalidKeyException e3) {

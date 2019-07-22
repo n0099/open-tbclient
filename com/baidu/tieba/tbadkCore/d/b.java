@@ -5,60 +5,60 @@ import com.baidu.adp.lib.util.j;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a jad;
-    private final int jae = 10;
-    private final int jaf = 3000;
-    public String jag = null;
-    public boolean bUg = false;
+    private com.baidu.adp.lib.stats.a jgu;
+    private final int jgv = 10;
+    private final int jgw = 3000;
+    public String jgx = null;
+    public boolean bVh = false;
 
     public b(String str) {
-        ax(str, false);
+        aB(str, false);
     }
 
-    public void ax(String str, boolean z) {
-        this.jag = str;
-        this.bUg = z;
-        this.jad = new com.baidu.adp.lib.stats.a("dbg");
+    public void aB(String str, boolean z) {
+        this.jgx = str;
+        this.bVh = z;
+        this.jgu = new com.baidu.adp.lib.stats.a("dbg");
         c.y(str, getNetType(), z);
     }
 
     public void start() {
-        this.jad.iF();
+        this.jgu.iO();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e cmQ;
-        if (this.jad != null && (cmQ = cmQ()) != null) {
+        e cpI;
+        if (this.jgu != null && (cpI = cpI()) != null) {
             if (z) {
-                if (cmQ.jal != null) {
-                    cmQ.jal.num++;
+                if (cpI.jgC != null) {
+                    cpI.jgC.num++;
                     if (z2) {
-                        cmQ.jal.jai += j2;
-                        cmQ.jal.size += j;
+                        cpI.jgC.jgz += j2;
+                        cpI.jgC.size += j;
                     } else {
-                        cmQ.jal.jaj++;
+                        cpI.jgC.jgA++;
                     }
                 } else {
                     return;
                 }
-            } else if (cmQ.jam != null) {
-                cmQ.jam.num++;
+            } else if (cpI.jgD != null) {
+                cpI.jgD.num++;
                 if (z2) {
-                    cmQ.jam.jai += j3;
-                    cmQ.jam.size += j;
+                    cpI.jgD.jgz += j3;
+                    cpI.jgD.size += j;
                     j2 = j3;
                 } else {
-                    cmQ.jam.jaj++;
+                    cpI.jgD.jgA++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.jad = null;
+            this.jgu = null;
             if (z2) {
-                c.a(cmQ, 10);
+                c.a(cpI, 10);
             }
-            if (this.jag == "frsStat") {
+            if (this.jgx == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -75,20 +75,20 @@ public class b {
     }
 
     public void destory() {
-        e cmQ;
-        if (this.jad != null && (cmQ = cmQ()) != null && cmQ.jan != null) {
-            long iG = this.jad.iG();
-            if (iG > 3000) {
-                d dVar = cmQ.jan;
-                dVar.jai = iG + dVar.jai;
-                cmQ.jan.num++;
-                c.a(cmQ, 10);
+        e cpI;
+        if (this.jgu != null && (cpI = cpI()) != null && cpI.jgE != null) {
+            long iP = this.jgu.iP();
+            if (iP > 3000) {
+                d dVar = cpI.jgE;
+                dVar.jgz = iP + dVar.jgz;
+                cpI.jgE.num++;
+                c.a(cpI, 10);
             }
         }
     }
 
-    private e cmQ() {
-        return c.z(this.jag, getNetType(), this.bUg);
+    private e cpI() {
+        return c.z(this.jgx, getNetType(), this.bVh);
     }
 
     private String getNetType() {

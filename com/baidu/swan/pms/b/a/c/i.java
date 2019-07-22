@@ -6,27 +6,27 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i implements b {
-    private com.baidu.swan.pms.a.b axD;
-    private List<com.baidu.swan.pms.model.e> bsJ = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> bsK = new ArrayList();
-    private List<com.baidu.swan.pms.model.e> bsL = new ArrayList();
-    private List<com.baidu.swan.pms.b.a.b> bsI = new ArrayList();
+    private com.baidu.swan.pms.a.b ayk;
+    private List<com.baidu.swan.pms.model.e> btz = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> btA = new ArrayList();
+    private List<com.baidu.swan.pms.model.e> btB = new ArrayList();
+    private List<com.baidu.swan.pms.b.a.b> bty = new ArrayList();
 
     public i(com.baidu.swan.pms.a.b bVar) {
-        this.axD = bVar;
-        d.VF().c(this);
+        this.ayk = bVar;
+        d.Wy().c(this);
     }
 
     public void a(com.baidu.swan.pms.b.a.b bVar) {
         if (bVar != null) {
-            this.bsI.add(bVar);
+            this.bty.add(bVar);
         }
     }
 
     public void startDownload() {
-        if (!VP()) {
-            for (com.baidu.swan.pms.b.a.b bVar : this.bsI) {
-                bVar.dg(false);
+        if (!WI()) {
+            for (com.baidu.swan.pms.b.a.b bVar : this.bty) {
+                bVar.dl(false);
             }
         }
     }
@@ -37,41 +37,41 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.b.a.c.b
     public <T> void e(f<T> fVar) {
-        Iterator<com.baidu.swan.pms.b.a.b> it = this.bsI.iterator();
+        Iterator<com.baidu.swan.pms.b.a.b> it = this.bty.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             com.baidu.swan.pms.b.a.b next = it.next();
             if (next.a(fVar)) {
-                int VI = fVar.VI();
-                this.bsI.remove(next);
-                switch (VI) {
+                int WB = fVar.WB();
+                this.bty.remove(next);
+                switch (WB) {
                     case 2:
-                        this.bsL.add(next.VD().bsD.bsC);
+                        this.btB.add(next.Ww().btt.bts);
                         break;
                     case 3:
-                        this.bsK.add(next.VD().bsD.bsC);
+                        this.btA.add(next.Ww().btt.bts);
                         break;
                     case 10:
-                        this.bsJ.add(next.VD().bsD.bsC);
+                        this.btz.add(next.Ww().btt.bts);
                         break;
                     default:
                         if (com.baidu.swan.pms.e.DEBUG) {
-                            Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + VI);
+                            Log.e("PMSTaskGroup", "notifyTaskEnd error state:" + WB);
                             break;
                         }
                         break;
                 }
             }
         }
-        VP();
+        WI();
     }
 
-    private boolean VP() {
-        if (this.bsI.isEmpty()) {
-            this.axD.Vi();
-            d.VF().d(this);
+    private boolean WI() {
+        if (this.bty.isEmpty()) {
+            this.ayk.Wb();
+            d.Wy().d(this);
             return true;
         }
         return false;

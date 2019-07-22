@@ -10,7 +10,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.ProviderInfo;
 import android.content.pm.ResolveInfo;
-import android.content.res.AssetManager;
 import android.content.res.XmlResourceParser;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -22,6 +21,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.sofire.MyActivity;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
@@ -38,6 +38,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.security.PublicKey;
 import java.util.Calendar;
@@ -50,7 +51,7 @@ import java.util.TimeZone;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class e {
     public static String b;
     public static String c;
@@ -153,30 +154,24 @@ public final class e {
         c = str2;
     }
 
-    public static boolean a(Context context) {
-        String b2;
+    public static int a(Context context) {
         try {
-            b2 = b(context);
+            String b2 = b(context);
             if (TextUtils.isEmpty(g)) {
                 g = b(Process.myPid());
             }
+            return !TextUtils.isEmpty(b2) ? b2.equals(g) ? 1 : 2 : !context.getPackageName().equals(g) ? 2 : 1;
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
+            return 0;
         }
-        if (!TextUtils.isEmpty(b2)) {
-            return b2.equals(g);
-        }
-        if (context.getPackageName().equals(g)) {
-            return true;
-        }
-        return false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0086 A[Catch: Throwable -> 0x00c1, TryCatch #0 {Throwable -> 0x00c1, blocks: (B:2:0x0000, B:4:0x0024, B:6:0x002c, B:8:0x0035, B:9:0x003e, B:10:0x0054, B:12:0x0086, B:14:0x008e, B:16:0x0097, B:17:0x00a0, B:18:0x00b5), top: B:23:0x0000 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String p(Context context) {
+    private static String r(Context context) {
         String str;
         String hexString;
         try {
@@ -263,7 +258,7 @@ public final class e {
                     hexString = sb.toString() + hexString;
                 }
             }
-            byte[] b2 = a.b("30212102dicudiab".getBytes(), (p(context) + hexString).toString().getBytes());
+            byte[] b2 = a.b("30212102dicudiab".getBytes(), (r(context) + hexString).toString().getBytes());
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             int i4 = eVar.a.getInt("tk_sa_pu_cl", 0) + 1;
             eVar.c.putInt("tk_sa_pu_cl", i4);
@@ -284,7 +279,7 @@ public final class e {
         } catch (Throwable th) {
             com.baidu.sofire.b.d();
         }
-        if (!TextUtils.isEmpty(f) || j == 1) {
+        if (!TextUtils.isEmpty(f) || i == 1) {
             return f;
         }
         StringBuilder sb = new StringBuilder();
@@ -293,13 +288,7 @@ public final class e {
         if (resolveContentProvider != null && !resolveContentProvider.multiprocess) {
             f = resolveContentProvider.processName;
         }
-        if (resolveContentProvider == null) {
-            String b2 = b(context, sb.toString(), MyProvider.class.getCanonicalName());
-            if (!TextUtils.isEmpty(b2)) {
-                f = b2;
-            }
-        }
-        j = 1;
+        i = 1;
         return f;
     }
 
@@ -332,165 +321,149 @@ public final class e {
         return z2;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(19:1|(2:2|3)|(3:53|54|(15:56|6|7|8|(2:10|(10:12|13|(2:15|(6:17|18|(1:20)|(4:27|(1:(1:35)(1:(1:37)))(1:30)|(1:32)|33)|38|39))(7:(2:45|(1:47))|42|18|(0)|(6:22|27|(0)|(0)(0)|(0)|33)|38|39)|41|42|18|(0)|(0)|38|39))|51|13|(0)(0)|41|42|18|(0)|(0)|38|39))|5|6|7|8|(0)|51|13|(0)(0)|41|42|18|(0)|(0)|38|39|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00d5, code lost:
-        r9 = r3;
-        r3 = r0;
-        r0 = r9;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x007e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:62:0x005b */
+    /* JADX WARN: Can't wrap try/catch for region: R(12:1|(2:2|3)|(3:55|56|(8:58|6|7|(2:9|(1:11))|13|(8:15|(6:17|18|19|(1:21)|(4:28|(1:(1:37)(1:(1:39)))(1:31)|(1:33)|34)|40)|47|18|19|(0)|(6:23|28|(0)|(0)(0)|(0)|34)|40)(7:(1:49)|47|18|19|(0)|(0)|40)|41|42))|5|6|7|(0)|13|(0)(0)|41|42|(1:(0))) */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00bf, code lost:
         com.baidu.sofire.b.d();
      */
-    /* JADX WARN: Removed duplicated region for block: B:11:0x0054 A[Catch: Throwable -> 0x00bd, TRY_LEAVE, TryCatch #0 {Throwable -> 0x00bd, blocks: (B:9:0x0032, B:11:0x0054), top: B:55:0x0032 }] */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x005f A[Catch: Throwable -> 0x00d4, TRY_ENTER, TRY_LEAVE, TryCatch #1 {Throwable -> 0x00d4, blocks: (B:15:0x005f, B:42:0x00c2), top: B:58:0x005d }] */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0076  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0082  */
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00a6  */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x00c0  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x00de  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00e9  */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00d0, code lost:
+        if (r10.equals(b(r9, r10, com.tencent.open.SocialConstants.PARAM_RECEIVER)) != false) goto L18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00f6, code lost:
+        r1 = r2;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0052 A[Catch: Throwable -> 0x00be, TRY_LEAVE, TryCatch #0 {Throwable -> 0x00be, blocks: (B:8:0x0030, B:10:0x0052), top: B:57:0x0030 }] */
+    /* JADX WARN: Removed duplicated region for block: B:14:0x005d A[Catch: Throwable -> 0x00f5, TRY_ENTER, TRY_LEAVE, TryCatch #2 {Throwable -> 0x00f5, blocks: (B:14:0x005d, B:41:0x00c5), top: B:62:0x005b }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0074 A[Catch: Throwable -> 0x00e2, TryCatch #1 {Throwable -> 0x00e2, blocks: (B:17:0x006c, B:19:0x0074, B:21:0x0080, B:26:0x008e, B:29:0x0097, B:31:0x00a4, B:32:0x00ad, B:45:0x00d6, B:50:0x00e9), top: B:59:0x006c }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0080 A[Catch: Throwable -> 0x00e2, TryCatch #1 {Throwable -> 0x00e2, blocks: (B:17:0x006c, B:19:0x0074, B:21:0x0080, B:26:0x008e, B:29:0x0097, B:31:0x00a4, B:32:0x00ad, B:45:0x00d6, B:50:0x00e9), top: B:59:0x006c }] */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00a4 A[Catch: Throwable -> 0x00e2, TryCatch #1 {Throwable -> 0x00e2, blocks: (B:17:0x006c, B:19:0x0074, B:21:0x0080, B:26:0x008e, B:29:0x0097, B:31:0x00a4, B:32:0x00ad, B:45:0x00d6, B:50:0x00e9), top: B:59:0x006c }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x00c3  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00d6 A[Catch: Throwable -> 0x00e2, TRY_ENTER, TRY_LEAVE, TryCatch #1 {Throwable -> 0x00e2, blocks: (B:17:0x006c, B:19:0x0074, B:21:0x0080, B:26:0x008e, B:29:0x0097, B:31:0x00a4, B:32:0x00ad, B:45:0x00d6, B:50:0x00e9), top: B:59:0x006c }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00e7  */
+    /* JADX WARN: Type inference failed for: r2v10, types: [java.util.Map, java.util.HashMap] */
+    /* JADX WARN: Type inference failed for: r2v14 */
+    /* JADX WARN: Type inference failed for: r2v15 */
+    /* JADX WARN: Type inference failed for: r2v6 */
+    /* JADX WARN: Type inference failed for: r2v7 */
+    /* JADX WARN: Type inference failed for: r2v9, types: [boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private static boolean a(Context context, String str, boolean z, boolean z2) {
         ResolveInfo resolveInfo;
-        boolean z3;
         ResolveInfo resolveInfo2;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        ResolveInfo resolveService;
-        boolean z7;
+        boolean z3;
+        boolean isEmpty;
         ActivityInfo activityInfo = null;
+        boolean z4 = true;
+        boolean z5 = false;
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), MyService.class.getCanonicalName()));
-            resolveService = context.getPackageManager().resolveService(intent, 0);
+            resolveInfo2 = context.getPackageManager().resolveService(intent, 0);
         } catch (Throwable th) {
             resolveInfo = null;
         }
-        if (resolveService != null) {
+        if (resolveInfo2 != null) {
             try {
             } catch (Throwable th2) {
-                resolveInfo = resolveService;
-                z3 = false;
+                resolveInfo = resolveInfo2;
                 resolveInfo2 = resolveInfo;
+                z3 = false;
+                com.baidu.sofire.b.d();
                 Intent intent2 = new Intent();
                 ComponentName componentName = new ComponentName(context.getPackageName(), MyReceiver.class.getCanonicalName());
                 intent2.setComponent(componentName);
                 activityInfo = context.getPackageManager().getReceiverInfo(componentName, 0);
                 if (activityInfo != null) {
                 }
-                z4 = false;
-                if (resolveInfo2 != null) {
+                if (resolveInfo2 == null) {
                 }
-                boolean z8 = z3;
-                z5 = z4;
-                z6 = z8;
-                if (TextUtils.isEmpty(g)) {
-                }
-                if (z2) {
-                }
-                return z6 & z5;
+                return z3 & z4;
             }
-            if (str.equals(resolveService.serviceInfo.processName)) {
-                z7 = true;
-                resolveInfo2 = resolveService;
-                z3 = z7;
+            if (str.equals(resolveInfo2.serviceInfo.processName)) {
+                z3 = true;
                 Intent intent22 = new Intent();
                 ComponentName componentName2 = new ComponentName(context.getPackageName(), MyReceiver.class.getCanonicalName());
                 intent22.setComponent(componentName2);
                 activityInfo = context.getPackageManager().getReceiverInfo(componentName2, 0);
                 if (activityInfo != null) {
                     if (str.equals(activityInfo.processName)) {
-                        z4 = true;
-                        if (resolveInfo2 != null) {
-                            if (str.equals(b(context, str, NotificationCompat.CATEGORY_SERVICE))) {
-                                z5 = z4;
-                                z6 = true;
-                                if (TextUtils.isEmpty(g)) {
-                                    g = b(Process.myPid());
-                                }
-                                if (z2 && g.equals(str) && (!z5 || !z6 || z)) {
-                                    HashMap hashMap = new HashMap();
-                                    if (z5 && !z6) {
-                                        hashMap.put("0", Integer.toString(2));
-                                    } else if (z6) {
-                                        hashMap.put("0", Integer.toString(1));
-                                    } else if (!z5) {
-                                        hashMap.put("0", Integer.toString(0));
-                                    }
-                                    if (z) {
-                                        hashMap.put("1", "0");
-                                    }
-                                    a(context, "1003140", hashMap);
-                                }
-                                return z6 & z5;
-                            }
-                        } else {
-                            if (activityInfo == null) {
-                                if (str.equals(b(context, str, SocialConstants.PARAM_RECEIVER))) {
-                                    z4 = true;
-                                }
-                            }
-                            boolean z82 = z3;
-                            z5 = z4;
-                            z6 = z82;
-                            if (TextUtils.isEmpty(g)) {
-                            }
-                            if (z2) {
-                                HashMap hashMap2 = new HashMap();
-                                if (z5) {
-                                }
-                                if (z6) {
-                                }
-                                if (z) {
-                                }
-                                a(context, "1003140", hashMap2);
-                            }
-                            return z6 & z5;
-                        }
-                        boolean z822 = z3;
-                        z5 = z4;
-                        z6 = z822;
-                        if (TextUtils.isEmpty(g)) {
-                        }
-                        if (z2) {
-                        }
-                        return z6 & z5;
+                        z5 = true;
                     }
                 }
-                z4 = false;
-                if (resolveInfo2 != null) {
+                if (resolveInfo2 == null) {
+                    try {
+                        if (str.equals(b(context, str, NotificationCompat.CATEGORY_SERVICE))) {
+                            z3 = true;
+                            z4 = z5;
+                            isEmpty = TextUtils.isEmpty(g);
+                            z5 = isEmpty;
+                            if (isEmpty) {
+                                String b2 = b(Process.myPid());
+                                g = b2;
+                                z5 = b2;
+                            }
+                            if (z2 && (z5 = g.equals(str)) != 0 && (!z4 || !z3 || z)) {
+                                z5 = new HashMap();
+                                if (z4 && !z3) {
+                                    z5.put("0", Integer.toString(2));
+                                } else if (z3) {
+                                    z5.put("0", Integer.toString(1));
+                                } else if (!z4) {
+                                    z5.put("0", Integer.toString(0));
+                                }
+                                if (z) {
+                                    z5.put("1", "0");
+                                }
+                                a(context, "1003140", (Map<String, Object>) z5);
+                            }
+                        }
+                        isEmpty = TextUtils.isEmpty(g);
+                        z5 = isEmpty;
+                        if (isEmpty) {
+                        }
+                        if (z2) {
+                            z5 = new HashMap();
+                            if (z4) {
+                            }
+                            if (z3) {
+                            }
+                            if (z) {
+                            }
+                            a(context, "1003140", (Map<String, Object>) z5);
+                        }
+                    } catch (Throwable th3) {
+                        com.baidu.sofire.b.d();
+                        return z3 & z4;
+                    }
+                    z4 = z5;
+                } else {
+                    if (activityInfo == null) {
+                    }
+                    z4 = z5;
+                    isEmpty = TextUtils.isEmpty(g);
+                    z5 = isEmpty;
+                    if (isEmpty) {
+                    }
+                    if (z2) {
+                    }
                 }
-                boolean z8222 = z3;
-                z5 = z4;
-                z6 = z8222;
-                if (TextUtils.isEmpty(g)) {
-                }
-                if (z2) {
-                }
-                return z6 & z5;
+                return z3 & z4;
             }
         }
-        z7 = false;
-        resolveInfo2 = resolveService;
-        z3 = z7;
+        z3 = false;
         Intent intent222 = new Intent();
         ComponentName componentName22 = new ComponentName(context.getPackageName(), MyReceiver.class.getCanonicalName());
         intent222.setComponent(componentName22);
         activityInfo = context.getPackageManager().getReceiverInfo(componentName22, 0);
         if (activityInfo != null) {
         }
-        z4 = false;
-        if (resolveInfo2 != null) {
+        if (resolveInfo2 == null) {
         }
-        boolean z82222 = z3;
-        z5 = z4;
-        z6 = z82222;
-        if (TextUtils.isEmpty(g)) {
-        }
-        if (z2) {
-        }
-        return z6 & z5;
+        return z3 & z4;
     }
 
     public static boolean b(String str) {
@@ -505,14 +478,18 @@ public final class e {
         }
     }
 
+    public static void b(String str, String str2) {
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            a(new File(str), new File(str2));
+        }
+    }
+
     private static String b(Context context, String str, String str2) {
         int next;
         String str3;
         String canonicalName;
         try {
-            String str4 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.sourceDir;
-            AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-            XmlResourceParser openXmlResourceParser = assetManager.openXmlResourceParser(((Integer) AssetManager.class.getDeclaredMethod("addAssetPath", String.class).invoke(assetManager, str4)).intValue(), "AndroidManifest.xml");
+            XmlResourceParser openXmlResourceParser = context.createPackageContext(context.getPackageName(), 3).getAssets().openXmlResourceParser("AndroidManifest.xml");
             if (openXmlResourceParser != null) {
                 do {
                     next = openXmlResourceParser.next();
@@ -557,6 +534,7 @@ public final class e {
                     } else {
                         canonicalName = str2.equals(SocialConstants.PARAM_RECEIVER) ? MyReceiver.class.getCanonicalName() : null;
                     }
+                    new StringBuilder().append(canonicalName);
                     com.baidu.sofire.b.a();
                     while (true) {
                         int next2 = openXmlResourceParser.next();
@@ -625,12 +603,6 @@ public final class e {
         return null;
     }
 
-    public static void b(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            a(new File(str), new File(str2));
-        }
-    }
-
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
         jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
         	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
@@ -653,10 +625,10 @@ public final class e {
             if (r0 == 0) goto L15
             r7.delete()
         L15:
-            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lb4
-            r2.<init>(r6)     // Catch: java.lang.Throwable -> Lb4
-            java.io.FileOutputStream r0 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lb8
-            r0.<init>(r7)     // Catch: java.lang.Throwable -> Lb8
+            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lb1
+            r2.<init>(r6)     // Catch: java.lang.Throwable -> Lb1
+            java.io.FileOutputStream r0 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lb5
+            r0.<init>(r7)     // Catch: java.lang.Throwable -> Lb5
             r1 = 8192(0x2000, float:1.148E-41)
             byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L2f
         L23:
@@ -670,9 +642,9 @@ public final class e {
             r1 = move-exception
             r1 = r2
         L31:
-            com.baidu.sofire.b.d()     // Catch: java.lang.Throwable -> Lae
+            com.baidu.sofire.b.d()     // Catch: java.lang.Throwable -> Lab
             if (r1 == 0) goto L39
-            r1.close()     // Catch: java.lang.Throwable -> L82
+            r1.close()     // Catch: java.lang.Throwable -> L7f
         L39:
             if (r0 == 0) goto Lb
             r0.close()     // Catch: java.lang.Throwable -> L3f
@@ -685,8 +657,7 @@ public final class e {
         L47:
             r0.flush()     // Catch: java.lang.Throwable -> L2f
             java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r3 = "copyFile Suc, srcFile="
-            r1.<init>(r3)     // Catch: java.lang.Throwable -> L2f
+            r1.<init>()     // Catch: java.lang.Throwable -> L2f
             java.lang.String r3 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
             java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.lang.Throwable -> L2f
             java.lang.String r3 = " > "
@@ -694,67 +665,67 @@ public final class e {
             java.lang.String r3 = r7.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
             r1.append(r3)     // Catch: java.lang.Throwable -> L2f
             com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L2f
-            r2.close()     // Catch: java.lang.Throwable -> L7a
-        L6e:
-            r0.close()     // Catch: java.lang.Throwable -> L72
+            r2.close()     // Catch: java.lang.Throwable -> L77
+        L6b:
+            r0.close()     // Catch: java.lang.Throwable -> L6f
             goto Lb
-        L72:
+        L6f:
             r0 = move-exception
             r0.getMessage()
             com.baidu.sofire.b.c()
             goto Lb
-        L7a:
+        L77:
             r1 = move-exception
             r1.getMessage()
             com.baidu.sofire.b.c()
-            goto L6e
-        L82:
+            goto L6b
+        L7f:
             r1 = move-exception
             r1.getMessage()
             com.baidu.sofire.b.c()
             goto L39
-        L8a:
+        L87:
             r0 = move-exception
             r2 = r1
-        L8c:
-            if (r2 == 0) goto L91
-            r2.close()     // Catch: java.lang.Throwable -> L97
-        L91:
-            if (r1 == 0) goto L96
-            r1.close()     // Catch: java.lang.Throwable -> L9f
-        L96:
+        L89:
+            if (r2 == 0) goto L8e
+            r2.close()     // Catch: java.lang.Throwable -> L94
+        L8e:
+            if (r1 == 0) goto L93
+            r1.close()     // Catch: java.lang.Throwable -> L9c
+        L93:
             throw r0
-        L97:
+        L94:
             r2 = move-exception
             r2.getMessage()
             com.baidu.sofire.b.c()
-            goto L91
-        L9f:
+            goto L8e
+        L9c:
             r1 = move-exception
             r1.getMessage()
             com.baidu.sofire.b.c()
-            goto L96
-        La7:
+            goto L93
+        La4:
             r0 = move-exception
-            goto L8c
-        La9:
+            goto L89
+        La6:
             r1 = move-exception
             r5 = r1
             r1 = r0
             r0 = r5
-            goto L8c
-        Lae:
+            goto L89
+        Lab:
             r2 = move-exception
             r5 = r2
             r2 = r1
             r1 = r0
             r0 = r5
-            goto L8c
-        Lb4:
+            goto L89
+        Lb1:
             r0 = move-exception
             r0 = r1
             goto L31
-        Lb8:
+        Lb5:
             r0 = move-exception
             r0 = r1
             r1 = r2
@@ -832,6 +803,7 @@ public final class e {
 
     private static boolean a(Method method, String str, Class<?>[] clsArr) {
         if (str.equals(method.getName())) {
+            new StringBuilder().append(str);
             com.baidu.sofire.b.a();
             Class<?>[] parameterTypes = method.getParameterTypes();
             if ((parameterTypes == null || parameterTypes.length == 0) && (clsArr == null || clsArr.length == 0)) {
@@ -893,7 +865,7 @@ public final class e {
             Map<Integer, String> b2 = a2.b();
             jSONObject.put("0", b2.keySet());
             jSONObject.put("1", b2.values());
-            new StringBuilder("getAliveData ").append(jSONObject.toString());
+            new StringBuilder().append(jSONObject.toString());
             com.baidu.sofire.b.a();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
@@ -905,7 +877,7 @@ public final class e {
                 jSONArray.put(str);
             }
             jSONArray.put("com.baidu.sofire");
-            new StringBuilder("setAliveData = ").append(jSONArray.toString());
+            new StringBuilder().append(jSONArray.toString());
             com.baidu.sofire.b.a();
             jSONObject2.put("2", jSONArray);
             report.w(jSONObject2.toString());
@@ -917,11 +889,11 @@ public final class e {
 
     public static void d(Context context) {
         com.baidu.sofire.b.a();
-        if (!TextUtils.isEmpty("3.1.9.3")) {
+        if (!TextUtils.isEmpty("3.2.2.1")) {
             Report report = Report.getInstance(context);
             try {
                 c(context);
-                report.i("sofire", "com.baidu.sofire", "3.1.9.3", "1003003", "1003002");
+                report.i("sofire", "com.baidu.sofire", "3.2.2.1", "1003003", "1003002");
             } catch (Throwable th) {
                 th.getMessage();
                 com.baidu.sofire.b.c();
@@ -975,16 +947,17 @@ public final class e {
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
-                jSONObject2.put("9", "3.1.9.3");
+                jSONObject2.put("9", "3.2.2.1");
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str);
                 jSONObject.put("Common_section", jSONObject2);
-                if (map != null && map.size() > 0) {
+                if (map.size() > 0) {
                     jSONObject.put("Module_section", new JSONObject(map));
                 } else {
                     jSONObject.put("Module_section", new JSONObject());
                 }
                 Report report = Report.getInstance(context);
                 String jSONObject3 = jSONObject.toString();
+                new StringBuilder().append(jSONObject3);
                 com.baidu.sofire.b.a();
                 report.s(jSONObject3);
             } catch (Throwable th) {
@@ -1184,6 +1157,7 @@ public final class e {
                         z = true;
                     }
                 }
+                new StringBuilder().append(z);
                 com.baidu.sofire.b.a();
                 eVar.c.putBoolean("hac", z);
                 eVar.c.commit();
@@ -1296,7 +1270,60 @@ public final class e {
         }
     }
 
-    public static int k(Context context) {
+    public static boolean k(Context context) {
+        try {
+            if (j < 0 && context != null) {
+                Field field = Class.forName(context.getPackageName() + ".BuildConfig").getField("DEBUG");
+                field.setAccessible(true);
+                j = field.getBoolean(null) ? 1 : 0;
+            }
+            if (j == 1) {
+                return true;
+            }
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
+        }
+        return false;
+    }
+
+    public static void l(Context context) {
+        if (k(context)) {
+            StringBuilder sb = new StringBuilder("SDK Self Check: ");
+            int length = sb.length();
+            try {
+                System.loadLibrary("fire");
+            } catch (Throwable th) {
+                sb.append("LoadLibrary Error,");
+            }
+            try {
+                Class.forName("com.baidu.sofire.ac.F").getDeclaredMethod("getInstance", new Class[0]);
+            } catch (Exception e2) {
+                sb.append("Proguard Error,");
+            }
+            try {
+                StringBuilder sb2 = new StringBuilder();
+                sb2.append(context.getPackageName()).append(".sofire.ac.provider");
+                boolean z = context.getPackageManager().resolveContentProvider(sb2.toString(), 0).multiprocess;
+            } catch (Throwable th2) {
+                sb.append("Provider Error,");
+            }
+            if (!a(context, false)) {
+                sb.append("Service or Receiver Error.");
+            }
+            if ("5".equals("1")) {
+                try {
+                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), MyActivity.class.getCanonicalName()), 0);
+                } catch (Throwable th3) {
+                    sb.append("Activity error ");
+                }
+            }
+            if (sb.length() > length) {
+                throw new UnsupportedOperationException(sb.toString());
+            }
+        }
+    }
+
+    public static int m(Context context) {
         ConnectivityManager connectivityManager;
         try {
             connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
@@ -1352,7 +1379,7 @@ public final class e {
         return -1;
     }
 
-    private static String q(Context context) {
+    private static String s(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable th) {
@@ -1366,7 +1393,7 @@ public final class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static JSONObject l(Context context) {
+    public static JSONObject n(Context context) {
         String str;
         String h2;
         String str2;
@@ -1479,24 +1506,21 @@ public final class e {
         return a(context, aVar.a, aVar.c, z ? aVar.d : aVar.e, str);
     }
 
-    public static int m(Context context) {
+    public static int o(Context context) {
         NetworkInfo networkInfo;
         try {
             networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Throwable th) {
-            new StringBuilder("sj-trigger info ").append(th.toString());
-            com.baidu.sofire.b.a();
             networkInfo = null;
             com.baidu.sofire.b.d();
         }
         if (networkInfo == null) {
-            com.baidu.sofire.b.a();
             return 0;
-        } else if (1 == networkInfo.getType()) {
-            return 2;
-        } else {
-            return networkInfo.getType() == 0 ? 1 : 1;
         }
+        if (1 == networkInfo.getType()) {
+            return 2;
+        }
+        return networkInfo.getType() == 0 ? 1 : 1;
     }
 
     private static String b(int i2) {
@@ -1579,7 +1603,7 @@ public final class e {
         try {
             jSONObject2.put("1", context.getApplicationInfo().loadLabel(context.getPackageManager()).toString());
             jSONObject2.put("2", context.getPackageName());
-            jSONObject2.put("3", q(context));
+            jSONObject2.put("3", s(context));
             jSONObject2.put("4", g.a(context));
             jSONObject2.put("5", optString);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, optLong);
@@ -1591,7 +1615,7 @@ public final class e {
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, eVar.e.getString("re_a_cv", ""));
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, eVar.e.getString("re_a_lc", ""));
             jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, eVar.n() ? 1 : 0);
-            if (k(context) == 4) {
+            if (m(context) == 4) {
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 1);
             } else {
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 2);
@@ -1644,13 +1668,13 @@ public final class e {
         aVar2.e = str5;
         if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            List<com.baidu.sofire.rp.a.a> v = eVar.v();
-            if (v == null) {
+            List<com.baidu.sofire.rp.a.a> u = eVar.u();
+            if (u == null) {
                 eVar.a(aVar2);
-            } else if (!v.contains(aVar2)) {
+            } else if (!u.contains(aVar2)) {
                 eVar.a(aVar2);
             } else {
-                if (v != null && (indexOf = v.indexOf(aVar2)) != -1 && (aVar = v.get(indexOf)) != null) {
+                if (u != null && (indexOf = u.indexOf(aVar2)) != -1 && (aVar = u.get(indexOf)) != null) {
                     eVar.f.putString("re_con", eVar.e.getString("re_con", "").replace(com.baidu.sofire.rp.a.a.a(aVar), com.baidu.sofire.rp.a.a.a(aVar2)));
                     eVar.f.commit();
                 }
@@ -1747,7 +1771,7 @@ public final class e {
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("2");
                 if (optJSONArray != null) {
-                    new StringBuilder("setAliveData rp= ").append(optJSONArray.toString());
+                    new StringBuilder().append(optJSONArray.toString());
                     com.baidu.sofire.b.a();
                     eVar.f.putString("li_pk_s", optJSONArray.toString());
                     eVar.f.commit();
@@ -1824,7 +1848,7 @@ public final class e {
         return str;
     }
 
-    public static void n(Context context) {
+    public static void p(Context context) {
         try {
             String str = b() + "p/1/prt";
             JSONObject jSONObject = new JSONObject();
@@ -1849,6 +1873,7 @@ public final class e {
             String jSONObject2 = jSONObject.toString();
             com.baidu.sofire.b.a();
             String a3 = h.a(context, str, jSONObject2, false);
+            new StringBuilder().append(a3);
             com.baidu.sofire.b.a();
             if (a3 != null) {
                 JSONObject jSONObject3 = new JSONObject(a3);
@@ -1866,7 +1891,7 @@ public final class e {
         }
     }
 
-    public static void o(Context context) {
+    public static void q(Context context) {
         try {
             e.clear();
             String d2 = new com.baidu.sofire.e(context).d();

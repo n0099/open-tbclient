@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -28,7 +29,7 @@ public class AccessState implements Serializable {
         if (str != null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("info")) != null) {
+                if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO)) != null) {
                     parserJson(optJSONObject.optJSONObject(AccountAccessActivityConfig.KEY_ACCESS_STATE));
                 }
             } catch (Exception e) {

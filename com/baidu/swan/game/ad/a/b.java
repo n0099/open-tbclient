@@ -17,7 +17,7 @@ public class b implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eO */
+        /* renamed from: eS */
         public b[] newArray(int i) {
             return new b[i];
         }
@@ -72,7 +72,7 @@ public class b implements Parcelable {
         return 0;
     }
 
-    public a PP() {
+    public a QH() {
         if (this.d.size() > 0) {
             return this.d.get(0);
         }

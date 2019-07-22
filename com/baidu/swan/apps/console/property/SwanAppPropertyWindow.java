@@ -17,29 +17,29 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class SwanAppPropertyWindow extends FrameLayout {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private a[] anM;
-    private Map<String, TextView> anN;
-    private b anO;
+    private a[] aop;
+    private Map<String, TextView> aoq;
+    private b aor;
     private Map<String, Object> mData;
 
     public SwanAppPropertyWindow(Context context) {
         super(context);
-        this.anM = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.ans, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.ant, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anu, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anv, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anw, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.anx, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.any, "数据缓存：%s B")};
-        this.anN = new HashMap(this.anM.length);
+        this.aop = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.anV, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anW, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anX, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anY, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anZ, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.aoa, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.aob, "数据缓存：%s B")};
+        this.aoq = new HashMap(this.aop.length);
         init(context);
     }
 
     public SwanAppPropertyWindow(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.anM = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.ans, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.ant, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anu, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anv, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anw, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.anx, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.any, "数据缓存：%s B")};
-        this.anN = new HashMap(this.anM.length);
+        this.aop = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.anV, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anW, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anX, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anY, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anZ, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.aoa, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.aob, "数据缓存：%s B")};
+        this.aoq = new HashMap(this.aop.length);
         init(context);
     }
 
     public SwanAppPropertyWindow(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.anM = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.ans, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.ant, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anu, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anv, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anw, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.anx, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.any, "数据缓存：%s B")};
-        this.anN = new HashMap(this.anM.length);
+        this.aop = new a[]{new a("基础"), new a("cpu", "CPU：%s"), new a("mem", "内存：%sm"), new a("启动和切换"), new a(com.baidu.swan.apps.console.property.b.anV, "页面切换耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anW, "启动耗时：%s ms"), new a(com.baidu.swan.apps.console.property.b.anX, "下载耗时：%s ms"), new a("渲染"), new a(com.baidu.swan.apps.console.property.b.anY, "启动首屏渲染时长：%s ms"), new a(com.baidu.swan.apps.console.property.b.anZ, "初次渲染耗时：%s ms"), new a("frame", "帧率：%s fps"), new a(com.baidu.swan.apps.console.property.b.aoa, "再次渲染耗时：%s ms"), new a("其他"), new a(com.baidu.swan.apps.console.property.b.aob, "数据缓存：%s B")};
+        this.aoq = new HashMap(this.aop.length);
         init(context);
     }
 
@@ -47,7 +47,7 @@ public class SwanAppPropertyWindow extends FrameLayout {
         a[] aVarArr;
         LayoutInflater.from(context).inflate(a.g.aiapps_property_window, this);
         LinearLayout linearLayout = (LinearLayout) findViewById(a.f.ai_apps_property_root);
-        for (a aVar : this.anM) {
+        for (a aVar : this.aop) {
             TextView textView = new TextView(context);
             if (TextUtils.equals(aVar.tag, "title")) {
                 textView.setTextAppearance(context, a.i.SwanAppPropertyWindowTitle);
@@ -58,41 +58,41 @@ public class SwanAppPropertyWindow extends FrameLayout {
                 textView.setVisibility(8);
             }
             linearLayout.addView(textView);
-            this.anN.put(aVar.tag, textView);
+            this.aoq.put(aVar.tag, textView);
         }
-        xM();
+        yr();
     }
 
-    private void xM() {
+    private void yr() {
         if (DEBUG) {
             Log.d("SwanAppPropertyWindow", "Start system monitor");
         }
         if (this.mData == null) {
-            this.mData = com.baidu.swan.apps.console.property.b.xK().xL();
+            this.mData = com.baidu.swan.apps.console.property.b.yp().yq();
         }
-        if (this.anO == null) {
-            this.anO = new b();
-            this.anO.sendEmptyMessage(0);
+        if (this.aor == null) {
+            this.aor = new b();
+            this.aor.sendEmptyMessage(0);
         }
     }
 
-    private void xN() {
+    private void ys() {
         if (DEBUG) {
             Log.d("SwanAppPropertyWindow", "Stop system monitor");
         }
         if (this.mData != null) {
-            com.baidu.swan.apps.console.property.b.xK().recycle();
+            com.baidu.swan.apps.console.property.b.yp().recycle();
             this.mData = null;
         }
-        if (this.anO != null) {
-            this.anO.removeMessages(0);
-            this.anO = null;
+        if (this.aor != null) {
+            this.aor.removeMessages(0);
+            this.aor = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(String str, Object obj) {
-        TextView textView = this.anN.get(str);
+        TextView textView = this.aoq.get(str);
         if (textView != null) {
             textView.setText(String.format((String) textView.getTag(), obj));
             textView.setVisibility(0);
@@ -115,8 +115,8 @@ public class SwanAppPropertyWindow extends FrameLayout {
                     SwanAppPropertyWindow.this.i((String) entry.getKey(), entry.getValue());
                 }
             }
-            if (SwanAppPropertyWindow.this.anO != null) {
-                SwanAppPropertyWindow.this.anO.sendEmptyMessageDelayed(0, 3000L);
+            if (SwanAppPropertyWindow.this.aor != null) {
+                SwanAppPropertyWindow.this.aor.sendEmptyMessageDelayed(0, 3000L);
             }
         }
     }
@@ -124,21 +124,21 @@ public class SwanAppPropertyWindow extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        xN();
+        ys();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        xM();
+        yr();
     }
 
     @Override // android.view.View
     protected void onVisibilityChanged(View view, int i) {
         if (i == 0) {
-            xM();
+            yr();
         } else {
-            xN();
+            ys();
         }
     }
 

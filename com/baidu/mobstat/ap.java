@@ -1,176 +1,60 @@
 package com.baidu.mobstat;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ap {
-    public static boolean a(View view) {
-        Object tag = view.getTag(-5000);
-        if (tag == null || !(tag instanceof String) || !((String) tag).equals("baidu_mtj_edit_txtview")) {
-            return false;
-        }
-        return true;
+    private String a;
+    private long b;
+    private long c;
+    private boolean d;
+    private long e;
+
+    public ap(String str, long j, long j2, long j3, boolean z) {
+        this.a = str;
+        this.b = j;
+        this.c = j2;
+        this.e = j3;
+        this.d = z;
     }
 
-    public static void a(Activity activity, boolean z) {
-        ViewGroup viewGroup;
-        View a;
+    public void a(long j) {
+        this.c = j;
+    }
+
+    public String a() {
+        return this.a;
+    }
+
+    public long b() {
+        return this.b;
+    }
+
+    public long c() {
+        return this.c;
+    }
+
+    public boolean d() {
+        return this.d;
+    }
+
+    public long e() {
+        return this.e;
+    }
+
+    public void b(long j) {
+        this.e = j;
+    }
+
+    public JSONObject a(String str) {
+        JSONObject jSONObject = new JSONObject();
         try {
-            viewGroup = (ViewGroup) bq.a(activity).findViewById(16908290);
+            jSONObject.put("name", str);
+            jSONObject.put("s", this.b);
+            jSONObject.put("e", this.c);
+            jSONObject.put("user", this.d ? 1 : 0);
+            return jSONObject;
         } catch (Exception e) {
-            viewGroup = null;
-        }
-        if (viewGroup != null && (a = a(viewGroup)) != null) {
-            a.setVisibility(z ? 0 : 4);
-        }
-    }
-
-    public static void a(Activity activity) {
-        ViewGroup viewGroup;
-        View a;
-        try {
-            viewGroup = (ViewGroup) bq.a(activity).findViewById(16908290);
-        } catch (Exception e) {
-            viewGroup = null;
-        }
-        if (viewGroup != null && (a = a(viewGroup)) != null) {
-            viewGroup.removeView(a);
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public static void b(final Activity activity) {
-        final ViewGroup viewGroup;
-        try {
-            viewGroup = (ViewGroup) bq.a(activity).findViewById(16908290);
-        } catch (Exception e) {
-            viewGroup = null;
-        }
-        if (viewGroup != null && viewGroup != null && a(viewGroup) == null) {
-            final an anVar = new an(activity);
-            anVar.setBackgroundColor(-16745729);
-            anVar.setGravity(17);
-            anVar.setText("连接中");
-            anVar.setTag(-5000, "baidu_mtj_edit_txtview");
-            viewGroup.post(new Runnable() { // from class: com.baidu.mobstat.ap.1
-                @Override // java.lang.Runnable
-                public void run() {
-                    int width = viewGroup.getWidth();
-                    int height = viewGroup.getHeight();
-                    int c = ao.c(activity, 55.0f);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c, c);
-                    layoutParams.leftMargin = (width - c) / 6;
-                    layoutParams.topMargin = ((height - c) * 5) / 6;
-                    anVar.setLayoutParams(layoutParams);
-                }
-            });
-            viewGroup.addView(anVar);
-            a(activity, anVar);
-        }
-    }
-
-    private static void a(final Activity activity, TextView textView) {
-        final View view = (View) textView.getParent();
-        textView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.mobstat.ap.2
-            int a = 0;
-            int b = 0;
-            int c = 0;
-            int d = 0;
-
-            @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
-                int rawX = (int) motionEvent.getRawX();
-                int rawY = (int) motionEvent.getRawY();
-                switch (motionEvent.getAction()) {
-                    case 0:
-                        this.a = rawX;
-                        this.b = rawY;
-                        this.c = rawX - view2.getLeft();
-                        this.d = rawY - view2.getTop();
-                        return true;
-                    case 1:
-                        if (ap.b(this.a, (int) motionEvent.getRawX(), this.b, (int) motionEvent.getRawY())) {
-                            ap.b((Context) activity);
-                            return true;
-                        }
-                        return true;
-                    case 2:
-                        int i = rawX - this.c;
-                        int i2 = rawY - this.d;
-                        Rect rect = new Rect();
-                        view.getLocalVisibleRect(rect);
-                        if (rect.contains(new Rect(i, i2, view2.getWidth() + i, view2.getHeight() + i2))) {
-                            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
-                            marginLayoutParams.leftMargin = i;
-                            marginLayoutParams.topMargin = i2;
-                            view2.setLayoutParams(marginLayoutParams);
-                            return true;
-                        }
-                        return true;
-                    default:
-                        return true;
-                }
-            }
-        });
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static boolean b(float f, float f2, float f3, float f4) {
-        return Math.abs(f - f2) <= 5.0f && Math.abs(f3 - f4) <= 5.0f;
-    }
-
-    private static View a(ViewGroup viewGroup) {
-        View view;
-        Object tag;
-        if (viewGroup == null) {
             return null;
         }
-        int i = 0;
-        while (true) {
-            int i2 = i;
-            if (i2 >= viewGroup.getChildCount()) {
-                view = null;
-                break;
-            }
-            View childAt = viewGroup.getChildAt(i2);
-            if (childAt != null && (tag = childAt.getTag(-5000)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
-                view = childAt;
-                break;
-            }
-            i = i2 + 1;
-        }
-        return view;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("是否确认退出连接?");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ap.3
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-                at.a().c();
-                bj.c().a("autotrace: connect close, app close");
-                at.a().a(4);
-                at.a().d();
-            }
-        });
-        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ap.4
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-        builder.create().show();
     }
 }

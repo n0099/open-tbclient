@@ -9,30 +9,30 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes4.dex */
 public class EnterForumAdModel extends BdBaseModel {
-    private com.baidu.tieba.enterForum.data.a eTn;
-    private boolean eTo = false;
-    private HttpMessageListener dpz = new HttpMessageListener(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST) { // from class: com.baidu.tieba.enterForum.model.EnterForumAdModel.1
+    private com.baidu.tieba.enterForum.data.a eYo;
+    private boolean eYp = false;
+    private HttpMessageListener drH = new HttpMessageListener(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST) { // from class: com.baidu.tieba.enterForum.model.EnterForumAdModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof EnterForumAdResponsedMessage) {
                 EnterForumAdResponsedMessage enterForumAdResponsedMessage = (EnterForumAdResponsedMessage) httpResponsedMessage;
                 if (enterForumAdResponsedMessage.hasError()) {
-                    EnterForumAdModel.this.eTn = null;
+                    EnterForumAdModel.this.eYo = null;
                 } else {
-                    EnterForumAdModel.this.eTn = enterForumAdResponsedMessage.getAdData();
+                    EnterForumAdModel.this.eYo = enterForumAdResponsedMessage.getAdData();
                     if (EnterForumAdModel.this.mLoadDataCallBack != null) {
-                        EnterForumAdModel.this.mLoadDataCallBack.m(EnterForumAdModel.this.eTn);
+                        EnterForumAdModel.this.mLoadDataCallBack.m(EnterForumAdModel.this.eYo);
                     }
                 }
-                EnterForumAdModel.this.eTo = false;
+                EnterForumAdModel.this.eYp = false;
             }
         }
     };
 
     public EnterForumAdModel() {
         this.unique_id = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.dpz);
+        MessageManager.getInstance().registerListener(this.drH);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -49,7 +49,7 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
     }
 
-    public com.baidu.tieba.enterForum.data.a bef() {
-        return this.eTn;
+    public com.baidu.tieba.enterForum.data.a bgi() {
+        return this.eYo;
     }
 }

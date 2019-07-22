@@ -9,16 +9,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat DR = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat DS = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat DT = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat DU = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat DV = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat DW = new SimpleDateFormat("yyyy-MM-dd");
-    protected static SimpleDateFormat DX = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat DY = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat DZ = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat Ea = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat DX = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat DY = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat DZ = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat Ea = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat Eb = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat Ec = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat Ed = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat Ee = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat Ef = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat Eg = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -29,32 +29,32 @@ public class k {
 
     public static String a(Date date) {
         String format;
-        synchronized (DV) {
-            format = DV.format(date);
+        synchronized (Eb) {
+            format = Eb.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
         String format;
-        synchronized (DT) {
-            format = DT.format(date);
+        synchronized (DZ) {
+            format = DZ.format(date);
         }
         return format;
     }
 
     public static String c(Date date) {
         String format;
-        synchronized (DU) {
-            format = DU.format(date);
+        synchronized (Ea) {
+            format = Ea.format(date);
         }
         return format;
     }
 
     public static String d(Date date) {
         String format;
-        synchronized (DW) {
-            format = DW.format(date);
+        synchronized (Ec) {
+            format = Ec.format(date);
         }
         return format;
     }
@@ -64,7 +64,7 @@ public class k {
         return of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || of == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || of == Character.UnicodeBlock.GENERAL_PUNCTUATION || of == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || of == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS;
     }
 
-    public static boolean bf(String str) {
+    public static boolean bg(String str) {
         return str != null && str.length() > 0;
     }
 
@@ -72,11 +72,11 @@ public class k {
         return str == null || str.length() == 0 || str.equals("null");
     }
 
-    public static boolean bg(String str) {
+    public static boolean bh(String str) {
         return str == null || str.trim().length() == 0;
     }
 
-    public static String bh(String str) {
+    public static String bi(String str) {
         if (str == null) {
             return null;
         }
@@ -88,7 +88,7 @@ public class k {
         }
     }
 
-    public static String bi(String str) {
+    public static String bj(String str) {
         try {
             return URLDecoder.decode(str, "utf-8");
         } catch (Exception e) {
@@ -97,7 +97,7 @@ public class k {
         }
     }
 
-    public static int bj(String str) {
+    public static int bk(String str) {
         int i = 0;
         for (int i2 = 0; i2 < str.length(); i2++) {
             if (Integer.toHexString(str.charAt(i2)).length() == 4) {

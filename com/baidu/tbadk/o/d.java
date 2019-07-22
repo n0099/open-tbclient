@@ -4,33 +4,34 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean cxR = false;
-    private List<String> cxS;
-    private String cxT;
-    private long cxU;
-    public String cxV;
-    public String cxW;
-    public String cxX;
+    public boolean czg = false;
+    private List<String> czh;
+    private String czi;
+    private long czj;
+    public String czk;
+    public String czl;
+    public String czm;
+    private String czn;
     private long fid;
     public String objParam1;
     private long pid;
     public String task_id;
     private long tid;
 
-    public List<String> atN() {
-        return this.cxS;
+    public List<String> auV() {
+        return this.czh;
     }
 
     public void ao(List<String> list) {
-        this.cxS = list;
+        this.czh = list;
     }
 
     public String getCurrentPageKey() {
-        return this.cxT;
+        return this.czi;
     }
 
-    public void qC(String str) {
-        this.cxT = str;
+    public void qT(String str) {
+        this.czi = str;
     }
 
     public long getFid() {
@@ -53,12 +54,12 @@ public class d {
         return this.pid;
     }
 
-    public long atO() {
-        return this.cxU;
+    public long auW() {
+        return this.czj;
     }
 
-    public void bh(long j) {
-        this.cxU = j;
+    public void bi(long j) {
+        this.czj = j;
     }
 
     public void setTaskId(String str) {
@@ -69,7 +70,15 @@ public class d {
         return this.task_id;
     }
 
-    public boolean atP() {
-        return StringUtils.isNull(this.cxT);
+    public String auX() {
+        return this.czn;
+    }
+
+    public void qU(String str) {
+        this.czn = str;
+    }
+
+    public boolean auY() {
+        return StringUtils.isNull(this.czi);
     }
 }

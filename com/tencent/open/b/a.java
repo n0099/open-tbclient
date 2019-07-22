@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes3.dex */
 public class a {
     protected static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
@@ -16,16 +15,16 @@ public class a {
             return "wifi";
         }
         if (d == 1) {
-            return Apn.APN_CMWAP;
+            return "cmwap";
         }
         if (d == 4) {
-            return Apn.APN_CMNET;
+            return "cmnet";
         }
         if (d == 16) {
-            return Apn.APN_UNIWAP;
+            return "uniwap";
         }
         if (d == 8) {
-            return Apn.APN_UNINET;
+            return "uninet";
         }
         if (d == 64) {
             return "wap";
@@ -34,16 +33,16 @@ public class a {
             return "net";
         }
         if (d == 512) {
-            return Apn.APN_CTWAP;
+            return "ctwap";
         }
         if (d == 256) {
-            return Apn.APN_CTNET;
+            return "ctnet";
         }
         if (d == 2048) {
-            return Apn.APN_3GNET;
+            return "3gnet";
         }
         if (d == 1024) {
-            return Apn.APN_3GWAP;
+            return "3gwap";
         }
         String b = b(context);
         if (b == null || b.length() == 0) {
@@ -118,16 +117,16 @@ public class a {
                 return 2;
             }
             String lowerCase = activeNetworkInfo.getExtraInfo().toLowerCase();
-            if (lowerCase.startsWith(Apn.APN_CMWAP)) {
+            if (lowerCase.startsWith("cmwap")) {
                 return 1;
             }
-            if (lowerCase.startsWith(Apn.APN_CMNET) || lowerCase.startsWith("epc.tmobile.com")) {
+            if (lowerCase.startsWith("cmnet") || lowerCase.startsWith("epc.tmobile.com")) {
                 return 4;
             }
-            if (lowerCase.startsWith(Apn.APN_UNIWAP)) {
+            if (lowerCase.startsWith("uniwap")) {
                 return 16;
             }
-            if (lowerCase.startsWith(Apn.APN_UNINET)) {
+            if (lowerCase.startsWith("uninet")) {
                 return 8;
             }
             if (lowerCase.startsWith("wap")) {
@@ -136,19 +135,19 @@ public class a {
             if (lowerCase.startsWith("net")) {
                 return 32;
             }
-            if (lowerCase.startsWith(Apn.APN_CTWAP)) {
+            if (lowerCase.startsWith("ctwap")) {
                 return 512;
             }
-            if (lowerCase.startsWith(Apn.APN_CTNET)) {
+            if (lowerCase.startsWith("ctnet")) {
                 return 256;
             }
-            if (lowerCase.startsWith(Apn.APN_3GWAP)) {
+            if (lowerCase.startsWith("3gwap")) {
                 return 1024;
             }
-            if (lowerCase.startsWith(Apn.APN_3GNET)) {
+            if (lowerCase.startsWith("3gnet")) {
                 return 2048;
             }
-            if (lowerCase.startsWith(Apn.APN_777)) {
+            if (lowerCase.startsWith("#777")) {
                 String c = c(context);
                 if (c != null) {
                     if (c.length() > 0) {

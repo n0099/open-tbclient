@@ -8,38 +8,38 @@ import org.json.JSONObject;
 public class ab {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static int OO() {
-        JSONObject io = io(getAppId());
-        if (io != null) {
-            return io.optInt("launch_count", 0);
+    public static int PE() {
+        JSONObject iv = iv(getAppId());
+        if (iv != null) {
+            return iv.optInt("launch_count", 0);
         }
         return 0;
     }
 
-    public static long OP() {
+    public static long PF() {
         long currentTimeMillis = System.currentTimeMillis();
-        JSONObject io = io(getAppId());
-        long optLong = io != null ? io.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
-        if (io != null) {
-            return io.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
+        JSONObject iv = iv(getAppId());
+        long optLong = iv != null ? iv.optLong("foreground_aiapp_last_time_local", 0L) : 0L;
+        if (iv != null) {
+            return iv.optLong("visit_duration", 0L) + (currentTimeMillis - optLong);
         }
         return 0L;
     }
 
-    public static void OQ() {
-        c(getAppId(), "visit_duration", Long.valueOf(OP()));
+    public static void PG() {
+        c(getAppId(), "visit_duration", Long.valueOf(PF()));
     }
 
-    public static void OR() {
-        c(getAppId(), "launch_count", Integer.valueOf(OO() + 1));
+    public static void PH() {
+        c(getAppId(), "launch_count", Integer.valueOf(PE() + 1));
     }
 
-    public static void OS() {
+    public static void PI() {
         c(getAppId(), "foreground_aiapp_last_time_local", Long.valueOf(System.currentTimeMillis()));
     }
 
     public static String getCurrentDate() {
-        return e.a(e.Ov(), "yyyy-MM-dd");
+        return e.a(e.Pk(), "yyyy-MM-dd");
     }
 
     public static boolean an(JSONObject jSONObject) {
@@ -48,10 +48,10 @@ public class ab {
         return TextUtils.isEmpty(optString) || !optString.equals(currentDate);
     }
 
-    public static JSONObject io(String str) {
+    public static JSONObject iv(String str) {
         JSONObject jSONObject;
         JSONException e;
-        String string = com.baidu.swan.apps.storage.b.f.Ni().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.b.f.NX().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", string);
         }
@@ -64,7 +64,7 @@ public class ab {
             if (jSONObject == null) {
                 try {
                     jSONObject2.put(str, new JSONObject());
-                    com.baidu.swan.apps.storage.b.f.Ni().putString("dailyInfo", jSONObject2.toString());
+                    com.baidu.swan.apps.storage.b.f.NX().putString("dailyInfo", jSONObject2.toString());
                 } catch (JSONException e2) {
                     e = e2;
                     if (DEBUG) {
@@ -82,7 +82,7 @@ public class ab {
 
     public static void c(String str, String str2, Object obj) {
         JSONObject jSONObject;
-        String string = com.baidu.swan.apps.storage.b.f.Ni().getString("dailyInfo", "");
+        String string = com.baidu.swan.apps.storage.b.f.NX().getString("dailyInfo", "");
         if (DEBUG) {
             Log.i("SwanAppUserVisitInfoUtils", TextUtils.isEmpty(string) ? "dailyinfo is null" : string);
         }
@@ -98,7 +98,7 @@ public class ab {
             } else {
                 jSONObject.put(str, new JSONObject());
             }
-            com.baidu.swan.apps.storage.b.f.Ni().putString("dailyInfo", jSONObject.toString());
+            com.baidu.swan.apps.storage.b.f.NX().putString("dailyInfo", jSONObject.toString());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
@@ -107,6 +107,6 @@ public class ab {
     }
 
     private static String getAppId() {
-        return com.baidu.swan.apps.ae.b.Lq() != null ? com.baidu.swan.apps.ae.b.Lq().id : "";
+        return com.baidu.swan.apps.ae.b.Md() != null ? com.baidu.swan.apps.ae.b.Md().id : "";
     }
 }

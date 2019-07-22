@@ -7,5 +7,5 @@ public interface a {
 
     boolean isDestroyed();
 
-    boolean yJ();
+    boolean zq();
 }

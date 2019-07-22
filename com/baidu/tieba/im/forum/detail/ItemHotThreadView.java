@@ -12,27 +12,27 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.R;
 import java.util.HashMap;
 import java.util.List;
 import tbclient.SimpleThreadInfo;
 /* loaded from: classes3.dex */
 public class ItemHotThreadView extends LinearLayout {
-    private HashMap<String, View> gzo;
-    private List<SimpleThreadInfo> gzp;
+    private HashMap<String, View> gFy;
+    private List<SimpleThreadInfo> gFz;
     private Context mContext;
 
     public ItemHotThreadView(Context context) {
         super(context);
-        this.gzo = new HashMap<>();
+        this.gFy = new HashMap<>();
         init(context);
     }
 
     public ItemHotThreadView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gzo = new HashMap<>();
+        this.gFy = new HashMap<>();
         init(context);
     }
 
@@ -43,7 +43,7 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     public void setData(List<SimpleThreadInfo> list) {
-        this.gzp = list;
+        this.gFz = list;
         if (list != null && list.size() != 0) {
             setVisibility(0);
             int i = 0;
@@ -55,30 +55,30 @@ public class ItemHotThreadView extends LinearLayout {
     }
 
     private void refresh() {
-        setData(this.gzp);
+        setData(this.gFz);
     }
 
     private void a(SimpleThreadInfo simpleThreadInfo, boolean z) {
         a aVar;
         View view;
         if (simpleThreadInfo != null) {
-            if (!this.gzo.containsKey(String.valueOf(simpleThreadInfo.tid))) {
+            if (!this.gFy.containsKey(String.valueOf(simpleThreadInfo.tid))) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_detail_hot_thread_item, (ViewGroup) this, false);
                 aVar = new a();
-                aVar.gzr = (LinearLayout) view.findViewById(R.id.thread_item_ll);
-                aVar.gzs = (TextView) view.findViewById(R.id.ht_item_title);
-                aVar.gzt = (TextView) view.findViewById(R.id.ht_item_content);
-                aVar.gzu = (TextView) view.findViewById(R.id.ht_item_reply);
-                aVar.gzv = (TextView) view.findViewById(R.id.ht_divider_line);
+                aVar.gFB = (LinearLayout) view.findViewById(R.id.thread_item_ll);
+                aVar.gFC = (TextView) view.findViewById(R.id.ht_item_title);
+                aVar.gFD = (TextView) view.findViewById(R.id.ht_item_content);
+                aVar.gFE = (TextView) view.findViewById(R.id.ht_item_reply);
+                aVar.gFF = (TextView) view.findViewById(R.id.ht_divider_line);
                 view.setTag(aVar);
-                this.gzo.put(String.valueOf(simpleThreadInfo.tid), view);
+                this.gFy.put(String.valueOf(simpleThreadInfo.tid), view);
                 addView(view);
             } else {
-                View view2 = this.gzo.get(String.valueOf(simpleThreadInfo.tid));
+                View view2 = this.gFy.get(String.valueOf(simpleThreadInfo.tid));
                 aVar = (a) view2.getTag();
                 view = view2;
             }
-            aVar.gzs.setText(simpleThreadInfo.title);
+            aVar.gFC.setText(simpleThreadInfo.title);
             StringBuilder sb = new StringBuilder();
             if (simpleThreadInfo._abstract != null && simpleThreadInfo._abstract.size() != 0) {
                 int size = simpleThreadInfo._abstract.size();
@@ -88,25 +88,25 @@ public class ItemHotThreadView extends LinearLayout {
                     }
                 }
             }
-            if (!ap.isEmpty(sb.toString().trim())) {
-                aVar.gzt.setText(sb.toString());
-                aVar.gzt.setVisibility(0);
+            if (!aq.isEmpty(sb.toString().trim())) {
+                aVar.gFD.setText(sb.toString());
+                aVar.gFD.setVisibility(0);
             } else {
-                aVar.gzt.setVisibility(8);
+                aVar.gFD.setVisibility(8);
             }
-            aVar.gzu.setText(String.valueOf(simpleThreadInfo.reply_num));
-            al.k(aVar.gzr, R.drawable.live_frs_list_item_bg);
-            al.f(aVar.gzs, R.color.cp_cont_b, 1);
-            al.f(aVar.gzt, R.color.cp_cont_c, 1);
-            al.f(aVar.gzu, R.color.cp_link_tip_c, 1);
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) al.getDrawable(R.drawable.icon_ba_comment);
+            aVar.gFE.setText(String.valueOf(simpleThreadInfo.reply_num));
+            am.k(aVar.gFB, R.drawable.live_frs_list_item_bg);
+            am.f(aVar.gFC, R.color.cp_cont_b, 1);
+            am.f(aVar.gFD, R.color.cp_cont_c, 1);
+            am.f(aVar.gFE, R.color.cp_link_tip_c, 1);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) am.getDrawable(R.drawable.icon_ba_comment);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            aVar.gzu.setCompoundDrawables(bitmapDrawable, null, null, null);
-            al.k(aVar.gzv, R.color.cp_bg_line_c);
+            aVar.gFE.setCompoundDrawables(bitmapDrawable, null, null, null);
+            am.k(aVar.gFF, R.color.cp_bg_line_c);
             if (z) {
-                aVar.gzv.setVisibility(0);
+                aVar.gFF.setVisibility(0);
             } else {
-                aVar.gzv.setVisibility(8);
+                aVar.gFF.setVisibility(8);
             }
             final String valueOf = String.valueOf(simpleThreadInfo.tid);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.forum.detail.ItemHotThreadView.1
@@ -128,11 +128,11 @@ public class ItemHotThreadView extends LinearLayout {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a {
-        LinearLayout gzr;
-        TextView gzs;
-        TextView gzt;
-        TextView gzu;
-        TextView gzv;
+        LinearLayout gFB;
+        TextView gFC;
+        TextView gFD;
+        TextView gFE;
+        TextView gFF;
 
         private a() {
         }

@@ -4,17 +4,17 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class b {
-    protected a aOZ;
-    private com.baidu.swan.apps.res.widget.a.a aPa;
+    protected a aPJ;
+    private com.baidu.swan.apps.res.widget.a.a aPK;
     protected Context mContext;
     protected Drawable mIconDrawable;
     protected final int mId;
     protected CharSequence mTitle;
     protected boolean mEnabled = true;
     protected boolean mChecked = false;
-    protected boolean aOW = false;
-    protected boolean aOX = true;
-    protected long aOY = 0;
+    protected boolean aPG = false;
+    protected boolean aPH = true;
+    protected long aPI = 0;
     protected int mIconResId = 0;
 
     /* loaded from: classes2.dex */
@@ -31,7 +31,7 @@ public class b {
     }
 
     public void d(com.baidu.swan.apps.res.widget.a.a aVar) {
-        this.aPa = aVar;
+        this.aPK = aVar;
     }
 
     public int getItemId() {
@@ -50,8 +50,8 @@ public class b {
         return this.mTitle;
     }
 
-    public boolean KT() {
-        return this.aOX;
+    public boolean LG() {
+        return this.aPH;
     }
 
     public Drawable getIcon() {
@@ -67,15 +67,15 @@ public class b {
         return null;
     }
 
-    public long KU() {
-        return this.aOY;
+    public long LH() {
+        return this.aPI;
     }
 
-    public a KV() {
-        return this.aOZ;
+    public a LI() {
+        return this.aPJ;
     }
 
     public void b(a aVar) {
-        this.aOZ = aVar;
+        this.aPJ = aVar;
     }
 }

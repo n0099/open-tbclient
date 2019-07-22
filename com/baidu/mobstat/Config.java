@@ -13,6 +13,8 @@ public class Config {
     public static final String CELL_LOCATION = "cl";
     public static final String CHANNEL = "c";
     public static final String CHANNEL_META_NAME = "BaiduMobAd_CHANNEL";
+    public static final int COMMON_DATA_LENGTH_LIMIT_LARGE = 1024;
+    public static final int CRASH_EXT_LIMIT_BYTES = 256;
     public static final int CRASH_TYPE_JAVA = 0;
     public static final int CRASH_TYPE_NATIE = 1;
     public static final String CUID = "i";
@@ -104,8 +106,19 @@ public class Config {
     public static final String HEADER_EXT = "ext";
     public static final String HEADER_FULL_TRACE = "at";
     public static final String HEADER_PART = "he";
+    public static final String INPUT_DEF_PKG = "pkg";
+    public static final String INPUT_DEF_PKG_SYS = "sys";
+    public static final String INPUT_DEF_VERSION = "version";
+    public static final int INPUT_INFO_LIMIT_BYTES = 1024;
+    public static final String INPUT_INSTALLED_PKG = "install";
+    public static final String INPUT_PART = "input";
     public static final String LAST_AP_INFO_FILE_NAME;
     public static final String LAST_SESSION_FILE_NAME;
+    public static final String LAUNCH = "launch";
+    public static final String LAUNCH_CONTENT = "content";
+    public static final String LAUNCH_INFO = "info";
+    public static final String LAUNCH_REFERER = "referer";
+    public static final String LAUNCH_TYPE = "type";
     public static final String LINKED_WAY = "l";
     public static final String LOG_FULL_SEND_URL = "https://hmma.baidu.com/auto.gif";
     public static final String LOG_SEND_URL;
@@ -143,13 +156,17 @@ public class Config {
     public static final String ROM = "rom";
     public static final boolean SDK_ENABLE_DEVICE = false;
     public static final boolean SDK_ENABLE_FEED = true;
+    public static final boolean SDK_ENABLE_INPUT = false;
     public static final boolean SDK_ENABLE_MAC = true;
     public static final boolean SDK_FOR_CAR = false;
+    public static final boolean SDK_FOR_DUEROS = false;
+    public static final boolean SDK_FOR_HUAWEI = false;
     public static final boolean SDK_FOR_MAP = false;
     public static final boolean SDK_FOR_MB_DEV = false;
     public static final boolean SDK_FOR_RAVEN = false;
     public static final boolean SDK_FOR_SDK = false;
     public static final boolean SDK_INTERNAL = false;
+    public static final boolean SDK_LOG_FILTER = false;
     public static final boolean SDK_RELEASE = true;
     public static final String SDK_TAG = "tg";
     public static final int SDK_TAG_VALUE = 1;
@@ -181,13 +198,15 @@ public class Config {
     public static final String SESSTION_TRIGGER_CATEGORY = "pc";
     public static final String SIGN = "sign";
     public static final String STAMP = "t";
+    public static final String START_TYPE = "startType";
     public static final String STAT_CACHE_FILE_NAME;
     public static final String STAT_FULL_CACHE_FILE_NAME;
     public static final String STAT_SDK_CHANNEL = "sc";
-    public static final int STAT_SDK_CHANNEL_VALUE = 0;
+    public static final int STAT_SDK_CHANNEL_VALUE = 14;
     public static final String STAT_SDK_TYPE = "st";
     public static final String STAT_SDK_VERSION = "v";
-    public static final String STAT_SDK_VERSION_NUM = "3.9.2.0";
+    public static final String STAT_SDK_VERSION_NUM = "3.9.5.1";
+    public static final String TARGET_SDK_VERSION = "tv";
     public static final String TEST_DEVICE_ID = "td";
     public static final String TIME_INTERVAL_META_NAME = "BaiduMobAd_TIME_INTERVAL";
     public static final String TRACE_APPLICATION_SESSION = "app_session";
@@ -206,6 +225,13 @@ public class Config {
     public static final String WIFI_LOCATION = "wl2";
 
     /* loaded from: classes6.dex */
+    public static class AppLaunchType {
+        public static final int AppCall = 1;
+        public static final int DirectCall = 0;
+        public static final int PushCall = 2;
+    }
+
+    /* loaded from: classes6.dex */
     public static class CrashChannel {
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
@@ -219,6 +245,12 @@ public class Config {
         public static final int ApiInvoke = 0;
         public static final int CustomInvoke = 3;
         public static final int FragmentInvoke = 2;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class StartType {
+        public static final int NORMAL_START = 0;
+        public static final int QUICK_START = 1;
     }
 
     /* loaded from: classes6.dex */

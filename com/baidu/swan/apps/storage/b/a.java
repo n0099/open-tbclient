@@ -3,14 +3,14 @@ package com.baidu.swan.apps.storage.b;
 import android.os.Bundle;
 /* loaded from: classes2.dex */
 public class a {
-    final int aVQ;
-    final String aVR;
-    final String aVS;
+    final int aWA;
+    final String aWB;
+    final String aWC;
 
     a(int i, String str, String str2) {
-        this.aVQ = i;
-        this.aVR = str;
-        this.aVS = str2;
+        this.aWA = i;
+        this.aWB = str;
+        this.aWC = str2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -30,6 +30,6 @@ public class a {
     }
 
     public String toString() {
-        return "SpMethodInfo{mDataType=" + this.aVQ + ", mPrefName='" + this.aVR + "', mDataValue='" + this.aVS + "'}";
+        return "SpMethodInfo{mDataType=" + this.aWA + ", mPrefName='" + this.aWB + "', mDataValue='" + this.aWC + "'}";
     }
 }

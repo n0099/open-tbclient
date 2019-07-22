@@ -11,19 +11,19 @@ public class c implements com.baidu.swan.apps.an.d.a<HybridUbcFlow> {
         ac.c(new Runnable() { // from class: com.baidu.swan.apps.performance.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                ac.OV();
+                ac.PL();
             }
-        }, Id());
+        }, IQ());
     }
 
-    private int Id() {
-        if (com.baidu.swan.apps.u.a.DE() == null) {
+    private int IQ() {
+        if (com.baidu.swan.apps.u.a.En() == null) {
             return 0;
         }
-        int vF = com.baidu.swan.apps.u.a.DE().vF();
-        if (vF <= 0) {
-            vF = 0;
+        int wg = com.baidu.swan.apps.u.a.En().wg();
+        if (wg <= 0) {
+            wg = 0;
         }
-        return vF;
+        return wg;
     }
 }

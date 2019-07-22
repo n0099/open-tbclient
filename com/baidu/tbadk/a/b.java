@@ -12,42 +12,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bzI;
+    private static b bAF;
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> Zg = Zg();
+        HashMap<String, a> aaf = aaf();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(Zg);
+        this.mSwitchs.putAll(aaf);
     }
 
-    public static b Ze() {
-        if (bzI == null) {
+    public static b aad() {
+        if (bAF == null) {
             synchronized (b.class) {
-                if (bzI == null) {
-                    bzI = new b();
+                if (bAF == null) {
+                    bAF = new b();
                 }
             }
         }
-        return bzI;
+        return bAF;
     }
 
-    private static String Zf() {
+    private static String aae() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(Zf(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(aae(), 0);
     }
 
-    public synchronized a ln(String str) {
+    public synchronized a lv(String str) {
         return this.mSwitchs.get(str);
     }
 
     private String by(String str, String str2) {
-        a ln = ln(str);
-        if (ln != null && !TextUtils.isEmpty(ln.bzH)) {
-            return ln.bzH;
+        a lv = lv(str);
+        if (lv != null && !TextUtils.isEmpty(lv.bAE)) {
+            return lv.bAE;
         }
         return str2;
     }
@@ -93,7 +93,7 @@ public class b {
         }
     }
 
-    private HashMap<String, a> Zg() {
+    private HashMap<String, a> aaf() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -110,7 +110,7 @@ public class b {
         return hashMap;
     }
 
-    public static boolean lo(String str) {
-        return Config.APP_VERSION_CODE.equalsIgnoreCase(Ze().by(str, ""));
+    public static boolean lw(String str) {
+        return Config.APP_VERSION_CODE.equalsIgnoreCase(aad().by(str, ""));
     }
 }

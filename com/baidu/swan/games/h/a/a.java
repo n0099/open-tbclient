@@ -38,9 +38,9 @@ public class a extends z {
 
                 @Override // com.baidu.swan.apps.install.e.b
                 public void onSuccess() {
-                    File Ct = b.Ct();
-                    File Cr = b.Cr();
-                    if (Ct.exists() && com.baidu.swan.c.a.bs(Ct.getPath(), Cr.getPath())) {
+                    File Dc = b.Dc();
+                    File Da = b.Da();
+                    if (Dc.exists() && com.baidu.swan.c.a.bs(Dc.getPath(), Da.getPath())) {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_success, 1).show();
                     } else {
                         Toast.makeText(AppRuntime.getAppContext(), a.h.debug_game_core_download_failed, 1).show();

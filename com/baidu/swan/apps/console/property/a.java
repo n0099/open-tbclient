@@ -13,56 +13,56 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private final String ann = "performance_" + System.currentTimeMillis();
-    private int ano = 3000;
-    private HandlerC0127a anp;
-    private BufferedWriter anq;
+    private final String anQ = "performance_" + System.currentTimeMillis();
+    private int anR = 3000;
+    private HandlerC0124a anS;
+    private BufferedWriter anT;
     private Map<String, Object> mData;
 
     public void startMonitor() {
         if (this.mData == null) {
-            this.mData = b.xK().xL();
+            this.mData = b.yp().yq();
             com.baidu.swan.apps.console.c.d("PropertyLogcat", "Start monitor logcat");
         }
-        if (this.anp == null) {
-            this.anp = new HandlerC0127a();
+        if (this.anS == null) {
+            this.anS = new HandlerC0124a();
         }
-        if (this.anq == null) {
+        if (this.anT == null) {
             File file = new File(getFilePath());
             try {
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-                this.anq = new BufferedWriter(new FileWriter(file, true));
+                this.anT = new BufferedWriter(new FileWriter(file, true));
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Create log file fail", e);
             }
         }
-        this.anp.removeMessages(100);
-        this.anp.sendEmptyMessage(100);
+        this.anS.removeMessages(100);
+        this.anS.sendEmptyMessage(100);
     }
 
     public void bS(int i) {
         if (i >= 1000) {
-            this.ano = i;
+            this.anR = i;
         }
     }
 
-    public String xJ() {
+    public String yo() {
         if (this.mData != null) {
-            b.xK().recycle();
+            b.yp().recycle();
             this.mData = null;
             com.baidu.swan.apps.console.c.d("PropertyLogcat", "Stop monitor logcat");
         }
-        com.baidu.swan.c.a.c(this.anq);
-        this.anq = null;
-        return com.baidu.swan.apps.storage.b.aG(getFilePath(), com.baidu.swan.apps.ae.b.LB());
+        com.baidu.swan.c.a.c(this.anT);
+        this.anT = null;
+        return com.baidu.swan.apps.storage.b.aG(getFilePath(), com.baidu.swan.apps.ae.b.Mo());
     }
 
     /* renamed from: com.baidu.swan.apps.console.property.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class HandlerC0127a extends Handler {
-        private HandlerC0127a() {
+    private class HandlerC0124a extends Handler {
+        private HandlerC0124a() {
         }
 
         @Override // android.os.Handler
@@ -77,22 +77,21 @@ public class a {
                         e.printStackTrace();
                     }
                 }
-                a.this.m15do(jSONObject.toString());
+                a.this.dt(jSONObject.toString());
                 com.baidu.swan.apps.console.c.d("PropertyLogcat", jSONObject.toString());
-                if (a.this.anp != null) {
-                    a.this.anp.sendEmptyMessageDelayed(100, a.this.ano);
+                if (a.this.anS != null) {
+                    a.this.anS.sendEmptyMessageDelayed(100, a.this.anR);
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* renamed from: do  reason: not valid java name */
-    public void m15do(String str) {
-        if (this.anq != null) {
+    public void dt(String str) {
+        if (this.anT != null) {
             try {
-                this.anq.write(str);
-                this.anq.write(10);
+                this.anT.write(str);
+                this.anT.write(10);
                 com.baidu.swan.apps.console.c.d("PropertyLogcat", "Export logcat success");
             } catch (IOException e) {
                 com.baidu.swan.apps.console.c.e("PropertyLogcat", "Logcat write fail", e);
@@ -101,6 +100,6 @@ public class a {
     }
 
     private String getFilePath() {
-        return com.baidu.swan.apps.storage.b.u(com.baidu.swan.apps.ae.b.LB(), this.ann, TbConfig.TMP_LOG_DIR_NAME);
+        return com.baidu.swan.apps.storage.b.u(com.baidu.swan.apps.ae.b.Mo(), this.anQ, TbConfig.TMP_LOG_DIR_NAME);
     }
 }

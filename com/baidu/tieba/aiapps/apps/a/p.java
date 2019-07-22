@@ -17,19 +17,19 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class p {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static String cZK = "cookieMap";
-    public static String cZL = "ptokenDomains";
-    public static String cZM = "bdussDomains";
+    public static String dbi = "cookieMap";
+    public static String dbj = "ptokenDomains";
+    public static String dbk = "bdussDomains";
 
-    public static void ds(Context context) {
+    public static void dt(Context context) {
         if (ProcessUtils.isMainProcess()) {
             a(context, null);
         } else {
-            dt(context);
+            du(context);
         }
     }
 
-    private static void dt(Context context) {
+    private static void du(Context context) {
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, e.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             a(context, callOnMainWithContentProvider);
@@ -48,10 +48,10 @@ public class p {
                 stringArrayList = null;
                 map = c.j(context, hashMap);
             } else {
-                Map<String, String> map2 = delegateResult.mResult.getSerializable(cZK) != null ? (Map) delegateResult.mResult.getSerializable(cZK) : null;
-                stringArrayList = delegateResult.mResult.containsKey(cZM) ? delegateResult.mResult.getStringArrayList(cZM) : null;
-                if (delegateResult.mResult.containsKey(cZL)) {
-                    arrayList = delegateResult.mResult.getStringArrayList(cZL);
+                Map<String, String> map2 = delegateResult.mResult.getSerializable(dbi) != null ? (Map) delegateResult.mResult.getSerializable(dbi) : null;
+                stringArrayList = delegateResult.mResult.containsKey(dbk) ? delegateResult.mResult.getStringArrayList(dbk) : null;
+                if (delegateResult.mResult.containsKey(dbj)) {
+                    arrayList = delegateResult.mResult.getStringArrayList(dbj);
                     map = map2;
                 } else {
                     map = map2;

@@ -12,18 +12,18 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes2.dex */
 public class a {
-    private List<AnimatorSet> akq = new CopyOnWriteArrayList();
+    private List<AnimatorSet> akS = new CopyOnWriteArrayList();
 
     private ObjectAnimator a(SwanAppActivity swanAppActivity, long j) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vf().baZ, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vG().bbK, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(j);
         return ofFloat;
     }
 
     private AnimatorSet a(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vf().bbb, "translationX", 0.0f, -z.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vG().bbM, "translationX", 0.0f, -z.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(240L);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.vf().bbc, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.vG().bbN, "alpha", 0.0f, 1.0f);
         ofFloat2.setDuration(240L);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ofFloat).with(ofFloat2);
@@ -31,11 +31,11 @@ public class a {
     }
 
     private AnimatorSet b(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vf().bbb, "translationX", -z.dip2px(AppRuntime.getAppContext(), 9.5f), z.dip2px(AppRuntime.getAppContext(), 9.5f));
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vG().bbM, "translationX", -z.dip2px(AppRuntime.getAppContext(), 9.5f), z.dip2px(AppRuntime.getAppContext(), 9.5f));
         ofFloat.setDuration(380L);
         ofFloat.setRepeatMode(2);
         ofFloat.setRepeatCount(-1);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.vf().bbc, "translationX", 0.0f, -z.dip2px(AppRuntime.getAppContext(), 19.0f));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.vG().bbN, "translationX", 0.0f, -z.dip2px(AppRuntime.getAppContext(), 19.0f));
         ofFloat2.setDuration(380L);
         ofFloat2.setRepeatMode(2);
         ofFloat2.setRepeatCount(-1);
@@ -48,9 +48,9 @@ public class a {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(a(swanAppActivity)).before(b(swanAppActivity));
         animatorSet.start();
-        f.HY().f(new UbcFlowEvent("first_anim_start"));
-        com.baidu.swan.apps.y.f.GN().fy("first_anim_start");
-        this.akq.add(animatorSet);
+        f.IL().f(new UbcFlowEvent("first_anim_start"));
+        com.baidu.swan.apps.y.f.Hy().fD("first_anim_start");
+        this.akS.add(animatorSet);
     }
 
     public void a(SwanAppActivity swanAppActivity, int i) {
@@ -74,8 +74,8 @@ public class a {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(e(swanAppActivity));
         animatorSet.start();
-        f.HY().f(new UbcFlowEvent("second_anim_start"));
-        com.baidu.swan.apps.y.f.GN().fy("second_anim_start");
+        f.IL().f(new UbcFlowEvent("second_anim_start"));
+        com.baidu.swan.apps.y.f.Hy().fD("second_anim_start");
         animatorSet.addListener(new Animator.AnimatorListener() { // from class: com.baidu.swan.apps.e.a.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
@@ -83,11 +83,11 @@ public class a {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                f.HY().f(new UbcFlowEvent("second_anim_end")).HD();
-                com.baidu.swan.apps.y.f.GN().fy("second_anim_end");
+                f.IL().f(new UbcFlowEvent("second_anim_end")).Ip();
+                com.baidu.swan.apps.y.f.Hy().fD("second_anim_end");
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.vf().baZ.setVisibility(8);
-                    swanAppActivity.ve().reset();
+                    swanAppActivity.vG().bbK.setVisibility(8);
+                    swanAppActivity.vF().reset();
                 }
             }
 
@@ -99,7 +99,7 @@ public class a {
             public void onAnimationRepeat(Animator animator) {
             }
         });
-        this.akq.add(animatorSet);
+        this.akS.add(animatorSet);
     }
 
     private void a(final SwanAppActivity swanAppActivity, boolean z) {
@@ -117,8 +117,8 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (!swanAppActivity.isFinishing()) {
-                    swanAppActivity.vf().baZ.setVisibility(8);
-                    swanAppActivity.ve().reset();
+                    swanAppActivity.vG().bbK.setVisibility(8);
+                    swanAppActivity.vF().reset();
                 }
             }
 
@@ -132,20 +132,20 @@ public class a {
         });
         animatorSet.setStartDelay(i);
         animatorSet.start();
-        this.akq.add(animatorSet);
+        this.akS.add(animatorSet);
     }
 
     private ObjectAnimator e(SwanAppActivity swanAppActivity) {
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vf().baZ, "alpha", 1.0f, 0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.vG().bbK, "alpha", 1.0f, 0.0f);
         ofFloat.setDuration(150L);
         return ofFloat;
     }
 
-    public void xd() {
-        for (AnimatorSet animatorSet : this.akq) {
+    public void xE() {
+        for (AnimatorSet animatorSet : this.akS) {
             animatorSet.removeAllListeners();
             animatorSet.cancel();
         }
-        this.akq.clear();
+        this.akS.clear();
     }
 }

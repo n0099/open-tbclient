@@ -1,45 +1,45 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class d extends e {
-    private String bsT;
-    private int bsU;
-    private String bsV;
-    private String bsX;
-    private String bta;
+    private String btJ;
+    private int btK;
+    private String btL;
+    private String btN;
+    private String btQ;
 
     public d(String str, int i, String str2, int i2) {
         super(i2);
-        this.bsT = str;
-        this.bta = str2;
-        this.bsU = i;
+        this.btJ = str;
+        this.btQ = str2;
+        this.btK = i;
     }
 
-    public d ks(String str) {
-        this.bsV = str;
+    public d kA(String str) {
+        this.btL = str;
         return this;
     }
 
-    public void kt(String str) {
-        this.bsX = str;
+    public void kB(String str) {
+        this.btN = str;
     }
 
     public String getBundleId() {
-        return this.bsT;
+        return this.btJ;
     }
 
-    public String VX() {
-        return this.bta;
+    public String WQ() {
+        return this.btQ;
     }
 
-    public int VR() {
-        return this.bsU;
+    public int WK() {
+        return this.btK;
     }
 
-    public String VT() {
-        return this.bsV;
+    public String WM() {
+        return this.btL;
     }
 
-    public String VU() {
-        return this.bsX;
+    public String WN() {
+        return this.btN;
     }
 }

@@ -14,43 +14,43 @@ import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
 /* loaded from: classes2.dex */
 public class EfficientProgressBar extends View {
-    private int aII;
-    private int aIJ;
-    private int aIK;
-    private long aIL;
-    private Transformation aIM;
-    private AnimationSet aIN;
-    private Drawable aIO;
-    private float aIP;
+    private int aJq;
+    private int aJr;
+    private int aJs;
+    private long aJt;
+    private Transformation aJu;
+    private AnimationSet aJv;
+    private Drawable aJw;
+    private float aJx;
     private Interpolator mInterpolator;
 
     public EfficientProgressBar(Context context) {
         super(context);
-        this.aIK = cR(66);
-        this.aIL = -1L;
-        this.aIM = new Transformation();
+        this.aJs = cU(66);
+        this.aJt = -1L;
+        this.aJu = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.aIP = -1.0f;
+        this.aJx = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIK = cR(66);
-        this.aIL = -1L;
-        this.aIM = new Transformation();
+        this.aJs = cU(66);
+        this.aJt = -1L;
+        this.aJu = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.aIP = -1.0f;
+        this.aJx = -1.0f;
         init();
     }
 
     public EfficientProgressBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aIK = cR(66);
-        this.aIL = -1L;
-        this.aIM = new Transformation();
+        this.aJs = cU(66);
+        this.aJt = -1L;
+        this.aJu = new Transformation();
         this.mInterpolator = new DecelerateInterpolator(2.0f);
-        this.aIP = -1.0f;
+        this.aJx = -1.0f;
         init();
     }
 
@@ -58,83 +58,83 @@ public class EfficientProgressBar extends View {
     }
 
     public void setProgressDrawable(Drawable drawable) {
-        this.aIO = drawable;
+        this.aJw = drawable;
     }
 
     public void setProgress(int i, boolean z) {
-        if (i != 100 || cS(this.aII) != 100) {
-            this.aII = cR(i);
+        if (i != 100 || cV(this.aJq) != 100) {
+            this.aJq = cU(i);
             if (i == 100) {
-                if (this.aIN == null) {
-                    bJ(z);
+                if (this.aJv == null) {
+                    bM(z);
                 }
-            } else if (this.aIL == -1) {
+            } else if (this.aJt == -1) {
                 start();
             }
         }
     }
 
     public void reset() {
-        this.aIJ = 0;
-        this.aII = 0;
-        this.aIL = -1L;
-        this.aIN = null;
+        this.aJr = 0;
+        this.aJq = 0;
+        this.aJt = -1L;
+        this.aJv = null;
         m(0, false);
         setVisibility(4);
     }
 
     @TargetApi(11)
-    private void Jm() {
+    private void JZ() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
-            f = ((10000 - this.aIJ) / 10000.0f) * width;
+            f = ((10000 - this.aJr) / 10000.0f) * width;
         }
         if (f > 0.0f) {
             if (Build.VERSION.SDK_INT >= 11) {
                 setTranslationX(-f);
             }
-            this.aIP = f;
+            this.aJx = f;
         }
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.aIO == null ? 0 : this.aIO.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
+        setMeasuredDimension(View.MeasureSpec.getSize(i), (this.aJw == null ? 0 : this.aJw.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (z && this.aIO != null) {
-            this.aIO.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
+        if (z && this.aJw != null) {
+            this.aJw.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        if (this.aIO != null) {
-            if (this.aIN != null) {
-                if (this.aIN.getTransformation(getDrawingTime(), this.aIM)) {
-                    m((int) (this.aIM.getAlpha() * 10000.0f), false);
+        if (this.aJw != null) {
+            if (this.aJv != null) {
+                if (this.aJv.getTransformation(getDrawingTime(), this.aJu)) {
+                    m((int) (this.aJu.getAlpha() * 10000.0f), false);
                 } else {
-                    this.aIN = null;
+                    this.aJv = null;
                     reset();
                 }
-            } else if (this.aIL != -1 && this.aIJ < this.aIK) {
+            } else if (this.aJt != -1 && this.aJr < this.aJs) {
                 long currentTimeMillis = System.currentTimeMillis();
-                int P = P(currentTimeMillis - this.aIL);
-                this.aIJ += P;
+                int P = P(currentTimeMillis - this.aJt);
+                this.aJr += P;
                 if (P != 0) {
-                    this.aIL = currentTimeMillis;
-                    m(this.aIJ, true);
+                    this.aJt = currentTimeMillis;
+                    m(this.aJr, true);
                 }
             }
             int i = -1;
             if (getPaddingLeft() > 0) {
                 i = canvas.save();
-                canvas.clipRect(this.aIP + getPaddingLeft(), 0.0f, getWidth(), getHeight());
+                canvas.clipRect(this.aJx + getPaddingLeft(), 0.0f, getWidth(), getHeight());
             }
-            this.aIO.draw(canvas);
+            this.aJw.draw(canvas);
             if (i >= 0) {
                 canvas.restoreToCount(i);
             }
@@ -145,8 +145,8 @@ public class EfficientProgressBar extends View {
         if (i > 10000) {
             i = 10000;
         }
-        this.aIJ = i;
-        Jm();
+        this.aJr = i;
+        JZ();
         if (z) {
             postInvalidateDelayed(50L);
         } else {
@@ -155,24 +155,24 @@ public class EfficientProgressBar extends View {
     }
 
     private void start() {
-        this.aIJ = 0;
-        this.aII = 0;
-        this.aIN = null;
-        this.aIL = System.currentTimeMillis();
-        m(this.aIJ, false);
+        this.aJr = 0;
+        this.aJq = 0;
+        this.aJv = null;
+        this.aJt = System.currentTimeMillis();
+        m(this.aJr, false);
         setVisibility(0);
     }
 
-    private void bJ(boolean z) {
+    private void bM(boolean z) {
         if (getVisibility() == 0) {
             if (z) {
-                this.aIN = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.aIJ / 10000.0f, 1.0f);
+                this.aJv = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.aJr / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
                 alphaAnimation.setInterpolator(this.mInterpolator);
-                this.aIN.addAnimation(alphaAnimation);
-                this.aIM.clear();
-                this.aIN.start();
+                this.aJv.addAnimation(alphaAnimation);
+                this.aJu.clear();
+                this.aJv.start();
                 invalidate();
                 return;
             }
@@ -181,14 +181,14 @@ public class EfficientProgressBar extends View {
     }
 
     private int P(long j) {
-        return (int) ((cR(66) / 1500.0f) * ((float) j));
+        return (int) ((cU(66) / 1500.0f) * ((float) j));
     }
 
-    private int cR(int i) {
+    private int cU(int i) {
         return i * 100;
     }
 
-    private int cS(int i) {
+    private int cV(int i) {
         return i / 100;
     }
 }

@@ -11,7 +11,6 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -19,23 +18,24 @@ import java.io.Reader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static String a(Context context) {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String o = eVar.o();
-            if (TextUtils.isEmpty(o)) {
+            String string = eVar.b.getString("xyus", "");
+            if (TextUtils.isEmpty(string)) {
                 String m = m(context);
                 String d = d(context);
                 if (TextUtils.isEmpty(d)) {
                     d = "0";
                 }
                 String str = m + "|" + new StringBuffer(d).reverse().toString();
-                eVar.a(str);
+                eVar.d.putString("xyus", str);
+                eVar.d.commit();
                 return str;
             }
-            return o;
+            return string;
         } catch (Throwable th) {
             e.a();
             return "";
@@ -116,7 +116,7 @@ public final class g {
 
     public static String d(Context context) {
         TelephonyManager telephonyManager;
-        if (q.a(context) && (telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
+        if (q.a(context) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
             String deviceId = telephonyManager.getDeviceId();
             if (TextUtils.isEmpty(deviceId)) {
                 return "";
@@ -134,7 +134,7 @@ public final class g {
         return string;
     }
 
-    public static String a(byte[] bArr) {
+    private static String a(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
@@ -228,7 +228,7 @@ public final class g {
 
     public static String h(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 return telephonyManager.getSubscriberId();
             }
@@ -241,7 +241,7 @@ public final class g {
     public static String i(Context context) {
         String str;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager == null) {
                 return "";
             }
@@ -263,7 +263,7 @@ public final class g {
     public static String j(Context context) {
         String str;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager == null) {
                 return "";
             }
@@ -285,7 +285,7 @@ public final class g {
     public static String k(Context context) {
         String str;
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager == null) {
                 return "";
             }

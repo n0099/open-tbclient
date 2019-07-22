@@ -10,13 +10,10 @@ import com.baidu.sapi2.activity.social.HuaweiSSOLoginActivity;
 import com.baidu.sapi2.activity.social.MeizuSSOLoginActivity;
 import com.baidu.sapi2.activity.social.QQSSOLoginActivity;
 import com.baidu.sapi2.activity.social.SinaSSOLoginActivity;
-import com.baidu.sapi2.activity.social.SocialLoginActivity;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity;
-import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.service.AbstractThirdPartyService;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
 /* loaded from: classes2.dex */
@@ -41,16 +38,6 @@ public class ThirdPartyService implements AbstractThirdPartyService {
                 intent = new Intent(context, HuaweiSSOLoginActivity.class);
             } else if (socialType == SocialType.WEIXIN) {
                 intent = new Intent(context, WXLoginActivity.class);
-            } else if (socialType == SocialType.CHUANKE) {
-                if (z) {
-                    ((Activity) context).finish();
-                    WebAuthResult webAuthResult = new WebAuthResult();
-                    webAuthResult.setResultCode(-301);
-                    webAuthResult.setResultMsg(SapiResult.ERROR_MSG_PROCESSED_END);
-                    loginFail((Activity) context, webAuthResult, i);
-                    return;
-                }
-                return;
             } else if (socialType == SocialType.QQ_SSO) {
                 intent = new Intent(context, QQSSOLoginActivity.class);
             } else if (socialType == SocialType.XIAOMI) {
@@ -58,8 +45,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             } else if (socialType == SocialType.MEIZU) {
                 intent = new Intent(context, MeizuSSOLoginActivity.class);
             } else {
-                intent = new Intent(context, SocialLoginActivity.class);
-                intent.putExtra("social_type", socialType);
+                throw new IllegalArgumentException(socialType.getName() + " type login not support");
             }
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
             if (!z) {
@@ -81,19 +67,6 @@ public class ThirdPartyService implements AbstractThirdPartyService {
             intent.putExtra(AccountCenterActivity.EXTRA_WEIIXIN_BIND_URL, str);
             activity.startActivity(intent);
         }
-    }
-
-    private void loginFail(Activity activity, WebAuthResult webAuthResult, int i) {
-        if (i == 2003) {
-            activity.finish();
-            return;
-        }
-        WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
-        if (webAuthListener != null) {
-            webAuthListener.onFailure(webAuthResult);
-        }
-        PassportSDK.getInstance().release();
-        activity.finish();
     }
 
     @Override // com.baidu.sapi2.service.AbstractThirdPartyService

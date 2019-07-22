@@ -1,11 +1,14 @@
 package com.baidu.mobstat;
-/* loaded from: classes6.dex */
-public class cp extends cn {
-    public cp() {
-        super(1002);
-    }
 
-    public cp(String str) {
-        super(1002, str);
-    }
+import com.baidu.mobstat.cq;
+import java.nio.ByteBuffer;
+/* loaded from: classes6.dex */
+public interface cp extends cq {
+    void a(cq.a aVar);
+
+    void a(ByteBuffer byteBuffer) throws ch;
+
+    void a(boolean z);
+
+    void b(boolean z);
 }

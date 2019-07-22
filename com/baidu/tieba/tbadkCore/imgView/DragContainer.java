@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap cDh;
+    private Bitmap cEy;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -35,13 +35,13 @@ public class DragContainer extends LinearLayout {
         this.mScroller = new Scroller(context);
     }
 
-    public void cO(View view) {
+    public void cR(View view) {
         this.view = view;
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.cDh = Bitmap.createBitmap(drawingCache);
+            this.cEy = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class DragContainer extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.cDh != null) {
+            if (this.mScroller.computeScrollOffset() && this.cEy != null) {
                 canvas.save();
-                canvas.drawBitmap(this.cDh, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.cEy, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.cDh != null) {
-                this.cDh.recycle();
+            if (this.cEy != null) {
+                this.cEy.recycle();
             }
-            this.cDh = null;
+            this.cEy = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.cDh != null) {
-            this.cDh.recycle();
+        if (this.cEy != null) {
+            this.cEy.recycle();
         }
-        this.cDh = null;
+        this.cEy = null;
         this.view = null;
     }
 }

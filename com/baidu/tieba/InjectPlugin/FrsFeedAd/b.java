@@ -7,53 +7,53 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements m, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> cPK = new SparseArray<>();
-    private Object cPL;
-    private int cPM;
+    private static SparseArray<BdUniqueId> cRg = new SparseArray<>();
+    private Object cRh;
+    private int cRi;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return cPK.get(this.cPM);
+        return cRg.get(this.cRi);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object azj() {
-        return this.cPL;
+    public Object aAx() {
+        return this.cRh;
     }
 
     public void aj(Object obj) {
-        this.cPL = obj;
+        this.cRh = obj;
     }
 
-    public int azk() {
-        return this.cPM;
+    public int aAy() {
+        return this.cRi;
     }
 
-    public void lW(int i) {
-        this.cPM = i;
+    public void md(int i) {
+        this.cRi = i;
     }
 
     public static void ar(List<Integer> list) {
-        if (cPK.size() <= 0 && list != null) {
+        if (cRg.size() <= 0 && list != null) {
             for (Integer num : list) {
-                cPK.put(num.intValue(), BdUniqueId.gen());
+                cRg.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> azl() {
+    public static List<BdUniqueId> aAz() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < cPK.size(); i++) {
-            arrayList.add(cPK.valueAt(i));
+        for (int i = 0; i < cRg.size(); i++) {
+            arrayList.add(cRg.valueAt(i));
         }
         return arrayList;
     }
 
-    public static int j(BdUniqueId bdUniqueId) {
+    public static int k(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (cPK.size() == 0 || (indexOfValue = cPK.indexOfValue(bdUniqueId)) == -1 || cPK.size() <= indexOfValue) {
+        if (cRg.size() == 0 || (indexOfValue = cRg.indexOfValue(bdUniqueId)) == -1 || cRg.size() <= indexOfValue) {
             return -1;
         }
-        return cPK.keyAt(indexOfValue);
+        return cRg.keyAt(indexOfValue);
     }
 }

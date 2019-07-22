@@ -27,6 +27,7 @@ public class PassportViewManager {
     public static class TitleViewModule {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+        public int bgHeight = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgVisible = 0;
         public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
@@ -50,6 +51,7 @@ public class PassportViewManager {
         public String rightBtnText = null;
         public int rightBtnVisible = 4;
         public float rightBtnTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.c.sapi_sdk_title_right_btn_text_size);
+        public int dividerLineVisible = 0;
     }
 
     private PassportViewManager() {

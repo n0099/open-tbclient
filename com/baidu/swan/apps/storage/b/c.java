@@ -7,21 +7,21 @@ public class c extends b {
     @Override // com.baidu.swan.apps.storage.b.b
     protected Bundle a(a aVar) {
         Bundle bundle = new Bundle();
-        switch (aVar.aVQ) {
+        switch (aVar.aWA) {
             case 1:
-                bundle.putInt("result_value", f.Ni().getInt(aVar.aVR, Integer.parseInt(aVar.aVS)));
+                bundle.putInt("result_value", f.NX().getInt(aVar.aWB, Integer.parseInt(aVar.aWC)));
                 break;
             case 2:
-                bundle.putLong("result_value", f.Ni().getLong(aVar.aVR, Long.parseLong(aVar.aVS)));
+                bundle.putLong("result_value", f.NX().getLong(aVar.aWB, Long.parseLong(aVar.aWC)));
                 break;
             case 3:
-                bundle.putBoolean("result_value", f.Ni().getBoolean(aVar.aVR, Boolean.parseBoolean(aVar.aVS)));
+                bundle.putBoolean("result_value", f.NX().getBoolean(aVar.aWB, Boolean.parseBoolean(aVar.aWC)));
                 break;
             case 4:
-                bundle.putString("result_value", f.Ni().getString(aVar.aVR, aVar.aVS));
+                bundle.putString("result_value", f.NX().getString(aVar.aWB, aVar.aWC));
                 break;
             case 5:
-                bundle.putFloat("result_value", f.Ni().getFloat(aVar.aVR, Float.parseFloat(aVar.aVS)));
+                bundle.putFloat("result_value", f.NX().getFloat(aVar.aWB, Float.parseFloat(aVar.aWC)));
                 break;
             default:
                 if (DEBUG) {

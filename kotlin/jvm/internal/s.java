@@ -1,8 +1,8 @@
 package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public class s {
-    private static final t kkw;
-    private static final kotlin.reflect.c[] kkx;
+    private static final t krV;
+    private static final kotlin.reflect.c[] krW;
 
     static {
         t tVar;
@@ -20,47 +20,47 @@ public class s {
         if (tVar == null) {
             tVar = new t();
         }
-        kkw = tVar;
-        kkx = new kotlin.reflect.c[0];
+        krV = tVar;
+        krW = new kotlin.reflect.c[0];
     }
 
     public static kotlin.reflect.d h(Class cls, String str) {
-        return kkw.h(cls, str);
+        return krV.h(cls, str);
     }
 
-    public static kotlin.reflect.c D(Class cls) {
-        return kkw.D(cls);
+    public static kotlin.reflect.c F(Class cls) {
+        return krV.F(cls);
     }
 
     public static String a(Lambda lambda) {
-        return kkw.a(lambda);
+        return krV.a(lambda);
     }
 
     public static kotlin.reflect.e a(FunctionReference functionReference) {
-        return kkw.a(functionReference);
+        return krV.a(functionReference);
     }
 
     public static kotlin.reflect.k a(PropertyReference0 propertyReference0) {
-        return kkw.a(propertyReference0);
+        return krV.a(propertyReference0);
     }
 
     public static kotlin.reflect.g a(MutablePropertyReference0 mutablePropertyReference0) {
-        return kkw.a(mutablePropertyReference0);
+        return krV.a(mutablePropertyReference0);
     }
 
     public static kotlin.reflect.l a(PropertyReference1 propertyReference1) {
-        return kkw.a(propertyReference1);
+        return krV.a(propertyReference1);
     }
 
     public static kotlin.reflect.h a(MutablePropertyReference1 mutablePropertyReference1) {
-        return kkw.a(mutablePropertyReference1);
+        return krV.a(mutablePropertyReference1);
     }
 
     public static kotlin.reflect.m a(PropertyReference2 propertyReference2) {
-        return kkw.a(propertyReference2);
+        return krV.a(propertyReference2);
     }
 
     public static kotlin.reflect.i a(MutablePropertyReference2 mutablePropertyReference2) {
-        return kkw.a(mutablePropertyReference2);
+        return krV.a(mutablePropertyReference2);
     }
 }

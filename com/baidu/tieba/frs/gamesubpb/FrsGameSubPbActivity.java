@@ -17,12 +17,12 @@ import com.baidu.tieba.frs.gamesubpb.model.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
-    private com.baidu.tieba.frs.gamesubpb.view.a fDr;
-    private c fDs;
-    private com.baidu.tieba.frs.gamesubpb.model.a fDt;
-    private boolean fDu;
-    private boolean fDv;
-    private String fDw;
+    private com.baidu.tieba.frs.gamesubpb.view.a fIp;
+    private c fIq;
+    private com.baidu.tieba.frs.gamesubpb.model.a fIr;
+    private boolean fIs;
+    private boolean fIt;
+    private String fIu;
     private View.OnClickListener mCommonClickListener;
     private int mForumId;
 
@@ -34,121 +34,121 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         if (getIntent() == null) {
             finish();
         }
-        aTT();
-        if (this.mForumId <= 0 || TextUtils.isEmpty(this.fDw)) {
+        aVR();
+        if (this.mForumId <= 0 || TextUtils.isEmpty(this.fIu)) {
             finish();
         }
-        bnS();
-        this.fDr = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.mCommonClickListener, this.fDw);
-        setContentView(this.fDr.getRootView());
-        this.fDs = new c(this, this.fDr.getListView(), this.fDr.aJC());
-        this.fDs.bnX();
-        this.fDs.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
-            private boolean fDx = false;
+        bpT();
+        this.fIp = new com.baidu.tieba.frs.gamesubpb.view.a(this, this.mCommonClickListener, this.fIu);
+        setContentView(this.fIp.getRootView());
+        this.fIq = new c(this, this.fIp.getListView(), this.fIp.aLh());
+        this.fIq.bpY();
+        this.fIq.a(new c.a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.1
+            private boolean fIv = false;
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void bnT() {
-                FrsGameSubPbActivity.this.fDr.kt(false);
-                this.fDx = true;
+            public void bpU() {
+                FrsGameSubPbActivity.this.fIp.kD(false);
+                this.fIv = true;
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public void bnU() {
+            public void bpV() {
             }
 
             @Override // com.baidu.tieba.frs.gamesubpb.c.a
-            public boolean bnV() {
-                if (!this.fDx) {
-                    return FrsGameSubPbActivity.this.fDr.boj() != null && FrsGameSubPbActivity.this.fDr.boj().getTop() == 0;
+            public boolean bpW() {
+                if (!this.fIv) {
+                    return FrsGameSubPbActivity.this.fIp.bqk() != null && FrsGameSubPbActivity.this.fIp.bqk().getTop() == 0;
                 }
-                this.fDx = false;
+                this.fIv = false;
                 return false;
             }
         });
-        this.fDr.e(this.fDs);
-        this.fDr.kt(true);
-        this.fDr.b(new BdListView.e() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.2
+        this.fIp.e(this.fIq);
+        this.fIp.kD(true);
+        this.fIp.b(new BdListView.e() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.2
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (FrsGameSubPbActivity.this.fDt != null) {
-                    FrsGameSubPbActivity.this.fDt.loadData(true);
+                if (FrsGameSubPbActivity.this.fIr != null) {
+                    FrsGameSubPbActivity.this.fIr.loadData(true);
                 }
             }
         });
-        this.fDt = new com.baidu.tieba.frs.gamesubpb.model.a(this, this.mForumId, this.fDw);
-        this.fDt.a(new a.InterfaceC0312a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0312a
+        this.fIr = new com.baidu.tieba.frs.gamesubpb.model.a(this, this.mForumId, this.fIu);
+        this.fIr.a(new a.InterfaceC0309a() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.3
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
             public void a(boolean z, int i, String str, boolean z2, boolean z3, com.baidu.tieba.frs.gamesubpb.model.b bVar, List<m> list) {
-                if (FrsGameSubPbActivity.this.fDs != null && FrsGameSubPbActivity.this.fDs.bnY()) {
-                    FrsGameSubPbActivity.this.fDs.rT(R.color.cp_bg_line_k_alpha10_1);
+                if (FrsGameSubPbActivity.this.fIq != null && FrsGameSubPbActivity.this.fIq.bpZ()) {
+                    FrsGameSubPbActivity.this.fIq.sl(R.color.cp_bg_line_k_alpha10_1);
                 }
                 if (z) {
-                    FrsGameSubPbActivity.this.hideNetRefreshView(FrsGameSubPbActivity.this.fDr.getRootView());
-                    FrsGameSubPbActivity.this.fDr.a(z2, bVar, list);
+                    FrsGameSubPbActivity.this.hideNetRefreshView(FrsGameSubPbActivity.this.fIp.getRootView());
+                    FrsGameSubPbActivity.this.fIp.a(z2, bVar, list);
                     if (!v.aa(list)) {
                         m mVar = list.get(list.size() - 1);
                         if (mVar instanceof d) {
-                            FrsGameSubPbActivity.this.fDt.wC(((d) mVar).id);
+                            FrsGameSubPbActivity.this.fIr.xh(((d) mVar).id);
                         }
                     }
                 } else if (!z3) {
                     FrsGameSubPbActivity.this.setNetRefreshViewTopMargin(FrsGameSubPbActivity.this.getResources().getDimensionPixelSize(R.dimen.ds120));
                     FrsGameSubPbActivity frsGameSubPbActivity = FrsGameSubPbActivity.this;
-                    View rootView = FrsGameSubPbActivity.this.fDr.getRootView();
+                    View rootView = FrsGameSubPbActivity.this.fIp.getRootView();
                     if (TextUtils.isEmpty(str)) {
                         str = FrsGameSubPbActivity.this.getPageContext().getString(R.string.refresh_view_title_text);
                     }
                     frsGameSubPbActivity.showNetRefreshView(rootView, str, false);
-                    if (FrsGameSubPbActivity.this.fDs != null) {
-                        FrsGameSubPbActivity.this.fDs.bnW();
+                    if (FrsGameSubPbActivity.this.fIq != null) {
+                        FrsGameSubPbActivity.this.fIq.bpX();
                     }
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0312a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
             public void a(boolean z, int i, String str, d dVar) {
-                FrsGameSubPbActivity.this.fDr.a(z, str, dVar);
+                FrsGameSubPbActivity.this.fIp.a(z, str, dVar);
                 if (z) {
-                    FrsGameSubPbActivity.this.fDu = true;
+                    FrsGameSubPbActivity.this.fIs = true;
                 }
             }
 
-            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0312a
+            @Override // com.baidu.tieba.frs.gamesubpb.model.a.InterfaceC0309a
             public void b(boolean z, int i, String str, d dVar) {
-                FrsGameSubPbActivity.this.fDr.b(z, str, dVar);
+                FrsGameSubPbActivity.this.fIp.b(z, str, dVar);
                 if (z) {
-                    FrsGameSubPbActivity.this.fDv = true;
+                    FrsGameSubPbActivity.this.fIt = true;
                 }
             }
         });
-        this.fDt.loadData(false);
+        this.fIr.loadData(false);
     }
 
-    private void bnS() {
+    private void bpT() {
         this.mCommonClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.FrsGameSubPbActivity.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if ((view != null || FrsGameSubPbActivity.this.fDr != null) && view == FrsGameSubPbActivity.this.fDr.bok() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
-                    if (FrsGameSubPbActivity.this.fDs != null) {
-                        FrsGameSubPbActivity.this.fDs.bnW();
+                if ((view != null || FrsGameSubPbActivity.this.fIp != null) && view == FrsGameSubPbActivity.this.fIp.bql() && FrsGameSubPbActivity.this.checkUpIsLogin()) {
+                    if (FrsGameSubPbActivity.this.fIq != null) {
+                        FrsGameSubPbActivity.this.fIq.bpX();
                     }
-                    FrsGameSubPbActivity.this.fDr.wE(null);
+                    FrsGameSubPbActivity.this.fIp.xj(null);
                 }
             }
         };
     }
 
-    private void aTT() {
+    private void aVR() {
         Intent intent = getIntent();
         this.mForumId = intent.getIntExtra(FrsGameSubPbActivityConfig.ARG_FORUM_ID, -1);
-        this.fDw = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);
+        this.fIu = intent.getStringExtra(FrsGameSubPbActivityConfig.ARG_MAIN_TOWER_ID);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fDr.onChangeSkinType(i);
+        this.fIp.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -165,21 +165,21 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         super.onNetRefreshButtonClicked();
-        this.fDt.loadData(false);
+        this.fIr.loadData(false);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.fDr != null) {
-            this.fDr.onDestroy();
+        if (this.fIp != null) {
+            this.fIp.onDestroy();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        if (this.fDu || this.fDv) {
+        if (this.fIs || this.fIt) {
             setResult(1002);
         }
         super.finish();

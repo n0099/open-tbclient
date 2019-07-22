@@ -50,7 +50,7 @@ public class DataCore {
     public void putSession(JSONObject jSONObject) {
         if (jSONObject != null) {
             if (a(jSONObject.toString())) {
-                bj.c().b("[WARNING] data to put exceed limit, ignored");
+                bc.c().b("[WARNING] data to put exceed limit, ignored");
                 return;
             }
             synchronized (this.c) {
@@ -78,7 +78,7 @@ public class DataCore {
     public void putEvent(Context context, JSONObject jSONObject) {
         if (jSONObject != null) {
             if (a(jSONObject.toString())) {
-                bj.c().b("[WARNING] data to put exceed limit, ignored");
+                bc.c().b("[WARNING] data to put exceed limit, ignored");
                 return;
             }
             synchronized (this.d) {
@@ -109,7 +109,7 @@ public class DataCore {
         }
         String jSONObject2 = jSONObject.toString();
         if (a()) {
-            bj.c().a("[WARNING] stat cache exceed 184320 Bytes, ignored");
+            bc.c().a("[WARNING] stat cache exceed 184320 Bytes, ignored");
             return;
         }
         int length = jSONObject2.getBytes().length;
@@ -118,9 +118,9 @@ public class DataCore {
             return;
         }
         this.g = length;
-        bv.a(context, cc.u(context) + Config.STAT_CACHE_FILE_NAME, jSONObject2, false);
+        bo.a(context, bw.u(context) + Config.STAT_CACHE_FILE_NAME, jSONObject2, false);
         synchronized (this.e) {
-            bv.a(context, Config.LAST_AP_INFO_FILE_NAME, this.e.toString(), false);
+            bo.a(context, Config.LAST_AP_INFO_FILE_NAME, this.e.toString(), false);
         }
     }
 
@@ -134,11 +134,11 @@ public class DataCore {
 
     public void loadLastSession(Context context) {
         if (context != null) {
-            String str = cc.u(context) + Config.LAST_SESSION_FILE_NAME;
-            if (bv.c(context, str)) {
-                String a2 = bv.a(context, str);
+            String str = bw.u(context) + Config.LAST_SESSION_FILE_NAME;
+            if (bo.c(context, str)) {
+                String a2 = bo.a(context, str);
                 if (!TextUtils.isEmpty(a2)) {
-                    bv.a(context, str, new JSONObject().toString(), false);
+                    bo.a(context, str, new JSONObject().toString(), false);
                     putSession(a2);
                     flush(context);
                 }
@@ -148,9 +148,9 @@ public class DataCore {
 
     public void loadWifiData(Context context) {
         JSONArray jSONArray;
-        if (context != null && bv.c(context, Config.LAST_AP_INFO_FILE_NAME)) {
+        if (context != null && bo.c(context, Config.LAST_AP_INFO_FILE_NAME)) {
             try {
-                JSONArray jSONArray2 = new JSONArray(bv.a(context, Config.LAST_AP_INFO_FILE_NAME));
+                JSONArray jSONArray2 = new JSONArray(bo.a(context, Config.LAST_AP_INFO_FILE_NAME));
                 int length = jSONArray2.length();
                 if (length >= 10) {
                     jSONArray = new JSONArray();
@@ -160,7 +160,7 @@ public class DataCore {
                 } else {
                     jSONArray = jSONArray2;
                 }
-                String g = cc.g(1, context);
+                String g = bw.g(1, context);
                 if (!TextUtils.isEmpty(g)) {
                     jSONArray.put(g);
                 }
@@ -174,9 +174,9 @@ public class DataCore {
 
     public void loadStatData(Context context) {
         if (context != null) {
-            String str = cc.u(context) + Config.STAT_CACHE_FILE_NAME;
-            if (bv.c(context, str)) {
-                String a2 = bv.a(context, str);
+            String str = bw.u(context) + Config.STAT_CACHE_FILE_NAME;
+            if (bo.c(context, str)) {
+                String a2 = bo.a(context, str);
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject = null;
                     try {
@@ -214,6 +214,12 @@ public class DataCore {
                             if (jSONObject4 != null) {
                                 synchronized (a) {
                                     a = jSONObject4;
+                                    if (TextUtils.isEmpty(bq.a().s(context))) {
+                                        String string = a.getString(Config.DEVICE_ID_SEC);
+                                        if (!TextUtils.isEmpty(string)) {
+                                            bq.a().k(context, string);
+                                        }
+                                    }
                                 }
                             }
                         } catch (Exception e4) {
@@ -277,7 +283,7 @@ public class DataCore {
             } catch (Exception e2) {
             }
             try {
-                jSONObject2.put(Config.TRACE_CIRCLE, am.c());
+                jSONObject2.put(Config.TRACE_CIRCLE, af.c());
             } catch (Exception e3) {
             }
             try {
@@ -351,30 +357,30 @@ public class DataCore {
         long j2;
         Object obj;
         String[] split;
-        long longValue2 = al.a().a(context).longValue();
+        long longValue2 = ae.a().b(context).longValue();
         if (longValue2 <= 0 && i != 0) {
-            al.a().a(context, j);
+            ae.a().a(context, j);
             longValue2 = j;
         }
         a(jSONObject, Config.TRACE_VISIT_FIRST, Long.valueOf(longValue2));
         if (i != 0) {
-            long longValue3 = al.a().b(context).longValue();
+            long longValue3 = ae.a().c(context).longValue();
             longValue = j - longValue3;
             if (longValue3 != 0 && longValue <= 0) {
                 longValue = -1;
             } else if (longValue3 == 0) {
                 longValue = 0;
             }
-            al.a().b(context, j);
-            al.a().c(context, longValue);
+            ae.a().b(context, j);
+            ae.a().c(context, longValue);
         } else {
-            longValue = al.a().c(context).longValue();
+            longValue = ae.a().d(context).longValue();
         }
         a(jSONObject, Config.TRACE_VISIT_SESSION_LAST_INTERVAL, Long.valueOf(longValue));
         String str = "";
         String str2 = "";
-        String d = al.a().d(context);
-        if (!TextUtils.isEmpty(d) && d.contains(":") && (split = d.split(":")) != null && split.length == 2) {
+        String e = ae.a().e(context);
+        if (!TextUtils.isEmpty(e) && e.contains(":") && (split = e.split(":")) != null && split.length == 2) {
             str = split[0];
             str2 = split[1];
         }
@@ -383,14 +389,14 @@ public class DataCore {
         } else {
             try {
                 i2 = Integer.valueOf(str2).intValue();
-            } catch (Exception e) {
+            } catch (Exception e2) {
                 i2 = 0;
             }
         }
-        String a2 = cd.a(j);
+        String a2 = bx.a(j);
         int i3 = (TextUtils.isEmpty(str) || a2.equals(str)) ? i + i2 : i;
         if (i != 0) {
-            al.a().a(context, a2 + ":" + i3);
+            ae.a().a(context, a2 + ":" + i3);
         }
         a(jSONObject, Config.TRACE_VISIT_SESSION_TODAY_COUNT, Integer.valueOf(i3));
         if (TextUtils.isEmpty(str)) {
@@ -398,22 +404,22 @@ public class DataCore {
         } else {
             try {
                 j2 = Integer.valueOf(str).intValue();
-            } catch (Exception e2) {
+            } catch (Exception e3) {
                 j2 = 0;
             }
         }
         if (j2 != 0 && !TextUtils.isEmpty(str) && !a2.equals(str) && i != 0) {
             JSONArray a3 = a(context, j2, i2);
-            al.a().b(context, a3.toString());
+            ae.a().b(context, a3.toString());
             a(jSONObject, Config.TRACE_VISIT_RECENT, a3);
             return;
         }
-        String e3 = al.a().e(context);
-        if (TextUtils.isEmpty(e3)) {
+        String f = ae.a().f(context);
+        if (TextUtils.isEmpty(f)) {
             obj = null;
         } else {
             try {
-                obj = new JSONArray(e3);
+                obj = new JSONArray(f);
             } catch (Exception e4) {
                 obj = null;
             }
@@ -427,16 +433,16 @@ public class DataCore {
     private JSONArray a(Context context, long j, long j2) {
         boolean z;
         ArrayList arrayList = new ArrayList();
-        String e = al.a().e(context);
-        if (!TextUtils.isEmpty(e)) {
+        String f = ae.a().f(context);
+        if (!TextUtils.isEmpty(f)) {
             try {
-                JSONArray jSONArray = new JSONArray(e);
+                JSONArray jSONArray = new JSONArray(f);
                 if (jSONArray != null && jSONArray.length() != 0) {
                     for (int i = 0; i < jSONArray.length(); i++) {
                         arrayList.add((JSONObject) jSONArray.get(i));
                     }
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
             }
         }
         Iterator it = arrayList.iterator();
@@ -455,7 +461,7 @@ public class DataCore {
                 jSONObject.put(Config.TRACE_VISIT_RECENT_DAY, j);
                 jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, j2);
                 arrayList.add(jSONObject);
-            } catch (Exception e3) {
+            } catch (Exception e2) {
             }
         }
         int size = arrayList.size();
@@ -482,7 +488,14 @@ public class DataCore {
         }
     }
 
+    public void sendDataForDueros(Context context) {
+    }
+
     public void saveLogData(Context context, boolean z, boolean z2, long j, boolean z3) {
+        saveLogData(context, z, z2, j, z3, null);
+    }
+
+    public void saveLogData(Context context, boolean z, boolean z2, long j, boolean z3, JSONObject jSONObject) {
         HeadObject headObject = CooperService.instance().getHeadObject();
         if (headObject != null) {
             synchronized (a) {
@@ -493,11 +506,11 @@ public class DataCore {
                 }
             }
             if (TextUtils.isEmpty(headObject.e)) {
-                bj.c().c("[WARNING] 无法找到有效APP Key, 请参考文档配置");
+                bc.c().c("[WARNING] 无法找到有效APP Key, 请参考文档配置");
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
         synchronized (a) {
             try {
                 a.put("t", System.currentTimeMillis());
@@ -507,19 +520,21 @@ public class DataCore {
                     a.put(Config.WIFI_LOCATION, this.e);
                 }
                 a.put("sign", CooperService.instance().getUUID());
-                jSONObject.put(Config.HEADER_PART, a);
+                b(context, a, jSONObject);
+                jSONObject2.put(Config.HEADER_PART, a);
                 synchronized (this.c) {
                     try {
-                        jSONObject.put(Config.PRINCIPAL_PART, this.c);
+                        jSONObject2.put(Config.PRINCIPAL_PART, this.c);
                         synchronized (this.d) {
                             try {
-                                jSONObject.put(Config.EVENT_PART, this.d);
+                                jSONObject2.put(Config.EVENT_PART, this.d);
                                 try {
-                                    jSONObject.put(Config.EXCEPTION_PART, new JSONArray());
-                                    a(context, jSONObject, z2);
-                                    b(jSONObject);
-                                    a(context, jSONObject.toString(), z, z3);
-                                    this.i = jSONObject;
+                                    jSONObject2.put(Config.EXCEPTION_PART, new JSONArray());
+                                    a(context, jSONObject2, z2);
+                                    b(jSONObject2);
+                                    a(context, jSONObject2);
+                                    a(context, jSONObject2.toString(), z, z3);
+                                    this.i = jSONObject2;
                                     clearCache(context);
                                 } catch (JSONException e) {
                                 }
@@ -534,21 +549,33 @@ public class DataCore {
         }
     }
 
+    private void b(Context context, JSONObject jSONObject, JSONObject jSONObject2) {
+        if (jSONObject != null && jSONObject.length() != 0 && jSONObject2 != null && jSONObject2.length() != 0) {
+            try {
+                jSONObject.put(Config.LAUNCH, jSONObject2);
+            } catch (Exception e) {
+            }
+        }
+    }
+
     private void b(JSONObject jSONObject) {
+    }
+
+    private void a(Context context, JSONObject jSONObject) {
     }
 
     private void a(Context context, String str, boolean z, boolean z2) {
         if (this.h != null && this.h.onSendLogData(str)) {
-            bj.c().a("Log has been passed to app level, log: " + str);
+            bc.c().a("Log has been passed to app level, log: " + str);
             return;
         }
         LogSender.instance().saveLogData(context, str, false);
-        bj.c().a("Save log: " + str);
+        bc.c().a("Save log: " + str);
         if (z) {
             if (z2) {
-                bc.a(context);
+                av.a(context);
             } else {
-                bc.b(context);
+                av.a(context, true);
             }
         }
     }

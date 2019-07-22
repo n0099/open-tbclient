@@ -16,7 +16,7 @@ public class ae extends k<com.baidu.tieba.pb.data.h, com.baidu.tieba.pb.pb.a.c> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bz */
+    /* renamed from: bF */
     public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(R.layout.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
@@ -28,9 +28,9 @@ public class ae extends k<com.baidu.tieba.pb.data.h, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.h hVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, hVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        cVar.mTextView.setText(hVar.hBX);
-        com.baidu.tbadk.core.util.al.c(cVar.cGs, (int) R.drawable.pic_emotion_gray_03);
-        com.baidu.tbadk.core.util.al.j(cVar.mTextView, R.color.cp_cont_d);
+        cVar.mTextView.setText(hVar.hIk);
+        com.baidu.tbadk.core.util.am.c(cVar.cHM, (int) R.drawable.pic_emotion_gray_03);
+        com.baidu.tbadk.core.util.am.j(cVar.mTextView, R.color.cp_cont_d);
         return view;
     }
 }

@@ -15,104 +15,104 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private boolean fZG;
-    private b hsC = null;
-    private c hsD = null;
-    private C0359a hsE = null;
-    private int hsG = 0;
-    private int hsH = 0;
-    protected com.baidu.tieba.myCollection.c hsI = null;
-    private ArrayList<MarkData> hsF = new ArrayList<>();
+    private boolean geE;
+    private b hyO = null;
+    private c hyP = null;
+    private C0358a hyQ = null;
+    private int hyS = 0;
+    private int hyT = 0;
+    protected com.baidu.tieba.myCollection.c hyU = null;
+    private ArrayList<MarkData> hyR = new ArrayList<>();
 
     static /* synthetic */ int c(a aVar) {
-        int i = aVar.hsH;
-        aVar.hsH = i - 1;
+        int i = aVar.hyT;
+        aVar.hyT = i - 1;
         return i;
     }
 
     public a() {
-        this.fZG = false;
-        this.fZG = true;
+        this.geE = false;
+        this.geE = true;
     }
 
     public int getOffset() {
-        if (this.hsF == null) {
+        if (this.hyR == null) {
             return 0;
         }
-        return this.hsF.size();
+        return this.hyR.size();
     }
 
-    public int bNd() {
-        return this.hsH;
+    public int bPL() {
+        return this.hyT;
     }
 
-    public void wN(int i) {
-        this.hsH = i;
+    public void xq(int i) {
+        this.hyT = i;
     }
 
     public boolean hasMore() {
-        return this.hsG > 0;
+        return this.hyS > 0;
     }
 
     public void reset() {
-        this.hsH = 0;
-        this.hsG = 0;
-        this.fZG = true;
+        this.hyT = 0;
+        this.hyS = 0;
+        this.geE = true;
     }
 
-    public ArrayList<MarkData> bNe() {
-        return this.hsF;
+    public ArrayList<MarkData> bPM() {
+        return this.hyR;
     }
 
     public void as(ArrayList<MarkData> arrayList) {
-        this.hsF = arrayList;
+        this.hyR = arrayList;
     }
 
     public void at(ArrayList<MarkData> arrayList) {
-        if (this.hsF != null && arrayList != null) {
-            this.hsF.addAll(arrayList);
-            bNi();
+        if (this.hyR != null && arrayList != null) {
+            this.hyR.addAll(arrayList);
+            bPQ();
         }
     }
 
     public void f(MarkData markData) {
-        this.hsF.add(markData);
+        this.hyR.add(markData);
     }
 
     public int getCount() {
-        if (this.hsF == null) {
+        if (this.hyR == null) {
             return 0;
         }
-        return this.hsF.size();
+        return this.hyR.size();
     }
 
-    public int bNf() {
-        return this.hsG;
+    public int bPN() {
+        return this.hyS;
     }
 
-    public void bNg() {
-        ArrayList<MarkData> cnq = com.baidu.tieba.tbadkCore.util.a.cnq();
-        if (cnq != null) {
-            as(cnq);
+    public void bPO() {
+        ArrayList<MarkData> cqj = com.baidu.tieba.tbadkCore.util.a.cqj();
+        if (cqj != null) {
+            as(cqj);
         }
     }
 
-    public String bW(int i, int i2) {
+    public String cc(int i, int i2) {
         JSONArray jSONArray;
         int i3;
-        if (this.hsF == null) {
+        if (this.hyR == null) {
             return null;
         }
-        if (i >= this.hsF.size()) {
-            i2 -= (i - this.hsF.size()) - 1;
-            i = this.hsF.size() - 1;
+        if (i >= this.hyR.size()) {
+            i2 -= (i - this.hyR.size()) - 1;
+            i = this.hyR.size() - 1;
         }
         JSONArray jSONArray2 = new JSONArray();
         int i4 = 0;
         int i5 = i;
         while (i5 >= 0 && i5 > i - i2) {
             try {
-                JSONObject json = this.hsF.get(i5).toJson();
+                JSONObject json = this.hyR.get(i5).toJson();
                 if (json == null || i4 < 0) {
                     i3 = i4;
                 } else {
@@ -133,7 +133,7 @@ public class a {
         return jSONArray.toString();
     }
 
-    public void AA(String str) {
+    public void Bl(String str) {
         try {
             paserJson(new JSONObject(str));
         } catch (Exception e) {
@@ -142,7 +142,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<MarkData> AB(String str) {
+    public ArrayList<MarkData> Bm(String str) {
         JSONObject jSONObject;
         ArrayList<MarkData> arrayList = new ArrayList<>();
         try {
@@ -170,7 +170,7 @@ public class a {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     MarkData markData = new MarkData();
                     markData.paserJson(optJSONArray.getJSONObject(i));
-                    this.hsF.add(markData);
+                    this.hyR.add(markData);
                 }
             }
         } catch (Exception e) {
@@ -183,28 +183,28 @@ public class a {
     }
 
     public void a(Boolean bool, boolean z) {
-        if (this.hsC != null) {
-            this.hsC.cancel();
+        if (this.hyO != null) {
+            this.hyO.cancel();
         }
-        this.hsC = new b(getOffset());
-        this.hsC.setPriority(3);
-        this.hsC.execute(bool, Boolean.valueOf(z));
+        this.hyO = new b(getOffset());
+        this.hyO.setPriority(3);
+        this.hyO.execute(bool, Boolean.valueOf(z));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<Boolean, String, a> {
-        private com.baidu.tieba.myCollection.baseEditMark.c hsJ;
+        private com.baidu.tieba.myCollection.baseEditMark.c hyV;
         private int offset;
         private x mNetWork = null;
         private String data = null;
-        Boolean hsL = false;
+        Boolean hyX = false;
 
         public b(int i) {
             this.offset = 0;
-            this.hsJ = null;
+            this.hyV = null;
             this.offset = i;
-            this.hsJ = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.hyV = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
@@ -217,53 +217,53 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
         public a doInBackground(Boolean... boolArr) {
-            this.hsL = boolArr[0];
+            this.hyX = boolArr[0];
             boolean booleanValue = (boolArr.length < 2 || boolArr[1] == null) ? true : boolArr[1].booleanValue();
             a aVar = new a();
-            if (this.hsL.booleanValue() && booleanValue) {
-                l<String> mA = com.baidu.tbadk.core.c.a.afD().mA("tb.my_bookmarks");
-                if (mA != null) {
-                    publishProgress(mA.get(TbadkCoreApplication.getCurrentAccount()));
+            if (this.hyX.booleanValue() && booleanValue) {
+                l<String> mL = com.baidu.tbadk.core.d.a.agF().mL("tb.my_bookmarks");
+                if (mL != null) {
+                    publishProgress(mL.get(TbadkCoreApplication.getCurrentAccount()));
                 }
-                if (a.this.hsF == null) {
-                    a.this.hsF = new ArrayList();
+                if (a.this.hyR == null) {
+                    a.this.hyR = new ArrayList();
                 } else {
-                    a.this.hsF.clear();
+                    a.this.hyR.clear();
                 }
-                a.this.hsG = 0;
+                a.this.hyS = 0;
             }
             this.mNetWork = new x(TbConfig.SERVER_ADDRESS + TbConfig.MARK_GETSTORE);
             this.mNetWork.o("user_id", TbadkCoreApplication.getCurrentAccount());
-            if (a.this.fZG) {
+            if (a.this.geE) {
                 this.mNetWork.o("offset", String.valueOf(0));
             } else {
                 this.mNetWork.o("offset", String.valueOf(this.offset));
             }
             this.mNetWork.o("rn", String.valueOf(20));
-            this.data = this.mNetWork.ahe();
-            this.hsJ.parserJson(this.data);
-            if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
-                aVar.AA(this.data);
+            this.data = this.mNetWork.aig();
+            this.hyV.parserJson(this.data);
+            if (this.mNetWork.aiE().ajF().isRequestSuccess()) {
+                aVar.Bl(this.data);
                 if (this.offset == 0) {
-                    if (a.this.hsF == null) {
-                        a.this.hsF = new ArrayList();
+                    if (a.this.hyR == null) {
+                        a.this.hyR = new ArrayList();
                     } else {
-                        a.this.hsF.clear();
+                        a.this.hyR.clear();
                     }
-                    a.this.hsG = 0;
-                    if (this.hsL.booleanValue()) {
-                        vP(this.data);
+                    a.this.hyS = 0;
+                    if (this.hyX.booleanValue()) {
+                        wu(this.data);
                     }
                 }
             }
             return aVar;
         }
 
-        private void vP(String str) {
-            l<String> mA;
+        private void wu(String str) {
+            l<String> mL;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && (mA = com.baidu.tbadk.core.c.a.afD().mA("tb.my_bookmarks")) != null) {
-                mA.a(currentAccount, str, 604800000L);
+            if (currentAccount != null && (mL = com.baidu.tbadk.core.d.a.agF().mL("tb.my_bookmarks")) != null) {
+                mL.a(currentAccount, str, 604800000L);
             }
         }
 
@@ -276,8 +276,8 @@ public class a {
             String str = strArr[0];
             ArrayList<MarkData> arrayList = new ArrayList<>();
             if (str != null) {
-                arrayList = a.this.AB(str);
-                if (this.hsL.booleanValue()) {
+                arrayList = a.this.Bm(str);
+                if (this.hyX.booleanValue()) {
                     a.this.as(arrayList);
                 } else {
                     a.this.at(arrayList);
@@ -286,7 +286,7 @@ public class a {
                 a.this.as(arrayList);
             }
             if (!v.aa(arrayList)) {
-                a.this.hsI.callback(0, null, true);
+                a.this.hyU.callback(0, null, true);
             }
         }
 
@@ -294,9 +294,9 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetWork != null) {
-                this.mNetWork.ia();
+                this.mNetWork.ik();
             }
-            a.this.hsC = null;
+            a.this.hyO = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -308,54 +308,54 @@ public class a {
             if (aVar == null) {
                 aVar = new a();
             }
-            if (this.hsJ != null) {
-                com.baidu.tbadk.core.d.a.a("collection", 0L, 0, "collection_thread_list_result", this.hsJ.getErrorCode(), this.hsJ.getErrorString(), new Object[0]);
+            if (this.hyV != null) {
+                com.baidu.tbadk.core.e.a.a("collection", 0L, 0, "collection_thread_list_result", this.hyV.getErrorCode(), this.hyV.getErrorString(), new Object[0]);
             }
-            a.this.hsG = aVar.getCount();
-            ArrayList<MarkData> bNe = aVar.bNe();
-            if (this.hsL.booleanValue()) {
-                if (bNe != null && bNe.size() != 0) {
-                    a.this.as(bNe);
+            a.this.hyS = aVar.getCount();
+            ArrayList<MarkData> bPM = aVar.bPM();
+            if (this.hyX.booleanValue()) {
+                if (bPM != null && bPM.size() != 0) {
+                    a.this.as(bPM);
                 }
             } else {
-                a.this.at(bNe);
+                a.this.at(bPM);
             }
-            Iterator<MarkData> it = bNe.iterator();
+            Iterator<MarkData> it = bPM.iterator();
             int i2 = 0;
             while (it.hasNext()) {
                 if (it.next().getNewCounts() > 0) {
                     i = i2 + 1;
-                    a.this.wN(i);
+                    a.this.xq(i);
                 } else {
                     i = i2;
                 }
                 i2 = i;
             }
-            if (a.this.hsI != null) {
+            if (a.this.hyU != null) {
                 String str = null;
-                if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
-                    if (this.hsJ.getErrorCode() != 0) {
-                        str = this.hsJ.getErrorString();
+                if (this.mNetWork.aiE().ajF().isRequestSuccess()) {
+                    if (this.hyV.getErrorCode() != 0) {
+                        str = this.hyV.getErrorString();
                     }
-                    a.this.hsI.callback(0, str, false);
+                    a.this.hyU.callback(0, str, false);
                 } else {
-                    a.this.hsI.callback(3, this.mNetWork.getErrorString());
+                    a.this.hyU.callback(3, this.mNetWork.getErrorString());
                 }
             }
-            a.this.fZG = false;
+            a.this.geE = false;
         }
     }
 
     /* loaded from: classes6.dex */
     private class c extends BdAsyncTask<a, Integer, Boolean> {
-        private com.baidu.tieba.myCollection.baseEditMark.c hsJ;
-        final /* synthetic */ a hsK;
+        private com.baidu.tieba.myCollection.baseEditMark.c hyV;
+        final /* synthetic */ a hyW;
         private x mNetWork;
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
-            this.hsJ = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.hyV = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -365,25 +365,25 @@ public class a {
         public Boolean doInBackground(a... aVarArr) {
             a aVar = new a();
             try {
-                aVar.bNg();
+                aVar.bPO();
                 this.mNetWork = new x();
                 this.mNetWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                int bNh = this.hsK.bNh();
-                if (aVar.getCount() - 1 <= bNh) {
-                    bNh = aVar.getCount() - 1;
+                int bPP = this.hyW.bPP();
+                if (aVar.getCount() - 1 <= bPP) {
+                    bPP = aVar.getCount() - 1;
                 }
-                while (bNh >= 0) {
-                    String bW = aVar.bW(bNh, 20);
+                while (bPP >= 0) {
+                    String cc = aVar.cc(bPP, 20);
                     this.mNetWork.u(new ArrayList<>());
-                    this.mNetWork.o("data", bW);
-                    this.hsJ.parserJson(this.mNetWork.ahe());
-                    if (!this.mNetWork.ahC().aiC().isRequestSuccess() || this.hsJ.getErrorCode() != 0) {
+                    this.mNetWork.o("data", cc);
+                    this.hyV.parserJson(this.mNetWork.aig());
+                    if (!this.mNetWork.aiE().ajF().isRequestSuccess() || this.hyV.getErrorCode() != 0) {
                         break;
                     }
-                    bNh -= 20;
+                    bPP -= 20;
                 }
-                this.hsK.wP(bNh);
-                if (bNh >= 0) {
+                this.hyW.xs(bPP);
+                if (bPP >= 0) {
                     return false;
                 }
                 return true;
@@ -397,11 +397,11 @@ public class a {
         public void cancel() {
             super.cancel(true);
             if (this.mNetWork != null) {
-                this.mNetWork.ia();
+                this.mNetWork.ik();
             }
-            this.hsK.hsD = null;
-            if (this.hsK.hsI != null) {
-                this.hsK.hsI.callback(1, false, null, false);
+            this.hyW.hyP = null;
+            if (this.hyW.hyU != null) {
+                this.hyW.hyU.callback(1, false, null, false);
             }
         }
 
@@ -411,54 +411,54 @@ public class a {
         public void onPostExecute(Boolean bool) {
             String str;
             boolean z;
-            this.hsK.hsD = null;
+            this.hyW.hyP = null;
             if (bool.booleanValue()) {
                 str = null;
                 z = false;
-            } else if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
-                str = this.hsJ.getErrorString();
+            } else if (this.mNetWork.aiE().ajF().isRequestSuccess()) {
+                str = this.hyV.getErrorString();
                 z = false;
             } else {
                 str = null;
                 z = true;
             }
-            if (this.hsK.hsI != null) {
-                this.hsK.hsI.callback(1, bool, str, Boolean.valueOf(z));
+            if (this.hyW.hyU != null) {
+                this.hyW.hyU.callback(1, bool, str, Boolean.valueOf(z));
             }
         }
     }
 
-    public boolean wO(int i) {
-        if (this.hsE != null) {
-            this.hsE.cancel();
+    public boolean xr(int i) {
+        if (this.hyQ != null) {
+            this.hyQ.cancel();
         }
-        if (i >= this.hsF.size() || this.hsF.get(i) == null || this.hsF.get(i).getId() == null) {
+        if (i >= this.hyR.size() || this.hyR.get(i) == null || this.hyR.get(i).getId() == null) {
             return false;
         }
-        this.hsE = new C0359a(this.hsF.get(i).getId(), i, this.hsF.get(i).getForumId());
-        this.hsE.setPriority(2);
-        this.hsE.execute(new Boolean[0]);
+        this.hyQ = new C0358a(this.hyR.get(i).getId(), i, this.hyR.get(i).getForumId());
+        this.hyQ.setPriority(2);
+        this.hyQ.execute(new Boolean[0]);
         return true;
     }
 
     /* renamed from: com.baidu.tieba.myCollection.baseEditMark.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0359a extends BdAsyncTask<Boolean, Integer, Boolean> {
+    private class C0358a extends BdAsyncTask<Boolean, Integer, Boolean> {
         private String fid;
-        private com.baidu.tieba.myCollection.baseEditMark.c hsJ;
+        private com.baidu.tieba.myCollection.baseEditMark.c hyV;
         private x mNetWork = null;
         private int pos;
         private String tid;
 
-        public C0359a(String str, int i, String str2) {
+        public C0358a(String str, int i, String str2) {
             this.tid = null;
             this.fid = null;
             this.pos = 0;
-            this.hsJ = null;
+            this.hyV = null;
             this.tid = str;
             this.pos = i;
             this.fid = str2;
-            this.hsJ = new com.baidu.tieba.myCollection.baseEditMark.c();
+            this.hyV = new com.baidu.tieba.myCollection.baseEditMark.c();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -470,19 +470,19 @@ public class a {
             this.mNetWork.o("user_id", TbadkCoreApplication.getCurrentAccount());
             this.mNetWork.o("tid", this.tid);
             this.mNetWork.o("fid", this.fid);
-            this.hsJ.parserJson(this.mNetWork.ahe());
-            return this.mNetWork.ahC().aiC().isRequestSuccess() && this.hsJ.getErrorCode() == 0;
+            this.hyV.parserJson(this.mNetWork.aig());
+            return this.mNetWork.aiE().ajF().isRequestSuccess() && this.hyV.getErrorCode() == 0;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
             if (this.mNetWork != null) {
-                this.mNetWork.ia();
+                this.mNetWork.ik();
             }
-            a.this.hsE = null;
-            if (a.this.hsI != null) {
-                a.this.hsI.callback(2, false, null);
+            a.this.hyQ = null;
+            if (a.this.hyU != null) {
+                a.this.hyU.callback(2, false, null);
             }
         }
 
@@ -491,66 +491,66 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             String str = null;
-            a.this.hsE = null;
+            a.this.hyQ = null;
             if (bool.booleanValue()) {
-                if (this.pos < a.this.hsF.size()) {
-                    a.this.hsF.remove(this.pos);
+                if (this.pos < a.this.hyR.size()) {
+                    a.this.hyR.remove(this.pos);
                     a.c(a.this);
                 }
-            } else if (this.mNetWork.ahC().aiC().isRequestSuccess()) {
-                str = this.hsJ.getErrorString();
+            } else if (this.mNetWork.aiE().ajF().isRequestSuccess()) {
+                str = this.hyV.getErrorString();
             } else {
                 str = this.mNetWork.getErrorString();
             }
-            if (a.this.hsI != null) {
-                a.this.hsI.callback(2, bool, str);
+            if (a.this.hyU != null) {
+                a.this.hyU.callback(2, bool, str);
             }
         }
     }
 
-    public int bNh() {
-        return com.baidu.tbadk.core.sharedPref.b.agM().getInt("uploac_mark_offset", 399);
+    public int bPP() {
+        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("uploac_mark_offset", 399);
     }
 
-    public void wP(int i) {
-        com.baidu.tbadk.core.sharedPref.b.agM().putInt("uploac_mark_offset", i);
+    public void xs(int i) {
+        com.baidu.tbadk.core.sharedPref.b.ahO().putInt("uploac_mark_offset", i);
     }
 
     public void onDestroy() {
-        if (this.hsC != null) {
-            this.hsC.cancel();
+        if (this.hyO != null) {
+            this.hyO.cancel();
         }
-        if (this.hsD != null) {
-            this.hsD.cancel();
+        if (this.hyP != null) {
+            this.hyP.cancel();
         }
-        if (this.hsE != null) {
-            this.hsE.cancel();
+        if (this.hyQ != null) {
+            this.hyQ.cancel();
         }
     }
 
     public void a(com.baidu.tieba.myCollection.c cVar) {
-        this.hsI = cVar;
+        this.hyU = cVar;
     }
 
-    private void bNi() {
-        if (this.hsF != null) {
+    private void bPQ() {
+        if (this.hyR != null) {
             HashSet hashSet = new HashSet();
-            Iterator<MarkData> it = this.hsF.iterator();
+            Iterator<MarkData> it = this.hyR.iterator();
             while (it.hasNext()) {
                 MarkData next = it.next();
                 String id = next.getId();
                 int replyNum = next.getReplyNum();
                 if (!hashSet.add(id)) {
-                    bc(id, replyNum);
+                    bd(id, replyNum);
                     it.remove();
                 }
             }
         }
     }
 
-    private void bc(String str, int i) {
-        if (this.hsF != null && v.Z(this.hsF) > 0) {
-            Iterator<MarkData> it = this.hsF.iterator();
+    private void bd(String str, int i) {
+        if (this.hyR != null && v.Z(this.hyR) > 0) {
+            Iterator<MarkData> it = this.hyR.iterator();
             while (it.hasNext()) {
                 MarkData next = it.next();
                 if (next != null && next.getId().equals(str)) {

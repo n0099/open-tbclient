@@ -3,11 +3,11 @@ package com.baidu.swan.apps.core.a;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes2.dex */
 public final class a {
-    public static int ys() {
+    public static int yY() {
         return 3;
     }
 
-    public static int yt() {
+    public static int yZ() {
         return ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
     }
 
@@ -20,6 +20,6 @@ public final class a {
     }
 
     public static boolean bV(int i) {
-        return i == ys();
+        return i == yY();
     }
 }

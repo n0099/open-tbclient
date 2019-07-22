@@ -5,53 +5,53 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private final Map<String, HybridUbcFlow> aFm = new HashMap();
-    private final Map<String, com.baidu.swan.apps.an.d.a<HybridUbcFlow>> aFn = new HashMap();
-    private final com.baidu.swan.apps.an.d.a<HybridUbcFlow> aFo = new com.baidu.swan.apps.an.d.a<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.1
+    private final Map<String, HybridUbcFlow> aFU = new HashMap();
+    private final Map<String, com.baidu.swan.apps.an.d.a<HybridUbcFlow>> aFV = new HashMap();
+    private final com.baidu.swan.apps.an.d.a<HybridUbcFlow> aFW = new com.baidu.swan.apps.an.d.a<HybridUbcFlow>() { // from class: com.baidu.swan.apps.performance.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.an.d.a
         /* renamed from: a */
         public void D(HybridUbcFlow hybridUbcFlow) {
-            a.this.fO(hybridUbcFlow.name);
+            a.this.fT(hybridUbcFlow.name);
         }
     };
 
-    public synchronized HybridUbcFlow fN(String str) {
-        HybridUbcFlow fP;
-        synchronized (this.aFm) {
-            fP = fP(str);
-            if (fP == null) {
+    public synchronized HybridUbcFlow fS(String str) {
+        HybridUbcFlow fU;
+        synchronized (this.aFU) {
+            fU = fU(str);
+            if (fU == null) {
                 HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-                hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aFo);
-                com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aFn.get(str);
+                hybridUbcFlow.a(HybridUbcFlow.ExtensionType.CALLBACK_ON_SUBMIT, this.aFW);
+                com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar = this.aFV.get(str);
                 if (aVar != null) {
                     aVar.D(hybridUbcFlow);
                 }
-                this.aFm.put(str, hybridUbcFlow);
-                fP = hybridUbcFlow;
+                this.aFU.put(str, hybridUbcFlow);
+                fU = hybridUbcFlow;
             }
         }
-        return fP;
+        return fU;
     }
 
     public a b(String str, com.baidu.swan.apps.an.d.a<HybridUbcFlow> aVar) {
-        synchronized (this.aFn) {
-            this.aFn.put(str, aVar);
+        synchronized (this.aFV) {
+            this.aFV.put(str, aVar);
         }
         return this;
     }
 
-    public a fO(String str) {
-        synchronized (this.aFm) {
-            this.aFm.remove(str);
+    public a fT(String str) {
+        synchronized (this.aFU) {
+            this.aFU.remove(str);
         }
         return this;
     }
 
-    public HybridUbcFlow fP(String str) {
+    public HybridUbcFlow fU(String str) {
         HybridUbcFlow hybridUbcFlow;
-        synchronized (this.aFm) {
-            hybridUbcFlow = this.aFm.get(str);
+        synchronized (this.aFU) {
+            hybridUbcFlow = this.aFU.get(str);
         }
         return hybridUbcFlow;
     }

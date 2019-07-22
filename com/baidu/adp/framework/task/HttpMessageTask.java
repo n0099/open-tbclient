@@ -98,18 +98,18 @@ public class HttpMessageTask extends MessageTask {
     public static class a {
         private int mCmd;
         private String mDownloadPath;
-        private boolean wn;
+        private boolean wq;
 
         public int getCmd() {
             return this.mCmd;
         }
 
-        public String gj() {
+        public String gs() {
             return this.mDownloadPath;
         }
 
-        public boolean gk() {
-            return this.wn;
+        public boolean gt() {
+            return this.wq;
         }
     }
 }

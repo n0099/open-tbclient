@@ -17,25 +17,25 @@ import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class LabelSettingModel extends BdBaseModel {
-    private com.baidu.adp.framework.listener.a gUC;
-    private com.baidu.adp.framework.listener.a gUD;
-    private a gUs;
+    private a haD;
+    private com.baidu.adp.framework.listener.a haN;
+    private com.baidu.adp.framework.listener.a haO;
     private b mLabelDataSet;
     private TbPageContext<?> mPageContext;
 
     public LabelSettingModel(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.gUC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
+        this.haN = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
-                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.gUs != null) {
-                        LabelSettingModel.this.gUs.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
+                    if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && LabelSettingModel.this.unique_id == responsedMessage.getOrginalMessage().getTag() && LabelSettingModel.this.haD != null) {
+                        LabelSettingModel.this.haD.a(LabelRequestEnum.GET_LABEL, responsedMessage.getError() == 0 ? LabelSettingModel.this.mLabelDataSet : null, responsedMessage.getError());
                     }
                 }
             }
         };
-        this.gUD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
+        this.haO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468) { // from class: com.baidu.tieba.interestlabel.model.LabelSettingModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -43,8 +43,8 @@ public class LabelSettingModel extends BdBaseModel {
                         if (responsedMessage.getError() != 0 && !StringUtils.isNull(responsedMessage.getErrorString())) {
                             LabelSettingModel.this.mPageContext.showToast(responsedMessage.getErrorString());
                         }
-                        if (LabelSettingModel.this.gUs != null) {
-                            LabelSettingModel.this.gUs.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
+                        if (LabelSettingModel.this.haD != null) {
+                            LabelSettingModel.this.haD.a(LabelRequestEnum.SUB_LABEL, null, responsedMessage.getError());
                         }
                     }
                 }
@@ -52,18 +52,18 @@ public class LabelSettingModel extends BdBaseModel {
         };
         this.mPageContext = tbPageContext;
         this.mLabelDataSet = new b();
-        registerListener(this.gUC);
-        registerListener(this.gUD);
+        registerListener(this.haN);
+        registerListener(this.haO);
     }
 
     public void a(a aVar) {
-        this.gUs = aVar;
+        this.haD = aVar;
     }
 
-    public void bGI() {
-        if (!j.jG()) {
-            if (this.gUs != null) {
-                this.gUs.a(LabelRequestEnum.GET_LABEL, null, -1);
+    public void bJp() {
+        if (!j.jQ()) {
+            if (this.haD != null) {
+                this.haD.a(LabelRequestEnum.GET_LABEL, null, -1);
                 return;
             }
             return;
@@ -75,8 +75,8 @@ public class LabelSettingModel extends BdBaseModel {
         sendMessage(requestGetLabelMessage);
     }
 
-    public void di(List<Integer> list) {
-        if (!j.jG()) {
+    public void dk(List<Integer> list) {
+        if (!j.jQ()) {
             this.mPageContext.showToast((int) R.string.neterror);
             return;
         }

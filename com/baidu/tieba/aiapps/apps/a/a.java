@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private b cZy;
+    private b daW;
     private List<com.baidu.swan.apps.a.c> mListeners;
     public static final String TAG = a.class.getSimpleName();
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
@@ -21,32 +21,32 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0275a {
-        private static final a cZA = new a();
+    public static class C0272a {
+        private static final a daY = new a();
     }
 
-    public static a aDg() {
-        return C0275a.cZA;
+    public static a aEw() {
+        return C0272a.daY;
     }
 
     public void init(Context context) {
+        dj(context);
         di(context);
-        dh(context);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dh(Context context) {
-        if (this.cZy == null) {
-            this.cZy = new b();
-            this.cZy.cZB = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_avatar_url", "");
-            this.cZy.bduss = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_bduss", "");
-            this.cZy.cZC = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_ptoken", "");
-            this.cZy.uid = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_uid", "");
-            this.cZy.displayName = com.baidu.swan.apps.storage.b.f.Ni().getString("bd_box_display_name", "");
+    public void di(Context context) {
+        if (this.daW == null) {
+            this.daW = new b();
+            this.daW.daZ = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_avatar_url", "");
+            this.daW.bduss = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_bduss", "");
+            this.daW.dba = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_ptoken", "");
+            this.daW.uid = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_uid", "");
+            this.daW.displayName = com.baidu.swan.apps.storage.b.f.NX().getString("bd_box_display_name", "");
         }
     }
 
-    private void di(final Context context) {
+    private void dj(final Context context) {
         SapiAccountManager.registerSilentShareListener(new SapiAccountManager.SilentShareListener() { // from class: com.baidu.tieba.aiapps.apps.a.a.1
             @Override // com.baidu.sapi2.SapiAccountManager.SilentShareListener
             public void onSilentShare() {
@@ -57,7 +57,7 @@ public class a {
         SapiAccountManager.registerReceiveShareListener(new SapiAccountManager.ReceiveShareListener() { // from class: com.baidu.tieba.aiapps.apps.a.a.2
             @Override // com.baidu.sapi2.SapiAccountManager.ReceiveShareListener
             public void onReceiveShare() {
-                a.this.dh(context);
+                a.this.di(context);
             }
         });
         PassportSDK.setLoginStatusChangeCallback(new LoginStatusChangeCallback() { // from class: com.baidu.tieba.aiapps.apps.a.a.3

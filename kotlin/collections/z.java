@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class z implements Iterator<Long> {
-    public abstract long nextLong();
+    public abstract long cND();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -11,9 +11,9 @@ public abstract class z implements Iterator<Long> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Can't rename method to resolve collision */
     @Override // java.util.Iterator
+    /* renamed from: cNC */
     public final Long next() {
-        return Long.valueOf(nextLong());
+        return Long.valueOf(cND());
     }
 }

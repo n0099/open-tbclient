@@ -10,17 +10,17 @@ public abstract class d extends f {
     }
 
     @Override // org.java_websocket.framing.f
-    public void cKK() throws InvalidDataException {
-        if (!cKN()) {
+    public void cOy() throws InvalidDataException {
+        if (!cOB()) {
             throw new InvalidFrameException("Control frame cant have fin==false set");
         }
-        if (cKO()) {
+        if (cOC()) {
             throw new InvalidFrameException("Control frame cant have rsv1==true set");
         }
-        if (cKP()) {
+        if (cOD()) {
             throw new InvalidFrameException("Control frame cant have rsv2==true set");
         }
-        if (cKQ()) {
+        if (cOE()) {
             throw new InvalidFrameException("Control frame cant have rsv3==true set");
         }
     }

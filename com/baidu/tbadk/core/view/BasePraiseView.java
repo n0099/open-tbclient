@@ -25,24 +25,24 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
     protected int agreeType;
-    protected long bKE;
-    protected long bKF;
-    protected ScaleAnimation bVB;
-    protected int bVV;
-    public int bVW;
-    public int bVX;
-    public int bVY;
-    public int bVZ;
-    protected View.OnClickListener bVj;
-    public int bWa;
-    protected TextView bWb;
-    protected ImageView bWc;
+    protected long bLE;
+    protected long bLF;
+    protected ScaleAnimation bWC;
+    protected int bWX;
+    public int bWY;
+    public int bWZ;
+    protected View.OnClickListener bWk;
+    public int bXa;
+    public int bXb;
+    public int bXc;
+    protected TextView bXd;
+    protected ImageView bXe;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -52,7 +52,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     protected String mThreadId;
     protected int objType;
 
-    public abstract void Jf();
+    public abstract void JS();
 
     public abstract long getNum();
 
@@ -65,43 +65,43 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         this.mSkinType = 3;
         this.agreeType = 2;
         this.objType = 3;
-        this.bVV = 1;
+        this.bWX = 1;
         this.mFrom = 2;
-        this.bVW = R.string.action_praise_default;
-        this.bVX = R.drawable.icon_card_like_n;
-        this.bVY = R.drawable.icon_card_like_s;
-        this.bVZ = R.color.cp_cont_j;
-        this.bWa = R.color.cp_cont_h;
+        this.bWY = R.string.action_praise_default;
+        this.bWZ = R.drawable.icon_card_like_n;
+        this.bXa = R.drawable.icon_card_like_s;
+        this.bXb = R.color.cp_cont_j;
+        this.bXc = R.color.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
         initView(context);
-        ajc();
+        akg();
     }
 
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, R.layout.praise_view, this);
-            this.bWb = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
-            this.bWc = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
+            this.bXd = (TextView) inflate.findViewById(R.id.thread_info_praise_num);
+            this.bXe = (ImageView) inflate.findViewById(R.id.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ajc() {
+    public void akg() {
         this.agreeType = 2;
-        this.bVW = R.string.action_praise_default;
-        this.bVZ = R.color.cp_cont_j;
-        this.bWa = R.color.cp_cont_h;
-        this.bVX = R.drawable.icon_card_like_n;
-        this.bVY = R.drawable.icon_card_like_s;
+        this.bWY = R.string.action_praise_default;
+        this.bXb = R.color.cp_cont_j;
+        this.bXc = R.color.cp_cont_h;
+        this.bWZ = R.drawable.icon_card_like_n;
+        this.bXa = R.drawable.icon_card_like_s;
     }
 
-    public StateListDrawable W(int i, int i2) {
-        Drawable drawable = al.getDrawable(i);
-        Drawable drawable2 = al.getDrawable(i2);
+    public StateListDrawable Z(int i, int i2) {
+        Drawable drawable = am.getDrawable(i);
+        Drawable drawable2 = am.getDrawable(i2);
         StateListDrawable stateListDrawable = new StateListDrawable();
         stateListDrawable.addState(new int[]{16842910, 16842919}, drawable2);
         stateListDrawable.addState(new int[]{16842910, 16842908}, drawable2);
@@ -110,26 +110,26 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ColorStateList createColorStateList(int i, int i2) {
-        int color = al.getColor(i);
-        int color2 = al.getColor(i2);
+        int color = am.getColor(i);
+        int color2 = am.getColor(i2);
         return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{color2, color2, color});
     }
 
     public void a(int i, bg bgVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.cpE = i;
-        jVar.cpF = bgVar;
+        jVar.cqQ = i;
+        jVar.cqR = bgVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
-    public void ir(int i) {
-        if (this.bWc != null && i == 0) {
-            this.bWc.startAnimation(getScaleAnimation());
+    public void ix(int i) {
+        if (this.bXe != null && i == 0) {
+            this.bXe.startAnimation(getScaleAnimation());
         }
     }
 
-    public void iq(int i) {
+    public void iw(int i) {
         if (this.mData != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
@@ -149,22 +149,22 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.bVB == null) {
-            this.bVB = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.bVB.setDuration(200L);
+        if (this.bWC == null) {
+            this.bWC = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.bWC.setDuration(200L);
         }
-        return this.bVB;
+        return this.bWC;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mData == null && this.mSkinType != i) {
-            Jf();
+            JS();
             this.mSkinType = i;
         }
     }
 
     public void setDisPraiseFrom(int i) {
-        this.bVV = i;
+        this.bWX = i;
     }
 
     public void setFrom(int i) {
@@ -189,12 +189,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.bWc.setEnabled(z);
-        this.bWb.setEnabled(z);
+        this.bXe.setEnabled(z);
+        this.bXd.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bVj = onClickListener;
+        this.bWk = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -218,28 +218,28 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.bWc;
+        return this.bXe;
     }
 
     public TextView getTextView() {
-        return this.bWb;
+        return this.bXd;
     }
 
-    public void ee(boolean z) {
-        am amVar = new am("c13271");
-        amVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
-        amVar.bT("fid", this.mForumId);
-        amVar.bT("tid", this.mThreadId);
-        amVar.bT("post_id", this.mPostId);
-        amVar.P("obj_type", getObjType());
-        amVar.P("obj_locate", getObjLocate());
-        amVar.P(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        amVar.P("obj_param1", com.baidu.tbadk.util.a.auN().akJ() ? 1 : 0);
-        TiebaStatic.log(amVar);
+    public void ei(boolean z) {
+        an anVar = new an("c13271");
+        anVar.bT("uid", TbadkCoreApplication.getCurrentAccount());
+        anVar.bT("fid", this.mForumId);
+        anVar.bT("tid", this.mThreadId);
+        anVar.bT("post_id", this.mPostId);
+        anVar.P("obj_type", getObjType());
+        anVar.P("obj_locate", getObjLocate());
+        anVar.P(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
+        anVar.P("obj_param1", com.baidu.tbadk.util.a.avW().alO() ? 1 : 0);
+        TiebaStatic.log(anVar);
     }
 
     private int getObjLocate() {
-        return this.bVV;
+        return this.bWX;
     }
 
     private int getObjType() {

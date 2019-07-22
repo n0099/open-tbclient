@@ -128,7 +128,7 @@ public class ActivityLifeObserver {
                 }
             });
         } catch (Exception e) {
-            bj.c().a("registerActivityLifecycleCallbacks encounter exception");
+            bc.c().a("registerActivityLifecycleCallbacks encounter exception");
         }
     }
 }

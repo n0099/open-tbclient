@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 a(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.cLr()) {
-                    aVar.println(sb.toString());
+                synchronized (aVar.cPg()) {
+                    aVar.bo(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class a {
-        abstract Object cLr();
+        abstract void bo(Object obj);
 
-        abstract void println(Object obj);
+        abstract Object cPg();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends a {
-        private final PrintStream knk;
+        private final PrintStream kuJ;
 
         b(PrintStream printStream) {
-            this.knk = printStream;
+            this.kuJ = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cLr() {
-            return this.knk;
+        Object cPg() {
+            return this.kuJ;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void println(Object obj) {
-            this.knk.println(obj);
+        void bo(Object obj) {
+            this.kuJ.println(obj);
         }
     }
 
     /* loaded from: classes2.dex */
     static final class c extends a {
-        private final PrintWriter knl;
+        private final PrintWriter kuK;
 
         c(PrintWriter printWriter) {
-            this.knl = printWriter;
+            this.kuK = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object cLr() {
-            return this.knl;
+        Object cPg() {
+            return this.kuK;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void println(Object obj) {
-            this.knl.println(obj);
+        void bo(Object obj) {
+            this.kuK.println(obj);
         }
     }
 

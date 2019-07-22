@@ -29,13 +29,13 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.c.c;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.coloros.mcssdk.PushManager;
 import com.coloros.mcssdk.callback.PushCallback;
@@ -101,9 +101,9 @@ public final class l {
         } else if (upperCase.contains("MEIZU")) {
             return Build.DISPLAY;
         } else {
-            if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+            if (upperCase.contains("OPPO")) {
                 str2 = "ro.build.version.opporom";
-            } else if (upperCase.contains(RomTypeUtil.ROM_VIVO)) {
+            } else if (upperCase.contains("VIVO")) {
                 str2 = "ro.vivo.os.version";
             }
         }
@@ -115,7 +115,7 @@ public final class l {
                 str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str2);
             }
         } catch (Throwable th) {
-            str = (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "ColorOS_notfound" : upperCase.contains(RomTypeUtil.ROM_VIVO) ? "FuntouchOS_notfound" : "" : "EmotionUI_notfound";
+            str = (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("XIAOMI") ? "MIUI_notfound" : upperCase.contains("OPPO") ? "ColorOS_notfound" : upperCase.contains("VIVO") ? "FuntouchOS_notfound" : "" : "EmotionUI_notfound";
         }
         return str;
     }
@@ -500,7 +500,6 @@ public final class l {
             intent.setClassName(str2, "com.baidu.android.pushservice.CommandService");
         }
         intent.putExtra("bd.cross.request.COMMAND_TYPE", "bd.cross.command.MESSAGE_DELIVER");
-        intent.putExtra("bd.cross.request.SOURCE_SERVICE", "com.baidu.android.pushservice.PushService");
         return new d(context, intent).b().a();
     }
 
@@ -774,7 +773,7 @@ public final class l {
     }
 
     public static boolean a(Context context, PublicMsg publicMsg) {
-        return com.baidu.android.pushservice.c.c.a(context, new com.baidu.android.pushservice.c.e(publicMsg.mMsgId, com.baidu.android.pushservice.j.f.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), true), publicMsg.mAppId));
+        return com.baidu.android.pushservice.c.c.a(context, new com.baidu.android.pushservice.c.e(publicMsg.mMsgId, com.baidu.android.pushservice.j.d.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), true), publicMsg.mAppId));
     }
 
     public static boolean a(Context context, String str, String str2, String str3, String str4, String str5) {
@@ -790,7 +789,7 @@ public final class l {
         if (TextUtils.isEmpty(str6)) {
             return false;
         }
-        String a2 = com.baidu.android.pushservice.j.f.a(str6.getBytes(), true);
+        String a2 = com.baidu.android.pushservice.j.d.a(str6.getBytes(), true);
         if (TextUtils.isEmpty(a2)) {
             z = false;
         } else {
@@ -862,7 +861,7 @@ public final class l {
             return false;
         }
         byte[] decryptR = BaiduAppSSOJni.decryptR(bArr, 0);
-        String a2 = com.baidu.android.pushservice.j.f.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false);
+        String a2 = com.baidu.android.pushservice.j.d.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false);
         String str3 = new String(decryptR);
         if (a2 != null && a2.equals(str3)) {
             return true;
@@ -902,7 +901,7 @@ public final class l {
             return false;
         }
         try {
-            if (TextUtils.equals(com.baidu.android.pushservice.j.f.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false), new String(BaiduAppSSOJni.decryptR(bArr, 0)))) {
+            if (TextUtils.equals(com.baidu.android.pushservice.j.d.a(a(a(str.getBytes(), str2.getBytes()), bArr2), false), new String(BaiduAppSSOJni.decryptR(bArr, 0)))) {
                 return true;
             }
         } catch (Exception e) {
@@ -918,7 +917,7 @@ public final class l {
             return bArr2;
         }
         try {
-            return BaiduAppSSOJni.encryptR(com.baidu.android.pushservice.j.f.a(a(str.getBytes(), bArr), false).getBytes(), 0);
+            return BaiduAppSSOJni.encryptR(com.baidu.android.pushservice.j.d.a(a(str.getBytes(), bArr), false).getBytes(), 0);
         } catch (Exception e) {
             return bArr2;
         } catch (UnsatisfiedLinkError e2) {
@@ -1155,7 +1154,7 @@ public final class l {
 
     public static boolean b(Context context, PublicMsg publicMsg) {
         if (publicMsg != null) {
-            String a2 = com.baidu.android.pushservice.j.f.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), true);
+            String a2 = com.baidu.android.pushservice.j.d.a((publicMsg.mAppId + publicMsg.mMsgId + publicMsg.mUrl + publicMsg.mDescription + publicMsg.mTitle + publicMsg.mOpenType).getBytes(), true);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -1447,7 +1446,7 @@ public final class l {
     }
 
     public static boolean d() {
-        return Build.MANUFACTURER.toUpperCase().contains(RomTypeUtil.ROM_OPPO);
+        return Build.MANUFACTURER.toUpperCase().contains("OPPO");
     }
 
     private static String e(String str) {
@@ -1486,7 +1485,7 @@ public final class l {
     }
 
     public static boolean e() {
-        return Build.MANUFACTURER.toUpperCase().contains(RomTypeUtil.ROM_VIVO);
+        return Build.MANUFACTURER.toUpperCase().contains("VIVO");
     }
 
     public static boolean e(Context context, String str) {
@@ -1722,9 +1721,9 @@ public final class l {
                 str3 = "ro.build.version.emui";
             } else if (upperCase.contains("MEIZU")) {
                 str3 = "ro.build.display.id";
-            } else if (upperCase.contains(RomTypeUtil.ROM_OPPO)) {
+            } else if (upperCase.contains("OPPO")) {
                 str3 = "ro.build.version.opporom";
-            } else if (upperCase.contains(RomTypeUtil.ROM_VIVO)) {
+            } else if (upperCase.contains("VIVO")) {
                 str3 = "ro.vivo.os.version";
             }
             try {
@@ -1743,14 +1742,14 @@ public final class l {
                         Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str);
                         return matcher.find() ? matcher.group() : str;
                     } catch (Throwable th) {
-                        return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "6.0" : upperCase.contains(RomTypeUtil.ROM_OPPO) ? "3.0" : upperCase.contains(RomTypeUtil.ROM_VIVO) ? "3.2" : str : "3.1";
+                        return (Build.VERSION.SDK_INT < 21 || !upperCase.contains("HUAWEI")) ? upperCase.contains("HUAWEI") ? "1.0" : upperCase.contains("XIAOMI") ? "4.0" : upperCase.contains("MEIZU") ? "6.0" : upperCase.contains("OPPO") ? "3.0" : upperCase.contains("VIVO") ? "3.2" : str : "3.1";
                     }
-                } else if (upperCase.contains(RomTypeUtil.ROM_OPPO) && !TextUtils.isEmpty(str2)) {
+                } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str2)) {
                     Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str2);
                     if (matcher2.find()) {
                         return matcher2.group(1);
                     }
-                } else if (upperCase.contains(RomTypeUtil.ROM_VIVO) && !TextUtils.isEmpty(str2)) {
+                } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str2)) {
                     Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str2);
                     if (matcher3.find()) {
                         return matcher3.group();
@@ -2214,12 +2213,12 @@ public final class l {
     }
 
     public static String q(Context context) {
-        String b2 = com.baidu.android.pushservice.j.e.b(context);
+        String deviceID = DeviceId.getDeviceID(context);
         boolean d = com.baidu.android.pushservice.a.d(context);
         if (D(context)) {
-            return com.baidu.android.pushservice.j.f.a((d ? "com.baidu.pushservice.single_conn" + context.getPackageName() : "com.baidu.pushservice.singelinstancev3" + b2).getBytes(), false);
+            return com.baidu.android.pushservice.j.d.a((d ? "com.baidu.pushservice.single_conn" + context.getPackageName() : "com.baidu.pushservice.singelinstancev3" + deviceID).getBytes(), false);
         }
-        return com.baidu.android.pushservice.j.f.a((d ? "com.baidu.pushservice.single_conn" + context.getPackageName() : "com.baidu.pushservice.singelinstancev2" + b2).getBytes(), false);
+        return com.baidu.android.pushservice.j.d.a((d ? "com.baidu.pushservice.single_conn" + context.getPackageName() : "com.baidu.pushservice.singelinstancev2" + deviceID).getBytes(), false);
     }
 
     public static boolean q(Context context, String str) {
@@ -2236,7 +2235,7 @@ public final class l {
             if (packageManager == null) {
                 return null;
             }
-            return com.baidu.android.pushservice.j.f.a(packageManager.getPackageInfo(str, 64).signatures[0].toByteArray(), false);
+            return com.baidu.android.pushservice.j.d.a(packageManager.getPackageInfo(str, 64).signatures[0].toByteArray(), false);
         } catch (Exception e) {
             return null;
         }

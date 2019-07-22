@@ -156,7 +156,7 @@ public class AccountCenterActivity extends BaseActivity {
                 }
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                intent.putExtra("username", result.userName);
+                intent.putExtra(LoginActivity.EXTRA_PARAM_USERNAME, result.userName);
                 AccountCenterActivity.this.startActivityForResult(intent, 1004);
             }
         });
@@ -277,9 +277,6 @@ public class AccountCenterActivity extends BaseActivity {
         setTitleDrawable(null, null, null, null);
         setTitleTextColor(ViewCompat.MEASURED_STATE_MASK);
         setLeftBtnDrawable(getResources().getDrawable(a.d.sapi_sdk_btn_back), null, null, null);
-        if (SapiAccountManager.getInstance().getSapiConfiguration().showBottomBack) {
-            setBtnVisibility(4, 4, 4);
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -303,13 +300,6 @@ public class AccountCenterActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onRightBtnClick() {
         super.onRightBtnClick();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

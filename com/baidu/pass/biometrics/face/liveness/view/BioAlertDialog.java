@@ -18,8 +18,6 @@ public class BioAlertDialog extends Dialog {
     private TextView neutralBtn;
     private Button positiveBtn;
     private LinearLayout timeOutDialogLl;
-    private LinearLayout unRecognizedDialogLl;
-    private TextView unRecognizedMsgTv;
     private ViewSwitcher viewSwitcher;
 
     public BioAlertDialog(Context context) {
@@ -47,8 +45,6 @@ public class BioAlertDialog extends Dialog {
         this.positiveBtn = (Button) findViewById(R.id.positive_btn);
         this.negativeBtn = (Button) findViewById(R.id.negative_btn);
         this.neutralBtn = (TextView) findViewById(R.id.neutral_btn);
-        this.unRecognizedDialogLl = (LinearLayout) findViewById(R.id.unrecognized_dialog);
-        this.unRecognizedMsgTv = (TextView) findViewById(R.id.tv_recog_msg1);
         this.timeOutDialogLl = (LinearLayout) findViewById(R.id.time_out_dialog_msg);
     }
 
@@ -93,14 +89,6 @@ public class BioAlertDialog extends Dialog {
 
     public void setMessageIcon(int i) {
         this.msgText.setText(i);
-    }
-
-    public void setRecognizedFailVisible(int i) {
-        this.unRecognizedDialogLl.setVisibility(i);
-    }
-
-    public void setRecognizedFailMsg1(String str) {
-        this.unRecognizedMsgTv.setText(str);
     }
 
     public void setTimeOutVisible(int i) {

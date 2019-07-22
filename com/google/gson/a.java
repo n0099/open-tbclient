@@ -3,5 +3,5 @@ package com.google.gson;
 public interface a {
     boolean a(b bVar);
 
-    boolean u(Class<?> cls);
+    boolean w(Class<?> cls);
 }

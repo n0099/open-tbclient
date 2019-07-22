@@ -3,5 +3,5 @@ package com.baidu.adp.lib.voice;
 public interface g extends e {
     void ay(int i);
 
-    void kv();
+    void kG();
 }

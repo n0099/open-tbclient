@@ -1,48 +1,69 @@
 package com.baidu.swan.apps.d;
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.DownloadListener;
-import com.baidu.swan.apps.an.aa;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.swan.apps.a;
+import com.baidu.swan.apps.b.c.f;
+import com.baidu.swan.apps.core.d.g;
 /* loaded from: classes2.dex */
-public class c extends com.baidu.swan.apps.view.c {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-
-    public c(Context context) {
-        super(context);
-        this.aor.setDownloadListener(new a());
+public class c extends g {
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aS(boolean z) {
+        this.aqK.setLeftHomeViewVisibility(z ? 0 : 8);
     }
 
-    @Override // com.baidu.swan.apps.core.i.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
-    public String wT() {
-        return "ai_apps_ad_landing";
+    @Override // com.baidu.swan.apps.core.d.g
+    protected f xo() {
+        return com.baidu.swan.apps.core.j.c.BQ().BR().aK(getContext());
     }
 
-    /* loaded from: classes2.dex */
-    class a implements DownloadListener {
-        a() {
-        }
-
-        @Override // android.webkit.DownloadListener
-        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            if (c.DEBUG) {
-                Log.d("SwanAppAdLandingWVWidget", "onDownloadStart: url=" + str + ", userAgent=" + str2 + ", mimeType=" + str4);
+    @Override // com.baidu.swan.apps.core.d.g
+    protected com.baidu.swan.apps.core.f.c xC() {
+        return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.d.c.1
+            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
+            public void goBack() {
+                c.this.aS(c.this.arO.canGoBack());
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-                jSONObject.put("userAgent", str2);
-                jSONObject.put("contentDisposition", aa.in(str3));
-                jSONObject.put("mimeType", str4);
-                jSONObject.put("contentLength", j);
-            } catch (JSONException e) {
-                if (c.DEBUG) {
-                    e.printStackTrace();
+
+            @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.c
+            public void de(final String str) {
+                c.this.aS(c.this.arO.canGoBack());
+                c.this.aqK.post(new Runnable() { // from class: com.baidu.swan.apps.d.c.1.1
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        c.this.aqK.setTitle(TextUtils.isEmpty(str) ? "" : str);
+                    }
+                });
+            }
+        };
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.swan.apps.core.d.g, com.baidu.swan.apps.core.d.b
+    public void O(View view) {
+        super.O(view);
+        this.aqK.setRightZoneVisibility(false);
+        this.aqK.setLeftHomeViewSrc(a.e.aiapps_action_bar_close_black_selector);
+        this.aqK.setLeftBackViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.c.2
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                if (c.this.arO.canGoBack()) {
+                    c.this.arO.goBack();
+                } else {
+                    c.this.zE();
                 }
             }
-            com.baidu.swan.apps.u.a.DL().e(c.this.mContext, jSONObject);
-        }
+        });
+        this.aqK.setLeftHomeViewClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.d.c.3
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                g.AI();
+            }
+        });
+    }
+
+    @Override // com.baidu.swan.apps.core.d.b
+    protected boolean xD() {
+        return true;
     }
 }

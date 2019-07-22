@@ -7,10 +7,9 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.i.g;
-import com.baidu.android.pushservice.j.e;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -229,7 +228,7 @@ public class b {
     public static JSONObject d(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 jSONObject.put("type", telephonyManager.getNetworkType());
                 jSONObject.put("operator", telephonyManager.getNetworkOperatorName());
@@ -293,8 +292,8 @@ public class b {
             jSONObject.put("cpu_feature", d());
             jSONObject.put("screen_density", String.valueOf(a2[2]));
             jSONObject.put("sdk_int", String.valueOf(Build.VERSION.SDK_INT));
-            if (((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
-                jSONObject.put("wise_cuid", e.a(context));
+            if (((TelephonyManager) context.getSystemService("phone")) != null) {
+                jSONObject.put("wise_cuid", DeviceId.getCUID(context));
             }
             String string = context.getSharedPreferences("pst", 0).getString("push_mac_id", null);
             if (string == null || string.length() == 0) {

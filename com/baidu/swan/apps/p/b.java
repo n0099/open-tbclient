@@ -11,10 +11,10 @@ public class b implements View.OnTouchListener {
         switch (motionEvent.getAction()) {
             case 0:
                 if (this.mTargetView == null) {
-                    view.setAlpha(com.baidu.swan.apps.u.a.DW().Ev() ? 0.5f : 0.2f);
+                    view.setAlpha(com.baidu.swan.apps.u.a.EF().Fe() ? 0.5f : 0.2f);
                     return false;
                 }
-                this.mTargetView.setAlpha(com.baidu.swan.apps.u.a.DW().Ev() ? 0.5f : 0.2f);
+                this.mTargetView.setAlpha(com.baidu.swan.apps.u.a.EF().Fe() ? 0.5f : 0.2f);
                 return false;
             case 1:
             default:

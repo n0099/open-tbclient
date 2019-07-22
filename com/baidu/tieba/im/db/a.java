@@ -19,22 +19,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    private String gyb;
-    private Class<? extends ChatMessage> gyc;
-    List<String> gyd = null;
+    private String gEm;
+    private Class<? extends ChatMessage> gEn;
+    List<String> gEo = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
-        this.gyb = str;
-        this.gyc = cls;
+        this.gEm = str;
+        this.gEn = cls;
     }
 
-    public int xX(String str) {
+    public int yH(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Cursor cursor = null;
             try {
-                cursor = h.bAb().rawQuery("select count(*) from " + (this.gyb + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
+                cursor = h.bCG().b("select count(*) from " + (this.gEm + str) + " WHERE read_flag=? AND is_delete=?", new String[]{String.valueOf(1), String.valueOf(0)});
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.e(cursor);
                 } else {
@@ -53,12 +53,12 @@ public abstract class a {
         return i;
     }
 
-    public long xY(String str) {
+    public long yI(String str) {
         long j = 0;
         Cursor cursor = null;
         if (!TextUtils.isEmpty(str)) {
             try {
-                cursor = h.bAb().rawQuery("select max(mid) from " + (this.gyb + str), null);
+                cursor = h.bCG().b("select max(mid) from " + (this.gEm + str), null);
                 if (cursor == null || !cursor.moveToNext()) {
                     com.baidu.adp.lib.util.n.e(cursor);
                 } else {
@@ -67,7 +67,7 @@ public abstract class a {
             } catch (SQLiteException e) {
                 TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e.printStackTrace();
-                yd(str);
+                yN(str);
             } catch (Exception e2) {
                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getMaxLastMid", new Object[0]);
                 e2.printStackTrace();
@@ -93,16 +93,16 @@ public abstract class a {
     /* JADX WARN: Type inference failed for: r2v4, types: [android.database.Cursor] */
     /* JADX WARN: Type inference failed for: r2v5 */
     /* JADX WARN: Type inference failed for: r2v8 */
-    public CommonMsgPojo xZ(String str) {
+    public CommonMsgPojo yJ(String str) {
         Throwable th;
         Cursor cursor;
         CommonMsgPojo commonMsgPojo = null;
         if (!TextUtils.isEmpty(str)) {
             ?? sb = new StringBuilder();
-            ?? r2 = this.gyb;
+            ?? r2 = this.gEm;
             try {
                 try {
-                    cursor = h.bAb().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
+                    cursor = h.bCG().b("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? ORDER BY rid DESC LIMIT 1", new String[]{String.valueOf(0)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -132,7 +132,7 @@ public abstract class a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getNewestMsgContext", new Object[0]);
                         e.printStackTrace();
-                        yd(str);
+                        yN(str);
                         com.baidu.adp.lib.util.n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;
@@ -182,13 +182,13 @@ public abstract class a {
             i2 = 20;
         }
         LinkedHashMap<String, String> linkedHashMap = new LinkedHashMap<>();
-        ?? r2 = this.gyb + str;
+        ?? r2 = this.gEm + str;
         try {
             try {
                 if (TextUtils.isEmpty(str2)) {
-                    cursor = h.bAb().rawQuery("select * from " + ((String) r2) + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{String.valueOf(i), String.valueOf(0)});
+                    cursor = h.bCG().b("select * from " + ((String) r2) + " WHERE msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{String.valueOf(i), String.valueOf(0)});
                 } else {
-                    cursor = h.bAb().rawQuery("select * from " + ((String) r2) + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str2, String.valueOf(i), String.valueOf(0)});
+                    cursor = h.bCG().b("select * from " + ((String) r2) + " WHERE mid <=? AND msg_type=? AND is_delete=? ORDER BY rid DESC LIMIT " + i2, new String[]{str2, String.valueOf(i), String.valueOf(0)});
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -198,7 +198,7 @@ public abstract class a {
                             e2 = e3;
                             TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAllByMsgType" + i, new Object[0]);
                             e2.printStackTrace();
-                            yd(str);
+                            yN(str);
                             com.baidu.adp.lib.util.n.e(cursor);
                             return linkedHashMap;
                         } catch (Exception e4) {
@@ -253,24 +253,24 @@ public abstract class a {
         }
         LinkedList<ChatMessage> linkedList = new LinkedList<>();
         ?? sb = new StringBuilder();
-        ?? r5 = this.gyb;
+        ?? r5 = this.gEm;
         String sb2 = sb.append(r5).append(valueOf).toString();
         try {
             try {
                 if (TextUtils.isEmpty(str2) || "0".equals(str2)) {
                     if (TextUtils.isEmpty(str)) {
-                        cursor = h.bAb().rawQuery("select * from " + sb2 + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{String.valueOf(0)});
+                        cursor = h.bCG().b("select * from " + sb2 + " WHERE is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{String.valueOf(0)});
                     } else {
-                        cursor = h.bAb().rawQuery("select * from " + sb2 + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{str, String.valueOf(0)});
+                        cursor = h.bCG().b("select * from " + sb2 + " WHERE mid<? AND is_delete=? ORDER BY rid DESC, mid DESC LIMIT " + i, new String[]{str, String.valueOf(0)});
                     }
                 } else {
-                    cursor = h.bAb().rawQuery("select * from " + sb2 + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i, new String[]{str2, String.valueOf(0)});
+                    cursor = h.bCG().b("select * from " + sb2 + " WHERE rid<? AND is_delete=? ORDER BY rid DESC LIMIT " + i, new String[]{str2, String.valueOf(0)});
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.gyc.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.gJj));
+                            ChatMessage newInstance = this.gEn.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.gPt));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -293,7 +293,7 @@ public abstract class a {
                             try {
                                 TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.getAll", new Object[0]);
                                 e2.printStackTrace();
-                                yd(valueOf);
+                                yN(valueOf);
                                 com.baidu.adp.lib.util.n.e(cursor2);
                                 return linkedList;
                             } catch (Throwable th2) {
@@ -341,12 +341,12 @@ public abstract class a {
         if (TbadkCoreApplication.getCurrentAccount().equals(valueOf)) {
             valueOf = String.valueOf(j2);
         }
-        String str3 = this.gyb + valueOf;
+        String str3 = this.gEm + valueOf;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("mid", str2);
             contentValues.put("msg_status", Integer.valueOf(i));
-            if (h.bAb().update(str3, contentValues, "mid=?", new String[]{str}) > 0) {
+            if (h.bCG().a(str3, contentValues, "mid=?", new String[]{str}) > 0) {
                 bool = true;
             } else {
                 bool = false;
@@ -360,11 +360,11 @@ public abstract class a {
     }
 
     public void h(long j, boolean z) {
-        String str = this.gyb + j;
+        String str = this.gEm + j;
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("is_delete", Integer.valueOf(z ? 1 : 0));
-            h.bAb().update(str, contentValues, "uid!=?", new String[]{"0"});
+            h.bCG().a(str, contentValues, "uid!=?", new String[]{"0"});
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.updateState", new Object[0]);
             e.printStackTrace();
@@ -376,20 +376,20 @@ public abstract class a {
             return false;
         }
         String valueOf = String.valueOf(j);
-        String str = this.gyb + valueOf;
-        if (this.gyd == null) {
-            this.gyd = bzQ();
+        String str = this.gEm + valueOf;
+        if (this.gEo == null) {
+            this.gEo = bCv();
         }
-        if (!this.gyd.contains(valueOf)) {
-            yd(valueOf);
-            this.gyd.add(valueOf);
+        if (!this.gEo.contains(valueOf)) {
+            yN(valueOf);
+            this.gEo.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
-            sQLiteStatement = h.bAb().compileStatement(" INSERT INTO " + str + "(content" + Constants.ACCEPT_TIME_SEPARATOR_SP + "create_time" + Constants.ACCEPT_TIME_SEPARATOR_SP + "ext" + Constants.ACCEPT_TIME_SEPARATOR_SP + "mid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_status" + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_type" + Constants.ACCEPT_TIME_SEPARATOR_SP + "rid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "read_flag" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_delete" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            sQLiteStatement = h.bCG().yX(" INSERT INTO " + str + "(content" + Constants.ACCEPT_TIME_SEPARATOR_SP + "create_time" + Constants.ACCEPT_TIME_SEPARATOR_SP + "ext" + Constants.ACCEPT_TIME_SEPARATOR_SP + "mid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_uid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "to_user_info" + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_status" + Constants.ACCEPT_TIME_SEPARATOR_SP + "msg_type" + Constants.ACCEPT_TIME_SEPARATOR_SP + "rid" + Constants.ACCEPT_TIME_SEPARATOR_SP + "read_flag" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_delete" + Constants.ACCEPT_TIME_SEPARATOR_SP + "is_friend) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             for (CommonMsgPojo commonMsgPojo : list) {
                 if (z && commonMsgPojo.isSelf() && commonMsgPojo.getRid() != 0) {
-                    h.bAb().a(str, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
+                    h.bCG().a(str, "mid=?", new String[]{String.valueOf(commonMsgPojo.getRid())});
                 }
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("content", commonMsgPojo.getContent());
@@ -406,7 +406,7 @@ public abstract class a {
                 contentValues.put("read_flag", Integer.valueOf(commonMsgPojo.getRead_flag()));
                 contentValues.put("is_delete", Integer.valueOf(commonMsgPojo.getIs_delete()));
                 contentValues.put("is_friend", Integer.valueOf(commonMsgPojo.getIsFriend()));
-                if (h.bAb().update(str, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) == 0) {
+                if (h.bCG().a(str, contentValues, "mid=?", new String[]{String.valueOf(commonMsgPojo.getMid())}) == 0) {
                     sQLiteStatement.clearBindings();
                     sQLiteStatement.bindString(1, commonMsgPojo.getContent());
                     sQLiteStatement.bindLong(2, commonMsgPojo.getCreate_time());
@@ -447,7 +447,7 @@ public abstract class a {
         if (linkedList != null && linkedList.size() != 0) {
             LinkedList linkedList2 = new LinkedList();
             try {
-                cursor = h.bAb().rawQuery("select * from sqlite_master where type='table'", null);
+                cursor = h.bCG().b("select * from sqlite_master where type='table'", null);
                 if (cursor != null) {
                     try {
                         try {
@@ -485,26 +485,11 @@ public abstract class a {
             while (it.hasNext()) {
                 String next = it.next();
                 if (!TextUtils.isEmpty(next) && !linkedList2.contains(next)) {
-                    yd(next);
+                    yN(next);
                 }
             }
         }
         return null;
-    }
-
-    public boolean dh(String str, String str2) {
-        try {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("is_delete", (Integer) 1);
-            h.bAb().update(this.gyb + str, contentValues, "mid=?", new String[]{str2});
-            return true;
-        } catch (Exception e) {
-            TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
-            return false;
-        }
     }
 
     public boolean di(String str, String str2) {
@@ -512,7 +497,22 @@ public abstract class a {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            h.bAb().a(this.gyb + str, "mid=?", new String[]{str2});
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("is_delete", (Integer) 1);
+            h.bCG().a(this.gEm + str, contentValues, "mid=?", new String[]{str2});
+            return true;
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.markDeleteMsgByMid", new Object[0]);
+            return false;
+        }
+    }
+
+    public boolean dj(String str, String str2) {
+        try {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            h.bCG().a(this.gEm + str, "mid=?", new String[]{str2});
             return true;
         } catch (Exception e) {
             TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.deleteMsgByMid", new Object[0]);
@@ -520,53 +520,53 @@ public abstract class a {
         }
     }
 
-    public boolean ya(String str) {
+    public boolean yK(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.gyd == null) {
-            this.gyd = bzQ();
+        if (this.gEo == null) {
+            this.gEo = bCv();
         }
-        if (this.gyd != null && this.gyd.contains(str)) {
-            Iterator<String> it = this.gyd.iterator();
+        if (this.gEo != null && this.gEo.contains(str)) {
+            Iterator<String> it = this.gEo.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.gyd.remove(next);
+                    this.gEo.remove(next);
                     break;
                 }
             }
         }
-        return h.bAb().ym("DROP TABLE IF EXISTS " + (this.gyb + str));
+        return h.bCG().yW("DROP TABLE IF EXISTS " + (this.gEm + str));
     }
 
-    public boolean yb(String str) {
+    public boolean yL(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.gyd == null) {
-            this.gyd = bzQ();
+        if (this.gEo == null) {
+            this.gEo = bCv();
         }
-        if (this.gyd != null && this.gyd.contains(str)) {
-            Iterator<String> it = this.gyd.iterator();
+        if (this.gEo != null && this.gEo.contains(str)) {
+            Iterator<String> it = this.gEo.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.gyd.remove(next);
+                    this.gEo.remove(next);
                     break;
                 }
             }
         }
-        return h.bAb().ym("delete from " + (this.gyb + str));
+        return h.bCG().yW("delete from " + (this.gEm + str));
     }
 
-    public boolean yc(String str) {
+    public boolean yM(String str) {
         try {
             h(Long.parseLong(str), true);
             return true;
@@ -576,23 +576,23 @@ public abstract class a {
         }
     }
 
-    public synchronized void yd(String str) {
+    public synchronized void yN(String str) {
         if (!TextUtils.isEmpty(str)) {
-            h.bAb().ym("CREATE TABLE IF NOT EXISTS " + (this.gyb + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
+            h.bCG().yW("CREATE TABLE IF NOT EXISTS " + (this.gEm + str) + "(mid BIGINT PRIMARY KEY, uid TEXT, user_info blob, to_uid TEXT, to_user_info blob, create_time BIGINT, msg_type int, msg_status int, content blob, ext blob, read_flag int default 0, is_delete int default 0, rid BIGINT, is_friend int default 1);");
         }
     }
 
-    public LinkedList<String> bzQ() {
+    public LinkedList<String> bCv() {
         Cursor cursor = null;
         LinkedList<String> linkedList = new LinkedList<>();
         try {
-            cursor = h.bAb().rawQuery("select * from sqlite_master where type='table'", null);
+            cursor = h.bCG().b("select * from sqlite_master where type='table'", null);
             if (cursor != null) {
                 cursor.moveToFirst();
                 while (cursor.moveToNext()) {
                     String string = cursor.getString(cursor.getColumnIndex("name"));
-                    if (string.startsWith(this.gyb)) {
-                        linkedList.add(string.subSequence(this.gyb.length(), string.length()).toString());
+                    if (string.startsWith(this.gEm)) {
+                        linkedList.add(string.subSequence(this.gEm.length(), string.length()).toString());
                     }
                 }
             }
@@ -605,25 +605,25 @@ public abstract class a {
         return linkedList;
     }
 
-    public void bzR() {
-        this.gyd = null;
+    public void bCw() {
+        this.gEo = null;
     }
 
-    public boolean aE(String str, int i) {
+    public boolean aF(String str, int i) {
         Cursor cursor;
         Cursor cursor2 = null;
         try {
-            String str2 = this.gyb + str;
+            String str2 = this.gEm + str;
             if (i < 1000) {
                 i = 1000;
             }
-            cursor = h.bAb().rawQuery("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
+            cursor = h.bCG().b("SELECT * FROM " + str2 + " ORDER BY mid DESC LIMIT " + i + ", 1", null);
             try {
                 try {
                     String string = cursor.moveToNext() ? cursor.getString(cursor.getColumnIndex("mid")) : null;
                     com.baidu.adp.lib.util.n.e(cursor);
                     if (string != null) {
-                        h.bAb().a(str2, "mid<?", new String[]{string});
+                        h.bCG().a(str2, "mid<?", new String[]{string});
                     }
                     com.baidu.adp.lib.util.n.e(cursor);
                     return true;

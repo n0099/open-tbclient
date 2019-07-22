@@ -12,18 +12,18 @@ import org.json.JSONObject;
 public class f {
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.aAu = gVar.aAu;
-        dVar.aAD = gVar.autoplay;
+        dVar.aBc = gVar.aBc;
+        dVar.aBl = gVar.autoplay;
         dVar.mLoop = gVar.loop;
         dVar.mUrl = gVar.src;
-        dVar.bed = gVar.startTime;
-        dVar.aAE = gVar.obeyMuteSwitch;
-        dVar.aAF = gVar.volume;
-        dVar.aAA = Qe().toString();
+        dVar.beR = gVar.startTime;
+        dVar.aBm = gVar.obeyMuteSwitch;
+        dVar.aBn = gVar.volume;
+        dVar.aBi = QW().toString();
         return dVar;
     }
 
-    public static JSONObject Qe() {
+    public static JSONObject QW() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -49,19 +49,19 @@ public class f {
         return f <= 1.0f && f >= 0.0f;
     }
 
-    public static String iH(String str) throws MalformedURLException {
-        return "/" + com.baidu.swan.apps.ae.b.LB() + "/" + String.valueOf(str.hashCode());
+    public static String iO(String str) throws MalformedURLException {
+        return "/" + com.baidu.swan.apps.ae.b.Mo() + "/" + String.valueOf(str.hashCode());
     }
 
-    public static String Qf() {
-        String Qg = Qg();
-        if (!Qh() || TextUtils.isEmpty(Qg)) {
+    public static String QX() {
+        String QY = QY();
+        if (!QZ() || TextUtils.isEmpty(QY)) {
             return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
-        return Qg;
+        return QY;
     }
 
-    private static String Qg() {
+    private static String QY() {
         String str = com.baidu.swan.games.f.g.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
@@ -71,7 +71,7 @@ public class f {
         return str;
     }
 
-    private static boolean Qh() {
+    private static boolean QZ() {
         return "mounted".equals(Environment.getExternalStorageState());
     }
 }

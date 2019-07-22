@@ -22,7 +22,6 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -54,7 +53,7 @@ public class VDeviceAPI {
     }
 
     public static String getCellId() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
         if (telephonyManager == null) {
             return null;
         }
@@ -88,7 +87,7 @@ public class VDeviceAPI {
     }
 
     public static String getImei() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
         if (telephonyManager != null) {
             return telephonyManager.getDeviceId();
         }
@@ -96,7 +95,7 @@ public class VDeviceAPI {
     }
 
     public static String getImsi() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
         if (telephonyManager != null) {
             return telephonyManager.getSubscriberId();
         }
@@ -104,7 +103,7 @@ public class VDeviceAPI {
     }
 
     public static String getLac() {
-        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) b.a().getSystemService("phone");
         if (telephonyManager == null) {
             return null;
         }

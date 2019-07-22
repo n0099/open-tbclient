@@ -12,14 +12,14 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class RawLayout extends ViewGroup {
-    private static final Pattern crm = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
-    private final List<View> KF;
-    private final List<View> crn;
-    private final List<View> cro;
-    private int[] crp;
-    private int crq;
-    private int crr;
-    protected final int[] crs;
+    private static final Pattern csz = Pattern.compile("(vertical|horizontal)(\\|(vertical|horizontal))*");
+    private final List<View> KR;
+    private final List<View> csA;
+    private final List<View> csB;
+    private int[] csC;
+    private int csD;
+    private int csE;
+    protected final int[] csF;
 
     public RawLayout(Context context) {
         this(context, null, 0);
@@ -31,11 +31,11 @@ public class RawLayout extends ViewGroup {
 
     public RawLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.crn = new ArrayList();
-        this.KF = new ArrayList();
-        this.cro = new ArrayList();
-        this.crp = new int[]{0, 0, 0};
-        this.crs = new int[3];
+        this.csA = new ArrayList();
+        this.KR = new ArrayList();
+        this.csB = new ArrayList();
+        this.csC = new int[]{0, 0, 0};
+        this.csF = new int[3];
         b(context, attributeSet);
     }
 
@@ -45,29 +45,29 @@ public class RawLayout extends ViewGroup {
         if (string == null) {
             string = "horizontal";
         }
-        if (crm.matcher(string).matches()) {
-            this.crp = new int[3];
+        if (csz.matcher(string).matches()) {
+            this.csC = new int[3];
             String[] split = string.split("\\|");
             if (split.length == 1) {
-                int cc = cc(split[0]);
-                for (int i = 0; i < this.crp.length; i++) {
-                    this.crp[i] = cc;
+                int ce = ce(split[0]);
+                for (int i = 0; i < this.csC.length; i++) {
+                    this.csC[i] = ce;
                 }
             } else if (split.length > 1) {
-                if (this.crp.length != split.length) {
+                if (this.csC.length != split.length) {
                     throw new RuntimeException("Raw number doesn't equal orientation definition number.");
                 }
-                for (int i2 = 0; i2 < this.crp.length; i2++) {
-                    this.crp[i2] = cc(split[i2]);
+                for (int i2 = 0; i2 < this.csC.length; i2++) {
+                    this.csC[i2] = ce(split[i2]);
                 }
             }
         }
-        this.crq = obtainStyledAttributes.getDimensionPixelSize(2, 0);
-        this.crr = obtainStyledAttributes.getDimensionPixelSize(1, 0);
+        this.csD = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+        this.csE = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         obtainStyledAttributes.recycle();
     }
 
-    private int cc(String str) {
+    private int ce(String str) {
         return "vertical".equals(str) ? 1 : 0;
     }
 
@@ -83,7 +83,7 @@ public class RawLayout extends ViewGroup {
         if (aVar == null) {
             aVar = generateDefaultLayoutParams();
         }
-        c(view, aVar.crt);
+        c(view, aVar.csG);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
@@ -93,13 +93,13 @@ public class RawLayout extends ViewGroup {
         if (aVar == null) {
             aVar = generateDefaultLayoutParams();
         }
-        c(view, aVar.crt);
+        c(view, aVar.csG);
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
     public void removeView(View view) {
         super.removeView(view);
-        d(view, ((a) view.getLayoutParams()).crt);
+        d(view, ((a) view.getLayoutParams()).csG);
     }
 
     @Override // android.view.ViewGroup
@@ -115,28 +115,28 @@ public class RawLayout extends ViewGroup {
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        this.crn.clear();
-        this.KF.clear();
-        this.cro.clear();
+        this.csA.clear();
+        this.KR.clear();
+        this.csB.clear();
     }
 
     private void c(View view, int i) {
         switch (i) {
             case 1:
-                if (!this.crn.contains(view)) {
-                    this.crn.add(view);
+                if (!this.csA.contains(view)) {
+                    this.csA.add(view);
                     return;
                 }
                 return;
             case 2:
-                if (!this.KF.contains(view)) {
-                    this.KF.add(view);
+                if (!this.KR.contains(view)) {
+                    this.KR.add(view);
                     return;
                 }
                 return;
             case 3:
-                if (!this.cro.contains(view)) {
-                    this.cro.add(view);
+                if (!this.csB.contains(view)) {
+                    this.csB.add(view);
                     return;
                 }
                 return;
@@ -148,13 +148,13 @@ public class RawLayout extends ViewGroup {
     private void d(View view, int i) {
         switch (i) {
             case 1:
-                this.crn.remove(view);
+                this.csA.remove(view);
                 return;
             case 2:
-                this.KF.remove(view);
+                this.KR.remove(view);
                 return;
             case 3:
-                this.cro.remove(view);
+                this.csB.remove(view);
                 return;
             default:
                 return;
@@ -173,34 +173,34 @@ public class RawLayout extends ViewGroup {
         int i6 = i2 & 1073741823;
         int i7 = i2 & (-1073741824);
         int i8 = i4 + i5;
-        int i9 = this.crq + this.crr;
+        int i9 = this.csD + this.csE;
         int i10 = 0;
         int i11 = 0;
         int i12 = 0;
         int i13 = 0;
         int i14 = 0;
-        for (View view : this.crn) {
+        for (View view : this.csA) {
             if (view.getVisibility() != 8) {
                 a aVar = (a) view.getLayoutParams();
                 a generateDefaultLayoutParams = aVar == null ? generateDefaultLayoutParams() : aVar;
                 measureChildWithMargins(view, i8, i14 + i9, i2, i12);
                 int measuredWidth = view.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin;
                 int measuredHeight = view.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin;
-                int h = h(i14, measuredWidth, this.crp[0]);
-                i12 = i(i12, measuredHeight, this.crp[0]);
+                int h = h(i14, measuredWidth, this.csC[0]);
+                i12 = i(i12, measuredHeight, this.csC[0]);
                 if (i7 != 0 && i12 >= i6) {
-                    setMeasuredDimension(h, this.crq + i12);
-                    this.crs[0] = i12;
-                    this.crs[1] = -1;
-                    this.crs[2] = -1;
+                    setMeasuredDimension(h, this.csD + i12);
+                    this.csF[0] = i12;
+                    this.csF[1] = -1;
+                    this.csF[2] = -1;
                     return;
                 }
                 i14 = h;
             }
         }
-        this.crs[0] = i12;
+        this.csF[0] = i12;
         int i15 = 0;
-        for (View view2 : this.cro) {
+        for (View view2 : this.csB) {
             if (view2.getVisibility() != 8) {
                 a aVar2 = (a) view2.getLayoutParams();
                 if (aVar2 == null) {
@@ -209,25 +209,25 @@ public class RawLayout extends ViewGroup {
                 measureChildWithMargins(view2, i8, i11, i2, i15 + i12 + i9);
                 int measuredWidth2 = view2.getMeasuredWidth() + aVar2.leftMargin + aVar2.rightMargin;
                 int measuredHeight2 = aVar2.bottomMargin + view2.getMeasuredHeight() + aVar2.topMargin;
-                i11 = h(i11, measuredWidth2, this.crp[2]);
-                int i16 = i(i15, measuredHeight2, this.crp[2]);
+                i11 = h(i11, measuredWidth2, this.csC[2]);
+                int i16 = i(i15, measuredHeight2, this.csC[2]);
                 if (i7 != 0 && i16 > i6 - i12) {
-                    setMeasuredDimension(Math.max(i14, i11), i12 + i16 + this.crq + this.crr);
-                    this.crs[2] = i16;
-                    this.crs[1] = -1;
+                    setMeasuredDimension(Math.max(i14, i11), i12 + i16 + this.csD + this.csE);
+                    this.csF[2] = i16;
+                    this.csF[1] = -1;
                     return;
                 }
                 i15 = i16;
             }
         }
-        this.crs[2] = i15;
-        if (this.crp[1] != 0) {
+        this.csF[2] = i15;
+        if (this.csC[1] != 0) {
             f = 0.0f;
             i3 = 0;
         } else {
             f = 0.0f;
             i3 = 0;
-            for (View view3 : this.KF) {
+            for (View view3 : this.KR) {
                 if (view3.getVisibility() != 8) {
                     a aVar3 = (a) view3.getLayoutParams();
                     f += aVar3.weight;
@@ -245,11 +245,11 @@ public class RawLayout extends ViewGroup {
         int resolveSize = View.resolveSize(Math.max(paddingLeft, getSuggestedMinimumWidth()), i8) - paddingLeft;
         switch (i7) {
             case Integer.MIN_VALUE:
-                int i17 = (((i6 - i12) - i15) - this.crq) - this.crr;
+                int i17 = (((i6 - i12) - i15) - this.csD) - this.csE;
                 int i18 = resolveSize;
                 int i19 = 0;
                 int i20 = 0;
-                for (View view4 : this.KF) {
+                for (View view4 : this.KR) {
                     if (view4.getVisibility() != 8) {
                         a aVar4 = (a) view4.getLayoutParams();
                         a generateDefaultLayoutParams2 = aVar4 == null ? generateDefaultLayoutParams() : aVar4;
@@ -262,8 +262,8 @@ public class RawLayout extends ViewGroup {
                         measureChildWithMargins(view4, i8, 0, i2, i19 + i12 + i15 + i9);
                         int measuredWidth3 = view4.getMeasuredWidth() + generateDefaultLayoutParams2.leftMargin + generateDefaultLayoutParams2.rightMargin;
                         int measuredHeight3 = generateDefaultLayoutParams2.bottomMargin + view4.getMeasuredHeight() + generateDefaultLayoutParams2.topMargin;
-                        int h2 = h(i20, measuredWidth3, this.crp[1]);
-                        i19 = i(i19, measuredHeight3, this.crp[1]);
+                        int h2 = h(i20, measuredWidth3, this.csC[1]);
+                        i19 = i(i19, measuredHeight3, this.csC[1]);
                         i20 = h2;
                         i18 = i21;
                     }
@@ -273,7 +273,7 @@ public class RawLayout extends ViewGroup {
                 break;
             case 0:
                 int i22 = resolveSize;
-                for (View view5 : this.KF) {
+                for (View view5 : this.KR) {
                     a aVar5 = (a) view5.getLayoutParams();
                     a generateDefaultLayoutParams3 = aVar5 == null ? generateDefaultLayoutParams() : aVar5;
                     if (i22 != 0 && f > 0.0f && generateDefaultLayoutParams3.weight > 0.0f) {
@@ -285,8 +285,8 @@ public class RawLayout extends ViewGroup {
                     measureChild(view5, i4, i6);
                     int measuredWidth4 = view5.getMeasuredWidth() + generateDefaultLayoutParams3.leftMargin + generateDefaultLayoutParams3.rightMargin;
                     int measuredHeight4 = view5.getMeasuredHeight() + generateDefaultLayoutParams3.topMargin + generateDefaultLayoutParams3.bottomMargin;
-                    i10 = h(i10, measuredWidth4, this.crp[1]);
-                    i13 = i(i13, measuredHeight4, this.crp[1]);
+                    i10 = h(i10, measuredWidth4, this.csC[1]);
+                    i13 = i(i13, measuredHeight4, this.csC[1]);
                     i22 = i23;
                 }
                 break;
@@ -294,7 +294,7 @@ public class RawLayout extends ViewGroup {
                 int paddingTop = ((((i6 - i12) - i15) - i9) - getPaddingTop()) - getPaddingBottom();
                 int i24 = paddingTop;
                 int i25 = resolveSize;
-                for (View view6 : this.KF) {
+                for (View view6 : this.KR) {
                     if (view6.getVisibility() != 8) {
                         a aVar6 = (a) view6.getLayoutParams();
                         a generateDefaultLayoutParams4 = aVar6 == null ? generateDefaultLayoutParams() : aVar6;
@@ -304,14 +304,14 @@ public class RawLayout extends ViewGroup {
                             i25 -= generateDefaultLayoutParams4.width;
                         }
                         measureChildWithMargins(view6, i8, 0, i2, i12 + i15 + i9);
-                        i24 = i(i24, view6.getMeasuredHeight() + generateDefaultLayoutParams4.topMargin + generateDefaultLayoutParams4.bottomMargin, this.crp[1]);
+                        i24 = i(i24, view6.getMeasuredHeight() + generateDefaultLayoutParams4.topMargin + generateDefaultLayoutParams4.bottomMargin, this.csC[1]);
                         i25 = i25;
                     }
                 }
                 i13 = i24;
                 break;
         }
-        this.crs[1] = i13;
+        this.csF[1] = i13;
         switch (i5) {
             case Integer.MIN_VALUE:
             case 0:
@@ -324,7 +324,7 @@ public class RawLayout extends ViewGroup {
                 max = 0;
                 break;
         }
-        setMeasuredDimension(max, i12 + i13 + i15 + this.crq + this.crr + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(max, i12 + i13 + i15 + this.csD + this.csE + getPaddingTop() + getPaddingBottom());
     }
 
     private int h(int i, int i2, int i3) {
@@ -352,21 +352,21 @@ public class RawLayout extends ViewGroup {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
-        if (this.crs[0] != -1) {
-            a(this.crn, paddingLeft, paddingTop, this.crs[0]);
-            int i5 = paddingTop + this.crs[0] + this.crq;
-            if (this.crs[1] != -1) {
-                a(this.KF, paddingLeft, i5, this.crs[1]);
-                int i6 = i5 + this.crs[1] + this.crr;
-                if (this.crs[2] != -1) {
-                    a(this.cro, paddingLeft, i6, this.crs[2]);
+        if (this.csF[0] != -1) {
+            a(this.csA, paddingLeft, paddingTop, this.csF[0]);
+            int i5 = paddingTop + this.csF[0] + this.csD;
+            if (this.csF[1] != -1) {
+                a(this.KR, paddingLeft, i5, this.csF[1]);
+                int i6 = i5 + this.csF[1] + this.csE;
+                if (this.csF[2] != -1) {
+                    a(this.csB, paddingLeft, i6, this.csF[2]);
                 }
             }
         }
     }
 
     private void a(List<View> list, int i, int i2, int i3) {
-        int i4 = this.crp[0];
+        int i4 = this.csC[0];
         int measuredWidth = getMeasuredWidth();
         for (View view : list) {
             if (view.getVisibility() != 8) {
@@ -420,13 +420,13 @@ public class RawLayout extends ViewGroup {
 
     /* loaded from: classes.dex */
     public static class a extends LinearLayout.LayoutParams {
-        public int crt;
+        public int csG;
 
         public a(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
-            this.crt = 0;
+            this.csG = 0;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, c.a.RawLayout);
-            this.crt = obtainStyledAttributes.getInt(3, 0);
+            this.csG = obtainStyledAttributes.getInt(3, 0);
             obtainStyledAttributes.recycle();
             if (this.gravity == -1) {
                 this.gravity = 51;
@@ -435,43 +435,43 @@ public class RawLayout extends ViewGroup {
 
         public a() {
             super(-2, -2);
-            this.crt = 0;
+            this.csG = 0;
             this.gravity = 51;
         }
 
         public a(int i, int i2) {
             super(i, i2);
-            this.crt = 0;
+            this.csG = 0;
             this.gravity = 51;
         }
 
         public a(int i, int i2, int i3) {
             super(i, i2);
-            this.crt = 0;
+            this.csG = 0;
             this.gravity = i3;
         }
 
         public a(int i, int i2, int i3, int i4) {
             super(i, i2);
-            this.crt = 0;
+            this.csG = 0;
             this.gravity = i3;
-            this.crt = i4;
+            this.csG = i4;
         }
 
         public a(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
-            this.crt = 0;
+            this.csG = 0;
         }
 
-        public void kl(int i) {
-            this.crt = i;
+        public void kr(int i) {
+            this.csG = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: arf */
+    /* renamed from: asl */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 19, 0);
     }

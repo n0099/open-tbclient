@@ -5,12 +5,12 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> jQV = d.class;
+    private static final Class<?> jYa = d.class;
 
     d() {
     }
 
-    public static int DL(int i) {
+    public static int Es(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -20,7 +20,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(jQV, "Unsupported orientation");
+                com.facebook.common.c.a.e(jYa, "Unsupported orientation");
                 return 0;
             case 3:
                 return SubsamplingScaleImageView.ORIENTATION_180;
@@ -34,20 +34,20 @@ class d {
     public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.ket - 8;
+        int i2 = aVar.klA - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.ker, 274), aVar.ker);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.kly, 274), aVar.kly);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean ker;
-        int kes;
-        int ket;
+        int klA;
+        boolean kly;
+        int klz;
 
         private a() {
         }
@@ -57,17 +57,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.kes = c.a(inputStream, 4, false);
+        aVar.klz = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.kes != 1229531648 && aVar.kes != 1296891946) {
-            com.facebook.common.c.a.g(jQV, "Invalid TIFF header");
+        if (aVar.klz != 1229531648 && aVar.klz != 1296891946) {
+            com.facebook.common.c.a.g(jYa, "Invalid TIFF header");
             return 0;
         }
-        aVar.ker = aVar.kes == 1229531648;
-        aVar.ket = c.a(inputStream, 4, aVar.ker);
+        aVar.kly = aVar.klz == 1229531648;
+        aVar.klA = c.a(inputStream, 4, aVar.kly);
         int i3 = i2 - 4;
-        if (aVar.ket < 8 || aVar.ket - 8 > i3) {
-            com.facebook.common.c.a.g(jQV, "Invalid offset");
+        if (aVar.klA < 8 || aVar.klA - 8 > i3) {
+            com.facebook.common.c.a.g(jYa, "Invalid offset");
             return 0;
         }
         return i3;

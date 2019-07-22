@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.setting.oauth;
 /* loaded from: classes2.dex */
 public interface a {
-    void bB(boolean z);
+    void bE(boolean z);
 }

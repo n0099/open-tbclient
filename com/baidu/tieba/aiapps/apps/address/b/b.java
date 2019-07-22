@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.address.b;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface b {
-    void aDt();
+    void aEJ();
 
     void ai(String str, int i);
 
@@ -15,5 +15,5 @@ public interface b {
 
     void onFailure();
 
-    void sz(String str);
+    void sS(String str);
 }

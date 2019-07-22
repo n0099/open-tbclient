@@ -1,7 +1,7 @@
 package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.utils.Log;
 /* loaded from: classes.dex */
 public abstract class ShareAccountAccessor {
     private static ShareAccountAccessor a;

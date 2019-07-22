@@ -2,6 +2,7 @@ package com.baidu.tieba.deletethread;
 
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class DeleteThreadHttpResponseMessage extends TbHttpResponsedMessage {
             JSONObject jSONObject = new JSONObject(parseToString);
             setError(jSONObject.optInt("error_code", -1));
             setErrorString(jSONObject.optString(PushConstants.EXTRA_ERROR_CODE));
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
             if (optJSONObject != null) {
                 this.blockSuccess = optJSONObject.optInt("block_success");
                 this.blockFail = optJSONObject.optInt("block_fail");

@@ -34,9 +34,8 @@ public class DefaultHttpClient extends AbstractHttpClient {
         throw new RuntimeException("Stub!");
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // org.apache.http.impl.client.AbstractHttpClient
-    public HttpParams createHttpParams() {
+    protected HttpParams createHttpParams() {
         throw new RuntimeException("Stub!");
     }
 

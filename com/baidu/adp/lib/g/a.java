@@ -29,7 +29,7 @@ public class a {
         }
     }
 
-    public static void b(OutputStream outputStream) {
+    public static void c(OutputStream outputStream) {
         if (outputStream != null) {
             try {
                 outputStream.close();

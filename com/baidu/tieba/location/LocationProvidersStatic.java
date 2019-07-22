@@ -21,13 +21,13 @@ import com.baidu.tbadk.editortools.k;
 /* loaded from: classes5.dex */
 public class LocationProvidersStatic {
     static {
-        com.baidu.adp.lib.d.a.hO().a(b.bIZ());
+        com.baidu.adp.lib.d.a.hY().a(b.bLG());
         boolean loadBoolean = TbadkSettings.getInst().loadBoolean("bd_loc_switcher", true);
         if (Build.VERSION.SDK_INT <= 4) {
             loadBoolean = false;
         }
         if (loadBoolean) {
-            com.baidu.adp.lib.d.a.hO().a(a.bIY());
+            com.baidu.adp.lib.d.a.hY().a(a.bLF());
         }
         MessageManager.getInstance().registerListener(new CustomMessageListener(2010044) { // from class: com.baidu.tieba.location.LocationProvidersStatic.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public class LocationProvidersStatic {
                     editorTools.b(new com.baidu.tieba.location.editortool.b(editorTools.getContext(), indexOf + 1));
                 }
                 if (editorTools.getCollectTools().indexOf(8) != -1) {
-                    if (editorTools.aqZ()) {
+                    if (editorTools.asf()) {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext(), true));
                     } else {
                         editorTools.b(new com.baidu.tieba.location.editortool.a(editorTools.getContext()));

@@ -6,15 +6,16 @@ import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c implements Interceptor {
     @Override // okhttp3.Interceptor
     public Response intercept(Interceptor.Chain chain) throws IOException {
         Request request = chain.request();
-        String ir = ac.ir(com.baidu.swan.apps.core.j.c.Bi().BD());
-        if (TextUtils.isEmpty(ir)) {
-            ir = "";
+        String iy = ac.iy(com.baidu.swan.apps.core.j.c.BQ().Cl());
+        if (TextUtils.isEmpty(iy)) {
+            iy = "";
         }
-        return chain.proceed(request.newBuilder().header("User-Agent", ir).build());
+        return chain.proceed(request.newBuilder().header(HTTP.USER_AGENT, iy).build());
     }
 }

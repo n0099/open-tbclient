@@ -9,14 +9,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k extends z {
-    private com.baidu.swan.apps.b.c.c aRF;
+    private com.baidu.swan.apps.b.c.c aSp;
 
     public k(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/getSlaveIdSync");
     }
 
     public void f(com.baidu.swan.apps.b.c.c cVar) {
-        this.aRF = cVar;
+        this.aSp = cVar;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.z
@@ -24,13 +24,13 @@ public class k extends z {
         if (DEBUG) {
             Log.d("GetSlaveIdSyncAction", "handle entity: " + unitedSchemeEntity.toString());
         }
-        if (this.aRF == null) {
+        if (this.aSp == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("slaveId", this.aRF.wU());
+            jSONObject.put("slaveId", this.aSp.xv());
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
             return true;
         } catch (JSONException e) {

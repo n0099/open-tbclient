@@ -1,138 +1,228 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
-import com.baidu.mobstat.bt;
-import com.baidu.mobstat.bz;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k {
-    static k a = new k();
-
-    public synchronized void a(Context context) {
-        b(context);
-    }
-
-    private void b(Context context) {
-        a(context, c(context));
-    }
-
-    private ArrayList<a> c(Context context) {
-        String str;
-        ArrayList<a> arrayList = new ArrayList<>();
-        Iterator<PackageInfo> it = d(context).iterator();
-        while (it.hasNext()) {
-            PackageInfo next = it.next();
-            ApplicationInfo applicationInfo = next.applicationInfo;
-            if (applicationInfo != null) {
-                String str2 = next.packageName;
-                String str3 = next.versionName;
-                Signature[] signatureArr = next.signatures;
-                if (signatureArr == null || signatureArr.length == 0) {
-                    str = "";
-                } else {
-                    str = signatureArr[0].toChars().toString();
-                }
-                String a2 = bz.b.a(str.getBytes());
-                String str4 = "";
-                String str5 = applicationInfo.sourceDir;
-                if (!TextUtils.isEmpty(str5)) {
-                    str4 = bz.b.a(new File(str5));
-                }
-                arrayList.add(new a(str2, str3, a2, str4));
-            }
+public enum k {
+    AP_LIST(0) { // from class: com.baidu.mobstat.k.1
+        @Override // com.baidu.mobstat.k
+        public j a() {
+            return new n();
         }
-        return arrayList;
+    },
+    APP_LIST(1) { // from class: com.baidu.mobstat.k.2
+        @Override // com.baidu.mobstat.k
+        public j a() {
+            return new q();
+        }
+    },
+    APP_TRACE(2) { // from class: com.baidu.mobstat.k.3
+        @Override // com.baidu.mobstat.k
+        public j a() {
+            return new r();
+        }
+    },
+    APP_CHANGE(3) { // from class: com.baidu.mobstat.k.4
+        @Override // com.baidu.mobstat.k
+        public j a() {
+            return new p();
+        }
+    },
+    APP_APK(4) { // from class: com.baidu.mobstat.k.5
+        @Override // com.baidu.mobstat.k
+        public j a() {
+            return new o();
+        }
+    };
+    
+    private int f;
+
+    public abstract j a();
+
+    k(int i) {
+        this.f = i;
     }
 
-    private ArrayList<PackageInfo> d(Context context) {
-        ArrayList<PackageInfo> arrayList = new ArrayList<>();
-        PackageManager packageManager = context.getPackageManager();
-        if (packageManager == null) {
-            return arrayList;
-        }
-        List<PackageInfo> arrayList2 = new ArrayList<>(1);
+    @Override // java.lang.Enum
+    public String toString() {
+        return String.valueOf(this.f);
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [116=4, 117=4] */
+    public synchronized ArrayList<i> a(int i, int i2) {
+        ArrayList<i> arrayList;
+        arrayList = new ArrayList<>();
+        j jVar = null;
         try {
-            arrayList2 = packageManager.getInstalledPackages(64);
+            jVar = a();
+            if (jVar.a()) {
+                arrayList = jVar.a(i, i2);
+                if (jVar != null) {
+                    jVar.close();
+                }
+            } else if (jVar != null) {
+                jVar.close();
+            }
         } catch (Exception e) {
-            bi.c().b(e);
-        }
-        for (PackageInfo packageInfo : arrayList2) {
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            if (applicationInfo != null && (applicationInfo.flags & 1) == 0) {
-                arrayList.add(packageInfo);
+            bb.c().b(e);
+            if (jVar != null) {
+                jVar.close();
             }
         }
         return arrayList;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x0005: INVOKE  (r0v0 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
-    private void a(Context context, ArrayList<a> arrayList) {
-        String str;
-        StringBuilder sb = new StringBuilder();
-        sb.append(System.currentTimeMillis());
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [149=4, 150=4] */
+    public synchronized long a(long j, String str) {
+        long j2;
+        j2 = -1;
+        j jVar = null;
         try {
-            JSONArray jSONArray = new JSONArray();
-            Iterator<a> it = arrayList.iterator();
+            jVar = a();
+            if (jVar.a()) {
+                j2 = jVar.a(String.valueOf(j), str);
+                if (jVar != null) {
+                    jVar.close();
+                }
+            } else if (jVar != null) {
+                jVar.close();
+            }
+        } catch (Exception e) {
+            bb.c().b(e);
+            if (jVar != null) {
+                jVar.close();
+            }
+        }
+        return j2;
+    }
+
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [253=5, 254=5] */
+    public synchronized int a(ArrayList<Long> arrayList) {
+        int i;
+        int i2 = 0;
+        synchronized (this) {
+            if (arrayList != null) {
+                if (arrayList.size() != 0) {
+                    j jVar = null;
+                    try {
+                        jVar = a();
+                    } catch (Exception e) {
+                        i = i2;
+                        bb.c().b(e);
+                        if (jVar != null) {
+                            jVar.close();
+                        }
+                    }
+                    if (jVar.a()) {
+                        int size = arrayList.size();
+                        int i3 = 0;
+                        while (i3 < size) {
+                            if (jVar.b(arrayList.get(i3).longValue())) {
+                                i3++;
+                                i2++;
+                            } else if (jVar != null) {
+                                jVar.close();
+                            }
+                        }
+                        if (jVar != null) {
+                            jVar.close();
+                            i = i2;
+                        } else {
+                            i = i2;
+                        }
+                        i2 = i;
+                    } else if (jVar != null) {
+                        jVar.close();
+                    }
+                }
+            }
+        }
+        return i2;
+    }
+
+    public synchronized List<String> a(int i) {
+        List<String> arrayList;
+        arrayList = new ArrayList<>();
+        ArrayList<Long> arrayList2 = new ArrayList<>();
+        ArrayList<i> arrayList3 = new ArrayList<>();
+        a(arrayList, arrayList2, arrayList3, i, 500);
+        if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
+            i iVar = arrayList3.get(0);
+            long a = iVar.a();
+            String b = iVar.b();
+            arrayList2.add(Long.valueOf(a));
+            arrayList.add(b);
+        }
+        int a2 = a(arrayList2);
+        if (a2 != arrayList.size()) {
+            arrayList = arrayList.subList(0, a2);
+        }
+        return arrayList;
+    }
+
+    private int a(List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i, int i2) {
+        int i3 = 0;
+        int c = c();
+        int i4 = 0;
+        int i5 = i2;
+        while (c > 0) {
+            int i6 = c < i5 ? c : i5;
+            ArrayList<i> a = a(i6, i4);
+            if (i4 == 0 && a.size() != 0) {
+                arrayList2.add(a.get(0));
+            }
+            Iterator<i> it = a.iterator();
             while (it.hasNext()) {
-                JSONObject a2 = it.next().a();
-                if (a2 != null) {
-                    jSONArray.put(a2);
+                i next = it.next();
+                long a2 = next.a();
+                String b = next.b();
+                int length = b.length();
+                if (i3 + length > i) {
+                    break;
                 }
+                arrayList.add(Long.valueOf(a2));
+                list.add(b);
+                i3 += length;
             }
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("app_apk", jSONArray);
-            jSONObject.put("meta-data", sb.toString());
-            str = bt.a.a(jSONObject.toString().getBytes());
-        } catch (Exception e) {
-            bi.c().b(e);
-            str = "";
+            c -= i6;
+            i4 += i6;
+            i5 = i6;
         }
-        if (!TextUtils.isEmpty(str)) {
-            r.APP_APK.a(System.currentTimeMillis(), str);
-        }
+        return i3;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
-    public static class a {
-        private String a;
-        private String b;
-        private String c;
-        private String d;
+    public synchronized boolean b() {
+        return c() == 0;
+    }
 
-        public a(String str, String str2, String str3, String str4) {
-            str = str == null ? "" : str;
-            str2 = str2 == null ? "" : str2;
-            str3 = str3 == null ? "" : str3;
-            str4 = str4 == null ? "" : str4;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-        }
+    public synchronized boolean b(int i) {
+        return c() >= i;
+    }
 
-        public JSONObject a() {
-            JSONObject jSONObject = new JSONObject();
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [369=4, 370=4] */
+    private int c() {
+        j jVar = null;
+        try {
             try {
-                jSONObject.put("n", this.a);
-                jSONObject.put("v", this.b);
-                jSONObject.put("c", this.c);
-                jSONObject.put(Config.APP_VERSION_CODE, this.d);
-                return jSONObject;
-            } catch (JSONException e) {
-                bi.c().b(e);
-                return null;
+                jVar = a();
+            } catch (Exception e) {
+                bb.c().b(e);
+                if (jVar != null) {
+                    jVar.close();
+                }
+            }
+            if (jVar.a()) {
+                int b = jVar.b();
+            }
+            if (jVar != null) {
+                jVar.close();
+            }
+            return 0;
+        } finally {
+            if (jVar != null) {
+                jVar.close();
             }
         }
     }

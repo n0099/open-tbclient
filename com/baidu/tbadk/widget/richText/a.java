@@ -9,38 +9,38 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class a {
-    public static final float cKa = l.ai(TbadkCoreApplication.getInst());
-    public int cKA;
-    public int cKB;
-    protected boolean cKp;
-    public int cKz;
+    public static final float cLu = l.ai(TbadkCoreApplication.getInst());
+    protected boolean cLJ;
+    public int cLT;
+    public int cLU;
+    public int cLV;
     public boolean mIsFromCDN;
     protected TbImageView.b mOnDrawListener;
-    protected float cKb = 0.0f;
-    protected float cKc = 0.0f;
-    protected int bWr = 0;
-    protected int cKd = 0;
-    protected float cKe = 15.0f;
-    protected int cKf = -1;
-    protected int cKg = -1;
+    protected float cLv = 0.0f;
+    protected float cLw = 0.0f;
+    protected int bXt = 0;
+    protected int cLx = 0;
+    protected float cLy = 15.0f;
+    protected int cLz = -1;
+    protected int cLA = -1;
     protected int mTextColor = ViewCompat.MEASURED_STATE_MASK;
-    protected int cKh = 200;
-    protected int cKi = 200;
-    protected int cKj = 0;
-    protected int cKk = 0;
-    protected boolean cKl = false;
-    protected int cKm = -9989158;
-    protected ImageView.ScaleType cKn = ImageView.ScaleType.CENTER_CROP;
-    public boolean cKo = false;
-    public int cKq = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
-    public int cKr = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    public int cKs = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
-    protected int cKt = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
-    protected int cKu = 0;
-    protected int cKv = -1;
-    protected int cKw = -1;
-    protected int cKx = -1;
-    protected boolean cKy = false;
+    protected int cLB = 200;
+    protected int cLC = 200;
+    protected int cLD = 0;
+    protected int cLE = 0;
+    protected boolean cLF = false;
+    protected int cLG = -9989158;
+    protected ImageView.ScaleType cLH = ImageView.ScaleType.CENTER_CROP;
+    public boolean cLI = false;
+    public int cLK = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds16);
+    public int cLL = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    public int cLM = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
+    protected int cLN = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.ds20);
+    protected int cLO = 0;
+    protected int cLP = -1;
+    protected int cLQ = -1;
+    protected int cLR = -1;
+    protected boolean cLS = false;
 
     public a() {
     }
@@ -52,104 +52,104 @@ public class a {
     }
 
     public void b(TypedArray typedArray) {
-        this.cKd = typedArray.getDimensionPixelSize(4, 0);
-        this.bWr = typedArray.getDimensionPixelSize(1, 0);
-        this.cKb = typedArray.getFloat(12, 1.12f);
-        this.cKe = typedArray.getDimensionPixelSize(11, (int) this.cKe);
+        this.cLx = typedArray.getDimensionPixelSize(4, 0);
+        this.bXt = typedArray.getDimensionPixelSize(1, 0);
+        this.cLv = typedArray.getFloat(12, 1.12f);
+        this.cLy = typedArray.getDimensionPixelSize(11, (int) this.cLy);
         this.mTextColor = typedArray.getColor(0, this.mTextColor);
-        this.cKh = typedArray.getDimensionPixelSize(7, this.cKh);
-        this.cKi = typedArray.getDimensionPixelSize(10, this.cKi);
-        this.cKj = typedArray.getResourceId(2, 0);
-        this.cKf = typedArray.getDimensionPixelSize(9, this.cKf);
-        this.cKg = typedArray.getDimensionPixelSize(3, this.cKg);
-        this.cKk = typedArray.getResourceId(8, 0);
-        this.cKl = typedArray.getBoolean(5, false);
-        this.cKw = this.cKd;
+        this.cLB = typedArray.getDimensionPixelSize(7, this.cLB);
+        this.cLC = typedArray.getDimensionPixelSize(10, this.cLC);
+        this.cLD = typedArray.getResourceId(2, 0);
+        this.cLz = typedArray.getDimensionPixelSize(9, this.cLz);
+        this.cLA = typedArray.getDimensionPixelSize(3, this.cLA);
+        this.cLE = typedArray.getResourceId(8, 0);
+        this.cLF = typedArray.getBoolean(5, false);
+        this.cLQ = this.cLx;
     }
 
     public void release() {
     }
 
-    public void ar(int i, int i2) {
-        this.cKf = i;
-        this.cKg = i2;
-    }
-
-    public void lm(int i) {
-        this.cKk = i;
-    }
-
-    public void ln(int i) {
-        this.cKh = i;
-    }
-
-    public void lo(int i) {
-        this.cKi = i;
-    }
-
-    public void lp(int i) {
-        this.cKj = i;
-    }
-
-    public void setSupportNoImage() {
-        this.cKo = true;
-    }
-
-    public void setLineSpacing(float f, float f2) {
-        this.cKb = f2;
-        this.cKc = f;
-    }
-
-    public void as(int i, int i2) {
-        this.cKq = i;
-        this.cKr = i2;
-    }
-
-    public void lq(int i) {
-        this.cKs = i;
-    }
-
-    public void lr(int i) {
-        this.cKt = i;
+    public void av(int i, int i2) {
+        this.cLz = i;
+        this.cLA = i2;
     }
 
     public void ls(int i) {
-        this.cKd = i;
+        this.cLE = i;
     }
 
     public void lt(int i) {
-        this.cKu = i;
+        this.cLB = i;
     }
 
     public void lu(int i) {
-        this.cKv = i;
+        this.cLC = i;
     }
 
     public void lv(int i) {
-        this.cKw = i;
+        this.cLD = i;
+    }
+
+    public void setSupportNoImage() {
+        this.cLI = true;
+    }
+
+    public void setLineSpacing(float f, float f2) {
+        this.cLv = f2;
+        this.cLw = f;
+    }
+
+    public void aw(int i, int i2) {
+        this.cLK = i;
+        this.cLL = i2;
     }
 
     public void lw(int i) {
-        this.cKx = i;
+        this.cLM = i;
+    }
+
+    public void lx(int i) {
+        this.cLN = i;
+    }
+
+    public void ly(int i) {
+        this.cLx = i;
+    }
+
+    public void lz(int i) {
+        this.cLO = i;
+    }
+
+    public void lA(int i) {
+        this.cLP = i;
+    }
+
+    public void lB(int i) {
+        this.cLQ = i;
+    }
+
+    public void lC(int i) {
+        this.cLR = i;
     }
 
     public void setTextSize(int i) {
-        this.cKe = i;
+        this.cLy = i;
     }
 
-    public boolean axy() {
-        return this.cKy;
+    public boolean ayK() {
+        return this.cLS;
     }
 
-    public void fP(boolean z) {
-        this.cKy = z;
+    public void fT(boolean z) {
+        this.cLS = z;
     }
 
-    public void fQ(boolean z) {
-        this.cKp = z;
+    public void fU(boolean z) {
+        this.cLJ = z;
     }
 
-    public int[] o(int i, int i2, int i3, int i4) {
+    public int[] p(int i, int i2, int i3, int i4) {
         int[] b = l.b(i, i2, i3, i4);
         if (b == null) {
             return null;
@@ -157,14 +157,14 @@ public class a {
         int[] iArr = {b[0], b[1]};
         int i5 = iArr[0];
         int i6 = iArr[1];
-        if (!this.cKp || i3 <= i5 || cKa <= 1.0f) {
+        if (!this.cLJ || i3 <= i5 || cLu <= 1.0f) {
             i3 = i5;
         } else {
-            if (i5 * cKa <= i3) {
-                if (i5 * cKa > i3 * 0.68f) {
+            if (i5 * cLu <= i3) {
+                if (i5 * cLu > i3 * 0.68f) {
                     i3 = (int) (i3 * 0.68f);
                 } else {
-                    i3 = (int) (i5 * cKa);
+                    i3 = (int) (i5 * cLu);
                 }
             }
             if (iArr[0] > 0) {
@@ -175,30 +175,30 @@ public class a {
     }
 
     public void a(a aVar) {
-        this.cKb = aVar.cKb;
-        this.cKc = aVar.cKc;
-        this.bWr = aVar.bWr;
-        this.cKd = aVar.cKd;
-        this.cKe = aVar.cKe;
-        this.cKf = aVar.cKf;
-        this.cKg = aVar.cKg;
+        this.cLv = aVar.cLv;
+        this.cLw = aVar.cLw;
+        this.bXt = aVar.bXt;
+        this.cLx = aVar.cLx;
+        this.cLy = aVar.cLy;
+        this.cLz = aVar.cLz;
+        this.cLA = aVar.cLA;
         this.mTextColor = aVar.mTextColor;
-        this.cKh = aVar.cKh;
-        this.cKi = aVar.cKi;
-        this.cKj = aVar.cKj;
-        this.cKk = aVar.cKk;
-        this.cKl = aVar.cKl;
+        this.cLB = aVar.cLB;
+        this.cLC = aVar.cLC;
+        this.cLD = aVar.cLD;
+        this.cLE = aVar.cLE;
+        this.cLF = aVar.cLF;
         this.mIsFromCDN = aVar.mIsFromCDN;
-        this.cKm = aVar.cKm;
-        this.cKo = aVar.cKo;
-        this.cKp = aVar.cKp;
-        this.cKq = aVar.cKq;
-        this.cKr = aVar.cKr;
-        this.cKt = aVar.cKt;
-        this.cKu = aVar.cKu;
-        this.cKv = aVar.cKv;
-        this.cKw = aVar.cKd;
-        this.cKx = aVar.cKx;
-        this.cKy = aVar.cKy;
+        this.cLG = aVar.cLG;
+        this.cLI = aVar.cLI;
+        this.cLJ = aVar.cLJ;
+        this.cLK = aVar.cLK;
+        this.cLL = aVar.cLL;
+        this.cLN = aVar.cLN;
+        this.cLO = aVar.cLO;
+        this.cLP = aVar.cLP;
+        this.cLQ = aVar.cLx;
+        this.cLR = aVar.cLR;
+        this.cLS = aVar.cLS;
     }
 }

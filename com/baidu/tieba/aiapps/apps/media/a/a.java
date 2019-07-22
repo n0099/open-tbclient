@@ -12,7 +12,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.g.e;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.swan.apps.scheme.actions.d;
 import com.baidu.swan.apps.u.b.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,9 +26,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements l {
-    private static BroadcastReceiver ddz = null;
-    d.a ddx;
-    CustomMessageListener ddy = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
+    private static BroadcastReceiver dfa = null;
+    d.a deY;
+    CustomMessageListener deZ = new CustomMessageListener(2921365) { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:10:0x0015  */
         /* JADX WARN: Removed duplicated region for block: B:28:0x0081  */
@@ -48,7 +47,7 @@ public class a implements l {
                         WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
                         writeImagesInfo.parseJson(stringExtra);
                         writeImagesInfo.updateQuality();
-                        if (a.this.ddx != null) {
+                        if (a.this.deY != null) {
                             ArrayList<String> arrayList = new ArrayList<>();
                             LinkedList<ImageFileInfo> chosedFiles = writeImagesInfo.getChosedFiles();
                             if (chosedFiles != null && chosedFiles.size() > 0) {
@@ -57,19 +56,19 @@ public class a implements l {
                                         arrayList.add(imageFileInfo.getFilePath());
                                     }
                                 }
-                                a.this.ddx.i(arrayList);
+                                a.this.deY.i(arrayList);
                             } else {
-                                a.this.ddx.gW("cancel");
+                                a.this.deY.hd("cancel");
                             }
                         }
-                    } else if (a.this.ddx != null) {
-                        a.this.ddx.gW("error");
+                    } else if (a.this.deY != null) {
+                        a.this.deY.hd("error");
                     }
-                    e.iB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
+                    e.iK().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.ddx = null;
-                            MessageManager.getInstance().unRegisterListener(a.this.ddy);
+                            a.this.deY = null;
+                            MessageManager.getInstance().unRegisterListener(a.this.deZ);
                         }
                     });
                 }
@@ -77,11 +76,11 @@ public class a implements l {
             intent = null;
             if (intent == null) {
             }
-            e.iB().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
+            e.iK().post(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.2.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.this.ddx = null;
-                    MessageManager.getInstance().unRegisterListener(a.this.ddy);
+                    a.this.deY = null;
+                    MessageManager.getInstance().unRegisterListener(a.this.deZ);
                 }
             });
         }
@@ -133,7 +132,7 @@ public class a implements l {
     }
 
     public void b(Context context, int i, d.a aVar) {
-        this.ddx = aVar;
+        this.deY = aVar;
         if (i < 1) {
             i = 1;
         }
@@ -146,10 +145,10 @@ public class a implements l {
         writeImagesInfo.setEnableChooseOriginalImg(false);
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(context, writeImagesInfo.toJsonString(), true, true);
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, AlbumActivityConfig.FROM_AIAPPS);
-        albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
+        albumActivityConfig.setRequestCode(12002);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        if (ddz == null) {
-            ddz = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
+        if (dfa == null) {
+            dfa = new BroadcastReceiver() { // from class: com.baidu.tieba.aiapps.apps.media.a.a.1
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context2, Intent intent) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921365, intent));
@@ -157,8 +156,8 @@ public class a implements l {
             };
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(AlbumActivityConfig.ACTION_SELECT_IMAGE_RESULT);
-            TbadkCoreApplication.getInst().registerReceiver(ddz, intentFilter);
+            TbadkCoreApplication.getInst().registerReceiver(dfa, intentFilter);
         }
-        MessageManager.getInstance().registerListener(this.ddy);
+        MessageManager.getInstance().registerListener(this.deZ);
     }
 }

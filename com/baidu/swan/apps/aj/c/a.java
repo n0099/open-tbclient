@@ -10,15 +10,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.DEBUG;
-    public String aWC;
-    public String aWD;
-    private UnitedSchemeEntity azG;
-    private CallbackHandler azH;
+    private UnitedSchemeEntity aAn;
+    private CallbackHandler aAo;
+    public String aXm;
+    public String aXn;
 
     public void f(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.azH, this.azG, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.aAo, this.aAn, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("BluetoothStatusCallback", "bluetooth callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }

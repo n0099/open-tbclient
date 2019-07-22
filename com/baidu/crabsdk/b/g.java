@@ -5,17 +5,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Build;
-import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes3.dex */
 public final class g {
-    private static Intent ZE;
+    private static Intent ZZ;
 
     public static void e(Context context) {
-        if (ZE != null || context == null) {
+        if (ZZ != null || context == null) {
             return;
         }
         try {
-            ZE = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            ZZ = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.v("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("Register Battery Error!", e);
@@ -25,7 +24,7 @@ public final class g {
     public static String f(Context context) {
         Object[] objArr;
         if (Build.VERSION.SDK_INT < 5) {
-            return Apn.APN_UNKNOWN;
+            return "N/A";
         }
         StringBuilder sb = new StringBuilder();
         try {
@@ -45,14 +44,14 @@ public final class g {
     }
 
     public static String v() {
-        if (ZE == null) {
-            return Apn.APN_UNKNOWN;
+        if (ZZ == null) {
+            return "N/A";
         }
         try {
-            return ((int) ((ZE.getIntExtra("level", 0) * 100.0f) / ZE.getIntExtra("scale", 100))) + "%";
+            return ((int) ((ZZ.getIntExtra("level", 0) * 100.0f) / ZZ.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.a("Get Battery Error!", e);
-            return Apn.APN_UNKNOWN;
+            return "N/A";
         }
     }
 }

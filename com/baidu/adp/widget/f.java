@@ -14,5 +14,5 @@ public interface f {
 
     boolean m(MotionEvent motionEvent);
 
-    void measure(int i, int i2);
+    void r(int i, int i2);
 }

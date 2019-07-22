@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a implements Serializable {
     public ArrayList<b> a;
 

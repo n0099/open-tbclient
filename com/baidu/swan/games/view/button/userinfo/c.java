@@ -11,15 +11,15 @@ public class c extends com.baidu.swan.games.view.button.base.c {
     }
 
     public void a(final a aVar) {
-        if (aVar != null && e.FV().FH() != null) {
-            com.baidu.swan.apps.setting.b.a.a(e.FV().FH(), "snsapi_userinfo", "1", new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
+        if (aVar != null && e.GF().Gr() != null) {
+            com.baidu.swan.apps.setting.b.a.a(e.GF().Gr(), "snsapi_userinfo", "1", new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: a */
                 public void D(com.baidu.swan.apps.setting.b.a aVar2) {
-                    if (aVar2 != null && aVar2.aUJ != null) {
-                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.aUJ);
-                        aVar.ay(aVar2.aUJ);
+                    if (aVar2 != null && aVar2.aVt != null) {
+                        com.baidu.swan.apps.console.c.i("OpenData", "onOpenDataCallback success: " + aVar2.aVt);
+                        aVar.ay(aVar2.aVt);
                         return;
                     }
                     aVar.ay(null);

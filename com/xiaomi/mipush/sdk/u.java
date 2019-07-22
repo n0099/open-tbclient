@@ -12,7 +12,6 @@ import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.channel.commonutils.misc.h;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -106,7 +105,7 @@ public class u extends h.a {
 
     private static List<com.xiaomi.xmpush.thrift.c> d(Context context) {
         try {
-            List neighboringCellInfo = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getNeighboringCellInfo();
+            List neighboringCellInfo = ((TelephonyManager) context.getSystemService("phone")).getNeighboringCellInfo();
             int i = 0;
             ArrayList arrayList = null;
             while (i < neighboringCellInfo.size()) {

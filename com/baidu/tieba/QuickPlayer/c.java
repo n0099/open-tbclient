@@ -4,25 +4,25 @@ import android.os.HandlerThread;
 import android.os.Looper;
 /* loaded from: classes3.dex */
 public class c {
-    private static c cRE;
+    private static c cTa;
     private HandlerThread mHandlerThread = new HandlerThread("PlayerHandlerThread");
 
     private c() {
         this.mHandlerThread.start();
     }
 
-    public static c aAg() {
-        if (cRE == null) {
+    public static c aBu() {
+        if (cTa == null) {
             synchronized (c.class) {
-                if (cRE == null) {
-                    cRE = new c();
+                if (cTa == null) {
+                    cTa = new c();
                 }
             }
         }
-        return cRE;
+        return cTa;
     }
 
-    public Looper getLooper() {
+    public Looper aBv() {
         return this.mHandlerThread.getLooper();
     }
 }

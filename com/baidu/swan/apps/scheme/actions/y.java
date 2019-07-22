@@ -64,14 +64,14 @@ public class y extends z {
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
-            } else if (com.baidu.swan.apps.an.aa.ii(optString2)) {
+            } else if (com.baidu.swan.apps.an.aa.ip(optString2)) {
                 c.put("linkUrl", optString2);
                 a(context, callbackHandler, optString, c);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
         }
-        bVar.Lu().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+        bVar.Mh().a((Activity) context, "mapp_i_share_update_linkurl", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: b */
@@ -88,7 +88,7 @@ public class y extends z {
         String optString = jSONObject.optString("shareUrl");
         JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
         try {
-            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.ii(optString) || z)) {
+            if (!TextUtils.isEmpty(optString) && (com.baidu.swan.apps.an.aa.ip(optString) || z)) {
                 jSONObject.put("linkUrl", optString);
             }
             if (optJSONArray != null && optJSONArray.length() > 0 && !z) {
@@ -105,14 +105,14 @@ public class y extends z {
     private void a(@NonNull Context context, final CallbackHandler callbackHandler, final String str, JSONObject jSONObject) {
         jSONObject.remove("defaultPannel");
         jSONObject.remove("shareUrl");
-        com.baidu.swan.apps.u.a.DC().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
+        com.baidu.swan.apps.u.a.El().a(context, jSONObject, new u.a() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void EA() {
+            public void Fj() {
                 y.this.a(callbackHandler, str, true);
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void EB() {
+            public void Fk() {
                 y.this.a(callbackHandler, str, false);
             }
         });

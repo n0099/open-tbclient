@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar;
 /* loaded from: classes4.dex */
 public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
-    private com.baidu.tbadk.core.view.b cAX;
-    private SwanAppBdActionBar cZq;
+    private com.baidu.tbadk.core.view.b cCo;
+    private SwanAppBdActionBar daP;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -24,14 +24,14 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(R.layout.tb_swan_app_base_layout, (ViewGroup) null);
-        this.cZq = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
+        this.daP = (SwanAppBdActionBar) inflate.findViewById(R.id.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(R.id.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(R.id.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        aDc();
+        aEs();
         super.setContentView(inflate);
     }
 
@@ -47,49 +47,49 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.cAX = new com.baidu.tbadk.core.view.b(getPageContext());
-        this.cAX.ov("加载中...");
-        this.cAX.setCancelable(true);
+        this.cCo = new com.baidu.tbadk.core.view.b(getPageContext());
+        this.cCo.oM("加载中...");
+        this.cCo.setCancelable(true);
     }
 
-    private void aDc() {
-        if (this.cZq != null) {
-            this.cZq.setLeftTitleInvalidate(true);
-            this.cZq.setRightTxtZone1Visibility(8);
-            this.cZq.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
+    private void aEs() {
+        if (this.daP != null) {
+            this.daP.setLeftTitleInvalidate(true);
+            this.daP.setRightTxtZone1Visibility(8);
+            this.daP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.yX();
+                    TbSwanAppBaseActivity.this.zE();
                 }
             });
-            this.cZq.setRightExitViewVisibility(false);
-            this.cZq.setRightMenuVisibility(false);
-            this.cZq.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
-            this.cZq.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
+            this.daP.setRightExitViewVisibility(false);
+            this.daP.setRightMenuVisibility(false);
+            this.daP.setLeftZoneImageSrcMinWidth(z.dip2px(this, 38.0f));
+            this.daP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbSwanAppBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    TbSwanAppBaseActivity.this.yX();
+                    TbSwanAppBaseActivity.this.zE();
                 }
             });
         }
     }
 
-    protected void yX() {
+    protected void zE() {
         finish();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public SwanAppBdActionBar aDd() {
-        return this.cZq;
+    public SwanAppBdActionBar aEt() {
+        return this.daP;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showLoading() {
-        this.cAX.ef(true);
+        this.cCo.ej(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dismissLoading() {
-        this.cAX.ef(false);
+        this.cCo.ej(false);
     }
 }

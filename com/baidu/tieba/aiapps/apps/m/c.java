@@ -1,16 +1,10 @@
 package com.baidu.tieba.aiapps.apps.m;
-/* loaded from: classes2.dex */
-public class c {
-    private static volatile b dfN;
 
-    public static synchronized b aFY() {
-        b bVar;
-        synchronized (c.class) {
-            if (dfN == null) {
-                dfN = new b();
-            }
-            bVar = dfN;
-        }
-        return bVar;
+import com.baidu.swan.apps.u.b.t;
+/* loaded from: classes4.dex */
+public class c implements t {
+    @Override // com.baidu.swan.apps.u.b.t
+    public boolean h(String str, long j) {
+        return false;
     }
 }

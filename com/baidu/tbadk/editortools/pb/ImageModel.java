@@ -9,34 +9,34 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.m;
 /* loaded from: classes.dex */
 public class ImageModel extends BdBaseModel {
-    private a csl;
+    private a cty;
     private String filename;
 
     public ImageModel(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
-        this.csl = null;
+        this.cty = null;
         this.filename = null;
     }
 
-    public boolean pW(String str) {
+    public boolean qn(String str) {
         this.filename = str;
         return LoadData();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     protected boolean LoadData() {
-        if (this.csl != null) {
-            this.csl.cancel();
+        if (this.cty != null) {
+            this.cty.cancel();
         }
-        this.csl = new a(this.filename);
-        this.csl.execute(new Object[0]);
+        this.cty = new a(this.filename);
+        this.cty.execute(new Object[0]);
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.csl != null) {
-            this.csl.cancel();
+        if (this.cty != null) {
+            this.cty.cancel();
             return true;
         }
         return true;
@@ -65,7 +65,7 @@ public class ImageModel extends BdBaseModel {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            ImageModel.this.csl = null;
+            ImageModel.this.cty = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.m(null);
             }
@@ -83,7 +83,7 @@ public class ImageModel extends BdBaseModel {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
-            ImageModel.this.csl = null;
+            ImageModel.this.cty = null;
             if (ImageModel.this.mLoadDataCallBack != null) {
                 ImageModel.this.mLoadDataCallBack.m(bitmap);
             }

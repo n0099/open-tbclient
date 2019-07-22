@@ -18,58 +18,58 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
     private final Context context;
-    private String nB;
+    private String nA;
     @Nullable
-    private c nC;
-    private final Map<String, g> nD;
-    private final Map<String, Bitmap> nE = new HashMap();
+    private c nB;
+    private final Map<String, g> nC;
+    private final Map<String, Bitmap> nD = new HashMap();
 
     public b(Drawable.Callback callback, String str, c cVar, Map<String, g> map) {
-        this.nB = str;
-        if (!TextUtils.isEmpty(str) && this.nB.charAt(this.nB.length() - 1) != '/') {
-            this.nB += '/';
+        this.nA = str;
+        if (!TextUtils.isEmpty(str) && this.nA.charAt(this.nA.length() - 1) != '/') {
+            this.nA += '/';
         }
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.nD = new HashMap();
+            this.nC = new HashMap();
             this.context = null;
             return;
         }
         this.context = ((View) callback).getContext();
-        this.nD = map;
+        this.nC = map;
         a(cVar);
     }
 
     public void a(@Nullable c cVar) {
-        this.nC = cVar;
+        this.nB = cVar;
     }
 
     @Nullable
     public Bitmap L(String str) {
-        Bitmap bitmap = this.nE.get(str);
+        Bitmap bitmap = this.nD.get(str);
         if (bitmap == null) {
-            g gVar = this.nD.get(str);
+            g gVar = this.nC.get(str);
             if (gVar == null) {
                 return null;
             }
-            if (this.nC != null) {
-                Bitmap a = this.nC.a(gVar);
+            if (this.nB != null) {
+                Bitmap a = this.nB.a(gVar);
                 if (a != null) {
-                    this.nE.put(str, a);
+                    this.nD.put(str, a);
                     return a;
                 }
                 return a;
             }
             try {
-                if (TextUtils.isEmpty(this.nB)) {
+                if (TextUtils.isEmpty(this.nA)) {
                     throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
                 }
-                InputStream open = this.context.getAssets().open(this.nB + gVar.getFileName());
+                InputStream open = this.context.getAssets().open(this.nA + gVar.getFileName());
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inScaled = true;
                 options.inDensity = 160;
                 Bitmap decodeStream = BitmapFactory.decodeStream(open, null, options);
-                this.nE.put(str, decodeStream);
+                this.nD.put(str, decodeStream);
                 return decodeStream;
             } catch (IOException e) {
                 Log.w("LOTTIE", "Unable to open asset.", e);
@@ -79,8 +79,8 @@ public class b {
         return bitmap;
     }
 
-    public void bm() {
-        Iterator<Map.Entry<String, Bitmap>> it = this.nE.entrySet().iterator();
+    public void bp() {
+        Iterator<Map.Entry<String, Bitmap>> it = this.nD.entrySet().iterator();
         while (it.hasNext()) {
             it.next().getValue().recycle();
             it.remove();

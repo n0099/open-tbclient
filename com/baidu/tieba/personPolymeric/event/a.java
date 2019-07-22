@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bb;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.data.d;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.g;
 /* loaded from: classes6.dex */
 public class a implements g {
     protected TbPageContext mPageContext;
-    protected int ikS = 1;
+    protected int irk = 1;
     protected int userType = 2;
     protected boolean isHost = false;
 
@@ -34,15 +34,15 @@ public class a implements g {
     public void a(View view, com.baidu.tieba.g.a aVar) {
         if (aVar != null) {
             UserData userData = null;
-            if (aVar.ayy != null && (userData = (UserData) aVar.ayy.getSerializable(UserData.TYPE_USER)) != null) {
-                this.ikS = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
+            if (aVar.azf != null && (userData = (UserData) aVar.azf.getSerializable(UserData.TYPE_USER)) != null) {
+                this.irk = TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId()) ? 1 : 2;
                 this.userType = userData.isGod() ? 1 : 2;
-                this.isHost = this.ikS == 1;
+                this.isHost = this.irk == 1;
             }
-            switch (aVar.eXw) {
+            switch (aVar.fcx) {
                 case 2:
-                    if (bc.cE(this.mPageContext.getPageActivity())) {
-                        ba.aiz().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    if (bd.cF(this.mPageContext.getPageActivity())) {
+                        bb.ajC().c(this.mPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                         return;
                     }
                     return;
@@ -55,32 +55,32 @@ public class a implements g {
                 case 4:
                     if (userData != null) {
                         if (aVar instanceof com.baidu.tieba.personCenter.c.a) {
-                            TiebaStatic.log(new am("c11586"));
+                            TiebaStatic.log(new an("c11586"));
                         } else {
-                            TiebaStatic.log(new am("c11597").P("obj_locate", 2).P("obj_type", this.ikS).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                            TiebaStatic.log(new an("c11597").P("obj_locate", 2).P("obj_type", this.irk).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         }
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), true, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 5:
-                    com.baidu.tieba.o.a.cga().d(2, false, this.isHost);
+                    com.baidu.tieba.o.a.ciR().e(2, false, this.isHost);
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").P("obj_locate", 3).P("obj_type", this.ikS).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new an("c11597").P("obj_locate", 3).P("obj_type", this.irk).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.mPageContext.getPageActivity(), false, userData.getUserId(), userData.getSex())));
                         return;
                     }
                     return;
                 case 6:
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").P("obj_locate", 1).P("obj_type", this.ikS).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new an("c11597").P("obj_locate", 1).P("obj_type", this.irk).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mPageContext.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
                         return;
                     }
                     return;
                 case 7:
                     if (userData != null) {
-                        TiebaStatic.log(new am("c11597").P("obj_locate", 4).P("obj_type", this.ikS).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
+                        TiebaStatic.log(new an("c11597").P("obj_locate", 4).P("obj_type", this.irk).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.userType));
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.mPageContext.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
                         return;
                     }

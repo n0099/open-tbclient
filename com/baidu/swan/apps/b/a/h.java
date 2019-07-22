@@ -36,7 +36,7 @@ public class h implements n {
     }
 
     @Override // com.baidu.swan.apps.b.b.n
-    public ExecutorService wf() {
+    public ExecutorService wG() {
         return null;
     }
 }

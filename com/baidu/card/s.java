@@ -8,28 +8,28 @@ import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class s extends c implements i<aj>, j {
-    private static final int VY = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
-    NEGFeedBackView VZ;
+    private static final int Wt = com.baidu.adp.lib.util.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds115);
+    NEGFeedBackView Wu;
 
     public s(TbPageContext tbPageContext) {
         bp(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(VY, VY);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(Wt, Wt);
         layoutParams.addRule(11);
         layoutParams.topMargin = com.baidu.adp.lib.util.l.g(tbPageContext.getPageActivity(), R.dimen.tbds32);
         a(layoutParams);
-        this.VZ = new NEGFeedBackView(tbPageContext);
-        I(this.VZ);
+        this.Wu = new NEGFeedBackView(tbPageContext);
+        K(this.Wu);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.card.c
-    /* renamed from: qk */
-    public NEGFeedBackView getDecorView() {
-        return this.VZ;
+    /* renamed from: qH */
+    public NEGFeedBackView qF() {
+        return this.Wu;
     }
 
     public void a(NEGFeedBackView.a aVar) {
-        this.VZ.setEventCallback(aVar);
+        this.Wu.setEventCallback(aVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,16 +37,16 @@ public class s extends c implements i<aj>, j {
     /* renamed from: a */
     public void C(aj ajVar) {
         if (ajVar == null) {
-            this.VZ.setVisibility(8);
+            this.Wu.setVisibility(8);
             return;
         }
-        this.VZ.setData(ajVar);
-        this.VZ.setFirstRowSingleColumn(true);
-        this.VZ.setVisibility(0);
+        this.Wu.setData(ajVar);
+        this.Wu.setFirstRowSingleColumn(true);
+        this.Wu.setVisibility(0);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.VZ.onChangeSkinType();
+        this.Wu.onChangeSkinType();
     }
 }

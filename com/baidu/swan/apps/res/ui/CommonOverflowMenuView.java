@@ -21,15 +21,15 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class CommonOverflowMenuView extends LinearLayout implements a.b {
-    private int aIl;
-    private int aIm;
-    private List<ImageView> aIn;
-    private List<TextView> aIo;
-    private HashMap<com.baidu.swan.apps.res.widget.a.b, ImageView> aIp;
-    private LinearLayout aIq;
-    private SwanAppScrollView aIr;
-    private SparseArray<View> aIs;
-    private Object aIt;
+    private int aIT;
+    private int aIU;
+    private List<ImageView> aIV;
+    private List<TextView> aIW;
+    private HashMap<com.baidu.swan.apps.res.widget.a.b, ImageView> aIX;
+    private LinearLayout aIY;
+    private SwanAppScrollView aIZ;
+    private SparseArray<View> aJa;
+    private Object aJb;
     private View mContentView;
     private int mDividerHeight;
     private ColorStateList mItemTextColor;
@@ -37,43 +37,43 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     public CommonOverflowMenuView(Context context) {
         super(context);
-        this.aIl = a.e.aiapps_discovery_home_menu_item_selector;
-        this.aIm = a.c.aiapps_home_menu_separator_color;
+        this.aIT = a.e.aiapps_discovery_home_menu_item_selector;
+        this.aIU = a.c.aiapps_home_menu_separator_color;
         this.mDividerHeight = 1;
-        this.aIn = new ArrayList();
-        this.aIo = new ArrayList();
-        this.aIp = new HashMap<>();
+        this.aIV = new ArrayList();
+        this.aIW = new ArrayList();
+        this.aIX = new HashMap<>();
         this.mMenuLoaded = false;
-        this.aIs = new SparseArray<>();
-        this.aIt = new Object();
+        this.aJa = new SparseArray<>();
+        this.aJb = new Object();
         init(context);
     }
 
     public CommonOverflowMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aIl = a.e.aiapps_discovery_home_menu_item_selector;
-        this.aIm = a.c.aiapps_home_menu_separator_color;
+        this.aIT = a.e.aiapps_discovery_home_menu_item_selector;
+        this.aIU = a.c.aiapps_home_menu_separator_color;
         this.mDividerHeight = 1;
-        this.aIn = new ArrayList();
-        this.aIo = new ArrayList();
-        this.aIp = new HashMap<>();
+        this.aIV = new ArrayList();
+        this.aIW = new ArrayList();
+        this.aIX = new HashMap<>();
         this.mMenuLoaded = false;
-        this.aIs = new SparseArray<>();
-        this.aIt = new Object();
+        this.aJa = new SparseArray<>();
+        this.aJb = new Object();
         init(context);
     }
 
     private void init(Context context) {
         this.mContentView = LayoutInflater.from(context).inflate(a.g.aiapps_menu_scroll_view, (ViewGroup) this, true);
-        this.aIq = (LinearLayout) this.mContentView.findViewById(a.f.menu_linear);
-        this.aIr = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
+        this.aIY = (LinearLayout) this.mContentView.findViewById(a.f.menu_linear);
+        this.aIZ = (SwanAppScrollView) this.mContentView.findViewById(a.f.menu_scrollview);
         setFocusable(true);
         setFocusableInTouchMode(true);
-        Jf();
+        JS();
     }
 
     public void setItemBackground(int i) {
-        this.aIl = i;
+        this.aIT = i;
     }
 
     public void setItemTextColor(int i) {
@@ -81,14 +81,14 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     }
 
     public void setItemDivider(int i, int i2) {
-        this.aIm = i;
+        this.aIU = i;
         this.mDividerHeight = i2;
     }
 
     public void layoutMenu(List<com.baidu.swan.apps.res.widget.a.b> list) {
         if (!this.mMenuLoaded) {
-            this.aIq.removeAllViews();
-            this.aIs.clear();
+            this.aIY.removeAllViews();
+            this.aJa.clear();
             Context context = getContext();
             if (this.mDividerHeight < 0) {
                 this.mDividerHeight = context.getResources().getDimensionPixelSize(a.d.aiapps_pulldown_divider_height);
@@ -109,13 +109,13 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
                             }
                         });
                     }
-                    this.aIq.addView(a);
-                    this.aIs.append(next.getItemId(), a);
+                    this.aIY.addView(a);
+                    this.aJa.append(next.getItemId(), a);
                     if (i2 < list.size() - 1) {
                         ImageView imageView = new ImageView(context);
-                        this.aIn.add(imageView);
-                        imageView.setBackgroundColor(getResources().getColor(this.aIm));
-                        this.aIq.addView(imageView, layoutParams);
+                        this.aIV.add(imageView);
+                        imageView.setBackgroundColor(getResources().getColor(this.aIU));
+                        this.aIY.addView(imageView, layoutParams);
                     }
                     i = i2 + 1;
                 } else {
@@ -128,10 +128,10 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     protected View a(Context context, com.baidu.swan.apps.res.widget.a.b bVar) {
         if (bVar instanceof com.baidu.swan.apps.res.widget.a.c) {
-            View inflate = LayoutInflater.from(context).inflate(a.g.aiapps_pulldown_item_checkbox, (ViewGroup) this.aIq, false);
-            inflate.findViewById(a.f.item).setBackgroundResource(this.aIl);
+            View inflate = LayoutInflater.from(context).inflate(a.g.aiapps_pulldown_item_checkbox, (ViewGroup) this.aIY, false);
+            inflate.findViewById(a.f.item).setBackgroundResource(this.aIT);
             TextView textView = (TextView) inflate.findViewById(a.f.item_title);
-            this.aIo.add(textView);
+            this.aIW.add(textView);
             textView.setText(bVar.getTitle());
             ((CheckBox) inflate.findViewById(a.f.checkbox_id)).setChecked(bVar.isChecked());
             textView.setTextColor(this.mItemTextColor);
@@ -139,13 +139,13 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
             textView.setEnabled(bVar.isEnabled());
             return inflate;
         }
-        View inflate2 = LayoutInflater.from(context).inflate(a.g.aiapps_pulldown_item, (ViewGroup) this.aIq, false);
-        inflate2.findViewById(a.f.item).setBackgroundResource(this.aIl);
+        View inflate2 = LayoutInflater.from(context).inflate(a.g.aiapps_pulldown_item, (ViewGroup) this.aIY, false);
+        inflate2.findViewById(a.f.item).setBackgroundResource(this.aIT);
         ImageView imageView = (ImageView) inflate2.findViewById(a.f.left_img);
-        this.aIp.put(bVar, imageView);
+        this.aIX.put(bVar, imageView);
         imageView.setImageDrawable(bVar.getIcon());
         TextView textView2 = (TextView) inflate2.findViewById(a.f.right_txt);
-        this.aIo.add(textView2);
+        this.aIW.add(textView2);
         textView2.setText(bVar.getTitle());
         textView2.setTextColor(this.mItemTextColor);
         inflate2.setEnabled(bVar.isEnabled());
@@ -156,22 +156,22 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.swan.apps.res.widget.a.b bVar) {
-        b.a KV = bVar.KV();
-        if (KV != null) {
-            KV.c(bVar);
+        b.a LI = bVar.LI();
+        if (LI != null) {
+            LI.c(bVar);
         }
     }
 
     public void setMaxHeightRes(int i) {
-        this.aIr.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
+        this.aIZ.setMaxHeight(getContext().getResources().getDimensionPixelSize(i));
     }
 
     public void setMaxHeightPixel(int i) {
-        this.aIr.setMaxHeight(i);
+        this.aIZ.setMaxHeight(i);
     }
 
     public LinearLayout getLinearContent() {
-        return this.aIq;
+        return this.aIY;
     }
 
     public ColorStateList getTextColor() {
@@ -179,27 +179,27 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     }
 
     public int getItemBgRes() {
-        return this.aIl;
+        return this.aIT;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        com.baidu.swan.apps.u.a.DW().a(this.aIt, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
+        com.baidu.swan.apps.u.a.EF().a(this.aJb, new com.baidu.swan.apps.ai.a() { // from class: com.baidu.swan.apps.res.ui.CommonOverflowMenuView.2
         });
-        Jf();
+        JS();
     }
 
-    private void Jf() {
+    private void JS() {
         this.mItemTextColor = getResources().getColorStateList(a.c.aiapps_discovery_home_menu_text_color);
         setBackground(getResources().getDrawable(a.e.aiapps_discovery_feedback_menu_bg));
-        for (ImageView imageView : this.aIn) {
-            imageView.setBackgroundColor(getResources().getColor(this.aIm));
+        for (ImageView imageView : this.aIV) {
+            imageView.setBackgroundColor(getResources().getColor(this.aIU));
         }
-        for (TextView textView : this.aIo) {
+        for (TextView textView : this.aIW) {
             textView.setTextColor(this.mItemTextColor);
         }
-        for (Map.Entry<com.baidu.swan.apps.res.widget.a.b, ImageView> entry : this.aIp.entrySet()) {
+        for (Map.Entry<com.baidu.swan.apps.res.widget.a.b, ImageView> entry : this.aIX.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().getIcon());
         }
     }
@@ -207,6 +207,6 @@ public class CommonOverflowMenuView extends LinearLayout implements a.b {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        com.baidu.swan.apps.u.a.DW().H(this.aIt);
+        com.baidu.swan.apps.u.a.EF().H(this.aJb);
     }
 }

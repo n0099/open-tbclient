@@ -5,7 +5,7 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.b;
 import com.baidu.adp.lib.util.p;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.c.a;
+import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.j;
 import com.squareup.wire.Message;
@@ -86,9 +86,9 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String asV = eVar.asV();
+                String aud = eVar.aud();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(asV) && bArr != null && (bD = a.afD().bD(asV, currentAccount)) != null) {
+                if (cacheKey != null && !TextUtils.isEmpty(aud) && bArr != null && (bD = a.agF().bD(aud, currentAccount)) != null) {
                     bD.f(cacheKey, bArr);
                 }
             }

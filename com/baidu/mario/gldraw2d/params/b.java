@@ -3,42 +3,42 @@ package com.baidu.mario.gldraw2d.params;
 import android.opengl.Matrix;
 /* loaded from: classes2.dex */
 public class b implements Cloneable {
-    private float[] adl;
-    private boolean adm;
-    private boolean adn;
-    private float[] mMVPMatrix = new float[16];
+    private float[] adI;
+    private boolean adJ;
+    private boolean adK;
     private long mTimestamp;
+    private float[] qA = new float[16];
 
     public b() {
-        Matrix.setIdentityM(this.mMVPMatrix, 0);
-        this.adl = new float[16];
-        Matrix.setIdentityM(this.adl, 0);
-        this.adm = false;
-        this.adn = false;
+        Matrix.setIdentityM(this.qA, 0);
+        this.adI = new float[16];
+        Matrix.setIdentityM(this.adI, 0);
+        this.adJ = false;
+        this.adK = false;
     }
 
-    public float[] ss() {
-        return this.mMVPMatrix;
+    public float[] sQ() {
+        return this.qA;
     }
 
     public void e(float[] fArr) {
-        this.mMVPMatrix = fArr;
+        this.qA = fArr;
     }
 
-    public float[] st() {
-        return this.adl;
+    public float[] sR() {
+        return this.adI;
     }
 
     public void f(float[] fArr) {
-        this.adl = fArr;
+        this.adI = fArr;
     }
 
-    public boolean su() {
-        return this.adm;
+    public boolean sS() {
+        return this.adJ;
     }
 
-    public boolean sv() {
-        return this.adn;
+    public boolean sT() {
+        return this.adK;
     }
 
     public void setTimestamp(long j) {
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: sw */
+    /* renamed from: sU */
     public b clone() {
         b bVar = null;
         try {
@@ -55,8 +55,8 @@ public class b implements Cloneable {
             e.printStackTrace();
         }
         if (bVar != null) {
-            bVar.e((float[]) this.mMVPMatrix.clone());
-            bVar.f((float[]) this.adl.clone());
+            bVar.e((float[]) this.qA.clone());
+            bVar.f((float[]) this.adI.clone());
         }
         return bVar;
     }

@@ -12,11 +12,11 @@ public interface d {
         void onFirstFrame(int i, int i2, int i3);
     }
 
-    View Zm();
-
     void a(a aVar);
 
     boolean a(int i, String str, LinearLayout.LayoutParams layoutParams);
+
+    View aal();
 
     void destroy();
 

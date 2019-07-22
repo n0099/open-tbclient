@@ -4,25 +4,26 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.sofire.ac.Callback;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     public static void a(Context context, Intent intent) {
         int i = 0;
         try {
             String[] g = com.baidu.sofire.b.e.g(context);
-            new StringBuilder("onReceiveAwakeMessage : ").append(g[0]).append(" : ").append(g[1]);
+            new StringBuilder().append(g[0]).append(" : ").append(g[1]);
             b.a();
             com.baidu.sofire.core.e.a(context, 0, g[0], g[1], 100028);
             while (true) {
                 Thread.sleep(500L);
                 i++;
+                new StringBuilder().append(i);
                 b.a();
                 if (i > 60) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", "152");
                     hashMap.put("1", g[0]);
                     com.baidu.sofire.b.e.a(context.getApplicationContext(), "1014115", hashMap);
-                    new StringBuilder("onReceiveAwakeMessage : ").append(hashMap.toString());
+                    new StringBuilder().append(hashMap.toString());
                     b.a();
                     break;
                 }

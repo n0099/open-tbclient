@@ -14,6 +14,7 @@ import org.json.JSONObject;
 public class ExceptionAnalysis {
     private static ExceptionAnalysis a = new ExceptionAnalysis();
     private Context c;
+    private String e;
     public Callback mCallback;
     private boolean b = false;
     private HeadObject d = new HeadObject();
@@ -40,7 +41,7 @@ public class ExceptionAnalysis {
         }
         if (this.c != null && !this.b) {
             this.b = true;
-            ak.a().a(this.c);
+            ad.a().a(this.c);
             if (!z) {
                 NativeCrashHandler.init(this.c);
             }
@@ -57,7 +58,8 @@ public class ExceptionAnalysis {
             String str = "";
             if (!TextUtils.isEmpty(th2)) {
                 try {
-                    str = th2.length() > 1 ? th2.split(":")[0] : th2;
+                    String[] split = th2.split(":");
+                    str = split.length > 1 ? split[0] : th2;
                 } catch (Exception e) {
                     str = "";
                 }
@@ -83,10 +85,16 @@ public class ExceptionAnalysis {
         BDStatCore.instance().autoTrackSessionEndTime(context);
         if (context != null && str != null && !str.trim().equals("")) {
             try {
+                StringBuilder sb = new StringBuilder(str);
+                if (!TextUtils.isEmpty(this.e)) {
+                    sb.append("\n");
+                    sb.append("ExtraInfo:");
+                    sb.append(this.e);
+                }
                 String appVersionName = CooperService.instance().getAppVersionName(context);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("t", j);
-                jSONObject.put("c", str);
+                jSONObject.put("c", sb.toString());
                 jSONObject.put("y", str2);
                 jSONObject.put("v", appVersionName);
                 jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
@@ -107,8 +115,8 @@ public class ExceptionAnalysis {
                 if (this.mCallback != null) {
                     this.mCallback.onCallback(jSONObject3);
                 }
-                bv.a(context, Config.PREFIX_SEND_DATA + System.currentTimeMillis(), jSONObject3.toString(), false);
-                bj.c().a("dump exception, exception: " + str);
+                bo.a(context, Config.PREFIX_SEND_DATA + System.currentTimeMillis(), jSONObject3.toString(), false);
+                bc.c().a("dump exception, exception: " + str);
             } catch (Exception e) {
             }
         }
@@ -145,6 +153,15 @@ public class ExceptionAnalysis {
             return jSONObject;
         } catch (Exception e) {
             return jSONObject;
+        }
+    }
+
+    public void setCrashExtraInfo(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            if (str.length() > 256) {
+                str = str.substring(0, 256);
+            }
+            this.e = str;
         }
     }
 }

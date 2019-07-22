@@ -13,26 +13,26 @@ import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class t {
-    private static com.baidu.crabsdk.c.b<List> ZS = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
-    private static String ZT = "";
-    private static String ZA = "";
-    private static int widthPixels = 0;
-    private static int heightPixels = 0;
+    private static com.baidu.crabsdk.c.b<List> aan = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.g);
+    private static String aao = "";
+    private static String ZV = "";
+    private static int aap = 0;
+    private static int aaq = 0;
 
-    private static WebView K(View view) {
+    private static WebView M(View view) {
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, widthPixels, heightPixels)))) {
+                    if (!(childAt.getLocalVisibleRect(new Rect(0, 0, aap, aaq)))) {
                         continue;
                     } else if (childAt instanceof WebView) {
                         return (WebView) childAt;
                     } else {
-                        WebView K = K(childAt);
-                        if (K != null) {
-                            return K;
+                        WebView M = M(childAt);
+                        if (M != null) {
+                            return M;
                         }
                     }
                 }
@@ -42,10 +42,10 @@ public final class t {
     }
 
     public static String P() {
-        return ZS.size() > 0 ? new JSONArray((Collection) ZS).toString() : "";
+        return aan.size() > 0 ? new JSONArray((Collection) aan).toString() : "";
     }
 
-    public static boolean qQ() {
+    public static boolean rn() {
         return P().length() > 0;
     }
 
@@ -55,42 +55,42 @@ public final class t {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void urlRecordEvent(MotionEvent motionEvent, Activity activity) {
-        WebView K;
+        WebView M;
         if (activity == null) {
             return;
         }
-        if (widthPixels == 0 || heightPixels == 0) {
+        if (aap == 0 || aaq == 0) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            heightPixels = displayMetrics.heightPixels;
-            widthPixels = displayMetrics.widthPixels;
+            aaq = displayMetrics.heightPixels;
+            aap = displayMetrics.widthPixels;
         }
         switch (motionEvent.getAction()) {
             case 0:
                 String name = activity.getClass().getName();
-                if (!name.equals(ZA)) {
+                if (!name.equals(ZV)) {
                     com.baidu.crabsdk.c.a.v("***** !tempName.equals(activityName) *****");
-                    ZA = name;
-                    ZS.clear();
+                    ZV = name;
+                    aan.clear();
                 }
                 if (activity != null) {
                     try {
                         View decorView = activity.getWindow().getDecorView();
                         if (decorView != null) {
-                            K = K(decorView);
-                            if (K == null) {
-                                String url = K.getUrl();
-                                if (url.equals(ZT)) {
+                            M = M(decorView);
+                            if (M == null) {
+                                String url = M.getUrl();
+                                if (url.equals(aao)) {
                                     return;
                                 }
                                 com.baidu.crabsdk.c.a.v("-------- !tempUrl.equals(mUrl) --------");
-                                ZT = url;
+                                aao = url;
                                 ArrayList arrayList = new ArrayList();
                                 arrayList.add(Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
-                                arrayList.add(K.getTitle());
-                                arrayList.add(ZT);
-                                com.baidu.crabsdk.c.a.v("title:" + K.getTitle() + "; url:" + ZT);
-                                ZS.add(arrayList);
+                                arrayList.add(M.getTitle());
+                                arrayList.add(aao);
+                                com.baidu.crabsdk.c.a.v("title:" + M.getTitle() + "; url:" + aao);
+                                aan.add(arrayList);
                                 com.baidu.crabsdk.c.a.v("###### jsonArray.toString() : " + P());
                                 return;
                             }
@@ -101,8 +101,8 @@ public final class t {
                         return;
                     }
                 }
-                K = null;
-                if (K == null) {
+                M = null;
+                if (M == null) {
                 }
             default:
                 return;

@@ -22,19 +22,19 @@ public class ExtensionCore extends SwanAppIPCData {
             return new ExtensionCore[i];
         }
     };
-    public int awl;
-    public long awm;
-    public String awn;
-    public String awo;
+    public int awQ;
+    public long awR;
+    public String awS;
+    public String awT;
 
     public ExtensionCore() {
     }
 
     private ExtensionCore(Parcel parcel) {
-        this.awl = parcel.readInt();
-        this.awm = parcel.readLong();
-        this.awn = parcel.readString();
-        this.awo = parcel.readString();
+        this.awQ = parcel.readInt();
+        this.awR = parcel.readLong();
+        this.awS = parcel.readString();
+        this.awT = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -44,17 +44,17 @@ public class ExtensionCore extends SwanAppIPCData {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.awl);
-        parcel.writeLong(this.awm);
-        parcel.writeString(this.awn);
-        parcel.writeString(this.awo);
+        parcel.writeInt(this.awQ);
+        parcel.writeLong(this.awR);
+        parcel.writeString(this.awS);
+        parcel.writeString(this.awT);
     }
 
     public String toString() {
-        return "ExtensionCore{extensionCoreType=" + this.awl + ", extensionCoreVersionCode=" + this.awm + ", extensionCoreVersionName=" + this.awn + ", extensionCorePath='" + this.awo + "', isAvailable='" + isAvailable() + "'}";
+        return "ExtensionCore{extensionCoreType=" + this.awQ + ", extensionCoreVersionCode=" + this.awR + ", extensionCoreVersionName=" + this.awS + ", extensionCorePath='" + this.awT + "', isAvailable='" + isAvailable() + "'}";
     }
 
     public boolean isAvailable() {
-        return !TextUtils.isEmpty(this.awo) && new File(this.awo).exists();
+        return !TextUtils.isEmpty(this.awT) && new File(this.awT).exists();
     }
 }

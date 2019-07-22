@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class CommonTipView extends TextView {
@@ -102,7 +102,7 @@ public class CommonTipView extends TextView {
             public void onAnimationEnd(Animation animation) {
                 CommonTipView.this.onDestroy();
                 CommonTipView.this.setVisibility(8);
-                com.baidu.adp.lib.g.e.iB().postDelayed(CommonTipView.this.mRunnable, 600L);
+                com.baidu.adp.lib.g.e.iK().postDelayed(CommonTipView.this.mRunnable, 600L);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -168,13 +168,13 @@ public class CommonTipView extends TextView {
     }
 
     public void onChangeSkinType(int i) {
-        al.g(this, R.color.common_color_10260, i);
-        al.c(this, R.color.cp_cont_g, 1, i);
+        am.g(this, R.color.common_color_10260, i);
+        am.d(this, R.color.cp_cont_g, 1, i);
     }
 
     public void onDestroy() {
         removeCallbacks(this.mHideTipRunnable);
-        com.baidu.adp.lib.g.e.iB().removeCallbacks(this.mRunnable);
+        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.mRunnable);
         hide();
     }
 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.b.a.c;
 /* loaded from: classes2.dex */
 public class d {
-    private static d bsz;
-    private com.baidu.swan.pms.b.a.b.b bsA = new com.baidu.swan.pms.b.a.b.b();
+    private static d btp;
+    private com.baidu.swan.pms.b.a.b.b btq = new com.baidu.swan.pms.b.a.b.b();
 
-    public static d VF() {
-        if (bsz != null) {
-            return bsz;
+    public static d Wy() {
+        if (btp != null) {
+            return btp;
         }
         synchronized (d.class) {
-            if (bsz == null) {
-                bsz = new d();
+            if (btp == null) {
+                btp = new d();
             }
         }
-        return bsz;
+        return btp;
     }
 
     private d() {
@@ -23,23 +23,23 @@ public class d {
         if (fVar == null) {
             return null;
         }
-        if (this.bsA.a(fVar, fVar.bsF)) {
-            fVar.VG().G(fVar.VH());
+        if (this.btq.a(fVar, fVar.btv)) {
+            fVar.Wz().G(fVar.WA());
             return new k(fVar, true);
         }
         return new k(fVar, false);
     }
 
     public synchronized <T> void g(f<T> fVar) {
-        fVar.dj(false);
-        this.bsA.b(fVar);
+        fVar.m17do(false);
+        this.btq.b(fVar);
     }
 
     public synchronized void c(b bVar) {
-        this.bsA.a(bVar);
+        this.btq.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.bsA.b(bVar);
+        this.btq.b(bVar);
     }
 }

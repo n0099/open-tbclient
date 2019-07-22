@@ -32,7 +32,7 @@ public class SupportActivity extends Activity implements b {
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        ReportFragment.g(this);
+        ReportFragment.j(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

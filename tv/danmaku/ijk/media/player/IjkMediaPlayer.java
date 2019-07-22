@@ -16,7 +16,6 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.b.e;
 import com.xiaomi.mipush.sdk.Constants;
@@ -790,7 +789,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     return;
                 case 100:
                     ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
-                    if (!ijkMediaPlayer.notifyOnError(SapiErrorCode.NETWORK_FAILED, message.arg1, message.arg2)) {
+                    if (!ijkMediaPlayer.notifyOnError(-200, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
                     }
                     ijkMediaPlayer.stayAwake(false);
@@ -805,7 +804,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.ch(message.arg1, message.arg2);
+                    e.cn(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:

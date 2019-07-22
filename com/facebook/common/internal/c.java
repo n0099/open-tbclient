@@ -5,27 +5,27 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes2.dex */
 public class c extends FilterOutputStream {
-    private long jRJ;
+    private long jYN;
 
     public c(OutputStream outputStream) {
         super(outputStream);
-        this.jRJ = 0L;
+        this.jYN = 0L;
     }
 
     public long getCount() {
-        return this.jRJ;
+        return this.jYN;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(byte[] bArr, int i, int i2) throws IOException {
         this.out.write(bArr, i, i2);
-        this.jRJ += i2;
+        this.jYN += i2;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream
     public void write(int i) throws IOException {
         this.out.write(i);
-        this.jRJ++;
+        this.jYN++;
     }
 
     @Override // java.io.FilterOutputStream, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable

@@ -50,13 +50,13 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
         if ((this.imageData == null || this.imageData.length == 0) && ((this.imagePath == null || this.imagePath.length() == 0) && (this.imageUrl == null || this.imageUrl.length() == 0))) {
             a.a(TAG, "checkArgs fail, all arguments are null");
             return false;
-        } else if (this.imageData != null && this.imageData.length > 10485760) {
+        } else if (this.imageData != null && this.imageData.length > CONTENT_LENGTH_LIMIT) {
             a.a(TAG, "checkArgs fail, content is too large");
             return false;
         } else if (this.imagePath != null && this.imagePath.length() > 10240) {
             a.a(TAG, "checkArgs fail, path is invalid");
             return false;
-        } else if (this.imagePath != null && getFileSize(this.imagePath) > 10485760) {
+        } else if (this.imagePath != null && getFileSize(this.imagePath) > CONTENT_LENGTH_LIMIT) {
             a.a(TAG, "checkArgs fail, image content is too large");
             return false;
         } else if (this.imageUrl == null || this.imageUrl.length() <= 10240) {

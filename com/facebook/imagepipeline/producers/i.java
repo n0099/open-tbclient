@@ -3,26 +3,26 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class i implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> kcl;
-    private final ai<com.facebook.imagepipeline.f.d> kcm;
+    private final ai<com.facebook.imagepipeline.f.d> kjs;
+    private final ai<com.facebook.imagepipeline.f.d> kjt;
 
     public i(ai<com.facebook.imagepipeline.f.d> aiVar, ai<com.facebook.imagepipeline.f.d> aiVar2) {
-        this.kcl = aiVar;
-        this.kcm = aiVar2;
+        this.kjs = aiVar;
+        this.kjt = aiVar2;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kcl.a(new a(jVar, ajVar), ajVar);
+        this.kjs.a(new a(jVar, ajVar), ajVar);
     }
 
     /* loaded from: classes2.dex */
     private class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private aj kcn;
+        private aj kju;
 
         private a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
             super(jVar);
-            this.kcn = ajVar;
+            this.kju = ajVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -30,20 +30,20 @@ public class i implements ai<com.facebook.imagepipeline.f.d> {
         @Override // com.facebook.imagepipeline.producers.b
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
-            ImageRequest cHx = this.kcn.cHx();
-            boolean a = av.a(dVar, cHx.cIn());
-            if (dVar != null && (a || cHx.cIr())) {
-                cHK().e(dVar, z && a);
+            ImageRequest cKB = this.kju.cKB();
+            boolean a = av.a(dVar, cKB.cLr());
+            if (dVar != null && (a || cKB.cLv())) {
+                cKO().e(dVar, z && a);
             }
             if (z && !a) {
                 com.facebook.imagepipeline.f.d.e(dVar);
-                i.this.kcm.a(cHK(), this.kcn);
+                i.this.kjt.a(cKO(), this.kju);
             }
         }
 
         @Override // com.facebook.imagepipeline.producers.m, com.facebook.imagepipeline.producers.b
         protected void A(Throwable th) {
-            i.this.kcm.a(cHK(), this.kcn);
+            i.this.kjt.a(cKO(), this.kju);
         }
     }
 }

@@ -7,8 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
@@ -17,7 +17,7 @@ import java.util.List;
 import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class h extends RecyclerView.Adapter<a> {
-    private View.OnLongClickListener iid;
+    private View.OnLongClickListener iov;
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
@@ -30,14 +30,14 @@ public class h extends RecyclerView.Adapter<a> {
         this.mDataList = list;
     }
 
-    public SmartApp Ca(String str) {
+    public SmartApp CN(String str) {
         if (v.aa(this.mDataList)) {
             return null;
         }
         Iterator<SmartApp> it = this.mDataList.iterator();
         while (it.hasNext()) {
             SmartApp next = it.next();
-            if (next != null && ap.equals(next.id, str)) {
+            if (next != null && aq.bV(next.id, str)) {
                 it.remove();
                 return next;
             }
@@ -45,22 +45,22 @@ public class h extends RecyclerView.Adapter<a> {
         return null;
     }
 
-    public void S(View.OnClickListener onClickListener) {
+    public void U(View.OnClickListener onClickListener) {
         this.mOnItemClickListener = onClickListener;
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.iid = onLongClickListener;
+        this.iov = onLongClickListener;
     }
 
-    private SmartApp yi(int i) {
+    private SmartApp yN(int i) {
         return (SmartApp) v.c(this.mDataList, i);
     }
 
     public void b(SmartApp smartApp) {
-        SmartApp Ca = Ca(smartApp.id);
-        if (Ca != null && this.mDataList != null) {
-            v.a(this.mDataList, 0, Ca);
+        SmartApp CN = CN(smartApp.id);
+        if (CN != null && this.mDataList != null) {
+            v.a(this.mDataList, 0, CN);
         }
     }
 
@@ -75,11 +75,11 @@ public class h extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        SmartApp yi;
-        if (aVar != null && (yi = yi(i)) != null) {
-            aVar.c(yi);
+        SmartApp yN;
+        if (aVar != null && (yN = yN(i)) != null) {
+            aVar.c(yN);
             aVar.setOnClickListener(this.mOnItemClickListener);
-            aVar.setOnLongClickListener(this.iid);
+            aVar.setOnLongClickListener(this.iov);
             aVar.onChangeSkinType();
         }
     }
@@ -91,27 +91,27 @@ public class h extends RecyclerView.Adapter<a> {
 
     /* loaded from: classes6.dex */
     public static class a extends RecyclerView.ViewHolder {
-        private HeadImageView gRb;
-        private SmartApp iie;
+        private HeadImageView gXl;
+        private SmartApp iow;
         private TextView mName;
         private View mRootView;
 
         public a(View view) {
             super(view);
             this.mRootView = view;
-            this.gRb = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
-            this.gRb.setIsRound(true);
-            this.gRb.setBg(new ColorDrawable(al.getColor(R.color.cp_bg_line_c)));
+            this.gXl = (HeadImageView) view.findViewById(R.id.iv_smart_app_history_record_item_head);
+            this.gXl.setIsRound(true);
+            this.gXl.setBg(new ColorDrawable(am.getColor(R.color.cp_bg_line_c)));
             this.mName = (TextView) view.findViewById(R.id.tv_smart_app_history_record_item_name);
         }
 
         public void c(SmartApp smartApp) {
-            this.iie = smartApp;
+            this.iow = smartApp;
             this.mRootView.setTag(smartApp);
-            if (!ap.isEmpty(smartApp.avatar)) {
-                this.gRb.startLoad(smartApp.avatar, 10, false, false);
+            if (!aq.isEmpty(smartApp.avatar)) {
+                this.gXl.startLoad(smartApp.avatar, 10, false, false);
             }
-            if (!ap.isEmpty(smartApp.name)) {
+            if (!aq.isEmpty(smartApp.name)) {
                 this.mName.setText(smartApp.name);
             } else {
                 this.mName.setText(R.string.intelligent_smart_app);
@@ -131,8 +131,8 @@ public class h extends RecyclerView.Adapter<a> {
         }
 
         public void onChangeSkinType() {
-            al.k(this.mRootView, R.drawable.person_center_action_item_selector);
-            al.j(this.mName, R.color.cp_cont_b);
+            am.k(this.mRootView, R.drawable.person_center_action_item_selector);
+            am.j(this.mName, R.color.cp_cont_b);
         }
     }
 }

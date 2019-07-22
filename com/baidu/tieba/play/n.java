@@ -7,124 +7,124 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.play.j;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import java.net.InetAddress;
 /* loaded from: classes.dex */
 public class n implements d {
-    private String FB;
-    private String ald;
-    private z ipV;
-    private String ipX;
-    private v iqc;
-    private com.baidu.tieba.video.b iqd;
-    private boolean iqe;
-    private long iqj;
+    private String FI;
+    private String alH;
+    private z iwl;
+    private String iwn;
+    private v iws;
+    private com.baidu.tieba.video.b iwt;
+    private boolean iwu;
+    private long iwz;
     private Context mContext;
-    private String ipW = "1";
-    private boolean ipY = false;
-    private long fuW = 0;
-    private long ipZ = 0;
+    private String iwm = "1";
+    private boolean iwo = false;
+    private long fzS = 0;
+    private long iwp = 0;
     private long mStartTime = 0;
-    private long iqa = 0;
-    private int iqb = 0;
-    private boolean iqf = false;
-    private boolean iqg = false;
-    private int iqh = 8;
-    private int iqi = 16;
-    private Runnable iqk = new Runnable() { // from class: com.baidu.tieba.play.n.2
+    private long iwq = 0;
+    private int iwr = 0;
+    private boolean iwv = false;
+    private boolean iww = false;
+    private int iwx = 8;
+    private int iwy = 16;
+    private Runnable iwA = new Runnable() { // from class: com.baidu.tieba.play.n.2
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.iqf && n.this.iqg && n.this.cbe() && n.this.cbC()) {
-                t.f(n.this.mContext, n.this.ipX, -1);
+            if (n.this.iwv && n.this.iww && n.this.cdT() && n.this.ces()) {
+                t.f(n.this.mContext, n.this.iwn, -1);
             }
         }
     };
-    private Runnable iql = new Runnable() { // from class: com.baidu.tieba.play.n.3
+    private Runnable iwB = new Runnable() { // from class: com.baidu.tieba.play.n.3
         @Override // java.lang.Runnable
         public void run() {
-            if (n.this.cbC()) {
-                t.ar(n.this.mContext, n.this.ipX);
-            } else if (!n.this.ipY) {
-                t.rM(n.this.ipX);
+            if (n.this.ces()) {
+                t.aq(n.this.mContext, n.this.iwn);
+            } else if (!n.this.iwo) {
+                t.se(n.this.iwn);
             }
         }
     };
-    private j.c ioP = new j.c() { // from class: com.baidu.tieba.play.n.4
+    private j.c ivf = new j.c() { // from class: com.baidu.tieba.play.n.4
         @Override // com.baidu.tieba.play.j.c
-        public void aHE() {
+        public void aJb() {
             n.g(n.this);
         }
     };
-    private j dlN = new j();
+    private j dnv = new j();
 
     static /* synthetic */ int g(n nVar) {
-        int i = nVar.iqb;
-        nVar.iqb = i + 1;
+        int i = nVar.iwr;
+        nVar.iwr = i + 1;
         return i;
     }
 
     public n(Context context) {
         this.mContext = context;
-        this.dlN.a(this.ioP);
-        this.iqc = new v();
+        this.dnv.a(this.ivf);
+        this.iws = new v();
     }
 
     @Override // com.baidu.tieba.play.d
-    public String rK(String str) {
-        this.iqf = com.baidu.tbadk.coreExtra.model.f.aoG();
-        this.iqg = com.baidu.tbadk.coreExtra.model.f.aoH();
-        this.iqh = com.baidu.tbadk.coreExtra.model.f.aoI();
-        this.iqi = com.baidu.tbadk.coreExtra.model.f.aoJ();
-        this.ipX = str;
-        this.ald = this.ipY ? this.ipX : t.as(str, this.iqf);
-        if (this.iqc != null) {
-            w.a("start_play", this.ipX, cbC(), (int) this.iqc.cbO(), this.iqc.getDuration());
+    public String sc(String str) {
+        this.iwv = com.baidu.tbadk.coreExtra.model.f.apM();
+        this.iww = com.baidu.tbadk.coreExtra.model.f.apN();
+        this.iwx = com.baidu.tbadk.coreExtra.model.f.apO();
+        this.iwy = com.baidu.tbadk.coreExtra.model.f.apP();
+        this.iwn = str;
+        this.alH = this.iwo ? this.iwn : t.aw(str, this.iwv);
+        if (this.iws != null) {
+            w.a("start_play", this.iwn, ces(), (int) this.iws.ceE(), this.iws.getDuration());
         }
-        this.ipZ = System.currentTimeMillis();
-        return this.ald;
+        this.iwp = System.currentTimeMillis();
+        return this.alH;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cbe() {
-        return !StringUtils.isNull(this.ald) && this.ald.contains("127.0.0.1");
+    public boolean cdT() {
+        return !StringUtils.isNull(this.alH) && this.alH.contains("127.0.0.1");
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cbf() {
-        return this.iqf;
+    public boolean cdU() {
+        return this.iwv;
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cbg() {
-        return this.iqg;
+    public boolean cdV() {
+        return this.iww;
     }
 
     @Override // com.baidu.tieba.play.d
-    public int cbh() {
-        return com.baidu.tbadk.coreExtra.model.f.aoK() ? this.iqh : this.iqi;
+    public int cdW() {
+        return com.baidu.tbadk.coreExtra.model.f.apQ() ? this.iwx : this.iwy;
     }
 
     @Override // com.baidu.tieba.play.d
-    public String cbc() {
-        return this.ipX;
+    public String cdR() {
+        return this.iwn;
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cbi() {
-        if (this.iqf && this.iqg && cbe() && cbC()) {
-            t.f(this.mContext, this.ipX, -1);
+    public void cdX() {
+        if (this.iwv && this.iww && cdT() && ces()) {
+            t.f(this.mContext, this.iwn, -1);
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void eg(long j) {
-        this.iqj = j;
-        cbB();
-        if (this.ipZ > 0) {
-            this.iqa = System.currentTimeMillis() - this.ipZ;
+    public void eq(long j) {
+        this.iwz = j;
+        cer();
+        if (this.iwp > 0) {
+            this.iwq = System.currentTimeMillis() - this.iwp;
         }
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.play.n.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -132,9 +132,9 @@ public class n implements d {
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(Void... voidArr) {
                 Uri parse;
-                if (!ap.isEmpty(n.this.ipX) && (parse = Uri.parse(n.this.ipX)) != null) {
+                if (!aq.isEmpty(n.this.iwn) && (parse = Uri.parse(n.this.iwn)) != null) {
                     try {
-                        n.this.FB = InetAddress.getByName(parse.getHost()).getHostAddress();
+                        n.this.FI = InetAddress.getByName(parse.getHost()).getHostAddress();
                         return null;
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -152,88 +152,88 @@ public class n implements d {
     public void onStart() {
         if (this.mStartTime != 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
-            this.fuW += currentTimeMillis;
-            eh(currentTimeMillis);
+            this.fzS += currentTimeMillis;
+            er(currentTimeMillis);
         }
         this.mStartTime = System.currentTimeMillis();
-        if (this.dlN != null) {
-            this.dlN.start();
+        if (this.dnv != null) {
+            this.dnv.start();
         }
-        this.iqe = true;
+        this.iwu = true;
     }
 
     @Override // com.baidu.tieba.play.d
     public void onStop() {
-        com.baidu.adp.lib.g.e.iB().removeCallbacks(this.iql);
-        com.baidu.adp.lib.g.e.iB().removeCallbacks(this.iqk);
-        cbk();
+        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.iwB);
+        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.iwA);
+        cdZ();
         if (this.mStartTime > 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
-            this.fuW += currentTimeMillis;
-            eh(currentTimeMillis);
+            this.fzS += currentTimeMillis;
+            er(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cby();
-        if (this.dlN != null) {
-            this.dlN.stop();
+        ceo();
+        if (this.dnv != null) {
+            this.dnv.stop();
         }
-        if (this.iqa > 0 && this.iqc != null) {
-            am amVar = new am("c11685");
-            amVar.bT("service_ip", this.FB);
-            amVar.bT(WebVideoActivityConfig.KEY_VIDEO_URL, this.ipX);
-            amVar.l("video_size", this.iqc.cbO());
-            amVar.P(WebVideoActivityConfig.KEY_VIDEO_DURATION, this.iqc.getDuration());
-            amVar.bT("video_resolution", this.iqc.cbP());
-            amVar.P("loading_count", this.iqb);
-            amVar.l("user_watch_time", this.fuW / 1000);
-            amVar.l("start_play_time", this.iqa);
-            TiebaStatic.log(amVar);
+        if (this.iwq > 0 && this.iws != null) {
+            an anVar = new an("c11685");
+            anVar.bT("service_ip", this.FI);
+            anVar.bT(WebVideoActivityConfig.KEY_VIDEO_URL, this.iwn);
+            anVar.l("video_size", this.iws.ceE());
+            anVar.P(WebVideoActivityConfig.KEY_VIDEO_DURATION, this.iws.getDuration());
+            anVar.bT("video_resolution", this.iws.ceF());
+            anVar.P("loading_count", this.iwr);
+            anVar.l("user_watch_time", this.fzS / 1000);
+            anVar.l("start_play_time", this.iwq);
+            TiebaStatic.log(anVar);
         }
-        if (this.iqc != null && this.iqa > 0) {
-            w.a("stop_play", this.ipX, cbC(), (int) this.iqc.cbO(), this.iqc.getDuration());
+        if (this.iws != null && this.iwq > 0) {
+            w.a("stop_play", this.iwn, ces(), (int) this.iws.ceE(), this.iws.getDuration());
         }
-        cbx();
-        this.iqa = 0L;
-        this.fuW = 0L;
-        this.iqb = 0;
-        this.ipZ = 0L;
+        cen();
+        this.iwq = 0L;
+        this.fzS = 0L;
+        this.iwr = 0;
+        this.iwp = 0L;
         this.mStartTime = 0L;
-        this.iqe = false;
+        this.iwu = false;
     }
 
     public void a(com.baidu.tieba.video.b bVar) {
-        this.iqd = bVar;
+        this.iwt = bVar;
     }
 
-    private void eh(long j) {
-        if (this.iqd != null) {
-            this.iqd.setVideoWatchDuration(this.iqd.getVideoWatchDuration() + j);
+    private void er(long j) {
+        if (this.iwt != null) {
+            this.iwt.setVideoWatchDuration(this.iwt.getVideoWatchDuration() + j);
         }
     }
 
-    private void cbx() {
-        if (this.iqd != null && this.iqe) {
-            TbSingleton.getInstance().putVideoRecord(this.iqd.getThreadId(), (int) (this.iqd.getVideoWatchDuration() / 1000));
+    private void cen() {
+        if (this.iwt != null && this.iwu) {
+            TbSingleton.getInstance().putVideoRecord(this.iwt.getThreadId(), (int) (this.iwt.getVideoWatchDuration() / 1000));
         }
     }
 
-    private void cby() {
-        if (this.fuW >= 0 && this.fuW < 86400000) {
-            if (this.fuW > 0) {
-                am amVar = new am("c11244");
-                amVar.l("obj_duration", this.fuW);
-                amVar.bT("obj_type", this.ipW);
-                amVar.l("playduration", this.iqj);
-                if (!ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
-                    amVar.bT("task_id", TbadkCoreApplication.getInst().getTaskId());
+    private void ceo() {
+        if (this.fzS >= 0 && this.fzS < 86400000) {
+            if (this.fzS > 0) {
+                an anVar = new an("c11244");
+                anVar.l("obj_duration", this.fzS);
+                anVar.bT("obj_type", this.iwm);
+                anVar.l("playduration", this.iwz);
+                if (!aq.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                    anVar.bT("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.ipV != null) {
-                    this.ipV.c(amVar);
+                if (this.iwl != null) {
+                    this.iwl.d(anVar);
                 }
-                TiebaStatic.log(amVar);
-                l.a(this.fuW, this.ipW, this.ipV, "", this.iqj);
-            } else if (this.iqe) {
-                l.a(this.fuW, this.ipW, this.ipV, "", this.iqj);
+                TiebaStatic.log(anVar);
+                l.a(this.fzS, this.iwm, this.iwl, "", this.iwz);
+            } else if (this.iwu) {
+                l.a(this.fzS, this.iwm, this.iwl, "", this.iwz);
             }
         }
     }
@@ -242,90 +242,90 @@ public class n implements d {
     public void onPause() {
         if (this.mStartTime > 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
-            this.fuW += currentTimeMillis;
-            eh(currentTimeMillis);
+            this.fzS += currentTimeMillis;
+            er(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cbx();
-        this.iqe = false;
+        cen();
+        this.iwu = false;
     }
 
     @Override // com.baidu.tieba.play.d
     public void onCompletion() {
         if (this.mStartTime > 0) {
             long currentTimeMillis = System.currentTimeMillis() - this.mStartTime;
-            this.fuW += currentTimeMillis;
-            eh(currentTimeMillis);
+            this.fzS += currentTimeMillis;
+            er(currentTimeMillis);
             this.mStartTime = 0L;
         }
-        cbx();
+        cen();
     }
 
     @Override // com.baidu.tieba.play.d
-    public boolean cbd() {
-        return t.rL(this.ipX) != null;
+    public boolean cdS() {
+        return t.sd(this.iwn) != null;
     }
 
-    public void cbz() {
-        this.ipY = true;
+    public void cep() {
+        this.iwo = true;
     }
 
-    public void Ck(String str) {
-        this.ipW = str;
+    public void CX(String str) {
+        this.iwm = str;
     }
 
     @Override // com.baidu.tieba.play.d
-    public j cbj() {
-        return this.dlN;
+    public j cdY() {
+        return this.dnv;
     }
 
     public void a(j.b bVar) {
-        if (this.dlN != null) {
-            this.dlN.a(bVar);
+        if (this.dnv != null) {
+            this.dnv.a(bVar);
         }
     }
 
-    public v cbA() {
-        return this.iqc;
+    public v ceq() {
+        return this.iws;
     }
 
-    public void cbB() {
-        if (!this.iqf) {
-            com.baidu.adp.lib.g.e.iB().removeCallbacks(this.iql);
-            com.baidu.adp.lib.g.e.iB().postDelayed(this.iql, 100L);
+    public void cer() {
+        if (!this.iwv) {
+            com.baidu.adp.lib.g.e.iK().removeCallbacks(this.iwB);
+            com.baidu.adp.lib.g.e.iK().postDelayed(this.iwB, 100L);
         }
     }
 
     @Override // com.baidu.tieba.play.d
-    public void yq(int i) {
-        if (cbC()) {
-            t.f(this.mContext, this.ipX, i);
+    public void yV(int i) {
+        if (ces()) {
+            t.f(this.mContext, this.iwn, i);
         }
     }
 
     @Override // com.baidu.tieba.play.d
     public void onSeekComplete() {
-        com.baidu.adp.lib.g.e.iB().removeCallbacks(this.iqk);
-        com.baidu.adp.lib.g.e.iB().postDelayed(this.iqk, 1000L);
+        com.baidu.adp.lib.g.e.iK().removeCallbacks(this.iwA);
+        com.baidu.adp.lib.g.e.iK().postDelayed(this.iwA, 1000L);
     }
 
     @Override // com.baidu.tieba.play.d
-    public void cbk() {
-        if (cbC()) {
-            t.as(this.mContext, this.ipX);
+    public void cdZ() {
+        if (ces()) {
+            t.ar(this.mContext, this.iwn);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cbC() {
-        return (this.ipY || this.ald == null || this.ald.equals(this.ipX)) ? false : true;
+    public boolean ces() {
+        return (this.iwo || this.alH == null || this.alH.equals(this.iwn)) ? false : true;
     }
 
     public void setVideoStatsData(z zVar) {
-        this.ipV = zVar;
+        this.iwl = zVar;
     }
 
-    public z cbD() {
-        return this.ipV;
+    public z cet() {
+        return this.iwl;
     }
 }

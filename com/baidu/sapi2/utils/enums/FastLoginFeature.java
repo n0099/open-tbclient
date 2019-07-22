@@ -6,14 +6,9 @@ public enum FastLoginFeature {
     TX_WEIXIN_SSO("tweixin_sso"),
     SINA_WEIBO_SSO("tsina_sso"),
     SINA_WEIBO_WEBVIEW("tsina"),
-    TX_WEIBO_WEBVIEW("tqq"),
     TX_QQ_SSO("qq_sso"),
     QR_LOGIN("qr_app_login"),
-    NM_LOGIN("nuomi_login"),
-    VOICE_LOGIN("voice_login"),
     HUAWEI_LOGIN("huawei_login"),
-    CHUANKE_LOGIN("chuanke"),
-    WANDA_FEIFAN_LOGIN("feifan"),
     MEIZU_SSO("meizu_sso");
     
     private String a;

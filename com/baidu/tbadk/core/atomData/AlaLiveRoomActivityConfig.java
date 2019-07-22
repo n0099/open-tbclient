@@ -1,9 +1,9 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.os.Parcelable;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
-import com.baidu.tbadk.core.data.AlaBroadcastGiftToastData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
@@ -39,6 +39,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_LIVE_ROOM_CLOSE_DIALOG = "live_room_close_dialog";
     public static final String FROM_TYPE_LIVE_ROOM_RANK_LIST = "live_room_rank_list";
     public static final String FROM_TYPE_LIVE_SQUARE_ATTENTION_LIVE = "ala_square_attention_live";
+    public static final String FROM_TYPE_MIS_GLOBAL_BROADCAST = "live_mis_global_broadcast";
+    public static final String FROM_TYPE_MIS_SINGLE_BROADCAST = "live_mis_single_broadcast";
     public static final String FROM_TYPE_OUTSIDE = "safari_play";
     public static final String FROM_TYPE_PB_AUTO_PLAY = "pb_auto_play";
     public static final String FROM_TYPE_PB_PLAY = "pb_play";
@@ -64,7 +66,7 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_TAIL_LIGHT = "tail_light_play";
     public static final String FROM_TYPE_VIDEO_AUTO_PLAY = "video_auto_play";
     public static final String FROM_TYPE_VIDEO_PLAY = "video_play";
-    public static final String LIVE_BROADCAST_GIFT_TOAST_QUEUE = "live_broadcast_gift_toast_queue";
+    public static final String LIVE_COMMON_BROADCAST_QUEUE = "live_common_broadcast_queue";
     public static final String LIVE_ENTRY_LIVE_URL = "live_entry_live_url";
     public static final String LIVE_ENTRY_NAME = "live_entry_name";
     public static final String LIVE_FORBID_VERTICAL_CHANGE_LIVEROOM = "live_forbid_vertical_change_liveroom";
@@ -90,8 +92,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
         return this;
     }
 
-    public AlaLiveRoomActivityConfig setBroadcastGiftQueue(ArrayList<AlaBroadcastGiftToastData> arrayList) {
-        getIntent().putParcelableArrayListExtra(LIVE_BROADCAST_GIFT_TOAST_QUEUE, arrayList);
+    public AlaLiveRoomActivityConfig setCommonBroadcastQueue(ArrayList<Parcelable> arrayList) {
+        getIntent().putParcelableArrayListExtra(LIVE_COMMON_BROADCAST_QUEUE, arrayList);
         return this;
     }
 

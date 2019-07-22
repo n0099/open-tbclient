@@ -5,19 +5,19 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.swan.games.binding.model.JSTypeMismatchException;
 /* loaded from: classes2.dex */
 public class c {
-    public int bio;
-    public String bip;
-    public String bil = "";
+    public int bjb;
+    public String bjc;
+    public String biY = "";
     public int maxLength = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public boolean bim = false;
-    public boolean bin = false;
+    public boolean biZ = false;
+    public boolean bja = false;
 
     public boolean g(com.baidu.swan.games.binding.model.c cVar) throws JSTypeMismatchException {
         try {
-            this.bil = cVar.optString("defaultValue");
+            this.biY = cVar.optString("defaultValue");
             this.maxLength = cVar.optInt("maxLength");
-            this.bim = cVar.optBoolean("multiple");
-            this.bin = cVar.optBoolean("confirmHold");
+            this.biZ = cVar.optBoolean("multiple");
+            this.bja = cVar.optBoolean("confirmHold");
             String optString = cVar.optString("confirmType");
             char c = 65535;
             switch (optString.hashCode()) {
@@ -54,28 +54,28 @@ public class c {
             }
             switch (c) {
                 case 0:
-                    this.bio = 6;
-                    this.bip = "done";
+                    this.bjb = 6;
+                    this.bjc = "done";
                     return true;
                 case 1:
-                    this.bio = 5;
-                    this.bip = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
+                    this.bjb = 5;
+                    this.bjc = UnitedSchemeConstants.UNITED_SCHEME_NEXT;
                     return true;
                 case 2:
-                    this.bio = 3;
-                    this.bip = "search";
+                    this.bjb = 3;
+                    this.bjc = "search";
                     return true;
                 case 3:
-                    this.bio = 2;
-                    this.bip = "go";
+                    this.bjb = 2;
+                    this.bjc = "go";
                     return true;
                 case 4:
-                    this.bio = 4;
-                    this.bip = "send";
+                    this.bjb = 4;
+                    this.bjc = "send";
                     return true;
                 default:
-                    this.bio = 6;
-                    this.bip = "done";
+                    this.bjb = 6;
+                    this.bjc = "done";
                     return true;
             }
         } catch (Exception e) {

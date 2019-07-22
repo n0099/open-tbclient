@@ -21,7 +21,7 @@ public class QrAppLoginResult extends SapiResult {
         this.msgMap.put(1, RESULT_MSG_QRCODE_EXPIRED);
         this.msgMap.put(2, "用户登录状态失效，请重新登录");
         this.msgMap.put(3, RESULT_MSG_INCOMPLETE_USER);
-        this.msgMap.put(160102, "用户登录状态失效，请重新登录");
+        this.msgMap.put(RESULT_CODE_BDUSS_EMPTY, "用户登录状态失效，请重新登录");
         this.msgMap.put(-202, "登录失败");
     }
 }

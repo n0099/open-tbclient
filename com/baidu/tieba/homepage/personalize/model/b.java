@@ -14,34 +14,34 @@ import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes4.dex */
 public class b {
     public static void a(DataRes.Builder builder, List<m> list) {
-        cG(list);
+        cI(list);
         b(builder, list);
     }
 
-    public static void cG(List<m> list) {
+    public static void cI(List<m> list) {
         if (list != null) {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
                 m mVar = (m) v.c(list, i);
                 if (mVar instanceof p) {
-                    ((p) mVar).iy(true);
+                    ((p) mVar).iH(true);
                 }
                 m mVar2 = (m) v.c(list, i + 1);
                 if ((mVar instanceof p) && (mVar2 instanceof p)) {
                     p pVar = (p) mVar;
                     p pVar2 = (p) mVar2;
-                    if (pVar.aYf()) {
-                        pVar2.iy(false);
+                    if (pVar.bae()) {
+                        pVar2.iH(false);
                         if (pVar2 instanceof com.baidu.tieba.homepage.personalize.b.c) {
-                            pVar.iz(false);
+                            pVar.iI(false);
                         }
                     }
                 }
                 if (mVar instanceof com.baidu.tieba.homepage.personalize.b.c) {
                     if ((mVar2 instanceof p) || (mVar2 instanceof h)) {
-                        ((com.baidu.tieba.homepage.personalize.b.c) mVar).iz(true);
+                        ((com.baidu.tieba.homepage.personalize.b.c) mVar).iI(true);
                     } else {
-                        ((com.baidu.tieba.homepage.personalize.b.c) mVar).iz(false);
+                        ((com.baidu.tieba.homepage.personalize.b.c) mVar).iI(false);
                     }
                 }
             }
@@ -50,7 +50,7 @@ public class b {
 
     private static void b(DataRes.Builder builder, List<m> list) {
         com.baidu.tieba.card.data.c cVar;
-        bg abv;
+        bg acx;
         ThreadPersonalized threadPersonalized;
         if (builder != null && list != null) {
             LongSparseArray longSparseArray = new LongSparseArray();
@@ -62,15 +62,15 @@ public class b {
             int Z = v.Z(list);
             for (int i = 0; i < Z; i++) {
                 m mVar = (m) v.c(list, i);
-                if ((mVar instanceof com.baidu.tieba.card.data.c) && (abv = (cVar = (com.baidu.tieba.card.data.c) mVar).abv()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(abv.getTid(), 0L))) != null) {
+                if ((mVar instanceof com.baidu.tieba.card.data.c) && (acx = (cVar = (com.baidu.tieba.card.data.c) mVar).acx()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(com.baidu.adp.lib.g.b.c(acx.getTid(), 0L))) != null) {
                     cVar.setSource(threadPersonalized.source);
                     cVar.setWeight(threadPersonalized.weight);
-                    cVar.uT(threadPersonalized.abtest_tag);
-                    abv.mRecomAbTag = threadPersonalized.abtest_tag;
-                    abv.mRecomSource = threadPersonalized.source;
-                    abv.mRecomWeight = threadPersonalized.weight;
-                    if (abv.adM() != null) {
-                        cVar.d(abv.adM().is_vertical);
+                    cVar.vy(threadPersonalized.abtest_tag);
+                    acx.mRecomAbTag = threadPersonalized.abtest_tag;
+                    acx.mRecomSource = threadPersonalized.source;
+                    acx.mRecomWeight = threadPersonalized.weight;
+                    if (acx.aeO() != null) {
+                        cVar.d(acx.aeO().is_vertical);
                     }
                     List<DislikeReason> list2 = threadPersonalized.dislike_resource;
                     if (list2 != null) {
@@ -78,8 +78,8 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason + "%" + dislikeReason.extra);
                         }
-                        cVar.bGL = sparseArray;
-                        cVar.uV(threadPersonalized.extra);
+                        cVar.bHL = sparseArray;
+                        cVar.vA(threadPersonalized.extra);
                     }
                 }
             }

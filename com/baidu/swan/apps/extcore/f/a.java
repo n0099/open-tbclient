@@ -13,12 +13,12 @@ import java.util.Locale;
 public class a {
     private static final boolean DEBUG = b.DEBUG;
 
-    public static boolean CC() {
-        return f.Ni().getBoolean("key_is_need_update_preset", false);
+    public static boolean Dl() {
+        return f.NX().getBoolean("key_is_need_update_preset", false);
     }
 
-    public static void bf(boolean z) {
-        f.Ni().putBoolean("key_is_need_update_preset", z);
+    public static void bi(boolean z) {
+        f.NX().putBoolean("key_is_need_update_preset", z);
     }
 
     public static void a(File file, List<Long> list) {
@@ -53,16 +53,16 @@ public class a {
         return false;
     }
 
-    public static long ew(@Nullable String str) {
-        String[] ex = ex(str);
-        if (ex == null) {
+    public static long eB(@Nullable String str) {
+        String[] eC = eC(str);
+        if (eC == null) {
             return 0L;
         }
         int i = 0;
         long j = 0;
         while (i < 3) {
             try {
-                j = (j << 16) | (i < ex.length ? Integer.valueOf(ex[i]).intValue() : 0L);
+                j = (j << 16) | (i < eC.length ? Integer.valueOf(eC[i]).intValue() : 0L);
                 i++;
             } catch (NumberFormatException e) {
                 if (DEBUG) {
@@ -86,16 +86,16 @@ public class a {
             }
         }
         if (DEBUG) {
-            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == ew(sb.toString())));
+            Log.d("ExtCore-Utils", "version code: " + j + " ,version name: " + ((Object) sb) + " equals: " + (j == eB(sb.toString())));
         }
         return sb.toString();
     }
 
-    public static boolean CD() {
-        return DEBUG && com.baidu.swan.apps.ac.a.a.Im();
+    public static boolean Dm() {
+        return DEBUG && com.baidu.swan.apps.ac.a.a.IZ();
     }
 
-    private static String[] ex(@Nullable String str) {
+    private static String[] eC(@Nullable String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

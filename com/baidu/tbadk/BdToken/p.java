@@ -1,113 +1,74 @@
 package com.baidu.tbadk.BdToken;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class p {
-    private static View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.BdToken.p.1
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            TbPageContext<?> YM;
-            Object tag = view.getTag();
-            if (tag instanceof CompleteTaskToastData) {
-                CompleteTaskToastData completeTaskToastData = (CompleteTaskToastData) tag;
-                if (!TextUtils.isEmpty(completeTaskToastData.url) && (YM = p.YM()) != null) {
-                    ba.aiz().c(YM, new String[]{completeTaskToastData.url});
-                    com.baidu.tbadk.BdToken.completeTask.c.P(completeTaskToastData.activityId, completeTaskToastData.missionId);
+    private static p bzH;
+    private b bzG;
+    private CustomMessageListener mLikeForumListener = new CustomMessageListener(2001437) { // from class: com.baidu.tbadk.BdToken.p.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (p.this.bzG != null && customResponsedMessage != null) {
+                Object data = customResponsedMessage.getData();
+                if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.a) && ((com.baidu.tieba.tbadkCore.writeModel.a) data).isSuccess) {
+                    p.this.ZJ();
                 }
             }
         }
     };
-
-    private static boolean isMainProcess() {
-        return TbadkCoreApplication.getInst().isMainProcess(true);
-    }
-
-    public static void i(int i, long j) {
-        if (isMainProcess()) {
-            c.Yk().i(i, j);
-        } else {
-            a(i, j, "onActivity");
+    private CustomMessageListener mAccountChangedListener = new CustomMessageListener(2005016) { // from class: com.baidu.tbadk.BdToken.p.2
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage == null) {
+            }
         }
-    }
+    };
 
-    public static void a(int i, int i2, long j) {
-        if (isMainProcess()) {
-            c.Yk().k(i, j);
-        } else {
-            a(i, i2, j, "onResume");
+    public static p ZI() {
+        if (bzH == null) {
+            synchronized (p.class) {
+                if (bzH == null) {
+                    bzH = new p();
+                }
+            }
         }
+        return bzH;
     }
 
-    public static void m(int i, long j) {
-        if (isMainProcess()) {
-            c.Yk().Yp();
-        } else {
-            a(i, j, "onPause");
-        }
+    public void h(BdUniqueId bdUniqueId) {
+        this.mLikeForumListener.setTag(bdUniqueId);
+        this.mAccountChangedListener.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.mLikeForumListener);
+        MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static void n(int i, long j) {
-        if (isMainProcess()) {
-            c.Yk().Yr();
-        } else {
-            a(i, j, "onTouch");
-        }
+    public void q(b bVar) {
+        this.bzG = bVar;
     }
 
-    public static void a(int i, long j, String str) {
-        Bundle bundle = new Bundle();
-        bundle.putString("key_message_type", str);
-        bundle.putInt("key_pageId", i);
-        bundle.putLong("thread_id", j);
-        com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
-    }
-
-    public static void a(int i, int i2, long j, String str) {
-        Bundle bundle = new Bundle();
-        bundle.putString("key_message_type", str);
-        bundle.putInt("key_pageType", i);
-        bundle.putInt("key_pageId", i2);
-        bundle.putLong("thread_id", j);
-        com.baidu.tbadk.n.b.a("broadcast_type_mission_message", bundle);
-    }
-
-    public static TbPageContext YM() {
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity instanceof BaseActivity) {
-            return ((BaseActivity) currentActivity).getPageContext();
-        }
-        if (currentActivity instanceof BaseFragmentActivity) {
-            return ((BaseFragmentActivity) currentActivity).getPageContext();
-        }
-        return null;
-    }
-
-    public static com.baidu.tbadk.core.dialog.f a(CompleteTaskToastData completeTaskToastData) {
-        TbPageContext YM;
-        if (completeTaskToastData == null || (YM = YM()) == null || YM.getUniqueId() == null || completeTaskToastData.pageId != YM.getUniqueId().getId()) {
-            return null;
-        }
-        com.baidu.tbadk.core.dialog.f d = com.baidu.tbadk.core.dialog.f.d(YM.getPageActivity(), completeTaskToastData.message);
-        d.hE(completeTaskToastData.duration);
-        d.setOnClickListener(mOnClickListener);
-        d.setTag(completeTaskToastData);
-        d.afS();
-        return d;
-    }
-
-    public static void a(MotionEvent motionEvent, int i, long j) {
-        if (motionEvent != null && motionEvent.getAction() == 0) {
-            n(i, j);
+    /* JADX INFO: Access modifiers changed from: private */
+    public void ZJ() {
+        if (this.bzG != null && this.bzG.getActivityId() != 0 && this.bzG.YQ() != 0 && this.bzG.getTaskType() == 9) {
+            try {
+                String valueOf = String.valueOf(this.bzG.getActivityId());
+                String valueOf2 = String.valueOf(this.bzG.YQ());
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(valueOf, valueOf2);
+                CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+                completeTaskReqMsg.completeId = jSONObject.toString();
+                completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
+                MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

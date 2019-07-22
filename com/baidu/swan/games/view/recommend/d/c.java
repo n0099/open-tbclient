@@ -9,15 +9,15 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     @NonNull
-    public static d jX(String str) {
+    public static d kf(String str) {
         d dVar = new d();
         try {
             JSONObject jSONObject = new JSONObject(str);
-            dVar.Iz = jSONObject.getInt("errno");
+            dVar.IL = jSONObject.getInt("errno");
             dVar.errMsg = jSONObject.optString("errmsg");
             dVar.data = jSONObject.optJSONObject("data");
         } catch (JSONException e) {
-            dVar.Iz = -1;
+            dVar.IL = -1;
             dVar.errMsg = "network error: response parse failed.";
             if (com.baidu.swan.apps.b.DEBUG) {
                 Log.e("RecommendModelParser", "parseResponseModel error:" + e);
@@ -34,13 +34,13 @@ public class c {
         }
         JSONObject optJSONObject = jSONObject.optJSONObject("game_center");
         if (optJSONObject != null) {
-            bVar.bms = aA(optJSONObject);
+            bVar.bnf = aA(optJSONObject);
         }
-        bVar.bmt = new ArrayList();
+        bVar.bng = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("app_list");
         if (optJSONArray != null) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                bVar.bmt.add(aA(optJSONArray.optJSONObject(i)));
+                bVar.bng.add(aA(optJSONArray.optJSONObject(i)));
             }
         }
         return bVar;

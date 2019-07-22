@@ -16,16 +16,16 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: gO */
+        /* renamed from: gT */
         public AlaBroadcastGiftToastData[] newArray(int i) {
             return new AlaBroadcastGiftToastData[i];
         }
     };
-    public String bEG;
-    public String bEH;
-    public long bEI;
-    public long bEJ;
-    public String bEK;
+    public String bFG;
+    public String bFH;
+    public long bFI;
+    public long bFJ;
+    public String bFK;
     public String gift_name;
     public long live_id;
     public String thumbnail_url;
@@ -35,12 +35,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
 
     public AlaBroadcastGiftToastData(Parcel parcel) {
         this.live_id = parcel.readLong();
-        this.bEG = parcel.readString();
-        this.bEH = parcel.readString();
-        this.bEI = parcel.readLong();
+        this.bFG = parcel.readString();
+        this.bFH = parcel.readString();
+        this.bFI = parcel.readLong();
         this.gift_name = parcel.readString();
-        this.bEJ = parcel.readLong();
-        this.bEK = parcel.readString();
+        this.bFJ = parcel.readLong();
+        this.bFK = parcel.readString();
         this.thumbnail_url = parcel.readString();
     }
 
@@ -48,12 +48,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.live_id = jSONObject.optLong("live_id", 0L);
-            this.bEG = jSONObject.optString("sender");
-            this.bEK = jSONObject.optString("sender_portrait");
-            this.bEH = jSONObject.optString(SocialConstants.PARAM_RECEIVER);
-            this.bEI = jSONObject.optLong("gift_id", 0L);
+            this.bFG = jSONObject.optString("sender");
+            this.bFK = jSONObject.optString("sender_portrait");
+            this.bFH = jSONObject.optString(SocialConstants.PARAM_RECEIVER);
+            this.bFI = jSONObject.optLong("gift_id", 0L);
             this.gift_name = jSONObject.optString("gift_name");
-            this.bEJ = jSONObject.optLong("msg_id", 0L);
+            this.bFJ = jSONObject.optLong("msg_id", 0L);
             this.thumbnail_url = jSONObject.optString("gift_url");
         }
     }
@@ -66,12 +66,12 @@ public class AlaBroadcastGiftToastData extends k implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeLong(this.live_id);
-        parcel.writeString(this.bEG);
-        parcel.writeString(this.bEH);
-        parcel.writeLong(this.bEI);
+        parcel.writeString(this.bFG);
+        parcel.writeString(this.bFH);
+        parcel.writeLong(this.bFI);
         parcel.writeString(this.gift_name);
-        parcel.writeLong(this.bEJ);
-        parcel.writeString(this.bEK);
+        parcel.writeLong(this.bFJ);
+        parcel.writeString(this.bFK);
         parcel.writeString(this.thumbnail_url);
     }
 }

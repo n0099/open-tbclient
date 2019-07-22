@@ -1,13 +1,13 @@
 package com.baidu.tieba.frs.mc;
 /* loaded from: classes4.dex */
 public interface l {
-    void aHt();
+    void aIQ();
 
-    FrsModelController bjK();
+    FrsModelController blM();
 
-    c bjL();
+    c blN();
 
-    com.baidu.tieba.frs.vc.f bjM();
+    com.baidu.tieba.frs.vc.f blO();
 
-    com.baidu.tieba.frs.k bjP();
+    com.baidu.tieba.frs.k blR();
 }

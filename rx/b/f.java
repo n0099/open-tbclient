@@ -3,8 +3,8 @@ package rx.b;
 import rx.j;
 /* loaded from: classes2.dex */
 public final class f {
-    public static <T> j<T> cMv() {
-        return b(a.cMu());
+    public static <T> j<T> cQl() {
+        return b(a.cQk());
     }
 
     public static <T> j<T> b(final rx.e<? super T> eVar) {

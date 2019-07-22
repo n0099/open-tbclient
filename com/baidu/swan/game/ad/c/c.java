@@ -26,9 +26,9 @@ public class c extends d {
         hashMap.put("prod", this.c);
         hashMap.put("at", this.d);
         hashMap.put("fet", this.e);
-        if (this.bdg != null) {
-            hashMap.put(Config.DEVICE_WIDTH, "" + this.bdg.a());
-            hashMap.put("h", "" + this.bdg.b());
+        if (this.bdS != null) {
+            hashMap.put(Config.DEVICE_WIDTH, "" + this.bdS.a());
+            hashMap.put("h", "" + this.bdS.b());
         }
         return hashMap;
     }

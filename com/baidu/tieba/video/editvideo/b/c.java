@@ -92,7 +92,7 @@ public class c {
         return a(bitmap.getWidth(), bitmap.getHeight(), bitmap);
     }
 
-    public static Bitmap k(byte[] bArr, int i, int i2) {
+    public static Bitmap l(byte[] bArr, int i, int i2) {
         Throwable th;
         Bitmap bitmap;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -123,7 +123,7 @@ public class c {
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
     }
 
-    public static void aK(Context context, String str) {
+    public static void aL(Context context, String str) {
         try {
             Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
             intent.setData(UtilHelper.getUriFromFile(new File(str), intent, context));

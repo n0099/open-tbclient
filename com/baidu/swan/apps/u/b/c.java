@@ -9,7 +9,7 @@ public interface c {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void aU(boolean z);
+        void aX(boolean z);
 
         void k(Exception exc);
     }

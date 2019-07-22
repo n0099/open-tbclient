@@ -6,8 +6,8 @@ import java.io.InputStream;
 import org.apache.http.HttpStatus;
 /* loaded from: classes2.dex */
 public class b {
-    public static int DL(int i) {
-        return d.DL(i);
+    public static int Es(int i) {
+        return d.Es(i);
     }
 
     public static int y(InputStream inputStream) {
@@ -29,7 +29,7 @@ public class b {
             while (i2 == 255) {
                 i2 = c.a(inputStream, 1, false);
             }
-            if ((i == 192 && DM(i2)) || i2 == i) {
+            if ((i == 192 && Et(i2)) || i2 == i) {
                 return true;
             }
             if (i2 != 216 && i2 != 1) {
@@ -42,7 +42,7 @@ public class b {
         return false;
     }
 
-    private static boolean DM(int i) {
+    private static boolean Et(int i) {
         switch (i) {
             case 192:
             case 193:

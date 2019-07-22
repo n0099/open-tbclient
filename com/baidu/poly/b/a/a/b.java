@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* loaded from: classes2.dex */
 class b implements Closeable {
-    private byte[] buf;
+    private byte[] ahL;
     private final Charset charset;
     private int end;
     private final InputStream in;
@@ -26,19 +26,19 @@ class b implements Closeable {
         if (i < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
-        if (!charset.equals(c.US_ASCII)) {
+        if (!charset.equals(c.ahN)) {
             throw new IllegalArgumentException("Unsupported encoding");
         }
         this.in = inputStream;
         this.charset = charset;
-        this.buf = new byte[i];
+        this.ahL = new byte[i];
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         synchronized (this.in) {
-            if (this.buf != null) {
-                this.buf = null;
+            if (this.ahL != null) {
+                this.ahL = null;
                 this.in.close();
             }
         }
@@ -48,19 +48,19 @@ class b implements Closeable {
         int i;
         String byteArrayOutputStream;
         synchronized (this.in) {
-            if (this.buf == null) {
+            if (this.ahL == null) {
                 throw new IOException("LineReader is closed");
             }
             if (this.pos >= this.end) {
-                up();
+                uP();
             }
             int i2 = this.pos;
             while (true) {
                 if (i2 != this.end) {
-                    if (this.buf[i2] != 10) {
+                    if (this.ahL[i2] != 10) {
                         i2++;
                     } else {
-                        byteArrayOutputStream = new String(this.buf, this.pos, ((i2 == this.pos || this.buf[i2 + (-1)] != 13) ? i2 : i2 - 1) - this.pos, this.charset.name());
+                        byteArrayOutputStream = new String(this.ahL, this.pos, ((i2 == this.pos || this.ahL[i2 + (-1)] != 13) ? i2 : i2 - 1) - this.pos, this.charset.name());
                         this.pos = i2 + 1;
                     }
                 } else {
@@ -75,19 +75,19 @@ class b implements Closeable {
                         }
                     };
                     loop1: while (true) {
-                        byteArrayOutputStream2.write(this.buf, this.pos, this.end - this.pos);
+                        byteArrayOutputStream2.write(this.ahL, this.pos, this.end - this.pos);
                         this.end = -1;
-                        up();
+                        uP();
                         i = this.pos;
                         while (i != this.end) {
-                            if (this.buf[i] == 10) {
+                            if (this.ahL[i] == 10) {
                                 break loop1;
                             }
                             i++;
                         }
                     }
                     if (i != this.pos) {
-                        byteArrayOutputStream2.write(this.buf, this.pos, i - this.pos);
+                        byteArrayOutputStream2.write(this.ahL, this.pos, i - this.pos);
                     }
                     this.pos = i + 1;
                     byteArrayOutputStream = byteArrayOutputStream2.toString();
@@ -97,12 +97,12 @@ class b implements Closeable {
         }
     }
 
-    public boolean uo() {
+    public boolean uO() {
         return this.end == -1;
     }
 
-    private void up() throws IOException {
-        int read = this.in.read(this.buf, 0, this.buf.length);
+    private void uP() throws IOException {
+        int read = this.in.read(this.ahL, 0, this.ahL.length);
         if (read == -1) {
             throw new EOFException();
         }

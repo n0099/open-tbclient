@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.tbadkCore.u;
@@ -23,14 +23,14 @@ public class f {
         String str = null;
         try {
             String versionName = TbadkCoreApplication.getInst().getVersionName();
-            String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("version_name", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("version_name", "");
             if (!TextUtils.isEmpty(versionName)) {
                 if (versionName.equals(string)) {
-                    str = com.baidu.tbadk.core.sharedPref.b.agM().getString("apk_md5", "");
+                    str = com.baidu.tbadk.core.sharedPref.b.ahO().getString("apk_md5", "");
                 } else {
-                    com.baidu.tbadk.core.sharedPref.b.agM().putString("version_name", versionName);
-                    String f = as.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                    com.baidu.tbadk.core.sharedPref.b.agM().putString("apk_md5", f);
+                    com.baidu.tbadk.core.sharedPref.b.ahO().putString("version_name", versionName);
+                    String f = at.f(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
+                    com.baidu.tbadk.core.sharedPref.b.ahO().putString("apk_md5", f);
                     str = f;
                 }
             }
@@ -59,7 +59,7 @@ public class f {
     public static void a(Context context, VersionData versionData) {
         String str = LivenessStat.TYPE_STRING_DEFAULT;
         try {
-            str = as.d(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
+            str = at.d(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
         } catch (PackageManager.NameNotFoundException e) {
             BdLog.detailException(e);
         } catch (NumberFormatException e2) {
@@ -79,7 +79,7 @@ public class f {
         bundle.putString("downurl", versionData.getUrl());
         bundle.putString("versionname", versionData.getNewVersion());
         bundle.putString("iconurl", versionData.getTiebaIconUrl());
-        bundle.putString("updatetime", ap.d(new Date(System.currentTimeMillis())));
+        bundle.putString("updatetime", aq.d(new Date(System.currentTimeMillis())));
         bundle.putString("size", versionData.getSize());
         bundle.putString("signmd5", str);
         bundle.putString("tj", str + context.getString(R.string.app_name));

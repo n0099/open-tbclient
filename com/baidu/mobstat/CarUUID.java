@@ -89,11 +89,11 @@ public class CarUUID {
             try {
             } catch (Exception e2) {
                 fileOutputStream = openFileOutput;
-                ca.a(fileOutputStream);
+                bu.a(fileOutputStream);
                 return false;
             }
             if (!a(openFileOutput, str)) {
-                ca.a(openFileOutput);
+                bu.a(openFileOutput);
                 return false;
             } else if (Build.VERSION.SDK_INT >= 21) {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
@@ -101,14 +101,14 @@ public class CarUUID {
                 if (a(new File(applicationInfo.dataDir), 457)) {
                 }
                 z = false;
-                ca.a(openFileOutput);
+                bu.a(openFileOutput);
                 return z;
             } else {
-                ca.a(openFileOutput);
+                bu.a(openFileOutput);
                 return true;
             }
         } catch (Throwable th) {
-            ca.a(null);
+            bu.a(null);
             throw th;
         }
     }
@@ -127,14 +127,14 @@ public class CarUUID {
             }
             try {
                 z = a(fileOutputStream, str);
-                ca.a(fileOutputStream);
+                bu.a(fileOutputStream);
             } catch (Exception e2) {
-                ca.a(fileOutputStream);
+                bu.a(fileOutputStream);
                 return z;
             } catch (Throwable th2) {
                 th = th2;
                 fileOutputStream2 = fileOutputStream;
-                ca.a(fileOutputStream2);
+                bu.a(fileOutputStream2);
                 throw th;
             }
         }
@@ -159,15 +159,15 @@ public class CarUUID {
                 if (!a.matcher(str).matches()) {
                     str = null;
                 }
-                ca.a(fileInputStream);
+                bu.a(fileInputStream);
                 return str;
             } catch (Exception e2) {
                 fileInputStream2 = fileInputStream;
-                ca.a(fileInputStream2);
+                bu.a(fileInputStream2);
                 return null;
             } catch (Throwable th2) {
                 th = th2;
-                ca.a(fileInputStream);
+                bu.a(fileInputStream);
                 throw th;
             }
         }

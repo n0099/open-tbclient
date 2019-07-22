@@ -1,19 +1,19 @@
 package com.baidu.tieba.video;
 /* loaded from: classes.dex */
 public class i {
-    public static boolean cqX() {
-        return com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_guide_count", 0) < com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_guide_max_count", 0) && com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_no_behavior_count", 0) >= 2;
+    public static boolean ctI() {
+        return com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_video_guide_count", 0) < com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_video_guide_max_count", 0) && com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_no_behavior_count", 0) >= 2;
     }
 
-    public static void cqY() {
-        com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_video_guide_count", com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_guide_count", 0) + 1);
+    public static void ctJ() {
+        com.baidu.tbadk.core.sharedPref.b.ahO().putInt("key_video_guide_count", com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_video_guide_count", 0) + 1);
     }
 
-    public static void cqZ() {
-        com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_no_behavior_count", com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_no_behavior_count", 0) + 1);
+    public static void ctK() {
+        com.baidu.tbadk.core.sharedPref.b.ahO().putInt("key_no_behavior_count", com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_no_behavior_count", 0) + 1);
     }
 
-    public static void cra() {
-        com.baidu.tbadk.core.sharedPref.b.agM().putInt("key_no_behavior_count", 0);
+    public static void ctL() {
+        com.baidu.tbadk.core.sharedPref.b.ahO().putInt("key_no_behavior_count", 0);
     }
 }

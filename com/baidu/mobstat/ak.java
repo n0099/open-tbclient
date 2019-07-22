@@ -1,34 +1,125 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
-import java.lang.Thread;
-/* JADX INFO: Access modifiers changed from: package-private */
+import android.app.Activity;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.Window;
+import com.baidu.mobstat.al;
 /* loaded from: classes6.dex */
-public class ak implements Thread.UncaughtExceptionHandler {
-    private static final ak a = new ak();
-    private Thread.UncaughtExceptionHandler b;
-    private Context c;
+public class ak {
+    private static volatile boolean a = true;
+    private a b;
+    private Activity c;
+    private Handler d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            switch (message.what) {
+                case 100:
+                    if (ak.this.b != null) {
+                        ak.this.b.a();
+                        return;
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+    };
 
-    public static ak a() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+    }
+
+    public ak(a aVar) {
+        this.b = aVar;
+    }
+
+    public static void a(boolean z) {
+        if (z) {
+            an.a();
+        }
+        a = z;
+    }
+
+    public static boolean a() {
         return a;
     }
 
-    private ak() {
-    }
-
-    public void a(Context context) {
-        this.c = context;
-        if (this.b == null) {
-            this.b = Thread.getDefaultUncaughtExceptionHandler();
-            Thread.setDefaultUncaughtExceptionHandler(this);
+    public void a(Activity activity) {
+        if (activity != null) {
+            this.c = activity;
+            b(activity);
         }
     }
 
-    @Override // java.lang.Thread.UncaughtExceptionHandler
-    public void uncaughtException(Thread thread, Throwable th) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(this.c, th, true);
-        if (!this.b.equals(this)) {
-            this.b.uncaughtException(thread, th);
+    public void b() {
+        c(this.c);
+        this.c = null;
+    }
+
+    private void b(Activity activity) {
+        d(activity);
+    }
+
+    private void c(Activity activity) {
+        Window window;
+        if (activity != null && (window = activity.getWindow()) != null) {
+            window.setCallback(a(window.getCallback()));
+        }
+    }
+
+    private Window.Callback a(Window.Callback callback) {
+        Window.Callback callback2 = callback;
+        while (callback2 != null && (callback2 instanceof al)) {
+            callback2 = ((al) callback2).a();
+        }
+        return callback2;
+    }
+
+    private void d(Activity activity) {
+        Window.Callback callback;
+        Window window = activity.getWindow();
+        if (window != null && (callback = window.getCallback()) != null) {
+            window.setCallback(new al(callback, new al.a() { // from class: com.baidu.mobstat.ak.2
+                @Override // com.baidu.mobstat.al.a
+                public void a(MotionEvent motionEvent) {
+                    ak.a(true);
+                    switch (motionEvent.getActionMasked()) {
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        default:
+                            return;
+                        case 5:
+                            int pointerCount = motionEvent.getPointerCount();
+                            if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
+                                ak.this.d.sendEmptyMessageDelayed(100, 2500L);
+                                return;
+                            } else if (pointerCount > 3) {
+                                ak.this.d.removeMessages(100);
+                                return;
+                            } else {
+                                return;
+                            }
+                        case 6:
+                            if (motionEvent.getEventTime() - motionEvent.getDownTime() < 2500) {
+                                ak.this.d.removeMessages(100);
+                                return;
+                            }
+                            return;
+                    }
+                }
+
+                @Override // com.baidu.mobstat.al.a
+                public void a(KeyEvent keyEvent) {
+                }
+            }));
         }
     }
 }

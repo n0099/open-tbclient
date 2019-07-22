@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.flow.CoverFlowView;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -30,51 +30,51 @@ import com.baidu.tieba.square.square.f;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class e extends BaseAdapter {
-    private f iUL;
-    private ArrayList<bd> iUM;
-    private ArrayList<f.b> iUN;
-    private ArrayList<f.a> iUO;
-    private com.baidu.tieba.square.view.a iUP;
+    private f jbb;
+    private ArrayList<bd> jbc;
+    private ArrayList<f.b> jbd;
+    private ArrayList<f.a> jbe;
+    private com.baidu.tieba.square.view.a jbf;
     private Activity mActivity;
     private TbPageContext<Object> mContext;
 
     public e(TbPageContext<Object> tbPageContext) {
-        this.iUP = null;
+        this.jbf = null;
         if (tbPageContext != null && tbPageContext.getOrignalPage() != null) {
             this.mContext = tbPageContext;
             this.mActivity = tbPageContext.getPageActivity();
-            this.iUP = new com.baidu.tieba.square.view.a(tbPageContext);
-            CoverFlowView<g> clu = this.iUP.clu();
+            this.jbf = new com.baidu.tieba.square.view.a(tbPageContext);
+            CoverFlowView<g> com2 = this.jbf.com();
             if (tbPageContext.getOrignalPage() instanceof SquareActivity) {
-                clu.setSwipeControlInterface((SquareActivity) tbPageContext.getOrignalPage());
+                com2.setSwipeControlInterface((SquareActivity) tbPageContext.getOrignalPage());
             }
-            clu.setDisableParentEvent(false);
+            com2.setDisableParentEvent(false);
         }
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.iUL = fVar;
-            this.iUM = this.iUL.clm();
-            this.iUN = this.iUL.clk();
-            this.iUO = this.iUL.cll();
-            this.iUP.setData(this.iUM);
+            this.jbb = fVar;
+            this.jbc = this.jbb.coe();
+            this.jbd = this.jbb.coc();
+            this.jbe = this.jbb.cod();
+            this.jbf.setData(this.jbc);
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         int i = 0;
-        if (this.iUN != null && this.iUN.size() != 0) {
-            i = 0 + this.iUN.size();
+        if (this.jbd != null && this.jbd.size() != 0) {
+            i = 0 + this.jbd.size();
         }
-        if (this.iUM != null && this.iUM.size() != 0) {
+        if (this.jbc != null && this.jbc.size() != 0) {
             i++;
         }
         if (i != 0) {
             i++;
         }
-        if (this.iUO != null && this.iUO.size() > 0) {
+        if (this.jbe != null && this.jbe.size() > 0) {
             return i + 1;
         }
         return i;
@@ -88,22 +88,22 @@ public class e extends BaseAdapter {
             return null;
         }
         if (itemViewType == 0) {
-            return this.iUM;
+            return this.jbc;
         }
         if (itemViewType == 1) {
-            return this.iUO;
+            return this.jbe;
         }
         if (itemViewType == 2 || itemViewType == 3) {
-            if (this.iUM == null || this.iUM.size() == 0) {
+            if (this.jbc == null || this.jbc.size() == 0) {
                 i2 = 0;
             }
-            if (this.iUO != null && this.iUO.size() != 0) {
+            if (this.jbe != null && this.jbe.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.iUN.size()) {
+            if (i - i2 < 0 || i - i2 >= this.jbd.size()) {
                 return null;
             }
-            return this.iUN.get(i - i2);
+            return this.jbd.get(i - i2);
         }
         return null;
     }
@@ -122,31 +122,31 @@ public class e extends BaseAdapter {
     public int getItemViewType(int i) {
         int i2 = 1;
         if (i == 0) {
-            if (this.iUM != null && this.iUM.size() != 0) {
+            if (this.jbc != null && this.jbc.size() != 0) {
                 return 0;
             }
-            if (this.iUO != null && this.iUO.size() != 0) {
+            if (this.jbe != null && this.jbe.size() != 0) {
                 return 1;
             }
         }
-        if (i != 1 || this.iUM == null || this.iUM.size() == 0 || this.iUO == null || this.iUO.size() == 0) {
+        if (i != 1 || this.jbc == null || this.jbc.size() == 0 || this.jbe == null || this.jbe.size() == 0) {
             if (i == getCount() - 1) {
                 return 4;
             }
-            if (this.iUM == null || this.iUM.size() == 0) {
+            if (this.jbc == null || this.jbc.size() == 0) {
                 i2 = 0;
             }
-            if (this.iUO != null && this.iUO.size() != 0) {
+            if (this.jbe != null && this.jbe.size() != 0) {
                 i2++;
             }
-            if (i - i2 < 0 || i - i2 >= this.iUN.size()) {
+            if (i - i2 < 0 || i - i2 >= this.jbd.size()) {
                 return -1;
             }
-            f.b bVar = this.iUN.get(i - i2);
+            f.b bVar = this.jbd.get(i - i2);
             if (bVar == null) {
                 return -1;
             }
-            if (bVar.iVi) {
+            if (bVar.jby) {
                 return 2;
             }
             return 3;
@@ -158,7 +158,7 @@ public class e extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         int itemViewType = getItemViewType(i);
         if (itemViewType == 0) {
-            return this.iUP.getView(i, view, viewGroup);
+            return this.jbf.getView(i, view, viewGroup);
         }
         if (view == null) {
             view = a(i, viewGroup, itemViewType);
@@ -176,9 +176,9 @@ public class e extends BaseAdapter {
         if (i2 == 2) {
             View inflate = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.square_list_title_view, (ViewGroup) null);
             a aVar = new a();
-            aVar.iVa = (RelativeLayout) inflate.findViewById(R.id.title_layout);
+            aVar.jbq = (RelativeLayout) inflate.findViewById(R.id.title_layout);
             aVar.titleText = (TextView) inflate.findViewById(R.id.title_text);
-            aVar.iVb = (TextView) inflate.findViewById(R.id.more_text);
+            aVar.jbr = (TextView) inflate.findViewById(R.id.more_text);
             inflate.setTag(aVar);
             return inflate;
         } else if (i2 != 3) {
@@ -188,7 +188,7 @@ public class e extends BaseAdapter {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         TiebaStatic.eventStat(e.this.mContext.getPageActivity(), "square_bottom_find_more", "click", 1, new Object[0]);
-                        e.this.cli();
+                        e.this.coa();
                     }
                 });
                 return inflate2;
@@ -197,16 +197,16 @@ public class e extends BaseAdapter {
         } else {
             View inflate3 = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.square_forum_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.eTR = (TextView) inflate3.findViewById(R.id.forum_name);
-            aVar2.iUU = (BarImageView) inflate3.findViewById(R.id.forum_image);
-            aVar2.iUV = (TextView) inflate3.findViewById(R.id.forum_rank);
-            aVar2.iUW = (TextView) inflate3.findViewById(R.id.forum_intro);
-            aVar2.iUX = (TextView) inflate3.findViewById(R.id.like_num_tv);
-            aVar2.iUY = (TextView) inflate3.findViewById(R.id.thread_num_tv);
-            aVar2.iUZ = (TextView) inflate3.findViewById(R.id.category_name_tv);
-            aVar2.fcq = inflate3.findViewById(R.id.vertical_line_view);
-            aVar2.iVd = (TextView) inflate3.findViewById(R.id.enter_forum);
-            aVar2.iVc = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
+            aVar2.eYS = (TextView) inflate3.findViewById(R.id.forum_name);
+            aVar2.jbk = (BarImageView) inflate3.findViewById(R.id.forum_image);
+            aVar2.jbl = (TextView) inflate3.findViewById(R.id.forum_rank);
+            aVar2.jbm = (TextView) inflate3.findViewById(R.id.forum_intro);
+            aVar2.jbn = (TextView) inflate3.findViewById(R.id.like_num_tv);
+            aVar2.jbo = (TextView) inflate3.findViewById(R.id.thread_num_tv);
+            aVar2.jbp = (TextView) inflate3.findViewById(R.id.category_name_tv);
+            aVar2.fhq = inflate3.findViewById(R.id.vertical_line_view);
+            aVar2.jbt = (TextView) inflate3.findViewById(R.id.enter_forum);
+            aVar2.jbs = (LinearLayout) inflate3.findViewById(R.id.enter_forum_ll);
             inflate3.setTag(aVar2);
             return inflate3;
         }
@@ -216,28 +216,28 @@ public class e extends BaseAdapter {
         if (view != null) {
             int itemViewType = getItemViewType(i);
             if (itemViewType == 1) {
-                cN(view);
+                cQ(view);
             } else if (itemViewType == 2) {
                 Object item = getItem(i);
                 if (item instanceof f.b) {
                     final f.b bVar = (f.b) item;
                     a aVar = (a) view.getTag();
-                    if (bVar.iVp == 0) {
-                        aVar.iVa.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds30), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds26), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds20), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds10));
+                    if (bVar.jbF == 0) {
+                        aVar.jbq.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds30), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds26), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds20), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds10));
                     } else {
-                        aVar.iVa.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds30), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds6), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds20), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds10));
+                        aVar.jbq.setPadding(this.mContext.getResources().getDimensionPixelSize(R.dimen.ds30), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds6), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds20), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds10));
                     }
                     aVar.titleText.setText(bVar.title);
-                    if (bVar.iVj) {
-                        aVar.iVb.setVisibility(8);
+                    if (bVar.jbz) {
+                        aVar.jbr.setVisibility(8);
                         return;
                     }
-                    aVar.iVb.setVisibility(0);
-                    aVar.iVb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.2
+                    aVar.jbr.setVisibility(0);
+                    aVar.jbr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.2
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            TiebaStatic.eventStat(e.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.iVp));
-                            ba.aiz().c(e.this.mContext, new String[]{bVar.link});
+                            TiebaStatic.eventStat(e.this.mActivity, "square_category_more", "click", 1, "loc", Integer.valueOf(bVar.jbF));
+                            bb.ajC().c(e.this.mContext, new String[]{bVar.link});
                         }
                     });
                 }
@@ -247,50 +247,50 @@ public class e extends BaseAdapter {
                     final f.b bVar2 = (f.b) item2;
                     final a aVar2 = (a) view.getTag();
                     if (aVar2 != null) {
-                        aVar2.iUU.startLoad(bVar2.iVk, 10, false);
-                        aVar2.eTR.setText(bVar2.forumName);
-                        aVar2.iUV.setText(bVar2.iVm);
-                        aVar2.iUW.setText(bVar2.iVn);
-                        long j = bVar2.iVo;
+                        aVar2.jbk.startLoad(bVar2.jbA, 10, false);
+                        aVar2.eYS.setText(bVar2.forumName);
+                        aVar2.jbl.setText(bVar2.jbC);
+                        aVar2.jbm.setText(bVar2.jbD);
+                        long j = bVar2.jbE;
                         if (j < 0) {
                             j = 0;
                         }
                         long j2 = bVar2.threadNum;
                         long j3 = j2 >= 0 ? j2 : 0L;
-                        aVar2.iUX.setText(this.mContext.getString(R.string.attention) + ap.aP(j));
-                        aVar2.iUY.setText(this.mContext.getString(R.string.text_post) + ap.aP(j3));
-                        if (bVar2.iVj && !StringUtils.isNull(bVar2.iVl)) {
-                            aVar2.iUZ.setText(UtilHelper.getFixedText(bVar2.iVl, 5));
-                            aVar2.iUZ.setVisibility(0);
-                            aVar2.fcq.setVisibility(0);
+                        aVar2.jbn.setText(this.mContext.getString(R.string.attention) + aq.aQ(j));
+                        aVar2.jbo.setText(this.mContext.getString(R.string.text_post) + aq.aQ(j3));
+                        if (bVar2.jbz && !StringUtils.isNull(bVar2.jbB)) {
+                            aVar2.jbp.setText(UtilHelper.getFixedText(bVar2.jbB, 5));
+                            aVar2.jbp.setVisibility(0);
+                            aVar2.fhq.setVisibility(0);
                         } else {
-                            aVar2.iUZ.setVisibility(8);
-                            aVar2.fcq.setVisibility(8);
+                            aVar2.jbp.setVisibility(8);
+                            aVar2.fhq.setVisibility(8);
                         }
-                        aVar2.iUZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.3
+                        aVar2.jbp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(e.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.iVq));
-                                ba.aiz().c(e.this.mContext, new String[]{bVar2.link});
+                                TiebaStatic.eventStat(e.this.mActivity, "square_module_menu", "click", 1, "loc", Integer.valueOf(bVar2.jbG));
+                                bb.ajC().c(e.this.mContext, new String[]{bVar2.link});
                             }
                         });
-                        aVar2.iVd.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.4
+                        aVar2.jbt.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(e.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.iVp), "loc", Integer.valueOf(bVar2.iVq));
+                                TiebaStatic.eventStat(e.this.mActivity, "square_module_entry", "click", 1, "moduleloc", Integer.valueOf(bVar2.jbF), "loc", Integer.valueOf(bVar2.jbG));
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(e.this.mContext.getPageActivity()).createNormalCfg(bVar2.forumName, FrsActivityConfig.FRS_FROM_SQUARE).setCallFrom(5)));
                             }
                         });
-                        aVar2.iVc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.5
+                        aVar2.jbs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.5
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                aVar2.iVd.performClick();
+                                aVar2.jbt.performClick();
                             }
                         });
                         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.6
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                TiebaStatic.eventStat(e.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.iVp), "loc", Integer.valueOf(bVar2.iVq));
+                                TiebaStatic.eventStat(e.this.mActivity, "square_module_content", "click", 1, "moduleloc", Integer.valueOf(bVar2.jbF), "loc", Integer.valueOf(bVar2.jbG));
                                 if (TbadkCoreApplication.getInst().isRegistedIntent(ForumDetailActivityConfig.class)) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(e.this.mContext.getPageActivity(), bVar2.forumId + "", ForumDetailActivityConfig.FromType.BAR_SQUARE)));
                                 } else {
@@ -304,20 +304,20 @@ public class e extends BaseAdapter {
         }
     }
 
-    private void cN(View view) {
+    private void cQ(View view) {
         if (view != null) {
-            if (this.iUO == null || this.iUO.size() == 0) {
+            if (this.jbe == null || this.jbe.size() == 0) {
                 view.setVisibility(8);
                 return;
             }
             view.setVisibility(0);
-            int size = this.iUO.size();
+            int size = this.jbe.size();
             int i = size > 4 ? 4 : size;
             View[] viewArr = {view.findViewById(R.id.empty_view_01), view.findViewById(R.id.empty_view_02), view.findViewById(R.id.empty_view_03), view.findViewById(R.id.empty_view_04), view.findViewById(R.id.empty_view_05)};
             View[] viewArr2 = {view.findViewById(R.id.entry_ll_01), view.findViewById(R.id.entry_ll_02), view.findViewById(R.id.entry_ll_03), view.findViewById(R.id.entry_ll_04)};
             for (int i2 = 0; i2 < viewArr2.length; i2++) {
                 if (i2 < i) {
-                    final f.a aVar = this.iUO.get(i2);
+                    final f.a aVar = this.jbe.get(i2);
                     if (aVar == null) {
                         viewArr2[i2].setVisibility(8);
                     } else {
@@ -330,7 +330,7 @@ public class e extends BaseAdapter {
                                 tbImageView.setTag(Integer.valueOf(i2));
                                 tbImageView.setDrawerType(1);
                                 tbImageView.setIsRound(true);
-                                tbImageView.startLoad(aVar.iVg, 10, false);
+                                tbImageView.startLoad(aVar.jbw, 10, false);
                             }
                             View childAt2 = linearLayout.getChildAt(1);
                             if (childAt2 instanceof TextView) {
@@ -339,10 +339,10 @@ public class e extends BaseAdapter {
                             linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.square.square.e.7
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (aVar.iVh) {
-                                        e.this.cli();
+                                    if (aVar.jbx) {
+                                        e.this.coa();
                                     } else {
-                                        ba.aiz().c(e.this.mContext, new String[]{aVar.link});
+                                        bb.ajC().c(e.this.mContext, new String[]{aVar.link});
                                     }
                                     if (view2.getTag() instanceof Integer) {
                                         TiebaStatic.eventStat(e.this.mActivity, "square_entry_content", "click", 1, "loc", "" + ((Integer) view2.getTag()).intValue());
@@ -362,13 +362,13 @@ public class e extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cli() {
+    public void coa() {
         MessageManager.getInstance().sendMessage(new CustomMessage(2902026, new BarFolderFirstDirActivityConfig(this.mContext.getPageActivity(), SingleSquareActivityConfig.makeStatisticsParam("forum_browse", "all"))));
     }
 
     public void onChangeSkinType(int i) {
-        if (this.iUP != null) {
-            this.iUP.onChangeSkinType(i);
+        if (this.jbf != null) {
+            this.jbf.onChangeSkinType(i);
         }
         notifyDataSetChanged();
     }
@@ -376,18 +376,18 @@ public class e extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a {
-        TextView eTR;
-        View fcq;
-        BarImageView iUU;
-        TextView iUV;
-        TextView iUW;
-        TextView iUX;
-        TextView iUY;
-        TextView iUZ;
-        RelativeLayout iVa;
-        TextView iVb;
-        LinearLayout iVc;
-        TextView iVd;
+        TextView eYS;
+        View fhq;
+        BarImageView jbk;
+        TextView jbl;
+        TextView jbm;
+        TextView jbn;
+        TextView jbo;
+        TextView jbp;
+        RelativeLayout jbq;
+        TextView jbr;
+        LinearLayout jbs;
+        TextView jbt;
         TextView titleText;
 
         private a() {

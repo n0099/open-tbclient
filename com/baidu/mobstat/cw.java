@@ -1,26 +1,21 @@
 package com.baidu.mobstat;
-
-import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public interface cw {
+public class cw extends cy implements da {
+    private short a;
+    private String b;
 
-    /* loaded from: classes6.dex */
-    public enum a {
-        CONTINUOUS,
-        TEXT,
-        BINARY,
-        PING,
-        PONG,
-        CLOSING
+    @Override // com.baidu.mobstat.cz
+    public String a() {
+        return this.b;
     }
 
-    void a(cw cwVar) throws co;
+    @Override // com.baidu.mobstat.da
+    public void a(String str) {
+        this.b = str;
+    }
 
-    ByteBuffer c();
-
-    boolean d();
-
-    boolean e();
-
-    a f();
+    @Override // com.baidu.mobstat.da
+    public void a(short s) {
+        this.a = s;
+    }
 }

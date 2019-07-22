@@ -39,12 +39,12 @@ public class b extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             com.baidu.swan.games.r.c.h(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
             return false;
-        } else if (!bVar.Lv().aD(context)) {
+        } else if (!bVar.Mi().aD(context)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not login");
             com.baidu.swan.games.r.c.h(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(10004, "user not login").toString());
             return true;
         } else {
-            com.baidu.swan.apps.ae.e.LH().aQg.get().vy().vZ().c((Activity) context, appKey).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.ae.e.Mv().aQQ.get().vZ().wA().c((Activity) context, appKey).g(new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: a */
@@ -58,7 +58,7 @@ public class b extends z {
                     }
                     callbackHandler.handleSchemeDispatchCallback(optString, wrapCallbackParams.toString());
                 }
-            }).MA();
+            }).No();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }

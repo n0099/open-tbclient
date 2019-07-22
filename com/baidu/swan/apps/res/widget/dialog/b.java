@@ -15,49 +15,49 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends g {
-    private ViewGroup aMV;
-    private FrameLayout aMW;
-    private FrameLayout aMX;
-    private View aMY;
-    private List<a> aMZ;
-    private int aNa;
+    private ViewGroup aNE;
+    private FrameLayout aNF;
+    private FrameLayout aNG;
+    private View aNH;
+    private List<a> aNI;
+    private int aNJ;
     protected Context mContext;
 
     /* loaded from: classes2.dex */
     public interface c {
-        void U(View view);
+        void W(View view);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b(Context context) {
         super(context, a.i.NoTitleDialog);
-        this.aMZ = new ArrayList();
-        this.aNa = 2;
+        this.aNI = new ArrayList();
+        this.aNJ = 2;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        KF().ad(this.aMV);
+        Ls().af(this.aNE);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.aMV = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, KF().KN(), false);
-        this.aMW = (FrameLayout) this.aMV.findViewById(a.f.hv_content);
-        this.aMY = this.aMV.findViewById(a.f.hv_divider);
-        this.aMX = (FrameLayout) this.aMV.findViewById(a.f.hv_btn_content);
-        View f = f(this.aMW);
+        this.aNE = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, Ls().LA(), false);
+        this.aNF = (FrameLayout) this.aNE.findViewById(a.f.hv_content);
+        this.aNH = this.aNE.findViewById(a.f.hv_divider);
+        this.aNG = (FrameLayout) this.aNE.findViewById(a.f.hv_btn_content);
+        View f = f(this.aNF);
         if (f != null) {
-            this.aMW.addView(f);
+            this.aNF.addView(f);
         }
-        KA();
-        A(this.aMZ);
+        Ln();
+        A(this.aNI);
     }
 
-    private void KA() {
-        this.aMY.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
+    private void Ln() {
+        this.aNH.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
     }
 
     protected View f(ViewGroup viewGroup) {
@@ -66,9 +66,9 @@ public class b extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void z(List<a> list) {
-        this.aMZ.clear();
+        this.aNI.clear();
         if (list != null) {
-            this.aMZ.addAll(list);
+            this.aNI.addAll(list);
         }
     }
 
@@ -76,7 +76,7 @@ public class b extends g {
         if (list != null) {
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            if (list.size() > this.aNa) {
+            if (list.size() > this.aNJ) {
                 linearLayout.setOrientation(1);
             } else {
                 linearLayout.setOrientation(0);
@@ -84,15 +84,15 @@ public class b extends g {
             for (int i = 0; i < list.size(); i++) {
                 linearLayout.addView(a(list.get(i), linearLayout));
                 if (i < list.size() - 1) {
-                    if (list.size() > this.aNa) {
-                        linearLayout.addView(dl(1));
+                    if (list.size() > this.aNJ) {
+                        linearLayout.addView(m16do(1));
                     } else {
-                        linearLayout.addView(dl(0));
+                        linearLayout.addView(m16do(0));
                     }
                 }
             }
-            this.aMX.removeAllViews();
-            this.aMX.addView(linearLayout);
+            this.aNG.removeAllViews();
+            this.aNG.addView(linearLayout);
         }
     }
 
@@ -103,9 +103,10 @@ public class b extends g {
         return linearLayout2;
     }
 
-    private View dl(int i) {
+    /* renamed from: do  reason: not valid java name */
+    private View m16do(int i) {
         View view = new View(this.mContext);
-        view.setBackgroundColor(this.aMW.getResources().getColor(a.c.aiapps_dialog_gray));
+        view.setBackgroundColor(this.aNF.getResources().getColor(a.c.aiapps_dialog_gray));
         if (i == 1) {
             view.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
         } else {
@@ -116,41 +117,41 @@ public class b extends g {
 
     /* loaded from: classes2.dex */
     public class d {
-        TextView aNe;
-        LinearLayout aNf;
-        b aNg;
+        TextView aNN;
+        LinearLayout aNO;
+        b aNP;
         TextView text;
 
         public d(View view, b bVar) {
             if (view != null) {
                 this.text = (TextView) view.findViewById(a.f.hv_btn_text);
-                this.aNe = (TextView) view.findViewById(a.f.hv_btn_subtext);
-                this.aNf = (LinearLayout) view;
-                this.aNg = bVar;
+                this.aNN = (TextView) view.findViewById(a.f.hv_btn_subtext);
+                this.aNO = (LinearLayout) view;
+                this.aNP = bVar;
             }
         }
 
         public void b(final a aVar) {
             if (aVar != null) {
                 this.text.setText(aVar.mText);
-                if (aVar.aNb > 0) {
-                    this.text.setTextColor(b.this.aMW.getResources().getColor(aVar.aNb));
+                if (aVar.aNK > 0) {
+                    this.text.setTextColor(b.this.aNF.getResources().getColor(aVar.aNK));
                 }
                 if (!TextUtils.isEmpty(aVar.mSubText)) {
-                    this.aNe.setVisibility(0);
-                    this.aNe.setText(aVar.mSubText);
+                    this.aNN.setVisibility(0);
+                    this.aNN.setText(aVar.mSubText);
                 } else {
-                    this.aNe.setVisibility(8);
+                    this.aNN.setVisibility(8);
                 }
-                if (aVar.aNc > 0) {
-                    this.aNe.setTextColor(b.this.aMW.getResources().getColor(aVar.aNc));
+                if (aVar.aNL > 0) {
+                    this.aNN.setTextColor(b.this.aNF.getResources().getColor(aVar.aNL));
                 }
-                this.aNf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
+                this.aNO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.b.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.aNg.dismiss();
-                        if (aVar.aNd != null) {
-                            aVar.aNd.U(view);
+                        d.this.aNP.dismiss();
+                        if (aVar.aNM != null) {
+                            aVar.aNM.W(view);
                         }
                     }
                 });
@@ -160,14 +161,14 @@ public class b extends g {
 
     /* renamed from: com.baidu.swan.apps.res.widget.dialog.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0169b extends g.a {
+    public static class C0166b extends g.a {
         private List<a> list;
 
-        public C0169b(Context context) {
+        public C0166b(Context context) {
             super(context);
             this.list = new ArrayList();
-            ce(false);
-            ca(false);
+            ch(false);
+            cd(false);
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
@@ -175,7 +176,7 @@ public class b extends g {
             return new b(context);
         }
 
-        public C0169b a(a aVar) {
+        public C0166b a(a aVar) {
             if (aVar != null) {
                 this.list.add(aVar);
             }
@@ -183,8 +184,8 @@ public class b extends g {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Aq() {
-            b bVar = (b) super.Aq();
+        public g AX() {
+            b bVar = (b) super.AX();
             bVar.z(this.list);
             return bVar;
         }
@@ -192,17 +193,17 @@ public class b extends g {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public int aNb;
-        public int aNc = -1;
-        public c aNd;
+        public int aNK;
+        public int aNL = -1;
+        public c aNM;
         public CharSequence mSubText;
         public CharSequence mText;
 
         public a(CharSequence charSequence, int i, c cVar) {
-            this.aNb = -1;
+            this.aNK = -1;
             this.mText = charSequence;
-            this.aNb = i;
-            this.aNd = cVar;
+            this.aNK = i;
+            this.aNM = cVar;
         }
     }
 }

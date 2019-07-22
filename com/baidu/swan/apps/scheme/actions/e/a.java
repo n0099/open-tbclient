@@ -35,12 +35,12 @@ public final class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final C0172a gZ = C0172a.gZ(unitedSchemeEntity.getParam("params"));
-        if (gZ == null || !gZ.isValid()) {
+        final C0169a hg = C0169a.hg(unitedSchemeEntity.getParam("params"));
+        if (hg == null || !hg.isValid()) {
             c.e(Headers.LOCATION, "params is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (TextUtils.isEmpty(gZ.aSL)) {
+        } else if (TextUtils.isEmpty(hg.aTv)) {
             c.e(Headers.LOCATION, "empty cb");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
@@ -49,16 +49,16 @@ public final class a extends z {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         } else {
-            bVar.Lu().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.e.a.1
+            bVar.Mh().a((Activity) context, "mapp_location", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.e.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: b */
                 public void D(Boolean bool) {
                     c.i("GetLocationAction", "authorized result is " + bool);
                     if (bool.booleanValue()) {
-                        a.this.a(context, callbackHandler, gZ);
+                        a.this.a(context, callbackHandler, hg);
                     } else {
-                        callbackHandler.handleSchemeDispatchCallback(gZ.aSL, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
+                        callbackHandler.handleSchemeDispatchCallback(hg.aTv, UnitedSchemeUtility.wrapCallbackParams(1001, "the location is not authorized").toString());
                     }
                 }
             });
@@ -68,15 +68,15 @@ public final class a extends z {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final Context context, final CallbackHandler callbackHandler, final C0172a c0172a) {
-        if (ac.OU()) {
-            b(context, callbackHandler, c0172a);
+    public void a(final Context context, final CallbackHandler callbackHandler, final C0169a c0169a) {
+        if (ac.PK()) {
+            b(context, callbackHandler, c0169a);
         } else {
-            e.FV().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0109a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.2
-                @Override // com.baidu.swan.apps.ab.a.InterfaceC0109a
+            e.GF().a(0, new String[]{"android.permission.ACCESS_FINE_LOCATION", "android.permission.ACCESS_COARSE_LOCATION"}, new a.InterfaceC0106a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.2
+                @Override // com.baidu.swan.apps.ab.a.InterfaceC0106a
                 public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                     if (i != 0) {
-                        callbackHandler.handleSchemeDispatchCallback(c0172a.aSL, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
+                        callbackHandler.handleSchemeDispatchCallback(c0169a.aTv, UnitedSchemeUtility.wrapCallbackParams(1001, "RequestCode error").toString());
                         if (a.DEBUG) {
                             Log.e("GetLocationAction", "onRequestPermissionsResult requestCode error.");
                         }
@@ -85,7 +85,7 @@ public final class a extends z {
                     }
                     for (int i2 : iArr) {
                         if (i2 == -1) {
-                            callbackHandler.handleSchemeDispatchCallback(c0172a.aSL, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
+                            callbackHandler.handleSchemeDispatchCallback(c0169a.aTv, UnitedSchemeUtility.wrapCallbackParams(401, "User reject").toString());
                             if (a.DEBUG) {
                                 Log.d("GetLocationAction", "onRequestPermissionsResult user reject.");
                             }
@@ -93,33 +93,33 @@ public final class a extends z {
                             return;
                         }
                     }
-                    a.this.b(context, callbackHandler, c0172a);
+                    a.this.b(context, callbackHandler, c0169a);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(Context context, final CallbackHandler callbackHandler, final C0172a c0172a) {
+    public void b(Context context, final CallbackHandler callbackHandler, final C0169a c0169a) {
         String str;
-        if (TextUtils.equals(c0172a.mType, CoordinateType.GCJ02)) {
+        if (TextUtils.equals(c0169a.mType, CoordinateType.GCJ02)) {
             str = CoordinateType.GCJ02;
         } else {
             str = CoordinateType.WGS84;
         }
-        com.baidu.swan.apps.u.a.DU().a(str, false, c0172a.aSK, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
+        com.baidu.swan.apps.u.a.ED().a(str, false, c0169a.aTu, new n.a() { // from class: com.baidu.swan.apps.scheme.actions.e.a.3
             @Override // com.baidu.swan.apps.u.b.n.a
             public void a(b bVar) {
                 if (a.DEBUG) {
                     Log.d("GetLocationAction", "convert info : " + bVar.toJSON());
                 }
-                callbackHandler.handleSchemeDispatchCallback(c0172a.aSL, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0169a.aTv, UnitedSchemeUtility.wrapCallbackParams(bVar.toJSON(), 0).toString());
             }
 
             @Override // com.baidu.swan.apps.u.b.n.a
-            public void onFailed(int i) {
+            public void cC(int i) {
                 c.e(Headers.LOCATION, "request location error code : " + i);
-                callbackHandler.handleSchemeDispatchCallback(c0172a.aSL, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+                callbackHandler.handleSchemeDispatchCallback(c0169a.aTv, UnitedSchemeUtility.wrapCallbackParams(i).toString());
             }
         });
     }
@@ -127,31 +127,31 @@ public final class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.scheme.actions.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0172a {
-        public boolean aSK;
-        public String aSL;
+    public static class C0169a {
+        public boolean aTu;
+        public String aTv;
         public String mType;
 
-        private C0172a() {
+        private C0169a() {
         }
 
-        public static C0172a gZ(String str) {
+        public static C0169a hg(String str) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            C0172a c0172a = new C0172a();
+            C0169a c0169a = new C0169a();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                c0172a.mType = jSONObject.optString("type");
-                if (TextUtils.isEmpty(c0172a.mType)) {
-                    c0172a.mType = CoordinateType.WGS84;
+                c0169a.mType = jSONObject.optString("type");
+                if (TextUtils.isEmpty(c0169a.mType)) {
+                    c0169a.mType = CoordinateType.WGS84;
                 }
-                c0172a.aSK = jSONObject.optBoolean("altitude");
-                c0172a.aSL = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(c0172a.aSL)) {
+                c0169a.aTu = jSONObject.optBoolean("altitude");
+                c0169a.aTv = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(c0169a.aTv)) {
                     return null;
                 }
-                return c0172a;
+                return c0169a;
             } catch (JSONException e) {
                 if (a.DEBUG) {
                     Log.e("GetLocationAction", "parse failed: " + Log.getStackTraceString(e));
@@ -162,7 +162,7 @@ public final class a extends z {
         }
 
         public boolean isValid() {
-            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, CoordinateType.GCJ02)) && !TextUtils.isEmpty(this.aSL);
+            return (TextUtils.equals(this.mType, CoordinateType.WGS84) || TextUtils.equals(this.mType, CoordinateType.GCJ02)) && !TextUtils.isEmpty(this.aTv);
         }
     }
 }

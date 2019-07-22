@@ -31,11 +31,11 @@ public class d extends z {
             return false;
         } else {
             int optInt = c.optInt("useExtension");
-            if (!com.baidu.swan.apps.extcore.debug.b.Cr().exists()) {
+            if (!com.baidu.swan.apps.extcore.debug.b.Da().exists()) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, context.getResources().getString(a.h.aiapps_debug_no_extension_core));
                 return false;
             }
-            com.baidu.swan.apps.ac.a.a.bE(com.baidu.swan.apps.extcore.debug.a.cu(optInt));
+            com.baidu.swan.apps.ac.a.a.bH(com.baidu.swan.apps.extcore.debug.a.cu(optInt));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }

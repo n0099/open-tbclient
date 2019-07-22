@@ -35,8 +35,8 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            eVar.bsc = string;
-            eVar.category = cursor.getInt(columnIndex2);
+            eVar.bsR = string;
+            eVar.ave = cursor.getInt(columnIndex2);
             eVar.versionName = cursor.getString(columnIndex3);
             eVar.versionCode = cursor.getInt(columnIndex4);
             eVar.size = cursor.getLong(columnIndex5);
@@ -47,7 +47,7 @@ public abstract class b<T> {
             eVar.currentSize = cursor.getLong(columnIndex11);
             eVar.createTime = cursor.getLong(columnIndex12);
             eVar.updateTime = cursor.getLong(columnIndex13);
-            eVar.aaz = cursor.getLong(columnIndex9);
+            eVar.aaW = cursor.getLong(columnIndex9);
             eVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -56,8 +56,8 @@ public abstract class b<T> {
 
     public ContentValues g(com.baidu.swan.pms.model.e eVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", eVar.bsc);
-        contentValues.put("category", Integer.valueOf(eVar.category));
+        contentValues.put("bundle_id", eVar.bsR);
+        contentValues.put("category", Integer.valueOf(eVar.ave));
         contentValues.put("version_name", eVar.versionName);
         contentValues.put("version_code", Integer.valueOf(eVar.versionCode));
         contentValues.put("size", Long.valueOf(eVar.size));

@@ -6,14 +6,14 @@ public final class R {
     public static final class string {
         public static final int activity_not_found = 0x7f080039;
         public static final int app_name = 0x7f08018d;
-        public static final int united_scheme_err_message_action_acl_check_fail = 0x7f080cc3;
-        public static final int united_scheme_err_message_action_allow_close = 0x7f080cc4;
-        public static final int united_scheme_err_message_action_notfound = 0x7f080cc5;
-        public static final int united_scheme_err_message_action_sec_check_fail = 0x7f080cc6;
-        public static final int united_scheme_err_message_module_notfound = 0x7f080cc7;
-        public static final int united_scheme_err_message_not_support = 0x7f080cc8;
-        public static final int united_scheme_err_message_ok = 0x7f080cc9;
-        public static final int united_scheme_err_message_params_parse_fail = 0x7f080cca;
-        public static final int united_scheme_err_message_parse_fail = 0x7f080ccb;
+        public static final int united_scheme_err_message_action_acl_check_fail = 0x7f080cce;
+        public static final int united_scheme_err_message_action_allow_close = 0x7f080ccf;
+        public static final int united_scheme_err_message_action_notfound = 0x7f080cd0;
+        public static final int united_scheme_err_message_action_sec_check_fail = 0x7f080cd1;
+        public static final int united_scheme_err_message_module_notfound = 0x7f080cd2;
+        public static final int united_scheme_err_message_not_support = 0x7f080cd3;
+        public static final int united_scheme_err_message_ok = 0x7f080cd4;
+        public static final int united_scheme_err_message_params_parse_fail = 0x7f080cd5;
+        public static final int united_scheme_err_message_parse_fail = 0x7f080cd6;
     }
 }

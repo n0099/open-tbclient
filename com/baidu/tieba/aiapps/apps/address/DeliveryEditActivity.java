@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.j;
 import com.baidu.swan.apps.res.widget.b.d;
@@ -24,11 +23,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
-    private com.baidu.tieba.aiapps.apps.address.c.b cZS;
-    private EditAddressView cZT;
-    private g cZU;
-    private boolean cZV;
-    private String cZW;
+    private com.baidu.tieba.aiapps.apps.address.c.b dbr;
+    private EditAddressView dbs;
+    private g dbt;
+    private boolean dbu;
+    private String dbv;
     private String mType;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -40,124 +39,124 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     }
 
     private void init() {
-        this.cZT = new EditAddressView(this, this.cZS);
-        setContentView(this.cZT);
-        aDl();
-        this.cZT.setDeliveryEditChangedListener(this);
-        if (!c.aDC().aDD()) {
+        this.dbs = new EditAddressView(this, this.dbr);
+        setContentView(this.dbs);
+        aEB();
+        this.dbs.setDeliveryEditChangedListener(this);
+        if (!c.aES().aET()) {
             j.a(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.aDC().initData();
+                    c.aES().initData();
                 }
             }, "initRegionData");
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.address.a.b.a
-    public void gk(boolean z) {
-        if (z == this.cZV) {
-            gm(!z);
+    public void go(boolean z) {
+        if (z == this.dbu) {
+            gq(!z);
         }
     }
 
-    private void aDl() {
-        SwanAppBdActionBar aDd = aDd();
-        if (aDd != null) {
-            aDd.setLeftFirstViewVisibility(false);
-            aDd.setRightExitViewVisibility(false);
-            aDd.setLeftSecondViewVisibility(0);
-            aDd.setLeftSecondViewText(getString(R.string.delivery_cancel));
-            aDd.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.2
+    private void aEB() {
+        SwanAppBdActionBar aEt = aEt();
+        if (aEt != null) {
+            aEt.setLeftFirstViewVisibility(false);
+            aEt.setRightExitViewVisibility(false);
+            aEt.setLeftSecondViewVisibility(0);
+            aEt.setLeftSecondViewText(getString(R.string.delivery_cancel));
+            aEt.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    DeliveryEditActivity.this.aDn();
+                    DeliveryEditActivity.this.aED();
                 }
             });
-            aDd.setRightTxtZone2Visibility(0);
-            aDd.setRightImgZone2Enable(false);
-            aDd.setRightTxtZone2Text(R.string.delivery_save);
-            gm(false);
+            aEt.setRightTxtZone2Visibility(0);
+            aEt.setRightImgZone2Enable(false);
+            aEt.setRightTxtZone2Text(R.string.delivery_save);
+            gq(false);
             if (TextUtils.equals(this.mType, "update")) {
-                aDd.setTitle(R.string.delivery_title_edit);
+                aEt.setTitle(R.string.delivery_title_edit);
             } else if (TextUtils.equals(this.mType, "add")) {
-                aDd.setTitle(R.string.delivery_title_add);
+                aEt.setTitle(R.string.delivery_title_add);
             }
         }
     }
 
-    private boolean aDm() {
-        return this.cZT.getEditAdapter().aDm();
+    private boolean aEC() {
+        return this.dbs.getEditAdapter().aEC();
     }
 
-    public void aDn() {
-        if (aDm()) {
-            this.cZU = new g.a(this).gw("退出后已编辑的信息不会保存").d("退出编辑").c("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.3
+    public void aED() {
+        if (aEC()) {
+            this.dbt = new g.a(this).gC("退出后已编辑的信息不会保存").d("退出编辑").c("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    DeliveryEditActivity.this.gl(false);
+                    DeliveryEditActivity.this.gp(false);
                 }
-            }).d("取消", null).KK();
+            }).d("取消", null).Lx();
         } else {
-            gl(false);
+            gp(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gl(boolean z) {
+    public void gp(boolean z) {
         Intent intent = new Intent();
         intent.putExtra("dataChanged", z);
         setResult(-1, intent);
         finish();
     }
 
-    public void gm(boolean z) {
-        SwanAppBdActionBar aDd = aDd();
-        if (aDd != null) {
+    public void gq(boolean z) {
+        SwanAppBdActionBar aEt = aEt();
+        if (aEt != null) {
             if (z) {
-                aDd.setRightTxtZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.4
+                aEt.setRightTxtZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        DeliveryEditActivity.this.aDo();
+                        DeliveryEditActivity.this.aEE();
                     }
                 });
             } else {
-                aDd.setRightTxtZone2OnClickListener(null);
+                aEt.setRightTxtZone2OnClickListener(null);
             }
-            this.cZV = z;
-            gn(com.baidu.swan.apps.u.a.DW().Ev());
+            this.dbu = z;
+            gr(com.baidu.swan.apps.u.a.EF().Fe());
         }
     }
 
-    private void gn(boolean z) {
+    private void gr(boolean z) {
         int parseColor;
-        SwanAppBdActionBar aDd = aDd();
-        if (aDd != null) {
+        SwanAppBdActionBar aEt = aEt();
+        if (aEt != null) {
             if (z) {
-                if (this.cZV) {
+                if (this.dbu) {
                     parseColor = Color.parseColor("#1D3A7F");
                 } else {
                     parseColor = Color.parseColor("#555555");
                 }
-            } else if (this.cZV) {
+            } else if (this.dbu) {
                 parseColor = Color.parseColor("#3C76FF");
             } else {
                 parseColor = Color.parseColor("#33666666");
             }
-            aDd.setRightTxtZone1TextColor(parseColor);
+            aEt.setRightTxtZone1TextColor(parseColor);
         }
     }
 
-    public void aDo() {
-        Map<String, Object> deliveryEditData = this.cZT.getDeliveryEditData();
+    public void aEE() {
+        Map<String, Object> deliveryEditData = this.dbs.getDeliveryEditData();
         if (o(deliveryEditData)) {
             final com.baidu.tieba.aiapps.apps.address.c.b r = com.baidu.tieba.aiapps.apps.address.c.b.r(deliveryEditData);
-            if (!TextUtils.isEmpty(this.cZS.id)) {
-                r.id = this.cZS.id;
+            if (!TextUtils.isEmpty(this.dbr.id)) {
+                r.id = this.dbr.id;
             }
             if (r != null) {
-                a.C0280a c0280a = new a.C0280a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.5
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0280a, com.baidu.tieba.aiapps.apps.address.b.b
+                a.C0277a c0277a = new a.C0277a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.5
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void ai(String str, int i) {
                         try {
                             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
@@ -173,28 +172,28 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
                         }
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0280a, com.baidu.tieba.aiapps.apps.address.b.b
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void aj(String str, int i) {
                         DeliveryEditActivity.this.a(r, "update");
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0280a, com.baidu.tieba.aiapps.apps.address.b.b
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void onFailure() {
                         DeliveryEditActivity.this.dismissLoading();
-                        d.a(AppRuntime.getAppContext(), "保存失败").Ld();
+                        d.a(AppRuntime.getAppContext(), "保存失败").LQ();
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0280a, com.baidu.tieba.aiapps.apps.address.b.b
-                    public void sz(String str) {
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                    public void sS(String str) {
                         DeliveryEditActivity.this.dismissLoading();
-                        d.a(AppRuntime.getAppContext(), str).Ld();
+                        d.a(AppRuntime.getAppContext(), str).LQ();
                     }
                 };
                 showLoading();
                 if (!TextUtils.isEmpty(r.id)) {
-                    com.baidu.tieba.aiapps.apps.address.b.a.aDx().c(r, c0280a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().c(r, c0277a);
                 } else {
-                    com.baidu.tieba.aiapps.apps.address.b.a.aDx().a(r, c0280a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().a(r, c0277a);
                 }
             }
         }
@@ -203,13 +202,13 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.tieba.aiapps.apps.address.c.b bVar, String str) {
         boolean z;
-        bVar.aDK();
-        List<com.baidu.tieba.aiapps.apps.address.c.b> aDA = com.baidu.tieba.aiapps.apps.address.b.a.aDx().aDA();
+        bVar.aFa();
+        List<com.baidu.tieba.aiapps.apps.address.c.b> aEQ = com.baidu.tieba.aiapps.apps.address.b.a.aEN().aEQ();
         if (TextUtils.equals(str, "add")) {
-            if (aDA.size() == 0) {
-                bVar.daV = true;
+            if (aEQ.size() == 0) {
+                bVar.dct = true;
             }
-            aDA.add(0, bVar);
+            aEQ.add(0, bVar);
             z = true;
         } else {
             z = false;
@@ -217,31 +216,31 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
         if (TextUtils.equals(str, "update")) {
             int i = 0;
             while (true) {
-                if (i >= aDA.size()) {
+                if (i >= aEQ.size()) {
                     break;
                 }
-                com.baidu.tieba.aiapps.apps.address.c.b bVar2 = aDA.get(i);
+                com.baidu.tieba.aiapps.apps.address.c.b bVar2 = aEQ.get(i);
                 if (!TextUtils.equals(bVar2.id, bVar.id)) {
                     i++;
                 } else {
                     bVar2.f(bVar);
-                    aDA.add(0, aDA.remove(i));
+                    aEQ.add(0, aEQ.remove(i));
                     z = true;
                     break;
                 }
             }
         }
         dismissLoading();
-        gl(z);
+        gp(z);
         return z;
     }
 
     private boolean o(Map<String, Object> map) {
-        if (map.containsKey(ISapiAccount.SAPI_ACCOUNT_PHONE) && !com.baidu.tieba.aiapps.apps.address.c.b.sC(String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE)))) {
-            d.a(this, "电话号码格式不正确").Ld();
+        if (map.containsKey("phone") && !com.baidu.tieba.aiapps.apps.address.c.b.sV(String.valueOf(map.get("phone")))) {
+            d.a(this, "电话号码格式不正确").LQ();
             return false;
-        } else if (map.containsKey("zipcode") && !com.baidu.tieba.aiapps.apps.address.c.b.sD(String.valueOf(map.get("zipcode")))) {
-            d.a(this, "邮编格式不正确").Ld();
+        } else if (map.containsKey("zipcode") && !com.baidu.tieba.aiapps.apps.address.c.b.sW(String.valueOf(map.get("zipcode")))) {
+            d.a(this, "邮编格式不正确").LQ();
             return false;
         } else {
             return true;
@@ -250,13 +249,13 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
 
     private void parseIntent(Intent intent) {
         if (intent != null) {
-            this.cZW = intent.getStringExtra("openSource");
+            this.dbv = intent.getStringExtra("openSource");
             Bundle bundleExtra = intent.getBundleExtra("data");
             if (bundleExtra != null) {
                 String string = bundleExtra.getString("addrInfo");
                 if (!TextUtils.isEmpty(string)) {
                     try {
-                        this.cZS = com.baidu.tieba.aiapps.apps.address.c.b.bf(new JSONObject(string));
+                        this.dbr = com.baidu.tieba.aiapps.apps.address.c.b.bf(new JSONObject(string));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

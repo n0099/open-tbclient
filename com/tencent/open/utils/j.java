@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -301,7 +302,7 @@ public class j {
         if (str == null) {
             return false;
         }
-        return str.startsWith("http://") || str.startsWith("https://");
+        return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
     public static boolean h(String str) {

@@ -3,18 +3,18 @@ package com.baidu.card;
 import android.content.Context;
 /* loaded from: classes3.dex */
 public abstract class f extends b<com.baidu.tbadk.core.data.a> {
-    private int topMargin;
+    private int VN;
 
     public f(Context context) {
         super(context);
-        this.topMargin = 0;
+        this.VN = 0;
     }
 
     public int getTopMargin() {
-        return this.topMargin;
+        return this.VN;
     }
 
     public void setTopMargin(int i) {
-        this.topMargin = i;
+        this.VN = i;
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.l;
@@ -105,9 +106,9 @@ public class c extends b {
         }
         JSONObject jSONObject = new JSONObject();
         String a = PushSettings.a(context);
-        String a2 = com.baidu.android.pushservice.j.e.a(context);
+        String cuid = DeviceId.getCUID(context);
         jSONObject.put("channel_id", a);
-        jSONObject.put("cuid", a2);
+        jSONObject.put("cuid", cuid);
         jSONObject.put("aksinfo", c);
         return com.baidu.android.pushservice.j.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
     }

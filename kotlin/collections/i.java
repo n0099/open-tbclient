@@ -28,9 +28,9 @@ public class i extends h {
         return c;
     }
 
-    public static final <T> HashSet<T> M(T[] tArr) {
+    public static final <T> HashSet<T> N(T[] tArr) {
         kotlin.jvm.internal.p.k(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.DT(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(aa.EC(tArr.length)));
     }
 
     public static final <T> List<T> asList(T[] tArr) {

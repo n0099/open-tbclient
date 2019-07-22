@@ -9,31 +9,31 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Kj = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Ku = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
+        public final T Kv;
         public final Class<? extends T> clazz;
-        public final T obj;
     }
 
     static {
-        Kj.put(Boolean.class, Boolean.TYPE);
-        Kj.put(Byte.class, Byte.TYPE);
-        Kj.put(Character.class, Character.TYPE);
-        Kj.put(Short.class, Short.TYPE);
-        Kj.put(Integer.class, Integer.TYPE);
-        Kj.put(Float.class, Float.TYPE);
-        Kj.put(Long.class, Long.TYPE);
-        Kj.put(Double.class, Double.TYPE);
-        Kj.put(Boolean.TYPE, Boolean.TYPE);
-        Kj.put(Byte.TYPE, Byte.TYPE);
-        Kj.put(Character.TYPE, Character.TYPE);
-        Kj.put(Short.TYPE, Short.TYPE);
-        Kj.put(Integer.TYPE, Integer.TYPE);
-        Kj.put(Float.TYPE, Float.TYPE);
-        Kj.put(Long.TYPE, Long.TYPE);
-        Kj.put(Double.TYPE, Double.TYPE);
+        Ku.put(Boolean.class, Boolean.TYPE);
+        Ku.put(Byte.class, Byte.TYPE);
+        Ku.put(Character.class, Character.TYPE);
+        Ku.put(Short.class, Short.TYPE);
+        Ku.put(Integer.class, Integer.TYPE);
+        Ku.put(Float.class, Float.TYPE);
+        Ku.put(Long.class, Long.TYPE);
+        Ku.put(Double.class, Double.TYPE);
+        Ku.put(Boolean.TYPE, Boolean.TYPE);
+        Ku.put(Byte.TYPE, Byte.TYPE);
+        Ku.put(Character.TYPE, Character.TYPE);
+        Ku.put(Short.TYPE, Short.TYPE);
+        Ku.put(Integer.TYPE, Integer.TYPE);
+        Ku.put(Float.TYPE, Float.TYPE);
+        Ku.put(Long.TYPE, Long.TYPE);
+        Ku.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Kj.containsKey(clsArr[i]) && Kj.get(clsArr[i]).equals(Kj.get(clsArr2[i]))) {
+                if (Ku.containsKey(clsArr[i]) && Ku.get(clsArr[i]).equals(Ku.get(clsArr2[i]))) {
                     return true;
                 }
             }
@@ -158,7 +158,7 @@ public class d {
             }
             Object obj = objArr[i2];
             if (obj != null && (obj instanceof a)) {
-                objArr2[i2] = ((a) obj).obj;
+                objArr2[i2] = ((a) obj).Kv;
             } else {
                 objArr2[i2] = obj;
             }

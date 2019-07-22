@@ -1,171 +1,63 @@
 package com.baidu.mobstat;
 
-import android.annotation.SuppressLint;
-import android.view.ActionMode;
-import android.view.KeyEvent;
-import android.view.KeyboardShortcutGroup;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
-import android.view.SearchEvent;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.accessibility.AccessibilityEvent;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.ubc.UBC;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class as implements Window.Callback {
-    private Window.Callback a;
-    private a b;
+public class as {
+    private static final as e = new as();
+    private boolean a = false;
+    private float b = 50.0f;
+    private long c = 500;
+    private volatile boolean d;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(KeyEvent keyEvent);
-
-        void a(MotionEvent motionEvent);
+    public static as a() {
+        return e;
     }
 
-    public Window.Callback a() {
+    public void a(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("sv");
+                if (jSONObject != null) {
+                    int optInt = jSONObject.optInt("close");
+                    String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+                    String optString2 = jSONObject.optString(UBC.CONTENT_KEY_DURATION);
+                    this.a = optInt != 0;
+                    if (!TextUtils.isEmpty(optString)) {
+                        try {
+                            this.b = Float.valueOf(optString).floatValue();
+                        } catch (Exception e2) {
+                        }
+                    }
+                    if (!TextUtils.isEmpty(optString2)) {
+                        try {
+                            this.c = Long.valueOf(optString2).longValue();
+                        } catch (Exception e3) {
+                        }
+                    }
+                }
+            } catch (Exception e4) {
+            }
+            this.d = true;
+        }
+    }
+
+    public boolean b() {
         return this.a;
     }
 
-    public as(Window.Callback callback, a aVar) {
-        this.a = callback;
-        this.b = aVar;
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchGenericMotionEvent(MotionEvent motionEvent) {
-        return this.a.dispatchGenericMotionEvent(motionEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchKeyEvent(KeyEvent keyEvent) {
-        if (this.b != null) {
-            this.b.a(keyEvent);
+    public float c() {
+        float f = 0.0f;
+        float f2 = this.b;
+        if (f2 >= 0.0f) {
+            f = f2 > 100.0f ? 100.0f : f2;
         }
-        return this.a.dispatchKeyEvent(keyEvent);
+        return f / 100.0f;
     }
 
-    @Override // android.view.Window.Callback
-    public boolean dispatchKeyShortcutEvent(KeyEvent keyEvent) {
-        return this.a.dispatchKeyShortcutEvent(keyEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchPopulateAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
-        return this.a.dispatchPopulateAccessibilityEvent(accessibilityEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.b != null) {
-            this.b.a(motionEvent);
-        }
-        return this.a.dispatchTouchEvent(motionEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean dispatchTrackballEvent(MotionEvent motionEvent) {
-        return this.a.dispatchTrackballEvent(motionEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onActionModeFinished(ActionMode actionMode) {
-        this.a.onActionModeFinished(actionMode);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onActionModeStarted(ActionMode actionMode) {
-        this.a.onActionModeStarted(actionMode);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onAttachedToWindow() {
-        this.a.onAttachedToWindow();
-    }
-
-    @Override // android.view.Window.Callback
-    public void onContentChanged() {
-        this.a.onContentChanged();
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i, Menu menu) {
-        return this.a.onCreatePanelMenu(i, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public View onCreatePanelView(int i) {
-        return this.a.onCreatePanelView(i);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onDetachedFromWindow() {
-        this.a.onDetachedFromWindow();
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onMenuItemSelected(int i, MenuItem menuItem) {
-        return this.a.onMenuItemSelected(i, menuItem);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onMenuOpened(int i, Menu menu) {
-        return this.a.onMenuOpened(i, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onPanelClosed(int i, Menu menu) {
-        this.a.onPanelClosed(i, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
-        return this.a.onPreparePanel(i, view, menu);
-    }
-
-    @Override // android.view.Window.Callback
-    public boolean onSearchRequested() {
-        return this.a.onSearchRequested();
-    }
-
-    @Override // android.view.Window.Callback
-    @SuppressLint({"NewApi"})
-    public boolean onSearchRequested(SearchEvent searchEvent) {
-        return this.a.onSearchRequested(searchEvent);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onWindowAttributesChanged(WindowManager.LayoutParams layoutParams) {
-        this.a.onWindowAttributesChanged(layoutParams);
-    }
-
-    @Override // android.view.Window.Callback
-    public void onWindowFocusChanged(boolean z) {
-        this.a.onWindowFocusChanged(z);
-    }
-
-    @Override // android.view.Window.Callback
-    @SuppressLint({"NewApi"})
-    public void onPointerCaptureChanged(boolean z) {
-        this.a.onPointerCaptureChanged(z);
-    }
-
-    @Override // android.view.Window.Callback
-    @SuppressLint({"NewApi"})
-    public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> list, Menu menu, int i) {
-        this.a.onProvideKeyboardShortcuts(list, menu, i);
-    }
-
-    @Override // android.view.Window.Callback
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback) {
-        return this.a.onWindowStartingActionMode(callback);
-    }
-
-    @Override // android.view.Window.Callback
-    @SuppressLint({"NewApi"})
-    public ActionMode onWindowStartingActionMode(ActionMode.Callback callback, int i) {
-        return this.a.onWindowStartingActionMode(callback, i);
+    public long d() {
+        return this.c;
     }
 }

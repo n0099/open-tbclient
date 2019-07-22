@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.i;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
@@ -15,8 +15,8 @@ import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.LoopADView;
 /* loaded from: classes3.dex */
 public class AdCardLoopPicView extends AdCardBaseView {
-    private View iBL;
-    private LoopADView iBM;
+    private View iId;
+    private LoopADView iIe;
 
     public AdCardLoopPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -28,45 +28,45 @@ public class AdCardLoopPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    protected void cL(View view) {
-        this.iBL = view.findViewById(R.id.advert_loop_ad_container);
-        this.iBM = (LoopADView) view.findViewById(R.id.loop_view);
+    protected void cO(View view) {
+        this.iId = view.findViewById(R.id.advert_loop_ad_container);
+        this.iIe = (LoopADView) view.findViewById(R.id.loop_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(final AdCard adCard) {
         AdCard.d[] dVarArr = adCard.threadPicList;
-        boolean abf = i.abb().abf();
-        this.iBM.setBussinessType(getBusinessType());
-        if (!abf) {
-            this.iBL.setVisibility(8);
+        boolean ace = i.aca().ace();
+        this.iIe.setBussinessType(getBusinessType());
+        if (!ace) {
+            this.iId.setVisibility(8);
             return;
         }
-        this.iBL.setVisibility(0);
-        G(this.iBL, 0);
-        this.iBM.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
+        this.iId.setVisibility(0);
+        G(this.iId, 0);
+        this.iIe.setOnClickCallbackListener(new LoopADView.a() { // from class: com.baidu.tieba.recapp.lego.view.AdCardLoopPicView.1
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void b(TbImageView tbImageView, AdCard.b bVar) {
                 AdCardLoopPicView.this.a(tbImageView, bVar, new AdCardBaseView.b(adCard));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
-            public String CZ(String str) {
-                return AdCardLoopPicView.this.CW(ap.i(str, 100, "..."));
+            public String DM(String str) {
+                return AdCardLoopPicView.this.DJ(aq.i(str, 100, "..."));
             }
 
             @Override // com.baidu.tieba.recapp.lego.view.LoopADView.a
             public void reset() {
-                if (AdCardLoopPicView.this.iBL != null) {
-                    AdCardLoopPicView.this.iBL.setScrollX(0);
+                if (AdCardLoopPicView.this.iId != null) {
+                    AdCardLoopPicView.this.iId.setScrollX(0);
                 }
             }
         });
         int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds92);
         if (!adCard.needResize) {
-            this.iBM.a(dVarArr, 30, 0, 0, dimensionPixelSize);
+            this.iIe.a(dVarArr, 30, 0, 0, dimensionPixelSize);
         } else {
-            this.iBM.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
+            this.iIe.a(dVarArr, 30, adCard.width, adCard.height, dimensionPixelSize);
         }
     }
 
@@ -80,8 +80,8 @@ public class AdCardLoopPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView, com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(AdCard adCard, int i) {
         super.a(adCard, i);
-        if (this.iBM != null && this.iBM.getVisibility() == 0) {
-            this.iBM.bFE();
+        if (this.iIe != null && this.iIe.getVisibility() == 0) {
+            this.iIe.bIl();
         }
     }
 

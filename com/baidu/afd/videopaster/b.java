@@ -5,41 +5,41 @@ import com.baidu.tieba.recapp.report.f;
 public class b {
     public static void a(com.baidu.afd.videopaster.b.a aVar) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.zb(aVar.Si);
-        com.baidu.tieba.recapp.report.c.cfH().a(o);
+        o.zG(aVar.SA);
+        com.baidu.tieba.recapp.report.c.ciy().a(o);
     }
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.Dp(str);
-        o.zb(aVar.Si);
-        com.baidu.tieba.recapp.report.c.cfH().a(o);
+        o.Ec(str);
+        o.zG(aVar.SA);
+        com.baidu.tieba.recapp.report.c.ciy().a(o);
     }
 
     public static void a(com.baidu.afd.videopaster.b.a aVar, int i) {
         com.baidu.tieba.recapp.report.b o = f.o(aVar);
-        o.zb(aVar.Si);
-        o.zc(aVar.Se);
-        o.zd(i);
-        com.baidu.tieba.recapp.report.c.cfH().a(o);
+        o.zG(aVar.SA);
+        o.zH(aVar.Sw);
+        o.zI(i);
+        com.baidu.tieba.recapp.report.c.ciy().a(o);
     }
 
     public static void b(com.baidu.afd.videopaster.b.a aVar) {
-        com.baidu.tieba.recapp.report.c.cfH().a(f.p(aVar));
+        com.baidu.tieba.recapp.report.c.ciy().a(f.p(aVar));
     }
 
     public static void c(com.baidu.afd.videopaster.b.a aVar) {
-        com.baidu.tieba.recapp.report.c.cfH().a(f.q(aVar));
+        com.baidu.tieba.recapp.report.c.ciy().a(f.q(aVar));
     }
 
     public static void d(com.baidu.afd.videopaster.b.a aVar) {
-        com.baidu.tieba.recapp.report.c.cfH().a(f.q(aVar));
+        com.baidu.tieba.recapp.report.c.ciy().a(f.q(aVar));
     }
 
     public static void b(com.baidu.afd.videopaster.b.a aVar, String str) {
         com.baidu.tieba.recapp.report.b r = f.r(aVar);
-        r.yZ(706);
-        r.Dp(str);
-        com.baidu.tieba.recapp.report.c.cfH().a(r);
+        r.zE(706);
+        r.Ec(str);
+        com.baidu.tieba.recapp.report.c.ciy().a(r);
     }
 }

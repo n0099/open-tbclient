@@ -1,32 +1,25 @@
 package com.baidu.mobstat;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public final class c {
-    public static String a(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
-            }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString).append(str);
-        }
-        return sb.toString();
+public class c {
+    public static void a(Context context) {
+        b.a.a(context);
+        y.a(context).a(g.AP_LIST, System.currentTimeMillis());
     }
 
-    public static String a(byte[] bArr, boolean z) {
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return a(messageDigest.digest(), "", z);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+    public static void a(Context context, boolean z) {
+        e.a.a(context, z);
+        y.a(context).a(z ? g.APP_SYS_LIST : g.APP_USER_LIST, System.currentTimeMillis());
+    }
+
+    public static void b(Context context, boolean z) {
+        f.a.a(context, z);
+        y.a(context).a(z ? g.APP_TRACE_CURRENT : g.APP_TRACE_HIS, System.currentTimeMillis());
+    }
+
+    public static void b(Context context) {
+        d.a.a(context);
+        y.a(context).a(g.APP_APK, System.currentTimeMillis());
     }
 }

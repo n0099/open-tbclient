@@ -4,37 +4,37 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.coreExtra.data.y;
 import com.baidu.tieba.u.b;
 import java.io.File;
 /* loaded from: classes.dex */
 public class c {
-    private String ald;
-    private String jzN;
+    private String alH;
+    private String jFW;
     private boolean isLoading = false;
-    private b.a jzM = new b.a() { // from class: com.baidu.tieba.u.c.1
+    private b.a jFV = new b.a() { // from class: com.baidu.tieba.u.c.1
         @Override // com.baidu.tieba.u.b.a
         public void b(boolean z, String str, String str2) {
             c.this.isLoading = false;
             if (z) {
-                c.this.ald = str;
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", c.this.ald);
-                c.this.jzN = str2;
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", c.this.jzN);
+                c.this.alH = str;
+                com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_path", c.this.alH);
+                c.this.jFW = str2;
+                com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_url", c.this.jFW);
             }
         }
     };
-    private CustomMessageListener bCB = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
+    private CustomMessageListener bDy = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_config", "");
+                String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_video_splash_config", "");
                 y yVar = new y();
                 yVar.parseJson(string);
-                c.this.setVideoUrl(yVar.alC());
+                c.this.setVideoUrl(yVar.amH());
             }
         }
     };
@@ -45,53 +45,53 @@ public class c {
 
     private void init() {
         this.isLoading = false;
-        this.jzN = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_url", null);
-        this.ald = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_video_splash_path", null);
-        MessageManager.getInstance().registerListener(this.bCB);
+        this.jFW = com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_video_splash_url", null);
+        this.alH = com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_video_splash_path", null);
+        MessageManager.getInstance().registerListener(this.bDy);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setVideoUrl(String str) {
-        if ((com.baidu.tbadk.core.sharedPref.b.agM().getInt("key_video_splash_switch", 0) == 1) && !this.isLoading && FC(str)) {
-            FB(str);
+        if ((com.baidu.tbadk.core.sharedPref.b.ahO().getInt("key_video_splash_switch", 0) == 1) && !this.isLoading && Gr(str)) {
+            Gq(str);
         }
     }
 
-    private void FB(String str) {
+    private void Gq(String str) {
         this.isLoading = true;
-        new b(getPath(), str, this.jzM).execute(new Void[0]);
+        new b(getPath(), str, this.jFV).execute(new Void[0]);
     }
 
-    public boolean cuV() {
-        if (this.isLoading || ap.isEmpty(getVideoPath())) {
+    public boolean cxK() {
+        if (this.isLoading || aq.isEmpty(getVideoPath())) {
             return false;
         }
         if (!new File(getVideoPath()).exists()) {
-            this.ald = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", this.ald);
-            this.jzN = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzN);
+            this.alH = null;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_path", this.alH);
+            this.jFW = null;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_url", this.jFW);
             return false;
         }
         return true;
     }
 
     public String getVideoPath() {
-        return this.ald;
+        return this.alH;
     }
 
-    public void cuW() {
-        if (!ap.isEmpty(getPath())) {
+    public void cxL() {
+        if (!aq.isEmpty(getPath())) {
             m.A(new File(getPath()));
-            this.ald = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_path", this.ald);
-            this.jzN = null;
-            com.baidu.tbadk.core.sharedPref.b.agM().putString("key_video_splash_url", this.jzN);
+            this.alH = null;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_path", this.alH);
+            this.jFW = null;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_video_splash_url", this.jFW);
         }
     }
 
-    private boolean FC(String str) {
-        return (ap.isEmpty(str) || str.equals(this.jzN)) ? false : true;
+    private boolean Gr(String str) {
+        return (aq.isEmpty(str) || str.equals(this.jFW)) ? false : true;
     }
 
     private String getPath() {

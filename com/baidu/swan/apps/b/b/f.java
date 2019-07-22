@@ -23,47 +23,47 @@ public interface f {
 
     boolean isDebug();
 
-    String wA();
+    String wL();
 
-    String wB();
+    boolean wM();
 
-    String wC();
+    String wN();
 
-    String wD();
+    String wO();
 
-    String wE();
+    String wP();
 
-    String wF();
+    String wQ();
 
-    String wk();
+    void wR();
 
-    boolean wl();
+    String wS();
 
-    String wm();
+    String wT();
 
-    String wn();
+    String wU();
 
-    String wo();
+    String wV();
 
-    String wp();
+    String wW();
 
-    void wq();
+    String wX();
 
-    String wr();
+    String wY();
 
-    String ws();
+    String wZ();
 
-    String wt();
+    String xa();
 
-    String wu();
+    String xb();
 
-    String wv();
+    String xc();
 
-    String ww();
+    String xd();
 
-    String wx();
+    String xe();
 
-    String wy();
+    String xf();
 
-    String wz();
+    String xg();
 }

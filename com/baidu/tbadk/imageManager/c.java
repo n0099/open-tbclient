@@ -7,33 +7,33 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes.dex */
 public class c {
-    private static c cuH = new c();
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a> cuI;
-    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a> cuJ;
-    private com.baidu.adp.lib.e.a<String, Bitmap> cuK;
-    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> cuL;
-    private com.baidu.tbadk.widget.largeImage.b.b cuM;
+    private static c cvV = new c();
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a> cvW;
+    private com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a> cvX;
+    private com.baidu.adp.lib.e.a<String, Bitmap> cvY;
+    private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> cvZ;
+    private com.baidu.tbadk.widget.largeImage.b.b cwa;
 
-    public static c asp() {
-        return cuH;
+    public static c atw() {
+        return cvV;
     }
 
     private c() {
-        this.cuI = null;
-        this.cuJ = null;
-        this.cuK = null;
-        this.cuI = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
+        this.cvW = null;
+        this.cvX = null;
+        this.cvY = null;
+        this.cvW = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
             /* renamed from: a */
             public void entryRemoved(boolean z, String str, com.baidu.adp.widget.ImageView.a aVar, com.baidu.adp.widget.ImageView.a aVar2) {
                 if (aVar != null) {
-                    aVar.nr();
+                    aVar.nJ();
                 }
             }
         };
-        this.cuJ = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
+        this.cvX = new com.baidu.adp.lib.e.a<String, com.baidu.adp.widget.ImageView.a>(0) { // from class: com.baidu.tbadk.imageManager.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -53,12 +53,12 @@ public class c {
                 if (aVar != null) {
                     if (BdLog.isDebugMode()) {
                     }
-                    aVar.nr();
+                    aVar.nJ();
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
                 }
             }
         };
-        this.cuK = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
+        this.cvY = new com.baidu.adp.lib.e.a<String, Bitmap>(0) { // from class: com.baidu.tbadk.imageManager.c.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.a
@@ -71,57 +71,57 @@ public class c {
         };
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> kv(int i) {
-        if (this.cuL != null && this.cuM != null) {
-            if (this.cuM.getBlockSize() == i) {
-                return this.cuL;
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> kB(int i) {
+        if (this.cvZ != null && this.cwa != null) {
+            if (this.cwa.qe() == i) {
+                return this.cvZ;
             }
-            this.cuM.lg(i);
-            this.cuL.clear();
+            this.cwa.lm(i);
+            this.cvZ.clear();
         }
-        if (this.cuM == null) {
-            this.cuM = new com.baidu.tbadk.widget.largeImage.b.b(i);
+        if (this.cwa == null) {
+            this.cwa = new com.baidu.tbadk.widget.largeImage.b.b(i);
         }
-        if (this.cuL == null) {
-            this.cuL = new com.baidu.adp.lib.e.b<>(this.cuM, 6, 0);
+        if (this.cvZ == null) {
+            this.cvZ = new com.baidu.adp.lib.e.b<>(this.cwa, 6, 0);
         }
-        return this.cuL;
+        return this.cvZ;
     }
 
-    public void asq() {
-        if (this.cuL != null) {
-            this.cuL.ai(0);
-            this.cuL.ah(0);
-            this.cuL.clear();
-            this.cuL = null;
+    public void atx() {
+        if (this.cvZ != null) {
+            this.cvZ.ai(0);
+            this.cvZ.ah(0);
+            this.cvZ.clear();
+            this.cvZ = null;
         }
     }
 
-    public int asr() {
-        return this.cuJ.getMaxSize();
+    public int aty() {
+        return this.cvX.hs();
     }
 
-    public void ah(int i, int i2) {
-        kw(i);
-        kx(i2);
-        ky(60);
+    public void ak(int i, int i2) {
+        kC(i);
+        kD(i2);
+        kE(60);
     }
 
-    public void kw(int i) {
-        this.cuI.ae(i);
+    public void kC(int i) {
+        this.cvW.ae(i);
     }
 
-    public void kx(int i) {
-        this.cuJ.ae(i);
+    public void kD(int i) {
+        this.cvX.ae(i);
     }
 
-    public void ky(int i) {
-        this.cuK.ae(i);
+    public void kE(int i) {
+        this.cvY.ae(i);
     }
 
     public void e(String str, Bitmap bitmap) {
         if (!StringUtils.isNull(str) && bitmap != null) {
-            this.cuK.put(str, bitmap);
+            this.cvY.put(str, bitmap);
         }
     }
 
@@ -129,7 +129,7 @@ public class c {
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return this.cuK.get(str);
+        return this.cvY.get(str);
     }
 
     public void b(String str, com.baidu.adp.widget.ImageView.a aVar) {
@@ -137,20 +137,20 @@ public class c {
     }
 
     public void a(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
-        if (aVar != null && this.cuI != null) {
-            this.cuI.put(str, aVar);
+        if (aVar != null && this.cvW != null) {
+            this.cvW.put(str, aVar);
         }
     }
 
-    public boolean kz(int i) {
-        return this.cuJ.ad(i);
+    public boolean kF(int i) {
+        return this.cvX.ad(i);
     }
 
     public void b(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
-        if (aVar != null && this.cuJ != null) {
+        if (aVar != null && this.cvX != null) {
             if (BdLog.isDebugMode()) {
             }
-            this.cuJ.put(str, aVar);
+            this.cvX.put(str, aVar);
         }
     }
 
@@ -158,32 +158,32 @@ public class c {
         b(str, aVar, false);
     }
 
-    public void qn(String str) {
-        this.cuI.remove(str);
+    public void qE(String str) {
+        this.cvW.remove(str);
     }
 
-    public void qo(String str) {
-        this.cuJ.remove(str);
+    public void qF(String str) {
+        this.cvX.remove(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a qp(String str) {
-        return this.cuI.get(str);
+    public com.baidu.adp.widget.ImageView.a qG(String str) {
+        return this.cvW.get(str);
     }
 
-    public com.baidu.adp.widget.ImageView.a qq(String str) {
-        return this.cuJ.get(str);
+    public com.baidu.adp.widget.ImageView.a qH(String str) {
+        return this.cvX.get(str);
     }
 
-    public void ass() {
-        this.cuI.clear();
-        this.cuJ.clear();
+    public void atz() {
+        this.cvW.clear();
+        this.cvX.clear();
     }
 
     public String toString() {
-        return "pic:" + this.cuJ.toString() + "  photo:" + this.cuI.toString();
+        return "pic:" + this.cvX.toString() + "  photo:" + this.cvW.toString();
     }
 
-    public String gU() {
-        return this.cuJ.size() + "/" + this.cuJ.getMaxSize() + "/" + this.cuJ.evictionCount() + "_" + this.cuI.size() + "/" + this.cuI.getMaxSize() + "/" + this.cuI.evictionCount();
+    public String hd() {
+        return this.cvX.size() + "/" + this.cvX.hs() + "/" + this.cvX.evictionCount() + "_" + this.cvW.size() + "/" + this.cvW.hs() + "/" + this.cvW.evictionCount();
     }
 }

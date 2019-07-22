@@ -7,7 +7,7 @@ import com.baidu.swan.apps.SwanAppActivity;
 public interface i {
     void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.v.b.b bVar);
 
-    void wG();
+    void xh();
 
-    void wH();
+    void xi();
 }

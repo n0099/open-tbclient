@@ -29,7 +29,7 @@ public class a implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: eN */
+        /* renamed from: eR */
         public a[] newArray(int i) {
             return new a[i];
         }
@@ -43,13 +43,13 @@ public class a implements Parcelable {
     private long G;
     private String a;
     private String b;
-    private Set<String> bcK;
-    private Set<String> bcL;
-    private Set<String> bcM;
-    private Set<String> bcN;
-    private Set<String> bcO;
-    private Set<String> bcP;
-    private JSONObject bcQ;
+    private Set<String> bdA;
+    private Set<String> bdB;
+    private JSONObject bdC;
+    private Set<String> bdw;
+    private Set<String> bdx;
+    private Set<String> bdy;
+    private Set<String> bdz;
     private Set<String> c;
     private String d;
     private String e;
@@ -75,13 +75,13 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bcK = new HashSet();
-        this.bcL = new HashSet();
-        this.bcM = new HashSet();
-        this.bcN = new HashSet();
-        this.bcO = new HashSet();
-        this.bcP = new HashSet();
-        this.bcQ = jSONObject;
+        this.bdw = new HashSet();
+        this.bdx = new HashSet();
+        this.bdy = new HashSet();
+        this.bdz = new HashSet();
+        this.bdA = new HashSet();
+        this.bdB = new HashSet();
+        this.bdC = jSONObject;
         try {
             this.G = System.currentTimeMillis();
             this.a = jSONObject.optString("qk", "");
@@ -162,12 +162,12 @@ public class a implements Parcelable {
         this.c = new HashSet();
         this.m = 0;
         this.n = 0;
-        this.bcK = new HashSet();
-        this.bcL = new HashSet();
-        this.bcM = new HashSet();
-        this.bcN = new HashSet();
-        this.bcO = new HashSet();
-        this.bcP = new HashSet();
+        this.bdw = new HashSet();
+        this.bdx = new HashSet();
+        this.bdy = new HashSet();
+        this.bdz = new HashSet();
+        this.bdA = new HashSet();
+        this.bdB = new HashSet();
         this.a = parcel.readString();
         this.b = parcel.readString();
         this.d = parcel.readString();
@@ -272,58 +272,58 @@ public class a implements Parcelable {
     }
 
     public List<String> l() {
-        return new ArrayList(this.bcK);
+        return new ArrayList(this.bdw);
     }
 
-    public List<String> PN() {
-        return new ArrayList(this.bcL);
+    public List<String> QF() {
+        return new ArrayList(this.bdx);
     }
 
-    public List<String> PO() {
-        return new ArrayList(this.bcM);
+    public List<String> QG() {
+        return new ArrayList(this.bdy);
     }
 
     public List<String> o() {
-        return new ArrayList(this.bcN);
+        return new ArrayList(this.bdz);
     }
 
     public List<String> p() {
-        return new ArrayList(this.bcO);
+        return new ArrayList(this.bdA);
     }
 
     private void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bcK.add(str);
+            this.bdw.add(str);
         }
     }
 
     private void b(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bcL.add(str);
+            this.bdx.add(str);
         }
     }
 
     private void c(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bcM.add(str);
+            this.bdy.add(str);
         }
     }
 
     private void d(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.bcN.add(str);
+            this.bdz.add(str);
         }
     }
 
     private void e(String str) {
         if (str != null && !str.equals("")) {
-            this.bcO.add(str);
+            this.bdA.add(str);
         }
     }
 
     private void f(String str) {
         if (str != null && !str.equals("")) {
-            this.bcP.add(str);
+            this.bdB.add(str);
         }
     }
 }

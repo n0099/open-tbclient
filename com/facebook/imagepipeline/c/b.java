@@ -12,13 +12,13 @@ public class b {
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cEg() {
-                o.this.cEu();
+            public void cHj() {
+                o.this.cHx();
             }
 
             @Override // com.facebook.imagepipeline.c.v
-            public void cEh() {
-                o.this.cEt();
+            public void cHk() {
+                o.this.cHw();
             }
         });
     }

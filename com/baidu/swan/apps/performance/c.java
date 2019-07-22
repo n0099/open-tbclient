@@ -4,48 +4,48 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 class c {
-    private final Object aFW = new Object();
-    private List<Runnable> aFX;
+    private final Object aGE = new Object();
+    private List<Runnable> aGF;
 
     public c f(Runnable runnable) {
-        synchronized (this.aFW) {
-            HT().add(runnable);
+        synchronized (this.aGE) {
+            IG().add(runnable);
         }
         return this;
     }
 
-    public void HS() {
-        synchronized (this.aFW) {
-            this.aFX = null;
+    public void IF() {
+        synchronized (this.aGE) {
+            this.aGF = null;
         }
     }
 
-    public List<Runnable> HT() {
+    public List<Runnable> IG() {
         List<Runnable> list;
-        synchronized (this.aFW) {
-            if (this.aFX == null) {
-                this.aFX = new ArrayList();
+        synchronized (this.aGE) {
+            if (this.aGF == null) {
+                this.aGF = new ArrayList();
             }
-            list = this.aFX;
+            list = this.aGF;
         }
         return list;
     }
 
-    public List<Runnable> HU() {
-        List<Runnable> HT = HT();
-        HS();
-        return HT;
+    public List<Runnable> IH() {
+        List<Runnable> IG = IG();
+        IF();
+        return IG;
     }
 
     public int size() {
-        if (this.aFX == null) {
+        if (this.aGF == null) {
             return 0;
         }
-        return this.aFX.size();
+        return this.aGF.size();
     }
 
-    public c HV() {
-        for (Runnable runnable : HU()) {
+    public c II() {
+        for (Runnable runnable : IH()) {
             runnable.run();
         }
         return this;

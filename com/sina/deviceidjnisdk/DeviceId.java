@@ -18,7 +18,7 @@ public class DeviceId implements IDeviceId {
 
     @Override // com.sina.deviceidjnisdk.IDeviceId
     public String getDeviceId() {
-        return getDeviceIdNative(this.mContext, DeviceInfo.getImei(this.mContext), DeviceInfo.getImsi(this.mContext), DeviceInfo.getWifiMac(this.mContext));
+        return getDeviceIdNative(this.mContext, DeviceInfo.getImei(this.mContext), DeviceInfo.getImsi(this.mContext), DeviceInfo.getMacAddress(this.mContext));
     }
 
     private String genCheckId(String str, String str2, String str3) {

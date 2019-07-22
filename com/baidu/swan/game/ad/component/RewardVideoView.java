@@ -11,7 +11,7 @@ import com.baidu.swan.apps.media.d.c;
 /* loaded from: classes2.dex */
 public class RewardVideoView extends RelativeLayout {
     private Context b;
-    private a bdl;
+    private a bdX;
     private boolean c;
 
     public RewardVideoView(Context context) {
@@ -31,19 +31,19 @@ public class RewardVideoView extends RelativeLayout {
     public void a(String str) {
         c cVar = new c();
         cVar.mSrc = str;
-        cVar.aAu = "SwanAdPlayer";
+        cVar.aBc = "SwanAdPlayer";
         cVar.id = "SwanAdPlayer";
-        cVar.aAD = true;
-        cVar.aCx = this.c;
-        cVar.aCG = false;
-        this.bdl.d(cVar);
-        this.bdl.bp(false);
+        cVar.aBl = true;
+        cVar.aDf = this.c;
+        cVar.aDo = false;
+        this.bdX.d(cVar);
+        this.bdX.bs(false);
     }
 
     public void a(boolean z) {
-        if (this.bdl != null) {
+        if (this.bdX != null) {
             this.c = z;
-            this.bdl.bo(z);
+            this.bdX.br(z);
         }
     }
 
@@ -52,18 +52,18 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public a getPlayer() {
-        return this.bdl;
+        return this.bdX;
     }
 
     private void b() {
-        b Lq = b.Lq();
-        if (Lq != null) {
-            this.bdl = new a(Lq.getActivity(), "SwanAdPlayer");
+        b Md = b.Md();
+        if (Md != null) {
+            this.bdX = new a(Md.getActivity(), "SwanAdPlayer");
             this.c = true;
-            this.bdl.bo(this.c);
+            this.bdX.br(this.c);
             FrameLayout frameLayout = new FrameLayout(this.b);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            this.bdl.b(frameLayout);
+            this.bdX.b(frameLayout);
         }
     }
 

@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.hybrid.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.hybrid.l;
@@ -19,21 +18,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends n {
-    private l bOM;
+    private l bPM;
 
     public c(l lVar) {
         super(lVar);
-        this.bOM = lVar;
+        this.bPM = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String aam() {
+    public String abl() {
         return "TBHY_COMMON_Image";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @o(agy = false, value = "scanBigImages")
+    @o(ahA = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
@@ -57,7 +56,7 @@ public class c extends n {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.bOM.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.bPM.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
@@ -83,7 +82,7 @@ public class c extends n {
         writeImagesInfo.setMaxImagesAllowed(9);
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
-        albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_LOGIN);
+        albumActivityConfig.setRequestCode(12015);
         sendMessage(new CustomMessage(2002001, albumActivityConfig));
     }
 }

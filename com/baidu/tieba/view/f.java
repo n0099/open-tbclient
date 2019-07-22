@@ -5,13 +5,13 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.NavigationBar;
 /* loaded from: classes4.dex */
 public interface f {
-    void N(int i, boolean z);
+    void P(int i, boolean z);
 
     void a(Context context, NavigationBar navigationBar);
 
-    void bZJ();
-
     void c(float f, boolean z);
+
+    void ccy();
 
     void onChangeSkinType(int i);
 

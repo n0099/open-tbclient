@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.sina.weibo.BuildConfig;
+import com.sina.weibo.sdk.sso.WeiboSsoManager;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -35,7 +36,11 @@ public class Utility {
             for (String str2 : str.split("&")) {
                 String[] split = str2.split("=");
                 try {
-                    bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
+                    if (split.length == 2) {
+                        bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
+                    } else if (split.length == 1) {
+                        bundle.putString(URLDecoder.decode(split[0], "UTF-8"), "");
+                    }
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -82,16 +87,7 @@ public class Utility {
     }
 
     public static String getAid(Context context, String str) {
-        if (context == null) {
-            return "";
-        }
-        AidTask aidTask = AidTask.getInstance(context);
-        String loadAidFromCache = aidTask.loadAidFromCache();
-        if (TextUtils.isEmpty(loadAidFromCache)) {
-            aidTask.aidTaskInit(str);
-            return "";
-        }
-        return loadAidFromCache;
+        return context == null ? "" : WeiboSsoManager.getInstance().getAid();
     }
 
     public static String generateUAAid(Context context) {

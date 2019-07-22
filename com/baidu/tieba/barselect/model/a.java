@@ -15,7 +15,7 @@ public class a {
         b bVar = new b(309641);
         bVar.setResponsedClass(CandidateSearchSocketResMsg.class);
         MessageManager.getInstance().registerTask(bVar);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, com.baidu.tieba.tbadkCore.a.a.bn(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, com.baidu.tieba.tbadkCore.a.a.bo(TbConfig.URL_CANDIDATE_SEARCH, 309641));
         tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }

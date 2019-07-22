@@ -341,7 +341,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     }
 
     private Request createTunnelRequest() {
-        return new Request.Builder().url(this.route.address().url()).header(HTTP.TARGET_HOST, Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build();
+        return new Request.Builder().url(this.route.address().url()).header(HTTP.TARGET_HOST, Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header(HTTP.USER_AGENT, Version.userAgent()).build();
     }
 
     public boolean isEligible(Address address, @Nullable Route route) {

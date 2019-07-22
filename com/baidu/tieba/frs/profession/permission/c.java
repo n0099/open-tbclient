@@ -15,59 +15,59 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c implements NetModel.b {
-    private int fIr;
-    private FrsProfessionPermissionModel fIv;
-    private com.baidu.tieba.frs.profession.permission.a fIw = new com.baidu.tieba.frs.profession.permission.a();
-    private a fIx;
+    private int fNp;
+    private FrsProfessionPermissionModel fNt;
+    private com.baidu.tieba.frs.profession.permission.a fNu = new com.baidu.tieba.frs.profession.permission.a();
+    private a fNv;
     private TbPageContext<?> mContext;
 
     /* loaded from: classes.dex */
     public interface a {
-        void jV(boolean z);
+        void kf(boolean z);
 
-        void jW(boolean z);
+        void kg(boolean z);
 
         void n(boolean z, int i);
     }
 
     public c(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
-        this.fIv = new FrsProfessionPermissionModel(tbPageContext, this.fIw);
-        this.fIv.a(this);
+        this.fNt = new FrsProfessionPermissionModel(tbPageContext, this.fNu);
+        this.fNt.a(this);
     }
 
     public void a(a aVar) {
-        this.fIx = aVar;
+        this.fNv = aVar;
     }
 
-    public void si(int i) {
-        this.fIr = i;
-        this.fIw.fIr = i;
+    public void sA(int i) {
+        this.fNp = i;
+        this.fNu.fNp = i;
     }
 
-    public void wV(String str) {
-        this.fIw.fIq = 1;
-        this.fIw.forum_id = str;
+    public void xA(String str) {
+        this.fNu.fNo = 1;
+        this.fNu.forum_id = str;
         loadData();
     }
 
-    public void av(String str, int i) {
-        this.fIw.fIp = i;
-        this.fIw.forum_id = str;
-        this.fIw.fIq = 2;
+    public void aw(String str, int i) {
+        this.fNu.fNn = i;
+        this.fNu.forum_id = str;
+        this.fNu.fNo = 2;
         loadData();
     }
 
     public void t(String str, long j) {
-        this.fIw.forum_id = str;
-        this.fIw.thread_id = j;
-        this.fIw.fIq = 3;
+        this.fNu.forum_id = str;
+        this.fNu.thread_id = j;
+        this.fNu.fNo = 3;
         loadData();
     }
 
     private void loadData() {
-        if (!this.fIv.pu()) {
-            this.fIv.atv();
+        if (!this.fNt.pP()) {
+            this.fNt.auD();
         }
     }
 
@@ -76,13 +76,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcHttpResponsedMessage != null && (mvcHttpResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcHttpResponsedMessage.getData();
-            if (aVar.fIr == this.fIr) {
-                switch (aVar.fIq) {
+            if (aVar.fNp == this.fNp) {
+                switch (aVar.fNo) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.fIp);
+                        a(bVar, aVar.fNn);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -99,13 +99,13 @@ public class c implements NetModel.b {
         if (mvcNetMessage != null && (mvcNetMessage.getRequestData() instanceof com.baidu.tieba.frs.profession.permission.a) && mvcSocketResponsedMessage != null && (mvcSocketResponsedMessage.getData() instanceof b)) {
             com.baidu.tieba.frs.profession.permission.a aVar = (com.baidu.tieba.frs.profession.permission.a) mvcNetMessage.getRequestData();
             b bVar = (b) mvcSocketResponsedMessage.getData();
-            if (aVar.fIr == this.fIr) {
-                switch (aVar.fIq) {
+            if (aVar.fNp == this.fNp) {
+                switch (aVar.fNo) {
                     case 1:
                         a(bVar);
                         return;
                     case 2:
-                        a(bVar, aVar.fIp);
+                        a(bVar, aVar.fNn);
                         return;
                     case 3:
                         a(bVar, aVar.forum_id);
@@ -128,15 +128,15 @@ public class c implements NetModel.b {
                     return;
                 }
             }
-            if (!bVar.fIs) {
-                if (bVar.fIt == 1) {
-                    da(bVar.fIu, str);
-                } else if (bVar.fIt == 3) {
-                    wW(bVar.fIu);
+            if (!bVar.fNq) {
+                if (bVar.fNr == 1) {
+                    db(bVar.fNs, str);
+                } else if (bVar.fNr == 3) {
+                    xB(bVar.fNs);
                 }
             }
-            if (this.fIx != null) {
-                this.fIx.jW(bVar.fIs);
+            if (this.fNv != null) {
+                this.fNv.kg(bVar.fNq);
             }
         }
     }
@@ -149,28 +149,28 @@ public class c implements NetModel.b {
                 } else {
                     this.mContext.showToast(bVar.errorString);
                 }
-            } else if (this.fIx != null) {
-                this.fIx.n(bVar.fIs, i);
+            } else if (this.fNv != null) {
+                this.fNv.n(bVar.fNq, i);
             }
         }
     }
 
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
-            if (!bVar.fIs && bVar.fIt == 2) {
-                wW(bVar.fIu);
+            if (!bVar.fNq && bVar.fNr == 2) {
+                xB(bVar.fNs);
             }
-            if (this.fIx != null) {
-                this.fIx.jV(bVar.fIs);
+            if (this.fNv != null) {
+                this.fNv.kf(bVar.fNq);
             }
         }
     }
 
-    private void da(String str, final String str2) {
+    private void db(String str, final String str2) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-        aVar.dN(false);
-        aVar.dM(false);
-        aVar.mD(str);
+        aVar.dR(false);
+        aVar.dQ(false);
+        aVar.mO(str);
         aVar.a(R.string.comfirm_imediate, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -187,14 +187,14 @@ public class c implements NetModel.b {
             }
         });
         aVar.b(this.mContext);
-        aVar.afG();
+        aVar.agI();
     }
 
-    public void wW(String str) {
+    public void xB(String str) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
-        aVar.dN(false);
-        aVar.dM(false);
-        aVar.mD(str);
+        aVar.dR(false);
+        aVar.dQ(false);
+        aVar.mO(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.frs.profession.permission.c.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -202,6 +202,6 @@ public class c implements NetModel.b {
             }
         });
         aVar.b(this.mContext);
-        aVar.afG();
+        aVar.agI();
     }
 }

@@ -11,10 +11,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Message;
 import android.text.TextUtils;
@@ -22,33 +18,31 @@ import android.widget.DatePicker;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.a.c;
+import com.baidu.sapi2.a.e;
+import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
-import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.callback.SsoHashCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.dto.PassNameValuePair;
-import com.baidu.sapi2.outsdk.ChinaMobileSDK;
-import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.pluginsdk.service.IEventCenterService;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
+import com.baidu.sapi2.result.AccountRealNameResult;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.result.SsoHashResult;
 import com.baidu.sapi2.result.Web2NativeLoginResult;
 import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.share.a.c;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
+import com.baidu.sapi2.utils.Log;
+import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
-import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.cmic.sso.sdk.auth.TokenListener;
-import com.tencent.mm.sdk.openapi.WXAPIFactory;
 import com.xiaomi.mipush.sdk.Constants;
-import java.io.ByteArrayOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -62,26 +56,25 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes.dex */
 public class SapiJsInterpreters {
-    static boolean a;
-    private SapiWebView b;
-    private SapiJsCallBacks.CallBacks d;
-    private Context e;
-    private long g;
-    private HashMap<String, AbstractInterpreter> f = new HashMap<>();
-    private SapiConfiguration c = SapiAccountManager.getInstance().getSapiConfiguration();
+    private SapiWebView a;
+    private SapiJsCallBacks.CallBacks c;
+    private Context d;
+    private long f;
+    private HashMap<String, AbstractInterpreter> e = new HashMap<>();
+    private SapiConfiguration b = SapiAccountManager.getInstance().getSapiConfiguration();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SapiJsInterpreters(SapiWebView sapiWebView, SapiJsCallBacks.CallBacks callBacks) {
-        this.b = sapiWebView;
-        this.e = sapiWebView.getContext();
-        this.d = callBacks;
+        this.a = sapiWebView;
+        this.d = sapiWebView.getContext();
+        this.c = callBacks;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public AbstractInterpreter a(String str) {
-        AbstractInterpreter abstractInterpreter = this.f.get(str);
+        AbstractInterpreter abstractInterpreter = this.e.get(str);
         if (abstractInterpreter == null && (abstractInterpreter = b(str)) != null) {
-            this.f.put(str, abstractInterpreter);
+            this.e.put(str, abstractInterpreter);
         }
         return abstractInterpreter;
     }
@@ -131,8 +124,8 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             String str = command.getActionParams().get(0);
-            if (SapiJsInterpreters.this.d.g != null) {
-                SapiJsInterpreters.this.d.g.onTitleChange(str);
+            if (SapiJsInterpreters.this.c.e != null) {
+                SapiJsInterpreters.this.c.e.onTitleChange(str);
                 return null;
             }
             return null;
@@ -157,16 +150,16 @@ public class SapiJsInterpreters {
                 z = false;
             }
             if (str.equals("sapi_biometrics_identification_with_uid")) {
-                if (SapiJsInterpreters.this.d.h == null || !SapiJsInterpreters.this.c.supportFaceLogin) {
+                if (SapiJsInterpreters.this.c.f == null || !SapiJsInterpreters.this.b.supportFaceLogin) {
                     z2 = false;
                 }
             } else if (str.equals("sapi_biometrics_identification") || str.equals("sapi_biometrics_identification_no_bduss") || str.equals("sapi_biometrics_identification_with_authtoken")) {
-                if (SapiJsInterpreters.this.d.i == null || !SapiJsInterpreters.this.c.supportFaceLogin) {
+                if (SapiJsInterpreters.this.c.g == null || !SapiJsInterpreters.this.b.supportFaceLogin) {
                     z2 = false;
                 }
             } else if (!str.equals("sapi_action_sc_app_check")) {
                 z2 = z;
-            } else if (SapiJsInterpreters.this.d.z == null) {
+            } else if (SapiJsInterpreters.this.c.x == null) {
                 z2 = false;
             }
             return z2 ? "1" : "0";
@@ -181,13 +174,13 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            List<FastLoginFeature> fastLoginFeatureList = SapiJsInterpreters.this.d.A != null ? SapiJsInterpreters.this.d.A.getFastLoginFeatureList() : null;
-            List<FastLoginFeature> list = fastLoginFeatureList == null ? SapiJsInterpreters.this.c.fastLoginFeatureList : fastLoginFeatureList;
+            List<FastLoginFeature> fastLoginFeatureList = SapiJsInterpreters.this.c.y != null ? SapiJsInterpreters.this.c.y.getFastLoginFeatureList() : null;
+            List<FastLoginFeature> list = fastLoginFeatureList == null ? SapiJsInterpreters.this.b.fastLoginFeatureList : fastLoginFeatureList;
             if (list == null) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            if (SapiContext.getInstance(SapiJsInterpreters.this.e).isHostsHijacked()) {
+            if (SapiContext.getInstance(SapiJsInterpreters.this.d).isHostsHijacked()) {
                 return sb.toString();
             }
             int i = 0;
@@ -209,44 +202,6 @@ public class SapiJsInterpreters {
     }
 
     /* loaded from: classes.dex */
-    class ActionFeifanLogin extends AbstractInterpreter {
-        ActionFeifanLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
-                Message message = new Message();
-                message.what = SocialType.WANDA_FEIFAN.getType();
-                message.obj = SocialType.WANDA_FEIFAN;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class ActionChuankeLogin extends AbstractInterpreter {
-        ActionChuankeLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
-                Message message = new Message();
-                message.what = SocialType.CHUANKE.getType();
-                message.obj = SocialType.CHUANKE;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
     class ActionSocialSinaSso extends AbstractInterpreter {
         ActionSocialSinaSso() {
             super();
@@ -254,11 +209,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
+            if (SapiJsInterpreters.this.c.a != null) {
                 Message message = new Message();
                 message.what = SocialType.SINA_WEIBO_SSO.getType();
                 message.obj = SocialType.SINA_WEIBO_SSO;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
+                SapiJsInterpreters.this.c.a.sendMessage(message);
                 return null;
             }
             return null;
@@ -273,11 +228,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
+            if (SapiJsInterpreters.this.c.a != null) {
                 Message message = new Message();
                 message.what = SocialType.WEIXIN.getType();
                 message.obj = SocialType.WEIXIN;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
+                SapiJsInterpreters.this.c.a.sendMessage(message);
                 return null;
             }
             return null;
@@ -292,11 +247,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
+            if (SapiJsInterpreters.this.c.a != null) {
                 Message message = new Message();
                 message.what = SocialType.MEIZU.getType();
                 message.obj = SocialType.MEIZU;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
+                SapiJsInterpreters.this.c.a.sendMessage(message);
                 return null;
             }
             return null;
@@ -311,49 +266,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
+            if (SapiJsInterpreters.this.c.a != null) {
                 Message message = new Message();
                 message.what = SocialType.QQ_SSO.getType();
                 message.obj = SocialType.QQ_SSO;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class ActionSocialTxWeiboWebview extends AbstractInterpreter {
-        ActionSocialTxWeiboWebview() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
-                Message message = new Message();
-                message.what = SocialType.TENCENT_WEIBO.getType();
-                message.obj = SocialType.TENCENT_WEIBO;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class ActionSocialSinaWeiboWebview extends AbstractInterpreter {
-        ActionSocialSinaWeiboWebview() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
-                Message message = new Message();
-                message.what = SocialType.SINA_WEIBO.getType();
-                message.obj = SocialType.SINA_WEIBO;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
+                SapiJsInterpreters.this.c.a.sendMessage(message);
                 return null;
             }
             return null;
@@ -368,51 +285,12 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.a != null) {
+            if (SapiJsInterpreters.this.c.a != null) {
                 Message message = new Message();
                 message.what = SocialType.HUAWEI.getType();
                 message.obj = SocialType.HUAWEI;
-                SapiJsInterpreters.this.d.a.sendMessage(message);
+                SapiJsInterpreters.this.c.a.sendMessage(message);
                 return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class ActionNuomiLogin extends AbstractInterpreter {
-        ActionNuomiLogin() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.b != null) {
-                SapiJsInterpreters.this.d.b.handleNMLogin();
-                return null;
-            }
-            return null;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    class ActionUniteVerify extends AbstractInterpreter {
-        ActionUniteVerify() {
-            super();
-        }
-
-        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
-        public String interpret(SapiWebView.Command command) {
-            String str = command.getActionParams().get(0);
-            if (SapiJsInterpreters.this.d.c != null && !TextUtils.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    SapiJsInterpreters.this.d.c.handleUniteVerify(jSONObject.optString("token"), jSONObject.optString("adtext"));
-                    return null;
-                } catch (JSONException e) {
-                    Log.e(e);
-                    return null;
-                }
             }
             return null;
         }
@@ -426,7 +304,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.c.loginShareStrategy().getStrValue();
+            return SapiJsInterpreters.this.b.loginShareStrategy().getStrValue();
         }
     }
 
@@ -440,7 +318,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             List<SapiAccount> shareAccounts = SapiAccountManager.getInstance().getShareAccounts();
             JSONArray jSONArray = SapiAccount.toJSONArray(shareAccounts);
-            SapiStatUtil.statShareV1OpenPage(shareAccounts);
+            SapiStatUtil.statShareV1OpenPage(shareAccounts, SapiJsInterpreters.this.a.extras);
             if (jSONArray == null) {
                 return null;
             }
@@ -478,23 +356,8 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.c.context);
-            for (ShareStorage.StorageModel storageModel : a) {
-                if (!TextUtils.isEmpty(storageModel.tpl)) {
-                    arrayList.add(storageModel.tpl);
-                }
-                if (!TextUtils.isEmpty(storageModel.app)) {
-                    arrayList2.add(storageModel.app);
-                }
-            }
-            HashMap hashMap = new HashMap();
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
-            hashMap.put("account_size", a.size() + "");
-            hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
-            hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
-            StatService.onEvent("share_account_open", hashMap, false);
+            List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.b.context);
+            SapiStatUtil.statShareV2Open(a, null, SapiJsInterpreters.this.a.extras);
             JSONArray jSONArray = ShareStorage.StorageModel.toJSONArray(a);
             if (jSONArray == null) {
                 return null;
@@ -513,18 +376,17 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString("info");
+                String optString = jSONObject.optString(Config.LAUNCH_INFO);
                 String optString2 = jSONObject.optString("u");
                 SapiAccount sapiAccount = new SapiAccount();
                 sapiAccount.uid = jSONObject.optString("passuid");
-                sapiAccount.username = jSONObject.optString("username");
-                sapiAccount.displayname = jSONObject.optString("displayname");
+                sapiAccount.username = jSONObject.optString(LoginActivity.EXTRA_PARAM_USERNAME);
+                sapiAccount.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
                 sapiAccount.bduss = jSONObject.optString("bduss");
-                sapiAccount.ptoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-                sapiAccount.stoken = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_STOKEN);
-                if (!TextUtils.isEmpty(optString) && SapiUtils.isValidAccount(sapiAccount) && SapiJsInterpreters.this.d.j != null) {
-                    SapiJsInterpreters.this.d.j.onSuccess(optString, optString2, sapiAccount);
-                    PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_UNITEVERIFY, IEventCenterService.EventResult.PHASE.SUCCESS);
+                sapiAccount.ptoken = jSONObject.optString("ptoken");
+                sapiAccount.stoken = jSONObject.optString("stoken");
+                if (!TextUtils.isEmpty(optString) && SapiUtils.isValidAccount(sapiAccount) && SapiJsInterpreters.this.c.h != null) {
+                    SapiJsInterpreters.this.c.h.onSuccess(optString, optString2, sapiAccount);
                     return null;
                 }
                 return null;
@@ -543,8 +405,8 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.k != null) {
-                SapiJsInterpreters.this.d.k.handleOtherLogin();
+            if (SapiJsInterpreters.this.c.i != null) {
+                SapiJsInterpreters.this.c.i.handleOtherLogin();
                 return null;
             }
             return null;
@@ -560,8 +422,8 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             String str = command.getActionParams().get(0);
-            if (SapiJsInterpreters.this.d.l != null) {
-                SapiJsInterpreters.this.d.l.onPhoneNumberExist(str);
+            if (SapiJsInterpreters.this.c.j != null) {
+                SapiJsInterpreters.this.c.j.onPhoneNumberExist(str);
                 return null;
             }
             return null;
@@ -576,7 +438,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.b.back();
+            SapiJsInterpreters.this.a.back();
             return null;
         }
     }
@@ -589,11 +451,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.d != null) {
-                SapiJsInterpreters.this.d.d.handleFastReg();
+            if (SapiJsInterpreters.this.c.b != null) {
+                SapiJsInterpreters.this.c.b.handleFastReg();
                 return null;
             }
-            SapiJsInterpreters.this.b.loadFastReg();
+            SapiJsInterpreters.this.a.loadFastReg();
             return null;
         }
     }
@@ -607,8 +469,8 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             boolean z = false;
-            if (SapiJsInterpreters.this.d.G != null) {
-                z = SapiJsInterpreters.this.d.G.onForgetPwd();
+            if (SapiJsInterpreters.this.c.D != null) {
+                z = SapiJsInterpreters.this.c.D.onForgetPwd();
             }
             return z ? "1" : "0";
         }
@@ -622,10 +484,10 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.b.a(SapiJsInterpreters.this.d.e);
-            SapiJsInterpreters.this.d.e.a = command.getActionParams().get(0);
-            SapiJsInterpreters.this.d.e.b = command.getActionParams().get(1);
-            SapiJsInterpreters.this.d.e.postDelayed(SapiJsInterpreters.this.d.H, 15000L);
+            SapiJsInterpreters.this.a.a(SapiJsInterpreters.this.c.c);
+            SapiJsInterpreters.this.c.c.a = command.getActionParams().get(0);
+            SapiJsInterpreters.this.c.c.b = command.getActionParams().get(1);
+            SapiJsInterpreters.this.c.c.postDelayed(SapiJsInterpreters.this.c.F, 15000L);
             return null;
         }
     }
@@ -638,11 +500,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (!SapiJsInterpreters.this.c.forbidPresetPhoneNumber) {
-                if (SapiUtils.isValidPhoneNumber(SapiJsInterpreters.this.c.presetPhoneNumber)) {
-                    return SapiJsInterpreters.this.c.presetPhoneNumber;
+            if (!SapiJsInterpreters.this.b.forbidPresetPhoneNumber) {
+                if (SapiUtils.isValidPhoneNumber(SapiJsInterpreters.this.b.presetPhoneNumber)) {
+                    return SapiJsInterpreters.this.b.presetPhoneNumber;
                 }
-                String a = SapiJsInterpreters.this.b.a();
+                String a = SapiJsInterpreters.this.a.a();
                 return !SapiUtils.isValidPhoneNumber(a) ? "" : a;
             }
             return "";
@@ -669,7 +531,7 @@ public class SapiJsInterpreters {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            return SapiUtils.calculateSig(hashMap, SapiJsInterpreters.this.c.appSignKey);
+            return SapiUtils.calculateSig(hashMap, SapiJsInterpreters.this.b.appSignKey);
         }
     }
 
@@ -697,16 +559,16 @@ public class SapiJsInterpreters {
             int i4 = calendar.get(1);
             int i5 = calendar.get(2);
             int i6 = calendar.get(5);
-            DatePickerDialog datePickerDialog = new DatePickerDialog(SapiJsInterpreters.this.e, 3, new DatePickerDialog.OnDateSetListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.1
+            DatePickerDialog datePickerDialog = new DatePickerDialog(SapiJsInterpreters.this.d, 3, new DatePickerDialog.OnDateSetListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.1
                 @Override // android.app.DatePickerDialog.OnDateSetListener
                 public void onDateSet(DatePicker datePicker, int i7, int i8, int i9) {
-                    SapiJsInterpreters.this.d.I.confirm(i7 + String.format("%02d", Integer.valueOf(i8 + 1)) + String.format("%02d", Integer.valueOf(i9)) + "");
+                    SapiJsInterpreters.this.c.G.confirm(i7 + String.format("%02d", Integer.valueOf(i8 + 1)) + String.format("%02d", Integer.valueOf(i9)) + "");
                 }
             }, i, i2, i3);
             datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.2
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    SapiJsInterpreters.this.d.I.confirm("");
+                    SapiJsInterpreters.this.c.G.confirm("");
                 }
             });
             datePickerDialog.setTitle("");
@@ -728,11 +590,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.m != null) {
+            if (SapiJsInterpreters.this.c.k != null) {
                 SapiWebView.LoadExternalWebViewResult loadExternalWebViewResult = new SapiWebView.LoadExternalWebViewResult();
                 loadExternalWebViewResult.defaultTitle = command.getActionParams().get(0);
                 loadExternalWebViewResult.externalUrl = command.getActionParams().get(1);
-                SapiJsInterpreters.this.d.m.loadExternalWebview(loadExternalWebViewResult);
+                SapiJsInterpreters.this.c.k.loadExternalWebview(loadExternalWebViewResult);
                 return null;
             }
             return null;
@@ -754,11 +616,11 @@ public class SapiJsInterpreters {
                 Log.e(e);
                 i = 0;
             }
-            SapiJsInterpreters.this.d.n.onPickImage(i, new SapiWebView.PickPhotoResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
+            SapiJsInterpreters.this.c.l.onPickImage(i, new SapiWebView.PickPhotoResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
                 @Override // com.baidu.sapi2.SapiWebView.PickPhotoResult
                 public void setImageData(String str) {
-                    if (SapiJsInterpreters.this.d.I != null) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                    if (SapiJsInterpreters.this.c.G != null) {
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 }
             });
@@ -774,38 +636,39 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.o != null) {
-                SapiJsInterpreters.this.d.o.onBdussChange();
-                return null;
+            if (SapiJsInterpreters.this.c.m != null) {
+                SapiJsInterpreters.this.c.m.onBdussChange();
+            } else {
+                SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionBdussChanged.1
+                    @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
+                    public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.LoginStatusAware
+                    public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
+                    }
+
+                    /* JADX DEBUG: Method merged with bridge method */
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onStart() {
+                    }
+
+                    @Override // com.baidu.sapi2.callback.SapiCallback
+                    public void onFinish() {
+                    }
+                }, true);
             }
-            SapiAccountManager.getInstance().getAccountService().web2NativeLogin(new Web2NativeLoginCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionBdussChanged.1
-                @Override // com.baidu.sapi2.callback.Web2NativeLoginCallback
-                public void onBdussEmpty(Web2NativeLoginResult web2NativeLoginResult) {
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.LoginStatusAware
-                public void onBdussExpired(Web2NativeLoginResult web2NativeLoginResult) {
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onSuccess(Web2NativeLoginResult web2NativeLoginResult) {
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFailure(Web2NativeLoginResult web2NativeLoginResult) {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onStart() {
-                }
-
-                @Override // com.baidu.sapi2.callback.SapiCallback
-                public void onFinish() {
-                }
-            }, true);
+            new PtokenStat().onEvent(PtokenStat.SAPI_ACTION_BDUSS_CHANGED);
             return null;
         }
     }
@@ -820,7 +683,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (SapiJsInterpreters.this.d.F != null) {
+                if (SapiJsInterpreters.this.c.C != null) {
                     jSONObject.put("sup", true);
                 }
             } catch (JSONException e) {
@@ -838,8 +701,8 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.F != null) {
-                SapiJsInterpreters.this.d.F.onChange();
+            if (SapiJsInterpreters.this.c.C != null) {
+                SapiJsInterpreters.this.c.C.onChange();
                 return null;
             }
             return null;
@@ -854,20 +717,20 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.p != null) {
+            if (SapiJsInterpreters.this.c.n != null) {
                 List<String> actionParams = command.getActionParams();
                 if (actionParams != null && actionParams.size() > 0) {
                     SapiWebView.SwitchAccountCallback.Result result = new SapiWebView.SwitchAccountCallback.Result();
                     result.userName = actionParams.get(0);
                     try {
-                        if (!SapiWebView.SwitchAccountCallback.class.equals(SapiJsInterpreters.this.d.p.getClass().getMethod("onAccountSwitch", SapiWebView.SwitchAccountCallback.Result.class).getDeclaringClass())) {
-                            SapiJsInterpreters.this.d.p.onAccountSwitch(result);
+                        if (!SapiWebView.SwitchAccountCallback.class.equals(SapiJsInterpreters.this.c.n.getClass().getMethod("onAccountSwitch", SapiWebView.SwitchAccountCallback.Result.class).getDeclaringClass())) {
+                            SapiJsInterpreters.this.c.n.onAccountSwitch(result);
                         }
                     } catch (NoSuchMethodException e) {
                         Log.e(e);
                     }
                 }
-                SapiJsInterpreters.this.d.p.onAccountSwitch();
+                SapiJsInterpreters.this.c.n.onAccountSwitch();
             }
             return null;
         }
@@ -884,8 +747,8 @@ public class SapiJsInterpreters {
             SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentification.1
                 @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
                 public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.d.I != null) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                    if (SapiJsInterpreters.this.c.G != null) {
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 }
             };
@@ -907,8 +770,8 @@ public class SapiJsInterpreters {
                 }
             }
             biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.d.i != null) {
-                SapiJsInterpreters.this.d.i.onBiometricsIdentify(biometricsIdentifyResult);
+            if (SapiJsInterpreters.this.c.g != null) {
+                SapiJsInterpreters.this.c.g.onBiometricsIdentify(biometricsIdentifyResult);
                 return null;
             }
             return null;
@@ -926,8 +789,8 @@ public class SapiJsInterpreters {
             SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationNoBduss.1
                 @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
                 public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.d.I != null) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                    if (SapiJsInterpreters.this.c.G != null) {
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 }
             };
@@ -955,8 +818,8 @@ public class SapiJsInterpreters {
                 }
             }
             biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.d.i != null) {
-                SapiJsInterpreters.this.d.i.onBiometricsIdentify(biometricsIdentifyResult);
+            if (SapiJsInterpreters.this.c.g != null) {
+                SapiJsInterpreters.this.c.g.onBiometricsIdentify(biometricsIdentifyResult);
                 return null;
             }
             return null;
@@ -974,8 +837,8 @@ public class SapiJsInterpreters {
             SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult = new SapiWebView.BiometricsIdentifyResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithAuthtoken.1
                 @Override // com.baidu.sapi2.SapiWebView.BiometricsIdentifyResult
                 public void setIdentifyToken(String str) {
-                    if (SapiJsInterpreters.this.d.I != null) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                    if (SapiJsInterpreters.this.c.G != null) {
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 }
             };
@@ -998,8 +861,8 @@ public class SapiJsInterpreters {
                 }
             }
             biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
-            if (SapiJsInterpreters.this.d.i != null) {
-                SapiJsInterpreters.this.d.i.onBiometricsIdentify(biometricsIdentifyResult);
+            if (SapiJsInterpreters.this.c.g != null) {
+                SapiJsInterpreters.this.c.g.onBiometricsIdentify(biometricsIdentifyResult);
                 return null;
             }
             return null;
@@ -1014,9 +877,9 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.d.J = Integer.parseInt(command.getActionParams().get(0));
-            if (SapiJsInterpreters.this.d.q != null) {
-                SapiJsInterpreters.this.d.q.onLeftBtnVisible(SapiJsInterpreters.this.d.J);
+            SapiJsInterpreters.this.c.H = Integer.parseInt(command.getActionParams().get(0));
+            if (SapiJsInterpreters.this.c.o != null) {
+                SapiJsInterpreters.this.c.o.onLeftBtnVisible(SapiJsInterpreters.this.c.H);
                 return null;
             }
             return null;
@@ -1031,9 +894,8 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.r != null) {
-                SapiJsInterpreters.this.d.r.onSuccess();
-                PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_REALNAME_AUTHENTICATE, IEventCenterService.EventResult.PHASE.SUCCESS);
+            if (SapiJsInterpreters.this.c.p != null) {
+                SapiJsInterpreters.this.c.p.onSuccess();
                 return null;
             }
             return null;
@@ -1049,12 +911,12 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             String cookieBduss = SapiUtils.getCookieBduss();
-            if (SapiJsInterpreters.this.d.s != null) {
-                SapiJsInterpreters.this.d.s.onCoverBduss(cookieBduss, new SapiWebView.CoverWebBdussResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionCoverWebBduss.1
+            if (SapiJsInterpreters.this.c.q != null) {
+                SapiJsInterpreters.this.c.q.onCoverBduss(cookieBduss, new SapiWebView.CoverWebBdussResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionCoverWebBduss.1
                     @Override // com.baidu.sapi2.SapiWebView.CoverWebBdussResult
                     public void setWebBduss(String str) {
-                        SapiJsInterpreters.this.b.a(SapiJsInterpreters.this.e, str);
-                        SapiJsInterpreters.this.b.reload();
+                        SapiJsInterpreters.this.a.a(SapiJsInterpreters.this.d, str);
+                        SapiJsInterpreters.this.a.reload();
                     }
                 });
                 return null;
@@ -1071,7 +933,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            return SapiJsInterpreters.this.c.getTpl();
+            return SapiJsInterpreters.this.b.getTpl();
         }
     }
 
@@ -1083,7 +945,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.d.K = true;
+            SapiJsInterpreters.this.c.I = true;
             return null;
         }
     }
@@ -1096,11 +958,11 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.b.canGoBack()) {
-                SapiJsInterpreters.this.b.goBack();
+            if (SapiJsInterpreters.this.a.canGoBack()) {
+                SapiJsInterpreters.this.a.goBack();
                 return null;
             }
-            SapiJsInterpreters.this.b.finish();
+            SapiJsInterpreters.this.a.finish();
             return null;
         }
     }
@@ -1115,15 +977,15 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                String optString = jSONObject.optString("username");
+                String optString = jSONObject.optString(LoginActivity.EXTRA_PARAM_USERNAME);
                 boolean equals = jSONObject.optString("close", "0").equals("1");
                 SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
                 preFillUserNameResult.userName = optString;
-                if (SapiJsInterpreters.this.d.t != null) {
-                    SapiJsInterpreters.this.d.t.onPreFillUserName(preFillUserNameResult);
+                if (SapiJsInterpreters.this.c.r != null) {
+                    SapiJsInterpreters.this.c.r.onPreFillUserName(preFillUserNameResult);
                 }
                 if (equals) {
-                    SapiJsInterpreters.this.b.finish();
+                    SapiJsInterpreters.this.a.finish();
                     return null;
                 }
                 return null;
@@ -1144,9 +1006,9 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                String v2FaceLoginCheckResults = SapiContext.getInstance(SapiJsInterpreters.this.e).getV2FaceLoginCheckResults();
+                String v2FaceLoginCheckResults = SapiContext.getInstance(SapiJsInterpreters.this.d).getV2FaceLoginCheckResults();
                 Log.e(Log.TAG, "v2FaceLoginCheckResults", v2FaceLoginCheckResults);
-                com.baidu.sapi2.share.face.a aVar = new com.baidu.sapi2.share.face.a();
+                com.baidu.sapi2.share.a.a aVar = new com.baidu.sapi2.share.a.a();
                 aVar.a(v2FaceLoginCheckResults);
                 if (!TextUtils.isEmpty(aVar.b)) {
                     jSONObject.put("livinguname", aVar.b);
@@ -1166,7 +1028,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            String v2FaceLoginCheckResults = SapiContext.getInstance(SapiJsInterpreters.this.e).getV2FaceLoginCheckResults();
+            String v2FaceLoginCheckResults = SapiContext.getInstance(SapiJsInterpreters.this.d).getV2FaceLoginCheckResults();
             Log.e(Log.TAG, "v2FaceLoginCheckResults", v2FaceLoginCheckResults);
             return v2FaceLoginCheckResults;
         }
@@ -1180,10 +1042,10 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.u != null) {
-                SapiJsInterpreters.this.d.u.onAccountDestory(new SapiWebView.AccountDestoryCallback.AccountDestoryResult());
+            if (SapiJsInterpreters.this.c.s != null) {
+                SapiJsInterpreters.this.c.s.onAccountDestory(new SapiWebView.AccountDestoryCallback.AccountDestoryResult());
             }
-            SapiJsInterpreters.this.b.finish();
+            SapiJsInterpreters.this.a.finish();
             return null;
         }
     }
@@ -1196,8 +1058,8 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.v != null) {
-                SapiJsInterpreters.this.d.v.onAccountFreeze(new SapiWebView.AccountFreezeCallback.AccountFreezeResult());
+            if (SapiJsInterpreters.this.c.t != null) {
+                SapiJsInterpreters.this.c.t.onAccountFreeze(new SapiWebView.AccountFreezeCallback.AccountFreezeResult());
                 return null;
             }
             return null;
@@ -1212,11 +1074,12 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (SapiJsInterpreters.this.d.h != null) {
+            if (SapiJsInterpreters.this.c.f != null) {
                 SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult = new SapiWebView.BioScanFaceCallback.BioScanFaceResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiBiometricsIdentificationWithUid.1
                     @Override // com.baidu.sapi2.SapiWebView.BioScanFaceCallback.BioScanFaceResult
                     public void setScanFaceIdentifyResult(String str) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                        android.util.Log.i("dragon", str);
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 };
                 try {
@@ -1236,7 +1099,7 @@ public class SapiJsInterpreters {
                             bioScanFaceResult.transParamsMap.put(next, optJSONObject.optString(next));
                         }
                     }
-                    SapiJsInterpreters.this.d.h.onBioScanFace(bioScanFaceResult);
+                    SapiJsInterpreters.this.c.f.onBioScanFace(bioScanFaceResult);
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -1253,14 +1116,16 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (System.currentTimeMillis() - SapiJsInterpreters.this.g > 1000) {
-                SapiJsInterpreters.this.g = System.currentTimeMillis();
+            if (System.currentTimeMillis() - SapiJsInterpreters.this.f > 1000) {
+                SapiJsInterpreters.this.f = System.currentTimeMillis();
                 try {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                    String optString = jSONObject.optString("pkg");
+                    String optString = jSONObject.optString(Config.INPUT_DEF_PKG);
                     String optString2 = jSONObject.optString("url");
-                    SapiJsInterpreters.this.d.I.confirm("finish");
-                    SapiJsInterpreters.this.d.w.onClick(optString, optString2);
+                    String optString3 = jSONObject.optString("trace_id");
+                    String optString4 = jSONObject.optString("session_id");
+                    SapiJsInterpreters.this.c.G.confirm("finish");
+                    SapiJsInterpreters.this.c.u.onClick(optString, optString2, optString3, optString4);
                 } catch (Exception e) {
                     Log.e(e);
                 }
@@ -1277,7 +1142,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiStatUtil.statShareClickOther(command.getActionParams().get(0));
+            SapiStatUtil.statShareClickOther(command.getActionParams().get(0), SapiJsInterpreters.this.a.extras);
             return null;
         }
     }
@@ -1314,7 +1179,7 @@ public class SapiJsInterpreters {
                 str4 = str2;
                 str5 = str;
             }
-            SapiStatUtil.statShareV1AccountClick(i3, str4, str5);
+            SapiStatUtil.statShareV1AccountClick(i3, str4, str5, SapiJsInterpreters.this.a.extras);
             return null;
         }
     }
@@ -1329,12 +1194,12 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             try {
                 JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
-                if (SapiJsInterpreters.this.d.x != null) {
+                if (SapiJsInterpreters.this.c.v != null) {
                     int optInt = jSONObject.optInt("relogin", -1);
                     if (optInt == 1) {
                         SapiAccount session = SapiAccountManager.getInstance().getSession();
                         String optString = jSONObject.optString("bduss");
-                        String optString2 = jSONObject.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
+                        String optString2 = jSONObject.optString("ptoken");
                         if (session != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
                             session.bduss = optString;
                             session.ptoken = optString2;
@@ -1343,10 +1208,10 @@ public class SapiJsInterpreters {
                             SapiAccountManager.getInstance().preFetchStoken(session, true);
                         }
                     }
-                    SapiJsInterpreters.this.d.x.loginStatusChange(optInt == 1);
+                    SapiJsInterpreters.this.c.v.loginStatusChange(optInt == 1);
                 }
-                if (SapiJsInterpreters.this.d.L) {
-                    SapiJsInterpreters.this.b.finish();
+                if (SapiJsInterpreters.this.c.J) {
+                    SapiJsInterpreters.this.a.finish();
                     return null;
                 }
                 return null;
@@ -1365,13 +1230,13 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            if (WXAPIFactory.createWXAPI(SapiJsInterpreters.this.e, SapiJsInterpreters.this.c.wxAppID).isWXAppInstalled()) {
-                SapiJsInterpreters.this.d.M = command.getActionParams().get(0);
-                if (SapiJsInterpreters.this.d.f != null) {
+            if (new e().a(SapiJsInterpreters.this.b)) {
+                SapiJsInterpreters.this.c.K = command.getActionParams().get(0);
+                if (SapiJsInterpreters.this.c.d != null) {
                     Message message = new Message();
                     message.what = SocialType.WEIXIN.getType();
-                    message.obj = SapiJsInterpreters.this.d.M;
-                    SapiJsInterpreters.this.d.f.sendMessage(message);
+                    message.obj = SapiJsInterpreters.this.c.K;
+                    SapiJsInterpreters.this.c.d.sendMessage(message);
                 }
                 return null;
             }
@@ -1394,14 +1259,14 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.b.a(SapiJsInterpreters.this.d.N);
-            SapiJsInterpreters.this.b.finish();
-            if (SapiJsInterpreters.this.d.D != null) {
+            SapiJsInterpreters.this.a.a(SapiJsInterpreters.this.c.L);
+            SapiJsInterpreters.this.a.finish();
+            if (SapiJsInterpreters.this.c.A != null) {
                 String str = "";
                 if (command.getActionParams().size() > 0) {
                     str = command.getActionParams().get(0);
                 }
-                SapiJsInterpreters.this.d.D.onFinish(str);
+                SapiJsInterpreters.this.c.A.onFinish(str);
                 return null;
             }
             return null;
@@ -1416,7 +1281,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiJsInterpreters.this.b.c(SapiJsInterpreters.this.d.O);
+            SapiJsInterpreters.this.a.c(SapiJsInterpreters.this.c.M);
             return null;
         }
     }
@@ -1432,55 +1297,52 @@ public class SapiJsInterpreters {
             String str = command.getActionParams().get(0);
             int parseInt = command.getActionParams().size() >= 2 ? Integer.parseInt(command.getActionParams().get(1)) : 0;
             if (parseInt == 1) {
-                SocialResponse b = SapiWebView.b(str, SapiJsInterpreters.this.e);
+                SocialResponse b = SapiWebView.b(str, SapiJsInterpreters.this.d);
                 if (b == null) {
-                    if (SapiJsInterpreters.this.d.G != null) {
-                        SapiJsInterpreters.this.b.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.1
+                    if (SapiJsInterpreters.this.c.D != null) {
+                        SapiJsInterpreters.this.a.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (SapiJsInterpreters.this.d.G != null) {
-                                    SapiJsInterpreters.this.d.G.onFailed(-100, "登录失败");
-                                    PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_AUTHORIZATION, IEventCenterService.EventResult.PHASE.FAILURE);
+                                if (SapiJsInterpreters.this.c.D != null) {
+                                    SapiJsInterpreters.this.c.D.onFailed(-100, "登录失败");
                                 }
                             }
                         });
                     }
                 } else if (b.offlineNotice || b.bindGuide || b.errorCode == 21 || b.bindConflict) {
-                    SapiJsInterpreters.this.d.N = b;
+                    SapiJsInterpreters.this.c.L = b;
                 } else {
-                    SapiJsInterpreters.this.b.a(b);
+                    SapiJsInterpreters.this.a.a(b);
                 }
             }
             if (parseInt == 0) {
-                final SapiAccountResponse a = SapiJsInterpreters.this.b.a(str, SapiJsInterpreters.this.e);
+                final SapiAccountResponse a = SapiJsInterpreters.this.a.a(str, SapiJsInterpreters.this.d);
                 if (a == null) {
-                    if (SapiJsInterpreters.this.d.G != null) {
-                        SapiJsInterpreters.this.b.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.2
+                    if (SapiJsInterpreters.this.c.D != null) {
+                        SapiJsInterpreters.this.a.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.2
                             @Override // java.lang.Runnable
                             public void run() {
-                                if (SapiJsInterpreters.this.d.G != null) {
-                                    SapiJsInterpreters.this.d.G.onFailed(-100, "登录失败");
-                                    PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_AUTHORIZATION, IEventCenterService.EventResult.PHASE.FAILURE);
+                                if (SapiJsInterpreters.this.c.D != null) {
+                                    SapiJsInterpreters.this.c.D.onFailed(-100, "登录失败");
                                 }
                             }
                         });
                         return null;
                     }
                     return null;
-                } else if (SapiJsInterpreters.this.d.P != null && a.newReg) {
-                    SapiJsInterpreters.this.d.O = a;
-                    SapiJsInterpreters.this.b.a(a);
+                } else if (SapiJsInterpreters.this.c.N != null && a.newReg) {
+                    SapiJsInterpreters.this.c.M = a;
+                    SapiJsInterpreters.this.a.a(a);
                     return null;
                 } else if (a.errorCode == 0 || a.errorCode == 110000) {
-                    SapiJsInterpreters.this.b.c(a);
+                    SapiJsInterpreters.this.a.c(a);
                     return null;
-                } else if (SapiJsInterpreters.this.d.G != null) {
-                    SapiJsInterpreters.this.b.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.3
+                } else if (SapiJsInterpreters.this.c.D != null) {
+                    SapiJsInterpreters.this.a.post(new Runnable() { // from class: com.baidu.sapi2.SapiJsInterpreters.AuthorizedResponse.3
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (SapiJsInterpreters.this.d.G != null) {
-                                SapiJsInterpreters.this.d.G.onFailed(a.errorCode, a.errorMsg);
-                                PluginFacade.notify(IEventCenterService.EventId.EventMode.SAPIWEBVIEW_AUTHORIZATION, IEventCenterService.EventResult.PHASE.FAILURE);
+                            if (SapiJsInterpreters.this.c.D != null) {
+                                SapiJsInterpreters.this.c.D.onFailed(a.errorCode, a.errorMsg);
                             }
                         }
                     });
@@ -1512,7 +1374,7 @@ public class SapiJsInterpreters {
                     } catch (JSONException e) {
                         Log.e(e);
                     }
-                    SapiJsInterpreters.this.d.I.confirm(jSONObject.toString());
+                    SapiJsInterpreters.this.c.G.confirm(jSONObject.toString());
                 }
             }).a();
             return null;
@@ -1528,43 +1390,32 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
-            PackageManager packageManager = SapiJsInterpreters.this.e.getPackageManager();
             try {
-                PackageInfo packageInfo = packageManager.getPackageInfo(SapiJsInterpreters.this.e.getPackageName(), 0);
-                jSONObject.put("name", packageInfo.applicationInfo.loadLabel(packageManager).toString());
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(((BitmapDrawable) packageInfo.applicationInfo.loadIcon(packageManager)).getBitmap(), 160, 160, true);
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                int i = 100;
-                createScaledBitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
-                while (byteArrayOutputStream.toByteArray().length > 524288 && i > 0) {
-                    i /= 2;
-                    byteArrayOutputStream.reset();
-                    createScaledBitmap.compress(Bitmap.CompressFormat.PNG, i, byteArrayOutputStream);
-                }
-                jSONObject.put("icon", "data:image/png;base64," + SapiDeviceUtils.DeviceCrypto.base64Encode(byteArrayOutputStream.toByteArray()));
-                List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.c.context);
-                if (SapiJsInterpreters.this.d.w != null && a != null && a.size() > 0) {
+                Object[] pkgIconAndName = SapiUtils.getPkgIconAndName(SapiJsInterpreters.this.d, SapiJsInterpreters.this.d.getPackageName());
+                jSONObject.put("icon", pkgIconAndName[0]);
+                jSONObject.put("name", pkgIconAndName[1]);
+                List<ShareStorage.StorageModel> a = com.baidu.sapi2.share.a.a().a(SapiJsInterpreters.this.b.context);
+                if (SapiJsInterpreters.this.c.u != null && a != null && a.size() > 0) {
                     jSONObject.put("openShareLogin", "true");
                 } else {
                     jSONObject.put("openShareLogin", "false");
                 }
-                jSONObject.put("hasThirdAccount", SapiJsInterpreters.this.d.Q == null ? "false" : SapiJsInterpreters.this.d.Q.hasThirdAccount + "");
-                if (!new FaceLoginService().isSupFaceLogin()) {
+                jSONObject.put("hasThirdAccount", SapiJsInterpreters.this.c.O == null ? "false" : SapiJsInterpreters.this.c.O.hasThirdAccount + "");
+                if (!new c().b()) {
                     jSONObject.put("supportFaceLogin", "false");
                 } else {
                     jSONObject.put("supportFaceLogin", "true");
                 }
-                if (SapiJsInterpreters.this.d.Q != null && SapiJsInterpreters.this.d.Q.agreement != null) {
+                if (SapiJsInterpreters.this.c.O != null && SapiJsInterpreters.this.c.O.agreement != null) {
                     JSONArray jSONArray = new JSONArray();
-                    for (String str : SapiJsInterpreters.this.d.Q.agreement.keySet()) {
+                    for (String str : SapiJsInterpreters.this.c.O.agreement.keySet()) {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("name", str);
-                        jSONObject2.put("url", SapiJsInterpreters.this.d.Q.agreement.get(str));
+                        jSONObject2.put("url", SapiJsInterpreters.this.c.O.agreement.get(str));
                         jSONArray.put(jSONObject2);
                     }
                     jSONObject.put("agreement", jSONArray);
                 }
-                byteArrayOutputStream.close();
             } catch (Exception e) {
                 Log.e(e);
             }
@@ -1608,19 +1459,17 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            boolean z = true;
             try {
                 boolean optBoolean = new JSONObject(command.getActionParams().get(0)).optBoolean("is_only_outside_get_token", true);
-                boolean isOutsideCompany = SapiAccountManager.getInstance().isOutsideCompany();
-                if ((!optBoolean || !isOutsideCompany) && optBoolean) {
-                    z = false;
+                if (optBoolean) {
                 }
+                boolean z = optBoolean ? false : true;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("is_outside_company", isOutsideCompany ? "1" : "0");
+                jSONObject.put("is_outside_company", "0");
                 jSONObject.put("errno", 0);
                 if (z) {
                     SapiAccount session = SapiAccountManager.getInstance().getSession();
-                    jSONObject.put("once_token", SapiAccountManager.getInstance().getDeviceAuthToken(SapiJsInterpreters.this.e, session == null ? null : session.uid, 122));
+                    jSONObject.put("once_token", SapiAccountManager.getInstance().getDeviceAuthToken(SapiJsInterpreters.this.d, session == null ? null : session.uid, 122));
                 }
                 return jSONObject.toString();
             } catch (JSONException e) {
@@ -1639,9 +1488,17 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             try {
-                int optInt = new JSONObject(command.getActionParams().get(0)).optInt("status");
-                if (SapiJsInterpreters.this.d.E != null) {
-                    SapiJsInterpreters.this.d.E.onFinish(optInt);
+                JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
+                AccountRealNameResult accountRealNameResult = new AccountRealNameResult();
+                int optInt = jSONObject.optInt("status");
+                accountRealNameResult.callbackkey = jSONObject.optString("callbackKey");
+                if (SapiJsInterpreters.this.c.B != null) {
+                    if (optInt == 1) {
+                        accountRealNameResult.juniorRealNameSuc = true;
+                    } else if (optInt == 2) {
+                        accountRealNameResult.seniorRealNameSuc = true;
+                    }
+                    SapiJsInterpreters.this.c.B.onFinish(accountRealNameResult);
                     return null;
                 }
                 return null;
@@ -1665,7 +1522,7 @@ public class SapiJsInterpreters {
                 jSONObject.optString("action");
                 String optString = jSONObject.optString("minver");
                 JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(WXLoginActivity.KEY_BASE_RESP_STATE, new SapiScheme().getInvokeScState(SapiJsInterpreters.this.e, optString, SapiJsInterpreters.this.d.z));
+                jSONObject2.put(WXLoginActivity.KEY_BASE_RESP_STATE, new SapiScheme().getInvokeScState(SapiJsInterpreters.this.d, optString, SapiJsInterpreters.this.c.x));
                 return jSONObject2.toString();
             } catch (JSONException e) {
                 Log.e(e);
@@ -1683,8 +1540,8 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             int parseInt = Integer.parseInt(command.getActionParams().get(0));
-            if (SapiJsInterpreters.this.d.B != null) {
-                SapiJsInterpreters.this.d.B.pageState(parseInt);
+            if (SapiJsInterpreters.this.c.E != null) {
+                SapiJsInterpreters.this.c.E.pageState(parseInt);
                 return null;
             }
             return null;
@@ -1711,10 +1568,10 @@ public class SapiJsInterpreters {
                         arrayList.add(new PassNameValuePair(next, jSONObject.optString(next)));
                     }
                 }
-                SapiJsInterpreters.this.d.z.onInvokeScApp(optString, optString2, arrayList, new SapiWebView.InvokeScAppCallback.InvokeScAppResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionScAppInvoke.1
+                SapiJsInterpreters.this.c.x.onInvokeScApp(optString, optString2, arrayList, new SapiWebView.InvokeScAppCallback.InvokeScAppResult() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionScAppInvoke.1
                     @Override // com.baidu.sapi2.SapiWebView.InvokeScAppCallback.InvokeScAppResult
                     public void setInvokeResult(String str) {
-                        SapiJsInterpreters.this.d.I.confirm(str);
+                        SapiJsInterpreters.this.c.G.confirm(str);
                     }
                 });
                 return null;
@@ -1734,10 +1591,10 @@ public class SapiJsInterpreters {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
             ArrayList arrayList = new ArrayList();
-            if (SapiJsInterpreters.this.c.fastLoginFeatureList == null || SapiJsInterpreters.this.c.fastLoginFeatureList.isEmpty()) {
+            if (SapiJsInterpreters.this.b.fastLoginFeatureList == null || SapiJsInterpreters.this.b.fastLoginFeatureList.isEmpty()) {
                 return null;
             }
-            arrayList.addAll(SapiJsInterpreters.this.c.fastLoginFeatureList);
+            arrayList.addAll(SapiJsInterpreters.this.b.fastLoginFeatureList);
             if (arrayList.isEmpty()) {
                 return null;
             }
@@ -1745,11 +1602,11 @@ public class SapiJsInterpreters {
             arrayList.remove(FastLoginFeature.SINA_WEIBO_SSO);
             arrayList.remove(FastLoginFeature.TX_QQ_SSO);
             arrayList.remove(FastLoginFeature.HUAWEI_LOGIN);
-            if (SapiJsInterpreters.this.d.f == null) {
+            if (SapiJsInterpreters.this.c.d == null) {
                 arrayList.remove(FastLoginFeature.TX_WEIXIN_SSO);
             }
             StringBuilder sb = new StringBuilder();
-            if (SapiContext.getInstance(SapiJsInterpreters.this.e).isHostsHijacked()) {
+            if (SapiContext.getInstance(SapiJsInterpreters.this.d).isHostsHijacked()) {
                 return sb.toString();
             }
             int i = 0;
@@ -1778,9 +1635,9 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            SapiWebView unused = SapiJsInterpreters.this.b;
+            SapiWebView unused = SapiJsInterpreters.this.a;
             if (SapiWebView.statLoadLogin != null) {
-                SapiWebView unused2 = SapiJsInterpreters.this.b;
+                SapiWebView unused2 = SapiJsInterpreters.this.a;
                 return SapiWebView.statLoadLogin.toJSON().toString();
             }
             return null;
@@ -1798,9 +1655,9 @@ public class SapiJsInterpreters {
             try {
                 String optString = new JSONObject(command.getActionParams().get(0)).optString("livinguname");
                 if (!TextUtils.isEmpty(optString)) {
-                    new FaceLoginService().syncFaceLoginUID(SapiJsInterpreters.this.e, optString);
+                    new c().a(SapiJsInterpreters.this.d, optString);
                 } else {
-                    SapiAccountManager.getInstance().getAccountService().checkFaceLoginEnable(SapiJsInterpreters.this.e, null);
+                    SapiAccountManager.getInstance().getAccountService().checkFaceLoginEnable(SapiJsInterpreters.this.d, null);
                 }
             } catch (JSONException e) {
                 Log.e(e);
@@ -1822,38 +1679,60 @@ public class SapiJsInterpreters {
                 int optInt = jSONObject.optInt("errno");
                 String optString = jSONObject.optString("msg");
                 if (optInt != 0) {
-                    if (SapiJsInterpreters.this.d.C != null) {
-                        SapiJsInterpreters.this.d.C.onFailure(optInt, optString);
+                    if (SapiJsInterpreters.this.c.z != null) {
+                        SapiJsInterpreters.this.c.z.onFailure(optInt, optString);
                     }
                 } else {
                     boolean z = jSONObject.optInt("merge") == 1;
-                    SapiAccountResponse a = SapiJsInterpreters.this.b.a(jSONObject.optString("xml"), SapiJsInterpreters.this.e);
+                    String optString2 = jSONObject.optString("normalizeWay");
+                    SapiAccountResponse a = SapiJsInterpreters.this.a.a(jSONObject.optString("xml"), SapiJsInterpreters.this.d);
                     if (a == null) {
-                        if (SapiJsInterpreters.this.d.C != null) {
-                            SapiJsInterpreters.this.d.C.onFailure(NormalizeGuestAccountResult.ERROR_CODE_PARSE_XML, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
+                        if (SapiJsInterpreters.this.c.z != null) {
+                            SapiJsInterpreters.this.c.z.onFailure(NormalizeGuestAccountResult.ERROR_CODE_PARSE_XML, NormalizeGuestAccountResult.ERROR_MSG_PARSE_XML);
                         }
                     } else {
-                        SapiAccount b = SapiJsInterpreters.this.b.b(a);
+                        SapiAccount b = SapiJsInterpreters.this.a.b(a);
                         if (!SapiUtils.isValidAccount(b)) {
-                            SapiJsInterpreters.this.d.C.onFailure(-202, SapiResult.ERROR_MSG_UNKNOWN);
+                            SapiJsInterpreters.this.c.z.onFailure(-202, SapiResult.ERROR_MSG_UNKNOWN);
                         } else {
                             SapiAccount session = SapiAccountManager.getInstance().getSession();
                             b.addSocialInfo(session.getSocialType(), session.getSocialPortrait());
                             SapiAccountManager.getInstance().removeLoginAccount(session);
                             SapiAccountManager.getInstance().validate(b);
-                            if (SapiJsInterpreters.this.d.C != null) {
-                                SapiJsInterpreters.this.d.C.onSuccess(z);
+                            if (SapiJsInterpreters.this.c.z != null) {
+                                SapiJsInterpreters.this.c.z.onSuccess(z, optString2);
                             }
                         }
                     }
                 }
             } catch (JSONException e) {
                 Log.e(e);
-                if (SapiJsInterpreters.this.d.C != null) {
-                    SapiJsInterpreters.this.d.C.onFailure(-202, SapiResult.ERROR_MSG_UNKNOWN);
+                if (SapiJsInterpreters.this.c.z != null) {
+                    SapiJsInterpreters.this.c.z.onFailure(-202, SapiResult.ERROR_MSG_UNKNOWN);
                 }
             }
             return null;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class NormalizeGuestDescription extends AbstractInterpreter {
+        NormalizeGuestDescription() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("errno", 0);
+                if (!TextUtils.isEmpty(SapiJsInterpreters.this.c.P)) {
+                    jSONObject.put("description", new JSONObject(SapiJsInterpreters.this.c.P));
+                }
+            } catch (JSONException e) {
+                Log.e(e);
+            }
+            return jSONObject.toString();
         }
     }
 
@@ -1869,7 +1748,7 @@ public class SapiJsInterpreters {
             String str;
             String str2 = "";
             try {
-                ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.e.getSystemService("clipboard");
+                ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.d.getSystemService("clipboard");
                 if (!clipboardManager.hasPrimaryClip()) {
                     str = "";
                 } else {
@@ -1880,12 +1759,7 @@ public class SapiJsInterpreters {
                 str = str2;
                 Log.e(th);
             }
-            HashMap hashMap = new HashMap();
-            hashMap.put("cuid", SapiUtils.getClientId(SapiJsInterpreters.this.e));
-            hashMap.put(Config.DEVICE_PART, Build.MODEL);
-            hashMap.put("os_version", Build.VERSION.RELEASE);
-            hashMap.put("success", TextUtils.isEmpty(str) ? "0" : "1");
-            StatService.onEvent("get_sms_check_code_from_clip", hashMap, false);
+            SapiStatUtil.statSmsCodeClip(SapiJsInterpreters.this.d, TextUtils.isEmpty(str) ? "0" : "1");
             return str;
         }
     }
@@ -1919,7 +1793,7 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("sidValue", SapiJsInterpreters.this.c.sidValue);
+                jSONObject.put("sidValue", SapiJsInterpreters.this.b.sidValue);
                 jSONObject.put("errno", 0);
             } catch (JSONException e) {
                 Log.e(e);
@@ -1936,16 +1810,7 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            JSONObject jSONObject = new JSONObject();
-            if (ChinaMobileSDK.checkSupOauth(SapiJsInterpreters.this.e)) {
-                try {
-                    jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PHONE, ChinaMobileSDK.g);
-                    jSONObject.put("errno", 0);
-                } catch (JSONException e) {
-                }
-            }
-            ChinaMobileSDK.statRecordAuth(SapiJsInterpreters.this.e, SapiJsInterpreters.this.c.chinaMobileAppID);
-            return jSONObject.toString();
+            return new com.baidu.sapi2.a.c().a(SapiJsInterpreters.this.d).toString();
         }
     }
 
@@ -1957,20 +1822,10 @@ public class SapiJsInterpreters {
 
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
-            new ChinaMobileSDK().loginOauth(SapiJsInterpreters.this.e, SapiJsInterpreters.this.c.chinaMobileAppID, SapiJsInterpreters.this.c.chinaMobileAppKey, new TokenListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionChinaMobileOauth.1
+            new com.baidu.sapi2.a.c().a(SapiJsInterpreters.this.b, new c.a() { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionChinaMobileOauth.1
+                @Override // com.baidu.sapi2.a.c.a
                 public void onGetTokenComplete(JSONObject jSONObject) {
-                    if (jSONObject != null) {
-                        try {
-                            if (!TextUtils.isEmpty(jSONObject.optString("token")) && jSONObject.optString("resultCode").equals(ChinaMobileSDK.b)) {
-                                jSONObject.put("errno", 0);
-                                SapiJsInterpreters.this.d.I.confirm(jSONObject.toString());
-                            }
-                        } catch (JSONException e) {
-                            SapiJsInterpreters.this.d.I.confirm("");
-                            return;
-                        }
-                    }
-                    SapiJsInterpreters.this.d.I.confirm("");
+                    SapiJsInterpreters.this.c.G.confirm(jSONObject.toString());
                 }
             });
             return null;
@@ -1987,13 +1842,106 @@ public class SapiJsInterpreters {
         public String interpret(SapiWebView.Command command) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("encryptedId", SapiJsInterpreters.this.d.R.encryptedId);
-                jSONObject.put("displayname", SapiJsInterpreters.this.d.R.displayname);
+                jSONObject.put("encryptedId", SapiJsInterpreters.this.c.Q.encryptedId);
+                jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, SapiJsInterpreters.this.c.Q.displayname);
                 jSONObject.put("errno", 0);
             } catch (Exception e) {
                 Log.e(e);
             }
             return jSONObject.toString();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class SapiActionHideSuccessTip extends AbstractInterpreter {
+        SapiActionHideSuccessTip() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("hideTip", SapiJsInterpreters.this.c.R ? "1" : "0");
+                jSONObject.put("errno", 0);
+            } catch (Exception e) {
+                Log.e(e);
+            }
+            return jSONObject.toString();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes.dex */
+    public class OauthSsoHash extends AbstractInterpreter {
+        OauthSsoHash() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            SapiAccountManager.getInstance().getAccountService().generateSsoHash(new SsoHashCallback() { // from class: com.baidu.sapi2.SapiJsInterpreters.OauthSsoHash.1
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // com.baidu.sapi2.callback.SapiCallback
+                public void onSuccess(SsoHashResult ssoHashResult) {
+                    SapiJsInterpreters.this.c.G.confirm(ssoHashResult.ssoHash);
+                }
+            }, SapiJsInterpreters.this.c.S.callingPkg, SapiJsInterpreters.this.c.S.callingAppId);
+            return null;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class ActionShareV2Login extends AbstractInterpreter {
+        ActionShareV2Login() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            return SapiJsInterpreters.this.c.T.pageParams.toString();
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class ActionShareV2LoginClick extends AbstractInterpreter {
+        ActionShareV2LoginClick() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            SapiJsInterpreters.this.c.T.onSuccess();
+            return null;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class ActionShareV2LoginFail extends AbstractInterpreter {
+        ActionShareV2LoginFail() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            SapiJsInterpreters.this.c.T.onError();
+            return null;
+        }
+    }
+
+    /* loaded from: classes.dex */
+    class OauthCallBaidu extends AbstractInterpreter {
+        OauthCallBaidu() {
+            super();
+        }
+
+        @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
+        public String interpret(SapiWebView.Command command) {
+            if (SapiJsInterpreters.this.c.S != null) {
+                SapiJsInterpreters.this.c.S.callback.onCallback(command.getActionParams().get(0));
+                return null;
+            }
+            return null;
         }
     }
 
@@ -2028,7 +1976,7 @@ public class SapiJsInterpreters {
             this.p = new BroadcastReceiver() { // from class: com.baidu.sapi2.SapiJsInterpreters.SendUpwardSms.2
                 @Override // android.content.BroadcastReceiver
                 public void onReceive(Context context, Intent intent) {
-                    SapiJsInterpreters.this.b.removeCallbacks(SendUpwardSms.this.n);
+                    SapiJsInterpreters.this.a.removeCallbacks(SendUpwardSms.this.n);
                     SendUpwardSms.this.d();
                     if (getResultCode() != -1) {
                         SendUpwardSms.this.f();
@@ -2064,9 +2012,9 @@ public class SapiJsInterpreters {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a() {
-            if (Build.VERSION.SDK_INT >= 23 && SapiJsInterpreters.this.e.checkSelfPermission("android.permission.SEND_SMS") == -1) {
+            if (Build.VERSION.SDK_INT >= 23 && SapiJsInterpreters.this.d.checkSelfPermission("android.permission.SEND_SMS") == -1) {
                 f();
-            } else if (Build.VERSION.SDK_INT < 23 && SapiJsInterpreters.this.e.checkCallingOrSelfPermission("android.permission.SEND_SMS") == -1) {
+            } else if (Build.VERSION.SDK_INT < 23 && SapiJsInterpreters.this.d.checkCallingOrSelfPermission("android.permission.SEND_SMS") == -1) {
                 f();
             } else {
                 c();
@@ -2079,7 +2027,7 @@ public class SapiJsInterpreters {
 
         @TargetApi(11)
         private void c() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(SapiJsInterpreters.this.e, 3);
+            AlertDialog.Builder builder = new AlertDialog.Builder(SapiJsInterpreters.this.d, 3);
             builder.setTitle(this.i);
             builder.setMessage(b());
             builder.setPositiveButton(c, new DialogInterface.OnClickListener() { // from class: com.baidu.sapi2.SapiJsInterpreters.SendUpwardSms.3
@@ -2103,7 +2051,7 @@ public class SapiJsInterpreters {
                 }
             });
             AlertDialog create = builder.create();
-            if (!((Activity) SapiJsInterpreters.this.e).isFinishing() && !create.isShowing()) {
+            if (!((Activity) SapiJsInterpreters.this.d).isFinishing() && !create.isShowing()) {
                 create.show();
             }
         }
@@ -2112,7 +2060,7 @@ public class SapiJsInterpreters {
         public void d() {
             if (this.p != null) {
                 try {
-                    SapiJsInterpreters.this.e.unregisterReceiver(this.p);
+                    SapiJsInterpreters.this.d.unregisterReceiver(this.p);
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
@@ -2122,12 +2070,12 @@ public class SapiJsInterpreters {
         /* JADX INFO: Access modifiers changed from: private */
         public boolean e() {
             Intent intent = new Intent(f);
-            intent.setPackage(SapiJsInterpreters.this.e.getPackageName());
-            PendingIntent broadcast = PendingIntent.getBroadcast(SapiJsInterpreters.this.e, 0, intent, 0);
-            SapiJsInterpreters.this.e.registerReceiver(this.p, new IntentFilter(f));
+            intent.setPackage(SapiJsInterpreters.this.d.getPackageName());
+            PendingIntent broadcast = PendingIntent.getBroadcast(SapiJsInterpreters.this.d, 0, intent, 0);
+            SapiJsInterpreters.this.d.registerReceiver(this.p, new IntentFilter(f));
             try {
                 SmsService.sendSms(this.g, this.h, broadcast, null);
-                SapiJsInterpreters.this.b.postDelayed(this.n, 500L);
+                SapiJsInterpreters.this.a.postDelayed(this.n, 500L);
                 return true;
             } catch (Throwable th) {
                 return false;
@@ -2136,7 +2084,7 @@ public class SapiJsInterpreters {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void f() {
-            if (SapiJsInterpreters.this.d.y != null) {
+            if (SapiJsInterpreters.this.c.w != null) {
                 SapiWebView.SystemUpwardSmsCallback.Result result = new SapiWebView.SystemUpwardSmsCallback.Result() { // from class: com.baidu.sapi2.SapiJsInterpreters.SendUpwardSms.6
                     @Override // com.baidu.sapi2.SapiWebView.SystemUpwardSmsCallback.Result
                     public void onFinish() {
@@ -2148,15 +2096,15 @@ public class SapiJsInterpreters {
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (SapiJsInterpreters.this.d.I != null) {
-                            SapiJsInterpreters.this.d.I.confirm(jSONObject.toString());
+                        if (SapiJsInterpreters.this.c.G != null) {
+                            SapiJsInterpreters.this.c.G.confirm(jSONObject.toString());
                         }
                         SendUpwardSms.this.k.onResult(SendUpwardSms.this.l, SendUpwardSms.this.m, false);
                     }
                 };
                 result.content = this.h;
                 result.destination = this.g;
-                SapiJsInterpreters.this.d.y.onResult(result);
+                SapiJsInterpreters.this.c.w.onResult(result);
             }
         }
     }

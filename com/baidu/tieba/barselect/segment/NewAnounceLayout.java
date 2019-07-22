@@ -14,20 +14,20 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.a.a;
 import com.baidu.tieba.barselect.data.f;
 /* loaded from: classes3.dex */
 public class NewAnounceLayout extends CardBasicLayout {
-    private float cbl;
-    private View.OnClickListener ckI;
-    private View etF;
-    private TextView etG;
-    private View etH;
-    private TextView etI;
-    private TextView etJ;
+    private float ccn;
+    private View.OnClickListener clU;
+    private View eyE;
+    private TextView eyF;
+    private View eyG;
+    private TextView eyH;
+    private TextView eyI;
     private Context mContext;
 
     public NewAnounceLayout(Context context) {
@@ -36,13 +36,13 @@ public class NewAnounceLayout extends CardBasicLayout {
 
     public NewAnounceLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ckI = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
+        this.clU = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                new am("c13447").aif();
-                if (NewAnounceLayout.this.etE != null && NewAnounceLayout.this.etE.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.etE.aWH())) {
+                new an("c13447").aji();
+                if (NewAnounceLayout.this.eyD != null && NewAnounceLayout.this.eyD.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.eyD.aYD())) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
-                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.etE.getTid() + "", (String) null, (String) null, true);
+                    pbActivityConfig.createNormalCfg(NewAnounceLayout.this.eyD.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                 }
             }
@@ -59,81 +59,81 @@ public class NewAnounceLayout extends CardBasicLayout {
         setMinimumHeight(l.g(getContext(), R.dimen.tbds90));
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         LayoutInflater.from(getContext()).inflate(R.layout.new_announce_layout, (ViewGroup) this, true);
-        qA();
+        qX();
     }
 
-    private void qA() {
-        this.etF = findViewById(R.id.announce_content);
-        this.etF.setOnClickListener(this.ckI);
-        this.etG = (TextView) findViewById(R.id.first_line_tv);
-        this.etH = findViewById(R.id.second_content);
-        this.etI = (TextView) findViewById(R.id.second_line_tv);
-        this.etJ = (TextView) findViewById(R.id.announce_tail);
+    private void qX() {
+        this.eyE = findViewById(R.id.announce_content);
+        this.eyE.setOnClickListener(this.clU);
+        this.eyF = (TextView) findViewById(R.id.first_line_tv);
+        this.eyG = findViewById(R.id.second_content);
+        this.eyH = (TextView) findViewById(R.id.second_line_tv);
+        this.eyI = (TextView) findViewById(R.id.announce_tail);
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
     public void setData(int i, f fVar) {
         super.setData(i, fVar);
-        if (this.epO == null || this.etE == null || this.status < 0) {
+        if (this.euM == null || this.eyD == null || this.status < 0) {
             setVisibility(8);
             return;
         }
-        this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
-        if (this.status == a.etT) {
-            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
+        this.ccn = l.v((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds70) * 2);
+        if (this.status == a.eyS) {
+            this.ccn = l.v((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds116) * 2);
         }
-        if (this.status == a.etV) {
-            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
+        if (this.status == a.eyU) {
+            this.ccn = l.v((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds96) * 2);
         }
-        if (this.status == a.etU) {
-            this.cbl = l.s((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
-            this.etF.setPadding(0, 0, 0, 0);
-            this.etG.setPadding(0, 0, 0, 0);
-            this.etI.setPadding(0, 0, 0, 0);
-            this.etJ.setPadding(0, 0, 0, 0);
+        if (this.status == a.eyT) {
+            this.ccn = l.v((Activity) getContext()).widthPixels - (l.g(getContext(), R.dimen.tbds86) * 2);
+            this.eyE.setPadding(0, 0, 0, 0);
+            this.eyF.setPadding(0, 0, 0, 0);
+            this.eyH.setPadding(0, 0, 0, 0);
+            this.eyI.setPadding(0, 0, 0, 0);
         }
-        uP(this.etE.aWH());
+        vu(this.eyD.aYD());
     }
 
-    private void uP(String str) {
+    private void vu(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
-            this.etH.setVisibility(8);
-            this.etG.setText(getResources().getString(R.string.empty_announce));
+            this.eyG.setVisibility(8);
+            this.eyF.setText(getResources().getString(R.string.empty_announce));
             return;
         }
-        this.etH.setVisibility(0);
-        int lineEnd = new StaticLayout(str, this.etG.getPaint(), (int) this.cbl, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
+        this.eyG.setVisibility(0);
+        int lineEnd = new StaticLayout(str, this.eyF.getPaint(), (int) this.ccn, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0);
         String substring = str.substring(0, lineEnd);
         if (lineEnd >= str.length()) {
-            this.etH.setVisibility(8);
-            this.etG.setText(substring);
+            this.eyG.setVisibility(8);
+            this.eyF.setText(substring);
             return;
         }
         String substring2 = str.substring(lineEnd, str.length());
-        if (new StaticLayout(substring2, this.etI.getPaint(), (int) this.cbl, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
-            this.etJ.setVisibility(8);
+        if (new StaticLayout(substring2, this.eyH.getPaint(), (int) this.ccn, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineEnd(0) >= substring2.length()) {
+            this.eyI.setVisibility(8);
         } else {
-            this.etJ.setVisibility(0);
+            this.eyI.setVisibility(0);
         }
-        this.etH.setVisibility(0);
-        this.etG.setText(substring);
-        this.etI.setText(substring2);
+        this.eyG.setVisibility(0);
+        this.eyF.setText(substring);
+        this.eyH.setText(substring2);
     }
 
-    public void nq(int i) {
-        if (this.etE != null) {
-            if (this.status != a.etU) {
-                al.h(this.etF, R.color.cp_bg_line_e, i);
-            } else if (this.etF != null) {
-                this.etF.setBackgroundColor(0);
+    public void nz(int i) {
+        if (this.eyD != null) {
+            if (this.status != a.eyT) {
+                am.h(this.eyE, R.color.cp_bg_line_e, i);
+            } else if (this.eyE != null) {
+                this.eyE.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.etE.aWH())) {
-                al.c(this.etG, R.color.cp_cont_d, 1, i);
+            if (TextUtils.isEmpty(this.eyD.aYD())) {
+                am.d(this.eyF, R.color.cp_cont_d, 1, i);
             } else {
-                al.c(this.etG, R.color.cp_cont_b, 1, i);
+                am.d(this.eyF, R.color.cp_cont_b, 1, i);
             }
-            al.c(this.etI, R.color.cp_cont_b, 1, i);
-            al.c(this.etJ, R.color.cp_link_tip_c, 1, i);
+            am.d(this.eyH, R.color.cp_cont_b, 1, i);
+            am.d(this.eyI, R.color.cp_link_tip_c, 1, i);
         }
     }
 }

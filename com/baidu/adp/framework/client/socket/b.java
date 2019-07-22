@@ -5,9 +5,9 @@ public interface b {
 
     boolean b(boolean z, String str);
 
-    void fe();
+    void fl();
 
-    void ff();
+    void fm();
 
     int getCmd();
 }

@@ -5,31 +5,31 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes4.dex */
 public class a {
-    private int fOQ = -1;
-    private long fOR = -1;
-    private int fON = b.agM().getInt("nani_key_download_show_position", 3);
-    private Set<Integer> fOO = new HashSet();
-    private Set<String> fOP = new HashSet();
+    private int fTN = -1;
+    private long fTO = -1;
+    private int fTK = b.ahO().getInt("nani_key_download_show_position", 3);
+    private Set<Integer> fTL = new HashSet();
+    private Set<String> fTM = new HashSet();
 
     public void al(int i, String str) {
-        this.fOP.add(str);
-        if (this.fOQ < 0 && this.fON == this.fOP.size()) {
-            this.fOQ = i;
+        this.fTM.add(str);
+        if (this.fTN < 0 && this.fTK == this.fTM.size()) {
+            this.fTN = i;
         }
     }
 
-    public int brr() {
-        return this.fOQ;
+    public int bts() {
+        return this.fTN;
     }
 
-    public void de(long j) {
-        this.fOR = j;
+    public void dl(long j) {
+        this.fTO = j;
     }
 
-    public void brs() {
-        int i = b.agM().getInt("nani_key_download_show_rate", 2);
-        if (this.fOR > 0 && i != 1) {
-            b.agM().putLong("key_horizontal_shown_time", this.fOR);
+    public void btt() {
+        int i = b.ahO().getInt("nani_key_download_show_rate", 2);
+        if (this.fTO > 0 && i != 1) {
+            b.ahO().putLong("key_horizontal_shown_time", this.fTO);
         }
     }
 }

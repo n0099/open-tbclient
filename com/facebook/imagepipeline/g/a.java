@@ -8,32 +8,32 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final List<b> kbg;
+    private final List<b> kin;
 
     public a(Set<b> set) {
-        this.kbg = new ArrayList(set.size());
+        this.kin = new ArrayList(set.size());
         for (b bVar : set) {
             if (bVar != null) {
-                this.kbg.add(bVar);
+                this.kin.add(bVar);
             }
         }
     }
 
     public a(b... bVarArr) {
-        this.kbg = new ArrayList(bVarArr.length);
+        this.kin = new ArrayList(bVarArr.length);
         for (b bVar : bVarArr) {
             if (bVar != null) {
-                this.kbg.add(bVar);
+                this.kin.add(bVar);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).a(imageRequest, obj, str, z);
+                this.kin.get(i).a(imageRequest, obj, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestStart", e);
             }
@@ -41,11 +41,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void ez(String str, String str2) {
-        int size = this.kbg.size();
+    public void eA(String str, String str2) {
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).ez(str, str2);
+                this.kin.get(i).eA(str, str2);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerStart", e);
             }
@@ -54,10 +54,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).a(str, str2, map);
+                this.kin.get(i).a(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -66,10 +66,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).a(str, str2, th, map);
+                this.kin.get(i).a(str, str2, th, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -78,10 +78,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void b(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).b(str, str2, map);
+                this.kin.get(i).b(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithCancellation", e);
             }
@@ -90,10 +90,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void ae(String str, String str2, String str3) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).ae(str, str2, str3);
+                this.kin.get(i).ae(str, str2, str3);
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateChunkStart", e);
             }
@@ -102,10 +102,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).a(imageRequest, str, z);
+                this.kin.get(i).a(imageRequest, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestSuccess", e);
             }
@@ -114,10 +114,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        int size = this.kbg.size();
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).a(imageRequest, str, th, z);
+                this.kin.get(i).a(imageRequest, str, th, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestFailure", e);
             }
@@ -125,11 +125,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public void GU(String str) {
-        int size = this.kbg.size();
+    public void HO(String str) {
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.kbg.get(i).GU(str);
+                this.kin.get(i).HO(str);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestCancellation", e);
             }
@@ -137,10 +137,10 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public boolean GV(String str) {
-        int size = this.kbg.size();
+    public boolean HP(String str) {
+        int size = this.kin.size();
         for (int i = 0; i < size; i++) {
-            if (this.kbg.get(i).GV(str)) {
+            if (this.kin.get(i).HP(str)) {
                 return true;
             }
         }

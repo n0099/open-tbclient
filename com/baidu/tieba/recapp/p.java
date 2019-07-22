@@ -69,8 +69,8 @@ public class p implements com.baidu.c.a.b.b {
             return false;
         }
         if (view instanceof HeadImageView) {
-            if (aVar.aaG > 0.0f) {
-                ((HeadImageView) view).setRadius((int) (aVar.aaG * view.getResources().getDisplayMetrics().density));
+            if (aVar.abe > 0.0f) {
+                ((HeadImageView) view).setRadius((int) (aVar.abe * view.getResources().getDisplayMetrics().density));
             } else {
                 ((HeadImageView) view).setRadius(0);
             }
@@ -80,19 +80,19 @@ public class p implements com.baidu.c.a.b.b {
         if (CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME.equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.aaL);
+                textView.setTextColor(aVar.abj);
             } else {
                 textView.setTextColor(aVar.color);
             }
-            textView.setTextSize(0, aVar.aaM * view.getContext().getResources().getDisplayMetrics().density);
+            textView.setTextSize(0, aVar.abk * view.getContext().getResources().getDisplayMetrics().density);
             textView.setText(aVar.text);
         } else if (view instanceof JumpButton) {
             ((JumpButton) view).setText(aVar.text);
             return true;
         } else if ("download".equalsIgnoreCase(str) && (view instanceof ApkDownloadView)) {
-            if (TextUtils.equals("pb-banner", aVar.aaN)) {
+            if (TextUtils.equals("pb-banner", aVar.abl)) {
                 ((ApkDownloadView) view).setIsPbDownload(true);
-                ((ApkDownloadView) view).setTextSize((int) aVar.aaM);
+                ((ApkDownloadView) view).setTextSize((int) aVar.abk);
             } else {
                 ((ApkDownloadView) view).setIsPbDownload(false);
             }

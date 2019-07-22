@@ -1,6 +1,7 @@
 package com.baidu.swan.game.ad.f;
 
 import android.content.Context;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 /* loaded from: classes2.dex */
@@ -14,9 +15,9 @@ public class d implements com.baidu.swan.game.ad.b.b {
 
     @Override // com.baidu.swan.game.ad.b.b
     public void a(String str, ResponseCallback<com.baidu.swan.game.ad.a.b> responseCallback) {
-        this.a = str.startsWith("https://");
+        this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.DY().Ew()).build().executeAsync(responseCallback);
+            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsync(responseCallback);
             return;
         }
         HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(responseCallback);
@@ -24,9 +25,9 @@ public class d implements com.baidu.swan.game.ad.b.b {
 
     @Override // com.baidu.swan.game.ad.b.b
     public void a(String str) {
-        this.a = str.startsWith("https://");
+        this.a = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.a) {
-            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.DY().Ew()).build().executeAsync(null);
+            HttpManager.getDefault(this.b).getRequest().url(str).cookieManager(com.baidu.swan.apps.u.a.EH().Ff()).build().executeAsync(null);
             return;
         }
         HttpManager.getDefault(this.b).getRequest().url(str).build().executeAsync(null);

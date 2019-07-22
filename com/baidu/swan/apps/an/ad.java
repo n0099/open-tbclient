@@ -7,64 +7,64 @@ import android.content.Context;
 import android.text.ClipboardManager;
 /* loaded from: classes2.dex */
 public abstract class ad {
-    protected static Context aZD;
+    protected static Context ban;
 
     public abstract CharSequence getText();
 
     public abstract void setText(CharSequence charSequence);
 
     public static ad bW(Context context) {
-        aZD = context.getApplicationContext();
+        ban = context.getApplicationContext();
         return com.baidu.swan.apps.an.a.hasHoneycomb() ? new a() : new b();
     }
 
     /* loaded from: classes2.dex */
     private static class b extends ad {
-        private static ClipboardManager aZG = null;
+        private static ClipboardManager baq = null;
 
         public b() {
-            aZG = (ClipboardManager) aZD.getSystemService("clipboard");
+            baq = (ClipboardManager) ban.getSystemService("clipboard");
         }
 
         @Override // com.baidu.swan.apps.an.ad
         public void setText(CharSequence charSequence) {
-            aZG.setText(charSequence);
+            baq.setText(charSequence);
         }
 
         @Override // com.baidu.swan.apps.an.ad
         public CharSequence getText() {
-            return aZG.getText();
+            return baq.getText();
         }
     }
 
     @TargetApi(11)
     /* loaded from: classes2.dex */
     private static class a extends ad {
-        private static android.content.ClipboardManager aZE = null;
-        private static ClipData aZF = null;
+        private static android.content.ClipboardManager bao = null;
+        private static ClipData bap = null;
 
         @SuppressLint({"ServiceCast"})
         public a() {
-            aZE = (android.content.ClipboardManager) aZD.getSystemService("clipboard");
+            bao = (android.content.ClipboardManager) ban.getSystemService("clipboard");
         }
 
         @Override // com.baidu.swan.apps.an.ad
         public void setText(CharSequence charSequence) {
-            aZF = ClipData.newPlainText("text/plain", charSequence);
-            aZE.setPrimaryClip(aZF);
+            bap = ClipData.newPlainText("text/plain", charSequence);
+            bao.setPrimaryClip(bap);
         }
 
         @Override // com.baidu.swan.apps.an.ad
         public CharSequence getText() {
             try {
-                aZF = aZE.getPrimaryClip();
+                bap = bao.getPrimaryClip();
             } catch (Exception e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     throw e;
                 }
             }
-            if (aZF != null && aZF.getItemCount() > 0) {
-                return aZF.getItemAt(0).getText();
+            if (bap != null && bap.getItemCount() > 0) {
+                return bap.getItemAt(0).getText();
             }
             return "";
         }

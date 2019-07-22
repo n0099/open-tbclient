@@ -10,18 +10,18 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.bc;
+import com.baidu.tbadk.core.util.bd;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.h.d;
 import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class c implements View.OnClickListener {
-    private com.baidu.tbadk.coreExtra.model.a bSm;
-    private d ccA;
-    private a ccB;
-    protected com.baidu.tbadk.core.view.userLike.a ccx;
-    private b ccy;
-    private BdUniqueId ccz;
+    private com.baidu.tbadk.coreExtra.model.a bTm;
+    private b cdA;
+    private BdUniqueId cdB;
+    private d cdC;
+    private a cdD;
+    protected com.baidu.tbadk.core.view.userLike.a cdz;
     private TbPageContext mPageContext;
     private String mFromType = "0";
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.view.userLike.c.1
@@ -31,42 +31,42 @@ public class c implements View.OnClickListener {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (c.this.ccx != null && !StringUtils.isNull(c.this.ccx.getUserId()) && data != null && c.this.ccx.getUserId().equals(data.toUid)) {
-                    boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.ccz == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.ccz)) ? false : true;
-                    if (data.cgA == null) {
-                        if (!data.Hh) {
-                            BdToast.b(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().errorString, R.drawable.icon_toast_game_error, 3000).afO();
-                            if (c.this.ccy != null) {
+                if (c.this.cdz != null && !StringUtils.isNull(c.this.cdz.getUserId()) && data != null && c.this.cdz.getUserId().equals(data.toUid)) {
+                    boolean z = (updateAttentionMessage.getOrginalMessage() == null || c.this.cdB == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(c.this.cdB)) ? false : true;
+                    if (data.chF == null) {
+                        if (!data.Hs) {
+                            BdToast.b(TbadkCoreApplication.getInst().getContext(), updateAttentionMessage.getData().errorString, R.drawable.icon_toast_game_error, 3000).agQ();
+                            if (c.this.cdA != null) {
                                 if (z) {
-                                    c.this.ccy.d(c.this.ccx.getIsLike(), c.this.ccx.getLikeStatus(), z);
+                                    c.this.cdA.d(c.this.cdz.getIsLike(), c.this.cdz.getLikeStatus(), z);
                                     return;
                                 } else {
-                                    c.this.ccy.f(c.this.ccx.getIsLike(), c.this.ccx.getLikeStatus());
+                                    c.this.cdA.f(c.this.cdz.getIsLike(), c.this.cdz.getLikeStatus());
                                     return;
                                 }
                             }
                             return;
                         }
-                        int fansNum = c.this.ccx.getFansNum();
-                        if (data.isAttention && !c.this.ccx.getIsLike()) {
+                        int fansNum = c.this.cdz.getFansNum();
+                        if (data.isAttention && !c.this.cdz.getIsLike()) {
                             fansNum++;
-                        } else if (!data.isAttention && c.this.ccx.getIsLike()) {
+                        } else if (!data.isAttention && c.this.cdz.getIsLike()) {
                             fansNum--;
                         }
-                        c.this.ccx.setLikeStatus(data.status);
-                        c.this.ccx.setIsLike(data.isAttention);
-                        c.this.ccx.setIsFromNetWork(false);
-                        c.this.ccx.setFansNum(fansNum);
-                        if (c.this.ccy != null) {
-                            c.this.ccy.iY(fansNum);
+                        c.this.cdz.setLikeStatus(data.status);
+                        c.this.cdz.setIsLike(data.isAttention);
+                        c.this.cdz.setIsFromNetWork(false);
+                        c.this.cdz.setFansNum(fansNum);
+                        if (c.this.cdA != null) {
+                            c.this.cdA.je(fansNum);
                             if (z) {
-                                if (c.this.ccB != null) {
-                                    c.this.ccB.es(data.isAttention);
+                                if (c.this.cdD != null) {
+                                    c.this.cdD.ew(data.isAttention);
                                 }
-                                c.this.ccy.d(data.isAttention, data.status, true);
+                                c.this.cdA.d(data.isAttention, data.status, true);
                                 return;
                             }
-                            c.this.ccy.f(data.isAttention, data.status);
+                            c.this.cdA.f(data.isAttention, data.status);
                         }
                     }
                 }
@@ -76,20 +76,20 @@ public class c implements View.OnClickListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void es(boolean z);
+        void ew(boolean z);
     }
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.bSm = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.ccz = this.mPageContext.getUniqueId();
+        this.bTm = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.cdB = this.mPageContext.getUniqueId();
         tbPageContext.registerListener(this.mAttentionListener);
     }
 
     public c(TbPageContext tbPageContext, b bVar) {
         this.mPageContext = tbPageContext;
-        this.bSm = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
-        this.ccz = this.mPageContext.getUniqueId();
+        this.bTm = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
+        this.cdB = this.mPageContext.getUniqueId();
         tbPageContext.registerListener(this.mAttentionListener);
         a(bVar);
     }
@@ -98,11 +98,11 @@ public class c implements View.OnClickListener {
         this.mFromType = str;
     }
 
-    public void i(BdUniqueId bdUniqueId) {
+    public void j(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.ccz = bdUniqueId;
+            this.cdB = bdUniqueId;
             MessageManager.getInstance().unRegisterListener(this.mAttentionListener);
-            this.mAttentionListener.setTag(this.ccz);
+            this.mAttentionListener.setTag(this.cdB);
             MessageManager.getInstance().registerListener(this.mAttentionListener);
         }
     }
@@ -114,44 +114,44 @@ public class c implements View.OnClickListener {
     }
 
     public void a(b bVar) {
-        this.ccy = bVar;
-        if (this.ccy != null) {
-            this.ccy.e(this);
+        this.cdA = bVar;
+        if (this.cdA != null) {
+            this.cdA.e(this);
         }
     }
 
     public void a(com.baidu.tbadk.core.view.userLike.a aVar) {
-        this.ccx = aVar;
-        if (this.ccy != null && this.ccx != null) {
-            this.ccy.f(aVar.getIsLike(), aVar.getLikeStatus());
-            this.ccy.iY(aVar.getFansNum());
+        this.cdz = aVar;
+        if (this.cdA != null && this.cdz != null) {
+            this.cdA.f(aVar.getIsLike(), aVar.getLikeStatus());
+            this.cdA.je(aVar.getFansNum());
         }
     }
 
-    public com.baidu.tbadk.core.view.userLike.a akd() {
-        return this.ccx;
+    public com.baidu.tbadk.core.view.userLike.a ali() {
+        return this.cdz;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.ccA == null || !this.ccA.aE(view)) {
-            if (!j.jG()) {
+        if (this.cdC == null || !this.cdC.aG(view)) {
+            if (!j.jQ()) {
                 this.mPageContext.showToast(R.string.network_ungeilivable);
             }
-            if (this.ccy != null) {
-                this.ccy.aX(view);
+            if (this.cdA != null) {
+                this.cdA.aZ(view);
             }
-            if (bc.cE(this.mPageContext.getPageActivity()) && this.ccx != null) {
-                if (this.ccz == null) {
-                    this.bSm.a(this.ccx.getIsLike() ? false : true, this.ccx.getPortrait(), this.ccx.getUserId(), this.ccx.isGod(), this.mFromType, this.mPageContext.getUniqueId(), null, "0");
+            if (bd.cF(this.mPageContext.getPageActivity()) && this.cdz != null) {
+                if (this.cdB == null) {
+                    this.bTm.a(this.cdz.getIsLike() ? false : true, this.cdz.getPortrait(), this.cdz.getUserId(), this.cdz.isGod(), this.mFromType, this.mPageContext.getUniqueId(), null, "0");
                 } else {
-                    this.bSm.a(this.ccx.getIsLike() ? false : true, this.ccx.getPortrait(), this.ccx.getUserId(), this.ccx.isGod(), this.mFromType, this.ccz, null, "0");
+                    this.bTm.a(this.cdz.getIsLike() ? false : true, this.cdz.getPortrait(), this.cdz.getUserId(), this.cdz.isGod(), this.mFromType, this.cdB, null, "0");
                 }
             }
         }
     }
 
     public void a(a aVar) {
-        this.ccB = aVar;
+        this.cdD = aVar;
     }
 }

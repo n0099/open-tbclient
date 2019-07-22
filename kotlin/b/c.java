@@ -3,18 +3,18 @@ package kotlin.b;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public final class c extends kotlin.b.a {
-    public static final a kkE = new a(null);
-    private static final c kkD = new c(1, 0);
+    public static final a ksd = new a(null);
+    private static final c ksc = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
     }
 
-    public Integer cKg() {
+    public Integer cNQ() {
         return Integer.valueOf(getFirst());
     }
 
-    public Integer cKh() {
+    public Integer cNR() {
         return Integer.valueOf(getLast());
     }
 
@@ -50,8 +50,8 @@ public final class c extends kotlin.b.a {
             this();
         }
 
-        public final c cKj() {
-            return c.kkD;
+        public final c cNT() {
+            return c.ksc;
         }
     }
 }

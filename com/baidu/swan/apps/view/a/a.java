@@ -2,68 +2,68 @@ package com.baidu.swan.apps.view.a;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public int bau;
-    public boolean bav;
-    public boolean baw;
-    public boolean bax;
-    public boolean bay;
-    public int statusBarColor;
+    public int bbe;
+    public int bbf;
+    public boolean bbg;
+    public boolean bbh;
+    public boolean bbi;
+    public boolean bbj;
 
     private a() {
     }
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0188a {
-        private int baz;
-        private int statusBarColor;
-        private boolean bav = true;
-        private boolean baA = true;
-        private boolean baB = true;
-        private boolean bay = false;
+    public static class C0185a {
+        private int bbe;
+        private int bbk;
+        private boolean bbg = true;
+        private boolean bbl = true;
+        private boolean bbm = true;
+        private boolean bbj = false;
 
-        public static C0188a Pe() {
-            return new C0188a();
+        public static C0185a PV() {
+            return new C0185a();
         }
 
-        public C0188a eB(int i) {
-            this.statusBarColor = i;
+        public C0185a eE(int i) {
+            this.bbe = i;
             return this;
         }
 
-        public C0188a eC(int i) {
-            this.baz = i;
+        public C0185a eF(int i) {
+            this.bbk = i;
             return this;
         }
 
-        public C0188a cD(boolean z) {
-            this.bav = z;
+        public C0185a cG(boolean z) {
+            this.bbg = z;
             return this;
         }
 
-        public C0188a cE(boolean z) {
-            this.baA = z;
+        public C0185a cH(boolean z) {
+            this.bbl = z;
             return this;
         }
 
-        public C0188a cF(boolean z) {
-            this.baB = z;
+        public C0185a cI(boolean z) {
+            this.bbm = z;
             return this;
         }
 
-        public C0188a cG(boolean z) {
-            this.bay = z;
+        public C0185a cJ(boolean z) {
+            this.bbj = z;
             return this;
         }
 
-        public a Pf() {
+        public a PW() {
             a aVar = new a();
-            aVar.bau = this.baz;
-            aVar.bav = this.bav;
-            aVar.bax = this.baB;
-            aVar.baw = this.baA;
-            aVar.statusBarColor = this.statusBarColor;
-            aVar.bay = this.bay;
+            aVar.bbf = this.bbk;
+            aVar.bbg = this.bbg;
+            aVar.bbi = this.bbm;
+            aVar.bbh = this.bbl;
+            aVar.bbe = this.bbe;
+            aVar.bbj = this.bbj;
             return aVar;
         }
     }

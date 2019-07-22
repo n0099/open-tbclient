@@ -1,15 +1,15 @@
 package com.facebook.common.memory;
 /* loaded from: classes2.dex */
 public class d implements c {
-    private static d jSm = null;
+    private static d jZq = null;
 
-    public static synchronized d cBF() {
+    public static synchronized d cEG() {
         d dVar;
         synchronized (d.class) {
-            if (jSm == null) {
-                jSm = new d();
+            if (jZq == null) {
+                jZq = new d();
             }
-            dVar = jSm;
+            dVar = jZq;
         }
         return dVar;
     }

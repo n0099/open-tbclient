@@ -3,30 +3,12 @@ package com.baidu.android.pushservice.j;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
-public class f {
-    public static String a(byte[] bArr, String str, boolean z) {
-        StringBuilder sb = new StringBuilder();
-        for (byte b : bArr) {
-            String hexString = Integer.toHexString(b & 255);
-            if (z) {
-                hexString = hexString.toUpperCase();
-            }
-            if (hexString.length() == 1) {
-                sb.append("0");
-            }
-            sb.append(hexString).append(str);
-        }
-        return sb.toString();
-    }
-
-    public static String a(byte[] bArr, boolean z) {
+public final class f {
+    public static byte[] a(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            messageDigest.update(bArr);
-            return a(messageDigest.digest(), "", z);
+            return MessageDigest.getInstance("SHA-1").digest(bArr);
         } catch (NoSuchAlgorithmException e) {
-            return null;
+            throw new RuntimeException(e);
         }
     }
 }

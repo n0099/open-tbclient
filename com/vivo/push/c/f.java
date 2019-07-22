@@ -7,9 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import java.util.List;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
-public final class f extends com.vivo.push.s {
+final class f extends com.vivo.push.s {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(com.vivo.push.v vVar) {
         super(vVar);

@@ -26,8 +26,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
-    private static final String SHARE_URL = "http://service.weibo.com/share/mobilesdk.php";
-    private static final String UPLOAD_PIC_URL = "http://service.weibo.com/share/mobilesdk_uppic.php";
+    private static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
+    private static final String UPLOAD_PIC_URL = "https://service.weibo.com/share/mobilesdk_uppic.php";
     private String hashKey;
     private byte[] mBase64ImgData;
     private String mShareContent;

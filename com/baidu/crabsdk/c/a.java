@@ -3,38 +3,38 @@ package com.baidu.crabsdk.c;
 import android.util.Log;
 /* loaded from: classes3.dex */
 public final class a {
-    public static String ZU = "CRAB";
-    public static String ZV = "CRAB-NA";
+    public static String aar = "CRAB";
+    public static String aas = "CRAB-NA";
 
     public static int a(String str, Throwable th) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(ZU, ci(str), th);
-        }
-        return -1;
-    }
-
-    public static int cf(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.i(ZU, ci(str));
-        }
-        return -1;
-    }
-
-    public static int cg(String str) {
-        if (com.baidu.crabsdk.a.F) {
-            return Log.d(ZV, ci(str));
+            return Log.e(aar, ck(str), th);
         }
         return -1;
     }
 
     public static int ch(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.w(ZU, ci(str));
+            return Log.i(aar, ck(str));
         }
         return -1;
     }
 
-    private static String ci(String str) {
+    public static int ci(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.d(aas, ck(str));
+        }
+        return -1;
+    }
+
+    public static int cj(String str) {
+        if (com.baidu.crabsdk.a.F) {
+            return Log.w(aar, ck(str));
+        }
+        return -1;
+    }
+
+    private static String ck(String str) {
         String str2;
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         if (stackTrace != null) {
@@ -51,14 +51,14 @@ public final class a {
 
     public static int v(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.d(ZU, ci(str));
+            return Log.d(aar, ck(str));
         }
         return -1;
     }
 
     public static int w(String str) {
         if (com.baidu.crabsdk.a.F) {
-            return Log.e(ZU, ci(str));
+            return Log.e(aar, ck(str));
         }
         return -1;
     }

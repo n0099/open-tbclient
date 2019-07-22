@@ -6,23 +6,23 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a jSu;
-    private int kaR = 0;
-    private int kaQ = 0;
-    private int kaS = 0;
-    private int kaU = 0;
-    private int kaT = 0;
-    private int kaP = 0;
+    private final com.facebook.common.memory.a jZy;
+    private int khX = 0;
+    private int khW = 0;
+    private int khY = 0;
+    private int kia = 0;
+    private int khZ = 0;
+    private int khV = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.jSu = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.jZy = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.kaP != 6 && dVar.getSize() > this.kaR) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jSu.get(16384), this.jSu);
+        if (this.khV != 6 && dVar.getSize() > this.khX) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jZy.get(16384), this.jZy);
             try {
-                com.facebook.common.util.c.a(fVar, this.kaR);
+                com.facebook.common.util.c.a(fVar, this.khX);
                 return v(fVar);
             } catch (IOException e) {
                 k.r(e);
@@ -36,75 +36,75 @@ public class e {
 
     private boolean v(InputStream inputStream) {
         int read;
-        int i = this.kaT;
-        while (this.kaP != 6 && (read = inputStream.read()) != -1) {
+        int i = this.khZ;
+        while (this.khV != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.kaR++;
-                switch (this.kaP) {
+                this.khX++;
+                switch (this.khV) {
                     case 0:
                         if (read == 255) {
-                            this.kaP = 1;
+                            this.khV = 1;
                             break;
                         } else {
-                            this.kaP = 6;
+                            this.khV = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.kaP = 2;
+                            this.khV = 2;
                             break;
                         } else {
-                            this.kaP = 6;
+                            this.khV = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.kaP = 3;
+                            this.khV = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.kaP = 3;
+                            this.khV = 3;
                             break;
                         } else if (read == 0) {
-                            this.kaP = 2;
+                            this.khV = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                Dk(this.kaR - 2);
+                                DR(this.khX - 2);
                             }
-                            if (Dj(read)) {
-                                this.kaP = 4;
+                            if (DQ(read)) {
+                                this.khV = 4;
                                 break;
                             } else {
-                                this.kaP = 2;
+                                this.khV = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.kaP = 5;
+                        this.khV = 5;
                         break;
                     case 5:
-                        int i2 = ((this.kaQ << 8) + read) - 2;
+                        int i2 = ((this.khW << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.kaR = i2 + this.kaR;
-                        this.kaP = 2;
+                        this.khX = i2 + this.khX;
+                        this.khV = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.kaQ = read;
+                this.khW = read;
             } catch (IOException e) {
                 k.r(e);
             }
         }
-        return (this.kaP == 6 || this.kaT == i) ? false : true;
+        return (this.khV == 6 || this.khZ == i) ? false : true;
     }
 
-    private static boolean Dj(int i) {
+    private static boolean DQ(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +118,20 @@ public class e {
         return false;
     }
 
-    private void Dk(int i) {
-        if (this.kaS > 0) {
-            this.kaU = i;
+    private void DR(int i) {
+        if (this.khY > 0) {
+            this.kia = i;
         }
-        int i2 = this.kaS;
-        this.kaS = i2 + 1;
-        this.kaT = i2;
+        int i2 = this.khY;
+        this.khY = i2 + 1;
+        this.khZ = i2;
     }
 
-    public int cGw() {
-        return this.kaU;
+    public int cJz() {
+        return this.kia;
     }
 
-    public int cGx() {
-        return this.kaT;
+    public int cJA() {
+        return this.khZ;
     }
 }

@@ -10,72 +10,72 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a iEH;
-    private String iEF;
-    private String iEG = b.agM().getString("asp_shown_info", "");
+    private static a iKZ;
+    private String iKX;
+    private String iKY = b.ahO().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
-    private long yr;
+    private long yx;
 
     private a() {
     }
 
-    public static a cfC() {
-        if (iEH == null) {
+    public static a cit() {
+        if (iKZ == null) {
             synchronized (c.class) {
-                if (iEH == null) {
-                    iEH = new a();
+                if (iKZ == null) {
+                    iKZ = new a();
                 }
             }
         }
-        return iEH;
+        return iKZ;
     }
 
-    public void xR(String str) {
+    public void yB(String str) {
         this.longitude = str;
     }
 
-    public void xS(String str) {
+    public void yC(String str) {
         this.latitude = str;
     }
 
-    public void ej(long j) {
-        this.yr = j;
+    public void et(long j) {
+        this.yx = j;
     }
 
-    private String cfD() {
-        if (TextUtils.isEmpty(this.iEF)) {
+    private String ciu() {
+        if (TextUtils.isEmpty(this.iKX)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.iEF = connectionInfo.getBSSID();
+                this.iKX = connectionInfo.getBSSID();
             } else {
-                this.iEF = "";
+                this.iKX = "";
             }
         }
-        return this.iEF;
+        return this.iKX;
     }
 
-    public void Dd(String str) {
-        this.iEF = str;
+    public void DQ(String str) {
+        this.iKX = str;
     }
 
-    public void De(String str) {
-        this.iEG = str;
+    public void DR(String str) {
+        this.iKY = str;
     }
 
-    public void cfE() {
-        b.agM().putString("asp_shown_info", this.iEG);
+    public void civ() {
+        b.ahO().putString("asp_shown_info", this.iKY);
     }
 
-    public AppPosInfo cfF() {
+    public AppPosInfo ciw() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = cfD();
-        builder.ap_connected = Boolean.valueOf(j.jT());
+        builder.ap_mac = ciu();
+        builder.ap_connected = Boolean.valueOf(j.kd());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
-        builder.addr_timestamp = Long.valueOf(this.yr);
+        builder.addr_timestamp = Long.valueOf(this.yx);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.iEG;
+        builder.asp_shown_info = this.iKY;
         return builder.build(false);
     }
 }

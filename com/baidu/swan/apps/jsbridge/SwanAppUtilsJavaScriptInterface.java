@@ -93,21 +93,21 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject cY = o.cY(str2);
+        JSONObject dd = o.dd(str2);
         try {
-            cY.put(KEY_SHARE_SNAPSHOT, z);
-            cY.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
+            dd.put(KEY_SHARE_SNAPSHOT, z);
+            dd.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.baidu.swan.apps.u.a.DC().a(context, cY, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
+        com.baidu.swan.apps.u.a.El().a(context, dd, new u.a() { // from class: com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface.2
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void EA() {
+            public void Fj() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str3, String.valueOf(true));
             }
 
             @Override // com.baidu.swan.apps.u.b.u.a
-            public void EB() {
+            public void Fk() {
                 SwanAppUtilsJavaScriptInterface.this.notifyCallback(str4, String.valueOf(false));
             }
         });
@@ -134,8 +134,8 @@ public class SwanAppUtilsJavaScriptInterface {
                     if (l.longValue() >= UBC_MIN_VERSION) {
                         String optString2 = jSONObject.optString("actionId");
                         String optString3 = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
-                        if (s.Xr() != null) {
-                            s.Xr().b(optString2, optString3, 0);
+                        if (s.Yn() != null) {
+                            s.Yn().b(optString2, optString3, 0);
                         }
                     }
                 } catch (NumberFormatException e) {

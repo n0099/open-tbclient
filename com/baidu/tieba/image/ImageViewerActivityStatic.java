@@ -15,7 +15,7 @@ public class ImageViewerActivityStatic {
             public CustomResponsedMessage<?> run(CustomMessage<ImageViewerConfig> customMessage) {
                 if (customMessage != null && customMessage.getData() != null) {
                     ImageViewerConfig data = customMessage.getData();
-                    if (ae.iE()) {
+                    if (ae.iN()) {
                         data.setIsIdentifyImage(true);
                     } else {
                         data.setIsIdentifyImage(false);

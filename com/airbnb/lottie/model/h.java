@@ -5,12 +5,12 @@ import com.airbnb.lottie.e;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class h extends b<JSONObject> {
-    private final com.airbnb.lottie.h kB;
+    private final com.airbnb.lottie.h kA;
     private final Resources nO;
 
     public h(Resources resources, com.airbnb.lottie.h hVar) {
         this.nO = resources;
-        this.kB = hVar;
+        this.kA = hVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -26,6 +26,6 @@ public final class h extends b<JSONObject> {
     @Override // android.os.AsyncTask
     /* renamed from: j */
     public void onPostExecute(com.airbnb.lottie.e eVar) {
-        this.kB.a(eVar);
+        this.kA.a(eVar);
     }
 }

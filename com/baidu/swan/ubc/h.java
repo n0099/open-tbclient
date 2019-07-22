@@ -6,12 +6,12 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class h {
-    private String SV;
-    private String aFq;
-    private int bvC;
-    private JSONObject bvD;
-    private String bvE;
-    private boolean bvF;
+    private String Tn;
+    private String aFY;
+    private int bws;
+    private JSONObject bwt;
+    private String bwu;
+    private boolean bwv;
     private String mCategory;
     private String mContent;
     private String mId;
@@ -20,30 +20,30 @@ public class h {
 
     public h(String str, String str2, int i) {
         this.mContent = "";
-        this.bvF = false;
-        this.SV = "";
+        this.bwv = false;
+        this.Tn = "";
         this.mId = str;
-        this.aFq = str;
-        this.bvC = -1;
+        this.aFY = str;
+        this.bws = -1;
         this.mContent = str2;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.bvD = new JSONObject(this.mContent);
+            this.bwt = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.bvF = false;
-        this.SV = "";
+        this.bwv = false;
+        this.Tn = "";
         this.mId = str;
-        this.aFq = str;
-        this.bvC = -1;
-        this.bvD = jSONObject;
+        this.aFY = str;
+        this.bws = -1;
+        this.bwt = jSONObject;
         this.mOption = i;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
@@ -52,29 +52,29 @@ public class h {
 
     public h(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.bvF = false;
-        this.SV = "";
+        this.bwv = false;
+        this.Tn = "";
         this.mId = str2;
-        this.aFq = str;
-        this.bvC = i;
+        this.aFY = str;
+        this.bws = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
         try {
-            this.bvD = new JSONObject(this.mContent);
+            this.bwt = new JSONObject(this.mContent);
         } catch (JSONException e) {
         }
     }
 
     public h(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.bvF = false;
-        this.SV = "";
+        this.bwv = false;
+        this.Tn = "";
         this.mId = str2;
-        this.aFq = str;
-        this.bvC = i;
+        this.aFY = str;
+        this.bws = i;
         this.mContent = str3;
         this.mOption = i2;
         if ((this.mOption & 2) == 0) {
@@ -86,7 +86,7 @@ public class h {
         }
         if (!TextUtils.isEmpty(this.mContent)) {
             try {
-                this.bvD = new JSONObject(this.mContent);
+                this.bwt = new JSONObject(this.mContent);
             } catch (JSONException e) {
             }
         }
@@ -96,12 +96,12 @@ public class h {
         return this.mId;
     }
 
-    public String WU() {
-        return this.aFq;
+    public String XP() {
+        return this.aFY;
     }
 
-    public int WV() {
-        return this.bvC;
+    public int XQ() {
+        return this.bws;
     }
 
     public String getContent() {
@@ -116,8 +116,8 @@ public class h {
         return this.mOption;
     }
 
-    public String WW() {
-        return this.bvE;
+    public String XR() {
+        return this.bwu;
     }
 
     public void setCategory(String str) {
@@ -128,29 +128,29 @@ public class h {
         return this.mCategory;
     }
 
-    public JSONObject WX() {
-        return this.bvD;
+    public JSONObject XS() {
+        return this.bwt;
     }
 
     public String getFileName() {
-        return this.SV;
+        return this.Tn;
     }
 
-    public String WY() {
-        return this.bvD != null ? this.bvD.optString("bizId") : "";
+    public String XT() {
+        return this.bwt != null ? this.bwt.optString("bizId") : "";
     }
 
-    public void dm(boolean z) {
-        this.bvF = z;
+    public void dr(boolean z) {
+        this.bwv = z;
     }
 
-    public boolean WS() {
-        return this.bvF;
+    public boolean XN() {
+        return this.bwv;
     }
 
-    public void WZ() {
-        if (this.mId != null && this.mId.equals(this.aFq) && d.WI().kG(this.mId)) {
-            this.bvE = s.Xr().Hs();
+    public void XU() {
+        if (this.mId != null && this.mId.equals(this.aFY) && d.XC().kO(this.mId)) {
+            this.bwu = s.Yn().Ie();
         }
     }
 }

@@ -10,67 +10,67 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.kka;
+        E[] eArr = this.krz;
         long j = this.producerIndex;
-        long eQ = eQ(j);
-        if (b(eArr, eQ) != null) {
+        long eZ = eZ(j);
+        if (b(eArr, eZ) != null) {
             return false;
         }
-        b(eArr, eQ, e);
-        eO(1 + j);
+        b(eArr, eZ, e);
+        eX(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long eQ = eQ(j);
-        E[] eArr = this.kka;
-        E b = b(eArr, eQ);
+        long eZ = eZ(j);
+        E[] eArr = this.krz;
+        E b = b(eArr, eZ);
         if (b == null) {
             return null;
         }
-        b(eArr, eQ, null);
-        eP(j + 1);
+        b(eArr, eZ, null);
+        eY(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return eR(eQ(this.consumerIndex));
+        return fa(eZ(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cMl = cMl();
+        long cQb = cQb();
         while (true) {
-            long cMm = cMm();
-            long cMl2 = cMl();
-            if (cMl == cMl2) {
-                return (int) (cMm - cMl2);
+            long cQc = cQc();
+            long cQb2 = cQb();
+            if (cQb == cQb2) {
+                return (int) (cQc - cQb2);
             }
-            cMl = cMl2;
+            cQb = cQb2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cMm() == cMl();
+        return cQc() == cQb();
     }
 
-    private void eO(long j) {
-        ae.ktv.putOrderedLong(this, ktp, j);
+    private void eX(long j) {
+        ae.kAU.putOrderedLong(this, kAO, j);
     }
 
-    private void eP(long j) {
-        ae.ktv.putOrderedLong(this, kto, j);
+    private void eY(long j) {
+        ae.kAU.putOrderedLong(this, kAN, j);
     }
 
-    private long cMm() {
-        return ae.ktv.getLongVolatile(this, ktp);
+    private long cQc() {
+        return ae.kAU.getLongVolatile(this, kAO);
     }
 
-    private long cMl() {
-        return ae.ktv.getLongVolatile(this, kto);
+    private long cQb() {
+        return ae.kAU.getLongVolatile(this, kAN);
     }
 }

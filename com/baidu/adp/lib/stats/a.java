@@ -9,9 +9,9 @@ import java.util.Iterator;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class a {
-    boolean BF;
-    private ArrayList<BasicNameValuePair> BG;
-    private StringBuilder BH;
+    boolean BL;
+    private ArrayList<BasicNameValuePair> BM;
+    private StringBuilder BN;
     public long logID;
     private long mStartTime;
     public String mType;
@@ -20,11 +20,11 @@ public class a {
     public a(String str) {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BF = false;
+        this.BL = false;
         this.mType = null;
-        this.BH = new StringBuilder(100);
+        this.BN = new StringBuilder(100);
         this.mType = str;
-        this.BF = false;
+        this.BL = false;
         this.logID = -1L;
         this.sequenceID = -1L;
     }
@@ -32,27 +32,27 @@ public class a {
     public a() {
         this.logID = 1L;
         this.sequenceID = -1L;
-        this.BF = false;
+        this.BL = false;
         this.mType = null;
-        this.BH = new StringBuilder(100);
+        this.BN = new StringBuilder(100);
     }
 
     public void c(Object obj, Object obj2) {
         if (obj != null && obj2 != null) {
-            if (this.BG == null) {
-                this.BG = new ArrayList<>();
+            if (this.BM == null) {
+                this.BM = new ArrayList<>();
             }
-            this.BG.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
+            this.BM.add(new BasicNameValuePair(obj.toString(), obj2.toString()));
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder(200);
-        if (this.BH.length() > 0) {
-            sb.append((CharSequence) this.BH);
+        if (this.BN.length() > 0) {
+            sb.append((CharSequence) this.BN);
         }
-        if (this.BG != null) {
-            Iterator<BasicNameValuePair> it = this.BG.iterator();
+        if (this.BM != null) {
+            Iterator<BasicNameValuePair> it = this.BM.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
                 if (!TextUtils.isEmpty(next.getName()) && !TextUtils.isEmpty(next.getValue())) {
@@ -62,10 +62,10 @@ public class a {
                     sb.append(next.getName());
                     sb.append('=');
                     try {
-                        sb.append(URLEncoder.encode(aH(next.getValue()), "utf-8"));
+                        sb.append(URLEncoder.encode(aI(next.getValue()), "utf-8"));
                     } catch (UnsupportedEncodingException e) {
                         BdLog.e(e);
-                        sb.append(aH(next.getValue()));
+                        sb.append(aI(next.getValue()));
                     }
                 }
             }
@@ -88,29 +88,29 @@ public class a {
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
-            if (this.BH.length() > 0) {
-                this.BH.append('&');
+            if (this.BN.length() > 0) {
+                this.BN.append('&');
             }
-            this.BH.append(str);
-            this.BH.append("=");
+            this.BN.append(str);
+            this.BN.append("=");
             try {
-                this.BH.append(URLEncoder.encode(aH(str2), "utf-8"));
+                this.BN.append(URLEncoder.encode(aI(str2), "utf-8"));
             } catch (Throwable th) {
                 BdLog.e(th);
-                this.BH.append(aH(str2));
+                this.BN.append(aI(str2));
             }
         }
     }
 
-    public void iF() {
+    public void iO() {
         this.mStartTime = System.currentTimeMillis();
     }
 
-    public long iG() {
+    public long iP() {
         return System.currentTimeMillis() - this.mStartTime;
     }
 
-    public static String aH(String str) {
+    public static String aI(String str) {
         return str.replace(" ", "_").replace("[", "(").replace("]", ")").replace("&", "|");
     }
 }

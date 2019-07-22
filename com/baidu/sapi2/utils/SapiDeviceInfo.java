@@ -3,17 +3,13 @@ package com.baidu.sapi2.utils;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Pair;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.passhost.framework.PluginFacade;
-import com.baidu.sapi2.passhost.framework.a.b;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
 import com.tencent.connect.common.Constants;
@@ -29,8 +25,7 @@ public class SapiDeviceInfo {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", Config.APP_VERSION_CODE, "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", Config.DEVICE_WIDTH, Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
-    private static boolean e = ((ISapiAccountManagerService) b.a().getService(6, 0)).isOutsideCompany();
+    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", "T", "T", "Q", "G", "L", Config.DEVICE_WIDTH, Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
 
     static String a() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
@@ -120,7 +115,7 @@ public class SapiDeviceInfo {
             localIpAddress = SapiUtils.getLocalIpAddress() != null ? SapiUtils.getLocalIpAddress() : "";
         }
         arrayList.add(localIpAddress);
-        arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.getBlueToothDeviceName(context));
+        arrayList.add(diExceptIndex.contains(27) ? "" : SapiUtils.a(context));
         arrayList.add(diExceptIndex.contains(28) ? "" : SapiUtils.getLocation(context));
         arrayList.add("");
         arrayList.add("");
@@ -128,7 +123,7 @@ public class SapiDeviceInfo {
         arrayList.add("");
         arrayList.add("");
         arrayList.add(diExceptIndex.contains(34) ? "" : isAccountManager.getCurrentZid(context));
-        arrayList.add(diExceptIndex.contains(35) ? "" : PluginFacade.a.a);
+        arrayList.add(diExceptIndex.contains(35) ? "" : "");
         arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
         return arrayList;
     }
@@ -141,29 +136,6 @@ public class SapiDeviceInfo {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         DeviceInfoCookieManager.a(buildDeviceTokens);
         return a(TextUtils.join(b, buildDeviceTokens));
-    }
-
-    public static String getPisDeviceInfo() {
-        Pair<ArrayList<String>, ArrayList<String>> combinePisCookies = PluginFacade.combinePisCookies();
-        JSONObject jSONObject = new JSONObject();
-        if (combinePisCookies != null && combinePisCookies.first != null && combinePisCookies.second != null && ((ArrayList) combinePisCookies.first).size() > 0 && ((ArrayList) combinePisCookies.second).size() > 0 && ((ArrayList) combinePisCookies.first).size() == ((ArrayList) combinePisCookies.second).size()) {
-            int i = 0;
-            while (true) {
-                int i2 = i;
-                if (i2 >= ((ArrayList) combinePisCookies.first).size()) {
-                    break;
-                }
-                if (!TextUtils.isEmpty((CharSequence) ((ArrayList) combinePisCookies.first).get(i2))) {
-                    try {
-                        jSONObject.put((String) ((ArrayList) combinePisCookies.first).get(i2), ((ArrayList) combinePisCookies.second).get(i2));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                i = i2 + 1;
-            }
-        }
-        return a(jSONObject.toString());
     }
 
     private static String a(String str) {
@@ -187,8 +159,8 @@ public class SapiDeviceInfo {
             for (String str : list) {
                 try {
                     jSONObject.put(str, DeviceInfoCookieManager.a.get(str));
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
@@ -196,38 +168,12 @@ public class SapiDeviceInfo {
                     ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
                     SapiAccount session = isAccountManager.getSession();
                     jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, session == null ? null : session.uid, 120));
-                } catch (JSONException e3) {
-                    Log.e(e3);
-                }
-            }
-            Pair<ArrayList<String>, ArrayList<String>> combinePisCookies = PluginFacade.combinePisCookies();
-            if (combinePisCookies != null && combinePisCookies.first != null && combinePisCookies.second != null && ((ArrayList) combinePisCookies.first).size() > 0 && ((ArrayList) combinePisCookies.second).size() > 0 && ((ArrayList) combinePisCookies.first).size() == ((ArrayList) combinePisCookies.second).size()) {
-                int i = 0;
-                while (true) {
-                    int i2 = i;
-                    if (i2 >= ((ArrayList) combinePisCookies.first).size()) {
-                        break;
-                    }
-                    String str2 = (String) ((ArrayList) combinePisCookies.first).get(i2);
-                    if (!TextUtils.isEmpty(str2) && list.contains(str2)) {
-                        try {
-                            jSONObject.put((String) ((ArrayList) combinePisCookies.first).get(i2), ((ArrayList) combinePisCookies.second).get(i2));
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    i = i2 + 1;
+                } catch (JSONException e2) {
+                    Log.e(e2);
                 }
             }
             if (jSONObject.length() == 0) {
                 return null;
-            }
-            try {
-                if (e) {
-                    jSONObject.put("is_outside_company", "1");
-                }
-            } catch (JSONException e5) {
-                Log.e(e5);
             }
             if (z) {
                 return a(jSONObject.toString());

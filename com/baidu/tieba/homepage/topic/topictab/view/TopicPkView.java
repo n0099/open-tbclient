@@ -25,58 +25,58 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.b;
 import com.baidu.tieba.message.RequestBlessMessage;
 /* loaded from: classes4.dex */
 public class TopicPkView extends RelativeLayout implements View.OnClickListener {
-    private int aNw;
-    private int bPU;
-    private int bPV;
-    private int bVp;
-    private TextView ghA;
-    private TextView ghB;
-    private ImageView ghC;
-    private TextView ghD;
-    private TextView ghE;
-    private ImageView ghF;
-    private ImageView ghG;
-    private int ghH;
-    private int ghI;
-    private int ghJ;
-    private int ghK;
-    private int ghL;
-    private int ghM;
-    private int ghN;
-    private int ghO;
-    private int ghP;
-    private int ghQ;
-    private int ghR;
-    private ValueAnimator ghS;
-    private View ghT;
-    private a ghU;
-    private ValueAnimator ghV;
-    private double ghW;
-    private double ghX;
-    private float ghY;
-    private float ghZ;
-    private com.baidu.tieba.homepage.topic.topictab.b.b ghr;
-    private TextView ghs;
-    private TextView ght;
-    private FrameLayout ghu;
-    private FrameLayout ghv;
-    private TbImageView ghw;
-    private TbImageView ghx;
-    private TbImageView ghy;
-    private TbImageView ghz;
-    private RelativeLayout.LayoutParams gia;
-    private RelativeLayout.LayoutParams gib;
-    private b gic;
-    private ValueAnimator.AnimatorUpdateListener gie;
+    private int aOf;
+    private int bQU;
+    private int bQV;
+    private int bWq;
+    private com.baidu.tieba.homepage.topic.topictab.b.b gnE;
+    private TextView gnF;
+    private TextView gnG;
+    private FrameLayout gnH;
+    private FrameLayout gnI;
+    private TbImageView gnJ;
+    private TbImageView gnK;
+    private TbImageView gnL;
+    private TbImageView gnM;
+    private TextView gnN;
+    private TextView gnO;
+    private ImageView gnP;
+    private TextView gnQ;
+    private TextView gnR;
+    private ImageView gnS;
+    private ImageView gnT;
+    private int gnU;
+    private int gnV;
+    private int gnW;
+    private int gnX;
+    private int gnY;
+    private int gnZ;
+    private int goa;
+    private int gob;
+    private int goc;
+    private int god;
+    private int goe;
+    private ValueAnimator gof;
+    private View gog;
+    private a goh;
+    private ValueAnimator goi;
+    private double goj;
+    private double gok;
+    private float gol;
+    private float gom;
+    private RelativeLayout.LayoutParams gon;
+    private RelativeLayout.LayoutParams goo;
+    private b gop;
+    private ValueAnimator.AnimatorUpdateListener goq;
     private int mHeight;
     private Paint mPaint;
     private Runnable mRunnable;
@@ -85,35 +85,35 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     /* loaded from: classes4.dex */
     public interface b {
-        void tK(int i);
+        void ui(int i);
     }
 
     public TopicPkView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.ghR = R.color.cp_btn_a;
+        this.goe = R.color.cp_btn_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.gie = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.goq = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghW) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.ghH - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghX) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.goj) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.gnU - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.gok) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.ghF.setVisibility(4);
-                    TopicPkView.this.ghF.setX(TopicPkView.this.ghY);
-                    TopicPkView.this.ghF.setY(TopicPkView.this.ghZ);
+                    TopicPkView.this.gnS.setVisibility(4);
+                    TopicPkView.this.gnS.setX(TopicPkView.this.gol);
+                    TopicPkView.this.gnS.setY(TopicPkView.this.gom);
                 }
             }
         };
@@ -123,29 +123,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public TopicPkView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.ghR = R.color.cp_btn_a;
+        this.goe = R.color.cp_btn_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.gie = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.goq = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghW) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.ghH - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghX) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.goj) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.gnU - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.gok) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.ghF.setVisibility(4);
-                    TopicPkView.this.ghF.setX(TopicPkView.this.ghY);
-                    TopicPkView.this.ghF.setY(TopicPkView.this.ghZ);
+                    TopicPkView.this.gnS.setVisibility(4);
+                    TopicPkView.this.gnS.setX(TopicPkView.this.gol);
+                    TopicPkView.this.gnS.setY(TopicPkView.this.gom);
                 }
             }
         };
@@ -155,29 +155,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public TopicPkView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.ghR = R.color.cp_btn_a;
+        this.goe = R.color.cp_btn_a;
         this.mRunnable = new Runnable() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.1
             @Override // java.lang.Runnable
             public void run() {
                 TopicPkView.this.requestLayout();
             }
         };
-        this.gie = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
+        this.goq = new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (floatValue < 1.0f) {
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghW) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.ghH - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghX) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.goj) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.gnU - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.gok) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                 } else {
                     floatValue -= 1.0f;
-                    TopicPkView.this.ghF.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.ghu.getX() + (TopicPkView.this.ghH / 2)))));
-                    TopicPkView.this.ghF.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                    TopicPkView.this.gnS.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2))) + (2.0f * floatValue * (1.0f - floatValue) * 45.0f) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.gnH.getX() + (TopicPkView.this.gnU / 2)))));
+                    TopicPkView.this.gnS.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                 }
                 if (floatValue == 1.0f) {
-                    TopicPkView.this.ghF.setVisibility(4);
-                    TopicPkView.this.ghF.setX(TopicPkView.this.ghY);
-                    TopicPkView.this.ghF.setY(TopicPkView.this.ghZ);
+                    TopicPkView.this.gnS.setVisibility(4);
+                    TopicPkView.this.gnS.setX(TopicPkView.this.gol);
+                    TopicPkView.this.gnS.setY(TopicPkView.this.gom);
                 }
             }
         };
@@ -186,29 +186,29 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.topic_pk_view_layout, (ViewGroup) this, true);
-        this.ghs = (TextView) findViewById(R.id.topic_pk_view_agree_user);
-        this.ght = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
-        this.ghu = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
-        this.ghv = (FrameLayout) findViewById(R.id.topic_pk_view_disagree_btn);
-        this.ghw = (TbImageView) findViewById(R.id.topic_pk_view_agree_img);
-        this.ghx = (TbImageView) findViewById(R.id.topic_pk_view_disagree_img);
-        this.ghy = (TbImageView) findViewById(R.id.topic_pk_view_agree_select_img);
-        this.ghz = (TbImageView) findViewById(R.id.topic_pk_view_disagree_select_img);
-        this.ghA = (TextView) findViewById(R.id.topic_pk_view_agree_num);
-        this.ghB = (TextView) findViewById(R.id.topic_pk_view_disagree_num);
-        this.ghC = (ImageView) findViewById(R.id.topic_pk_view_cursor);
-        this.ghD = (TextView) findViewById(R.id.topic_pk_view_agree_des);
-        this.ghE = (TextView) findViewById(R.id.topic_pk_view_disagree_des);
-        this.ghF = (ImageView) findViewById(R.id.topic_pk_view_agree_add);
-        this.ghG = (ImageView) findViewById(R.id.topic_pk_view_disagree_add);
-        this.ghw.setDefaultBgResource(R.drawable.btn_topic_agree_white_n);
-        this.ghx.setDefaultBgResource(R.drawable.btn_topic_disagree_white_n);
-        this.ghy.setDefaultBgResource(R.drawable.btn_topic_agree_white_h);
-        this.ghz.setDefaultBgResource(R.drawable.btn_topic_disagree_white_h);
-        this.ghu.setOnClickListener(this);
-        this.ghv.setOnClickListener(this);
+        this.gnF = (TextView) findViewById(R.id.topic_pk_view_agree_user);
+        this.gnG = (TextView) findViewById(R.id.topic_pk_view_disagree_user);
+        this.gnH = (FrameLayout) findViewById(R.id.topic_pk_view_agree_btn);
+        this.gnI = (FrameLayout) findViewById(R.id.topic_pk_view_disagree_btn);
+        this.gnJ = (TbImageView) findViewById(R.id.topic_pk_view_agree_img);
+        this.gnK = (TbImageView) findViewById(R.id.topic_pk_view_disagree_img);
+        this.gnL = (TbImageView) findViewById(R.id.topic_pk_view_agree_select_img);
+        this.gnM = (TbImageView) findViewById(R.id.topic_pk_view_disagree_select_img);
+        this.gnN = (TextView) findViewById(R.id.topic_pk_view_agree_num);
+        this.gnO = (TextView) findViewById(R.id.topic_pk_view_disagree_num);
+        this.gnP = (ImageView) findViewById(R.id.topic_pk_view_cursor);
+        this.gnQ = (TextView) findViewById(R.id.topic_pk_view_agree_des);
+        this.gnR = (TextView) findViewById(R.id.topic_pk_view_disagree_des);
+        this.gnS = (ImageView) findViewById(R.id.topic_pk_view_agree_add);
+        this.gnT = (ImageView) findViewById(R.id.topic_pk_view_disagree_add);
+        this.gnJ.setDefaultBgResource(R.drawable.btn_topic_agree_white_n);
+        this.gnK.setDefaultBgResource(R.drawable.btn_topic_disagree_white_n);
+        this.gnL.setDefaultBgResource(R.drawable.btn_topic_agree_white_h);
+        this.gnM.setDefaultBgResource(R.drawable.btn_topic_disagree_white_h);
+        this.gnH.setOnClickListener(this);
+        this.gnI.setOnClickListener(this);
         this.mHeight = l.g(context, R.dimen.tbds340);
-        this.ghO = l.g(context, R.dimen.tbds78);
+        this.gob = l.g(context, R.dimen.tbds78);
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setDither(true);
@@ -230,60 +230,60 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        if (this.ghr != null) {
-            this.ghH = this.ghu.getWidth();
-            this.aNw = this.ghu.getHeight();
-            this.bVp = this.ghw.getWidth();
-            this.ghI = this.ghA.getWidth();
-            this.ghJ = this.ghB.getWidth();
-            this.ghM = this.ghA.getHeight();
-            this.ghK = this.ghD.getWidth();
-            this.ghL = this.ghE.getWidth();
-            this.bPV = this.ghC.getWidth();
-            this.bPU = this.ghC.getHeight();
-            this.ghN = ((this.mWidth - (this.ghH * 2)) - this.ghI) - this.ghJ;
-            this.ghQ = this.ghF.getWidth();
-            if (this.ghr.ggQ.ggS == 0 && this.ghr.ggR.ggS == 0) {
-                this.ghP = (int) ((0.5d * this.ghN) + this.ghI + this.ghH);
+        if (this.gnE != null) {
+            this.gnU = this.gnH.getWidth();
+            this.aOf = this.gnH.getHeight();
+            this.bWq = this.gnJ.getWidth();
+            this.gnV = this.gnN.getWidth();
+            this.gnW = this.gnO.getWidth();
+            this.gnZ = this.gnN.getHeight();
+            this.gnX = this.gnQ.getWidth();
+            this.gnY = this.gnR.getWidth();
+            this.bQV = this.gnP.getWidth();
+            this.bQU = this.gnP.getHeight();
+            this.goa = ((this.mWidth - (this.gnU * 2)) - this.gnV) - this.gnW;
+            this.god = this.gnS.getWidth();
+            if (this.gnE.gnd.gnf == 0 && this.gnE.gne.gnf == 0) {
+                this.goc = (int) ((0.5d * this.goa) + this.gnV + this.gnU);
             } else {
-                this.ghP = (int) (((((float) this.ghr.ggQ.ggS) / ((float) (this.ghr.ggQ.ggS + this.ghr.ggR.ggS))) * this.ghN) + this.ghI + this.ghH);
+                this.goc = (int) (((((float) this.gnE.gnd.gnf) / ((float) (this.gnE.gnd.gnf + this.gnE.gne.gnf))) * this.goa) + this.gnV + this.gnU);
             }
-            float y = this.ghu.getY() - ((this.bPU - this.aNw) / 2);
-            if (this.ghP + (this.bPV / 2) >= this.ghB.getLeft()) {
-                this.ghP = (this.ghB.getLeft() - 10) - (this.bPV / 2);
-                this.ghC.layout((this.ghB.getLeft() - 10) - this.bPV, (int) y, this.ghB.getLeft() - 10, ((int) y) + this.bPU);
-            } else if (this.ghP - (this.bPV / 2) <= this.ghA.getRight()) {
-                this.ghP = this.ghA.getRight() + 10 + (this.bPV / 2);
-                this.ghC.layout(this.ghA.getRight() + 10, (int) y, this.ghA.getRight() + 10 + this.bPV, ((int) y) + this.bPU);
+            float y = this.gnH.getY() - ((this.bQU - this.aOf) / 2);
+            if (this.goc + (this.bQV / 2) >= this.gnO.getLeft()) {
+                this.goc = (this.gnO.getLeft() - 10) - (this.bQV / 2);
+                this.gnP.layout((this.gnO.getLeft() - 10) - this.bQV, (int) y, this.gnO.getLeft() - 10, ((int) y) + this.bQU);
+            } else if (this.goc - (this.bQV / 2) <= this.gnN.getRight()) {
+                this.goc = this.gnN.getRight() + 10 + (this.bQV / 2);
+                this.gnP.layout(this.gnN.getRight() + 10, (int) y, this.gnN.getRight() + 10 + this.bQV, ((int) y) + this.bQU);
             } else {
-                this.ghC.layout(this.ghP - (this.bPV / 2), (int) y, this.ghP + (this.bPV / 2), ((int) y) + this.bPU);
+                this.gnP.layout(this.goc - (this.bQV / 2), (int) y, this.goc + (this.bQV / 2), ((int) y) + this.bQU);
             }
-            int x = (this.mWidth / 2) - ((int) this.ghw.getX());
-            if (this.ghK < this.bVp) {
-                int i5 = (this.ghH - this.ghK) / 2;
-                this.ghD.layout(i5, (int) this.ghD.getY(), this.ghK + i5, ((int) this.ghD.getY()) + this.ghM);
-            } else if (this.ghK <= x) {
-                this.ghD.layout((int) this.ghw.getX(), (int) this.ghD.getY(), ((int) this.ghw.getX()) + this.ghK, ((int) this.ghD.getY()) + this.ghM);
+            int x = (this.mWidth / 2) - ((int) this.gnJ.getX());
+            if (this.gnX < this.bWq) {
+                int i5 = (this.gnU - this.gnX) / 2;
+                this.gnQ.layout(i5, (int) this.gnQ.getY(), this.gnX + i5, ((int) this.gnQ.getY()) + this.gnZ);
+            } else if (this.gnX <= x) {
+                this.gnQ.layout((int) this.gnJ.getX(), (int) this.gnQ.getY(), ((int) this.gnJ.getX()) + this.gnX, ((int) this.gnQ.getY()) + this.gnZ);
             } else {
-                ViewGroup.LayoutParams layoutParams = this.ghD.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.gnQ.getLayoutParams();
                 layoutParams.width = x;
-                this.ghD.setLayoutParams(layoutParams);
+                this.gnQ.setLayoutParams(layoutParams);
                 postDelayed(this.mRunnable, 300L);
             }
-            if (this.ghL < this.bVp) {
-                int x2 = ((int) this.ghv.getX()) + ((this.ghH - this.ghL) / 2);
-                this.ghE.layout(x2, (int) this.ghE.getY(), this.ghL + x2, ((int) this.ghE.getY()) + this.ghM);
-            } else if (this.ghL <= x) {
-                this.ghE.layout((this.mWidth - ((int) this.ghx.getX())) - this.ghL, (int) this.ghE.getY(), this.mWidth - ((int) this.ghx.getX()), ((int) this.ghE.getY()) + this.ghM);
+            if (this.gnY < this.bWq) {
+                int x2 = ((int) this.gnI.getX()) + ((this.gnU - this.gnY) / 2);
+                this.gnR.layout(x2, (int) this.gnR.getY(), this.gnY + x2, ((int) this.gnR.getY()) + this.gnZ);
+            } else if (this.gnY <= x) {
+                this.gnR.layout((this.mWidth - ((int) this.gnK.getX())) - this.gnY, (int) this.gnR.getY(), this.mWidth - ((int) this.gnK.getX()), ((int) this.gnR.getY()) + this.gnZ);
             } else {
-                ViewGroup.LayoutParams layoutParams2 = this.ghE.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams2 = this.gnR.getLayoutParams();
                 layoutParams2.width = x;
-                this.ghE.setLayoutParams(layoutParams2);
+                this.gnR.setLayoutParams(layoutParams2);
                 postDelayed(this.mRunnable, 300L);
             }
-            int i6 = (this.ghH - this.ghQ) / 2;
-            this.ghF.layout(((int) this.ghu.getX()) + i6, ((int) this.ghu.getY()) + i6, ((int) this.ghu.getX()) + i6 + this.ghQ, ((int) this.ghu.getY()) + i6 + this.ghQ);
-            this.ghG.layout(((int) this.ghv.getX()) + i6, ((int) this.ghv.getY()) + i6, ((int) this.ghv.getX()) + i6 + this.ghQ, i6 + ((int) this.ghv.getY()) + this.ghQ);
+            int i6 = (this.gnU - this.god) / 2;
+            this.gnS.layout(((int) this.gnH.getX()) + i6, ((int) this.gnH.getY()) + i6, ((int) this.gnH.getX()) + i6 + this.god, ((int) this.gnH.getY()) + i6 + this.god);
+            this.gnT.layout(((int) this.gnI.getX()) + i6, ((int) this.gnI.getY()) + i6, ((int) this.gnI.getX()) + i6 + this.god, i6 + ((int) this.gnI.getY()) + this.god);
         }
     }
 
@@ -293,55 +293,55 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         int i2 = 2;
         if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(getContext());
-            loginActivityConfig.getIntent().putExtra("locate_type", this.ghr.from != 3 ? 16 : 0);
+            loginActivityConfig.getIntent().putExtra("locate_type", this.gnE.from != 3 ? 16 : 0);
             TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, loginActivityConfig));
-        } else if (this.ghS == null || !this.ghS.isRunning()) {
-            if (this.ghV == null || !this.ghV.isRunning()) {
-                if (this.ghV == null) {
-                    this.ghV = ValueAnimator.ofFloat(0.0f, 2.0f);
-                    this.ghV.setDuration(800L);
-                    this.ghV.setInterpolator(new AccelerateInterpolator());
+        } else if (this.gof == null || !this.gof.isRunning()) {
+            if (this.goi == null || !this.goi.isRunning()) {
+                if (this.goi == null) {
+                    this.goi = ValueAnimator.ofFloat(0.0f, 2.0f);
+                    this.goi.setDuration(800L);
+                    this.goi.setInterpolator(new AccelerateInterpolator());
                 }
-                if (this.ghS == null) {
-                    this.ghS = ValueAnimator.ofFloat(0.0f, 1.0f);
-                    this.ghS.setDuration(800L);
-                    this.ghS.setInterpolator(new AccelerateInterpolator());
-                    this.ghU = new a();
-                    this.ghS.addListener(this.ghU);
-                    this.ghS.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.2
+                if (this.gof == null) {
+                    this.gof = ValueAnimator.ofFloat(0.0f, 1.0f);
+                    this.gof.setDuration(800L);
+                    this.gof.setInterpolator(new AccelerateInterpolator());
+                    this.goh = new a();
+                    this.gof.addListener(this.goh);
+                    this.gof.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.2
                         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                            TopicPkView.this.ghT.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                            TopicPkView.this.ghT.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                            TopicPkView.this.gog.setScaleX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                            TopicPkView.this.gog.setScaleY(((Float) valueAnimator.getAnimatedValue()).floatValue());
                         }
                     });
                 }
-                if (buV()) {
+                if (bxA()) {
                     i = 1;
                 } else {
-                    i = buW() ? 2 : 0;
+                    i = bxB() ? 2 : 0;
                 }
-                if (view == this.ghu) {
-                    ll(1 != i);
-                    lm(false);
+                if (view == this.gnH) {
+                    lz(1 != i);
+                    lA(false);
                     i2 = 1;
-                } else if (view == this.ghv) {
-                    lm(2 != i);
-                    ll(false);
+                } else if (view == this.gnI) {
+                    lA(2 != i);
+                    lz(false);
                 } else {
                     i2 = 0;
                 }
-                TiebaStatic.log(new am("c13352").P("obj_type", i2).l("topic_id", this.ghr.topicId).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.ghr.from));
-                if (this.gic != null) {
-                    this.gic.tK(i2 == i ? 0 : i2);
+                TiebaStatic.log(new an("c13352").P("obj_type", i2).l("topic_id", this.gnE.topicId).P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.gnE.from));
+                if (this.gop != null) {
+                    this.gop.ui(i2 == i ? 0 : i2);
                 }
                 RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-                requestBlessMessage.setPkId(Long.valueOf(this.ghr.pkId));
-                requestBlessMessage.setTopicId(Long.valueOf(this.ghr.topicId));
+                requestBlessMessage.setPkId(Long.valueOf(this.gnE.pkId));
+                requestBlessMessage.setTopicId(Long.valueOf(this.gnE.topicId));
                 requestBlessMessage.setPkIndex(i2);
                 requestBlessMessage.setClickType(i == 0 ? 0 : 1);
                 requestBlessMessage.setPkType(0);
-                requestBlessMessage.setUserPkId(this.ghr.userPkId);
+                requestBlessMessage.setUserPkId(this.gnE.userPkId);
                 MessageManager.getInstance().sendMessage(requestBlessMessage);
             }
         }
@@ -349,221 +349,221 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.ghr != null) {
+        if (this.gnE != null) {
             N(canvas);
             super.dispatchDraw(canvas);
         }
     }
 
     private void N(Canvas canvas) {
-        float y = this.ghu.getY() + ((this.aNw - this.ghO) / 2);
-        this.mPaint.setShader(new LinearGradient(this.ghH / 2, y, this.ghP, y, al.getColor(R.color.topic_pk_agree_bar_start_color), al.getColor(R.color.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
-        canvas.drawRect(this.ghH / 2, y, this.ghP, y + this.ghO, this.mPaint);
-        this.mPaint.setShader(new LinearGradient(this.ghP, y, this.mWidth - (this.ghH / 2), y, al.getColor(R.color.topic_pk_disagree_bar_start_color), al.getColor(R.color.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));
-        canvas.drawRect(this.ghP, y, this.mWidth - (this.ghH / 2), y + this.ghO, this.mPaint);
+        float y = this.gnH.getY() + ((this.aOf - this.gob) / 2);
+        this.mPaint.setShader(new LinearGradient(this.gnU / 2, y, this.goc, y, am.getColor(R.color.topic_pk_agree_bar_start_color), am.getColor(R.color.topic_pk_agree_bar_end_color), Shader.TileMode.REPEAT));
+        canvas.drawRect(this.gnU / 2, y, this.goc, y + this.gob, this.mPaint);
+        this.mPaint.setShader(new LinearGradient(this.goc, y, this.mWidth - (this.gnU / 2), y, am.getColor(R.color.topic_pk_disagree_bar_start_color), am.getColor(R.color.topic_pk_disagree_bar_end_color), Shader.TileMode.REPEAT));
+        canvas.drawRect(this.goc, y, this.mWidth - (this.gnU / 2), y + this.gob, this.mPaint);
     }
 
     public void setUserColor(int i) {
-        this.ghR = i;
+        this.goe = i;
     }
 
     public void setData(com.baidu.tieba.homepage.topic.topictab.b.b bVar) {
-        if (bVar == null || bVar.ggQ == null || bVar.ggR == null) {
+        if (bVar == null || bVar.gnd == null || bVar.gne == null) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.ghr = bVar;
-        this.ghA.setText(String.valueOf(bVar.ggQ.ggS));
-        this.ghB.setText(String.valueOf(bVar.ggR.ggS));
-        this.gia = new RelativeLayout.LayoutParams(-2, -2);
-        this.gia.addRule(12);
-        this.gib = new RelativeLayout.LayoutParams(-2, -2);
-        this.gib.addRule(12);
-        this.gib.addRule(11);
-        this.ghD.setLayoutParams(this.gia);
-        this.ghE.setLayoutParams(this.gib);
+        this.gnE = bVar;
+        this.gnN.setText(String.valueOf(bVar.gnd.gnf));
+        this.gnO.setText(String.valueOf(bVar.gne.gnf));
+        this.gon = new RelativeLayout.LayoutParams(-2, -2);
+        this.gon.addRule(12);
+        this.goo = new RelativeLayout.LayoutParams(-2, -2);
+        this.goo.addRule(12);
+        this.goo.addRule(11);
+        this.gnQ.setLayoutParams(this.gon);
+        this.gnR.setLayoutParams(this.goo);
         if (bVar.from == 3) {
-            this.ghD.setText(StringUtils.isNull(bVar.ggQ.ggT) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.ggQ.ggT);
-            this.ghE.setText(StringUtils.isNull(bVar.ggR.ggT) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.ggR.ggT);
-            if (StringUtils.isNull(bVar.ggQ.ggU)) {
-                this.ghs.setVisibility(4);
+            this.gnQ.setText(StringUtils.isNull(bVar.gnd.gng) ? getResources().getString(R.string.topic_pk_desc_agree_default) : bVar.gnd.gng);
+            this.gnR.setText(StringUtils.isNull(bVar.gne.gng) ? getResources().getString(R.string.topic_pk_desc_disagree_default) : bVar.gne.gng);
+            if (StringUtils.isNull(bVar.gnd.gnh)) {
+                this.gnF.setVisibility(4);
             } else {
-                this.ghs.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.ggQ.ggU));
+                this.gnF.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.gnd.gnh));
             }
-            if (StringUtils.isNull(bVar.ggR.ggU)) {
-                this.ght.setVisibility(4);
+            if (StringUtils.isNull(bVar.gne.gnh)) {
+                this.gnG.setVisibility(4);
             } else {
-                this.ght.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.ggR.ggU));
+                this.gnG.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.gne.gnh));
             }
         } else {
-            this.ghD.setText(bVar.ggQ.ggT);
-            this.ghE.setText(bVar.ggR.ggT);
-            this.ghs.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.ggQ.ggU));
-            this.ght.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.ggR.ggU));
+            this.gnQ.setText(bVar.gnd.gng);
+            this.gnR.setText(bVar.gne.gng);
+            this.gnF.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.gnd.gnh));
+            this.gnG.setText(String.format(getContext().getString(R.string.topic_pk_user), bVar.gne.gnh));
         }
-        this.ghw.startLoad(bVar.ggQ.ggV, 10, false);
-        this.ghx.startLoad(bVar.ggR.ggV, 10, false);
-        this.ghy.startLoad(bVar.ggQ.ggY, 10, false);
-        this.ghz.startLoad(bVar.ggR.ggY, 10, false);
-        if (bVar.ggQ.ggW) {
-            this.ghw.setVisibility(4);
-            this.ghy.setVisibility(0);
+        this.gnJ.startLoad(bVar.gnd.gni, 10, false);
+        this.gnK.startLoad(bVar.gne.gni, 10, false);
+        this.gnL.startLoad(bVar.gnd.gnl, 10, false);
+        this.gnM.startLoad(bVar.gne.gnl, 10, false);
+        if (bVar.gnd.gnj) {
+            this.gnJ.setVisibility(4);
+            this.gnL.setVisibility(0);
         } else {
-            this.ghw.setVisibility(0);
-            this.ghy.setVisibility(4);
+            this.gnJ.setVisibility(0);
+            this.gnL.setVisibility(4);
         }
-        if (bVar.ggR.ggW) {
-            this.ghx.setVisibility(4);
-            this.ghz.setVisibility(0);
+        if (bVar.gne.gnj) {
+            this.gnK.setVisibility(4);
+            this.gnM.setVisibility(0);
         } else {
-            this.ghx.setVisibility(0);
-            this.ghz.setVisibility(4);
+            this.gnK.setVisibility(0);
+            this.gnM.setVisibility(4);
         }
         invalidate();
     }
 
     public void onChangeSkinType() {
-        al.j(this.ghs, this.ghR);
-        al.j(this.ght, this.ghR);
+        am.j(this.gnF, this.goe);
+        am.j(this.gnG, this.goe);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.k(this.ghu, R.drawable.btn_topic_agree_bg_red);
-            al.k(this.ghv, R.drawable.btn_topic_disagree_bg_blue);
-            this.ghw.setIsNight(this.mSkinType == 1);
-            this.ghx.setIsNight(this.mSkinType == 1);
-            this.ghy.setIsNight(this.mSkinType == 1);
-            this.ghz.setIsNight(this.mSkinType == 1);
-            al.j(this.ghA, R.color.cp_btn_a);
-            al.j(this.ghB, R.color.cp_btn_a);
-            al.c(this.ghC, (int) R.drawable.pic_topic_vs_bginone);
-            al.j(this.ghD, R.color.topic_agree_des_color);
-            al.j(this.ghE, R.color.topic_disagree_des_color);
-            al.c(this.ghF, (int) R.drawable.pic_topic_addone);
-            al.c(this.ghG, (int) R.drawable.pic_topic_addone);
+            am.k(this.gnH, R.drawable.btn_topic_agree_bg_red);
+            am.k(this.gnI, R.drawable.btn_topic_disagree_bg_blue);
+            this.gnJ.setIsNight(this.mSkinType == 1);
+            this.gnK.setIsNight(this.mSkinType == 1);
+            this.gnL.setIsNight(this.mSkinType == 1);
+            this.gnM.setIsNight(this.mSkinType == 1);
+            am.j(this.gnN, R.color.cp_btn_a);
+            am.j(this.gnO, R.color.cp_btn_a);
+            am.c(this.gnP, (int) R.drawable.pic_topic_vs_bginone);
+            am.j(this.gnQ, R.color.topic_agree_des_color);
+            am.j(this.gnR, R.color.topic_disagree_des_color);
+            am.c(this.gnS, (int) R.drawable.pic_topic_addone);
+            am.c(this.gnT, (int) R.drawable.pic_topic_addone);
         }
     }
 
-    private void ll(boolean z) {
+    private void lz(boolean z) {
         if (z) {
-            this.ghs.setVisibility(0);
-            this.ghs.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-            this.ghr.ggQ.ggU = TbadkCoreApplication.getCurrentAccountNameShow();
-            this.ghr.ggQ.ggW = true;
-            TextView textView = this.ghA;
-            b.a aVar = this.ghr.ggQ;
-            long j = aVar.ggS + 1;
-            aVar.ggS = j;
+            this.gnF.setVisibility(0);
+            this.gnF.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+            this.gnE.gnd.gnh = TbadkCoreApplication.getCurrentAccountNameShow();
+            this.gnE.gnd.gnj = true;
+            TextView textView = this.gnN;
+            b.a aVar = this.gnE.gnd;
+            long j = aVar.gnf + 1;
+            aVar.gnf = j;
             textView.setText(String.valueOf(j));
-            this.ghF.setVisibility(0);
-            this.ghT = this.ghy;
-            this.ghU.gig = this.ghy;
-            this.ghU.gih = this.ghw;
-            this.ghF.setVisibility(0);
-            this.ghS.start();
-            this.ghW = this.ghF.getX();
-            this.ghX = this.ghF.getY();
-            this.ghY = this.ghF.getX();
-            this.ghZ = this.ghF.getY();
-            this.ghV.removeAllUpdateListeners();
-            this.ghV.addUpdateListener(this.gie);
-            this.ghV.setFloatValues(0.0f, 2.0f);
-            this.ghV.start();
+            this.gnS.setVisibility(0);
+            this.gog = this.gnL;
+            this.goh.gos = this.gnL;
+            this.goh.got = this.gnJ;
+            this.gnS.setVisibility(0);
+            this.gof.start();
+            this.goj = this.gnS.getX();
+            this.gok = this.gnS.getY();
+            this.gol = this.gnS.getX();
+            this.gom = this.gnS.getY();
+            this.goi.removeAllUpdateListeners();
+            this.goi.addUpdateListener(this.goq);
+            this.goi.setFloatValues(0.0f, 2.0f);
+            this.goi.start();
             return;
         }
-        if (ap.equals(this.ghr.ggQ.ggU, TbadkCoreApplication.getCurrentAccountNameShow())) {
-            this.ghs.setVisibility(4);
+        if (aq.bV(this.gnE.gnd.gnh, TbadkCoreApplication.getCurrentAccountNameShow())) {
+            this.gnF.setVisibility(4);
         }
-        if (this.ghr.ggQ.ggW) {
-            this.ghr.ggQ.ggW = false;
-            TextView textView2 = this.ghA;
-            b.a aVar2 = this.ghr.ggQ;
-            long j2 = aVar2.ggS - 1;
-            aVar2.ggS = j2;
+        if (this.gnE.gnd.gnj) {
+            this.gnE.gnd.gnj = false;
+            TextView textView2 = this.gnN;
+            b.a aVar2 = this.gnE.gnd;
+            long j2 = aVar2.gnf - 1;
+            aVar2.gnf = j2;
             textView2.setText(String.valueOf(j2));
         }
-        this.ghw.setVisibility(0);
-        this.ghy.setVisibility(4);
+        this.gnJ.setVisibility(0);
+        this.gnL.setVisibility(4);
     }
 
-    private void lm(boolean z) {
+    private void lA(boolean z) {
         if (z) {
-            this.ght.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
-            this.ght.setVisibility(0);
-            this.ghr.ggR.ggU = TbadkCoreApplication.getCurrentAccountNameShow();
-            this.ghG.setVisibility(0);
-            this.ghr.ggR.ggW = true;
-            TextView textView = this.ghB;
-            b.a aVar = this.ghr.ggR;
-            long j = aVar.ggS + 1;
-            aVar.ggS = j;
+            this.gnG.setText(String.format(getContext().getString(R.string.topic_pk_user), TbadkCoreApplication.getCurrentAccountNameShow()));
+            this.gnG.setVisibility(0);
+            this.gnE.gne.gnh = TbadkCoreApplication.getCurrentAccountNameShow();
+            this.gnT.setVisibility(0);
+            this.gnE.gne.gnj = true;
+            TextView textView = this.gnO;
+            b.a aVar = this.gnE.gne;
+            long j = aVar.gnf + 1;
+            aVar.gnf = j;
             textView.setText(String.valueOf(j));
-            this.ghW = this.ghG.getX() - (this.ghQ / 2.0f);
-            this.ghT = this.ghz;
-            this.ghU.gig = this.ghz;
-            this.ghU.gih = this.ghx;
-            this.ghF.setVisibility(0);
-            this.ghS.start();
-            this.ghW = this.ghG.getX() - (this.ghQ / 2);
-            this.ghX = this.ghG.getY();
-            this.ghY = this.ghG.getX();
-            this.ghZ = this.ghG.getY();
-            this.ghV.removeAllUpdateListeners();
-            this.ghV.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.4
+            this.goj = this.gnT.getX() - (this.god / 2.0f);
+            this.gog = this.gnM;
+            this.goh.gos = this.gnM;
+            this.goh.got = this.gnK;
+            this.gnS.setVisibility(0);
+            this.gof.start();
+            this.goj = this.gnT.getX() - (this.god / 2);
+            this.gok = this.gnT.getY();
+            this.gol = this.gnT.getX();
+            this.gom = this.gnT.getY();
+            this.goi.removeAllUpdateListeners();
+            this.goi.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicPkView.4
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
                     float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                     if (floatValue < 1.0f) {
-                        TopicPkView.this.ghG.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghW) + (2.0f * floatValue * (1.0f - floatValue) * ((TopicPkView.this.mWidth - TopicPkView.this.ghH) + 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.ghH / 2)))));
-                        TopicPkView.this.ghG.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.ghX) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
+                        TopicPkView.this.gnT.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.goj) + (2.0f * floatValue * (1.0f - floatValue) * ((TopicPkView.this.mWidth - TopicPkView.this.gnU) + 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.gnU / 2)))));
+                        TopicPkView.this.gnT.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * TopicPkView.this.gok) + (2.0f * floatValue * (1.0f - floatValue) * 70.0f) + (Math.pow(floatValue, 2.0d) * 60.0d)));
                     } else {
                         floatValue -= 1.0f;
-                        TopicPkView.this.ghG.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.ghH / 2))) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.mWidth - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - 120))));
-                        TopicPkView.this.ghG.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
+                        TopicPkView.this.gnT.setX((float) ((Math.pow(1.0f - floatValue, 2.0d) * (TopicPkView.this.mWidth - (TopicPkView.this.gnU / 2))) + (2.0f * floatValue * (1.0f - floatValue) * (TopicPkView.this.mWidth - 45)) + (Math.pow(floatValue, 2.0d) * (TopicPkView.this.mWidth - 120))));
+                        TopicPkView.this.gnT.setY((float) ((Math.pow(1.0f - floatValue, 2.0d) * 60.0d) + (2.0f * floatValue * (1.0f - floatValue) * 50.0f) + (Math.pow(floatValue, 2.0d) * 40.0d)));
                     }
                     if (floatValue == 1.0f) {
-                        TopicPkView.this.ghG.setVisibility(4);
-                        TopicPkView.this.ghG.setX(TopicPkView.this.ghY);
-                        TopicPkView.this.ghG.setY(TopicPkView.this.ghZ);
+                        TopicPkView.this.gnT.setVisibility(4);
+                        TopicPkView.this.gnT.setX(TopicPkView.this.gol);
+                        TopicPkView.this.gnT.setY(TopicPkView.this.gom);
                     }
                 }
             });
-            this.ghV.setFloatValues(0.0f, 2.0f);
-            this.ghV.start();
+            this.goi.setFloatValues(0.0f, 2.0f);
+            this.goi.start();
             return;
         }
-        if (ap.equals(this.ghr.ggR.ggU, TbadkCoreApplication.getCurrentAccountNameShow())) {
-            this.ght.setVisibility(4);
+        if (aq.bV(this.gnE.gne.gnh, TbadkCoreApplication.getCurrentAccountNameShow())) {
+            this.gnG.setVisibility(4);
         }
-        if (this.ghr.ggR.ggW) {
-            this.ghr.ggR.ggW = false;
-            TextView textView2 = this.ghB;
-            b.a aVar2 = this.ghr.ggR;
-            long j2 = aVar2.ggS - 1;
-            aVar2.ggS = j2;
+        if (this.gnE.gne.gnj) {
+            this.gnE.gne.gnj = false;
+            TextView textView2 = this.gnO;
+            b.a aVar2 = this.gnE.gne;
+            long j2 = aVar2.gnf - 1;
+            aVar2.gnf = j2;
             textView2.setText(String.valueOf(j2));
         }
-        this.ghG.setVisibility(4);
-        this.ghx.setVisibility(0);
-        this.ghz.setVisibility(4);
+        this.gnT.setVisibility(4);
+        this.gnK.setVisibility(0);
+        this.gnM.setVisibility(4);
     }
 
-    private boolean buV() {
-        return (this.ghr == null || this.ghr.ggQ == null || !this.ghr.ggQ.ggW) ? false : true;
+    private boolean bxA() {
+        return (this.gnE == null || this.gnE.gnd == null || !this.gnE.gnd.gnj) ? false : true;
     }
 
-    private boolean buW() {
-        return (this.ghr == null || this.ghr.ggR == null || !this.ghr.ggR.ggW) ? false : true;
+    private boolean bxB() {
+        return (this.gnE == null || this.gnE.gne == null || !this.gnE.gne.gnj) ? false : true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        if (this.ghS != null) {
-            this.ghS.cancel();
+        if (this.gof != null) {
+            this.gof.cancel();
         }
-        if (this.ghV != null) {
-            this.ghV.cancel();
+        if (this.goi != null) {
+            this.goi.cancel();
         }
         removeCallbacks(this.mRunnable);
         super.onDetachedFromWindow();
@@ -571,30 +571,30 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     public void setPkClickListener(b bVar) {
         if (bVar != null) {
-            this.gic = bVar;
+            this.gop = bVar;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
     public static class a implements Animator.AnimatorListener {
-        private View gig;
-        private View gih;
+        private View gos;
+        private View got;
 
         private a() {
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            if (this.gig != null) {
-                this.gig.setVisibility(0);
+            if (this.gos != null) {
+                this.gos.setVisibility(0);
             }
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            if (this.gih != null) {
-                this.gih.setVisibility(8);
+            if (this.got != null) {
+                this.got.setVisibility(8);
             }
         }
 

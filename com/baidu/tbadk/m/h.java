@@ -8,73 +8,73 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.EmotionButton;
 /* loaded from: classes.dex */
 public class h extends a {
-    protected TbImageView cvI;
-    protected TextView cvJ;
-    protected TextView cvK;
-    private LinearLayout cvM;
-    protected EmotionButton cvV;
-    private int cvW;
+    protected TbImageView cwW;
+    protected TextView cwX;
+    protected TextView cwY;
+    private LinearLayout cxa;
+    protected EmotionButton cxk;
+    private int cxl;
 
     public TextView getTitleView() {
-        return this.cvK;
+        return this.cwY;
     }
 
-    public EmotionButton asG() {
-        return this.cvV;
+    public EmotionButton atO() {
+        return this.cxk;
     }
 
     public h(Context context, View.OnClickListener onClickListener) {
         super(LayoutInflater.from(context).inflate(R.layout.net_refresh_view_layout, (ViewGroup) null));
-        this.cvI = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
-        this.cvJ = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
-        this.cvK = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
-        this.cvM = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
-        this.cvV = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
-        this.cvW = R.drawable.new_pic_emotion_09;
-        this.cvV.setOnClickListener(onClickListener);
+        this.cwW = (TbImageView) this.attachedView.findViewById(R.id.net_refresh_image);
+        this.cwX = (TextView) this.attachedView.findViewById(R.id.net_refresh_desc);
+        this.cwY = (TextView) this.attachedView.findViewById(R.id.net_refresh_title);
+        this.cxa = (LinearLayout) this.attachedView.findViewById(R.id.net_refresh_info_layout);
+        this.cxk = (EmotionButton) this.attachedView.findViewById(R.id.net_refresh_button);
+        this.cxl = R.drawable.new_pic_emotion_09;
+        this.cxk.setOnClickListener(onClickListener);
         this.attachedView.setOnClickListener(null);
-        kF(0);
+        kL(0);
     }
 
-    public void qw(String str) {
+    public void qN(String str) {
         if (str == null) {
-            this.cvJ.setVisibility(8);
+            this.cwX.setVisibility(8);
             return;
         }
-        this.cvJ.setVisibility(0);
-        this.cvJ.setText(str);
+        this.cwX.setVisibility(0);
+        this.cwX.setText(str);
     }
 
     public void setTitle(String str) {
         if (str != null) {
-            this.cvK.setText(str);
+            this.cwY.setText(str);
         }
     }
 
-    public void qx(String str) {
+    public void qO(String str) {
         if (str != null) {
-            this.cvK.setText(str);
-            this.cvK.setVisibility(0);
+            this.cwY.setText(str);
+            this.cwY.setVisibility(0);
         }
     }
 
-    public void kC(int i) {
-        this.cvW = i;
+    public void kI(int i) {
+        this.cxl = i;
     }
 
-    public void kD(int i) {
-        this.cvI.setImageResource(i);
+    public void kJ(int i) {
+        this.cwW.setImageResource(i);
     }
 
     public void setButtonText(String str) {
         if (str != null) {
-            this.cvV.setText(str);
+            this.cxk.setText(str);
         }
     }
 
@@ -89,19 +89,19 @@ public class h extends a {
     @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.cvI.setImageResource(0);
+        this.cwW.setImageResource(0);
     }
 
-    public void kE(int i) {
-        ViewGroup.LayoutParams layoutParams = this.cvI.getLayoutParams();
+    public void kK(int i) {
+        ViewGroup.LayoutParams layoutParams = this.cwW.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i;
-            this.cvI.setLayoutParams(marginLayoutParams);
+            this.cwW.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void kF(int i) {
+    public void kL(int i) {
         int i2;
         if (i < 0) {
             i = 0;
@@ -112,35 +112,35 @@ public class h extends a {
         } else {
             i2 = (int) (ah * 0.11d);
         }
-        ViewGroup.LayoutParams layoutParams = this.cvI.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.cwW.getLayoutParams();
         if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
             marginLayoutParams.topMargin = i2 + i;
-            this.cvI.setLayoutParams(marginLayoutParams);
+            this.cwW.setLayoutParams(marginLayoutParams);
         }
     }
 
-    public void asB() {
-        this.cvV.setVisibility(0);
-        this.cvK.setVisibility(0);
-        al.f(this.cvJ, R.color.cp_cont_d, 1);
+    public void atI() {
+        this.cxk.setVisibility(0);
+        this.cwY.setVisibility(0);
+        am.f(this.cwX, R.color.cp_cont_d, 1);
     }
 
-    public void asH() {
-        this.cvV.setVisibility(8);
-        this.cvK.setVisibility(8);
-        al.f(this.cvJ, R.color.cp_cont_b, 1);
+    public void atP() {
+        this.cxk.setVisibility(8);
+        this.cwY.setVisibility(8);
+        am.f(this.cwX, R.color.cp_cont_b, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
-        al.c(this.cvI, this.cvW);
-        al.c(this.cvJ, R.color.cp_cont_d, 1, skinType);
-        al.c(this.cvK, R.color.cp_cont_j, 1, skinType);
-        al.l(this.attachedView, R.color.cp_bg_line_d);
+        am.c(this.cwW, this.cxl);
+        am.d(this.cwX, R.color.cp_cont_d, 1, skinType);
+        am.d(this.cwY, R.color.cp_cont_j, 1, skinType);
+        am.l(this.attachedView, R.color.cp_bg_line_d);
     }
 
-    public View asC() {
+    public View atJ() {
         return this.attachedView;
     }
 }

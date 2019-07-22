@@ -19,8 +19,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
     private Activity activity;
-    int ahE = 0;
-    int ahF = 1;
+    int aif = 0;
+    int aig = 1;
 
     public a(Activity activity) {
         this.activity = activity;
@@ -31,9 +31,9 @@ public class a implements com.baidu.poly.d.a {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.ahE) {
+            if (optInt == this.aif) {
                 b(map, str, c0085a);
-            } else if (optInt == this.ahF) {
+            } else if (optInt == this.aig) {
                 a(c.j(map), str, c0085a);
             }
         } catch (Throwable th) {
@@ -43,7 +43,7 @@ public class a implements com.baidu.poly.d.a {
 
     public void a(Bundle bundle, final String str, final a.C0085a c0085a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.a.a.ug().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
+        com.baidu.poly.a.a.a.uG().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
@@ -69,9 +69,9 @@ public class a implements com.baidu.poly.d.a {
     }
 
     public void c(final Map<String, String> map, String str, final a.C0085a c0085a) {
-        d cS = cS(str);
-        if (cS != null) {
-            cS.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
+        d cX = cX(str);
+        if (cX != null) {
+            cX.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
                 @Override // com.baidu.poly.d.a.C0085a
                 public void onResult(int i, String str2) {
                     c0085a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
@@ -80,15 +80,15 @@ public class a implements com.baidu.poly.d.a {
         }
     }
 
-    public d cS(String str) {
+    public d cX(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.a.us();
+            return com.baidu.poly.d.a.a.uS();
         }
         if (PayChannel.WECHAT.equalsIgnoreCase(str)) {
-            return e.uu();
+            return e.uU();
         }
         if (PayChannel.BAIFUBAO.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.b.ut();
+            return com.baidu.poly.d.a.b.uT();
         }
         return null;
     }

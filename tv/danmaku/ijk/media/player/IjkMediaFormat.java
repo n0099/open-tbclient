@@ -1,7 +1,6 @@
 package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.base.network.Apn;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -154,7 +153,7 @@ public class IjkMediaFormat implements IMediaFormat {
         }
 
         protected String getDefaultString() {
-            return Apn.APN_UNKNOWN;
+            return "N/A";
         }
     }
 }

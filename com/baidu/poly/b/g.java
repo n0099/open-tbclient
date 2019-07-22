@@ -8,11 +8,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes2.dex */
 public class g extends ThreadPoolExecutor {
-    private static g agU;
-    private static final int jJ = Runtime.getRuntime().availableProcessors();
-    private static final int CORE_POOL_SIZE = jJ + 1;
-    private static final int jK = (jJ * 2) + 1;
-    private static final ThreadFactory agV = new ThreadFactory() { // from class: com.baidu.poly.b.g.1
+    private static g aht;
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    private static final int CORE_POOL_SIZE = CPU_COUNT + 1;
+    private static final int jJ = (CPU_COUNT * 2) + 1;
+    private static final ThreadFactory ahu = new ThreadFactory() { // from class: com.baidu.poly.b.g.1
         private final AtomicInteger mCount = new AtomicInteger(1);
 
         @Override // java.util.concurrent.ThreadFactory
@@ -25,13 +25,13 @@ public class g extends ThreadPoolExecutor {
         super(i, i2, j, timeUnit, blockingQueue, threadFactory);
     }
 
-    public static synchronized g uk() {
+    public static synchronized g uK() {
         g gVar;
         synchronized (g.class) {
-            if (agU == null) {
-                agU = new g(CORE_POOL_SIZE, jK, 5L, TimeUnit.SECONDS, new LinkedBlockingDeque(), agV);
+            if (aht == null) {
+                aht = new g(CORE_POOL_SIZE, jJ, 5L, TimeUnit.SECONDS, new LinkedBlockingDeque(), ahu);
             }
-            gVar = agU;
+            gVar = aht;
         }
         return gVar;
     }

@@ -19,5 +19,5 @@ public interface a<T> extends d {
 
     boolean a(T t, BufferedSource bufferedSource, File file, long j) throws IOException;
 
-    String gj();
+    String gs();
 }

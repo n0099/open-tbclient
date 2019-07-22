@@ -20,12 +20,12 @@ public class d {
 
     public String bi(String str, String str2) {
         if (isSuccess()) {
-            return a.jR(str);
+            return a.jZ(str);
         }
-        return a.z(str, str2, Su());
+        return a.z(str, str2, Tn());
     }
 
-    public String Su() {
+    public String Tn() {
         return this.error;
     }
 
@@ -33,11 +33,11 @@ public class d {
         return this.data;
     }
 
-    public static Object Sv() {
+    public static Object To() {
         return new JsObject();
     }
 
-    public static String fb(int i) {
+    public static String ff(int i) {
         switch (i) {
             case 1:
                 return "boolean";
@@ -69,7 +69,7 @@ public class d {
         return new d(null, obj);
     }
 
-    public static d jS(@NonNull String str) {
+    public static d ka(@NonNull String str) {
         return new d(str, null);
     }
 
@@ -77,7 +77,7 @@ public class d {
         if (dVar.isSuccess()) {
             return dVar.getData();
         }
-        String z = a.z(str, str2, dVar.Su());
+        String z = a.z(str, str2, dVar.Tn());
         bVar.throwJSException(JSExceptionType.Error, z);
         return z;
     }

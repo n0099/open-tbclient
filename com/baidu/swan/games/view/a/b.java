@@ -12,43 +12,43 @@ public class b {
         f fVar = new f();
         fVar.mType = str;
         fVar.mValue = str2;
-        if (com.baidu.swan.apps.ae.b.Lq() != null && com.baidu.swan.apps.ae.b.Lq().vk() != null) {
-            com.baidu.swan.apps.v.b.b vk = com.baidu.swan.apps.ae.b.Lq().vk();
-            fVar.mFrom = e.dM(vk.Fg());
-            fVar.mAppId = vk.getAppId();
-            fVar.mSource = vk.EW();
+        if (com.baidu.swan.apps.ae.b.Md() != null && com.baidu.swan.apps.ae.b.Md().vL() != null) {
+            com.baidu.swan.apps.v.b.b vL = com.baidu.swan.apps.ae.b.Md().vL();
+            fVar.mFrom = e.dP(vL.FQ());
+            fVar.mAppId = vL.getAppId();
+            fVar.mSource = vL.FG();
         }
         e.a("916", fVar);
     }
 
-    public static void jV(String str) {
+    public static void kd(String str) {
         f fVar = new f();
         fVar.mType = str;
         fVar.mValue = SmsLoginView.StatEvent.LOGIN_SHOW;
-        if (com.baidu.swan.apps.ae.b.Lq() != null && com.baidu.swan.apps.ae.b.Lq().vk() != null) {
-            com.baidu.swan.apps.v.b.b vk = com.baidu.swan.apps.ae.b.Lq().vk();
-            fVar.mFrom = e.dM(vk.Fg());
-            fVar.mAppId = vk.getAppId();
-            fVar.mSource = vk.EW();
+        if (com.baidu.swan.apps.ae.b.Md() != null && com.baidu.swan.apps.ae.b.Md().vL() != null) {
+            com.baidu.swan.apps.v.b.b vL = com.baidu.swan.apps.ae.b.Md().vL();
+            fVar.mFrom = e.dP(vL.FQ());
+            fVar.mAppId = vL.getAppId();
+            fVar.mSource = vL.FG();
         }
-        fVar.k("early", SG() ? "0" : "1");
+        fVar.k("early", Tz() ? "0" : "1");
         e.a("916", fVar);
     }
 
-    private static boolean SG() {
-        return SH() > 0 && com.baidu.swan.games.glsurface.a.b.Rr() && System.currentTimeMillis() - SH() > 6000;
+    private static boolean Tz() {
+        return TA() > 0 && com.baidu.swan.games.glsurface.a.b.Sk() && System.currentTimeMillis() - TA() > 6000;
     }
 
-    private static long SH() {
-        com.baidu.swan.apps.ae.b Lq = com.baidu.swan.apps.ae.b.Lq();
-        if (Lq == null) {
+    private static long TA() {
+        com.baidu.swan.apps.ae.b Md = com.baidu.swan.apps.ae.b.Md();
+        if (Md == null) {
             return 0L;
         }
-        Activity activity = Lq.getActivity();
+        Activity activity = Md.getActivity();
         if (activity instanceof SwanAppActivity) {
-            d vd = ((SwanAppActivity) activity).vd();
-            if (vd instanceof com.baidu.swan.games.g.a) {
-                return ((com.baidu.swan.games.g.a) vd).Rh();
+            d vE = ((SwanAppActivity) activity).vE();
+            if (vE instanceof com.baidu.swan.games.g.a) {
+                return ((com.baidu.swan.games.g.a) vE).Sa();
             }
             return 0L;
         }

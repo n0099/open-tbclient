@@ -19,13 +19,13 @@ import tbclient.Personalized.ThreadPersonalized;
 import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private int gew = 0;
-    private com.baidu.tieba.homepage.personalize.b.d gex = new com.baidu.tieba.homepage.personalize.b.d();
-    private final c fYg = new c();
-    private final int dqA = com.baidu.tbadk.core.sharedPref.b.agM().getInt("home_page_max_thread_count", 300);
+    private int gkH = 0;
+    private com.baidu.tieba.homepage.personalize.b.d gkI = new com.baidu.tieba.homepage.personalize.b.d();
+    private final c gdd = new c();
+    private final int dsJ = com.baidu.tbadk.core.sharedPref.b.ahO().getInt("home_page_max_thread_count", 300);
 
-    public int buA() {
-        return this.dqA;
+    public int bxe() {
+        return this.dsJ;
     }
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -41,15 +41,15 @@ public class a {
         d.c(builder);
         d.c(builder2);
         b(z, builder, builder2, i);
-        a(builder, i, this.dqA);
+        a(builder, i, this.dsJ);
         d.e(builder);
         List<p> b = d.b(builder);
-        cF(b);
+        cH(b);
         List<m> l = l(builder.thread_list, b);
-        this.gex.cI(l);
+        this.gkI.cK(l);
         b.a(builder, l);
-        this.fYg.cPW = l;
-        return this.fYg;
+        this.gdd.cRs = l;
+        return this.gdd;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -67,7 +67,7 @@ public class a {
     }
 
     private void c(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
-        d.a(z, builder, builder2, i, this.gew);
+        d.a(z, builder, builder2, i, this.gkH);
     }
 
     private void a(boolean z, List<ThreadInfo> list, List<ThreadInfo> list2, int i) {
@@ -83,7 +83,7 @@ public class a {
                 }
             }
             if (i == 1) {
-                this.gex.aF(list);
+                this.gkI.aF(list);
                 for (ThreadInfo threadInfo2 : list2) {
                     if (threadInfo2 != null && !TextUtils.isEmpty(threadInfo2.lego_card)) {
                         if (!hashSet2.contains(threadInfo2.lego_card)) {
@@ -94,7 +94,7 @@ public class a {
                     }
                 }
             } else {
-                this.gex.a(z, list2.size() - 1, list, list2);
+                this.gkI.a(z, list2.size() - 1, list, list2);
                 for (int Z2 = v.Z(list2) - 1; Z2 >= 0; Z2--) {
                     ThreadInfo threadInfo3 = (ThreadInfo) v.c(list2, Z2);
                     if (threadInfo3 != null && !TextUtils.isEmpty(threadInfo3.lego_card)) {
@@ -107,12 +107,12 @@ public class a {
                 }
             }
             int Z3 = v.Z(list);
-            this.fYg.gez = Z3 - Z;
-            this.gew = Z3 - Z;
+            this.gdd.gkK = Z3 - Z;
+            this.gkH = Z3 - Z;
         }
     }
 
-    private void cF(List<p> list) {
+    private void cH(List<p> list) {
         if (list != null) {
             Collections.sort(list, new Comparator<p>() { // from class: com.baidu.tieba.homepage.personalize.model.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -146,22 +146,22 @@ public class a {
                 bg bgVar = new bg();
                 bgVar.a(threadInfo);
                 bgVar.setCurrentPage(1);
-                if (!TextUtils.isEmpty(bgVar.aex())) {
+                if (!TextUtils.isEmpty(bgVar.afz())) {
                     ad adVar = new ad();
-                    adVar.mf(bgVar.aex());
+                    adVar.mq(bgVar.afz());
                     adVar.position = i5;
                     linkedList.add(adVar);
                 } else if (com.baidu.tieba.homepage.topic.topictab.b.a.V(bgVar)) {
-                    if (!StringUtils.isNull(bgVar.afn().topic_name)) {
+                    if (!StringUtils.isNull(bgVar.agp().topic_name)) {
                         com.baidu.tieba.homepage.topic.topictab.b.a aVar = new com.baidu.tieba.homepage.topic.topictab.b.a();
-                        aVar.a(bgVar.afn());
+                        aVar.a(bgVar.agp());
                         aVar.from = 1;
                         aVar.position = i5;
                         aVar.ai(bgVar);
                         linkedList.add(aVar);
                     }
                 } else if (k.V(bgVar) || l.V(bgVar)) {
-                    int[] afo = bgVar.afo();
+                    int[] agq = bgVar.agq();
                     k ap = d.ap(bgVar);
                     if (ap != null) {
                         ap.tid = bgVar.getTid();
@@ -176,11 +176,11 @@ public class a {
                         ao.tid = bgVar.getTid();
                         ao.position = i5;
                         if (ao instanceof k) {
-                            if (bgVar.aet() == 1) {
+                            if (bgVar.afv() == 1) {
                                 d.b(ao);
-                                ao.bIg = afo[0];
-                                ao.bIh = afo[1];
-                            } else if (bgVar.aet() >= 2) {
+                                ao.bJg = agq[0];
+                                ao.bJh = agq[1];
+                            } else if (bgVar.afv() >= 2) {
                                 d.c(ao);
                             } else {
                                 d.d(ao);
@@ -246,9 +246,10 @@ public class a {
             } else {
                 while (true) {
                     i2 = i7;
-                    if (!(linkedList.get(i2) instanceof com.baidu.tieba.card.data.c) || (((com.baidu.tieba.card.data.c) linkedList.get(i2)).position + i6 != pVar.getPosition() - 1 && i2 < linkedList.size())) {
-                        i7 = i2 + 1;
+                    if ((i2 >= linkedList.size() || (linkedList.get(i2) instanceof com.baidu.tieba.card.data.c)) && (i2 >= linkedList.size() || ((com.baidu.tieba.card.data.c) linkedList.get(i2)).position + i6 == pVar.getPosition() - 1)) {
+                        break;
                     }
+                    i7 = i2 + 1;
                 }
                 if (linkedList.size() <= i2 || i2 <= 0) {
                     i = i6;

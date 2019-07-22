@@ -23,7 +23,6 @@ public class PassFaceRecogDTO extends PassBiometricDto {
     public String processid;
     public String realName;
     public String serviceType;
-    public String spParams;
     public String stoken;
     public String uid;
     public PassFaceRecogType livenessType = PassFaceRecogType.RECOG_TYPE_BDUSS;

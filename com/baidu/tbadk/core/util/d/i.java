@@ -24,22 +24,22 @@ public class i extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aiO() {
+    public boolean ajS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean aiP() {
+    public boolean ajT() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    public boolean iy() {
+    public boolean iH() {
         return true;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int aiQ() {
+    public int ajU() {
         return this.procType;
     }
 }

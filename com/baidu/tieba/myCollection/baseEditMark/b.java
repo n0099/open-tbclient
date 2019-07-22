@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes6.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel hsM;
+    private MarkModel hyY;
 
     public b(BaseActivity baseActivity) {
-        this.hsM = null;
-        this.hsM = new MarkModel(baseActivity);
+        this.hyY = null;
+        this.hyY = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.hsM = null;
-        this.hsM = new MarkModel(baseFragmentActivity);
+        this.hyY = null;
+        this.hyY = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ds(boolean z) {
-        this.hsM.ds(z);
+    public void dx(boolean z) {
+        this.hyY.dx(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String ZB() {
-        return this.hsM.ZB();
+    public String aaA() {
+        return this.hyY.aaA();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void a(a.InterfaceC0236a interfaceC0236a) {
-        this.hsM.a(interfaceC0236a);
+    public void a(a.InterfaceC0233a interfaceC0233a) {
+        this.hyY.a(interfaceC0233a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ZD() {
-        this.hsM.ZD();
+    public void aaC() {
+        this.hyY.aaC();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ZE() {
-        this.hsM.ZE();
+    public void aaD() {
+        this.hyY.aaD();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData ZF() {
-        return this.hsM.ZF();
+    public MarkData aaE() {
+        return this.hyY.aaE();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.hsM.a(markData);
+        this.hyY.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean ZC() {
-        return this.hsM.ZC();
+    public boolean aaB() {
+        return this.hyY.aaB();
     }
 }

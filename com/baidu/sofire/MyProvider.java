@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import com.baidu.sofire.b.r;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MyProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
@@ -26,7 +26,7 @@ public class MyProvider extends ContentProvider {
                     @Override // java.lang.Runnable
                     public final void run() {
                         try {
-                            new StringBuilder("PPP(provider) now to active ").append(str2);
+                            new StringBuilder().append(str2);
                             b.a();
                             Intent intent = new Intent();
                             intent.putExtra("t", "p");

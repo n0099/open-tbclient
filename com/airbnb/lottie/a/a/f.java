@@ -12,34 +12,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class f implements d, a.InterfaceC0007a {
-    private final com.airbnb.lottie.f kC;
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> lX;
-    private final com.airbnb.lottie.a.b.a<Integer, Integer> mk;
+    private final com.airbnb.lottie.f kB;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> lW;
+    private final com.airbnb.lottie.a.b.a<Integer, Integer> mj;
     private final String name;
-    private final Path lS = new Path();
+    private final Path lR = new Path();
     private final Paint paint = new Paint(1);
-    private final List<k> ma = new ArrayList();
+    private final List<k> lZ = new ArrayList();
 
     public f(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.i iVar) {
         this.name = iVar.getName();
-        this.kC = fVar;
-        if (iVar.dv() == null || iVar.cO() == null) {
-            this.mk = null;
-            this.lX = null;
+        this.kB = fVar;
+        if (iVar.dC() == null || iVar.cU() == null) {
+            this.mj = null;
+            this.lW = null;
             return;
         }
-        this.lS.setFillType(iVar.getFillType());
-        this.mk = iVar.dv().cz();
-        this.mk.b(this);
-        aVar.a(this.mk);
-        this.lX = iVar.cO().cz();
-        this.lX.b(this);
-        aVar.a(this.lX);
+        this.lR.setFillType(iVar.de());
+        this.mj = iVar.dC().cF();
+        this.mj.b(this);
+        aVar.a(this.mj);
+        this.lW = iVar.cU().cF();
+        this.lW.b(this);
+        aVar.a(this.lW);
     }
 
     @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
-    public void bW() {
-        this.kC.invalidateSelf();
+    public void ca() {
+        this.kB.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -50,7 +50,7 @@ public class f implements d, a.InterfaceC0007a {
             if (i2 < list2.size()) {
                 b bVar = list2.get(i2);
                 if (bVar instanceof k) {
-                    this.ma.add((k) bVar);
+                    this.lZ.add((k) bVar);
                 }
                 i = i2 + 1;
             } else {
@@ -72,18 +72,18 @@ public class f implements d, a.InterfaceC0007a {
     @Override // com.airbnb.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.airbnb.lottie.d.beginSection("FillContent#draw");
-        this.paint.setColor(this.mk.getValue().intValue());
+        this.paint.setColor(this.mj.getValue().intValue());
         Paint paint = this.paint;
-        paint.setAlpha((int) (((this.lX.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
-        this.lS.reset();
+        paint.setAlpha((int) (((this.lW.getValue().intValue() * (i / 255.0f)) / 100.0f) * 255.0f));
+        this.lR.reset();
         int i2 = 0;
         while (true) {
             int i3 = i2;
-            if (i3 < this.ma.size()) {
-                this.lS.addPath(this.ma.get(i3).getPath(), matrix);
+            if (i3 < this.lZ.size()) {
+                this.lR.addPath(this.lZ.get(i3).cd(), matrix);
                 i2 = i3 + 1;
             } else {
-                canvas.drawPath(this.lS, this.paint);
+                canvas.drawPath(this.lR, this.paint);
                 com.airbnb.lottie.d.D("FillContent#draw");
                 return;
             }
@@ -92,11 +92,11 @@ public class f implements d, a.InterfaceC0007a {
 
     @Override // com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.lS.reset();
-        for (int i = 0; i < this.ma.size(); i++) {
-            this.lS.addPath(this.ma.get(i).getPath(), matrix);
+        this.lR.reset();
+        for (int i = 0; i < this.lZ.size(); i++) {
+            this.lR.addPath(this.lZ.get(i).cd(), matrix);
         }
-        this.lS.computeBounds(rectF, false);
+        this.lR.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 }

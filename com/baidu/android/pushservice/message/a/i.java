@@ -139,7 +139,7 @@ public final class i {
                     iVar.a(jSONObject2.getJSONArray("extras"));
                 }
                 if (TextUtils.isEmpty(iVar.l)) {
-                    iVar.l = com.baidu.android.pushservice.j.f.a(str.getBytes(), false);
+                    iVar.l = com.baidu.android.pushservice.j.d.a(str.getBytes(), false);
                 }
             }
         } catch (Exception e) {

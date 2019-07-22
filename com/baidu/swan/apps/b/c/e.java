@@ -21,11 +21,11 @@ public interface e<T extends d> extends TypedCallbackHandler {
 
     void onResume();
 
-    void v(Activity activity);
+    T xt();
 
-    T wS();
+    String xu();
 
-    String wT();
+    String xv();
 
-    String wU();
+    void y(Activity activity);
 }

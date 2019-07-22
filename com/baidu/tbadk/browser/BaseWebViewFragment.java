@@ -3,6 +3,7 @@ package com.baidu.tbadk.browser;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
 import java.net.MalformedURLException;
@@ -13,7 +14,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void lt(String str) {
+    public void lC(String str) {
         this.mUrlTitle = str;
     }
 
@@ -26,7 +27,7 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     private String parseWebViewUrl(String str) {
-        if (str != null && !str.startsWith("http://") && !str.startsWith("https://")) {
+        if (str != null && !str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             return "http://".concat(str);
         }
         return str;
@@ -44,7 +45,7 @@ public class BaseWebViewFragment extends BaseFragment {
         return bz(this.mUrl, "nomenu");
     }
 
-    public boolean lu(String str) {
+    public boolean lD(String str) {
         return bz(str, "blank");
     }
 

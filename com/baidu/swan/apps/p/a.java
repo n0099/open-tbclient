@@ -19,44 +19,44 @@ import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private e awJ;
+    private e axo;
     private SharedPreferences.Editor mEditor;
 
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0153a {
-        void zp();
+    public interface InterfaceC0150a {
+        void zW();
     }
 
     private a() {
-        this.awJ = new e("aiapps_guide_dialog_sp");
-        this.mEditor = this.awJ.edit();
+        this.axo = new e("aiapps_guide_dialog_sp");
+        this.mEditor = this.axo.edit();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b {
-        private static final a awN = new a();
+        private static final a axs = new a();
     }
 
-    public static a CZ() {
-        return b.awN;
+    public static a DI() {
+        return b.axs;
     }
 
-    private boolean z(@NonNull Activity activity) {
-        boolean Da = Da();
+    private boolean C(@NonNull Activity activity) {
+        boolean DJ = DJ();
         if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "is first in " + Da);
+            Log.e("SwanAppGuideDialogManager", "is first in " + DJ);
         }
-        if (Da) {
+        if (DJ) {
             return true;
         }
-        int B = B(activity);
+        int E = E(activity);
         int aZ = aZ(activity);
         if (DEBUG) {
-            Log.e("SwanAppGuideDialogManager", "version =" + B + " curVerCode" + aZ);
+            Log.e("SwanAppGuideDialogManager", "version =" + E + " curVerCode" + aZ);
         }
-        return aZ > B;
+        return aZ > E;
     }
 
     private int aZ(@NonNull Context context) {
@@ -68,28 +68,28 @@ public class a {
     }
 
     public boolean b(@NonNull WeakReference<Activity> weakReference) {
-        com.baidu.swan.apps.ae.b Lq;
+        com.baidu.swan.apps.ae.b Md;
         if (weakReference == null || weakReference.get() == null) {
             return false;
         }
         Activity activity = weakReference.get();
-        if (!TextUtils.equals("0", Dc()) && (Lq = com.baidu.swan.apps.ae.b.Lq()) != null && !Lq.LA().getBoolean("boolean_var_key_fav_guide_show", false)) {
-            return z(activity) && !TextUtils.isEmpty(Db());
+        if (!TextUtils.equals("0", DL()) && (Md = com.baidu.swan.apps.ae.b.Md()) != null && !Md.Mn().getBoolean("boolean_var_key_fav_guide_show", false)) {
+            return C(activity) && !TextUtils.isEmpty(DK());
         }
         return false;
     }
 
-    private void A(@NonNull Activity activity) {
-        bi(false);
+    private void D(@NonNull Activity activity) {
+        bl(false);
         cx(aZ(activity));
     }
 
-    private void bi(boolean z) {
+    private void bl(boolean z) {
         this.mEditor.putBoolean("new_first_in", z).apply();
     }
 
-    private boolean Da() {
-        return this.awJ.getBoolean("new_first_in", true);
+    private boolean DJ() {
+        return this.axo.getBoolean("new_first_in", true);
     }
 
     private void cx(int i) {
@@ -99,19 +99,19 @@ public class a {
         this.mEditor.putInt("up_first_in", i).apply();
     }
 
-    private int B(Activity activity) {
-        return this.awJ.getInt("up_first_in", aZ(activity));
+    private int E(Activity activity) {
+        return this.axo.getInt("up_first_in", aZ(activity));
     }
 
-    public String Db() {
-        return this.awJ.getString("url", "");
+    public String DK() {
+        return this.axo.getString("url", "");
     }
 
-    public String Dc() {
-        return this.awJ.getString("switch", "1");
+    public String DL() {
+        return this.axo.getString("switch", "1");
     }
 
-    public boolean a(@NonNull Activity activity, String str, final InterfaceC0153a interfaceC0153a) {
+    public boolean a(@NonNull Activity activity, String str, final InterfaceC0150a interfaceC0150a) {
         if (activity == null || activity.isFinishing() || !SwanAppNetworkUtils.isNetworkConnected(activity)) {
             return false;
         }
@@ -119,7 +119,7 @@ public class a {
         com.baidu.swan.apps.an.b.a(activity, cVar);
         cVar.setContentView(a.g.aiapps_entry_guide_layout);
         cVar.findViewById(a.f.root).setBackground(activity.getResources().getDrawable(a.e.aiapps_entry_guide_bg));
-        cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.DW().Ev() ? 0 : 8);
+        cVar.findViewById(a.f.nightmode_mask).setVisibility(com.baidu.swan.apps.u.a.EF().Fe() ? 0 : 8);
         ((SimpleDraweeView) cVar.findViewById(a.f.aiapps_guide_image)).setImageURI(str);
         cVar.findViewById(a.f.aiapps_split_line).setBackgroundColor(activity.getResources().getColor(a.c.aiapps_entry_guide_split_line3));
         TextView textView = (TextView) cVar.findViewById(a.f.aiapps_bottom_button);
@@ -128,13 +128,13 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 cVar.dismiss();
-                if (interfaceC0153a != null) {
-                    interfaceC0153a.zp();
+                if (interfaceC0150a != null) {
+                    interfaceC0150a.zW();
                 }
             }
         });
         cVar.show();
-        A(activity);
+        D(activity);
         if (DEBUG) {
             Log.e("SwanAppGuideDialogManager", "dialog has shown");
         }

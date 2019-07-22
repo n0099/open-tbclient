@@ -41,26 +41,26 @@ public class u extends z {
             com.baidu.swan.apps.console.c.e("PreloadSubPackage", "subPackage root is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (bVar.gA(optString2) && bVar.gB(optString2)) {
+        } else if (bVar.gH(optString2) && bVar.gI(optString2)) {
             com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage have existed");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "subPackage have existed");
             return false;
         } else {
-            String gD = bVar.gD(optString2);
-            if (TextUtils.isEmpty(gD)) {
+            String gK = bVar.gK(optString2);
+            if (TextUtils.isEmpty(gK)) {
                 com.baidu.swan.apps.console.c.i("PreloadSubPackage", "subPackage cannot find aps key");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            com.baidu.swan.apps.scheme.actions.i.g.Mj().a(bVar.CR(), bVar.id, bVar.getVersion(), optString2, gD, com.baidu.swan.apps.w.e.FV().FE(), null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.u.1
+            com.baidu.swan.apps.scheme.actions.i.g.MX().a(bVar.DA(), bVar.id, bVar.getVersion(), optString2, gK, com.baidu.swan.apps.w.e.GF().Go(), null, new g.a() { // from class: com.baidu.swan.apps.scheme.actions.u.1
                 @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-                public void fa(String str) {
+                public void ff(String str) {
                     com.baidu.swan.apps.console.c.i("PreloadSubPackage", "preload subPackage success");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0, "preload subPackage success").toString(), optString);
                 }
 
                 @Override // com.baidu.swan.apps.scheme.actions.i.g.a
-                public void cI(int i) {
+                public void cJ(int i) {
                     com.baidu.swan.apps.console.c.e("PreloadSubPackage", "preload subPackage failed");
                     UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No SubPackage").toString(), optString);
                 }

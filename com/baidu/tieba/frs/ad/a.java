@@ -9,32 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private FrsADFragment ftC;
-    private BdTypeRecyclerView ftD;
-    private d ftE;
-    private l ftF;
+    private d fyA;
+    private l fyB;
+    private FrsADFragment fyy;
+    private BdTypeRecyclerView fyz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.ftC = frsADFragment;
-        this.ftD = bdTypeRecyclerView;
+        this.fyy = frsADFragment;
+        this.fyz = bdTypeRecyclerView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.ftE = new d(this.ftC.getPageContext(), c.ftS, this.ftC.getUniqueId());
-        this.ftF = new l(this.ftC.getPageContext(), m.frM);
-        this.mAdapters.add(this.ftE);
-        this.mAdapters.add(this.ftF);
-        this.ftD.addAdapters(this.mAdapters);
+        this.fyA = new d(this.fyy.getPageContext(), c.fyO, this.fyy.getUniqueId());
+        this.fyB = new l(this.fyy.getPageContext(), m.fwJ);
+        this.mAdapters.add(this.fyA);
+        this.mAdapters.add(this.fyB);
+        this.fyz.addAdapters(this.mAdapters);
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
-        this.ftD.setData(arrayList);
+        this.fyz.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.ftD.getAdapter().notifyDataSetChanged();
+        this.fyz.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {

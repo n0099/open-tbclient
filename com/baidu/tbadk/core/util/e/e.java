@@ -7,41 +7,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e bUW;
-    private int bUX = 3;
+    private static e bVX;
+    private int bVY = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
-    public static e aiV() {
-        if (bUW == null) {
+    public static e ajZ() {
+        if (bVX == null) {
             synchronized (e.class) {
-                if (bUW == null) {
-                    bUW = new e();
+                if (bVX == null) {
+                    bVX = new e();
                 }
             }
         }
-        return bUW;
+        return bVX;
     }
 
     private e() {
         g.log("PreLoadVideoSwitchManager init ");
         try {
-            parseJson(com.baidu.tbadk.core.sharedPref.b.agM().getString("video_sync_switch_json", ""));
+            parseJson(com.baidu.tbadk.core.sharedPref.b.ahO().getString("video_sync_switch_json", ""));
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public boolean isOpen() {
-        if (bu.iE()) {
-            return !this.isWifi || j.jT();
+        if (bu.iN()) {
+            return !this.isWifi || j.kd();
         }
         g.log("PreLoadVideoSwitchManager isOpen switch close ");
         return false;
     }
 
-    public int aiW() {
-        return this.bUX;
+    public int aka() {
+        return this.bVY;
     }
 
     public int getSize() {
@@ -51,12 +51,12 @@ public class e {
         return this.mSize;
     }
 
-    public void or(String str) {
+    public void oI(String str) {
         g.log("PreLoadVideoSwitchManager setSyncSwitchJson: " + str);
         if (!TextUtils.isEmpty(str)) {
             try {
                 parseJson(str);
-                com.baidu.tbadk.core.sharedPref.b.agM().putString("video_sync_switch_json", str);
+                com.baidu.tbadk.core.sharedPref.b.ahO().putString("video_sync_switch_json", str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -66,10 +66,10 @@ public class e {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.bUX = jSONObject.optInt("num", 3);
+            this.bVY = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
             this.mSize = jSONObject.optInt("size", 512000);
-            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.bUX + " size: " + this.mSize + " isWifi " + this.isWifi);
+            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.bVY + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

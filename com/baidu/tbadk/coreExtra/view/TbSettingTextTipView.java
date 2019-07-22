@@ -12,57 +12,57 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c;
 /* loaded from: classes.dex */
 public class TbSettingTextTipView extends FrameLayout {
-    protected ImageView agT;
-    protected TextView aif;
-    protected LinearLayout cmO;
-    protected TextView cmP;
-    private boolean cmR;
+    protected ImageView ahs;
+    protected LinearLayout cob;
+    protected TextView coc;
+    private boolean coe;
     private View mBottomLine;
     protected Context mContext;
     private View mTopLine;
+    protected TextView textView;
 
     public TbSettingTextTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cmR = true;
+        this.coe = true;
         this.mContext = context;
-        apr();
+        aqw();
         c(attributeSet);
     }
 
     public TbSettingTextTipView(Context context) {
         super(context);
-        this.cmR = true;
+        this.coe = true;
         this.mContext = context;
-        apr();
+        aqw();
     }
 
     public void displayTip() {
-        if (this.cmP != null) {
-            this.cmP.setVisibility(0);
+        if (this.coc != null) {
+            this.coc.setVisibility(0);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.cmP != null) {
-            this.cmP.setTextColor(i);
+        if (this.coc != null) {
+            this.coc.setTextColor(i);
         }
     }
 
     public void setTipStyle(int i) {
-        if (this.cmP != null) {
+        if (this.coc != null) {
         }
     }
 
-    public void k(int i, int i2, int i3, int i4) {
-        if (this.cmP != null) {
+    public void l(int i, int i2, int i3, int i4) {
+        if (this.coc != null) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(i, i2, i3, i4);
-            this.cmP.setLayoutParams(layoutParams);
+            this.coc.setLayoutParams(layoutParams);
         }
     }
 
@@ -70,35 +70,35 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     public void hideArrow() {
-        this.agT.setVisibility(8);
+        this.ahs.setVisibility(8);
     }
 
     public void setText(String str) {
-        this.aif.setText(str);
+        this.textView.setText(str);
     }
 
     public void setText(int i) {
-        this.aif.setText(i);
+        this.textView.setText(i);
     }
 
     public void setTip(String str) {
-        this.cmP.setText(str);
+        this.coc.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.cmP.getText();
+        return this.coc.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.cmP.setBackgroundDrawable(drawable);
+        this.coc.setBackgroundDrawable(drawable);
     }
 
-    protected void apr() {
+    protected void aqw() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-        this.cmO = (LinearLayout) findViewById(R.id.container);
-        this.aif = (TextView) findViewById(R.id.text);
-        this.cmP = (TextView) findViewById(R.id.tip);
-        this.agT = (ImageView) findViewById(R.id.arrow2);
+        this.cob = (LinearLayout) findViewById(R.id.container);
+        this.textView = (TextView) findViewById(R.id.text);
+        this.coc = (TextView) findViewById(R.id.tip);
+        this.ahs = (ImageView) findViewById(R.id.arrow2);
         this.mBottomLine = findViewById(R.id.bottom_line_ll);
         this.mTopLine = findViewById(R.id.top_line_ll);
     }
@@ -109,18 +109,18 @@ public class TbSettingTextTipView extends FrameLayout {
             String string = obtainStyledAttributes.getString(5);
             String string2 = obtainStyledAttributes.getString(1);
             if (string != null) {
-                this.aif.setText(string);
+                this.textView.setText(string);
             }
             if (string2 != null) {
-                this.cmP.setText(string2);
+                this.coc.setText(string2);
             }
-            this.cmR = obtainStyledAttributes.getBoolean(2, true);
+            this.coe = obtainStyledAttributes.getBoolean(2, true);
             obtainStyledAttributes.recycle();
         }
-        this.cmO.setClickable(false);
-        this.cmO.setFocusable(false);
-        if (!this.cmR) {
-            this.agT.setVisibility(4);
+        this.cob.setClickable(false);
+        this.cob.setFocusable(false);
+        if (!this.coe) {
+            this.ahs.setVisibility(4);
         }
     }
 
@@ -141,31 +141,31 @@ public class TbSettingTextTipView extends FrameLayout {
     }
 
     private void setMainTextSize(float f) {
-        this.aif.setTextSize(0, f);
+        this.textView.setTextSize(0, f);
     }
 
     private void setTipTextSize(float f) {
-        this.cmP.setTextSize(0, f);
+        this.coc.setTextSize(0, f);
     }
 
-    public void aps() {
+    public void aqx() {
         int g = l.g(this.mContext, R.dimen.tbds42);
         int g2 = l.g(this.mContext, R.dimen.tbds33);
         setMainTextSize(g);
         setTipTextSize(g2);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aif.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.textView.getLayoutParams();
         layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, 0);
-        ((LinearLayout.LayoutParams) this.cmP.getLayoutParams()).setMargins(0, 0, l.g(this.mContext, R.dimen.tbds18), 0);
-        this.cmO.getLayoutParams().height = -1;
+        ((LinearLayout.LayoutParams) this.coc.getLayoutParams()).setMargins(0, 0, l.g(this.mContext, R.dimen.tbds18), 0);
+        this.cob.getLayoutParams().height = -1;
         requestLayout();
     }
 
     public void onChangeSkinType(int i) {
-        al.l(this.mTopLine, R.color.cp_bg_line_b);
-        al.k(this.cmO, R.drawable.setting_item_selector);
-        al.j(this.aif, R.color.cp_cont_b);
-        al.j(this.cmP, R.color.cp_cont_d);
-        al.c(this.agT, (int) R.drawable.icon_arrow_gray_right_n);
-        al.l(this.mBottomLine, R.color.cp_bg_line_b);
+        am.l(this.mTopLine, R.color.cp_bg_line_b);
+        am.k(this.cob, R.drawable.setting_item_selector);
+        am.j(this.textView, R.color.cp_cont_b);
+        am.j(this.coc, R.color.cp_cont_d);
+        am.c(this.ahs, (int) R.drawable.icon_arrow_gray_right_n);
+        am.l(this.mBottomLine, R.color.cp_bg_line_b);
     }
 }

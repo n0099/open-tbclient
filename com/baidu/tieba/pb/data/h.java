@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes4.dex */
 public class h extends PostData {
-    public static final BdUniqueId hBW = BdUniqueId.gen();
-    public String hBX;
+    public static final BdUniqueId hIj = BdUniqueId.gen();
+    public String hIk;
     private int position = 0;
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hBW;
+        return hIj;
     }
 }

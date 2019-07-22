@@ -8,13 +8,13 @@ public class d {
         if (context == null) {
             return null;
         }
-        if (j.jT()) {
+        if (j.kd()) {
             return "WIFI";
         }
-        if (j.jU()) {
-            int ka = j.ka();
+        if (j.ke()) {
+            int kk = j.kk();
             StringBuilder sb = new StringBuilder();
-            switch (ka) {
+            switch (kk) {
                 case 1:
                     sb.append('M');
                     break;
@@ -28,16 +28,16 @@ public class d {
                     sb.append('N');
                     break;
             }
-            if (j.isWap()) {
+            if (j.ko()) {
                 sb.append("_WAP_");
             } else {
                 sb.append("_NET_");
             }
-            if (j.jW()) {
+            if (j.kg()) {
                 sb.append("3G");
-            } else if (j.jV()) {
+            } else if (j.kf()) {
                 sb.append("4G");
-            } else if (j.jX()) {
+            } else if (j.kh()) {
                 sb.append("2G");
             } else {
                 sb.append('N');

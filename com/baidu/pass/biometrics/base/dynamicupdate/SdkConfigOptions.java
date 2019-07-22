@@ -3,6 +3,9 @@ package com.baidu.pass.biometrics.base.dynamicupdate;
 import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -174,6 +177,7 @@ public class SdkConfigOptions {
         public static final int DEFAULT_YAW = 15;
         public static final String DETECT_INTERVAL = "detect_interval";
         public static final String ILLUM_THR = "illum_thr";
+        private static final String KEY_ABTEST_ILLUM_LIST = "abtest_illum_list";
         public static final String KEY_WHITE_BG_ILLUM_THR = "white_bg_illum_thr";
         public static final int LIVENESS_RECOG_TYPE_BLINK = 1;
         public static final int LIVENESS_RECOG_TYPE_OPEN_MOUTH = 2;
@@ -193,6 +197,7 @@ public class SdkConfigOptions {
         public String recogUploadPortraitCount;
         public String switchRecordVideo;
         public int whiteBgIllumThr;
+        public List<Integer> illumList = new ArrayList();
         public String minFaceSize = String.valueOf(100);
         public String illumThr = String.valueOf(40);
         public String trackInterval = String.valueOf(300);
@@ -224,6 +229,7 @@ public class SdkConfigOptions {
                 livenessConfigOption.recogTimeInterval = jSONObject.optString(RECOG_TIME_INTERVAL);
                 livenessConfigOption.recogUploadPortraitCount = jSONObject.optString(RECOG_UPLOAD_PORTRAIT_COUNT);
                 livenessConfigOption.whiteBgIllumThr = jSONObject.optInt(KEY_WHITE_BG_ILLUM_THR, 10);
+                setJsonArrayToList(jSONObject.optJSONArray(KEY_ABTEST_ILLUM_LIST), livenessConfigOption.illumList);
             }
             return livenessConfigOption;
         }
@@ -247,11 +253,31 @@ public class SdkConfigOptions {
                 jSONObject.put(RECOG_TIME_INTERVAL, this.recogTimeInterval);
                 jSONObject.put(RECOG_UPLOAD_PORTRAIT_COUNT, this.recogUploadPortraitCount);
                 jSONObject.put(KEY_WHITE_BG_ILLUM_THR, this.whiteBgIllumThr);
+                setListToJsonArray(jSONObject, KEY_ABTEST_ILLUM_LIST, this.illumList);
                 return jSONObject;
             } catch (JSONException e) {
                 Log.e(e);
                 return null;
             }
+        }
+
+        private static void setJsonArrayToList(JSONArray jSONArray, List<Integer> list) {
+            if (jSONArray != null) {
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                        list.add(Integer.valueOf(jSONArray.optInt(i)));
+                    }
+                }
+            }
+        }
+
+        private static void setListToJsonArray(JSONObject jSONObject, String str, List<Integer> list) throws JSONException {
+            JSONArray jSONArray = new JSONArray();
+            for (Integer num : list) {
+                jSONArray.put(num.intValue());
+            }
+            jSONObject.put(str, jSONArray);
         }
 
         public int getMinFaceSize() {
@@ -450,6 +476,11 @@ public class SdkConfigOptions {
                 e.printStackTrace();
             }
             return 3;
+        }
+
+        public List<Integer> getABtestIllumList() {
+            List<Integer> asList = Arrays.asList(6, 8, 10);
+            return (this.illumList == null || this.illumList.isEmpty()) ? asList : this.illumList;
         }
     }
 }

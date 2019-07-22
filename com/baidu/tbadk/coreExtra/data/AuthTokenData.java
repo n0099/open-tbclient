@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,26 +24,26 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.oL(str);
+        authTokenData.pc(str);
         return authTokenData;
     }
 
     private void aZ(JSONObject jSONObject) {
         if (jSONObject != null) {
             this.errorCode = jSONObject.optInt("error_code");
-            JSONObject optJSONObject = jSONObject.optJSONObject("info");
+            JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
             if (optJSONObject != null) {
                 this.authToken = optJSONObject.optString("pass_token");
             }
         }
     }
 
-    private void oL(String str) {
+    private void pc(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 this.errorCode = jSONObject.optInt("error_code");
-                JSONObject optJSONObject = jSONObject.optJSONObject("info");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Config.LAUNCH_INFO);
                 if (optJSONObject != null) {
                     this.authToken = optJSONObject.optString("pass_token");
                 }

@@ -10,41 +10,41 @@ import com.baidu.swan.apps.res.widget.dialog.b;
 import com.baidu.swan.apps.res.widget.dialog.g;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.res.widget.dialog.b {
-    private a arV;
-    private FrameLayout arf;
+    private FrameLayout arI;
+    private a asy;
 
     protected d(Context context) {
         super(context);
     }
 
     public void a(a aVar) {
-        this.arV = aVar;
+        this.asy = aVar;
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.b
     protected View f(ViewGroup viewGroup) {
         View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_ssl_certificate_dialog, viewGroup, false);
-        this.arf = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
-        Ap();
+        this.arI = (FrameLayout) inflate.findViewById(a.f.ssl_certificate_container);
+        AW();
         return inflate;
     }
 
-    private void Ap() {
-        if (this.arV == null) {
+    private void AW() {
+        if (this.asy == null) {
             return;
         }
-        this.arf.addView(this.arV.contentView);
+        this.arI.addView(this.asy.contentView);
     }
 
     /* loaded from: classes2.dex */
-    public static class a extends b.C0169b {
+    public static class a extends b.C0166b {
         private View contentView;
 
         public a(Context context) {
             super(context);
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0169b, com.baidu.swan.apps.res.widget.dialog.g.a
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0166b, com.baidu.swan.apps.res.widget.dialog.g.a
         protected g aU(Context context) {
             return new d(context);
         }
@@ -57,14 +57,14 @@ public class d extends com.baidu.swan.apps.res.widget.dialog.b {
             return this;
         }
 
-        public a V(View view) {
+        public a X(View view) {
             this.contentView = view;
             return this;
         }
 
-        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0169b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g Aq() {
-            d dVar = (d) super.Aq();
+        @Override // com.baidu.swan.apps.res.widget.dialog.b.C0166b, com.baidu.swan.apps.res.widget.dialog.g.a
+        public g AX() {
+            d dVar = (d) super.AX();
             dVar.a(this);
             return dVar;
         }

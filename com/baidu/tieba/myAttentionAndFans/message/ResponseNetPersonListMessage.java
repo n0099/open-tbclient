@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.tbadk.core.c.a;
+import com.baidu.tbadk.core.d.a;
 import com.baidu.tbadk.core.data.as;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -64,9 +64,9 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     String str = new String(bArr);
-                    l<String> mA = a.afD().mA("tb.my_pages");
-                    if (mA != null) {
-                        mA.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
+                    l<String> mL = a.agF().mL("tb.my_pages");
+                    if (mL != null) {
+                        mL.a((z ? "personal_followme" : "personal_myfollow") + "_" + map.get("id"), str, 604800000L);
                     }
                 }
             }

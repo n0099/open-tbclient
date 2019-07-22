@@ -13,7 +13,7 @@ public class e extends c {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             if (jSONObject.has("scale")) {
-                this.azL = jSONObject.optDouble("scale", 18.0d);
+                this.aAs = jSONObject.optDouble("scale", 18.0d);
             }
             if (jSONObject.has("name")) {
                 this.name = jSONObject.optString("name");
@@ -26,6 +26,6 @@ public class e extends c {
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.aDm) || this.azK == null || !this.azK.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.aDU) || this.aAr == null || !this.aAr.isValid()) ? false : true;
     }
 }

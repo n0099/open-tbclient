@@ -4,16 +4,16 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 class a {
-    private static ArrayList<a> gjd = new ArrayList<>(5);
-    public int gjh;
-    public int gji;
-    int gjj;
+    private static ArrayList<a> gpp = new ArrayList<>(5);
+    public int gpt;
+    public int gpu;
+    int gpv;
     public int type;
 
-    private void aAd() {
-        this.gjh = 0;
-        this.gji = 0;
-        this.gjj = 0;
+    private void aBr() {
+        this.gpt = 0;
+        this.gpu = 0;
+        this.gpv = 0;
         this.type = 0;
     }
 
@@ -21,31 +21,31 @@ class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long bvl() {
-        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.gjh, this.gji) : ExpandableListView.getPackedPositionForGroup(this.gjh);
+    public long bxQ() {
+        return this.type == 1 ? ExpandableListView.getPackedPositionForChild(this.gpt, this.gpu) : ExpandableListView.getPackedPositionForGroup(this.gpt);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a tV(int i) {
-        return w(2, i, 0, 0);
+    public static a uu(int i) {
+        return x(2, i, 0, 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a w(int i, int i2, int i3, int i4) {
-        a bvm = bvm();
-        bvm.type = i;
-        bvm.gjh = i2;
-        bvm.gji = i3;
-        bvm.gjj = i4;
-        return bvm;
+    public static a x(int i, int i2, int i3, int i4) {
+        a bxR = bxR();
+        bxR.type = i;
+        bxR.gpt = i2;
+        bxR.gpu = i3;
+        bxR.gpv = i4;
+        return bxR;
     }
 
-    private static a bvm() {
+    private static a bxR() {
         a aVar;
-        synchronized (gjd) {
-            if (gjd.size() > 0) {
-                aVar = gjd.remove(0);
-                aVar.aAd();
+        synchronized (gpp) {
+            if (gpp.size() > 0) {
+                aVar = gpp.remove(0);
+                aVar.aBr();
             } else {
                 aVar = new a();
             }
@@ -54,9 +54,9 @@ class a {
     }
 
     public void recycle() {
-        synchronized (gjd) {
-            if (gjd.size() < 5) {
-                gjd.add(this);
+        synchronized (gpp) {
+            if (gpp.size() < 5) {
+                gpp.add(this);
             }
         }
     }

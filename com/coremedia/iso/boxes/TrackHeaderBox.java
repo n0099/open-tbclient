@@ -255,12 +255,12 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setTrackId(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.eH(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_14, this, this, org.aspectj.a.a.a.eP(j)));
         this.trackId = j;
     }
 
     public void setDuration(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.eH(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_15, this, this, org.aspectj.a.a.a.eP(j)));
         this.duration = j;
         if (j >= IjkMediaMeta.AV_CH_WIDE_RIGHT) {
             setFlags(1);
@@ -268,17 +268,17 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setLayer(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_16, this, this, org.aspectj.a.a.a.EI(i)));
         this.layer = i;
     }
 
     public void setAlternateGroup(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.DZ(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_17, this, this, org.aspectj.a.a.a.EI(i)));
         this.alternateGroup = i;
     }
 
     public void setVolume(float f) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.bh(f)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_18, this, this, org.aspectj.a.a.a.bi(f)));
         this.volume = f;
     }
 
@@ -318,7 +318,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setEnabled(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.su(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_26, this, this, org.aspectj.a.a.a.sR(z)));
         if (z) {
             setFlags(getFlags() | 1);
         } else {
@@ -327,7 +327,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInMovie(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.su(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_27, this, this, org.aspectj.a.a.a.sR(z)));
         if (z) {
             setFlags(getFlags() | 2);
         } else {
@@ -336,7 +336,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPreview(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.su(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_28, this, this, org.aspectj.a.a.a.sR(z)));
         if (z) {
             setFlags(getFlags() | 4);
         } else {
@@ -345,7 +345,7 @@ public class TrackHeaderBox extends AbstractFullBox {
     }
 
     public void setInPoster(boolean z) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.su(z)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_29, this, this, org.aspectj.a.a.a.sR(z)));
         if (z) {
             setFlags(getFlags() | 8);
         } else {

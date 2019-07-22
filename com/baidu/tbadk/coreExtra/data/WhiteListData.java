@@ -2,6 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -27,9 +28,9 @@ public class WhiteListData extends LinkedList<String> {
 
     public void saveJson(JSONArray jSONArray) {
         if (jSONArray == null) {
-            oS(null);
+            pj(null);
         } else {
-            oS(jSONArray.toString());
+            pj(jSONArray.toString());
         }
     }
 
@@ -49,7 +50,7 @@ public class WhiteListData extends LinkedList<String> {
                 if (lowerCase.startsWith("http://") && lowerCase.substring("http://".length()).startsWith(lowerCase2)) {
                     return true;
                 }
-                if (lowerCase.startsWith("https://") && lowerCase.substring("https://".length()).startsWith(lowerCase2)) {
+                if (lowerCase.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) && lowerCase.substring(SapiUtils.COOKIE_HTTPS_URL_PREFIX.length()).startsWith(lowerCase2)) {
                     return true;
                 }
             }
@@ -57,13 +58,13 @@ public class WhiteListData extends LinkedList<String> {
         return false;
     }
 
-    private void oS(String str) {
-        com.baidu.tbadk.core.sharedPref.b.agM().putString("key_white_list", str);
+    private void pj(String str) {
+        com.baidu.tbadk.core.sharedPref.b.ahO().putString("key_white_list", str);
     }
 
     public static WhiteListData createBySP() {
         WhiteListData whiteListData = new WhiteListData();
-        String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("key_white_list", null);
+        String string = com.baidu.tbadk.core.sharedPref.b.ahO().getString("key_white_list", null);
         if (!TextUtils.isEmpty(string)) {
             whiteListData.parserJson(string);
         }

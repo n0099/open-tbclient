@@ -13,18 +13,18 @@ public class WXFileObject implements WXMediaMessage.IMediaObject {
     public String filePath;
 
     public WXFileObject() {
-        this.contentLengthLimit = 10485760;
+        this.contentLengthLimit = CONTENT_LENGTH_LIMIT;
         this.fileData = null;
         this.filePath = null;
     }
 
     public WXFileObject(String str) {
-        this.contentLengthLimit = 10485760;
+        this.contentLengthLimit = CONTENT_LENGTH_LIMIT;
         this.filePath = str;
     }
 
     public WXFileObject(byte[] bArr) {
-        this.contentLengthLimit = 10485760;
+        this.contentLengthLimit = CONTENT_LENGTH_LIMIT;
         this.fileData = bArr;
     }
 

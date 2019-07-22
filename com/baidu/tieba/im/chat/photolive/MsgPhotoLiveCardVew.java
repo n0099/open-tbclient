@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
@@ -27,15 +27,15 @@ import com.baidu.tieba.tbadkCore.util.c;
 import java.net.URLDecoder;
 /* loaded from: classes3.dex */
 public class MsgPhotoLiveCardVew extends g {
-    private LinearLayout gvI;
-    private ClickableHeaderImageView gvJ;
-    private TextView gvK;
-    private TextView gvL;
-    private TextView gvM;
-    private TextView gvN;
-    private TextView gvO;
-    private LinearLayout gvP;
-    private TextView gvQ;
+    private LinearLayout gBT;
+    private ClickableHeaderImageView gBU;
+    private TextView gBV;
+    private TextView gBW;
+    private TextView gBX;
+    private TextView gBY;
+    private TextView gBZ;
+    private LinearLayout gCa;
+    private TextView gCb;
     private int messageType;
     private int paddingLeft;
     private long postId;
@@ -52,16 +52,16 @@ public class MsgPhotoLiveCardVew extends g {
     }
 
     private void init() {
-        this.gvI = (LinearLayout) findViewById(R.id.msg_photolive_card);
-        this.gvJ = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
-        this.gvK = (TextView) findViewById(R.id.author_name);
-        this.gvL = (TextView) findViewById(R.id.call_time);
-        this.gvM = (TextView) findViewById(R.id.call_content);
-        this.gvN = (TextView) findViewById(R.id.call_thread_title);
-        this.gvP = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
-        this.gvO = (TextView) findViewById(R.id.remind_title);
-        this.gvQ = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
-        this.gvI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
+        this.gBT = (LinearLayout) findViewById(R.id.msg_photolive_card);
+        this.gBU = (ClickableHeaderImageView) findViewById(R.id.author_portrait);
+        this.gBV = (TextView) findViewById(R.id.author_name);
+        this.gBW = (TextView) findViewById(R.id.call_time);
+        this.gBX = (TextView) findViewById(R.id.call_content);
+        this.gBY = (TextView) findViewById(R.id.call_thread_title);
+        this.gCa = (LinearLayout) findViewById(R.id.auhtor_name_and_call_time);
+        this.gBZ = (TextView) findViewById(R.id.remind_title);
+        this.gCb = (TextView) findViewById(R.id.card_bottom_chakanzhibo);
+        this.gBT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (MsgPhotoLiveCardVew.this.threadId > 0) {
@@ -80,25 +80,25 @@ public class MsgPhotoLiveCardVew extends g {
                         }
                     } else {
                         TiebaStatic.log("c10195");
-                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.Ei(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
-                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.Ei(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
+                        if (photoLiveReadThreadHistory != null && photoLiveReadThreadHistory.EV(String.valueOf(MsgPhotoLiveCardVew.this.threadId)) > 0) {
+                            MsgPhotoLiveCardVew.this.postId = photoLiveReadThreadHistory.EV(String.valueOf(MsgPhotoLiveCardVew.this.threadId));
                         }
                     }
-                    MsgPhotoLiveCardVew.this.uG(MsgPhotoLiveCardVew.this.messageType);
+                    MsgPhotoLiveCardVew.this.vh(MsgPhotoLiveCardVew.this.messageType);
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void uG(int i) {
+    public void vh(int i) {
         if (i == 5 || i == 6) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(String.valueOf(this.threadId), null, "message_tab")));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ce(View view) {
+    public void ch(View view) {
         Object tag = view.getTag();
         if (tag instanceof String) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), (String) tag, "")));
@@ -110,94 +110,94 @@ public class MsgPhotoLiveCardVew extends g {
         String str;
         int i2 = -1;
         if (chatMessage != null) {
-            a.C0329a xL = a.xL(chatMessage.getContent());
-            if (xL == null) {
+            a.C0328a yv = a.yv(chatMessage.getContent());
+            if (yv == null) {
                 this.threadId = 0L;
                 return;
             }
-            this.threadId = xL.threadId;
-            this.postId = xL.postId;
-            this.messageType = xL.msgType;
-            int i3 = xL.gvU;
-            ViewGroup.LayoutParams layoutParams = this.gvP.getLayoutParams();
+            this.threadId = yv.threadId;
+            this.postId = yv.postId;
+            this.messageType = yv.msgType;
+            int i3 = yv.gCf;
+            ViewGroup.LayoutParams layoutParams = this.gCa.getLayoutParams();
             if (this.messageType == 1 || this.messageType == 6) {
                 if (this.messageType == 1) {
-                    str = xL.threadTitle;
+                    str = yv.threadTitle;
                     i = R.string.look_live_thread;
                 } else {
-                    String decode = URLDecoder.decode(xL.threadTitle);
+                    String decode = URLDecoder.decode(yv.threadTitle);
                     i = R.string.look_god_thread;
                     str = decode;
                     i2 = 0;
                 }
-                this.gvN.setText(str);
+                this.gBY.setText(str);
                 layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds72);
-                this.gvP.setPadding(this.paddingLeft, 0, 0, 0);
-                this.gvJ.setVisibility(0);
-                this.gvJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
+                this.gCa.setPadding(this.paddingLeft, 0, 0, 0);
+                this.gBU.setVisibility(0);
+                this.gBU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardVew.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        MsgPhotoLiveCardVew.this.ce(view2);
+                        MsgPhotoLiveCardVew.this.ch(view2);
                     }
                 });
-                this.gvJ.setTag(xL.userId);
-                this.gvJ.setGodIconMargin(i2);
-                this.gvO.setVisibility(8);
-                this.gvK.setVisibility(0);
-                this.gvK.setText(xL.userName);
-                this.gvM.setText(xL.gvT);
-                this.gvK.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
-                this.gvQ.setText(i);
+                this.gBU.setTag(yv.userId);
+                this.gBU.setGodIconMargin(i2);
+                this.gBZ.setVisibility(8);
+                this.gBV.setVisibility(0);
+                this.gBV.setText(yv.userName);
+                this.gBX.setText(yv.gCe);
+                this.gBV.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
+                this.gCb.setText(i);
             } else if (this.messageType == 3) {
-                this.gvN.setText(xL.threadTitle);
+                this.gBY.setText(yv.threadTitle);
                 layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.gvP.setPadding(0, 0, 0, 0);
-                this.gvJ.setVisibility(8);
-                this.gvO.setVisibility(0);
-                this.gvK.setVisibility(8);
-                this.gvO.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-                if (xL.gvT != null && xL.gvT.indexOf(String.valueOf(i3)) != -1) {
-                    this.gvM.setText(aD(xL.gvT, i3));
+                this.gCa.setPadding(0, 0, 0, 0);
+                this.gBU.setVisibility(8);
+                this.gBZ.setVisibility(0);
+                this.gBV.setVisibility(8);
+                this.gBZ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
+                if (yv.gCe != null && yv.gCe.indexOf(String.valueOf(i3)) != -1) {
+                    this.gBX.setText(aE(yv.gCe, i3));
                 } else {
-                    this.gvM.setText(xL.gvT);
+                    this.gBX.setText(yv.gCe);
                 }
             } else {
                 layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
-                this.gvP.setPadding(0, 0, 0, 0);
-                this.gvJ.setVisibility(8);
-                this.gvO.setVisibility(0);
-                this.gvK.setVisibility(8);
-                this.gvM.setText(xL.gvT);
+                this.gCa.setPadding(0, 0, 0, 0);
+                this.gBU.setVisibility(8);
+                this.gBZ.setVisibility(0);
+                this.gBV.setVisibility(8);
+                this.gBX.setText(yv.gCe);
                 if (this.messageType == 4) {
-                    this.gvN.setText(xL.threadTitle);
-                    this.gvO.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
+                    this.gBY.setText(yv.threadTitle);
+                    this.gBZ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
                 } else if (this.messageType == 5) {
-                    this.gvN.setText(xL.threadTitle);
-                    this.gvQ.setText(R.string.look_normal_thread);
-                    this.gvO.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
+                    this.gBY.setText(yv.threadTitle);
+                    this.gCb.setText(R.string.look_normal_thread);
+                    this.gBZ.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
                 }
             }
-            if (!TextUtils.isEmpty(xL.portrait)) {
-                this.gvJ.startLoad(xL.portrait, 12, false);
+            if (!TextUtils.isEmpty(yv.portrait)) {
+                this.gBU.startLoad(yv.portrait, 12, false);
             } else {
-                this.gvJ.startLoad(null, 12, false);
+                this.gBU.startLoad(null, 12, false);
             }
-            this.gvL.setText(ap.aC(xL.gvS));
+            this.gBW.setText(aq.aD(yv.gCd));
         }
     }
 
-    private SpannableStringBuilder aD(String str, int i) {
+    private SpannableStringBuilder aE(String str, int i) {
         if (str == null || "".equals(str)) {
             return null;
         }
         int indexOf = str.indexOf(String.valueOf(i));
-        int uH = uH(i);
+        int vi = vi(i);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-        spannableStringBuilder.setSpan(new ForegroundColorSpan(al.getColor(R.color.cp_link_tip_d)), indexOf, uH + indexOf, 33);
+        spannableStringBuilder.setSpan(new ForegroundColorSpan(am.getColor(R.color.cp_link_tip_d)), indexOf, vi + indexOf, 33);
         return spannableStringBuilder;
     }
 
-    private int uH(int i) {
+    private int vi(int i) {
         int i2 = 0;
         do {
             i /= 10;

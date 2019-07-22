@@ -10,37 +10,37 @@ import android.widget.FrameLayout;
 import com.baidu.swan.apps.an.z;
 /* loaded from: classes5.dex */
 public class h {
-    private static final int boz = z.ad(58.0f);
-    private View bov;
-    private View bow;
-    private boolean box;
-    private a boy;
+    private static final int bpm = z.ad(58.0f);
+    private View bpi;
+    private View bpj;
+    private boolean bpk;
+    private a bpl;
     private View mListContainer;
 
     /* loaded from: classes5.dex */
     interface a {
-        void cX(boolean z);
+        void da(boolean z);
 
-        void cY(boolean z);
+        void db(boolean z);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(View view, FrameLayout frameLayout, View view2) {
         this.mListContainer = view;
-        this.bov = frameLayout;
-        this.bow = view2;
+        this.bpi = frameLayout;
+        this.bpj = view2;
     }
 
-    public void da(final boolean z) {
-        if (this.boy != null) {
-            this.boy.cY(z);
+    public void dd(final boolean z) {
+        if (this.bpl != null) {
+            this.bpl.db(z);
         }
-        this.box = z;
-        final int i = z ? -boz : boz;
+        this.bpk = z;
+        final int i = z ? -bpm : bpm;
         float[] fArr = z ? new float[]{0.0f, i} : new float[]{-i, 0.0f};
         float[] fArr2 = z ? new float[]{0.0f, i * 2} : new float[]{(-i) * 2, 0.0f};
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofFloat(this.bov, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.bow, "translationY", fArr2));
+        animatorSet.playTogether(ObjectAnimator.ofFloat(this.bpi, "translationY", fArr), ObjectAnimator.ofFloat(this.mListContainer, "translationY", fArr2), ObjectAnimator.ofFloat(this.bpj, "translationY", fArr2));
         animatorSet.setDuration(200L);
         animatorSet.start();
         animatorSet.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.swan.impl.map.location.h.1
@@ -49,26 +49,26 @@ public class h {
                 super.onAnimationEnd(animator);
                 animator.removeAllListeners();
                 if (!z) {
-                    h.this.fo(i);
+                    h.this.fs(i);
                 }
-                if (h.this.boy != null) {
-                    h.this.boy.cX(z);
+                if (h.this.bpl != null) {
+                    h.this.bpl.da(z);
                 }
             }
         });
         if (z) {
-            fo(i);
+            fs(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void fo(int i) {
+    public void fs(int i) {
         ViewGroup.LayoutParams layoutParams = this.mListContainer.getLayoutParams();
         layoutParams.height = this.mListContainer.getHeight() - (i * 2);
         this.mListContainer.setLayoutParams(layoutParams);
     }
 
-    public boolean Uk() {
-        return this.box;
+    public boolean Vc() {
+        return this.bpk;
     }
 }

@@ -5,9 +5,9 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class d {
-    private float blX;
-    private float blY;
-    private a blZ;
+    private float bmL;
+    private float bmM;
+    private a bmN;
     @V8JavascriptField
     public volatile float height;
     @V8JavascriptField
@@ -19,17 +19,17 @@ public class d {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void iD(String str);
+        void iK(String str);
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.u.a.DB() != null ? com.baidu.swan.apps.u.a.DB().getResources() : null;
+        Resources resources = com.baidu.swan.apps.u.a.Ek() != null ? com.baidu.swan.apps.u.a.Ek().getResources() : null;
         this.left = a(resources, a.d.swangame_recommend_button_default_left);
         this.top = a(resources, a.d.swangame_recommend_button_default_top);
         this.width = a(resources, a.d.swangame_recommend_button_default_width);
         this.height = a(resources, a.d.swangame_recommend_button_default_height);
-        this.blX = this.width;
-        this.blY = this.height;
+        this.bmL = this.width;
+        this.bmM = this.height;
     }
 
     private float a(Resources resources, int i) {
@@ -40,14 +40,14 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.blZ = aVar;
+        this.bmN = aVar;
     }
 
     public void onFieldChangedCallback(String str) {
-        this.width = this.blX;
-        this.height = this.blY;
-        if (this.blZ != null) {
-            this.blZ.iD(str);
+        this.width = this.bmL;
+        this.height = this.bmM;
+        if (this.bmN != null) {
+            this.bmN.iK(str);
         }
     }
 

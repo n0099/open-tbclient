@@ -18,15 +18,15 @@ public class c extends g<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean Df() {
+    protected boolean DO() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("app_key", this.mAppKey);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            String wr = com.baidu.swan.apps.u.a.DN().wr();
-            if (!TextUtils.isEmpty(wr)) {
-                jSONObject.put("host_api_key", wr);
+            String wS = com.baidu.swan.apps.u.a.Ew().wS();
+            if (!TextUtils.isEmpty(wS)) {
+                jSONObject.put("host_api_key", wS);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -45,6 +45,6 @@ public class c extends g<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.g
     protected Request a(g gVar) {
-        return com.baidu.swan.apps.u.a.DN().g(this.mActivity, gVar.MJ());
+        return com.baidu.swan.apps.u.a.Ew().g(this.mActivity, gVar.Ny());
     }
 }

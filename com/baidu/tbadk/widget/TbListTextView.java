@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean cDO;
+    private boolean cFi;
 
     public TbListTextView(Context context) {
         super(context);
-        this.cDO = true;
+        this.cFi = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cDO = true;
+        this.cFi = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.cDO = true;
+        this.cFi = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.cDO = z;
+        this.cFi = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.cDO) {
+        if (!this.cFi) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -49,25 +49,25 @@ public class TbListTextView extends TextView {
         try {
             super.onMeasure(i, i2);
         } catch (IndexOutOfBoundsException e) {
-            aj(i, i2);
+            am(i, i2);
         }
     }
 
-    private void aj(int i, int i2) {
+    private void am(int i, int i2) {
         CharSequence text = getText();
         if (text instanceof Spanned) {
             a(new SpannableStringBuilder(text), i, i2);
         } else {
-            ak(i, i2);
+            an(i, i2);
         }
     }
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.cDP) {
+        if (b.cFj) {
             a(i, i2, spannableStringBuilder, b);
         } else {
-            ak(i, i2);
+            an(i, i2);
         }
     }
 
@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.awg();
+        return a.axr();
     }
 
     private boolean a(CharSequence charSequence, int i) {
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.cDR) {
+        for (Object obj : aVar.cFl) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.cDQ) {
+        for (Object obj2 : aVar.cFk) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -133,29 +133,29 @@ public class TbListTextView extends TextView {
         }
     }
 
-    private void ak(int i, int i2) {
+    private void an(int i, int i2) {
         a(getText().toString(), i, i2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean cDP;
-        public final List<Object> cDQ;
-        public final List<Object> cDR;
+        public final boolean cFj;
+        public final List<Object> cFk;
+        public final List<Object> cFl;
 
         public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
         }
 
-        public static a awg() {
+        public static a axr() {
             return new a(false, null, null);
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.cDP = z;
-            this.cDQ = list;
-            this.cDR = list2;
+            this.cFj = z;
+            this.cFk = list;
+            this.cFl = list2;
         }
     }
 }

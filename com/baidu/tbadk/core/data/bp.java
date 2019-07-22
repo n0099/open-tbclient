@@ -12,7 +12,7 @@ public class bp {
     private long end_time;
     private long start_time;
 
-    public String afB() {
+    public String agD() {
         return this.activity_banner;
     }
 
@@ -20,7 +20,7 @@ public class bp {
         return this.activity_url;
     }
 
-    public String afC() {
+    public String agE() {
         return this.activity_button;
     }
 

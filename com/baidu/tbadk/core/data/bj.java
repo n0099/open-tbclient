@@ -14,7 +14,7 @@ public class bj {
         return this.title;
     }
 
-    public String afu() {
+    public String agw() {
         return this.title_link;
     }
 

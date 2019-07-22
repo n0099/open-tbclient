@@ -6,7 +6,6 @@ import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class i extends g {
@@ -74,7 +73,7 @@ public class i extends g {
     private String j() {
         if (this.g) {
             try {
-                return ((TelephonyManager) this.d.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimOperator();
+                return ((TelephonyManager) this.d.getSystemService("phone")).getSimOperator();
             } catch (Throwable th) {
                 return "";
             }

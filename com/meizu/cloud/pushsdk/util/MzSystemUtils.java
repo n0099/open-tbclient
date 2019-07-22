@@ -17,7 +17,6 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.base.k;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
@@ -148,7 +147,7 @@ public class MzSystemUtils {
 
     public static String getLineNumber(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 return telephonyManager.getLine1Number();
             }
@@ -239,7 +238,7 @@ public class MzSystemUtils {
 
     public static String getOperator(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 return telephonyManager.getSimOperator();
             }
@@ -251,7 +250,7 @@ public class MzSystemUtils {
 
     public static Object getPhoneInfo(Context context, int i, String str) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (Build.VERSION.SDK_INT >= 21) {
                 Method method = telephonyManager.getClass().getMethod(str, getMethodParamTypes(str));
                 if (i >= 0) {
@@ -368,7 +367,7 @@ public class MzSystemUtils {
 
     public static String getSubscriberId(Context context) {
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
             if (telephonyManager != null) {
                 return telephonyManager.getSubscriberId();
             }

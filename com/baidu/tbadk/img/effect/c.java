@@ -7,11 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c cvB = new c();
-    private final HashMap<String, Class<? extends b>> cvC = new HashMap<>();
+    private static c cwP = new c();
+    private final HashMap<String, Class<? extends b>> cwQ = new HashMap<>();
 
-    public static c asA() {
-        return cvB;
+    public static c atH() {
+        return cwP;
     }
 
     private c() {
@@ -83,7 +83,7 @@ public class c {
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.qv(imageFileInfo.getFilePath());
+                return a.qM(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,32 +103,32 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap qv = dVar != null ? dVar.qv(str) : null;
+        Bitmap qM = dVar != null ? dVar.qM(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = qv;
+                bitmap = qM;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    qv = bitmap;
+                    qM = bitmap;
                 } else if (bitmap == null) {
-                    qv = a2.qv(str);
+                    qM = a2.qM(str);
                 } else {
-                    qv = a2.b(bitmap, true);
+                    qM = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = qv;
+            bitmap = qM;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
         b p;
-        Class<? extends b> cls = this.cvC.get(imageOperation.actionName);
+        Class<? extends b> cls = this.cwQ.get(imageOperation.actionName);
         if (cls != null && (p = p(cls)) != null) {
             p.setParams(imageOperation.actionParam);
             return p;
@@ -139,7 +139,7 @@ public class c {
     private void o(Class<? extends b> cls) {
         b p = p(cls);
         if (p != null) {
-            this.cvC.put(p.getActionName(), cls);
+            this.cwQ.put(p.getActionName(), cls);
         }
     }
 

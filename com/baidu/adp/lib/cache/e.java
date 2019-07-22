@@ -6,9 +6,9 @@ public interface e {
     public interface a extends e {
         String d(g<?> gVar);
 
-        void hk();
+        void hu();
 
-        void hl();
+        void hv();
     }
 
     /* loaded from: classes.dex */
@@ -17,14 +17,14 @@ public interface e {
 
         String f(g<?> gVar);
 
-        void hm();
+        void hw();
 
-        void hn();
+        void hx();
 
         void release();
     }
 
-    int getMaxSize();
+    int hs();
 
-    boolean hj();
+    boolean ht();
 }

@@ -1,6 +1,5 @@
 package org.apache.thrift.protocol;
 
-import com.baidu.android.common.logging.Log;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import org.apache.http.protocol.HTTP;
@@ -10,7 +9,7 @@ public class k extends org.apache.thrift.protocol.a {
     private static int f = 10000;
     private static int g = 10000;
     private static int h = 10000;
-    private static int i = Log.FILE_LIMETE;
+    private static int i = 10485760;
     private static int j = 104857600;
 
     /* loaded from: classes3.dex */

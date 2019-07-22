@@ -5,27 +5,26 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class u {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private static String aZv;
-    private static String aZw;
+    private static String baf;
+    private static String bag;
 
     public static boolean bM(Context context) {
         if (context == null) {
             return false;
         }
-        if (isEmui()) {
+        if (Pw()) {
             return bN(context);
         }
-        if (OH()) {
+        if (Px()) {
             return bO(context);
         }
-        if (OI()) {
+        if (Py()) {
             return bP(context);
         }
         return false;
@@ -59,63 +58,63 @@ public class u {
         return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
     }
 
-    public static boolean isEmui() {
-        return check(RomTypeUtil.ROM_EMUI);
+    public static boolean Pw() {
+        return check("EMUI");
     }
 
-    public static boolean OH() {
-        return check(RomTypeUtil.ROM_VIVO);
+    public static boolean Px() {
+        return check("VIVO");
     }
 
-    public static boolean OI() {
-        return check(RomTypeUtil.ROM_OPPO);
+    public static boolean Py() {
+        return check("OPPO");
     }
 
     public static boolean check(String str) {
-        if (aZv != null) {
-            return aZv.equals(str);
+        if (baf != null) {
+            return baf.equals(str);
         }
-        String prop = getProp("ro.miui.ui.version.name");
-        aZw = prop;
-        if (!TextUtils.isEmpty(prop)) {
-            aZv = RomTypeUtil.ROM_MIUI;
+        String gE = gE("ro.miui.ui.version.name");
+        bag = gE;
+        if (!TextUtils.isEmpty(gE)) {
+            baf = "MIUI";
         } else {
-            String prop2 = getProp("ro.build.version.emui");
-            aZw = prop2;
-            if (!TextUtils.isEmpty(prop2)) {
-                aZv = RomTypeUtil.ROM_EMUI;
+            String gE2 = gE("ro.build.version.emui");
+            bag = gE2;
+            if (!TextUtils.isEmpty(gE2)) {
+                baf = "EMUI";
             } else {
-                String prop3 = getProp("ro.build.version.opporom");
-                aZw = prop3;
-                if (!TextUtils.isEmpty(prop3)) {
-                    aZv = RomTypeUtil.ROM_OPPO;
+                String gE3 = gE("ro.build.version.opporom");
+                bag = gE3;
+                if (!TextUtils.isEmpty(gE3)) {
+                    baf = "OPPO";
                 } else {
-                    String prop4 = getProp("ro.vivo.os.version");
-                    aZw = prop4;
-                    if (!TextUtils.isEmpty(prop4)) {
-                        aZv = RomTypeUtil.ROM_VIVO;
+                    String gE4 = gE("ro.vivo.os.version");
+                    bag = gE4;
+                    if (!TextUtils.isEmpty(gE4)) {
+                        baf = "VIVO";
                     } else {
-                        String prop5 = getProp("ro.smartisan.version");
-                        aZw = prop5;
-                        if (!TextUtils.isEmpty(prop5)) {
-                            aZv = RomTypeUtil.ROM_SMARTISAN;
+                        String gE5 = gE("ro.smartisan.version");
+                        bag = gE5;
+                        if (!TextUtils.isEmpty(gE5)) {
+                            baf = "SMARTISAN";
                         } else {
-                            String prop6 = getProp("ro.gn.sv.version");
-                            aZw = prop6;
-                            if (!TextUtils.isEmpty(prop6)) {
-                                aZv = RomTypeUtil.ROM_SMARTISAN;
+                            String gE6 = gE("ro.gn.sv.version");
+                            bag = gE6;
+                            if (!TextUtils.isEmpty(gE6)) {
+                                baf = "SMARTISAN";
                             } else {
-                                String prop7 = getProp("ro.build.rom.id");
-                                aZw = prop7;
-                                if (!TextUtils.isEmpty(prop7)) {
-                                    aZv = "NUBIA";
+                                String gE7 = gE("ro.build.rom.id");
+                                bag = gE7;
+                                if (!TextUtils.isEmpty(gE7)) {
+                                    baf = "NUBIA";
                                 } else {
-                                    aZw = Build.DISPLAY;
-                                    if (aZw.toUpperCase().contains(RomTypeUtil.ROM_FLYME)) {
-                                        aZv = RomTypeUtil.ROM_FLYME;
+                                    bag = Build.DISPLAY;
+                                    if (bag.toUpperCase().contains("FLYME")) {
+                                        baf = "FLYME";
                                     } else {
-                                        aZw = "unknown";
-                                        aZv = Build.MANUFACTURER.toUpperCase();
+                                        bag = "unknown";
+                                        baf = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
                             }
@@ -124,7 +123,7 @@ public class u {
                 }
             }
         }
-        return aZv.equals(str);
+        return baf.equals(str);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [236=4] */
@@ -132,7 +131,7 @@ public class u {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String getProp(String str) {
+    public static String gE(String str) {
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;
         try {

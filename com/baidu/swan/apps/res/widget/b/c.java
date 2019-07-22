@@ -16,31 +16,31 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public class c {
-    private static String aPr = null;
-    private static String aPs = null;
-    private static String aPt = null;
-    private static boolean aPb = com.baidu.swan.apps.b.DEBUG;
+    private static String aQb = null;
+    private static String aQc = null;
+    private static String aQd = null;
+    private static boolean aPL = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean bt(Context context) {
-        return (bu(context) || KY()) || bv(context);
+        return (bu(context) || LL()) || bv(context);
     }
 
     private static boolean bu(Context context) {
-        if (KZ()) {
-            return (KX() && isFloatWindowOpAllowed(context)) ? false : true;
+        if (LM()) {
+            return (LK() && isFloatWindowOpAllowed(context)) ? false : true;
         }
         return false;
     }
 
-    private static boolean KX() {
+    private static boolean LK() {
         String[] split;
-        if (aPs == null) {
-            aPs = getProp("ro.build.version.incremental");
+        if (aQc == null) {
+            aQc = gE("ro.build.version.incremental");
         }
-        if (aPb) {
-            Log.d("ToastUtils", "sMiuiVersion = " + aPs);
+        if (aPL) {
+            Log.d("ToastUtils", "sMiuiVersion = " + aQc);
         }
-        if (!TextUtils.isEmpty(aPs) && (split = aPs.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
+        if (!TextUtils.isEmpty(aQc) && (split = aQc.split(".")) != null && split.length >= 1 && split[0].length() >= 2) {
             String substring = split[0].substring(1);
             if (TextUtils.isEmpty(substring)) {
                 return false;
@@ -54,35 +54,35 @@ public class c {
         return false;
     }
 
-    private static boolean KY() {
+    private static boolean LL() {
         return Build.VERSION.SDK_INT >= 25;
     }
 
-    private static boolean KZ() {
-        if (aPr == null) {
-            aPr = getProp("ro.miui.ui.version.name");
+    private static boolean LM() {
+        if (aQb == null) {
+            aQb = gE("ro.miui.ui.version.name");
         }
-        if (aPb) {
-            Log.d("ToastUtils", "OsName = " + aPr);
+        if (aPL) {
+            Log.d("ToastUtils", "OsName = " + aQb);
         }
-        return !TextUtils.isEmpty(aPr);
+        return !TextUtils.isEmpty(aQb);
     }
 
-    public static boolean La() {
-        if (aPt == null) {
-            aPt = getProp("ro.build.version.opporom");
+    public static boolean LN() {
+        if (aQd == null) {
+            aQd = gE("ro.build.version.opporom");
         }
-        if (aPb) {
-            Log.d("ToastUtils", "OsName = " + aPt);
+        if (aPL) {
+            Log.d("ToastUtils", "OsName = " + aQd);
         }
-        return !TextUtils.isEmpty(aPt);
+        return !TextUtils.isEmpty(aQd);
     }
 
     private static boolean bv(Context context) {
-        return Lb() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
+        return LO() && !isFloatWindowOpAllowed(context) && Build.VERSION.SDK_INT >= 23;
     }
 
-    private static boolean Lb() {
+    private static boolean LO() {
         return Build.FINGERPRINT.contains("Flyme") || Pattern.compile("Flyme", 2).matcher(Build.DISPLAY).find();
     }
 
@@ -125,7 +125,7 @@ public class c {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [461=4] */
-    private static String getProp(String str) {
+    private static String gE(String str) {
         BufferedReader bufferedReader;
         Throwable th;
         try {

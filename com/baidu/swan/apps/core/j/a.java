@@ -5,34 +5,34 @@ import com.baidu.swan.apps.an.aa;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public final class a {
-    public String atA;
-    public String atB;
-    public String atC;
-    public String atD;
-    public String atE;
-    public boolean atF;
-    public String aty;
-    public String atz;
+    public String aub;
+    public String auc;
+    public String aud;
+    public String aue;
+    public String auf;
+    public String aug;
+    public String auh;
+    public boolean aui;
 
     public static com.baidu.swan.apps.m.a.b b(a aVar) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put("appConfig", aVar.aty);
-        treeMap.put("appPath", aVar.atz);
-        treeMap.put("wvID", aVar.atA);
-        treeMap.put("pageUrl", aVar.atB);
-        treeMap.put("devhook", aVar.atD);
-        treeMap.put("root", aVar.atE);
-        if (!TextUtils.isEmpty(aVar.atC)) {
-            treeMap.put("extraData", aVar.atC);
+        treeMap.put("appConfig", aVar.aub);
+        treeMap.put("appPath", aVar.auc);
+        treeMap.put("wvID", aVar.aud);
+        treeMap.put("pageUrl", aVar.aue);
+        treeMap.put("devhook", aVar.aug);
+        treeMap.put("root", aVar.auh);
+        if (!TextUtils.isEmpty(aVar.auf)) {
+            treeMap.put("extraData", aVar.auf);
         }
-        treeMap.put("showPerformancePanel", String.valueOf(aVar.atF));
+        treeMap.put("showPerformancePanel", String.valueOf(aVar.aui));
         return new com.baidu.swan.apps.m.a.b("AppReady", treeMap);
     }
 
     public String a(com.baidu.swan.apps.ae.b bVar, String str) {
         String str2 = null;
         if (bVar != null) {
-            str2 = bVar.gC(aa.ij(str));
+            str2 = bVar.gJ(aa.iq(str));
         }
         return str2 == null ? "" : str2;
     }

@@ -3,16 +3,17 @@ package com.baidu.sofire.b;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Message;
+import com.baidu.sofire.rp.receiver.Receiver;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class f {
     private static Lock b = new ReentrantLock();
     private static f c = null;
-    public com.baidu.sofire.rp.f.a a;
+    public com.baidu.sofire.rp.e.a a;
 
     private f(Context context) {
-        this.a = new com.baidu.sofire.rp.f.a(context);
+        this.a = new com.baidu.sofire.rp.e.a(context);
     }
 
     public static f a(Context context) {
@@ -31,9 +32,9 @@ public final class f {
     }
 
     public final void a() {
-        com.baidu.sofire.rp.f.a aVar = this.a;
+        com.baidu.sofire.rp.e.a aVar = this.a;
         if (aVar.d == null) {
-            aVar.d = new com.baidu.sofire.rp.e.a();
+            aVar.d = new Receiver();
         }
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.b.r.p");
@@ -44,7 +45,7 @@ public final class f {
     }
 
     public final void b() {
-        com.baidu.sofire.rp.f.a aVar = this.a;
+        com.baidu.sofire.rp.e.a aVar = this.a;
         Message message = new Message();
         message.what = 7;
         aVar.a(message);

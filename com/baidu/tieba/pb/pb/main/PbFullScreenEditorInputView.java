@@ -33,14 +33,14 @@ public class PbFullScreenEditorInputView extends EditText {
     }
 
     public void b(com.baidu.tbadk.coreExtra.data.p pVar) {
-        if (com.baidu.tieba.face.a.vw(getText().toString()) >= 10) {
-            com.baidu.tbadk.core.util.e.agU().showToast(R.string.too_many_face);
+        if (com.baidu.tieba.face.a.wb(getText().toString()) >= 10) {
+            com.baidu.tbadk.core.util.e.ahW().showToast(R.string.too_many_face);
         } else {
             com.baidu.tieba.face.b.b(getContext(), pVar, this);
         }
     }
 
-    public void pU(String str) {
+    public void ql(String str) {
         if (!StringUtils.isNull(str)) {
             getText().insert(getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
@@ -78,7 +78,7 @@ public class PbFullScreenEditorInputView extends EditText {
         }
     }
 
-    public void dL(String str, String str2) {
+    public void dM(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.tieba.face.b.a(getContext(), str, new b.a() { // from class: com.baidu.tieba.pb.pb.main.PbFullScreenEditorInputView.2
                 @Override // com.baidu.tieba.face.b.a

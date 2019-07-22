@@ -16,36 +16,36 @@ import java.util.Queue;
 /* loaded from: classes2.dex */
 public final class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final int aqT = a.C0108a.aiapps_slide_in_from_right;
-    public static final int aqU = a.C0108a.aiapps_slide_out_to_right;
-    public static final int aqV = a.C0108a.aiapps_hold;
-    private k aqP;
-    private a aqS;
+    public static final int arw = a.C0105a.aiapps_slide_in_from_right;
+    public static final int arx = a.C0105a.aiapps_slide_out_to_right;
+    public static final int ary = a.C0105a.aiapps_hold;
+    private k ars;
+    private a arv;
     private Activity mActivity;
-    private Queue<Runnable> aqR = new LinkedList();
-    private ArrayList<com.baidu.swan.apps.core.d.b> aqQ = new ArrayList<>();
+    private Queue<Runnable> aru = new LinkedList();
+    private ArrayList<com.baidu.swan.apps.core.d.b> art = new ArrayList<>();
 
     /* loaded from: classes2.dex */
     public interface a {
-        void zQ();
+        void Ax();
     }
 
     public e(FragmentActivity fragmentActivity) {
         this.mActivity = fragmentActivity;
-        this.aqP = fragmentActivity.Wk();
+        this.ars = fragmentActivity.Xe();
     }
 
     public void a(a aVar) {
-        this.aqS = aVar;
+        this.arv = aVar;
     }
 
-    public com.baidu.swan.apps.core.d.b zK() {
-        return cf(this.aqQ.size() - 1);
+    public com.baidu.swan.apps.core.d.b Ar() {
+        return cf(this.art.size() - 1);
     }
 
     public <T extends com.baidu.swan.apps.core.d.b> T k(Class<T> cls) {
-        for (int size = this.aqQ.size() - 1; size >= 0; size--) {
-            T t = (T) this.aqQ.get(size);
+        for (int size = this.art.size() - 1; size >= 0; size--) {
+            T t = (T) this.art.get(size);
             if (t.getClass() == cls) {
                 return t;
             }
@@ -53,9 +53,9 @@ public final class e {
         return null;
     }
 
-    public d zL() {
-        for (int size = this.aqQ.size() - 1; size >= 0; size--) {
-            com.baidu.swan.apps.core.d.b bVar = this.aqQ.get(size);
+    public d As() {
+        for (int size = this.art.size() - 1; size >= 0; size--) {
+            com.baidu.swan.apps.core.d.b bVar = this.art.get(size);
             if (bVar instanceof d) {
                 return (d) bVar;
             }
@@ -64,49 +64,49 @@ public final class e {
     }
 
     public com.baidu.swan.apps.core.d.b cf(int i) {
-        if (this.aqQ.isEmpty() || i < 0 || i >= this.aqQ.size()) {
+        if (this.art.isEmpty() || i < 0 || i >= this.art.size()) {
             return null;
         }
-        return this.aqQ.get(i);
+        return this.art.get(i);
     }
 
-    public d zM() {
-        if (this.aqQ.isEmpty()) {
+    public d At() {
+        if (this.art.isEmpty()) {
             return null;
         }
-        int size = this.aqQ.size();
+        int size = this.art.size();
         for (int i = 0; i < size; i++) {
-            if (this.aqQ.get(i).yP()) {
-                return (d) this.aqQ.get(i);
+            if (this.art.get(i).zw()) {
+                return (d) this.art.get(i);
             }
         }
         return null;
     }
 
-    public int zN() {
-        return this.aqQ.size();
+    public int Au() {
+        return this.art.size();
     }
 
-    public b zO() {
+    public b Av() {
         return new b("");
     }
 
-    public b dN(String str) {
+    public b dS(String str) {
         return new b(str);
     }
 
     /* loaded from: classes2.dex */
     public class b {
-        private m aqW;
-        private String aqX;
+        private String arA;
+        private m arz;
 
         public b(String str) {
-            this.aqW = e.this.aqP.Wn();
-            this.aqX = str;
+            this.arz = e.this.ars.Xh();
+            this.arA = str;
         }
 
-        public b y(int i, int i2) {
-            this.aqW.M(i, i2);
+        public b B(int i, int i2) {
+            this.arz.P(i, i2);
             return this;
         }
 
@@ -117,13 +117,13 @@ public final class e {
         public b a(String str, com.baidu.swan.apps.model.b bVar, boolean z) {
             com.baidu.swan.apps.core.d.b a;
             if ("about".equals(str)) {
-                a = com.baidu.swan.apps.core.d.a.yQ();
+                a = com.baidu.swan.apps.core.d.a.zx();
             } else if ("setting".equals(str)) {
-                a = f.Aa();
+                a = f.AH();
             } else if ("wxPay".equals(str) || "adLanding".equals(str)) {
                 a = g.a(bVar, str);
             } else {
-                a = "normal".equals(str) ? d.a(new c.a().fr(bVar.ayL).fs(bVar.mParams).ft(bVar.mBaseUrl).bx(z).GH()) : null;
+                a = "normal".equals(str) ? d.a(new c.a().fw(bVar.azs).fx(bVar.mParams).fy(bVar.mBaseUrl).bA(z).Hr()) : null;
             }
             if (a == null) {
                 return null;
@@ -133,57 +133,57 @@ public final class e {
 
         public b c(com.baidu.swan.apps.core.d.b bVar) {
             d(bVar);
-            this.aqW.a(a.f.ai_apps_container, bVar, "SwanAppFragment");
-            e.this.aqQ.add(bVar);
-            if (e.this.aqS != null) {
-                e.this.aqS.zQ();
+            this.arz.a(a.f.ai_apps_container, bVar, "SwanAppFragment");
+            e.this.art.add(bVar);
+            if (e.this.arv != null) {
+                e.this.arv.Ax();
             }
             return this;
         }
 
         private void d(final com.baidu.swan.apps.core.d.b bVar) {
-            final com.baidu.swan.apps.core.d.b zK = e.this.zK();
-            e.this.aqR.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.1
+            final com.baidu.swan.apps.core.d.b Ar = e.this.Ar();
+            e.this.aru.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (zK != null && zK.getUserVisibleHint()) {
-                        zK.setUserVisibleHint(false);
+                    if (Ar != null && Ar.getUserVisibleHint()) {
+                        Ar.setUserVisibleHint(false);
                     }
-                    if (zK instanceof d) {
-                        ((d) zK).zJ();
+                    if (Ar instanceof d) {
+                        ((d) Ar).Aq();
                     }
                     bVar.setUserVisibleHint(true);
                 }
             });
         }
 
-        private void zR() {
-            final com.baidu.swan.apps.core.d.b zK = e.this.zK();
-            e.this.aqR.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.2
+        private void Ay() {
+            final com.baidu.swan.apps.core.d.b Ar = e.this.Ar();
+            e.this.aru.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (zK != null) {
-                        zK.setUserVisibleHint(true);
+                    if (Ar != null) {
+                        Ar.setUserVisibleHint(true);
                     }
                 }
             });
         }
 
         public b cg(int i) {
-            int size = e.this.aqQ.size();
-            if (!e.this.aqQ.isEmpty() && i >= 0 && i < size) {
-                this.aqW.a((com.baidu.swan.apps.core.d.b) e.this.aqQ.remove(i));
+            int size = e.this.art.size();
+            if (!e.this.art.isEmpty() && i >= 0 && i < size) {
+                this.arz.a((com.baidu.swan.apps.core.d.b) e.this.art.remove(i));
             }
             return this;
         }
 
-        public b zS() {
+        public b Az() {
             return ch(1);
         }
 
         public b ch(int i) {
-            if (!e.this.aqQ.isEmpty()) {
-                ArrayList arrayList = (ArrayList) e.this.aqQ.clone();
+            if (!e.this.art.isEmpty()) {
+                ArrayList arrayList = (ArrayList) e.this.art.clone();
                 int size = arrayList.size();
                 int i2 = size - i;
                 final com.baidu.swan.apps.core.d.b bVar = (i2 < 0 || i <= 0) ? null : (com.baidu.swan.apps.core.d.b) arrayList.get(i2);
@@ -193,11 +193,11 @@ public final class e {
                     if (i4 <= (size - i) - 1 || i4 < 0) {
                         break;
                     }
-                    this.aqW.a((Fragment) arrayList.get(i4));
-                    e.this.aqQ.remove(i4);
+                    this.arz.a((Fragment) arrayList.get(i4));
+                    e.this.art.remove(i4);
                     i3 = i4 - 1;
                 }
-                e.this.aqR.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.3
+                e.this.aru.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.e.b.3
                     @Override // java.lang.Runnable
                     public void run() {
                         if (bVar != null) {
@@ -205,91 +205,91 @@ public final class e {
                         }
                     }
                 });
-                zR();
+                Ay();
             }
             return this;
         }
 
-        public b zT() {
-            if (!e.this.aqQ.isEmpty()) {
-                ArrayList arrayList = (ArrayList) e.this.aqQ.clone();
+        public b AA() {
+            if (!e.this.art.isEmpty()) {
+                ArrayList arrayList = (ArrayList) e.this.art.clone();
                 for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    if (!((d) arrayList.get(size)).yP()) {
-                        this.aqW.a((Fragment) arrayList.get(size));
-                        e.this.aqQ.remove(size);
+                    if (!((d) arrayList.get(size)).zw()) {
+                        this.arz.a((Fragment) arrayList.get(size));
+                        e.this.art.remove(size);
                     }
                 }
-                zR();
+                Ay();
             }
             return this;
         }
 
-        public b zU() {
-            List<Fragment> fragments = e.this.aqP.getFragments();
-            if (fragments != null && fragments.size() != e.this.aqQ.size()) {
+        public b AB() {
+            List<Fragment> fragments = e.this.ars.getFragments();
+            if (fragments != null && fragments.size() != e.this.art.size()) {
                 for (Fragment fragment : fragments) {
-                    if (fragment != null && !e.this.aqQ.contains(fragment)) {
+                    if (fragment != null && !e.this.art.contains(fragment)) {
                         if (e.DEBUG) {
                             Log.d("SwanAppFragmentManager", "popAllFragments remove: " + fragment);
                         }
-                        this.aqW.a(fragment);
+                        this.arz.a(fragment);
                     }
                 }
             }
-            return ch(e.this.aqQ.size());
+            return ch(e.this.art.size());
         }
 
         public b d(com.baidu.swan.apps.model.b bVar) {
-            d zM = e.this.zM();
-            if (zM != null) {
-                zM.a(bVar);
+            d At = e.this.At();
+            if (At != null) {
+                At.a(bVar);
                 return this;
             }
             return a("normal", bVar);
         }
 
-        private void zV() {
-            if (!e.this.aqQ.isEmpty()) {
-                int size = e.this.aqQ.size();
+        private void AC() {
+            if (!e.this.art.isEmpty()) {
+                int size = e.this.art.size();
                 for (int i = size - 1; i >= 0; i--) {
                     if (i >= size - 1) {
                         if (e.DEBUG) {
                             Log.d("SwanAppFragmentManager", "show fragment i " + i + " ,size: " + size);
                         }
-                        this.aqW.c((Fragment) e.this.aqQ.get(i));
+                        this.arz.c((Fragment) e.this.art.get(i));
                     } else {
-                        this.aqW.b((Fragment) e.this.aqQ.get(i));
+                        this.arz.b((Fragment) e.this.art.get(i));
                     }
                 }
             }
         }
 
         public void e(com.baidu.swan.apps.core.d.b bVar) {
-            this.aqW.c(bVar).commitAllowingStateLoss();
-            e.this.aqP.executePendingTransactions();
+            this.arz.c(bVar).commitAllowingStateLoss();
+            e.this.ars.executePendingTransactions();
         }
 
         public void f(com.baidu.swan.apps.core.d.b bVar) {
-            this.aqW.b(bVar).commitAllowingStateLoss();
-            e.this.aqP.executePendingTransactions();
+            this.arz.b(bVar).commitAllowingStateLoss();
+            e.this.ars.executePendingTransactions();
         }
 
         public void commit() {
-            if (!TextUtils.isEmpty(this.aqX)) {
-                d.dH(this.aqX);
+            if (!TextUtils.isEmpty(this.arA)) {
+                d.dM(this.arA);
             }
-            while (!e.this.aqR.isEmpty()) {
-                if (e.this.aqR.peek() != null) {
-                    ((Runnable) e.this.aqR.poll()).run();
+            while (!e.this.aru.isEmpty()) {
+                if (e.this.aru.peek() != null) {
+                    ((Runnable) e.this.aru.poll()).run();
                 }
             }
-            zV();
-            this.aqW.commitAllowingStateLoss();
+            AC();
+            this.arz.commitAllowingStateLoss();
         }
 
-        public boolean zW() {
+        public boolean AD() {
             commit();
-            return e.this.aqP.executePendingTransactions();
+            return e.this.ars.executePendingTransactions();
         }
     }
 }

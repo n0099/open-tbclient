@@ -7,8 +7,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.sapi2.base.network.Apn;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -30,6 +28,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
+import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d {
@@ -210,10 +209,10 @@ public class d {
             b2.setConnectTimeout(10000);
             b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
             if (!TextUtils.isEmpty(str)) {
-                b2.setRequestProperty("User-Agent", str);
+                b2.setRequestProperty(HTTP.USER_AGENT, str);
             }
             if (str2 != null) {
-                b2.setRequestProperty("Cookie", str2);
+                b2.setRequestProperty(SM.COOKIE, str2);
             }
             if (map != null) {
                 for (String str3 : map.keySet()) {
@@ -409,7 +408,7 @@ public class d {
     }
 
     public static boolean b(Context context) {
-        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSimCountryIso())) {
+        if ("CN".equalsIgnoreCase(((TelephonyManager) context.getSystemService("phone")).getSimCountryIso())) {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 if (connectivityManager == null) {
@@ -424,7 +423,7 @@ public class d {
                     if (TextUtils.isEmpty(extraInfo) || extraInfo.length() < 3) {
                         return false;
                     }
-                    return extraInfo.contains(Apn.APN_CTWAP);
+                    return extraInfo.contains("ctwap");
                 } catch (Exception e) {
                     return false;
                 }

@@ -9,11 +9,11 @@ public class a extends d {
 
     /* renamed from: com.baidu.swan.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0107a {
-        private static final a bcB = new a();
+    private static final class C0104a {
+        private static final a bdn = new a();
     }
 
-    public static a PL() {
-        return C0107a.bcB;
+    public static a QD() {
+        return C0104a.bdn;
     }
 }

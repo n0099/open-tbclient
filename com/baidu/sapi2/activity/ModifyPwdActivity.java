@@ -8,6 +8,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.WebModifyPwdCallback;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.result.WebModifyPwdResult;
+import com.baidu.sapi2.utils.PtokenStat;
 /* loaded from: classes2.dex */
 public class ModifyPwdActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -64,6 +65,7 @@ public class ModifyPwdActivity extends BaseActivity {
             @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
             public void onSuccess() {
                 ModifyPwdActivity.this.onClose();
+                new PtokenStat().onEvent(PtokenStat.MODIFY_PWD_WIDGE);
             }
         });
         this.sapiWebView.loadModifyPwd(this.bduss);
@@ -76,13 +78,6 @@ public class ModifyPwdActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

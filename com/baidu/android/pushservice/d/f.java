@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
@@ -52,9 +53,9 @@ public class f extends d {
         hashMap.put("bind_status", this.e + "");
         hashMap.put("push_sdk_version", this.f + "");
         if (com.baidu.android.pushservice.b.d.b(this.a)) {
-            String a = com.baidu.android.pushservice.j.e.a(this.a);
-            if (!TextUtils.isEmpty(a)) {
-                hashMap.put("cuid", a);
+            String cuid = DeviceId.getCUID(this.a);
+            if (!TextUtils.isEmpty(cuid)) {
+                hashMap.put("cuid", cuid);
             }
             hashMap.put("new_channel_id", com.baidu.android.pushservice.i.a(this.a).c());
         }

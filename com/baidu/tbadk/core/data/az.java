@@ -24,7 +24,7 @@ public class az {
         return this.uid;
     }
 
-    public String acI() {
+    public String adK() {
         return this.uname;
     }
 
@@ -32,7 +32,7 @@ public class az {
         return this.portrait;
     }
 
-    public String acJ() {
+    public String adL() {
         return this.institute;
     }
 

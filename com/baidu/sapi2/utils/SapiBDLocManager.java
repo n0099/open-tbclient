@@ -21,10 +21,6 @@ import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
@@ -57,7 +53,7 @@ public class SapiBDLocManager {
         this.b = context.getApplicationContext();
         String packageName = this.b.getPackageName();
         try {
-            this.c = (TelephonyManager) this.b.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.c = (TelephonyManager) this.b.getSystemService("phone");
             str = this.c.getDeviceId();
         } catch (Exception e2) {
             str = null;
@@ -79,7 +75,7 @@ public class SapiBDLocManager {
         if (!TextUtils.isEmpty(o)) {
             return o;
         }
-        ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.utils.SapiBDLocManager.1
+        ThreadPoolService.getInstance().run(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.utils.SapiBDLocManager.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
@@ -153,31 +149,29 @@ public class SapiBDLocManager {
     }
 
     private void a(CellLocation cellLocation) {
-        int i = 0;
         if (cellLocation != null && this.c != null) {
             BDCellInfo bDCellInfo = new BDCellInfo();
             String networkOperator = this.c.getNetworkOperator();
             if (networkOperator != null && networkOperator.length() > 0) {
+                int i = -1;
                 try {
                     if (networkOperator.length() >= 3) {
-                        int intValue = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
-                        if (intValue < 0) {
-                            intValue = this.d.mMcc;
-                        }
-                        bDCellInfo.mMcc = intValue;
+                        i = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
+                        bDCellInfo.mMcc = i < 0 ? this.d.mMcc : i;
                     }
                     String substring = networkOperator.substring(3);
                     if (substring != null) {
                         char[] charArray = substring.toCharArray();
-                        while (i < charArray.length && Character.isDigit(charArray[i])) {
-                            i++;
+                        int i2 = 0;
+                        while (i2 < charArray.length && Character.isDigit(charArray[i2])) {
+                            i2++;
                         }
+                        i = Integer.valueOf(substring.substring(0, i2)).intValue();
                     }
-                    int intValue2 = Integer.valueOf(substring.substring(0, i)).intValue();
-                    if (intValue2 < 0) {
-                        intValue2 = this.d.mMnc;
+                    if (i < 0) {
+                        i = this.d.mMnc;
                     }
-                    bDCellInfo.mMnc = intValue2;
+                    bDCellInfo.mMnc = i;
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
@@ -201,11 +195,11 @@ public class SapiBDLocManager {
                 }
                 if (h != null && h.isInstance(cellLocation)) {
                     try {
-                        int intValue3 = ((Integer) g.invoke(cellLocation, new Object[0])).intValue();
-                        if (intValue3 < 0) {
-                            intValue3 = this.d.mMnc;
+                        int intValue = ((Integer) g.invoke(cellLocation, new Object[0])).intValue();
+                        if (intValue < 0) {
+                            intValue = this.d.mMnc;
                         }
-                        bDCellInfo.mMnc = intValue3;
+                        bDCellInfo.mMnc = intValue;
                         bDCellInfo.mCid = ((Integer) e.invoke(cellLocation, new Object[0])).intValue();
                         bDCellInfo.mLac = ((Integer) f.invoke(cellLocation, new Object[0])).intValue();
                     } catch (Exception e4) {
@@ -223,14 +217,14 @@ public class SapiBDLocManager {
         if (r0.a() != false) goto L28;
      */
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0045, code lost:
-        com.baidu.sapi2.base.debug.Log.e(" !res.isValid()", new java.lang.Object[0]);
+        com.baidu.sapi2.utils.Log.e(" !res.isValid()", new java.lang.Object[0]);
         r0 = null;
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x004f, code lost:
         r1 = r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:22:0x0051, code lost:
-        com.baidu.sapi2.base.debug.Log.e(" res.isValid()", new java.lang.Object[0]);
+        com.baidu.sapi2.utils.Log.e(" res.isValid()", new java.lang.Object[0]);
      */
     @TargetApi(17)
     /*
@@ -508,6 +502,7 @@ public class SapiBDLocManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b() {
+        String str = null;
         this.k = null;
         this.l = 0;
         WifiInfo connectionInfo = this.i.getConnectionInfo();
@@ -516,12 +511,14 @@ public class SapiBDLocManager {
         }
         try {
             String bssid = connectionInfo.getBSSID();
-            String replace = bssid != null ? bssid.replace(":", "") : null;
-            if (replace.length() == 12) {
-                this.k = new String(replace);
-                return true;
+            if (bssid != null) {
+                str = bssid.replace(":", "");
+                if (str.length() != 12) {
+                    return false;
+                }
             }
-            return false;
+            this.k = new String(str);
+            return true;
         } catch (Exception e2) {
             return false;
         }

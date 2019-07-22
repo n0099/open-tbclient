@@ -16,33 +16,33 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class a {
-    protected d aOI;
-    protected b.a aOJ;
-    protected PopupWindow aOK;
-    protected View.OnKeyListener aOL;
-    private InterfaceC0165a aOO;
-    private View arn;
+    protected d aPs;
+    protected b.a aPt;
+    protected PopupWindow aPu;
+    protected View.OnKeyListener aPv;
+    private InterfaceC0162a aPy;
+    private View arQ;
     protected Context mContext;
     protected Resources mResources;
     protected final View mViewToAttach;
-    private boolean aON = true;
-    private boolean aOP = false;
-    private float aOQ = 0.5f;
-    private boolean aOR = false;
-    private int aOS = a.i.pop_window_anim;
-    private Runnable aOU = new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.a.5
+    private boolean aPx = true;
+    private boolean aPz = false;
+    private float aPA = 0.5f;
+    private boolean aPB = false;
+    private int aPC = a.i.pop_window_anim;
+    private Runnable aPE = new Runnable() { // from class: com.baidu.swan.apps.res.widget.a.a.5
         @Override // java.lang.Runnable
         public void run() {
             a.this.dismiss();
         }
     };
-    protected List<com.baidu.swan.apps.res.widget.a.b> aOH = new ArrayList();
-    private int aOM = -2;
-    private boolean aOT = com.baidu.swan.apps.u.a.DW().Ev();
+    protected List<com.baidu.swan.apps.res.widget.a.b> aPr = new ArrayList();
+    private int aPw = -2;
+    private boolean aPD = com.baidu.swan.apps.u.a.EF().Fe();
 
     /* renamed from: com.baidu.swan.apps.res.widget.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0165a {
+    public interface InterfaceC0162a {
         void C(List<com.baidu.swan.apps.res.widget.a.b> list);
     }
 
@@ -64,35 +64,35 @@ public abstract class a {
     }
 
     public View getView() {
-        return this.arn;
+        return this.arQ;
     }
 
     public void a(b.a aVar) {
-        this.aOJ = aVar;
+        this.aPt = aVar;
     }
 
-    public void dz(int i) {
-        this.aOM = i;
+    public void dC(int i) {
+        this.aPw = i;
     }
 
     public com.baidu.swan.apps.res.widget.a.b b(com.baidu.swan.apps.res.widget.a.b bVar) {
         bVar.d(this);
-        if (this.aON) {
+        if (this.aPx) {
             bVar.b(new b.a() { // from class: com.baidu.swan.apps.res.widget.a.a.1
                 @Override // com.baidu.swan.apps.res.widget.a.b.a
                 public void c(com.baidu.swan.apps.res.widget.a.b bVar2) {
-                    if (bVar2.KT()) {
-                        a.this.S(bVar2.KU());
+                    if (bVar2.LG()) {
+                        a.this.S(bVar2.LH());
                     }
-                    if (a.this.aOJ != null) {
-                        a.this.aOJ.c(bVar2);
+                    if (a.this.aPt != null) {
+                        a.this.aPt.c(bVar2);
                     }
                 }
             });
         } else {
-            bVar.b(this.aOJ);
+            bVar.b(this.aPt);
         }
-        this.aOH.add(bVar);
+        this.aPr.add(bVar);
         return bVar;
     }
 
@@ -101,18 +101,18 @@ public abstract class a {
     }
 
     public void show() {
-        if (com.baidu.swan.apps.u.a.DW().Ev() != this.aOT) {
+        if (com.baidu.swan.apps.u.a.EF().Fe() != this.aPD) {
             bs(this.mContext);
-            this.aOK = null;
+            this.aPu = null;
         }
-        ck(true);
-        this.aOT = com.baidu.swan.apps.u.a.DW().Ev();
+        cn(true);
+        this.aPD = com.baidu.swan.apps.u.a.EF().Fe();
     }
 
     public void dismiss() {
-        if (this.aOK != null) {
+        if (this.aPu != null) {
             try {
-                this.aOK.dismiss();
+                this.aPu.dismiss();
             } catch (Exception e) {
                 if (com.baidu.swan.apps.b.DEBUG) {
                     Log.w("PopupWindow", "Exception", e);
@@ -123,9 +123,9 @@ public abstract class a {
 
     public void S(long j) {
         if (this.mViewToAttach != null) {
-            this.mViewToAttach.removeCallbacks(this.aOU);
+            this.mViewToAttach.removeCallbacks(this.aPE);
             if (j > 0) {
-                this.mViewToAttach.postDelayed(this.aOU, j);
+                this.mViewToAttach.postDelayed(this.aPE, j);
             } else {
                 dismiss();
             }
@@ -133,7 +133,7 @@ public abstract class a {
     }
 
     public void toggle() {
-        if (this.aOK != null && this.aOK.isShowing()) {
+        if (this.aPu != null && this.aPu.isShowing()) {
             dismiss();
         } else {
             show();
@@ -141,19 +141,19 @@ public abstract class a {
     }
 
     protected void bs(Context context) {
-        this.arn = getMenuView(context);
-        this.arn.setFocusable(true);
-        this.arn.setFocusableInTouchMode(true);
-        if (!(this.arn instanceof b)) {
+        this.arQ = getMenuView(context);
+        this.arQ.setFocusable(true);
+        this.arQ.setFocusableInTouchMode(true);
+        if (!(this.arQ instanceof b)) {
             throw new IllegalArgumentException("The view returned by getMenuView() MUST implement OnMenuSetChangedListener!");
         }
-        this.arn.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
+        this.arQ.setOnKeyListener(new View.OnKeyListener() { // from class: com.baidu.swan.apps.res.widget.a.a.2
             @Override // android.view.View.OnKeyListener
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (keyEvent.getAction() == 1 && (i == 4 || i == 82)) {
                     a.this.dismiss();
-                    if (a.this.aOL != null) {
-                        a.this.aOL.onKey(view, i, keyEvent);
+                    if (a.this.aPv != null) {
+                        a.this.aPv.onKey(view, i, keyEvent);
                         return true;
                     }
                     return true;
@@ -164,13 +164,13 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ci(boolean z) {
-        this.aOP = z;
+    public void cl(boolean z) {
+        this.aPz = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cj(boolean z) {
-        this.aOR = z;
+    public void cm(boolean z) {
+        this.aPB = z;
     }
 
     protected com.baidu.swan.apps.res.widget.a.b b(int i, CharSequence charSequence, Drawable drawable) {
@@ -178,44 +178,44 @@ public abstract class a {
     }
 
     protected void B(List<com.baidu.swan.apps.res.widget.a.b> list) {
-        if (this.aOO != null) {
-            this.aOO.C(list);
+        if (this.aPy != null) {
+            this.aPy.C(list);
         }
     }
 
-    private void ck(boolean z) {
-        if (this.aOI != null) {
-            this.aOI.onShowMenu();
+    private void cn(boolean z) {
+        if (this.aPs != null) {
+            this.aPs.onShowMenu();
         }
-        B(this.aOH);
-        ensureMenuLoaded(this.arn, this.aOH);
+        B(this.aPr);
+        ensureMenuLoaded(this.arQ, this.aPr);
         dismiss();
-        if (this.aOK == null) {
-            this.aOK = new PopupWindow(this.arn, this.aOM, -2, true);
-            if (this.aOR) {
-                this.aOK.setAnimationStyle(this.aOS);
+        if (this.aPu == null) {
+            this.aPu = new PopupWindow(this.arQ, this.aPw, -2, true);
+            if (this.aPB) {
+                this.aPu.setAnimationStyle(this.aPC);
             }
             if (z) {
-                this.aOK.setBackgroundDrawable(this.mResources.getDrawable(a.e.aiapps_pop_transparent_bg));
-                this.aOK.setTouchable(true);
+                this.aPu.setBackgroundDrawable(this.mResources.getDrawable(a.e.aiapps_pop_transparent_bg));
+                this.aPu.setTouchable(true);
             } else {
-                this.aOK.setTouchable(false);
+                this.aPu.setTouchable(false);
             }
-            this.aOK.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.3
+            this.aPu.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.swan.apps.res.widget.a.a.3
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
-                    if (a.this.aOP) {
-                        a.this.KS();
+                    if (a.this.aPz) {
+                        a.this.LF();
                     }
-                    if (a.this.aOI != null) {
-                        a.this.aOI.onDismissMenu();
+                    if (a.this.aPs != null) {
+                        a.this.aPs.onDismissMenu();
                     }
                 }
             });
         }
         if (this.mViewToAttach == null) {
-            if (this.aOI != null) {
-                this.aOI.onDismissMenu();
+            if (this.aPs != null) {
+                this.aPs.onDismissMenu();
                 return;
             }
             return;
@@ -224,10 +224,10 @@ public abstract class a {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (a.this.aOP) {
-                        a.this.ab(a.this.aOQ);
+                    if (a.this.aPz) {
+                        a.this.ab(a.this.aPA);
                     }
-                    a.this.showMenu(a.this.aOK);
+                    a.this.showMenu(a.this.aPu);
                 } catch (Exception e) {
                     if (com.baidu.swan.apps.b.DEBUG) {
                         Log.w("PopupWindow", "Exception", e);
@@ -235,7 +235,7 @@ public abstract class a {
                 }
             }
         });
-        this.arn.postInvalidate();
+        this.arQ.postInvalidate();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -250,7 +250,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KS() {
+    public void LF() {
         if (this.mViewToAttach != null) {
             ((ViewGroup) this.mViewToAttach.getRootView()).getOverlay().clear();
         }

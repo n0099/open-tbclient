@@ -4,18 +4,18 @@ import android.support.v4.util.LongSparseArray;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class aa {
-    private static final aa fsR = new aa();
-    private LongSparseArray<LinkedList<String>> fsQ = new LongSparseArray<>();
+    private static final aa fxN = new aa();
+    private LongSparseArray<LinkedList<String>> fxM = new LongSparseArray<>();
 
     private aa() {
     }
 
-    public static aa blI() {
-        return fsR;
+    public static aa bnJ() {
+        return fxN;
     }
 
-    public void db(long j) {
-        LinkedList<String> linkedList = this.fsQ.get(j);
+    public void di(long j) {
+        LinkedList<String> linkedList = this.fxM.get(j);
         if (linkedList != null) {
             linkedList.clear();
         }

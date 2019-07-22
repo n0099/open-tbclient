@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode kmp;
-    private ByteBuffer kmq = org.java_websocket.e.b.cKW();
-    private boolean kmo = true;
-    private boolean kmr = false;
-    private boolean kms = false;
-    private boolean kmt = false;
-    private boolean kmu = false;
+    private Framedata.Opcode ktO;
+    private ByteBuffer ktP = org.java_websocket.e.b.cOK();
+    private boolean ktN = true;
+    private boolean ktQ = false;
+    private boolean ktR = false;
+    private boolean ktS = false;
+    private boolean ktT = false;
 
-    public abstract void cKK() throws InvalidDataException;
+    public abstract void cOy() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.kmp = opcode;
+        this.ktO = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cKO() {
-        return this.kms;
+    public boolean cOC() {
+        return this.ktR;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cKP() {
-        return this.kmt;
+    public boolean cOD() {
+        return this.ktS;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cKQ() {
-        return this.kmu;
+    public boolean cOE() {
+        return this.ktT;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cKN() {
-        return this.kmo;
+    public boolean cOB() {
+        return this.ktN;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode cKR() {
-        return this.kmp;
+    public Framedata.Opcode cOF() {
+        return this.ktO;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cKM() {
-        return this.kmq;
+    public ByteBuffer cOA() {
+        return this.ktP;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + cKR() + ", fin:" + cKN() + ", rsv1:" + cKO() + ", rsv2:" + cKP() + ", rsv3:" + cKQ() + ", payloadlength:[pos:" + this.kmq.position() + ", len:" + this.kmq.remaining() + "], payload:" + (this.kmq.remaining() > 1000 ? "(too big to display)" : new String(this.kmq.array())) + '}';
+        return "Framedata{ optcode:" + cOF() + ", fin:" + cOB() + ", rsv1:" + cOC() + ", rsv2:" + cOD() + ", rsv3:" + cOE() + ", payloadlength:[pos:" + this.ktP.position() + ", len:" + this.ktP.remaining() + "], payload:" + (this.ktP.remaining() > 1000 ? "(too big to display)" : new String(this.ktP.array())) + '}';
     }
 
     public void q(ByteBuffer byteBuffer) {
-        this.kmq = byteBuffer;
+        this.ktP = byteBuffer;
     }
 
-    public void sv(boolean z) {
-        this.kmo = z;
+    public void sS(boolean z) {
+        this.ktN = z;
     }
 
-    public void sw(boolean z) {
-        this.kms = z;
+    public void sT(boolean z) {
+        this.ktR = z;
     }
 
-    public void sx(boolean z) {
-        this.kmt = z;
+    public void sU(boolean z) {
+        this.ktS = z;
     }
 
-    public void sy(boolean z) {
-        this.kmu = z;
+    public void sV(boolean z) {
+        this.ktT = z;
     }
 
-    public void sz(boolean z) {
-        this.kmr = z;
+    public void sW(boolean z) {
+        this.ktQ = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.kmo == fVar.kmo && this.kmr == fVar.kmr && this.kms == fVar.kms && this.kmt == fVar.kmt && this.kmu == fVar.kmu && this.kmp == fVar.kmp) {
-            if (this.kmq != null) {
-                z = this.kmq.equals(fVar.kmq);
-            } else if (fVar.kmq != null) {
+        if (this.ktN == fVar.ktN && this.ktQ == fVar.ktQ && this.ktR == fVar.ktR && this.ktS == fVar.ktS && this.ktT == fVar.ktT && this.ktO == fVar.ktO) {
+            if (this.ktP != null) {
+                z = this.ktP.equals(fVar.ktP);
+            } else if (fVar.ktP != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.kmt ? 1 : 0) + (((this.kms ? 1 : 0) + (((this.kmr ? 1 : 0) + (((this.kmq != null ? this.kmq.hashCode() : 0) + ((((this.kmo ? 1 : 0) * 31) + this.kmp.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.kmu ? 1 : 0);
+        return (((this.ktS ? 1 : 0) + (((this.ktR ? 1 : 0) + (((this.ktQ ? 1 : 0) + (((this.ktP != null ? this.ktP.hashCode() : 0) + ((((this.ktN ? 1 : 0) * 31) + this.ktO.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.ktT ? 1 : 0);
     }
 }

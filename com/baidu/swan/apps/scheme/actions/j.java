@@ -17,7 +17,7 @@ public class j extends z {
 
     @Override // com.baidu.swan.apps.scheme.actions.z
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        if (!com.baidu.swan.apps.u.a.DE().vC()) {
+        if (!com.baidu.swan.apps.u.a.En().wd()) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgData is refused");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
             return false;
@@ -37,7 +37,7 @@ public class j extends z {
                 com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
-            } else if (com.baidu.swan.apps.storage.b.hz(optString) != PathType.BD_FILE) {
+            } else if (com.baidu.swan.apps.storage.b.hG(optString) != PathType.BD_FILE) {
                 com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "invalid path : " + optString);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
                 return false;

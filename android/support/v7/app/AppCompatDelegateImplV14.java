@@ -11,6 +11,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatDelegateImplBase;
@@ -223,7 +224,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
         private boolean mIsNight;
         private TwilightManager mTwilightManager;
 
-        AutoNightModeManager(TwilightManager twilightManager) {
+        AutoNightModeManager(@NonNull TwilightManager twilightManager) {
             this.mTwilightManager = twilightManager;
             this.mIsNight = twilightManager.isNight();
         }

@@ -1,11 +1,11 @@
 package com.baidu.tieba.write.b;
 /* loaded from: classes3.dex */
 public class a {
-    public String jHY;
-    public int jHZ;
+    public String jOZ;
+    public int jPa;
 
     public a(String str, int i) {
-        this.jHY = str;
-        this.jHZ = i;
+        this.jOZ = str;
+        this.jPa = i;
     }
 }

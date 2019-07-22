@@ -7,8 +7,8 @@ public class b {
     private String content;
     private long create_time;
     private String forum_id;
-    private int gxX;
-    private int gxY;
+    private int gEi;
+    private int gEj;
     private String id;
     private int level;
     private String name;
@@ -31,8 +31,8 @@ public class b {
         this.level = i;
     }
 
-    public void uL(int i) {
-        this.gxX = i;
+    public void vm(int i) {
+        this.gEi = i;
     }
 
     public String getName() {
@@ -43,12 +43,12 @@ public class b {
         this.name = str;
     }
 
-    public int bzM() {
-        return this.gxY;
+    public int bCr() {
+        return this.gEj;
     }
 
-    public void uM(int i) {
-        this.gxY = i;
+    public void vn(int i) {
+        this.gEj = i;
     }
 
     public void setCreate_time(long j) {
@@ -67,11 +67,11 @@ public class b {
         this.content = str;
     }
 
-    public List<b> bzN() {
+    public List<b> bCs() {
         return this.sub_menu;
     }
 
-    public void cP(List<b> list) {
+    public void cR(List<b> list) {
         this.sub_menu = list;
     }
 }

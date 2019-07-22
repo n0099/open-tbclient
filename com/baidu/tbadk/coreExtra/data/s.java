@@ -4,27 +4,27 @@ import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class s {
-    public boolean cfl;
-    public boolean cfm;
-    public int cfn;
-    public int cfo;
-    public String cfp;
-    public String cfq;
-    public String cfr;
-    public int cfs;
-    public String cft;
+    public boolean cgq;
+    public boolean cgr;
+    public int cgs;
+    public int cgt;
+    public String cgu;
+    public String cgv;
+    public String cgw;
+    public int cgx;
+    public String cgy;
 
     public void parse(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.cfl = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
-            this.cfm = jSONObject.optInt("isActivateNaniApp", 1) == 1;
-            this.cfn = jSONObject.optInt("downloadNaniShowPosition", 3);
-            this.cfo = jSONObject.optInt("downloadNaniShowRate", 2);
-            this.cfp = jSONObject.optString("downloadNaniLinkUrl", null);
-            this.cfq = jSONObject.optString("downloadNaniTxt", null);
-            this.cfr = jSONObject.optString("showNaniTailTxt", null);
-            this.cfs = jSONObject.optInt("showNaniTailVideoType", 0);
-            this.cft = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+            this.cgq = jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1;
+            this.cgr = jSONObject.optInt("isActivateNaniApp", 1) == 1;
+            this.cgs = jSONObject.optInt("downloadNaniShowPosition", 3);
+            this.cgt = jSONObject.optInt("downloadNaniShowRate", 2);
+            this.cgu = jSONObject.optString("downloadNaniLinkUrl", null);
+            this.cgv = jSONObject.optString("downloadNaniTxt", null);
+            this.cgw = jSONObject.optString("showNaniTailTxt", null);
+            this.cgx = jSONObject.optInt("showNaniTailVideoType", 0);
+            this.cgy = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
         }
     }
 }

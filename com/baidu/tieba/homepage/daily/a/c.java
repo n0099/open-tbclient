@@ -8,7 +8,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.daily.b.c, v.a> {
@@ -39,9 +39,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.c cVar, v.a aVar) {
         if ((aVar.getView() instanceof TextView) && cVar != null) {
             TextView textView = (TextView) aVar.getView();
-            textView.setText(cVar.btc());
-            al.j(textView, R.color.cp_cont_j);
-            al.l(textView, R.color.cp_bg_line_e);
+            textView.setText(cVar.bve());
+            am.j(textView, R.color.cp_cont_j);
+            am.l(textView, R.color.cp_bg_line_e);
         }
         return aVar.getView();
     }

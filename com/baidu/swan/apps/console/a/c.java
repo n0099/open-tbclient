@@ -9,8 +9,8 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    JSONArray ank;
-    String anl;
+    JSONArray anN;
+    String anO;
     String appId;
     String appKey;
 
@@ -19,12 +19,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String bR(int i) {
-        if (this.ank == null) {
+        if (this.anN == null) {
             return "";
         }
-        String optString = this.ank.optString(i);
+        String optString = this.anN.optString(i);
         if (!TextUtils.isEmpty(optString)) {
-            return "http://" + optString + ":" + this.anl;
+            return "http://" + optString + ":" + this.anO;
         }
         return "";
     }
@@ -32,10 +32,10 @@ public class c {
     public static c t(JSONObject jSONObject) {
         c cVar = new c();
         try {
-            cVar.ank = jSONObject.getJSONArray("host");
+            cVar.anN = jSONObject.getJSONArray("host");
             cVar.appKey = jSONObject.getString("appKey");
             cVar.appId = jSONObject.getString("appId");
-            cVar.anl = jSONObject.getString(ClientCookie.PORT_ATTR);
+            cVar.anO = jSONObject.getString(ClientCookie.PORT_ATTR);
             return cVar;
         } catch (JSONException e) {
             if (DEBUG) {

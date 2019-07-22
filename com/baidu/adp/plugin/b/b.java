@@ -10,35 +10,35 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> It = new HashMap();
-    private static final Object Iu = new Object();
-    private static DateFormat Iv = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
-    private LinkedList<a> Iw = new LinkedList<>();
+    private static final Map<String, b> IF = new HashMap();
+    private static final Object IG = new Object();
+    private static DateFormat IH = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private LinkedList<a> II = new LinkedList<>();
     private long startTime;
     private String type;
 
-    private static b bA(String str) {
+    private static b bC(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!It.containsKey(str)) {
-            synchronized (Iu) {
-                if (!It.containsKey(str)) {
+        if (!IF.containsKey(str)) {
+            synchronized (IG) {
+                if (!IF.containsKey(str)) {
                     b bVar = new b(str);
-                    It.put(str, bVar);
+                    IF.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return It.get(str);
+        return IF.get(str);
     }
 
-    public static b lP() {
-        return bA("plugin_load");
+    public static b mf() {
+        return bC("plugin_load");
     }
 
     public static void C(String str, String str2) {
-        lP().trace(str, str2);
+        mf().trace(str, str2);
     }
 
     b(String str) {
@@ -46,30 +46,30 @@ public class b {
     }
 
     public void trace(String str, String str2) {
-        lQ();
-        lR();
-        this.Iw.add(new a(str, str2));
+        mg();
+        mh();
+        this.II.add(new a(str, str2));
     }
 
-    private void lQ() {
+    private void mg() {
         if (this.startTime == 0) {
             this.startTime = System.currentTimeMillis();
         }
     }
 
-    private void lR() {
-        while (this.Iw.size() >= 70) {
-            this.Iw.poll();
+    private void mh() {
+        while (this.II.size() >= 70) {
+            this.II.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + Iv.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.Iw.size(); i++) {
-            a aVar = this.Iw.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.Ix, Iv.format(new Date(aVar.time))));
-            if (i < this.Iw.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + IH.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.II.size(); i++) {
+            a aVar = this.II.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.IJ, IH.format(new Date(aVar.time))));
+            if (i < this.II.size() - 1) {
                 sb.append("->");
             }
         }
@@ -80,13 +80,13 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private String Ix;
+        private String IJ;
         private String method;
         private long time;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.Ix = str2;
+            this.IJ = str2;
             this.time = j;
         }
 

@@ -7,16 +7,16 @@ import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum gel;
+    private CardForum gkx;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.gel = cardForum;
+            this.gkx = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(aYh() + cardForum.position.intValue());
+                setYuelaouLocate(bag() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(aYh() + 0);
+                setYuelaouLocate(bag() + 0);
             }
             if (v.Z(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
@@ -35,35 +35,35 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.gel != null) {
-            return this.gel.position.intValue();
+        if (this.gkx != null) {
+            return this.gkx.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aYf() {
+    public boolean bae() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void iy(boolean z) {
+    public void iH(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void iz(boolean z) {
+    public void iI(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean aCA() {
+    public boolean aDQ() {
         if (v.Z(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean tI(int i) {
+    public static boolean ug(int i) {
         return i == 1;
     }
 }

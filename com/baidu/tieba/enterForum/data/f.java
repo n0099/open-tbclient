@@ -8,16 +8,16 @@ import tbclient.PrivateForumInfo;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
 public class f extends d implements com.baidu.tbadk.mvc.b.a {
-    private PrivateForumInfo bHp;
-    private int eDP;
-    private int eRn;
-    private String eRo;
-    private int eRp;
-    private int eRq;
-    private int eRr;
-    private ThemeColorInfo eRs;
-    private boolean eRt;
-    private long eRu;
+    private PrivateForumInfo bIp;
+    private int eIL;
+    private int eWn;
+    private String eWo;
+    private int eWp;
+    private int eWq;
+    private int eWr;
+    private ThemeColorInfo eWs;
+    private boolean eWt;
+    private long eWu;
     private String mContent;
     private String mId;
     private int mLevel;
@@ -28,12 +28,12 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         setType(1);
     }
 
-    public String bdm() {
+    public String bfo() {
         return this.mContent;
     }
 
-    public int bdn() {
-        return this.eDP;
+    public int bfp() {
+        return this.eIL;
     }
 
     public String getId() {
@@ -44,24 +44,24 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         return this.mName;
     }
 
-    public void qd(int i) {
-        this.eRn = i;
+    public void qv(int i) {
+        this.eWn = i;
     }
 
-    public int bdo() {
-        return this.eRn;
+    public int bfq() {
+        return this.eWn;
     }
 
-    public int bdp() {
-        return this.eRq;
+    public int bfr() {
+        return this.eWq;
     }
 
     public int isPrivateForum() {
-        return this.eRr;
+        return this.eWr;
     }
 
-    public int bdq() {
-        return this.eRp;
+    public int bfs() {
+        return this.eWp;
     }
 
     public void setLevel(int i) {
@@ -73,27 +73,27 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
     }
 
     public String getAvatar() {
-        return this.eRo;
+        return this.eWo;
     }
 
-    public ThemeColorInfo bdr() {
-        return this.eRs;
+    public ThemeColorInfo bft() {
+        return this.eWs;
     }
 
-    public ArrayList<Integer> bds() {
-        if (this.eRs == null || this.eRs.day == null || this.eRs.night == null) {
+    public ArrayList<Integer> bfu() {
+        if (this.eWs == null || this.eWs.day == null || this.eWs.night == null) {
             return null;
         }
         ArrayList<Integer> arrayList = new ArrayList<>();
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.parseColor(this.eRs.day.light_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.parseColor(this.eRs.day.dark_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.parseColor(this.eRs.night.light_color)));
-        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.parseColor(this.eRs.night.dark_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cE(this.eWs.day.light_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cE(this.eWs.day.dark_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cE(this.eWs.night.light_color)));
+        arrayList.add(Integer.valueOf(com.baidu.tieba.lego.card.d.a.cE(this.eWs.night.dark_color)));
         return arrayList;
     }
 
-    public boolean aqE() {
-        return this.eRt;
+    public boolean arK() {
+        return this.eWt;
     }
 
     public void a(LikeForum likeForum) {
@@ -102,12 +102,12 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean bdt() {
-        return this.eRq == 1 && this.eRr == 1 && this.bHp != null && this.bHp.private_forum_status.intValue() == 1;
+    public boolean bfv() {
+        return this.eWq == 1 && this.eWr == 1 && this.bIp != null && this.bIp.private_forum_status.intValue() == 1;
     }
 
-    public boolean bdu() {
-        return this.eRq == 1 && this.eRr == 1 && this.bHp != null && this.bHp.private_forum_status.intValue() == 1 && this.bHp.private_forum_audit_status.intValue() == 2;
+    public boolean bfw() {
+        return this.eWq == 1 && this.eWr == 1 && this.bIp != null && this.bIp.private_forum_status.intValue() == 1 && this.bIp.private_forum_audit_status.intValue() == 2;
     }
 
     public void a(LikeForum likeForum, Context context) {
@@ -115,30 +115,30 @@ public class f extends d implements com.baidu.tbadk.mvc.b.a {
             try {
                 this.mId = String.valueOf(likeForum.forum_id);
                 this.mName = likeForum.forum_name;
-                this.eRn = likeForum.is_sign.intValue();
+                this.eWn = likeForum.is_sign.intValue();
                 this.mLevel = likeForum.level_id.intValue();
-                this.eRo = likeForum.avatar;
-                this.eRq = likeForum.is_manager.intValue();
-                this.eRr = likeForum.is_private_forum.intValue();
-                this.bHp = likeForum.private_forum_info;
-                this.eRp = likeForum.is_brand_forum.intValue();
+                this.eWo = likeForum.avatar;
+                this.eWq = likeForum.is_manager.intValue();
+                this.eWr = likeForum.is_private_forum.intValue();
+                this.bIp = likeForum.private_forum_info;
+                this.eWp = likeForum.is_brand_forum.intValue();
                 this.mContent = likeForum.content;
-                this.eDP = likeForum.is_top.intValue();
+                this.eIL = likeForum.is_top.intValue();
                 this.sortType = likeForum.sort_type.intValue();
-                this.eRs = likeForum.theme_color;
-                this.eRt = likeForum.need_trans.booleanValue();
-                this.eRu = likeForum.hot_thread_id.longValue();
+                this.eWs = likeForum.theme_color;
+                this.eWt = likeForum.need_trans.booleanValue();
+                this.eWu = likeForum.hot_thread_id.longValue();
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
     }
 
-    public long bdv() {
-        return this.eRu;
+    public long bfx() {
+        return this.eWu;
     }
 
-    public void cS(long j) {
-        this.eRu = j;
+    public void cZ(long j) {
+        this.eWu = j;
     }
 }

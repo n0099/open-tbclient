@@ -3,21 +3,21 @@ package com.baidu.tbadk.p;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class h extends g {
-    public String LP;
-    public long LQ;
-    public boolean cyw;
+    public String Md;
+    public long Me;
+    public boolean czM;
     public boolean isSuccess;
 
-    public void auf() {
+    public void avo() {
         o oVar;
-        if (m.auk().aul() && (oVar = (o) m.auk().kN(this.mSubType)) != null) {
+        if (m.avt().avu() && (oVar = (o) m.avt().kT(this.mSubType)) != null) {
             oVar.a(this, "head");
         }
     }
 
-    public void aug() {
+    public void avp() {
         o oVar;
-        if (m.auk().aul() && (oVar = (o) m.auk().kN(this.mSubType)) != null) {
+        if (m.avt().avu() && (oVar = (o) m.avt().kT(this.mSubType)) != null) {
             oVar.a(this, SocialConstants.PARAM_IMG_URL);
         }
     }

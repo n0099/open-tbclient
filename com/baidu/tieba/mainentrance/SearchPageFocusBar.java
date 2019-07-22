@@ -10,13 +10,13 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes6.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
-    private RelativeLayout heB;
-    private TextView heC;
-    private TextView heD;
+    private RelativeLayout hkO;
+    private TextView hkP;
+    private TextView hkQ;
     private Context mContext;
     private TbPageContext<?> mTbPageContext;
 
@@ -38,13 +38,13 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     private void init(Context context, AttributeSet attributeSet) {
         this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.home_search_focusbar, this);
-        this.heB = (RelativeLayout) findViewById(R.id.focusbar_container);
-        this.heD = (TextView) findViewById(R.id.focusbar_hint);
-        al.f(this.heD, R.color.cp_cont_c, 1);
-        this.heD.setVisibility(8);
-        this.heC = (TextView) findViewById(R.id.focusbar_show);
-        al.f(this.heC, R.color.cp_link_tip_a, 1);
-        this.heC.setVisibility(8);
+        this.hkO = (RelativeLayout) findViewById(R.id.focusbar_container);
+        this.hkQ = (TextView) findViewById(R.id.focusbar_hint);
+        am.f(this.hkQ, R.color.cp_cont_c, 1);
+        this.hkQ.setVisibility(8);
+        this.hkP = (TextView) findViewById(R.id.focusbar_show);
+        am.f(this.hkP, R.color.cp_link_tip_a, 1);
+        this.hkP.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

@@ -9,5 +9,5 @@ public interface a {
 
     void b(StickerView stickerView);
 
-    void czX();
+    void cCV();
 }

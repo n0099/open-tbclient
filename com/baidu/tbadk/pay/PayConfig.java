@@ -27,6 +27,7 @@ public class PayConfig implements Serializable {
     private String mPropsMon;
     public String mReferPage;
     private String mTitle;
+    public long orderCompleteTime;
     public String paymentPosKey;
     private int tBeanNum;
 

@@ -39,32 +39,32 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c asJ() {
+    public c atR() {
         c cVar = new c();
-        cVar.cwo = new DiscoverFragment();
+        cVar.cxD = new DiscoverFragment();
         cVar.type = 10;
-        cVar.bVW = R.string.home_discover;
-        cVar.bVX = R.drawable.s_icon_tabbar_discover;
+        cVar.bWY = R.string.home_discover;
+        cVar.bWZ = R.drawable.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator cO(Context context) {
-        this.cwa = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+    public TbFragmentTabIndicator cP(Context context) {
+        this.cxp = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.cwL = this.cwa;
-        aVar.zK = l.dip2px(context, 3.0f);
-        aVar.cwJ = R.drawable.icon_news_down_bar_one;
-        this.cwa.a("emotion", aVar);
-        return this.cwa;
+        aVar.cya = this.cxp;
+        aVar.zQ = l.dip2px(context, 3.0f);
+        aVar.cxY = R.drawable.icon_news_down_bar_one;
+        this.cxp.a("emotion", aVar);
+        return this.cxp;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void asI() {
+    public void atQ() {
         isAdded = true;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void fn() {
+    public void fv() {
     }
 }

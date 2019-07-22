@@ -3,6 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
@@ -96,7 +97,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public String b(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str).getJSONObject("launcher");
-            return (!jSONObject.has("pkg") || TextUtils.isEmpty(jSONObject.getString("pkg"))) ? "" : jSONObject.getString("pkg");
+            return (!jSONObject.has(Config.INPUT_DEF_PKG) || TextUtils.isEmpty(jSONObject.getString(Config.INPUT_DEF_PKG))) ? "" : jSONObject.getString(Config.INPUT_DEF_PKG);
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "parse desk top json error");
             return "";

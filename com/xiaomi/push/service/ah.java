@@ -17,6 +17,7 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.coloros.mcssdk.PushManager;
@@ -795,7 +796,7 @@ public class ah {
                 String str6 = map.get(i < 2 ? "notification_style_button_left_web_uri" : i < 3 ? "notification_style_button_mid_web_uri" : "notification_style_button_right_web_uri");
                 if (!TextUtils.isEmpty(str6)) {
                     String trim = str6.trim();
-                    if (!trim.startsWith("http://") && !trim.startsWith("https://")) {
+                    if (!trim.startsWith("http://") && !trim.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
                         trim = "http://" + trim;
                     }
                     try {

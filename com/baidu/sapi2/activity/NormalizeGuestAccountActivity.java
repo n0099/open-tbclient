@@ -13,6 +13,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.SapiResult;
+import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -77,27 +78,33 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
                 NormalizeGuestAccountActivity.this.onClose();
             }
         });
+        String str = "";
+        ArrayList arrayList = new ArrayList();
+        NormalizeGuestAccountDTO normalizeGuestAccountDTO = PassportSDK.getInstance().getNormalizeGuestAccountDTO();
+        if (normalizeGuestAccountDTO != null) {
+            if (WebLoginDTO.statExtraValid(normalizeGuestAccountDTO.statExtra)) {
+                arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
+            }
+            str = normalizeGuestAccountDTO.description;
+        }
         this.sapiWebView.setNormalizeGuestAccountCallback(new SapiJsCallBacks.NormalizeGuestAccountCallback() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.4
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-            public void onSuccess(boolean z) {
+            public void onSuccess(boolean z, String str2) {
                 NormalizeGuestAccountActivity.this.result.isAccountMerge = z;
+                NormalizeGuestAccountActivity.this.result.setNormalizeWay(str2);
                 NormalizeGuestAccountActivity.this.result.setResultCode(0);
                 NormalizeGuestAccountActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
                 NormalizeGuestAccountActivity.this.normalizeSucess();
+                new PtokenStat().onEvent(PtokenStat.NORMAL_GUEST);
             }
 
             @Override // com.baidu.sapi2.SapiJsCallBacks.NormalizeGuestAccountCallback
-            public void onFailure(int i, String str) {
-                NormalizeGuestAccountActivity.this.result.setResultCode(0);
-                NormalizeGuestAccountActivity.this.result.setResultMsg(SapiResult.RESULT_MSG_SUCCESS);
+            public void onFailure(int i, String str2) {
+                NormalizeGuestAccountActivity.this.result.setResultCode(i);
+                NormalizeGuestAccountActivity.this.result.setResultMsg(str2);
                 NormalizeGuestAccountActivity.this.normalizeFail();
             }
-        });
-        ArrayList arrayList = new ArrayList();
-        NormalizeGuestAccountDTO normalizeGuestAccountDTO = PassportSDK.getInstance().getNormalizeGuestAccountDTO();
-        if (normalizeGuestAccountDTO != null && WebLoginDTO.statExtraValid(normalizeGuestAccountDTO.statExtra)) {
-            arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
-        }
+        }, str);
         this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.bduss, this.socialType);
     }
 
@@ -108,13 +115,6 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         if (this.executeSubClassMethod) {
             goBack();
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        super.onBottomBackBtnClick();
-        goBack();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

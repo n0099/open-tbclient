@@ -3,6 +3,7 @@ package com.sina.weibo.sdk.net;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -17,7 +18,7 @@ import org.apache.http.protocol.HTTP;
 public class ConnectionFactory {
     public static HttpURLConnection createConnect(String str, Context context) {
         HttpURLConnection httpURLConnection;
-        if (TextUtils.isEmpty(str) || (!str.startsWith("http://") && !str.startsWith("https://"))) {
+        if (TextUtils.isEmpty(str) || (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             throw new RuntimeException("非法url请求");
         }
         try {

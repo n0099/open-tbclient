@@ -9,49 +9,49 @@ public interface c {
 
     int s(String str, int i);
 
-    boolean vC();
+    boolean wd();
 
-    int vD();
+    int we();
 
-    int vE();
+    int wf();
 
-    int vF();
+    int wg();
 
-    int vG();
+    int wh();
 
-    boolean vH();
+    boolean wi();
 
-    boolean vI();
+    boolean wj();
 
-    JSONObject vJ();
+    JSONObject wk();
 
-    boolean vK();
+    boolean wl();
 
-    boolean vL();
+    boolean wm();
 
-    boolean vM();
+    boolean wn();
 
-    String vN();
+    String wo();
 
-    boolean vO();
+    boolean wp();
 
-    boolean vP();
+    boolean wq();
 
-    boolean vQ();
+    boolean wr();
 
-    boolean vR();
+    boolean ws();
 
-    boolean vS();
+    boolean wt();
 
-    boolean vT();
+    boolean wu();
 
-    boolean vU();
+    boolean wv();
 
-    boolean vV();
+    boolean ww();
 
-    boolean vW();
+    boolean wx();
 
-    String vX();
+    String wy();
 
-    boolean vY();
+    boolean wz();
 }

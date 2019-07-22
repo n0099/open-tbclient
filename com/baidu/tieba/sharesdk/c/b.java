@@ -3,13 +3,13 @@ package com.baidu.tieba.sharesdk.c;
 import android.os.Bundle;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 /* loaded from: classes6.dex */
 public class b {
     public static void a(int i, ShareEntity shareEntity) {
-        am amVar = new am("share_success");
+        an anVar = new an("share_success");
         int i2 = 0;
         switch (i) {
             case 2:
@@ -29,37 +29,37 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            anVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(amVar);
+            TiebaStatic.log(anVar);
             return;
         }
-        Bundle aoQ = shareEntity.aoQ();
-        if (aoQ != null) {
-            int i3 = aoQ.getInt("obj_param1");
+        Bundle apW = shareEntity.apW();
+        if (apW != null) {
+            int i3 = apW.getInt("obj_param1");
             if (i3 != 0) {
-                amVar.P("obj_param1", i3);
+                anVar.P("obj_param1", i3);
                 if (i3 == 2) {
-                    amVar.bT("fid", aoQ.getString("fid"));
+                    anVar.bT("fid", apW.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = aoQ.getInt("obj_type");
+                    int i4 = apW.getInt("obj_type");
                     if (i4 != 0) {
-                        amVar.P("obj_type", i4);
+                        anVar.P("obj_type", i4);
                     }
-                    amVar.bT("tid", aoQ.getString("tid")).bT("fid", aoQ.getString("fid"));
+                    anVar.bT("tid", apW.getString("tid")).bT("fid", apW.getString("fid"));
                 }
             }
-            String string = aoQ.getString("obj_url");
-            if (!ap.isEmpty(string)) {
-                amVar.bT("obj_url", string);
+            String string = apW.getString("obj_url");
+            if (!aq.isEmpty(string)) {
+                anVar.bT("obj_url", string);
             }
         }
-        TiebaStatic.log(amVar);
+        TiebaStatic.log(anVar);
     }
 
     public static void b(int i, ShareEntity shareEntity) {
-        am amVar = new am("c12481");
+        an anVar = new an("c12481");
         int i2 = 0;
         switch (i) {
             case 2:
@@ -79,18 +79,18 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            anVar.P(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
-            TiebaStatic.log(amVar);
+            TiebaStatic.log(anVar);
             return;
         }
-        Bundle aoQ = shareEntity.aoQ();
-        if (aoQ != null) {
-            amVar.bT("tid", aoQ.getString("tid"));
-            amVar.bT("uid", aoQ.getString("uid"));
-            amVar.bT("fid", aoQ.getString("fid"));
+        Bundle apW = shareEntity.apW();
+        if (apW != null) {
+            anVar.bT("tid", apW.getString("tid"));
+            anVar.bT("uid", apW.getString("uid"));
+            anVar.bT("fid", apW.getString("fid"));
         }
-        TiebaStatic.log(amVar);
+        TiebaStatic.log(anVar);
     }
 }

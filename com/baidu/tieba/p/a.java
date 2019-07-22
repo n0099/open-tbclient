@@ -7,9 +7,9 @@ public interface a {
 
     void b(long j, String str, String str2);
 
-    void ck(String str, String str2);
-
     void cl(String str, String str2);
 
     void cm(String str, String str2);
+
+    void cn(String str, String str2);
 }

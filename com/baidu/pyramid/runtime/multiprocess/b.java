@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static Bundle uE() {
-            return IPCServiceManager.uE();
+        public static Bundle ve() {
+            return IPCServiceManager.ve();
         }
     }
 }

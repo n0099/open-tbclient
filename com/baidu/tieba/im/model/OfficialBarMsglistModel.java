@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.baidu.tbadk.util.aa;
 import com.baidu.tbadk.util.z;
 import com.baidu.tieba.R;
@@ -118,8 +118,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
         }
         LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
         aVar.limit = 10;
-        aVar.gGW = null;
-        aVar.gGX = null;
+        aVar.gNg = null;
+        aVar.gNh = null;
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
@@ -145,8 +145,8 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
             j = this.mDatas.getChatMessages().get(0).getMsgId();
             j2 = this.mDatas.getChatMessages().get(0).getRecordId();
         }
-        aVar.gGW = String.valueOf(j);
-        aVar.gGX = String.valueOf(j2);
+        aVar.gNg = String.valueOf(j);
+        aVar.gNh = String.valueOf(j2);
         aVar.id = this.mUser.getUserIdLong() + "";
         super.sendMessage(new LoadOfficialHistoryMessage(aVar));
         return true;
@@ -183,7 +183,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.z
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.bAk().di(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.bCQ().dj(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -197,7 +197,7 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.baidu.tbadk.util.z
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(l.bAk().dh(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
+                    return Boolean.valueOf(l.bCQ().di(String.valueOf(OfficialBarMsglistModel.this.mUser.getUserId()), String.valueOf(chatMessage.getMsgId())));
                 }
             }, null);
         }
@@ -246,15 +246,15 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                 if (linkedList.size() > 0) {
                     for (ChatMessage chatMessage : linkedList) {
                         if (chatMessage != null) {
-                            am amVar = new am("official_message_open");
-                            amVar.l("msg_id", chatMessage.getMsgId() / 100);
+                            an anVar = new an("official_message_open");
+                            anVar.l("msg_id", chatMessage.getMsgId() / 100);
                             if (chatMessage.getUserInfo() != null) {
-                                amVar.bT("official_id", chatMessage.getUserInfo().getUserId());
-                                amVar.P("official_type", chatMessage.getUserInfo().getUserType());
+                                anVar.bT("official_id", chatMessage.getUserInfo().getUserId());
+                                anVar.P("official_type", chatMessage.getUserInfo().getUserType());
                             }
-                            amVar.l("operate_time", System.currentTimeMillis() / 1000);
-                            amVar.l("task_id", chatMessage.getStatTaskId());
-                            TiebaStatic.log(amVar);
+                            anVar.l("operate_time", System.currentTimeMillis() / 1000);
+                            anVar.l("task_id", chatMessage.getStatTaskId());
+                            TiebaStatic.log(anVar);
                         }
                     }
                 }
@@ -306,15 +306,15 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
                             linkedList.add(chatMessage);
                         }
                     }
-                    am amVar = new am("official_message_open");
-                    amVar.l("msg_id", chatMessage.getMsgId() / 100);
+                    an anVar = new an("official_message_open");
+                    anVar.l("msg_id", chatMessage.getMsgId() / 100);
                     if (chatMessage.getUserInfo() != null) {
-                        amVar.bT("official_id", chatMessage.getUserInfo().getUserId());
-                        amVar.P("official_type", chatMessage.getUserInfo().getUserType());
+                        anVar.bT("official_id", chatMessage.getUserInfo().getUserId());
+                        anVar.P("official_type", chatMessage.getUserInfo().getUserType());
                     }
-                    amVar.l("operate_time", System.currentTimeMillis() / 1000);
-                    amVar.l("task_id", chatMessage.getStatTaskId());
-                    TiebaStatic.log(amVar);
+                    anVar.l("operate_time", System.currentTimeMillis() / 1000);
+                    anVar.l("task_id", chatMessage.getStatTaskId());
+                    TiebaStatic.log(anVar);
                 }
                 processMsgFromServerCommon(linkedList);
             }
@@ -334,6 +334,6 @@ public class OfficialBarMsglistModel extends CommonPersonalMsglistModel {
 
     @Override // com.baidu.tieba.im.model.MsglistModel
     public long getMaxMid() {
-        return b.bCs().aS(String.valueOf(a.gJk), -9);
+        return b.bEZ().aT(String.valueOf(a.gPu), -9);
     }
 }

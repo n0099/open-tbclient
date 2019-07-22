@@ -5,31 +5,31 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes2.dex */
 public class a {
-    private static final ReentrantLock bkQ = new ReentrantLock();
-    private static volatile a bkR;
-    private d beL;
-    private List<c> bfC = new ArrayList(3);
+    private static final ReentrantLock blD = new ReentrantLock();
+    private static volatile a blE;
+    private d bfy;
+    private List<c> bgo = new ArrayList(3);
 
     private a() {
     }
 
-    public static a Sz() {
-        if (bkR == null) {
+    public static a Ts() {
+        if (blE == null) {
             synchronized (a.class) {
-                if (bkR == null) {
-                    bkR = new a();
+                if (blE == null) {
+                    blE = new a();
                 }
             }
         }
-        return bkR;
+        return blE;
     }
 
     public void a(d dVar) {
-        this.beL = dVar;
-        SA();
+        this.bfy = dVar;
+        Tt();
     }
 
-    public void F(String str, boolean z) {
+    public void G(String str, boolean z) {
         com.baidu.swan.apps.console.c.d("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
         c cVar = new c(str);
         cVar.hasUpdate = z;
@@ -37,33 +37,33 @@ public class a {
     }
 
     public void release() {
-        this.beL = null;
-        this.bfC.clear();
+        this.bfy = null;
+        this.bgo.clear();
     }
 
     private void a(c cVar) {
-        bkQ.lock();
+        blD.lock();
         try {
-            if (this.beL != null) {
-                this.beL.c(cVar);
+            if (this.bfy != null) {
+                this.bfy.c(cVar);
             } else {
-                this.bfC.add(cVar);
+                this.bgo.add(cVar);
             }
         } finally {
-            bkQ.unlock();
+            blD.unlock();
         }
     }
 
-    private void SA() {
-        if (!this.bfC.isEmpty() && this.beL != null) {
-            bkQ.lock();
+    private void Tt() {
+        if (!this.bgo.isEmpty() && this.bfy != null) {
+            blD.lock();
             try {
-                for (c cVar : this.bfC) {
-                    this.beL.c(cVar);
+                for (c cVar : this.bgo) {
+                    this.bfy.c(cVar);
                 }
-                this.bfC.clear();
+                this.bgo.clear();
             } finally {
-                bkQ.unlock();
+                blD.unlock();
             }
         }
     }

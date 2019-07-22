@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.ac.F;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
@@ -15,7 +16,7 @@ import java.security.PublicKey;
 import java.util.Date;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static String a(Context context, String str, String str2, boolean z) {
         return a(context, str, str2, z, false);
@@ -34,7 +35,7 @@ public final class h {
         String valueOf = String.valueOf(new Date().getTime() / 1000);
         String a = o.a(str4 + valueOf + str5);
         byte[] a2 = com.baidu.sofire.core.i.a();
-        new StringBuilder("after get aesKey:").append(new String(a2));
+        new StringBuilder().append(new String(a2));
         com.baidu.sofire.b.a();
         if (TextUtils.isEmpty(str2)) {
             bytes = "".getBytes();
@@ -46,19 +47,20 @@ public final class h {
             byteArrayOutputStream.flush();
             byteArrayOutputStream.close();
             byteArrayInputStream.close();
-            new StringBuilder("afterGzipPostBody,length=").append(byteArray.length);
+            new StringBuilder().append(byteArray.length);
             com.baidu.sofire.b.a();
             bytes = F.getInstance().ae(byteArray, a2);
         }
-        new StringBuilder("afterEncryptPostBody length=").append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(new String(bytes));
+        new StringBuilder().append(bytes.length).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(new String(bytes));
         com.baidu.sofire.b.a();
         byte[] bytes2 = o.a(g.a(context)).getBytes();
-        new StringBuilder("afterLoadRc4Key:").append(new String(bytes2));
+        new StringBuilder().append(new String(bytes2));
         com.baidu.sofire.b.a();
         byte[] re = F.getInstance().re(a2, bytes2);
-        new StringBuilder("after ar:sKey length=").append(re.length);
+        new StringBuilder().append(re.length);
         com.baidu.sofire.b.a();
         String encodeToString = Base64.encodeToString(re, 0);
+        new StringBuilder().append(encodeToString);
         com.baidu.sofire.b.a();
         StringBuilder sb = new StringBuilder();
         sb.append(str).append("/100/").append(str4).append("/").append(valueOf).append("/").append(a);
@@ -80,19 +82,21 @@ public final class h {
         if (!z || !TextUtils.isEmpty(str3)) {
             JSONObject jSONObject = new JSONObject(str3);
             String optString = jSONObject.optString("skey");
+            new StringBuilder().append(optString);
             com.baidu.sofire.b.a();
             byte[] decode = Base64.decode(optString, 0);
-            new StringBuilder("after Base64 decode:server aeskey size=").append(decode.length);
+            new StringBuilder().append(decode.length);
             com.baidu.sofire.b.a();
             byte[] rd = F.getInstance().rd(decode, bytes2);
-            new StringBuilder("after dr aes key:size=").append(new String(rd));
+            new StringBuilder().append(new String(rd));
             com.baidu.sofire.b.a();
             String optString2 = jSONObject.optString("response");
-            jSONObject.optString("request_id");
+            new StringBuilder().append(jSONObject.optString("request_id"));
             com.baidu.sofire.b.a();
+            new StringBuilder().append(optString2);
             com.baidu.sofire.b.a();
             byte[] decode2 = Base64.decode(optString2, 0);
-            new StringBuilder("after Base64 decode:server aeskey size=").append(decode2.length);
+            new StringBuilder().append(decode2.length);
             com.baidu.sofire.b.a();
             byte[] ad = F.getInstance().ad(decode2, rd);
             if (decode2 != null && decode2.length > 0 && (ad == null || ad.length == 0)) {
@@ -139,7 +143,7 @@ public final class h {
         try {
             JSONObject jSONObject = new JSONObject();
             String packageName = context.getPackageName();
-            jSONObject.put("pkg", packageName);
+            jSONObject.put(Config.INPUT_DEF_PKG, packageName);
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 64);
             if (packageInfo != null) {
@@ -162,6 +166,7 @@ public final class h {
             String jSONObject2 = jSONObject.toString();
             com.baidu.sofire.b.a();
             String a2 = a(context, e.b() + "p/1/auh", jSONObject2, false);
+            new StringBuilder().append(a2);
             com.baidu.sofire.b.a();
             JSONObject jSONObject3 = new JSONObject(a2);
             if (jSONObject3.length() > 0) {
@@ -186,7 +191,7 @@ public final class h {
             }
             return false;
         } catch (Throwable th) {
-            new StringBuilder("key redress exception ").append(th.toString());
+            new StringBuilder(" exception ").append(th.toString());
             com.baidu.sofire.b.a();
             e.a();
             return false;

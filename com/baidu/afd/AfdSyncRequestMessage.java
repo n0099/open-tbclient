@@ -15,6 +15,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Map;
+import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,19 +27,19 @@ public class AfdSyncRequestMessage extends HttpMessage {
     public AfdSyncRequestMessage(g gVar) {
         super(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
         addCommonParams();
-        addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
+        addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.oH());
+        addParam("ft", gVar.pc());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.oJ()));
-        addParam("fc", String.valueOf(gVar.oJ()));
+        addParam("flr", String.valueOf(gVar.pe()));
+        addParam("fc", String.valueOf(gVar.pe()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.oK().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pf().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();

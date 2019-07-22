@@ -2,7 +2,7 @@ package com.baidu.tieba.VideoCache;
 
 import android.content.Context;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.HttpURLConnection;
 import java.net.Socket;
@@ -21,44 +20,44 @@ import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
-    private Socket EW;
-    private byte[] cTS;
-    private h cTT;
+    private Socket Fd;
+    private byte[] cVo;
+    private h cVp;
     private Context mContext;
 
     public f(Context context) {
-        this.cTS = null;
+        this.cVo = null;
         this.mContext = context;
         try {
-            this.cTS = new byte[1048576];
+            this.cVo = new byte[1048576];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
     }
 
     public void setSocket(Socket socket) {
-        this.EW = socket;
+        this.Fd = socket;
     }
 
     public void a(h hVar) {
-        this.cTT = hVar;
+        this.cVp = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j.am(TAG, "test run in " + this);
-        if (this.cTT == null) {
+        if (this.cVp == null) {
             j.am(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.cTT);
-            if (this.cTT.aAQ().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.cTT, this.EW, true);
+            b(this.cVp);
+            if (this.cVp.aCf().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.cVp, this.Fd, true);
             } else {
-                a(this.cTT, this.EW, false);
+                a(this.cVp, this.Fd, false);
             }
-            c(this.EW);
+            c(this.Fd);
         } catch (Exception e) {
             j.am(TAG, "HTTP服务器错误:" + e.getLocalizedMessage());
         }
@@ -76,16 +75,16 @@ class f implements Runnable {
                 if (readLine != null && readLine.contains("GET") && readLine.contains("origin_url=")) {
                     String[] split = readLine.split(" ");
                     if (split != null && split.length > 1) {
-                        hVar.rD(split[1]);
+                        hVar.rV(split[1]);
                     }
                     String substring = readLine.substring(readLine.indexOf("origin_url=") + 11);
                     String str = "";
                     if (substring != null && substring.contains(" ")) {
                         str = substring.substring(0, substring.indexOf(" "));
                     }
-                    hVar.rE(URLDecoder.decode(str));
+                    hVar.rW(URLDecoder.decode(str));
                 } else if (readLine != null && readLine.startsWith("Range") && readLine.contains(":")) {
-                    hVar.gf(true);
+                    hVar.gj(true);
                     String[] split2 = readLine.split(":");
                     String str2 = (split2 == null || split2.length <= 1) ? "" : split2[1];
                     String substring2 = (str2 == null || (lastIndexOf = str2.lastIndexOf("bytes=") + 6) < 0 || lastIndexOf > str2.length()) ? str2 : str2.substring(lastIndexOf);
@@ -98,9 +97,9 @@ class f implements Runnable {
                         }
                     }
                     if (strArr != null && strArr.length >= 1) {
-                        hVar.bK(Long.parseLong(strArr[0]));
+                        hVar.bL(Long.parseLong(strArr[0]));
                         if (strArr.length > 1) {
-                            hVar.bL(Long.parseLong(strArr[1]));
+                            hVar.bM(Long.parseLong(strArr[1]));
                         }
                     }
                 }
@@ -120,30 +119,30 @@ class f implements Runnable {
     }
 
     private boolean a(h hVar, PrintStream printStream) {
-        int rB = rB(hVar.aAR());
-        if (rB <= 0) {
+        int rT = rT(hVar.aCg());
+        if (rT <= 0) {
             return false;
         }
-        hVar.bd(rB);
-        if (hVar.aAT() < 0) {
-            hVar.bK(0L);
+        hVar.be(rT);
+        if (hVar.aCi() < 0) {
+            hVar.bL(0L);
         }
-        if (hVar.aAU() < 0) {
-            hVar.bL(rB - 1);
+        if (hVar.aCj() < 0) {
+            hVar.bM(rT - 1);
         }
-        long aAT = hVar.aAT();
-        long aAU = hVar.aAU();
-        j.am(TAG, "range is: " + aAT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aAU + " " + this);
-        if (hVar.aAS()) {
+        long aCi = hVar.aCi();
+        long aCj = hVar.aCj();
+        j.am(TAG, "range is: " + aCi + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aCj + " " + this);
+        if (hVar.aCh()) {
             printStream.println("HTTP/1.1 206 Partial Content");
         } else {
             printStream.println("HTTP/1.1 200 OK");
         }
         printStream.println("Content-Type: video/mp4");
         printStream.println("Accept-Ranges: bytes");
-        printStream.println("Content-Length: " + ((aAU - aAT) + 1));
-        if (hVar.aAS()) {
-            printStream.println("Content-Range: bytes " + aAT + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aAU + "/" + rB);
+        printStream.println("Content-Length: " + ((aCj - aCi) + 1));
+        if (hVar.aCh()) {
+            printStream.println("Content-Range: bytes " + aCi + Constants.ACCEPT_TIME_SEPARATOR_SERVER + aCj + "/" + rT);
         }
         printStream.println("Content-Transfer-Encoding: binary");
         printStream.println();
@@ -156,17 +155,17 @@ class f implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int rB(String str) {
+    private int rT(String str) {
         FileInputStream fileInputStream;
         DataInputStream dataInputStream;
         DataInputStream dataInputStream2 = null;
         dataInputStream2 = null;
         FileInputStream fileInputStream2 = null;
-        String rI = m.rI(str);
-        if (rI == null || rI.isEmpty()) {
+        String sa = m.sa(str);
+        if (sa == null || sa.isEmpty()) {
             return 0;
         }
-        File file = new File(i.cUe + rI);
+        File file = new File(i.cVA + sa);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -295,7 +294,7 @@ class f implements Runnable {
             bufferedWriter2.close();
             return contentLength2;
         } catch (Exception e13) {
-            TiebaStatic.log(new am("c12027").bT("errormsg", "网络获取文件大小出现异常").bT("error", e13.getMessage()).bT("url", str));
+            TiebaStatic.log(new an("c12027").bT("errormsg", "网络获取文件大小出现异常").bT("error", e13.getMessage()).bT("url", str));
             e13.printStackTrace();
             return 0;
         }
@@ -313,54 +312,54 @@ class f implements Runnable {
         if (hVar == null || socket == null) {
             return;
         }
-        File file = new File(i.wv);
+        File file = new File(i.wy);
         if (!file.exists()) {
             file.mkdir();
         }
         try {
             cVar = new c(this.mContext);
             try {
-                cVar.setVideoUrl(hVar.aAR());
+                cVar.setVideoUrl(hVar.aCg());
                 printStream = new PrintStream(socket.getOutputStream(), true);
                 try {
                     if (!a(hVar, printStream)) {
-                        com.baidu.adp.lib.g.a.b((OutputStream) printStream);
+                        com.baidu.adp.lib.g.a.c(printStream);
                         if (cVar != null) {
                             cVar.close();
                             return;
                         }
                         return;
                     }
-                    cVar.bd(hVar.getTotalLength());
+                    cVar.be(hVar.getTotalLength());
                     if (!z) {
-                        c aAO = e.aAN().aAO();
-                        if (aAO != null && aAO.getVideoUrl() != null && aAO.getVideoUrl().equals(cVar.getVideoUrl())) {
-                            aAO.close();
-                            e.aAN().v(null);
+                        c aCd = e.aCc().aCd();
+                        if (aCd != null && aCd.getVideoUrl() != null && aCd.getVideoUrl().equals(cVar.getVideoUrl())) {
+                            aCd.close();
+                            e.aCc().v(null);
                         }
-                        e.aAN().s(cVar);
-                    } else if (e.aAN().u(cVar)) {
-                        e.aAN().v(null);
-                        com.baidu.adp.lib.g.a.b((OutputStream) printStream);
+                        e.aCc().s(cVar);
+                    } else if (e.aCc().u(cVar)) {
+                        e.aCc().v(null);
+                        com.baidu.adp.lib.g.a.c(printStream);
                         if (cVar != null) {
                             cVar.close();
                             return;
                         }
                         return;
                     } else {
-                        c aAO2 = e.aAN().aAO();
-                        if (aAO2 != null) {
-                            aAO2.close();
+                        c aCd2 = e.aCc().aCd();
+                        if (aCd2 != null) {
+                            aCd2.close();
                         }
                         j.am(TAG, "server handle preload: " + cVar.getVideoUrl());
-                        e.aAN().v(cVar);
+                        e.aCc().v(cVar);
                     }
-                    cVar.i(hVar.aAT(), hVar.aAU());
-                    if (this.cTS != null) {
+                    cVar.i(hVar.aCi(), hVar.aCj());
+                    if (this.cVo != null) {
                         while (cVar.canRead()) {
-                            int read = cVar.read(this.cTS, 1048576);
+                            int read = cVar.read(this.cVo, 1048576);
                             if (read > 0) {
-                                printStream.write(this.cTS, 0, read);
+                                printStream.write(this.cVo, 0, read);
                                 if (printStream.checkError()) {
                                     break;
                                 }
@@ -370,11 +369,11 @@ class f implements Runnable {
                     j.am(TAG, "finished! " + this);
                     printStream.flush();
                     if (z) {
-                        e.aAN().v(null);
+                        e.aCc().v(null);
                     } else {
-                        e.aAN().t(cVar);
+                        e.aCc().t(cVar);
                     }
-                    com.baidu.adp.lib.g.a.b((OutputStream) printStream);
+                    com.baidu.adp.lib.g.a.c(printStream);
                     if (cVar != null) {
                         cVar.close();
                     }
@@ -383,14 +382,14 @@ class f implements Runnable {
                     printStream2 = printStream;
                     try {
                         e.printStackTrace();
-                        com.baidu.adp.lib.g.a.b((OutputStream) printStream2);
+                        com.baidu.adp.lib.g.a.c(printStream2);
                         if (cVar != null) {
                             cVar.close();
                         }
                     } catch (Throwable th) {
                         th = th;
                         printStream = printStream2;
-                        com.baidu.adp.lib.g.a.b((OutputStream) printStream);
+                        com.baidu.adp.lib.g.a.c(printStream);
                         if (cVar != null) {
                             cVar.close();
                         }
@@ -398,7 +397,7 @@ class f implements Runnable {
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    com.baidu.adp.lib.g.a.b((OutputStream) printStream);
+                    com.baidu.adp.lib.g.a.c(printStream);
                     if (cVar != null) {
                     }
                     throw th;

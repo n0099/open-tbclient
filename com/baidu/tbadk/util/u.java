@@ -16,9 +16,9 @@ public final class u {
             return false;
         }
         try {
-            a avj = a.avj();
+            a aws = a.aws();
             for (String str : strArr) {
-                if (avj.getProperty(str) != null) {
+                if (aws.rl(str) != null) {
                     return true;
                 }
             }
@@ -31,26 +31,26 @@ public final class u {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a cBN;
-        private final Properties cBO = new Properties();
+        private static a cDe;
+        private final Properties cDf = new Properties();
 
         private a() throws IOException {
-            this.cBO.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.cDf.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a avj() throws IOException {
-            if (cBN == null) {
+        public static a aws() throws IOException {
+            if (cDe == null) {
                 synchronized (a.class) {
-                    if (cBN == null) {
-                        cBN = new a();
+                    if (cDe == null) {
+                        cDe = new a();
                     }
                 }
             }
-            return cBN;
+            return cDe;
         }
 
-        public String getProperty(String str) {
-            return this.cBO.getProperty(str);
+        public String rl(String str) {
+            return this.cDf.getProperty(str);
         }
     }
 }

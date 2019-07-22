@@ -7,17 +7,17 @@ import com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog;
 /* loaded from: classes2.dex */
 public class SwanAppErrorDialog extends BaseActivityDialog {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private TextView aNk;
+    private TextView aNT;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.aNk = (TextView) findViewById(a.f.dialog_message);
-        this.aNk.setGravity(17);
+        this.aNT = (TextView) findViewById(a.f.dialog_message);
+        this.aNT.setGravity(17);
     }
 
-    public static BaseActivityDialog.a Pm() {
+    public static BaseActivityDialog.a Qd() {
         return new BaseActivityDialog.a(SwanAppErrorDialog.class);
     }
 }

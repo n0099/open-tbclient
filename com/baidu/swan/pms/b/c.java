@@ -6,10 +6,10 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
     private static final boolean DEBUG = com.baidu.swan.pms.e.DEBUG;
-    private long bsj;
-    private JSONObject bsk;
+    private String bsY;
+    private long bsZ;
+    private JSONObject bta;
     private int mErrorCode = -1;
-    private String mErrorMessage;
 
     public int getErrorCode() {
         return this.mErrorCode;
@@ -19,23 +19,23 @@ public class c {
         this.mErrorCode = i;
     }
 
-    public JSONObject Vw() {
-        return this.bsk;
+    public JSONObject Wp() {
+        return this.bta;
     }
 
     public void aB(JSONObject jSONObject) {
-        this.bsk = jSONObject;
+        this.bta = jSONObject;
     }
 
     public void setErrorMessage(String str) {
-        this.mErrorMessage = str;
+        this.bsY = str;
     }
 
-    public void ae(long j) {
-        this.bsj = j;
+    public void af(long j) {
+        this.bsZ = j;
     }
 
-    public static c kk(String str) {
+    public static c ks(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -54,7 +54,7 @@ public class c {
         c cVar = new c();
         cVar.setErrorCode(jSONObject.optInt("errno", -1));
         cVar.setErrorMessage(jSONObject.optString("errmsg"));
-        cVar.ae(jSONObject.optLong("request_id"));
+        cVar.af(jSONObject.optLong("request_id"));
         cVar.aB(jSONObject.optJSONObject("data"));
         return cVar;
     }

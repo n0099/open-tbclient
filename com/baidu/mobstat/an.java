@@ -1,39 +1,371 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
+import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.PaintFlagsDrawFilter;
-import android.widget.TextView;
+import android.graphics.Rect;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
+import com.baidu.mobstat.bt;
+import com.baidu.ubc.UBC;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-class an extends TextView {
-    private Paint a;
-    private PaintFlagsDrawFilter b;
+public class an {
+    private static volatile String c;
+    private static volatile int d = 0;
+    private final Handler b = new Handler(Looper.getMainLooper());
+    private final b a = new b();
 
-    public an(Context context) {
-        super(context);
-        this.a = new Paint();
-        this.b = new PaintFlagsDrawFilter(0, 3);
-        this.a.setColor(-1);
-        this.a.setAntiAlias(true);
+    public static void a() {
+        d = 0;
     }
 
-    @Override // android.widget.TextView, android.view.View
-    protected void onMeasure(int i, int i2) {
-        super.onMeasure(i, i2);
-        int max = Math.max(getMeasuredWidth(), getMeasuredHeight());
-        setMeasuredDimension(max, max);
+    public static void b() {
+        c = "";
     }
 
-    @Override // android.view.View
-    public void setBackgroundColor(int i) {
-        this.a.setColor(i);
+    public JSONObject a(Activity activity) {
+        if (activity == null) {
+            return null;
+        }
+        try {
+            if (!ak.a()) {
+                return null;
+            }
+            int i = d + 1;
+            d = i;
+            if (i >= 3) {
+                ak.a(false);
+            }
+            Bitmap b2 = b(activity);
+            if (b2 == null) {
+                return null;
+            }
+            JSONArray c2 = c(activity);
+            String a2 = bt.a.a(c2.toString().getBytes());
+            if (c != null && c.equals(a2)) {
+                return null;
+            }
+            c = a2;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("screenshot", bj.a(b2));
+                jSONObject.put("hash", bj.b(b2));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(Config.DEVICE_WIDTH, b2.getWidth());
+                jSONObject2.put("h", b2.getHeight());
+                jSONObject.put("screen", jSONObject2);
+                jSONObject.put("page", activity.getClass().getName());
+                jSONObject.put("objects", c2);
+                return jSONObject;
+            } catch (Throwable th) {
+                return jSONObject;
+            }
+        } catch (Throwable th2) {
+            return null;
+        }
     }
 
-    @Override // android.view.View
-    public void draw(Canvas canvas) {
-        canvas.setDrawFilter(this.b);
-        canvas.drawCircle(getWidth() / 2, getHeight() / 2, Math.max(getWidth(), getHeight()) / 2, this.a);
-        super.draw(canvas);
+    private JSONArray c(Activity activity) throws Exception {
+        JSONArray jSONArray = new JSONArray();
+        View a2 = bj.a(activity);
+        a(activity, a2, jSONArray, "", a2);
+        return jSONArray;
+    }
+
+    private void a(Activity activity, View view, JSONArray jSONArray, String str, View view2) throws Exception {
+        Rect e;
+        Object obj;
+        String str2;
+        int i = 0;
+        if (view != null && (e = bj.e(view)) != null && !ai.a(view)) {
+            String l = bj.l(view);
+            if (!TextUtils.isEmpty(l) && !bj.c(activity, view)) {
+                String c2 = bj.c(view);
+                if (TextUtils.isEmpty(c2)) {
+                    c2 = bj.a(view, str);
+                    if (TextUtils.isEmpty(c2)) {
+                        c2 = bj.a(view, view2);
+                    }
+                }
+                if (!TextUtils.isEmpty(c2)) {
+                    long j = -1;
+                    try {
+                        j = Long.valueOf(c2).longValue();
+                    } catch (Exception e2) {
+                    }
+                    if (j >= 0) {
+                        JSONObject jSONObject = new JSONObject();
+                        JSONArray jSONArray2 = new JSONArray();
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("p", l);
+                        jSONObject2.put("i", c2);
+                        String b2 = bj.b(view);
+                        jSONObject2.put("t", b2);
+                        jSONArray2.put(jSONObject2);
+                        jSONObject.put("path", jSONArray2);
+                        jSONObject.put("type", b2);
+                        jSONObject.put(UBC.CONTENT_KEY_VALUE, bj.a(view));
+                        JSONObject jSONObject3 = new JSONObject();
+                        jSONObject3.put(Config.EVENT_HEAT_X, ah.a(activity, e.left));
+                        jSONObject3.put("y", ah.a(activity, e.top));
+                        jSONObject3.put(Config.DEVICE_WIDTH, ah.a(activity, e.width()));
+                        jSONObject3.put("h", ah.a(activity, e.height()));
+                        jSONObject.put("frame", jSONObject3);
+                        jSONObject.put("alpha", bj.i(view));
+                        jSONObject.put("page", activity.getClass().getName());
+                        jSONObject.put("z", bj.j(view));
+                        if (view instanceof WebView) {
+                            String a2 = bl.a(activity, (WebView) view, e);
+                            if (TextUtils.isEmpty(a2)) {
+                                obj = null;
+                                str2 = "";
+                            } else {
+                                JSONObject jSONObject4 = new JSONObject(a2);
+                                str2 = jSONObject4.optString("url");
+                                obj = jSONObject4.optJSONArray("objects");
+                            }
+                            if (obj == null) {
+                                obj = new JSONArray();
+                            }
+                            jSONObject.put("child", obj);
+                            if (TextUtils.isEmpty(str2)) {
+                                jSONObject.put("url", "/");
+                            } else {
+                                jSONObject.put("url", str2);
+                            }
+                        }
+                        jSONObject.put("edit", bj.b(view, str) ? 1 : 0);
+                        jSONArray.put(jSONObject);
+                        if (!(view instanceof WebView)) {
+                            if (view instanceof ViewGroup) {
+                                ViewGroup viewGroup = (ViewGroup) view;
+                                JSONArray jSONArray3 = new JSONArray();
+                                jSONObject.put("child", jSONArray3);
+                                while (true) {
+                                    int i2 = i;
+                                    if (i2 < viewGroup.getChildCount()) {
+                                        a(activity, viewGroup.getChildAt(i2), jSONArray3, b2, view2);
+                                        i = i2 + 1;
+                                    } else {
+                                        return;
+                                    }
+                                }
+                            } else {
+                                jSONObject.put("child", new JSONArray());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public Bitmap b(Activity activity) {
+        List list;
+        this.a.a(activity);
+        FutureTask futureTask = new FutureTask(this.a);
+        this.b.post(futureTask);
+        List emptyList = Collections.emptyList();
+        if (futureTask != null) {
+            try {
+                list = (List) futureTask.get(2L, TimeUnit.SECONDS);
+            } catch (InterruptedException e) {
+                bc.c().b("autotrace: Screenshot interrupted, no screenshot will be sent.", e);
+            } catch (TimeoutException e2) {
+                bc.c().c("autotrace: Screenshot took more than 2 second to be scheduled and executed. No screenshot will be sent.", e2);
+            } catch (Exception e3) {
+                bc.c().d("autotrace: Exception thrown during screenshot attempt", e3);
+            }
+        } else {
+            list = emptyList;
+        }
+        emptyList = list;
+        if (emptyList.size() == 0) {
+            return null;
+        }
+        return ((c) emptyList.get(0)).c.a;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public static class b implements Callable<List<c>> {
+        private Activity a;
+        private final int e = 160;
+        private final DisplayMetrics c = new DisplayMetrics();
+        private final List<c> b = new ArrayList();
+        private final a d = new a();
+
+        public void a(Activity activity) {
+            this.a = activity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.concurrent.Callable
+        /* renamed from: a */
+        public List<c> call() throws Exception {
+            this.b.clear();
+            HashSet<Activity> hashSet = new HashSet(1);
+            hashSet.add(this.a);
+            for (Activity activity : hashSet) {
+                String canonicalName = activity.getClass().getCanonicalName();
+                View b = bj.b(activity);
+                activity.getWindowManager().getDefaultDisplay().getMetrics(this.c);
+                this.b.add(new c(canonicalName, b));
+            }
+            int size = this.b.size();
+            for (int i = 0; i < size; i++) {
+                b();
+                a(this.b.get(i));
+                c();
+            }
+            return this.b;
+        }
+
+        private void b() {
+            ai.a(this.a, false);
+        }
+
+        private void c() {
+            ai.a(this.a, true);
+        }
+
+        /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [359=5] */
+        /* JADX WARN: Removed duplicated region for block: B:13:0x005f  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        private void a(c cVar) {
+            Bitmap bitmap;
+            Boolean bool;
+            Exception exc;
+            Bitmap bitmap2;
+            Boolean valueOf;
+            Boolean bool2;
+            View view = cVar.b;
+            try {
+                Method declaredMethod = View.class.getDeclaredMethod("createSnapshot", Bitmap.Config.class, Integer.TYPE, Boolean.TYPE);
+                declaredMethod.setAccessible(true);
+                bitmap = (Bitmap) declaredMethod.invoke(view, Bitmap.Config.RGB_565, -1, false);
+            } catch (ClassCastException e) {
+                bc.c().d("autotrace: createSnapshot didn't return a bitmap", e);
+                bitmap = null;
+            } catch (IllegalAccessException e2) {
+                bc.c().d("autotrace: Can't access createSnapshot, using drawCache", e2);
+                bitmap = null;
+            } catch (IllegalArgumentException e3) {
+                bc.c().b("autotrace: Can't call createSnapshot with arguments", e3);
+                bitmap = null;
+            } catch (NoSuchMethodException e4) {
+                bc.c().a("autotrace: Can't call createSnapshot, will use drawCache", e4);
+                bitmap = null;
+            } catch (InvocationTargetException e5) {
+                bc.c().d("autotrace: Exception when calling createSnapshot", e5);
+                bitmap = null;
+            } catch (Exception e6) {
+                bc.c().d(" autotrace:createSnapshot encounter exception", e6);
+                bitmap = null;
+            }
+            if (bitmap == null) {
+                try {
+                    valueOf = Boolean.valueOf(view.isDrawingCacheEnabled());
+                } catch (Exception e7) {
+                    bool = null;
+                    exc = e7;
+                }
+                try {
+                    view.setDrawingCacheEnabled(true);
+                    view.buildDrawingCache(true);
+                    bitmap2 = view.getDrawingCache();
+                    bool2 = valueOf;
+                } catch (Exception e8) {
+                    bool = valueOf;
+                    exc = e8;
+                    bc.c().a("autotrace: Can't take a bitmap snapshot of view " + view + ", skipping for now.", exc);
+                    bitmap2 = bitmap;
+                    if (bitmap2 != null) {
+                    }
+                    if (bool != null) {
+                        view.setDrawingCacheEnabled(false);
+                    }
+                    cVar.d = r0;
+                    cVar.c = this.d;
+                }
+            } else {
+                bitmap2 = bitmap;
+                bool2 = null;
+            }
+            bool = bool2;
+            if (bitmap2 != null) {
+                int density = bitmap2.getDensity();
+                r0 = density != 0 ? 160.0f / density : 1.0f;
+                int width = bitmap2.getWidth();
+                int height = bitmap2.getHeight();
+                int width2 = (int) ((bitmap2.getWidth() * r0) + 0.5d);
+                int height2 = (int) ((bitmap2.getHeight() * r0) + 0.5d);
+                if (width > 0 && height > 0 && width2 > 0 && height2 > 0) {
+                    this.d.a(width2, height2, 160, bitmap2);
+                }
+            }
+            if (bool != null && !bool.booleanValue()) {
+                view.setDrawingCacheEnabled(false);
+            }
+            cVar.d = r0;
+            cVar.c = this.d;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public static class a {
+        private final Paint b = new Paint(2);
+        private Bitmap a = null;
+
+        public synchronized void a(int i, int i2, int i3, Bitmap bitmap) {
+            if (this.a == null || this.a.getWidth() != i || this.a.getHeight() != i2) {
+                try {
+                    this.a = Bitmap.createBitmap(i, i2, Bitmap.Config.RGB_565);
+                } catch (OutOfMemoryError e) {
+                    this.a = null;
+                }
+                if (this.a != null) {
+                    this.a.setDensity(i3);
+                }
+            }
+            if (this.a != null) {
+                new Canvas(this.a).drawBitmap(bitmap, 0.0f, 0.0f, this.b);
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public static class c {
+        public final String a;
+        public final View b;
+        public a c = null;
+        public float d = 1.0f;
+
+        public c(String str, View view) {
+            this.a = str;
+            this.b = view;
+        }
     }
 }

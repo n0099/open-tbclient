@@ -15,9 +15,8 @@ import android.text.TextUtils;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.share.face.FaceLoginModel;
-import com.baidu.sapi2.share.face.FaceLoginService;
+import com.baidu.sapi2.share.a.b;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Domain;
@@ -28,10 +27,10 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes.dex */
 public final class ShareService extends Service {
-    private static Context a;
-    private static LoginShareStrategy b;
-    private static SapiContext c;
-    private static boolean d = false;
+    private Context a;
+    private LoginShareStrategy b;
+    private SapiContext c;
+    private boolean d = false;
     private Handler e;
 
     @Override // android.app.Service
@@ -48,17 +47,17 @@ public final class ShareService extends Service {
     @Override // android.app.Service
     @TargetApi(5)
     public int onStartCommand(Intent intent, int i, int i2) {
-        d();
+        a();
         return 2;
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        d();
+        a();
         return super.onUnbind(intent);
     }
 
-    private void d() {
+    private void a() {
         try {
             stopSelf();
         } catch (Exception e) {
@@ -91,10 +90,10 @@ public final class ShareService extends Service {
                     }
                 });
             }
-            if (!ShareService.d) {
+            if (!ShareService.this.d) {
                 ShareService.this.a((Context) ShareService.this);
             }
-            if (!ShareService.d || ShareService.b == LoginShareStrategy.DISABLED) {
+            if (!ShareService.this.d || ShareService.this.b == LoginShareStrategy.DISABLED) {
                 return true;
             }
             try {
@@ -108,18 +107,18 @@ public final class ShareService extends Service {
             }
             String string = readBundle.getString("IQIYI_TOKEN");
             boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
-            if (SapiContext.getInstance(ShareService.a).shareLivingunameEnable()) {
+            if (SapiContext.getInstance(ShareService.this.a).shareLivingunameEnable()) {
                 ArrayList arrayList = new ArrayList();
                 String string2 = readBundle.getString("FACE_LOGIN_UID");
-                if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.a).getFaceLoginUid())) {
-                    arrayList.add(new FaceLoginModel.a(string2, 1L));
+                if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.this.a).getFaceLoginUid())) {
+                    arrayList.add(new b.a(string2, 1L));
                 }
                 String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
                 if (!TextUtils.isEmpty(string3)) {
-                    arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
+                    arrayList.addAll(new com.baidu.sapi2.share.a.c().b(string3));
                 }
                 if (!arrayList.isEmpty()) {
-                    new FaceLoginService().syncPriWithShare(arrayList, false);
+                    new com.baidu.sapi2.share.a.c().a((List<b.a>) arrayList, false);
                 }
             }
             boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
@@ -127,21 +126,18 @@ public final class ShareService extends Service {
                 return true;
             }
             int i3 = readBundle.getInt(ShareCallPacking.EXTRA_SDK_VERSION);
-            if (!z) {
-                c.b(ShareService.a, readBundle.getString("RELOGIN_CREDENTIALS"));
-            }
             String string4 = readBundle.getString("PKG");
             String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
             switch (shareModel.b()) {
                 case VALIDATE:
                     if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
-                        c.a(ShareService.a, ShareService.b, shareModel, i3, string, z, z2, string4);
+                        c.a(ShareService.this.a, ShareService.this.b, shareModel, i3, string, z, z2, string4);
                         break;
                     }
                     break;
                 case INVALIDATE:
                     if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
-                        c.a(ShareService.a, shareModel);
+                        c.a(ShareService.this.a, shareModel);
                         break;
                     }
                     break;
@@ -158,23 +154,23 @@ public final class ShareService extends Service {
 
     void a(Context context) {
         try {
-            a = context;
-            c = SapiContext.getInstance(context);
-            b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
-            d = true;
+            this.a = context;
+            this.c = SapiContext.getInstance(context);
+            this.b = SapiAccountManager.getInstance().getSapiConfiguration().loginShareStrategy();
+            this.d = true;
         } catch (IllegalStateException e) {
-            d = false;
+            this.d = false;
         }
     }
 
     void a(Parcel parcel) {
         Bundle bundle = new Bundle();
         ShareModel shareModel = new ShareModel(ShareEvent.SYNC_ACK);
-        SapiAccount currentAccount = c.getCurrentAccount();
+        SapiAccount currentAccount = this.c.getCurrentAccount();
         shareModel.a(currentAccount);
-        List<SapiAccount> loginAccounts = c.getLoginAccounts();
+        List<SapiAccount> loginAccounts = this.c.getLoginAccounts();
         if (currentAccount != null) {
-            currentAccount.app = SapiUtils.getAppName(a);
+            currentAccount.app = SapiUtils.getAppName(this.a);
             if (loginAccounts.size() > 0 && loginAccounts.contains(currentAccount)) {
                 loginAccounts.set(loginAccounts.indexOf(currentAccount), loginAccounts.get(0));
                 loginAccounts.set(0, currentAccount);
@@ -183,7 +179,7 @@ public final class ShareService extends Service {
             Collections.reverse(loginAccounts);
         }
         shareModel.a().addAll(loginAccounts);
-        shareModel.a().addAll(c.getShareAccounts());
+        shareModel.a().addAll(this.c.getShareAccounts());
         ArrayList arrayList = new ArrayList();
         for (SapiAccount sapiAccount : shareModel.a()) {
             if (sapiAccount.getAccountType() == AccountType.INCOMPLETE_USER) {
@@ -192,18 +188,15 @@ public final class ShareService extends Service {
         }
         shareModel.a().removeAll(arrayList);
         for (SapiAccount sapiAccount2 : shareModel.a()) {
-            sapiAccount2.app = SapiUtils.getAppName(a);
+            sapiAccount2.app = SapiUtils.getAppName(this.a);
         }
-        c.a(a, b, shareModel);
+        c.a(this.a, this.b, shareModel);
         bundle.putParcelable("LOGIN_SHARE_MODEL", shareModel);
-        if (c.getReloginCredentials() != null) {
-            bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));
-        }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 200);
-        if (SapiContext.getInstance(a).shareLivingunameEnable()) {
-            bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(a).getFaceLoginUid());
-            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(a).getV2FaceLivingUnames());
+        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, SapiAccountManager.VERSION_CODE);
+        if (SapiContext.getInstance(this.a).shareLivingunameEnable()) {
+            bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this.a).getFaceLoginUid());
+            bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(this.a).getV2FaceLivingUnames());
         }
         bundle.putString("PKG", getPackageName());
         if (c.b()) {

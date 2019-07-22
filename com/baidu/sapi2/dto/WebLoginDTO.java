@@ -1,8 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -20,8 +19,10 @@ public class WebLoginDTO extends SapiWebDTO {
     public LinkedHashMap<String, String> agreement;
     public Config config;
     public String encryptedId;
+    public boolean hideSuccessTip;
     public String preSetUname;
     public String statExtra;
+    public String uid;
     public String loginType = EXTRA_LOGIN_WITH_USERNAME;
     public boolean finishActivityAfterSuc = true;
     public List<PassNameValuePair> extraParams = new ArrayList();
@@ -33,7 +34,7 @@ public class WebLoginDTO extends SapiWebDTO {
     }
 
     public static boolean statExtraValid(String str) {
-        return !TextUtils.isEmpty(str) && str.getBytes().length <= SapiContext.getInstance(SapiAccountManager.getInstance().getSapiConfiguration().context).getLoginStatExtraLimitLen();
+        return SapiUtils.statExtraValid(str);
     }
 
     public static String getStatExtraDecode(String str) {

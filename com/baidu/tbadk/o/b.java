@@ -3,44 +3,44 @@ package com.baidu.tbadk.o;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public abstract class b {
-    private boolean cxQ = com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("page_stay_duration_switch", false);
+    private boolean czf = com.baidu.tbadk.core.sharedPref.b.ahO().getBoolean("page_stay_duration_switch", false);
 
-    public abstract boolean atL();
+    public abstract boolean auT();
 
-    public abstract int atM();
+    public abstract int auU();
 
     public boolean a(d dVar) {
-        if (dVar == null || dVar.atP()) {
+        if (dVar == null || dVar.auY()) {
             return false;
         }
-        if (dVar.cxR) {
-            dVar.ao(c.e(dVar.atN(), 6));
+        if (dVar.czg) {
+            dVar.ao(c.e(dVar.auV(), 6));
         } else {
-            int atT = atM() > e.atQ().atT() ? e.atQ().atT() : atM();
-            dVar.ao(c.e(dVar.atN(), atT <= 5 ? atT : 5));
+            int avc = auU() > e.auZ().avc() ? e.auZ().avc() : auU();
+            dVar.ao(c.e(dVar.auV(), avc <= 5 ? avc : 5));
         }
         return true;
     }
 
-    private void fx(boolean z) {
-        if (this.cxQ != z) {
-            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("page_stay_duration_switch", true);
-            this.cxQ = z;
+    private void fB(boolean z) {
+        if (this.czf != z) {
+            com.baidu.tbadk.core.sharedPref.b.ahO().putBoolean("page_stay_duration_switch", true);
+            this.czf = z;
         }
     }
 
     public boolean isSwitchOpen() {
         if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-            return this.cxQ;
+            return this.czf;
         }
         if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-            fx(false);
+            fB(false);
             return false;
-        } else if (!e.atQ().atS()) {
-            fx(false);
+        } else if (!e.auZ().avb()) {
+            fB(false);
             return false;
         } else {
-            fx(true);
+            fB(true);
             return true;
         }
     }

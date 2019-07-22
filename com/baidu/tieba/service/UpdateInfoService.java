@@ -20,12 +20,12 @@ public class UpdateInfoService extends BdBaseService {
                     if (address != null) {
                         float longitude = (float) address.getLongitude();
                         float latitude = (float) address.getLatitude();
-                        com.baidu.tieba.recapp.d.a.cfC().xR(String.valueOf(longitude));
-                        com.baidu.tieba.recapp.d.a.cfC().xS(String.valueOf(latitude));
-                        com.baidu.tieba.recapp.d.a.cfC().ej(System.currentTimeMillis());
-                        if (UpdateInfoService.this.mModel.bLJ() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                        com.baidu.tieba.recapp.d.a.cit().yB(String.valueOf(longitude));
+                        com.baidu.tieba.recapp.d.a.cit().yC(String.valueOf(latitude));
+                        com.baidu.tieba.recapp.d.a.cit().et(System.currentTimeMillis());
+                        if (UpdateInfoService.this.mModel.bOr() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                             UpdateInfoService.this.mModel.a(1, longitude, latitude);
-                            UpdateInfoService.this.mModel.bLK();
+                            UpdateInfoService.this.mModel.bOs();
                             return;
                         }
                         return;
@@ -50,11 +50,11 @@ public class UpdateInfoService extends BdBaseService {
     public void onCreate() {
         super.onCreate();
         this.mModel = new ReportUserInfoModel(null);
-        this.mModel.bLL();
-        this.mModel.dR(540000L);
+        this.mModel.bOt();
+        this.mModel.eb(540000L);
         this.mModel.a(new ReportUserInfoModel.a() { // from class: com.baidu.tieba.service.UpdateInfoService.1
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
-            public void wG(int i) {
+            public void xj(int i) {
                 BdLog.i("location_success");
                 BdLog.e("location_success next time=" + i);
                 if (i <= 0) {
@@ -62,13 +62,13 @@ public class UpdateInfoService extends BdBaseService {
                 } else if (i >= 32400) {
                     i = 32400;
                 }
-                UpdateInfoService.this.mModel.dR(i * 1000);
+                UpdateInfoService.this.mModel.eb(i * 1000);
             }
 
             @Override // com.baidu.tieba.model.ReportUserInfoModel.a
             public void onError(int i, String str) {
                 BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
-                UpdateInfoService.this.mModel.dR(KeepJobService.JOB_CHECK_PERIODIC);
+                UpdateInfoService.this.mModel.eb(KeepJobService.JOB_CHECK_PERIODIC);
             }
         });
     }
@@ -76,7 +76,7 @@ public class UpdateInfoService extends BdBaseService {
     @Override // android.app.Service
     public void onStart(Intent intent, int i) {
         super.onStart(intent, i);
-        if (this.mModel.bLJ()) {
+        if (this.mModel.bOr()) {
             findLocationFromLocal();
         }
     }
@@ -89,10 +89,10 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     private void findLocationFromLocal() {
-        a.hO().a(true, this.locationCallBack);
+        a.hY().a(true, this.locationCallBack);
     }
 
     private void unRegisterLocalLocation() {
-        a.hO().a(this.locationCallBack);
+        a.hY().a(this.locationCallBack);
     }
 }

@@ -11,20 +11,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.an;
+import com.baidu.tbadk.core.util.bb;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes4.dex */
 public class CardFrsGameSpecialTopicItemView extends LinearLayout {
-    private RelativeLayout ewB;
-    private TbImageView ewC;
-    private TextView ewD;
-    private TextView ewE;
-    private TextView ewF;
-    private View ewb;
-    private View ewc;
+    private RelativeLayout eBA;
+    private TbImageView eBB;
+    private TextView eBC;
+    private TextView eBD;
+    private TextView eBE;
+    private View eBa;
+    private View eBb;
     private String mForumId;
     public int mSkinType;
 
@@ -48,18 +48,18 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.card_frs_game_special_topic_view_item, (ViewGroup) this, true);
-        this.ewB = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
-        this.ewC = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
-        this.ewD = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
-        this.ewE = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
-        this.ewF = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
-        this.ewb = findViewById(R.id.divider_line_1);
-        this.ewc = findViewById(R.id.divider_line_2);
+        this.eBA = (RelativeLayout) findViewById(R.id.card_frs_game_special_topic_layout);
+        this.eBB = (TbImageView) findViewById(R.id.card_frs_game_special_topic_img);
+        this.eBC = (TextView) findViewById(R.id.card_frs_game_special_topic_title);
+        this.eBD = (TextView) findViewById(R.id.card_frs_game_special_topic_dsc);
+        this.eBE = (TextView) findViewById(R.id.card_frs_game_special_topic_update_time);
+        this.eBa = findViewById(R.id.divider_line_1);
+        this.eBb = findViewById(R.id.divider_line_2);
         int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ewB.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.eBA.getLayoutParams();
         layoutParams.width = (dimensionPixelSize * 21) / 9;
         layoutParams.height = dimensionPixelSize;
-        this.ewB.setLayoutParams(layoutParams);
+        this.eBA.setLayoutParams(layoutParams);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -68,8 +68,8 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
-                    TiebaStatic.log(new am("c13047").P("obj_locate", 5).bT("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
-                    ba.aiz().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    TiebaStatic.log(new an("c13047").P("obj_locate", 5).bT("fid", CardFrsGameSpecialTopicItemView.this.mForumId));
+                    bb.ajC().a((TbPageContext) com.baidu.adp.base.i.ab(CardFrsGameSpecialTopicItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });
@@ -80,29 +80,29 @@ public class CardFrsGameSpecialTopicItemView extends LinearLayout {
     }
 
     public TbImageView getSpecialTopicPicView() {
-        return this.ewC;
+        return this.eBB;
     }
 
     public TextView getSpecialTopicNameView() {
-        return this.ewD;
+        return this.eBC;
     }
 
     public TextView getSpecialTopicUpdateTimeView() {
-        return this.ewF;
+        return this.eBE;
     }
 
     public TextView getSpecialTopicDscView() {
-        return this.ewE;
+        return this.eBD;
     }
 
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.k(this.ewb, R.color.cp_bg_line_e);
-            al.k(this.ewc, R.color.cp_bg_line_e);
-            al.f(this.ewD, R.color.cp_btn_a, 1);
-            al.f(this.ewE, R.color.cp_btn_a, 1);
-            al.f(this.ewF, R.color.cp_btn_a, 1);
+            am.k(this.eBa, R.color.cp_bg_line_e);
+            am.k(this.eBb, R.color.cp_bg_line_e);
+            am.f(this.eBC, R.color.cp_btn_a, 1);
+            am.f(this.eBD, R.color.cp_btn_a, 1);
+            am.f(this.eBE, R.color.cp_btn_a, 1);
         }
     }
 }

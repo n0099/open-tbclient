@@ -8,137 +8,137 @@ import java.io.File;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    private final CacheErrorLogger jRa;
-    private final String jRj;
-    private final com.facebook.common.internal.i<File> jRk;
-    private final long jRl;
-    private final long jRm;
-    private final long jRn;
-    private final g jRo;
-    private final CacheEventListener jRp;
-    private final com.facebook.common.a.b jRq;
-    private final boolean jRr;
+    private final CacheErrorLogger jYf;
+    private final String jYn;
+    private final com.facebook.common.internal.i<File> jYo;
+    private final long jYp;
+    private final long jYq;
+    private final long jYr;
+    private final g jYs;
+    private final CacheEventListener jYt;
+    private final com.facebook.common.a.b jYu;
+    private final boolean jYv;
     private final Context mContext;
-    private final int sX;
+    private final int tb;
 
     private b(a aVar) {
         CacheErrorLogger cacheErrorLogger;
         CacheEventListener cacheEventListener;
         com.facebook.common.a.b bVar;
-        this.sX = aVar.sX;
-        this.jRj = (String) com.facebook.common.internal.g.checkNotNull(aVar.jRj);
-        this.jRk = (com.facebook.common.internal.i) com.facebook.common.internal.g.checkNotNull(aVar.jRk);
-        this.jRl = aVar.jRs;
-        this.jRm = aVar.jRt;
-        this.jRn = aVar.jRu;
-        this.jRo = (g) com.facebook.common.internal.g.checkNotNull(aVar.jRo);
-        if (aVar.jRa == null) {
-            cacheErrorLogger = com.facebook.cache.common.e.cAS();
+        this.tb = aVar.tb;
+        this.jYn = (String) com.facebook.common.internal.g.checkNotNull(aVar.jYn);
+        this.jYo = (com.facebook.common.internal.i) com.facebook.common.internal.g.checkNotNull(aVar.jYo);
+        this.jYp = aVar.jYw;
+        this.jYq = aVar.jYx;
+        this.jYr = aVar.jYy;
+        this.jYs = (g) com.facebook.common.internal.g.checkNotNull(aVar.jYs);
+        if (aVar.jYf == null) {
+            cacheErrorLogger = com.facebook.cache.common.e.cDT();
         } else {
-            cacheErrorLogger = aVar.jRa;
+            cacheErrorLogger = aVar.jYf;
         }
-        this.jRa = cacheErrorLogger;
-        if (aVar.jRp == null) {
-            cacheEventListener = com.facebook.cache.common.f.cAT();
+        this.jYf = cacheErrorLogger;
+        if (aVar.jYt == null) {
+            cacheEventListener = com.facebook.cache.common.f.cDU();
         } else {
-            cacheEventListener = aVar.jRp;
+            cacheEventListener = aVar.jYt;
         }
-        this.jRp = cacheEventListener;
-        if (aVar.jRq == null) {
-            bVar = com.facebook.common.a.c.cBw();
+        this.jYt = cacheEventListener;
+        if (aVar.jYu == null) {
+            bVar = com.facebook.common.a.c.cEx();
         } else {
-            bVar = aVar.jRq;
+            bVar = aVar.jYu;
         }
-        this.jRq = bVar;
+        this.jYu = bVar;
         this.mContext = aVar.mContext;
-        this.jRr = aVar.jRr;
+        this.jYv = aVar.jYv;
     }
 
     public int getVersion() {
-        return this.sX;
+        return this.tb;
     }
 
-    public String cBb() {
-        return this.jRj;
+    public String cEc() {
+        return this.jYn;
     }
 
-    public com.facebook.common.internal.i<File> cBc() {
-        return this.jRk;
+    public com.facebook.common.internal.i<File> cEd() {
+        return this.jYo;
     }
 
-    public long cBd() {
-        return this.jRl;
+    public long cEe() {
+        return this.jYp;
     }
 
-    public long cBe() {
-        return this.jRm;
+    public long cEf() {
+        return this.jYq;
     }
 
-    public long cBf() {
-        return this.jRn;
+    public long cEg() {
+        return this.jYr;
     }
 
-    public g cBg() {
-        return this.jRo;
+    public g cEh() {
+        return this.jYs;
     }
 
-    public CacheErrorLogger cBh() {
-        return this.jRa;
+    public CacheErrorLogger cEi() {
+        return this.jYf;
     }
 
-    public CacheEventListener cBi() {
-        return this.jRp;
+    public CacheEventListener cEj() {
+        return this.jYt;
     }
 
-    public com.facebook.common.a.b cBj() {
-        return this.jRq;
+    public com.facebook.common.a.b cEk() {
+        return this.jYu;
     }
 
     public Context getContext() {
         return this.mContext;
     }
 
-    public boolean cBk() {
-        return this.jRr;
+    public boolean cEl() {
+        return this.jYv;
     }
 
-    public static a ey(@Nullable Context context) {
+    public static a ez(@Nullable Context context) {
         return new a(context);
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private CacheErrorLogger jRa;
-        private String jRj;
-        private com.facebook.common.internal.i<File> jRk;
-        private g jRo;
-        private CacheEventListener jRp;
-        private com.facebook.common.a.b jRq;
-        private boolean jRr;
-        private long jRs;
-        private long jRt;
-        private long jRu;
+        private CacheErrorLogger jYf;
+        private String jYn;
+        private com.facebook.common.internal.i<File> jYo;
+        private g jYs;
+        private CacheEventListener jYt;
+        private com.facebook.common.a.b jYu;
+        private boolean jYv;
+        private long jYw;
+        private long jYx;
+        private long jYy;
         @Nullable
         private final Context mContext;
-        private int sX;
+        private int tb;
 
         private a(@Nullable Context context) {
-            this.sX = 1;
-            this.jRj = "image_cache";
-            this.jRs = 41943040L;
-            this.jRt = Config.FULL_TRACE_LOG_LIMIT;
-            this.jRu = 2097152L;
-            this.jRo = new com.facebook.cache.disk.a();
+            this.tb = 1;
+            this.jYn = "image_cache";
+            this.jYw = 41943040L;
+            this.jYx = Config.FULL_TRACE_LOG_LIMIT;
+            this.jYy = 2097152L;
+            this.jYs = new com.facebook.cache.disk.a();
             this.mContext = context;
         }
 
-        public b cBl() {
-            com.facebook.common.internal.g.c((this.jRk == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
-            if (this.jRk == null && this.mContext != null) {
-                this.jRk = new com.facebook.common.internal.i<File>() { // from class: com.facebook.cache.disk.b.a.1
+        public b cEm() {
+            com.facebook.common.internal.g.c((this.jYo == null && this.mContext == null) ? false : true, "Either a non-null context or a base directory path or supplier must be provided.");
+            if (this.jYo == null && this.mContext != null) {
+                this.jYo = new com.facebook.common.internal.i<File>() { // from class: com.facebook.cache.disk.b.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.facebook.common.internal.i
-                    /* renamed from: cBm */
+                    /* renamed from: cEn */
                     public File get() {
                         return a.this.mContext.getApplicationContext().getCacheDir();
                     }

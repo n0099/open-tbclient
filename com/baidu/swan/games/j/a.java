@@ -1,7 +1,7 @@
 package com.baidu.swan.games.j;
 /* loaded from: classes2.dex */
 public class a {
-    public static com.baidu.swan.games.j.b.a RD() {
+    public static com.baidu.swan.games.j.b.a Sw() {
         return new com.baidu.swan.games.j.a.a();
     }
 }

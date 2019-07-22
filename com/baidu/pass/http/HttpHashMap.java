@@ -21,4 +21,7 @@ public class HttpHashMap {
     public String get(String str) {
         return this.a.get(str);
     }
+
+    public void doSign(String str) {
+    }
 }

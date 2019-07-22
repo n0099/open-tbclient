@@ -14,15 +14,15 @@ public interface Framedata {
         CLOSING
     }
 
-    ByteBuffer cKM();
+    ByteBuffer cOA();
 
-    boolean cKN();
+    boolean cOB();
 
-    boolean cKO();
+    boolean cOC();
 
-    boolean cKP();
+    boolean cOD();
 
-    boolean cKQ();
+    boolean cOE();
 
-    Opcode cKR();
+    Opcode cOF();
 }

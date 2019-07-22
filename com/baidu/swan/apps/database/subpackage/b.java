@@ -16,15 +16,15 @@ import com.baidu.swan.apps.database.subpackage.SubPackageTable;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
-    private SQLiteOpenHelper avd;
-    private Context mContext;
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
-    public static final Uri avb = Uri.parse("content://" + AUTHORITY + "/" + SubPackageTable.Table.TABLE_NAME);
-    private static UriMatcher avc = new UriMatcher(-1);
+    public static final String avF = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
+    public static final Uri avG = Uri.parse("content://" + avF + "/" + SubPackageTable.Table.TABLE_NAME);
+    private static UriMatcher avH = new UriMatcher(-1);
+    private SQLiteOpenHelper avI;
+    private Context mContext;
 
     static {
-        avc.addURI(AUTHORITY, SubPackageTable.Table.TABLE_NAME, 0);
+        avH.addURI(avF, SubPackageTable.Table.TABLE_NAME, 0);
     }
 
     public b(Context context) {
@@ -32,7 +32,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (avc.match(uri)) {
+        switch (avH.match(uri)) {
             case 0:
                 return SubPackageTable.Table.TABLE_NAME;
             default:
@@ -49,7 +49,7 @@ public class b {
         if (DEBUG) {
             Log.e("SubPackageProvider", "query");
         }
-        return BH().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
+        return Cp().getReadableDatabase().query(e, strArr, str, strArr2, null, null, str2, null);
     }
 
     @Nullable
@@ -66,7 +66,7 @@ public class b {
         if (DEBUG) {
             Log.e("SubPackageProvider", "insert:" + contentValues.toString());
         }
-        BH().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
+        Cp().getWritableDatabase().insertWithOnConflict(e, null, contentValues, 5);
         this.mContext.getContentResolver().notifyChange(uri, null);
         return uri;
     }
@@ -79,7 +79,7 @@ public class b {
         if (DEBUG) {
             Log.e("SubPackageProvider", WriteImageActivityConfig.DELET_FLAG);
         }
-        int delete = BH().getWritableDatabase().delete(e, str, strArr);
+        int delete = Cp().getWritableDatabase().delete(e, str, strArr);
         if (delete > 0) {
             this.mContext.getContentResolver().notifyChange(uri, null);
             return delete;
@@ -95,7 +95,7 @@ public class b {
         if (DEBUG) {
             Log.e("SubPackageProvider", "update");
         }
-        int update = BH().getWritableDatabase().update(e, contentValues, str, strArr);
+        int update = Cp().getWritableDatabase().update(e, contentValues, str, strArr);
         if (update > 0) {
             this.mContext.getContentResolver().notifyChange(uri, null);
             return update;
@@ -103,10 +103,10 @@ public class b {
         return update;
     }
 
-    private SQLiteOpenHelper BH() {
-        if (this.avd == null) {
-            this.avd = SwanAppDbControl.aX(this.mContext).BH();
+    private SQLiteOpenHelper Cp() {
+        if (this.avI == null) {
+            this.avI = SwanAppDbControl.aX(this.mContext).Cp();
         }
-        return this.avd;
+        return this.avI;
     }
 }

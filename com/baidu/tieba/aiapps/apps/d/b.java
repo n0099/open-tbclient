@@ -1,148 +1,56 @@
 package com.baidu.tieba.aiapps.apps.d;
 
-import android.content.Context;
-import java.util.Map;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import android.util.Log;
+import android.webkit.CookieManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.swan.apps.setting.oauth.f;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class b extends com.baidu.swan.apps.u.b.a {
-    private String aDU() {
-        return d.dbx;
+public class b extends f {
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+
+    @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        return true;
     }
 
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wk() {
-        return "tiebaclient";
+    @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        return true;
     }
 
-    @Override // com.baidu.swan.apps.b.b.f
-    public String getHostName() {
-        return "tieba";
+    @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        CookieManager cookieManager;
+        if (DEBUG) {
+            Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
+            Log.d("RealCookieManager", "storeCookie cookies: " + list);
+        }
+        try {
+            cookieManager = CookieManager.getInstance();
+        } catch (Throwable th) {
+            BdLog.e(th);
+            cookieManager = null;
+        }
+        if (cookieManager != null && list != null && list.size() > 0) {
+            for (String str2 : list) {
+                cookieManager.setCookie(str, str2);
+            }
+        }
     }
 
-    @Override // com.baidu.swan.apps.b.b.f
-    public boolean wl() {
-        return isDebug();
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wm() {
-        return d.sG(String.format("%s/ma/reset", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wn() {
-        return d.sG(String.format("%s/ma/update", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wr() {
-        return "flFqXclepWs7RdugAszy9eERL7G5dS0I";
-    }
-
-    private Request i(String str, Map<String, String> map) {
-        HttpUrl parse = HttpUrl.parse(aDU());
-        if (parse == null) {
+    @Override // com.baidu.swan.apps.setting.oauth.f, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        CookieManager cookieManager;
+        try {
+            cookieManager = CookieManager.getInstance();
+        } catch (Throwable th) {
+            BdLog.e(th);
+            cookieManager = null;
+        }
+        if (cookieManager == null) {
             return null;
         }
-        HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.k.a.aFz().dfw.entrySet()) {
-            addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
-        }
-        HttpUrl build = addPathSegments.build();
-        Request.Builder builder = new Request.Builder();
-        builder.url(d.sG(build.toString()));
-        builder.post(com.baidu.swan.apps.setting.oauth.c.n(map));
-        return builder.build();
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request d(Context context, Map<String, String> map) {
-        return i("ma/login", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request e(Context context, Map<String, String> map) {
-        return i("ma/accredit_data", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request f(Context context, Map<String, String> map) {
-        return i("ma/accredit_v1", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request g(Context context, Map<String, String> map) {
-        return i("ma/user/checksessionkey", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request h(Context context, Map<String, String> map) {
-        return i("ma/user/swanid", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public Request i(Context context, Map<String, String> map) {
-        return i("ma/open/data", map);
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wt() {
-        return "MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB";
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wv() {
-        return d.sG(String.format("%s/ma/game/rest/check_is_user_advised_to_rest", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String ww() {
-        return d.sG(String.format("%s/ma/game/od/get_user_info", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wx() {
-        return d.sG(String.format("%s/ma/game/od/remove_user_cloud_storage", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wy() {
-        return d.sG(String.format("%s/ma/game/od/get_user_cloud_storage", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wz() {
-        return d.sG(String.format("%s/ma/game/od/set_user_cloud_storage", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wA() {
-        return d.sG(String.format("%s/ma/game/od/get_friend_cloud_storage", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wB() {
-        return d.sG(String.format("%s/ma/game/od/get_follow_cloud_storage", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wC() {
-        return d.sG(String.format("%s/api/exchange/list", a.aDT()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wD() {
-        return d.sG(String.format("%s/api/exchange/transfer_report", a.aDT()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wE() {
-        return d.sG(String.format("%s/api/subscribe/v1/relation/get", aDU()));
-    }
-
-    @Override // com.baidu.swan.apps.b.b.f
-    public String wF() {
-        return d.sG(String.format("%s/api/subscribe/v1/relation/receive", aDU()));
+        return cookieManager.getCookie(str);
     }
 }

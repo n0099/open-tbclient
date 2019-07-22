@@ -7,41 +7,41 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static volatile b bkt;
-    private volatile ArrayList<a> bku = new ArrayList<>(20);
+    private static volatile b blg;
+    private volatile ArrayList<a> blh = new ArrayList<>(20);
     private int mDropCount;
 
     private b() {
     }
 
-    public static b Sm() {
-        if (bkt == null) {
+    public static b Tf() {
+        if (blg == null) {
             synchronized (b.class) {
-                if (bkt == null) {
-                    bkt = new b();
+                if (blg == null) {
+                    blg = new b();
                 }
             }
         }
-        return bkt;
+        return blg;
     }
 
     public synchronized void a(a aVar) {
         if (aVar != null) {
-            if (this.bku.size() < 20) {
-                this.bku.add(aVar);
+            if (this.blh.size() < 20) {
+                this.blh.add(aVar);
             } else {
                 this.mDropCount++;
             }
         }
     }
 
-    public synchronized JSONObject Sn() {
+    public synchronized JSONObject Tg() {
         JSONObject jSONObject;
         int size;
         JSONArray jSONArray;
         JSONObject jSONObject2 = new JSONObject();
         try {
-            size = this.bku.size();
+            size = this.blh.size();
             jSONObject2.put("dropcnt", this.mDropCount);
             jSONObject2.put("errorcnt", size);
             jSONArray = new JSONArray();
@@ -51,18 +51,18 @@ public class b {
         if (size == 0) {
             jSONObject = jSONObject2;
         } else {
-            Iterator<a> it = this.bku.iterator();
+            Iterator<a> it = this.blh.iterator();
             while (it.hasNext()) {
                 jSONArray.put(it.next().toJSON());
             }
-            this.bku.clear();
+            this.blh.clear();
             jSONObject = jSONObject2;
         }
         return jSONObject;
     }
 
     public synchronized void clear() {
-        this.bku.clear();
+        this.blh.clear();
         this.mDropCount = 0;
     }
 }

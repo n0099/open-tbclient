@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.an;
 /* loaded from: classes.dex */
 public class a {
 
     /* renamed from: com.baidu.tieba.pb.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0366a {
-        void g(String str, String str2, String str3, String str4, String str5);
+    public interface InterfaceC0365a {
+        void h(String str, String str2, String str3, String str4, String str5);
     }
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
@@ -24,7 +24,7 @@ public class a {
 
     public static void a(long j, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11) {
         if (j > 0) {
-            am bT = new am("ad_tpoint").bT(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).bT("obj_name", str);
+            an bT = new an("ad_tpoint").bT(VideoPlayActivityConfig.OBJ_ID, String.valueOf(j)).bT("obj_name", str);
             if (str3 != null) {
                 bT = bT.bT("page", str3);
             }
@@ -52,7 +52,7 @@ public class a {
             if (str11 != null) {
                 bT = bT.bT("tid", str11);
             }
-            am bT2 = bT.bT("line", "PT").bT("locate", "c0114").P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT("os", "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
+            an bT2 = bT.bT("line", "PT").bT("locate", "c0114").P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT("os", "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
             if (str2 != null) {
                 bT2 = bT2.bT(SelectForumActivityConfig.KEY_SHARE_LINK, str2);
             }

@@ -3,14 +3,14 @@ package com.baidu.crabsdk.a;
 import android.os.Handler;
 /* loaded from: classes3.dex */
 public final class j {
-    private static k YY = new k("loop");
-    private static k YZ = new k("writelog");
+    private static k Zt = new k("loop");
+    private static k Zu = new k("writelog");
 
-    public static Handler qI() {
-        return YY.getHandler();
+    public static Handler rf() {
+        return Zt.getHandler();
     }
 
-    public static Handler qJ() {
-        return YZ.getHandler();
+    public static Handler rg() {
+        return Zu.getHandler();
     }
 }

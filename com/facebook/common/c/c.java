@@ -9,7 +9,9 @@ public interface c {
 
     void e(String str, String str2, Throwable th);
 
-    void ey(String str, String str2);
+    void ez(String str, String str2);
+
+    void f(String str, String str2, Throwable th);
 
     void i(String str, String str2);
 
@@ -18,6 +20,4 @@ public interface c {
     void v(String str, String str2);
 
     void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
 }

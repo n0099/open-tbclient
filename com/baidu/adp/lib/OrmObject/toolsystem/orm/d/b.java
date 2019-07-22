@@ -90,63 +90,63 @@ public class b {
         if (arrayList == null || cVar == null) {
             return null;
         }
-        Class<?> gS = cVar.gS();
-        Type[] gR = cVar.gR();
-        if (gS.isArray()) {
-            Object newInstance = Array.newInstance(gS.getComponentType(), arrayList.size());
+        Class<?> hb = cVar.hb();
+        Type[] ha = cVar.ha();
+        if (hb.isArray()) {
+            Object newInstance = Array.newInstance(hb.getComponentType(), arrayList.size());
             Iterator<Object> it = arrayList.iterator();
             while (it.hasNext()) {
-                Object g5 = g.s(it.next()).g(new c(gS.getComponentType()));
+                Object g5 = g.s(it.next()).g(new c(hb.getComponentType()));
                 if (g5 != null) {
                     Array.set(newInstance, i, g5);
                 }
                 i++;
             }
             return newInstance;
-        } else if (com.baidu.adp.lib.OrmObject.a.a.d(gS, List.class)) {
+        } else if (com.baidu.adp.lib.OrmObject.a.a.d(hb, List.class)) {
             List<Object> a = a.a(cVar, arrayList.size());
             if (a != null) {
                 Iterator<Object> it2 = arrayList.iterator();
                 while (it2.hasNext()) {
                     h s = g.s(it2.next());
-                    if (gR != null && gR.length >= 1 && (g4 = s.g(new c(gR[0]))) != null) {
+                    if (ha != null && ha.length >= 1 && (g4 = s.g(new c(ha[0]))) != null) {
                         a.add(g4);
                     }
                 }
             }
             return a;
-        } else if (com.baidu.adp.lib.OrmObject.a.a.d(gS, Queue.class)) {
+        } else if (com.baidu.adp.lib.OrmObject.a.a.d(hb, Queue.class)) {
             Queue<Object> c = a.c(cVar, arrayList.size());
             if (c != null) {
                 Iterator<Object> it3 = arrayList.iterator();
                 while (it3.hasNext()) {
                     h s2 = g.s(it3.next());
-                    if (gR != null && gR.length >= 1 && (g3 = s2.g(new c(gR[0]))) != null) {
+                    if (ha != null && ha.length >= 1 && (g3 = s2.g(new c(ha[0]))) != null) {
                         c.add(g3);
                     }
                 }
             }
             return c;
-        } else if (com.baidu.adp.lib.OrmObject.a.a.d(gS, Set.class)) {
+        } else if (com.baidu.adp.lib.OrmObject.a.a.d(hb, Set.class)) {
             Set<Object> b = a.b(cVar, arrayList.size());
             if (b != null) {
                 Iterator<Object> it4 = arrayList.iterator();
                 while (it4.hasNext()) {
                     h s3 = g.s(it4.next());
-                    if (gR != null && gR.length >= 1 && (g2 = s3.g(new c(gR[0]))) != null) {
+                    if (ha != null && ha.length >= 1 && (g2 = s3.g(new c(ha[0]))) != null) {
                         b.add(g2);
                     }
                 }
             }
             return b;
-        } else if (com.baidu.adp.lib.OrmObject.a.a.d(gS, Map.class)) {
+        } else if (com.baidu.adp.lib.OrmObject.a.a.d(hb, Map.class)) {
             Map<String, Object> d = a.d(cVar, arrayList.size());
             if (d != null) {
                 Iterator<Object> it5 = arrayList.iterator();
                 while (it5.hasNext()) {
                     h s4 = g.s(it5.next());
-                    if (gR != null && gR.length >= 2) {
-                        g = s4.g(new c(gR[1]));
+                    if (ha != null && ha.length >= 2) {
+                        g = s4.g(new c(ha[1]));
                     } else {
                         g = s4.g(new c(String.class));
                     }
@@ -157,8 +157,8 @@ public class b {
                 }
             }
             return d;
-        } else if (gS != SparseArray.class) {
-            return gS == Bundle.class ? null : null;
+        } else if (hb != SparseArray.class) {
+            return hb == Bundle.class ? null : null;
         } else {
             SparseArray sparseArray = new SparseArray();
             Iterator<Object> it6 = arrayList.iterator();
@@ -166,7 +166,7 @@ public class b {
             while (it6.hasNext()) {
                 Object next = it6.next();
                 h s5 = g.s(next);
-                if (gR != null && gR.length >= 1 && s5.g(new c(gR[0])) != null) {
+                if (ha != null && ha.length >= 1 && s5.g(new c(ha[0])) != null) {
                     sparseArray.put(i2, next);
                 }
                 i2++;

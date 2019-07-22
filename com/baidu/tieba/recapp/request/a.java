@@ -9,6 +9,7 @@ import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.http.cookie.SM;
 /* loaded from: classes3.dex */
 public class a {
     private String url;
@@ -23,33 +24,33 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap bHz = a.this.bHz();
+                HashMap bKg = a.this.bKg();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
-                eVar.ik().setUrl(a.this.url);
-                eVar.ik().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (bHz != null && !bHz.isEmpty()) {
-                    eVar.ik().j(a.this.bHz());
+                eVar.iu().setUrl(a.this.url);
+                eVar.iu().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                if (bKg != null && !bKg.isEmpty()) {
+                    eVar.iu().j(a.this.bKg());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
                     for (Map.Entry<String, Object> entry : b.entrySet()) {
                         arrayList.add(entry);
                     }
-                    eVar.ik().j(arrayList);
+                    eVar.iu().j(arrayList);
                 }
                 new c(eVar).f(1, 0, 0);
-                eVar.il();
+                eVar.iv();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> bHz() {
+    public HashMap<String, String> bKg() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put("Cookie", cookie);
+        hashMap.put(SM.COOKIE, cookie);
         return hashMap;
     }
 

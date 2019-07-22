@@ -3,13 +3,13 @@ package com.baidu.adp.lib.stats.b;
 public class a extends com.baidu.adp.lib.stats.base.a {
     public a(i iVar) {
         super(iVar);
-        this.Cp = 10;
+        this.Cv = 10;
         this.mMustSuccess = true;
-        this.Cq = "alert";
+        this.Cw = "alert";
     }
 
     @Override // com.baidu.adp.lib.stats.base.a
-    public String jd() {
+    public String jm() {
         return "mon";
     }
 }

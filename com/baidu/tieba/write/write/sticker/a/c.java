@@ -5,9 +5,9 @@ import android.graphics.Bitmap;
 public interface c {
     boolean P(Bitmap bitmap);
 
-    void cyt();
+    void cBr();
 
-    void cyu();
+    void cBs();
 
-    void cyv();
+    void cBt();
 }

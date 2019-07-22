@@ -12,17 +12,17 @@ import com.baidu.sofire.b;
 import com.baidu.sofire.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class a {
     private static a a;
-    private C0105a b;
+    private C0102a b;
     private e c;
     private SQLiteDatabase d;
     private Context e;
 
     private a(Context context) {
         this.e = context;
-        this.b = new C0105a(context);
+        this.b = new C0102a(context);
         this.c = new e(context);
         try {
             this.d = this.b.getWritableDatabase();
@@ -86,7 +86,7 @@ public final class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [150=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [156=4] */
     public final boolean b(java.lang.String r12) {
         /*
             r11 = this;
@@ -207,7 +207,7 @@ public final class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [265=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [278=4] */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:49:0x0153 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v4 */
@@ -236,7 +236,7 @@ public final class a {
                 if (i == 2) {
                     cursor = this.d.query("r", null, sb, null, null, null, "d desc", Integer.toString(100));
                 } else {
-                    cursor = this.d.query("r", null, sb, null, null, null, "d desc", Integer.toString(eVar.x()));
+                    cursor = this.d.query("r", null, sb, null, null, null, "d desc", Integer.toString(eVar.w()));
                 }
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -303,7 +303,7 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [316=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [333=4] */
     /* JADX WARN: Removed duplicated region for block: B:46:0x00e1 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -381,8 +381,8 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [389=4] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0142 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [410=4] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0144 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -395,12 +395,12 @@ public final class a {
         String str2 = z ? "(d < (" + System.currentTimeMillis() + "-f*3600000) and f!= 0)" : "d<=" + (currentTimeMillis - 259200000);
         try {
             if (i == 2) {
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", null);
+                cursor = this.d.query("r", null, str2, null, null, null, "d desc", "100");
             } else {
-                int x = new e(this.e).x();
-                new StringBuilder("sj-trigger report 3g limit").append(Integer.toString(x));
+                int w = new e(this.e).w();
+                new StringBuilder(" 3g limit").append(Integer.toString(w));
                 b.a();
-                cursor = this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(x));
+                cursor = this.d.query("r", null, str2, null, null, null, "d desc", Integer.toString(w));
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -468,7 +468,7 @@ public final class a {
         return arrayList;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [412=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [433=4] */
     /* JADX WARN: Removed duplicated region for block: B:39:0x0038 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -547,9 +547,9 @@ public final class a {
     }
 
     /* renamed from: com.baidu.sofire.rp.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    class C0105a extends SQLiteOpenHelper {
-        public C0105a(Context context) {
+    /* loaded from: classes2.dex */
+    class C0102a extends SQLiteOpenHelper {
+        public C0102a(Context context) {
             super(context, "d.db", (SQLiteDatabase.CursorFactory) null, 3);
         }
 

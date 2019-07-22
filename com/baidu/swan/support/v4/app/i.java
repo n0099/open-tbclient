@@ -14,22 +14,22 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i {
-    private final j<?> btC;
+    private final j<?> but;
 
     public static final i a(j<?> jVar) {
         return new i(jVar);
     }
 
     private i(j<?> jVar) {
-        this.btC = jVar;
+        this.but = jVar;
     }
 
-    public k Wk() {
-        return this.btC.Wm();
+    public k Xe() {
+        return this.but.Xg();
     }
 
     public int getActiveFragmentsCount() {
-        ArrayList<Fragment> arrayList = this.btC.btB.btR;
+        ArrayList<Fragment> arrayList = this.but.bus.buI;
         if (arrayList == null) {
             return 0;
         }
@@ -37,129 +37,129 @@ public class i {
     }
 
     public List<Fragment> getActiveFragments(List<Fragment> list) {
-        if (this.btC.btB.btR == null) {
+        if (this.but.bus.buI == null) {
             return null;
         }
         if (list == null) {
             list = new ArrayList<>(getActiveFragmentsCount());
         }
-        list.addAll(this.btC.btB.btR);
+        list.addAll(this.but.bus.buI);
         return list;
     }
 
     public void f(Fragment fragment) {
-        this.btC.btB.a(this.btC, this.btC, fragment);
+        this.but.bus.a(this.but, this.but, fragment);
     }
 
     public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
-        return this.btC.btB.onCreateView(view, str, context, attributeSet);
+        return this.but.bus.onCreateView(view, str, context, attributeSet);
     }
 
     public void noteStateNotSaved() {
-        this.btC.btB.noteStateNotSaved();
+        this.but.bus.noteStateNotSaved();
     }
 
     public Parcelable saveAllState() {
-        return this.btC.btB.saveAllState();
+        return this.but.bus.saveAllState();
     }
 
     public void restoreAllState(Parcelable parcelable, List<Fragment> list) {
-        this.btC.btB.restoreAllState(parcelable, list);
+        this.but.bus.restoreAllState(parcelable, list);
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.btC.btB.Wo();
+        return this.but.bus.Xi();
     }
 
     public void dispatchCreate() {
-        this.btC.btB.dispatchCreate();
+        this.but.bus.dispatchCreate();
     }
 
     public void dispatchActivityCreated() {
-        this.btC.btB.dispatchActivityCreated();
+        this.but.bus.dispatchActivityCreated();
     }
 
     public void dispatchStart() {
-        this.btC.btB.dispatchStart();
+        this.but.bus.dispatchStart();
     }
 
     public void dispatchResume() {
-        this.btC.btB.dispatchResume();
+        this.but.bus.dispatchResume();
     }
 
     public void dispatchPause() {
-        this.btC.btB.dispatchPause();
+        this.but.bus.dispatchPause();
     }
 
     public void dispatchStop() {
-        this.btC.btB.dispatchStop();
+        this.but.bus.dispatchStop();
     }
 
     public void dispatchReallyStop() {
-        this.btC.btB.dispatchReallyStop();
+        this.but.bus.dispatchReallyStop();
     }
 
     public void dispatchDestroy() {
-        this.btC.btB.dispatchDestroy();
+        this.but.bus.dispatchDestroy();
     }
 
     public void dispatchConfigurationChanged(Configuration configuration) {
-        this.btC.btB.dispatchConfigurationChanged(configuration);
+        this.but.bus.dispatchConfigurationChanged(configuration);
     }
 
     public void dispatchLowMemory() {
-        this.btC.btB.dispatchLowMemory();
+        this.but.bus.dispatchLowMemory();
     }
 
     public boolean dispatchCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        return this.btC.btB.dispatchCreateOptionsMenu(menu, menuInflater);
+        return this.but.bus.dispatchCreateOptionsMenu(menu, menuInflater);
     }
 
     public boolean dispatchPrepareOptionsMenu(Menu menu) {
-        return this.btC.btB.dispatchPrepareOptionsMenu(menu);
+        return this.but.bus.dispatchPrepareOptionsMenu(menu);
     }
 
     public boolean dispatchOptionsItemSelected(MenuItem menuItem) {
-        return this.btC.btB.dispatchOptionsItemSelected(menuItem);
+        return this.but.bus.dispatchOptionsItemSelected(menuItem);
     }
 
     public boolean dispatchContextItemSelected(MenuItem menuItem) {
-        return this.btC.btB.dispatchContextItemSelected(menuItem);
+        return this.but.bus.dispatchContextItemSelected(menuItem);
     }
 
     public void dispatchOptionsMenuClosed(Menu menu) {
-        this.btC.btB.dispatchOptionsMenuClosed(menu);
+        this.but.bus.dispatchOptionsMenuClosed(menu);
     }
 
     public boolean execPendingActions() {
-        return this.btC.btB.execPendingActions();
+        return this.but.bus.execPendingActions();
     }
 
     public void doLoaderStart() {
-        this.btC.doLoaderStart();
+        this.but.doLoaderStart();
     }
 
     public void doLoaderStop(boolean z) {
-        this.btC.doLoaderStop(z);
+        this.but.doLoaderStop(z);
     }
 
     public void doLoaderDestroy() {
-        this.btC.doLoaderDestroy();
+        this.but.doLoaderDestroy();
     }
 
     public void reportLoaderStart() {
-        this.btC.reportLoaderStart();
+        this.but.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> Wl() {
-        return this.btC.Wl();
+    public com.baidu.swan.support.v4.b.f<String, o> Xf() {
+        return this.but.Xf();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {
-        this.btC.a(fVar);
+        this.but.a(fVar);
     }
 
     public void dumpLoaders(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
-        this.btC.dumpLoaders(str, fileDescriptor, printWriter, strArr);
+        this.but.dumpLoaders(str, fileDescriptor, printWriter, strArr);
     }
 }

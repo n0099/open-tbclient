@@ -10,7 +10,7 @@ import com.baidu.adp.widget.ListView.v;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public a MK = null;
+    public a Nb = null;
     public ArrayList<c> mFooterViewInfos;
     public ArrayList<c> mHeaderViewInfos;
 
@@ -27,23 +27,23 @@ public class d {
     }
 
     public void a(a aVar) {
-        this.MK = aVar;
+        this.Nb = aVar;
     }
 
-    public int getHeadersCount() {
+    public int od() {
         return this.mHeaderViewInfos.size();
     }
 
-    public int getFootersCount() {
+    public int oe() {
         return this.mFooterViewInfos.size();
     }
 
     public void addHeaderView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.MN = new v.a(view);
+            cVar.Nd = new v.a(view);
             cVar.data = obj;
-            cVar.isSelectable = z;
+            cVar.Ne = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("HEADER");
@@ -58,9 +58,9 @@ public class d {
     public void addFooterView(View view, Object obj, boolean z, int i) {
         if (view != null) {
             c cVar = new c();
-            cVar.MN = new v.a(view);
+            cVar.Nd = new v.a(view);
             cVar.data = obj;
-            cVar.isSelectable = z;
+            cVar.Ne = z;
             cVar.type = BdUniqueId.gen().getId();
             cVar.id = cVar.type;
             view.setTag("FOOTER");
@@ -72,13 +72,13 @@ public class d {
         }
     }
 
-    public boolean removeHeader(View view) {
+    public boolean B(View view) {
         if (view == null) {
             return false;
         }
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             c cVar = this.mHeaderViewInfos.get(i);
-            if (cVar != null && cVar.MN != null && cVar.MN.itemView == view) {
+            if (cVar != null && cVar.Nd != null && cVar.Nd.itemView == view) {
                 this.mHeaderViewInfos.remove(i);
                 return true;
             }
@@ -86,13 +86,13 @@ public class d {
         return false;
     }
 
-    public boolean removeFooter(View view) {
+    public boolean C(View view) {
         if (view == null) {
             return false;
         }
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             c cVar = this.mFooterViewInfos.get(i);
-            if (cVar != null && cVar.MN != null && cVar.MN.itemView == view) {
+            if (cVar != null && cVar.Nd != null && cVar.Nd.itemView == view) {
                 this.mFooterViewInfos.remove(i);
                 return true;
             }
@@ -108,7 +108,7 @@ public class d {
                 if (this.mHeaderViewInfos.get(i3) == null || i != this.mHeaderViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mHeaderViewInfos.get(i3).MN;
+                    return this.mHeaderViewInfos.get(i3).Nd;
                 }
             } else {
                 return null;
@@ -124,7 +124,7 @@ public class d {
                 if (this.mFooterViewInfos.get(i3) == null || i != this.mFooterViewInfos.get(i3).type) {
                     i2 = i3 + 1;
                 } else {
-                    return this.mFooterViewInfos.get(i3).MN;
+                    return this.mFooterViewInfos.get(i3).Nd;
                 }
             } else {
                 return null;
@@ -150,10 +150,10 @@ public class d {
 
     /* loaded from: classes.dex */
     public class c {
-        public v.a MN;
+        public v.a Nd;
+        public boolean Ne;
         public Object data;
         public long id;
-        public boolean isSelectable;
         public int type;
 
         public c() {

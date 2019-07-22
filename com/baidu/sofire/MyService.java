@@ -3,12 +3,13 @@ package com.baidu.sofire;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.sofire.b.r;
 import com.baidu.sofire.core.ApkInfo;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public class MyService extends Service {
     private volatile int a = 0;
 
@@ -21,26 +22,25 @@ public class MyService extends Service {
         if (intent == null) {
             return super.onStartCommand(intent, i, i2);
         }
+        Bundle bundleExtra = intent.getBundleExtra("bundle");
+        if (bundleExtra != null) {
+            b.a();
+            String[] stringArray = bundleExtra.getStringArray("appkey");
+            int[] intArray = bundleExtra.getIntArray("key");
+            int i3 = bundleExtra.getInt("delay");
+            if (stringArray != null && stringArray.length == 2 && !TextUtils.isEmpty(stringArray[0]) && !TextUtils.isEmpty(stringArray[1])) {
+                com.baidu.sofire.core.e.a(getApplicationContext(), i3, stringArray[0], stringArray[1], intArray);
+            }
+            return super.onStartCommand(intent, i, i2);
+        }
         this.a++;
         final String stringExtra = intent.getStringExtra("from_plugin_package");
-        new StringBuilder("PPP(service) try do action ").append(intent.getAction()).append(" ").append(stringExtra);
+        new StringBuilder().append(intent.getAction()).append(" ").append(stringExtra);
         b.a();
         r.a().a(new Runnable() { // from class: com.baidu.sofire.MyService.1
             @Override // java.lang.Runnable
             public final void run() {
                 try {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    new StringBuilder("PPP(service) do action ").append(intent.getAction()).append(" ").append(stringExtra);
-                    b.a();
-                    if ("s".equals(intent.getStringExtra("t"))) {
-                        String stringExtra2 = intent.getStringExtra("c");
-                        Intent intent2 = new Intent();
-                        intent2.putExtra("t", "s");
-                        intent2.putExtra("c", stringExtra2);
-                        a.a(MyService.this.getApplicationContext(), intent2);
-                    }
-                    new StringBuilder("p:=").append(stringExtra);
-                    b.a();
                     if (TextUtils.isEmpty(stringExtra)) {
                         MyService.a(MyService.this);
                     } else if (MyService.this.getPackageName().equals(stringExtra)) {
@@ -50,19 +50,17 @@ public class MyService extends Service {
                         com.baidu.sofire.core.g a = com.baidu.sofire.core.g.a();
                         if (a == null) {
                             MyService.a(MyService.this);
-                            return;
+                        } else {
+                            ApkInfo d = a.d(stringExtra);
+                            new StringBuilder("i=").append(d);
+                            b.a();
+                            if (d == null) {
+                                MyService.a(MyService.this);
+                            } else {
+                                MyService.a(MyService.this, d.classLoader, intent);
+                                MyService.a(MyService.this);
+                            }
                         }
-                        ApkInfo d = a.d(stringExtra);
-                        new StringBuilder("i=").append(d);
-                        b.a();
-                        if (d == null) {
-                            MyService.a(MyService.this);
-                            return;
-                        }
-                        MyService.a(MyService.this, d.classLoader, intent);
-                        new StringBuilder("PPP(service) after action ").append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f).append(intent.toString()).append(" ").append(stringExtra);
-                        b.a();
-                        MyService.a(MyService.this);
                     }
                 } catch (Throwable th2) {
                     com.baidu.sofire.b.e.a();
@@ -96,9 +94,10 @@ public class MyService extends Service {
             String stringExtra = intent.getStringExtra("target_class");
             Class<?> loadClass = classLoader.loadClass(stringExtra);
             Object newInstance = loadClass.newInstance();
-            new StringBuilder("targetClass=").append(stringExtra).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(newInstance);
+            new StringBuilder().append(stringExtra).append(Constants.ACCEPT_TIME_SEPARATOR_SERVER).append(newInstance);
             b.a();
             String stringExtra2 = intent.getStringExtra("target_method");
+            new StringBuilder().append(stringExtra2);
             b.a();
             loadClass.getDeclaredMethod(stringExtra2, Context.class, Intent.class).invoke(newInstance, myService.getApplicationContext(), intent);
         } catch (Throwable th) {

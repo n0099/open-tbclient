@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes4.dex */
 public class c {
-    private a fGE;
-    private HttpMessageListener fGI = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
+    private a fLC;
+    private HttpMessageListener fLG = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fGE != null) {
-                c.this.fGE.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fLC != null) {
+                c.this.fLC.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
@@ -26,9 +26,9 @@ public class c {
     }
 
     public c(a aVar) {
-        this.fGE = aVar;
+        this.fLC = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.fGI);
+        MessageManager.getInstance().registerListener(this.fLG);
     }
 
     private void registerTask() {
@@ -40,7 +40,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void se(int i) {
+    public void sw(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_LIVE_TIP_CMD);
         httpMessage.addParam("forum_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -48,6 +48,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        MessageManager.getInstance().unRegisterListener(this.fGI);
+        MessageManager.getInstance().unRegisterListener(this.fLG);
     }
 }

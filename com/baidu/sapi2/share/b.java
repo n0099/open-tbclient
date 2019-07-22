@@ -6,12 +6,15 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.utils.AES;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiDataEncryptor;
 import com.baidu.sapi2.utils.SapiEnv;
+import com.baidu.sapi2.utils.StatService;
+import java.util.HashMap;
 /* loaded from: classes.dex */
 final class b {
     private static String a = null;
@@ -27,6 +30,11 @@ final class b {
             return SapiDataEncryptor.byteToHex(new AES("AES", "AES/CBC/PKCS5Padding").encrypt(str, SapiEnv.SHARE_IV, a(context)));
         } catch (Exception e) {
             Log.e(e);
+            HashMap hashMap = new HashMap();
+            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put("device_ver", Build.VERSION.RELEASE);
+            hashMap.put(PushConstants.EXTRA_ERROR_CODE, android.util.Log.getStackTraceString(e));
+            StatService.onEvent("aes_encrypt_error", hashMap);
             return null;
         }
     }
@@ -39,6 +47,11 @@ final class b {
             return new String(new AES("AES", "AES/CBC/PKCS5Padding").decrypt(SapiDataEncryptor.hexToByte(str), SapiEnv.SHARE_IV, a(context))).trim();
         } catch (Exception e) {
             Log.e(e);
+            HashMap hashMap = new HashMap();
+            hashMap.put(Config.DEVICE_PART, Build.MODEL);
+            hashMap.put("device_ver", Build.VERSION.RELEASE);
+            hashMap.put(PushConstants.EXTRA_ERROR_CODE, android.util.Log.getStackTraceString(e));
+            StatService.onEvent("aes_decrypt_error", hashMap);
             return null;
         }
     }
@@ -50,7 +63,7 @@ final class b {
         if (a != null) {
             return a;
         }
-        String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() : null;
+        String deviceId = Build.VERSION.SDK_INT < 23 ? ((TelephonyManager) context.getSystemService("phone")).getDeviceId() : null;
         String str3 = Build.MODEL;
         if ("mounted".equals(Environment.getExternalStorageState())) {
             StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());

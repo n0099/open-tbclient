@@ -15,6 +15,7 @@ public class Session {
     private volatile long e = 0;
     private volatile int f = 0;
     private List<a> g = new ArrayList();
+    private volatile JSONObject h = null;
 
     public void reset() {
         this.a = 0L;
@@ -88,6 +89,10 @@ public class Session {
         this.b = j;
     }
 
+    public void setLaunchInfo(JSONObject jSONObject) {
+        this.h = jSONObject;
+    }
+
     public JSONObject constructJSONObject() {
         JSONObject jSONObject = new JSONObject();
         try {
@@ -98,6 +103,9 @@ public class Session {
             jSONObject.put(Config.SESSTION_TRACK_START_TIME, this.c == 0 ? this.a : this.c);
             jSONObject.put(Config.SESSTION_TRACK_END_TIME, this.d == 0 ? this.b : this.d);
             jSONObject.put("pc", this.f);
+            if (this.h != null && this.h.length() != 0) {
+                jSONObject.put(Config.LAUNCH, this.h);
+            }
             JSONArray jSONArray = new JSONArray();
             for (int i = 0; i < this.g.size(); i++) {
                 jSONArray.put(getPVJson(this.g.get(i), this.a));

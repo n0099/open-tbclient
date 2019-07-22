@@ -1,6 +1,7 @@
 package com.baidu.pass.http;
 
 import java.net.HttpCookie;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PassHttpParamDTO {
@@ -10,4 +11,5 @@ public class PassHttpParamDTO {
     public String userAgent;
     public HttpHashMap paramsMap = new HttpHashMap();
     public boolean asyncCookie = false;
+    public HashMap<String, String> headers = new HashMap<>(1);
 }

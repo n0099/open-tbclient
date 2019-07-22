@@ -17,9 +17,9 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class e {
-    private BdListView MR;
-    private l bMC;
-    private View bMp;
+    private BdListView Ni;
+    private l bNC;
+    private View bNp;
     private TbPageContext<?> mContext;
     private AlertDialog mDialog;
     private ArrayList<m> mItems;
@@ -27,26 +27,26 @@ public class e {
     private ViewGroup mRootView;
     private String mTitle;
     private TextView mTitleView;
-    private int bMr = -1;
-    private int bLO = -1;
-    private boolean bMd = false;
+    private int bNr = -1;
+    private int bMO = -1;
+    private boolean bNd = false;
 
     public e(TbPageContext<?> tbPageContext) {
         this.mContext = tbPageContext;
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.dialog_rich_layout, (ViewGroup) null);
         this.mTitleView = (TextView) this.mRootView.findViewById(R.id.dialog_title_list);
-        this.MR = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
-        this.bMp = this.mRootView.findViewById(R.id.line_bg);
-        this.bMC = new l(this.mContext);
+        this.Ni = (BdListView) this.mRootView.findViewById(R.id.dialog_content_list);
+        this.bNp = this.mRootView.findViewById(R.id.line_bg);
+        this.bNC = new l(this.mContext);
     }
 
-    public e mF(String str) {
+    public e mQ(String str) {
         this.mTitle = str;
         return this;
     }
 
-    public e hx(int i) {
-        return mF(this.mContext.getResources().getString(i));
+    public e hD(int i) {
+        return mQ(this.mContext.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -54,25 +54,25 @@ public class e {
             this.mItems = arrayList;
             if (onItemClickListener != null) {
                 this.mOnItemClickListener = onItemClickListener;
-                this.MR.setOnItemClickListener(this.mOnItemClickListener);
+                this.Ni.setOnItemClickListener(this.mOnItemClickListener);
             }
         }
         return this;
     }
 
-    public e afK() {
-        if (!this.bMd) {
-            this.bMd = true;
+    public e agM() {
+        if (!this.bNd) {
+            this.bNd = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
                 this.mTitleView.setText(this.mTitle);
                 this.mTitleView.setVisibility(0);
-                this.bMp.setVisibility(0);
+                this.bNp.setVisibility(0);
             } else {
                 this.mTitleView.setVisibility(8);
-                this.bMp.setVisibility(8);
+                this.bNp.setVisibility(8);
             }
-            this.MR.setAdapter((ListAdapter) this.bMC);
-            this.bMC.setData(this.mItems);
+            this.Ni.setAdapter((ListAdapter) this.bNC);
+            this.bNC.setData(this.mItems);
             c(this.mContext);
         }
         return this;
@@ -86,11 +86,11 @@ public class e {
                 this.mItems.get(i2).setChecked(false);
             }
         }
-        this.bMC.setData(this.mItems);
+        this.bNC.setData(this.mItems);
     }
 
-    public e afL() {
-        if (!this.bMd) {
+    public e agN() {
+        if (!this.bNd) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         if (this.mDialog != null) {
@@ -100,16 +100,16 @@ public class e {
             this.mDialog.setCanceledOnTouchOutside(true);
             if (com.baidu.adp.lib.g.g.a(this.mDialog, this.mContext.getPageActivity())) {
                 Window window = this.mDialog.getWindow();
-                if (this.bMr == -1) {
-                    this.bMr = R.style.dialog_ani_b2t;
+                if (this.bNr == -1) {
+                    this.bNr = R.style.dialog_ani_b2t;
                 }
-                if (this.bLO == -1) {
-                    this.bLO = 17;
+                if (this.bMO == -1) {
+                    this.bMO = 17;
                 }
                 WindowManager.LayoutParams attributes = window.getAttributes();
                 attributes.dimAmount = 0.5f;
                 window.setAttributes(attributes);
-                window.setGravity(this.bLO);
+                window.setGravity(this.bMO);
                 window.setBackgroundDrawableResource(R.drawable.transparent_bg);
                 window.setContentView(this.mRootView);
             }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.t;
 /* loaded from: classes.dex */
 public class s extends com.baidu.adp.lib.b.a {
-    private static int cAC = 1;
+    private static int cBT = 1;
 
     @Override // com.baidu.adp.lib.b.a
     protected void R(int i) {
@@ -13,30 +13,30 @@ public class s extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String[] hy() {
+    protected String[] hI() {
         return new String[0];
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hz() {
+    protected int hJ() {
         return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hA() {
+    protected int hK() {
         return 0;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int hB() {
+    protected int hL() {
         return 10;
     }
 
-    public static void kO(int i) {
-        cAC = i;
+    public static void kU(int i) {
+        cBT = i;
     }
 
-    public static int auG() {
-        return cAC;
+    public static int avP() {
+        return cBT;
     }
 }

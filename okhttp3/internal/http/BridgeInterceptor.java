@@ -13,6 +13,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.Version;
 import okio.GzipSource;
 import okio.Okio;
+import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class BridgeInterceptor implements Interceptor {
@@ -54,10 +55,10 @@ public final class BridgeInterceptor implements Interceptor {
         }
         List<Cookie> loadForRequest = this.cookieJar.loadForRequest(request.url());
         if (!loadForRequest.isEmpty()) {
-            newBuilder.header("Cookie", cookieHeader(loadForRequest));
+            newBuilder.header(SM.COOKIE, cookieHeader(loadForRequest));
         }
-        if (request.header("User-Agent") == null) {
-            newBuilder.header("User-Agent", Version.userAgent());
+        if (request.header(HTTP.USER_AGENT) == null) {
+            newBuilder.header(HTTP.USER_AGENT, Version.userAgent());
         }
         Response proceed = chain.proceed(newBuilder.build());
         HttpHeaders.receiveHeaders(this.cookieJar, request.url(), proceed.headers());

@@ -27,7 +27,6 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
@@ -348,7 +347,7 @@ public class c {
             this.a = this.d.getPackageName();
             this.b = null;
             try {
-                this.e = (TelephonyManager) this.d.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                this.e = (TelephonyManager) this.d.getSystemService("phone");
                 str2 = this.e.getDeviceId();
                 try {
                     this.g = (WifiManager) this.d.getApplicationContext().getSystemService("wifi");

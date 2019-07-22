@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    public static String Gh(String str) {
+    public static String Hb(String str) {
         if (TextUtils.isEmpty(str)) {
             str = "process";
         }
@@ -26,7 +26,7 @@ public class e {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [90=4] */
-    public static String ae(Context context, String str) {
+    public static String ad(Context context, String str) {
         InputStream inputStream;
         Throwable th;
         BufferedReader bufferedReader;
@@ -106,7 +106,7 @@ public class e {
         return str2;
     }
 
-    public static JSONObject Gi(String str) {
+    public static JSONObject Hc(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }

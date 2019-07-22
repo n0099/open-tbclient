@@ -10,28 +10,28 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c {
     private static final String TAG = c.class.getSimpleName();
-    private static String bwE;
+    private static String bxv;
 
-    private static String ch(Context context) {
+    private static String ci(Context context) {
         return V(context, "channels/tnconfig.ini");
     }
 
-    public static String XF() {
-        if (TextUtils.isEmpty(bwE)) {
-            bwE = ci(AppRuntime.getAppContext());
+    public static String YB() {
+        if (TextUtils.isEmpty(bxv)) {
+            bxv = cj(AppRuntime.getAppContext());
         }
-        return bwE;
+        return bxv;
     }
 
-    private static String ci(Context context) {
+    private static String cj(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(HTTP.IDENTITY_CODING, 0);
         String string = sharedPreferences.getString("lasttn", "");
-        String ch = ch(context);
-        if ((TextUtils.equals(string, ch) ? false : true) || TextUtils.isEmpty(string)) {
+        String ci = ci(context);
+        if ((TextUtils.equals(string, ci) ? false : true) || TextUtils.isEmpty(string)) {
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString("lasttn", ch);
+            edit.putString("lasttn", ci);
             edit.commit();
-            return ch;
+            return ci;
         }
         return string;
     }

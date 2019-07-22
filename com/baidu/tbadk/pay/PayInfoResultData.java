@@ -8,6 +8,7 @@ public class PayInfoResultData extends OrmObject implements Serializable {
     private String errmsg;
     private int errno;
     private int pay_status;
+    private long time;
     private String usermsg;
 
     public String getErrmsg() {
@@ -36,6 +37,10 @@ public class PayInfoResultData extends OrmObject implements Serializable {
 
     public int getPay_status() {
         return this.pay_status;
+    }
+
+    public long getCreateTime() {
+        return this.time;
     }
 
     public void setPay_status(int i) {

@@ -1,24 +1,24 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b kmK = new b(new a() { // from class: rx.b.1
+    static final b kuj = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cNc());
+            cVar.onSubscribe(rx.subscriptions.e.cQT());
             cVar.onCompleted();
         }
     }, false);
-    static final b kmL = new b(new a() { // from class: rx.b.2
+    static final b kuk = new b(new a() { // from class: rx.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
         public void call(c cVar) {
-            cVar.onSubscribe(rx.subscriptions.e.cNc());
+            cVar.onSubscribe(rx.subscriptions.e.cQT());
         }
     }, false);
-    private final a kmJ;
+    private final a kui;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -30,7 +30,7 @@ public class b {
     }
 
     public static b a(a aVar) {
-        requireNonNull(aVar);
+        bk(aVar);
         try {
             return new b(aVar);
         } catch (NullPointerException e) {
@@ -41,7 +41,7 @@ public class b {
         }
     }
 
-    static <T> T requireNonNull(T t) {
+    static <T> T bk(T t) {
         if (t == null) {
             throw new NullPointerException();
         }
@@ -55,14 +55,14 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.kmJ = rx.c.c.b(aVar);
+        this.kui = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.kmJ = z ? rx.c.c.b(aVar) : aVar;
+        this.kui = z ? rx.c.c.b(aVar) : aVar;
     }
 
-    public final k cKY() {
+    public final k cOM() {
         final rx.subscriptions.c cVar = new rx.subscriptions.c();
         a(new c() { // from class: rx.b.3
             @Override // rx.c
@@ -91,9 +91,9 @@ public class b {
     }
 
     public final void a(c cVar) {
-        requireNonNull(cVar);
+        bk(cVar);
         try {
-            rx.c.c.b(this, this.kmJ).call(cVar);
+            rx.c.c.b(this, this.kui).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

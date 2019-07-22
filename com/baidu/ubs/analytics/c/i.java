@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.mobstat.Config;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,7 +86,7 @@ public final class i {
 
     public static String k(Context context) {
         try {
-            String deviceId = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
+            String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             return deviceId == null ? "" : com.baidu.ubs.analytics.d.f.encode(deviceId);
         } catch (Exception e) {
             return "";
@@ -101,9 +100,9 @@ public final class i {
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
         if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
             try {
-                String cAB = cAB();
-                if (cAB != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(cAB);
+                String cDA = cDA();
+                if (cDA != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(cDA);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
@@ -119,7 +118,7 @@ public final class i {
         }
     }
 
-    private static String cAB() {
+    private static String cDA() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -213,26 +212,26 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            aw(com.baidu.ubs.analytics.d.cAm().getContext());
+            p(com.baidu.ubs.analytics.d.cDk().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            aw(com.baidu.ubs.analytics.d.cAm().getContext());
+            p(com.baidu.ubs.analytics.d.cDk().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            aw(com.baidu.ubs.analytics.d.cAm().getContext());
+            p(com.baidu.ubs.analytics.d.cDk().getContext());
         }
         return B;
     }
 
-    private static void aw(Context context) {
+    private static void p(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);

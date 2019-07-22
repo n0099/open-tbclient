@@ -1,36 +1,23 @@
 package com.baidu.mobstat;
-
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public interface ch {
-    String a(ce ceVar) throws cn;
+public class ch extends Exception {
+    private int a;
 
-    void a(ce ceVar, int i, String str);
+    public ch(int i) {
+        this.a = i;
+    }
 
-    void a(ce ceVar, int i, String str, boolean z);
+    public ch(int i, String str) {
+        super(str);
+        this.a = i;
+    }
 
-    void a(ce ceVar, cw cwVar);
+    public ch(int i, Throwable th) {
+        super(th);
+        this.a = i;
+    }
 
-    void a(ce ceVar, cy cyVar) throws cn;
-
-    void a(ce ceVar, cy cyVar, df dfVar) throws cn;
-
-    void a(ce ceVar, dd ddVar);
-
-    void a(ce ceVar, Exception exc);
-
-    void a(ce ceVar, String str);
-
-    void a(ce ceVar, ByteBuffer byteBuffer);
-
-    void b(ce ceVar);
-
-    void b(ce ceVar, int i, String str, boolean z);
-
-    void b(ce ceVar, cw cwVar);
-
-    InetSocketAddress c(ce ceVar);
-
-    void c(ce ceVar, cw cwVar);
+    public int a() {
+        return this.a;
+    }
 }

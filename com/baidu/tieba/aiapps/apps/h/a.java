@@ -1,77 +1,79 @@
 package com.baidu.tieba.aiapps.apps.h;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.util.Log;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.b.b.i;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tbadk.o.d;
-import com.baidu.tbadk.o.e;
-import java.util.ArrayList;
-import java.util.List;
+import android.location.Address;
+import android.net.http.Headers;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.d.a;
+import com.baidu.swan.apps.u.b.n;
 /* loaded from: classes4.dex */
-public class a implements i {
-    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
-    private long lastResumeTime;
-
-    @Override // com.baidu.swan.apps.b.b.i
-    public void wG() {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppForeground" + com.baidu.swan.apps.ae.b.Lq().id);
+public class a implements n {
+    @Override // com.baidu.swan.apps.u.b.n
+    public void a(final String str, boolean z, boolean z2, final n.a aVar) {
+        if (aVar != null) {
+            com.baidu.adp.lib.d.a.hY().a(!z, z2, new a.InterfaceC0015a() { // from class: com.baidu.tieba.aiapps.apps.h.a.1
+                @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
+                public void b(int i, String str2, Address address) {
+                    if ("bd09ll".equals(str)) {
+                        aVar.a(a.this.a(str, address));
+                        return;
+                    }
+                    CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
+                    if (customMessageTask == null) {
+                        aVar.cC(-1);
+                        return;
+                    }
+                    try {
+                        CustomMessageTask.CustomRunnable<?> runnable = customMessageTask.getRunnable();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("coorType", str);
+                        bundle.putParcelable(Headers.LOCATION, address);
+                        CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
+                        if (run == null) {
+                            aVar.cC(-1);
+                        } else {
+                            aVar.a(a.this.a(str, (Address) run.getData()));
+                        }
+                    } catch (Exception e) {
+                        aVar.cC(-1);
+                    }
+                }
+            });
         }
-        this.lastResumeTime = System.currentTimeMillis();
     }
 
-    public String getCurrentPageKey() {
-        return "a061";
-    }
-
-    public com.baidu.tbadk.o.b getPageStayFilter() {
+    @Override // com.baidu.swan.apps.u.b.n
+    public com.baidu.swan.apps.scheme.actions.e.b Fg() {
         return null;
     }
 
-    public List<String> getCurrentPageSourceKeyList() {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("a001");
-        return arrayList;
+    @Override // com.baidu.swan.apps.u.b.n
+    public void Fh() {
     }
 
-    @Override // com.baidu.swan.apps.b.b.i
-    public void wH() {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppBackground");
+    /* JADX INFO: Access modifiers changed from: private */
+    public com.baidu.swan.apps.scheme.actions.e.b a(String str, Address address) {
+        if (address == null) {
+            return null;
         }
-        long j = com.baidu.tbadk.core.sharedPref.b.agM().getLong("smart_app_tid", 0L);
-        String string = com.baidu.tbadk.core.sharedPref.b.agM().getString("smart_app_id", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.agM().getString("smart_app_name", "");
-        if (this.lastResumeTime != 0 && j != 0) {
-            long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
-            d dVar = new d();
-            dVar.bh(currentTimeMillis);
-            dVar.qC(getCurrentPageKey());
-            dVar.setTid(j);
-            dVar.cxV = string;
-            dVar.cxW = string2;
-            dVar.ao(getCurrentPageSourceKeyList());
-            e.atQ().fy(true);
-            e.atQ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
-            com.baidu.tbadk.core.sharedPref.b.agM().putLong("smart_app_tid", 0L);
+        Bundle extras = address.getExtras();
+        float f = 0.0f;
+        double d = 0.0d;
+        String str2 = "";
+        String str3 = "";
+        String str4 = "";
+        String str5 = "";
+        if (extras != null) {
+            f = extras.getFloat("speed");
+            d = extras.getDouble("altitude");
+            str2 = extras.getString("cityCode");
+            str3 = extras.getString("province");
+            str4 = extras.getString("street");
+            str5 = extras.getString("streetNumber");
         }
-    }
-
-    @Override // com.baidu.swan.apps.b.b.i
-    public void a(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable com.baidu.swan.apps.v.b.b bVar) {
-        if (DEBUG) {
-            Log.e("DefaultSwanAppLifecycle", "onAppExit");
-        }
-        if (com.baidu.tbadk.core.sharedPref.b.agM().getBoolean("key_ai_app_guide_display", true)) {
-            com.baidu.tbadk.core.sharedPref.b.agM().putBoolean("key_ai_app_guide_display", false);
-            Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-            intent.putExtra(DealIntentService.KEY_CLASS, 38);
-            swanAppActivity.startService(intent);
-        }
+        return new com.baidu.swan.apps.scheme.actions.e.b(str, address.getLongitude(), address.getLatitude(), f, 0.0d, d, address.getCountryName(), address.getCountryCode(), address.getLocality(), str2, str3, "", str4, str5);
     }
 }

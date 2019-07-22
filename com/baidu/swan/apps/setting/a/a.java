@@ -48,7 +48,7 @@ public class a extends z {
                 com.baidu.swan.games.r.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty scope").toString());
                 return false;
             }
-            bVar.Lu().b((Activity) context, optString2, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
+            bVar.Mh().b((Activity) context, optString2, new com.baidu.swan.apps.an.d.a<com.baidu.swan.apps.setting.oauth.g<b.d>>() { // from class: com.baidu.swan.apps.setting.a.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.d.a
                 /* renamed from: a */
@@ -72,15 +72,15 @@ public class a extends z {
                 com.baidu.swan.apps.setting.oauth.c.az("AuthorizeAction", "null == result || null == result.mData");
                 com.baidu.swan.games.r.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE).toString());
             } else if (!gVar.isOk()) {
-                OAuthException MI = gVar.MI();
-                jSONObject.put("errMsg", MI == null ? "" : MI.getMessage());
+                OAuthException Nx = gVar.Nx();
+                jSONObject.put("errMsg", Nx == null ? "" : Nx.getMessage());
                 callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(gVar.getErrorCode()).toString());
                 com.baidu.swan.games.r.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.getErrorCode()).toString());
             } else {
                 jSONObject.put("code", gVar.mData.code);
-                jSONObject.put("errMsg", gVar.mData.aUm ? "authorize:ok" : "authorize:fail auth deny");
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aUm ? 0 : 10003).toString());
-                if (!gVar.mData.aUm) {
+                jSONObject.put("errMsg", gVar.mData.aUW ? "authorize:ok" : "authorize:fail auth deny");
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.mData.aUW ? 0 : 10003).toString());
+                if (!gVar.mData.aUW) {
                     com.baidu.swan.games.r.c.f(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(jSONObject, gVar.getErrorCode()).toString());
                 }
             }

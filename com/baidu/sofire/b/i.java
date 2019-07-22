@@ -7,7 +7,7 @@ import com.baidu.sofire.core.ApkInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes2.dex */
 public final class i {
     public static final String[] a = {"java.lang.UnsatisfiedLinkError"};
     public static final String[] b = {"space left"};

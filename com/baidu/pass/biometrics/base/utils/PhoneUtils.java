@@ -10,7 +10,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.pass.biometrics.base.debug.Log;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
@@ -53,7 +52,7 @@ public final class PhoneUtils {
         if (!PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE")) {
             return makeImei(context);
         }
-        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         if (telephonyManager == null) {
             deviceId = makeImei(context);
         } else {
@@ -108,7 +107,7 @@ public final class PhoneUtils {
 
     public static String getImsi(Context context) {
         TelephonyManager telephonyManager;
-        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
+        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) != null) {
             String subscriberId = telephonyManager.getSubscriberId();
             if (!TextUtils.isEmpty(subscriberId)) {
                 return subscriberId;
@@ -198,7 +197,7 @@ public final class PhoneUtils {
 
     public static String getLineNum(Context context) {
         TelephonyManager telephonyManager;
-        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
+        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) != null) {
             String line1Number = telephonyManager.getLine1Number();
             if (!TextUtils.isEmpty(line1Number)) {
                 return line1Number;
@@ -209,7 +208,7 @@ public final class PhoneUtils {
 
     public static String getSimSerialNum(Context context) {
         TelephonyManager telephonyManager;
-        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)) != null) {
+        if (PassBiometricUtil.checkRequestPermission(context, "android.permission.READ_PHONE_STATE") && (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) != null) {
             String simSerialNumber = telephonyManager.getSimSerialNumber();
             Log.d(TAG, "serialNum = " + simSerialNumber);
             if (!TextUtils.isEmpty(simSerialNumber)) {

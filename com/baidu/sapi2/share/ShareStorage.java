@@ -8,19 +8,20 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.base.debug.Log;
-import com.baidu.sapi2.base.utils.FileUtil;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
-import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
-import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
 import com.baidu.sapi2.result.GetUserInfoResult;
 import com.baidu.sapi2.utils.AES;
+import com.baidu.sapi2.utils.FileUtil;
+import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiCoreUtil;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.sapi2.utils.TPRunnable;
+import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
@@ -42,9 +43,10 @@ public class ShareStorage {
     private static final String e = "w0d4o27mh3k1e461";
     private static final String f = "2314906973403010";
     private static final int g = 5;
-    private Context h = SapiAccountManager.getInstance().getConfignation().context;
     public static final String TAG = ShareStorage.class.getSimpleName();
     private static final String d = SapiAccountManager.getInstance().getSapiConfiguration().environment.getConfigHttpsUrl() + SapiEnv.DEFAULT_PORTRAIT;
+    public boolean readSpFromChmodFile = false;
+    private Context h = SapiAccountManager.getInstance().getConfignation().context;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -91,7 +93,7 @@ public class ShareStorage {
     }
 
     @TargetApi(4)
-    public void setSp(String str, String str2) {
+    public boolean setSp(String str, String str2) {
         try {
             SharedPreferences sharedPreferences = this.h.getSharedPreferences(a, 5);
             if (Build.VERSION.SDK_INT > 8) {
@@ -99,27 +101,30 @@ public class ShareStorage {
             } else {
                 sharedPreferences.edit().putString(str, str2).commit();
             }
+            return true;
         } catch (Throwable th) {
-        }
-        if (Build.VERSION.SDK_INT < 24 || this.h.getApplicationInfo().targetSdkVersion < 24 || !b() || SapiContext.getInstance(this.h).getResetFileExecPer()) {
-            Log.i(TAG, "meetShareInternalGray false");
-            return;
-        }
-        try {
-            File file = new File(this.h.getApplicationInfo().dataDir + "/" + c + str);
-            if (!file.exists()) {
-                file.getParentFile().mkdirs();
-                file.createNewFile();
-                SapiContext.getInstance(this.h).setModifiedDirExecPer(SapiCoreUtil.chmodFile(this.h, file));
+            if (Build.VERSION.SDK_INT < 24 || this.h.getApplicationInfo().targetSdkVersion < 24 || !b() || SapiContext.getInstance(this.h).getResetFileExecPer()) {
+                Log.i(TAG, "meetShareInternalGray false");
+                return false;
             }
-            if (!SapiContext.getInstance(this.h).getModifiedDirExecPer()) {
-                boolean chmodFile = SapiCoreUtil.chmodFile(this.h, file);
-                Log.i(TAG, "chmodFileSuc", Boolean.valueOf(chmodFile));
-                SapiContext.getInstance(this.h).setModifiedDirExecPer(chmodFile);
+            try {
+                File file = new File(this.h.getApplicationInfo().dataDir + "/" + c + str);
+                if (!file.exists()) {
+                    file.getParentFile().mkdirs();
+                    file.createNewFile();
+                    SapiContext.getInstance(this.h).setModifiedDirExecPer(SapiCoreUtil.chmodFile(this.h, file));
+                }
+                if (!SapiContext.getInstance(this.h).getModifiedDirExecPer()) {
+                    boolean chmodFile = SapiCoreUtil.chmodFile(this.h, file);
+                    Log.i(TAG, "chmodFileSuc", Boolean.valueOf(chmodFile));
+                    SapiContext.getInstance(this.h).setModifiedDirExecPer(chmodFile);
+                }
+                FileUtil.write(file, str2.getBytes(), false);
+                return true;
+            } catch (Throwable th2) {
+                Log.e(th2);
+                return false;
             }
-            FileUtil.write(file, str2.getBytes(), false);
-        } catch (Throwable th2) {
-            Log.e(th2);
         }
     }
 
@@ -148,7 +153,12 @@ public class ShareStorage {
             }
             return sharedPreferences.getString(str2, "");
         } catch (Throwable th) {
-            return a(str, str2);
+            String a2 = a(str, str2);
+            if (!TextUtils.isEmpty(a2)) {
+                this.readSpFromChmodFile = true;
+                return a2;
+            }
+            return a2;
         }
     }
 
@@ -183,7 +193,7 @@ public class ShareStorage {
         }
     }
 
-    public void setSd(String str, String str2) {
+    public boolean setSd(String str, String str2) {
         try {
             if (SapiUtils.checkRequestPermission("android.permission.WRITE_EXTERNAL_STORAGE", this.h)) {
                 File file = new File(Environment.getExternalStorageDirectory(), b + str);
@@ -192,8 +202,11 @@ public class ShareStorage {
                 } else {
                     FileUtil.write(file, str2.getBytes(), false);
                 }
+                return true;
             }
+            return false;
         } catch (IOException e2) {
+            return false;
         }
     }
 
@@ -245,11 +258,11 @@ public class ShareStorage {
         static StorageModel a(JSONObject jSONObject) {
             StorageModel storageModel = new StorageModel();
             storageModel.url = jSONObject.optString("url");
-            storageModel.displayname = jSONObject.optString("displayname");
+            storageModel.displayname = jSONObject.optString(SapiAccountManager.SESSION_DISPLAYNAME);
             storageModel.app = jSONObject.optString("app");
             storageModel.tpl = jSONObject.optString("tpl");
             storageModel.a = jSONObject.optString("uid");
-            storageModel.pkg = jSONObject.optString("pkg");
+            storageModel.pkg = jSONObject.optString(Config.INPUT_DEF_PKG);
             storageModel.b = jSONObject.optInt(FrsActivityConfig.FLAG, -1);
             storageModel.d = jSONObject.optInt("env", Domain.DOMAIN_ONLINE.ordinal());
             return storageModel;
@@ -278,11 +291,11 @@ public class ShareStorage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("url", this.url);
-                jSONObject.put("displayname", this.displayname);
+                jSONObject.put(SapiAccountManager.SESSION_DISPLAYNAME, this.displayname);
                 jSONObject.put("app", this.app);
                 jSONObject.put("tpl", this.tpl);
                 jSONObject.put("uid", this.a);
-                jSONObject.put("pkg", this.pkg);
+                jSONObject.put(Config.INPUT_DEF_PKG, this.pkg);
                 jSONObject.put(FrsActivityConfig.FLAG, this.b);
                 jSONObject.put("env", this.d);
                 return jSONObject;

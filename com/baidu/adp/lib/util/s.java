@@ -7,18 +7,18 @@ import org.apache.http.protocol.HTTP;
 public class s {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-    public static String toMd5(byte[] bArr) {
+    public static String m(byte[] bArr) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return m(messageDigest.digest());
+            return n(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String m(byte[] bArr) {
+    public static String n(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -43,7 +43,7 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = m(messageDigest.digest());
+                str = n(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
@@ -53,12 +53,12 @@ public class s {
         return str;
     }
 
-    public static String bm(String str) {
+    public static String bn(String str) {
         if (str == null) {
             return null;
         }
         try {
-            return toMd5(str.getBytes(HTTP.UTF_8));
+            return m(str.getBytes(HTTP.UTF_8));
         } catch (Exception e) {
             return null;
         }

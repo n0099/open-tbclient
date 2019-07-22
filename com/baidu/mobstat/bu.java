@@ -1,52 +1,36 @@
 package com.baidu.mobstat;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public abstract class bu {
-    public abstract SharedPreferences getSharedPreferences(Context context);
-
-    public boolean getBoolean(Context context, String str, boolean z) {
-        return getSharedPreferences(context).getBoolean(str, z);
+public final class bu {
+    public static boolean a(InputStream inputStream, OutputStream outputStream) {
+        if (inputStream == null || outputStream == null) {
+            return false;
+        }
+        byte[] bArr = new byte[4048];
+        while (true) {
+            try {
+                int read = inputStream.read(bArr);
+                if (read != -1) {
+                    outputStream.write(bArr, 0, read);
+                } else {
+                    return true;
+                }
+            } catch (IOException e) {
+                return false;
+            }
+        }
     }
 
-    public void putBoolean(Context context, String str, boolean z) {
-        getSharedPreferences(context).edit().putBoolean(str, z).commit();
-    }
-
-    public int getInt(Context context, String str, int i) {
-        return getSharedPreferences(context).getInt(str, i);
-    }
-
-    public void putInt(Context context, String str, int i) {
-        getSharedPreferences(context).edit().putInt(str, i).commit();
-    }
-
-    public Float getFloat(Context context, String str, int i) {
-        return Float.valueOf(getSharedPreferences(context).getFloat(str, i));
-    }
-
-    public void putFloat(Context context, String str, Float f) {
-        getSharedPreferences(context).edit().putFloat(str, f.floatValue()).commit();
-    }
-
-    public long getLong(Context context, String str, long j) {
-        return getSharedPreferences(context).getLong(str, j);
-    }
-
-    public void putLong(Context context, String str, long j) {
-        getSharedPreferences(context).edit().putLong(str, j).commit();
-    }
-
-    public String getString(Context context, String str, String str2) {
-        return getSharedPreferences(context).getString(str, str2);
-    }
-
-    public void putString(Context context, String str, String str2) {
-        getSharedPreferences(context).edit().putString(str, str2).commit();
-    }
-
-    public void removeString(Context context, String str) {
-        getSharedPreferences(context).edit().remove(str).commit();
+    public static void a(Closeable closeable) {
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable th) {
+            }
+        }
     }
 }

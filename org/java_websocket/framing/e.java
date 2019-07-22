@@ -9,6 +9,6 @@ public abstract class e extends f {
     }
 
     @Override // org.java_websocket.framing.f
-    public void cKK() throws InvalidDataException {
+    public void cOy() throws InvalidDataException {
     }
 }

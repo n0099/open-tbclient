@@ -7,23 +7,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.LikeModel;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.b, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b>> {
-    private LikeModel cco;
+    private LikeModel cdr;
     private TbPageContext<?> mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.ikx);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.b.iqP);
         this.mPageContext = tbPageContext;
-        this.cco = new LikeModel(tbPageContext);
+        this.cdr = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: ao */
+    /* renamed from: aq */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.personPolymeric.view.b bVar = new com.baidu.tieba.personPolymeric.view.b(this.mPageContext);
-        bVar.a(this.cco);
+        bVar.a(this.cdr);
         return new com.baidu.tieba.card.a.a<>(bVar);
     }
 
@@ -32,8 +32,8 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.b> aVar) {
-        aVar.aYs().a(bVar);
-        aVar.aYs().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.bar().a(bVar);
+        aVar.bar().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

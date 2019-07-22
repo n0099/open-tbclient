@@ -47,8 +47,8 @@ public class x extends z {
                 }
                 file = file2;
             } else {
-                if (com.baidu.swan.apps.ac.a.a.l(bVar.vk())) {
-                    a = com.baidu.swan.apps.storage.b.hy(optString);
+                if (com.baidu.swan.apps.ac.a.a.l(bVar.vL())) {
+                    a = com.baidu.swan.apps.storage.b.hF(optString);
                 } else {
                     a = com.baidu.swan.apps.storage.b.a(optString, bVar, bVar.getVersion());
                 }
@@ -73,7 +73,7 @@ public class x extends z {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
                 return false;
             } else {
-                bVar.Lu().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
+                bVar.Mh().a((Activity) context, "mapp_images", new com.baidu.swan.apps.an.d.a<Boolean>() { // from class: com.baidu.swan.apps.scheme.actions.x.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.an.d.a
                     /* renamed from: b */

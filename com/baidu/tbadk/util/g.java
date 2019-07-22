@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class g {
-    private long cBl;
-    private long cBm;
-    private long cBn;
-    private long cBo;
-    private long cBp;
-    private a cBr;
+    private long cCC;
+    private long cCD;
+    private long cCE;
+    private long cCF;
+    private long cCG;
+    private a cCI;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean cBq = false;
-    private Runnable cBs = new Runnable() { // from class: com.baidu.tbadk.util.g.1
+    private boolean cCH = false;
+    private Runnable cCJ = new Runnable() { // from class: com.baidu.tbadk.util.g.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.cBp > g.this.cBo) {
-                g.this.cBo = currentTimeMillis - g.this.cBn;
-                g.this.cBp = g.this.cBo;
+            if (g.this.cCG > g.this.cCF) {
+                g.this.cCF = currentTimeMillis - g.this.cCE;
+                g.this.cCG = g.this.cCF;
             }
-            long j = currentTimeMillis - g.this.cBo;
-            g.this.cBm += g.this.cBn;
-            if (g.this.cBm < g.this.cBl) {
-                g.this.handler.postDelayed(g.this.cBs, (2 * g.this.cBn) - j);
-                if (g.this.cBr != null) {
-                    g.this.cBr.b(g.this.cBl, g.this.cBl - g.this.cBm);
+            long j = currentTimeMillis - g.this.cCF;
+            g.this.cCD += g.this.cCE;
+            if (g.this.cCD < g.this.cCC) {
+                g.this.handler.postDelayed(g.this.cCJ, (2 * g.this.cCE) - j);
+                if (g.this.cCI != null) {
+                    g.this.cCI.b(g.this.cCC, g.this.cCC - g.this.cCD);
                 }
             } else {
-                g.this.cBm = g.this.cBl;
+                g.this.cCD = g.this.cCC;
                 g.this.finish();
             }
-            g.this.cBo = currentTimeMillis;
+            g.this.cCF = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class g {
     }
 
     public g(long j, long j2) {
-        this.cBl = j;
-        this.cBn = j2;
+        this.cCC = j;
+        this.cCE = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.cBo = this.startTime;
-        if (this.cBr != null) {
-            this.cBr.b(this.cBl, this.cBl - this.cBm);
+        this.cCF = this.startTime;
+        if (this.cCI != null) {
+            this.cCI.b(this.cCC, this.cCC - this.cCD);
         }
-        this.handler.postDelayed(this.cBs, this.cBn);
+        this.handler.postDelayed(this.cCJ, this.cCE);
     }
 
     public void pause() {
-        if (!this.cBq) {
-            this.cBq = true;
-            this.cBp = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.cBs);
+        if (!this.cCH) {
+            this.cCH = true;
+            this.cCG = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.cCJ);
         }
     }
 
     public void resume() {
-        if (this.cBq) {
-            this.cBq = false;
-            this.handler.postDelayed(this.cBs, this.cBn - (this.cBp - this.cBo));
+        if (this.cCH) {
+            this.cCH = false;
+            this.handler.postDelayed(this.cCJ, this.cCE - (this.cCG - this.cCF));
         }
     }
 
     public void stop() {
-        this.cBq = false;
-        this.cBo = this.startTime;
-        this.cBp = this.cBo;
-        this.handler.removeCallbacks(this.cBs);
+        this.cCH = false;
+        this.cCF = this.startTime;
+        this.cCG = this.cCF;
+        this.handler.removeCallbacks(this.cCJ);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.cBr != null) {
-            this.cBr.q(this.cBl);
+        if (this.cCI != null) {
+            this.cCI.q(this.cCC);
         }
     }
 
     public void a(a aVar) {
-        this.cBr = aVar;
+        this.cCI = aVar;
     }
 
-    public long auU() {
-        return this.cBm;
+    public long awd() {
+        return this.cCD;
     }
 }

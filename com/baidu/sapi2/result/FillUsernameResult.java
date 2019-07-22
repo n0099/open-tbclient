@@ -23,10 +23,10 @@ public class FillUsernameResult extends SapiResult {
         this.msgMap.put(0, RESULT_MSG_SUCCESS);
         this.msgMap.put(110000, RESULT_MSG_SUCCESS);
         this.msgMap.put(160103, "用户登录状态失效，请重新登录");
-        this.msgMap.put(160104, RESULT_MSG_USER_HAVE_USERNAME);
-        this.msgMap.put(160105, "该用户名已被注册,请更换其他用户名");
-        this.msgMap.put(160110, RESULT_MSG_USERNAME_FORMAT_INVALID);
-        this.msgMap.put(160111, "该用户名已被注册,请更换其他用户名");
+        this.msgMap.put(RESULT_CODE_USER_HAVE_USERNAME, RESULT_MSG_USER_HAVE_USERNAME);
+        this.msgMap.put(RESULT_CODE_USERNAME_UNAVAILABLE, "该用户名已被注册,请更换其他用户名");
+        this.msgMap.put(RESULT_CODE_USERNAME_FORMAT_INVALID, RESULT_MSG_USERNAME_FORMAT_INVALID);
+        this.msgMap.put(RESULT_CODE_USERNAME_ALREADY_EXIST, "该用户名已被注册,请更换其他用户名");
         this.msgMap.put(RESULT_CODE_USERNAME_LENGTH_ERROR, RESULT_MSG_USERNAME_LENGTH_ERROR);
         this.msgMap.put(-202, ERROR_MSG_UNKNOWN);
     }

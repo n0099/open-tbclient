@@ -6,88 +6,88 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class v {
-    private boolean bwz = false;
-    private JSONArray aHI = new JSONArray();
-    private SparseArray<Integer> bwv = new SparseArray<>();
-    private ArrayList<String> bww = new ArrayList<>();
-    private long bwx = 0;
-    private long bwy = 0;
-    private String bvx = "0";
+    private boolean bxq = false;
+    private JSONArray aIq = new JSONArray();
+    private SparseArray<Integer> bxm = new SparseArray<>();
+    private ArrayList<String> bxn = new ArrayList<>();
+    private long bxo = 0;
+    private long bxp = 0;
+    private String bwn = "0";
 
     public final void aU(JSONObject jSONObject) {
-        this.aHI.put(jSONObject);
+        this.aIq.put(jSONObject);
     }
 
-    public final SparseArray<Integer> Xu() {
-        return this.bwv;
+    public final SparseArray<Integer> Yq() {
+        return this.bxm;
     }
 
-    public final void N(int i, int i2) {
-        this.bwv.put(i, Integer.valueOf(i2));
+    public final void Q(int i, int i2) {
+        this.bxm.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList Xv() {
-        return this.bww;
+    public final ArrayList Yr() {
+        return this.bxn;
     }
 
-    public final void kT(String str) {
-        if (!this.bww.contains(str)) {
-            this.bww.add(str);
+    public final void lb(String str) {
+        if (!this.bxn.contains(str)) {
+            this.bxn.add(str);
         }
     }
 
     public final void g(long j, long j2) {
-        if ((j < this.bwx || this.bwx == 0) && j != 0) {
-            this.bwx = j;
+        if ((j < this.bxo || this.bxo == 0) && j != 0) {
+            this.bxo = j;
         }
-        if (j2 > this.bwy) {
-            this.bwy = j2;
+        if (j2 > this.bxp) {
+            this.bxp = j2;
         }
     }
 
-    public boolean ga(int i) {
-        return this.aHI.toString().getBytes().length >= i;
+    public boolean ge(int i) {
+        return this.aIq.toString().getBytes().length >= i;
     }
 
     public boolean isEmpty() {
-        return this.aHI.length() == 0;
+        return this.aIq.length() == 0;
     }
 
-    public JSONArray Xw() {
-        return this.aHI;
+    public JSONArray Ys() {
+        return this.aIq;
     }
 
     public void clearData() {
-        this.bwv.clear();
-        this.bww.clear();
-        this.aHI = null;
+        this.bxm.clear();
+        this.bxn.clear();
+        this.aIq = null;
     }
 
-    public void kU(String str) {
-        this.bvx = str;
+    public void lc(String str) {
+        this.bwn = str;
     }
 
-    public String Xx() {
-        return this.bvx;
+    public String Yt() {
+        return this.bwn;
     }
 
-    public long Xy() {
-        return this.bwx;
+    public long Yu() {
+        return this.bxo;
     }
 
-    public long Xz() {
-        return this.bwy;
+    public long Yv() {
+        return this.bxp;
     }
 
-    public JSONArray XA() {
-        return this.aHI;
+    public JSONArray Yw() {
+        return this.aIq;
     }
 
-    public boolean XB() {
-        return this.bwz;
+    public boolean Yx() {
+        return this.bxq;
     }
 
-    public void dn(boolean z) {
-        this.bwz = z;
+    public void ds(boolean z) {
+        this.bxq = z;
     }
 }

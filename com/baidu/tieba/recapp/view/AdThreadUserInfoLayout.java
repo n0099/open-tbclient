@@ -8,7 +8,7 @@ import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 /* loaded from: classes3.dex */
 public class AdThreadUserInfoLayout extends CardUserInfoLayout {
-    private AfterAdjustChildWidthListener iGg;
+    private AfterAdjustChildWidthListener iMy;
 
     /* loaded from: classes3.dex */
     public interface AfterAdjustChildWidthListener {
@@ -25,7 +25,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     public void addAdTagView(View view) {
         if (view != null) {
-            this.Xw.removeAllViews();
+            this.XR.removeAllViews();
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
             if (layoutParams == null) {
                 layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -33,7 +33,7 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             view.setLayoutParams(layoutParams);
-            this.Xw.addView(view);
+            this.XR.addView(view);
         }
     }
 
@@ -43,14 +43,14 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.card.view.CardUserInfoLayout
-    public void qC() {
-        super.qC();
-        if (this.iGg != null) {
-            this.iGg.afterChildWidth();
+    public void qZ() {
+        super.qZ();
+        if (this.iMy != null) {
+            this.iMy.afterChildWidth();
         }
     }
 
     public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
-        this.iGg = afterAdjustChildWidthListener;
+        this.iMy = afterAdjustChildWidthListener;
     }
 }

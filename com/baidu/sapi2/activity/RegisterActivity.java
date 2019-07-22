@@ -61,12 +61,6 @@ public class RegisterActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
-    public void onBottomBackBtnClick() {
-        this.sapiWebView.back();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
         WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();

@@ -7,16 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes.dex */
 public class p {
-    private final com.baidu.adp.base.a.b yd;
+    private final com.baidu.adp.base.a.b yj;
 
     public p(Context context, com.baidu.adp.base.a.b bVar) {
-        this.yd = bVar;
+        this.yj = bVar;
     }
 
-    public h ar(String str) {
+    public h as(String str) {
         Cursor cursor;
         try {
-            cursor = this.yd.eT().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            cursor = this.yj.fa().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
             th = th;
             cursor = null;
@@ -25,7 +25,7 @@ public class p {
         } catch (Throwable th2) {
             th = th2;
             try {
-                this.yd.c(th, "get");
+                this.yj.c(th, "get");
                 com.baidu.adp.lib.g.a.e(cursor);
                 return null;
             } finally {
@@ -34,12 +34,12 @@ public class p {
         }
         if (cursor.moveToNext()) {
             h hVar = new h();
-            hVar.yq = cursor.getString(0);
-            hVar.ye = cursor.getString(1);
+            hVar.yw = cursor.getString(0);
+            hVar.yk = cursor.getString(1);
             hVar.maxSize = cursor.getInt(2);
-            hVar.yu = cursor.getString(3);
-            hVar.yv = cursor.getInt(4);
-            hVar.yw = cursor.getLong(5);
+            hVar.yA = cursor.getString(3);
+            hVar.yB = cursor.getInt(4);
+            hVar.yC = cursor.getLong(5);
             return hVar;
         }
         return null;
@@ -48,29 +48,29 @@ public class p {
     public void a(h hVar) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("nameSpace", hVar.yq);
-            contentValues.put("tableName", hVar.ye);
+            contentValues.put("nameSpace", hVar.yw);
+            contentValues.put("tableName", hVar.yk);
             contentValues.put("maxSize", Integer.valueOf(hVar.maxSize));
-            contentValues.put("cacheVersion", Integer.valueOf(hVar.yv));
-            contentValues.put("cacheType", hVar.yu);
-            contentValues.put("lastActiveTime", Long.valueOf(hVar.yw));
-            SQLiteDatabase eT = this.yd.eT();
-            if (eT != null && eT.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.yq}) == 0) {
-                eT.insert("cache_meta_info", null, contentValues);
+            contentValues.put("cacheVersion", Integer.valueOf(hVar.yB));
+            contentValues.put("cacheType", hVar.yA);
+            contentValues.put("lastActiveTime", Long.valueOf(hVar.yC));
+            SQLiteDatabase fa = this.yj.fa();
+            if (fa != null && fa.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.yw}) == 0) {
+                fa.insert("cache_meta_info", null, contentValues);
             }
         } catch (Throwable th) {
-            this.yd.c(th, "addOrUpdate");
+            this.yj.c(th, "addOrUpdate");
         }
     }
 
-    public int as(String str) {
+    public int at(String str) {
         try {
-            if (ar(str) == null) {
+            if (as(str) == null) {
                 return 0;
             }
-            return this.yd.eT().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            return this.yj.fa().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
         } catch (Throwable th) {
-            this.yd.c(th, WriteImageActivityConfig.DELET_FLAG);
+            this.yj.c(th, WriteImageActivityConfig.DELET_FLAG);
             return 0;
         }
     }

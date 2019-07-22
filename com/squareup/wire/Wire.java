@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.baidu.mobstat.Config;
 import com.squareup.wire.Message;
 import java.io.IOException;
 import java.io.InputStream;
@@ -87,7 +88,7 @@ public final class Wire {
     }
 
     public <M extends Message> M parseFrom(InputStream inputStream, Class<M> cls) throws IOException {
-        Preconditions.checkNotNull(inputStream, "input");
+        Preconditions.checkNotNull(inputStream, Config.INPUT_PART);
         Preconditions.checkNotNull(cls, "messageClass");
         return (M) parseFrom(WireInput.newInstance(inputStream), cls);
     }

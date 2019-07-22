@@ -10,136 +10,136 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.model.a {
-    public int aDi;
-    public String aDj;
-    private String aDk;
-    public String aDl;
-    public String aDm;
-    public String aDn;
-    public b aDo;
-    public boolean aDp = false;
-    public JSONObject akx;
+    public int aDQ;
+    public String aDR;
+    private String aDS;
+    public String aDT;
+    public String aDU;
+    public String aDV;
+    public b aDW;
+    public boolean aDX = false;
+    public JSONObject akZ;
     public String callback;
     public boolean hidden;
     public String id;
 
     public a(String str, String str2) {
-        this.aDk = "id";
-        this.aDl = "unknown";
+        this.aDS = "id";
+        this.aDT = "unknown";
         if (!TextUtils.isEmpty(str)) {
-            this.aDk = str;
+            this.aDS = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.aDl = str2;
+            this.aDT = str2;
         }
     }
 
-    public a GI() {
-        a aVar = new a(this.aDk, this.aDl);
-        aVar.aDk = this.aDk;
-        aVar.aDl = this.aDl;
-        aVar.aDm = this.aDm;
+    public a Hs() {
+        a aVar = new a(this.aDS, this.aDT);
+        aVar.aDS = this.aDS;
+        aVar.aDT = this.aDT;
+        aVar.aDU = this.aDU;
         aVar.id = this.id;
-        aVar.aDn = this.aDn;
+        aVar.aDV = this.aDV;
         aVar.hidden = this.hidden;
-        aVar.aDp = this.aDp;
+        aVar.aDX = this.aDX;
         aVar.callback = this.callback;
-        if (this.aDo != null) {
-            aVar.aDo = new b(this.aDo);
+        if (this.aDW != null) {
+            aVar.aDW = new b(this.aDW);
         }
-        aVar.akx = this.akx;
-        aVar.aDi = this.aDi;
-        aVar.aDj = this.aDj;
+        aVar.akZ = this.akZ;
+        aVar.aDQ = this.aDQ;
+        aVar.aDR = this.aDR;
         return aVar;
     }
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.id = jSONObject.optString(this.aDk);
-            this.aDm = jSONObject.optString("slaveId");
-            this.aDn = jSONObject.optString("parentId");
+            this.id = jSONObject.optString(this.aDS);
+            this.aDU = jSONObject.optString("slaveId");
+            this.aDV = jSONObject.optString("parentId");
             this.hidden = jSONObject.optBoolean("hide", false);
-            this.aDp = TextUtils.equals(jSONObject.optString("gesture"), "1");
+            this.aDX = TextUtils.equals(jSONObject.optString("gesture"), "1");
             this.callback = jSONObject.optString("cb");
             JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
-                this.aDo = new b();
-                this.aDo.setLeft(z.ad(a(optJSONObject, CustomDialogData.POS_LEFT, 0.0f)));
-                this.aDo.setTop(z.ad(a(optJSONObject, "top", 0.0f)));
-                this.aDo.setWidth(z.ad(a(optJSONObject, "width", 0.0f)));
-                this.aDo.setHeight(z.ad(a(optJSONObject, "height", 0.0f)));
+                this.aDW = new b();
+                this.aDW.cM(z.ad(a(optJSONObject, CustomDialogData.POS_LEFT, 0.0f)));
+                this.aDW.cN(z.ad(a(optJSONObject, "top", 0.0f)));
+                this.aDW.setWidth(z.ad(a(optJSONObject, "width", 0.0f)));
+                this.aDW.setHeight(z.ad(a(optJSONObject, "height", 0.0f)));
             }
-            this.akx = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            this.aDi = jSONObject.optInt("scrollTop");
-            if (this.akx != null) {
-                this.aDj = this.akx.optString("overflowY");
+            this.akZ = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            this.aDQ = jSONObject.optInt("scrollTop");
+            if (this.akZ != null) {
+                this.aDR = this.akZ.optString("overflowY");
             }
         }
     }
 
     public void a(JSONObject jSONObject, @NonNull a aVar) {
         if (jSONObject != null) {
-            this.id = jSONObject.optString(this.aDk, aVar.id);
-            this.aDm = jSONObject.optString("slaveId", aVar.aDm);
-            this.aDn = jSONObject.optString("parentId", aVar.aDn);
+            this.id = jSONObject.optString(this.aDS, aVar.id);
+            this.aDU = jSONObject.optString("slaveId", aVar.aDU);
+            this.aDV = jSONObject.optString("parentId", aVar.aDV);
             this.hidden = jSONObject.optBoolean("hide", aVar.hidden);
             this.callback = jSONObject.optString("cb", aVar.callback);
-            this.aDp = TextUtils.equals(jSONObject.optString("gesture", aVar.aDp ? "1" : "0"), "1");
-            this.aDo = aVar.aDo;
-            if (this.aDo == null) {
-                this.aDo = new b();
+            this.aDX = TextUtils.equals(jSONObject.optString("gesture", aVar.aDX ? "1" : "0"), "1");
+            this.aDW = aVar.aDW;
+            if (this.aDW == null) {
+                this.aDW = new b();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
-                this.aDo.setLeft(z.ad(a(optJSONObject, CustomDialogData.POS_LEFT, this.aDo.left)));
-                this.aDo.setTop(z.ad(a(optJSONObject, "top", this.aDo.top)));
-                this.aDo.setWidth(z.ad(a(optJSONObject, "width", this.aDo.width)));
-                this.aDo.setHeight(z.ad(a(optJSONObject, "height", this.aDo.height)));
+                this.aDW.cM(z.ad(a(optJSONObject, CustomDialogData.POS_LEFT, this.aDW.left)));
+                this.aDW.cN(z.ad(a(optJSONObject, "top", this.aDW.top)));
+                this.aDW.setWidth(z.ad(a(optJSONObject, "width", this.aDW.width)));
+                this.aDW.setHeight(z.ad(a(optJSONObject, "height", this.aDW.height)));
             }
-            this.akx = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            if (this.akx == null) {
-                this.akx = aVar.akx;
+            this.akZ = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            if (this.akZ == null) {
+                this.akZ = aVar.akZ;
             }
-            this.aDi = jSONObject.optInt("scrollTop", aVar.aDi);
-            if (this.akx != null) {
-                this.aDj = this.akx.optString("overflowY", aVar.aDj);
+            this.aDQ = jSONObject.optInt("scrollTop", aVar.aDQ);
+            if (this.akZ != null) {
+                this.aDR = this.akZ.optString("overflowY", aVar.aDR);
             }
         }
     }
 
-    public FrameLayout.LayoutParams GJ() {
-        int width = this.aDo != null ? this.aDo.getWidth() : -1;
-        int height = this.aDo != null ? this.aDo.getHeight() : -1;
-        int left = this.aDo != null ? this.aDo.getLeft() : 0;
-        int top = this.aDo != null ? this.aDo.getTop() : 0;
+    public FrameLayout.LayoutParams Ht() {
+        int width = this.aDW != null ? this.aDW.getWidth() : -1;
+        int height = this.aDW != null ? this.aDW.getHeight() : -1;
+        int left = this.aDW != null ? this.aDW.getLeft() : 0;
+        int Hv = this.aDW != null ? this.aDW.Hv() : 0;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
-        layoutParams.setMargins(left, top, 0, 0);
+        layoutParams.setMargins(left, Hv, 0, 0);
         return layoutParams;
     }
 
     public void a(b bVar) {
-        this.aDo = bVar;
+        this.aDW = bVar;
     }
 
     public void a(a aVar, com.baidu.swan.apps.view.container.c.a aVar2) {
         if (aVar != null && aVar2 != null) {
             if (!TextUtils.equals(this.id, aVar.id)) {
-                aVar2.eI(63);
+                aVar2.eL(63);
                 return;
             }
-            if (this.aDo != null && !this.aDo.equals(aVar.aDo)) {
-                aVar2.eI(1);
+            if (this.aDW != null && !this.aDW.equals(aVar.aDW)) {
+                aVar2.eL(1);
             }
             if (aVar.hidden != this.hidden) {
-                aVar2.eI(8);
+                aVar2.eL(8);
             }
         }
     }
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.aDm) || TextUtils.isEmpty(this.id) || this.aDo == null || !this.aDo.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.aDU) || TextUtils.isEmpty(this.id) || this.aDW == null || !this.aDW.isValid()) ? false : true;
     }
 
     public static float a(JSONObject jSONObject, String str, float f) {

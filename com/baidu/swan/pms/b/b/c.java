@@ -23,15 +23,15 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a V(com.baidu.swan.pms.b.c.c cVar) {
-        this.bsl.AF();
+        this.btb.Bn();
         com.baidu.swan.pms.e.e eVar = new com.baidu.swan.pms.e.e();
-        a(cVar.bsO, eVar);
-        if (eVar.Wa() == 0) {
-            this.bsl.AB();
+        a(cVar.btE, eVar);
+        if (eVar.WU() == 0) {
+            this.btb.Bj();
             return null;
         }
-        this.bsl.a(eVar);
-        com.baidu.swan.pms.b.a.a.a(cVar, this.bsl);
+        this.btb.a(eVar);
+        com.baidu.swan.pms.b.a.a.a(cVar, this.btb);
         return null;
     }
 
@@ -40,11 +40,11 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     @Override // com.baidu.swan.pms.b.d
     /* renamed from: b */
     public boolean W(com.baidu.swan.pms.b.c.c cVar) {
-        if (cVar == null || cVar.bsO == null) {
+        if (cVar == null || cVar.btE == null) {
             return false;
         }
-        for (h hVar : cVar.bsO) {
-            if (!hVar.Vv()) {
+        for (h hVar : cVar.btE) {
+            if (!hVar.Wo()) {
                 return false;
             }
         }
@@ -52,7 +52,7 @@ public class c extends com.baidu.swan.pms.b.d<com.baidu.swan.pms.b.c.c> {
     }
 
     @Override // com.baidu.swan.pms.b.d
-    protected String Vx() {
+    protected String Wq() {
         return "getpkg";
     }
 }

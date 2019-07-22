@@ -2,6 +2,7 @@ package com.baidu.tieba.signall;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,35 +10,35 @@ import org.json.JSONObject;
 public class h {
     private int errorCode;
     private String errorMsg;
-    private int iPK;
-    private String iPL;
-    private int iRm;
-    private String iRn;
-    private a iQg = new a();
-    private ArrayList<i> iRo = new ArrayList<>();
+    private int iWb;
+    private String iWc;
+    private int iXD;
+    private String iXE;
+    private a iWx = new a();
+    private ArrayList<i> iXF = new ArrayList<>();
 
-    public int cks() {
-        return this.iPK;
+    public int cnj() {
+        return this.iWb;
     }
 
-    public String cjQ() {
-        return this.iPL;
+    public String cmH() {
+        return this.iWc;
     }
 
-    public a cjS() {
-        return this.iQg;
+    public a cmJ() {
+        return this.iWx;
     }
 
-    public ArrayList<i> ckt() {
-        return this.iRo;
+    public ArrayList<i> cnk() {
+        return this.iXF;
     }
 
-    public int cku() {
-        return this.iRm;
+    public int cnl() {
+        return this.iXD;
     }
 
-    public String ckv() {
-        return this.iRn;
+    public String cnm() {
+        return this.iXE;
     }
 
     public int getErrorCode() {
@@ -61,21 +62,21 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iQg.parserJson(jSONObject.optJSONObject("error"));
-                this.iPK = jSONObject.optInt("show_dialog");
-                this.iPL = jSONObject.optString("sign_notice");
-                this.iRm = jSONObject.optInt("is_timeout");
-                this.iRn = jSONObject.optString("timeout_notice");
+                this.iWx.parserJson(jSONObject.optJSONObject("error"));
+                this.iWb = jSONObject.optInt("show_dialog");
+                this.iWc = jSONObject.optString("sign_notice");
+                this.iXD = jSONObject.optInt("is_timeout");
+                this.iXE = jSONObject.optString("timeout_notice");
                 this.errorCode = jSONObject.optInt("error_code");
                 this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
-                JSONArray optJSONArray = jSONObject.optJSONArray("info");
+                JSONArray optJSONArray = jSONObject.optJSONArray(Config.LAUNCH_INFO);
                 if (optJSONArray != null) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.iRo.add(iVar);
+                        this.iXF.add(iVar);
                     }
                 }
             } catch (Exception e) {

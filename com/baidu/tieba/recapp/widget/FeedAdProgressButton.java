@@ -12,20 +12,20 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes3.dex */
 public class FeedAdProgressButton extends View implements a {
-    private int GP;
-    private Paint Gy;
-    private String ama;
-    private Paint bWu;
-    private float cKe;
-    private int gKl;
-    private RectF iHn;
-    private Shader iHo;
+    private Paint GG;
+    private int Hc;
+    private String amD;
+    private Paint bXw;
+    private float cLy;
+    private int gQv;
+    private RectF iNF;
+    private Shader iNG;
     private int mProgress;
     private int mRadius;
     private int mTextColor;
@@ -35,8 +35,8 @@ public class FeedAdProgressButton extends View implements a {
         super(context, attributeSet);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cKe = 10.0f;
-        this.gKl = 100;
+        this.cLy = 10.0f;
+        this.gQv = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -46,8 +46,8 @@ public class FeedAdProgressButton extends View implements a {
         super(context, attributeSet, i);
         this.mProgress = 0;
         this.mTextColor = -1;
-        this.cKe = 10.0f;
-        this.gKl = 100;
+        this.cLy = 10.0f;
+        this.gQv = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -59,27 +59,27 @@ public class FeedAdProgressButton extends View implements a {
         int color2 = getResources().getColor(R.color.cp_link_tip_a_alpha50);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
         this.strokeWidth = getResources().getDimensionPixelSize(R.dimen.ds1);
-        this.GP = obtainStyledAttributes.getInteger(0, color2);
+        this.Hc = obtainStyledAttributes.getInteger(0, color2);
         this.mTextColor = obtainStyledAttributes.getColor(1, color);
-        this.gKl = obtainStyledAttributes.getInteger(2, this.gKl);
+        this.gQv = obtainStyledAttributes.getInteger(2, this.gQv);
         this.mProgress = obtainStyledAttributes.getInteger(3, 0);
-        this.ama = obtainStyledAttributes.getString(5);
-        this.cKe = obtainStyledAttributes.getDimension(4, (int) getResources().getDimension(R.dimen.fontsize24));
+        this.amD = obtainStyledAttributes.getString(5);
+        this.cLy = obtainStyledAttributes.getDimension(4, (int) getResources().getDimension(R.dimen.fontsize24));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(6, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.iHn = new RectF();
-        pT();
+        this.iNF = new RectF();
+        qp();
     }
 
-    private void pT() {
-        this.Gy = new Paint();
-        this.bWu = new Paint();
-        this.bWu.setAntiAlias(true);
-        this.bWu.setTextSize(this.cKe);
-        this.bWu.setColor(this.mTextColor);
-        this.Gy.setAntiAlias(true);
-        this.Gy.setStyle(Paint.Style.FILL);
-        this.Gy.setColor(this.GP);
+    private void qp() {
+        this.GG = new Paint();
+        this.bXw = new Paint();
+        this.bXw.setAntiAlias(true);
+        this.bXw.setTextSize(this.cLy);
+        this.bXw.setColor(this.mTextColor);
+        this.GG.setAntiAlias(true);
+        this.GG.setStyle(Paint.Style.FILL);
+        this.GG.setColor(this.Hc);
     }
 
     @Override // android.view.View
@@ -88,52 +88,52 @@ public class FeedAdProgressButton extends View implements a {
         if (this.mProgress > 0) {
             ab(canvas);
         }
-        if (!TextUtils.isEmpty(this.ama)) {
-            Paint.FontMetrics fontMetrics = this.bWu.getFontMetrics();
-            canvas.drawText(this.ama, (getMeasuredWidth() - this.bWu.measureText(this.ama)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bWu);
+        if (!TextUtils.isEmpty(this.amD)) {
+            Paint.FontMetrics fontMetrics = this.bXw.getFontMetrics();
+            canvas.drawText(this.amD, (getMeasuredWidth() - this.bXw.measureText(this.amD)) / 2.0f, ((fontMetrics.descent - fontMetrics.ascent) / 2.0f) + ((getHeight() / 2) - fontMetrics.descent), this.bXw);
         }
     }
 
     private void ab(Canvas canvas) {
-        if (this.iHn == null) {
-            this.iHn = new RectF();
+        if (this.iNF == null) {
+            this.iNF = new RectF();
         }
-        this.iHn.left = this.strokeWidth;
-        this.iHn.top = this.strokeWidth;
-        this.iHn.right = getMeasuredWidth() - this.strokeWidth;
-        this.iHn.bottom = getMeasuredHeight() - this.strokeWidth;
-        float f = this.mProgress / (this.gKl + 0.0f);
-        this.iHo = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.GP, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.Gy.setShader(this.iHo);
-        canvas.drawRoundRect(this.iHn, this.mRadius, this.mRadius, this.Gy);
+        this.iNF.left = this.strokeWidth;
+        this.iNF.top = this.strokeWidth;
+        this.iNF.right = getMeasuredWidth() - this.strokeWidth;
+        this.iNF.bottom = getMeasuredHeight() - this.strokeWidth;
+        float f = this.mProgress / (this.gQv + 0.0f);
+        this.iNG = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Hc, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.GG.setShader(this.iNG);
+        canvas.drawRoundRect(this.iNF, this.mRadius, this.mRadius, this.GG);
     }
 
     public void setMax(int i) {
-        this.gKl = i;
+        this.gQv = i;
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonText(String str) {
-        this.ama = str;
+        this.amD = str;
         this.mProgress = 0;
         postInvalidate();
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonText(String str, int i) {
-        this.ama = str;
+        this.amD = str;
         this.mProgress = i;
         postInvalidate();
     }
 
     public void setForeground(int i) {
-        this.GP = i;
+        this.Hc = i;
         postInvalidate();
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setButtonTextSize(int i) {
-        this.cKe = l.dip2px(getContext(), i);
+        this.cLy = l.dip2px(getContext(), i);
         postInvalidate();
     }
 
@@ -149,15 +149,15 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void setProgress(int i) {
-        if (i <= this.gKl) {
+        if (i <= this.gQv) {
             this.mProgress = i;
-            this.ama = this.mProgress + "%";
+            this.amD = this.mProgress + "%";
             postInvalidate();
         }
     }
 
     public int getMax() {
-        return this.gKl;
+        return this.gQv;
     }
 
     public int getProgress() {
@@ -166,16 +166,16 @@ public class FeedAdProgressButton extends View implements a {
 
     @Override // com.baidu.tieba.recapp.widget.a
     public void onChangeSkinType() {
-        al.k(this, R.drawable.feed_ad_progress_button_bg);
-        this.mTextColor = al.getColor(R.color.cp_link_tip_a);
-        this.GP = al.getColor(R.color.cp_link_tip_a_alpha50);
+        am.k(this, R.drawable.feed_ad_progress_button_bg);
+        this.mTextColor = am.getColor(R.color.cp_link_tip_a);
+        this.Hc = am.getColor(R.color.cp_link_tip_a_alpha50);
     }
 
     @Override // com.baidu.tieba.recapp.widget.a
-    public void bFE() {
-        al.k(this, R.drawable.tail_frame_action_btn_bg);
-        this.mTextColor = al.getColor(R.color.cp_btn_a);
-        this.bWu.setColor(this.mTextColor);
+    public void bIl() {
+        am.k(this, R.drawable.tail_frame_action_btn_bg);
+        this.mTextColor = am.getColor(R.color.cp_btn_a);
+        this.bXw.setColor(this.mTextColor);
         postInvalidate();
     }
 }

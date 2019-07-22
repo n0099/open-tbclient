@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public final class o {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static JSONObject cY(String str) {
+    public static JSONObject dd(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONObject();
         }
@@ -23,7 +23,7 @@ public final class o {
         }
     }
 
-    public static JSONArray ie(String str) {
+    public static JSONArray il(String str) {
         if (TextUtils.isEmpty(str)) {
             return new JSONArray();
         }

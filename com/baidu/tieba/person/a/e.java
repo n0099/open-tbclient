@@ -9,43 +9,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class e {
-    private HTypeListView cWo;
-    private c icj;
-    private b ick;
-    private a icl;
+    private HTypeListView cXK;
+    private c iiB;
+    private b iiC;
+    private a iiD;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.cWo = hTypeListView;
+        this.cXK = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.icj = new c(this.mTbPageContext, m.Xj);
-        this.ick = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.ict);
-        this.icl = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.ibT);
-        this.mAdapters.add(this.icj);
-        this.mAdapters.add(this.ick);
-        this.mAdapters.add(this.icl);
-        this.cWo.addAdapters(this.mAdapters);
+        this.iiB = new c(this.mTbPageContext, m.XE);
+        this.iiC = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.iiL);
+        this.iiD = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.iil);
+        this.mAdapters.add(this.iiB);
+        this.mAdapters.add(this.iiC);
+        this.mAdapters.add(this.iiD);
+        this.cXK.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<com.baidu.adp.widget.ListView.m> list) {
-        if (this.cWo != null) {
-            this.cWo.setData(list);
+        if (this.cXK != null) {
+            this.cXK.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.cWo != null && (this.cWo.getAdapter() instanceof v)) {
-            ((v) this.cWo.getAdapter()).notifyDataSetChanged();
+        if (this.cXK != null && (this.cXK.getAdapter() instanceof v)) {
+            ((v) this.cXK.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.icj.z(onClickListener);
-        this.ick.z(onClickListener);
+        this.iiB.B(onClickListener);
+        this.iiC.B(onClickListener);
     }
 }

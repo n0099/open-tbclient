@@ -1,133 +1,37 @@
 package com.baidu.tieba.aiapps.apps.j;
 
-import android.content.Context;
-import com.baidu.swan.apps.u.b.o;
-import com.baidu.swan.apps.x.a.c;
-import com.baidu.swan.apps.x.a.e;
-import com.baidu.swan.apps.x.a.f;
-import com.baidu.swan.apps.x.a.g;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
 /* loaded from: classes4.dex */
-public class a implements o {
-    private static o ddv;
+public class a {
+    public final long delta;
+    public final String dgY;
+    public final Map<String, String> dgZ = new HashMap();
+    public final long serverTime;
 
-    public static void a(o oVar) {
-        ddv = oVar;
+    public static a aGV() {
+        return new a(0L);
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, cVar, bVar, bVar2);
+    private a(long j) {
+        this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.dgY = Long.toHexString(tk(this.serverTime + "#" + this.delta));
+        this.dgZ.put("timestamp", Long.toString(this.serverTime));
+        this.dgZ.put("delta", Long.toString(this.delta));
+        this.dgZ.put("rasign", this.dgY);
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean b(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.b(context, cVar, bVar, bVar2);
+    private long tk(String str) {
+        CRC32 crc32 = new CRC32();
+        crc32.reset();
+        crc32.update(str.getBytes());
+        return crc32.getValue();
     }
 
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean c(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.c(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, fVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, eVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean d(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.d(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, bVar, bVar2, bVar3);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean e(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.e(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean f(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.f(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean g(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.g(context, cVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, aVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public boolean a(Context context, g gVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
-        if (ddv == null) {
-            return false;
-        }
-        return ddv.a(context, gVar, bVar, bVar2);
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void c(com.baidu.swan.apps.b.c.c cVar) {
-        if (ddv != null) {
-            ddv.c(cVar);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void d(com.baidu.swan.apps.b.c.c cVar) {
-        if (ddv != null) {
-            ddv.d(cVar);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.u.b.o
-    public void e(com.baidu.swan.apps.b.c.c cVar) {
-        if (ddv != null) {
-            ddv.e(cVar);
-        }
+    public String toString() {
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.dgY;
     }
 }

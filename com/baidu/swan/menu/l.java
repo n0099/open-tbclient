@@ -1,7 +1,7 @@
 package com.baidu.swan.menu;
 /* loaded from: classes2.dex */
 public interface l {
-    e UT();
+    e VM();
 
-    m UU();
+    m VN();
 }

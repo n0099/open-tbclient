@@ -13,15 +13,15 @@ import java.util.concurrent.TimeUnit;
 final class a {
     private final Executor jI = new ExecutorC0004a();
     private static final a jH = new a();
-    private static final int jJ = Runtime.getRuntime().availableProcessors();
-    static final int CORE_POOL_SIZE = jJ + 1;
-    static final int jK = (jJ * 2) + 1;
+    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
+    static final int CORE_POOL_SIZE = CPU_COUNT + 1;
+    static final int jJ = (CPU_COUNT * 2) + 1;
 
     private a() {
     }
 
-    public static ExecutorService newCachedThreadPool() {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, jK, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+    public static ExecutorService aW() {
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, jJ, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         a(threadPoolExecutor, true);
         return threadPoolExecutor;
     }
@@ -33,7 +33,7 @@ final class a {
         }
     }
 
-    public static Executor aV() {
+    public static Executor aX() {
         return jH.jI;
     }
 

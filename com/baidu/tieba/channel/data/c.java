@@ -8,7 +8,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class c {
     private boolean hasMore = true;
-    private List<i> aOH = new ArrayList();
+    private List<i> aPr = new ArrayList();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -19,7 +19,7 @@ public class c {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         i iVar = new i();
                         iVar.parserJson(optJSONArray.getJSONObject(i));
-                        this.aOH.add(iVar);
+                        this.aPr.add(iVar);
                     }
                 }
             } catch (JSONException e) {
@@ -37,6 +37,6 @@ public class c {
     }
 
     public List<i> getItems() {
-        return this.aOH;
+        return this.aPr;
     }
 }

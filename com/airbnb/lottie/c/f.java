@@ -12,11 +12,11 @@ import com.airbnb.lottie.a.a.q;
 import java.io.Closeable;
 /* loaded from: classes2.dex */
 public final class f {
-    private static final PathMeasure nh = new PathMeasure();
-    private static final Path nj = new Path();
-    private static final Path qs = new Path();
+    private static final PathMeasure ng = new PathMeasure();
+    private static final Path ni = new Path();
+    private static final Path qu = new Path();
     private static final float[] points = new float[4];
-    private static final float qt = (float) Math.sqrt(2.0d);
+    private static final float qv = (float) Math.sqrt(2.0d);
 
     public static Path b(PointF pointF, PointF pointF2, PointF pointF3, PointF pointF4) {
         Path path = new Path();
@@ -43,22 +43,22 @@ public final class f {
     public static float c(Matrix matrix) {
         points[0] = 0.0f;
         points[1] = 0.0f;
-        points[2] = qt;
-        points[3] = qt;
+        points[2] = qv;
+        points[3] = qv;
         matrix.mapPoints(points);
         return ((float) Math.hypot(points[2] - points[0], points[3] - points[1])) / 2.0f;
     }
 
     public static void a(Path path, @Nullable q qVar) {
         if (qVar != null) {
-            a(path, qVar.cg().getValue().floatValue() / 100.0f, qVar.ch().getValue().floatValue() / 100.0f, qVar.ci().getValue().floatValue() / 360.0f);
+            a(path, qVar.cl().getValue().floatValue() / 100.0f, qVar.cm().getValue().floatValue() / 100.0f, qVar.cn().getValue().floatValue() / 360.0f);
         }
     }
 
     public static void a(Path path, float f, float f2, float f3) {
         com.airbnb.lottie.d.beginSection("applyTrimPathIfNeeded");
-        nh.setPath(path, false);
-        float length = nh.getLength();
+        ng.setPath(path, false);
+        float length = ng.getLength();
         if (f == 1.0f && f2 == 0.0f) {
             com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f2 - f) - 1.0f) < 0.01d) {
@@ -89,18 +89,18 @@ public final class f {
             if (f7 >= f8) {
                 f7 -= length;
             }
-            nj.reset();
-            nh.getSegment(f7, f8, nj, true);
+            ni.reset();
+            ng.getSegment(f7, f8, ni, true);
             if (f8 > length) {
-                qs.reset();
-                nh.getSegment(0.0f, f8 % length, qs, true);
-                nj.addPath(qs);
+                qu.reset();
+                ng.getSegment(0.0f, f8 % length, qu, true);
+                ni.addPath(qu);
             } else if (f7 < 0.0f) {
-                qs.reset();
-                nh.getSegment(f7 + length, length, qs, true);
-                nj.addPath(qs);
+                qu.reset();
+                ng.getSegment(f7 + length, length, qu, true);
+                ni.addPath(qu);
             }
-            path.set(nj);
+            path.set(ni);
             com.airbnb.lottie.d.D("applyTrimPathIfNeeded");
         }
     }
@@ -113,7 +113,7 @@ public final class f {
             if (eVar.getMinorVersion() < i2) {
                 return false;
             }
-            return eVar.getMinorVersion() > i2 || eVar.bw() >= i3;
+            return eVar.getMinorVersion() > i2 || eVar.bA() >= i3;
         }
         return true;
     }

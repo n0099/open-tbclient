@@ -5,30 +5,30 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes3.dex */
 public class b {
-    private q bRe = null;
-    private com.baidu.tbadk.core.util.a.a bRd = null;
+    private q bSe = null;
+    private com.baidu.tbadk.core.util.a.a bSd = null;
 
     public b() {
-        ahB();
+        aiD();
     }
 
-    public void ie() {
-        if (this.bRe != null) {
-            this.bRe.ie();
+    public void in() {
+        if (this.bSe != null) {
+            this.bSe.in();
         }
     }
 
     public void setUrl(String str) {
-        this.bRd.aiB().aiE().mUrl = str;
+        this.bSd.ajE().ajH().mUrl = str;
     }
 
-    private void ahB() {
-        this.bRd = new com.baidu.tbadk.core.util.a.a();
-        this.bRe = new c(this.bRd);
-        this.bRd.aiB().aiE().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
-        com.baidu.adp.lib.network.a.a.aC(TbadkCoreApplication.getInst().getCuid());
-        com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuidGalaxy2());
-        com.baidu.adp.lib.network.a.a.aE(TbadkCoreApplication.getInst().getCuidGid());
+    private void aiD() {
+        this.bSd = new com.baidu.tbadk.core.util.a.a();
+        this.bSe = new c(this.bSd);
+        this.bSd.ajE().ajH().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+        com.baidu.adp.lib.network.a.a.aD(TbadkCoreApplication.getInst().getCuid());
+        com.baidu.adp.lib.network.a.a.aE(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        com.baidu.adp.lib.network.a.a.aF(TbadkCoreApplication.getInst().getCuidGid());
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3) {
@@ -36,11 +36,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        ahC().aiB().a(this.bRe);
-        return this.bRe.a(str, handler, i, i2, i3, z);
+        aiE().ajE().a(this.bSe);
+        return this.bSe.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a ahC() {
-        return this.bRd;
+    public com.baidu.tbadk.core.util.a.a aiE() {
+        return this.bSd;
     }
 }

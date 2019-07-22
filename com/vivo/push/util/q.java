@@ -1,7 +1,6 @@
 package com.vivo.push.util;
 
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
@@ -10,7 +9,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 /* loaded from: classes3.dex */
 public final class q {
-    private static String a = RSAUtil.ALGORITHM_RSA;
+    private static String a = "RSA";
 
     public static PublicKey a(String str) throws Exception {
         try {

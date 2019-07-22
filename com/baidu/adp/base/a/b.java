@@ -17,33 +17,33 @@ import com.baidu.adp.lib.util.BdLog;
 import java.sql.SQLException;
 /* loaded from: classes.dex */
 public class b {
-    private SQLiteDatabase sS = null;
-    private a.InterfaceC0012a sT = null;
-    private a sU;
+    private SQLiteDatabase sV = null;
+    private a.InterfaceC0012a sW = null;
+    private a sX;
 
     public b(a aVar) {
-        this.sU = aVar;
+        this.sX = aVar;
     }
 
     public void a(a.InterfaceC0012a interfaceC0012a) {
-        this.sT = interfaceC0012a;
+        this.sW = interfaceC0012a;
     }
 
-    public SQLiteDatabase eT() {
+    public SQLiteDatabase fa() {
         return B(true);
     }
 
     protected SQLiteDatabase B(boolean z) {
         C(z);
-        return this.sS;
+        return this.sV;
     }
 
     private void C(boolean z) {
         synchronized (b.class) {
-            if (this.sS == null || !this.sS.isOpen()) {
+            if (this.sV == null || !this.sV.isOpen()) {
                 try {
-                    this.sU.a(this.sT);
-                    this.sS = this.sU.getWritableDatabase();
+                    this.sX.a(this.sW);
+                    this.sV = this.sX.getWritableDatabase();
                 } catch (RuntimeException e) {
                     if (z) {
                         c(e, "ensureDatabaseReady");
@@ -56,10 +56,10 @@ public class b {
     }
 
     public boolean O(String str) {
-        SQLiteDatabase eT = eT();
-        if (eT != null) {
+        SQLiteDatabase fa = fa();
+        if (fa != null) {
             try {
-                eT.execSQL(str);
+                fa.execSQL(str);
                 return true;
             } catch (Throwable th) {
                 c(th, "execSQLNoException:" + str);
@@ -70,10 +70,10 @@ public class b {
     }
 
     public boolean f(String str, Object[] objArr) {
-        SQLiteDatabase eT = eT();
-        if (eT != null) {
+        SQLiteDatabase fa = fa();
+        if (fa != null) {
             try {
-                eT.execSQL(str, objArr);
+                fa.execSQL(str, objArr);
                 return true;
             } catch (Throwable th) {
                 c(th, "execSQLNoException:" + str);
@@ -83,7 +83,7 @@ public class b {
         return false;
     }
 
-    public Cursor rawQuery(String str, String[] strArr) throws Exception {
+    public Cursor b(String str, String[] strArr) throws Exception {
         SQLiteDatabase B = B(false);
         if (B != null) {
             return B.rawQuery(str, strArr);
@@ -91,26 +91,26 @@ public class b {
         throw new SQLException("unable to open database.");
     }
 
-    public void eU() {
+    public void fb() {
         try {
-            if (this.sS != null) {
-                this.sS.close();
-                this.sS = null;
+            if (this.sV != null) {
+                this.sV.close();
+                this.sV = null;
             }
         } catch (Exception e) {
             BdLog.e("closeDatabase：" + e.getMessage());
         }
     }
 
-    public boolean eV() {
+    public boolean fc() {
         boolean ac;
         synchronized (b.class) {
-            eU();
+            fb();
             try {
-                ac = this.sU.ac(BdBaseApplication.getInst().getContext());
+                ac = this.sX.ac(BdBaseApplication.getInst().getContext());
             } catch (Exception e) {
                 BdLog.e("deleteDatabase：" + e.getMessage());
-                this.sS = null;
+                this.sV = null;
                 return false;
             }
         }
@@ -123,29 +123,29 @@ public class b {
             if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
                 BdLog.w("database corrupted. recreate!");
                 try {
-                    eV();
+                    fc();
                 } catch (Throwable th2) {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
                 i = -14;
-                this.sS = null;
+                this.sV = null;
             } else if (th instanceof SQLiteAbortException) {
                 i = -11;
             } else if (th instanceof SQLiteConstraintException) {
                 i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
                 i = -15;
-                this.sS = null;
+                this.sV = null;
             } else if (th instanceof SQLiteFullException) {
                 i = -16;
-                this.sS = null;
+                this.sV = null;
             } else if (th instanceof SQLiteDoneException) {
                 i = -19;
-                this.sS = null;
+                this.sV = null;
             } else if (th instanceof SQLiteMisuseException) {
                 i = -17;
             } else {
-                this.sS = null;
+                this.sV = null;
                 i = -17;
             }
             a(str, i, th.getMessage(), new Object[0]);

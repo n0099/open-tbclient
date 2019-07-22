@@ -1,57 +1,180 @@
 package com.baidu.mobstat;
 
-import org.json.JSONException;
+import android.text.TextUtils;
+import com.baidu.mapapi.UIMsg;
+import java.io.IOException;
+import java.net.Socket;
+import java.net.URI;
+import java.nio.ByteBuffer;
+import java.nio.channels.NotYetConnectedException;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public class aj {
-    public boolean a;
-    public String b;
-    public boolean c;
+    private static final ByteBuffer c = ByteBuffer.allocate(0);
+    private a a;
+    private b b;
 
-    public aj() {
-        this.a = false;
-        this.b = "";
-        this.c = false;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void a(String str);
+
+        void a(boolean z);
+
+        void b();
     }
 
-    public aj(JSONObject jSONObject) {
-        this.a = false;
-        this.b = "";
-        this.c = false;
+    private Socket c() {
+        SSLSocketFactory sSLSocketFactory;
         try {
-            this.a = jSONObject.getBoolean("SDK_BPLUS_SERVICE");
+            SSLContext sSLContext = SSLContext.getInstance("TLS");
+            sSLContext.init(null, null, null);
+            sSLSocketFactory = sSLContext.getSocketFactory();
         } catch (Exception e) {
-            bi.c().b(e);
+            sSLSocketFactory = null;
+        }
+        if (sSLSocketFactory == null) {
+            return null;
         }
         try {
-            this.b = jSONObject.getString("SDK_PRODUCT_LY");
+            return sSLSocketFactory.createSocket();
         } catch (Exception e2) {
-            bi.c().b(e2);
-        }
-        try {
-            this.c = jSONObject.getBoolean("SDK_LOCAL_SERVER");
-        } catch (Exception e3) {
-            bi.c().b(e3);
+            return null;
         }
     }
 
-    public JSONObject a() {
-        JSONObject jSONObject = new JSONObject();
+    public aj(URI uri, a aVar) throws c {
+        this.a = aVar;
         try {
-            jSONObject.put("SDK_BPLUS_SERVICE", this.a);
-        } catch (JSONException e) {
-            bi.c().b(e);
+            this.b = new b(uri, UIMsg.m_AppUI.MSG_APP_GPS, uri.toString().startsWith("wss://") ? c() : null);
+            this.b.c();
+        } catch (InterruptedException e) {
+            throw new c(e);
         }
-        try {
-            jSONObject.put("SDK_PRODUCT_LY", this.b);
-        } catch (JSONException e2) {
-            bi.c().b(e2);
+    }
+
+    public void a() {
+        if (this.b != null) {
+            this.b.d();
         }
-        try {
-            jSONObject.put("SDK_LOCAL_SERVER", this.c);
-        } catch (JSONException e3) {
-            bi.c().b(e3);
+    }
+
+    public void a(JSONObject jSONObject) throws NotYetConnectedException {
+        if (this.b != null) {
+            this.b.a(jSONObject.toString().getBytes());
         }
-        return jSONObject;
+    }
+
+    public boolean b() {
+        return (this.b.f() || this.b.g() || this.b.e()) ? false : true;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes6.dex */
+    public class b extends cc {
+        public b(URI uri, int i, Socket socket) throws InterruptedException {
+            super(uri, new cf(), null, i);
+            a(socket);
+        }
+
+        @Override // com.baidu.mobstat.cc
+        public void a(cz czVar) {
+            if (bd.c().b()) {
+                bd.c().a("onOpen");
+            }
+            if (aj.this.a != null) {
+                aj.this.a.a();
+            }
+        }
+
+        @Override // com.baidu.mobstat.cc
+        public void a(String str) {
+            JSONObject jSONObject;
+            int i;
+            String str2 = null;
+            if (bd.c().b()) {
+                bd.c().a("onMessage: " + str);
+            }
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject = new JSONObject(str);
+                } catch (Exception e) {
+                    jSONObject = null;
+                }
+                if (jSONObject != null) {
+                    try {
+                        str2 = jSONObject.getString("type");
+                    } catch (Exception e2) {
+                    }
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (str2.equals("deploy")) {
+                            try {
+                                aj.this.a.a(((JSONObject) jSONObject.get("data")).toString());
+                                return;
+                            } catch (Exception e3) {
+                                return;
+                            }
+                        }
+                        try {
+                            i = ((Integer) ((JSONObject) jSONObject.get("data")).get("status")).intValue();
+                        } catch (Exception e4) {
+                            i = -1;
+                        }
+                        switch (i) {
+                            case 801020:
+                                bc.c().a("autotrace: connect established");
+                                am.a().a(2);
+                                return;
+                            case 801021:
+                                bc.c().a("autotrace: connect failed, connect has been established");
+                                am.a().a(5, "already connect");
+                                return;
+                            case 801022:
+                            case 801023:
+                            default:
+                                return;
+                            case 801024:
+                                bc.c().a("autotrace: connect confirm");
+                                am.a().a(3);
+                                if (aj.this.a != null) {
+                                    aj.this.a.b();
+                                    return;
+                                }
+                                return;
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.mobstat.cc
+        public void a(int i, String str, boolean z) {
+            if (bd.c().b()) {
+                bd.c().a("onClose,  reason:" + str + ", remote:" + z);
+            }
+            bc.c().a("autotrace: connect closed, server:" + z + " reason:" + str);
+            am.a().a(5, "remote:" + z + "|reason:" + str);
+            if (aj.this.a != null) {
+                aj.this.a.a(z);
+            }
+        }
+
+        @Override // com.baidu.mobstat.cc
+        public void a(Exception exc) {
+            if (bd.c().b()) {
+                bd.c().a("onError");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends IOException {
+        public c(Throwable th) {
+            super(th.getMessage());
+        }
     }
 }

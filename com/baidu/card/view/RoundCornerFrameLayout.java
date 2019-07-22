@@ -17,97 +17,97 @@ import android.widget.ImageView;
 import com.airbnb.lottie.k;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 /* loaded from: classes3.dex */
 public class RoundCornerFrameLayout extends FrameLayout {
-    private float Yu;
-    private Paint Yv;
-    private ImageView Yw;
-    private Bitmap Yx;
-    private ColorFilter Yy;
-    private ColorFilter Yz;
+    private float YP;
+    private Paint YQ;
+    private ImageView YR;
+    private Bitmap YS;
+    private ColorFilter YT;
+    private ColorFilter YU;
     private int mSkinType;
-    private RectF qc;
+    private RectF qe;
 
     public RoundCornerFrameLayout(Context context) {
         super(context);
-        this.Yw = null;
+        this.YR = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Yw = null;
+        this.YR = null;
         this.mSkinType = 3;
         init();
     }
 
     public RoundCornerFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.Yw = null;
+        this.YR = null;
         this.mSkinType = 3;
         init();
     }
 
     private void init() {
         setWillNotDraw(false);
-        this.qc = new RectF();
-        this.Yu = getResources().getDimension(R.dimen.tbds20);
-        this.Yv = new Paint();
-        this.Yv.setStrokeWidth(0.0f);
-        this.Yv.setStrokeCap(Paint.Cap.ROUND);
-        this.Yv.setAntiAlias(true);
-        this.Yv.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
-        this.Yw = new ImageView(getContext());
-        this.Yw.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+        this.qe = new RectF();
+        this.YP = getResources().getDimension(R.dimen.tbds20);
+        this.YQ = new Paint();
+        this.YQ.setStrokeWidth(0.0f);
+        this.YQ.setStrokeCap(Paint.Cap.ROUND);
+        this.YQ.setAntiAlias(true);
+        this.YQ.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.YR = new ImageView(getContext());
+        this.YR.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }
 
     public void setCorner(float f) {
-        this.Yu = f;
-        if (this.Yx != null) {
-            this.Yx.recycle();
-            qD();
+        this.YP = f;
+        if (this.YS != null) {
+            this.YS.recycle();
+            ra();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.Yw != null && this.mSkinType != i) {
+        if (this.YR != null && this.mSkinType != i) {
             this.mSkinType = i;
-            this.Yy = new k(al.getColor(R.color.cp_bg_line_d));
-            this.Yz = new k(al.getColor(R.color.cp_bg_line_e));
-            this.Yw.setColorFilter(this.Yy);
+            this.YT = new k(am.getColor(R.color.cp_bg_line_d));
+            this.YU = new k(am.getColor(R.color.cp_bg_line_e));
+            this.YR.setColorFilter(this.YT);
         }
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         if ((i != i3 || i2 != i4) && i > 0 && i2 > 0) {
-            if (this.Yx != null && !this.Yx.isRecycled()) {
-                this.Yx.recycle();
+            if (this.YS != null && !this.YS.isRecycled()) {
+                this.YS.recycle();
             }
-            qD();
+            ra();
         }
     }
 
-    public void aB(boolean z) {
-        if (this.Yw != null) {
-            this.Yw.setColorFilter(z ? this.Yz : this.Yy);
+    public void aE(boolean z) {
+        if (this.YR != null) {
+            this.YR.setColorFilter(z ? this.YU : this.YT);
         }
     }
 
-    private void qD() {
+    private void ra() {
         if (getMeasuredHeight() > 0 && getMeasuredWidth() > 0) {
-            this.qc.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.qe.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
             try {
-                this.Yx = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                this.YS = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
             } catch (OutOfMemoryError e) {
                 BdLog.e(e);
                 System.gc();
                 TbadkCoreApplication.getInst().onLowMemory();
                 try {
-                    this.Yx = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
+                    this.YS = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_4444);
                 } catch (OutOfMemoryError e2) {
                     BdLog.e(e);
                     System.gc();
@@ -115,13 +115,13 @@ public class RoundCornerFrameLayout extends FrameLayout {
                     return;
                 }
             }
-            Canvas canvas = new Canvas(this.Yx);
+            Canvas canvas = new Canvas(this.YS);
             canvas.drawColor(ViewCompat.MEASURED_STATE_MASK);
-            this.Yv.setColor(-1);
-            canvas.drawRoundRect(this.qc, this.Yu, this.Yu, this.Yv);
-            this.Yw.setImageBitmap(this.Yx);
-            if (this.Yw.getParent() == null) {
-                addView(this.Yw);
+            this.YQ.setColor(-1);
+            canvas.drawRoundRect(this.qe, this.YP, this.YP, this.YQ);
+            this.YR.setImageBitmap(this.YS);
+            if (this.YR.getParent() == null) {
+                addView(this.YR);
             }
         }
     }
@@ -129,22 +129,22 @@ public class RoundCornerFrameLayout extends FrameLayout {
     @Override // android.view.ViewGroup
     public void addView(View view) {
         super.addView(view);
-        if (this.Yw != null && view != this.Yw) {
-            if (this.Yw.getParent() != null) {
-                ((ViewGroup) this.Yw.getParent()).removeView(this.Yw);
+        if (this.YR != null && view != this.YR) {
+            if (this.YR.getParent() != null) {
+                ((ViewGroup) this.YR.getParent()).removeView(this.YR);
             }
-            super.addView(this.Yw);
+            super.addView(this.YR);
         }
     }
 
     @Override // android.view.ViewGroup
     public void removeAllViews() {
         super.removeAllViews();
-        if (this.Yw != null) {
-            if (this.Yw.getParent() != null) {
-                ((ViewGroup) this.Yw.getParent()).removeView(this.Yw);
+        if (this.YR != null) {
+            if (this.YR.getParent() != null) {
+                ((ViewGroup) this.YR.getParent()).removeView(this.YR);
             }
-            super.addView(this.Yw);
+            super.addView(this.YR);
         }
     }
 }

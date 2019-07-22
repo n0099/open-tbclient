@@ -2,7 +2,6 @@ package okhttp3.internal.platform;
 
 import android.os.Build;
 import android.util.Log;
-import com.baidu.android.common.security.RSAUtil;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -251,7 +250,7 @@ public class AndroidPlatform extends Platform {
         @Override // okhttp3.internal.tls.CertificateChainCleaner
         public List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
             try {
-                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
+                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (InvocationTargetException e2) {

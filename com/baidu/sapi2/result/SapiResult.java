@@ -2,14 +2,13 @@ package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes.dex */
 public class SapiResult {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_PARAMS_ERROR = -204;
     public static final int ERROR_CODE_PROCESSED_END = -301;
+    public static final int ERROR_CODE_SDK_NOT_INIT = -801;
     public static final int ERROR_CODE_SERVER_DATA_ERROR = -205;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
     public static final int ERROR_CODE_UNKNOWN = -202;
@@ -18,6 +17,7 @@ public class SapiResult {
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE = "网络连接不可用，请检查网络设置";
     public static final String ERROR_MSG_PARAMS_ERROR = "参数错误，请稍后再试";
     public static final String ERROR_MSG_PROCESSED_END = "您已取消操作";
+    public static final String ERROR_MSG_SDK_NOT_INIT = "服务异常，请稍后再试";
     public static final String ERROR_MSG_SERVER_DATA_ERROR = "服务端数据异常，请稍后再试";
     public static final String ERROR_MSG_SSL_PEER_UNVERIFIED = "网站安全证书已过期或不可信，系统时间错误可能导致此问题";
     public static final String ERROR_MSG_UNKNOWN = "网络连接失败，请检查网络设置";
@@ -28,80 +28,6 @@ public class SapiResult {
     protected SparseArray<String> msgMap = new SparseArray<>();
     protected int resultCode = -202;
     protected String resultMsg;
-
-    /* loaded from: classes.dex */
-    public static class Action {
-        public ActionMode actionMode;
-        public String actionTitle;
-        public ActionType actionType;
-        public String actionUrl;
-    }
-
-    /* loaded from: classes.dex */
-    public enum ActionMode {
-        MSG("msg"),
-        URL("url");
-        
-        private static final Map<String, ActionMode> a = new HashMap();
-        private String b;
-
-        static {
-            ActionMode[] values;
-            for (ActionMode actionMode : values()) {
-                a.put(actionMode.toString(), actionMode);
-            }
-        }
-
-        ActionMode(String str) {
-            this.b = str;
-        }
-
-        public String getValue() {
-            return this.b;
-        }
-
-        public static ActionMode fromString(String str) {
-            return a.get(str);
-        }
-
-        @Override // java.lang.Enum
-        public String toString() {
-            return this.b;
-        }
-    }
-
-    /* loaded from: classes.dex */
-    public enum ActionType {
-        FORCE("force"),
-        OPTIONAL("optional");
-        
-        private static final Map<String, ActionType> a = new HashMap();
-        private String b;
-
-        static {
-            ActionType[] values;
-            for (ActionType actionType : values()) {
-                a.put(actionType.toString(), actionType);
-            }
-        }
-
-        ActionType(String str) {
-            this.b = str;
-        }
-
-        public String getValue() {
-            return this.b;
-        }
-
-        public static ActionType fromString(String str) {
-            return a.get(str);
-        }
-
-        @Override // java.lang.Enum
-        public String toString() {
-            return this.b;
-        }
-    }
 
     public SapiResult() {
         this.msgMap.put(0, RESULT_MSG_SUCCESS);

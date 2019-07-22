@@ -4,22 +4,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.topic.topictab.b.c;
 /* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.a<c> {
-    private View eVZ;
-    private c gii;
+    private View fba;
+    private c gou;
 
     public b(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
-        this.eVZ = getView().findViewById(R.id.card_topic_list_placeholder);
+        this.fba = getView().findViewById(R.id.card_topic_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        al.l(getView(), this.gii.ghb);
+        am.l(getView(), this.gou.gno);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -31,10 +31,10 @@ public class b extends com.baidu.tieba.card.a<c> {
     @Override // com.baidu.tieba.card.a
     public void a(c cVar) {
         if (cVar != null) {
-            this.gii = cVar;
-            ViewGroup.LayoutParams layoutParams = this.eVZ.getLayoutParams();
-            layoutParams.height = l.g(this.mContext, cVar.eUy);
-            this.eVZ.setLayoutParams(layoutParams);
+            this.gou = cVar;
+            ViewGroup.LayoutParams layoutParams = this.fba.getLayoutParams();
+            layoutParams.height = l.g(this.mContext, cVar.eZz);
+            this.fba.setLayoutParams(layoutParams);
         }
     }
 

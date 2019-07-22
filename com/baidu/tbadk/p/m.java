@@ -7,73 +7,73 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String czf = "tb_perfor_samllflow_time";
-    private static volatile m czi;
-    private long czh;
-    private boolean czd = false;
-    private long czg = 86400;
-    private long cze = com.baidu.tbadk.core.sharedPref.b.agM().getLong(czf, 0);
+    private static String cAv = "tb_perfor_samllflow_time";
+    private static volatile m cAy;
+    private long cAx;
+    private boolean cAt = false;
+    private long cAw = 86400;
+    private long cAu = com.baidu.tbadk.core.sharedPref.b.ahO().getLong(cAv, 0);
 
-    public static m auk() {
-        if (czi == null) {
+    public static m avt() {
+        if (cAy == null) {
             synchronized (m.class) {
-                if (czi == null) {
-                    czi = new m();
+                if (cAy == null) {
+                    cAy = new m();
                 }
             }
         }
-        return czi;
+        return cAy;
     }
 
     private m() {
-        this.czh = 0L;
-        this.czh = this.czg;
+        this.cAx = 0L;
+        this.cAx = this.cAw;
     }
 
-    public boolean aul() {
-        if (!this.czd || (System.currentTimeMillis() - this.cze) / 1000 <= this.czh) {
-            return this.czd;
+    public boolean avu() {
+        if (!this.cAt || (System.currentTimeMillis() - this.cAu) / 1000 <= this.cAx) {
+            return this.cAt;
         }
         return false;
     }
 
-    public void fB(boolean z) {
+    public void fF(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.cze || currentTimeMillis - this.cze >= this.czh) {
-                this.cze = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.agM().putLong(czf, this.cze);
+            if (0 == this.cAu || currentTimeMillis - this.cAu >= this.cAx) {
+                this.cAu = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.ahO().putLong(cAv, this.cAu);
             }
         } else {
-            this.cze = 0L;
-            com.baidu.tbadk.core.sharedPref.b.agM().putLong(czf, this.cze);
+            this.cAu = 0L;
+            com.baidu.tbadk.core.sharedPref.b.ahO().putLong(cAv, this.cAu);
         }
-        this.czd = z;
+        this.cAt = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.auq().aur();
+            n.avz().avA();
         }
     }
 
     public String getNetType() {
-        if (!com.baidu.adp.lib.util.j.jS()) {
+        if (!com.baidu.adp.lib.util.j.kc()) {
             return "N";
         }
-        if (com.baidu.adp.lib.util.j.jT()) {
+        if (com.baidu.adp.lib.util.j.kd()) {
             return "WIFI";
         }
-        if (com.baidu.adp.lib.util.j.jV()) {
+        if (com.baidu.adp.lib.util.j.kf()) {
             return "4G";
         }
-        if (com.baidu.adp.lib.util.j.jW()) {
+        if (com.baidu.adp.lib.util.j.kg()) {
             return "3G";
         }
-        if (!com.baidu.adp.lib.util.j.jX()) {
+        if (!com.baidu.adp.lib.util.j.kh()) {
             return "N";
         }
         return "2G";
     }
 
-    public static String kM(int i) {
+    public static String kS(int i) {
         if (1 == i) {
             return "2G";
         }
@@ -86,7 +86,7 @@ public class m {
         return "WIFI";
     }
 
-    public long aum() {
+    public long avv() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -96,8 +96,8 @@ public class m {
         }
     }
 
-    public l kN(int i) {
-        if (aul()) {
+    public l kT(int i) {
+        if (avu()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -127,9 +127,9 @@ public class m {
         return null;
     }
 
-    public void bj(long j) {
+    public void bk(long j) {
         if (j > 0) {
-            this.czh = j;
+            this.cAx = j;
         }
     }
 
@@ -142,7 +142,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int aun() {
+    public int avw() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

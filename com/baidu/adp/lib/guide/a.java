@@ -10,10 +10,10 @@ class a {
     public static View a(LayoutInflater layoutInflater, b bVar) {
         View a = bVar.a(layoutInflater);
         MaskView.a aVar = new MaskView.a(-2, -2);
-        aVar.zK = bVar.getXOffset();
-        aVar.zL = bVar.getYOffset();
-        aVar.zI = bVar.hJ();
-        aVar.zJ = bVar.hK();
+        aVar.zQ = bVar.getXOffset();
+        aVar.zR = bVar.getYOffset();
+        aVar.zO = bVar.hT();
+        aVar.zP = bVar.hU();
         a.setLayoutParams(aVar);
         return a;
     }

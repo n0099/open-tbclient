@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes4.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean fEA;
+    private boolean fJy;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.fEA) {
+        if (this.fJy) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.fEA = false;
+        this.fJy = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.brF());
+        setMovementMethod(a.btG());
     }
 
     /* loaded from: classes4.dex */
     private static class a extends LinkMovementMethod {
-        private static a fRc;
+        private static a fVZ;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).fEA = true;
+                        ((SpannableClickTextView) textView).fJy = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a brF() {
-            if (fRc == null) {
-                fRc = new a();
+        public static a btG() {
+            if (fVZ == null) {
+                fVZ = new a();
             }
-            return fRc;
+            return fVZ;
         }
     }
 }

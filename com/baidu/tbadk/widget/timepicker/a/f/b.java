@@ -13,20 +13,20 @@ import java.text.ParseException;
 import java.util.Calendar;
 /* loaded from: classes3.dex */
 public class b extends a implements View.OnClickListener {
-    private c cNV;
+    private c cPr;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.cMD = aVar;
+        this.cNX = aVar;
         initView(aVar.context);
     }
 
     private void initView(Context context) {
-        ayA();
+        azO();
         initViews();
         initAnim();
-        if (this.cMD.cMG == null) {
-            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cNJ);
+        if (this.cNX.cOa == null) {
+            LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.cPf);
             TextView textView = (TextView) findViewById(R.id.tvTitle);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.rv_topbar);
             Button button = (Button) findViewById(R.id.btnSubmit);
@@ -35,96 +35,96 @@ public class b extends a implements View.OnClickListener {
             button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.cMD.cNf) ? context.getResources().getString(R.string.pickerview_submit) : this.cMD.cNf);
-            button2.setText(TextUtils.isEmpty(this.cMD.cNg) ? context.getResources().getString(R.string.pickerview_cancel) : this.cMD.cNg);
-            textView.setText(TextUtils.isEmpty(this.cMD.cNh) ? "" : this.cMD.cNh);
-            button.setTextColor(this.cMD.cNi);
-            button2.setTextColor(this.cMD.cNj);
-            textView.setTextColor(this.cMD.cNk);
-            relativeLayout.setBackgroundColor(this.cMD.cNm);
-            button.setTextSize(this.cMD.cNn);
-            button2.setTextSize(this.cMD.cNn);
-            textView.setTextSize(this.cMD.cNo);
+            button.setText(TextUtils.isEmpty(this.cNX.cOB) ? context.getResources().getString(R.string.pickerview_submit) : this.cNX.cOB);
+            button2.setText(TextUtils.isEmpty(this.cNX.cOC) ? context.getResources().getString(R.string.pickerview_cancel) : this.cNX.cOC);
+            textView.setText(TextUtils.isEmpty(this.cNX.cOD) ? "" : this.cNX.cOD);
+            button.setTextColor(this.cNX.cOE);
+            button2.setTextColor(this.cNX.cOF);
+            textView.setTextColor(this.cNX.cOG);
+            relativeLayout.setBackgroundColor(this.cNX.cOI);
+            button.setTextSize(this.cNX.cOJ);
+            button2.setTextSize(this.cNX.cOJ);
+            textView.setTextSize(this.cNX.cOK);
         } else {
-            this.cMD.cMG.aZ(LayoutInflater.from(context).inflate(this.cMD.cNd, this.cNJ));
+            this.cNX.cOa.bb(LayoutInflater.from(context).inflate(this.cNX.cOz, this.cPf));
         }
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.timepicker);
-        linearLayout.setBackgroundColor(this.cMD.cNl);
+        linearLayout.setBackgroundColor(this.cNX.cOH);
         b(linearLayout);
     }
 
     private void b(LinearLayout linearLayout) {
-        this.cNV = new c(linearLayout, this.cMD.cML, this.cMD.cNe, this.cMD.cNp);
-        if (this.cMD.cMF != null) {
-            this.cNV.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.cPr = new c(linearLayout, this.cNX.cOf, this.cNX.cOA, this.cNX.cOL);
+        if (this.cNX.cNZ != null) {
+            this.cPr.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void ayy() {
+                public void azK() {
                     try {
-                        b.this.cMD.cMF.p(c.cNX.parse(b.this.cNV.getTime()));
+                        b.this.cNX.cNZ.p(c.cPt.parse(b.this.cPr.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.cNV.fV(this.cMD.cMQ);
-        if (this.cMD.startYear != 0 && this.cMD.endYear != 0 && this.cMD.startYear <= this.cMD.endYear) {
-            ayD();
+        this.cPr.fZ(this.cNX.cOm);
+        if (this.cNX.cOj != 0 && this.cNX.cOk != 0 && this.cNX.cOj <= this.cNX.cOk) {
+            azR();
         }
-        if (this.cMD.cMN != null && this.cMD.cMO != null) {
-            if (this.cMD.cMN.getTimeInMillis() > this.cMD.cMO.getTimeInMillis()) {
+        if (this.cNX.cOh != null && this.cNX.cOi != null) {
+            if (this.cNX.cOh.getTimeInMillis() > this.cNX.cOi.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            ayE();
-        } else if (this.cMD.cMN != null) {
-            if (this.cMD.cMN.get(1) < 1900) {
+            azS();
+        } else if (this.cNX.cOh != null) {
+            if (this.cNX.cOh.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            ayE();
-        } else if (this.cMD.cMO != null) {
-            if (this.cMD.cMO.get(1) > 2100) {
+            azS();
+        } else if (this.cNX.cOi != null) {
+            if (this.cNX.cOi.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            ayE();
+            azS();
         } else {
-            ayE();
+            azS();
         }
-        ayG();
-        this.cNV.c(this.cMD.cMR, this.cMD.cMS, this.cMD.cMT, this.cMD.cMU, this.cMD.cMV, this.cMD.cMW);
-        this.cNV.h(this.cMD.cMX, this.cMD.cMY, this.cMD.cMZ, this.cMD.cNa, this.cMD.cNb, this.cMD.cNc);
-        fU(this.cMD.cNv);
-        this.cNV.setCyclic(this.cMD.cMP);
-        this.cNV.setDividerColor(this.cMD.cNs);
-        this.cNV.setDividerType(this.cMD.cNy);
-        this.cNV.setLineSpacingMultiplier(this.cMD.cNt);
-        this.cNV.setTextColorOut(this.cMD.cNq);
-        this.cNV.setTextColorCenter(this.cMD.cNr);
-        this.cNV.fW(this.cMD.cNw);
+        azU();
+        this.cPr.c(this.cNX.cOn, this.cNX.cOo, this.cNX.cOp, this.cNX.cOq, this.cNX.cOr, this.cNX.cOs);
+        this.cPr.i(this.cNX.cOt, this.cNX.cOu, this.cNX.cOv, this.cNX.cOw, this.cNX.cOx, this.cNX.cOy);
+        fY(this.cNX.cOR);
+        this.cPr.setCyclic(this.cNX.cOl);
+        this.cPr.setDividerColor(this.cNX.cOO);
+        this.cPr.setDividerType(this.cNX.cOU);
+        this.cPr.setLineSpacingMultiplier(this.cNX.cOP);
+        this.cPr.setTextColorOut(this.cNX.cOM);
+        this.cPr.setTextColorCenter(this.cNX.cON);
+        this.cPr.ga(this.cNX.cOS);
     }
 
-    private void ayD() {
-        this.cNV.setStartYear(this.cMD.startYear);
-        this.cNV.lQ(this.cMD.endYear);
+    private void azR() {
+        this.cPr.lW(this.cNX.cOj);
+        this.cPr.lX(this.cNX.cOk);
     }
 
-    private void ayE() {
-        this.cNV.a(this.cMD.cMN, this.cMD.cMO);
-        ayF();
+    private void azS() {
+        this.cPr.a(this.cNX.cOh, this.cNX.cOi);
+        azT();
     }
 
-    private void ayF() {
-        if (this.cMD.cMN != null && this.cMD.cMO != null) {
-            if (this.cMD.cMM == null || this.cMD.cMM.getTimeInMillis() < this.cMD.cMN.getTimeInMillis() || this.cMD.cMM.getTimeInMillis() > this.cMD.cMO.getTimeInMillis()) {
-                this.cMD.cMM = this.cMD.cMN;
+    private void azT() {
+        if (this.cNX.cOh != null && this.cNX.cOi != null) {
+            if (this.cNX.cOg == null || this.cNX.cOg.getTimeInMillis() < this.cNX.cOh.getTimeInMillis() || this.cNX.cOg.getTimeInMillis() > this.cNX.cOi.getTimeInMillis()) {
+                this.cNX.cOg = this.cNX.cOh;
             }
-        } else if (this.cMD.cMN != null) {
-            this.cMD.cMM = this.cMD.cMN;
-        } else if (this.cMD.cMO != null) {
-            this.cMD.cMM = this.cMD.cMO;
+        } else if (this.cNX.cOh != null) {
+            this.cNX.cOg = this.cNX.cOh;
+        } else if (this.cNX.cOi != null) {
+            this.cNX.cOg = this.cNX.cOi;
         }
     }
 
-    private void ayG() {
+    private void azU() {
         int i;
         int i2;
         int i3;
@@ -132,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.cMD.cMM == null) {
+        if (this.cNX.cOg == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -141,28 +141,28 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.cMD.cMM.get(1);
-            i2 = this.cMD.cMM.get(2);
-            i3 = this.cMD.cMM.get(5);
-            i4 = this.cMD.cMM.get(11);
-            i5 = this.cMD.cMM.get(12);
-            i6 = this.cMD.cMM.get(13);
+            i = this.cNX.cOg.get(1);
+            i2 = this.cNX.cOg.get(2);
+            i3 = this.cNX.cOg.get(5);
+            i4 = this.cNX.cOg.get(11);
+            i5 = this.cNX.cOg.get(12);
+            i6 = this.cNX.cOg.get(13);
         }
-        this.cNV.f(i, i2, i3, i4, i5, i6);
+        this.cPr.g(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            ayH();
+            azV();
         }
         dismiss();
     }
 
-    public void ayH() {
-        if (this.cMD.cME != null) {
+    public void azV() {
+        if (this.cNX.cNY != null) {
             try {
-                this.cMD.cME.a(c.cNX.parse(this.cNV.getTime()), this.cNQ);
+                this.cNX.cNY.a(c.cPt.parse(this.cPr.getTime()), this.cPm);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean ayC() {
-        return this.cMD.cNu;
+    public boolean azQ() {
+        return this.cNX.cOQ;
     }
 }

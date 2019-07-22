@@ -11,8 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e implements m<PointF, PointF> {
-    private final List<com.airbnb.lottie.a.b.h> mW;
-    private PointF oa;
+    private final List<com.airbnb.lottie.a.b.h> mV;
+    private PointF ob;
 
     public static m<PointF, PointF> h(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
         if (jSONObject.has(Config.APP_KEY)) {
@@ -23,23 +23,23 @@ public class e implements m<PointF, PointF> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e() {
-        this.mW = new ArrayList();
-        this.oa = new PointF(0.0f, 0.0f);
+        this.mV = new ArrayList();
+        this.ob = new PointF(0.0f, 0.0f);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Object obj, com.airbnb.lottie.e eVar) {
-        this.mW = new ArrayList();
+        this.mV = new ArrayList();
         if (j(obj)) {
             JSONArray jSONArray = (JSONArray) obj;
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
-                this.mW.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.ob));
+                this.mV.add(h.a.a(jSONArray.optJSONObject(i), eVar, a.oc));
             }
-            com.airbnb.lottie.a.a.f(this.mW);
+            com.airbnb.lottie.a.a.f(this.mV);
             return;
         }
-        this.oa = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bE());
+        this.ob = com.airbnb.lottie.c.b.a((JSONArray) obj, eVar.bI());
     }
 
     private boolean j(Object obj) {
@@ -51,21 +51,21 @@ public class e implements m<PointF, PointF> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<PointF, PointF> cz() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.oa) : new com.airbnb.lottie.a.b.i(this.mW);
+    public com.airbnb.lottie.a.b.a<PointF, PointF> cF() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.ob) : new com.airbnb.lottie.a.b.i(this.mV);
     }
 
     public boolean hasAnimation() {
-        return !this.mW.isEmpty();
+        return !this.mV.isEmpty();
     }
 
     public String toString() {
-        return "initialPoint=" + this.oa;
+        return "initialPoint=" + this.ob;
     }
 
     /* loaded from: classes2.dex */
     private static class a implements m.a<PointF> {
-        private static final m.a<PointF> ob = new a();
+        private static final m.a<PointF> oc = new a();
 
         private a() {
         }

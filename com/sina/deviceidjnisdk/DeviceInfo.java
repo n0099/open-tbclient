@@ -1,48 +1,79 @@
 package com.sina.deviceidjnisdk;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.telephony.TelephonyManager;
-import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes2.dex */
-class DeviceInfo {
-    DeviceInfo() {
+public class DeviceInfo {
+    @SuppressLint({"MissingPermission"})
+    public static String getDeviceId(Context context) {
+        String deviceId;
+        if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager == null) {
+                    return null;
+                }
+                if (Build.VERSION.SDK_INT >= 23) {
+                    deviceId = telephonyManager.getDeviceId(0);
+                } else {
+                    deviceId = telephonyManager.getDeviceId();
+                }
+                if (deviceId == null) {
+                    return null;
+                }
+            } catch (Exception e) {
+                return null;
+            }
+        } else {
+            deviceId = null;
+        }
+        return deviceId;
+    }
+
+    public static String getMacAddress(Context context) {
+        WifiInfo connectionInfo;
+        String macAddress;
+        if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
+            try {
+                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
+                if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
+                    return null;
+                }
+                macAddress = connectionInfo.getMacAddress();
+            } catch (Exception e) {
+                return null;
+            }
+        } else {
+            macAddress = null;
+        }
+        return macAddress;
     }
 
     public static String getImei(Context context) {
-        String str = "";
-        if (checkMyPermission(context, "android.permission.READ_PHONE_STATE").booleanValue()) {
-            str = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId();
-        }
-        if (str == null) {
-            return "";
-        }
-        return str;
+        return getDeviceId(context);
     }
 
-    public static String getWifiMac(Context context) {
-        String str = "";
-        if (checkMyPermission(context, "android.permission.ACCESS_WIFI_STATE").booleanValue()) {
-            str = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress();
-        }
-        if (str == null) {
-            return "";
-        }
-        return str;
-    }
-
-    private static Boolean checkMyPermission(Context context, String str) {
-        return Boolean.valueOf(context.getPackageManager().checkPermission(str, context.getPackageName()) == 0);
-    }
-
+    @SuppressLint({"MissingPermission"})
     public static String getImsi(Context context) {
         String str = "";
-        if (checkMyPermission(context, "android.permission.READ_PHONE_STATE").booleanValue()) {
-            str = ((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
+        if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
+            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+            if (telephonyManager == null) {
+                return null;
+            }
+            str = telephonyManager.getSubscriberId();
         }
         if (str == null) {
             return "";
         }
         return str;
+    }
+
+    private static boolean isPermissionGranted(Context context, String str) {
+        return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
     }
 }

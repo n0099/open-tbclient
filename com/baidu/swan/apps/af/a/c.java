@@ -35,7 +35,7 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read webdomains from file async");
                         }
-                        c.a(aVar, c.gQ(r));
+                        c.a(aVar, c.gX(r));
                     }
                 }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.1
                     @Override // rx.e
@@ -54,12 +54,12 @@ public class c {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.e
-                    /* renamed from: gS */
+                    /* renamed from: gZ */
                     public void onNext(String str2) {
                     }
                 });
             } else {
-                a(aVar, gQ(r));
+                a(aVar, gX(r));
             }
         }
     }
@@ -83,7 +83,7 @@ public class c {
                         if (c.DEBUG) {
                             Log.d("WebSafeWhiteListMgr", "read serverDomains from file async");
                         }
-                        c.a(aVar, c.gQ(r), str2);
+                        c.a(aVar, c.gX(r), str2);
                     }
                 }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.3
                     @Override // rx.e
@@ -102,12 +102,12 @@ public class c {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.e
-                    /* renamed from: gS */
+                    /* renamed from: gZ */
                     public void onNext(String str3) {
                     }
                 });
             } else {
-                a(aVar, gQ(r), str2);
+                a(aVar, gX(r), str2);
             }
         }
     }
@@ -128,7 +128,7 @@ public class c {
                     if (c.DEBUG) {
                         Log.d("WebSafeWhiteListMgr", "read web actions from file async");
                     }
-                    c.a(aVar, c.gQ(r));
+                    c.a(aVar, c.gX(r));
                 }
             }).b(Schedulers.io()).b(new j<String>() { // from class: com.baidu.swan.apps.af.a.c.5
                 @Override // rx.e
@@ -147,21 +147,21 @@ public class c {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.e
-                /* renamed from: gS */
+                /* renamed from: gZ */
                 public void onNext(String str) {
                 }
             });
         } else {
-            a(aVar, gQ(r));
+            a(aVar, gX(r));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static String gQ(String str) {
+    public static String gX(String str) {
         if (DEBUG) {
             Log.d("WebSafeWhiteListMgr", "the request webSafeData file path:" + str);
         }
-        return com.baidu.swan.apps.t.a.eA(str);
+        return com.baidu.swan.apps.t.a.eF(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
