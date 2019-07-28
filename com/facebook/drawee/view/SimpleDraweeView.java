@@ -52,11 +52,11 @@ public class SimpleDraweeView extends GenericDraweeView {
             g.checkNotNull(kea, "SimpleDraweeView was not initialized!");
             this.keb = kea.get();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0448a.SimpleDraweeView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0454a.SimpleDraweeView);
                 try {
-                    if (obtainStyledAttributes.hasValue(a.C0448a.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0448a.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(a.C0448a.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(a.C0448a.SimpleDraweeView_actualImageResource, -1)) != -1) {
+                    if (obtainStyledAttributes.hasValue(a.C0454a.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0454a.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0454a.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(a.C0454a.SimpleDraweeView_actualImageResource, -1)) != -1) {
                         setActualImageResource(resourceId);
                     }
                 } finally {

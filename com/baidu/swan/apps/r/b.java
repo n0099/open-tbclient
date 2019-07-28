@@ -384,21 +384,21 @@ public final class b {
         });
         if (TextUtils.equals("text", dVar.type)) {
             final View decorView = swanAppActivity.getWindow().getDecorView();
-            com.baidu.swan.apps.textarea.a.OM().a(decorView, this.axG.id, new a.InterfaceC0182a() { // from class: com.baidu.swan.apps.r.b.6
-                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+            com.baidu.swan.apps.textarea.a.OM().a(decorView, this.axG.id, new a.InterfaceC0187a() { // from class: com.baidu.swan.apps.r.b.6
+                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
                 public void y(String str, int i) {
                     if (editText.hasFocus()) {
                         b.this.a(swanAppActivity, editText, dVar, i);
                     }
                 }
 
-                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
                 public void z(String str, int i) {
                     b.this.b(editText);
                     com.baidu.swan.apps.textarea.a.OM().al(decorView);
                 }
 
-                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0182a
+                @Override // com.baidu.swan.apps.textarea.a.InterfaceC0187a
                 public void eD(String str) {
                 }
             });

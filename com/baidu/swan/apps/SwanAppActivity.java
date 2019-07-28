@@ -28,7 +28,7 @@ import com.baidu.swan.apps.res.widget.floatlayer.a;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.support.v4.app.FragmentActivity;
 /* loaded from: classes2.dex */
-public class SwanAppActivity extends FragmentActivity implements ServiceConnection, ActivityResultDispatcherHolder, com.baidu.swan.apps.aj.f.c, a.InterfaceC0167a {
+public class SwanAppActivity extends FragmentActivity implements ServiceConnection, ActivityResultDispatcherHolder, com.baidu.swan.apps.aj.f.c, a.InterfaceC0172a {
     private static final boolean DEBUG = b.DEBUG;
     private static final String akh = SwanAppActivity.class.getName();
     private d aki;
@@ -41,7 +41,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     @DebugTrace
     protected void onCreate(Bundle bundle) {
         Bundle bundle2;
-        overridePendingTransition(a.C0105a.aiapps_slide_in_from_right, a.C0105a.aiapps_hold);
+        overridePendingTransition(a.C0110a.aiapps_slide_in_from_right, a.C0110a.aiapps_hold);
         SwanAppProcessInfo.init(getProcessInfo());
         this.akl = true;
         super.onCreate(bundle);
@@ -148,7 +148,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
     protected void onNewIntent(Intent intent) {
         com.baidu.swan.apps.console.c.d("SwanApp", "SwanAppActivity onNewIntent");
         setIntent(intent);
-        overridePendingTransition(a.C0105a.aiapps_slide_in_from_right, a.C0105a.aiapps_hold);
+        overridePendingTransition(a.C0110a.aiapps_slide_in_from_right, a.C0110a.aiapps_hold);
         if (DEBUG) {
             Log.i("SwanAppActivity", "onNewIntent:REORDER_TO_FRONT = " + ((intent.getFlags() & 131072) == 131072));
         }
@@ -182,7 +182,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
         return this.aki.getResultDispatcher();
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0167a
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0172a
     @NonNull
     public com.baidu.swan.apps.res.widget.floatlayer.a vF() {
         return this.aki.vF();
@@ -314,7 +314,7 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
             e = e2;
         }
         try {
-            overridePendingTransition(0, a.C0105a.aiapps_slide_out_to_right_zadjustment_top);
+            overridePendingTransition(0, a.C0110a.aiapps_slide_out_to_right_zadjustment_top);
         } catch (Exception e3) {
             e = e3;
             if (DEBUG) {
@@ -341,11 +341,11 @@ public class SwanAppActivity extends FragmentActivity implements ServiceConnecti
         com.baidu.swan.apps.process.messaging.service.c.b(this, bundle);
     }
 
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0106a interfaceC0106a) {
-        this.aki.a(i, strArr, interfaceC0106a);
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0111a interfaceC0111a) {
+        this.aki.a(i, strArr, interfaceC0111a);
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0224a
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.baidu.swan.support.v4.app.a.InterfaceC0229a
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (!this.aki.b(i, strArr, iArr)) {
             super.onRequestPermissionsResult(i, strArr, iArr);

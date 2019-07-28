@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.ac;
 import com.baidu.swan.apps.an.z;
@@ -201,7 +202,7 @@ public class d {
             networkInfo = null;
         }
         if (networkInfo != null) {
-            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
+            if (IXAdSystemUtils.NT_WIFI.equals(networkInfo.getTypeName().toLowerCase())) {
                 str = "WIFI";
             } else {
                 str = networkInfo.getExtraInfo();

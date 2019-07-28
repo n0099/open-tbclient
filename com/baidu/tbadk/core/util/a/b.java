@@ -42,7 +42,7 @@ public class b {
         boolean z;
         qVar.o("_client_type", "2");
         if (!TbadkCoreApplication.getInst().isOfficial()) {
-            qVar.o("apid", TbConfig.SW_APID);
+            qVar.o("apid", "sw");
         }
         qVar.o("_client_version", TbConfig.getVersion());
         if (TbadkCoreApplication.getInst().getImei() != null) {

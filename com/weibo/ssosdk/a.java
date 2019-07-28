@@ -23,6 +23,8 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.WindowManager;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.BuildConfig;
 import com.xiaomi.mipush.sdk.Constants;
@@ -42,10 +44,10 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.weibo.ssosdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0476a {
+    public static final class C0482a {
         private Intent kqT;
 
-        private C0476a(Context context) {
+        private C0482a(Context context) {
             this.kqT = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         }
 
@@ -160,7 +162,7 @@ public class a {
         try {
             String WR = WR();
             if (!TextUtils.isEmpty(WR)) {
-                jSONObject.put("os", WR);
+                jSONObject.put(IXAdRequestInfo.OS, WR);
             }
             String imei = getImei(context);
             if (!TextUtils.isEmpty(imei)) {
@@ -237,10 +239,10 @@ public class a {
             double eJ = eJ(context);
             jSONObject.put("batterymaxcapacity", String.valueOf(eJ));
             jSONObject.put("batterycurrentcapacity", String.valueOf(eJ));
-            C0476a c0476a = new C0476a(context);
-            jSONObject.put("batterycurrentvoltage", c0476a.cNd());
-            jSONObject.put("batterycurrenttemperature", c0476a.cNe());
-            jSONObject.put("batterycurrentcapacity", (eJ * c0476a.getLevel()) / c0476a.cNc());
+            C0482a c0482a = new C0482a(context);
+            jSONObject.put("batterycurrentvoltage", c0482a.cNd());
+            jSONObject.put("batterycurrenttemperature", c0482a.cNe());
+            jSONObject.put("batterycurrentcapacity", (eJ * c0482a.getLevel()) / c0482a.cNc());
             return jSONObject.toString();
         } catch (JSONException e2) {
             return "";
@@ -309,7 +311,7 @@ public class a {
             return cMV();
         }
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             return (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) ? "" : connectionInfo.getMacAddress();
         } catch (Exception e) {
             return "";
@@ -405,7 +407,7 @@ public class a {
 
     private static String getSsid(Context context) {
         try {
-            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getSSID();
             }
@@ -416,7 +418,7 @@ public class a {
 
     public static String eL(Context context) {
         try {
-            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
+            WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo();
             if (connectionInfo != null) {
                 return connectionInfo.getBSSID();
             }
@@ -462,18 +464,18 @@ public class a {
                             str = "4G";
                             break;
                         default:
-                            str = "none";
+                            str = IXAdSystemUtils.NT_NONE;
                             break;
                     }
                 } else if (activeNetworkInfo.getType() == 1) {
-                    str = "wifi";
+                    str = IXAdSystemUtils.NT_WIFI;
                 }
                 return str;
             }
-            str = "none";
+            str = IXAdSystemUtils.NT_NONE;
             return str;
         } catch (Exception e) {
-            return "none";
+            return IXAdSystemUtils.NT_NONE;
         }
     }
 }

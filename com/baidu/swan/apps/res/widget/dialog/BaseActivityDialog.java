@@ -65,12 +65,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 BaseActivityDialog.this.aOd.onEvent(bVar);
             }
         });
-        EventBusWrapper.register(this.aOd, a.C0165a.class, new rx.functions.b<a.C0165a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
+        EventBusWrapper.register(this.aOd, a.C0170a.class, new rx.functions.b<a.C0170a>() { // from class: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
-            public void call(a.C0165a c0165a) {
-                if (c0165a.tag == BaseActivityDialog.this.aOd.mTag) {
+            public void call(a.C0170a c0170a) {
+                if (c0170a.tag == BaseActivityDialog.this.aOd.mTag) {
                     BaseActivityDialog.this.dismiss();
                 }
             }
@@ -463,7 +463,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.swan.apps.res.widget.dialog.BaseActivityDialog$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static class C0165a {
+        public static class C0170a {
             private Object tag;
         }
     }

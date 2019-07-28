@@ -63,7 +63,7 @@ public class a {
             i2 = 0;
             i3 = -1;
         } else {
-            C0074a b2 = b(i);
+            C0079a b2 = b(i);
             i3 = b2.a;
             i2 = b2.b;
         }
@@ -73,8 +73,8 @@ public class a {
         a = i3;
     }
 
-    private C0074a b(int i) {
-        C0074a c0074a = new C0074a();
+    private C0079a b(int i) {
+        C0079a c0079a = new C0079a();
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
@@ -83,12 +83,12 @@ public class a {
             } else if (i2 < b[i3] || i2 % b[i3] != 0) {
                 i3++;
             } else {
-                c0074a.a = c(b[i3]);
-                c0074a.b = i2 / b[i3];
+                c0079a.a = c(b[i3]);
+                c0079a.b = i2 / b[i3];
                 break;
             }
         }
-        return c0074a;
+        return c0079a;
     }
 
     private int c(int i) {
@@ -183,11 +183,11 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0074a {
+    public class C0079a {
         public int a;
         public int b;
 
-        C0074a() {
+        C0079a() {
         }
     }
 }

@@ -254,8 +254,8 @@ public abstract class h extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.d dVar) {
-        b.Bh().a(dVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.h.3
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(dVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.h.3
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 h.this.asS.i(dVar);
                 if (h.this.asQ != null) {
@@ -264,7 +264,7 @@ public abstract class h extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 h.this.asS.h(dVar);
                 if (h.this.asQ != null) {
@@ -276,8 +276,8 @@ public abstract class h extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.b bVar) {
-        b.Bh().a(bVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.h.4
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(bVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.h.4
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 h.this.asS.i(bVar);
                 if (h.this.asR != null) {
@@ -286,7 +286,7 @@ public abstract class h extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 h.this.asS.h(bVar);
                 if (h.this.asR != null) {

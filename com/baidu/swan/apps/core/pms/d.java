@@ -513,7 +513,7 @@ public abstract class d extends g {
     }
 
     protected com.baidu.swan.apps.ak.a a(com.baidu.swan.pms.model.d dVar) {
-        a.C0181a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, dVar.ave);
+        a.C0186a c = com.baidu.swan.apps.swancore.e.a.c(dVar.versionName, dVar.filePath, dVar.sign, dVar.ave);
         if (!TextUtils.isEmpty(dVar.filePath)) {
             com.baidu.swan.c.a.deleteFile(dVar.filePath);
         }
@@ -633,8 +633,8 @@ public abstract class d extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.f fVar) {
-        b.Bh().a(fVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.11
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(fVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.d.11
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 d.this.asT = fVar;
                 d.this.asS.i(fVar);
@@ -644,7 +644,7 @@ public abstract class d extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 d.this.asS.h(fVar);
                 if (d.this.asO != null) {
@@ -656,8 +656,8 @@ public abstract class d extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final com.baidu.swan.pms.model.h hVar) {
-        b.Bh().a(hVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.12
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(hVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.d.12
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 if (d.this.asU == null) {
                     d.this.asU = new ArrayList();
@@ -673,7 +673,7 @@ public abstract class d extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 d.this.asS.h(hVar);
                 if (d.this.asP != null) {
@@ -685,8 +685,8 @@ public abstract class d extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.d dVar) {
-        b.Bh().a(dVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.13
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(dVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.d.13
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 d.this.asV = dVar;
                 d.this.asS.i(dVar);
@@ -696,7 +696,7 @@ public abstract class d extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 d.this.asS.h(dVar);
                 if (d.this.asQ != null) {
@@ -708,8 +708,8 @@ public abstract class d extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.b bVar) {
-        b.Bh().a(bVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.14
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+        b.Bh().a(bVar, new b.InterfaceC0141b() { // from class: com.baidu.swan.apps.core.pms.d.14
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType) {
                 d.this.asW = bVar;
                 d.this.asS.i(bVar);
@@ -719,7 +719,7 @@ public abstract class d extends g {
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0141b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
                 d.this.asS.h(bVar);
                 if (d.this.asR != null) {

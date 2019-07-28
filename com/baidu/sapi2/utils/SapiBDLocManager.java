@@ -20,6 +20,7 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import java.lang.reflect.Method;
 import java.util.Iterator;
@@ -59,7 +60,7 @@ public class SapiBDLocManager {
             str = null;
         }
         this.m = "&" + packageName + "&" + str;
-        this.i = (WifiManager) this.b.getSystemService("wifi");
+        this.i = (WifiManager) this.b.getSystemService(IXAdSystemUtils.NT_WIFI);
     }
 
     public String getLocString() {

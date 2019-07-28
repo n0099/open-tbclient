@@ -14,10 +14,10 @@ public interface c extends IInterface {
 
         /* renamed from: com.xiaomi.metoknlp.geofencing.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        private static class C0482a implements c {
+        private static class C0488a implements c {
             private IBinder a;
 
-            C0482a(IBinder iBinder) {
+            C0488a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -174,7 +174,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.xiaomi.metoknlp.geofencing.IGeoFencing");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0482a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0488a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.Binder

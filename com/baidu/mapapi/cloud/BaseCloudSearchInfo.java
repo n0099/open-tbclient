@@ -1,5 +1,6 @@
 package com.baidu.mapapi.cloud;
 
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.coloros.mcssdk.mode.CommandMessage;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -21,7 +22,7 @@ public abstract class BaseCloudSearchInfo extends BaseSearchInfo {
             sb.append(super.a());
             if (this.q != null && !this.q.equals("") && this.q.length() <= 45) {
                 sb.append("&");
-                sb.append("q");
+                sb.append(IXAdRequestInfo.COST_NAME);
                 sb.append("=");
                 try {
                     sb.append(URLEncoder.encode(this.q, HTTP.UTF_8));

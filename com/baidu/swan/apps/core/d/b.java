@@ -45,7 +45,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
     protected com.baidu.swan.apps.view.a.b aqO;
     protected SlideHelper aqQ;
     private AudioManager.OnAudioFocusChangeListener aqS;
-    private C0131b aqT;
+    private C0136b aqT;
     protected Activity mActivity;
     private AudioManager mAudioManager;
     private boolean aqP = com.baidu.swan.apps.view.a.b.aNC;
@@ -108,7 +108,7 @@ public abstract class b extends Fragment implements SlideInterceptor {
         }
         cb(fd.aRu);
         this.aqK.setTitle(fd.aRv);
-        this.aqT = new C0131b(new Runnable() { // from class: com.baidu.swan.apps.core.d.b.1
+        this.aqT = new C0136b(new Runnable() { // from class: com.baidu.swan.apps.core.d.b.1
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.swan.apps.y.f.HH();
@@ -153,8 +153,8 @@ public abstract class b extends Fragment implements SlideInterceptor {
                         ((SwanAppActivity) b.this.mActivity).bK(1);
                         if (((SwanAppActivity) b.this.mActivity).vO()) {
                             com.baidu.swan.apps.p.a DI = com.baidu.swan.apps.p.a.DI();
-                            DI.a(b.this.mActivity, DI.DK(), new a.InterfaceC0150a() { // from class: com.baidu.swan.apps.core.d.b.4.1
-                                @Override // com.baidu.swan.apps.p.a.InterfaceC0150a
+                            DI.a(b.this.mActivity, DI.DK(), new a.InterfaceC0155a() { // from class: com.baidu.swan.apps.core.d.b.4.1
+                                @Override // com.baidu.swan.apps.p.a.InterfaceC0155a
                                 public void zW() {
                                     if (b.this.mActivity != null) {
                                         b.this.mActivity.moveTaskToBack(true);
@@ -675,12 +675,12 @@ public abstract class b extends Fragment implements SlideInterceptor {
 
     /* renamed from: com.baidu.swan.apps.core.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0131b {
+    private class C0136b {
         private Runnable aqX;
         private int aqW = 0;
         private long mLastTimestamp = 0;
 
-        C0131b(Runnable runnable) {
+        C0136b(Runnable runnable) {
             this.aqX = runnable;
         }
 

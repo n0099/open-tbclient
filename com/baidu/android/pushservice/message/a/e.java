@@ -19,6 +19,7 @@ import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.i.l;
 import com.baidu.android.pushservice.message.CrossPushMessage;
 import com.baidu.android.pushservice.message.PublicMsg;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.coloros.mcssdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -123,7 +124,7 @@ public class e {
         boolean z;
         if (publicMsg.mNetType == 1) {
             NetworkInfo c = com.baidu.android.pushservice.i.g.c(context);
-            if (!(c != null && "wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
+            if (!(c != null && IXAdSystemUtils.NT_WIFI.equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
                 return false;
             }
         }

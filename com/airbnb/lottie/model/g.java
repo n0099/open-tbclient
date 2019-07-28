@@ -1,6 +1,5 @@
 package com.airbnb.lottie.model;
 
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,7 +43,7 @@ public class g {
             int i = 0;
             char charAt = jSONObject.optString("ch").charAt(0);
             int optInt = jSONObject.optInt("size");
-            double optDouble = jSONObject.optDouble(Config.DEVICE_WIDTH);
+            double optDouble = jSONObject.optDouble("w");
             String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
             String optString2 = jSONObject.optString("fFamily");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");

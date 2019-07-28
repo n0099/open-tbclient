@@ -19,6 +19,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.AbsoluteLayout;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
@@ -406,7 +407,7 @@ public final class ac {
     public static String getWifiInfo(Context context) {
         String str;
         try {
-            str = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+            str = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
         } catch (Exception e) {
             if (DEBUG) {
                 Log.e("SwanAppUtils", "getWifiInfo fail!" + e.toString());

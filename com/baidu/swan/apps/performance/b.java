@@ -19,12 +19,12 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.performance.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0152b {
+    public static class C0157b {
         private static b aGD = new b();
     }
 
     public static b IC() {
-        return C0152b.aGD;
+        return C0157b.aGD;
     }
 
     public Bundle fX(String str) {

@@ -261,7 +261,7 @@ public class a implements v {
     }
 
     private void initListener() {
-        aGs().setVideoPlayerCallback(new C0281a());
+        aGs().setVideoPlayerCallback(new C0287a());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -376,8 +376,8 @@ public class a implements v {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.aiapps.apps.media.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0281a extends com.baidu.tieba.aiapps.apps.media.videoplayer.a.b {
-        private C0281a() {
+    public class C0287a extends com.baidu.tieba.aiapps.apps.media.videoplayer.a.b {
+        private C0287a() {
         }
 
         @Override // com.baidu.tieba.play.g.a

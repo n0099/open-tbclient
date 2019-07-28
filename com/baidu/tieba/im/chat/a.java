@@ -329,7 +329,7 @@ public class a {
             if (arrayList != null) {
                 arrayList.add(bVar);
             }
-            a.C0250a qC = TbFaceManager.atv().qC(str);
+            a.C0255a qC = TbFaceManager.atv().qC(str);
             if (qC != null) {
                 int width = (int) (0.5d * qC.getWidth());
                 bVar.setBounds(new Rect(0, 0, width, width));

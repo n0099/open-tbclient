@@ -5,6 +5,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
@@ -372,7 +373,7 @@ public class ForumManageModel extends BdBaseModel {
                     this.mNetwork.o("ntn", "");
                 } else if (this.mType == 2) {
                     this.mNetwork.o("ntn", "set");
-                    this.mNetwork.o("cid", this.hUE);
+                    this.mNetwork.o(IXAdRequestInfo.CELL_ID, this.hUE);
                 } else {
                     this.mNetwork.o("ntn", "");
                 }

@@ -72,7 +72,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     private View fSC;
     private c fSD;
     public com.baidu.tieba.frs.videomiddlepage.a.a fSE;
-    private C0313a fSF;
+    private C0319a fSF;
     private VideoNetworkStateTipView fSG;
     private b fSH;
     private com.baidu.mcn.c fSI;
@@ -279,7 +279,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
         this.afI = new AlphaAnimation(0.7f, 0.0f);
         this.afI.setDuration(500L);
         this.afI.setAnimationListener(this.fSN);
-        this.fSF = new C0313a();
+        this.fSF = new C0319a();
         this.eCi = new com.baidu.afd.videopaster.d(getContext(), this.fzc);
         this.fSI = new com.baidu.mcn.c(this.mContext);
     }
@@ -371,8 +371,8 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
             this.fzp.qc(true);
             this.fzp.ag(false, false);
             this.fzp.yU(i);
-            this.fzp.a(new c.InterfaceC0386c() { // from class: com.baidu.tieba.frs.videomiddlepage.a.13
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+            this.fzp.a(new c.InterfaceC0392c() { // from class: com.baidu.tieba.frs.videomiddlepage.a.13
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pz() {
                     a.this.bte();
                     if (a.this.eCi != null) {
@@ -380,7 +380,7 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
                     }
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pA() {
                     a.this.btf();
                     if (a.this.fzp.pB()) {
@@ -1090,17 +1090,17 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.frs.aggregation.g>
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0313a {
+    public class C0319a {
         private Runnable fSU;
         private int mCurrentState;
 
-        private C0313a() {
+        private C0319a() {
             this.mCurrentState = -1;
             this.fSU = new Runnable() { // from class: com.baidu.tieba.frs.videomiddlepage.a.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.adp.lib.g.e.iK().removeCallbacks(C0313a.this.fSU);
-                    C0313a.this.tc(2);
+                    com.baidu.adp.lib.g.e.iK().removeCallbacks(C0319a.this.fSU);
+                    C0319a.this.tc(2);
                 }
             };
         }

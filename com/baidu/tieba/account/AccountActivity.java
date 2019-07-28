@@ -316,25 +316,25 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public class c implements a.InterfaceC0234a {
+    public class c implements a.InterfaceC0239a {
         private AccountData cnu;
 
         public c(AccountData accountData) {
             this.cnu = accountData;
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void mk(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "account_change_cslogin_success", 0, "", "uid", accountData.getID());
             TiebaStatic.log(new an("c12948").P("obj_type", 1));
             AccountActivity.this.k(accountData);
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void h(String str, int i, String str2) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "account_change_cslogin_fail", i, str2, "uname", str);
             AccountActivity.this.closeLoadingDialog();

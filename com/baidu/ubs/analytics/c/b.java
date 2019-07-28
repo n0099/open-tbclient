@@ -7,8 +7,8 @@ import java.util.Date;
 /* loaded from: classes3.dex */
 public final class b {
     private static boolean ad = false;
-    private static a.InterfaceC0439a jWC;
-    private static a.InterfaceC0439a jWD;
+    private static a.InterfaceC0445a jWC;
+    private static a.InterfaceC0445a jWD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void c(Context context) {

@@ -24,12 +24,12 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.messaging.service.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0157a {
+    public static class C0162a {
         private static a aHE = new a();
     }
 
     public static a Jx() {
-        return C0157a.aHE;
+        return C0162a.aHE;
     }
 
     private a() {

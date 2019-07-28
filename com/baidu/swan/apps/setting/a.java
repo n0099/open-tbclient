@@ -179,7 +179,7 @@ public class a extends c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public <ResulT> void a(com.baidu.swan.apps.an.d.a<ResulT> aVar, final ResulT result) {
-        a((a) aVar, (AbstractC0174a<a>) new AbstractC0174a<com.baidu.swan.apps.an.d.a<ResulT>>() { // from class: com.baidu.swan.apps.setting.a.5
+        a((a) aVar, (AbstractC0179a<a>) new AbstractC0179a<com.baidu.swan.apps.an.d.a<ResulT>>() { // from class: com.baidu.swan.apps.setting.a.5
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super();
@@ -187,7 +187,7 @@ public class a extends c {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
-            @Override // com.baidu.swan.apps.setting.a.AbstractC0174a
+            @Override // com.baidu.swan.apps.setting.a.AbstractC0179a
             /* renamed from: f */
             public void I(com.baidu.swan.apps.an.d.a<ResulT> aVar2) {
                 aVar2.D(result);
@@ -223,26 +223,26 @@ public class a extends c {
         clearCallbacks();
     }
 
-    public synchronized <CallBackT> void a(Collection<CallBackT> collection, AbstractC0174a<CallBackT> abstractC0174a) {
+    public synchronized <CallBackT> void a(Collection<CallBackT> collection, AbstractC0179a<CallBackT> abstractC0179a) {
         for (CallBackT callbackt : collection) {
-            a((a) callbackt, (AbstractC0174a<a>) abstractC0174a);
+            a((a) callbackt, (AbstractC0179a<a>) abstractC0179a);
         }
     }
 
-    public synchronized <CallBackT> void a(final CallBackT callbackt, final AbstractC0174a<CallBackT> abstractC0174a) {
+    public synchronized <CallBackT> void a(final CallBackT callbackt, final AbstractC0179a<CallBackT> abstractC0179a) {
         g(new Runnable() { // from class: com.baidu.swan.apps.setting.a.6
             @Override // java.lang.Runnable
             public void run() {
-                abstractC0174a.I(callbackt);
+                abstractC0179a.I(callbackt);
             }
         });
     }
 
     public void Nj() {
-        a((Collection) this.aUf, (AbstractC0174a) new AbstractC0174a<b>() { // from class: com.baidu.swan.apps.setting.a.7
+        a((Collection) this.aUf, (AbstractC0179a) new AbstractC0179a<b>() { // from class: com.baidu.swan.apps.setting.a.7
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: package-private */
-            @Override // com.baidu.swan.apps.setting.a.AbstractC0174a
+            @Override // com.baidu.swan.apps.setting.a.AbstractC0179a
             /* renamed from: c */
             public void I(b bVar) {
                 bVar.Nk();
@@ -253,10 +253,10 @@ public class a extends c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.setting.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public abstract class AbstractC0174a<CallBackT> {
+    public abstract class AbstractC0179a<CallBackT> {
         abstract void I(CallBackT callbackt);
 
-        private AbstractC0174a() {
+        private AbstractC0179a() {
         }
     }
 

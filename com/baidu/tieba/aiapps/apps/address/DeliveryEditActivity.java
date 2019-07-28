@@ -155,8 +155,8 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
                 r.id = this.dbr.id;
             }
             if (r != null) {
-                a.C0277a c0277a = new a.C0277a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.5
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                a.C0283a c0283a = new a.C0283a() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.5
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void ai(String str, int i) {
                         try {
                             JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
@@ -172,18 +172,18 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
                         }
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void aj(String str, int i) {
                         DeliveryEditActivity.this.a(r, "update");
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void onFailure() {
                         DeliveryEditActivity.this.dismissLoading();
                         d.a(AppRuntime.getAppContext(), "保存失败").LQ();
                     }
 
-                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0277a, com.baidu.tieba.aiapps.apps.address.b.b
+                    @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0283a, com.baidu.tieba.aiapps.apps.address.b.b
                     public void sS(String str) {
                         DeliveryEditActivity.this.dismissLoading();
                         d.a(AppRuntime.getAppContext(), str).LQ();
@@ -191,9 +191,9 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
                 };
                 showLoading();
                 if (!TextUtils.isEmpty(r.id)) {
-                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().c(r, c0277a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().c(r, c0283a);
                 } else {
-                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().a(r, c0277a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.aEN().a(r, c0283a);
                 }
             }
         }

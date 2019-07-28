@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
-public class d extends b implements a.InterfaceC0167a {
+public class d extends b implements a.InterfaceC0172a {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final int aqZ = z.ad(149.0f);
     public static String arh = LivenessStat.TYPE_STRING_DEFAULT;
@@ -424,8 +424,8 @@ public class d extends b implements a.InterfaceC0167a {
         if (DEBUG) {
             Log.d("SwanAppFragment", "createSlaveAndLoad preloadManager: " + A);
         }
-        com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.core.d.d.2
-            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0134b
+        com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0139b() { // from class: com.baidu.swan.apps.core.d.d.2
+            @Override // com.baidu.swan.apps.core.i.b.InterfaceC0139b
             public void onReady() {
                 com.baidu.swan.apps.core.j.b bVar = new com.baidu.swan.apps.core.j.b();
                 bVar.auc = str;
@@ -605,7 +605,7 @@ public class d extends b implements a.InterfaceC0167a {
         return this.arf;
     }
 
-    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0167a
+    @Override // com.baidu.swan.apps.res.widget.floatlayer.a.InterfaceC0172a
     public com.baidu.swan.apps.res.widget.floatlayer.a vF() {
         if (this.ark == null) {
             if (this.mRootView == null) {

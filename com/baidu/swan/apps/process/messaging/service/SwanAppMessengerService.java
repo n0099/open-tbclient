@@ -419,8 +419,8 @@ public final class SwanAppMessengerService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void registClientBinderCallback(final a.b bVar) {
         if (bVar != null && bVar.mMessenger != null) {
-            com.baidu.swan.apps.process.a.a.a(bVar.mMessenger.getBinder(), new a.InterfaceC0154a() { // from class: com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService.1
-                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0154a
+            com.baidu.swan.apps.process.a.a.a(bVar.mMessenger.getBinder(), new a.InterfaceC0159a() { // from class: com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService.1
+                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0159a
                 public void Jm() {
                     if (SwanAppMessengerService.DEBUG) {
                         Log.d(SwanAppMessengerService.TAG, "client process goes away:" + bVar.aHF);

@@ -11,6 +11,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.service.AsyncService;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class j {
@@ -337,7 +338,7 @@ public class j {
     public static String ki() {
         switch (netType()) {
             case 1:
-                return "wifi";
+                return IXAdSystemUtils.NT_WIFI;
             case 2:
                 return "2g";
             case 3:

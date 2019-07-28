@@ -63,9 +63,9 @@ public class a extends e {
         this.ccZ.setText(fVar.userName);
         this.iLG.setText(fVar.buttonText);
         if (this.iLP != null) {
-            View$OnClickListenerC0396a view$OnClickListenerC0396a = new View$OnClickListenerC0396a(this.iLP);
-            this.mRootView.setOnClickListener(view$OnClickListenerC0396a);
-            this.iIB.setOnClickListener(view$OnClickListenerC0396a);
+            View$OnClickListenerC0402a view$OnClickListenerC0402a = new View$OnClickListenerC0402a(this.iLP);
+            this.mRootView.setOnClickListener(view$OnClickListenerC0402a);
+            this.iIB.setOnClickListener(view$OnClickListenerC0402a);
             int intValue = Integer.valueOf(this.iLP.adPosition).intValue();
             this.iKT = this.iLP.bEX;
             DownloadData c = c(this.iLP, intValue);
@@ -88,10 +88,10 @@ public class a extends e {
 
     /* renamed from: com.baidu.tieba.recapp.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class View$OnClickListenerC0396a implements View.OnClickListener {
+    private class View$OnClickListenerC0402a implements View.OnClickListener {
         private AdvertAppInfo iKW;
 
-        public View$OnClickListenerC0396a(AdvertAppInfo advertAppInfo) {
+        public View$OnClickListenerC0402a(AdvertAppInfo advertAppInfo) {
             this.iKW = advertAppInfo;
         }
 

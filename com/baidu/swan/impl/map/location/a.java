@@ -62,7 +62,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
     private h boM;
     private boolean boN;
     private boolean boO;
-    private InterfaceC0218a boP;
+    private InterfaceC0223a boP;
     private SelectedLocationInfo boQ;
     private RecyclerView bow;
     private FrameLayout box;
@@ -71,7 +71,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
 
     /* renamed from: com.baidu.swan.impl.map.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0218a {
+    public interface InterfaceC0223a {
         void a(SelectedLocationInfo selectedLocationInfo);
 
         void onCancel();
@@ -94,8 +94,8 @@ public class a extends com.baidu.swan.apps.core.d.b implements View.OnClickListe
         }
     }
 
-    public void a(InterfaceC0218a interfaceC0218a) {
-        this.boP = interfaceC0218a;
+    public void a(InterfaceC0223a interfaceC0223a) {
+        this.boP = interfaceC0223a;
     }
 
     @Override // com.baidu.swan.support.v4.app.Fragment

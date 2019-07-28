@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes2.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -86,8 +87,8 @@ public class ConnectManager {
             networkInfo = null;
         }
         if (networkInfo != null) {
-            if ("wifi".equals(networkInfo.getTypeName().toLowerCase())) {
-                this.mNetType = "wifi";
+            if (IXAdSystemUtils.NT_WIFI.equals(networkInfo.getTypeName().toLowerCase())) {
+                this.mNetType = IXAdSystemUtils.NT_WIFI;
                 this.mUseWap = false;
             } else {
                 checkApn(context, networkInfo);
@@ -132,11 +133,11 @@ public class ConnectManager {
             return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
-            return "wifi";
+            return IXAdSystemUtils.NT_WIFI;
         }
         if (activeNetworkInfo.getType() == 0) {
             int subtype = activeNetworkInfo.getSubtype();
-            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? "none" : activeNetworkInfo.getExtraInfo().toLowerCase();
+            String lowerCase = activeNetworkInfo.getExtraInfo() == null ? IXAdSystemUtils.NT_NONE : activeNetworkInfo.getExtraInfo().toLowerCase();
             StringBuilder sb = new StringBuilder();
             String subtypeName = activeNetworkInfo.getSubtypeName();
             switch (subtype) {

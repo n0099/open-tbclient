@@ -7,7 +7,7 @@ import android.view.ViewConfiguration;
 public class a {
     float dAS;
     float dAT;
-    InterfaceC0449a kdN;
+    InterfaceC0455a kdN;
     final float kdO;
     boolean kdP;
     boolean kdQ;
@@ -15,7 +15,7 @@ public class a {
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0449a {
+    public interface InterfaceC0455a {
         boolean cFS();
     }
 
@@ -38,8 +38,8 @@ public class a {
         this.kdQ = false;
     }
 
-    public void a(InterfaceC0449a interfaceC0449a) {
-        this.kdN = interfaceC0449a;
+    public void a(InterfaceC0455a interfaceC0455a) {
+        this.kdN = interfaceC0455a;
     }
 
     public boolean cGY() {

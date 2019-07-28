@@ -76,18 +76,18 @@ public class a {
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0080a {
+    public static class C0085a {
         private d agT;
         private com.baidu.poly.b.c agU;
         private com.baidu.poly.d.a agV;
         private int agW = b.agX;
 
-        public C0080a a(com.baidu.poly.d.a aVar) {
+        public C0085a a(com.baidu.poly.d.a aVar) {
             this.agV = aVar;
             return this;
         }
 
-        public C0080a bD(int i) {
+        public C0085a bD(int i) {
             this.agW = i;
             return this;
         }

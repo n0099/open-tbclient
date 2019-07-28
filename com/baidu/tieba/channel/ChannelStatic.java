@@ -8,6 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.g.b;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,9 +38,9 @@ public class ChannelStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelFollowHttpResponseMessage)) {
-                a.C0235a c0235a = (a.C0235a) httpResponsedMessage.getOrginalMessage().getExtra();
-                c0235a.bEj = httpResponsedMessage;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, c0235a));
+                a.C0240a c0240a = (a.C0240a) httpResponsedMessage.getOrginalMessage().getExtra();
+                c0240a.bEj = httpResponsedMessage;
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016513, c0240a));
             }
         }
     };
@@ -77,8 +78,8 @@ public class ChannelStatic {
             public CustomResponsedMessage<a> run(CustomMessage<a> customMessage) {
                 a data;
                 if (customMessage != null && customMessage.getData() != null && (data = customMessage.getData()) != null) {
-                    if (data instanceof a.C0235a) {
-                        ChannelHomeModel.a(((a.C0235a) data).channelId, data);
+                    if (data instanceof a.C0240a) {
+                        ChannelHomeModel.a(((a.C0240a) data).channelId, data);
                     } else if (data instanceof a.c) {
                         ChannelHomeModel.b(((a.c) data).channelId, data);
                     } else if (data instanceof a.b) {
@@ -97,7 +98,7 @@ public class ChannelStatic {
             @Override // com.baidu.tbadk.core.util.bb.b
             public void a(TbPageContext<?> tbPageContext, Map<String, String> map) {
                 if (tbPageContext != null && map != null && map.size() > 0) {
-                    String str = map.get("cid");
+                    String str = map.get(IXAdRequestInfo.CELL_ID);
                     if (!TextUtils.isEmpty(str)) {
                         int indexOf = str.indexOf("?");
                         if (indexOf >= 0) {

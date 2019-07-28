@@ -185,11 +185,11 @@ public final class b<T, R> implements d.a<R> {
                                         this.active = true;
                                         this.kvt.setProducer(new a(((ScalarSynchronousObservable) call).get(), this));
                                     } else {
-                                        C0504b c0504b = new C0504b(this);
-                                        this.kvu.f(c0504b);
-                                        if (!c0504b.isUnsubscribed()) {
+                                        C0510b c0510b = new C0510b(this);
+                                        this.kvu.f(c0510b);
+                                        if (!c0510b.isUnsubscribed()) {
                                             this.active = true;
-                                            call.a((rx.j<? super Object>) c0504b);
+                                            call.a((rx.j<? super Object>) c0510b);
                                         } else {
                                             return;
                                         }
@@ -229,11 +229,11 @@ public final class b<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.internal.operators.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0504b<T, R> extends rx.j<R> {
+    public static final class C0510b<T, R> extends rx.j<R> {
         final c<T, R> kvr;
         long produced;
 
-        public C0504b(c<T, R> cVar) {
+        public C0510b(c<T, R> cVar) {
             this.kvr = cVar;
         }
 

@@ -16,8 +16,8 @@ public class c {
     }
 
     private void a(Context context, BdTypeListView bdTypeListView) {
-        this.eHW = new d(context, a.C0292a.eIt);
-        this.eHX = new e(context, a.C0292a.eIu);
+        this.eHW = new d(context, a.C0298a.eIt);
+        this.eHX = new e(context, a.C0298a.eIu);
         this.mAdapters.add(this.eHW);
         this.mAdapters.add(this.eHX);
         bdTypeListView.addAdapters(this.mAdapters);

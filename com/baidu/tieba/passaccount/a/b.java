@@ -218,7 +218,7 @@ public class b {
                             l.showToast(TbadkCoreApplication.getInst(), "验证失败，请您稍后再试");
                         } else {
                             MessageManager.getInstance().runTask(2921332, (Class) null);
-                            b.bRz().b(data, new C0363b(data));
+                            b.bRz().b(data, new C0369b(data));
                         }
                     }
                 }
@@ -245,10 +245,10 @@ public class b {
 
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    static class C0363b implements a {
+    static class C0369b implements a {
         private AuthVerifyData hEp;
 
-        public C0363b(AuthVerifyData authVerifyData) {
+        public C0369b(AuthVerifyData authVerifyData) {
             this.hEp = authVerifyData;
         }
 

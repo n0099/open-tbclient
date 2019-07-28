@@ -13,19 +13,19 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
     private Vibrator aYc;
     private long aYd;
-    private final a.InterfaceC0106a aYe;
+    private final a.InterfaceC0111a aYe;
     private Context mContext;
 
     /* renamed from: com.baidu.swan.apps.aj.h.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0114a {
+    private static class C0119a {
         public static final a aYg = new a();
     }
 
     private a() {
         this.aYd = 0L;
-        this.aYe = new a.InterfaceC0106a() { // from class: com.baidu.swan.apps.aj.h.b.a.1
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0106a
+        this.aYe = new a.InterfaceC0111a() { // from class: com.baidu.swan.apps.aj.h.b.a.1
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0111a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i == 700 && iArr.length > 0 && iArr[0] == 0 && a.this.aYc != null) {
                     a.this.aYc.vibrate(a.this.aYd);
@@ -37,7 +37,7 @@ public class a {
     }
 
     public static a OG() {
-        return C0114a.aYg;
+        return C0119a.aYg;
     }
 
     public void X(long j) {

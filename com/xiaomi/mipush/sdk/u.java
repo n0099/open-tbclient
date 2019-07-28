@@ -11,6 +11,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.channel.commonutils.misc.h;
 import java.util.ArrayList;
@@ -81,7 +82,7 @@ public class u extends h.a {
     private static List<com.xiaomi.xmpush.thrift.y> c(Context context) {
         v vVar = new v();
         try {
-            List<ScanResult> scanResults = ((WifiManager) context.getSystemService("wifi")).getScanResults();
+            List<ScanResult> scanResults = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getScanResults();
             if (com.xiaomi.channel.commonutils.misc.c.a(scanResults)) {
                 return null;
             }

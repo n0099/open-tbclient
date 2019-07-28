@@ -27,7 +27,7 @@ public final class c {
     static volatile rx.functions.f<Throwable, Throwable> kBr;
     static volatile rx.functions.f<d.b, d.b> kBs;
     static volatile rx.functions.f<d.b, d.b> kBt;
-    static volatile rx.functions.f<b.InterfaceC0500b, b.InterfaceC0500b> kBu;
+    static volatile rx.functions.f<b.InterfaceC0506b, b.InterfaceC0506b> kBu;
     static volatile rx.functions.b<Throwable> kyu;
 
     static {
@@ -131,12 +131,12 @@ public final class c {
                 return f.cQp().cQt().S(th);
             }
         };
-        kBu = new rx.functions.f<b.InterfaceC0500b, b.InterfaceC0500b>() { // from class: rx.c.c.5
+        kBu = new rx.functions.f<b.InterfaceC0506b, b.InterfaceC0506b>() { // from class: rx.c.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: b */
-            public b.InterfaceC0500b call(b.InterfaceC0500b interfaceC0500b) {
-                return f.cQp().cQt().a(interfaceC0500b);
+            public b.InterfaceC0506b call(b.InterfaceC0506b interfaceC0506b) {
+                return f.cQp().cQt().a(interfaceC0506b);
             }
         };
         cQm();

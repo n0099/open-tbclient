@@ -9,6 +9,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbDomainConfig;
 import com.baidu.tbadk.core.sharedPref.b;
@@ -99,7 +100,7 @@ public class ImageProblemAssistant {
             e = e;
         }
         try {
-            DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService("wifi")).getDhcpInfo();
+            DhcpInfo dhcpInfo = ((WifiManager) BdBaseApplication.getInst().getApp().getSystemService(IXAdSystemUtils.NT_WIFI)).getDhcpInfo();
             String[] strArr = {"8.8.8.8", "4.4.4.4", "8.8.4.4"};
             if (this.DE != null) {
                 this.DE.append("_2:" + intToIp(dhcpInfo.dns1) + Constants.ACCEPT_TIME_SEPARATOR_SP + intToIp(dhcpInfo.dns2));

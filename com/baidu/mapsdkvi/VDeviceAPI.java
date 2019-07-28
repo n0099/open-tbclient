@@ -22,6 +22,7 @@ import android.telephony.gsm.GsmCellLocation;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import android.webkit.MimeTypeMap;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
@@ -239,7 +240,7 @@ public class VDeviceAPI {
     }
 
     public static ScanResult[] getWifiHotpot() {
-        List<ScanResult> scanResults = ((WifiManager) b.a().getSystemService("wifi")).getScanResults();
+        List<ScanResult> scanResults = ((WifiManager) b.a().getSystemService(IXAdSystemUtils.NT_WIFI)).getScanResults();
         return (ScanResult[]) scanResults.toArray(new ScanResult[scanResults.size()]);
     }
 

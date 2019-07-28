@@ -144,7 +144,7 @@ public class a {
             } else {
                 button.setText(this.bMS);
                 if (this.iUW != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0402a(this, this.iUW));
+                    button.setOnClickListener(new View$OnClickListenerC0408a(this, this.iUW));
                 }
                 z = true;
             }
@@ -153,7 +153,7 @@ public class a {
             } else {
                 button2.setText(this.bMT);
                 if (this.iUX != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0402a(this, this.iUX));
+                    button2.setOnClickListener(new View$OnClickListenerC0408a(this, this.iUX));
                 }
                 z2 = true;
             }
@@ -162,7 +162,7 @@ public class a {
             } else {
                 button3.setText(this.iUV);
                 if (this.iUY != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0402a(this, this.iUY));
+                    button3.setOnClickListener(new View$OnClickListenerC0408a(this, this.iUY));
                 }
                 z3 = true;
             }
@@ -291,11 +291,11 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class View$OnClickListenerC0402a implements View.OnClickListener {
+    private class View$OnClickListenerC0408a implements View.OnClickListener {
         private final a iVb;
         private final b iVc;
 
-        public View$OnClickListenerC0402a(a aVar, b bVar) {
+        public View$OnClickListenerC0408a(a aVar, b bVar) {
             this.iVb = aVar;
             this.iVc = bVar;
         }

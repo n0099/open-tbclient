@@ -27,11 +27,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private final C0437a jVR;
+    private final C0443a jVR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.jVR = new C0437a(context, "bdbehavior.db");
+        this.jVR = new C0443a(context, "bdbehavior.db");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1116,11 +1116,11 @@ public class a {
 
     /* renamed from: com.baidu.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0437a extends SQLiteOpenHelper {
+    public static class C0443a extends SQLiteOpenHelper {
         private String bvL;
         private Context mContext;
 
-        C0437a(Context context, String str) {
+        C0443a(Context context, String str) {
             super(context.getApplicationContext(), str, (SQLiteDatabase.CursorFactory) null, 5);
             this.bvL = str;
             this.mContext = context.getApplicationContext();

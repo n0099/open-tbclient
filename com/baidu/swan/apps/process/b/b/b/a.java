@@ -13,7 +13,7 @@ public class a {
     private static volatile a aHm;
     private ConcurrentHashMap<String, com.baidu.swan.apps.process.b.b.c.a<com.baidu.swan.apps.process.b.b.a.b>> aHn = new ConcurrentHashMap<>();
     private ConcurrentHashMap<String, Runnable> aHo = new ConcurrentHashMap<>();
-    private HandlerC0155a aHp = new HandlerC0155a(Looper.getMainLooper());
+    private HandlerC0160a aHp = new HandlerC0160a(Looper.getMainLooper());
 
     public static a Jo() {
         if (aHm == null) {
@@ -155,8 +155,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.process.b.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class HandlerC0155a extends Handler {
-        HandlerC0155a(Looper looper) {
+    public static class HandlerC0160a extends Handler {
+        HandlerC0160a(Looper looper) {
             super(looper);
         }
     }

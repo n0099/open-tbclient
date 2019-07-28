@@ -6,6 +6,7 @@ import com.airbnb.lottie.a.a.p;
 import com.airbnb.lottie.model.a.a;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.d;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +86,7 @@ public class ShapeStroke implements b {
             String optString = jSONObject.optString("nm");
             ArrayList arrayList = new ArrayList();
             com.airbnb.lottie.model.a.a d = a.C0008a.d(jSONObject.optJSONObject("c"), eVar);
-            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject(Config.DEVICE_WIDTH), eVar);
+            com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("w"), eVar);
             com.airbnb.lottie.model.a.d g = d.a.g(jSONObject.optJSONObject(Config.OS), eVar);
             LineCapType lineCapType = LineCapType.values()[jSONObject.optInt("lc") - 1];
             LineJoinType lineJoinType = LineJoinType.values()[jSONObject.optInt("lj") - 1];
@@ -98,7 +99,7 @@ public class ShapeStroke implements b {
                     String optString2 = optJSONObject.optString("n");
                     if (optString2.equals(Config.OS)) {
                         bVar2 = b.a.e(optJSONObject.optJSONObject("v"), eVar);
-                    } else if (optString2.equals("d") || optString2.equals("g")) {
+                    } else if (optString2.equals("d") || optString2.equals(IXAdRequestInfo.GPS)) {
                         arrayList.add(b.a.e(optJSONObject.optJSONObject("v"), eVar));
                     }
                 }

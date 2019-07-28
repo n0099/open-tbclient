@@ -18,7 +18,7 @@ public class SwanAppErrorActivity extends FragmentActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.swan.support.v4.app.f, android.app.Activity
     public void onCreate(Bundle bundle) {
-        z(a.C0105a.aiapps_hold, a.C0105a.aiapps_slide_out_to_bottom);
+        z(a.C0110a.aiapps_hold, a.C0110a.aiapps_slide_out_to_bottom);
         super.onCreate(bundle);
         setContentView(a.g.aiapps_error_activity);
         parseIntent(getIntent());

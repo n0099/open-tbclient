@@ -62,8 +62,8 @@ public class a implements d.a {
             final String FM = com.baidu.tieba.video.editvideo.model.a.cuz().FM(musicList.resource);
             if (TextUtils.isEmpty(FM)) {
                 this.jur.Cb(i);
-                com.baidu.tieba.video.editvideo.model.a.cuz().a(String.valueOf(musicList.music_id), musicList.resource, new a.InterfaceC0416a() { // from class: com.baidu.tieba.video.cloudmusic.a.2
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                com.baidu.tieba.video.editvideo.model.a.cuz().a(String.valueOf(musicList.music_id), musicList.resource, new a.InterfaceC0422a() { // from class: com.baidu.tieba.video.cloudmusic.a.2
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void es(final String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
                             str = str2;
@@ -84,12 +84,12 @@ public class a implements d.a {
                         });
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void FE(String str) {
                         a.this.jur.Cd(i);
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void ctN() {
                         a.this.jur.Cc(i);
                     }

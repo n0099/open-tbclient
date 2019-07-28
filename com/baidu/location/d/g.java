@@ -8,6 +8,7 @@ import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
 import com.baidu.mapapi.UIMsg;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.xiaomi.mipush.sdk.Constants;
@@ -208,7 +209,7 @@ public final class g {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                                 String string = jSONObject2.has(Info.kBaiduPIDKey) ? jSONObject2.getString(Info.kBaiduPIDKey) : null;
                                 String string2 = jSONObject2.has("ne") ? jSONObject2.getString("ne") : null;
-                                String string3 = jSONObject2.has("tp") ? jSONObject2.getString("tp") : null;
+                                String string3 = jSONObject2.has(IXAdRequestInfo.PHONE_TYPE) ? jSONObject2.getString(IXAdRequestInfo.PHONE_TYPE) : null;
                                 Integer valueOf = jSONObject2.has("rk") ? Integer.valueOf(jSONObject2.getInt("rk")) : null;
                                 Double valueOf2 = jSONObject2.has(Config.EVENT_HEAT_X) ? Double.valueOf(jSONObject2.getDouble(Config.EVENT_HEAT_X)) : null;
                                 Double valueOf3 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;

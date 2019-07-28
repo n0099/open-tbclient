@@ -4,7 +4,6 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.a;
 import com.airbnb.lottie.model.a.b;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
@@ -35,7 +34,7 @@ public class k {
             com.airbnb.lottie.model.a.a d = optJSONObject2 != null ? a.C0008a.d(optJSONObject2, eVar) : null;
             JSONObject optJSONObject3 = optJSONObject.optJSONObject(Config.STAT_SDK_CHANNEL);
             com.airbnb.lottie.model.a.a d2 = optJSONObject3 != null ? a.C0008a.d(optJSONObject3, eVar) : null;
-            JSONObject optJSONObject4 = optJSONObject.optJSONObject(TbConfig.SW_APID);
+            JSONObject optJSONObject4 = optJSONObject.optJSONObject("sw");
             b e = optJSONObject4 != null ? b.a.e(optJSONObject4, eVar) : null;
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("t");
             return new k(d, d2, e, optJSONObject5 != null ? b.a.e(optJSONObject5, eVar) : null);

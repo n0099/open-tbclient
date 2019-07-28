@@ -24,7 +24,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0150a {
+    public interface InterfaceC0155a {
         void zW();
     }
 
@@ -111,7 +111,7 @@ public class a {
         return this.axo.getString("switch", "1");
     }
 
-    public boolean a(@NonNull Activity activity, String str, final InterfaceC0150a interfaceC0150a) {
+    public boolean a(@NonNull Activity activity, String str, final InterfaceC0155a interfaceC0155a) {
         if (activity == null || activity.isFinishing() || !SwanAppNetworkUtils.isNetworkConnected(activity)) {
             return false;
         }
@@ -128,8 +128,8 @@ public class a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 cVar.dismiss();
-                if (interfaceC0150a != null) {
-                    interfaceC0150a.zW();
+                if (interfaceC0155a != null) {
+                    interfaceC0155a.zW();
                 }
             }
         });

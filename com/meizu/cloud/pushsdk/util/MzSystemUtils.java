@@ -17,6 +17,7 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.meizu.cloud.pushsdk.base.k;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.lang.reflect.Method;
@@ -96,7 +97,7 @@ public class MzSystemUtils {
     public static String getBSSID(Context context) {
         WifiInfo connectionInfo;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 return connectionInfo.getBSSID();
             }
@@ -385,7 +386,7 @@ public class MzSystemUtils {
     public static String getWifiMac(Context context) {
         WifiInfo connectionInfo;
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             if (wifiManager != null && (connectionInfo = wifiManager.getConnectionInfo()) != null) {
                 return connectionInfo.getMacAddress();
             }

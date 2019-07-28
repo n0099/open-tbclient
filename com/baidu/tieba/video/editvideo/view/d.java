@@ -132,8 +132,8 @@ public class d extends com.baidu.adp.base.c {
                 if (view != null) {
                     final c.a aVar = (c.a) view.getTag();
                     aVar.juK.setVisibility(0);
-                    com.baidu.tieba.video.editvideo.model.a.cuz().a(musicData.id, musicData.resource, new a.InterfaceC0416a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                    com.baidu.tieba.video.editvideo.model.a.cuz().a(musicData.id, musicData.resource, new a.InterfaceC0422a() { // from class: com.baidu.tieba.video.editvideo.view.d.2
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                         public void es(String str, String str2) {
                             if (!TextUtils.isEmpty(str2)) {
                                 str = str2;
@@ -142,7 +142,7 @@ public class d extends com.baidu.adp.base.c {
                             d.this.br(str, i);
                         }
 
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                         public void FE(String str) {
                             aVar.juK.setVisibility(4);
                             l.showToast(d.this.mContext.getPageActivity(), str);
@@ -151,15 +151,15 @@ public class d extends com.baidu.adp.base.c {
                             }
                         }
 
-                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                        @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                         public void ctN() {
                             aVar.juK.setVisibility(4);
                         }
                     });
                     return;
                 }
-                com.baidu.tieba.video.editvideo.model.a.cuz().a(musicData.id, musicData.resource, new a.InterfaceC0416a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                com.baidu.tieba.video.editvideo.model.a.cuz().a(musicData.id, musicData.resource, new a.InterfaceC0422a() { // from class: com.baidu.tieba.video.editvideo.view.d.3
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void es(String str, String str2) {
                         if (!TextUtils.isEmpty(str2)) {
                             str = str2;
@@ -167,7 +167,7 @@ public class d extends com.baidu.adp.base.c {
                         d.this.br(str, i);
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void FE(String str) {
                         l.showToast(d.this.mContext.getPageActivity(), str);
                         if (d.this.jgo != null) {
@@ -175,7 +175,7 @@ public class d extends com.baidu.adp.base.c {
                         }
                     }
 
-                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0416a
+                    @Override // com.baidu.tieba.video.editvideo.model.a.InterfaceC0422a
                     public void ctN() {
                     }
                 });

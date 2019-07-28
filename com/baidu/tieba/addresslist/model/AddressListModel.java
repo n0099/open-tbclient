@@ -16,12 +16,12 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         this.cZI = a.aDn();
     }
 
-    public void a(a.InterfaceC0268a interfaceC0268a) {
-        this.cZI.a(interfaceC0268a);
+    public void a(a.InterfaceC0273a interfaceC0273a) {
+        this.cZI.a(interfaceC0273a);
     }
 
-    public void b(a.InterfaceC0268a interfaceC0268a) {
-        this.cZI.b(interfaceC0268a);
+    public void b(a.InterfaceC0273a interfaceC0273a) {
+        this.cZI.b(interfaceC0273a);
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> aDF() {

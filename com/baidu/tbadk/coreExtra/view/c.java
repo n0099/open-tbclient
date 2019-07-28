@@ -37,7 +37,7 @@ public class c {
     private View cnA;
     private View cnB;
     private View cnC;
-    private a.InterfaceC0234a cnE;
+    private a.InterfaceC0239a cnE;
     private Drawable cnx;
     private Drawable cny;
     private TextView cnz;
@@ -81,8 +81,8 @@ public class c {
         this.cny.setBounds(0, 0, this.size, this.size);
     }
 
-    public void a(a.InterfaceC0234a interfaceC0234a) {
-        this.cnE = interfaceC0234a;
+    public void a(a.InterfaceC0239a interfaceC0239a) {
+        this.cnE = interfaceC0239a;
     }
 
     public void setAccountData(AccountData accountData) {
@@ -191,7 +191,7 @@ public class c {
                 if (this.mContext instanceof BaseActivity) {
                     ((BaseActivity) this.mContext).ShowSoftKeyPadDelay(this.cng, BaseActivity.SHOW_SOFT_KEYBOARD_DELAY);
                 } else {
-                    new Handler().postDelayed(new RunnableC0246c(this.cng), 150L);
+                    new Handler().postDelayed(new RunnableC0251c(this.cng), 150L);
                 }
             }
         }
@@ -200,10 +200,10 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.coreExtra.view.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0246c implements Runnable {
+    public class RunnableC0251c implements Runnable {
         private View mView;
 
-        public RunnableC0246c(View view) {
+        public RunnableC0251c(View view) {
             this.mView = null;
             this.mView = view;
         }

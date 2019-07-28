@@ -193,7 +193,7 @@ public class TbRichTextItem extends OrmObject {
     private SpannableString F(ArrayList<b> arrayList) {
         String text;
         int qf;
-        a.C0250a qC;
+        a.C0255a qC;
         SpannableString spannableString = null;
         if (this.mType == 4 && this.cMH != null && this.cMH.getText() != null && this.cMH.getLink() != null && (qf = TbFaceManager.atv().qf((text = this.cMH.getText()))) != 0) {
             String str = "#(" + TbFaceManager.atv().qh(text) + ")";

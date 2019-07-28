@@ -25,7 +25,7 @@ public class a extends com.baidu.tbadk.m.a {
     protected TbImageView cwW;
     protected TextView cwX;
     private BdListView fTW;
-    private C0315a fTX;
+    private C0321a fTX;
     private TextView fTY;
     private com.baidu.adp.base.e mPageContext;
     private TextView mTitleView;
@@ -67,7 +67,7 @@ public class a extends com.baidu.tbadk.m.a {
 
     public void cp(List<RecmForumInfo> list) {
         if (list != null) {
-            this.fTX = new C0315a(list);
+            this.fTX = new C0321a(list);
             this.fTW.setAdapter((ListAdapter) this.fTX);
         }
     }
@@ -103,10 +103,10 @@ public class a extends com.baidu.tbadk.m.a {
 
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0315a extends BaseAdapter {
+    public class C0321a extends BaseAdapter {
         private List<RecmForumInfo> fTZ;
 
-        public C0315a(List<RecmForumInfo> list) {
+        public C0321a(List<RecmForumInfo> list) {
             this.fTZ = list;
         }
 
@@ -156,8 +156,8 @@ public class a extends com.baidu.tbadk.m.a {
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!StringUtils.isNull(C0315a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.mPageContext.getContext()).createNormalCfg(C0315a.this.getItem(i).forum_name, null)));
+                        if (!StringUtils.isNull(C0321a.this.getItem(i).forum_name)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.mPageContext.getContext()).createNormalCfg(C0321a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });

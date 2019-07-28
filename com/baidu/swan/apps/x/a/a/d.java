@@ -51,7 +51,7 @@ public class d implements com.baidu.swan.apps.model.a {
     }
 
     /* loaded from: classes2.dex */
-    public static class b extends C0191d {
+    public static class b extends C0196d {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         private static final String TAG = b.class.getSimpleName();
         public String abR;
@@ -65,7 +65,7 @@ public class d implements com.baidu.swan.apps.model.a {
             this.bgColor = -1;
         }
 
-        @Override // com.baidu.swan.apps.x.a.a.d.C0191d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.x.a.a.d.C0196d, com.baidu.swan.apps.model.a
         public void parseFromJson(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 super.parseFromJson(jSONObject);
@@ -75,14 +75,14 @@ public class d implements com.baidu.swan.apps.model.a {
             }
         }
 
-        @Override // com.baidu.swan.apps.x.a.a.d.C0191d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.x.a.a.d.C0196d, com.baidu.swan.apps.model.a
         public boolean isValid() {
             return super.isValid();
         }
     }
 
     /* loaded from: classes2.dex */
-    public static class c extends C0191d implements com.baidu.swan.apps.model.a {
+    public static class c extends C0196d implements com.baidu.swan.apps.model.a {
         private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
         private static final String TAG = c.class.getSimpleName();
         public float aAU;
@@ -100,7 +100,7 @@ public class d implements com.baidu.swan.apps.model.a {
             this.abe = 0.0f;
         }
 
-        @Override // com.baidu.swan.apps.x.a.a.d.C0191d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.x.a.a.d.C0196d, com.baidu.swan.apps.model.a
         public void parseFromJson(JSONObject jSONObject) throws JSONException {
             if (jSONObject != null) {
                 super.parseFromJson(jSONObject);
@@ -116,7 +116,7 @@ public class d implements com.baidu.swan.apps.model.a {
             }
         }
 
-        @Override // com.baidu.swan.apps.x.a.a.d.C0191d, com.baidu.swan.apps.model.a
+        @Override // com.baidu.swan.apps.x.a.a.d.C0196d, com.baidu.swan.apps.model.a
         public boolean isValid() {
             return super.isValid();
         }
@@ -158,7 +158,7 @@ public class d implements com.baidu.swan.apps.model.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.x.a.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0191d implements com.baidu.swan.apps.model.a {
+    public static class C0196d implements com.baidu.swan.apps.model.a {
         public float aAV;
         public float abk;
         public int bgColor;
@@ -166,7 +166,7 @@ public class d implements com.baidu.swan.apps.model.a {
         public String content;
         public String textAlign;
 
-        private C0191d() {
+        private C0196d() {
             this.content = "";
             this.color = ViewCompat.MEASURED_STATE_MASK;
             this.abk = com.baidu.swan.apps.x.a.d.f(10.0d);

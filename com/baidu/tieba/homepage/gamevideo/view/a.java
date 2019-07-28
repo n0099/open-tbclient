@@ -8,12 +8,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.bc;
 /* loaded from: classes4.dex */
 public class a extends PopupWindow {
-    private InterfaceC0320a ggM;
+    private InterfaceC0326a ggM;
     private TbPageContext mContext;
 
     /* renamed from: com.baidu.tieba.homepage.gamevideo.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0320a {
+    public interface InterfaceC0326a {
         void bvY();
     }
 
@@ -55,7 +55,7 @@ public class a extends PopupWindow {
         super.dismiss();
     }
 
-    public void a(InterfaceC0320a interfaceC0320a) {
-        this.ggM = interfaceC0320a;
+    public void a(InterfaceC0326a interfaceC0326a) {
+        this.ggM = interfaceC0326a;
     }
 }

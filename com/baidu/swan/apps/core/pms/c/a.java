@@ -19,7 +19,7 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.core.pms.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0137a {
+    public static class C0142a {
         public int atr = 0;
         public boolean ats = false;
         public String att = "";
@@ -179,7 +179,7 @@ public final class a {
             if (a(file, ae, bVar).ats) {
                 return null;
             }
-            C0137a a = a(file, ae, bVar);
+            C0142a a = a(file, ae, bVar);
             if (a.ats) {
                 com.baidu.swan.apps.statistic.c.a(bVar, eVar.ave, true);
                 return null;
@@ -205,24 +205,24 @@ public final class a {
     }
 
     @NonNull
-    private static C0137a a(@NonNull File file, @NonNull File file2, @NonNull com.baidu.swan.pms.a.b bVar) {
-        C0137a c0137a = new C0137a();
+    private static C0142a a(@NonNull File file, @NonNull File file2, @NonNull com.baidu.swan.pms.a.b bVar) {
+        C0142a c0142a = new C0142a();
         long currentTimeMillis = System.currentTimeMillis();
         BufferedInputStream r = com.baidu.swan.apps.install.a.a.r(file);
         if (r != null) {
-            c0137a.atr = 1;
+            c0142a.atr = 1;
             bVar.X("670", "aiapp_aps_decrypt_start_timestamp");
             bVar.X("770", "na_package_start_decrypt");
-            a.C0145a a = com.baidu.swan.apps.install.a.a.a(r, file2);
+            a.C0150a a = com.baidu.swan.apps.install.a.a.a(r, file2);
             bVar.X("670", "aiapp_aps_decrypt_end_timestamp");
             bVar.X("770", "na_package_end_decrypt");
-            c0137a.ats = a.isSuccess;
-            c0137a.att = a.att;
+            c0142a.ats = a.isSuccess;
+            c0142a.att = a.att;
         } else {
-            c0137a.atr = 0;
+            c0142a.atr = 0;
             bVar.X("670", "aiapp_aps_unzip_start_timestamp");
             bVar.X("770", "na_package_start_unzip");
-            c0137a.ats = com.baidu.swan.c.a.bs(file.getPath(), file2.getPath());
+            c0142a.ats = com.baidu.swan.c.a.bs(file.getPath(), file2.getPath());
             bVar.X("670", "aiapp_aps_unzip_end_timestamp");
             bVar.X("770", "na_package_end_unzip");
         }
@@ -230,6 +230,6 @@ public final class a {
         if (DEBUG) {
             com.baidu.swan.apps.install.a.a.cA((int) (currentTimeMillis2 - currentTimeMillis));
         }
-        return c0137a;
+        return c0142a;
     }
 }

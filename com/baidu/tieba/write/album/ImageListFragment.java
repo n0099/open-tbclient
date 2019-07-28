@@ -118,8 +118,8 @@ public class ImageListFragment extends BaseFragment implements AbsListView.OnScr
             }
         }
     };
-    private a.InterfaceC0433a jNK = new a.InterfaceC0433a() { // from class: com.baidu.tieba.write.album.ImageListFragment.7
-        @Override // com.baidu.tieba.write.view.a.InterfaceC0433a
+    private a.InterfaceC0439a jNK = new a.InterfaceC0439a() { // from class: com.baidu.tieba.write.album.ImageListFragment.7
+        @Override // com.baidu.tieba.write.view.a.InterfaceC0439a
         public void a(int i, com.baidu.tbadk.album.a aVar) {
             List<MediaFileInfo> GH;
             if (ImageListFragment.this.jMH != null && aVar != null) {

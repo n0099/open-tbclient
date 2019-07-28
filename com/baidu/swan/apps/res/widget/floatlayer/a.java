@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 /* loaded from: classes2.dex */
 public class a {
-    private final InterfaceC0167a aPk;
+    private final InterfaceC0172a aPk;
     private final ViewGroup aPl;
     private int aPm;
 
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0167a {
+    public interface InterfaceC0172a {
         a vF();
     }
 
-    public a(@NonNull InterfaceC0167a interfaceC0167a, @NonNull ViewGroup viewGroup, int i) {
-        this.aPk = interfaceC0167a;
+    public a(@NonNull InterfaceC0172a interfaceC0172a, @NonNull ViewGroup viewGroup, int i) {
+        this.aPk = interfaceC0172a;
         this.aPl = viewGroup;
         this.aPm = i;
     }

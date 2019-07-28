@@ -83,8 +83,8 @@ public class SearchLocationActivity extends NavigationBarActivity {
             if (SearchLocationActivity.this.hjY != null && SearchLocationActivity.this.hjY.bLL()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2002013));
                 MessageManager messageManager = MessageManager.getInstance();
-                a.C0351a c0351a = (a.C0351a) SearchLocationActivity.this.hjY.getItem(i);
-                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0351a.getName(), c0351a.getName(), c0351a.getScreatString()));
+                a.C0357a c0357a = (a.C0357a) SearchLocationActivity.this.hjY.getItem(i);
+                messageManager.dispatchResponsedMessage(new ResponsedSelectLocation(true, c0357a.getName(), c0357a.getName(), c0357a.getScreatString()));
                 SearchLocationActivity.this.finish();
             }
         }
@@ -162,34 +162,34 @@ public class SearchLocationActivity extends NavigationBarActivity {
         this.hjY.notifyDataSetChanged();
     }
 
-    private ArrayList<a.C0351a> b(List<a.C0409a> list, String str, String str2) {
+    private ArrayList<a.C0357a> b(List<a.C0415a> list, String str, String str2) {
         if (list == null || list.size() <= 0) {
             return null;
         }
-        ArrayList<a.C0351a> arrayList = new ArrayList<>();
-        a.C0409a c0409a = null;
-        for (a.C0409a c0409a2 : list) {
-            if (c0409a2 != null && !TextUtils.isEmpty(c0409a2.getName())) {
-                if (TextUtils.equals(c0409a2.getName(), str)) {
-                    c0409a = c0409a2;
+        ArrayList<a.C0357a> arrayList = new ArrayList<>();
+        a.C0415a c0415a = null;
+        for (a.C0415a c0415a2 : list) {
+            if (c0415a2 != null && !TextUtils.isEmpty(c0415a2.getName())) {
+                if (TextUtils.equals(c0415a2.getName(), str)) {
+                    c0415a = c0415a2;
                 } else {
-                    a.C0351a c0351a = new a.C0351a();
-                    c0351a.setName(c0409a2.getName());
-                    c0351a.Aj(c0409a2.getSn());
-                    arrayList.add(c0351a);
+                    a.C0357a c0357a = new a.C0357a();
+                    c0357a.setName(c0415a2.getName());
+                    c0357a.Aj(c0415a2.getSn());
+                    arrayList.add(c0357a);
                 }
             }
         }
-        if (c0409a != null) {
-            a.C0351a c0351a2 = new a.C0351a();
-            c0351a2.setName(c0409a.getName());
-            c0351a2.Aj(c0409a.getSn());
-            arrayList.add(0, c0351a2);
+        if (c0415a != null) {
+            a.C0357a c0357a2 = new a.C0357a();
+            c0357a2.setName(c0415a.getName());
+            c0357a2.Aj(c0415a.getSn());
+            arrayList.add(0, c0357a2);
         } else {
-            a.C0351a c0351a3 = new a.C0351a();
-            c0351a3.setName(str);
-            c0351a3.Aj(str2);
-            arrayList.add(0, c0351a3);
+            a.C0357a c0357a3 = new a.C0357a();
+            c0357a3.setName(str);
+            c0357a3.Aj(str2);
+            arrayList.add(0, c0357a3);
         }
         return arrayList;
     }

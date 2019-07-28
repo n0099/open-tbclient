@@ -25,7 +25,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0370a {
+    public static class C0376a {
         TbImageView SD;
     }
 
@@ -110,23 +110,23 @@ public class a extends BaseAdapter {
     }
 
     private View j(int i, View view) {
-        C0370a c0370a;
-        if (view == null || !(view.getTag() instanceof C0370a)) {
+        C0376a c0376a;
+        if (view == null || !(view.getTag() instanceof C0376a)) {
             view = LayoutInflater.from(this.context).inflate(R.layout.chosen_pb_image_item, (ViewGroup) null);
-            c0370a = new C0370a();
-            c0370a.SD = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
-            view.setTag(c0370a);
+            c0376a = new C0376a();
+            c0376a.SD = (TbImageView) view.findViewById(R.id.pb_chosen_list_image);
+            view.setTag(c0376a);
         } else {
-            c0370a = (C0370a) view.getTag();
+            c0376a = (C0376a) view.getTag();
         }
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
             if (StringUtils.isNull(eVar.ibO) || "1".equals(eVar.ibO)) {
-                c0370a.SD.setVisibility(8);
+                c0376a.SD.setVisibility(8);
             } else {
-                c0370a.SD.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0370a.SD.getLayoutParams();
+                c0376a.SD.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0376a.SD.getLayoutParams();
                 int i2 = this.maxWidth;
                 int yq = eVar.yq(i2);
                 if (layoutParams == null) {
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
                     layoutParams.height = yq;
                     layoutParams.width = i2;
                 }
-                c0370a.SD.setLayoutParams(layoutParams);
-                c0370a.SD.startLoad(eVar.getSrc(), 17, false);
+                c0376a.SD.setLayoutParams(layoutParams);
+                c0376a.SD.startLoad(eVar.getSrc(), 17, false);
             }
         }
         return view;

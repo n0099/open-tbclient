@@ -10,12 +10,12 @@ public class a {
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0334a {
+    public interface InterfaceC0340a {
         void a(Iterator<ImMessageCenterPojo> it);
     }
 
-    public void a(InterfaceC0334a interfaceC0334a) {
-        interfaceC0334a.a(this.gLN.values().iterator());
+    public void a(InterfaceC0340a interfaceC0340a) {
+        interfaceC0340a.a(this.gLN.values().iterator());
     }
 
     public void bEX() {

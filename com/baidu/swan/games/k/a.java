@@ -17,8 +17,8 @@ public class a {
     private com.baidu.swan.games.k.b.b biR;
     private com.baidu.swan.games.k.b.a biS;
     private com.baidu.swan.games.k.b.a biT;
-    private InterfaceC0201a biU = new InterfaceC0201a() { // from class: com.baidu.swan.games.k.a.1
-        @Override // com.baidu.swan.games.k.a.InterfaceC0201a
+    private InterfaceC0206a biU = new InterfaceC0206a() { // from class: com.baidu.swan.games.k.a.1
+        @Override // com.baidu.swan.games.k.a.InterfaceC0206a
         public void eZ(int i) {
             com.baidu.swan.games.k.b.b bVar = new com.baidu.swan.games.k.b.b();
             bVar.errMsg = "showKeyboard:ok";
@@ -26,26 +26,26 @@ public class a {
             com.baidu.swan.games.utils.a.a(a.this.biN, true, bVar);
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0201a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0206a
         public void Sx() {
             a.this.hideKeyboard();
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0201a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0206a
         public void jF(String str) {
             if (a.this.bfw != null) {
                 a.this.bfw.jI(str);
             }
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0201a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0206a
         public void jG(String str) {
             if (a.this.bfw != null) {
                 a.this.bfw.jJ(str);
             }
         }
 
-        @Override // com.baidu.swan.games.k.a.InterfaceC0201a
+        @Override // com.baidu.swan.games.k.a.InterfaceC0206a
         public void jH(String str) {
             if (a.this.bfw != null) {
                 a.this.bfw.jK(str);
@@ -57,7 +57,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.games.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0201a {
+    public interface InterfaceC0206a {
         void Sx();
 
         void eZ(int i);

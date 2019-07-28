@@ -9,12 +9,12 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private static a cYz;
-    private List<InterfaceC0268a> cYA = new ArrayList();
+    private List<InterfaceC0273a> cYA = new ArrayList();
     private List<com.baidu.tbadk.coreExtra.relationship.a> cYB;
 
     /* renamed from: com.baidu.tieba.addresslist.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0268a {
+    public interface InterfaceC0273a {
         void az(List<com.baidu.tbadk.coreExtra.relationship.a> list);
     }
 
@@ -32,15 +32,15 @@ public class a {
         return aVar;
     }
 
-    public void a(InterfaceC0268a interfaceC0268a) {
-        if (interfaceC0268a != null && !this.cYA.contains(interfaceC0268a)) {
-            this.cYA.add(interfaceC0268a);
+    public void a(InterfaceC0273a interfaceC0273a) {
+        if (interfaceC0273a != null && !this.cYA.contains(interfaceC0273a)) {
+            this.cYA.add(interfaceC0273a);
         }
     }
 
-    public void b(InterfaceC0268a interfaceC0268a) {
-        if (interfaceC0268a != null) {
-            this.cYA.remove(interfaceC0268a);
+    public void b(InterfaceC0273a interfaceC0273a) {
+        if (interfaceC0273a != null) {
+            this.cYA.remove(interfaceC0273a);
         }
     }
 
@@ -118,8 +118,8 @@ public class a {
     }
 
     private void aDp() {
-        for (InterfaceC0268a interfaceC0268a : this.cYA) {
-            interfaceC0268a.az(this.cYB);
+        for (InterfaceC0273a interfaceC0273a : this.cYA) {
+            interfaceC0273a.az(this.cYB);
         }
     }
 }

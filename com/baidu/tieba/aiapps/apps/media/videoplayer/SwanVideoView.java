@@ -48,8 +48,8 @@ public class SwanVideoView extends FrameLayout {
     private g.a dgt;
     private g.b dgu;
     private g.e dgv;
-    private g.InterfaceC0387g dgw;
-    a.InterfaceC0283a dgx;
+    private g.InterfaceC0393g dgw;
+    a.InterfaceC0289a dgx;
     private Context mAppContext;
     private int mCurrentState;
     private SurfaceTexture mSurfaceTexture;
@@ -112,8 +112,8 @@ public class SwanVideoView extends FrameLayout {
                 return SwanVideoView.this.dfX != null && SwanVideoView.this.dfX.onInfo(gVar, i, i2);
             }
         };
-        this.dgw = new g.InterfaceC0387g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.dgw = new g.InterfaceC0393g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 Log.d("SwanVideoView", "onSeekComplete");
                 SwanVideoView.this.setCacheViewVisibility(false);
@@ -122,12 +122,12 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
         };
-        this.dgx = new a.InterfaceC0283a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+        this.dgx = new a.InterfaceC0289a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i, int i2, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i, int i2) {
                 if (bVar.aGI() == SwanVideoView.this.dgo && SwanVideoView.this.dgg != null) {
                     SwanVideoView.this.a(SwanVideoView.this.dgg, bVar);
@@ -135,7 +135,7 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar) {
             }
         };
@@ -195,8 +195,8 @@ public class SwanVideoView extends FrameLayout {
                 return SwanVideoView.this.dfX != null && SwanVideoView.this.dfX.onInfo(gVar, i, i2);
             }
         };
-        this.dgw = new g.InterfaceC0387g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.dgw = new g.InterfaceC0393g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 Log.d("SwanVideoView", "onSeekComplete");
                 SwanVideoView.this.setCacheViewVisibility(false);
@@ -205,12 +205,12 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
         };
-        this.dgx = new a.InterfaceC0283a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+        this.dgx = new a.InterfaceC0289a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i, int i2, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i, int i2) {
                 if (bVar.aGI() == SwanVideoView.this.dgo && SwanVideoView.this.dgg != null) {
                     SwanVideoView.this.a(SwanVideoView.this.dgg, bVar);
@@ -218,7 +218,7 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar) {
             }
         };
@@ -278,8 +278,8 @@ public class SwanVideoView extends FrameLayout {
                 return SwanVideoView.this.dfX != null && SwanVideoView.this.dfX.onInfo(gVar, i2, i22);
             }
         };
-        this.dgw = new g.InterfaceC0387g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.dgw = new g.InterfaceC0393g() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.6
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 Log.d("SwanVideoView", "onSeekComplete");
                 SwanVideoView.this.setCacheViewVisibility(false);
@@ -288,12 +288,12 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
         };
-        this.dgx = new a.InterfaceC0283a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+        this.dgx = new a.InterfaceC0289a() { // from class: com.baidu.tieba.aiapps.apps.media.videoplayer.SwanVideoView.7
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i2, int i22, int i3) {
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar, int i2, int i22) {
                 if (bVar.aGI() == SwanVideoView.this.dgo && SwanVideoView.this.dgg != null) {
                     SwanVideoView.this.a(SwanVideoView.this.dgg, bVar);
@@ -301,7 +301,7 @@ public class SwanVideoView extends FrameLayout {
                 }
             }
 
-            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0283a
+            @Override // com.baidu.tieba.aiapps.apps.media.videoplayer.a.InterfaceC0289a
             public void a(a.b bVar) {
             }
         };

@@ -76,7 +76,7 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
     private boolean jQK;
     private Runnable jQL;
     private Runnable jQM;
-    private a.InterfaceC0407a jiQ;
+    private a.InterfaceC0413a jiQ;
     private l jiS;
     private int jve;
     private String jvf;
@@ -201,8 +201,8 @@ public class WriteVideoActivity extends BaseActivity<WriteVideoActivity> {
                 }
             }
         };
-        this.jiQ = new a.InterfaceC0407a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.14
-            @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0407a
+        this.jiQ = new a.InterfaceC0413a() { // from class: com.baidu.tieba.write.video.WriteVideoActivity.14
+            @Override // com.baidu.tieba.tbadkCore.c.a.InterfaceC0413a
             public void onUploadProgress(int i) {
                 WriteVideoActivity.this.jQH = i;
                 com.baidu.adp.lib.g.e.iK().post(WriteVideoActivity.this.jQM);

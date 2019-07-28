@@ -19,14 +19,14 @@ public class a {
     private boolean fID = false;
     private View.OnTouchListener fIE;
     private BlankView hZx;
-    private InterfaceC0379a hZy;
+    private InterfaceC0385a hZy;
     private NavigationBar mNavigationBar;
     private static final int fIB = l.g(TbadkCoreApplication.getInst(), R.dimen.ds160);
     private static final int TOUCH_SLOP = l.g(TbadkCoreApplication.getInst(), R.dimen.ds20);
 
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0379a {
+    public interface InterfaceC0385a {
         void bpU();
 
         void bpV();
@@ -53,8 +53,8 @@ public class a {
                 return false;
             }
         });
-        this.eab.a(new a.InterfaceC0299a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
-            @Override // com.baidu.tieba.f.a.InterfaceC0299a
+        this.eab.a(new a.InterfaceC0305a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
+            @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void aY(int i, int i2) {
                 if (a.this.hZy != null && a.this.hZy.bpW() && Math.abs(i2) > a.TOUCH_SLOP) {
                     if (a.this.hZx != null) {
@@ -64,12 +64,12 @@ public class a {
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0299a
+            @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void aZ(int i, int i2) {
                 a.this.bpX();
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0299a
+            @Override // com.baidu.tieba.f.a.InterfaceC0305a
             public void ba(int i, int i2) {
             }
         });
@@ -122,8 +122,8 @@ public class a {
         }
     }
 
-    public void a(InterfaceC0379a interfaceC0379a) {
-        this.hZy = interfaceC0379a;
+    public void a(InterfaceC0385a interfaceC0385a) {
+        this.hZy = interfaceC0385a;
     }
 
     public boolean bpZ() {

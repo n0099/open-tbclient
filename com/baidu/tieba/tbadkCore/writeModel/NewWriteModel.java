@@ -56,7 +56,7 @@ public class NewWriteModel extends BdBaseModel {
     private c jiN;
     private d jiO;
     private boolean jiP;
-    private a.InterfaceC0407a jiQ;
+    private a.InterfaceC0413a jiQ;
     private WriteData mData;
     private final com.baidu.adp.base.e<?> mPageContext;
 
@@ -278,8 +278,8 @@ public class NewWriteModel extends BdBaseModel {
         this.jiN = cVar;
     }
 
-    public void a(a.InterfaceC0407a interfaceC0407a) {
-        this.jiQ = interfaceC0407a;
+    public void a(a.InterfaceC0413a interfaceC0413a) {
+        this.jiQ = interfaceC0413a;
     }
 
     public void setWriteData(WriteData writeData) {

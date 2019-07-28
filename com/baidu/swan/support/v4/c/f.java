@@ -85,8 +85,8 @@ public class f {
 
     /* renamed from: com.baidu.swan.support.v4.c.f$f  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static class C0227f extends e {
-        C0227f() {
+    static class C0232f extends e {
+        C0232f() {
         }
 
         @Override // com.baidu.swan.support.v4.c.f.a, com.baidu.swan.support.v4.c.f.k
@@ -96,7 +96,7 @@ public class f {
     }
 
     /* loaded from: classes2.dex */
-    static class g extends C0227f {
+    static class g extends C0232f {
         g() {
         }
     }

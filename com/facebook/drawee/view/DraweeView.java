@@ -16,14 +16,14 @@ import com.facebook.drawee.view.a;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
-    private final a.C0452a kdW;
+    private final a.C0458a kdW;
     private float kdX;
     private b<DH> kdY;
     private boolean kdZ;
 
     public DraweeView(Context context) {
         super(context);
-        this.kdW = new a.C0452a();
+        this.kdW = new a.C0458a();
         this.kdX = 0.0f;
         this.kdZ = false;
         init(context);
@@ -31,7 +31,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.kdW = new a.C0452a();
+        this.kdW = new a.C0458a();
         this.kdX = 0.0f;
         this.kdZ = false;
         init(context);
@@ -39,7 +39,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
 
     public DraweeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.kdW = new a.C0452a();
+        this.kdW = new a.C0458a();
         this.kdX = 0.0f;
         this.kdZ = false;
         init(context);
@@ -48,7 +48,7 @@ public class DraweeView<DH extends com.facebook.drawee.d.b> extends ImageView {
     @TargetApi(21)
     public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
         super(context, attributeSet, i, i2);
-        this.kdW = new a.C0452a();
+        this.kdW = new a.C0458a();
         this.kdX = 0.0f;
         this.kdZ = false;
         init(context);

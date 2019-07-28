@@ -10,18 +10,18 @@ import java.util.Arrays;
 /* loaded from: classes2.dex */
 public final class a {
     private static final boolean DEBUG = b.DEBUG;
-    private SparseArray<InterfaceC0106a> aGZ = new SparseArray<>();
+    private SparseArray<InterfaceC0111a> aGZ = new SparseArray<>();
 
     /* renamed from: com.baidu.swan.apps.ab.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0106a {
+    public interface InterfaceC0111a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }
 
     @TargetApi(23)
-    public void a(Activity activity, int i, @NonNull String[] strArr, InterfaceC0106a interfaceC0106a) {
-        if (interfaceC0106a != null) {
-            this.aGZ.put(i, interfaceC0106a);
+    public void a(Activity activity, int i, @NonNull String[] strArr, InterfaceC0111a interfaceC0111a) {
+        if (interfaceC0111a != null) {
+            this.aGZ.put(i, interfaceC0111a);
             activity.requestPermissions(strArr, i);
             if (DEBUG) {
                 Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
@@ -30,9 +30,9 @@ public final class a {
     }
 
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        InterfaceC0106a interfaceC0106a = this.aGZ.get(i);
-        if (interfaceC0106a != null) {
-            interfaceC0106a.onRequestPermissionsResult(i, strArr, iArr);
+        InterfaceC0111a interfaceC0111a = this.aGZ.get(i);
+        if (interfaceC0111a != null) {
+            interfaceC0111a.onRequestPermissionsResult(i, strArr, iArr);
             this.aGZ.remove(i);
         }
         if (DEBUG) {

@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 public class c extends EventTargetImpl implements com.baidu.mario.b.b {
     protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int bku;
-    private b.C0213b bkv;
+    private b.C0218b bkv;
     private String bkw;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(JSRuntime jSRuntime) {
         super(jSRuntime);
         this.bku = -1;
-        this.bkv = new b.C0213b();
+        this.bkv = new b.C0218b();
         d.ST().SU().setGameRecordCallback(this);
     }
 

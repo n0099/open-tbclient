@@ -7,6 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -69,7 +70,7 @@ public class h extends g {
         if (com.xiaomi.channel.commonutils.android.f.g()) {
             return "";
         }
-        String macAddress = Build.VERSION.SDK_INT < 23 ? ((WifiManager) this.d.getSystemService("wifi")).getConnectionInfo().getMacAddress() : "";
+        String macAddress = Build.VERSION.SDK_INT < 23 ? ((WifiManager) this.d.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress() : "";
         if (TextUtils.isEmpty(macAddress)) {
             if (Build.VERSION.SDK_INT < 9) {
                 return "";

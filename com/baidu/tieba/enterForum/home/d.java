@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.tieba.c.a {
-    private a.InterfaceC0289a eXZ;
+    private a.InterfaceC0295a eXZ;
     private EnterForumModel eXf;
     private final EnterForumModel.b eXu = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.d.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
@@ -67,7 +67,7 @@ public class d implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void a(a.InterfaceC0289a interfaceC0289a) {
-        this.eXZ = interfaceC0289a;
+    public void a(a.InterfaceC0295a interfaceC0295a) {
+        this.eXZ = interfaceC0295a;
     }
 }

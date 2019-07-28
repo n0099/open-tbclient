@@ -11,7 +11,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     protected EditorTools TU;
     private CommonTabContentView.b cuG;
     private b cuL;
-    private InterfaceC0249a cuM;
+    private InterfaceC0254a cuM;
     private CommonTabHost.a cuQ;
     private int KX = 0;
     private int cuN = 0;
@@ -25,7 +25,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0249a {
+    public interface InterfaceC0254a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
@@ -63,12 +63,12 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.cuL = bVar;
     }
 
-    public InterfaceC0249a atb() {
+    public InterfaceC0254a atb() {
         return this.cuM;
     }
 
-    public void a(InterfaceC0249a interfaceC0249a) {
-        this.cuM = interfaceC0249a;
+    public void a(InterfaceC0254a interfaceC0254a) {
+        this.cuM = interfaceC0254a;
     }
 
     public int atc() {

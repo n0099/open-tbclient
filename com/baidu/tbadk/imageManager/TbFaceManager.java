@@ -70,11 +70,11 @@ public class TbFaceManager {
         return this.cvT.qf(str);
     }
 
-    public a.C0250a qC(String str) {
+    public a.C0255a qC(String str) {
         com.baidu.adp.widget.ImageView.a qB;
-        a.C0250a aj = this.cvT.aj(this.mContext, str);
+        a.C0255a aj = this.cvT.aj(this.mContext, str);
         if (aj == null && (qB = qB(str)) != null) {
-            return new a.C0250a(qB.getWidth(), qB.getHeight());
+            return new a.C0255a(qB.getWidth(), qB.getHeight());
         }
         return aj;
     }

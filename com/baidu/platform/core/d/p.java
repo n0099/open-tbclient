@@ -1,6 +1,7 @@
 package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 /* loaded from: classes5.dex */
 public class p extends com.baidu.platform.base.e {
@@ -10,7 +11,7 @@ public class p extends com.baidu.platform.base.e {
 
     private void a(WalkingRoutePlanOption walkingRoutePlanOption) {
         this.a.a("qt", "walk2");
-        this.a.a("sn", a(walkingRoutePlanOption.mFrom));
+        this.a.a(IXAdRequestInfo.SN, a(walkingRoutePlanOption.mFrom));
         this.a.a("en", a(walkingRoutePlanOption.mTo));
         if (walkingRoutePlanOption.mFrom != null) {
             this.a.a(Config.STAT_SDK_CHANNEL, walkingRoutePlanOption.mFrom.getCity());

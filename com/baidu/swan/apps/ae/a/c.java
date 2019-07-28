@@ -308,7 +308,7 @@ public final class c {
 
     /* loaded from: classes2.dex */
     public static class d {
-        public List<C0107c> aRk;
+        public List<C0112c> aRk;
         public HashMap<String, Boolean> aRl;
         public HashMap<String, String> aRm;
 
@@ -328,7 +328,7 @@ public final class c {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    dVar.aRk.add(C0107c.a(optJSONObject, dVar.aRm));
+                    dVar.aRk.add(C0112c.a(optJSONObject, dVar.aRm));
                 }
             }
             return dVar;
@@ -345,43 +345,43 @@ public final class c {
 
     /* renamed from: com.baidu.swan.apps.ae.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0107c {
+    public static class C0112c {
         private static final String aRj = File.separator;
         public String aRh;
         public List<String> aRi;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0107c a(JSONObject jSONObject, HashMap<String, String> hashMap) {
+        public static C0112c a(JSONObject jSONObject, HashMap<String, String> hashMap) {
             String str;
             if (jSONObject == null || hashMap == null) {
                 return MD();
             }
-            C0107c c0107c = new C0107c();
-            c0107c.aRh = jSONObject.optString("root");
+            C0112c c0112c = new C0112c();
+            c0112c.aRh = jSONObject.optString("root");
             JSONArray optJSONArray = jSONObject.optJSONArray("pages");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
-                c0107c.aRi = new ArrayList();
+                c0112c.aRi = new ArrayList();
                 for (int i = 0; i < length; i++) {
                     String optString = optJSONArray.optString(i);
-                    c0107c.aRi.add(optString);
-                    if (!TextUtils.isEmpty(c0107c.aRh) && !TextUtils.isEmpty(optString)) {
-                        if (c0107c.aRh.endsWith(aRj) || optString.startsWith(aRj)) {
-                            str = c0107c.aRh + optString;
+                    c0112c.aRi.add(optString);
+                    if (!TextUtils.isEmpty(c0112c.aRh) && !TextUtils.isEmpty(optString)) {
+                        if (c0112c.aRh.endsWith(aRj) || optString.startsWith(aRj)) {
+                            str = c0112c.aRh + optString;
                         } else {
-                            str = c0107c.aRh + aRj + optString;
+                            str = c0112c.aRh + aRj + optString;
                         }
-                        hashMap.put(str, c0107c.aRh);
+                        hashMap.put(str, c0112c.aRh);
                     }
                 }
             }
-            return c0107c;
+            return c0112c;
         }
 
-        private static C0107c MD() {
-            C0107c c0107c = new C0107c();
-            c0107c.aRi = new ArrayList();
-            return c0107c;
+        private static C0112c MD() {
+            C0112c c0112c = new C0112c();
+            c0112c.aRi = new ArrayList();
+            return c0112c;
         }
     }
 
@@ -400,9 +400,9 @@ public final class c {
             }
             e eVar = new e();
             eVar.aRn = new HashMap<>();
-            for (C0107c c0107c : dVar.aRk) {
-                if (c0107c != null && !TextUtils.isEmpty(c0107c.aRh)) {
-                    eVar.aRn.put(c0107c.aRh, optJSONObject.optString(c0107c.aRh));
+            for (C0112c c0112c : dVar.aRk) {
+                if (c0112c != null && !TextUtils.isEmpty(c0112c.aRh)) {
+                    eVar.aRn.put(c0112c.aRh, optJSONObject.optString(c0112c.aRh));
                 }
             }
             return eVar;

@@ -86,52 +86,52 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        final C0356a c0356a;
+        final C0362a c0362a;
         String str;
         Object item = getItem(i);
         if (item instanceof ForumInfo) {
             final ForumInfo forumInfo = (ForumInfo) item;
             if (view == null) {
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.forum_search_sug_item, (ViewGroup) null);
-                c0356a = new C0356a();
-                c0356a.hku = (BarImageView) view.findViewById(R.id.forum_avatar);
-                c0356a.hku.setGifIconSupport(false);
-                c0356a.cbW = (TextView) view.findViewById(R.id.name);
-                c0356a.hkv = (TextView) view.findViewById(R.id.forum_member_count);
-                c0356a.hkw = (TextView) view.findViewById(R.id.forum_thread_count);
-                c0356a.mFollowBtn = (TextView) view.findViewById(R.id.follow_text_view);
-                view.setTag(c0356a);
+                c0362a = new C0362a();
+                c0362a.hku = (BarImageView) view.findViewById(R.id.forum_avatar);
+                c0362a.hku.setGifIconSupport(false);
+                c0362a.cbW = (TextView) view.findViewById(R.id.name);
+                c0362a.hkv = (TextView) view.findViewById(R.id.forum_member_count);
+                c0362a.hkw = (TextView) view.findViewById(R.id.forum_thread_count);
+                c0362a.mFollowBtn = (TextView) view.findViewById(R.id.follow_text_view);
+                view.setTag(c0362a);
             } else {
-                c0356a = (C0356a) view.getTag();
+                c0362a = (C0362a) view.getTag();
             }
             if (forumInfo != null) {
                 String str2 = forumInfo.avatar;
-                c0356a.hku.setTag(str2);
-                c0356a.hku.startLoad(str2, 15, false);
-                c0356a.hku.invalidate();
+                c0362a.hku.setTag(str2);
+                c0362a.hku.startLoad(str2, 15, false);
+                c0362a.hku.invalidate();
                 if (this.hkr) {
                     str = this.mContext.getString(R.string.chosen_pb_original_bar, forumInfo.forum_name);
                 } else {
                     str = forumInfo.forum_name;
                 }
-                a(c0356a.cbW, str);
-                c0356a.hku.setTag(forumInfo.avatar);
-                c0356a.hkv.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
-                c0356a.hkw.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
-                am.j(c0356a.hkv, R.color.cp_cont_d);
-                am.j(c0356a.hkw, R.color.cp_cont_d);
-                am.j(c0356a.cbW, R.color.cp_cont_b);
+                a(c0362a.cbW, str);
+                c0362a.hku.setTag(forumInfo.avatar);
+                c0362a.hkv.setText(this.mContext.getString(R.string.attention) + " " + forumInfo.concern_num);
+                c0362a.hkw.setText(this.mContext.getString(R.string.text_post) + " " + forumInfo.post_num);
+                am.j(c0362a.hkv, R.color.cp_cont_d);
+                am.j(c0362a.hkw, R.color.cp_cont_d);
+                am.j(c0362a.cbW, R.color.cp_cont_b);
                 if (forumInfo.has_concerned.intValue() > 0) {
-                    c0356a.mFollowBtn.setText(R.string.followed);
-                    am.k(c0356a.mFollowBtn, 0);
-                    am.j(c0356a.mFollowBtn, R.color.cp_cont_d);
-                    c0356a.mFollowBtn.setOnClickListener(null);
+                    c0362a.mFollowBtn.setText(R.string.followed);
+                    am.k(c0362a.mFollowBtn, 0);
+                    am.j(c0362a.mFollowBtn, R.color.cp_cont_d);
+                    c0362a.mFollowBtn.setOnClickListener(null);
                     return view;
                 }
-                c0356a.mFollowBtn.setText(R.string.attention);
-                am.k(c0356a.mFollowBtn, R.drawable.search_like_btn_bg);
-                am.j(c0356a.mFollowBtn, R.color.cp_link_tip_a);
-                c0356a.mFollowBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1
+                c0362a.mFollowBtn.setText(R.string.attention);
+                am.k(c0362a.mFollowBtn, R.drawable.search_like_btn_bg);
+                am.j(c0362a.mFollowBtn, R.color.cp_link_tip_a);
+                c0362a.mFollowBtn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mainentrance.searchSuggestList.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         TiebaStatic.log(new an("c13371").bT("obj_type", "3").P("fid", forumInfo.forum_id.intValue()).l("uid", TbadkApplication.getCurrentAccountId()));
@@ -143,11 +143,11 @@ public class a extends BaseAdapter {
                                     l.showToast(a.this.mContext, (int) R.string.attention_fail);
                                     return;
                                 }
-                                c0356a.mFollowBtn.setText(R.string.followed);
+                                c0362a.mFollowBtn.setText(R.string.followed);
                                 l.showToast(a.this.mContext, (int) R.string.attention_success);
-                                c0356a.mFollowBtn.setBackgroundDrawable(null);
-                                am.j(c0356a.mFollowBtn, R.color.cp_cont_d);
-                                c0356a.mFollowBtn.setOnClickListener(null);
+                                c0362a.mFollowBtn.setBackgroundDrawable(null);
+                                am.j(c0362a.mFollowBtn, R.color.cp_cont_d);
+                                c0362a.mFollowBtn.setOnClickListener(null);
                             }
                         });
                     }
@@ -182,14 +182,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.mainentrance.searchSuggestList.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    private class C0356a {
+    private class C0362a {
         TextView cbW;
         BarImageView hku;
         TextView hkv;
         TextView hkw;
         TextView mFollowBtn;
 
-        private C0356a() {
+        private C0362a() {
         }
     }
 }

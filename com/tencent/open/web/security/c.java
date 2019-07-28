@@ -1,12 +1,13 @@
 package com.tencent.open.web.security;
 
 import android.webkit.WebView;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.tencent.open.a;
 import com.tencent.open.a.f;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c extends a.C0471a {
+public class c extends a.C0477a {
     private String d;
 
     public c(WebView webView, long j, String str, String str2) {
@@ -14,17 +15,17 @@ public class c extends a.C0471a {
         this.d = str2;
     }
 
-    @Override // com.tencent.open.a.C0471a
+    @Override // com.tencent.open.a.C0477a
     public void a(Object obj) {
         f.a("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C0471a
+    @Override // com.tencent.open.a.C0477a
     public void a() {
         f.b("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C0471a
+    @Override // com.tencent.open.a.C0477a
     public void a(String str) {
         f.a("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
         JSONObject jSONObject = new JSONObject();
@@ -34,7 +35,7 @@ public class c extends a.C0471a {
         }
         try {
             jSONObject.put("result", i);
-            jSONObject.put("sn", this.b);
+            jSONObject.put(IXAdRequestInfo.SN, this.b);
             jSONObject.put("data", str);
         } catch (JSONException e) {
             e.printStackTrace();

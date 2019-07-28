@@ -14,10 +14,10 @@ public class MarkModel extends BdBaseModel {
     private boolean hyZ;
     private MarkData hza;
     private a hzb;
-    private a.InterfaceC0233a hzc;
+    private a.InterfaceC0238a hzc;
 
-    public void a(a.InterfaceC0233a interfaceC0233a) {
-        this.hzc = interfaceC0233a;
+    public void a(a.InterfaceC0238a interfaceC0238a) {
+        this.hzc = interfaceC0238a;
     }
 
     public MarkModel(BaseActivity baseActivity) {

@@ -2,6 +2,7 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tieba.im.util.d;
 import com.squareup.wire.Wire;
@@ -42,7 +43,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
         setError(commitPersonalMsgResIdl.error.errorno.intValue());
         setErrorString(commitPersonalMsgResIdl.error.usermsg);
         if (commitPersonalMsgResIdl.data == null) {
-            BdStatisticsManager.getInstance().error("im", 0L, (String) null, ClientCookie.COMMENT_ATTR, "personalchat_resdatanull");
+            BdStatisticsManager.getInstance().error(IXAdRequestInfo.IMSI, 0L, (String) null, ClientCookie.COMMENT_ATTR, "personalchat_resdatanull");
             return;
         }
         long longValue = commitPersonalMsgResIdl.data.msgId.longValue();

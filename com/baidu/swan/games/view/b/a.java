@@ -24,7 +24,7 @@ public class a {
     private EditText bmc;
     private RelativeLayout bmd;
     private Button bme;
-    private a.InterfaceC0201a bmg;
+    private a.InterfaceC0206a bmg;
     private c bmh;
     private RelativeLayout mRootView;
     private boolean bmf = false;
@@ -142,8 +142,8 @@ public class a {
         }
     }
 
-    public void a(a.InterfaceC0201a interfaceC0201a) {
-        this.bmg = interfaceC0201a;
+    public void a(a.InterfaceC0206a interfaceC0206a) {
+        this.bmg = interfaceC0206a;
     }
 
     public void a(final c cVar) {

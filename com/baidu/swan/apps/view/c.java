@@ -32,12 +32,12 @@ public class c extends d {
     }
 
     /* loaded from: classes2.dex */
-    private class b extends d.C0135d {
+    private class b extends d.C0140d {
         private b() {
             super();
         }
 
-        @Override // com.baidu.swan.apps.core.i.d.C0135d, android.webkit.WebViewClient
+        @Override // com.baidu.swan.apps.core.i.d.C0140d, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             return (c.this.atL != null && c.this.atL.dU(str)) || e.P(webView.getContext(), str);
         }

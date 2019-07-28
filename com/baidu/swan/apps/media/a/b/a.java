@@ -22,29 +22,29 @@ public class a extends c.b {
     }
 
     @Override // com.baidu.swan.apps.media.a.b.c.b
-    public c.C0147c a(Context context, c.C0147c c0147c) {
-        if (c0147c == null) {
-            c0147c = new c.C0147c();
+    public c.C0152c a(Context context, c.C0152c c0152c) {
+        if (c0152c == null) {
+            c0152c = new c.C0152c();
         }
         if (this.aCb.uri == null) {
-            return c0147c.d(true, "uri is Null");
+            return c0152c.d(true, "uri is Null");
         }
         if (DEBUG) {
             Log.i("AlbumTaskStrategy", "AlbumTaskStrategy doInBackground uri=" + this.aCb.uri);
         }
-        boolean a = a(c0147c);
+        boolean a = a(c0152c);
         if (!a) {
-            a = b(context, c0147c);
+            a = b(context, c0152c);
         }
         if (!a) {
-            return c0147c.d(true, "can not handle uri:" + this.aCb.uri);
+            return c0152c.d(true, "can not handle uri:" + this.aCb.uri);
         }
         if (f(this.aCb)) {
-            c0147c.b(1, this.aCb);
-            return c0147c;
+            c0152c.b(1, this.aCb);
+            return c0152c;
         }
-        c0147c.b(2, this.aCb);
-        return c0147c;
+        c0152c.b(2, this.aCb);
+        return c0152c;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [120=4] */
@@ -53,7 +53,7 @@ public class a extends c.b {
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v6 */
-    private boolean b(@NonNull Context context, @NonNull c.C0147c c0147c) {
+    private boolean b(@NonNull Context context, @NonNull c.C0152c c0152c) {
         MediaMetadataRetriever mediaMetadataRetriever;
         ContentResolver contentResolver = context.getContentResolver();
         try {
@@ -64,12 +64,12 @@ public class a extends c.b {
                 if (DEBUG) {
                     Log.i("AlbumTaskStrategy", "query exception", e);
                 }
-                c0147c.d(true, "query occurs exception:" + e.getMessage());
+                c0152c.d(true, "query occurs exception:" + e.getMessage());
             } finally {
                 com.baidu.swan.c.a.c(query);
             }
             if (query == null) {
-                c0147c.d(true, "query return null:" + this.aCb.uri);
+                c0152c.d(true, "query return null:" + this.aCb.uri);
                 return false;
             } else if (query.moveToFirst()) {
                 d.c cVar = new d.c();
@@ -126,14 +126,14 @@ public class a extends c.b {
                 return false;
             }
         } catch (Exception e4) {
-            c0147c.d(true, e4.getMessage());
+            c0152c.d(true, e4.getMessage());
             return false;
         }
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [168=6, 169=5] */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x007d -> B:10:0x0039). Please submit an issue!!! */
-    private boolean a(@NonNull c.C0147c c0147c) {
+    private boolean a(@NonNull c.C0152c c0152c) {
         File file;
         MediaMetadataRetriever mediaMetadataRetriever = null;
         try {
@@ -151,7 +151,7 @@ public class a extends c.b {
             d.c cVar = new d.c();
             cVar.aCr = file.getPath();
             if (TextUtils.isEmpty(cVar.aCr)) {
-                c0147c.d(true, "can not find path");
+                c0152c.d(true, "can not find path");
                 if (0 != 0) {
                     mediaMetadataRetriever.release();
                     return true;

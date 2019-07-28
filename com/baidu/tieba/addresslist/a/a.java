@@ -93,7 +93,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0267a c0267a;
+        C0272a c0272a;
         b bVar;
         c cVar;
         c cVar2;
@@ -173,69 +173,69 @@ public class a extends BaseAdapter {
                 am.k(bVar.divider, R.color.cp_bg_line_b);
                 return view;
             } else if (getItemViewType(i) == 3) {
-                if (view == null || view.getTag() == null || !(view.getTag() instanceof C0267a)) {
-                    C0267a c0267a2 = new C0267a();
+                if (view == null || view.getTag() == null || !(view.getTag() instanceof C0272a)) {
+                    C0272a c0272a2 = new C0272a();
                     view = LayoutInflater.from(this.mContext).inflate(R.layout.addresslist_child_item, (ViewGroup) null);
-                    c0267a2.cYm = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                    c0267a2.cYn = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                    c0267a2.cYu = (TextView) view.findViewById(R.id.detail_info_distance);
-                    c0267a2.cYv = (TextView) view.findViewById(R.id.detail_info_time);
-                    c0267a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
-                    view.setTag(c0267a2);
-                    c0267a = c0267a2;
+                    c0272a2.cYm = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                    c0272a2.cYn = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                    c0272a2.cYu = (TextView) view.findViewById(R.id.detail_info_distance);
+                    c0272a2.cYv = (TextView) view.findViewById(R.id.detail_info_time);
+                    c0272a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
+                    view.setTag(c0272a2);
+                    c0272a = c0272a2;
                 } else {
-                    c0267a = (C0267a) view.getTag();
+                    c0272a = (C0272a) view.getTag();
                 }
                 if (item.getUserName() != null) {
-                    c0267a.cYn.setText(item.getUserName());
-                    c0267a.cYm.startLoad(item.apS(), 12, false);
+                    c0272a.cYn.setText(item.getUserName());
+                    c0272a.cYm.startLoad(item.apS(), 12, false);
                 }
                 item.setLbsInfo(null);
                 if (item.getLbsInfo() != null) {
                     if (item.getLbsInfo().apV() == 1) {
-                        c0267a.cYu.setVisibility(0);
-                        am.f(c0267a.cYu, this.cYq, 1);
-                        c0267a.cYu.setText(this.mContext.getResources().getString(R.string.contact_yinshen));
-                        c0267a.cYu.setCompoundDrawables(null, null, null, null);
-                        c0267a.cYv.setVisibility(8);
+                        c0272a.cYu.setVisibility(0);
+                        am.f(c0272a.cYu, this.cYq, 1);
+                        c0272a.cYu.setText(this.mContext.getResources().getString(R.string.contact_yinshen));
+                        c0272a.cYu.setCompoundDrawables(null, null, null, null);
+                        c0272a.cYv.setVisibility(8);
                     } else if (item.getLbsInfo().apV() == 0) {
                         if (!sx(item.getLbsInfo().getDistance()) || !bO(item.getLbsInfo().getTime())) {
-                            c0267a.cYu.setVisibility(8);
-                            c0267a.cYv.setVisibility(8);
+                            c0272a.cYu.setVisibility(8);
+                            c0272a.cYv.setVisibility(8);
                         } else {
-                            c0267a.cYu.setVisibility(0);
-                            c0267a.cYv.setVisibility(0);
-                            c0267a.cYu.setText(item.getLbsInfo().getDistance());
-                            c0267a.cYv.setText(aq.aB(item.getLbsInfo().getTime()));
-                            am.f(c0267a.cYu, this.cYq, 1);
+                            c0272a.cYu.setVisibility(0);
+                            c0272a.cYv.setVisibility(0);
+                            c0272a.cYu.setText(item.getLbsInfo().getDistance());
+                            c0272a.cYv.setText(aq.aB(item.getLbsInfo().getTime()));
+                            am.f(c0272a.cYu, this.cYq, 1);
                             this.cYr = am.getDrawable(R.drawable.icon_friend_pin);
                             this.cYr.setBounds(0, 0, this.size, this.size);
-                            c0267a.cYu.setCompoundDrawables(this.cYr, null, null, null);
+                            c0272a.cYu.setCompoundDrawables(this.cYr, null, null, null);
                             this.cYs = am.getDrawable(R.drawable.icon_friend_time);
                             this.cYs.setBounds(0, 0, this.size, this.size);
-                            c0267a.cYv.setCompoundDrawables(this.cYs, null, null, null);
-                            am.f(c0267a.cYv, this.cYq, 1);
+                            c0272a.cYv.setCompoundDrawables(this.cYs, null, null, null);
+                            am.f(c0272a.cYv, this.cYq, 1);
                         }
                     } else {
-                        c0267a.cYu.setVisibility(8);
-                        c0267a.cYv.setVisibility(8);
+                        c0272a.cYu.setVisibility(8);
+                        c0272a.cYv.setVisibility(8);
                     }
                 } else {
-                    c0267a.cYu.setVisibility(8);
-                    c0267a.cYv.setVisibility(8);
+                    c0272a.cYu.setVisibility(8);
+                    c0272a.cYv.setVisibility(8);
                 }
-                am.f(c0267a.cYn, this.cYo, 1);
+                am.f(c0272a.cYn, this.cYo, 1);
                 String apT = item.apT();
                 com.baidu.tbadk.coreExtra.relationship.a item2 = getItem(i + 1);
                 if ((TextUtils.isEmpty(apT) || item2 == null || apT.equals(item2.apT())) ? false : true) {
-                    c0267a.divider.setVisibility(4);
+                    c0272a.divider.setVisibility(4);
                 } else {
-                    c0267a.divider.setVisibility(0);
-                    am.k(c0267a.divider, R.color.cp_bg_line_b);
+                    c0272a.divider.setVisibility(0);
+                    am.k(c0272a.divider, R.color.cp_bg_line_b);
                 }
                 am.k(view, R.drawable.addresslist_item_bg);
-                am.f(c0267a.cYn, this.cYo, 1);
-                am.k(c0267a.divider, R.color.cp_bg_line_b);
+                am.f(c0272a.cYn, this.cYo, 1);
+                am.k(c0272a.divider, R.color.cp_bg_line_b);
                 am.k(view, R.drawable.addresslist_item_bg);
                 return view;
             } else {
@@ -292,14 +292,14 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.addresslist.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0267a {
+    private class C0272a {
         HeadImageView cYm;
         TextView cYn;
         TextView cYu;
         TextView cYv;
         View divider;
 
-        private C0267a() {
+        private C0272a() {
         }
     }
 }

@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes.dex */
 public class Util {
     public static String openudid = null;
@@ -50,7 +51,7 @@ public class Util {
             sb.append(deviceId);
             str = sb.toString();
         } else {
-            String macAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
+            String macAddress = ((WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getMacAddress();
             if (!isEmpty(macAddress)) {
                 sb.append(macAddress);
                 str = sb.toString();

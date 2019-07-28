@@ -36,8 +36,8 @@ public class InvoiceListActivity extends BaseActivity {
     private String dep;
     private RecyclerView.LayoutManager mLayoutManager;
     private String mSource = "source_setting";
-    private c.InterfaceC0279c deq = new c.InterfaceC0279c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
-        @Override // com.baidu.tieba.aiapps.apps.invoice.c.InterfaceC0279c
+    private c.InterfaceC0285c deq = new c.InterfaceC0285c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
+        @Override // com.baidu.tieba.aiapps.apps.invoice.c.InterfaceC0285c
         public void aL(List<InvoiceInfo> list) {
             if (InvoiceListActivity.this.dej != null) {
                 InvoiceListActivity.this.vM();

@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes.dex */
 public class b {
     private Queue<a> cwp = new ConcurrentLinkedQueue();
-    private volatile C0252b cwq;
+    private volatile C0257b cwq;
 
     public com.baidu.adp.widget.ImageView.a a(ImageFileInfo imageFileInfo, boolean z) {
         if (imageFileInfo == null) {
@@ -41,7 +41,7 @@ public class b {
 
     protected void atF() {
         if (this.cwq == null && !this.cwp.isEmpty()) {
-            this.cwq = new C0252b(this.cwp);
+            this.cwq = new C0257b(this.cwp);
             this.cwq.execute(new Void[0]);
         }
     }
@@ -57,10 +57,10 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.tbadk.img.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0252b extends BdAsyncTask<Void, a, a> {
+    public class C0257b extends BdAsyncTask<Void, a, a> {
         final Queue<a> cwx;
 
-        public C0252b(Queue<a> queue) {
+        public C0257b(Queue<a> queue) {
             this.cwx = queue;
             super.setPriority(2);
         }

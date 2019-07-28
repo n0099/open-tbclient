@@ -9,10 +9,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0495a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0501a ajc$tjp_3 = null;
     int intLength;
     long value;
 

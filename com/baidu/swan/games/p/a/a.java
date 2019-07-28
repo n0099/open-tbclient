@@ -56,7 +56,7 @@ public final class a {
 
     /* loaded from: classes2.dex */
     public static class b {
-        public List<C0211a> bki;
+        public List<C0216a> bki;
         public HashMap<String, Boolean> bkj;
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -74,7 +74,7 @@ public final class a {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    bVar.bki.add(C0211a.at(optJSONObject));
+                    bVar.bki.add(C0216a.at(optJSONObject));
                 }
             }
             return bVar;
@@ -90,45 +90,45 @@ public final class a {
 
     /* renamed from: com.baidu.swan.games.p.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0211a {
+    public static class C0216a {
         public String bkg;
         public String bkh;
         public String name;
         public String path;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C0211a at(JSONObject jSONObject) {
+        public static C0216a at(JSONObject jSONObject) {
             if (jSONObject == null) {
                 return SN();
             }
-            C0211a c0211a = new C0211a();
-            c0211a.bkg = jSONObject.optString("root");
-            c0211a.name = jSONObject.optString("name");
-            if (TextUtils.isEmpty(c0211a.bkg) || TextUtils.isEmpty(c0211a.name)) {
+            C0216a c0216a = new C0216a();
+            c0216a.bkg = jSONObject.optString("root");
+            c0216a.name = jSONObject.optString("name");
+            if (TextUtils.isEmpty(c0216a.bkg) || TextUtils.isEmpty(c0216a.name)) {
                 return SN();
             }
-            if (c0211a.bkg.endsWith(".js")) {
-                String[] split = c0211a.bkg.split(File.separator);
+            if (c0216a.bkg.endsWith(".js")) {
+                String[] split = c0216a.bkg.split(File.separator);
                 if (split.length < 1) {
                     return SN();
                 }
-                c0211a.bkh = split[split.length - 1];
-                c0211a.path = "";
+                c0216a.bkh = split[split.length - 1];
+                c0216a.path = "";
                 for (int i = 0; i < split.length - 1; i++) {
-                    c0211a.path += split[i] + File.separator;
+                    c0216a.path += split[i] + File.separator;
                 }
             } else {
-                c0211a.path = c0211a.bkg;
-                if (!c0211a.path.endsWith(File.separator)) {
-                    c0211a.path += File.separator;
+                c0216a.path = c0216a.bkg;
+                if (!c0216a.path.endsWith(File.separator)) {
+                    c0216a.path += File.separator;
                 }
-                c0211a.bkh = "index.js";
+                c0216a.bkh = "index.js";
             }
-            return c0211a;
+            return c0216a;
         }
 
-        private static C0211a SN() {
-            return new C0211a();
+        private static C0216a SN() {
+            return new C0216a();
         }
     }
 
@@ -147,9 +147,9 @@ public final class a {
             }
             c cVar = new c();
             cVar.bkk = new HashMap<>();
-            for (C0211a c0211a : bVar.bki) {
-                if (c0211a != null && !TextUtils.isEmpty(c0211a.bkg)) {
-                    cVar.bkk.put(c0211a.bkg, optJSONObject.optString(c0211a.bkg));
+            for (C0216a c0216a : bVar.bki) {
+                if (c0216a != null && !TextUtils.isEmpty(c0216a.bkg)) {
+                    cVar.bkk.put(c0216a.bkg, optJSONObject.optString(c0216a.bkg));
                 }
             }
             return cVar;

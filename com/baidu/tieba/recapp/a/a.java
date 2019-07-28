@@ -30,23 +30,23 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0393a c0393a = new C0393a(str, str2, hashMap, dVar);
-                c0393a.setPriority(2);
-                c0393a.execute(new Object[0]);
+                C0399a c0399a = new C0399a(str, str2, hashMap, dVar);
+                c0399a.setPriority(2);
+                c0399a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0393a extends BdAsyncTask<Object, Integer, h> {
+    private class C0399a extends BdAsyncTask<Object, Integer, h> {
         private String bAM;
         private d ept;
         private HashMap<String, String> hcR;
         private volatile x mNetwork = null;
         private String postUrl;
 
-        public C0393a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+        public C0399a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.bAM = str;
             this.postUrl = str2;
             this.hcR = hashMap;

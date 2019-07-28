@@ -14,14 +14,14 @@ public class a {
     private float[] aXQ;
     private float[] aXR;
     private SensorEventListener aXY;
-    private InterfaceC0113a aXZ;
+    private InterfaceC0118a aXZ;
     private SensorManager aXa;
     private Sensor aXc;
     private boolean aXf = false;
 
     /* renamed from: com.baidu.swan.apps.aj.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0113a {
+    public interface InterfaceC0118a {
         void h(float[] fArr);
     }
 
@@ -36,15 +36,15 @@ public class a {
         return aXX;
     }
 
-    public boolean a(int i, @NonNull InterfaceC0113a interfaceC0113a) {
+    public boolean a(int i, @NonNull InterfaceC0118a interfaceC0118a) {
         if (this.aXf) {
             c.w("SwanAppOrientationManager", "has already start, change new listener");
-            this.aXZ = interfaceC0113a;
+            this.aXZ = interfaceC0118a;
             return true;
         }
         this.aXa = (SensorManager) com.baidu.swan.apps.u.a.Ek().getSystemService("sensor");
         if (this.aXa != null) {
-            this.aXZ = interfaceC0113a;
+            this.aXZ = interfaceC0118a;
             this.aXc = this.aXa.getDefaultSensor(1);
             this.aXP = this.aXa.getDefaultSensor(2);
             if (this.aXc == null || this.aXP == null) {

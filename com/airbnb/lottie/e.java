@@ -211,7 +211,7 @@ public class e {
 
         public static e a(Resources resources, JSONObject jSONObject) {
             float f = resources.getDisplayMetrics().density;
-            int optInt = jSONObject.optInt(Config.DEVICE_WIDTH, -1);
+            int optInt = jSONObject.optInt("w", -1);
             int optInt2 = jSONObject.optInt("h", -1);
             Rect rect = (optInt == -1 || optInt2 == -1) ? null : new Rect(0, 0, (int) (optInt * f), (int) (optInt2 * f));
             String[] split = jSONObject.optString("v").split("[.]");

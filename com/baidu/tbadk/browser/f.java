@@ -240,8 +240,8 @@ public class f {
         if (this.bCx == null) {
             com.baidu.tieba.view.a aVar = new com.baidu.tieba.view.a(this.bCc);
             ArrayList arrayList = new ArrayList();
-            a.C0425a c0425a = new a.C0425a(this.bCc.getString(R.string.report_text), aVar);
-            c0425a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
+            a.C0431a c0431a = new a.C0431a(this.bCc.getString(R.string.report_text), aVar);
+            c0431a.a(new a.c() { // from class: com.baidu.tbadk.browser.f.5
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     if (f.this.bCx != null && f.this.bCc != null) {
@@ -252,7 +252,7 @@ public class f {
                     }
                 }
             });
-            arrayList.add(c0425a);
+            arrayList.add(c0431a);
             aVar.a(new a.b() { // from class: com.baidu.tbadk.browser.f.6
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {

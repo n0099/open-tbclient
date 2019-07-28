@@ -421,7 +421,7 @@ public class e {
 
     /* renamed from: com.baidu.swan.apps.install.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0146e {
+    public static class C0151e {
         public static g j(com.baidu.swan.apps.v.b.b bVar) {
             e.a(Ee(), Eb(), bVar);
             g gVar = new g();

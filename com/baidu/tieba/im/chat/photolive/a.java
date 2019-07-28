@@ -10,7 +10,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.im.chat.photolive.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0328a {
+    public static class C0334a {
         public long gCd;
         public String gCe;
         public String portrait = null;
@@ -24,28 +24,28 @@ public class a {
         public int gCf = 0;
     }
 
-    public static C0328a yv(String str) {
+    public static C0334a yv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        C0328a c0328a = new C0328a();
+        C0334a c0334a = new C0334a();
         try {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0328a.portrait = optJSONObject.optString("head_url");
-                c0328a.userId = optJSONObject.optString("user_id");
-                c0328a.userName = optJSONObject.optString("nick_name");
-                c0328a.gCd = optJSONObject.optLong("caller_time");
-                c0328a.gCe = optJSONObject.optString("caller_content");
-                c0328a.threadId = optJSONObject.optLong("thread_id");
-                c0328a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                c0328a.forumName = optJSONObject.optString("forum_name");
-                c0328a.postId = optJSONObject.optLong("post_id");
-                c0328a.msgType = optJSONObject.optInt("msg_type");
-                c0328a.gCf = optJSONObject.optInt("remind_count");
+                c0334a.portrait = optJSONObject.optString("head_url");
+                c0334a.userId = optJSONObject.optString("user_id");
+                c0334a.userName = optJSONObject.optString("nick_name");
+                c0334a.gCd = optJSONObject.optLong("caller_time");
+                c0334a.gCe = optJSONObject.optString("caller_content");
+                c0334a.threadId = optJSONObject.optLong("thread_id");
+                c0334a.threadTitle = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
+                c0334a.forumName = optJSONObject.optString("forum_name");
+                c0334a.postId = optJSONObject.optLong("post_id");
+                c0334a.msgType = optJSONObject.optInt("msg_type");
+                c0334a.gCf = optJSONObject.optInt("remind_count");
             }
-            return c0328a;
+            return c0334a;
         } catch (JSONException e) {
             e.printStackTrace();
             return null;

@@ -3,6 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.support.v7.widget.ActivityChooserView;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -168,7 +169,7 @@ public class n {
                 this.cgc = jSONObject.optInt("perform_sample_param", 100000);
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
                 if (optJSONObject3 != null) {
-                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
+                    JSONObject optJSONObject4 = optJSONObject3.optJSONObject(IXAdSystemUtils.NT_WIFI);
                     if (optJSONObject4 != null) {
                         TbadkCoreApplication.getInst().setKeepaliveWifi(optJSONObject4.optInt("switch"));
                     }

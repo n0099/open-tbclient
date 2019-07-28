@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes3.dex */
 public class a {
     protected static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
@@ -12,7 +13,7 @@ public class a {
     public static String a(Context context) {
         int d = d(context);
         if (d == 2) {
-            return "wifi";
+            return IXAdSystemUtils.NT_WIFI;
         }
         if (d == 1) {
             return "cmwap";
@@ -46,7 +47,7 @@ public class a {
         }
         String b = b(context);
         if (b == null || b.length() == 0) {
-            return "none";
+            return IXAdSystemUtils.NT_NONE;
         }
         return b;
     }

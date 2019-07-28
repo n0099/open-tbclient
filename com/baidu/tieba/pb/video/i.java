@@ -445,8 +445,8 @@ public class i {
             this.icL = null;
             this.fzp.Cu(this.icM);
             this.fzp.bKU().setOnDragingListener(hii);
-            this.fzp.a(new c.InterfaceC0386c() { // from class: com.baidu.tieba.pb.video.i.3
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+            this.fzp.a(new c.InterfaceC0392c() { // from class: com.baidu.tieba.pb.video.i.3
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pA() {
                     i.this.hMD.setSwipeBackEnabled(true);
                     i.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.video.i.3.1
@@ -463,7 +463,7 @@ public class i {
                     i.this.startPosition = -1L;
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pz() {
                     i.this.hMD.setSwipeBackEnabled(false);
                     i.this.idc = false;

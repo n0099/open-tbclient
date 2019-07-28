@@ -38,7 +38,7 @@ public class s {
                     builder.subapp_type = TbConfig.getSubappType();
                 }
                 if (!TbadkCoreApplication.getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
+                    builder.apid = "sw";
                 }
                 builder._phone_imei = TbadkCoreApplication.getInst().getImei();
                 builder.from = TbadkCoreApplication.getFrom();

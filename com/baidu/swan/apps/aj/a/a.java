@@ -14,7 +14,7 @@ public class a {
     private SensorManager aXa;
     private SensorEventListener aXb;
     private Sensor aXc;
-    private InterfaceC0108a aXd;
+    private InterfaceC0113a aXd;
     private double[] aXe = new double[3];
     private boolean aXf = false;
     private long aXg = 0;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0108a {
+    public interface InterfaceC0113a {
         void a(double[] dArr);
     }
 
@@ -46,8 +46,8 @@ public class a {
         this.aXh = i;
     }
 
-    public void a(InterfaceC0108a interfaceC0108a) {
-        this.aXd = interfaceC0108a;
+    public void a(InterfaceC0113a interfaceC0113a) {
+        this.aXd = interfaceC0113a;
     }
 
     public void Oo() {

@@ -58,8 +58,8 @@ public class a extends z {
             c.i("compass", "init");
             com.baidu.swan.apps.aj.e.a Ow = com.baidu.swan.apps.aj.e.a.Ow();
             Ow.init(context);
-            Ow.a(new a.InterfaceC0112a() { // from class: com.baidu.swan.apps.aj.e.a.a.1
-                @Override // com.baidu.swan.apps.aj.e.a.InterfaceC0112a
+            Ow.a(new a.InterfaceC0117a() { // from class: com.baidu.swan.apps.aj.e.a.a.1
+                @Override // com.baidu.swan.apps.aj.e.a.InterfaceC0117a
                 public void ac(float f) {
                     c.i("compass", "handle compass change, angle:" + f);
                     a.this.a(unitedSchemeEntity, callbackHandler, optString, f);

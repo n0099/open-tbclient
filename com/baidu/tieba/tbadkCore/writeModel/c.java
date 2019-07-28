@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tieba.R;
@@ -50,7 +51,7 @@ public class c {
             com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.cpV().getLocationData();
             if (locationData != null) {
                 xVar.o("name", locationData.cpT());
-                xVar.o("sn", locationData.getSn());
+                xVar.o(IXAdRequestInfo.SN, locationData.getSn());
             }
         }
     }

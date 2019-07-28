@@ -6,6 +6,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.as;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -62,7 +63,7 @@ public class t {
             if (kc) {
                 if (com.baidu.adp.lib.util.j.kd()) {
                     as.ajo().ee(true);
-                    com.baidu.tieba.recapp.d.a.cit().DQ(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.d.a.cit().DQ(((WifiManager) TbadkCoreApplication.getInst().getSystemService(IXAdSystemUtils.NT_WIFI)).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.ke()) {
                     as.ajo().ee(false);
                 }

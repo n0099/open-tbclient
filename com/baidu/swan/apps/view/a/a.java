@@ -14,7 +14,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0185a {
+    public static class C0190a {
         private int bbe;
         private int bbk;
         private boolean bbg = true;
@@ -22,36 +22,36 @@ public class a {
         private boolean bbm = true;
         private boolean bbj = false;
 
-        public static C0185a PV() {
-            return new C0185a();
+        public static C0190a PV() {
+            return new C0190a();
         }
 
-        public C0185a eE(int i) {
+        public C0190a eE(int i) {
             this.bbe = i;
             return this;
         }
 
-        public C0185a eF(int i) {
+        public C0190a eF(int i) {
             this.bbk = i;
             return this;
         }
 
-        public C0185a cG(boolean z) {
+        public C0190a cG(boolean z) {
             this.bbg = z;
             return this;
         }
 
-        public C0185a cH(boolean z) {
+        public C0190a cH(boolean z) {
             this.bbl = z;
             return this;
         }
 
-        public C0185a cI(boolean z) {
+        public C0190a cI(boolean z) {
             this.bbm = z;
             return this;
         }
 
-        public C0185a cJ(boolean z) {
+        public C0190a cJ(boolean z) {
             this.bbj = z;
             return this;
         }

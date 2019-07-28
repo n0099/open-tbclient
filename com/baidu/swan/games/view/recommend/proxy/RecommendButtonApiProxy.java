@@ -28,7 +28,7 @@ import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Locale;
 /* loaded from: classes2.dex */
-public class RecommendButtonApiProxy extends EventTargetImpl implements com.baidu.swan.games.view.recommend.a, a.InterfaceC0215a, d.a {
+public class RecommendButtonApiProxy extends EventTargetImpl implements com.baidu.swan.games.view.recommend.a, a.InterfaceC0220a, d.a {
     private static final boolean DEBUG = b.DEBUG;
     private com.baidu.swan.games.e.b beU;
     private com.baidu.swan.games.view.recommend.d.b bmC;
@@ -164,7 +164,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0215a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0220a
     @UiThread
     public void fm(int i) {
         if (this.bmC != null && i >= 0 && i < this.bmC.bng.size()) {
@@ -172,7 +172,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0215a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0220a
     @UiThread
     public void Uf() {
         if (this.bmC != null) {
@@ -180,7 +180,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements com.baid
         }
     }
 
-    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0215a
+    @Override // com.baidu.swan.games.view.recommend.a.a.InterfaceC0220a
     @UiThread
     public void Ug() {
         this.bni.f(this.bnj, IntentConfig.LIST, c.bmJ);

@@ -137,58 +137,58 @@ public class a extends BaseAdapter {
         }
         ForumSpaceForumInfo item = getItem(i);
         if (item != null) {
-            if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0404a)) {
+            if (view == null || !(view.getTag(R.id.forum_rank) instanceof C0410a)) {
                 view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(R.layout.square_forum_list_item, (ViewGroup) null);
-                C0404a c0404a = new C0404a();
-                c0404a.jal = (TextView) view.findViewById(R.id.forum_rank);
-                c0404a.jam = (BarImageView) view.findViewById(R.id.forum_image);
-                c0404a.jao = (TextView) view.findViewById(R.id.forum_like);
-                c0404a.mTitle = (TextView) view.findViewById(R.id.forum_title);
-                c0404a.dpT = (TextView) view.findViewById(R.id.forum_desc);
-                c0404a.jan = (TextView) view.findViewById(R.id.forum_value);
-                l.b(this.mContext.getPageActivity(), c0404a.jao, 20, 20, 20, 20);
-                c0404a.jao.setOnClickListener(this.mClickListener);
+                C0410a c0410a = new C0410a();
+                c0410a.jal = (TextView) view.findViewById(R.id.forum_rank);
+                c0410a.jam = (BarImageView) view.findViewById(R.id.forum_image);
+                c0410a.jao = (TextView) view.findViewById(R.id.forum_like);
+                c0410a.mTitle = (TextView) view.findViewById(R.id.forum_title);
+                c0410a.dpT = (TextView) view.findViewById(R.id.forum_desc);
+                c0410a.jan = (TextView) view.findViewById(R.id.forum_value);
+                l.b(this.mContext.getPageActivity(), c0410a.jao, 20, 20, 20, 20);
+                c0410a.jao.setOnClickListener(this.mClickListener);
                 view.setOnClickListener(this.mClickListener);
-                view.setTag(R.id.forum_rank, c0404a);
+                view.setTag(R.id.forum_rank, c0410a);
             }
             am.k(view, R.drawable.square_list_item_bg_selector);
-            C0404a c0404a2 = (C0404a) view.getTag(R.id.forum_rank);
+            C0410a c0410a2 = (C0410a) view.getTag(R.id.forum_rank);
             if (i == 1) {
-                c0404a2.jal.setText("");
-                am.k(c0404a2.jal, R.drawable.icon_grade_shaitu1);
+                c0410a2.jal.setText("");
+                am.k(c0410a2.jal, R.drawable.icon_grade_shaitu1);
             } else if (i == 2) {
-                c0404a2.jal.setText("");
-                am.k(c0404a2.jal, R.drawable.icon_grade_shaitu2);
+                c0410a2.jal.setText("");
+                am.k(c0410a2.jal, R.drawable.icon_grade_shaitu2);
             } else if (i == 3) {
-                c0404a2.jal.setText("");
-                am.k(c0404a2.jal, R.drawable.icon_grade_shaitu3);
+                c0410a2.jal.setText("");
+                am.k(c0410a2.jal, R.drawable.icon_grade_shaitu3);
             } else if (i < 10) {
-                c0404a2.jal.setText("0" + i);
-                c0404a2.jal.setBackgroundResource(0);
+                c0410a2.jal.setText("0" + i);
+                c0410a2.jal.setBackgroundResource(0);
             } else {
-                c0404a2.jal.setText("" + i);
-                c0404a2.jal.setBackgroundResource(0);
+                c0410a2.jal.setText("" + i);
+                c0410a2.jal.setBackgroundResource(0);
             }
-            am.j(c0404a2.jal, R.color.cp_cont_c);
-            c0404a2.jam.startLoad(item.avatar, 10, false);
-            c0404a2.mTitle.setText(item.forum_name + this.mContext.getString(R.string.forum));
-            am.j(c0404a2.mTitle, R.color.cp_cont_b);
+            am.j(c0410a2.jal, R.color.cp_cont_c);
+            c0410a2.jam.startLoad(item.avatar, 10, false);
+            c0410a2.mTitle.setText(item.forum_name + this.mContext.getString(R.string.forum));
+            am.j(c0410a2.mTitle, R.color.cp_cont_b);
             Integer num = this.jaj.get(item.forum_id);
-            c0404a2.dpT.setText(this.mContext.getString(R.string.attention) + ":" + aq.aH((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + aq.aH(item.post_num.intValue()));
-            am.j(c0404a2.dpT, R.color.cp_cont_d);
-            c0404a2.jan.setText(item._abstract);
-            am.j(c0404a2.jan, R.color.cp_cont_d);
-            c0404a2.jao.setTag(R.id.forum_title, item.forum_name);
-            c0404a2.jao.setTag(R.id.forum_desc, item.forum_id);
+            c0410a2.dpT.setText(this.mContext.getString(R.string.attention) + ":" + aq.aH((num == null ? 0 : num.intValue()) + item.like_num.intValue()) + "  " + this.mContext.getString(R.string.text_post) + ":" + aq.aH(item.post_num.intValue()));
+            am.j(c0410a2.dpT, R.color.cp_cont_d);
+            c0410a2.jan.setText(item._abstract);
+            am.j(c0410a2.jan, R.color.cp_cont_d);
+            c0410a2.jao.setTag(R.id.forum_title, item.forum_name);
+            c0410a2.jao.setTag(R.id.forum_desc, item.forum_id);
             int intValue = this.jaj.get(item.forum_id) == null ? 0 : this.jaj.get(item.forum_id).intValue();
             if ((item.is_like.intValue() == 0 && intValue > 0) || (item.is_like.intValue() == 1 && intValue >= 0)) {
-                c0404a2.jao.setText(R.string.relate_forum_is_followed);
-                c0404a2.jao.setBackgroundResource(0);
-                am.j(c0404a2.jao, R.color.cp_cont_d);
+                c0410a2.jao.setText(R.string.relate_forum_is_followed);
+                c0410a2.jao.setBackgroundResource(0);
+                am.j(c0410a2.jao, R.color.cp_cont_d);
             } else {
-                c0404a2.jao.setText(R.string.attention);
-                c0404a2.jao.setBackgroundResource(R.drawable.btn_blue_bg);
-                am.j(c0404a2.jao, R.color.cp_btn_a);
+                c0410a2.jao.setText(R.string.attention);
+                c0410a2.jao.setBackgroundResource(R.drawable.btn_blue_bg);
+                am.j(c0410a2.jao, R.color.cp_btn_a);
             }
             view.setTag(R.id.forum_title, item.forum_name);
             return view;
@@ -198,7 +198,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.square.forumlist.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0404a {
+    private class C0410a {
         public TextView dpT;
         public TextView jal;
         public BarImageView jam;
@@ -206,7 +206,7 @@ public class a extends BaseAdapter {
         public TextView jao;
         public TextView mTitle;
 
-        private C0404a() {
+        private C0410a() {
         }
     }
 }

@@ -16,7 +16,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0416a {
+    public interface InterfaceC0422a {
         void FE(String str);
 
         void ctN();
@@ -71,7 +71,7 @@ public class a {
         }
     }
 
-    public void a(String str, final String str2, final InterfaceC0416a interfaceC0416a) {
+    public void a(String str, final String str2, final InterfaceC0422a interfaceC0422a) {
         String oj;
         if (!TextUtils.isEmpty(str2) && (oj = at.oj(str2)) != null) {
             if (this.jwc != null) {
@@ -101,8 +101,8 @@ public class a {
                         if (a.this.jwc != null && downloadData2.getUrl().equals(a.this.jwc.getUrl())) {
                             a.this.jwc = null;
                         }
-                        if (interfaceC0416a != null) {
-                            interfaceC0416a.ctN();
+                        if (interfaceC0422a != null) {
+                            interfaceC0422a.ctN();
                         }
                     }
                 }
@@ -123,9 +123,9 @@ public class a {
                         if (a.this.jwc != null && downloadData2.getUrl().equals(a.this.jwc.getUrl())) {
                             a.this.jwc = null;
                         }
-                        if (interfaceC0416a != null) {
+                        if (interfaceC0422a != null) {
                             a.this.jwb.put(downloadData2.getPath().substring(c.jtx.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
-                            interfaceC0416a.es(str2, downloadData2.getPath());
+                            interfaceC0422a.es(str2, downloadData2.getPath());
                         }
                     }
                 }
@@ -139,8 +139,8 @@ public class a {
                     if (a.this.jwc != null && downloadData2.getUrl().equals(a.this.jwc.getUrl())) {
                         a.this.jwc = null;
                     }
-                    if (interfaceC0416a != null) {
-                        interfaceC0416a.FE(str3);
+                    if (interfaceC0422a != null) {
+                        interfaceC0422a.FE(str3);
                     }
                 }
             });

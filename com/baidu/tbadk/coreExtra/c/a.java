@@ -11,11 +11,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0241a cko;
+    private InterfaceC0246a cko;
 
     /* renamed from: com.baidu.tbadk.coreExtra.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0241a {
+    public interface InterfaceC0246a {
         void d(e eVar);
     }
 
@@ -63,7 +63,7 @@ public class a {
         }.execute(eVar);
     }
 
-    public void a(InterfaceC0241a interfaceC0241a) {
-        this.cko = interfaceC0241a;
+    public void a(InterfaceC0246a interfaceC0246a) {
+        this.cko = interfaceC0246a;
     }
 }

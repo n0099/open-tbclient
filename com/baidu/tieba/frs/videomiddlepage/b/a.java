@@ -46,7 +46,7 @@ public class a {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str4);
             SpannableString spannableString = new SpannableString("_");
-            spannableString.setSpan(new C0314a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
+            spannableString.setSpan(new C0320a(context, R.drawable.icon_video_middle_ad_link), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.frs.videomiddlepage.b.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
@@ -116,8 +116,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.frs.videomiddlepage.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C0314a extends ImageSpan {
-        public C0314a(Context context, int i) {
+    private static class C0320a extends ImageSpan {
+        public C0320a(Context context, int i) {
             super(context, i);
         }
 

@@ -10,7 +10,7 @@ public abstract class a {
 
     /* renamed from: com.baidu.tbadk.core.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0234a {
+    public interface InterfaceC0239a {
         void a(AccountData accountData);
 
         void h(String str, int i, String str2);
@@ -25,7 +25,7 @@ public abstract class a {
         public String bDJ = null;
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0234a interfaceC0234a);
+    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, InterfaceC0239a interfaceC0239a);
 
     public abstract void acg();
 

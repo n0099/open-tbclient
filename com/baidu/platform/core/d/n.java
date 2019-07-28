@@ -1,6 +1,7 @@
 package com.baidu.platform.core.d;
 
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes5.dex */
 public class n extends com.baidu.platform.base.e {
     public n(TransitRoutePlanOption transitRoutePlanOption) {
@@ -17,7 +18,7 @@ public class n extends com.baidu.platform.base.e {
         this.a.a("rp_filter", "mobile");
         this.a.a("ic_info", "2");
         this.a.a("exptype", "depall");
-        this.a.a("sn", a(transitRoutePlanOption.mFrom));
+        this.a.a(IXAdRequestInfo.SN, a(transitRoutePlanOption.mFrom));
         this.a.a("en", a(transitRoutePlanOption.mTo));
         if (transitRoutePlanOption.mCityName != null) {
             this.a.a("c", transitRoutePlanOption.mCityName);

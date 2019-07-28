@@ -5,6 +5,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
@@ -25,7 +26,7 @@ public class SapiDeviceInfo {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", "T", "T", "Q", "G", "L", Config.DEVICE_WIDTH, Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{DeviceId.CUIDInfo.I_FIXED, Config.APP_VERSION_CODE, "L", "h", "z", DeviceId.CUIDInfo.I_FIXED, "K", "T", "T", "Q", "G", "L", "w", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
 
     static String a() {
         return !TextUtils.isEmpty(Build.VERSION.RELEASE) ? Build.VERSION.RELEASE : "";
@@ -208,7 +209,7 @@ public class SapiDeviceInfo {
             arrayList.add("cur_uid");
             arrayList.add("net_type");
             arrayList.add("is_root");
-            arrayList.add("wifi");
+            arrayList.add(IXAdSystemUtils.NT_WIFI);
             arrayList.add("imei");
             arrayList.add("emulator");
             arrayList.add("mac_address");

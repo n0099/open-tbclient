@@ -1,6 +1,7 @@
 package com.tencent.connect.common;
 
 import android.content.Intent;
+import com.baidu.mobads.openad.c.b;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
@@ -121,7 +122,7 @@ public class UIListenerManager {
                 iUiListener.onCancel();
             } else if ("error".equals(stringExtra3)) {
                 iUiListener.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
-            } else if ("complete".equals(stringExtra3)) {
+            } else if (b.COMPLETE.equals(stringExtra3)) {
                 try {
                     iUiListener.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
                 } catch (JSONException e2) {
@@ -187,7 +188,7 @@ public class UIListenerManager {
                     iUiListener2.onCancel();
                 } else if ("error".equals(stringExtra3)) {
                     iUiListener2.onError(new UiError(-6, "unknown error", stringExtra4 + ""));
-                } else if ("complete".equals(stringExtra3)) {
+                } else if (b.COMPLETE.equals(stringExtra3)) {
                     try {
                         iUiListener2.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
                     } catch (JSONException e2) {

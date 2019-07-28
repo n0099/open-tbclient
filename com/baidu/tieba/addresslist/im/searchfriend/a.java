@@ -20,7 +20,7 @@ public class a {
     private EditText cZC;
     private TextView cZD;
     private ImageView cZE;
-    private InterfaceC0271a cZF;
+    private InterfaceC0276a cZF;
     private View.OnClickListener cZG = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -45,7 +45,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0271a {
+    public interface InterfaceC0276a {
         void sF(String str);
     }
 
@@ -95,8 +95,8 @@ public class a {
         l.b(this.context, this.cZC);
     }
 
-    public void a(InterfaceC0271a interfaceC0271a) {
-        this.cZF = interfaceC0271a;
+    public void a(InterfaceC0276a interfaceC0276a) {
+        this.cZF = interfaceC0276a;
     }
 
     public void iV(int i) {

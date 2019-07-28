@@ -77,7 +77,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                                 return;
                             }
                             bb.ajC().c(e.this.mPageContext, new String[]{url});
-                            a.C0408a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", hVar.cov(), e.this.mForumId, e.this.mForumName, null);
+                            a.C0414a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", hVar.cov(), e.this.mForumId, e.this.mForumName, null);
                             b2.en("obj_url", hVar.getUrl());
                             b2.save();
                         }
@@ -324,7 +324,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
                     cVar.bmR.setOnClickListener(this.fWe);
                 }
                 if (this.fVb != null && this.fVb.add(hVar.cov())) {
-                    a.C0408a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cov(), this.mForumId, this.mForumName, null);
+                    a.C0414a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cov(), this.mForumId, this.mForumName, null);
                     b2.en("obj_url", hVar.getUrl());
                     b2.save();
                 }
@@ -358,7 +358,7 @@ public class e extends BaseAdapter implements com.baidu.tieba.frs.d.d {
             bVar.bmR.setOnClickListener(this.fWe);
         }
         if (this.fVb != null && this.fVb.add(hVar.cov())) {
-            a.C0408a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cov(), this.mForumId, this.mForumName, null);
+            a.C0414a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cov(), this.mForumId, this.mForumName, null);
             b2.en("obj_url", hVar.getUrl());
             b2.save();
         }

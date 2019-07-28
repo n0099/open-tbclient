@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.facebook.drawee.drawable.n;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
@@ -47,7 +48,7 @@ public class a extends Drawable {
 
     public void HN(@Nullable String str) {
         if (str == null) {
-            str = "none";
+            str = IXAdSystemUtils.NT_NONE;
         }
         this.kbR = str;
         invalidateSelf();

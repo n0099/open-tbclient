@@ -55,8 +55,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     private int hDR = -2;
     private boolean hDS = false;
     private int hDU = -1;
-    private final a.InterfaceC0234a cWF = new a.InterfaceC0234a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+    private final a.InterfaceC0239a cWF = new a.InterfaceC0239a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void mk(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().isShowing()) {
                 LoginActivity.this.showLoadingDialog(LoginActivity.this.getPageContext().getString(R.string.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3.1
@@ -68,7 +68,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
             TiebaStatic.log(new an("c12948").P("obj_type", LoginActivity.this.hDN).bT("obj_url", LoginActivity.this.hDT));
@@ -80,7 +80,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void h(String str, int i, String str2) {
             com.baidu.tbadk.core.e.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();

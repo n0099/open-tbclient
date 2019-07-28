@@ -19,8 +19,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter implements View.OnClickListener {
     private static SparseArray<Integer> cYR = new SparseArray<>();
-    private static HashMap<C0270a, Integer> cYS = new HashMap<>();
-    private static HashMap<C0270a, Integer> cYT = new HashMap<>();
+    private static HashMap<C0275a, Integer> cYS = new HashMap<>();
+    private static HashMap<C0275a, Integer> cYT = new HashMap<>();
     private NewFriendsActivity cYQ;
     private b cYU;
     private List<com.baidu.tieba.im.data.a> data;
@@ -36,18 +36,18 @@ public class a extends BaseAdapter implements View.OnClickListener {
         cYR.put(1, Integer.valueOf((int) R.string.pass));
         cYR.put(2, Integer.valueOf((int) R.string.passed));
         cYR.put(3, Integer.valueOf((int) R.string.waiting));
-        cYS.put(new C0270a(false), Integer.valueOf((int) R.drawable.btn_pass));
-        cYS.put(new C0270a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
-        cYT.put(new C0270a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
-        cYT.put(new C0270a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+        cYS.put(new C0275a(false), Integer.valueOf((int) R.drawable.btn_pass));
+        cYS.put(new C0275a(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        cYT.put(new C0275a(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        cYT.put(new C0275a(true), Integer.valueOf((int) R.color.btn_agree_text_color));
     }
 
     /* renamed from: com.baidu.tieba.addresslist.im.newFriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0270a {
+    private static class C0275a {
         private boolean cYV;
 
-        public C0270a(boolean z) {
+        public C0275a(boolean z) {
             this.cYV = z;
         }
 
@@ -59,7 +59,7 @@ public class a extends BaseAdapter implements View.OnClickListener {
             if (this == obj) {
                 return true;
             }
-            return obj != null && getClass() == obj.getClass() && this.cYV == ((C0270a) obj).cYV;
+            return obj != null && getClass() == obj.getClass() && this.cYV == ((C0275a) obj).cYV;
         }
     }
 
@@ -107,11 +107,11 @@ public class a extends BaseAdapter implements View.OnClickListener {
         cVar.cYZ.setOnClickListener(this);
         this.cYQ.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.cYQ.getLayoutMode().onModeChanged(view);
-        Integer num = cYS.get(new C0270a(item.getStatus() == 1));
+        Integer num = cYS.get(new C0275a(item.getStatus() == 1));
         if (num != null) {
             am.k(cVar.cYZ, num.intValue());
         }
-        Integer num2 = cYT.get(new C0270a(item.getStatus() == 1));
+        Integer num2 = cYT.get(new C0275a(item.getStatus() == 1));
         if (num2 != null) {
             am.f(cVar.cYZ, num2.intValue(), 1);
         }

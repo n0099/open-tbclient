@@ -532,8 +532,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements PopupW
             }
         }
     };
-    private final a.InterfaceC0406a hVO = new a.InterfaceC0406a() { // from class: com.baidu.tieba.write.write.WriteActivity.31
-        @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0406a
+    private final a.InterfaceC0412a hVO = new a.InterfaceC0412a() { // from class: com.baidu.tieba.write.write.WriteActivity.31
+        @Override // com.baidu.tieba.tbadkCore.b.a.InterfaceC0412a
         public void onRefresh() {
             WriteActivity.this.hmS = null;
             WriteActivity.this.so(false);

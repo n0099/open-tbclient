@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.xiaomi.mipush.sdk.Constants;
@@ -403,7 +404,7 @@ public class j {
         bundle.putString("model_name", Build.MODEL);
         bundle.putString("sdk_ver", com.tencent.connect.common.Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
-        bundle.putString("app_ver", d(e.a(), e.b()));
+        bundle.putString(IXAdRequestInfo.APP_VERSION_NAME, d(e.a(), e.b()));
         return bundle;
     }
 

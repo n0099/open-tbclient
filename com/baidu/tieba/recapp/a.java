@@ -16,7 +16,7 @@ public abstract class a {
     public String alH;
     public MediaPlayer.OnPreparedListener bff;
     public MediaPlayer.OnErrorListener cTK;
-    public a.InterfaceC0265a cXo;
+    public a.InterfaceC0270a cXo;
     public IVrPlayView iFc;
     public com.a.a.g iFd;
     public com.baidu.tieba.ad.play.a iFe;

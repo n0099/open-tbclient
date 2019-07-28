@@ -11,6 +11,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
@@ -367,7 +368,7 @@ public class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
 
     public void aqb() {
         if (this.gmC != null && this.gmC.threadData != null) {
-            PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext.getPageActivity()).createFromThreadCfg(this.gmC.threadData, null, "none", 18003, true, false, false).addLocateParam(null);
+            PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext.getPageActivity()).createFromThreadCfg(this.gmC.threadData, null, IXAdSystemUtils.NT_NONE, 18003, true, false, false).addLocateParam(null);
             addLocateParam.setForumId(String.valueOf(this.gmC.threadData.getFid()));
             addLocateParam.setFrom(PbActivityConfig.KEY_FROM_PERSONALIZE);
             addLocateParam.setForumName(this.gmC.threadData.aeC());

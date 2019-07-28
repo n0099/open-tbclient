@@ -9,13 +9,13 @@ public class a implements ai<com.facebook.imagepipeline.f.d> {
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.kjj.a(new C0453a(jVar), ajVar);
+        this.kjj.a(new C0459a(jVar), ajVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0453a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private C0453a(j<com.facebook.imagepipeline.f.d> jVar) {
+    private static class C0459a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
+        private C0459a(j<com.facebook.imagepipeline.f.d> jVar) {
             super(jVar);
         }
 

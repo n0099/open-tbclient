@@ -7,13 +7,13 @@ public final class a {
     static final String jXe = jXd + "/baidu/ab/crash/";
     static final String jXf = jXd + "/baidu/ab/sdklog/";
     public static final String jXg = jXd + "/baidu/ab/sdkupdata/" + cDH() + "/";
-    private static int aU = EnumC0441a.aV;
+    private static int aU = EnumC0447a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class EnumC0441a {
+    public static final class EnumC0447a {
         public static final int aV = 1;
         public static final int aW = 2;
         private static final /* synthetic */ int[] jXh = {aV, aW};
@@ -21,7 +21,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean cDG() {
-        return aU == EnumC0441a.aV;
+        return aU == EnumC0447a.aV;
     }
 
     public static String u() {

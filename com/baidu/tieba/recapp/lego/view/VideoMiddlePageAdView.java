@@ -236,12 +236,12 @@ public class VideoMiddlePageAdView extends BaseLegoCardView<VideoMiddlePageAdCar
             this.fzp.qc(true);
             this.fzp.ag(false, true);
             this.fzp.yU(i);
-            this.fzp.a(new c.InterfaceC0386c() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.11
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+            this.fzp.a(new c.InterfaceC0392c() { // from class: com.baidu.tieba.recapp.lego.view.VideoMiddlePageAdView.11
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pz() {
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pA() {
                 }
             });

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,7 +74,7 @@ public class d implements b {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static d p(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
-            JSONObject optJSONObject = jSONObject.optJSONObject("g");
+            JSONObject optJSONObject = jSONObject.optJSONObject(IXAdRequestInfo.GPS);
             if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
                 int optInt = optJSONObject.optInt("p");
                 optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);

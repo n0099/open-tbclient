@@ -19,7 +19,7 @@ import java.util.TreeSet;
 public final class a implements AREngineDelegate {
     private ArBridge aje;
     private Object ajh;
-    private C0100a aji;
+    private C0105a aji;
     private boolean mDetached;
     private GLSurfaceView.Renderer mRenderer;
     private SurfaceHolder mSurfaceHolder;
@@ -54,7 +54,7 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         this.mRenderer = renderer;
-        this.aji = new C0100a(this);
+        this.aji = new C0105a(this);
         this.aji.start();
     }
 
@@ -129,7 +129,7 @@ public final class a implements AREngineDelegate {
     public void onAttachedToWindow() {
         if (this.mDetached && this.mRenderer != null) {
             int renderMode = this.aji != null ? this.aji.getRenderMode() : 1;
-            this.aji = new C0100a(this);
+            this.aji = new C0105a(this);
             if (renderMode != 1) {
                 this.aji.setRenderMode(renderMode);
             }
@@ -256,7 +256,7 @@ public final class a implements AREngineDelegate {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.smallgame.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0100a extends Thread {
+    public static class C0105a extends Thread {
         private boolean ajA;
         private b ajE;
         private a ajF;
@@ -286,7 +286,7 @@ public final class a implements AREngineDelegate {
         private int ajx = 1;
         private boolean ajz = false;
 
-        C0100a(a aVar) {
+        C0105a(a aVar) {
             this.ajF = aVar;
             this.ajg = aVar.ajg;
         }
@@ -975,21 +975,21 @@ public final class a implements AREngineDelegate {
     /* loaded from: classes2.dex */
     public static class c {
         private static String TAG = "GLThreadManager";
-        private C0100a ajJ;
+        private C0105a ajJ;
 
         private c() {
         }
 
-        public synchronized void b(C0100a c0100a) {
-            c0100a.ajo = true;
-            if (this.ajJ == c0100a) {
+        public synchronized void b(C0105a c0105a) {
+            c0105a.ajo = true;
+            if (this.ajJ == c0105a) {
                 this.ajJ = null;
             }
             notifyAll();
         }
 
-        public void c(C0100a c0100a) {
-            if (this.ajJ == c0100a) {
+        public void c(C0105a c0105a) {
+            if (this.ajJ == c0105a) {
                 this.ajJ = null;
             }
             synchronized (this) {

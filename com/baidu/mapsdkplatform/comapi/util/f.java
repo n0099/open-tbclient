@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.mapapi.VersionInfo;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.tencent.open.SocialOperation;
@@ -90,7 +91,7 @@ public class f {
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString("os", k());
+        bundle.putString(IXAdRequestInfo.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);
@@ -149,7 +150,7 @@ public class f {
                 F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put("os", AppMD5.encodeUrlParamsValue(k()));
+                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
                 F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
@@ -165,7 +166,7 @@ public class f {
                 F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
                 F.put("mb", AppMD5.encodeUrlParamsValue(g()));
                 F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-                F.put("os", AppMD5.encodeUrlParamsValue(k()));
+                F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
                 F.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(l()), Integer.valueOf(l()))));
                 F.put("cuid", AppMD5.encodeUrlParamsValue(o()));
                 F.put("pcn", AppMD5.encodeUrlParamsValue(w.getPackageName()));
@@ -184,7 +185,7 @@ public class f {
             F.put(LogBuilder.KEY_CHANNEL, AppMD5.encodeUrlParamsValue(m()));
             F.put("mb", AppMD5.encodeUrlParamsValue(g()));
             F.put("sv", AppMD5.encodeUrlParamsValue(i()));
-            F.put("os", AppMD5.encodeUrlParamsValue(k()));
+            F.put(IXAdRequestInfo.OS, AppMD5.encodeUrlParamsValue(k()));
             Map<String, String> map3 = F;
             Object[] objArr = new Object[2];
             objArr[r2] = Integer.valueOf(l());
@@ -280,7 +281,7 @@ public class f {
         bundle.putString("glv", r);
         bundle.putString("mb", g());
         bundle.putString("sv", i());
-        bundle.putString("os", k());
+        bundle.putString(IXAdRequestInfo.OS, k());
         bundle.putInt("dpi_x", l());
         bundle.putInt("dpi_y", l());
         bundle.putString("net", l);

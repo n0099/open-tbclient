@@ -65,7 +65,7 @@ public class e {
         if (DEBUG) {
             Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.bkI);
         }
-        Collections.sort(this.bkI, new a.C0212a());
+        Collections.sort(this.bkI, new a.C0217a());
         a aVar = this.bkI.get(0);
         for (int i = 1; i < this.bkJ; i++) {
             a aVar2 = this.bkI.get(i);

@@ -22,7 +22,7 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.coreExtra.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0242a {
+    public interface InterfaceC0247a {
         void aqU();
     }
 
@@ -94,10 +94,10 @@ public class a {
         return this.cpl;
     }
 
-    public void a(InterfaceC0242a interfaceC0242a) {
+    public void a(InterfaceC0247a interfaceC0247a) {
         if (this.cpk == null) {
             this.cpl = true;
-            this.cpk = new b(interfaceC0242a);
+            this.cpk = new b(interfaceC0247a);
             this.cpk.setSelfExecute(true);
             this.cpk.execute(new Object[0]);
         }
@@ -118,12 +118,12 @@ public class a {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Object, Integer, Void> {
-        private InterfaceC0242a cpm;
+        private InterfaceC0247a cpm;
         private volatile x mNetwork = null;
 
-        public b(InterfaceC0242a interfaceC0242a) {
+        public b(InterfaceC0247a interfaceC0247a) {
             this.cpm = null;
-            this.cpm = interfaceC0242a;
+            this.cpm = interfaceC0247a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

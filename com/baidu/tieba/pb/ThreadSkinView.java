@@ -18,7 +18,7 @@ import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
     private SkinInfo hFx;
-    private a.C0408a hFy;
+    private a.C0414a hFy;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,14 +40,14 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0408a c0408a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0414a c0414a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hFx != skinInfo && c0408a != null) {
-            this.hFy = c0408a;
+        if (this.hFx != skinInfo && c0414a != null) {
+            this.hFy = c0414a;
             this.hFy.nV("action_type");
             this.hFy.en(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
             this.hFy.en("obj_url", skinInfo.url);

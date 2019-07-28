@@ -16,9 +16,9 @@ import com.baidu.tieba.pb.pb.main.k;
 import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class a extends k<j, C0374a> {
+public class a extends k<j, C0380a> {
     private View.OnClickListener cat;
-    private final LinkedList<C0374a> hWA;
+    private final LinkedList<C0380a> hWA;
     private b hWz;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -30,22 +30,22 @@ public class a extends k<j, C0374a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bJ */
-    public C0374a onCreateViewHolder(ViewGroup viewGroup) {
-        C0374a c0374a = new C0374a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
-        this.hWA.add(c0374a);
-        return c0374a;
+    public C0380a onCreateViewHolder(ViewGroup viewGroup) {
+        C0380a c0380a = new C0380a(LayoutInflater.from(this.mContext).inflate(R.layout.layout_pb_thread_praise_item, viewGroup, false));
+        this.hWA.add(c0380a);
+        return c0380a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.pb.pb.main.k, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, C0374a c0374a) {
-        super.onFillViewHolder(i, view, viewGroup, jVar, c0374a);
-        if (jVar != null && c0374a != null) {
-            c0374a.hWB.setOnClickOutListener(this.cat);
-            c0374a.hWB.setPostId(getPostId());
-            c0374a.hWB.setForumId(getForumId());
-            c0374a.a(jVar);
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, C0380a c0380a) {
+        super.onFillViewHolder(i, view, viewGroup, jVar, c0380a);
+        if (jVar != null && c0380a != null) {
+            c0380a.hWB.setOnClickOutListener(this.cat);
+            c0380a.hWB.setPostId(getPostId());
+            c0380a.hWB.setForumId(getForumId());
+            c0380a.a(jVar);
         }
         return view;
     }
@@ -58,9 +58,9 @@ public class a extends k<j, C0374a> {
     }
 
     private void bYm() {
-        Iterator<C0374a> it = this.hWA.iterator();
+        Iterator<C0380a> it = this.hWA.iterator();
         while (it.hasNext()) {
-            C0374a next = it.next();
+            C0380a next = it.next();
             if (next != null && next.hWB != null) {
                 next.hWB.onDestroy();
             }
@@ -68,9 +68,9 @@ public class a extends k<j, C0374a> {
     }
 
     public void oS(String str) {
-        Iterator<C0374a> it = this.hWA.iterator();
+        Iterator<C0380a> it = this.hWA.iterator();
         while (it.hasNext()) {
-            C0374a next = it.next();
+            C0380a next = it.next();
             if (next != null && next.hWB != null) {
                 next.hWB.oS(str);
             }
@@ -99,11 +99,11 @@ public class a extends k<j, C0374a> {
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0374a extends v.a {
+    public static class C0380a extends v.a {
         public PbThreadCommentAndPraiseInfoLayout hWB;
         public View hWC;
 
-        public C0374a(View view) {
+        public C0380a(View view) {
             super(view);
             if (view != null) {
                 this.hWB = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(R.id.card_bottom_func_layout);

@@ -7,6 +7,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class NetworkUtils {
@@ -137,7 +138,7 @@ public final class NetworkUtils {
             return null;
         }
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             if (wifiManager == null || !wifiManager.isWifiEnabled()) {
                 return null;
             }

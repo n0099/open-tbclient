@@ -119,7 +119,7 @@ public class p {
     }
 
     private static void s(String str, String str2, boolean z) {
-        CookieManager.getInstance().setCookie(str, str2);
+        CookieManager.getInstance().setCookie(str, CookieManager.getInstance().getCookie(".baidu.com"));
         if (z) {
             CookieSyncManager.getInstance().sync();
         }

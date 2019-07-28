@@ -44,14 +44,14 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0376b c0376b;
+        C0382b c0382b;
         if (view == null) {
-            C0376b c0376b2 = new C0376b();
+            C0382b c0382b2 = new C0382b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0376b2.hBY = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0376b2.hBY.bhi();
-            c0376b2.hBY.setController(this.hWH);
-            c0376b2.hBY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0382b2.hBY = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0382b2.hBY.bhi();
+            c0382b2.hBY.setController(this.hWH);
+            c0382b2.hBY.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (b.this.hWG != null && (view2 instanceof EmotionView)) {
@@ -59,13 +59,13 @@ public class b extends BaseAdapter {
                     }
                 }
             });
-            view.setTag(c0376b2);
-            c0376b = c0376b2;
+            view.setTag(c0382b2);
+            c0382b = c0382b2;
         } else {
-            c0376b = (C0376b) view.getTag();
+            c0382b = (C0382b) view.getTag();
         }
         if (this.fcJ != null && i >= 0 && i < this.fcJ.size()) {
-            c0376b.hBY.a(this.fcJ.get(i));
+            c0382b.hBY.a(this.fcJ.get(i));
         }
         return view;
     }
@@ -80,10 +80,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    static class C0376b {
+    static class C0382b {
         EmotionView hBY;
 
-        C0376b() {
+        C0382b() {
         }
     }
 }

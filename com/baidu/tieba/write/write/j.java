@@ -107,13 +107,13 @@ public class j {
             }
         }
     };
-    private a.InterfaceC0429a jLf = new a.InterfaceC0429a() { // from class: com.baidu.tieba.write.write.j.5
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
+    private a.InterfaceC0435a jLf = new a.InterfaceC0435a() { // from class: com.baidu.tieba.write.write.j.5
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0435a
         public void onError() {
             j.this.eD(null);
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0429a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0435a
         public void g(List<SimpleForum> list, int i) {
             j.this.eD(list);
         }

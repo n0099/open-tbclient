@@ -1,6 +1,7 @@
 package com.googlecode.mp4parser.authoring.tracks;
 
 import android.support.v4.internal.view.SupportMenu;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.coremedia.iso.boxes.AbstractMediaHeaderBox;
 import com.coremedia.iso.boxes.CompositionTimeToSample;
 import com.coremedia.iso.boxes.SampleDependencyTypeBox;
@@ -89,7 +90,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.bcCoreBitRate = 0;
         this.bcCoreChannelMask = 0;
         this.lsbTrimPercent = 0;
-        this.type = "none";
+        this.type = IXAdSystemUtils.NT_NONE;
         this.lang = "eng";
         this.lang = str;
         this.dataSource = dataSource;
@@ -124,7 +125,7 @@ public class DTSTrackImpl extends AbstractTrack {
         this.bcCoreBitRate = 0;
         this.bcCoreChannelMask = 0;
         this.lsbTrimPercent = 0;
-        this.type = "none";
+        this.type = IXAdSystemUtils.NT_NONE;
         this.lang = "eng";
         this.dataSource = dataSource;
         parse();

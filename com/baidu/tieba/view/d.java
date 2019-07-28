@@ -152,8 +152,8 @@ public class d implements f {
                         }
                         d.this.mPermissionJudgement.ajQ();
                         d.this.mPermissionJudgement.e(activity, "android.permission.CAMERA");
-                        d.this.mPermissionJudgement.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.view.d.3.1
-                            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+                        d.this.mPermissionJudgement.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.view.d.3.1
+                            @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
                             public void ajR() {
                                 TiebaStatic.log(new an("c12706"));
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(d.this.mContext)));

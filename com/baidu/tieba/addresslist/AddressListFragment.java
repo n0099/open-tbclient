@@ -48,7 +48,7 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AddressListFragment extends BaseFragment implements h.c, a.InterfaceC0268a, AssortView.a {
+public class AddressListFragment extends BaseFragment implements h.c, a.InterfaceC0273a, AssortView.a {
     private AddressListModel cXO;
     private a cXP;
     private b cXQ;
@@ -181,7 +181,7 @@ public class AddressListFragment extends BaseFragment implements h.c, a.Interfac
         }
     }
 
-    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0268a
+    @Override // com.baidu.tieba.addresslist.b.a.InterfaceC0273a
     public void az(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
         ay(list);
     }

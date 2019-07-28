@@ -18,6 +18,7 @@ import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.a.j;
 import com.baidu.location.a.n;
 import com.baidu.location.a.q;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -192,7 +193,7 @@ public class f {
 
     public synchronized void c() {
         if (!this.h && com.baidu.location.f.isServing) {
-            this.c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
+            this.c = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService(IXAdSystemUtils.NT_WIFI);
             this.d = new a();
             try {
                 com.baidu.location.f.getServiceContext().registerReceiver(this.d, new IntentFilter("android.net.wifi.SCAN_RESULTS"));

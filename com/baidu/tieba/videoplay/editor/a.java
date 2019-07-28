@@ -33,7 +33,7 @@ public class a extends d {
     private NewWriteModel ctD;
     private final NewWriteModel.d ctR;
     private com.baidu.tieba.write.b gmt;
-    private InterfaceC0424a jFN;
+    private InterfaceC0430a jFN;
     private TbPageContext<?> mContext;
     private String mForumId;
     private String mForumName;
@@ -42,7 +42,7 @@ public class a extends d {
 
     /* renamed from: com.baidu.tieba.videoplay.editor.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0424a {
+    public interface InterfaceC0430a {
         void rQ(boolean z);
     }
 
@@ -264,8 +264,8 @@ public class a extends d {
         }
     }
 
-    public void a(InterfaceC0424a interfaceC0424a) {
-        this.jFN = interfaceC0424a;
+    public void a(InterfaceC0430a interfaceC0430a) {
+        this.jFN = interfaceC0430a;
     }
 
     public void cxF() {

@@ -100,7 +100,7 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
         this.cIJ = 1;
         this.cIB = view;
         this.mContext = this.cIB.getContext();
-        this.mGestureDetector = new GestureDetector(this.mContext, new C0259b());
+        this.mGestureDetector = new GestureDetector(this.mContext, new C0264b());
         this.cIC = new ScaleGestureDetector(this.mContext, new c());
         this.cIK = new a(this.mContext);
         this.cIJ = 0;
@@ -413,10 +413,10 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     private com.baidu.tbadk.widget.largeImage.a.a y(int i, int i2, int i3) {
         com.baidu.tbadk.widget.largeImage.a.a aVar;
-        a.C0258a c0258a = new a.C0258a(i, i2, i3);
-        if (this.cIL.aym() != null && (aVar = this.cIL.aym().get(c0258a)) != null) {
+        a.C0263a c0263a = new a.C0263a(i, i2, i3);
+        if (this.cIL.aym() != null && (aVar = this.cIL.aym().get(c0263a)) != null) {
             if (aVar.getBitmap() == null || aVar.getBitmap().isRecycled()) {
-                this.cIL.aym().remove(c0258a);
+                this.cIL.aym().remove(c0263a);
                 return null;
             }
             return aVar;
@@ -431,8 +431,8 @@ public class b implements com.baidu.tbadk.widget.largeImage.logic.a {
 
     /* renamed from: com.baidu.tbadk.widget.largeImage.logic.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0259b extends GestureDetector.SimpleOnGestureListener {
-        private C0259b() {
+    private class C0264b extends GestureDetector.SimpleOnGestureListener {
+        private C0264b() {
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

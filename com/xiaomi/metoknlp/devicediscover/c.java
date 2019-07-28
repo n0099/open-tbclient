@@ -1,6 +1,7 @@
 package com.xiaomi.metoknlp.devicediscover;
 
 import android.content.Context;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 /* loaded from: classes3.dex */
 public class c {
     private Context a;
@@ -34,8 +35,8 @@ public class c {
     }
 
     public void b(String str) {
-        String b = j.b(this.a, str, "none");
-        if (b == null || "none".equals(b)) {
+        String b = j.b(this.a, str, IXAdSystemUtils.NT_NONE);
+        if (b == null || IXAdSystemUtils.NT_NONE.equals(b)) {
             a();
             this.b = str;
             long currentTimeMillis = System.currentTimeMillis();

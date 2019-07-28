@@ -56,7 +56,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.impl.map.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0221a {
+    public interface InterfaceC0226a {
         void k(Bitmap bitmap);
     }
 
@@ -98,8 +98,8 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
             Log.e("WalkARNavFragment", "guideIconPath = " + str);
         }
         final Context context = getContext();
-        a(context, str, new InterfaceC0221a() { // from class: com.baidu.swan.impl.map.location.b.a.1
-            @Override // com.baidu.swan.impl.map.location.b.a.InterfaceC0221a
+        a(context, str, new InterfaceC0226a() { // from class: com.baidu.swan.impl.map.location.b.a.1
+            @Override // com.baidu.swan.impl.map.location.b.a.InterfaceC0226a
             public void k(Bitmap bitmap) {
                 String str2 = "";
                 if (arguments != null) {
@@ -148,10 +148,10 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
     /* JADX WARN: Type inference failed for: r1v2, types: [boolean] */
     /* JADX WARN: Type inference failed for: r1v3, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v4 */
-    private void a(Context context, String str, final InterfaceC0221a interfaceC0221a) {
+    private void a(Context context, String str, final InterfaceC0226a interfaceC0226a) {
         FileInputStream fileInputStream;
         if (context == null || TextUtils.isEmpty(str)) {
-            interfaceC0221a.k(null);
+            interfaceC0226a.k(null);
         } else if (com.baidu.swan.apps.storage.b.hG(str) == PathType.NETWORK) {
             c.cFw().e(ImageRequestBuilder.U(ac.iw(str)).cLC(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.impl.map.location.b.a.2
                 @Override // com.facebook.imagepipeline.e.b
@@ -159,7 +159,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
                     if (a.DEBUG) {
                         Log.e("WalkARNavFragment", "onNewResultImpl");
                     }
-                    interfaceC0221a.k(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
+                    interfaceC0226a.k(bitmap.copy(bitmap.getConfig() == null ? Bitmap.Config.ARGB_8888 : bitmap.getConfig(), true));
                 }
 
                 @Override // com.facebook.datasource.a
@@ -167,7 +167,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
                     if (a.DEBUG) {
                         Log.e("WalkARNavFragment", "onFailureImpl");
                     }
-                    interfaceC0221a.k(null);
+                    interfaceC0226a.k(null);
                 }
             }, f.cEB());
         } else {
@@ -179,12 +179,12 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
                         try {
                             fileInputStream = new FileInputStream(file);
                             try {
-                                interfaceC0221a.k(BitmapFactory.decodeStream(fileInputStream));
+                                interfaceC0226a.k(BitmapFactory.decodeStream(fileInputStream));
                                 com.baidu.swan.c.a.c(fileInputStream);
                                 return;
                             } catch (FileNotFoundException e) {
                                 e = e;
-                                interfaceC0221a.k(null);
+                                interfaceC0226a.k(null);
                                 if (DEBUG) {
                                     e.printStackTrace();
                                 }
@@ -205,7 +205,7 @@ public class a extends com.baidu.swan.apps.core.d.b implements IWNaviStatusListe
                     th = th2;
                 }
             }
-            interfaceC0221a.k(null);
+            interfaceC0226a.k(null);
         }
     }
 

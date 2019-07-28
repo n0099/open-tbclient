@@ -97,7 +97,7 @@ public class a extends d implements e.a {
         DuMixGameSurfaceView ca = com.baidu.swan.games.glsurface.a.Sj().ca(this.axb);
         ca.setRenderMode(1);
         com.baidu.swan.games.glsurface.a.Sj().f(ca);
-        this.bhC = com.baidu.swan.games.e.f.a(new g.a().eW(2).jc("master").RP(), new b(cVar.biJ, cVar.biL == null ? null : cVar.biL.bkf), new C0198a(ca));
+        this.bhC = com.baidu.swan.games.e.f.a(new g.a().eW(2).jc("master").RP(), new b(cVar.biJ, cVar.biL == null ? null : cVar.biL.bkf), new C0203a(ca));
         this.bhC.setFileSystemDelegatePolicy(new com.baidu.swan.games.e.c.d());
         this.bhC.setContext(this.axb);
         ca.setV8Engine(this.bhC);
@@ -305,7 +305,7 @@ public class a extends d implements e.a {
             aVar.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.g.a.b.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.C0200a a = com.baidu.swan.games.inspector.a.a(b.this.bhJ);
+                    a.C0205a a = com.baidu.swan.games.inspector.a.a(b.this.bhJ);
                     if (a.isEnabled()) {
                         SwanInspectorEndpoint.Ss().a(b.this.bhJ, a.this.bhC, a, runnable);
                         return;
@@ -330,10 +330,10 @@ public class a extends d implements e.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.games.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0198a implements V8ThreadDelegatePolicy {
+    public class C0203a implements V8ThreadDelegatePolicy {
         private DuMixGameSurfaceView arP;
 
-        C0198a(DuMixGameSurfaceView duMixGameSurfaceView) {
+        C0203a(DuMixGameSurfaceView duMixGameSurfaceView) {
             this.arP = duMixGameSurfaceView;
         }
 
@@ -348,9 +348,9 @@ public class a extends d implements e.a {
                     if (a.DEBUG) {
                         Log.d("SwanGameFrame", "startEngineInternal");
                     }
-                    C0198a.this.arP.Sf();
+                    C0203a.this.arP.Sf();
                     v8Engine.startEngineInternal();
-                    C0198a.this.arP.Sg();
+                    C0203a.this.arP.Sg();
                 }
             });
         }

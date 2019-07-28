@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.core.a.a {
     private static a hEh = null;
-    private final a.InterfaceC0234a hEi = new a.InterfaceC0234a() { // from class: com.baidu.tieba.passaccount.a.a.1
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+    private final a.InterfaceC0239a hEi = new a.InterfaceC0239a() { // from class: com.baidu.tieba.passaccount.a.a.1
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void mk(String str) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void a(AccountData accountData) {
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0234a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0239a
         public void h(final String str, int i, String str2) {
             if (i == 1) {
                 ReloginManager.ahH().e(null);
@@ -100,7 +100,7 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0234a interfaceC0234a) {
-        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0234a);
+    public BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a.InterfaceC0239a interfaceC0239a) {
+        return com.baidu.tieba.model.b.a(str, str2, str3, str4, interfaceC0239a);
     }
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0260a cQL;
+    private InterfaceC0265a cQL;
     private float cQM;
     private long cQN;
     private long cQO;
@@ -21,7 +21,7 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0260a {
+    public interface InterfaceC0265a {
         void aAp();
 
         void aAq();
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0260a interfaceC0260a) {
-        this.cQL = interfaceC0260a;
+    public void setEventListener(InterfaceC0265a interfaceC0265a) {
+        this.cQL = interfaceC0265a;
     }
 
     private void releaseVelocityTracker() {

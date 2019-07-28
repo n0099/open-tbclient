@@ -17,7 +17,7 @@ public final class e extends ContextWrapper {
         super(AppRuntime.getApplication());
         this.aQO = new a<>();
         this.aQP = new a().a(new a.c());
-        this.aQQ = new a().a(new a.C0116a());
+        this.aQQ = new a().a(new a.C0121a());
     }
 
     public static e Mv() {

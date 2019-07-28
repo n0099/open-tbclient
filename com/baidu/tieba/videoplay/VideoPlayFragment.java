@@ -89,7 +89,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
 /* loaded from: classes6.dex */
-public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a {
+public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0265a {
     private e bCx;
     private String bGR;
     private String bWb;
@@ -552,8 +552,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         if (this.jFk != null && this.jEU != null) {
             this.jFk.a(getPageContext());
             this.jFk.ad(this.jEU.thread_id, this.jEU.forum_id, this.jEU.forum_name);
-            this.jFk.a(new a.InterfaceC0424a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.11
-                @Override // com.baidu.tieba.videoplay.editor.a.InterfaceC0424a
+            this.jFk.a(new a.InterfaceC0430a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.11
+                @Override // com.baidu.tieba.videoplay.editor.a.InterfaceC0430a
                 public void rQ(boolean z) {
                     VideoPlayFragment.this.jEZ.setVisibility(0);
                     if (z) {
@@ -644,8 +644,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         }
         this.hKA = com.baidu.tbadk.baseEditMark.a.a(getBaseFragmentActivity());
         if (this.hKA != null) {
-            this.hKA.a(new a.InterfaceC0233a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.14
-                @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0233a
+            this.hKA.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.14
+                @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0238a
                 public void c(boolean z, boolean z2, String str) {
                     if (z) {
                         if (VideoPlayFragment.this.hKA != null) {
@@ -983,8 +983,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         }
         if (this.jFe != null) {
             ArrayList arrayList = new ArrayList();
-            a.C0425a c0425a = new a.C0425a(this.jFe);
-            c0425a.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.19
+            a.C0431a c0431a = new a.C0431a(this.jFe);
+            c0431a.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.19
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     VideoPlayFragment.this.bCx.dismiss();
@@ -1015,13 +1015,13 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
                 z = true;
             }
             if (z) {
-                c0425a.setText(getResources().getString(R.string.remove_mark));
+                c0431a.setText(getResources().getString(R.string.remove_mark));
             } else {
-                c0425a.setText(getResources().getString(R.string.mark));
+                c0431a.setText(getResources().getString(R.string.mark));
             }
-            arrayList.add(c0425a);
-            a.C0425a c0425a2 = new a.C0425a(getActivity().getString(R.string.delete), this.jFe);
-            c0425a2.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.20
+            arrayList.add(c0431a);
+            a.C0431a c0431a2 = new a.C0431a(getActivity().getString(R.string.delete), this.jFe);
+            c0431a2.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.20
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     VideoPlayFragment.this.bCx.dismiss();
@@ -1032,11 +1032,11 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
                     }
                 }
             });
-            c0425a2.setText(getResources().getString(R.string.report_text));
-            arrayList.add(c0425a2);
+            c0431a2.setText(getResources().getString(R.string.report_text));
+            arrayList.add(c0431a2);
             if (this.fYQ) {
-                a.C0425a c0425a3 = new a.C0425a(getActivity().getString(R.string.delete), this.jFe);
-                c0425a3.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.21
+                a.C0431a c0431a3 = new a.C0431a(getActivity().getString(R.string.delete), this.jFe);
+                c0431a3.a(new a.c() { // from class: com.baidu.tieba.videoplay.VideoPlayFragment.21
                     @Override // com.baidu.tieba.view.a.c
                     public void onClick() {
                         VideoPlayFragment.this.bCx.dismiss();
@@ -1063,8 +1063,8 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
                         aVar.agI();
                     }
                 });
-                c0425a3.setText(getResources().getString(R.string.delete));
-                arrayList.add(c0425a3);
+                c0431a3.setText(getResources().getString(R.string.delete));
+                arrayList.add(c0431a3);
             }
             this.jFe.W(arrayList);
         }
@@ -1196,7 +1196,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         return this.jFf;
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
     public void aAp() {
         if (this.jEC.isPlaying()) {
             this.jEC.pause();
@@ -1207,7 +1207,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         }
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
     public void x(float f, float f2) {
         if (bd.cF(getActivity()) && !this.jFg) {
             cxu();
@@ -1255,7 +1255,7 @@ public class VideoPlayFragment extends BaseFragment implements a.InterfaceC0260a
         }
     }
 
-    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0260a
+    @Override // com.baidu.tbadk.widget.viewpager.a.InterfaceC0265a
     public void aAq() {
         if (this.jEU != null && this.jEU.author_info != null) {
             long c = com.baidu.adp.lib.g.b.c(this.jEU.author_info.user_id, 0L);

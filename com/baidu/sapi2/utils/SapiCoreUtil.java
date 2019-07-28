@@ -195,7 +195,7 @@ public class SapiCoreUtil {
         String str2 = "";
         HashMap hashMap = new HashMap();
         hashMap.put("r", 4);
-        hashMap.put(Config.DEVICE_WIDTH, 2);
+        hashMap.put("w", 2);
         hashMap.put(Config.EVENT_HEAT_X, 1);
         hashMap.put(Constants.ACCEPT_TIME_SEPARATOR_SERVER, 0);
         int i = 1;

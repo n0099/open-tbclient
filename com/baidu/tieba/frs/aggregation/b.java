@@ -178,15 +178,15 @@ public class b extends com.baidu.tieba.card.a<g> implements c {
             this.fzp.setIsNeedRecoveryVideoPlayer(true);
             this.fzp.qb(true);
             this.fzp.pX(false);
-            this.fzp.a(new c.InterfaceC0386c() { // from class: com.baidu.tieba.frs.aggregation.b.1
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+            this.fzp.a(new c.InterfaceC0392c() { // from class: com.baidu.tieba.frs.aggregation.b.1
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pz() {
                     if (b.this.fzp.pB()) {
                         b.this.fze.setVisibility(8);
                     }
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0386c
+                @Override // com.baidu.tieba.play.c.InterfaceC0392c
                 public void pA() {
                     if (b.this.fzp.pB()) {
                         b.this.fze.setVisibility(8);

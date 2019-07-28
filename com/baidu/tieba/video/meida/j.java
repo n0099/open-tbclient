@@ -2,6 +2,7 @@ package com.baidu.tieba.video.meida;
 
 import android.support.v4.internal.view.SupportMenu;
 import android.support.v7.widget.ActivityChooserView;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -1488,7 +1489,7 @@ public class j {
             i9 = 1;
         }
         if (!this.jzI) {
-            String[] strArr = {"none", "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
+            String[] strArr = {IXAdSystemUtils.NT_NONE, "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
             String[] strArr2 = {"rectangular", "triangular", "gaussian"};
             System.err.printf("frequency : %d -> %d\n", Integer.valueOf(i), Integer.valueOf(i10));
             System.err.printf("attenuation : %gdB\n", Double.valueOf(d));

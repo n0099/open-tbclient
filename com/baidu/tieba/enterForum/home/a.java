@@ -646,11 +646,11 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
 
     /* renamed from: com.baidu.tieba.enterForum.home.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0296a extends BdAsyncTask<f, Integer, String> {
+    private class C0302a extends BdAsyncTask<f, Integer, String> {
         private f eXA;
         private x mNetwork = null;
 
-        public C0296a(f fVar) {
+        public C0302a(f fVar) {
             this.eXA = null;
             this.eXA = fVar;
         }
@@ -687,7 +687,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0296a) str);
+            super.onPostExecute((C0302a) str);
             a.this.jj(false);
             int bfp = this.eXA.bfp();
             if (this.mNetwork != null) {
@@ -860,7 +860,7 @@ public class a implements com.baidu.tbadk.imageManager.b, com.baidu.tbadk.mvc.c.
                 return true;
             case 13:
                 if (auk instanceof f) {
-                    new C0296a((f) auk).execute(new f[0]);
+                    new C0302a((f) auk).execute(new f[0]);
                     TiebaStatic.log(new an("c13370").P("obj_type", ((f) auk).bfp() <= 0 ? 1 : 2).bT("fid", ((f) auk).getId()).l("uid", TbadkApplication.getCurrentAccountId()));
                     return true;
                 }

@@ -56,44 +56,44 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0291a c0291a;
+        C0297a c0297a;
         if (view != null) {
-            c0291a = (C0291a) view.getTag();
+            c0297a = (C0297a) view.getTag();
         } else {
             view = LayoutInflater.from(this.eHK.getPageContext().getPageActivity()).inflate(R.layout.channel_add_video_item_layout, viewGroup, false);
-            C0291a c0291a2 = new C0291a();
-            c0291a2.eHL = (TbCheckBox) view.findViewById(R.id.item_check_box);
-            c0291a2.eHM = (TbImageView) view.findViewById(R.id.video_cover);
-            c0291a2.eHN = (TextView) view.findViewById(R.id.video_length);
-            c0291a2.title = (TextView) view.findViewById(R.id.title);
-            c0291a2.eHO = (TextView) view.findViewById(R.id.forum_from);
-            c0291a2.eHP = (TextView) view.findViewById(R.id.intro);
-            view.setTag(c0291a2);
-            c0291a = c0291a2;
+            C0297a c0297a2 = new C0297a();
+            c0297a2.eHL = (TbCheckBox) view.findViewById(R.id.item_check_box);
+            c0297a2.eHM = (TbImageView) view.findViewById(R.id.video_cover);
+            c0297a2.eHN = (TextView) view.findViewById(R.id.video_length);
+            c0297a2.title = (TextView) view.findViewById(R.id.title);
+            c0297a2.eHO = (TextView) view.findViewById(R.id.forum_from);
+            c0297a2.eHP = (TextView) view.findViewById(R.id.intro);
+            view.setTag(c0297a2);
+            c0297a = c0297a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0291a.eHL.setTagData(item);
+            c0297a.eHL.setTagData(item);
             if (item.baI() == 1) {
-                c0291a.eHL.setEnabled(false);
-                am.c(c0291a.eHL, (int) R.drawable.icon_choose_channel_n);
+                c0297a.eHL.setEnabled(false);
+                am.c(c0297a.eHL, (int) R.drawable.icon_choose_channel_n);
             } else {
-                c0291a.eHL.setEnabled(true);
-                c0291a.eHL.akL();
+                c0297a.eHL.setEnabled(true);
+                c0297a.eHL.akL();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0291a.eHM.setTag(null);
-                c0291a.eHM.startLoad(item.getThumbnailUrl(), 10, false);
-                c0291a.eHM.invalidate();
+                c0297a.eHM.setTag(null);
+                c0297a.eHM.startLoad(item.getThumbnailUrl(), 10, false);
+                c0297a.eHM.invalidate();
             }
-            c0291a.eHN.setText(aq.io(item.getVideoDuration() * 1000));
+            c0297a.eHN.setText(aq.io(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
-                c0291a.title.setText(item.getTitle());
+                c0297a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0291a.eHO.setText(item.getForumName() + "吧");
+                c0297a.eHO.setText(item.getForumName() + "吧");
             }
-            c0291a.eHP.setText(aq.aH(item.baH()) + "次播放·" + com.baidu.tieba.channel.c.c.cG(item.getCreateTime()));
+            c0297a.eHP.setText(aq.aH(item.baH()) + "次播放·" + com.baidu.tieba.channel.c.c.cG(item.getCreateTime()));
         }
         this.eHK.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
         this.eHK.getLayoutMode().onModeChanged(view);
@@ -107,7 +107,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public class C0291a {
+    public class C0297a {
         public TbCheckBox eHL;
         public TbImageView eHM;
         public TextView eHN;
@@ -115,7 +115,7 @@ public class a extends BaseAdapter {
         public TextView eHP;
         public TextView title;
 
-        public C0291a() {
+        public C0297a() {
         }
     }
 }

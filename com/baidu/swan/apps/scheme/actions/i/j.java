@@ -45,8 +45,8 @@ public class j extends z {
             final b.a A = com.baidu.swan.apps.core.i.b.A(GF.Gr());
             xv = A.atB.xv();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.hh(xv), 0));
-            com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.i.j.1
-                @Override // com.baidu.swan.apps.core.i.b.InterfaceC0134b
+            com.baidu.swan.apps.core.i.b.a(A, new b.InterfaceC0139b() { // from class: com.baidu.swan.apps.scheme.actions.i.j.1
+                @Override // com.baidu.swan.apps.core.i.b.InterfaceC0139b
                 public void onReady() {
                     a.a(A.atB, aq);
                     j.this.d(vJ, aq);

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.p;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes.dex */
 public class j extends l {
     public static int cAh = 100;
@@ -58,7 +59,7 @@ public class j extends l {
             iF.append("totalNum", String.valueOf(cAj));
             iF.append("tfailNum", String.valueOf(cAk));
             iF.append("qfailNum", String.valueOf(cAl));
-            BdStatisticsManager.getInstance().performance("im", iF);
+            BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, iF);
             resetData();
         }
 
@@ -90,7 +91,7 @@ public class j extends l {
             iF.append("reqcost", String.valueOf(cAs));
             iF.append("cpu", String.valueOf(cAr));
             iF.append("totalNum", String.valueOf(cAm));
-            BdStatisticsManager.getInstance().performance("im", iF);
+            BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, iF);
             avs();
         }
 

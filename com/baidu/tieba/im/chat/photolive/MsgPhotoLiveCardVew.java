@@ -110,7 +110,7 @@ public class MsgPhotoLiveCardVew extends g {
         String str;
         int i2 = -1;
         if (chatMessage != null) {
-            a.C0328a yv = a.yv(chatMessage.getContent());
+            a.C0334a yv = a.yv(chatMessage.getContent());
             if (yv == null) {
                 this.threadId = 0L;
                 return;

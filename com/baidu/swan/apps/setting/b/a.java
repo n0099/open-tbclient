@@ -186,11 +186,11 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cw(final boolean z) {
-        e.Mv().aQQ.get().vZ().wA().a(this.mActivity, z, this.mScope).g(new com.baidu.swan.apps.an.d.a<g<a.C0175a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
+        e.Mv().aQQ.get().vZ().wA().a(this.mActivity, z, this.mScope).g(new com.baidu.swan.apps.an.d.a<g<a.C0180a>>() { // from class: com.baidu.swan.apps.setting.b.a.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.an.d.a
             /* renamed from: a */
-            public void D(g<a.C0175a> gVar) {
+            public void D(g<a.C0180a> gVar) {
                 if (!z && !a.this.aVv) {
                     a.this.finish();
                 } else if (gVar == null || !gVar.isOk() || gVar.mData == null || gVar.mData.aUX == null) {

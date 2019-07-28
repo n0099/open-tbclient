@@ -28,7 +28,7 @@ public class b {
 
     /* renamed from: com.baidu.tbadk.album.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0232b {
+    public interface InterfaceC0237b {
         void Q(List<ImageFileInfo> list);
     }
 
@@ -247,8 +247,8 @@ public class b {
         private String bBd;
         private List<com.baidu.tbadk.album.a> bBe;
         private int bBf = 1;
-        private InterfaceC0232b bBg = new InterfaceC0232b() { // from class: com.baidu.tbadk.album.b.c.1
-            @Override // com.baidu.tbadk.album.b.InterfaceC0232b
+        private InterfaceC0237b bBg = new InterfaceC0237b() { // from class: com.baidu.tbadk.album.b.c.1
+            @Override // com.baidu.tbadk.album.b.InterfaceC0237b
             public void Q(List<ImageFileInfo> list) {
                 c.this.publishProgress(list);
             }
@@ -284,11 +284,11 @@ public class b {
             return arrayList;
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0232b interfaceC0232b, String str) {
+        private void a(List<ImageFileInfo> list, InterfaceC0237b interfaceC0237b, String str) {
             if (list != null) {
-                a(list, interfaceC0232b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                a(list, interfaceC0237b, str, b.this.mContext, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 if (list == null || list.size() <= 0) {
-                    a(list, interfaceC0232b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                    a(list, interfaceC0237b, str, b.this.mContext, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
                 }
             }
         }
@@ -324,25 +324,25 @@ public class b {
             }
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0232b interfaceC0232b) {
-            if (list != null && interfaceC0232b != null) {
+        private void a(List<ImageFileInfo> list, InterfaceC0237b interfaceC0237b) {
+            if (list != null && interfaceC0237b != null) {
                 if (this.bBf == 1 || this.bBf == 2) {
                     if (list.size() / this.bBf > 50) {
-                        if (interfaceC0232b != null) {
-                            interfaceC0232b.Q(list);
+                        if (interfaceC0237b != null) {
+                            interfaceC0237b.Q(list);
                         }
                         this.bBf++;
                     }
                 } else if (list.size() / this.bBf > 500) {
-                    if (interfaceC0232b != null) {
-                        interfaceC0232b.Q(list);
+                    if (interfaceC0237b != null) {
+                        interfaceC0237b.Q(list);
                     }
                     this.bBf++;
                 }
             }
         }
 
-        private void a(List<ImageFileInfo> list, InterfaceC0232b interfaceC0232b, String str, Context context, Uri uri) {
+        private void a(List<ImageFileInfo> list, InterfaceC0237b interfaceC0237b, String str, Context context, Uri uri) {
             Cursor cursor;
             if (list != null) {
                 try {
@@ -373,7 +373,7 @@ public class b {
                                         imageFileInfo.setIsLong(z2);
                                         imageFileInfo.setModifyTime(aq.aX(file.lastModified()));
                                         list.add(imageFileInfo);
-                                        a(list, interfaceC0232b);
+                                        a(list, interfaceC0237b);
                                     }
                                 } while (cursor.moveToNext());
                                 com.baidu.adp.lib.g.a.e(cursor);

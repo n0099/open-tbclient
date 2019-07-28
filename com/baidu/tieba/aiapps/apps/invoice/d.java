@@ -71,10 +71,10 @@ public class d {
         }
     }
 
-    public void a(Context context, final String str, final String str2, final c.InterfaceC0279c interfaceC0279c) {
+    public void a(Context context, final String str, final String str2, final c.InterfaceC0285c interfaceC0285c) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            if (interfaceC0279c != null) {
-                interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
+            if (interfaceC0285c != null) {
+                interfaceC0285c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
                 return;
             }
             return;
@@ -98,20 +98,20 @@ public class d {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    d.this.a(com.baidu.tieba.aiapps.apps.c.d.aFo(), hashMap, interfaceC0279c);
-                } else if (interfaceC0279c != null) {
-                    interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
+                    d.this.a(com.baidu.tieba.aiapps.apps.c.d.aFo(), hashMap, interfaceC0285c);
+                } else if (interfaceC0285c != null) {
+                    interfaceC0285c.co(LivenessStat.TYPE_STRING_DEFAULT, "");
                 }
             }
         }, "dev");
     }
 
-    public void a(c.InterfaceC0279c interfaceC0279c) {
-        a(com.baidu.tieba.aiapps.apps.c.d.aFn(), (Map<String, String>) null, interfaceC0279c);
+    public void a(c.InterfaceC0285c interfaceC0285c) {
+        a(com.baidu.tieba.aiapps.apps.c.d.aFn(), (Map<String, String>) null, interfaceC0285c);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(String str, Map<String, String> map, final c.InterfaceC0279c interfaceC0279c) {
+    public void a(String str, Map<String, String> map, final c.InterfaceC0285c interfaceC0285c) {
         a(str, map, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -128,19 +128,19 @@ public class d {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.d<com.baidu.tieba.aiapps.apps.invoice.model.a> dVar, int i) {
-                if (interfaceC0279c != null) {
+                if (interfaceC0285c != null) {
                     if (!TextUtils.equals(dVar.ddw, "0") || dVar.ddy == null) {
-                        d.this.a(dVar.ddw, dVar.ddx, interfaceC0279c);
+                        d.this.a(dVar.ddw, dVar.ddx, interfaceC0285c);
                     } else {
-                        interfaceC0279c.aL(dVar.ddy.ddp);
+                        interfaceC0285c.aL(dVar.ddy.ddp);
                     }
                 }
             }
 
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
-                if (interfaceC0279c != null) {
-                    interfaceC0279c.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
+                if (interfaceC0285c != null) {
+                    interfaceC0285c.co(LivenessStat.TYPE_STRING_DEFAULT, exc.getMessage());
                 }
             }
         });

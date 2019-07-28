@@ -143,8 +143,8 @@ public class EditorInfoContainer extends RelativeLayout implements l {
     public void bt(String str, int i) {
         if ("2".equals(this.fTa)) {
             this.mForumId = str;
-            a.a(str, i, new a.InterfaceC0426a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.4
-                @Override // com.baidu.tieba.write.editor.a.InterfaceC0426a
+            a.a(str, i, new a.InterfaceC0432a() { // from class: com.baidu.tieba.write.editor.EditorInfoContainer.4
+                @Override // com.baidu.tieba.write.editor.a.InterfaceC0432a
                 public void CZ(int i2) {
                     EditorInfoContainer.this.jOJ.setState(i2 != 1 ? 0 : 1);
                 }

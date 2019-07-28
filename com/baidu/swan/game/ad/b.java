@@ -122,7 +122,7 @@ public class b {
 
     public void b() {
         if (this.c != null && this.c.getVisibility() == 4) {
-            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, a.C0193a.ng_game_ad_open));
+            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, a.C0198a.ng_game_ad_open));
             this.c.setVisibility(0);
         }
     }

@@ -47,7 +47,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     private QuickVideoView.b cJW;
     private g.a cTp;
     private g.f cTq;
-    private g.InterfaceC0387g cTt;
+    private g.InterfaceC0393g cTt;
     private int cXx;
     private int currentState;
     private g dgg;
@@ -174,8 +174,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 PushDialogVideoView.this.cJN.ceI();
             }
         };
-        this.cTt = new g.InterfaceC0387g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.cTt = new g.InterfaceC0393g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 if (PushDialogVideoView.this.iuM) {
                     e.iK().postDelayed(PushDialogVideoView.this.iuY, 200L);
@@ -346,8 +346,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 PushDialogVideoView.this.cJN.ceI();
             }
         };
-        this.cTt = new g.InterfaceC0387g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.cTt = new g.InterfaceC0393g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 if (PushDialogVideoView.this.iuM) {
                     e.iK().postDelayed(PushDialogVideoView.this.iuY, 200L);
@@ -518,8 +518,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 PushDialogVideoView.this.cJN.ceI();
             }
         };
-        this.cTt = new g.InterfaceC0387g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
-            @Override // com.baidu.tieba.play.g.InterfaceC0387g
+        this.cTt = new g.InterfaceC0393g() { // from class: com.baidu.tieba.pushdialog.PushDialogVideoView.11
+            @Override // com.baidu.tieba.play.g.InterfaceC0393g
             public void b(g gVar) {
                 if (PushDialogVideoView.this.iuM) {
                     e.iK().postDelayed(PushDialogVideoView.this.iuY, 200L);

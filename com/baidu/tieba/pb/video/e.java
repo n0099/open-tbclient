@@ -43,7 +43,7 @@ public class e {
                                 bd.cE(e.this.cWM.getActivity());
                                 return;
                             }
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0235a.a(e.this.dxr.channelId, e.this.cWM.getUniqueId())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0240a.a(e.this.dxr.channelId, e.this.cWM.getUniqueId())));
                             return;
                         }
                         return;

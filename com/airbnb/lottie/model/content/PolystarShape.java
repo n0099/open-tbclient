@@ -4,6 +4,7 @@ import android.graphics.PointF;
 import com.airbnb.lottie.a.a.l;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -106,7 +107,7 @@ public class PolystarShape implements b {
             m<PointF, PointF> h = com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar);
             com.airbnb.lottie.model.a.b a2 = b.a.a(jSONObject.optJSONObject("r"), eVar, false);
             com.airbnb.lottie.model.a.b e = b.a.e(jSONObject.optJSONObject("or"), eVar);
-            com.airbnb.lottie.model.a.b a3 = b.a.a(jSONObject.optJSONObject("os"), eVar, false);
+            com.airbnb.lottie.model.a.b a3 = b.a.a(jSONObject.optJSONObject(IXAdRequestInfo.OS), eVar, false);
             if (forValue == Type.Star) {
                 bVar2 = b.a.e(jSONObject.optJSONObject("ir"), eVar);
                 bVar = b.a.a(jSONObject.optJSONObject("is"), eVar, false);

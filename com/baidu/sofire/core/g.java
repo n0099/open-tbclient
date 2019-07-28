@@ -15,7 +15,6 @@ import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.b.o;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.PathClassLoader;
 import java.io.File;
@@ -426,7 +425,7 @@ public final class g {
         try {
             JSONArray jSONArray = new JSONArray();
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
+            jSONObject.put("pk", str);
             jSONObject.put(Config.MODEL, str2);
             jSONArray.put(jSONObject);
             String jSONArray2 = jSONArray.toString();

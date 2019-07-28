@@ -131,7 +131,7 @@ public abstract class a implements c {
                         com.baidu.swan.apps.performance.f.aGG = true;
                         a.this.azR.finish();
                         if (z) {
-                            a.this.azR.overridePendingTransition(0, a.C0105a.aiapps_slide_out_to_right_zadjustment_top);
+                            a.this.azR.overridePendingTransition(0, a.C0110a.aiapps_slide_out_to_right_zadjustment_top);
                         }
                     }
                 }
@@ -140,11 +140,11 @@ public abstract class a implements c {
     }
 
     @Override // com.baidu.swan.apps.w.c
-    public void a(int i, @NonNull String[] strArr, a.InterfaceC0106a interfaceC0106a) {
+    public void a(int i, @NonNull String[] strArr, a.InterfaceC0111a interfaceC0111a) {
         Gh();
         SwanAppActivity Gr = Gr();
         if (Gr != null) {
-            Gr.a(i, strArr, interfaceC0106a);
+            Gr.a(i, strArr, interfaceC0111a);
         }
     }
 

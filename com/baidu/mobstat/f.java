@@ -179,7 +179,7 @@ public class f {
             try {
                 jSONObject.put("n", this.a);
                 jSONObject.put("v", this.b);
-                jSONObject.put(Config.DEVICE_WIDTH, this.c);
+                jSONObject.put("w", this.c);
                 return jSONObject;
             } catch (JSONException e) {
                 bb.c().b(e);

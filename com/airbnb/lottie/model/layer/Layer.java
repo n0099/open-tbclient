@@ -8,8 +8,8 @@ import com.airbnb.lottie.model.a.j;
 import com.airbnb.lottie.model.a.k;
 import com.airbnb.lottie.model.a.l;
 import com.airbnb.lottie.model.content.Mask;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -263,8 +263,8 @@ public class Layer {
             LayerType layerType2 = layerType;
             long optLong2 = jSONObject.optLong("parent", -1L);
             if (layerType2 == LayerType.Solid) {
-                i = (int) (jSONObject.optInt(TbConfig.SW_APID) * eVar.bI());
-                i2 = (int) (jSONObject.optInt("sh") * eVar.bI());
+                i = (int) (jSONObject.optInt("sw") * eVar.bI());
+                i2 = (int) (jSONObject.optInt(IXAdRequestInfo.SCREEN_HEIGHT) * eVar.bI());
                 i3 = Color.parseColor(jSONObject.optString(Config.STAT_SDK_CHANNEL));
             }
             l n = l.a.n(jSONObject.optJSONObject("ks"), eVar);
@@ -304,7 +304,7 @@ public class Layer {
             float optDouble = (float) jSONObject.optDouble("sr", 1.0d);
             float optDouble2 = ((float) jSONObject.optDouble("st")) / eVar.bH();
             if (layerType2 == LayerType.PreComp) {
-                i4 = (int) (jSONObject.optInt(Config.DEVICE_WIDTH) * eVar.bI());
+                i4 = (int) (jSONObject.optInt("w") * eVar.bI());
                 i5 = (int) (jSONObject.optInt("h") * eVar.bI());
             }
             float optLong3 = ((float) jSONObject.optLong("ip")) / optDouble;
@@ -317,8 +317,8 @@ public class Layer {
             arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, optLong3, Float.valueOf(bC)));
             arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, bC, Float.valueOf(Float.MAX_VALUE)));
             com.airbnb.lottie.model.a.b bVar = null;
-            if (jSONObject.has("tm")) {
-                bVar = b.a.a(jSONObject.optJSONObject("tm"), eVar, false);
+            if (jSONObject.has(IXAdRequestInfo.MAX_TITLE_LENGTH)) {
+                bVar = b.a.a(jSONObject.optJSONObject(IXAdRequestInfo.MAX_TITLE_LENGTH), eVar, false);
             }
             return new Layer(arrayList2, eVar, optString, optLong, layerType2, optLong2, optString2, arrayList, n, i, i2, i3, optDouble, optDouble2, i4, i5, jVar, kVar, arrayList3, matteType, bVar);
         }

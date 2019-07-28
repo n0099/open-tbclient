@@ -10,6 +10,8 @@ import android.view.WindowManager;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
@@ -121,7 +123,7 @@ public class f extends d {
         try {
             switch (com.baidu.android.pushservice.i.l.t(this.a)) {
                 case 1:
-                    return "wifi";
+                    return IXAdSystemUtils.NT_WIFI;
                 case 2:
                     return "2g";
                 case 3:
@@ -155,7 +157,7 @@ public class f extends d {
             TelephonyManager telephonyManager = (TelephonyManager) this.a.getSystemService("phone");
             if (telephonyManager != null && (simOperator = telephonyManager.getSimOperator()) != null) {
                 if (simOperator.equals("46000") || simOperator.equals("46002") || simOperator.equals("46007")) {
-                    return "cm";
+                    return IXAdRequestInfo.MAX_CONTENT_LENGTH;
                 }
                 if (simOperator.equals("46001")) {
                     return "uni";
@@ -185,7 +187,7 @@ public class f extends d {
     private String h() {
         WifiManager wifiManager;
         try {
-            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService("wifi")) == null) {
+            if (!com.baidu.android.pushservice.i.l.u(this.a, "android.permission.ACCESS_WIFI_STATE") || (wifiManager = (WifiManager) this.a.getSystemService(IXAdSystemUtils.NT_WIFI)) == null) {
                 return null;
             }
             return wifiManager.getConnectionInfo().getMacAddress();

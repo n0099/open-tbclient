@@ -61,7 +61,7 @@ public class a extends c<ForumDetailActivity> {
         this.mNavigationBar.showBottomLine();
         this.dnF = (NoNetworkView) this.gEX.findViewById(R.id.no_network_view);
         this.gFb = (CustomScrollView) this.gEX.findViewById(R.id.scoll_view);
-        this.gFb.setOnTouchListener(new View$OnTouchListenerC0330a());
+        this.gFb.setOnTouchListener(new View$OnTouchListenerC0336a());
         this.gFc = (ItemHeaderView) this.gEX.findViewById(R.id.item_header);
         this.gFd = (ItemInfoView) this.gEX.findViewById(R.id.item_info);
         this.gFe = (ItemMsgManage) this.gEX.findViewById(R.id.item_msg_manage);
@@ -182,8 +182,8 @@ public class a extends c<ForumDetailActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.im.forum.detail.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class View$OnTouchListenerC0330a implements View.OnTouchListener {
-        private View$OnTouchListenerC0330a() {
+    public class View$OnTouchListenerC0336a implements View.OnTouchListener {
+        private View$OnTouchListenerC0336a() {
         }
 
         @Override // android.view.View.OnTouchListener

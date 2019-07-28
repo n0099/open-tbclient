@@ -17,12 +17,12 @@ public class b implements e {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0394b {
+    public static class C0400b {
         private static b iFR = new b();
     }
 
     public static b chE() {
-        return C0394b.iFR;
+        return C0400b.iFR;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {

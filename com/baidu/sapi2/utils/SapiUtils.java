@@ -34,6 +34,7 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
@@ -493,7 +494,7 @@ public class SapiUtils {
         int i2 = 0;
         StringBuffer stringBuffer = new StringBuffer();
         try {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiManager wifiManager = (WifiManager) context.getSystemService(IXAdSystemUtils.NT_WIFI);
             WifiInfo connectionInfo = wifiManager.getConnectionInfo();
             if (connectionInfo == null) {
                 i = 0;
@@ -882,10 +883,10 @@ public class SapiUtils {
     public static int getLastLoginType() {
         String string = SapiContext.getInstance(ServiceManager.getInstance().getIsAccountManager().getConfignation().context).getString(SapiContext.KEY_PRE_LOGIN_TYPE);
         if (TextUtils.isEmpty(string)) {
-            string = "none";
+            string = IXAdSystemUtils.NT_NONE;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("none", 0);
+        hashMap.put(IXAdSystemUtils.NT_NONE, 0);
         hashMap.put("password", 1);
         hashMap.put("sms", 2);
         hashMap.put("face", 3);

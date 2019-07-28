@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.mobads.interfaces.utils.IXAdSystemUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.coremedia.iso.boxes.UserBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -119,7 +120,7 @@ public class HostManager {
             if (activeNetworkInfo == null) {
                 str = "unknown";
             } else if (activeNetworkInfo.getType() == 1) {
-                WifiManager wifiManager = (WifiManager) sAppContext.getSystemService("wifi");
+                WifiManager wifiManager = (WifiManager) sAppContext.getSystemService(IXAdSystemUtils.NT_WIFI);
                 if (wifiManager != null && wifiManager.getConnectionInfo() != null) {
                     str = "WIFI-" + wifiManager.getConnectionInfo().getSSID();
                 }
@@ -218,7 +219,7 @@ public class HostManager {
             arrayList2.add(null);
         }
         try {
-            String str2 = d.e(sAppContext) ? "wifi" : "wap";
+            String str2 = d.e(sAppContext) ? IXAdSystemUtils.NT_WIFI : "wap";
             String remoteFallbackJSON = getRemoteFallbackJSON(arrayList, str2, this.sUserId, isEmpty);
             if (!TextUtils.isEmpty(remoteFallbackJSON)) {
                 JSONObject jSONObject = new JSONObject(remoteFallbackJSON);

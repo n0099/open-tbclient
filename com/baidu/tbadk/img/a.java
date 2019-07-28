@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0251a<T>> cwi = null;
+    private WeakReference<InterfaceC0256a<T>> cwi = null;
     private c cwj = null;
     private a<T>.b cwk = null;
     public T cwl;
@@ -19,7 +19,7 @@ public class a<T> {
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0251a<T> {
+    public interface InterfaceC0256a<T> {
         void d(int i, T t);
     }
 
@@ -93,7 +93,7 @@ public class a<T> {
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.cwi != null && a.this.cwi.get() != null) {
-                ((InterfaceC0251a) a.this.cwi.get()).d(numArr[0].intValue(), a.this.cwl);
+                ((InterfaceC0256a) a.this.cwi.get()).d(numArr[0].intValue(), a.this.cwl);
             }
         }
 
@@ -135,8 +135,8 @@ public class a<T> {
         }
     }
 
-    public void a(InterfaceC0251a<T> interfaceC0251a) {
-        this.cwi = new WeakReference<>(interfaceC0251a);
+    public void a(InterfaceC0256a<T> interfaceC0256a) {
+        this.cwi = new WeakReference<>(interfaceC0256a);
     }
 
     public void a(c cVar) {

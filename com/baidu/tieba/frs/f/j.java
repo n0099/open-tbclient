@@ -88,8 +88,8 @@ public class j {
             aVar.e(tbPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.CAMERA");
             aVar.e(tbPageContext.getPageActivity(), "android.permission.RECORD_AUDIO");
-            aVar.a(new a.InterfaceC0238a() { // from class: com.baidu.tieba.frs.f.j.2
-                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0238a
+            aVar.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.frs.f.j.2
+                @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0243a
                 public void ajR() {
                     MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
                     com.baidu.adp.lib.d.a.hY().X(false);

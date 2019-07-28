@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +40,7 @@ public final class k {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", "android");
+            hashMap.put(IXAdRequestInfo.OS, "android");
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;

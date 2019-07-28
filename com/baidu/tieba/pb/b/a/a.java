@@ -29,7 +29,7 @@ public class a implements c {
     private SpannableString b(ExcContent excContent) {
         String str;
         int qf;
-        a.C0250a qC;
+        a.C0255a qC;
         if (this.ibK == null && (qf = TbFaceManager.atv().qf((str = excContent.text))) != 0) {
             String str2 = "#(" + TbFaceManager.atv().qh(str) + ")";
             this.ibK = new SpannableString(str2 + " ");

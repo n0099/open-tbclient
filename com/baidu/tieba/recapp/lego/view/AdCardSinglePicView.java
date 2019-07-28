@@ -33,8 +33,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void cO(View view) {
         float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds20);
-        if (view instanceof RoundRelativeLayout) {
-            ((RoundRelativeLayout) view).setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        if (view instanceof XfremodeRoundLayout) {
+            ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
         }
         this.iIs = (TbImageView) view.findViewById(R.id.ad_img);
         this.iIt = view.findViewById(R.id.channel_ad);

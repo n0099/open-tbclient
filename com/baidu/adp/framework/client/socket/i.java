@@ -6,6 +6,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.tencent.open.SocialConstants;
@@ -68,7 +69,7 @@ public class i {
             statsItem.append("action", "imconn");
             statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.kS().kY()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
-            BdStatisticsManager.getInstance().performance("im", statsItem);
+            BdStatisticsManager.getInstance().performance(IXAdRequestInfo.IMSI, statsItem);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

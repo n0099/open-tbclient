@@ -14,13 +14,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
-    protected RoundRelativeLayout iIh;
+    protected XfremodeRoundLayout iIh;
     protected TbImageView iIi;
     protected TextView iIj;
     protected RelativeLayout iIk;
     protected TbImageView iIl;
     protected TextView iIm;
-    protected RoundRelativeLayout iIn;
+    protected XfremodeRoundLayout iIn;
     protected TbImageView iIo;
     protected TextView iIp;
     protected View iIq;
@@ -42,13 +42,13 @@ public class AdCardMultiPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void cO(View view) {
-        this.iIh = (RoundRelativeLayout) view.findViewById(R.id.rl_img_left);
+        this.iIh = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_left);
         this.iIi = (TbImageView) view.findViewById(R.id.advert_app_img_left);
         this.iIj = (TextView) view.findViewById(R.id.txt_left);
         this.iIk = (RelativeLayout) view.findViewById(R.id.rl_img_center);
         this.iIl = (TbImageView) view.findViewById(R.id.advert_app_img_center);
         this.iIm = (TextView) view.findViewById(R.id.txt_center);
-        this.iIn = (RoundRelativeLayout) view.findViewById(R.id.rl_img_right);
+        this.iIn = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_right);
         this.iIo = (TbImageView) view.findViewById(R.id.advert_app_img_right);
         this.iIp = (TextView) view.findViewById(R.id.txt_right);
         this.iIr = (TextView) view.findViewById(R.id.advert_source_right);

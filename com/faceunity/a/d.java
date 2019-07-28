@@ -34,7 +34,7 @@ public class d {
     private int klM;
     private com.faceunity.a.e klN;
     private com.faceunity.a.a klO;
-    private volatile HandlerC0456d klP;
+    private volatile HandlerC0462d klP;
     private c klR;
     private int klU;
     private int klV;
@@ -208,7 +208,7 @@ public class d {
         public void run() {
             Looper.prepare();
             synchronized (d.this.klQ) {
-                d.this.klP = new HandlerC0456d(d.this);
+                d.this.klP = new HandlerC0462d(d.this);
                 d.this.mReady = true;
                 d.this.klQ.notify();
             }
@@ -223,10 +223,10 @@ public class d {
 
     /* renamed from: com.faceunity.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class HandlerC0456d extends Handler {
+    private static class HandlerC0462d extends Handler {
         private WeakReference<d> kmf;
 
-        public HandlerC0456d(d dVar) {
+        public HandlerC0462d(d dVar) {
             this.kmf = new WeakReference<>(dVar);
         }
 

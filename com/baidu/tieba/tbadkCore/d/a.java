@@ -3,6 +3,7 @@ package com.baidu.tieba.tbadkCore.d;
 import android.os.Build;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
@@ -19,27 +20,27 @@ public class a {
         public String mPid;
     }
 
-    public static C0408a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0408a c0408a = new C0408a(str, str2, str3, str4, str5);
-        c0408a.j(str6, str7, str8, str9, str10);
-        return c0408a;
+    public static C0414a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0414a c0414a = new C0414a(str, str2, str3, str4, str5);
+        c0414a.j(str6, str7, str8, str9, str10);
+        return c0414a;
     }
 
-    public static C0408a f(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0408a c0408a = new C0408a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0408a.j(null, null, str3, str4, str5);
+    public static C0414a f(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0414a c0414a = new C0414a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0414a.j(null, null, str3, str4, str5);
         if (!aq.isEmpty(str6)) {
-            c0408a.en("obj_ref", str6);
+            c0414a.en("obj_ref", str6);
         }
-        return c0408a;
+        return c0414a;
     }
 
     @Deprecated
     public static void a(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0408a c0408a = new C0408a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0408a.j(str2, str7, str3, str4, str5);
-        c0408a.en("obj_url", str6);
-        c0408a.save();
+        C0414a c0414a = new C0414a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0414a.j(str2, str7, str3, str4, str5);
+        c0414a.en("obj_url", str6);
+        c0414a.save();
     }
 
     @Deprecated
@@ -55,7 +56,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0408a {
+    public static class C0414a {
         private final boolean bHv;
         private final an hcz;
         private final String jgr;
@@ -64,7 +65,7 @@ public class a {
         private final String key;
         private final String page;
 
-        private C0408a(String str, String str2, String str3, String str4, String str5) {
+        private C0414a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
             this.jgr = str2;
             this.page = str3;
@@ -108,11 +109,11 @@ public class a {
             if (!StringUtils.isNull(str5)) {
                 this.hcz.bT("tid", str5);
             }
-            this.hcz.P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT("os", "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
+            this.hcz.P("obj_cpid", 0).P("obj_good_id", 0).bT("obj_throw_type", "BY_POST").bT("client_type", "MOBILE_APP").bT("user_timestamp", String.valueOf(System.currentTimeMillis())).bT(IXAdRequestInfo.OS, "android").bT("os_version", Build.VERSION.RELEASE).bT("log_ver", "1.1");
             return this.hcz;
         }
 
-        public C0408a en(String str, String str2) {
+        public C0414a en(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 this.hcz.bT(str, str2);
             }

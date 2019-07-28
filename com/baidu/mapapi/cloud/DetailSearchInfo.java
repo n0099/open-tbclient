@@ -1,6 +1,7 @@
 package com.baidu.mapapi.cloud;
 
 import com.baidu.mapapi.http.HttpClient;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 /* loaded from: classes5.dex */
 public class DetailSearchInfo extends BaseSearchInfo {
     public String poiId;
@@ -40,7 +41,7 @@ public class DetailSearchInfo extends BaseSearchInfo {
             sb.append(this.geoTableId);
             if (this.sn != null && !this.sn.equals("") && this.sn.length() <= 50) {
                 sb.append("&");
-                sb.append("sn");
+                sb.append(IXAdRequestInfo.SN);
                 sb.append("=");
                 sb.append(this.sn);
             }

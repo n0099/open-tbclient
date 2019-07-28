@@ -13,26 +13,26 @@ public class b {
 
     /* renamed from: com.baidu.tieba.pb.account.forbid.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0369b {
+    public interface InterfaceC0375b {
         void a(ForbidTplData forbidTplData);
 
         void b(ForbidTplData forbidTplData);
     }
 
-    public static void a(String str, String str2, InterfaceC0369b interfaceC0369b) {
-        new a(str, str2, interfaceC0369b).execute(new String[0]);
+    public static void a(String str, String str2, InterfaceC0375b interfaceC0375b) {
+        new a(str, str2, interfaceC0375b).execute(new String[0]);
     }
 
     /* loaded from: classes4.dex */
     private static class a extends BdAsyncTask<String, Object, ForbidTplData> {
         private String hFS;
         private String hFT;
-        private InterfaceC0369b hFU;
+        private InterfaceC0375b hFU;
 
-        public a(String str, String str2, InterfaceC0369b interfaceC0369b) {
+        public a(String str, String str2, InterfaceC0375b interfaceC0375b) {
             this.hFS = str;
             this.hFT = str2;
-            this.hFU = interfaceC0369b;
+            this.hFU = interfaceC0375b;
             setPriority(3);
         }
 

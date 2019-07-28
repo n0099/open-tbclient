@@ -28,14 +28,14 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
-    public void a(a.InterfaceC0248a interfaceC0248a) {
+    public void a(a.InterfaceC0253a interfaceC0253a) {
         if (this.eVf == null || this.eVf.isEmpty()) {
             this.eVf = new LinkedList<>();
             if (TbFaceManager.atv().asm() > 0) {
                 c cVar = new c();
                 this.eVf.add(cVar);
-                if (interfaceC0248a != null) {
-                    interfaceC0248a.a(cVar);
+                if (interfaceC0253a != null) {
+                    interfaceC0253a.a(cVar);
                     return;
                 }
                 return;
@@ -45,8 +45,8 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
         Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.eVf.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (interfaceC0248a != null) {
-                interfaceC0248a.a(next);
+            if (interfaceC0253a != null) {
+                interfaceC0253a.a(next);
             }
         }
     }

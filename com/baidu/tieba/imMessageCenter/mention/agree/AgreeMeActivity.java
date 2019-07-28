@@ -26,15 +26,15 @@ public class AgreeMeActivity extends BaseActivity implements BdListView.e {
     private b gWu;
     private a gWv;
     private int mSkinType = 3;
-    private a.InterfaceC0343a gWw = new a.InterfaceC0343a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0343a
+    private a.InterfaceC0349a gWw = new a.InterfaceC0349a() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity.1
+        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0349a
         public void aYo() {
             if (AgreeMeActivity.this.gWu != null) {
                 AgreeMeActivity.this.gWu.aIQ();
             }
         }
 
-        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0343a
+        @Override // com.baidu.tieba.imMessageCenter.mention.agree.a.InterfaceC0349a
         public void box() {
             if (AgreeMeActivity.this.gWu != null) {
                 AgreeMeActivity.this.gWu.box();

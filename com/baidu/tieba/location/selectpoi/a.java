@@ -49,19 +49,19 @@ public class a extends BaseAdapter {
         if (!this.ffW) {
             return bA(viewGroup);
         }
-        C0352a c0352a = null;
-        if (view != null && (view.getTag() instanceof C0352a)) {
-            c0352a = (C0352a) view.getTag();
+        C0358a c0358a = null;
+        if (view != null && (view.getTag() instanceof C0358a)) {
+            c0358a = (C0358a) view.getTag();
         }
-        if (c0352a == null) {
+        if (c0358a == null) {
             view = LayoutInflater.from(this.hkg.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0352a = cn(view);
-            view.setTag(c0352a);
+            c0358a = cn(view);
+            view.setTag(c0358a);
         }
-        C0352a c0352a2 = c0352a;
-        c0352a2.hki.setText(this.hkf.bLH().get(i).getName());
-        am.l(c0352a2.enc, R.color.cp_bg_line_b);
-        am.f(c0352a2.hki, R.color.cp_cont_b, 1);
+        C0358a c0358a2 = c0358a;
+        c0358a2.hki.setText(this.hkf.bLH().get(i).getName());
+        am.l(c0358a2.enc, R.color.cp_bg_line_b);
+        am.f(c0358a2.hki, R.color.cp_cont_b, 1);
         am.k(view, R.drawable.home_recommend_item_bg);
         return view;
     }
@@ -77,19 +77,19 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public class C0352a {
+    public class C0358a {
         View enc;
         TextView hki;
 
-        private C0352a() {
+        private C0358a() {
         }
     }
 
-    public C0352a cn(View view) {
-        C0352a c0352a = new C0352a();
-        c0352a.hki = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0352a.enc = view.findViewById(R.id.location_search_line);
-        return c0352a;
+    public C0358a cn(View view) {
+        C0358a c0358a = new C0358a();
+        c0358a.hki = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0358a.enc = view.findViewById(R.id.location_search_line);
+        return c0358a;
     }
 
     public View bA(ViewGroup viewGroup) {

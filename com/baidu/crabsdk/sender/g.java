@@ -10,6 +10,7 @@ import com.baidu.crabsdk.CrabSDK;
 import com.baidu.crabsdk.b.r;
 import com.baidu.crabsdk.b.s;
 import com.baidu.crabsdk.b.t;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.vivo.push.PushClientConstants;
@@ -149,7 +150,7 @@ public final class g {
         hashMap.put("appVC", Integer.valueOf(com.baidu.crabsdk.b.o.I()));
         hashMap.put("model", Build.MODEL);
         hashMap.put(Constants.PHONE_BRAND, Build.BRAND);
-        hashMap.put("os", "Android");
+        hashMap.put(IXAdRequestInfo.OS, "Android");
         hashMap.put("osVN", Build.VERSION.RELEASE);
         hashMap.put("osVC", Integer.valueOf(Build.VERSION.SDK_INT));
         hashMap.put("startupTime", Long.valueOf(com.baidu.crabsdk.b.a.rh()));
@@ -231,7 +232,7 @@ public final class g {
         jSONObject.put("appVC", com.baidu.crabsdk.b.o.I());
         jSONObject.put("model", Build.MODEL);
         jSONObject.put(Constants.PHONE_BRAND, Build.BRAND);
-        jSONObject.put("os", "Android");
+        jSONObject.put(IXAdRequestInfo.OS, "Android");
         jSONObject.put("osVN", Build.VERSION.RELEASE);
         jSONObject.put("osVC", Build.VERSION.SDK_INT);
         jSONObject.put("CUID", com.baidu.crabsdk.b.h.g(context));
@@ -276,7 +277,7 @@ public final class g {
     public static String rt() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("os", "android");
+            jSONObject.put(IXAdRequestInfo.OS, "android");
             jSONObject.put("uid", s.M());
             if (TextUtils.isEmpty(com.baidu.crabsdk.a.o)) {
                 jSONObject.put("appVN", com.baidu.crabsdk.b.o.H());

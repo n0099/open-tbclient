@@ -11,7 +11,7 @@ public final class b {
 
     /* renamed from: com.baidu.poly.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0084b {
+    public static final class C0089b {
         public static final int duxiaomancolor = 2131559150;
     }
 

@@ -11,7 +11,7 @@ public class a {
     private static volatile a aXN;
     private SensorEventListener aXO;
     private Sensor aXP;
-    private InterfaceC0112a aXS;
+    private InterfaceC0117a aXS;
     private SensorManager aXa;
     private SensorEventListener aXb;
     private Sensor aXc;
@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.aj.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0112a {
+    public interface InterfaceC0117a {
         void ac(float f);
     }
 
@@ -45,8 +45,8 @@ public class a {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0112a interfaceC0112a) {
-        this.aXS = interfaceC0112a;
+    public void a(InterfaceC0117a interfaceC0117a) {
+        this.aXS = interfaceC0117a;
     }
 
     public void Ox() {

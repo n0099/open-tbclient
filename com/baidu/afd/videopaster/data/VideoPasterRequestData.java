@@ -10,6 +10,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
@@ -38,8 +39,8 @@ public class VideoPasterRequestData extends HttpMessage {
         }
         addParam("is_https", 1);
         addParam("flr", String.valueOf(aVar.pe()));
-        addParam(TbConfig.SW_APID, String.valueOf(aVar.width()));
-        addParam("sh", String.valueOf(aVar.height()));
+        addParam("sw", String.valueOf(aVar.width()));
+        addParam(IXAdRequestInfo.SCREEN_HEIGHT, String.valueOf(aVar.height()));
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", String.valueOf(aVar.pe()));
         addParam("ft", aVar.pc());

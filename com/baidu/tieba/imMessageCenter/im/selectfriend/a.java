@@ -70,7 +70,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0341a c0341a;
+        C0347a c0347a;
         b bVar;
         if (getItemViewType(i) == 2) {
             return null;
@@ -96,23 +96,23 @@ public class a extends BaseAdapter {
             am.l(bVar.divider, R.color.cp_bg_line_b);
             return view;
         } else if (getItemViewType(i) == 1) {
-            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0341a)) {
-                C0341a c0341a2 = new C0341a();
+            if (view == null || view.getTag() == null || !(view.getTag() instanceof C0347a)) {
+                C0347a c0347a2 = new C0347a();
                 view = LayoutInflater.from(this.mContext).inflate(R.layout.select_friend_child_item, (ViewGroup) null);
-                c0341a2.cYm = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
-                c0341a2.cYn = (TextView) view.findViewById(R.id.addresslist_child_item_name);
-                c0341a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
-                view.setTag(c0341a2);
-                c0341a = c0341a2;
+                c0347a2.cYm = (HeadImageView) view.findViewById(R.id.addresslist_child_item_icon);
+                c0347a2.cYn = (TextView) view.findViewById(R.id.addresslist_child_item_name);
+                c0347a2.divider = view.findViewById(R.id.addresslist_child_item_divider);
+                view.setTag(c0347a2);
+                c0347a = c0347a2;
             } else {
-                c0341a = (C0341a) view.getTag();
+                c0347a = (C0347a) view.getTag();
             }
             if (item.getUserName() != null) {
-                c0341a.cYn.setText(item.getUserName());
-                c0341a.cYm.startLoad(item.apS(), 12, false);
+                c0347a.cYn.setText(item.getUserName());
+                c0347a.cYm.startLoad(item.apS(), 12, false);
             }
-            am.f(c0341a.cYn, this.cYo, 1);
-            am.k(c0341a.divider, R.color.cp_bg_line_b);
+            am.f(c0347a.cYn, this.cYo, 1);
+            am.k(c0347a.divider, R.color.cp_bg_line_b);
             am.k(view, R.drawable.select_friend_item_bg);
             return view;
         } else {
@@ -131,12 +131,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.imMessageCenter.im.selectfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private class C0341a {
+    private class C0347a {
         HeadImageView cYm;
         TextView cYn;
         View divider;
 
-        private C0341a() {
+        private C0347a() {
         }
     }
 }

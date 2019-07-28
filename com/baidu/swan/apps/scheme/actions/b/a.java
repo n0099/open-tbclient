@@ -20,7 +20,7 @@ public class a extends z {
 
     /* renamed from: com.baidu.swan.apps.scheme.actions.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0168a {
+    public interface InterfaceC0173a {
         void ab(JSONObject jSONObject);
     }
 
@@ -79,8 +79,8 @@ public class a extends z {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
         c.i("history", "start get history");
-        com.baidu.swan.apps.database.a.b.a(new InterfaceC0168a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.2
-            @Override // com.baidu.swan.apps.scheme.actions.b.a.InterfaceC0168a
+        com.baidu.swan.apps.database.a.b.a(new InterfaceC0173a() { // from class: com.baidu.swan.apps.scheme.actions.b.a.2
+            @Override // com.baidu.swan.apps.scheme.actions.b.a.InterfaceC0173a
             public void ab(JSONObject jSONObject) {
                 if (jSONObject == null || jSONObject.length() == 0) {
                     c.i("history", "none history");

@@ -58,8 +58,8 @@ public class e {
             this.fpn = new com.baidu.tieba.view.a(this.mContext.getContext());
             this.fpn.setTitleText(this.mContext.getString(R.string.confirm_remove_all_forbidden_fans));
             ArrayList arrayList = new ArrayList();
-            a.C0425a c0425a = new a.C0425a(this.mContext.getString(R.string.confirm), this.fpn);
-            c0425a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
+            a.C0431a c0431a = new a.C0431a(this.mContext.getString(R.string.confirm), this.fpn);
+            c0431a.a(new a.c() { // from class: com.baidu.tieba.forbidden.fans.e.3
                 @Override // com.baidu.tieba.view.a.c
                 public void onClick() {
                     e.this.bCx.dismiss();
@@ -69,7 +69,7 @@ public class e {
                     e.this.fpm.bko();
                 }
             });
-            arrayList.add(c0425a);
+            arrayList.add(c0431a);
             this.fpn.a(new a.b() { // from class: com.baidu.tieba.forbidden.fans.e.4
                 @Override // com.baidu.tieba.view.a.b
                 public void onClick() {

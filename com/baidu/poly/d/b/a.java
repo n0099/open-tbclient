@@ -27,33 +27,33 @@ public class a implements com.baidu.poly.d.a {
     }
 
     @Override // com.baidu.poly.d.a
-    public void a(Map<String, String> map, String str, a.C0085a c0085a) {
+    public void a(Map<String, String> map, String str, a.C0090a c0090a) {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
             if (optInt == this.aif) {
-                b(map, str, c0085a);
+                b(map, str, c0090a);
             } else if (optInt == this.aig) {
-                a(c.j(map), str, c0085a);
+                a(c.j(map), str, c0090a);
             }
         } catch (Throwable th) {
-            c0085a.onFail(th.getMessage());
+            c0090a.onFail(th.getMessage());
         }
     }
 
-    public void a(Bundle bundle, final String str, final a.C0085a c0085a) {
+    public void a(Bundle bundle, final String str, final a.C0090a c0090a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
         com.baidu.poly.a.a.a.uG().a(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                a.this.c(map, str, c0085a);
+                a.this.c(map, str, c0090a);
             }
         });
     }
 
-    public void b(Map<String, String> map, String str, final a.C0085a c0085a) {
+    public void b(Map<String, String> map, String str, final a.C0090a c0090a) {
         JSONObject b = b(map, str);
         Bundle bundle = new Bundle();
         bundle.putString("params", b.toString());
@@ -63,18 +63,18 @@ public class a implements com.baidu.poly.d.a {
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 Bundle bundle2 = delegateResult.mResult;
-                c0085a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
+                c0090a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
             }
         });
     }
 
-    public void c(final Map<String, String> map, String str, final a.C0085a c0085a) {
+    public void c(final Map<String, String> map, String str, final a.C0090a c0090a) {
         d cX = cX(str);
         if (cX != null) {
-            cX.a(this.activity, map, new a.C0085a() { // from class: com.baidu.poly.d.b.a.3
-                @Override // com.baidu.poly.d.a.C0085a
+            cX.a(this.activity, map, new a.C0090a() { // from class: com.baidu.poly.d.b.a.3
+                @Override // com.baidu.poly.d.a.C0090a
                 public void onResult(int i, String str2) {
-                    c0085a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
+                    c0090a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
                 }
             });
         }

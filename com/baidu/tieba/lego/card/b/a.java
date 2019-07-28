@@ -12,20 +12,20 @@ public interface a {
 
     /* renamed from: com.baidu.tieba.lego.card.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0348a {
+    public static class C0354a {
         public Rect cxc;
         public String hdZ;
         public Rect hea;
         public String picUrl;
 
-        public C0348a() {
+        public C0354a() {
             this.picUrl = "";
             this.cxc = new Rect(0, 0, 0, 0);
             this.hdZ = "";
             this.hea = new Rect(0, 0, 0, 0);
         }
 
-        private C0348a(JSONObject jSONObject) {
+        private C0354a(JSONObject jSONObject) {
             this.picUrl = jSONObject.optString("pic_url");
             this.cxc = new Rect(jSONObject.optInt("rect_left"), jSONObject.optInt("rect_top"), jSONObject.optInt("rect_right"), jSONObject.optInt("rect_bottom"));
         }
@@ -55,15 +55,15 @@ public interface a {
             return jSONObject.toString();
         }
 
-        public static C0348a zZ(String str) {
+        public static C0354a zZ(String str) {
             if (TextUtils.isEmpty(str)) {
-                return new C0348a();
+                return new C0354a();
             }
             try {
-                return new C0348a(new JSONObject(str));
+                return new C0354a(new JSONObject(str));
             } catch (Throwable th) {
                 th.printStackTrace();
-                return new C0348a();
+                return new C0354a();
             }
         }
 

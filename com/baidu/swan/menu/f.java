@@ -574,7 +574,7 @@ public final class f {
 
     /* renamed from: com.baidu.swan.menu.f$f  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0222f {
+    public static final class C0227f {
         public static final int abc_action_bar_home_description = 2131230720;
         public static final int abc_action_bar_home_description_format = 2131230721;
         public static final int abc_action_bar_home_subtitle_description_format = 2131230722;
